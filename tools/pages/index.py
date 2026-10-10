@@ -1,4 +1,4 @@
-"""메인 페이지(site/index.html) 생성기: 분야별 카드, 한국어 + 영어. 실험을 추가하면 CATS에 한 줄 추가."""
+"""메인 페이지(site/index.html) 생성기: 살아 있는 실험실 주기율표, 한국어 + 영어. 실험을 추가하면 CATS와 META에 한 줄씩 추가."""
 import sys, os, re, html as H
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from mk2 import T, esc, da, _shell, EXP
@@ -48,44 +48,74 @@ CATS = [
  ]),
 ]
 
+
+# slug -> (기호, 짧은 이름 T, 미니 애니메이션 종류)
+META = {
+ 'talent-vs-luck': ('Tl', T('재능 vs 운', 'Talent vs Luck'), 'bars'),
+ 'wealth': ('Ws', T('부의 쏠림', 'Wealth'), 'stairs'),
+ 'youtube': ('Yt', T('유튜브 쏠림', 'Creators'), 'rise'),
+ 'schelling': ('Sc', T('끼리끼리', 'Segregation'), 'grid'),
+ 'rumor': ('Ru', T('소문 확산', 'Rumors'), 'net'),
+ 'dating': ('Da', T('짝 찾기', 'Matching'), 'drift'),
+ 'peter': ('Pe', T('무능한 상사', 'Peter Principle'), 'tri'),
+ 'voting': ('Vo', T('투표 방식', 'Voting'), 'vote'),
+ 'traffic': ('Tr', T('유령 정체', 'Phantom Jams'), 'ring'),
+ 'bar': ('Ba', T('붐비는 식당', 'El Farol'), 'wave'),
+ 'queue': ('Qu', T('새치기', 'Queue Jumping'), 'grid2'),
+ 'firefly': ('Ff', T('반딧불이', 'Fireflies'), 'pulse'),
+ 'turing': ('Tu', T('얼룩말 무늬', 'Zebra Stripes'), 'stripes'),
+ 'revolution': ('Rv', T('혁명의 문턱', 'Revolution'), 'spread'),
+ 'cooperation': ('Co', T('협력의 진화', 'Cooperation'), 'handshake'),
+ 'monkey': ('Mk', T('원숭이와 햄릿', 'Monkeys'), 'letters'),
+ 'fashion': ('Fa', T('유행의 순환', 'Fashion'), 'spiral'),
+ 'painters': ('Pa', T('AI 화가', 'AI Painters'), 'tiles'),
+ 'population': ('Po', T('2070 인구', 'Population'), 'tri2'),
+ 'apartment': ('Ap', T('아파트 가격', 'Housing'), 'heat'),
+}
+
 def build(only_existing=True):
     nav, foot = _shell()
-    nav = nav.replace('<a class="link" href="../../">', '<a class="link" href="./">').replace('href="../../logo.svg"', 'href="logo.svg"').replace('src="../../logo.svg"', 'src="logo.svg"').replace('href="../../"', 'href="./"')
-    nav = re.sub(r'<a class="link" href="\./"[^>]*>.*?</a>', '', nav, flags=re.S)  # 메인에서는 '실험 목록' 링크 생략
+    nav = nav.replace('href="../../logo.svg"', 'href="logo.svg"').replace('src="../../logo.svg"', 'src="logo.svg"').replace('href="../../"', 'href="./"')
+    nav = re.sub(r'<a class="link" href="\./"[^>]*>.*?</a>', '', nav, flags=re.S)
     cats = []
     for c in CATS:
         items = [it for it in c[5] if not only_existing or os.path.exists(EXP + it[0] + '/index.html')]
         if items: cats.append((c[:5], items))
     total = sum(len(i) for _, i in cats)
-    chips = ''.join(f'<a class="catchip" href="#{k}" style="--c:{col}"{da(T("", "<span>%s</span>%s<em>%d</em>" % (ic, t[1], len(items))))}><span>{ic}</span>{t[0]}<em>{len(items)}</em></a>' for (k, col, ic, t, d), items in cats)
-    secs = ''; n = 0
+
+    # 주기율표 열(분야) + 칸(실험)
+    cols = ''; n = 0; exps = []
     for (k, col, ic, t, d), items in cats:
-        cards = ''
+        tiles = ''
         for slug, method, title, desc in items:
             n += 1
-            go = T('직접 돌려보기 <i>→</i>', 'Try it yourself <i>→</i>')
-            cards += f'''
-      <a class="xcard" href="experiments/{slug}/">
-        <div class="xtop"><span class="xnum">{n:02d}</span><span class="xchip"{da(method)}>{method[0]}</span></div>
-        <h3{da(title)}>{title[0]}</h3>
-        <p{da(desc)}>{desc[0]}</p>
-        <span class="xgo"{da(go)}>{go[0]}</span>
-      </a>'''
-        cnt = T(f'{len(items)}개', f'{len(items)} experiments')
-        secs += f'''
-  <section class="cat" id="{k}" style="--c:{col}">
-    <div class="cathead"><span class="caticon">{ic}</span><div><h2{da(t)}>{t[0]}</h2><p{da(d)}>{d[0]}</p></div><span class="catcount"{da(cnt)}>{cnt[0]}</span></div>
-    <div class="xgrid">{cards}
-    </div>
-  </section>
-'''
-    hero_title = T('만약에를 실험하는 곳', 'A Lab for Testing "What If?"')
-    lead = T("성공은 운일까? 소문은 어떻게 퍼질까? 사람과 사회에 대한 '만약에'를 AI로 설계한 시뮬레이션으로 실험하고, 변수를 바꿔 직접 돌려볼 수 있게 공개합니다.",
-             'Is success luck? How do rumors spread? We test "what if" questions about people and society with AI-designed simulations, and publish them so you can change the variables and run them yourself.')
-    s1 = T(f'<b>{total}</b>개 실험 공개', f'<b>{total}</b> experiments published'); s2 = T(f'<b>{len(cats)}</b>개 분야', f'<b>{len(cats)}</b> fields')
-    s3 = T('설치 없이 <b>브라우저에서 바로</b> 실행', 'Runs <b>right in your browser</b>, no install')
+            sym, short, kind = META[slug]
+            exps.append({'s': slug, 'n': '%02d' % n, 'c': col, 'sym': sym, 'ko': title[0], 'en': re.sub('<[^>]+>', '', H.unescape(title[1]))})
+            tiles += f"""
+        <a class="el" href="experiments/{slug}/" data-field="{k}" data-kind="{kind}" style="--c:{col}">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">{n:02d}</span><span class="sym">{sym}</span>
+          <span class="nm"{da(short)}>{short[0]}</span>
+          <span class="hid t-title"{da(title)}>{title[0]}</span><span class="hid t-desc"{da(desc)}>{desc[0]}</span><span class="hid t-model"{da(method)}>{method[0]}</span>
+        </a>"""
+        cols += f"""
+      <div class="col" data-field="{k}" data-color="{col}" data-icon="{ic}" style="--c:{col}">
+        <div class="fh"><span class="ic">{ic}</span><b{da(t)}>{t[0]}</b><i>{len(items)}</i></div>{tiles}
+      </div>"""
+
+    L = lambda ko, en: (ko, en)
+    eyebrow = T(f'SIMULATIO LAB · 실험 {total}개 · 분야 {len(cats)}개', f'SIMULATIO LAB · {total} experiments · {len(cats)} fields')
+    mega = T('만약에를<br>실험하는 곳', 'A Lab for<br>Testing "What If?"')
+    lead = T("성공은 운일까? 소문은 어떻게 퍼질까? 사람과 사회, 자연과 예술에 대한 '만약에'를 시뮬레이션으로 실험하고, 변수를 바꿔 직접 돌려볼 수 있게 공개합니다.",
+             'Is success luck? How do rumors spread? We test "what if" questions about people, society, nature and art with simulations, and publish them so you can change the variables and run them yourself.')
+    cta1 = T('실험실 둘러보기 ↓', 'Explore the lab ↓'); cta2 = T('🎲 무작위 실험', '🎲 Random experiment')
+    hint = T('점들을 만져 보세요. 마우스를 피하고, 클릭하면 "만약에!" 하고 흩어졌다가 다시 모입니다.', 'Play with the dots. They dodge your cursor, and a click asks "what if?": they scatter, then sort themselves out again.')
+    h_tab = T('실험 주기율표', 'The Periodic Table of Experiments')
+    p_tab = T(f'{total}개의 실험을 {len(cats)}개 분야(열)로 묶었어요. 칸 위에 마우스를 올리면 아래 실험 노트에 내용이 나타납니다.', f'{total} experiments in {len(cats)} fields (columns). Hover a cell and its page opens in the lab notebook below.')
+    nb_today = T('오늘의 실험', 'Experiment of the day'); nb_sel = T('실험 노트', 'Lab notebook')
+    nb_go = T('직접 돌려보기 →', 'Try it yourself →')
     desc = T("사람과 사회에 대한 '만약에'를 AI 시뮬레이션으로 실험합니다. 변수를 바꿔 직접 돌려보세요.", 'We test "what if" questions about people and society with AI-designed simulations. Change the variables and run them yourself.')
-    out = f'''<!doctype html>
+    out = f"""<!doctype html>
 <html lang="ko">
 <head>
 <meta charset="utf-8">
@@ -94,28 +124,55 @@ def build(only_existing=True):
 <meta name="description" content="{esc(desc[0])}" data-en-content="{esc(desc[1])}">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="home.css">
 </head>
-<body>
+<body class="home">
 {nav}
 
-<main class="wrap">
-  <section class="hero">
-    <h1{da(hero_title)}>{hero_title[0]}</h1>
+<header class="hero" id="hero">
+  <canvas id="swarm" aria-hidden="true"></canvas>
+  <div class="hero-in wrap">
+    <p class="eyebrow"{da(eyebrow)}>{eyebrow[0]}</p>
+    <h1 class="mega"{da(mega)}>{mega[0]}</h1>
+    <p class="rq" id="rq" aria-live="polite"></p>
     <p class="lead"{da(lead)}>{lead[0]}</p>
-    <div class="herostats"><span{da(s1)}>{s1[0]}</span><span{da(s2)}>{s2[0]}</span><span{da(s3)}>{s3[0]}</span></div>
-    <nav class="catnav" aria-label="categories">{chips}</nav>
+    <div class="cta"><a class="btn big" href="#table"{da(cta1)}>{cta1[0]}</a><button type="button" class="btn ghost" id="rand"{da(cta2)}>{cta2[0]}</button></div>
+    <p class="hint"{da(hint)}>{hint[0]}</p>
+  </div>
+</header>
+
+<main class="wrap wide">
+  <section class="table-sec" id="table">
+    <h2{da(h_tab)}>{h_tab[0]}</h2>
+    <p class="muted"{da(p_tab)}>{p_tab[0]}</p>
+    <div class="ptable">{cols}
+    </div>
   </section>
-{secs}
+
+  <section class="notebook" id="nb">
+    <div class="nb-visual"><canvas id="nbcanvas" aria-hidden="true"></canvas><span class="nb-sym" id="nbsym"></span></div>
+    <div class="nb-text">
+      <p class="nb-tag"><span id="nbtag-today"{da(nb_today)}>{nb_today[0]}</span><span id="nbtag-sel" hidden{da(nb_sel)}>{nb_sel[0]}</span></p>
+      <h3 id="nbtitle"></h3>
+      <p id="nbdesc" class="muted"></p>
+      <p class="nb-model"><span id="nbmodel" class="xchip"></span></p>
+      <a class="btn big" id="nbgo" href="#"{da(nb_go)}>{nb_go[0]}</a>
+    </div>
+  </section>
 </main>
 
 {foot}
 <script src="i18n.js"></script>
 <script src="i18n-en.js"></script>
+<script src="home.js"></script>
 <script src="counter.js"></script>
 </body>
 </html>
-'''
+"""
     open(os.path.join(ROOT, 'index.html'), 'w', encoding='utf-8').write(out)
+    # 실험 페이지의 이전/다음 이동에 쓰는 목록
+    import json
+    open(os.path.join(ROOT, 'exps.js'), 'w', encoding='utf-8').write('// 실험 목록 (tools/pages/index.py 가 만든다)\nwindow.LAB_EXPS = ' + json.dumps(exps, ensure_ascii=False) + ';\n')
     return total, len(cats)
 
 if __name__ == '__main__':

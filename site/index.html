@@ -7,206 +7,200 @@
 <meta name="description" content="사람과 사회에 대한 &#x27;만약에&#x27;를 AI 시뮬레이션으로 실험합니다. 변수를 바꿔 직접 돌려보세요." data-en-content="We test &quot;what if&quot; questions about people and society with AI-designed simulations. Change the variables and run them yourself.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="home.css">
 </head>
-<body>
+<body class="home">
 <nav class="nav"><div class="wrap">
   <a class="brand" href="./"><img src="logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
   <span class="navr"><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
 </div></nav>
 
-<main class="wrap">
-  <section class="hero">
-    <h1 data-en="A Lab for Testing &quot;What If?&quot;">만약에를 실험하는 곳</h1>
-    <p class="lead" data-en="Is success luck? How do rumors spread? We test &quot;what if&quot; questions about people and society with AI-designed simulations, and publish them so you can change the variables and run them yourself.">성공은 운일까? 소문은 어떻게 퍼질까? 사람과 사회에 대한 '만약에'를 AI로 설계한 시뮬레이션으로 실험하고, 변수를 바꿔 직접 돌려볼 수 있게 공개합니다.</p>
-    <div class="herostats"><span data-en="&lt;b&gt;20&lt;/b&gt; experiments published"><b>20</b>개 실험 공개</span><span data-en="&lt;b&gt;10&lt;/b&gt; fields"><b>10</b>개 분야</span><span data-en="Runs &lt;b&gt;right in your browser&lt;/b&gt;, no install">설치 없이 <b>브라우저에서 바로</b> 실행</span></div>
-    <nav class="catnav" aria-label="categories"><a class="catchip" href="#success" style="--c:#e0a100" data-en="&lt;span&gt;💰&lt;/span&gt;Success &amp;amp; Inequality&lt;em&gt;3&lt;/em&gt;"><span>💰</span>성공과 불평등<em>3</em></a><a class="catchip" href="#people" style="--c:#2f6fed" data-en="&lt;span&gt;🧑‍🤝‍🧑&lt;/span&gt;People &amp;amp; Relationships&lt;em&gt;3&lt;/em&gt;"><span>🧑‍🤝‍🧑</span>사람 사이<em>3</em></a><a class="catchip" href="#work" style="--c:#7c5cff" data-en="&lt;span&gt;🏢&lt;/span&gt;Work &amp;amp; Institutions&lt;em&gt;2&lt;/em&gt;"><span>🏢</span>일터와 제도<em>2</em></a><a class="catchip" href="#daily" style="--c:#1fa463" data-en="&lt;span&gt;🚦&lt;/span&gt;Everyday Choices &amp;amp; Order&lt;em&gt;3&lt;/em&gt;"><span>🚦</span>일상의 선택과 질서<em>3</em></a><a class="catchip" href="#science" style="--c:#0ea5a5" data-en="&lt;span&gt;🔬&lt;/span&gt;Science&lt;em&gt;2&lt;/em&gt;"><span>🔬</span>과학<em>2</em></a><a class="catchip" href="#history" style="--c:#c2410c" data-en="&lt;span&gt;📜&lt;/span&gt;History&lt;em&gt;1&lt;/em&gt;"><span>📜</span>역사<em>1</em></a><a class="catchip" href="#philosophy" style="--c:#be185d" data-en="&lt;span&gt;🧠&lt;/span&gt;Philosophy&lt;em&gt;1&lt;/em&gt;"><span>🧠</span>철학<em>1</em></a><a class="catchip" href="#literature" style="--c:#a16207" data-en="&lt;span&gt;📖&lt;/span&gt;Literature&lt;em&gt;1&lt;/em&gt;"><span>📖</span>문학<em>1</em></a><a class="catchip" href="#art" style="--c:#9333ea" data-en="&lt;span&gt;🎨&lt;/span&gt;Art&lt;em&gt;2&lt;/em&gt;"><span>🎨</span>예술<em>2</em></a><a class="catchip" href="#society" style="--c:#475569" data-en="&lt;span&gt;🏙️&lt;/span&gt;Society Today&lt;em&gt;2&lt;/em&gt;"><span>🏙️</span>사회 현안<em>2</em></a></nav>
-  </section>
+<header class="hero" id="hero">
+  <canvas id="swarm" aria-hidden="true"></canvas>
+  <div class="hero-in wrap">
+    <p class="eyebrow" data-en="SIMULATIO LAB · 20 experiments · 10 fields">SIMULATIO LAB · 실험 20개 · 분야 10개</p>
+    <h1 class="mega" data-en="A Lab for&lt;br&gt;Testing &quot;What If?&quot;">만약에를<br>실험하는 곳</h1>
+    <p class="rq" id="rq" aria-live="polite"></p>
+    <p class="lead" data-en="Is success luck? How do rumors spread? We test &quot;what if&quot; questions about people, society, nature and art with simulations, and publish them so you can change the variables and run them yourself.">성공은 운일까? 소문은 어떻게 퍼질까? 사람과 사회, 자연과 예술에 대한 '만약에'를 시뮬레이션으로 실험하고, 변수를 바꿔 직접 돌려볼 수 있게 공개합니다.</p>
+    <div class="cta"><a class="btn big" href="#table" data-en="Explore the lab ↓">실험실 둘러보기 ↓</a><button type="button" class="btn ghost" id="rand" data-en="🎲 Random experiment">🎲 무작위 실험</button></div>
+    <p class="hint" data-en="Play with the dots. They dodge your cursor, and a click asks &quot;what if?&quot;: they scatter, then sort themselves out again.">점들을 만져 보세요. 마우스를 피하고, 클릭하면 "만약에!" 하고 흩어졌다가 다시 모입니다.</p>
+  </div>
+</header>
 
-  <section class="cat" id="success" style="--c:#e0a100">
-    <div class="cathead"><span class="caticon">💰</span><div><h2 data-en="Success &amp;amp; Inequality">성공과 불평등</h2><p data-en="Why do luck, talent, wealth and popularity pile up in a few hands?">운과 재능, 부와 인기는 왜 소수에게 쏠릴까?</p></div><span class="catcount" data-en="3 experiments">3개</span></div>
-    <div class="xgrid">
-      <a class="xcard" href="experiments/talent-vs-luck/">
-        <div class="xtop"><span class="xnum">01</span><span class="xchip" data-en="Talent vs Luck model">Talent vs Luck 모델</span></div>
-        <h3 data-en="Is Success Talent or Luck?">성공은 재능일까, 운일까?</h3>
-        <p data-en="Talent clusters around the average, so why does wealth pile up in a few hands? Is the richest person really the most talented?">재능은 평균 근처에 모여 있는데 부는 왜 몇 사람에게 쏠릴까요. 최고 부자는 정말 최고 재능자일까?</p>
-        <span class="xgo" data-en="Try it yourself &lt;i&gt;→&lt;/i&gt;">직접 돌려보기 <i>→</i></span>
-      </a>
-      <a class="xcard" href="experiments/wealth/">
-        <div class="xtop"><span class="xnum">02</span><span class="xchip" data-en="Yard-sale exchange model">야드세일 교환 모델</span></div>
-        <h3 data-en="Wealth Concentration">부의 쏠림</h3>
-        <p data-en="Even if every trade is as fair as a coin flip, does wealth concentrate? How much sharing does it take to stop it?">모든 거래가 동전 던지기처럼 공정해도 부는 쏠릴까? 얼마나 나누면 막을 수 있을까?</p>
-        <span class="xgo" data-en="Try it yourself &lt;i&gt;→&lt;/i&gt;">직접 돌려보기 <i>→</i></span>
-      </a>
-      <a class="xcard" href="experiments/youtube/">
-        <div class="xtop"><span class="xnum">03</span><span class="xchip" data-en="Preferential attachment model">선호적 연결 모델</span></div>
-        <h3 data-en="Why Do Only the Top 1% of YouTubers Break Through?">유튜브는 왜 상위 1%만 뜰까</h3>
-        <p data-en="Does good content win, or do channels that broke out first keep winning? Compare parallel universes that start with the same channels.">좋은 콘텐츠가 이길까, 먼저 뜬 채널이 이길까? 같은 채널로 시작한 평행우주를 비교해요.</p>
-        <span class="xgo" data-en="Try it yourself &lt;i&gt;→&lt;/i&gt;">직접 돌려보기 <i>→</i></span>
-      </a>
+<main class="wrap wide">
+  <section class="table-sec" id="table">
+    <h2 data-en="The Periodic Table of Experiments">실험 주기율표</h2>
+    <p class="muted" data-en="20 experiments in 10 fields (columns). Hover a cell and its page opens in the lab notebook below.">20개의 실험을 10개 분야(열)로 묶었어요. 칸 위에 마우스를 올리면 아래 실험 노트에 내용이 나타납니다.</p>
+    <div class="ptable">
+      <div class="col" data-field="success" data-color="#e0a100" data-icon="💰" style="--c:#e0a100">
+        <div class="fh"><span class="ic">💰</span><b data-en="Success &amp;amp; Inequality">성공과 불평등</b><i>3</i></div>
+        <a class="el" href="experiments/talent-vs-luck/" data-field="success" data-kind="bars" style="--c:#e0a100">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">01</span><span class="sym">Tl</span>
+          <span class="nm" data-en="Talent vs Luck">재능 vs 운</span>
+          <span class="hid t-title" data-en="Is Success Talent or Luck?">성공은 재능일까, 운일까?</span><span class="hid t-desc" data-en="Talent clusters around the average, so why does wealth pile up in a few hands? Is the richest person really the most talented?">재능은 평균 근처에 모여 있는데 부는 왜 몇 사람에게 쏠릴까요. 최고 부자는 정말 최고 재능자일까?</span><span class="hid t-model" data-en="Talent vs Luck model">Talent vs Luck 모델</span>
+        </a>
+        <a class="el" href="experiments/wealth/" data-field="success" data-kind="stairs" style="--c:#e0a100">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">02</span><span class="sym">Ws</span>
+          <span class="nm" data-en="Wealth">부의 쏠림</span>
+          <span class="hid t-title" data-en="Wealth Concentration">부의 쏠림</span><span class="hid t-desc" data-en="Even if every trade is as fair as a coin flip, does wealth concentrate? How much sharing does it take to stop it?">모든 거래가 동전 던지기처럼 공정해도 부는 쏠릴까? 얼마나 나누면 막을 수 있을까?</span><span class="hid t-model" data-en="Yard-sale exchange model">야드세일 교환 모델</span>
+        </a>
+        <a class="el" href="experiments/youtube/" data-field="success" data-kind="rise" style="--c:#e0a100">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">03</span><span class="sym">Yt</span>
+          <span class="nm" data-en="Creators">유튜브 쏠림</span>
+          <span class="hid t-title" data-en="Why Do Only the Top 1% of YouTubers Break Through?">유튜브는 왜 상위 1%만 뜰까</span><span class="hid t-desc" data-en="Does good content win, or do channels that broke out first keep winning? Compare parallel universes that start with the same channels.">좋은 콘텐츠가 이길까, 먼저 뜬 채널이 이길까? 같은 채널로 시작한 평행우주를 비교해요.</span><span class="hid t-model" data-en="Preferential attachment model">선호적 연결 모델</span>
+        </a>
+      </div>
+      <div class="col" data-field="people" data-color="#2f6fed" data-icon="🧑‍🤝‍🧑" style="--c:#2f6fed">
+        <div class="fh"><span class="ic">🧑‍🤝‍🧑</span><b data-en="People &amp;amp; Relationships">사람 사이</b><i>3</i></div>
+        <a class="el" href="experiments/schelling/" data-field="people" data-kind="grid" style="--c:#2f6fed">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">04</span><span class="sym">Sc</span>
+          <span class="nm" data-en="Segregation">끼리끼리</span>
+          <span class="hid t-title" data-en="Why Birds of a Feather Flock Together">끼리끼리 모이는 이유</span><span class="hid t-desc" data-en="Can a mild wish like &quot;I don&#x27;t want to be a minority&quot; split a neighborhood completely apart?">"소수가 되기 싫다" 정도의 약한 바람만으로도 동네가 완전히 갈라질까?</span><span class="hid t-model" data-en="Schelling segregation model">셸링 분리 모델</span>
+        </a>
+        <a class="el" href="experiments/rumor/" data-field="people" data-kind="net" style="--c:#2f6fed">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">05</span><span class="sym">Ru</span>
+          <span class="nm" data-en="Rumors">소문 확산</span>
+          <span class="hid t-title" data-en="Rumor Spread in Group Chats">단톡방 소문 확산</span><span class="hid t-desc" data-en="How fast does a rumor spread, and through whom? How late can a correction come and still matter?">소문은 얼마나 빨리, 누구를 거쳐 퍼질까? 정정 글은 언제까지 올려야 소용이 있을까?</span><span class="hid t-model" data-en="Rumor spreading model (SIR)">소문 전파 모델 (SIR)</span>
+        </a>
+        <a class="el" href="experiments/dating/" data-field="people" data-kind="drift" style="--c:#2f6fed">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">06</span><span class="sym">Da</span>
+          <span class="nm" data-en="Matching">짝 찾기</span>
+          <span class="hid t-title" data-en="Does Lowering Your Standards Help You Find a Match?">눈을 낮추면 짝을 찾을까</span><span class="hid t-desc" data-en="See how aspiration level affects the time to find a partner in a market where both sides must agree.">서로 동의해야 맺어지는 시장에서 눈높이가 짝 찾는 시간에 미치는 영향을 봐요.</span><span class="hid t-model" data-en="Matching &amp;amp; search model">매칭·탐색 모델</span>
+        </a>
+      </div>
+      <div class="col" data-field="work" data-color="#7c5cff" data-icon="🏢" style="--c:#7c5cff">
+        <div class="fh"><span class="ic">🏢</span><b data-en="Work &amp;amp; Institutions">일터와 제도</b><i>2</i></div>
+        <a class="el" href="experiments/peter/" data-field="work" data-kind="tri" style="--c:#7c5cff">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">07</span><span class="sym">Pe</span>
+          <span class="nm" data-en="Peter Principle">무능한 상사</span>
+          <span class="hid t-title" data-en="Why Do Incompetent Bosses Exist?">무능한 상사는 왜 생길까</span><span class="hid t-desc" data-en="Does promoting your best performers make an organization better? Compare promotion methods.">일 잘하는 사람을 승진시키면 조직이 좋아질까? 승진 방식을 바꿔 비교해요.</span><span class="hid t-model" data-en="Peter principle model">피터의 원리 모델</span>
+        </a>
+        <a class="el" href="experiments/voting/" data-field="work" data-kind="vote" style="--c:#7c5cff">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">08</span><span class="sym">Vo</span>
+          <span class="nm" data-en="Voting">투표 방식</span>
+          <span class="hid t-title" data-en="Does the Voting Method Change the Winner?">투표 방식이 달라지면 당선자가 바뀔까</span><span class="hid t-desc" data-en="Count the same votes by plurality, runoff, ranked-choice and Borda. Can the winner change?">같은 표를 단순다수·결선·선호투표·보르다로 세면 당선자가 달라질 수 있을까요?</span><span class="hid t-model" data-en="Spatial voting model">공간 투표 모델</span>
+        </a>
+      </div>
+      <div class="col" data-field="daily" data-color="#1fa463" data-icon="🚦" style="--c:#1fa463">
+        <div class="fh"><span class="ic">🚦</span><b data-en="Everyday Choices &amp;amp; Order">일상의 선택과 질서</b><i>3</i></div>
+        <a class="el" href="experiments/traffic/" data-field="daily" data-kind="ring" style="--c:#1fa463">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">09</span><span class="sym">Tr</span>
+          <span class="nm" data-en="Phantom Jams">유령 정체</span>
+          <span class="hid t-title" data-en="Phantom Traffic Jams: Why Does Traffic Stop Without an Accident?">유령 정체: 사고도 공사도 없는데 왜 막힐까</span><span class="hid t-desc" data-en="Watch how a single occasional tap of the brake can block a whole road.">가끔 밟는 브레이크 하나가 도로 전체를 막는 과정을 지켜봐요.</span><span class="hid t-model" data-en="Nagel–Schreckenberg model">나겔-슈레켄베르크 모델</span>
+        </a>
+        <a class="el" href="experiments/bar/" data-field="daily" data-kind="wave" style="--c:#1fa463">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">10</span><span class="sym">Ba</span>
+          <span class="nm" data-en="El Farol">붐비는 식당</span>
+          <span class="hid t-title" data-en="Why Is the Popular Restaurant Always Packed?">다 같이 가는 식당은 왜 늘 붐빌까</span><span class="hid t-desc" data-en="Why does everyone lose when everyone thinks alike? And what if predictions differ?">모두가 같은 생각을 하면 왜 모두 손해일까? 예측이 제각각이면 어떻게 될까?</span><span class="hid t-model" data-en="El Farol Bar problem">엘 파롤 바 문제</span>
+        </a>
+        <a class="el" href="experiments/queue/" data-field="daily" data-kind="grid2" style="--c:#1fa463">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">11</span><span class="sym">Qu</span>
+          <span class="nm" data-en="Queue Jumping">새치기</span>
+          <span class="hid t-title" data-en="What Happens When Queue-Jumping Spreads?">새치기가 늘면 줄은 어떻게 될까</span><span class="hid t-desc" data-en="Test the idea that order isn&#x27;t kept by itself but by someone paying a price to keep it.">질서는 가만히 지켜지지 않고 누군가 비용을 치르며 지켜진다는 걸 실험해요.</span><span class="hid t-model" data-en="Spatial evolutionary game">공간 진화 게임</span>
+        </a>
+      </div>
+      <div class="col" data-field="science" data-color="#0ea5a5" data-icon="🔬" style="--c:#0ea5a5">
+        <div class="fh"><span class="ic">🔬</span><b data-en="Science">과학</b><i>2</i></div>
+        <a class="el" href="experiments/firefly/" data-field="science" data-kind="pulse" style="--c:#0ea5a5">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">12</span><span class="sym">Ff</span>
+          <span class="nm" data-en="Fireflies">반딧불이</span>
+          <span class="hid t-title" data-en="Why Do Fireflies Flash in Unison?">반딧불이는 왜 동시에 깜빡일까</span><span class="hid t-desc" data-en="Watch hundreds of fireflies fall into the same rhythm with no conductor.">지휘자 없이도 수백 마리가 같은 박자로 빛나는 과정을 지켜봐요.</span><span class="hid t-model" data-en="Pulse-coupled oscillators">펄스 결합 진동자</span>
+        </a>
+        <a class="el" href="experiments/turing/" data-field="science" data-kind="stripes" style="--c:#0ea5a5">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">13</span><span class="sym">Tu</span>
+          <span class="nm" data-en="Zebra Stripes">얼룩말 무늬</span>
+          <span class="hid t-title" data-en="How Does a Zebra Get Its Stripes?">얼룩말 무늬는 어떻게 생길까</span><span class="hid t-desc" data-en="Two simple reacting chemicals can form spots, stripes and mazes by themselves. Drop your own seeds.">두 물질의 단순한 반응만으로 점, 줄무늬, 미로 무늬가 저절로 생겨요. 직접 씨앗을 뿌려 보세요.</span><span class="hid t-model" data-en="Turing reaction–diffusion (Gray–Scott)">튜링 반응-확산 (Gray–Scott)</span>
+        </a>
+      </div>
+      <div class="col" data-field="history" data-color="#c2410c" data-icon="📜" style="--c:#c2410c">
+        <div class="fh"><span class="ic">📜</span><b data-en="History">역사</b><i>1</i></div>
+        <a class="el" href="experiments/revolution/" data-field="history" data-kind="spread" style="--c:#c2410c">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">14</span><span class="sym">Rv</span>
+          <span class="nm" data-en="Revolution">혁명의 문턱</span>
+          <span class="hid t-title" data-en="How Does a Revolution Begin?">혁명은 어떻게 시작될까</span><span class="hid t-desc" data-en="When everyone has a different &quot;I&#x27;ll join if this many others do&quot; threshold, can one person change the whole square?">사람마다 "몇 명이 나서면 나도 나선다"는 문턱이 다를 때, 한 사람의 차이가 광장 전체를 바꿀 수 있을까요?</span><span class="hid t-model" data-en="Threshold model (Granovetter)">문턱 모델 (Granovetter)</span>
+        </a>
+      </div>
+      <div class="col" data-field="philosophy" data-color="#be185d" data-icon="🧠" style="--c:#be185d">
+        <div class="fh"><span class="ic">🧠</span><b data-en="Philosophy">철학</b><i>1</i></div>
+        <a class="el" href="experiments/cooperation/" data-field="philosophy" data-kind="handshake" style="--c:#be185d">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">15</span><span class="sym">Co</span>
+          <span class="nm" data-en="Cooperation">협력의 진화</span>
+          <span class="hid t-title" data-en="Do Nice People Survive?">착한 사람은 살아남을까</span><span class="hid t-desc" data-en="In a world full of defectors, how do cooperation and trust come back? What changes when mistakes creep in?">배신하는 사람이 많은 세상에서 협력과 신뢰는 어떻게 되살아날까? 실수가 끼어들면 어떻게 될까?</span><span class="hid t-model" data-en="Iterated prisoner&#x27;s dilemma">반복 죄수의 딜레마</span>
+        </a>
+      </div>
+      <div class="col" data-field="literature" data-color="#a16207" data-icon="📖" style="--c:#a16207">
+        <div class="fh"><span class="ic">📖</span><b data-en="Literature">문학</b><i>1</i></div>
+        <a class="el" href="experiments/monkey/" data-field="literature" data-kind="letters" style="--c:#a16207">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">16</span><span class="sym">Mk</span>
+          <span class="nm" data-en="Monkeys">원숭이와 햄릿</span>
+          <span class="hid t-title" data-en="Can Monkeys Write Hamlet?">원숭이가 햄릿을 쓸 수 있을까</span><span class="hid t-desc" data-en="Compare monkeys typing at random with evolution that keeps the best at every step.">무작위로 타자를 치는 원숭이와, 조금씩 고르며 나아가는 진화를 나란히 비교해요.</span><span class="hid t-model" data-en="Infinite monkeys vs cumulative selection">무한 원숭이 vs 누적 선택</span>
+        </a>
+      </div>
+      <div class="col" data-field="art" data-color="#9333ea" data-icon="🎨" style="--c:#9333ea">
+        <div class="fh"><span class="ic">🎨</span><b data-en="Art">예술</b><i>2</i></div>
+        <a class="el" href="experiments/fashion/" data-field="art" data-kind="spiral" style="--c:#9333ea">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">17</span><span class="sym">Fa</span>
+          <span class="nm" data-en="Fashion">유행의 순환</span>
+          <span class="hid t-title" data-en="Why Do Fashions Come Around?">유행은 왜 돌고 돌까</span><span class="hid t-desc" data-en="On a color wheel, watch the cycle created by a copying crowd and trendsetters running away.">따라 하는 대중과 도망가는 선두가 만드는 색의 순환을 색상환 위에서 봐요.</span><span class="hid t-model" data-en="Imitation–distinction model">모방과 차별화 모델</span>
+        </a>
+        <a class="el" href="experiments/painters/" data-field="art" data-kind="tiles" style="--c:#9333ea">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">18</span><span class="sym">Pa</span>
+          <span class="nm" data-en="AI Painters">AI 화가</span>
+          <span class="hid t-title" data-en="What If 100 AI Painters Copy Each Other?">AI 화가 100명이 서로 따라 그리면</span><span class="hid t-desc" data-en="Does imitation collapse styles into one? Watch 100 paintings change.">모방이 늘수록 화풍은 하나로 수렴할까? 100점의 그림이 어떻게 달라지는지 지켜봐요.</span><span class="hid t-model" data-en="Cultural transmission model">문화 전파 모델</span>
+        </a>
+      </div>
+      <div class="col" data-field="society" data-color="#475569" data-icon="🏙️" style="--c:#475569">
+        <div class="fh"><span class="ic">🏙️</span><b data-en="Society Today">사회 현안</b><i>2</i></div>
+        <a class="el" href="experiments/population/" data-field="society" data-kind="tri2" style="--c:#475569">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">19</span><span class="sym">Po</span>
+          <span class="nm" data-en="Population">2070 인구</span>
+          <span class="hid t-title" data-en="What Does Korea&#x27;s Population Look Like in 2070?">저출산이 계속되면 2070년 인구 구조는?</span><span class="hid t-desc" data-en="If fertility stays as it is, how does the population pyramid change? Try other fertility and migration levels.">출산율이 이대로면 인구 피라미드는 어떻게 바뀔까? 출산율과 이민을 바꿔 보세요.</span><span class="hid t-model" data-en="Cohort-component model">코호트 인구 모델</span>
+        </a>
+        <a class="el" href="experiments/apartment/" data-field="society" data-kind="heat" style="--c:#475569">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">20</span><span class="sym">Ap</span>
+          <span class="nm" data-en="Housing">아파트 가격</span>
+          <span class="hid t-title" data-en="How Do Apartment Prices Spread?">아파트 가격은 어떻게 번질까</span><span class="hid t-desc" data-en="See, in a toy model, how a rise in one neighborhood spreads to the next, and what lending limits and interest rates do.">한 동네의 상승이 이웃으로 번지는 과정과, 대출 규제·금리가 미치는 영향을 장난감 모델로 봐요.</span><span class="hid t-model" data-en="Spatial contagion model">공간 확산 모델</span>
+        </a>
+      </div>
     </div>
   </section>
 
-  <section class="cat" id="people" style="--c:#2f6fed">
-    <div class="cathead"><span class="caticon">🧑‍🤝‍🧑</span><div><h2 data-en="People &amp;amp; Relationships">사람 사이</h2><p data-en="How do rumors, bias and encounters spread and split us apart?">소문, 편견, 만남은 어떻게 퍼지고 갈라질까?</p></div><span class="catcount" data-en="3 experiments">3개</span></div>
-    <div class="xgrid">
-      <a class="xcard" href="experiments/schelling/">
-        <div class="xtop"><span class="xnum">04</span><span class="xchip" data-en="Schelling segregation model">셸링 분리 모델</span></div>
-        <h3 data-en="Why Birds of a Feather Flock Together">끼리끼리 모이는 이유</h3>
-        <p data-en="Can a mild wish like &quot;I don&#x27;t want to be a minority&quot; split a neighborhood completely apart?">"소수가 되기 싫다" 정도의 약한 바람만으로도 동네가 완전히 갈라질까?</p>
-        <span class="xgo" data-en="Try it yourself &lt;i&gt;→&lt;/i&gt;">직접 돌려보기 <i>→</i></span>
-      </a>
-      <a class="xcard" href="experiments/rumor/">
-        <div class="xtop"><span class="xnum">05</span><span class="xchip" data-en="Rumor spreading model (SIR)">소문 전파 모델 (SIR)</span></div>
-        <h3 data-en="Rumor Spread in Group Chats">단톡방 소문 확산</h3>
-        <p data-en="How fast does a rumor spread, and through whom? How late can a correction come and still matter?">소문은 얼마나 빨리, 누구를 거쳐 퍼질까? 정정 글은 언제까지 올려야 소용이 있을까?</p>
-        <span class="xgo" data-en="Try it yourself &lt;i&gt;→&lt;/i&gt;">직접 돌려보기 <i>→</i></span>
-      </a>
-      <a class="xcard" href="experiments/dating/">
-        <div class="xtop"><span class="xnum">06</span><span class="xchip" data-en="Matching &amp;amp; search model">매칭·탐색 모델</span></div>
-        <h3 data-en="Does Lowering Your Standards Help You Find a Match?">눈을 낮추면 짝을 찾을까</h3>
-        <p data-en="See how aspiration level affects the time to find a partner in a market where both sides must agree.">서로 동의해야 맺어지는 시장에서 눈높이가 짝 찾는 시간에 미치는 영향을 봐요.</p>
-        <span class="xgo" data-en="Try it yourself &lt;i&gt;→&lt;/i&gt;">직접 돌려보기 <i>→</i></span>
-      </a>
+  <section class="notebook" id="nb">
+    <div class="nb-visual"><canvas id="nbcanvas" aria-hidden="true"></canvas><span class="nb-sym" id="nbsym"></span></div>
+    <div class="nb-text">
+      <p class="nb-tag"><span id="nbtag-today" data-en="Experiment of the day">오늘의 실험</span><span id="nbtag-sel" hidden data-en="Lab notebook">실험 노트</span></p>
+      <h3 id="nbtitle"></h3>
+      <p id="nbdesc" class="muted"></p>
+      <p class="nb-model"><span id="nbmodel" class="xchip"></span></p>
+      <a class="btn big" id="nbgo" href="#" data-en="Try it yourself →">직접 돌려보기 →</a>
     </div>
   </section>
-
-  <section class="cat" id="work" style="--c:#7c5cff">
-    <div class="cathead"><span class="caticon">🏢</span><div><h2 data-en="Work &amp;amp; Institutions">일터와 제도</h2><p data-en="How organizations and rules change outcomes">조직과 규칙이 결과를 바꾸는 방식</p></div><span class="catcount" data-en="2 experiments">2개</span></div>
-    <div class="xgrid">
-      <a class="xcard" href="experiments/peter/">
-        <div class="xtop"><span class="xnum">07</span><span class="xchip" data-en="Peter principle model">피터의 원리 모델</span></div>
-        <h3 data-en="Why Do Incompetent Bosses Exist?">무능한 상사는 왜 생길까</h3>
-        <p data-en="Does promoting your best performers make an organization better? Compare promotion methods.">일 잘하는 사람을 승진시키면 조직이 좋아질까? 승진 방식을 바꿔 비교해요.</p>
-        <span class="xgo" data-en="Try it yourself &lt;i&gt;→&lt;/i&gt;">직접 돌려보기 <i>→</i></span>
-      </a>
-      <a class="xcard" href="experiments/voting/">
-        <div class="xtop"><span class="xnum">08</span><span class="xchip" data-en="Spatial voting model">공간 투표 모델</span></div>
-        <h3 data-en="Does the Voting Method Change the Winner?">투표 방식이 달라지면 당선자가 바뀔까</h3>
-        <p data-en="Count the same votes by plurality, runoff, ranked-choice and Borda. Can the winner change?">같은 표를 단순다수·결선·선호투표·보르다로 세면 당선자가 달라질 수 있을까요?</p>
-        <span class="xgo" data-en="Try it yourself &lt;i&gt;→&lt;/i&gt;">직접 돌려보기 <i>→</i></span>
-      </a>
-    </div>
-  </section>
-
-  <section class="cat" id="daily" style="--c:#1fa463">
-    <div class="cathead"><span class="caticon">🚦</span><div><h2 data-en="Everyday Choices &amp;amp; Order">일상의 선택과 질서</h2><p data-en="What we run into every day on the road, at restaurants and in lines">길, 식당, 줄에서 우리가 매일 겪는 일</p></div><span class="catcount" data-en="3 experiments">3개</span></div>
-    <div class="xgrid">
-      <a class="xcard" href="experiments/traffic/">
-        <div class="xtop"><span class="xnum">09</span><span class="xchip" data-en="Nagel–Schreckenberg model">나겔-슈레켄베르크 모델</span></div>
-        <h3 data-en="Phantom Traffic Jams: Why Does Traffic Stop Without an Accident?">유령 정체: 사고도 공사도 없는데 왜 막힐까</h3>
-        <p data-en="Watch how a single occasional tap of the brake can block a whole road.">가끔 밟는 브레이크 하나가 도로 전체를 막는 과정을 지켜봐요.</p>
-        <span class="xgo" data-en="Try it yourself &lt;i&gt;→&lt;/i&gt;">직접 돌려보기 <i>→</i></span>
-      </a>
-      <a class="xcard" href="experiments/bar/">
-        <div class="xtop"><span class="xnum">10</span><span class="xchip" data-en="El Farol Bar problem">엘 파롤 바 문제</span></div>
-        <h3 data-en="Why Is the Popular Restaurant Always Packed?">다 같이 가는 식당은 왜 늘 붐빌까</h3>
-        <p data-en="Why does everyone lose when everyone thinks alike? And what if predictions differ?">모두가 같은 생각을 하면 왜 모두 손해일까? 예측이 제각각이면 어떻게 될까?</p>
-        <span class="xgo" data-en="Try it yourself &lt;i&gt;→&lt;/i&gt;">직접 돌려보기 <i>→</i></span>
-      </a>
-      <a class="xcard" href="experiments/queue/">
-        <div class="xtop"><span class="xnum">11</span><span class="xchip" data-en="Spatial evolutionary game">공간 진화 게임</span></div>
-        <h3 data-en="What Happens When Queue-Jumping Spreads?">새치기가 늘면 줄은 어떻게 될까</h3>
-        <p data-en="Test the idea that order isn&#x27;t kept by itself but by someone paying a price to keep it.">질서는 가만히 지켜지지 않고 누군가 비용을 치르며 지켜진다는 걸 실험해요.</p>
-        <span class="xgo" data-en="Try it yourself &lt;i&gt;→&lt;/i&gt;">직접 돌려보기 <i>→</i></span>
-      </a>
-    </div>
-  </section>
-
-  <section class="cat" id="science" style="--c:#0ea5a5">
-    <div class="cathead"><span class="caticon">🔬</span><div><h2 data-en="Science">과학</h2><p data-en="How nature makes order and pattern by itself">자연이 스스로 질서와 무늬를 만드는 방식</p></div><span class="catcount" data-en="2 experiments">2개</span></div>
-    <div class="xgrid">
-      <a class="xcard" href="experiments/firefly/">
-        <div class="xtop"><span class="xnum">12</span><span class="xchip" data-en="Pulse-coupled oscillators">펄스 결합 진동자</span></div>
-        <h3 data-en="Why Do Fireflies Flash in Unison?">반딧불이는 왜 동시에 깜빡일까</h3>
-        <p data-en="Watch hundreds of fireflies fall into the same rhythm with no conductor.">지휘자 없이도 수백 마리가 같은 박자로 빛나는 과정을 지켜봐요.</p>
-        <span class="xgo" data-en="Try it yourself &lt;i&gt;→&lt;/i&gt;">직접 돌려보기 <i>→</i></span>
-      </a>
-      <a class="xcard" href="experiments/turing/">
-        <div class="xtop"><span class="xnum">13</span><span class="xchip" data-en="Turing reaction–diffusion (Gray–Scott)">튜링 반응-확산 (Gray–Scott)</span></div>
-        <h3 data-en="How Does a Zebra Get Its Stripes?">얼룩말 무늬는 어떻게 생길까</h3>
-        <p data-en="Two simple reacting chemicals can form spots, stripes and mazes by themselves. Drop your own seeds.">두 물질의 단순한 반응만으로 점, 줄무늬, 미로 무늬가 저절로 생겨요. 직접 씨앗을 뿌려 보세요.</p>
-        <span class="xgo" data-en="Try it yourself &lt;i&gt;→&lt;/i&gt;">직접 돌려보기 <i>→</i></span>
-      </a>
-    </div>
-  </section>
-
-  <section class="cat" id="history" style="--c:#c2410c">
-    <div class="cathead"><span class="caticon">📜</span><div><h2 data-en="History">역사</h2><p data-en="When a small spark turns into a big movement">작은 계기가 큰 흐름으로 번지는 순간</p></div><span class="catcount" data-en="1 experiments">1개</span></div>
-    <div class="xgrid">
-      <a class="xcard" href="experiments/revolution/">
-        <div class="xtop"><span class="xnum">14</span><span class="xchip" data-en="Threshold model (Granovetter)">문턱 모델 (Granovetter)</span></div>
-        <h3 data-en="How Does a Revolution Begin?">혁명은 어떻게 시작될까</h3>
-        <p data-en="When everyone has a different &quot;I&#x27;ll join if this many others do&quot; threshold, can one person change the whole square?">사람마다 "몇 명이 나서면 나도 나선다"는 문턱이 다를 때, 한 사람의 차이가 광장 전체를 바꿀 수 있을까요?</p>
-        <span class="xgo" data-en="Try it yourself &lt;i&gt;→&lt;/i&gt;">직접 돌려보기 <i>→</i></span>
-      </a>
-    </div>
-  </section>
-
-  <section class="cat" id="philosophy" style="--c:#be185d">
-    <div class="cathead"><span class="caticon">🧠</span><div><h2 data-en="Philosophy">철학</h2><p data-en="How do morality and trust survive?">도덕과 신뢰는 어떻게 살아남을까</p></div><span class="catcount" data-en="1 experiments">1개</span></div>
-    <div class="xgrid">
-      <a class="xcard" href="experiments/cooperation/">
-        <div class="xtop"><span class="xnum">15</span><span class="xchip" data-en="Iterated prisoner&#x27;s dilemma">반복 죄수의 딜레마</span></div>
-        <h3 data-en="Do Nice People Survive?">착한 사람은 살아남을까</h3>
-        <p data-en="In a world full of defectors, how do cooperation and trust come back? What changes when mistakes creep in?">배신하는 사람이 많은 세상에서 협력과 신뢰는 어떻게 되살아날까? 실수가 끼어들면 어떻게 될까?</p>
-        <span class="xgo" data-en="Try it yourself &lt;i&gt;→&lt;/i&gt;">직접 돌려보기 <i>→</i></span>
-      </a>
-    </div>
-  </section>
-
-  <section class="cat" id="literature" style="--c:#a16207">
-    <div class="cathead"><span class="caticon">📖</span><div><h2 data-en="Literature">문학</h2><p data-en="Can chance and selection write a text?">우연과 선택이 글을 쓸 수 있을까</p></div><span class="catcount" data-en="1 experiments">1개</span></div>
-    <div class="xgrid">
-      <a class="xcard" href="experiments/monkey/">
-        <div class="xtop"><span class="xnum">16</span><span class="xchip" data-en="Infinite monkeys vs cumulative selection">무한 원숭이 vs 누적 선택</span></div>
-        <h3 data-en="Can Monkeys Write Hamlet?">원숭이가 햄릿을 쓸 수 있을까</h3>
-        <p data-en="Compare monkeys typing at random with evolution that keeps the best at every step.">무작위로 타자를 치는 원숭이와, 조금씩 고르며 나아가는 진화를 나란히 비교해요.</p>
-        <span class="xgo" data-en="Try it yourself &lt;i&gt;→&lt;/i&gt;">직접 돌려보기 <i>→</i></span>
-      </a>
-    </div>
-  </section>
-
-  <section class="cat" id="art" style="--c:#9333ea">
-    <div class="cathead"><span class="caticon">🎨</span><div><h2 data-en="Art">예술</h2><p data-en="How do taste and style change and disappear?">취향과 화풍은 어떻게 변하고 사라질까</p></div><span class="catcount" data-en="2 experiments">2개</span></div>
-    <div class="xgrid">
-      <a class="xcard" href="experiments/fashion/">
-        <div class="xtop"><span class="xnum">17</span><span class="xchip" data-en="Imitation–distinction model">모방과 차별화 모델</span></div>
-        <h3 data-en="Why Do Fashions Come Around?">유행은 왜 돌고 돌까</h3>
-        <p data-en="On a color wheel, watch the cycle created by a copying crowd and trendsetters running away.">따라 하는 대중과 도망가는 선두가 만드는 색의 순환을 색상환 위에서 봐요.</p>
-        <span class="xgo" data-en="Try it yourself &lt;i&gt;→&lt;/i&gt;">직접 돌려보기 <i>→</i></span>
-      </a>
-      <a class="xcard" href="experiments/painters/">
-        <div class="xtop"><span class="xnum">18</span><span class="xchip" data-en="Cultural transmission model">문화 전파 모델</span></div>
-        <h3 data-en="What If 100 AI Painters Copy Each Other?">AI 화가 100명이 서로 따라 그리면</h3>
-        <p data-en="Does imitation collapse styles into one? Watch 100 paintings change.">모방이 늘수록 화풍은 하나로 수렴할까? 100점의 그림이 어떻게 달라지는지 지켜봐요.</p>
-        <span class="xgo" data-en="Try it yourself &lt;i&gt;→&lt;/i&gt;">직접 돌려보기 <i>→</i></span>
-      </a>
-    </div>
-  </section>
-
-  <section class="cat" id="society" style="--c:#475569">
-    <div class="cathead"><span class="caticon">🏙️</span><div><h2 data-en="Society Today">사회 현안</h2><p data-en="Big trends in society, worked through with numbers">수치로 따져 보는 우리 사회의 큰 흐름</p></div><span class="catcount" data-en="2 experiments">2개</span></div>
-    <div class="xgrid">
-      <a class="xcard" href="experiments/population/">
-        <div class="xtop"><span class="xnum">19</span><span class="xchip" data-en="Cohort-component model">코호트 인구 모델</span></div>
-        <h3 data-en="What Does Korea&#x27;s Population Look Like in 2070?">저출산이 계속되면 2070년 인구 구조는?</h3>
-        <p data-en="If fertility stays as it is, how does the population pyramid change? Try other fertility and migration levels.">출산율이 이대로면 인구 피라미드는 어떻게 바뀔까? 출산율과 이민을 바꿔 보세요.</p>
-        <span class="xgo" data-en="Try it yourself &lt;i&gt;→&lt;/i&gt;">직접 돌려보기 <i>→</i></span>
-      </a>
-      <a class="xcard" href="experiments/apartment/">
-        <div class="xtop"><span class="xnum">20</span><span class="xchip" data-en="Spatial contagion model">공간 확산 모델</span></div>
-        <h3 data-en="How Do Apartment Prices Spread?">아파트 가격은 어떻게 번질까</h3>
-        <p data-en="See, in a toy model, how a rise in one neighborhood spreads to the next, and what lending limits and interest rates do.">한 동네의 상승이 이웃으로 번지는 과정과, 대출 규제·금리가 미치는 영향을 장난감 모델로 봐요.</p>
-        <span class="xgo" data-en="Try it yourself &lt;i&gt;→&lt;/i&gt;">직접 돌려보기 <i>→</i></span>
-      </a>
-    </div>
-  </section>
-
 </main>
 
 <footer><div class="wrap" data-en="Simulatio Lab · Operator: Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
 <script src="i18n.js"></script>
 <script src="i18n-en.js"></script>
+<script src="home.js"></script>
 <script src="counter.js"></script>
 </body>
 </html>

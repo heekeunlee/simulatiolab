@@ -71,3 +71,57 @@
   (mq.addEventListener ? mq.addEventListener('change', apply) : mq.addListener(apply));
   apply();
 })();
+
+// ---------- 실험 페이지 더하기: 주소로 설정 공유, 단축키, 이전/다음 실험 ----------
+(function () {
+  const main = document.querySelector('main.wrap');
+  const ctl = main && main.querySelector('.panel .controls');
+  if (!ctl) return;
+  const en = window.I18N && window.I18N.lang === 'en';
+  const $ = (id) => document.getElementById(id);
+  const inputs = () => Array.from(ctl.querySelectorAll('input[type=range], select'));
+
+  // 1) 주소의 ?s=id:값,id:값 으로 들어오면 그 설정으로 시작 (app.js가 읽기 전에 값만 바꿔 둔다)
+  try {
+    const s = new URLSearchParams(location.search).get('s');
+    if (s) s.split(',').forEach((kv) => { const i = kv.indexOf(':'); const el = i > 0 && $(kv.slice(0, i)); if (el && el.closest('.controls')) el.value = decodeURIComponent(kv.slice(i + 1)); });
+  } catch (e) {}
+
+  // 2) "링크 복사" 버튼: 현재 설정을 담은 주소를 복사
+  const btns = ctl.parentElement.querySelector('.btns');
+  if (btns) {
+    const b = document.createElement('button'); b.type = 'button'; b.id = 'share';
+    const base = en ? '🔗 Copy link' : '🔗 링크 복사';
+    b.textContent = base; b.title = en ? 'Copies a link that opens this experiment with the current settings' : '지금 설정 그대로 열리는 주소를 복사해요';
+    b.addEventListener('click', () => {
+      const q = inputs().map((el) => el.id + ':' + encodeURIComponent(el.value)).join(',');
+      const u = new URL(location.href); u.searchParams.set('s', q); if (en) u.searchParams.set('lang', 'en');
+      const done = () => { b.textContent = en ? '✓ Copied' : '✓ 복사했어요'; setTimeout(() => { b.textContent = base; }, 1800); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(u.toString()).then(done, () => prompt(en ? 'Copy this link:' : '이 주소를 복사하세요:', u.toString()));
+      else prompt(en ? 'Copy this link:' : '이 주소를 복사하세요:', u.toString());
+    });
+    const seed = $('seedinfo'); btns.insertBefore(b, seed || null);
+  }
+
+  // 3) 단축키: 스페이스 = 재생/일시정지, R = 처음부터, N/P = 다음/이전 실험
+  document.addEventListener('keydown', (e) => {
+    if (e.target.closest('input, select, textarea, button') || e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.code === 'Space') { const p = $('play'); if (p) { e.preventDefault(); p.click(); } }
+    else if (e.key === 'r' || e.key === 'R') { const r = $('restart'); if (r) r.click(); }
+    else if (e.key === 'n' || e.key === 'N' || e.key === 'p' || e.key === 'P') { const a = document.querySelector(e.key.toLowerCase() === 'n' ? '.xnav .next' : '.xnav .prev'); if (a) location.href = a.href; }
+  });
+
+  // 4) 이전 / 다음 실험
+  const list = window.LAB_EXPS;
+  if (list && list.length) {
+    const slug = location.pathname.replace(/\/+$/, '').split('/').pop();
+    const i = list.findIndex((x) => x.s === slug);
+    if (i >= 0) {
+      const prev = list[(i - 1 + list.length) % list.length], next = list[(i + 1) % list.length];
+      const nav = document.createElement('nav'); nav.className = 'xnav';
+      const card = (x, cls, lab) => `<a class="${cls}" href="../${x.s}/" style="--c:${x.c}"><small>${lab}</small><b><span class="sym">${x.sym}</span> ${en ? x.en : x.ko}</b></a>`;
+      nav.innerHTML = card(prev, 'prev', en ? '← Previous (P)' : '← 이전 실험 (P)') + `<a class="all" href="../../">${en ? 'All experiments' : '실험 목록'}</a>` + card(next, 'next', en ? 'Next (N) →' : '다음 실험 (N) →');
+      main.appendChild(nav);
+    }
+  }
+})();
