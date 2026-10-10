@@ -68,5 +68,5 @@ if __name__ == '__main__':
     out = {}
     for i, (ko, where) in enumerate(items, 1):
         out['B%03d' % i] = {'ko': ko, 'pages': sorted(set(where))}
-    json.dump(out, open('blocks.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+    json.dump(out, open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'blocks.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     print('pages', len(pages), 'unique blocks', len(out))

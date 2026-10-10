@@ -136,3 +136,6 @@ footer { border-top: 1px solid var(--line); margin-top: 64px; padding: 24px 0 48
 .langtoggle button.on { background: var(--surface); color: var(--accent); box-shadow: 0 1px 3px rgba(20,30,60,.12); cursor: default; }
 html[lang="en"] body { word-break: normal; }
 @media (max-width: 480px) { .langtoggle button { padding: 4px 8px; font-size: 12px; } .navr { gap: 8px; } .brand small { display: none; } }
+
+footer a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
+footer a:hover { color: var(--accent); }

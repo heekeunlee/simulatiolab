@@ -8,7 +8,7 @@ from en_blocks_2 import EN2
 from en_blocks_3 import EN3
 EN = {}; EN.update(EN1); EN.update(EN2); EN.update(EN3)
 EN['B100'] = EN['B100'].replace("though I haven't confirmed that", "though this has not been confirmed")
-ids = json.load(open('blocks.json', encoding='utf-8'))
+ids = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'blocks.json'), encoding='utf-8'))
 ko2id = {v['ko']: k for k, v in ids.items()}
 missing = [k for k in ids if k not in EN]
 if missing: print('번역 누락:', missing); sys.exit(1)
