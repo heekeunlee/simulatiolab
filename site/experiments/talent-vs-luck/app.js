@@ -2,7 +2,7 @@
   'use strict';
   const TL = window.TalentLuck;
   const $ = (id) => document.getElementById(id);
-  const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  const { css, setup, mix, roundRect } = window.Lab;
   const DEFAULTS = { events: 500, pLucky: 50, years: 40, sdT: 0.1 };
 
   let seed = 1;
@@ -11,31 +11,10 @@
   let batchResult = null;
 
   // ---------- 공통 그리기 도구 ----------
-  function setup(canvas, aspect) {
-    const w = canvas.clientWidth || 400;
-    const h = Math.round(w * aspect);
-    const dpr = window.devicePixelRatio || 1;
-    canvas.width = Math.round(w * dpr);
-    canvas.height = Math.round(h * dpr);
-    canvas.style.height = h + 'px';
-    const ctx = canvas.getContext('2d');
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.clearRect(0, 0, w, h);
-    ctx.font = '12px -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif';
-    return { ctx, w, h };
-  }
-
   function fmtCap(v) {
     if (v >= 100) return Math.round(v).toLocaleString('ko-KR');
     if (v >= 1) return String(+v.toFixed(1));
     return String(+v.toPrecision(2));
-  }
-
-  function mix(hex, alpha) {
-    const m = /^#([0-9a-f]{6})$/i.exec(hex);
-    if (!m) return hex;
-    const n = parseInt(m[1], 16);
-    return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${alpha})`;
   }
 
   function jitter(i) {
@@ -170,38 +149,77 @@
   }
 
   // ---------- ① 애니메이션 ----------
+  function chip(ctx, text, x, y, color, w) {
+    ctx.font = '600 12px -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif';
+    const tw = ctx.measureText(text).width + 16, th = 22;
+    let cx = x + 12, cy = y - 30;
+    if (cx + tw > w - 6) cx = x - 12 - tw;
+    if (cy < 6) cy = y + 10;
+    ctx.save();
+    ctx.shadowColor = 'rgba(20,30,60,.18)'; ctx.shadowBlur = 8; ctx.shadowOffsetY = 2;
+    ctx.fillStyle = '#fff'; roundRect(ctx, cx, cy, tw, th, 11); ctx.fill();
+    ctx.restore();
+    ctx.strokeStyle = color; ctx.lineWidth = 1.5; roundRect(ctx, cx, cy, tw, th, 11); ctx.stroke();
+    ctx.fillStyle = color; ctx.textAlign = 'left'; ctx.fillText(text, cx + 8, cy + 15);
+    ctx.lineWidth = 1;
+  }
+
   function drawWorld() {
     const { ctx, w } = setup($('c-world'), 1);
     const W = anim.params.world, s = w / W, c0 = anim.params.c0;
-    ctx.fillStyle = css('--bg'); ctx.fillRect(0, 0, w, w);
-    ctx.strokeStyle = css('--line'); ctx.strokeRect(0.5, 0.5, w - 1, w - 1);
 
-    for (let i = 0; i < anim.n; i++) {
+    // 바탕: 아주 옅은 점 격자
+    ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, w);
+    ctx.fillStyle = 'rgba(99,106,122,.12)';
+    for (let g = 20; g < W; g += 20) for (let h = 20; h < W; h += 20) {
+      ctx.beginPath(); ctx.arc(g * s, h * s, 1, 0, 7); ctx.fill();
+    }
+
+    // 이벤트: 번지는 빛 (행운=초록, 불운=빨강)
+    const R = Math.max(10, s * 7);
+    for (let k = 0; k < anim.ex.length; k++) {
+      const x = (anim.ex[k] + 0.5) * s, y = (anim.ey[k] + 0.5) * s;
+      const col = anim.lucky[k] ? '#1fa463' : '#e5484d';
+      const gr = ctx.createRadialGradient(x, y, 0, x, y, R);
+      gr.addColorStop(0, mix(col, 0.30)); gr.addColorStop(1, mix(col, 0));
+      ctx.fillStyle = gr; ctx.beginPath(); ctx.arc(x, y, R, 0, 7); ctx.fill();
+    }
+    for (let k = 0; k < anim.ex.length; k++) {
+      ctx.fillStyle = mix(anim.lucky[k] ? '#1fa463' : '#e5484d', 0.85);
+      ctx.beginPath(); ctx.arc((anim.ex[k] + 0.5) * s, (anim.ey[k] + 0.5) * s, 1.6, 0, 7); ctx.fill();
+    }
+
+    // 사람: 자본이 클수록 크고 진한 파랑, 줄었으면 작고 옅은 회색
+    const order = Array.from({ length: anim.n }, (_, i) => i).sort((a, b) => anim.capital[a] - anim.capital[b]);
+    for (const i of order) {
       const v = Math.log2(anim.capital[i] / c0);
       let r, col;
-      if (v > 0) { r = Math.min(1.6 + v * 0.55, 6.5); col = mix(css('--accent'), Math.min(0.55 + v * 0.06, 0.95)); }
-      else if (v === 0) { r = 1.6; col = mix(css('--muted'), 0.5); }
-      else { r = 1.3; col = mix(css('--muted'), 0.25); }
+      if (v > 0) { r = Math.min(2 + v * 0.7, 8); col = mix('#2f6fed', Math.min(0.5 + v * 0.07, 0.95)); }
+      else if (v === 0) { r = 2; col = 'rgba(99,106,122,.55)'; }
+      else { r = 1.5; col = 'rgba(99,106,122,.28)'; }
       ctx.fillStyle = col;
       ctx.beginPath(); ctx.arc((anim.ax[i] + 0.5) * s, (anim.ay[i] + 0.5) * s, r, 0, 7); ctx.fill();
     }
-    ctx.lineWidth = 1.2;
-    for (let k = 0; k < anim.ex.length; k++) {
-      ctx.strokeStyle = mix(anim.lucky[k] ? css('--lucky') : css('--unlucky'), 0.75);
-      ctx.beginPath(); ctx.arc((anim.ex[k] + 0.5) * s, (anim.ey[k] + 0.5) * s, Math.max(2.5, s), 0, 7); ctx.stroke();
-    }
-    const ring = (i, color) => {
-      ctx.strokeStyle = color; ctx.lineWidth = 2;
-      ctx.beginPath(); ctx.arc((anim.ax[i] + 0.5) * s, (anim.ay[i] + 0.5) * s, 8, 0, 7); ctx.stroke();
+
+    // 최고 재능자 / 최고 부자 (최종 결과 기준으로 계속 따라다니며 표시)
+    const mark = (i, color, label) => {
+      const x = (anim.ax[i] + 0.5) * s, y = (anim.ay[i] + 0.5) * s;
+      ctx.strokeStyle = color; ctx.lineWidth = 2.5;
+      ctx.beginPath(); ctx.arc(x, y, 8, 0, 7); ctx.stroke();
+      ctx.fillStyle = color; ctx.beginPath(); ctx.arc(x, y, 3, 0, 7); ctx.fill();
+      chip(ctx, `${label} · 자본 ${fmtCap(anim.capital[i])}`, x, y, color, w);
     };
-    ring(st.mostTalented, css('--talent'));
-    ring(st.richest, css('--rich'));
+    mark(st.mostTalented, '#7c5cff', '최고 재능자');
+    mark(st.richest, '#d19200', '최고 부자');
     ctx.lineWidth = 1;
 
-    let top = 0;
-    for (let i = 0; i < anim.n; i++) top = Math.max(top, anim.capital[i]);
+    // 지금 상위 20%의 몫
+    const caps = Array.from(anim.capital).sort((a, b) => b - a);
+    const total = caps.reduce((x, y) => x + y, 0);
+    const top20 = caps.slice(0, Math.round(anim.n * 0.2)).reduce((x, y) => x + y, 0);
     const step = anim.step;
-    $('when').textContent = `${Math.floor(step / 2)}년 ${step % 2 ? 6 : 0}개월 (${step}/${anim.steps}) · 최고 자본 ${fmtCap(top)}`;
+    $('when').textContent = `${Math.floor(step / 2)}년 ${step % 2 ? 6 : 0}개월 · 상위 20%의 몫 ${(top20 / total * 100).toFixed(0)}%`;
+    const bar = $('prog'); if (bar) bar.style.width = (step / anim.steps * 100) + '%';
   }
 
   function resetAnim() {
@@ -356,7 +374,6 @@
 
   let resizeTimer;
   window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(render, 150); });
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', render);
 
   showOutputs();
   run();

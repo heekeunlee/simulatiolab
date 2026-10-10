@@ -55,8 +55,9 @@
   <div class="charts">
     <section class="panel chart">
       <h3>① 시뮬레이션 지켜보기</h3>
-      <p>점은 사람, 원은 이벤트입니다. 사람 점은 자본이 클수록 크고 진합니다. 금색은 최고 부자, 보라색은 최고 재능자예요.</p>
-      <canvas id="c-world" aria-label="시뮬레이션 애니메이션"></canvas>
+      <p>점은 사람이고, 자본이 늘수록 크고 진한 파랑이 됩니다. 번지는 <b style="color:var(--lucky)">초록 빛</b>은 행운, <b style="color:var(--unlucky)">붉은 빛</b>은 불운이 지나가는 자리예요.</p>
+      <canvas id="c-world" class="rounded" aria-label="시뮬레이션 애니메이션"></canvas>
+      <div class="progress"><i id="prog"></i></div>
       <div class="anim-bar">
         <button id="play">▶ 재생</button>
         <button id="restart">처음부터</button>
@@ -115,6 +116,7 @@
 </main>
 
 <footer><div class="wrap">시뮬라티오 랩 · 유튜브 <b>@simulatiolab</b></div></footer>
+<script src="../../lib.js"></script>
 <script src="sim.js"></script>
 <script src="app.js"></script>
 </body>
