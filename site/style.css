@@ -91,3 +91,4 @@ footer { border-top: 1px solid var(--line); margin-top: 64px; padding: 24px 0 48
 
 .progress { height: 4px; background: var(--line); border-radius: 4px; margin-top: 8px; overflow: hidden; }
 .progress i { display: block; height: 100%; width: 0; background: var(--accent); border-radius: 4px; }
+.sel { width: 100%; font: inherit; font-size: 14px; padding: 7px 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--text); }

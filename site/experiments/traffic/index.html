@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>유령 정체: 사고도 공사도 없는데 왜 막힐까 · 시뮬라티오 랩</title>
+<meta name="description" content="사고도 공사도 없는데 도로가 막히는 이유를 나겔-슈레켄베르크 교통 모델로 직접 돌려보세요.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b>시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../">실험 목록</a><span class="visits" id="visits" hidden title="누적 방문자 수"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>방문 <b>0</b></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1>유령 정체: 사고도 공사도 없는데 왜 막힐까</h1>
+  <p class="lead">사고도, 공사도, 병목도 없는 도로에서 갑자기 차가 멈췄다가 다시 풀린 경험이 있나요? 고리 모양 도로에서 차들이 규칙대로만 달려도 정체가 저절로 생길 수 있는지 확인해 봅니다.</p>
+
+  <h2>모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li>고리 모양 한 차선 도로에서 모든 차가 1초마다 같은 4가지 규칙을 따릅니다: ① 가속, ② 앞차와 부딪히지 않게 감속, ③ <b>가끔 무작위로 속도를 줄임</b>, ④ 이동.</li>
+    <li>③은 잠깐 딴 데를 보거나 괜히 브레이크를 밟는 것을 뜻합니다. 아주 작은 흔들림이에요.</li>
+    <li>차는 속도에 따라 <b style="color:var(--unlucky)">빨강</b>(멈춤)에서 <b style="color:var(--lucky)">초록</b>(최고 속도)으로 칠해집니다.</li>
+  </ul>
+
+  <h2>직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="density">도로가 찬 정도 (밀도) <output id="o-density"></output></label>
+        <input type="range" id="density" min="5" max="60" step="5" value="20">
+        <span class="hint">도로 칸 중 차가 차지한 비율</span></div>
+<div class="ctl"><label for="p">가끔 브레이크를 밟는 확률 <output id="o-p"></output></label>
+        <input type="range" id="p" min="0" max="50" step="5" value="25">
+        <span class="hint">0%면 완벽한 운전, 클수록 불규칙</span></div>
+    </div>
+    <div class="btns">
+      <button class="primary" id="run">처음부터 다시</button>
+      <button id="reroll">같은 설정, 다른 운</button>
+      <button id="reset">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3>① 도로를 위에서 보면</h3>
+    <p>차들이 고리 도로를 시계 방향으로 달립니다. 빨간 점이 뭉친 곳이 정체인데, 정체 덩어리가 도로 위에서 어디로 움직이는지 지켜보세요.</p>
+    <canvas id="c-ring" class="rounded" aria-label="① 도로를 위에서 보면"></canvas>
+    <div class="anim-bar">
+      <button id="play">⏸ 일시정지</button>
+      <button id="stepbtn">한 단계</button>
+      <button id="restart">처음부터</button>
+      <select id="speed" aria-label="속도"><option value="8">느리게</option><option value="20" selected>보통</option><option value="50">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3>② 시간에 따른 도로 (시공간 도표)</h3>
+    <p>가로는 도로 위치, 세로는 시간(아래로 흐름)입니다. 붉은 띠가 정체이고, 띠가 왼쪽 아래로 기울어 있으면 정체가 차들의 진행 방향과 반대로 움직인다는 뜻이에요.</p>
+    <canvas id="c-space" class="" aria-label="② 시간에 따른 도로 (시공간 도표)"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3>③ 도로가 차면 통과 대수는 어떻게 될까</h3>
+    <p>밀도에 따라 한 지점을 지나가는 시간당 차량 수입니다. 회색 선은 브레이크를 전혀 안 밟는 완벽한 운전이에요.</p>
+    <canvas id="c-fd" class="" aria-label="③ 도로가 차면 통과 대수는 어떻게 될까"></canvas>
+      <div class="legend"><span id="note-fd">계산 중…</span></div>
+    </section>
+    <section class="panel chart">
+      <h3>④ 작은 브레이크의 큰 효과</h3>
+    <p>지금 밀도에서 가끔 브레이크를 밟는 확률에 따라 평균 속도가 어떻게 달라지는지 봅니다. 점은 서로 다른 도로 3개의 결과예요.</p>
+    <canvas id="c-p" class="" aria-label="④ 작은 브레이크의 큰 효과"></canvas>
+      <div class="legend"><span id="note-p">계산 중…</span></div>
+    </section>
+  </div>
+
+  <h2>이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout"><b>말하는 것:</b> 도로가 어느 정도 차 있으면, 모든 운전자가 규칙을 지켜도 아주 작은 브레이크 하나가 뒤차로 번져 "유령 정체"가 만들어집니다. 정체는 차들의 진행 방향과 반대로 퍼져 나가고, 원인이 된 차는 이미 앞서 가 버려서 막힌 곳에 가 보면 아무 이유도 없어 보입니다.</div>
+  <div class="callout"><b>말하지 않는 것:</b> 실제 도로의 모든 정체가 이 때문이라는 뜻은 아닙니다. 사고, 병목, 차선 변경, 신호 같은 요인은 이 모델에 없고, 한 차선 고리 도로라는 매우 단순한 설정입니다. 속도(km/h) 환산은 한 칸을 7.5m, 한 단계를 1초로 본 표준 설정을 따른 것입니다.</div>
+
+  <h2>구현 메모</h2>
+  <ul class="small">
+    <li>Nagel, Schreckenberg (1992), "A cellular automaton model for freeway traffic", <i>Journal de Physique I</i> 2(12)의 모델입니다. 최고 속도 5칸, 길이 300칸 고리 도로로 구현했습니다.</li>
+    <li>검증 결과: 무작위 감속이 없으면 밀도 약 1/6(17%)까지 정체가 없고, 확률이 25%이면 밀도 15%에서 이미 정체가 나타납니다 (<code>node tools/validate-more.js traffic</code>).</li>
+    <li>③, ④번 그래프는 처음 150단계를 버리고 이어지는 150~200단계의 평균입니다.</li>
+    <li>코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/traffic">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap">시뮬라티오 랩 · 유튜브 <b>@simulatiolab</b></div></footer>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../counter.js"></script>
+</body>
+</html>

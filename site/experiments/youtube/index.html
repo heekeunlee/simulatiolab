@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>유튜브는 왜 상위 1%만 뜰까 · 시뮬라티오 랩</title>
+<meta name="description" content="좋은 콘텐츠가 이기는 걸까, 먼저 뜬 채널이 이기는 걸까? 추천이 인기 순일 때 구독자가 어떻게 쏠리는지 직접 돌려보세요.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b>시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../">실험 목록</a><span class="visits" id="visits" hidden title="누적 방문자 수"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>방문 <b>0</b></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1>유튜브는 왜 상위 1%만 뜰까</h1>
+  <p class="lead">열심히 만든 좋은 영상이 뜨는 걸까요, 아니면 먼저 뜬 채널이 계속 뜨는 걸까요? 채널 200개의 구독자 경쟁을 돌려 보고, 같은 조건에서 우연만 다르게 한 "평행우주"도 비교합니다.</p>
+
+  <h2>모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li>채널마다 콘텐츠 품질이 정해져 있습니다. 파랑에 가까울수록 품질이 높고 빨강에 가까울수록 낮아요.</li>
+    <li>라운드마다 시청자 100명이 와서 각자 한 채널을 구독합니다.</li>
+    <li>시청자는 일정 비율로 <b>인기 순 추천</b>을 따릅니다. 인기 있는 채널일수록 더 많이 추천받아서, 구독자가 많은 쪽이 더 많이 늘어납니다.</li>
+    <li>나머지 시청자는 품질에 비례해서 채널을 고릅니다. "같은 설정, 다른 운"을 누르면 같은 채널 세트에서 우연만 다른 평행우주가 열려요.</li>
+  </ul>
+
+  <h2>직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="social">추천이 인기 순을 따르는 비율 <output id="o-social"></output></label>
+        <input type="range" id="social" min="0" max="100" step="10" value="70">
+        <span class="hint">0%면 품질로만 선택, 100%면 모두 인기 순</span></div>
+<div class="ctl"><label for="n">채널 수 <output id="o-n"></output></label>
+        <input type="range" id="n" min="50" max="500" step="50" value="200">
+        <span class="hint">많을수록 경쟁이 치열해요</span></div>
+    </div>
+    <div class="btns">
+      <button class="primary" id="run">처음부터 다시</button>
+      <button id="reroll">같은 설정, 다른 운</button>
+      <button id="reset">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3>① 구독자 경쟁</h3>
+    <p>구독자 순위 상위 12개 채널입니다. 막대 색은 품질이고, 이름 아래에 품질 순위가 적혀 있어요.</p>
+    <canvas id="c-race" class="rounded" aria-label="① 구독자 경쟁"></canvas>
+    <div class="anim-bar">
+      <button id="play">⏸ 일시정지</button>
+      
+      <button id="restart">처음부터</button>
+      <select id="speed" aria-label="속도"><option value="10">느리게</option><option value="25" selected>보통</option><option value="60">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3>② 품질 vs 구독자</h3>
+    <p>한 점이 한 채널입니다. 오른쪽일수록 품질이 좋은데, 위쪽(구독자 많음)에 있는 채널이 오른쪽에 몰려 있나요? 세로축은 로그 눈금입니다.</p>
+    <canvas id="c-scatter" class="" aria-label="② 품질 vs 구독자"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3>③ 평행우주 8개</h3>
+    <p>같은 채널로 시작해서 우연만 다르게 8번 돌렸을 때, 1위가 된 채널의 품질 순위입니다.</p>
+    <canvas id="c-worlds" class="" aria-label="③ 평행우주 8개"></canvas>
+      <div class="legend"><span id="note-worlds">계산 중…</span></div>
+    </section>
+    <section class="panel chart">
+      <h3>④ 인기 순 추천이 늘수록</h3>
+    <p>가로는 인기 순 추천의 비율입니다. 파란 선은 품질과 결과의 상관(1이면 품질대로), 금색 선은 상위 10% 채널이 가져가는 구독의 몫이에요.</p>
+    <canvas id="c-sweep" class="" aria-label="④ 인기 순 추천이 늘수록"></canvas>
+      <div class="legend"><span id="note-sweep">계산 중…</span></div>
+    </section>
+  </div>
+
+  <h2>이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout"><b>말하는 것:</b> 추천이 인기 순을 따르는 비율이 커질수록 구독이 소수 채널에 쏠리고, 품질과 결과의 연결은 약해집니다. 같은 채널로 시작해도 우연에 따라 1위가 완전히 달라지니, 지금 1위가 가장 좋은 채널이라는 보장은 없어요.</div>
+  <div class="callout"><b>말하지 않는 것:</b> 품질이 아무 소용이 없다는 뜻은 아닙니다. 인기 순 추천이 약할 때는 품질대로 결과가 나옵니다. 실제 유튜브의 추천 방식과 시청자 행동은 훨씬 복잡하고, 이 모델에는 영상 주제, 업로드 빈도, 구독 취소 같은 요소가 없습니다. 추천 알고리즘의 인기 편향 정도(후보 2개 중 큰 쪽 추천)도 제가 정한 가정입니다.</div>
+
+  <h2>구현 메모</h2>
+  <ul class="small">
+    <li>선호적 연결(Barabási-Albert 계열의 "부익부")과, 사회적 영향이 음악 성공을 얼마나 예측 불가능하게 만드는지 본 Salganik, Dodds, Watts (2006), <i>Science</i> 311의 실험에서 발상을 얻은 모델입니다. 논문 수치를 재현한 것은 아니고 이 프로젝트의 설계입니다.</li>
+    <li>인기 순 추천은 구독자+1에 비례해 후보 2개를 뽑고 더 큰 쪽을 추천하는 방식으로 만들었습니다. 한 번에 1개만 뽑으면 쏠림이 약해서(상위 10%가 약 23~33%), 알고리즘이 인기 쪽으로 더 기운다고 가정했습니다.</li>
+    <li>품질은 로그정규분포(σ=0.5)이며 고정된 시드로 만들어서 평행우주끼리 같은 채널 세트를 씁니다. 검증은 <code>node tools/validate-more.js youtube</code>로 할 수 있습니다.</li>
+    <li>코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/youtube">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap">시뮬라티오 랩 · 유튜브 <b>@simulatiolab</b></div></footer>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../counter.js"></script>
+</body>
+</html>

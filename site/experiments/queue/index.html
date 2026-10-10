@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>새치기가 늘면 줄은 어떻게 될까 · 시뮬라티오 랩</title>
+<meta name="description" content="새치기가 이득이면 줄은 무너질까? 눈총의 힘을 바꿔 가며 질서가 지켜지는 조건을 직접 돌려보세요.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b>시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../">실험 목록</a><span class="visits" id="visits" hidden title="누적 방문자 수"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>방문 <b>0</b></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1>새치기가 늘면 줄은 어떻게 될까</h1>
+  <p class="lead">새치기를 하면 이득을 보고, 당하면 손해를 봅니다. 모두가 새치기를 하면 줄은 엉망이 되겠죠. 그런데 새치기를 보고 눈총을 주는 사람이 있다면 어떻게 달라질까요? 눈총을 주는 데도 비용이 든다는 점이 핵심이에요.</p>
+
+  <h2>모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li>2,500명이 격자 위에 서 있고 세 가지 유형이 있습니다: <b style="color:#3b82f6">질서</b>(가만히 줄 섬), <b style="color:#e5484d">새치기</b>, <b style="color:#1fa463">눈총</b>(줄은 서고, 새치기를 보면 응징함).</li>
+    <li>라운드마다 이웃 8명과 한 번씩 만나 점수를 모읍니다. 새치기는 질서를 만나면 이득을 얻고, 질서는 그만큼 손해를 봅니다. 새치기가 눈총을 만나면 이득이 눈총의 효과만큼 깎이고, 눈총형은 응징에 비용을 씁니다.</li>
+    <li>모든 사람이 이웃 중 가장 점수가 높은 사람의 유형을 따라 합니다. 아주 작은 확률로 새로운 사람이 질서나 새치기로 들어옵니다.</li>
+  </ul>
+
+  <h2>직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="gain">새치기의 이득 <output id="o-gain"></output></label>
+        <input type="range" id="gain" min="10" max="100" step="10" value="50">
+        <span class="hint">새치기가 한 번에 얻는 시간 이득</span></div>
+<div class="ctl"><label for="punish">눈총의 효과 <output id="o-punish"></output></label>
+        <input type="range" id="punish" min="0" max="200" step="20" value="100">
+        <span class="hint">눈총을 받으면 새치기 이득이 얼마나 깎이는지</span></div>
+<div class="ctl"><label for="cost">눈총의 비용 <output id="o-cost"></output></label>
+        <input type="range" id="cost" min="0" max="100" step="10" value="20">
+        <span class="hint">응징하는 사람이 치르는 비용</span></div>
+<div class="ctl"><label for="cutters">처음 새치기 비율 <output id="o-cutters"></output></label>
+        <input type="range" id="cutters" min="5" max="50" step="5" value="20">
+        <span class="hint">처음에 새치기하던 사람</span></div>
+<div class="ctl"><label for="punishers">처음 눈총형 비율 <output id="o-punishers"></output></label>
+        <input type="range" id="punishers" min="0" max="40" step="5" value="20">
+        <span class="hint">처음에 눈총을 주던 사람</span></div>
+    </div>
+    <div class="btns">
+      <button class="primary" id="run">처음부터 다시</button>
+      <button id="reroll">같은 설정, 다른 운</button>
+      <button id="reset">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3>① 줄이 바뀌는 모습</h3>
+    <p>한 칸이 한 사람입니다. 파랑은 질서, 빨강은 새치기, 초록은 눈총형이에요. 어느 색이 어디서부터 퍼지는지 지켜보세요.</p>
+    <canvas id="c-grid" class="rounded" aria-label="① 줄이 바뀌는 모습"></canvas>
+    <div class="anim-bar">
+      <button id="play">⏸ 일시정지</button>
+      <button id="stepbtn">한 단계</button>
+      <button id="restart">처음부터</button>
+      <select id="speed" aria-label="속도"><option value="3">느리게</option><option value="8" selected>보통</option><option value="20">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3>② 유형별 비율의 변화</h3>
+    <p>쌓인 면적이 전체(100%)입니다. 처음엔 새치기가 늘지만 어떻게 되는지 보세요.</p>
+    <canvas id="c-area" class="" aria-label="② 유형별 비율의 변화"></canvas>
+      <div class="legend"><span><i style="background:#3b82f6"></i>질서</span><span><i style="background:#e5484d"></i>새치기</span><span><i style="background:#1fa463"></i>눈총</span></div>
+    </section>
+    <section class="panel chart">
+      <h3>③ 눈총의 효과가 커지면</h3>
+    <p>가로는 눈총의 효과, 세로는 100라운드 뒤에 남은 새치기의 비율입니다. 점은 5번의 실행이에요.</p>
+    <canvas id="c-p" class="" aria-label="③ 눈총의 효과가 커지면"></canvas>
+      <div class="legend"><span id="note-p">계산 중…</span></div>
+    </section>
+    <section class="panel chart">
+      <h3>④ 처음 눈총형이 몇 명이어야 할까</h3>
+    <p>가로는 처음 눈총형의 비율, 세로는 100라운드 뒤 새치기의 비율입니다.</p>
+    <canvas id="c-i" class="" aria-label="④ 처음 눈총형이 몇 명이어야 할까"></canvas>
+      <div class="legend"><span id="note-i">계산 중…</span></div>
+    </section>
+  </div>
+
+  <h2>이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout"><b>말하는 것:</b> 새치기는 처음에는 이득이어서 빠르게 퍼지지만, 새치기를 응징하는 사람이 충분히 있고 응징의 효과가 새치기의 이득보다 크면 새치기가 다시 사라집니다. 반대로 눈총을 주는 사람이 너무 적거나, 눈총을 주는 비용이 크면 질서는 무너집니다. 질서는 가만히 지켜지는 게 아니라 누군가 비용을 치르며 지키는 거예요.</div>
+  <div class="callout"><b>말하지 않는 것:</b> 현실의 줄 서기가 이렇게 단순하다는 뜻은 아닙니다. 실제 새치기는 법과 제도, 직원의 개입, 사회적 평판으로도 억제되고 이 모델에는 그런 요소가 없습니다. 눈총형이 새로 생기지 않는다는 가정도 현실과 다릅니다. 이득과 비용의 숫자는 비교를 위한 상대적인 값입니다.</div>
+
+  <h2>구현 메모</h2>
+  <ul class="small">
+    <li>공간 진화 게임(Nowak, May (1992), "Evolutionary games and spatial chaos", <i>Nature</i> 359)의 방식으로, 이웃과 게임을 하고 이웃 중 최고 점수의 전략을 따라 하는 격자 모델입니다. "응징하는 협력자"를 넣은 것은 이 프로젝트의 설계이며 논문 수치의 재현이 아닙니다.</li>
+    <li>이득이 비용보다 작으면(예: 이득 0.1, 비용 0.2) 응징이 손해라서 눈총형이 먼저 사라지고 새치기가 퍼집니다. 이득이 1.0인 극단에서는 질서가 크게 손해를 보는 구조라 결과가 달라질 수 있어 슬라이더를 1.0까지로 제한했습니다.</li>
+    <li>③, ④번 그래프는 같은 설정에서 해당 값만 바꿔 5번씩, 100라운드 돌린 결과입니다. 검증은 <code>node tools/validate-more.js queue</code>로 할 수 있습니다.</li>
+    <li>코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/queue">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap">시뮬라티오 랩 · 유튜브 <b>@simulatiolab</b></div></footer>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../counter.js"></script>
+</body>
+</html>

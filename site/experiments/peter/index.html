@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>무능한 상사는 왜 생길까 · 시뮬라티오 랩</title>
+<meta name="description" content="일 잘하는 사람을 승진시키면 조직은 좋아질까? 피터의 원리를 승진 방식을 바꿔 직접 돌려보세요.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b>시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../">실험 목록</a><span class="visits" id="visits" hidden title="누적 방문자 수"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>방문 <b>0</b></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1>무능한 상사는 왜 생길까</h1>
+  <p class="lead">일을 가장 잘하는 사람을 승진시키는 건 당연해 보입니다. 그런데 "승진한 자리에서도 잘할지는 별개"라면 어떨까요? 160명 조직으로 승진 방식을 바꿔 가며 조직의 효율을 비교해 봅니다.</p>
+
+  <h2>모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li>위에서부터 1, 5, 11, 21, 41, 81명인 6단계 피라미드 조직입니다. 사람마다 능력(0~10)이 있고 색으로 보입니다(<b style="color:var(--unlucky)">빨강</b>은 낮음, <b style="color:var(--accent)">파랑</b>은 높음).</li>
+    <li>해마다 60세가 된 사람이 은퇴하고, 빈자리는 한 단계 아래에서 승진한 사람이 채웁니다. 맨 아래는 신입이 채웁니다.</li>
+    <li><b>상식 가설</b>(연속성 100%)에서는 승진해도 능력이 그대로입니다. <b>피터 가설</b>(연속성 0%)에서는 승진하면 새 직무에서의 능력이 처음부터 다시 정해집니다.</li>
+    <li>승진 방식은 최고 능력자 / 최저 능력자 / 무작위 / 번갈아 중에서 고릅니다. 조직 효율은 단계별 평균 능력을 위 단계일수록 크게 반영해 계산합니다.</li>
+  </ul>
+
+  <h2>직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="continuity">승진 후에도 능력이 이어질 확률 <output id="o-continuity"></output></label>
+        <input type="range" id="continuity" min="0" max="100" step="25" value="0">
+        <span class="hint">100%면 상식, 0%면 피터의 원리</span></div>
+<div class="ctl"><label for="years">기간 <output id="o-years"></output></label>
+        <input type="range" id="years" min="20" max="100" step="10" value="60">
+        <span class="hint">은퇴·승진이 이어지는 햇수</span></div>
+<div class="ctl"><label for="strategy">승진 방식 <output id="o-strategy"></output></label>
+        <select id="strategy" class="sel"><option value="best" selected>최고 능력자 승진</option><option value="worst">최저 능력자 승진</option><option value="random">무작위 승진</option><option value="alt">번갈아 승진</option></select>
+        <span class="hint">빈자리가 생기면 누구를 올릴지</span></div>
+    </div>
+    <div class="btns">
+      <button class="primary" id="run">처음부터 다시</button>
+      <button id="reroll">같은 설정, 다른 운</button>
+      <button id="reset">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3>① 조직이 바뀌는 모습</h3>
+    <p>한 줄이 한 단계이고 점이 한 사람입니다. 해가 갈수록 색이 어떻게 달라지는지 보세요.</p>
+    <canvas id="c-pyramid" class="rounded" aria-label="① 조직이 바뀌는 모습"></canvas>
+    <div class="anim-bar">
+      <button id="play">⏸ 일시정지</button>
+      <button id="stepbtn">한 단계</button>
+      <button id="restart">처음부터</button>
+      <select id="speed" aria-label="속도"><option value="3">느리게</option><option value="8" selected>보통</option><option value="25">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3>② 조직 효율의 변화</h3>
+    <p>가로는 시간, 세로는 조직 효율입니다. 점선이 처음 수준이에요.</p>
+    <canvas id="c-eff" class="" aria-label="② 조직 효율의 변화"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3>③ 단계별 평균 능력</h3>
+    <p>점선(7)은 처음 평균입니다. 어느 단계가 올라가고 어느 단계가 내려가는지 보세요.</p>
+    <canvas id="c-levels" class="" aria-label="③ 단계별 평균 능력"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3>④ 승진 방식 비교</h3>
+    <p>지금 설정의 기간으로 각 방식을 12번씩 돌린 평균 효율입니다. 파랑은 상식 가설, 빨강은 피터 가설이에요.</p>
+    <canvas id="c-cmp" class="" aria-label="④ 승진 방식 비교"></canvas>
+      <div class="legend"><span><i style="background:#2f6fed"></i>상식 가설 (연속성 100%)</span><span><i style="background:#e5484d"></i>피터 가설 (연속성 0%)</span></div>
+      <div class="legend"><span id="note-cmp">계산 중…</span></div>
+    </section>
+  </div>
+
+  <h2>이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout"><b>말하는 것:</b> "일 잘하는 사람을 승진시키면 된다"는 말은 승진 후에도 능력이 이어진다는 가정에서만 맞습니다. 새 직무의 능력이 별개라면 최고 능력자만 올리는 방식은 오히려 평균 이하의 결과를 냅니다. 승진 기준을 "지금 일을 잘하는가"가 아니라 "새 일을 잘할 수 있는가"로 바꿔야 한다는 뜻이에요.</div>
+  <div class="callout"><b>말하지 않는 것:</b> 피터의 원리가 현실의 모든 조직에 해당한다는 뜻은 아닙니다. 능력이 승진 뒤에 얼마나 이어지는지는 직무마다 다르고, 이 모델에는 교육, 팀워크, 동기 같은 요소가 없습니다. 특히 "최저 능력자를 승진시키는 것"이 좋은 정책이라는 뜻이 절대 아닙니다. 이 단순 모델에서는 유능한 사람을 말단에 남겨 두는 효과 때문에 그렇게 나올 뿐입니다.</div>
+
+  <h2>구현 메모</h2>
+  <ul class="small">
+    <li>Pluchino, Rapisarda, Garofalo (2010), "The Peter principle revisited: a computational study", <i>Physica A</i> 389(3)의 아이디어를 단순화한 구현입니다. 논문과 같은 방향(피터 가설에서는 최고 능력자 승진이 가장 나쁜 쪽)이지만, 논문 수치를 그대로 재현한 것은 아닙니다.</li>
+    <li>논문에서는 "무작위" 또는 "최고·최저 번갈아" 승진이 가장 좋았지만, 이 구현에서는 "최저 능력자 승진"이 가장 높게 나옵니다. 효율 가중치와 능력 재추첨 방식 같은 세부 설정이 달라서 생기는 차이로 보이며 확인하지는 못했습니다.</li>
+    <li>능력은 평균 7, 표준편차 2의 정규분포를 0~10으로 자른 값이고, 효율 가중치는 위에서부터 6, 5, 4, 3, 2, 1입니다. 검증은 <code>node tools/validate-more.js peter</code>로 할 수 있습니다.</li>
+    <li>코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/peter">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap">시뮬라티오 랩 · 유튜브 <b>@simulatiolab</b></div></footer>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../counter.js"></script>
+</body>
+</html>

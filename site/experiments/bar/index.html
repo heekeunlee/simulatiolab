@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>다 같이 가는 식당은 왜 늘 붐빌까 · 시뮬라티오 랩</title>
+<meta name="description" content="모두가 같은 생각을 하면 왜 모두 손해일까? 엘 파롤 바 문제를 예측법을 바꿔 가며 직접 돌려보세요.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b>시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../">실험 목록</a><span class="visits" id="visits" hidden title="누적 방문자 수"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>방문 <b>0</b></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1>다 같이 가는 식당은 왜 늘 붐빌까</h1>
+  <p class="lead">"저 식당은 지난주에 한산했으니 이번 주엔 가야지." 모두가 이렇게 생각하면 이번 주 식당은 미어터집니다. 반대로 모두가 "지난주에 붐볐으니 피하자"고 하면 텅 비어요. 사람들은 어떻게 이 딜레마를 풀까요?</p>
+
+  <h2>모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li>사람 100명이 매주 그 식당에 갈지 정합니다. 손님이 <b>정원(기본 60명)</b>을 넘으면 붐벼서 불만족, 아니면 만족합니다.</li>
+    <li>모두가 "이번 주 손님이 몇 명일까?"를 예측하는 방법을 가지고 있습니다. 지난 8주 기록에 사람마다 다른 비중을 두는 계산식이고, 어떤 건 "지난주를 따라가고" 어떤 건 "지난주의 반대로" 갑니다.</li>
+    <li>각자 최근에 가장 잘 맞힌 예측법으로 이번 주 손님 수를 예측하고, <b>예측이 정원보다 적으면</b> 갑니다.</li>
+    <li>"모두 같은 예측" 설정에서는 모든 사람이 "이번 주도 지난주와 같을 것"이라고 예측합니다.</li>
+  </ul>
+
+  <h2>직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="cap">정원 <output id="o-cap"></output></label>
+        <input type="range" id="cap" min="20" max="90" step="10" value="60">
+        <span class="hint">몇 명까지 오면 여유로운지</span></div>
+<div class="ctl"><label for="strategies">한 사람이 가진 예측법 수 <output id="o-strategies"></output></label>
+        <input type="range" id="strategies" min="1" max="12" step="1" value="5">
+        <span class="hint">많을수록 더 정교하게 고르는 사람</span></div>
+<div class="ctl"><label for="mode">사람들의 예측 방식 <output id="o-mode"></output></label>
+        <select id="mode" class="sel"><option value="diverse" selected>제각각 (사람마다 다른 예측법)</option><option value="same">모두 같음 ("지난주와 같다")</option></select>
+        <span class="hint">모두 같은 방식이면 어떻게 될까</span></div>
+    </div>
+    <div class="btns">
+      <button class="primary" id="run">처음부터 다시</button>
+      <button id="reroll">같은 설정, 다른 운</button>
+      <button id="reset">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3>① 이번 주 식당 풍경</h3>
+    <p>점 100개가 사람입니다. 파랑은 가서 즐긴 사람, 빨강은 가서 붐벼서 고생한 사람, 노랑은 안 갔는데 한산했던 사람(후회), 회색은 안 가서 다행인 사람이에요.</p>
+    <canvas id="c-room" class="rounded" aria-label="① 이번 주 식당 풍경"></canvas>
+    <div class="anim-bar">
+      <button id="play">⏸ 일시정지</button>
+      <button id="stepbtn">한 단계</button>
+      <button id="restart">처음부터</button>
+      <select id="speed" aria-label="속도"><option value="6">느리게</option><option value="15" selected>보통</option><option value="40">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3>② 주마다 손님 수</h3>
+    <p>최근 80주의 손님 수입니다. 점선은 정원이고, 빨간 막대는 붐볐던 주예요.</p>
+    <canvas id="c-weeks" class="" aria-label="② 주마다 손님 수"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3>③ 정원을 바꿔도 손님은 정원 근처</h3>
+    <p>가로는 정원, 세로는 평균 손님 수입니다. 회색 선(손님=정원)과 거의 겹치는지 보세요. 점은 4번의 실행이에요.</p>
+    <canvas id="c-cap" class="" aria-label="③ 정원을 바꿔도 손님은 정원 근처"></canvas>
+      <div class="legend"><span id="note-cap">계산 중…</span></div>
+    </section>
+    <section class="panel chart">
+      <h3>④ 똑똑해져도 소용없다</h3>
+    <p>가로는 한 사람이 가진 예측법 수, 세로는 이번 주 선택이 틀린 사람의 비율입니다. 예측을 더 잘하게 돼도 50%에서 거의 안 내려가요.</p>
+    <canvas id="c-strat" class="" aria-label="④ 똑똑해져도 소용없다"></canvas>
+      <div class="legend"><span id="note-strat">계산 중…</span></div>
+    </section>
+  </div>
+
+  <h2>이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout"><b>말하는 것:</b> 모두가 같은 예측을 하면 한 주는 텅 비고 한 주는 미어터지지만, 사람마다 예측이 제각각이면 손님 수는 정원 근처로 저절로 맞춰집니다. 다만 개개인은 여전히 동전 던지기에 가까워서, 아무리 똑똑하게 예측해도 절반은 "갈걸" 또는 "안 갈걸" 하고 후회합니다. 모두가 같은 정보로 같은 판단을 하는 순간 그 판단은 틀리게 돼요.</div>
+  <div class="callout"><b>말하지 않는 것:</b> 사람들이 실제로 이런 계산식으로 식당을 고른다는 뜻은 아닙니다. 현실에는 맛, 가격, 약속, 소문이 있고 날마다 손님 수가 정해진 규칙으로 변하지도 않습니다. 예측법의 형태(지난 8주의 가중합)와 사람 수(100명)는 제가 정한 설정이고 값을 바꾸면 결과도 달라집니다.</div>
+
+  <h2>구현 메모</h2>
+  <ul class="small">
+    <li>W. Brian Arthur (1994), "Inductive reasoning and bounded rationality", <i>American Economic Review</i> 84(2)의 엘 파롤 바 문제를 구현했습니다. 원 논문은 정원 60명, 사람 100명이고 이 구현도 같은 값을 기본으로 합니다.</li>
+    <li>원 논문의 예측법 목록과 달리 이 구현은 사람마다 무작위 가중합 예측법을 가집니다. 그래서 논문의 그래프와 똑같은 모양은 아닙니다. 이 설정에서는 손님 수가 정원 근처에 아주 안정적으로 모이는 것이 특징입니다.</li>
+    <li>"잘못 고른 사람"은 그 주 결과를 보고 판단합니다. 갔는데 붐볐거나, 안 갔는데 한산했으면 틀린 것으로 셉니다. 검증은 <code>node tools/validate-more.js bar</code>로 할 수 있습니다.</li>
+    <li>코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/bar">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap">시뮬라티오 랩 · 유튜브 <b>@simulatiolab</b></div></footer>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../counter.js"></script>
+</body>
+</html>
