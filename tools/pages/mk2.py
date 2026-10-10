@@ -117,6 +117,7 @@ def page(sp):
 {foot}
 <script src="../../i18n.js"></script>
 <script src="../../i18n-en.js"></script>
+<script src="../../layout.js"></script>
 <script src="../../lib.js"></script>
 <script src="sim.js"></script>
 <script src="app.js"></script>

@@ -139,3 +139,26 @@ html[lang="en"] body { word-break: normal; }
 
 footer a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
 footer a:hover { color: var(--accent); }
+
+/* ---------- 작업대: 입력값(왼쪽 고정) + 결과(오른쪽) ---------- */
+main.wrap.wide { max-width: 1320px; }
+.workbench { display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 20px; align-items: start; margin-top: 12px; }
+.wb-side { position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow: auto; border-radius: 16px; }
+.wb-side .panel { margin: 0; }
+.wb-side .controls { grid-template-columns: 1fr; gap: 12px; }
+.wb-side .btns .primary { flex: 1 1 100%; }
+.wb-side .btns { margin-top: 14px; }
+.wb-main { min-width: 0; }
+.wb-main > :first-child { margin-top: 0 !important; }
+.wb-main .stats { margin-top: 0; margin-bottom: 16px; }
+.wb-main .charts { grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); }
+.wb-fab { display: none; }
+@media (max-width: 980px) {
+  .workbench { display: block; }
+  .wb-side { position: static; max-height: none; overflow: visible; }
+  .wb-sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; margin: 0; max-height: 52vh; overflow: auto; border-radius: 18px 18px 0 0; box-shadow: 0 -8px 28px rgba(20,30,60,.22); transform: translateY(105%); transition: transform .22s ease; padding-bottom: 72px; }
+  .wb-sheet.open { transform: translateY(0); }
+  .wb-sheet .controls { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+  .wb-fab { display: inline-flex; position: fixed; right: 16px; bottom: 16px; z-index: 60; align-items: center; padding: 12px 18px; font: inherit; font-size: 14.5px; font-weight: 700; color: #fff; background: var(--accent); border: 0; border-radius: 99px; box-shadow: 0 6px 20px rgba(47,111,237,.45); cursor: pointer; }
+  .wb-main .stats { margin-bottom: 12px; }
+}
