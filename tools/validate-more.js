@@ -74,5 +74,22 @@ run.vote = () => {
   for (const q of [0, 0.4, 0.8, 1]) { const r = V.study({ k: 4, polar: q }, 300), h = (x) => (r.hit[x] / Math.max(1, r.withCondorcet) * 100).toFixed(0) + '%'; console.log(`  양극화 ${q}  승자 있음 ${(r.withCondorcet / r.n * 100).toFixed(0)}%  다수 ${h('plurality')} 결선 ${h('runoff')} 선호 ${h('irv')} 보르다 ${h('borda')}`); }
 };
 
+run.firefly = () => {
+  const F = require('../site/experiments/firefly/sim.js');
+  console.log('결합 세기별 최종 동기화 정도 r (반경 0.4, 퍼짐 8%, 4회 평균)');
+  for (const c of [0, 0.005, 0.01, 0.02, 0.03, 0.05, 0.08]) console.log(`  결합 ${(c * 100).toFixed(1)}%  r=${mean(F.finalSync({ coupling: c }, 4)).toFixed(2)}`);
+  console.log('이웃 반경별 (결합 3%)'); for (const r of [0.1, 0.2, 0.3, 0.5, 1]) console.log(`  반경 ${r}  r=${mean(F.finalSync({ radius: r }, 4)).toFixed(2)}`);
+  console.log('주파수 퍼짐별 (결합 3%)'); for (const sp of [0, 0.05, 0.1, 0.15, 0.2]) console.log(`  퍼짐 ${(sp * 100).toFixed(0)}%  r=${mean(F.finalSync({ spread: sp }, 4)).toFixed(2)}`);
+};
+
+run.revolution = () => {
+  const R = require('../site/experiments/revolution/sim.js');
+  const f = (o) => (mean(R.finalShare(o, 12)) * 100).toFixed(0) + '%';
+  console.log('최종 참여 비율 (12회 평균)');
+  console.log('  기본(평균 25%, 퍼짐 10%, 선동가 1%):', f({}));
+  for (const sp of [0, 0.05, 0.1, 0.15, 0.2, 0.3]) console.log(`  퍼짐 ${sp}: 선동가 1% ${f({ spread: sp })} | 선동가 0% ${f({ spread: sp, radicals: 0 })}`);
+  for (const m of [0.1, 0.2, 0.3, 0.4, 0.5]) console.log(`  평균 문턱 ${m}: 선동가 1% ${f({ mean: m })} | 선동가 0% ${f({ mean: m, radicals: 0 })}`);
+};
+
 if (!run[which]) { console.log('사용법: node tools/validate-more.js', Object.keys(run).join('|')); process.exit(0); }
 run[which]();

@@ -1,0 +1,16 @@
+DYN = {
+'색조 (가로) · 복잡도 (세로)': 'Hue (horizontal) · complexity (vertical)',
+'가장 인기 있는 화풍': 'Most popular style',
+'따라 그리는 비율': 'Copy rate',
+'지금 다양성': 'Diversity now',
+'처음 {#0} (최대 1)': 'Start {0} (max 1)',
+'화풍 쏠림': 'Style concentration',
+'가장 인기 있는 화풍과 비슷한 화가': 'Painters close to the most popular style',
+'이번 라운드 따라 그림': 'Copied this round',
+'다른 화가의 화풍을 따라간 사람': 'Painters who followed someone else\'s style',
+'이번 라운드 혁신': 'Innovated this round',
+'새 화풍을 시도한 사람': 'Painters who tried a new style',
+'파랑: 다양성, 금색: 화풍 쏠림, 회색: 인기 편향이 없을 때의 다양성': 'Blue: diversity, gold: style concentration, gray: diversity with no popularity bias',
+'화단 번호': 'Gallery',
+'{#0}/{#1} 라운드 · 화풍 쏠림 {%2}': 'Round {0}/{1} · style concentration {2}',
+}

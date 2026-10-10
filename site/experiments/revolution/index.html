@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="How Does a Revolution Begin? · Simulatio Lab">혁명은 어떻게 시작될까 · 시뮬라티오 랩</title>
+<meta name="description" content="광장에 몇 사람이 나서면 수백, 수천 명이 따라 나설까? 문턱 모델로 집단행동이 갑자기 번지는 조건을 직접 돌려보세요." data-en-content="When does a few people stepping forward turn into thousands? Run the threshold model yourself and see how collective action tips.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1 data-en="How Does a Revolution Begin?">혁명은 어떻게 시작될까</h1>
+  <p class="lead" data-en="Sometimes hundreds gather and nothing happens; sometimes a handful of sparks fill the whole square. Why do outcomes split so sharply among the same kind of people? With one simple rule, &quot;decide whether to join by seeing how many others have come out,&quot; we look at when collective action spreads.">어떤 때는 수백 명이 모여도 아무 일도 일어나지 않고, 어떤 때는 몇 사람의 불씨가 광장을 가득 채웁니다. 모두가 같은 사람들인데 결과가 왜 이렇게 갈릴까요? "다른 사람이 얼마나 나왔는지 보고 나설지 정한다"는 단순한 규칙으로 집단행동이 번지는 조건을 확인해 봅니다.</p>
+
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li data-en="Each of the 1,000 people has a &quot;threshold&quot;: they join once at least this share of everyone is already in the square. Low-threshold people join easily; high-threshold people join only after a crowd has formed.">사람 1,000명은 각자 "문턱"을 가집니다. 광장에 이미 나온 사람이 전체의 이 비율 이상이면 자기도 나섭니다. 문턱이 낮은 사람은 쉽게 나서고, 높은 사람은 많은 사람이 모인 뒤에야 나서요.</li>
+    <li data-en="Thresholds follow a normal distribution (0–100%) with a mean and a spread. A few people are &lt;b&gt;instigators&lt;/b&gt; with a threshold of 0, who step forward even when nobody is there.">문턱은 평균과 퍼짐을 가진 정규분포(0~100%)를 따릅니다. 그중 일부는 문턱이 0인 <b>선동가</b>로, 아무도 없어도 먼저 나섭니다.</li>
+    <li data-en="Each round, everyone whose threshold is at or below &quot;the share already out&quot; steps forward. It ends when no one new joins.">라운드마다 "지금 나온 사람의 비율" 이하의 문턱을 가진 사람이 모두 나서고, 더는 늘지 않으면 끝납니다.</li>
+    <li data-en="Dots are people, colored from &lt;b style=&quot;color:#f5b041&quot;&gt;yellow&lt;/b&gt; (early) to &lt;b style=&quot;color:#c8283c&quot;&gt;red&lt;/b&gt; (late) by the round they joined. A black ring marks an instigator.">점은 사람이고 나선 라운드에 따라 <b style="color:#f5b041">노랑</b>(일찍)에서 <b style="color:#c8283c">빨강</b>(늦게)으로 칠해집니다. 검은 테두리는 선동가예요.</li>
+  </ul>
+
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="mean" data-en="Mean threshold &lt;output id=&quot;o-mean&quot;&gt;&lt;/output&gt;">평균 문턱 <output id="o-mean"></output></label>
+        <input type="range" id="mean" min="5" max="60" step="5" value="20">
+        <span class="hint" data-en="Larger means a harder place to step forward">클수록 나서기 어려운 사회</span></div>
+<div class="ctl"><label for="spread" data-en="Threshold spread &lt;output id=&quot;o-spread&quot;&gt;&lt;/output&gt;">문턱의 퍼짐 <output id="o-spread"></output></label>
+        <input type="range" id="spread" min="0" max="30" step="5" value="15">
+        <span class="hint" data-en="Larger means thresholds vary more">클수록 사람마다 문턱이 제각각</span></div>
+<div class="ctl"><label for="radicals" data-en="Share of instigators &lt;output id=&quot;o-radicals&quot;&gt;&lt;/output&gt;">선동가 비율 <output id="o-radicals"></output></label>
+        <input type="range" id="radicals" min="0" max="5" step="0.5" value="1">
+        <span class="hint" data-en="People who step forward first (threshold 0)">처음부터 나서는 사람 (문턱 0)</span></div>
+<div class="ctl"><label for="mode" data-en="Threshold distribution &lt;output id=&quot;o-mode&quot;&gt;&lt;/output&gt;">문턱 분포 <output id="o-mode"></output></label>
+        <select id="mode" class="sel"><option value="normal" selected data-en="Normal distribution (default)">정규분포 (기본)</option><option value="classic" data-en="Classic example: thresholds 0%, 1%, 2%, … (100 people)">고전 예시: 문턱이 0%, 1%, 2%, … (100명)</option><option value="missing" data-en="Classic example with just one person changed">고전 예시에서 한 명만 바꾸면</option></select>
+        <span class="hint" data-en="The sliders above are ignored for the classic examples">고전 예시를 고르면 위 슬라이더는 쓰지 않아요</span></div>
+    </div>
+    <div class="btns">
+      <button class=primary id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Same settings, new luck">같은 설정, 다른 운</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3 data-en="① The Square">① 광장</h3>
+    <p data-en="Each dot is a person, with low-threshold people at the top left and high-threshold people at the bottom right. Watch how the crowd spreads round by round.">한 점이 한 사람입니다. 문턱이 낮은 사람이 왼쪽 위에 있고 높은 사람이 오른쪽 아래에 있어요. 라운드마다 광장에 나오는 사람이 어떻게 번지는지 지켜보세요.</p>
+    <canvas id="c-crowd" class="rounded" aria-label="① The Square"></canvas>
+    <div class="anim-bar">
+      <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
+      <button id="stepbtn" data-en="Step">한 단계</button>
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="speed"><option value="3" data-en="Slow">느리게</option><option value="8" selected data-en="Normal">보통</option><option value="20" data-en="Fast">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3 data-en="② Where Does It Stop?">② 어디서 멈출까</h3>
+    <p data-en="The blue curve is &quot;the share who will join next if this many are already out.&quot; While the curve is above the diagonal (y=x) the crowd keeps growing, and it stops where the curve meets the diagonal. The red staircase is the actual path.">파란 곡선은 "지금 광장에 이만큼 나와 있으면 다음에 나설 사람의 비율"입니다. 곡선이 대각선(y=x)보다 위에 있는 동안은 계속 늘고, 대각선과 만나는 곳에서 멈춰요. 빨간 계단이 실제 진행 경로입니다.</p>
+    <canvas id="c-cdf" class="" aria-label="② Where Does It Stop?"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ Participation Over Time">③ 시간에 따른 참여</h3>
+    <p data-en="Shows how the share of people in the square changes over rounds. See whether it grows slowly at first and then bursts.">라운드가 지나며 광장에 나온 사람의 비율이 어떻게 변하는지 보여줍니다. 처음엔 천천히 늘다가 한꺼번에 터지는지 보세요.</p>
+    <canvas id="c-time" class="" aria-label="③ Participation Over Time"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="④ When the Mean Threshold Changes">④ 평균 문턱을 바꾸면</h3>
+    <p data-en="The horizontal axis is the mean threshold, the vertical axis is the share in the square at the end. Dots are 6 runs, and the gray line is the case with no instigators at all.">가로는 평균 문턱, 세로는 끝난 뒤 광장에 나온 사람의 비율입니다. 점은 6번의 실행이고, 회색 선은 선동가가 한 명도 없을 때예요.</p>
+    <canvas id="c-sweep" class="" aria-label="④ When the Mean Threshold Changes"></canvas>
+      <div class="legend"><span id="note-sweep" data-en="Calculating…">계산 중…</span></div>
+    </section>
+  </div>
+
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout" data-en="&lt;b&gt;What it shows:&lt;/b&gt; Among the very same people, the outcome can split between &quot;the square fills up&quot; and &quot;nothing happens,&quot; depending on whether there is a spark and how varied the thresholds are. With the same mean threshold, more varied thresholds let the cascade continue more easily, and with no spark at all nothing starts however low the mean is. In the classic example, changing just one person with a 1% threshold turns a square where all 100 join into one that stops at 1."><b>말하는 것:</b> 같은 사람들이어도 불씨가 있는지, 문턱이 얼마나 제각각인지에 따라 결과가 "광장을 가득 채움"과 "아무 일 없음"으로 갈릴 수 있습니다. 평균 문턱이 같아도 문턱이 다양할수록 연쇄가 쉽게 이어지고, 불씨가 한 명도 없으면 평균 문턱이 아무리 낮아도 아무 일도 시작되지 않아요. 고전 예시에서는 문턱이 1%인 사람 한 명이 바뀌었을 뿐인데 100명 모두가 나서던 광장이 1명에서 멈춥니다.</div>
+  <div class="callout" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; It does not mean real revolutions or protests unfold by these numbers, and it takes no side and predicts nothing. Reality has information, fear, organization, government responses and social networks; this model is a very simple society where people decide only by &quot;the share of others who have come out.&quot; People&#x27;s thresholds are invisible in reality, and the numbers here are settings chosen for explanation."><b>말하지 않는 것:</b> 실제 혁명이나 시위가 이 숫자대로 일어난다는 뜻이 아니고, 어느 쪽 편을 들거나 무언가를 예측하는 모델도 아닙니다. 현실에는 정보, 두려움, 조직, 정부의 대응, 사람들 사이의 연결망이 있는데 이 모델은 "다른 사람이 나온 비율"만 보고 결정하는 아주 단순한 사회입니다. 사람들의 문턱은 눈에 보이지 않아 현실에서는 알기 어렵고, 여기서 쓴 숫자는 설명을 위한 설정일 뿐입니다.</div>
+
+  <h2 data-en="Implementation notes">구현 메모</h2>
+  <ul class="small">
+    <li  data-en="This implements the model of Granovetter (1978), &quot;Threshold Models of Collective Behavior&quot;, &lt;i&gt;American Journal of Sociology&lt;/i&gt; 83(6). The classic example (thresholds 0, 1, 2, …, 99) and the case with one person changed reproduce the paper&#x27;s famous illustration with 100 people; verify with &lt;code&gt;node tools/validate-revolution.js&lt;/code&gt;.">Granovetter (1978), "Threshold Models of Collective Behavior", <i>American Journal of Sociology</i> 83(6)의 모델을 구현했습니다. 고전 예시(문턱이 0, 1, 2, …, 99)와 그중 한 명을 바꾼 경우는 이 논문의 유명한 예를 100명으로 재현한 것이고, <code>node tools/validate-revolution.js</code>로 확인할 수 있습니다.</li>
+    <li  data-en="The normal-distribution thresholds (mean 20%, spread 15%, 1% instigators) are this project&#x27;s settings, not the paper&#x27;s numbers. Across 20 runs of the default settings every run reached 100%, and with 0% instigators every run stayed at 0%. At a mean of 25% the outcomes split anywhere from 2% to 100%.">정규분포 문턱(평균 20%, 퍼짐 15%, 선동가 1%)은 이 프로젝트의 설정이며 논문의 수치가 아닙니다. 기본 설정으로 20번 돌리면 모두 100%였고 선동가가 0%이면 모두 0%였습니다. 평균을 25%로 올리면 결과가 2%에서 100%까지 갈라집니다.</li>
+    <li  data-en="Graph ④ keeps the current spread and instigator share, changes only the mean threshold, and runs 6 times each. With a classic example, ①–③ show 100 people with thresholds exactly 0, 1%, 2%, …, while ④ stays based on the normal distribution.">④번 그래프는 현재 퍼짐과 선동가 비율을 유지하고 평균 문턱만 바꿔 6번씩 돌린 결과입니다. 고전 예시를 고르면 ①~③은 100명, 문턱이 정확히 0, 1%, 2%…인 경우를 보여주고 ④는 정규분포 기준으로 유지됩니다.</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/revolution&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/revolution">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap" data-en="Simulatio Lab · Operator: Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../counter.js"></script>
+</body>
+</html>

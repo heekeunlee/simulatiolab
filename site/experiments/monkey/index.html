@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Can Monkeys Write Hamlet? · Simulatio Lab">원숭이가 햄릿을 쓸 수 있을까 · 시뮬라티오 랩</title>
+<meta name="description" content="원숭이가 아무 글자나 쳐서 햄릿의 대사를 쓸 수 있을까? 순수한 우연과 누적 선택을 직접 비교해 보세요." data-en-content="Could monkeys typing random letters write a line of Hamlet? Compare pure chance with cumulative selection yourself.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1 data-en="Can Monkeys Write Hamlet?">원숭이가 햄릿을 쓸 수 있을까</h1>
+  <p class="lead" data-en="The &quot;infinite monkey theorem&quot; says that a monkey hitting typewriter keys at random will eventually produce Hamlet. But how long is &quot;eventually&quot;? Here is a race toward the same target, one side by pure chance and one by selection that improves little by little.">원숭이가 타자기를 무작위로 두드리면 언젠가 햄릿이 나온다는 "무한 원숭이 정리"가 있습니다. 하지만 "언젠가"는 얼마나 걸릴까요? 같은 목표를 "순수한 우연"과 "조금씩 나아지는 선택"으로 찾아가는 경주를 보여 드립니다.</p>
+
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li data-en="The symbols are the 26 uppercase letters plus the space, 27 in all, and the target is a line from Hamlet (&lt;code&gt;TO BE OR NOT TO BE&lt;/code&gt; or &lt;code&gt;METHINKS IT IS LIKE A WEASEL&lt;/code&gt;).">글자는 알파벳 대문자 26개와 띄어쓰기를 합친 27가지이고, 목표는 햄릿의 대사입니다(<code>TO BE OR NOT TO BE</code>, <code>METHINKS IT IS LIKE A WEASEL</code>).</li>
+    <li data-en="&lt;b style=&quot;color:var(--unlucky)&quot;&gt;Pure chance&lt;/b&gt;: at every step, 5,000 completely random sentences are typed and the one matching the target in the most places is recorded. Earlier results have no influence on later attempts."><b style="color:var(--unlucky)">순수한 우연</b>: 한 단계마다 완전히 무작위인 문장 5,000개를 찍어 보고, 목표와 가장 많이 맞은 문장을 기록합니다. 이전 결과는 다음 시도에 아무 영향을 주지 않습니다.</li>
+    <li data-en="&lt;b style=&quot;color:var(--lucky)&quot;&gt;Cumulative selection&lt;/b&gt;: start from one random sentence; each generation makes copies and changes each letter with some probability. The sentence (parent included) matching the target in the most places becomes the next generation&#x27;s parent. The difference is that correct letters are carried over."><b style="color:var(--lucky)">누적 선택</b>: 무작위 문장 하나에서 시작해, 한 세대마다 복사본을 만들고 글자마다 일정 확률로 바꿉니다. 목표와 가장 많이 맞는 문장(부모 포함)이 다음 세대의 부모가 됩니다. 맞은 글자가 다음 세대로 이어지는 것이 차이입니다.</li>
+    <li data-en="Both methods are scored only by &quot;how many letters match the target.&quot; Highlighted letter boxes are the ones that match.">두 방식 모두 "목표와 맞은 글자 수"로만 평가합니다. 초록색 글자 칸이 목표와 맞은 곳이에요.</li>
+  </ul>
+
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="offspring" data-en="Copies per generation &lt;output id=&quot;o-offspring&quot;&gt;&lt;/output&gt;">한 세대의 복사본 수 <output id="o-offspring"></output></label>
+        <input type="range" id="offspring" min="10" max="200" step="10" value="100">
+        <span class="hint" data-en="How many candidates cumulative selection makes at once">누적 선택에서 한 번에 만드는 후보 수</span></div>
+<div class="ctl"><label for="mutation" data-en="Chance each letter changes &lt;output id=&quot;o-mutation&quot;&gt;&lt;/output&gt;">글자마다 바뀔 확률 <output id="o-mutation"></output></label>
+        <input type="range" id="mutation" min="0.5" max="10" step="0.5" value="5">
+        <span class="hint" data-en="The mutation rate. Too low is slow; too high shakes the correct letters too">돌연변이율. 너무 낮으면 느리고, 너무 높으면 맞은 글자도 흔들려요</span></div>
+<div class="ctl"><label for="target" data-en="Target sentence &lt;output id=&quot;o-target&quot;&gt;&lt;/output&gt;">목표 문장 <output id="o-target"></output></label>
+        <select id="target" class="sel"><option value="tobe" selected data-en="TO BE OR NOT TO BE (18 letters)">TO BE OR NOT TO BE (18글자)</option><option value="weasel" data-en="METHINKS IT IS LIKE A WEASEL (28 letters)">METHINKS IT IS LIKE A WEASEL (28글자)</option></select>
+        <span class="hint" data-en="Both are lines from Hamlet">둘 다 햄릿의 대사예요</span></div>
+    </div>
+    <div class="btns">
+      <button class=primary id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Same settings, new monkeys">같은 설정, 다른 원숭이</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3 data-en="① The Race Between the Two Methods">① 두 방식의 경주</h3>
+    <p data-en="The top is pure chance and the bottom is cumulative selection. Colored boxes are letters that match the target. The gray row is the random text chance just typed.">위쪽은 순수한 우연, 아래쪽은 누적 선택입니다. 초록색으로 칠해진 칸이 목표와 맞은 글자예요. 회색 줄은 우연이 방금 찍은 무작위 글자입니다.</p>
+    <canvas id="c-text" class="rounded" aria-label="① The Race Between the Two Methods"></canvas>
+    <div class="anim-bar">
+      <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
+      <button id="stepbtn" data-en="Step">한 단계</button>
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="speed"><option value="4" data-en="Slow">느리게</option><option value="12" selected data-en="Normal">보통</option><option value="30" data-en="Fast">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3 data-en="② Attempts and Letters Matched">② 시도 횟수와 맞은 글자 수</h3>
+    <p data-en="The horizontal axis is the number of attempts (log scale), the vertical axis is letters matched. Selection finishes in a few thousand attempts, while chance falls far short even after a million.">가로는 시도 횟수(로그 눈금), 세로는 맞은 글자 수입니다. 선택은 몇천 번 만에 끝나는데 우연은 100만 번을 찍어도 한참 모자랍니다.</p>
+    <canvas id="c-race" class="" aria-label="② Attempts and Letters Matched"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--unlucky)&quot;&gt;&lt;/i&gt;Pure chance"><i style="background:var(--unlucky)"></i>순수한 우연</span><span data-en="&lt;i style=&quot;background:var(--lucky)&quot;&gt;&lt;/i&gt;Cumulative selection"><i style="background:var(--lucky)"></i>누적 선택</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ As the Sentence Gets Longer">③ 문장이 길어지면</h3>
+    <p data-en="The horizontal axis is sentence length, the vertical axis is the number of attempts needed (log scale). The red line is chance&#x27;s expected value (27&lt;sup&gt;L&lt;/sup&gt;), and the blue dots are 6 runs of selection each.">가로는 문장 길이, 세로는 성공에 필요한 시도 횟수(로그 눈금)입니다. 붉은 선은 우연의 기대값(27<sup>L</sup>), 파란 점은 선택을 6번씩 돌린 결과예요.</p>
+    <canvas id="c-expect" class="" aria-label="③ As the Sentence Gets Longer"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Cumulative selection (simulation average)"><i style="background:var(--accent)"></i>누적 선택 (시뮬레이션 평균)</span><span data-en="&lt;i style=&quot;background:var(--unlucky)&quot;&gt;&lt;/i&gt;Pure chance (expected value 27^L)"><i style="background:var(--unlucky)"></i>순수한 우연 (기대값 27^L)</span></div>
+      <div class="legend"><span id="note-expect" data-en="Calculating…">계산 중…</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="④ When the Mutation Rate Changes">④ 돌연변이율을 바꾸면</h3>
+    <p data-en="The horizontal axis is the mutation rate, the vertical axis is the number of generations until completion. Dots are 6 runs.">가로는 돌연변이율, 세로는 완성에 걸린 세대 수입니다. 점은 6번의 실행이에요.</p>
+    <canvas id="c-mut" class="" aria-label="④ When the Mutation Rate Changes"></canvas>
+      <div class="legend"><span id="note-mut" data-en="Calculating…">계산 중…</span></div>
+    </section>
+  </div>
+
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout" data-en="&lt;b&gt;What it shows:&lt;/b&gt; For chance trying to hit the target in one go, the expected number of attempts grows 27-fold with every added letter, which makes it practically impossible. Cumulative selection, which keeps the letters it got right, reaches the same sentence in a few thousand attempts. Even with the same randomness, &quot;getting everything right at once&quot; and &quot;building up step by step&quot; are completely different things."><b>말하는 것:</b> 목표를 한 번에 맞히려는 우연은 문장이 길어질수록 기대 시도 횟수가 27배씩 불어나서 사실상 불가능해지지만, 맞은 글자를 이어 가는 누적 선택은 몇천 번 만에 같은 문장에 도달합니다. 같은 우연이라도 "한 번에 다 맞히기"와 "조금씩 쌓기"는 전혀 다른 일이에요.</div>
+  <div class="callout" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; It does not mean real biological evolution works like this program. The model has a preset target sentence, whereas evolution has no set goal, a point Dawkins himself made. This experiment only shows the difference in power between &quot;chance that must hit in one go&quot; and &quot;selection that filters at every step.&quot; It is also not a claim about whether monkeys could actually write Hamlet."><b>말하지 않는 것:</b> 실제 생물의 진화가 이 프로그램처럼 일어난다는 뜻이 아닙니다. 이 모델에는 미리 정해진 목표 문장이 있지만 진화에는 정해진 목표가 없고, 도킨스 자신도 이 점을 밝혔습니다. 이 실험은 "한 번에 맞히는 우연"과 "단계마다 걸러 내는 선택"의 힘의 차이만 보여줍니다. 원숭이가 실제로 햄릿을 쓰는지에 대한 이야기도 아닙니다.</div>
+
+  <h2 data-en="Implementation notes">구현 메모</h2>
+  <ul class="small">
+    <li  data-en="This is this project&#x27;s own implementation, inspired by the thought experiment known as the &quot;infinite monkey theorem&quot; and by the &quot;weasel program&quot; Richard Dawkins described in &lt;i&gt;The Blind Watchmaker&lt;/i&gt; (1986). It is not a literal port of the program in the book.">"무한 원숭이 정리"라고 알려진 사고 실험과, 리처드 도킨스가 <i>The Blind Watchmaker</i>(1986)에서 소개한 "위즐(weasel) 프로그램"에서 발상을 얻은 이 프로젝트의 구현입니다. 책의 프로그램을 그대로 옮긴 것은 아닙니다.</li>
+    <li  data-en="The targets are lines from Hamlet: &quot;To be, or not to be&quot; (Act 3, Scene 1) and &quot;Methinks it is like a weasel&quot; (Act 3, Scene 2). The symbols are the 26 uppercase letters and the space; punctuation such as commas is left out.">목표 문장은 햄릿의 대사입니다: "To be, or not to be"(3막 1장)와 "Methinks it is like a weasel"(3막 2장). 글자는 알파벳 대문자 26개와 띄어쓰기이고 쉼표 같은 부호는 뺐습니다.</li>
+    <li  data-en="With the default settings (100 copies, 5% mutation), 20 runs took on average 46 generations (min 26, max 89) for &lt;code&gt;TO BE OR NOT TO BE&lt;/code&gt; and 77 generations (min 43, max 116) for &lt;code&gt;METHINKS IT IS LIKE A WEASEL&lt;/code&gt;. After a million attempts, chance had matched only about 7/18 and 9/28.">기본 설정(복사본 100개, 돌연변이율 5%)으로 20번 돌리면 <code>TO BE OR NOT TO BE</code>는 평균 46세대(최소 26, 최대 89), <code>METHINKS IT IS LIKE A WEASEL</code>은 평균 77세대(최소 43, 최대 116)가 걸렸습니다. 우연은 100만 번을 찍어도 각각 7/18, 9/28 정도만 맞았습니다.</li>
+    <li  data-en="The expected number of attempts to hit an L-letter sentence by chance in one go is 27&lt;sup&gt;L&lt;/sup&gt;. &quot;One billion attempts per second&quot; is this project&#x27;s assumption, and the age of the universe is taken as about 13.8 billion years. For 18 letters that is about 1.8 billion years (0.13 times the age of the universe); for 28 letters, about 3.8×10&lt;sup&gt;23&lt;/sup&gt; years.">우연으로 L글자를 한 번에 맞힐 기대 시도 횟수는 27<sup>L</sup>입니다. "초당 10억 번 시도"는 이 프로젝트의 가정이고, 우주 나이는 약 138억 년으로 계산했습니다. 18글자는 약 18억 년(우주 나이의 0.13배), 28글자는 약 3.8×10<sup>23</sup>년입니다.</li>
+    <li  data-en="For very short sentences (1 to 2 letters), cumulative selection with these settings is actually slower than chance, because with only 5% of letters changing, even 100 copies rarely differ. You can verify with &lt;code&gt;node tools/validate-monkey.js&lt;/code&gt;.">문장이 아주 짧을 때(1~2글자)는 이 설정의 누적 선택이 오히려 우연보다 느립니다. 글자마다 5%만 바뀌기 때문에 복사본 100개로도 변화가 드물기 때문입니다. 검증은 <code>node tools/validate-monkey.js</code>로 할 수 있습니다.</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/monkey&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/monkey">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap" data-en="Simulatio Lab · Operator: Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../counter.js"></script>
+</body>
+</html>

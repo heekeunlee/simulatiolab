@@ -31,7 +31,8 @@ TITLE_ATTR = "Visitors today · total (Korea time)"
 esc = lambda s: H.escape(s, quote=True)
 
 root = ROOT
-pages = [root + 'index.html'] + sorted(glob.glob(root + 'experiments/*/index.html'))
+LEGACY = ['bar','dating','peter','queue','rumor','schelling','talent-vs-luck','traffic','voting','wealth','youtube']
+pages = [root + 'experiments/%s/index.html' % k for k in LEGACY]  # 새 페이지는 tools/pages/*.py 가 data-en을 직접 만든다
 for pg in pages:
     src = open(pg, encoding='utf-8').read()
     src = re.sub(r' data-en(?:-title|-content)?="[^"]*"', '', src)

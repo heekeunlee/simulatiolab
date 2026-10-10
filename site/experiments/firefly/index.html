@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Why Do Fireflies Flash in Unison? · Simulatio Lab">반딧불이는 왜 동시에 깜빡일까 · 시뮬라티오 랩</title>
+<meta name="description" content="지휘자도 없는데 수백 마리가 한꺼번에 반짝이는 이유를 펄스 결합 진동자 모델로 직접 돌려보세요." data-en-content="Nobody conducts them, yet hundreds flash together. Run a pulse-coupled oscillator model yourself to see why.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1 data-en="Why Do Fireflies Flash in Unison?">반딧불이는 왜 동시에 깜빡일까</h1>
+  <p class="lead" data-en="There is no conductor and no signal, yet on a summer night the fireflies in a forest end up flashing all at once. Can merely seeing each other&#x27;s light produce that? We check with 150 fireflies.">지휘자도 신호도 없는데, 여름밤 숲의 반딧불이들은 어느새 한꺼번에 반짝입니다. 서로의 불빛을 본다는 것만으로 이런 일이 생길 수 있을까요? 반딧불이 150마리로 확인해 봅니다.</p>
+
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li data-en="150 fireflies are scattered across the screen, and each has an internal &quot;clock&quot; (its phase). The clock runs at a steady speed, and when it completes a turn the firefly &lt;b&gt;flashes&lt;/b&gt; and resets.">150마리가 화면에 흩어져 있고, 저마다 안에 "시계"(위상)가 하나 있습니다. 시계는 일정한 속도로 돌다가 한 바퀴를 채우면 <b>반짝</b>이고 처음으로 돌아갑니다.</li>
+    <li data-en="Each firefly&#x27;s clock runs at a slightly different speed. Left alone, their beats drift apart and they flash independently.">반딧불이마다 시계가 도는 속도가 조금씩 다릅니다. 그대로 두면 서로 박자가 어긋나 제각각 깜빡입니다.</li>
+    <li data-en="When a nearby firefly (within its visible range) flashes, it &lt;b&gt;advances its own clock a little&lt;/b&gt;. If that fills the turn, it flashes right along with it.">가까이 있는 반딧불이(볼 수 있는 범위 안)가 반짝이는 걸 보면, 자기 시계를 <b>조금 앞당깁니다</b>. 그 바람에 한 바퀴가 차면 바로 따라서 반짝입니다.</li>
+    <li data-en="The synchrony r is the length of the average arrow when every clock is placed as a point on a circle. 0 means independent, 1 means perfectly simultaneous.">동기화 정도 r은 모든 시계를 원 위의 점으로 놓고 평균 낸 화살표의 길이입니다. 0이면 제각각, 1이면 완전히 동시입니다.</li>
+  </ul>
+
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="coupling" data-en="Coupling strength &lt;output id=&quot;o-coupling&quot;&gt;&lt;/output&gt;">결합 세기 <output id="o-coupling"></output></label>
+        <input type="range" id="coupling" min="0" max="8" step="0.5" value="2.5">
+        <span class="hint" data-en="How far a firefly advances its clock each time it sees a neighbor flash">이웃이 반짝이는 걸 볼 때마다 자기 시계를 앞당기는 정도</span></div>
+<div class="ctl"><label for="radius" data-en="Visible range &lt;output id=&quot;o-radius&quot;&gt;&lt;/output&gt;">볼 수 있는 범위 <output id="o-radius"></output></label>
+        <input type="range" id="radius" min="10" max="100" step="5" value="30">
+        <span class="hint" data-en="Relative to the screen width. Only fireflies inside are seen">화면 너비 대비. 이 안의 반딧불이만 보입니다</span></div>
+<div class="ctl"><label for="spread" data-en="Spread in flashing speed &lt;output id=&quot;o-spread&quot;&gt;&lt;/output&gt;">반짝이는 속도의 차이 <output id="o-spread"></output></label>
+        <input type="range" id="spread" min="0" max="20" step="1" value="10">
+        <span class="hint" data-en="Larger means each firefly keeps a more different beat">클수록 개체마다 박자가 더 달라요</span></div>
+    </div>
+    <div class="btns">
+      <button class=primary id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Same settings, new forest">같은 설정, 다른 숲</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3 data-en="① Watching the Night Forest">① 밤숲 지켜보기</h3>
+    <p data-en="The glowing yellow dots are fireflies that have just flashed. They start out independent; watch what happens as time goes on.">노랗게 빛나는 점이 지금 막 반짝인 반딧불이입니다. 처음엔 제각각이다가, 시간이 지나면 어떻게 되는지 보세요.</p>
+    <canvas id="c-night" class="rounded" aria-label="① Watching the Night Forest"></canvas>
+    <div class="anim-bar">
+      <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
+      
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="speed"><option value="20" data-en="Slow">느리게</option><option value="50" selected data-en="Normal">보통</option><option value="120" data-en="Fast">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3 data-en="② The Phase Clock">② 위상 시계</h3>
+    <p data-en="Every firefly&#x27;s clock is placed on one circle. The top is the &quot;flash&quot; point. When the dots gather in one place, they are synchronized.">모든 반딧불이의 시계를 한 원 위에 놓았습니다. 맨 위가 "반짝!"이 되는 지점이에요. 점들이 한곳에 모이면 동기화된 것입니다.</p>
+    <canvas id="c-clock" class="" aria-label="② The Phase Clock"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ Synchrony Over Time">③ 시간에 따른 동기화</h3>
+    <p data-en="The horizontal axis is elapsed cycles, the vertical axis is synchrony r. Above the dashed line (0.9), they flash almost together.">가로는 지난 주기, 세로는 동기화 정도 r입니다. 점선(0.9)을 넘으면 거의 동시에 반짝이는 상태예요.</p>
+    <canvas id="c-time" class="" aria-label="③ Synchrony Over Time"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="④ Changing How Much They Nudge Each Other">④ 서로 앞당겨 주는 정도를 바꾸면</h3>
+    <p data-en="The horizontal axis is the coupling strength, the vertical axis is synchrony after 30 cycles. Dots are the results of 3 different forests.">가로는 결합 세기, 세로는 30주기 뒤의 동기화 정도입니다. 점은 서로 다른 숲 3곳의 결과예요.</p>
+    <canvas id="c-coupling" class="" aria-label="④ Changing How Much They Nudge Each Other"></canvas>
+      <div class="legend"><span id="note-coupling" data-en="Calculating…">계산 중…</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="⑤ Changing the Visible Range">⑤ 볼 수 있는 범위를 바꾸면</h3>
+    <p data-en="The horizontal axis is the visible range, the vertical axis is synchrony after 30 cycles. What happens if each firefly can see only very close neighbors?">가로는 볼 수 있는 범위, 세로는 30주기 뒤의 동기화 정도입니다. 너무 가까운 이웃만 보이면 어떻게 될까요?</p>
+    <canvas id="c-radius" class="" aria-label="⑤ Changing the Visible Range"></canvas>
+      <div class="legend"><span id="note-radius" data-en="Calculating…">계산 중…</span></div>
+    </section>
+  </div>
+
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout" data-en="&lt;b&gt;What it shows:&lt;/b&gt; When the nudge is strong enough and each firefly can see enough of the others, they settle into one beat on their own, with nobody setting the rhythm. Below a threshold almost nothing happens, then synchrony appears suddenly past it, and the more the individual beats differ, the more imperfect the synchrony becomes."><b>말하는 것:</b> 서로 앞당겨 주는 정도가 일정 세기를 넘고 서로 볼 수 있는 범위가 충분하면, 중앙에서 박자를 정해 주는 존재가 없어도 반딧불이들이 스스로 한 박자로 맞춰집니다. 기준을 넘기 전에는 거의 변화가 없다가 넘는 순간 갑자기 동기화되는 문턱 현상이 나타나고, 개체마다 박자가 다를수록 동기화는 불완전해집니다.</div>
+  <div class="callout" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; This is not proof that real fireflies tune their beats this way. Only some firefly species synchronize in nature, and this model reduces a flash to a single clock, without light intensity, field of view that depends on distance, or learning by the fireflies. It is not fitted to any particular observed data either."><b>말하지 않는 것:</b> 실제 반딧불이가 이런 식으로 박자를 맞춘다는 증명은 아닙니다. 실제 동기화하는 반딧불이 종은 일부이고, 이 모델은 반짝임을 시계 하나로 단순화했으며 빛의 세기, 거리에 따른 시야, 반딧불이의 학습 같은 요소가 없습니다. 특정 관측 자료에 맞춘 모델도 아닙니다.</div>
+
+  <h2 data-en="Implementation notes">구현 메모</h2>
+  <ul class="small">
+    <li  data-en="A simplified implementation of the idea of pulse-coupled oscillators (Mirollo, Strogatz (1990), &quot;Synchronization of pulse-coupled biological oscillators&quot;, &lt;i&gt;SIAM Journal on Applied Mathematics&lt;/i&gt; 50(6)). It does not reproduce the paper&#x27;s numbers; it is this project&#x27;s own design.">펄스 결합 진동자(Mirollo, Strogatz (1990), "Synchronization of pulse-coupled biological oscillators", <i>SIAM Journal on Applied Mathematics</i> 50(6))의 발상을 단순화한 구현입니다. 논문 수치를 재현한 것은 아니고 이 프로젝트의 설계입니다.</li>
+    <li  data-en="Phase counts one cycle as 1 and grows by 0.02 per step. Each firefly&#x27;s speed is normally distributed with mean 1 and a standard deviation equal to the &quot;speed spread.&quot; When a firefly flashes, the phase of neighbors in range is increased by the coupling strength, and any that pass 1 flash in the same step.">위상은 한 주기를 1로 보고 한 단계마다 0.02씩 자랍니다. 개체마다 속도는 평균 1, 표준편차 "속도 차이"의 정규분포이고, 한 반딧불이가 반짝이면 범위 안의 이웃 위상이 결합 세기만큼 더해지며 1을 넘으면 같은 단계에 따라서 반짝입니다.</li>
+    <li  data-en="With the default settings (coupling 2.5%, range 30%, speed spread 10%), 10 seeds all reach synchrony (r&gt;0.9), taking 2 to 31 cycles (mostly 2 to 6). At coupling of 1% or less r stays below 0.2, and at 3% or more it is near 0.95 (verify with &lt;code&gt;node tools/validate-firefly.js&lt;/code&gt;).">기본 설정(결합 2.5%, 범위 30%, 속도 차이 10%)으로 시드 10개를 돌리면 모두 동기화(r>0.9)에 닿고, 걸린 주기는 2~31주기(대부분 2~6주기)입니다. 결합이 1% 이하면 r이 0.2 아래, 3% 이상이면 0.95 근처입니다 (<code>node tools/validate-firefly.js</code>로 확인).</li>
+    <li  data-en="Graphs ④ and ⑤ change only the given value in the same setup, run 30 cycles 3 times each, and show the average r of the last 6 cycles.">④, ⑤번 그래프는 같은 설정에서 해당 값만 바꿔 30주기를 3번씩 돌린 결과이고, 마지막 6주기의 평균 r입니다.</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/firefly&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/firefly">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap" data-en="Simulatio Lab · Operator: Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../counter.js"></script>
+</body>
+</html>

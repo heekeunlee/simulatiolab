@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="What Does Korea&#x27;s Population Look Like in 2070? · Simulatio Lab">저출산이 계속되면 2070년 인구 구조는? · 시뮬라티오 랩</title>
+<meta name="description" content="합계출산율, 이민, 기대수명을 바꿔 한국의 2070년 인구 피라미드를 직접 그려 보세요. 공식 추계가 아닌 단순 모델입니다." data-en-content="Change the fertility rate, migration and life expectancy and watch Korea&#x27;s population pyramid evolve to 2070. A simple model, not an official forecast.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1 data-en="What Does Korea&#x27;s Population Look Like in 2070?">저출산이 계속되면 2070년 인구 구조는?</h1>
+  <p class="lead" data-en="If the fertility rate stays around 0.7, what shape does Korea&#x27;s population pyramid take over time? Change fertility, migration and life expectancy and watch it year by year from 2024 to 2070.">합계출산율이 0.7 안팎에 머무는 채로 시간이 흐르면 한국의 인구 피라미드는 어떤 모양이 될까요? 출산율, 이민, 기대수명을 바꿔 가며 2024년부터 2070년까지 한 해씩 지켜봅니다.</p>
+
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li data-en="The population is tracked by single year of age, from 0 to 100+, and everyone ages one year each year. This is the basic &quot;cohort-component method&quot; of population projection.">0세부터 100세 이상까지 나이별 인구를 한 살 단위로 두고, 해마다 모든 사람이 한 살씩 나이를 먹습니다. 이것이 인구 추계의 기본 방식인 "코호트 요인법"입니다.</li>
+    <li data-en="&lt;b&gt;Births&lt;/b&gt;: the total fertility rate (children per woman over a lifetime) is spread over an age pattern of fertility for women aged 15–49. Sexes are combined, and half of each age group is assumed to be female."><b>출산</b>: 합계출산율(한 여성이 평생 낳는 아이 수)을 15~49세 여성의 연령별 출산율 곡선에 나누어 적용합니다. 남녀는 합쳐서 계산하고, 각 나이의 절반이 여성이라고 가정합니다.</li>
+    <li data-en="&lt;b&gt;Deaths&lt;/b&gt;: mortality rises with age along a fixed curve, calibrated so each year matches that year&#x27;s life expectancy. The slider sets how much life expectancy rises per decade."><b>사망</b>: 나이가 많을수록 사망 확률이 커지는 곡선을 쓰고, 그 해의 기대수명이 나오도록 맞춥니다. 기대수명은 슬라이더로 10년마다 얼마나 늘지 정합니다.</li>
+    <li data-en="&lt;b&gt;Migration&lt;/b&gt;: each year a fixed number of people enter (positive) or leave (negative) at ages 20–39."><b>이민</b>: 해마다 정해진 수의 사람이 20~39세로 들어오거나(양수) 나갑니다(음수).</li>
+    <li data-en="The 2024 age structure is an &lt;b&gt;approximation&lt;/b&gt;, not official single-age data. It is scaled to published age-group shares (about 10.6% aged 0–14, 70.2% aged 15–64 and 19.2% aged 65+).">2024년 연령 구조는 공식 연령별 통계가 아니라 <b>근사</b>입니다. 공표된 연령대 비중(0~14세 약 10.6%, 15~64세 약 70.2%, 65세 이상 약 19.2%)에 맞춘 값이에요.</li>
+  </ul>
+
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="tfr" data-en="Total fertility rate &lt;output id=&quot;o-tfr&quot;&gt;&lt;/output&gt;">합계출산율 <output id="o-tfr"></output></label>
+        <input type="range" id="tfr" min="0.5" max="2.1" step="0.02" value="0.72">
+        <span class="hint" data-en="Korea was about 0.72 in 2023; the default holds that value constant (replacement level is about 2.1)">2023년 한국은 약 0.72였고, 이 값이 계속된다고 가정한 것이 기본값입니다 (인구 유지 수준은 약 2.1)</span></div>
+<div class="ctl"><label for="migration" data-en="Net migration &lt;output id=&quot;o-migration&quot;&gt;&lt;/output&gt;">순이민 <output id="o-migration"></output></label>
+        <input type="range" id="migration" min="-50" max="300" step="25" value="0">
+        <span class="hint" data-en="People added or removed per year (thousands). 0 means no migration">해마다 늘거나 줄어드는 인원(천 명). 0은 이민이 없다는 가정</span></div>
+<div class="ctl"><label for="lifeGain" data-en="Life expectancy gain &lt;output id=&quot;o-lifeGain&quot;&gt;&lt;/output&gt;">기대수명 증가 <output id="o-lifeGain"></output></label>
+        <input type="range" id="lifeGain" min="0" max="4" step="0.5" value="1">
+        <span class="hint" data-en="Years added to life expectancy per decade. It starts at 83.5 in 2024">10년마다 늘어나는 기대수명(년). 2024년 기대수명은 83.5세로 시작</span></div>
+    </div>
+    <div class="btns">
+      <button class=primary id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Replay">다시 재생</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3 data-en="① How the Population Pyramid Changes">① 인구 피라미드가 바뀌는 모습</h3>
+    <p data-en="Each row is one year of age. Green is 0–14, blue is 15–64, gold is 65+, and the gray outline is the 2024 shape. Watch whether the bottom (young) narrows and the top (old) thickens over time.">한 줄이 한 살입니다. 초록은 0~14세, 파랑은 15~64세, 금색은 65세 이상이고, 회색 선은 2024년의 모양이에요. 시간이 흐르며 아래(젊은 층)가 좁아지고 위(고령층)가 두꺼워지는지 보세요.</p>
+    <canvas id="c-pyr" class="rounded" aria-label="① How the Population Pyramid Changes"></canvas>
+    <div class="anim-bar">
+      <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
+      
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="speed"><option value="4" data-en="Slow">느리게</option><option value="10" selected data-en="Normal">보통</option><option value="25" data-en="Fast">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Ages 0–14"><i style="background:#1fa463"></i>0~14세</span><span data-en="&lt;i style=&quot;background:#2f6fed&quot;&gt;&lt;/i&gt;Ages 15–64"><i style="background:#2f6fed"></i>15~64세</span><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;Ages 65+"><i style="background:#e0a100"></i>65세 이상</span></div>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3 data-en="② Total Population Over Time">② 총인구의 변화</h3>
+    <p data-en="The blue line is your current setting; dashed lines show the same migration and life expectancy with a fertility rate of 0.7 (gray) and 1.5 (green).">파란 선이 지금 설정, 점선은 같은 이민·기대수명에서 합계출산율이 0.7일 때(회색)와 1.5일 때(초록)입니다.</p>
+    <canvas id="c-total" class="" aria-label="② Total Population Over Time"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#2f6fed&quot;&gt;&lt;/i&gt;Your setting"><i style="background:#2f6fed"></i>지금 설정</span><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Fertility rate 1.5"><i style="background:#1fa463"></i>합계출산율 1.5</span><span data-en="&lt;i style=&quot;background:#8a93a6&quot;&gt;&lt;/i&gt;Fertility rate 0.7"><i style="background:#8a93a6"></i>합계출산율 0.7</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ How Aging Progresses">③ 고령화의 진행</h3>
+    <p data-en="The old-age dependency ratio is the 65+ population divided by the 15–64 population. At 100%, one person of working age corresponds to one older person.">노년부양비는 65세 이상 인구를 15~64세 인구로 나눈 값입니다. 100%면 일하는 나이 한 명이 노인 한 명을 "떠받치는" 셈이에요.</p>
+    <canvas id="c-aging" class="" aria-label="③ How Aging Progresses"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Old-age dependency ratio"><i style="background:#e5484d"></i>노년부양비</span><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;Share aged 65+"><i style="background:#e0a100"></i>65세 이상 비중</span><span data-en="&lt;i style=&quot;background:#2f6fed&quot;&gt;&lt;/i&gt;Share aged 15–64"><i style="background:#2f6fed"></i>15~64세 비중</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="④ How 2070 Changes With Fertility">④ 출산율이 달라지면 2070년은</h3>
+    <p data-en="The horizontal axis is the fertility rate; the vertical axis shows 2070 values. The blue line is the 2070 population relative to 2024, and the gold line is the 2070 share aged 65+.">가로는 합계출산율, 세로는 2070년의 값입니다. 파란 선은 2024년 인구 대비 2070년 인구, 금색 선은 2070년 65세 이상 비중이에요.</p>
+    <canvas id="c-sweep" class="" aria-label="④ How 2070 Changes With Fertility"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#2f6fed&quot;&gt;&lt;/i&gt;2070 population (2024 = 100%)"><i style="background:#2f6fed"></i>2070년 인구 (2024년=100%)</span><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;2070 share aged 65+"><i style="background:#e0a100"></i>2070년 65세 이상 비중</span></div>
+      <div class="legend"><span id="note-sweep" data-en="Calculating…">계산 중…</span></div>
+    </section>
+  </div>
+
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout" data-en="&lt;b&gt;What it shows:&lt;/b&gt; If fertility stays at 0.72, this model gives a 2070 population of about 29.4 million with 54% aged 65+. Even raising fertility to 1.5 leaves about 38.6 million in 2070, below today, and holding the population near today&#x27;s level takes large changes such as a fertility recovery together with migration. Aging comes not just from fertility but from the size of generations already born and from rising life expectancy."><b>말하는 것:</b> 합계출산율이 0.72로 유지되면, 이 모델에서 2070년 총인구는 약 2,940만 명으로 줄고 65세 이상이 54%를 차지합니다. 출산율을 1.5까지 올려도 2070년 인구는 약 3,860만 명으로 지금보다 적고, 인구를 지금 수준으로 유지하려면 출산율 회복과 이민 같은 큰 변화가 함께 필요합니다. 고령화는 출산율만이 아니라 이미 태어난 세대의 크기와 기대수명이 함께 만드는 결과예요.</div>
+  <div class="callout" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; This is not an official projection by Statistics Korea, nor a forecast. Because fertility is held fixed, sexes are combined and the 2024 age structure is approximate, its numbers differ from official projections. The model takes no position on which policy is right and does not evaluate the effects of migration or birth policies."><b>말하지 않는 것:</b> 통계청의 공식 인구 추계가 아니고 미래를 예측하는 것도 아닙니다. 출산율이 고정되어 있다는 가정, 남녀를 합친 계산, 근사한 2024년 연령 구조 때문에 공식 추계와 숫자가 다릅니다. 이 모델은 어떤 정책이 옳은지에 대해 말하지 않으며, 이민이나 출산 정책의 효과를 평가하지도 않습니다.</div>
+
+  <h2 data-en="Implementation notes">구현 메모</h2>
+  <ul class="small">
+    <li  data-en="&lt;b&gt;This is an approximation.&lt;/b&gt; It differs from official Statistics Korea projections. For reference, the median scenario of the 2022–2072 population projections (as reported in the press) gives about 36 million people and 47.7% aged 65+ in 2072, assuming fertility recovers from about 0.65 in 2025 to 1.08 in 2072. This model, with fertility fixed at 0.72, gives about 28.2 million and 54.6% in 2072, which is lower."><b>근사 모델입니다.</b> 한국 통계청의 공식 추계와 다릅니다. 참고로 통계청이 2024년에 낸 장래인구추계(2022~2072년)의 중위 추계는 2072년 총인구 약 3,600만 명, 65세 이상 비중 약 47.7%이고, 합계출산율이 2025년 0.65 수준에서 2072년 1.08까지 회복한다고 가정합니다(언론 보도 기준). 이 모델은 출산율을 0.72로 고정한 경우 2072년 약 2,820만 명, 54.6%가 나와서 더 낮습니다.</li>
+    <li  data-en="Figures checked (via press reports; I did not read the original Statistics Korea tables): 2023 total fertility rate 0.72 (0.78 in 2022); 2024 age shares 70.2% aged 15–64 and 19.2% aged 65+; total population about 51.7–52 million; 2023 life expectancy 83.5 (OECD Health Statistics).">확인한 수치(언론 보도로 확인, 통계청 원자료는 직접 보지 못함): 2023년 합계출산율 0.72(2022년 0.78), 2024년 연령별 비중 15~64세 70.2%·65세 이상 19.2%, 총인구 약 5,170만~5,200만 명, 2023년 기대수명 83.5세(OECD 보건통계).</li>
+    <li  data-en="Single-year population counts are not official values. The shape is built from approximate annual births and survival, and the three age-group totals are scaled to the published shares. So the 2024 median age comes out at about 47.5 in the model, which may differ from the actual value.">연령별 인구(한 살 단위)는 공식 값이 아닙니다. 연도별 출생아 수(대략값)와 생존율로 모양을 만들고 세 연령대 합계를 공표 비중에 맞췄습니다. 그래서 2024년 중위연령은 모델에서 약 47.5세로, 실제와 차이가 있을 수 있습니다.</li>
+    <li  data-en="Births spread the fertility rate over an age curve for women aged 15–49 (mean 32.5, SD 4.5), and deaths use an exponentially rising mortality curve calibrated to life expectancy. You can verify with &lt;code&gt;node tools/validate-population.js&lt;/code&gt;.">출산은 15~49세 여성의 연령별 출산율 곡선(평균 32.5세, 표준편차 4.5)에 합계출산율을 나눠 적용하고, 사망은 지수적으로 커지는 사망확률을 기대수명에 맞춰 보정합니다. 검증은 <code>node tools/validate-population.js</code>로 할 수 있습니다.</li>
+    <li  data-en="The reference lines in graph ② (fertility 0.7 and 1.5) and graph ④ keep your migration and life-expectancy settings and change only the fertility rate.">②번 그래프의 기준선(합계출산율 0.7, 1.5)과 ④번 그래프는 현재 이민·기대수명 설정을 그대로 두고 출산율만 바꿔 계산합니다.</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/population&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/population">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap" data-en="Simulatio Lab · Operator: Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../counter.js"></script>
+</body>
+</html>

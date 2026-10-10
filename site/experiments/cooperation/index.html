@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Do Nice People Survive? · Simulatio Lab">착한 사람은 살아남을까 · 시뮬라티오 랩</title>
+<meta name="description" content="믿고 협력하는 사람은 배신에 당하기만 할까? 반복 죄수의 딜레마(신뢰 게임)에서 협력이 퍼지고 무너지는 조건을 직접 돌려보세요." data-en-content="Do people who trust and cooperate just get betrayed? Run the repeated prisoner&#x27;s dilemma (a trust game) and see when cooperation spreads or collapses.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1 data-en="Do Nice People Survive?">착한 사람은 살아남을까</h1>
+  <p class="lead" data-en="Do people who trust others and cooperate just get taken advantage of by betrayers? What happens to trust when a society has many liars and cheaters? Watch people repeat a &quot;trust game&quot; (the repeated prisoner&#x27;s dilemma), where cooperating together pays but cheating alone pays even more, while copying each other.">남을 믿고 협력하는 사람은 배신자에게 당하기만 할까요? 사회에 거짓말쟁이와 배신자가 많다면 신뢰는 어떻게 될까요? 서로 협력하면 이득인데 혼자 배신하면 더 큰 이득을 보는 "신뢰 게임"(반복 죄수의 딜레마)을 사람들이 되풀이하며 서로 따라 하는 모습을 지켜봅니다.</p>
+
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li data-en="240 people each use one of five strategies: &lt;b&gt;Always cooperate&lt;/b&gt;, &lt;b&gt;Always defect&lt;/b&gt;, &lt;b&gt;Tit-for-Tat&lt;/b&gt; (cooperate first, then copy the opponent&#x27;s last move), &lt;b&gt;Generous Tit-for-Tat&lt;/b&gt; (forgives 10% of betrayals), and &lt;b&gt;Pavlov&lt;/b&gt; (cooperate if both made the same move last round, otherwise defect).">사람 240명이 다섯 가지 전략 중 하나를 씁니다. <b>항상 협력</b>, <b>항상 배신</b>, <b>맞받아치기</b>(처음엔 협력하고 이후 상대의 지난 수를 따라 함), <b>너그러운 맞받아치기</b>(배신당해도 10%는 용서), <b>파블로프</b>(지난 판에 둘이 같은 수를 냈으면 협력, 아니면 배신)입니다.</li>
+    <li data-en="Each generation, everyone plays 6 random opponents for a set number of rounds each. Mutual cooperation scores 3, mutual defection 1, defecting against a cooperator earns the &quot;temptation&quot; score (5 by default), and cooperating against a defector scores 0.">세대마다 모두가 무작위 상대 6명과 각각 정해진 판 수만큼 겨룹니다. 서로 협력하면 3점, 서로 배신하면 1점, 내가 배신하고 상대가 협력하면 "유혹" 점수(기본 5점), 내가 협력하고 상대가 배신하면 0점입니다.</li>
+    <li data-en="Occasionally a move flips by mistake. A slider sets the chance of a mistake.">가끔 실수로 낸 수가 반대로 바뀝니다. 실수 확률은 슬라이더로 정합니다.</li>
+    <li data-en="After each generation, everyone looks at one random person and is more likely to copy their strategy the higher that person scored. With a tiny probability a new strategy appears.">세대가 끝나면 모두가 무작위 한 사람을 보고, 그 사람의 점수가 더 높을수록 그 전략을 따라 하기 쉽습니다. 아주 작은 확률로 새로운 전략이 생깁니다.</li>
+  </ul>
+
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="defectors" data-en="Initial share of defectors &lt;output id=&quot;o-defectors&quot;&gt;&lt;/output&gt;">처음 배신자 비율 <output id="o-defectors"></output></label>
+        <input type="range" id="defectors" min="0" max="90" step="10" value="50">
+        <span class="hint" data-en="People who start as &quot;Always defect&quot;">"항상 배신"으로 시작하는 사람</span></div>
+<div class="ctl"><label for="noise" data-en="Chance of a mistake &lt;output id=&quot;o-noise&quot;&gt;&lt;/output&gt;">실수할 확률 <output id="o-noise"></output></label>
+        <input type="range" id="noise" min="0" max="10" step="1" value="2">
+        <span class="hint" data-en="Chance a move flips against intent">낸 수가 뜻과 반대로 바뀌는 확률</span></div>
+<div class="ctl"><label for="rounds" data-en="Rounds per meeting &lt;output id=&quot;o-rounds&quot;&gt;&lt;/output&gt;">만났을 때 겨루는 판 수 <output id="o-rounds"></output></label>
+        <input type="range" id="rounds" min="1" max="50" step="1" value="10">
+        <span class="hint" data-en="How many times in a row they meet the same person">같은 사람을 몇 번 연속으로 만나는지</span></div>
+<div class="ctl"><label for="T" data-en="Temptation score &lt;output id=&quot;o-T&quot;&gt;&lt;/output&gt;">배신의 유혹 점수 <output id="o-T"></output></label>
+        <input type="range" id="T" min="4" max="7" step="0.5" value="5">
+        <span class="hint" data-en="Score for defecting against a cooperator">상대가 협력할 때 배신하면 받는 점수</span></div>
+    </div>
+    <div class="btns">
+      <button class=primary id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Same settings, new village">같은 설정, 다른 마을</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3 data-en="① How the Village Changes">① 마을이 바뀌는 모습</h3>
+    <p data-en="Each dot is one person and the color is their strategy. Watch which color spreads as generations pass.">점 하나가 한 사람이고 색이 전략입니다. 세대가 지날수록 어떤 색이 퍼지는지 지켜보세요.</p>
+    <canvas id="c-pop" class="rounded" aria-label="① How the Village Changes"></canvas>
+    <div class="anim-bar">
+      <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
+      <button id="stepbtn" data-en="Step">한 단계</button>
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="speed"><option value="4" data-en="Slow">느리게</option><option value="10" selected data-en="Normal">보통</option><option value="25" data-en="Fast">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#3b82f6&quot;&gt;&lt;/i&gt;Always cooperate"><i style="background:#3b82f6"></i>항상 협력</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Always defect"><i style="background:#e5484d"></i>항상 배신</span><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Tit-for-Tat"><i style="background:#1fa463"></i>맞받아치기</span><span data-en="&lt;i style=&quot;background:#0ea5a5&quot;&gt;&lt;/i&gt;Generous Tit-for-Tat"><i style="background:#0ea5a5"></i>너그러운 맞받아치기</span><span data-en="&lt;i style=&quot;background:#7c5cff&quot;&gt;&lt;/i&gt;Pavlov"><i style="background:#7c5cff"></i>파블로프</span></div>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3 data-en="② Share of Each Strategy Over Time">② 전략 비율의 변화</h3>
+    <p data-en="The stacked area is the whole (100%). See what happens to the defectors who start as half of the population.">쌓인 면적이 전체(100%)입니다. 처음 절반을 차지하던 배신자가 어떻게 되는지 보세요.</p>
+    <canvas id="c-area" class="" aria-label="② Share of Each Strategy Over Time"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ Cooperation Rate">③ 협력률</h3>
+    <p data-en="The share of moves that were cooperation. It approaches 100% when everyone cooperates and 0% when everyone defects.">낸 수 중 협력의 비율입니다. 모두가 협력하면 100%에 가까워지고, 모두가 배신하면 0%에 가까워져요.</p>
+    <canvas id="c-coop" class="" aria-label="③ Cooperation Rate"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="④ When Mistakes Become More Common">④ 실수가 많아지면</h3>
+    <p data-en="The horizontal axis is the chance of a mistake, the vertical axis is the average cooperation rate over the last 20 generations. Dots are 4 runs (240 people, 150 generations, in steps of 2 points).">가로는 실수할 확률, 세로는 마지막 20세대의 평균 협력률입니다. 점은 4번의 실행이에요 (사람 240명, 150세대, 2%p 간격).</p>
+    <canvas id="c-sweep" class="" aria-label="④ When Mistakes Become More Common"></canvas>
+      <div class="legend"><span id="note-sweep" data-en="Calculating…">계산 중…</span></div>
+    </section>
+  </div>
+
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout" data-en="&lt;b&gt;What it shows:&lt;/b&gt; In relationships where people meet only once or twice, betrayal took over almost entirely (3% cooperation), but when the same people meet many times, cooperation spread. Running the default settings 12 times, 11 runs ended with 74–93% cooperation and one with 51%. But when mistakes become frequent, cooperation can suddenly collapse: at a 10% mistake rate, 10 of 12 runs ended at 11% cooperation. When mistakes happen, Generous Tit-for-Tat and Pavlov outlasted plain Tit-for-Tat (about 37%, 25% and 17% at a 5% mistake rate). What sustains cooperation is not just a kind heart but the fact that people meet again, and the generosity to overlook each other&#x27;s mistakes."><b>말하는 것:</b> 한 번이나 두 번만 만나는 관계에서는 배신이 거의 전부를 차지했지만(협력률 3%), 같은 사람을 여러 번 만나는 관계에서는 협력이 퍼졌습니다. 기본 설정으로 12번 돌리면 11번은 협력률이 74~93%였고 한 번은 51%였어요. 다만 실수가 잦아지면 협력이 갑자기 무너집니다. 실수 확률 10%에서는 12번 중 10번이 협력률 11%였습니다. 실수가 있을 때는 너그러운 맞받아치기와 파블로프가 맞받아치기보다 많이 남았습니다(실수 5%에서 각각 약 37%, 25%, 17%). 협력을 지키는 것은 착한 마음만이 아니라 "다시 만난다"는 사실과 서로의 실수를 넘기는 너그러움이에요.</div>
+  <div class="callout" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; It doesn&#x27;t mean nice people always win, or that people use only these five strategies. Real trust involves reputation, gossip, third-party punishment, laws and institutions, none of which are in this model. Results are sensitive to settings such as the payoff table, the number of meetings and the copying rule, and even with the same settings whether cooperation spreads or collapses depends on chance (the range where dots split in graph ④). This is not a moral prescription to &quot;be nice&quot;; it shows the conditions under which cooperation survives."><b>말하지 않는 것:</b> 착한 사람이 항상 이긴다거나 사람들이 이 다섯 전략만 쓴다는 뜻이 아닙니다. 현실의 신뢰에는 평판, 소문, 제3자의 처벌, 법과 제도가 있고 이 모델에는 없습니다. 결과는 점수표, 만나는 횟수, 모방 규칙 같은 설정에 민감하고, 같은 설정에서도 협력이 퍼질지 무너질지 운에 따라 갈립니다(④번 그래프에서 점이 갈라지는 구간). "착하게 살아야 한다"는 도덕적 처방이 아니라 협력이 유지되는 조건을 보여주는 실험입니다.</div>
+
+  <h2 data-en="Implementation notes">구현 메모</h2>
+  <ul class="small">
+    <li  data-en="This is this project&#x27;s own implementation, inspired by Axelrod (1984), &lt;i&gt;The Evolution of Cooperation&lt;/i&gt;; Axelrod &amp; Hamilton (1981), &quot;The Evolution of Cooperation&quot;, &lt;i&gt;Science&lt;/i&gt; 211; and Nowak &amp; Sigmund (1993), &quot;A strategy of win-stay, lose-shift that outperforms tit-for-tat in the Prisoner&#x27;s Dilemma game&quot;, &lt;i&gt;Nature&lt;/i&gt; 364. It does not reproduce the papers&#x27; numbers.">Axelrod (1984)의 <i>The Evolution of Cooperation</i>, Axelrod & Hamilton (1981) "The Evolution of Cooperation", <i>Science</i> 211, 그리고 실수가 있을 때 파블로프를 다룬 Nowak & Sigmund (1993) "A strategy of win-stay, lose-shift that outperforms tit-for-tat in the Prisoner's Dilemma game", <i>Nature</i> 364에서 발상을 얻은 이 프로젝트의 구현입니다. 논문의 수치를 재현한 것은 아닙니다.</li>
+    <li  data-en="The payoffs are R=3, P=1, S=0, T=5 (adjustable), and each generation everyone plays 6 opponents. Copying follows the Fermi rule (a logistic of the score difference divided by 0.4) and mutation is 1%. These are values measured in this setup and change with the settings (&lt;code&gt;node tools/validate-cooperation.js&lt;/code&gt;).">점수표는 R=3, P=1, S=0, T=5(조절 가능)이고, 한 세대에 상대 6명과 겨룹니다. 모방은 페르미 규칙(점수 차이를 0.4로 나눈 로지스틱), 돌연변이는 1%입니다. 이 설정에서 직접 측정한 값이며 설정을 바꾸면 달라집니다(<code>node tools/validate-cooperation.js</code>).</li>
+    <li  data-en="The textbook claim that &quot;Tit-for-Tat is strongest&quot; did not come out as such in this setup. With mistakes in this evolutionary setting, Generous Tit-for-Tat and Pavlov outlasted Tit-for-Tat; at a temptation score of 4 Pavlov reached 89% and at 7 Tit-for-Tat reached 80% (average of 6 runs). When meetings get very long (30–50 rounds), outcomes differ widely from run to run.">교과서에서 알려진 "맞받아치기가 가장 강하다"는 이 설정에서 그대로 나오지 않았습니다. 실수가 있는 이 진화 설정에서는 맞받아치기보다 너그러운 맞받아치기와 파블로프가 더 많이 남았고, 유혹 점수가 4일 때는 파블로프가 89%, 7일 때는 맞받아치기가 80%까지 늘었습니다(6회 평균). 판이 아주 길어질 때(30~50판)는 결과가 실행마다 크게 갈립니다.</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/cooperation&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/cooperation">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap" data-en="Simulatio Lab · Operator: Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../counter.js"></script>
+</body>
+</html>
