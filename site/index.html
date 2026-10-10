@@ -11,73 +11,111 @@
 <body>
 <nav class="nav"><div class="wrap">
   <a class="brand" href="./"><img src="logo.svg" alt="" width="42" height="42"><span class="bt"><b>시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
-  <span class="navr"><span class="visits" id="visits" hidden title="누적 방문자 수"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>방문 <b>0</b></span></span>
+  <span class="navr"><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)"><span class="vi"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi">누적 <b id="v-total">0</b></span></span></span>
 </div></nav>
 
 <main class="wrap">
-  <h1>만약에를 실험하는 곳</h1>
-  <p class="lead">성공은 운일까? 소문은 어떻게 퍼질까? 사람과 사회에 대한 '만약에'를 AI로 설계한 시뮬레이션으로 실험하고, 변수를 바꿔 직접 돌려볼 수 있게 공개합니다.</p>
+  <section class="hero">
+    <h1>만약에를 실험하는 곳</h1>
+    <p class="lead">성공은 운일까? 소문은 어떻게 퍼질까? 사람과 사회에 대한 '만약에'를 AI로 설계한 시뮬레이션으로 실험하고, 변수를 바꿔 직접 돌려볼 수 있게 공개합니다.</p>
+    <div class="herostats"><span><b>11</b>개 실험 공개</span><span><b>4</b>개 분야</span><span>설치 없이 <b>브라우저에서 바로</b> 실행</span></div>
+    <nav class="catnav" aria-label="분야 바로가기"><a class="catchip" href="#success" style="--c:#e0a100"><span>💰</span>성공과 불평등<em>3</em></a><a class="catchip" href="#people" style="--c:#2f6fed"><span>🧑‍🤝‍🧑</span>사람 사이<em>3</em></a><a class="catchip" href="#work" style="--c:#7c5cff"><span>🏢</span>일터와 제도<em>2</em></a><a class="catchip" href="#daily" style="--c:#1fa463"><span>🚦</span>일상의 선택과 질서<em>3</em></a></nav>
+  </section>
 
-  <h2>실험 목록</h2>
-  <div class="cards">
-    <a class="card live" href="experiments/talent-vs-luck/">
-      <span class="tag">사회·경제</span><span class="badge">공개</span>
-      <h3>성공은 재능일까, 운일까?</h3>
-      <p class="muted small">재능은 정규분포인데 부는 왜 몇 사람에게 쏠릴까. 최고 부자는 정말 최고 재능자일까?</p>
-    </a>
-    <a class="card live" href="experiments/schelling/">
-      <span class="tag">인간관계·심리</span><span class="badge">공개</span>
-      <h3>끼리끼리 모이는 이유</h3>
-      <p class="muted small">"소수가 되기 싫다" 정도의 약한 바람만으로도 동네가 완전히 갈라질까? (셸링 분리 모델)</p>
-    </a>
-    <a class="card live" href="experiments/rumor/">
-      <span class="tag">인간관계·심리</span><span class="badge">공개</span>
-      <h3>단톡방 소문 확산</h3>
-      <p class="muted small">소문은 얼마나 빨리, 누구를 거쳐 퍼질까? 정정 글은 언제까지 올려야 소용이 있을까?</p>
-    </a>
-    <a class="card live" href="experiments/wealth/">
-      <span class="tag">사회·경제</span><span class="badge">공개</span>
-      <h3>부의 쏠림</h3>
-      <p class="muted small">모든 거래가 동전 던지기처럼 공정해도 부는 쏠릴까? 얼마나 나누면 막을 수 있을까?</p>
-    </a>
-    <a class="card live" href="experiments/peter/">
-      <span class="tag">직장·조직</span><span class="badge">공개</span>
-      <h3>무능한 상사는 왜 생길까</h3>
-      <p class="muted small">일 잘하는 사람을 승진시키면 조직이 좋아질까? 피터의 원리로 승진 방식을 비교해요.</p>
-    </a>
-    <a class="card live" href="experiments/youtube/">
-      <span class="tag">미디어·플랫폼</span><span class="badge">공개</span>
-      <h3>유튜브는 왜 상위 1%만 뜰까</h3>
-      <p class="muted small">좋은 콘텐츠가 이길까, 먼저 뜬 채널이 이길까? 같은 채널로 시작한 평행우주를 비교해요.</p>
-    </a>
-    <a class="card live" href="experiments/traffic/">
-      <span class="tag">일상·교통</span><span class="badge">공개</span>
-      <h3>유령 정체: 사고도 공사도 없는데 왜 막힐까</h3>
-      <p class="muted small">가끔 밟는 브레이크 하나가 도로 전체를 막는 과정을 지켜봐요.</p>
-    </a>
-    <a class="card live" href="experiments/dating/">
-      <span class="tag">인간관계·심리</span><span class="badge">공개</span>
-      <h3>눈을 낮추면 짝을 찾을까</h3>
-      <p class="muted small">서로 동의해야 맺어지는 시장에서 눈높이가 짝 찾는 시간에 미치는 영향을 봐요.</p>
-    </a>
-    <a class="card live" href="experiments/bar/">
-      <span class="tag">일상·의사결정</span><span class="badge">공개</span>
-      <h3>다 같이 가는 식당은 왜 늘 붐빌까</h3>
-      <p class="muted small">모두가 같은 생각을 하면 왜 모두 손해일까? 엘 파롤 바 문제예요.</p>
-    </a>
-    <a class="card live" href="experiments/queue/">
-      <span class="tag">일상·사회</span><span class="badge">공개</span>
-      <h3>새치기가 늘면 줄은 어떻게 될까</h3>
-      <p class="muted small">질서는 가만히 지켜지지 않고 누군가 비용을 치르며 지켜진다는 걸 실험해요.</p>
-    </a>
-    <a class="card live" href="experiments/voting/">
-      <span class="tag">사회·제도</span><span class="badge">공개</span>
-      <h3>투표 방식이 달라지면 당선자가 바뀔까</h3>
-      <p class="muted small">같은 표를 네 가지 방식으로 세면 당선자가 달라질 수 있을까요?</p>
-    </a>
-    <div class="card soon"><span class="tag">역사·인문</span><span class="badge gray">준비 중</span>
-      <h3>신뢰 게임</h3><p class="muted small">거짓말쟁이가 늘어나면 사회는 어떻게 될까?</p></div>
-  </div>
+  <section class="cat" id="success" style="--c:#e0a100">
+    <div class="cathead"><span class="caticon">💰</span><div><h2>성공과 불평등</h2><p>운과 재능, 부와 인기는 왜 소수에게 쏠릴까?</p></div><span class="catcount">3개</span></div>
+    <div class="xgrid">
+      <a class="xcard" href="experiments/talent-vs-luck/">
+        <div class="xtop"><span class="xnum">01</span><span class="xchip">Talent vs Luck 모델</span></div>
+        <h3>성공은 재능일까, 운일까?</h3>
+        <p>재능은 평균 근처에 모여 있는데 부는 왜 몇 사람에게 쏠릴까요. 최고 부자는 정말 최고 재능자일까?</p>
+        <span class="xgo">직접 돌려보기 <i>→</i></span>
+      </a>
+      <a class="xcard" href="experiments/wealth/">
+        <div class="xtop"><span class="xnum">02</span><span class="xchip">야드세일 교환 모델</span></div>
+        <h3>부의 쏠림</h3>
+        <p>모든 거래가 동전 던지기처럼 공정해도 부는 쏠릴까? 얼마나 나누면 막을 수 있을까?</p>
+        <span class="xgo">직접 돌려보기 <i>→</i></span>
+      </a>
+      <a class="xcard" href="experiments/youtube/">
+        <div class="xtop"><span class="xnum">03</span><span class="xchip">선호적 연결 모델</span></div>
+        <h3>유튜브는 왜 상위 1%만 뜰까</h3>
+        <p>좋은 콘텐츠가 이길까, 먼저 뜬 채널이 이길까? 같은 채널로 시작한 평행우주를 비교해요.</p>
+        <span class="xgo">직접 돌려보기 <i>→</i></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="cat" id="people" style="--c:#2f6fed">
+    <div class="cathead"><span class="caticon">🧑‍🤝‍🧑</span><div><h2>사람 사이</h2><p>소문, 편견, 만남은 어떻게 퍼지고 갈라질까?</p></div><span class="catcount">3개</span></div>
+    <div class="xgrid">
+      <a class="xcard" href="experiments/schelling/">
+        <div class="xtop"><span class="xnum">04</span><span class="xchip">셸링 분리 모델</span></div>
+        <h3>끼리끼리 모이는 이유</h3>
+        <p>"소수가 되기 싫다" 정도의 약한 바람만으로도 동네가 완전히 갈라질까?</p>
+        <span class="xgo">직접 돌려보기 <i>→</i></span>
+      </a>
+      <a class="xcard" href="experiments/rumor/">
+        <div class="xtop"><span class="xnum">05</span><span class="xchip">소문 전파 모델 (SIR)</span></div>
+        <h3>단톡방 소문 확산</h3>
+        <p>소문은 얼마나 빨리, 누구를 거쳐 퍼질까? 정정 글은 언제까지 올려야 소용이 있을까?</p>
+        <span class="xgo">직접 돌려보기 <i>→</i></span>
+      </a>
+      <a class="xcard" href="experiments/dating/">
+        <div class="xtop"><span class="xnum">06</span><span class="xchip">매칭·탐색 모델</span></div>
+        <h3>눈을 낮추면 짝을 찾을까</h3>
+        <p>서로 동의해야 맺어지는 시장에서 눈높이가 짝 찾는 시간에 미치는 영향을 봐요.</p>
+        <span class="xgo">직접 돌려보기 <i>→</i></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="cat" id="work" style="--c:#7c5cff">
+    <div class="cathead"><span class="caticon">🏢</span><div><h2>일터와 제도</h2><p>조직과 규칙이 결과를 바꾸는 방식</p></div><span class="catcount">2개</span></div>
+    <div class="xgrid">
+      <a class="xcard" href="experiments/peter/">
+        <div class="xtop"><span class="xnum">07</span><span class="xchip">피터의 원리 모델</span></div>
+        <h3>무능한 상사는 왜 생길까</h3>
+        <p>일 잘하는 사람을 승진시키면 조직이 좋아질까? 승진 방식을 바꿔 비교해요.</p>
+        <span class="xgo">직접 돌려보기 <i>→</i></span>
+      </a>
+      <a class="xcard" href="experiments/voting/">
+        <div class="xtop"><span class="xnum">08</span><span class="xchip">공간 투표 모델</span></div>
+        <h3>투표 방식이 달라지면 당선자가 바뀔까</h3>
+        <p>같은 표를 단순다수·결선·선호투표·보르다로 세면 당선자가 달라질 수 있을까요?</p>
+        <span class="xgo">직접 돌려보기 <i>→</i></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="cat" id="daily" style="--c:#1fa463">
+    <div class="cathead"><span class="caticon">🚦</span><div><h2>일상의 선택과 질서</h2><p>길, 식당, 줄에서 우리가 매일 겪는 일</p></div><span class="catcount">3개</span></div>
+    <div class="xgrid">
+      <a class="xcard" href="experiments/traffic/">
+        <div class="xtop"><span class="xnum">09</span><span class="xchip">나겔-슈레켄베르크 모델</span></div>
+        <h3>유령 정체: 사고도 공사도 없는데 왜 막힐까</h3>
+        <p>가끔 밟는 브레이크 하나가 도로 전체를 막는 과정을 지켜봐요.</p>
+        <span class="xgo">직접 돌려보기 <i>→</i></span>
+      </a>
+      <a class="xcard" href="experiments/bar/">
+        <div class="xtop"><span class="xnum">10</span><span class="xchip">엘 파롤 바 문제</span></div>
+        <h3>다 같이 가는 식당은 왜 늘 붐빌까</h3>
+        <p>모두가 같은 생각을 하면 왜 모두 손해일까? 예측이 제각각이면 어떻게 될까?</p>
+        <span class="xgo">직접 돌려보기 <i>→</i></span>
+      </a>
+      <a class="xcard" href="experiments/queue/">
+        <div class="xtop"><span class="xnum">11</span><span class="xchip">공간 진화 게임</span></div>
+        <h3>새치기가 늘면 줄은 어떻게 될까</h3>
+        <p>질서는 가만히 지켜지지 않고 누군가 비용을 치르며 지켜진다는 걸 실험해요.</p>
+        <span class="xgo">직접 돌려보기 <i>→</i></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="cat soon" id="soon" style="--c:#8a93a6">
+    <div class="cathead"><span class="caticon">🛠️</span><div><h2>곧 공개</h2><p>준비 중인 실험입니다. 어떤 실험을 먼저 보고 싶은지는 유튜브 채널에서 투표로 정해요.</p></div></div>
+    <div class="sgrid"><div class="scard"><span class="stag">역사·인문</span><b>신뢰 게임</b><small>거짓말쟁이가 늘어나면 사회는 어떻게 될까?</small></div><div class="scard"><span class="stag">인구·사회</span><b>저출산 2070 인구 피라미드</b><small>출산율이 이대로면 인구 구조는?</small></div><div class="scard"><span class="stag">경제</span><b>아파트 가격 확산</b><small>한 동네의 상승이 이웃으로 번지는 과정</small></div><div class="scard"><span class="stag">예술</span><b>AI 화가 100명</b><small>서로 따라 그리면 다양성은 어떻게 될까?</small></div></div>
+  </section>
 </main>
 
 <footer><div class="wrap">
