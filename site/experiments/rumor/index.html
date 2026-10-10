@@ -3,52 +3,52 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>단톡방 소문 확산 · 시뮬라티오 랩</title>
-<meta name="description" content="단톡방에서 소문은 얼마나 빨리, 누구를 거쳐 퍼질까? 정정이 늦으면 어떻게 될까? 직접 돌려보세요.">
+<title data-en="Rumor Spread in Group Chats · Simulatio Lab">단톡방 소문 확산 · 시뮬라티오 랩</title>
+<meta name="description" content="단톡방에서 소문은 얼마나 빨리, 누구를 거쳐 퍼질까? 정정이 늦으면 어떻게 될까? 직접 돌려보세요." data-en-content="How fast does a rumor spread in group chats, and how late can a correction come and still matter? Try it yourself.">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
 <nav class="nav"><div class="wrap">
-  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b>시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
-  <span class="navr"><a class="link" href="../../">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)"><span class="vi"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi">누적 <b id="v-total">0</b></span></span></span>
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
 </div></nav>
 
 <main class="wrap">
-  <h1>단톡방 소문 확산</h1>
-  <p class="lead">누군가 단톡방에 올린 소문 하나가 몇 시간 만에 모두가 아는 이야기가 됩니다. 소문은 어떤 길로 퍼지고, 정정 글은 언제까지 올려야 소용이 있을까요?</p>
+  <h1 data-en="Rumor Spread in Group Chats">단톡방 소문 확산</h1>
+  <p class="lead" data-en="A single rumor posted in a group chat becomes common knowledge within hours. By what routes does a rumor spread, and how late can a correction come and still matter?">누군가 단톡방에 올린 소문 하나가 몇 시간 만에 모두가 아는 이야기가 됩니다. 소문은 어떤 길로 퍼지고, 정정 글은 언제까지 올려야 소용이 있을까요?</p>
 
-  <h2>모델은 이렇게 움직입니다</h2>
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
   <ul>
-    <li>사람들이 여러 단톡방에 들어 있고(점이 사람, 네모가 단톡방), 방마다 인원이 달라 큰 방과 작은 방이 있습니다.</li>
-    <li><b style="color:var(--unlucky)">소문</b>을 아는 사람은 자기가 든 모든 방에 글을 올립니다. 방에서 소문을 처음 본 사람은 일정 확률로 솔깃해서 다음 차례에 자기 방들에 다시 올립니다.</li>
-    <li>한 번 올릴 때마다 일정 확률로 관심을 잃고 멈춥니다.</li>
-    <li>설정한 시점부터 <b style="color:var(--accent)">정정 글</b>이 퍼지기 시작합니다. 정정 글은 소문보다 덜 솔깃하다고 가정했고(소문의 70%), 정정을 본 사람은 소문을 믿지도, 퍼뜨리지도 않습니다.</li>
+    <li data-en="People belong to several group chats (dots are people, squares are chat rooms), and rooms differ in size, so there are big and small ones.">사람들이 여러 단톡방에 들어 있고(점이 사람, 네모가 단톡방), 방마다 인원이 달라 큰 방과 작은 방이 있습니다.</li>
+    <li data-en="People who know the &lt;b style=&quot;color:var(--unlucky)&quot;&gt;rumor&lt;/b&gt; post it in every room they belong to. Someone who sees it for the first time in a room is tempted with some probability and reposts it in their own rooms next round."><b style="color:var(--unlucky)">소문</b>을 아는 사람은 자기가 든 모든 방에 글을 올립니다. 방에서 소문을 처음 본 사람은 일정 확률로 솔깃해서 다음 차례에 자기 방들에 다시 올립니다.</li>
+    <li data-en="Each time they post, they lose interest and stop with some probability.">한 번 올릴 때마다 일정 확률로 관심을 잃고 멈춥니다.</li>
+    <li data-en="From the chosen moment, a &lt;b style=&quot;color:var(--accent)&quot;&gt;correction&lt;/b&gt; starts to spread. We assume the correction is less tempting than the rumor (70% as much), and anyone who sees the correction neither believes nor spreads the rumor.">설정한 시점부터 <b style="color:var(--accent)">정정 글</b>이 퍼지기 시작합니다. 정정 글은 소문보다 덜 솔깃하다고 가정했고(소문의 70%), 정정을 본 사람은 소문을 믿지도, 퍼뜨리지도 않습니다.</li>
   </ul>
 
-  <h2>직접 돌려보기</h2>
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
   <div class="panel">
     <div class="controls">
-      <div class="ctl"><label for="p">솔깃할 확률 <output id="o-p"></output></label>
+      <div class="ctl"><label for="p" data-en="Chance of being tempted &lt;output id=&quot;o-p&quot;&gt;&lt;/output&gt;">솔깃할 확률 <output id="o-p"></output></label>
         <input type="range" id="p" min="0.5" max="5" step="0.5" value="1.5">
-        <span class="hint">방에서 소문을 본 사람이 퍼뜨릴 확률</span></div>
-      <div class="ctl"><label for="correctionDelay">정정 시작 <output id="o-correctionDelay"></output></label>
+        <span class="hint" data-en="Chance someone who sees the rumor in a room passes it on">방에서 소문을 본 사람이 퍼뜨릴 확률</span></div>
+      <div class="ctl"><label for="correctionDelay" data-en="Correction starts &lt;output id=&quot;o-correctionDelay&quot;&gt;&lt;/output&gt;">정정 시작 <output id="o-correctionDelay"></output></label>
         <input type="range" id="correctionDelay" min="0" max="10" step="1" value="3">
-        <span class="hint">소문이 시작되고 몇 차례 뒤에 정정이 나오는지</span></div>
-      <div class="ctl"><label for="rooms">단톡방 수 <output id="o-rooms"></output></label>
+        <span class="hint" data-en="How many rounds after the rumor starts the correction appears">소문이 시작되고 몇 차례 뒤에 정정이 나오는지</span></div>
+      <div class="ctl"><label for="rooms" data-en="Group chats &lt;output id=&quot;o-rooms&quot;&gt;&lt;/output&gt;">단톡방 수 <output id="o-rooms"></output></label>
         <input type="range" id="rooms" min="10" max="100" step="10" value="50">
-        <span class="hint">많을수록 방 하나가 작아져요</span></div>
-      <div class="ctl"><label for="perPerson">한 사람이 든 방 수 <output id="o-perPerson"></output></label>
+        <span class="hint" data-en="More chats means smaller rooms">많을수록 방 하나가 작아져요</span></div>
+      <div class="ctl"><label for="perPerson" data-en="Chats per person &lt;output id=&quot;o-perPerson&quot;&gt;&lt;/output&gt;">한 사람이 든 방 수 <output id="o-perPerson"></output></label>
         <input type="range" id="perPerson" min="1" max="6" step="1" value="3">
-        <span class="hint">여러 방에 걸친 사람이 다리 역할을 해요</span></div>
-      <div class="ctl"><label for="seeds">처음 퍼뜨린 사람 <output id="o-seeds"></output></label>
+        <span class="hint" data-en="People in several rooms act as bridges">여러 방에 걸친 사람이 다리 역할을 해요</span></div>
+      <div class="ctl"><label for="seeds" data-en="Initial spreaders &lt;output id=&quot;o-seeds&quot;&gt;&lt;/output&gt;">처음 퍼뜨린 사람 <output id="o-seeds"></output></label>
         <input type="range" id="seeds" min="1" max="10" step="1" value="3">
-        <span class="hint">처음에 소문을 올린 사람 수</span></div>
+        <span class="hint" data-en="Number of people who post the rumor at first">처음에 소문을 올린 사람 수</span></div>
     </div>
     <div class="btns">
-      <button class="primary" id="run">처음부터 다시</button>
-      <button id="reroll">같은 설정, 다른 단톡방</button>
-      <button id="reset">기본값으로</button>
+      <button class="primary" id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Same settings, new chat rooms">같은 설정, 다른 단톡방</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
       <span class="muted small" id="seedinfo"></span>
     </div>
   </div>
@@ -56,65 +56,67 @@
   <div class="stats" id="stats"></div>
 
   <section class="panel chart" style="margin-top:16px">
-    <h3>① 소문이 퍼지는 모습</h3>
-    <p>네모는 단톡방이고 점은 사람입니다. 방을 잇는 가는 선은 "이 방에 들어 있다"는 뜻이에요. 방이 붉게 빛나면 그 방에 소문이 올라온 거예요.</p>
+    <h3 data-en="① How the Rumor Spreads">① 소문이 퍼지는 모습</h3>
+    <p data-en="Squares are chat rooms and dots are people. The faint lines mean &quot;belongs to this room.&quot; When a room glows red, the rumor was posted in it.">네모는 단톡방이고 점은 사람입니다. 방을 잇는 가는 선은 "이 방에 들어 있다"는 뜻이에요. 방이 붉게 빛나면 그 방에 소문이 올라온 거예요.</p>
     <canvas id="c-net" class="rounded" aria-label="소문 확산 네트워크"></canvas>
     <div class="anim-bar">
-      <button id="play">⏸ 일시정지</button>
-      <button id="stepbtn">한 차례</button>
-      <button id="restart">처음부터</button>
-      <select id="speed" aria-label="속도"><option value="1.5">느리게</option><option value="4" selected>보통</option><option value="10">빠르게</option></select>
+      <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
+      <button id="stepbtn" data-en="Step">한 차례</button>
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="속도"><option value="1.5" data-en="Slow">느리게</option><option value="4" selected data-en="Normal">보통</option><option value="10" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
     <div class="legend">
-      <span><i style="background:#b6bfd3"></i>아직 모름</span>
-      <span><i style="background:var(--unlucky)"></i>소문 퍼뜨리는 중</span>
-      <span><i style="background:#f2a3a6"></i>소문을 알지만 멈춤</span>
-      <span><i style="background:var(--accent)"></i>정정을 퍼뜨리는 중</span>
-      <span><i style="background:#9ec1ff"></i>정정을 본 사람</span>
+      <span data-en="&lt;i style=&quot;background:#b6bfd3&quot;&gt;&lt;/i&gt;Hasn&#x27;t heard yet"><i style="background:#b6bfd3"></i>아직 모름</span>
+      <span data-en="&lt;i style=&quot;background:var(--unlucky)&quot;&gt;&lt;/i&gt;Spreading the rumor"><i style="background:var(--unlucky)"></i>소문 퍼뜨리는 중</span>
+      <span data-en="&lt;i style=&quot;background:#f2a3a6&quot;&gt;&lt;/i&gt;Knows the rumor, stopped"><i style="background:#f2a3a6"></i>소문을 알지만 멈춤</span>
+      <span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Spreading the correction"><i style="background:var(--accent)"></i>정정을 퍼뜨리는 중</span>
+      <span data-en="&lt;i style=&quot;background:#9ec1ff&quot;&gt;&lt;/i&gt;Saw the correction"><i style="background:#9ec1ff"></i>정정을 본 사람</span>
     </div>
   </section>
 
   <div class="charts">
     <section class="panel chart">
-      <h3>② 시간에 따른 변화</h3>
-      <p>한 차례마다 사람들의 상태가 어떻게 바뀌는지 쌓아서 보여줍니다.</p>
+      <h3 data-en="② Change Over Time">② 시간에 따른 변화</h3>
+      <p data-en="Stacked view of how people&#x27;s states change at each step.">한 차례마다 사람들의 상태가 어떻게 바뀌는지 쌓아서 보여줍니다.</p>
       <canvas id="c-area" aria-label="차례별 상태 변화"></canvas>
       <div class="legend">
-        <span><i style="background:#cfd5e3"></i>모름</span>
-        <span><i style="background:#9ec1ff"></i>정정 덕에 안 속음</span>
-        <span><i style="background:var(--unlucky)"></i>퍼뜨리는 중</span>
-        <span><i style="background:#f2a3a6"></i>알고 멈춤</span>
+        <span data-en="&lt;i style=&quot;background:#cfd5e3&quot;&gt;&lt;/i&gt;Unaware"><i style="background:#cfd5e3"></i>모름</span>
+        <span data-en="&lt;i style=&quot;background:#9ec1ff&quot;&gt;&lt;/i&gt;Not fooled thanks to the correction"><i style="background:#9ec1ff"></i>정정 덕에 안 속음</span>
+        <span data-en="&lt;i style=&quot;background:var(--unlucky)&quot;&gt;&lt;/i&gt;Spreading"><i style="background:var(--unlucky)"></i>퍼뜨리는 중</span>
+        <span data-en="&lt;i style=&quot;background:#f2a3a6&quot;&gt;&lt;/i&gt;Knows, stopped"><i style="background:#f2a3a6"></i>알고 멈춤</span>
       </div>
     </section>
     <section class="panel chart">
-      <h3>③ 솔깃할 확률의 문턱</h3>
-      <p>가로는 솔깃할 확률, 세로는 끝내 소문을 알게 된 사람의 비율입니다. 점 하나가 한 번의 실행이에요.</p>
+      <h3 data-en="③ The Threshold of Temptation">③ 솔깃할 확률의 문턱</h3>
+      <p data-en="The horizontal axis is the chance of being tempted, the vertical axis is the share of people who eventually learn the rumor. Each dot is one run.">가로는 솔깃할 확률, 세로는 끝내 소문을 알게 된 사람의 비율입니다. 점 하나가 한 번의 실행이에요.</p>
       <canvas id="c-p" aria-label="솔깃할 확률별 도달률"></canvas>
-      <div class="legend"><span id="note-p">계산 중…</span></div>
+      <div class="legend"><span id="note-p" data-en="Calculating…">계산 중…</span></div>
     </section>
     <section class="panel chart">
-      <h3>④ 정정이 늦으면 소용없다</h3>
-      <p>가로는 정정이 시작되는 시점, 세로는 소문에 도달한 사람의 비율입니다. 점선은 정정이 아예 없을 때예요.</p>
+      <h3 data-en="④ Late Corrections Don&#x27;t Help">④ 정정이 늦으면 소용없다</h3>
+      <p data-en="The horizontal axis is when the correction starts, the vertical axis is the share of people the rumor reached. The dashed line is the case with no correction at all.">가로는 정정이 시작되는 시점, 세로는 소문에 도달한 사람의 비율입니다. 점선은 정정이 아예 없을 때예요.</p>
       <canvas id="c-corr" aria-label="정정 시점별 도달률"></canvas>
-      <div class="legend"><span id="note-corr">계산 중…</span></div>
+      <div class="legend"><span id="note-corr" data-en="Calculating…">계산 중…</span></div>
     </section>
   </div>
 
-  <h2>이 결과가 말하는 것, 말하지 않는 것</h2>
-  <div class="callout"><b>말하는 것:</b> 소문은 "솔깃할 확률"이 어느 문턱을 넘으면 갑자기 거의 모두에게 퍼집니다. 그리고 정정은 빠를수록 효과가 크고, 소문이 이미 널리 퍼진 뒤에는 거의 막지 못합니다. 여러 방에 걸친 사람이 방과 방을 이어 주는 다리가 됩니다.</div>
-  <div class="callout"><b>말하지 않는 것:</b> 실제 단톡방의 소문이 이 숫자대로 퍼진다는 뜻은 아닙니다. 소문의 내용, 보낸 사람에 대한 신뢰, 방 분위기는 담지 못했고, 정정이 소문보다 70% 덜 솔깃하다는 값도 가정일 뿐입니다.</div>
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout" data-en="&lt;b&gt;What it shows:&lt;/b&gt; Once the &quot;chance of being tempted&quot; crosses a threshold, the rumor suddenly reaches almost everyone. A correction works better the earlier it comes and barely helps once the rumor has spread widely. People in several rooms act as bridges between rooms."><b>말하는 것:</b> 소문은 "솔깃할 확률"이 어느 문턱을 넘으면 갑자기 거의 모두에게 퍼집니다. 그리고 정정은 빠를수록 효과가 크고, 소문이 이미 널리 퍼진 뒤에는 거의 막지 못합니다. 여러 방에 걸친 사람이 방과 방을 이어 주는 다리가 됩니다.</div>
+  <div class="callout" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; It doesn&#x27;t mean rumors in real group chats spread by these numbers. The content of the rumor, trust in the sender and the mood of the room are not captured, and the assumption that a correction is 70% as tempting as a rumor is only an assumption."><b>말하지 않는 것:</b> 실제 단톡방의 소문이 이 숫자대로 퍼진다는 뜻은 아닙니다. 소문의 내용, 보낸 사람에 대한 신뢰, 방 분위기는 담지 못했고, 정정이 소문보다 70% 덜 솔깃하다는 값도 가정일 뿐입니다.</div>
 
-  <h2>구현 메모</h2>
+  <h2 data-en="Implementation notes">구현 메모</h2>
   <ul class="small">
-    <li>소문 전파 모델의 일종인 SIR 모델(모름→퍼뜨림→멈춤)을 사람과 단톡방의 관계망에 올렸고, 정정 글을 두 번째 전파로 추가했습니다. 특정 논문을 그대로 재현한 것은 아니고 이 프로젝트의 설계입니다.</li>
-    <li>사람 500명, 방 50개, 방 인기도는 순위의 -0.6제곱에 비례해 큰 방과 작은 방이 생기도록 했습니다. 소문을 올리는 사람은 자기가 든 모든 방에 올리고, 관심을 잃을 확률은 70%입니다.</li>
-    <li>③, ④번 그래프는 현재 설정에서 해당 값만 바꿔 여러 번 돌린 결과입니다.</li>
-    <li>코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/rumor">GitHub</a>에서 볼 수 있습니다.</li>
+    <li data-en="We placed an SIR-type rumor model (unaware → spreading → stopped) on a network of people and chat rooms, and added the correction as a second spreading process. It does not reproduce a specific paper; it is this project&#x27;s own design.">소문 전파 모델의 일종인 SIR 모델(모름→퍼뜨림→멈춤)을 사람과 단톡방의 관계망에 올렸고, 정정 글을 두 번째 전파로 추가했습니다. 특정 논문을 그대로 재현한 것은 아니고 이 프로젝트의 설계입니다.</li>
+    <li data-en="500 people and 50 rooms; room popularity is proportional to rank^−0.6 so that big and small rooms appear. A person who spreads the rumor posts in every room they belong to, and the chance of losing interest is 70%.">사람 500명, 방 50개, 방 인기도는 순위의 -0.6제곱에 비례해 큰 방과 작은 방이 생기도록 했습니다. 소문을 올리는 사람은 자기가 든 모든 방에 올리고, 관심을 잃을 확률은 70%입니다.</li>
+    <li data-en="Graphs ③ and ④ change only the given value in the current setup and run it several times.">③, ④번 그래프는 현재 설정에서 해당 값만 바꿔 여러 번 돌린 결과입니다.</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/rumor&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/rumor">GitHub</a>에서 볼 수 있습니다.</li>
   </ul>
 </main>
 
-<footer><div class="wrap">시뮬라티오 랩 · 유튜브 <b>@simulatiolab</b></div></footer>
+<footer><div class="wrap" data-en="Simulatio Lab · YouTube &lt;b&gt;@simulatiolab&lt;/b&gt;">시뮬라티오 랩 · 유튜브 <b>@simulatiolab</b></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
 <script src="../../lib.js"></script>
 <script src="sim.js"></script>
 <script src="app.js"></script>

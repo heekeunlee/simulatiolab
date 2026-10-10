@@ -71,7 +71,7 @@
     const all = VT.RULES.map((r) => mk(r));
     L.dots($('c-sweep'), {
       data: all[0].data, series: all.slice(1).map((s) => s),
-      x0: 2, x1: 6, y0: 0, y1: 1, xTicks: [2, 3, 4, 5, 6], xFmt: (v) => v + '명', xLabel: '후보 수', marker: { x: el.params.k },
+      x0: 2, x1: 6, y0: 0, y1: 1, xTicks: [2, 3, 4, 5, 6], xFmt: (v) => v + '명\u200b', xLabel: '후보 수', marker: { x: el.params.k },
     });
   }
 
@@ -101,7 +101,7 @@
 
   const h = L.harness({
     controls: ['k', 'polar'],
-    format: { k: (v) => v + '명', polar: (v) => v + '%' },
+    format: { k: (v) => v + '명\u200b', polar: (v) => v + '%' },
     defaults: { k: 4, polar: 60 },
     build() { el = VT.create(params()); },
     draw, after, redrawExtra() { drawAgg(); drawSweep(); }, seedLabel: '선거 번호',

@@ -3,46 +3,46 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>끼리끼리 모이는 이유 · 시뮬라티오 랩</title>
-<meta name="description" content="약한 편견만으로도 완전한 분리가 생길까? 셸링 분리 모델을 변수를 바꿔 직접 돌려보세요.">
+<title data-en="Why Birds of a Feather Flock Together · Simulatio Lab">끼리끼리 모이는 이유 · 시뮬라티오 랩</title>
+<meta name="description" content="약한 편견만으로도 완전한 분리가 생길까? 셸링 분리 모델을 변수를 바꿔 직접 돌려보세요." data-en-content="Can a mild wish not to be a minority split a neighborhood completely apart? Run the Schelling segregation model yourself.">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
 <nav class="nav"><div class="wrap">
-  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b>시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
-  <span class="navr"><a class="link" href="../../">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)"><span class="vi"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi">누적 <b id="v-total">0</b></span></span></span>
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
 </div></nav>
 
 <main class="wrap">
-  <h1>끼리끼리 모이는 이유</h1>
-  <p class="lead">"나는 이웃이 다양해도 괜찮아. 그냥 3분의 1만 나와 비슷하면 돼." 이 정도로 관대한 사람들만 있어도 동네는 거의 완전히 갈라질 수 있을까요?</p>
+  <h1 data-en="Why Birds of a Feather Flock Together">끼리끼리 모이는 이유</h1>
+  <p class="lead" data-en="&quot;I don&#x27;t mind a diverse neighborhood. I just want a third of my neighbors to be like me.&quot; Could a neighborhood of such tolerant people still split almost completely apart?">"나는 이웃이 다양해도 괜찮아. 그냥 3분의 1만 나와 비슷하면 돼." 이 정도로 관대한 사람들만 있어도 동네는 거의 완전히 갈라질 수 있을까요?</p>
 
-  <h2>모델은 이렇게 움직입니다</h2>
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
   <ul>
-    <li>격자 위에 <b style="color:var(--ga)">파랑</b>과 <b style="color:var(--gb)">주황</b> 두 집단이 무작위로 섞여 살고, 일부 칸은 비어 있습니다.</li>
-    <li>모든 사람은 둘레 8칸 이웃 중 <b>같은 집단이 일정 비율 이상</b>이면 만족합니다. 이 비율이 슬라이더의 "원하는 비율"입니다.</li>
-    <li>불만족한 사람은 무작위 빈 칸으로 이사합니다. 모두 만족할 때까지 반복합니다.</li>
-    <li>누구도 "다른 집단과 살기 싫다"고 하지 않습니다. 단지 "소수가 되기는 싫다"일 뿐이에요.</li>
+    <li data-en="On a grid, two groups, &lt;b style=&quot;color:var(--ga)&quot;&gt;blue&lt;/b&gt; and &lt;b style=&quot;color:var(--gb)&quot;&gt;orange&lt;/b&gt;, live randomly mixed, and some cells are empty.">격자 위에 <b style="color:var(--ga)">파랑</b>과 <b style="color:var(--gb)">주황</b> 두 집단이 무작위로 섞여 살고, 일부 칸은 비어 있습니다.</li>
+    <li data-en="Everyone is content if &lt;b&gt;at least a certain share of their 8 surrounding neighbors belong to their own group&lt;/b&gt;. That share is the slider&#x27;s &quot;desired share.&quot;">모든 사람은 둘레 8칸 이웃 중 <b>같은 집단이 일정 비율 이상</b>이면 만족합니다. 이 비율이 슬라이더의 "원하는 비율"입니다.</li>
+    <li data-en="An unhappy person moves to a random empty cell. This repeats until everyone is happy.">불만족한 사람은 무작위 빈 칸으로 이사합니다. 모두 만족할 때까지 반복합니다.</li>
+    <li data-en="Nobody says &quot;I don&#x27;t want to live with the other group.&quot; They only say &quot;I don&#x27;t want to be a minority.&quot;">누구도 "다른 집단과 살기 싫다"고 하지 않습니다. 단지 "소수가 되기는 싫다"일 뿐이에요.</li>
   </ul>
 
-  <h2>직접 돌려보기</h2>
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
   <div class="panel">
     <div class="controls">
-      <div class="ctl"><label for="threshold">원하는 같은 이웃 비율 <output id="o-threshold"></output></label>
+      <div class="ctl"><label for="threshold" data-en="Desired share of similar neighbors &lt;output id=&quot;o-threshold&quot;&gt;&lt;/output&gt;">원하는 같은 이웃 비율 <output id="o-threshold"></output></label>
         <input type="range" id="threshold" min="0" max="80" step="5" value="30">
-        <span class="hint">이보다 적으면 불만족해서 이사해요</span></div>
-      <div class="ctl"><label for="empty">빈 칸 비율 <output id="o-empty"></output></label>
+        <span class="hint" data-en="Below this share, they are unhappy and move">이보다 적으면 불만족해서 이사해요</span></div>
+      <div class="ctl"><label for="empty" data-en="Share of empty cells &lt;output id=&quot;o-empty&quot;&gt;&lt;/output&gt;">빈 칸 비율 <output id="o-empty"></output></label>
         <input type="range" id="empty" min="5" max="40" step="5" value="10">
-        <span class="hint">이사 갈 곳이 얼마나 있는지</span></div>
-      <div class="ctl"><label for="shareA">파랑 집단 비율 <output id="o-shareA"></output></label>
+        <span class="hint" data-en="How many places there are to move to">이사 갈 곳이 얼마나 있는지</span></div>
+      <div class="ctl"><label for="shareA" data-en="Share of the blue group &lt;output id=&quot;o-shareA&quot;&gt;&lt;/output&gt;">파랑 집단 비율 <output id="o-shareA"></output></label>
         <input type="range" id="shareA" min="10" max="90" step="10" value="50">
-        <span class="hint">나머지는 주황 집단</span></div>
+        <span class="hint" data-en="The rest is the orange group">나머지는 주황 집단</span></div>
     </div>
     <div class="btns">
-      <button class="primary" id="run">처음부터 다시</button>
-      <button id="reroll">같은 설정, 다른 배치</button>
-      <button id="reset">기본값으로</button>
+      <button class="primary" id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Same settings, new layout">같은 설정, 다른 배치</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
       <span class="muted small" id="seedinfo"></span>
     </div>
   </div>
@@ -50,50 +50,52 @@
   <div class="stats" id="stats"></div>
 
   <section class="panel chart" style="margin-top:16px">
-    <h3>① 동네가 어떻게 바뀌나</h3>
-    <p>작은 점이 찍힌 칸은 지금 불만족해서 이사를 고민하는 사람입니다.</p>
+    <h3 data-en="① How the Neighborhood Changes">① 동네가 어떻게 바뀌나</h3>
+    <p data-en="Cells with a small dot hold someone who is unhappy right now and thinking about moving.">작은 점이 찍힌 칸은 지금 불만족해서 이사를 고민하는 사람입니다.</p>
     <div class="pair">
-      <figure><canvas id="c-before" class="rounded" aria-label="처음 배치"></canvas><figcaption>처음 (무작위로 섞임)</figcaption></figure>
-      <figure><canvas id="c-now" class="rounded" aria-label="현재 배치"></canvas><figcaption id="cap-now">지금</figcaption></figure>
+      <figure><canvas id="c-before" class="rounded" aria-label="처음 배치"></canvas><figcaption data-en="Start (randomly mixed)">처음 (무작위로 섞임)</figcaption></figure>
+      <figure><canvas id="c-now" class="rounded" aria-label="현재 배치"></canvas><figcaption id="cap-now" data-en="Now">지금</figcaption></figure>
     </div>
     <div class="anim-bar">
-      <button id="play">▶ 재생</button>
-      <button id="stepbtn">한 라운드</button>
-      <button id="restart">처음부터</button>
-      <select id="speed" aria-label="속도"><option value="2">느리게</option><option value="6" selected>보통</option><option value="16">빠르게</option></select>
+      <button id="play" data-en="▶ Play">▶ 재생</button>
+      <button id="stepbtn" data-en="One round">한 라운드</button>
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="속도"><option value="2" data-en="Slow">느리게</option><option value="6" selected data-en="Normal">보통</option><option value="16" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
-    <div class="legend"><span><i style="background:var(--ga)"></i>파랑 집단</span><span><i style="background:var(--gb)"></i>주황 집단</span><span><i style="background:#fff;border:1.5px solid var(--muted)"></i>빈 칸</span></div>
+    <div class="legend"><span data-en="&lt;i style=&quot;background:var(--ga)&quot;&gt;&lt;/i&gt;Blue group"><i style="background:var(--ga)"></i>파랑 집단</span><span data-en="&lt;i style=&quot;background:var(--gb)&quot;&gt;&lt;/i&gt;Orange group"><i style="background:var(--gb)"></i>주황 집단</span><span data-en="&lt;i style=&quot;background:#fff;border:1.5px solid var(--muted)&quot;&gt;&lt;/i&gt;Empty cell"><i style="background:#fff;border:1.5px solid var(--muted)"></i>빈 칸</span></div>
   </section>
 
   <div class="charts">
     <section class="panel chart">
-      <h3>② 라운드마다 높아지는 분리도</h3>
-      <p>분리도는 "내 이웃 중 같은 집단의 평균 비율"입니다. 섞여 있으면 50% 근처예요.</p>
+      <h3 data-en="② Segregation Rising Each Round">② 라운드마다 높아지는 분리도</h3>
+      <p data-en="Segregation is &quot;the average share of same-group people among one&#x27;s neighbors.&quot; A mixed neighborhood sits near 50%.">분리도는 "내 이웃 중 같은 집단의 평균 비율"입니다. 섞여 있으면 50% 근처예요.</p>
       <canvas id="c-line" aria-label="라운드별 분리도"></canvas>
     </section>
     <section class="panel chart">
-      <h3>③ 조금만 바라도 크게 갈라진다</h3>
-      <p>가로는 사람들이 원하는 비율, 세로는 결과로 나온 분리도입니다. 점선(y=x)보다 위에 있을수록 원한 것보다 더 갈라졌다는 뜻이에요.</p>
+      <h3 data-en="③ A Mild Preference Leads to Strong Separation">③ 조금만 바라도 크게 갈라진다</h3>
+      <p data-en="The horizontal axis is the share people want, the vertical axis is the resulting segregation. The higher above the dashed line (y=x), the more separated it ended up than people wanted.">가로는 사람들이 원하는 비율, 세로는 결과로 나온 분리도입니다. 점선(y=x)보다 위에 있을수록 원한 것보다 더 갈라졌다는 뜻이에요.</p>
       <canvas id="c-sweep" aria-label="원하는 비율과 결과 분리도"></canvas>
-      <div class="legend"><span id="sweepnote">계산 중…</span></div>
+      <div class="legend"><span id="sweepnote" data-en="Calculating…">계산 중…</span></div>
     </section>
   </div>
 
-  <h2>이 결과가 말하는 것, 말하지 않는 것</h2>
-  <div class="callout"><b>말하는 것:</b> 개인은 "소수가 되기 싫다" 정도의 약한 바람만 가졌는데, 그 선택이 모이면 아무도 원하지 않았던 강한 분리가 나타날 수 있습니다. 집단의 모습이 개개인의 의도와 다를 수 있다는 뜻이에요.</div>
-  <div class="callout"><b>말하지 않는 것:</b> 현실의 주거 분리가 모두 이런 이유 때문이라는 뜻은 아닙니다. 집값, 학군, 일자리, 차별적 제도 같은 요인은 이 모델에 없습니다. 그리고 "원하는 비율"을 너무 높이면(60% 이상) 모두가 만족하는 배치가 거의 없어서 계속 이사만 하는 상태가 됩니다.</div>
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout" data-en="&lt;b&gt;What it shows:&lt;/b&gt; Each individual holds only a mild wish, &quot;I don&#x27;t want to be a minority,&quot; yet together these choices can produce strong separation that nobody wanted. The shape of the group can differ from what individuals intended."><b>말하는 것:</b> 개인은 "소수가 되기 싫다" 정도의 약한 바람만 가졌는데, 그 선택이 모이면 아무도 원하지 않았던 강한 분리가 나타날 수 있습니다. 집단의 모습이 개개인의 의도와 다를 수 있다는 뜻이에요.</div>
+  <div class="callout" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; It doesn&#x27;t mean real residential segregation is all due to this. Housing prices, school districts, jobs and discriminatory policies are not in this model. Also, if the &quot;desired share&quot; is set too high (60% or more), there is almost no arrangement that satisfies everyone, and people just keep moving."><b>말하지 않는 것:</b> 현실의 주거 분리가 모두 이런 이유 때문이라는 뜻은 아닙니다. 집값, 학군, 일자리, 차별적 제도 같은 요인은 이 모델에 없습니다. 그리고 "원하는 비율"을 너무 높이면(60% 이상) 모두가 만족하는 배치가 거의 없어서 계속 이사만 하는 상태가 됩니다.</div>
 
-  <h2>구현 메모</h2>
+  <h2 data-en="Implementation notes">구현 메모</h2>
   <ul class="small">
-    <li>원 모델: Thomas C. Schelling (1971), "Dynamic Models of Segregation", <i>Journal of Mathematical Sociology</i> 1(2). 이 구현은 격자(50×50, 가장자리가 이어짐), 이웃 8칸, 무작위 빈 칸으로 이사하는 흔한 변형입니다.</li>
-    <li>이웃이 한 명도 없는 사람은 만족한 것으로 봅니다. 한 라운드에서는 불만족한 사람들이 무작위 순서로 한 명씩 이사합니다.</li>
-    <li>③번 그래프는 같은 배치로 원하는 비율만 바꿔 최대 100라운드까지 돌린 결과이고, 끝까지 만족하는 배치를 못 찾으면 그 상태에서 측정합니다.</li>
-    <li>코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/schelling">GitHub</a>에서 볼 수 있습니다.</li>
+    <li data-en="Original model: Thomas C. Schelling (1971), &quot;Dynamic Models of Segregation&quot;, &lt;i&gt;Journal of Mathematical Sociology&lt;/i&gt; 1(2). This implementation is the common variant: a 50×50 grid with wrap-around edges, 8 neighbors, and moving to a random empty cell.">원 모델: Thomas C. Schelling (1971), "Dynamic Models of Segregation", <i>Journal of Mathematical Sociology</i> 1(2). 이 구현은 격자(50×50, 가장자리가 이어짐), 이웃 8칸, 무작위 빈 칸으로 이사하는 흔한 변형입니다.</li>
+    <li data-en="A person with no neighbors at all counts as content. In each round, unhappy people move one at a time in random order.">이웃이 한 명도 없는 사람은 만족한 것으로 봅니다. 한 라운드에서는 불만족한 사람들이 무작위 순서로 한 명씩 이사합니다.</li>
+    <li data-en="Graph ③ changes only the desired share on the same layout and runs up to 100 rounds; if no arrangement satisfies everyone, it measures the state at that point.">③번 그래프는 같은 배치로 원하는 비율만 바꿔 최대 100라운드까지 돌린 결과이고, 끝까지 만족하는 배치를 못 찾으면 그 상태에서 측정합니다.</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/schelling&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/schelling">GitHub</a>에서 볼 수 있습니다.</li>
   </ul>
 </main>
 
-<footer><div class="wrap">시뮬라티오 랩 · 유튜브 <b>@simulatiolab</b></div></footer>
+<footer><div class="wrap" data-en="Simulatio Lab · YouTube &lt;b&gt;@simulatiolab&lt;/b&gt;">시뮬라티오 랩 · 유튜브 <b>@simulatiolab</b></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
 <script src="../../lib.js"></script>
 <script src="sim.js"></script>
 <script src="app.js"></script>

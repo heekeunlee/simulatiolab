@@ -11,6 +11,11 @@ window.Lab = (function () {
     canvas.height = Math.round(h * dpr);
     canvas.style.height = h + 'px';
     const ctx = canvas.getContext('2d');
+    if (window.I18N && window.I18N.lang === 'en' && !ctx.__i18n) { // 영어 모드: 캔버스에 그리는 글자도 번역
+      ctx.__i18n = true;
+      ['fillText', 'strokeText'].forEach((fn) => { const o = ctx[fn].bind(ctx); ctx[fn] = (txt, ...a) => o(window.I18N.t(String(txt)), ...a); });
+      const mt = ctx.measureText.bind(ctx); ctx.measureText = (txt) => mt(window.I18N.t(String(txt)));
+    }
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, w, h);
     ctx.font = '12px -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif';

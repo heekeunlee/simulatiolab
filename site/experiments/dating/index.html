@@ -3,46 +3,46 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>눈을 낮추면 짝을 찾을까 · 시뮬라티오 랩</title>
-<meta name="description" content="서로가 동의해야 맺어지는 소개팅 시장에서 눈높이를 바꾸면 짝을 찾는 시간이 어떻게 달라지는지 직접 돌려보세요.">
+<title data-en="Does Lowering Your Standards Help You Find a Match? · Simulatio Lab">눈을 낮추면 짝을 찾을까 · 시뮬라티오 랩</title>
+<meta name="description" content="서로가 동의해야 맺어지는 소개팅 시장에서 눈높이를 바꾸면 짝을 찾는 시간이 어떻게 달라지는지 직접 돌려보세요." data-en-content="In a market where both sides must agree, how does aiming higher or lower change how long it takes to find a match? Try it yourself.">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
 <nav class="nav"><div class="wrap">
-  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b>시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
-  <span class="navr"><a class="link" href="../../">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)"><span class="vi"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi">누적 <b id="v-total">0</b></span></span></span>
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
 </div></nav>
 
 <main class="wrap">
-  <h1>눈을 낮추면 짝을 찾을까</h1>
-  <p class="lead">"나보다 조금 나은 사람이면 좋겠다"는 바람이 모두에게 있다면, 사람들은 얼마나 오래 걸려 짝을 찾을까요? 서로가 동의해야 맺어지는 시장에서 눈높이와 기준을 낮추는 속도를 바꿔 봅니다.</p>
+  <h1 data-en="Does Lowering Your Standards Help You Find a Match?">눈을 낮추면 짝을 찾을까</h1>
+  <p class="lead" data-en="If everyone wants &quot;someone a little better than me,&quot; how long does it take to find a match? In a market where both sides must agree, change how high people aim and how quickly they lower their standards.">"나보다 조금 나은 사람이면 좋겠다"는 바람이 모두에게 있다면, 사람들은 얼마나 오래 걸려 짝을 찾을까요? 서로가 동의해야 맺어지는 시장에서 눈높이와 기준을 낮추는 속도를 바꿔 봅니다.</p>
 
-  <h2>모델은 이렇게 움직입니다</h2>
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
   <ul>
-    <li>A집단 200명과 B집단 200명이 있고, 모두 0~1의 "매력"을 갖고 있습니다. 매력은 서로가 비슷하게 평가한다고 가정합니다.</li>
-    <li>사람마다 <b>최소 기준 = 내 매력 + 눈높이</b>입니다. 눈높이가 양수면 나보다 나은 사람을 원하고, 음수면 눈을 낮춘 거예요.</li>
-    <li>라운드마다 짝이 없는 사람끼리 무작위로 한 쌍씩 만납니다. <b>둘 다</b> 상대가 자기 기준 이상이라고 생각할 때만 맺어집니다.</li>
-    <li>짝이 없는 사람은 라운드마다 기준을 조금씩 낮춥니다(현실을 받아들이는 속도). 점 색은 짝을 찾은 시점이고 <b style="color:var(--accent)">파랑</b>이 일찍, <b style="color:#f59e42">주황</b>이 늦게예요.</li>
+    <li data-en="There are 200 people in Group A and 200 in Group B, each with an &quot;attractiveness&quot; from 0 to 1. We assume everyone rates attractiveness the same way.">A집단 200명과 B집단 200명이 있고, 모두 0~1의 "매력"을 갖고 있습니다. 매력은 서로가 비슷하게 평가한다고 가정합니다.</li>
+    <li data-en="Each person&#x27;s &lt;b&gt;minimum standard = own attractiveness + aim&lt;/b&gt;. A positive aim means wanting someone better than yourself; a negative aim means lowering your standards.">사람마다 <b>최소 기준 = 내 매력 + 눈높이</b>입니다. 눈높이가 양수면 나보다 나은 사람을 원하고, 음수면 눈을 낮춘 거예요.</li>
+    <li data-en="Each round, unmatched people are randomly paired up. A pair is matched only if &lt;b&gt;both&lt;/b&gt; think the other meets their standard.">라운드마다 짝이 없는 사람끼리 무작위로 한 쌍씩 만납니다. <b>둘 다</b> 상대가 자기 기준 이상이라고 생각할 때만 맺어집니다.</li>
+    <li data-en="Unmatched people lower their standards a little each round (how fast they accept reality). Dot color shows when the match happened: &lt;b style=&quot;color:var(--accent)&quot;&gt;blue&lt;/b&gt; early, &lt;b style=&quot;color:#f59e42&quot;&gt;orange&lt;/b&gt; late.">짝이 없는 사람은 라운드마다 기준을 조금씩 낮춥니다(현실을 받아들이는 속도). 점 색은 짝을 찾은 시점이고 <b style="color:var(--accent)">파랑</b>이 일찍, <b style="color:#f59e42">주황</b>이 늦게예요.</li>
   </ul>
 
-  <h2>직접 돌려보기</h2>
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
   <div class="panel">
     <div class="controls">
-      <div class="ctl"><label for="eye">눈높이 (내 매력 대비) <output id="o-eye"></output></label>
+      <div class="ctl"><label for="eye" data-en="Aim (relative to own attractiveness) &lt;output id=&quot;o-eye&quot;&gt;&lt;/output&gt;">눈높이 (내 매력 대비) <output id="o-eye"></output></label>
         <input type="range" id="eye" min="-30" max="40" step="5" value="10">
-        <span class="hint">+면 나보다 나은 사람을 원함, -면 눈을 낮춤</span></div>
-<div class="ctl"><label for="drift">기준을 낮추는 속도 (라운드마다) <output id="o-drift"></output></label>
+        <span class="hint" data-en="+ wants someone better than self, − lowers standards">+면 나보다 나은 사람을 원함, -면 눈을 낮춤</span></div>
+<div class="ctl"><label for="drift" data-en="How fast standards drop (per round) &lt;output id=&quot;o-drift&quot;&gt;&lt;/output&gt;">기준을 낮추는 속도 (라운드마다) <output id="o-drift"></output></label>
         <input type="range" id="drift" min="0" max="2" step="0.5" value="0.5">
-        <span class="hint">0%면 끝까지 기준을 안 바꿈</span></div>
-<div class="ctl"><label for="rounds">기간 <output id="o-rounds"></output></label>
+        <span class="hint" data-en="At 0%, standards never change">0%면 끝까지 기준을 안 바꿈</span></div>
+<div class="ctl"><label for="rounds" data-en="Duration &lt;output id=&quot;o-rounds&quot;&gt;&lt;/output&gt;">기간 <output id="o-rounds"></output></label>
         <input type="range" id="rounds" min="20" max="100" step="10" value="50">
-        <span class="hint">몇 번 새 사람을 만날 기회가 있는지</span></div>
+        <span class="hint" data-en="How many chances to meet new people">몇 번 새 사람을 만날 기회가 있는지</span></div>
     </div>
     <div class="btns">
-      <button class="primary" id="run">처음부터 다시</button>
-      <button id="reroll">같은 설정, 다른 운</button>
-      <button id="reset">기본값으로</button>
+      <button class="primary" id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Same settings, new luck">같은 설정, 다른 운</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
       <span class="muted small" id="seedinfo"></span>
     </div>
   </div>
@@ -50,51 +50,53 @@
   <div class="stats" id="stats"></div>
 
   <section class="panel chart" style="margin-top:16px">
-    <h3>① 누가 누구와 맺어지나</h3>
-    <p>왼쪽은 A집단, 오른쪽은 B집단이고, 높이는 매력입니다. 속이 찬 점이 짝을 찾은 사람이고 선은 커플이에요. 속이 빈 점은 아직 혼자입니다.</p>
+    <h3 data-en="① Who Gets Matched with Whom">① 누가 누구와 맺어지나</h3>
+    <p data-en="Group A is on the left and Group B on the right; height is attractiveness. Filled dots are matched people and lines are couples. Hollow dots are still single.">왼쪽은 A집단, 오른쪽은 B집단이고, 높이는 매력입니다. 속이 찬 점이 짝을 찾은 사람이고 선은 커플이에요. 속이 빈 점은 아직 혼자입니다.</p>
     <canvas id="c-market" class="rounded" aria-label="① 누가 누구와 맺어지나"></canvas>
     <div class="anim-bar">
-      <button id="play">⏸ 일시정지</button>
-      <button id="stepbtn">한 단계</button>
-      <button id="restart">처음부터</button>
-      <select id="speed" aria-label="속도"><option value="3">느리게</option><option value="8" selected>보통</option><option value="20">빠르게</option></select>
+      <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
+      <button id="stepbtn" data-en="Step">한 단계</button>
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="속도"><option value="3" data-en="Slow">느리게</option><option value="8" selected data-en="Normal">보통</option><option value="20" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
   </section>
 
   <div class="charts">
     <section class="panel chart">
-      <h3>② 커플의 매력</h3>
-    <p>가로는 A의 매력, 세로는 짝이 된 B의 매력입니다. 대각선에 가까울수록 비슷한 사람끼리 맺어진 거예요. 축 바깥의 회색 눈금은 아직 혼자인 사람입니다.</p>
+      <h3 data-en="② Attractiveness of Couples">② 커플의 매력</h3>
+    <p data-en="The horizontal axis is A&#x27;s attractiveness, the vertical axis is the matched B&#x27;s. The closer to the diagonal, the more alike the couple. Gray ticks outside the axes are people still single.">가로는 A의 매력, 세로는 짝이 된 B의 매력입니다. 대각선에 가까울수록 비슷한 사람끼리 맺어진 거예요. 축 바깥의 회색 눈금은 아직 혼자인 사람입니다.</p>
     <canvas id="c-couples" class="" aria-label="② 커플의 매력"></canvas>
     </section>
     <section class="panel chart">
-      <h3>③ 시간에 따른 짝 찾기</h3>
-    <p>라운드가 지날수록 짝을 찾은 사람의 비율이 어떻게 늘어나는지 보여줍니다.</p>
+      <h3 data-en="③ Finding Matches Over Time">③ 시간에 따른 짝 찾기</h3>
+    <p data-en="Shows how the share of matched people grows as rounds pass.">라운드가 지날수록 짝을 찾은 사람의 비율이 어떻게 늘어나는지 보여줍니다.</p>
     <canvas id="c-time" class="" aria-label="③ 시간에 따른 짝 찾기"></canvas>
     </section>
     <section class="panel chart">
-      <h3>④ 눈높이를 바꾸면</h3>
-    <p>가로는 눈높이, 세로는 비율입니다. 점은 시장 5개의 결과예요.</p>
+      <h3 data-en="④ When the Aim Changes">④ 눈높이를 바꾸면</h3>
+    <p data-en="The horizontal axis is the aim, the vertical axis is the share. Dots are the results of 5 markets.">가로는 눈높이, 세로는 비율입니다. 점은 시장 5개의 결과예요.</p>
     <canvas id="c-sweep" class="" aria-label="④ 눈높이를 바꾸면"></canvas>
-      <div class="legend"><span id="note-sweep">계산 중…</span></div>
+      <div class="legend"><span id="note-sweep" data-en="Calculating…">계산 중…</span></div>
     </section>
   </div>
 
-  <h2>이 결과가 말하는 것, 말하지 않는 것</h2>
-  <div class="callout"><b>말하는 것:</b> 모두가 "나보다 조금 나은 사람"을 바라면 서로의 조건을 동시에 만족하는 상대가 거의 없어서, 기준이 낮아질 때까지 아무도 짝을 못 찾고 기다립니다. 눈높이가 +10%p만 올라가도 짝을 찾는 데 걸리는 시간이 눈에 띄게 늘고, 어느 선을 넘으면 정해진 기간 안에 대부분이 짝을 못 찾아요.</div>
-  <div class="callout"><b>말하지 않는 것:</b> 사랑이나 결혼이 이런 계산으로 이루어진다는 뜻이 아니고, 어떤 눈높이가 옳다는 판단도 아닙니다. 현실에는 성격, 취향, 거리, 타이밍 같은 요소가 많고 매력을 한 줄로 줄 세울 수도 없습니다. 이 모델은 "서로 동의해야 한다"와 "기준이 서서히 변한다"만 남긴 단순한 시장입니다. 저출산 같은 사회 문제의 원인을 설명하는 모델은 아닙니다.</div>
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout" data-en="&lt;b&gt;What it shows:&lt;/b&gt; If everyone wants &quot;someone a little better than me,&quot; almost nobody satisfies both sides at once, so everyone waits until their standards drop. Raising the aim by just +10 points noticeably lengthens the search, and past a certain point most people fail to find a match within the time limit."><b>말하는 것:</b> 모두가 "나보다 조금 나은 사람"을 바라면 서로의 조건을 동시에 만족하는 상대가 거의 없어서, 기준이 낮아질 때까지 아무도 짝을 못 찾고 기다립니다. 눈높이가 +10%p만 올라가도 짝을 찾는 데 걸리는 시간이 눈에 띄게 늘고, 어느 선을 넘으면 정해진 기간 안에 대부분이 짝을 못 찾아요.</div>
+  <div class="callout" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; It doesn&#x27;t mean love or marriage works by such calculations, and it makes no judgment about what aim is right. Reality has personality, taste, distance and timing, and attractiveness can&#x27;t be ranked on a single line. This model keeps only &quot;both must agree&quot; and &quot;standards change gradually.&quot; It does not explain the causes of social problems such as low birth rates."><b>말하지 않는 것:</b> 사랑이나 결혼이 이런 계산으로 이루어진다는 뜻이 아니고, 어떤 눈높이가 옳다는 판단도 아닙니다. 현실에는 성격, 취향, 거리, 타이밍 같은 요소가 많고 매력을 한 줄로 줄 세울 수도 없습니다. 이 모델은 "서로 동의해야 한다"와 "기준이 서서히 변한다"만 남긴 단순한 시장입니다. 저출산 같은 사회 문제의 원인을 설명하는 모델은 아닙니다.</div>
 
-  <h2>구현 메모</h2>
+  <h2 data-en="Implementation notes">구현 메모</h2>
   <ul class="small">
-    <li>게일-섀플리(안정 결혼 문제)의 "양쪽이 모두 동의해야 맺어진다"는 발상과 탐색 이론의 "기준(reservation level)이 시간이 지나며 낮아진다"는 발상을 합친 이 프로젝트의 설계입니다. 특정 논문을 재현한 것은 아닙니다.</li>
-    <li>모든 사람이 같은 기준으로 매력을 평가한다고 가정했기 때문에, 이 모델에서 매력이 가장 높은 사람과 가장 낮은 사람은 같은 정도로 오래 혼자 남습니다(<code>node tools/validate-more.js dating</code>로 확인).</li>
-    <li>④번 그래프는 현재 기준 하향 속도와 기간을 유지하고 눈높이만 바꿔 5번씩 돌린 결과입니다.</li>
-    <li>코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/dating">GitHub</a>에서 볼 수 있습니다.</li>
+    <li data-en="This is this project&#x27;s own design, combining the Gale–Shapley (stable marriage problem) idea that &quot;both sides must agree&quot; with the search-theory idea that &quot;the reservation level falls over time.&quot; It does not reproduce any specific paper.">게일-섀플리(안정 결혼 문제)의 "양쪽이 모두 동의해야 맺어진다"는 발상과 탐색 이론의 "기준(reservation level)이 시간이 지나며 낮아진다"는 발상을 합친 이 프로젝트의 설계입니다. 특정 논문을 재현한 것은 아닙니다.</li>
+    <li data-en="Because everyone is assumed to rate attractiveness the same way, in this model the most and least attractive people stay single for about equally long (check with &lt;code&gt;node tools/validate-more.js dating&lt;/code&gt;).">모든 사람이 같은 기준으로 매력을 평가한다고 가정했기 때문에, 이 모델에서 매력이 가장 높은 사람과 가장 낮은 사람은 같은 정도로 오래 혼자 남습니다(<code>node tools/validate-more.js dating</code>로 확인).</li>
+    <li data-en="Graph ④ keeps the current drop rate and duration, changes only the aim, and runs 5 times each.">④번 그래프는 현재 기준 하향 속도와 기간을 유지하고 눈높이만 바꿔 5번씩 돌린 결과입니다.</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/dating&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/dating">GitHub</a>에서 볼 수 있습니다.</li>
   </ul>
 </main>
 
-<footer><div class="wrap">시뮬라티오 랩 · 유튜브 <b>@simulatiolab</b></div></footer>
+<footer><div class="wrap" data-en="Simulatio Lab · YouTube &lt;b&gt;@simulatiolab&lt;/b&gt;">시뮬라티오 랩 · 유튜브 <b>@simulatiolab</b></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
 <script src="../../lib.js"></script>
 <script src="sim.js"></script>
 <script src="app.js"></script>

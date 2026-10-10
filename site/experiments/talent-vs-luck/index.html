@@ -3,50 +3,50 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>성공은 재능일까, 운일까? · 시뮬라티오 랩</title>
-<meta name="description" content="재능은 정규분포인데 부는 왜 쏠릴까? Talent vs Luck 시뮬레이션을 변수를 바꿔 직접 돌려보세요.">
+<title data-en="Is Success Talent or Luck? · Simulatio Lab">성공은 재능일까, 운일까? · 시뮬라티오 랩</title>
+<meta name="description" content="재능은 정규분포인데 부는 왜 쏠릴까? Talent vs Luck 시뮬레이션을 변수를 바꿔 직접 돌려보세요." data-en-content="Talent is bell-shaped, so why does wealth pile up in a few hands? Run the Talent vs Luck simulation yourself by changing the variables.">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
 <nav class="nav"><div class="wrap">
-  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b>시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
-  <span class="navr"><a class="link" href="../../">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)"><span class="vi"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi">누적 <b id="v-total">0</b></span></span></span>
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
 </div></nav>
 
 <main class="wrap">
-  <h1>성공은 재능일까, 운일까?</h1>
-  <p class="lead">사람의 재능은 평균 근처에 모여 있는데, 부와 성공은 소수에게 극단적으로 쏠립니다. 1,000명이 40년 동안 운 좋은 일과 나쁜 일을 만나는 모델로 확인해 봅니다.</p>
+  <h1 data-en="Is Success Talent or Luck?">성공은 재능일까, 운일까?</h1>
+  <p class="lead" data-en="Talent clusters around the average, yet wealth and success pile up extremely at the top. We check with a model in which 1,000 people meet lucky and unlucky events over 40 years.">사람의 재능은 평균 근처에 모여 있는데, 부와 성공은 소수에게 극단적으로 쏠립니다. 1,000명이 40년 동안 운 좋은 일과 나쁜 일을 만나는 모델로 확인해 봅니다.</p>
 
-  <h2>모델은 이렇게 움직입니다</h2>
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
   <ul>
-    <li>1,000명에게 재능을 정규분포(평균 0.6, 표준편차 0.1)로 나눠 주고, 모두 같은 자본(10)으로 시작합니다.</li>
-    <li>화면 위를 <b style="color:var(--lucky)">행운</b>과 <b style="color:var(--unlucky)">불운</b> 점 500개가 6개월마다 무작위로 움직입니다.</li>
-    <li>행운 점이 지나가면 <b>재능만큼의 확률로</b> 자본이 2배가 됩니다. 불운 점이 지나가면 재능과 상관없이 <b>자본이 절반</b>이 됩니다.</li>
-    <li>40년(80단계) 뒤 누가 가장 부자인지 봅니다.</li>
+    <li data-en="1,000 people get talent from a normal distribution (mean 0.6, SD 0.1), and everyone starts with the same capital (10).">1,000명에게 재능을 정규분포(평균 0.6, 표준편차 0.1)로 나눠 주고, 모두 같은 자본(10)으로 시작합니다.</li>
+    <li data-en="Across the screen, 500 &lt;b style=&quot;color:var(--lucky)&quot;&gt;lucky&lt;/b&gt; and &lt;b style=&quot;color:var(--unlucky)&quot;&gt;unlucky&lt;/b&gt; points move randomly every 6 months.">화면 위를 <b style="color:var(--lucky)">행운</b>과 <b style="color:var(--unlucky)">불운</b> 점 500개가 6개월마다 무작위로 움직입니다.</li>
+    <li data-en="When a lucky point passes, capital doubles &lt;b&gt;with probability equal to talent&lt;/b&gt;. When an unlucky point passes, &lt;b&gt;capital is halved&lt;/b&gt; regardless of talent.">행운 점이 지나가면 <b>재능만큼의 확률로</b> 자본이 2배가 됩니다. 불운 점이 지나가면 재능과 상관없이 <b>자본이 절반</b>이 됩니다.</li>
+    <li data-en="After 40 years (80 steps), we see who is richest.">40년(80단계) 뒤 누가 가장 부자인지 봅니다.</li>
   </ul>
 
-  <h2>직접 돌려보기</h2>
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
   <div class="panel">
     <div class="controls">
-      <div class="ctl"><label for="events">이벤트 수 <output id="o-events"></output></label>
+      <div class="ctl"><label for="events" data-en="Number of events &lt;output id=&quot;o-events&quot;&gt;&lt;/output&gt;">이벤트 수 <output id="o-events"></output></label>
         <input type="range" id="events" min="0" max="2000" step="50" value="500">
-        <span class="hint">많을수록 운이 개입할 기회가 늘어요</span></div>
-      <div class="ctl"><label for="pLucky">행운 비율 <output id="o-pLucky"></output></label>
+        <span class="hint" data-en="More events means more chances for luck">많을수록 운이 개입할 기회가 늘어요</span></div>
+      <div class="ctl"><label for="pLucky" data-en="Share of lucky events &lt;output id=&quot;o-pLucky&quot;&gt;&lt;/output&gt;">행운 비율 <output id="o-pLucky"></output></label>
         <input type="range" id="pLucky" min="0" max="100" step="5" value="50">
-        <span class="hint">나머지는 불운 이벤트</span></div>
-      <div class="ctl"><label for="years">기간 <output id="o-years"></output></label>
+        <span class="hint" data-en="The rest are unlucky events">나머지는 불운 이벤트</span></div>
+      <div class="ctl"><label for="years" data-en="Duration &lt;output id=&quot;o-years&quot;&gt;&lt;/output&gt;">기간 <output id="o-years"></output></label>
         <input type="range" id="years" min="5" max="60" step="5" value="40">
-        <span class="hint">6개월 단위로 진행</span></div>
-      <div class="ctl"><label for="sdT">재능 편차 <output id="o-sdT"></output></label>
+        <span class="hint" data-en="Runs in 6-month steps">6개월 단위로 진행</span></div>
+      <div class="ctl"><label for="sdT" data-en="Talent spread &lt;output id=&quot;o-sdT&quot;&gt;&lt;/output&gt;">재능 편차 <output id="o-sdT"></output></label>
         <input type="range" id="sdT" min="0.02" max="0.2" step="0.02" value="0.1">
-        <span class="hint">클수록 사람들의 재능 차이가 커요</span></div>
+        <span class="hint" data-en="Larger means bigger differences in talent">클수록 사람들의 재능 차이가 커요</span></div>
     </div>
     <div class="btns">
-      <button class="primary" id="run">이 설정으로 실행</button>
-      <button id="reroll">같은 설정, 다른 운</button>
-      <button id="batch">100번 반복해서 보기</button>
-      <button id="reset">기본값으로</button>
+      <button class="primary" id="run" data-en="Run with these settings">이 설정으로 실행</button>
+      <button id="reroll" data-en="Same settings, new luck">같은 설정, 다른 운</button>
+      <button id="batch" data-en="Repeat 100 times">100번 반복해서 보기</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
       <span class="muted small" id="seedinfo"></span>
     </div>
   </div>
@@ -55,68 +55,70 @@
 
   <div class="charts">
     <section class="panel chart">
-      <h3>① 시뮬레이션 지켜보기</h3>
-      <p>점은 사람이고, 자본이 늘수록 크고 진한 파랑이 됩니다. 번지는 <b style="color:var(--lucky)">초록 빛</b>은 행운, <b style="color:var(--unlucky)">붉은 빛</b>은 불운이 지나가는 자리예요.</p>
+      <h3 data-en="① Watch the Simulation">① 시뮬레이션 지켜보기</h3>
+      <p data-en="Dots are people; they grow larger and deeper blue as their capital grows. The spreading &lt;b style=&quot;color:var(--lucky)&quot;&gt;green glow&lt;/b&gt; marks where luck is passing and the &lt;b style=&quot;color:var(--unlucky)&quot;&gt;red glow&lt;/b&gt; where bad luck is.">점은 사람이고, 자본이 늘수록 크고 진한 파랑이 됩니다. 번지는 <b style="color:var(--lucky)">초록 빛</b>은 행운, <b style="color:var(--unlucky)">붉은 빛</b>은 불운이 지나가는 자리예요.</p>
       <canvas id="c-world" class="rounded" aria-label="시뮬레이션 애니메이션"></canvas>
       <div class="progress"><i id="prog"></i></div>
       <div class="anim-bar">
-        <button id="play">▶ 재생</button>
-        <button id="restart">처음부터</button>
-        <select id="speed" aria-label="속도"><option value="3">느리게</option><option value="8" selected>보통</option><option value="20">빠르게</option></select>
+        <button id="play" data-en="▶ Play">▶ 재생</button>
+        <button id="restart" data-en="Restart">처음부터</button>
+        <select id="speed" aria-label="속도"><option value="3" data-en="Slow">느리게</option><option value="8" selected data-en="Normal">보통</option><option value="20" data-en="Fast">빠르게</option></select>
         <span class="when" id="when"></span>
       </div>
     </section>
 
     <section class="panel chart">
-      <h3>② 자본 분포</h3>
-      <p>가로는 최종 자본, 세로는 사람 수입니다. 자본은 2배·절반으로만 변해서 10 × 2<sup>k</sup> 값만 나와요.</p>
+      <h3 data-en="② Capital Distribution">② 자본 분포</h3>
+      <p data-en="The horizontal axis is final capital, the vertical axis is the number of people. Capital only doubles or halves, so only values of 10 × 2&lt;sup&gt;k&lt;/sup&gt; appear.">가로는 최종 자본, 세로는 사람 수입니다. 자본은 2배·절반으로만 변해서 10 × 2<sup>k</sup> 값만 나와요.</p>
       <canvas id="c-hist" aria-label="자본 분포 히스토그램"></canvas>
     </section>
 
     <section class="panel chart">
-      <h3>③ 재능 vs 최종 자본</h3>
-      <p>한 점이 한 사람입니다. 재능이 높다고 위쪽에 있지 않아요. 세로축은 로그 눈금입니다.</p>
+      <h3 data-en="③ Talent vs Final Capital">③ 재능 vs 최종 자본</h3>
+      <p data-en="Each dot is one person. Higher talent doesn&#x27;t put you higher up. The vertical axis is a log scale.">한 점이 한 사람입니다. 재능이 높다고 위쪽에 있지 않아요. 세로축은 로그 눈금입니다.</p>
       <canvas id="c-scatter" aria-label="재능과 최종 자본 산점도"></canvas>
-      <div class="legend"><span><i style="background:var(--rich)"></i>최고 부자</span><span><i style="background:var(--talent)"></i>최고 재능자</span></div>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--rich)&quot;&gt;&lt;/i&gt;Richest"><i style="background:var(--rich)"></i>최고 부자</span><span data-en="&lt;i style=&quot;background:var(--talent)&quot;&gt;&lt;/i&gt;Most talented"><i style="background:var(--talent)"></i>최고 재능자</span></div>
     </section>
 
     <section class="panel chart">
-      <h3>④ 최고 부자는 어떻게 부자가 됐나</h3>
-      <p>금색 선이 최고 부자의 자본 변화, 보라색 선은 최고 재능자입니다. 점은 겪은 이벤트예요.</p>
+      <h3 data-en="④ How the Richest Person Got Rich">④ 최고 부자는 어떻게 부자가 됐나</h3>
+      <p data-en="The gold line is the richest person&#x27;s capital over time, the purple line is the most talented person&#x27;s. Dots are the events they experienced.">금색 선이 최고 부자의 자본 변화, 보라색 선은 최고 재능자입니다. 점은 겪은 이벤트예요.</p>
       <canvas id="c-time" aria-label="상위자 자본 타임라인"></canvas>
       <div class="legend">
-        <span><i style="background:var(--lucky)"></i>행운을 잡음</span>
-        <span><i style="background:none;border:1.5px solid var(--lucky)"></i>행운이 왔지만 놓침</span>
-        <span><i style="background:var(--unlucky)"></i>불운</span>
+        <span data-en="&lt;i style=&quot;background:var(--lucky)&quot;&gt;&lt;/i&gt;Seized the luck"><i style="background:var(--lucky)"></i>행운을 잡음</span>
+        <span data-en="&lt;i style=&quot;background:none;border:1.5px solid var(--lucky)&quot;&gt;&lt;/i&gt;Luck came but missed"><i style="background:none;border:1.5px solid var(--lucky)"></i>행운이 왔지만 놓침</span>
+        <span data-en="&lt;i style=&quot;background:var(--unlucky)&quot;&gt;&lt;/i&gt;Bad luck"><i style="background:var(--unlucky)"></i>불운</span>
       </div>
     </section>
   </div>
 
   <section class="panel chart" id="batch-panel" style="margin-top:16px;display:none">
-    <h3>⑤ 100번 반복한 결과</h3>
+    <h3 data-en="⑤ Results of 100 Repeats">⑤ 100번 반복한 결과</h3>
     <p id="batch-text"></p>
     <canvas id="c-batch" aria-label="최고 부자의 재능 분포"></canvas>
   </section>
 
-  <h2>이 결과가 말하는 것, 말하지 않는 것</h2>
-  <div class="callout">
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout" data-en="&lt;b&gt;What it shows:&lt;/b&gt; Even among people of similar talent, a few lucky breaks can open an extreme gap in wealth and success. It is very rare for the most successful person to be the most talented.">
     <b>말하는 것:</b> 재능이 비슷한 사람들 사이에서도, 운이 몇 번 겹치는 것만으로 부와 성공의 격차가 극단적으로 벌어질 수 있습니다. 가장 성공한 사람이 가장 뛰어난 사람인 경우는 매우 드뭅니다.
   </div>
-  <div class="callout">
+  <div class="callout" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; It doesn&#x27;t mean talent is useless or effort is pointless. Real wealth is shaped by many factors such as education, inheritance and institutions; this model is a simplified one that keeps only luck and talent.">
     <b>말하지 않는 것:</b> 재능이 소용없다거나 노력이 무의미하다는 뜻은 아닙니다. 현실의 부는 교육, 상속, 제도 등 많은 요인으로 정해지는데, 이 모델은 그중 운과 재능만 남긴 단순한 모델입니다.
   </div>
 
-  <h2>구현 메모</h2>
+  <h2 data-en="Implementation notes">구현 메모</h2>
   <ul class="small">
-    <li>원 논문: Pluchino, Biondo, Rapisarda (2018), <a href="https://arxiv.org/abs/1802.07068">"Talent vs Luck: the role of randomness in success and failure"</a></li>
-    <li>세계는 201×201 칸의 토러스이고, 이벤트는 한 스텝에 2칸씩 임의 방향으로 이동하며, 반경 1칸 안에 들어오면 만난 것으로 칩니다.</li>
-    <li>논문에는 한 스텝에 이벤트를 여러 개 만났을 때의 처리가 없어서, 만난 순서대로 모두 적용했습니다.</li>
-    <li>기본 설정으로 300번 돌려 보면 상위 20%가 자본의 약 79%를 가져가고(논문: 80%), 최고 부자의 재능은 중앙값 약 0.67로 평균(0.6)보다 조금 높은 정도입니다.</li>
-    <li>코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/talent-vs-luck">GitHub</a>에서 볼 수 있습니다.</li>
+    <li data-en="Original paper: Pluchino, Biondo, Rapisarda (2018), &lt;a href=&quot;https://arxiv.org/abs/1802.07068&quot;&gt;&quot;Talent vs Luck: the role of randomness in success and failure&quot;&lt;/a&gt;">원 논문: Pluchino, Biondo, Rapisarda (2018), <a href="https://arxiv.org/abs/1802.07068">"Talent vs Luck: the role of randomness in success and failure"</a></li>
+    <li data-en="The world is a 201×201 torus; events move 2 cells per step in a random direction, and an event counts as met when it comes within a radius of 1 cell.">세계는 201×201 칸의 토러스이고, 이벤트는 한 스텝에 2칸씩 임의 방향으로 이동하며, 반경 1칸 안에 들어오면 만난 것으로 칩니다.</li>
+    <li data-en="The paper does not say what to do when several events are met in one step, so all of them are applied in the order met.">논문에는 한 스텝에 이벤트를 여러 개 만났을 때의 처리가 없어서, 만난 순서대로 모두 적용했습니다.</li>
+    <li data-en="Running the default settings 300 times, the top 20% hold about 79% of capital (paper: 80%), and the richest person&#x27;s median talent is about 0.67, only a little above the mean (0.6).">기본 설정으로 300번 돌려 보면 상위 20%가 자본의 약 79%를 가져가고(논문: 80%), 최고 부자의 재능은 중앙값 약 0.67로 평균(0.6)보다 조금 높은 정도입니다.</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/talent-vs-luck&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/talent-vs-luck">GitHub</a>에서 볼 수 있습니다.</li>
   </ul>
 </main>
 
-<footer><div class="wrap">시뮬라티오 랩 · 유튜브 <b>@simulatiolab</b></div></footer>
+<footer><div class="wrap" data-en="Simulatio Lab · YouTube &lt;b&gt;@simulatiolab&lt;/b&gt;">시뮬라티오 랩 · 유튜브 <b>@simulatiolab</b></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
 <script src="../../lib.js"></script>
 <script src="sim.js"></script>
 <script src="app.js"></script>
