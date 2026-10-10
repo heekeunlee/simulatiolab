@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>부의 쏠림 · 시뮬라티오 랩</title>
+<meta name="description" content="모든 거래가 동전 던지기처럼 공정해도 부는 소수에게 쏠릴까? 재분배를 바꿔 직접 돌려보세요.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b>시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../">실험 목록</a><span class="visits" id="visits" hidden title="누적 방문자 수"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>방문 <b>0</b></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1>부의 쏠림</h1>
+  <p class="lead">모든 사람이 똑같이 시작하고, 모든 거래가 동전 던지기처럼 정확히 공정합니다. 그런데도 시간이 지나면 부는 소수에게 쏠릴까요? 쏠린다면, 얼마나 나눠야 막을 수 있을까요?</p>
+
+  <h2>모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li>1,000명이 모두 같은 재산(1)으로 시작합니다.</li>
+    <li>무작위로 두 사람이 만나 내기를 합니다. 판돈은 <b>둘 중 가난한 쪽 재산의 일정 비율</b>이라서 아무도 파산하지 않습니다.</li>
+    <li>동전 던지기로 이긴 사람이 판돈을 가져갑니다. 이길 확률은 정확히 50:50, 부자라고 유리하지 않습니다.</li>
+    <li>한 라운드가 끝날 때마다 모두에게서 재산의 일부를 걷어 똑같이 나눠 줄 수 있습니다(재분배). 슬라이더로 얼마나 걷을지 정합니다.</li>
+  </ul>
+
+  <h2>직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="tax">재분배율 <output id="o-tax"></output></label>
+        <input type="range" id="tax" min="0" max="8" step="0.5" value="0">
+        <span class="hint">라운드마다 재산에서 걷어 모두에게 똑같이 나눔</span></div>
+      <div class="ctl"><label for="stake">판돈 비율 <output id="o-stake"></output></label>
+        <input type="range" id="stake" min="5" max="50" step="5" value="20">
+        <span class="hint">가난한 쪽 재산의 몇 %를 거는지</span></div>
+      <div class="ctl"><label for="bias">부자 유리 정도 <output id="o-bias"></output></label>
+        <input type="range" id="bias" min="0" max="10" step="1" value="0">
+        <span class="hint">0%면 완전히 공정, 클수록 부자가 이기기 쉬워요</span></div>
+      <div class="ctl"><label for="rounds">기간 <output id="o-rounds"></output></label>
+        <input type="range" id="rounds" min="100" max="600" step="100" value="300">
+        <span class="hint">한 라운드에 평균 두 번씩 거래해요</span></div>
+    </div>
+    <div class="btns">
+      <button class="primary" id="run">처음부터 다시</button>
+      <button id="reroll">같은 설정, 다른 운</button>
+      <button id="reset">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3>① 부의 계단</h3>
+    <p>1,000명을 재산 순으로 세워 10명씩 묶은 100개 기둥입니다. 점선은 모두가 똑같았을 때의 높이(평균)예요.</p>
+    <canvas id="c-bars" class="rounded" aria-label="부의 계단"></canvas>
+    <div class="anim-bar">
+      <button id="play">⏸ 일시정지</button>
+      <button id="restart">처음부터</button>
+      <select id="speed" aria-label="속도"><option value="8">느리게</option><option value="20" selected>보통</option><option value="60">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+    <div class="legend">
+      <span><i style="background:#b9c3da"></i>평균 이하</span>
+      <span><i style="background:var(--accent)"></i>평균 이상</span>
+      <span><i style="background:var(--rich)"></i>상위 10%</span>
+    </div>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3>② 로렌츠 곡선</h3>
+      <p>가난한 사람부터 줄 세웠을 때, 아래쪽 몇 %가 재산의 몇 %를 가졌는지 보여줍니다. 대각선은 완전한 평등이에요. 곡선이 아래로 처질수록 불평등합니다.</p>
+      <canvas id="c-lorenz" aria-label="로렌츠 곡선"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3>③ 시간에 따른 불평등</h3>
+      <p>지니계수는 0이면 완전 평등, 1이면 한 사람이 전부 가진 상태입니다.</p>
+      <canvas id="c-time" aria-label="불평등 지표 변화"></canvas>
+      <div class="legend">
+        <span><i style="background:var(--accent)"></i>지니계수</span>
+        <span><i style="background:var(--rich)"></i>상위 10%의 몫</span>
+        <span><i style="background:var(--lucky)"></i>하위 50%의 몫</span>
+      </div>
+    </section>
+    <section class="panel chart">
+      <h3>④ 같은 출발선의 8명</h3>
+      <p>처음엔 똑같았던 사람들입니다. 세로축은 평균 대비 재산(로그 눈금)이고, 굵은 선은 지금 가장 부자인 사람이에요.</p>
+      <canvas id="c-track" aria-label="처음에 같았던 사람들의 재산 변화"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3>⑤ 얼마나 나누면 막을 수 있을까</h3>
+      <p>가로는 재분배율, 세로는 끝난 뒤의 지니계수입니다. 점 하나가 한 번의 실행이에요.</p>
+      <canvas id="c-sweep" aria-label="재분배율별 지니계수"></canvas>
+      <div class="legend"><span id="note-sweep">계산 중…</span></div>
+    </section>
+  </div>
+
+  <h2>이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout"><b>말하는 것:</b> 모든 거래가 공정해도, 우연이 곱해지는 구조에서는 시간이 지나며 부가 소수에게 쏠립니다. 한 번 가난해지면 걸 수 있는 돈이 작아 회복이 느리기 때문이에요. 그리고 적은 비율의 재분배만으로도 쏠림이 크게 줄어듭니다.</div>
+  <div class="callout"><b>말하지 않는 것:</b> 현실의 부는 노동, 상속, 투자, 제도로 만들어지고 이 모델에는 생산이 없습니다. 재분배율은 "라운드마다 걷는 비율"이라 실제 세율과 직접 비교할 수 없고, 어떤 정책이 옳은지에 대한 답도 아닙니다. 거래가 정말 공정하다는 가정도 현실과 다릅니다.</div>
+
+  <h2>구현 메모</h2>
+  <ul class="small">
+    <li>이 모델은 경제물리학에서 "야드세일(yard-sale) 모델"로 알려진 교환 모델의 변형입니다. 판돈을 가난한 쪽 재산 기준으로 잡는 점과 재분배 항을 두는 점이 핵심입니다. 특정 논문의 수치를 그대로 재현한 것은 아니고 이 프로젝트의 구현입니다.</li>
+    <li>사람 1,000명, 한 라운드에 1,000번 거래(무작위 쌍)입니다. 총 재산은 늘 1,000으로 일정합니다(<code>node tools/validate-wealth.js</code>로 확인).</li>
+    <li>⑤번 그래프는 현재 설정에서 재분배율만 바꿔 5번씩 돌린 결과입니다.</li>
+    <li>코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/wealth">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap">시뮬라티오 랩 · 유튜브 <b>@simulatiolab</b></div></footer>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../counter.js"></script>
+</body>
+</html>
