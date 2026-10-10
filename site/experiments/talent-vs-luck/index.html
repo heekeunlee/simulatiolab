@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>성공은 재능일까, 운일까? · 시뮬라티오 랩</title>
+<meta name="description" content="재능은 정규분포인데 부는 왜 쏠릴까? Talent vs Luck 시뮬레이션을 변수를 바꿔 직접 돌려보세요.">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../">시뮬라티오 랩<small>Simulatio Lab</small></a>
+  <span><a class="link" href="../../">실험 목록</a><a class="link" href="https://github.com/heekeunlee/simulatiolab">GitHub</a></span>
+</div></nav>
+
+<main class="wrap">
+  <h1>성공은 재능일까, 운일까?</h1>
+  <p class="lead">사람의 재능은 평균 근처에 모여 있는데, 부와 성공은 소수에게 극단적으로 쏠립니다. 1,000명이 40년 동안 운 좋은 일과 나쁜 일을 만나는 모델로 확인해 봅니다.</p>
+
+  <h2>모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li>1,000명에게 재능을 정규분포(평균 0.6, 표준편차 0.1)로 나눠 주고, 모두 같은 자본(10)으로 시작합니다.</li>
+    <li>화면 위를 <b style="color:var(--lucky)">행운</b>과 <b style="color:var(--unlucky)">불운</b> 점 500개가 6개월마다 무작위로 움직입니다.</li>
+    <li>행운 점이 지나가면 <b>재능만큼의 확률로</b> 자본이 2배가 됩니다. 불운 점이 지나가면 재능과 상관없이 <b>자본이 절반</b>이 됩니다.</li>
+    <li>40년(80단계) 뒤 누가 가장 부자인지 봅니다.</li>
+  </ul>
+
+  <h2>직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="events">이벤트 수 <output id="o-events"></output></label>
+        <input type="range" id="events" min="0" max="2000" step="50" value="500">
+        <span class="hint">많을수록 운이 개입할 기회가 늘어요</span></div>
+      <div class="ctl"><label for="pLucky">행운 비율 <output id="o-pLucky"></output></label>
+        <input type="range" id="pLucky" min="0" max="100" step="5" value="50">
+        <span class="hint">나머지는 불운 이벤트</span></div>
+      <div class="ctl"><label for="years">기간 <output id="o-years"></output></label>
+        <input type="range" id="years" min="5" max="60" step="5" value="40">
+        <span class="hint">6개월 단위로 진행</span></div>
+      <div class="ctl"><label for="sdT">재능 편차 <output id="o-sdT"></output></label>
+        <input type="range" id="sdT" min="0.02" max="0.2" step="0.02" value="0.1">
+        <span class="hint">클수록 사람들의 재능 차이가 커요</span></div>
+    </div>
+    <div class="btns">
+      <button class="primary" id="run">이 설정으로 실행</button>
+      <button id="reroll">같은 설정, 다른 운</button>
+      <button id="batch">100번 반복해서 보기</button>
+      <button id="reset">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3>① 시뮬레이션 지켜보기</h3>
+      <p>점은 사람, 원은 이벤트입니다. 사람 점은 자본이 클수록 크고 진합니다. 금색은 최고 부자, 보라색은 최고 재능자예요.</p>
+      <canvas id="c-world" aria-label="시뮬레이션 애니메이션"></canvas>
+      <div class="anim-bar">
+        <button id="play">▶ 재생</button>
+        <button id="restart">처음부터</button>
+        <select id="speed" aria-label="속도"><option value="3">느리게</option><option value="8" selected>보통</option><option value="20">빠르게</option></select>
+        <span class="when" id="when"></span>
+      </div>
+    </section>
+
+    <section class="panel chart">
+      <h3>② 자본 분포</h3>
+      <p>가로는 최종 자본, 세로는 사람 수입니다. 자본은 2배·절반으로만 변해서 10 × 2<sup>k</sup> 값만 나와요.</p>
+      <canvas id="c-hist" aria-label="자본 분포 히스토그램"></canvas>
+    </section>
+
+    <section class="panel chart">
+      <h3>③ 재능 vs 최종 자본</h3>
+      <p>한 점이 한 사람입니다. 재능이 높다고 위쪽에 있지 않아요. 세로축은 로그 눈금입니다.</p>
+      <canvas id="c-scatter" aria-label="재능과 최종 자본 산점도"></canvas>
+      <div class="legend"><span><i style="background:var(--rich)"></i>최고 부자</span><span><i style="background:var(--talent)"></i>최고 재능자</span></div>
+    </section>
+
+    <section class="panel chart">
+      <h3>④ 최고 부자는 어떻게 부자가 됐나</h3>
+      <p>금색 선이 최고 부자의 자본 변화, 보라색 선은 최고 재능자입니다. 점은 겪은 이벤트예요.</p>
+      <canvas id="c-time" aria-label="상위자 자본 타임라인"></canvas>
+      <div class="legend">
+        <span><i style="background:var(--lucky)"></i>행운을 잡음</span>
+        <span><i style="background:none;border:1.5px solid var(--lucky)"></i>행운이 왔지만 놓침</span>
+        <span><i style="background:var(--unlucky)"></i>불운</span>
+      </div>
+    </section>
+  </div>
+
+  <section class="panel chart" id="batch-panel" style="margin-top:16px;display:none">
+    <h3>⑤ 100번 반복한 결과</h3>
+    <p id="batch-text"></p>
+    <canvas id="c-batch" aria-label="최고 부자의 재능 분포"></canvas>
+  </section>
+
+  <h2>이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout">
+    <b>말하는 것:</b> 재능이 비슷한 사람들 사이에서도, 운이 몇 번 겹치는 것만으로 부와 성공의 격차가 극단적으로 벌어질 수 있습니다. 가장 성공한 사람이 가장 뛰어난 사람인 경우는 매우 드뭅니다.
+  </div>
+  <div class="callout">
+    <b>말하지 않는 것:</b> 재능이 소용없다거나 노력이 무의미하다는 뜻은 아닙니다. 현실의 부는 교육, 상속, 제도 등 많은 요인으로 정해지는데, 이 모델은 그중 운과 재능만 남긴 단순한 모델입니다.
+  </div>
+
+  <h2>구현 메모</h2>
+  <ul class="small">
+    <li>원 논문: Pluchino, Biondo, Rapisarda (2018), <a href="https://arxiv.org/abs/1802.07068">"Talent vs Luck: the role of randomness in success and failure"</a></li>
+    <li>세계는 201×201 칸의 토러스이고, 이벤트는 한 스텝에 2칸씩 임의 방향으로 이동하며, 반경 1칸 안에 들어오면 만난 것으로 칩니다.</li>
+    <li>논문에는 한 스텝에 이벤트를 여러 개 만났을 때의 처리가 없어서, 만난 순서대로 모두 적용했습니다.</li>
+    <li>기본 설정으로 300번 돌려 보면 상위 20%가 자본의 약 79%를 가져가고(논문: 80%), 최고 부자의 재능은 중앙값 약 0.67로 평균(0.6)보다 조금 높은 정도입니다.</li>
+    <li>코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/talent-vs-luck">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap">시뮬라티오 랩 · 유튜브 <b>@simulatiolab</b></div></footer>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
