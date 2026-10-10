@@ -18,7 +18,7 @@
 <header class="hero" id="hero">
   <canvas id="swarm" aria-hidden="true"></canvas>
   <div class="hero-in wrap">
-    <p class="eyebrow" data-en="SIMULATIO LAB · 20 experiments · 10 fields">SIMULATIO LAB · 실험 20개 · 분야 10개</p>
+    <p class="eyebrow" data-en="SIMULATIO LAB · 28 experiments · 10 fields">SIMULATIO LAB · 실험 28개 · 분야 10개</p>
     <h1 class="mega" data-en="A Lab for&lt;br&gt;Testing &quot;What If?&quot;">만약에를<br>실험하는 곳</h1>
     <p class="rq" id="rq" aria-live="polite"></p>
     <p class="lead" data-en="Is success luck? How do rumors spread? We test &quot;what if&quot; questions about people, society, nature and art with simulations, and publish them so you can change the variables and run them yourself.">성공은 운일까? 소문은 어떻게 퍼질까? 사람과 사회, 자연과 예술에 대한 '만약에'를 시뮬레이션으로 실험하고, 변수를 바꿔 직접 돌려볼 수 있게 공개합니다.</p>
@@ -30,7 +30,7 @@
 <main class="wrap wide">
   <section class="table-sec" id="table">
     <h2 data-en="The Periodic Table of Experiments">실험 주기율표</h2>
-    <p class="muted" data-en="20 experiments in 10 fields (columns). Hover a cell and its page opens in the lab notebook below.">20개의 실험을 10개 분야(열)로 묶었어요. 칸 위에 마우스를 올리면 아래 실험 노트에 내용이 나타납니다.</p>
+    <p class="muted" data-en="28 experiments in 10 fields (columns). Hover a cell and its page opens in the lab notebook below.">28개의 실험을 10개 분야(열)로 묶었어요. 칸 위에 마우스를 올리면 아래 실험 노트에 내용이 나타납니다.</p>
     <div class="ptable">
       <div class="col" data-field="success" data-color="#e0a100" data-icon="💰" style="--c:#e0a100">
         <div class="fh"><span class="ic">💰</span><b data-en="Success &amp;amp; Inequality">성공과 불평등</b><i>3</i></div>
@@ -126,58 +126,106 @@
         </a>
       </div>
       <div class="col" data-field="history" data-color="#c2410c" data-icon="📜" style="--c:#c2410c">
-        <div class="fh"><span class="ic">📜</span><b data-en="History">역사</b><i>1</i></div>
+        <div class="fh"><span class="ic">📜</span><b data-en="History">역사</b><i>3</i></div>
         <a class="el" href="experiments/revolution/" data-field="history" data-kind="spread" style="--c:#c2410c">
           <canvas class="glyph" aria-hidden="true"></canvas>
           <span class="num">14</span><span class="sym">Rv</span>
           <span class="nm" data-en="Revolution">혁명의 문턱</span>
           <span class="hid t-title" data-en="How Does a Revolution Begin?">혁명은 어떻게 시작될까</span><span class="hid t-desc" data-en="When everyone has a different &quot;I&#x27;ll join if this many others do&quot; threshold, can one person change the whole square?">사람마다 "몇 명이 나서면 나도 나선다"는 문턱이 다를 때, 한 사람의 차이가 광장 전체를 바꿀 수 있을까요?</span><span class="hid t-model" data-en="Threshold model (Granovetter)">문턱 모델 (Granovetter)</span>
         </a>
+        <a class="el" href="experiments/easter/" data-field="history" data-kind="rise" style="--c:#c2410c">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">15</span><span class="sym">Es</span>
+          <span class="nm" data-en="Easter Island">이스터섬</span>
+          <span class="hid t-title" data-en="Why Did Easter Island Collapse?">이스터섬은 왜 몰락했을까</span><span class="hid t-desc" data-en="Forest and people grow together, then crash: trace the overshoot-and-collapse curve. (The real history is still debated.)">숲과 사람이 함께 늘다가 한꺼번에 무너지는 과잉-붕괴의 곡선을 그려요. (실제 역사는 아직 논쟁 중이에요)</span><span class="hid t-model" data-en="Resource–population overshoot model">자원-인구 과잉 모델</span>
+        </a>
+        <a class="el" href="experiments/alliance/" data-field="history" data-kind="net" style="--c:#c2410c">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">16</span><span class="sym">Al</span>
+          <span class="nm" data-en="Alliances">동맹의 연쇄</span>
+          <span class="hid t-title" data-en="How Does a Single Shot Become a World War?">한 발의 총성이 세계대전이 되려면</span><span class="hid t-desc" data-en="How far does a small clash spread as alliances get denser? A cascade experiment with anonymous states.">동맹이 촘촘해지면 작은 충돌이 어디까지 번질까요? 이름 없는 나라들로 해 보는 연쇄 실험이에요.</span><span class="hid t-model" data-en="Alliance-network cascade model">동맹 네트워크 연쇄 모델</span>
+        </a>
       </div>
       <div class="col" data-field="philosophy" data-color="#be185d" data-icon="🧠" style="--c:#be185d">
-        <div class="fh"><span class="ic">🧠</span><b data-en="Philosophy">철학</b><i>1</i></div>
+        <div class="fh"><span class="ic">🧠</span><b data-en="Philosophy">철학</b><i>3</i></div>
         <a class="el" href="experiments/cooperation/" data-field="philosophy" data-kind="handshake" style="--c:#be185d">
           <canvas class="glyph" aria-hidden="true"></canvas>
-          <span class="num">15</span><span class="sym">Co</span>
+          <span class="num">17</span><span class="sym">Co</span>
           <span class="nm" data-en="Cooperation">협력의 진화</span>
           <span class="hid t-title" data-en="Do Nice People Survive?">착한 사람은 살아남을까</span><span class="hid t-desc" data-en="In a world full of defectors, how do cooperation and trust come back? What changes when mistakes creep in?">배신하는 사람이 많은 세상에서 협력과 신뢰는 어떻게 되살아날까? 실수가 끼어들면 어떻게 될까?</span><span class="hid t-model" data-en="Iterated prisoner&#x27;s dilemma">반복 죄수의 딜레마</span>
         </a>
+        <a class="el" href="experiments/veil/" data-field="philosophy" data-kind="vote" style="--c:#be185d">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">18</span><span class="sym">Vl</span>
+          <span class="nm" data-en="Veil of Ignorance">무지의 베일</span>
+          <span class="hid t-title" data-en="Which Society Would You Choose Behind the Veil of Ignorance?">무지의 베일 뒤에서 어떤 사회를 고를까</span><span class="hid t-desc" data-en="If you didn&#x27;t know who you&#x27;d be, which society would you pick? The choice flips with how much you dislike risk.">내가 누구로 태어날지 모른다면 어떤 사회를 고를까요? 위험을 싫어하는 정도에 따라 선택이 뒤집혀요.</span><span class="hid t-model" data-en="Rawls–Harsanyi choice model">롤스·하사니 선택 모델</span>
+        </a>
+        <a class="el" href="experiments/commons/" data-field="philosophy" data-kind="wave" style="--c:#be185d">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">19</span><span class="sym">Cm</span>
+          <span class="nm" data-en="Commons">공유지</span>
+          <span class="hid t-title" data-en="Is the Tragedy of the Commons Inevitable?">공유지의 비극은 피할 수 없을까</span><span class="hid t-desc" data-en="Is a shared pasture doomed, or can monitoring and rules save it? Run both views side by side.">모두의 목초지는 반드시 망할까, 감시와 규칙이 지켜 줄까? 두 관점을 나란히 돌려 봐요.</span><span class="hid t-model" data-en="Commons game (Hardin vs Ostrom)">공유지 게임 (하딘 vs 오스트롬)</span>
+        </a>
       </div>
       <div class="col" data-field="literature" data-color="#a16207" data-icon="📖" style="--c:#a16207">
-        <div class="fh"><span class="ic">📖</span><b data-en="Literature">문학</b><i>1</i></div>
+        <div class="fh"><span class="ic">📖</span><b data-en="Literature">문학</b><i>3</i></div>
         <a class="el" href="experiments/monkey/" data-field="literature" data-kind="letters" style="--c:#a16207">
           <canvas class="glyph" aria-hidden="true"></canvas>
-          <span class="num">16</span><span class="sym">Mk</span>
+          <span class="num">20</span><span class="sym">Mk</span>
           <span class="nm" data-en="Monkeys">원숭이와 햄릿</span>
           <span class="hid t-title" data-en="Can Monkeys Write Hamlet?">원숭이가 햄릿을 쓸 수 있을까</span><span class="hid t-desc" data-en="Compare monkeys typing at random with evolution that keeps the best at every step.">무작위로 타자를 치는 원숭이와, 조금씩 고르며 나아가는 진화를 나란히 비교해요.</span><span class="hid t-model" data-en="Infinite monkeys vs cumulative selection">무한 원숭이 vs 누적 선택</span>
         </a>
+        <a class="el" href="experiments/zipf/" data-field="literature" data-kind="bars" style="--c:#a16207">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">21</span><span class="sym">Zp</span>
+          <span class="nm" data-en="Zipf&#x27;s Law">지프의 법칙</span>
+          <span class="hid t-title" data-en="Why Are a Few Words Used Constantly?">왜 소수의 단어만 자주 쓰일까</span><span class="hid t-desc" data-en="Why do a few words make up most of any text? Generate one yourself with a rich-get-richer rule.">왜 어느 언어에서나 소수의 단어가 글의 대부분을 차지할까? 부익부 규칙으로 직접 글을 써 봐요.</span><span class="hid t-model" data-en="Zipf&#x27;s law · Simon model">지프의 법칙 · 사이먼 모델</span>
+        </a>
+        <a class="el" href="experiments/telephone/" data-field="literature" data-kind="letters" style="--c:#a16207">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">22</span><span class="sym">Tp</span>
+          <span class="nm" data-en="Telephone">전달 게임</span>
+          <span class="hid t-title" data-en="How Do Stories Change as They&#x27;re Retold?">이야기는 전해지며 어떻게 변할까</span><span class="hid t-desc" data-en="What survives as a story passes mouth to mouth? Watch only the memorable parts remain.">입에서 입으로 전해지는 이야기에서 무엇이 살아남을까요? 기억에 남는 것만 남는 과정을 지켜봐요.</span><span class="hid t-model" data-en="Serial reproduction">전달 게임 (연쇄 재현)</span>
+        </a>
       </div>
       <div class="col" data-field="art" data-color="#9333ea" data-icon="🎨" style="--c:#9333ea">
-        <div class="fh"><span class="ic">🎨</span><b data-en="Art">예술</b><i>2</i></div>
+        <div class="fh"><span class="ic">🎨</span><b data-en="Art">예술</b><i>4</i></div>
         <a class="el" href="experiments/fashion/" data-field="art" data-kind="spiral" style="--c:#9333ea">
           <canvas class="glyph" aria-hidden="true"></canvas>
-          <span class="num">17</span><span class="sym">Fa</span>
+          <span class="num">23</span><span class="sym">Fa</span>
           <span class="nm" data-en="Fashion">유행의 순환</span>
           <span class="hid t-title" data-en="Why Do Fashions Come Around?">유행은 왜 돌고 돌까</span><span class="hid t-desc" data-en="On a color wheel, watch the cycle created by a copying crowd and trendsetters running away.">따라 하는 대중과 도망가는 선두가 만드는 색의 순환을 색상환 위에서 봐요.</span><span class="hid t-model" data-en="Imitation–distinction model">모방과 차별화 모델</span>
         </a>
         <a class="el" href="experiments/painters/" data-field="art" data-kind="tiles" style="--c:#9333ea">
           <canvas class="glyph" aria-hidden="true"></canvas>
-          <span class="num">18</span><span class="sym">Pa</span>
+          <span class="num">24</span><span class="sym">Pa</span>
           <span class="nm" data-en="AI Painters">AI 화가</span>
           <span class="hid t-title" data-en="What If 100 AI Painters Copy Each Other?">AI 화가 100명이 서로 따라 그리면</span><span class="hid t-desc" data-en="Does imitation collapse styles into one? Watch 100 paintings change.">모방이 늘수록 화풍은 하나로 수렴할까? 100점의 그림이 어떻게 달라지는지 지켜봐요.</span><span class="hid t-model" data-en="Cultural transmission model">문화 전파 모델</span>
+        </a>
+        <a class="el" href="experiments/sunflower/" data-field="art" data-kind="sunflower" style="--c:#9333ea">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">25</span><span class="sym">Ph</span>
+          <span class="nm" data-en="Sunflower">해바라기</span>
+          <span class="hid t-title" data-en="Why Do Sunflower Seeds Sit at That Angle?">해바라기 씨는 왜 그 각도로 배열될까</span><span class="hid t-desc" data-en="Turn each seed by 137.5° and they pack with no gaps. Nudge the angle and watch the pattern fall apart.">씨앗을 137.5°씩 돌려 놓으면 틈 없이 빽빽해져요. 각도를 조금만 바꿔도 무늬가 무너지는 걸 보세요.</span><span class="hid t-model" data-en="Golden-angle phyllotaxis">황금각 잎차례 모델</span>
+        </a>
+        <a class="el" href="experiments/auction/" data-field="art" data-kind="drift" style="--c:#9333ea">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">26</span><span class="sym">Au</span>
+          <span class="nm" data-en="Auctions">경매</span>
+          <span class="hid t-title" data-en="Why Does Winning an Auction Cost You?">경매에서 이기면 왜 손해일까</span><span class="hid t-desc" data-en="The highest bidder wins, so why does the winner lose on average? How much should you shade your bid to break even?">가장 높게 쓴 사람이 이기는데, 왜 이긴 사람이 평균적으로 손해일까요? 얼마나 깎아 써야 본전일까요?</span><span class="hid t-model" data-en="Winner&#x27;s curse model">승자의 저주 모델</span>
         </a>
       </div>
       <div class="col" data-field="society" data-color="#475569" data-icon="🏙️" style="--c:#475569">
         <div class="fh"><span class="ic">🏙️</span><b data-en="Society Today">사회 현안</b><i>2</i></div>
         <a class="el" href="experiments/population/" data-field="society" data-kind="tri2" style="--c:#475569">
           <canvas class="glyph" aria-hidden="true"></canvas>
-          <span class="num">19</span><span class="sym">Po</span>
+          <span class="num">27</span><span class="sym">Po</span>
           <span class="nm" data-en="Population">2070 인구</span>
           <span class="hid t-title" data-en="What Does Korea&#x27;s Population Look Like in 2070?">저출산이 계속되면 2070년 인구 구조는?</span><span class="hid t-desc" data-en="If fertility stays as it is, how does the population pyramid change? Try other fertility and migration levels.">출산율이 이대로면 인구 피라미드는 어떻게 바뀔까? 출산율과 이민을 바꿔 보세요.</span><span class="hid t-model" data-en="Cohort-component model">코호트 인구 모델</span>
         </a>
         <a class="el" href="experiments/apartment/" data-field="society" data-kind="heat" style="--c:#475569">
           <canvas class="glyph" aria-hidden="true"></canvas>
-          <span class="num">20</span><span class="sym">Ap</span>
+          <span class="num">28</span><span class="sym">Ap</span>
           <span class="nm" data-en="Housing">아파트 가격</span>
           <span class="hid t-title" data-en="How Do Apartment Prices Spread?">아파트 가격은 어떻게 번질까</span><span class="hid t-desc" data-en="See, in a toy model, how a rise in one neighborhood spreads to the next, and what lending limits and interest rates do.">한 동네의 상승이 이웃으로 번지는 과정과, 대출 규제·금리가 미치는 영향을 장난감 모델로 봐요.</span><span class="hid t-model" data-en="Spatial contagion model">공간 확산 모델</span>
         </a>

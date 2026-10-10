@@ -31,16 +31,24 @@ CATS = [
  ]),
  ('history', '#c2410c', '📜', T('역사', 'History'), T('작은 계기가 큰 흐름으로 번지는 순간', 'When a small spark turns into a big movement'), [
   ('revolution', T('문턱 모델 (Granovetter)', 'Threshold model (Granovetter)'), T('혁명은 어떻게 시작될까', 'How Does a Revolution Begin?'), T('사람마다 "몇 명이 나서면 나도 나선다"는 문턱이 다를 때, 한 사람의 차이가 광장 전체를 바꿀 수 있을까요?', 'When everyone has a different "I\'ll join if this many others do" threshold, can one person change the whole square?')),
+  ('easter', T('자원-인구 과잉 모델', 'Resource–population overshoot model'), T('이스터섬은 왜 몰락했을까', 'Why Did Easter Island Collapse?'), T('숲과 사람이 함께 늘다가 한꺼번에 무너지는 과잉-붕괴의 곡선을 그려요. (실제 역사는 아직 논쟁 중이에요)', 'Forest and people grow together, then crash: trace the overshoot-and-collapse curve. (The real history is still debated.)')),
+  ('alliance', T('동맹 네트워크 연쇄 모델', 'Alliance-network cascade model'), T('한 발의 총성이 세계대전이 되려면', 'How Does a Single Shot Become a World War?'), T('동맹이 촘촘해지면 작은 충돌이 어디까지 번질까요? 이름 없는 나라들로 해 보는 연쇄 실험이에요.', 'How far does a small clash spread as alliances get denser? A cascade experiment with anonymous states.')),
  ]),
  ('philosophy', '#be185d', '🧠', T('철학', 'Philosophy'), T('도덕과 신뢰는 어떻게 살아남을까', 'How do morality and trust survive?'), [
   ('cooperation', T('반복 죄수의 딜레마', "Iterated prisoner's dilemma"), T('착한 사람은 살아남을까', 'Do Nice People Survive?'), T('배신하는 사람이 많은 세상에서 협력과 신뢰는 어떻게 되살아날까? 실수가 끼어들면 어떻게 될까?', 'In a world full of defectors, how do cooperation and trust come back? What changes when mistakes creep in?')),
+  ('veil', T('롤스·하사니 선택 모델', 'Rawls–Harsanyi choice model'), T('무지의 베일 뒤에서 어떤 사회를 고를까', 'Which Society Would You Choose Behind the Veil of Ignorance?'), T('내가 누구로 태어날지 모른다면 어떤 사회를 고를까요? 위험을 싫어하는 정도에 따라 선택이 뒤집혀요.', "If you didn't know who you'd be, which society would you pick? The choice flips with how much you dislike risk.")),
+  ('commons', T('공유지 게임 (하딘 vs 오스트롬)', 'Commons game (Hardin vs Ostrom)'), T('공유지의 비극은 피할 수 없을까', 'Is the Tragedy of the Commons Inevitable?'), T('모두의 목초지는 반드시 망할까, 감시와 규칙이 지켜 줄까? 두 관점을 나란히 돌려 봐요.', 'Is a shared pasture doomed, or can monitoring and rules save it? Run both views side by side.')),
  ]),
  ('literature', '#a16207', '📖', T('문학', 'Literature'), T('우연과 선택이 글을 쓸 수 있을까', 'Can chance and selection write a text?'), [
   ('monkey', T('무한 원숭이 vs 누적 선택', 'Infinite monkeys vs cumulative selection'), T('원숭이가 햄릿을 쓸 수 있을까', 'Can Monkeys Write Hamlet?'), T('무작위로 타자를 치는 원숭이와, 조금씩 고르며 나아가는 진화를 나란히 비교해요.', 'Compare monkeys typing at random with evolution that keeps the best at every step.')),
+  ('zipf', T('지프의 법칙 · 사이먼 모델', "Zipf's law · Simon model"), T('왜 소수의 단어만 자주 쓰일까', 'Why Are a Few Words Used Constantly?'), T('왜 어느 언어에서나 소수의 단어가 글의 대부분을 차지할까? 부익부 규칙으로 직접 글을 써 봐요.', 'Why do a few words make up most of any text? Generate one yourself with a rich-get-richer rule.')),
+  ('telephone', T('전달 게임 (연쇄 재현)', 'Serial reproduction'), T('이야기는 전해지며 어떻게 변할까', "How Do Stories Change as They're Retold?"), T('입에서 입으로 전해지는 이야기에서 무엇이 살아남을까요? 기억에 남는 것만 남는 과정을 지켜봐요.', 'What survives as a story passes mouth to mouth? Watch only the memorable parts remain.')),
  ]),
  ('art', '#9333ea', '🎨', T('예술', 'Art'), T('취향과 화풍은 어떻게 변하고 사라질까', 'How do taste and style change and disappear?'), [
   ('fashion', T('모방과 차별화 모델', 'Imitation–distinction model'), T('유행은 왜 돌고 돌까', 'Why Do Fashions Come Around?'), T('따라 하는 대중과 도망가는 선두가 만드는 색의 순환을 색상환 위에서 봐요.', 'On a color wheel, watch the cycle created by a copying crowd and trendsetters running away.')),
   ('painters', T('문화 전파 모델', 'Cultural transmission model'), T('AI 화가 100명이 서로 따라 그리면', 'What If 100 AI Painters Copy Each Other?'), T('모방이 늘수록 화풍은 하나로 수렴할까? 100점의 그림이 어떻게 달라지는지 지켜봐요.', 'Does imitation collapse styles into one? Watch 100 paintings change.')),
+  ('sunflower', T('황금각 잎차례 모델', 'Golden-angle phyllotaxis'), T('해바라기 씨는 왜 그 각도로 배열될까', 'Why Do Sunflower Seeds Sit at That Angle?'), T('씨앗을 137.5°씩 돌려 놓으면 틈 없이 빽빽해져요. 각도를 조금만 바꿔도 무늬가 무너지는 걸 보세요.', 'Turn each seed by 137.5° and they pack with no gaps. Nudge the angle and watch the pattern fall apart.')),
+  ('auction', T('승자의 저주 모델', "Winner's curse model"), T('경매에서 이기면 왜 손해일까', 'Why Does Winning an Auction Cost You?'), T('가장 높게 쓴 사람이 이기는데, 왜 이긴 사람이 평균적으로 손해일까요? 얼마나 깎아 써야 본전일까요?', 'The highest bidder wins, so why does the winner lose on average? How much should you shade your bid to break even?')),
  ]),
  ('society', '#475569', '🏙️', T('사회 현안', 'Society Today'), T('수치로 따져 보는 우리 사회의 큰 흐름', 'Big trends in society, worked through with numbers'), [
   ('population', T('코호트 인구 모델', 'Cohort-component model'), T('저출산이 계속되면 2070년 인구 구조는?', "What Does Korea's Population Look Like in 2070?"), T('출산율이 이대로면 인구 피라미드는 어떻게 바뀔까? 출산율과 이민을 바꿔 보세요.', 'If fertility stays as it is, how does the population pyramid change? Try other fertility and migration levels.')),
@@ -71,6 +79,14 @@ META = {
  'painters': ('Pa', T('AI 화가', 'AI Painters'), 'tiles'),
  'population': ('Po', T('2070 인구', 'Population'), 'tri2'),
  'apartment': ('Ap', T('아파트 가격', 'Housing'), 'heat'),
+ 'easter': ('Es', T('이스터섬', 'Easter Island'), 'rise'),
+ 'alliance': ('Al', T('동맹의 연쇄', 'Alliances'), 'net'),
+ 'veil': ('Vl', T('무지의 베일', 'Veil of Ignorance'), 'vote'),
+ 'commons': ('Cm', T('공유지', 'Commons'), 'wave'),
+ 'zipf': ('Zp', T('지프의 법칙', "Zipf's Law"), 'bars'),
+ 'telephone': ('Tp', T('전달 게임', 'Telephone'), 'letters'),
+ 'sunflower': ('Ph', T('해바라기', 'Sunflower'), 'sunflower'),
+ 'auction': ('Au', T('경매', 'Auctions'), 'drift'),
 }
 
 def build(only_existing=True):

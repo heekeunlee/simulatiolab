@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Why Do Sunflower Seeds Sit at That Angle? · Simulatio Lab">해바라기 씨는 왜 그 각도로 배열될까 · 시뮬라티오 랩</title>
+<meta name="description" content="씨앗을 한 알씩 놓을 때 돌리는 각도를 바꿔 가며, 어떤 각도가 빈틈 없이 고르게 채우는지 직접 돌려보세요." data-en-content="Change the turning angle as seeds are placed one by one, and see which angle fills the disc evenly with no gaps.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1 data-en="Why Do Sunflower Seeds Sit at That Angle?">해바라기 씨는 왜 그 각도로 배열될까</h1>
+  <p class="lead" data-en="Why do sunflower seeds grow around at about 137.5 degrees per step? Change the angle you turn as each seed is placed, and check which angle fills the disc evenly without gaps.">해바라기 씨앗은 왜 하필 약 137.5도씩 돌아가며 자랄까요? 씨앗을 한 알씩 놓을 때 돌리는 각도를 바꿔 가며, 어떤 각도가 빈틈 없이 고르게 채우는지 확인해 봅니다.</p>
+
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li data-en="The k-th seed sits √k away from the center, turned a fixed angle further than the previous seed. This arrangement is called phyllotaxis (Vogel&#x27;s spiral).">k번째 씨앗은 중심에서 √k만큼 떨어지고, 앞 씨앗보다 정해진 각도만큼 더 돌아간 자리에 놓입니다. 이런 배열을 피로택시스(Vogel의 나선)라고 부릅니다.</li>
+    <li data-en="When the angle is close to a simple fraction of 360° (90° is 1/4, 120° is 1/3, 144° is 2/5), seeds pile up along the same directions, leaving spokes and large gaps.">각도가 360°의 간단한 분수(90°는 1/4, 120°는 1/3, 144°는 2/5)에 가까우면 씨앗이 같은 방향으로 겹쳐 쌓여서 바큇살 모양과 큰 빈틈이 생깁니다.</li>
+    <li data-en="The &lt;b&gt;golden angle&lt;/b&gt; (about 137.508°) divides 360° in the golden ratio, and is known as the angle farthest from any simple fraction."><b>황금각</b>(약 137.508°)은 360°를 황금비로 나눈 각도로, 간단한 분수에서 가장 멀리 떨어진 각도로 알려져 있습니다.</li>
+    <li data-en="Packing quality is measured by taking many points on the disc and finding the distance to the nearest seed; the mean (average gap) and the maximum (largest gap) are divided by the ideal spacing. Smaller means more evenly filled. In &quot;Color by&quot;, coloring by the remainder after dividing the seed number by something like 34 reveals the spiral arms.">채움 품질은 원판 위의 여러 점에서 가장 가까운 씨앗까지 거리를 재서, 평균(빈틈 평균)과 최댓값(가장 큰 빈틈)을 이상 간격으로 나눈 값입니다. 작을수록 고르게 채워진 것입니다. "색 보기"에서 번호를 34 같은 수로 나눈 나머지로 칠하면 나선 팔을 볼 수 있어요.</li>
+  </ul>
+
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="angle" data-en="Angle between seeds &lt;output id=&quot;o-angle&quot;&gt;&lt;/output&gt;">씨앗 사이의 각도 <output id="o-angle"></output></label>
+        <input type="range" id="angle" min="90" max="180" step="0.001" value="137.508">
+        <span class="hint" data-en="The golden angle is about 137.508°. Try moving it just a little">황금각은 약 137.508°입니다. 조금만 움직여 보세요</span></div>
+<div class="ctl"><label for="n" data-en="Number of seeds &lt;output id=&quot;o-n&quot;&gt;&lt;/output&gt;">씨앗 수 <output id="o-n"></output></label>
+        <input type="range" id="n" min="100" max="2000" step="50" value="600">
+        <span class="hint" data-en="More seeds make the pattern clearer">많을수록 무늬가 선명해져요</span></div>
+<div class="ctl"><label for="size" data-en="Seed size &lt;output id=&quot;o-size&quot;&gt;&lt;/output&gt;">씨앗 크기 <output id="o-size"></output></label>
+        <input type="range" id="size" min="30" max="100" step="5" value="80">
+        <span class="hint" data-en="At 100% a seed is as wide as the ideal spacing, so they touch">100%면 이상 간격만큼 커서 서로 맞닿아요</span></div>
+<div class="ctl"><label for="preset" data-en="Angle preset &lt;output id=&quot;o-preset&quot;&gt;&lt;/output&gt;">각도 프리셋 <output id="o-preset"></output></label>
+        <select id="preset" class="sel"><option value="custom" data-en="Custom">직접 조절</option><option value="golden" selected data-en="Golden angle 137.508°">황금각 137.508°</option><option value="a137" data-en="137°">137°</option><option value="a138" data-en="138°">138°</option><option value="a120" data-en="120° (1/3)">120° (1/3)</option><option value="a144" data-en="144° (2/5)">144° (2/5)</option><option value="a90" data-en="90° (1/4)">90° (1/4)</option><option value="a150" data-en="150°">150°</option></select>
+        <span class="hint" data-en="Choosing one sets the angle slider">고르면 각도 슬라이더가 맞춰져요</span></div>
+<div class="ctl"><label for="color" data-en="Color by &lt;output id=&quot;o-color&quot;&gt;&lt;/output&gt;">색 보기 <output id="o-color"></output></label>
+        <select id="color" class="sel"><option value="index" selected data-en="Seed order (inside → outside)">번호 순서 (안쪽→바깥)</option><option value="21" data-en="Remainder mod 21">21로 나눈 나머지</option><option value="34" data-en="Remainder mod 34">34로 나눈 나머지</option><option value="55" data-en="Remainder mod 55">55로 나눈 나머지</option></select>
+        <span class="hint" data-en="See how many spiral arms appear">나선 팔이 몇 개로 보이는지 확인해 보세요</span></div>
+    </div>
+    <div class="btns">
+      <button class=primary id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Grow again">다시 자라기</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3 data-en="① Watching the Sunflower Grow">① 해바라기가 자라는 모습</h3>
+    <p data-en="Seeds are added one at a time. Change the angle and watch how the pattern differs. Near the golden angle there are almost no gaps, while angles like 120° or 144° produce spokes.">씨앗이 한 알씩 더해집니다. 각도를 바꾸면 무늬가 어떻게 달라지는지 보세요. 황금각 근처에서는 빈틈이 거의 없고, 120°나 144° 같은 각도에서는 바큇살이 생겨요.</p>
+    <canvas id="c-flower" class="rounded" aria-label="① Watching the Sunflower Grow"></canvas>
+    <div class="anim-bar">
+      <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
+      
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="speed"><option value="15" data-en="Slow">느리게</option><option value="40" selected data-en="Normal">보통</option><option value="100" data-en="Fast">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3 data-en="② How Big Are the Gaps at Each Angle?">② 각도마다 빈틈은 얼마나 될까</h3>
+    <p data-en="The horizontal axis is the angle between seeds, the vertical axis is the average gap (log scale). Most angles stay similarly low, but near simple fractions of 360° the gap spikes sharply.">가로는 씨앗 사이의 각도, 세로는 빈틈 평균입니다(로그 눈금). 대부분의 각도는 비슷하게 낮지만, 360°의 간단한 분수 근처에서는 뾰족하게 나빠집니다.</p>
+    <canvas id="c-sweep" class="" aria-label="② How Big Are the Gaps at Each Angle?"></canvas>
+      <div class="legend"><span id="note-sweep" data-en="Calculating…">계산 중…</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ Comparing Special Angles">③ 특별한 각도 비교</h3>
+    <p data-en="Compares the average gap of a few angles at the current seed count. Lower means more evenly filled, and gold is the golden angle.">지금 씨앗 수에서 몇 가지 각도의 빈틈 평균을 비교합니다. 낮을수록 고르게 채워진 것이고, 금색이 황금각입니다.</p>
+    <canvas id="c-bars" class="" aria-label="③ Comparing Special Angles"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="④ Distance to the Nearest Neighbor">④ 이웃까지의 거리</h3>
+    <p data-en="The distribution of the distance from each seed to its nearest neighbor at the current angle. Even spacing gives one sharp peak; overlap or sparse spots spread it out.">지금 각도에서 씨앗마다 가장 가까운 이웃까지의 거리 분포입니다. 간격이 일정하면 한 곳에 뾰족하게 모이고, 겹치거나 듬성듬성하면 넓게 퍼집니다.</p>
+    <canvas id="c-hist" class="" aria-label="④ Distance to the Nearest Neighbor"></canvas>
+    </section>
+  </div>
+
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout" data-en="&lt;b&gt;What it shows:&lt;/b&gt; With 600 seeds, the golden angle (137.508°) has an average gap of 0.38, and only 0.3% of the angles from 90° to 180° (scanned in 0.1° steps) scored lower. Angles near simple fractions such as 90°, 120°, 144° and 180° score 2.4 to 5.0, which is 6 to 13 times worse. The evenness of spacing (coefficient of variation of neighbor distances) is 0.012 at the golden angle, while 137.7°, off by only 0.2°, gives 0.107, about 9 times less even. At the golden angle, the index difference between close neighbors is a Fibonacci number (55 and 34 with 1000 seeds)."><b>말하는 것:</b> 씨앗 600개일 때 황금각(137.508°)의 빈틈 평균은 0.38로, 90°~180°를 0.1° 간격으로 훑은 각도 중 이보다 낮은 것은 0.3%뿐이었습니다. 90°, 120°, 144°, 180°처럼 간단한 분수에 가까운 각도는 2.4~5.0으로 6~13배 나쁩니다. 간격의 균일함(이웃 거리의 변동계수)도 황금각은 0.012인데, 0.2°만 어긋난 137.7°는 0.107로 약 9배 들쭉날쭉합니다. 황금각에서는 가까운 이웃의 번호 차이가 피보나치 수로 나옵니다(씨앗 1000개일 때 55와 34).</div>
+  <div class="callout" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; This does not prove that real sunflowers are built by this calculation. The model only looks at which angle fills a disc evenly in geometry; for real plants there is an explanation in which new seeds form in the emptiest spot between existing ones (hormones and inhibition), and the angle follows from that. Also, the golden angle is not the only one that fills well: with 600 seeds, 73% of the angles had an average gap below 0.5. The measured result is that the golden angle is among the lowest and most even of them."><b>말하지 않는 것:</b> 실제 해바라기가 이런 계산으로 만들어진다는 증명은 아닙니다. 이 모델은 "어떤 각도가 기하학적으로 고르게 채우는가"만 보며, 실제 식물에서는 새 씨앗이 기존 씨앗 사이의 가장 빈 자리에서 생기는 과정(호르몬과 억제 효과)으로 각도가 정해진다는 설명이 있습니다. 또 황금각만 잘 채우는 것은 아닙니다. 600개일 때 빈틈 평균이 0.5 미만인 각도가 전체의 73%였습니다. 황금각은 그중에서도 가장 낮은 편이고 가장 고른 편이라는 것이 측정 결과입니다.</div>
+
+  <h2 data-en="Implementation notes">구현 메모</h2>
+  <ul class="small">
+    <li  data-en="Inspired by the spiral arrangement in Vogel (1979), &quot;A better way to construct the sunflower head&quot;, &lt;i&gt;Mathematical Biosciences&lt;/i&gt; 44, and by Douady and Couder (1992), &quot;Phyllotaxis as a physical self-organized growth process&quot;, &lt;i&gt;Physical Review Letters&lt;/i&gt; 68. This implementation is a geometric model that computes positions; it does not reproduce the numbers of either paper.">Vogel (1979), "A better way to construct the sunflower head", <i>Mathematical Biosciences</i> 44의 나선 배열과, Douady, Couder (1992), "Phyllotaxis as a physical self-organized growth process", <i>Physical Review Letters</i> 68의 연구에서 발상을 얻었습니다. 이 구현은 위치를 계산하는 기하학 모델이며 논문 수치의 재현이 아닙니다.</li>
+    <li  data-en="Packing quality uses probe points spaced 0.35 times the ideal spacing inside 85% of the disc radius, measuring the distance to the nearest seed. Seed k sits at radius √(k+0.5).">채움 품질은 반지름의 85% 안쪽 원판에 이상 간격의 0.35배 간격으로 찍은 점에서 가장 가까운 씨앗까지의 거리로 계산합니다. 씨앗 k는 반지름 √(k+0.5)에 놓입니다.</li>
+    <li  data-en="Measuring 90° to 180° in 0.1° steps (901 angles), the coefficient of variation of neighbor distances was slightly lower at 99.5° (the same value as another golden-ratio angle, 360°/(φ+2)) at 0.011 than at the golden angle (0.012), and every other angle was higher. You can verify with &lt;code&gt;node tools/validate-sunflower.js&lt;/code&gt;.">90°~180°를 0.1° 간격(901개 각도)으로 측정하면, 이웃 거리의 변동계수는 99.5°(황금비에서 나오는 또 다른 각도 360°/(φ+2)와 같은 값)가 0.011로 황금각(0.012)보다 근소하게 낮았고 다른 각도는 모두 더 높았습니다. 검증은 <code>node tools/validate-sunflower.js</code>로 할 수 있습니다.</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/sunflower&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/sunflower">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap" data-en="Simulatio Lab · Operator: Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
+<script src="../../exps.js"></script>
+<script src="../../layout.js"></script>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../counter.js"></script>
+</body>
+</html>

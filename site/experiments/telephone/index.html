@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="How Do Stories Change as They&#x27;re Retold? · Simulatio Lab">이야기는 전해지며 어떻게 변할까 · 시뮬라티오 랩</title>
+<meta name="description" content="이야기를 사람에서 사람으로 40번 전하면 무엇이 남고 무엇이 사라질까? 기억력과 덧붙이기를 바꿔 직접 돌려보세요." data-en-content="What survives and what disappears when a story is passed from person to person 40 times? Change memory and embellishment and try it yourself.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1 data-en="How Do Stories Change as They&#x27;re Retold?">이야기는 전해지며 어떻게 변할까</h1>
+  <p class="lead" data-en="One person passes on a story they heard to the next, and that person passes it on again. When 12 chains starting from the same original are retold 40 times, what survives and what changes?">한 사람이 들은 이야기를 다음 사람에게 전하고, 그 사람이 또 다음 사람에게 전합니다. 같은 원본에서 출발한 12개의 전달 사슬이 40번 이어지면, 이야기에서 무엇이 남고 무엇이 달라질까요?</p>
+
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li data-en="A story is a list of 30 &lt;b&gt;motifs&lt;/b&gt; (events or details). Each motif hides a &quot;how memorable is it&quot; score (memorability), and the redder a block, the more memorable the motif. Some motifs are odd, unusual details.">이야기는 <b>모티프</b>(사건이나 세부 내용) 30개의 목록입니다. 모티프마다 "기억에 얼마나 잘 남는가"(기억용이성)가 숨어 있고, 블록이 붉을수록 잘 남는 모티프입니다. 일부 모티프는 낯설고 튀는 세부입니다.</li>
+    <li data-en="When retelling, each teller recalls every motif with some probability. The more memorable the motif, the better it is recalled, and the higher the &lt;b&gt;memory&lt;/b&gt;, the less is forgotten.">전달자는 이야기를 다시 말할 때 모티프마다 일정 확률로 기억해 냅니다. 기억용이성이 높을수록 잘 기억하고, <b>기억력</b>이 높을수록 덜 잊습니다.</li>
+    <li data-en="An odd detail is replaced with some probability (&lt;b&gt;conventionality&lt;/b&gt;) by a plain, familiar motif; with some probability (&lt;b&gt;embellishment&lt;/b&gt;) a new motif is invented and added; and occasionally two neighboring motifs swap places.">낯선 세부는 일정 확률(<b>관습화</b>)로 평범하고 익숙한 모티프로 바뀌고, 일정 확률(<b>덧붙이기</b>)로 새 모티프가 하나 지어 붙으며, 가끔 이웃한 두 모티프의 순서가 바뀝니다.</li>
+    <li data-en="Twelve chains starting from the same original are passed on independently of each other. A solid outline marks a motif from the original story; a dashed outline marks one invented along the way.">같은 원본에서 출발한 사슬 12개가 서로 모르게 전해집니다. 실선 테두리는 원래 이야기에 있던 모티프, 점선 테두리는 중간에 새로 생긴 모티프예요.</li>
+  </ul>
+
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="memory" data-en="Memory &lt;output id=&quot;o-memory&quot;&gt;&lt;/output&gt;">기억력 <output id="o-memory"></output></label>
+        <input type="range" id="memory" min="70" max="100" step="2" value="96">
+        <span class="hint" data-en="Higher means less of the story is forgotten">높을수록 이야기를 덜 잊어요</span></div>
+<div class="ctl"><label for="creativity" data-en="Embellishment &lt;output id=&quot;o-creativity&quot;&gt;&lt;/output&gt;">덧붙이기 <output id="o-creativity"></output></label>
+        <input type="range" id="creativity" min="0" max="100" step="10" value="30">
+        <span class="hint" data-en="Chance a teller invents and adds a new motif">전달자가 새 이야기를 지어 붙일 확률</span></div>
+<div class="ctl"><label for="convention" data-en="Conventionality &lt;output id=&quot;o-convention&quot;&gt;&lt;/output&gt;">관습화 <output id="o-convention"></output></label>
+        <input type="range" id="convention" min="0" max="100" step="10" value="30">
+        <span class="hint" data-en="Chance an odd detail is turned into a familiar one">튀는 세부를 익숙한 이야기로 바꿀 확률</span></div>
+    </div>
+    <div class="btns">
+      <button class=primary id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Same settings, new retellings">같은 설정, 다른 전달</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3 data-en="① The Story Being Passed On">① 이야기가 전해지는 모습</h3>
+    <p data-en="The top row is the original, and the 12 rows below are the stories the different chains are telling right now. Each box is one motif, and the redder it is, the more memorable. Boxes from the original have a bold outline.">맨 위가 원본이고, 아래 12줄이 서로 다른 전달 사슬이 지금 전하고 있는 이야기입니다. 한 칸이 모티프 하나이고, 붉을수록 기억에 잘 남아요. 원본에 있던 칸은 굵은 테두리로 보입니다.</p>
+    <canvas id="c-chain" class="rounded" aria-label="① The Story Being Passed On"></canvas>
+    <div class="anim-bar">
+      <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
+      <button id="stepbtn" data-en="Step">한 단계</button>
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="speed"><option value="1.5" data-en="Slow">느리게</option><option value="3" selected data-en="Normal">보통</option><option value="8" data-en="Fast">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#e4e8f1&quot;&gt;&lt;/i&gt;Less memorable motif"><i style="background:#e4e8f1"></i>기억에 덜 남는 모티프</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Highly memorable motif"><i style="background:#e5484d"></i>기억에 잘 남는 모티프</span><span data-en="&lt;i style=&quot;background:#fff;border:2px solid #1b1f2a&quot;&gt;&lt;/i&gt;Motif from the original story"><i style="background:#fff;border:2px solid #1b1f2a"></i>원래 이야기에 있던 모티프</span><span data-en="&lt;i style=&quot;background:#fff;border:1.5px dashed #9aa3b5&quot;&gt;&lt;/i&gt;Motif invented along the way"><i style="background:#fff;border:1.5px dashed #9aa3b5"></i>중간에 새로 생긴 모티프</span></div>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3 data-en="② How Much of the Original Survives">② 원래 모티프는 얼마나 남을까</h3>
+    <p data-en="The horizontal axis is the number of retellings, and the vertical axis is the share of the 30 original motifs still in the story. The bold blue line is the average of the 12 chains and the faint lines are the individual chains.">가로는 전달 횟수, 세로는 원본의 모티프 30개 중 아직 이야기에 남아 있는 비율입니다. 파란 굵은 선은 12개 사슬의 평균이고 옅은 선은 사슬 하나하나예요.</p>
+    <canvas id="c-surv" class="" aria-label="② How Much of the Original Survives"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Average of the 12 chains"><i style="background:var(--accent)"></i>12개 사슬의 평균</span><span data-en="&lt;i style=&quot;background:#b9ccf5&quot;&gt;&lt;/i&gt;Each individual chain"><i style="background:#b9ccf5"></i>사슬 하나하나</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ The Remaining Story Becomes More Memorable">③ 남은 이야기는 더 기억에 남는 쪽으로</h3>
+    <p data-en="The red line is the average memorability of the motifs left in the story, and the gray dashed line is the original story&#x27;s average. As the easily forgotten motifs drop out first, the average rises.">붉은 선은 이야기에 남은 모티프의 평균 기억용이성이고, 회색 점선은 원래 이야기의 평균입니다. 잊히기 쉬운 모티프부터 사라지면 평균이 올라가요.</p>
+    <canvas id="c-mem" class="" aria-label="③ The Remaining Story Becomes More Memorable"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="④ When Memory Changes">④ 기억력을 바꾸면</h3>
+    <p data-en="The horizontal axis is memory. Blue is the share of original motifs that remain, gold is how much the original motifs left in two different chains overlap (Jaccard similarity), and gray is an approximation of the overlap you would expect if the survivors were chosen by chance. Dots are 3 runs.">가로는 기억력입니다. 파랑은 원래 모티프가 남은 비율, 금색은 서로 다른 두 사슬에 남은 원래 모티프가 겹치는 정도(자카드 유사도), 회색은 남은 모티프가 우연히 정해졌다면 기대되는 겹침의 근삿값이에요. 점은 3번의 실행입니다.</p>
+    <canvas id="c-sweep" class="" aria-label="④ When Memory Changes"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Original motifs remaining"><i style="background:var(--accent)"></i>남은 원래 모티프</span><span data-en="&lt;i style=&quot;background:var(--rich)&quot;&gt;&lt;/i&gt;Overlap between chains"><i style="background:var(--rich)"></i>사슬 사이 겹침</span><span data-en="&lt;i style=&quot;background:#8a93a6&quot;&gt;&lt;/i&gt;Overlap expected by chance"><i style="background:#8a93a6"></i>우연일 때 기대되는 겹침</span></div>
+      <div class="legend"><span id="note-sweep" data-en="Calculating…">계산 중…</span></div>
+    </section>
+  </div>
+
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout" data-en="&lt;b&gt;What it shows:&lt;/b&gt; Stories do not wear down evenly as they are passed on. Plain details that are easy to forget disappear first and memorable details survive, so the average memorability of the remaining story goes up. Chains passed on independently also tend to keep the same motifs, so the overlap of the remaining motifs was higher than chance."><b>말하는 것:</b> 이야기는 전해질수록 공평하게 닳지 않습니다. 잊히기 쉬운 평범한 세부부터 사라지고 기억에 잘 남는 세부가 살아남아서, 남은 이야기의 평균 기억용이성이 높아집니다. 또 서로 모르게 전해진 사슬들도 같은 모티프를 남기는 경향이 있어서, 남은 모티프의 겹침이 우연일 때보다 높았습니다.</div>
+  <div class="callout" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; It does not mean human memory works like this model. It is a very simple toy model that lines motifs up in a row and keeps or removes them with probabilities; it does not capture the meaning of a story, its context, its audience or its wording. The distribution of &quot;memorability&quot; and &quot;odd details&quot;, and the way new motifs are created, are all this project&#x27;s assumptions."><b>말하지 않는 것:</b> 사람들의 기억이 이 모델처럼 작동한다는 뜻이 아닙니다. 모티프를 한 줄로 늘어놓고 확률로 남기거나 지우는 매우 단순한 장난감 모델이고, 이야기의 의미, 맥락, 청중, 말투는 담지 못했습니다. "기억용이성"과 "튀는 세부"의 분포, 새 모티프가 만들어지는 방식은 모두 이 프로젝트의 가정입니다.</div>
+
+  <h2 data-en="Implementation notes">구현 메모</h2>
+  <ul class="small">
+    <li  data-en="This is this project&#x27;s own simplified implementation, inspired by the serial-reproduction experiments with &quot;The War of the Ghosts&quot; in Bartlett (1932), &lt;i&gt;Remembering&lt;/i&gt;, and by cultural-evolution experiments such as Mesoudi &amp;amp; Whiten (2008) and Kirby, Cornish &amp;amp; Smith (2008, &lt;i&gt;PNAS&lt;/i&gt;). It does not reproduce results from those papers.">Bartlett (1932), <i>Remembering</i>의 "유령들의 전쟁" 연쇄 재현 실험과, Mesoudi &amp; Whiten (2008), Kirby, Cornish &amp; Smith (2008, <i>PNAS</i>) 등 문화 진화 실험에서 발상을 얻은 이 프로젝트의 단순화 구현입니다. 논문의 결과를 재현한 것은 아닙니다.</li>
+    <li  data-en="There are 30 motifs, 12 chains and 40 retellings. The probability of recalling a motif is 1 − (1 − memory) × (1.5 × (1 − memorability) + 0.1), and if fewer than 3 motifs are recalled, the 3 most memorable are kept. Memorability is 0.7 to 1.0 (vivid) for 30% of motifs and 0.15 to 0.6 (plain) for 70%, and 25% are odd details.">모티프는 30개, 사슬은 12개, 전달은 40번입니다. 모티프를 기억해 낼 확률은 1 − (1 − 기억력) × (1.5 × (1 − 기억용이성) + 0.1)이고, 기억해 낸 모티프가 3개 미만이면 가장 기억에 남는 3개를 유지합니다. 기억용이성은 30%가 0.7~1.0(생생), 70%가 0.15~0.6(평범)이며 25%는 튀는 세부입니다.</li>
+    <li  data-en="With the default settings (memory 96%, embellishment 30%, conventionality 30%), the 8-run average after 40 retellings was 25% of the original motifs remaining, an average story length of 15.7 (starting at 30), and an average memorability that went from 0.56 to 0.62. The overlap between chains was 0.31, a little more than twice the chance approximation of 0.14.">기본 설정(기억력 96%, 덧붙이기 30%, 관습화 30%)에서 40번 전달한 뒤 8회 평균은 원래 모티프 25%가 남았고, 이야기 길이는 평균 15.7(처음 30), 평균 기억용이성은 0.56에서 0.62가 됐습니다. 사슬 사이 겹침은 0.31로 우연 기준 근삿값 0.14의 두 배 남짓이었습니다.</li>
+    <li  data-en="Even with memory at 100%, only 75% of the original motifs remain, because odd details are changed by conventionality. Embellishment barely changes the share of original motifs that remain (24 to 25%) and mainly lengthens the story (the original&#x27;s share of the story is 80% at 0% embellishment and 22% at 100%). Raising conventionality from 0% to 30% or more cut the original motifs from 32% to 25%.">기억력을 100%로 해도 원래 모티프가 75%만 남습니다. 낯선 세부는 관습화 때문에 바뀌기 때문이에요. 덧붙이기는 남은 원래 모티프의 비율(24~25%)은 거의 바꾸지 못하고 이야기 길이만 늘립니다(원본 비중은 덧붙이기 0%에서 80%, 100%에서 22%). 관습화를 0%에서 30% 이상으로 올리면 원래 모티프가 32%에서 25%로 줄었습니다.</li>
+    <li  data-en="The &quot;overlap expected by chance&quot; is the approximate Jaccard similarity s / (2 − s) when two chains each independently keep a random fraction s of the motifs. Graph ④ is based on 3 runs for each memory level, and you can verify with &lt;code&gt;node tools/validate-telephone.js&lt;/code&gt;.">"우연일 때 기대되는 겹침"은 두 사슬이 각각 남은 비율 s만큼의 모티프를 독립적으로 무작위로 남길 때의 자카드 유사도 근삿값 s / (2 − s)입니다. ④번 그래프는 기억력마다 3번씩 돌린 결과이고, 검증은 <code>node tools/validate-telephone.js</code>로 할 수 있습니다.</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/telephone&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/telephone">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap" data-en="Simulatio Lab · Operator: Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
+<script src="../../exps.js"></script>
+<script src="../../layout.js"></script>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../counter.js"></script>
+</body>
+</html>
