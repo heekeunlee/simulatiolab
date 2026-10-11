@@ -1,0 +1,182 @@
+[
+{
+"id": "s0988",
+"en": "<b>What it doesn't show:</b> It is not an answer to which society is just. The results depend entirely on the income numbers this project assumed (that equal societies have a lower average), the utility function (CRRA), and the assumption that positions are assigned with equal probability, and philosophers disagree about these assumptions. In particular, Rawls held that behind the veil probabilities cannot be known, so it is rational to look at the worst case, while Harsanyi assumed equal probabilities and argued for maximizing average utility. This page compares the two views on one dial, risk aversion γ, and takes no side. Real questions of distribution also involve effort, responsibility, rights and institutions."
+},
+{
+"id": "s0989",
+"en": "This is this project's own thought-experiment illustration, inspired by the \"original position and veil of ignorance\" in Rawls (1971), <i>A Theory of Justice</i>, and by Harsanyi (1953), \"Cardinal utility in welfare economics and in the theory of risk-taking\", <i>Journal of Political Economy</i> 61, and Harsanyi (1955), \"Cardinal welfare, individualistic ethics, and interpersonal comparisons of utility\", <i>Journal of Political Economy</i> 63, who drew expected-utility (average utility) conclusions from the same device. It does not reproduce numbers from those works."
+},
+{
+"id": "s0990",
+"en": "Incomes of the five societies (position 1 to 5, in arbitrary units): Equal 50 ×5 (average 50, minimum 50), Safety net 40·48·58·72·96 (average 62.8, minimum 40), Mild gap 36·46·58·80·130 (average 70.0, minimum 36), Steep pyramid 22·36·56·96·230 (average 88.0, minimum 22), Winner-take-all lottery 6·24·62·130·330 (average 110.4, minimum 6). I chose the numbers so that the choice flips several times."
+},
+{
+"id": "s0991",
+"en": "Utility is the constant relative risk aversion (CRRA) function, and the ranking is the same as the ranking of certainty-equivalent incomes. The risk aversion γ of the 1,000 people is drawn from a normal distribution (clipped at 0). The switching points and head-counts were checked with <code>node tools/validate-veil.js</code> and change with the settings."
+},
+{
+"id": "s0992",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/veil\">GitHub</a>."
+},
+{
+"id": "s0993",
+"en": "Does the Voting Method Change the Winner? · Simulatio Lab"
+},
+{
+"id": "s0994",
+"en": "Can counting the same votes by plurality, runoff, ranked-choice or Borda change the winner? Run it yourself."
+},
+{
+"id": "s0995",
+"en": "If the same voters vote with the same preferences, can the way the votes are counted change who wins? Change the number of candidates and the voter distribution to compare four methods. It is a mathematical experiment unrelated to any party or candidate."
+},
+{
+"id": "s0996",
+"en": "1,000 voters are scattered on a 2-dimensional \"policy preference\" plane, and candidates A–F are points on the same plane. The horizontal and vertical axes have no special meaning. Raising \"polarization\" splits the voters into two groups."
+},
+{
+"id": "s0997",
+"en": "Voters prefer candidates closer to themselves. Using these preference rankings, we count the <b>same votes</b> four ways."
+},
+{
+"id": "s0998",
+"en": "<b>Plurality</b>: the candidate with the most first-choice votes. <b>Runoff</b>: if nobody has a majority, the top 2 face off. <b>Ranked-choice</b>: eliminate the candidate with the fewest first choices one at a time and transfer votes. <b>Borda</b>: add up rank-based points."
+},
+{
+"id": "s0999",
+"en": "As a benchmark we use the <b>Condorcet winner</b> (the candidate who beats every other candidate one-on-one), marked with a gold outline on the map."
+},
+{
+"id": "s1000",
+"en": "Number of candidates <output id=\"o-k\"></output>"
+},
+{
+"id": "s1001",
+"en": "More candidates split the vote"
+},
+{
+"id": "s1002",
+"en": "Voter polarization <output id=\"o-polar\"></output>"
+},
+{
+"id": "s1003",
+"en": "0% is one cluster, 100% is clearly two groups"
+},
+{
+"id": "s1004",
+"en": "① Map of Voters and Candidates"
+},
+{
+"id": "s1005",
+"en": "Small dots are voters, and the color is the candidate each ranks first. Large circles are candidates, and the gold outline marks the centrist candidate (Condorcet winner). Use \"Same settings, new luck\" to open a new election."
+},
+{
+"id": "s1006",
+"en": "② Same Votes, Four Results"
+},
+{
+"id": "s1007",
+"en": "Each bar shows the share each candidate received under that method, and ★ marks the winner. See whether the winner is the same or different across methods."
+},
+{
+"id": "s1008",
+"en": "③ How Often Each Method Elects the Centrist"
+},
+{
+"id": "s1009",
+"en": "Out of 200 elections with this setup, the share of times each method elected the centrist candidate (the Condorcet winner)."
+},
+{
+"id": "s1010",
+"en": "④ As the Number of Candidates Grows"
+},
+{
+"id": "s1011",
+"en": "The horizontal axis is the number of candidates, the vertical axis is the share of times the centrist candidate won. Lines are separated by method."
+},
+{
+"id": "s1012",
+"en": "<i style=\"background:#e5484d\"></i>Plurality"
+},
+{
+"id": "s1013",
+"en": "<i style=\"background:#f59e42\"></i>Runoff"
+},
+{
+"id": "s1014",
+"en": "<i style=\"background:#2f6fed\"></i>Ranked-choice"
+},
+{
+"id": "s1015",
+"en": "<i style=\"background:#1fa463\"></i>Borda"
+},
+{
+"id": "s1016",
+"en": "<b>What it shows:</b> With two candidates every method gives the same result, but with more candidates the winner can differ by method even with identical votes. Plurality tends to miss the centrist candidate most voters prefer when similar candidates split the vote, while runoff and ranked-choice reduce this. A voting method may look like a neutral tool, but it can change the outcome."
+},
+{
+"id": "s1017",
+"en": "<b>What it doesn't show:</b> It makes no claim that any voting method is better or that any electoral system should change. \"Electing the centrist\" isn't always the right yardstick, and the voters in this model decide preferences by distance alone, with no strategic voting, parties, campaigning or turnout. Real debates about electoral systems also weigh other criteria such as representation, stability and simplicity."
+},
+{
+"id": "s1018",
+"en": "A spatial voting model (widely used since Downs's 1957 approach) that places voters and candidates on the same policy plane and treats distance as preference. It illustrates through simulation what is known from the theories of Condorcet, Borda and Arrow; it does not reproduce a specific paper."
+},
+{
+"id": "s1019",
+"en": "Candidates and voters are drawn from the same distribution (a mixture of two Gaussians, SD 0.6). In this 2-D model a Condorcet winner almost always exists (usually above 99%), while real preferences are more complex and there may be no winner."
+},
+{
+"id": "s1020",
+"en": "Graphs ③ and ④ are results of 200 and 120 elections respectively. You can verify with <code>node tools/validate-more.js vote</code>."
+},
+{
+"id": "s1021",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/voting\">GitHub</a>."
+},
+{
+"id": "s1022",
+"en": "Wealth Concentration · Simulatio Lab"
+},
+{
+"id": "s1023",
+"en": "If every exchange is as fair as a coin flip, does wealth still concentrate? Change the redistribution rate and run it yourself."
+},
+{
+"id": "s1024",
+"en": "Everyone starts equal, and every exchange is exactly fair, like a coin flip. Does wealth still concentrate in a few hands over time? If so, how much must be shared to prevent it?"
+},
+{
+"id": "s1025",
+"en": "1,000 people all start with the same wealth (1)."
+},
+{
+"id": "s1026",
+"en": "Two random people meet and make a bet. The stake is <b>a fixed fraction of the poorer person's wealth</b>, so nobody goes bankrupt."
+},
+{
+"id": "s1027",
+"en": "The winner of the coin flip takes the stake. The odds are exactly 50:50; being rich gives no advantage."
+},
+{
+"id": "s1028",
+"en": "At the end of each round, a share of everyone's wealth can be collected and split equally (redistribution). The slider sets how much is collected."
+},
+{
+"id": "s1029",
+"en": "Redistribution rate <output id=\"o-tax\"></output>"
+},
+{
+"id": "s1030",
+"en": "Collected from wealth each round and split equally among everyone"
+},
+{
+"id": "s1031",
+"en": "Stake share <output id=\"o-stake\"></output>"
+},
+{
+"id": "s1032",
+"en": "What % of the poorer person's wealth is bet"
+}
+]

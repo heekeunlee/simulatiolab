@@ -1,0 +1,134 @@
+[
+{
+"id": "s1087",
+"en": "<b>Copy mode</b>: copy the word at a random earlier position in the text. A word used often is scattered across the text, so it gets copied even more often (the rich get richer)."
+},
+{
+"id": "s1088",
+"en": "<b>Uniform mode</b> (the control): pick one of the distinct words seen so far with equal probability, no matter how often it has been used."
+},
+{
+"id": "s1089",
+"en": "The result is viewed as a rank–frequency plot: rank the words from most to least used, put rank on the horizontal axis and the number of uses on the vertical axis, and draw both on log scales. Zipf's law then looks like a straight line with slope near -1."
+},
+{
+"id": "s1090",
+"en": "Chance of a new word <output id=\"o-novelty\"></output>"
+},
+{
+"id": "s1091",
+"en": "Higher means the vocabulary grows faster"
+},
+{
+"id": "s1092",
+"en": "How words are chosen <output id=\"o-mode\"></output>"
+},
+{
+"id": "s1093",
+"en": "Copy from the text so far (rich get richer)"
+},
+{
+"id": "s1094",
+"en": "Any known word, equally likely (control)"
+},
+{
+"id": "s1095",
+"en": "Compare the two methods"
+},
+{
+"id": "s1096",
+"en": "Same settings, new text"
+},
+{
+"id": "s1097",
+"en": "① The Text Being Written"
+},
+{
+"id": "s1098",
+"en": "The latest words stream by. A blue background marks a brand-new word, and dark text marks one of the 10 most-used words so far."
+},
+{
+"id": "s1099",
+"en": "<i style=\"background:#d6e4ff\"></i>New word"
+},
+{
+"id": "s1100",
+"en": "<i style=\"background:var(--text)\"></i>Top-10 word"
+},
+{
+"id": "s1101",
+"en": "<i style=\"background:var(--muted)\"></i>Other words"
+},
+{
+"id": "s1102",
+"en": "② Rank and Number of Uses (log–log)"
+},
+{
+"id": "s1103",
+"en": "Each dot is one word. The gold dashed line is slope -1 (Zipf's law), and the red line is the actual slope fitted over ranks 3 to 200. The closer the dots hug the line, the closer the text is to Zipf's law."
+},
+{
+"id": "s1104",
+"en": "<i style=\"background:var(--accent)\"></i>Words (rank, number of uses)"
+},
+{
+"id": "s1105",
+"en": "<i style=\"background:var(--rich)\"></i>Slope -1"
+},
+{
+"id": "s1106",
+"en": "<i style=\"background:var(--unlucky)\"></i>Fitted line"
+},
+{
+"id": "s1107",
+"en": "③ The 20 Most-Used Words"
+},
+{
+"id": "s1108",
+"en": "Bar length is the number of uses, and the number on the right is the share of the whole text. See how big the gap between 1st and 20th place is."
+},
+{
+"id": "s1109",
+"en": "④ When the New-Word Probability Changes"
+},
+{
+"id": "s1110",
+"en": "The horizontal axis is the new-word probability, the vertical axis is the size (absolute value) of the rank–frequency slope. Blue is copy mode, gray is uniform choice, and dots are 4 different texts."
+},
+{
+"id": "s1111",
+"en": "<i style=\"background:var(--accent)\"></i>Copy mode"
+},
+{
+"id": "s1112",
+"en": "<i style=\"background:#8a93a6\"></i>Uniform choice"
+},
+{
+"id": "s1113",
+"en": "<b>What it shows:</b> Even if new words appear only occasionally and everything else is just \"copy from what was already written,\" a few words end up covering most of the text and the rank–frequency plot becomes a straight line of slope about -1 on log–log axes. With the same new-word probability, picking every word with equal probability produces almost none of this pile-up. With no meaning or grammar at all, the single rule \"what is used often gets used even more\" can produce the shape of Zipf's law."
+},
+{
+"id": "s1114",
+"en": "<b>What it doesn't show:</b> It does not mean real language is produced this way. Real languages follow Zipf's law only approximately, and there are several different explanations for the same shape (for example the principle of least effort in speaking, or studies showing that random typing gives a similar distribution). This experiment only shows that \"a single rich-get-richer rule can produce the same shape.\" The made-up words have no meaning, and neither grammar nor semantics is in the model."
+},
+{
+"id": "s1115",
+"en": "Zipf (1949), <i>Human Behavior and the Principle of Least Effort</i>, made this regularity of word frequencies widely known. This is this project's own implementation, inspired by the \"rich get richer\" model of Simon (1955), \"On a class of skew distribution functions\", <i>Biometrika</i> 42 (new words appear occasionally and the rest is copied from the existing text; also known as the Yule–Simon process). It does not reproduce a figure from the paper."
+},
+{
+"id": "s1116",
+"en": "The text is at most 100,000 words, and the slope is the log–log least-squares fit over ranks 3 to 200. At the default setting (3% new words) a 100,000-word text has about 3,000 distinct words, with the top 10 words covering about 85% of the text and the top 100 about 91% (6-text average)."
+},
+{
+"id": "s1117",
+"en": "In copy mode the slope had a size of 0.97 to 1.12 for new-word probabilities from 0.5% to 10%, near -1 (6-text average), while uniform choice gave 0.18 to 0.47, far shallower. Even in copy mode the value shifts a little with the fitting range and text length (1.26 for ranks 1–50, 1.09 for a 5,000-word text, 1.01 for a 100,000-word text)."
+},
+{
+"id": "s1118",
+"en": "Graph ④ is based on four 100,000-word texts for each new-word probability. You can verify with <code>node tools/validate-zipf.js</code>."
+},
+{
+"id": "s1119",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/zipf\">GitHub</a>."
+}
+]

@@ -1,0 +1,657 @@
+[
+{
+"id": "d0000",
+"ko": "지금 설정",
+"en": "Current setting"
+},
+{
+"id": "d0001",
+"ko": "운의 번호",
+"en": "Luck seed"
+},
+{
+"id": "d0002",
+"ko": "⏸ 일시정지",
+"en": "⏸ Pause"
+},
+{
+"id": "d0003",
+"ko": "▶ 재생",
+"en": "▶ Play"
+},
+{
+"id": "d0004",
+"ko": "▶ 다시 재생",
+"en": "▶ Replay"
+},
+{
+"id": "d0005",
+"ko": "계산 중…",
+"en": "Calculating…"
+},
+{
+"id": "d0006",
+"ko": "없음",
+"en": "None"
+},
+{
+"id": "d0007",
+"ko": "{0} #{#1}",
+"en": "{0} #{1}"
+},
+{
+"id": "d0008",
+"ko": "±{#0}명",
+"en": "±{0} people"
+},
+{
+"id": "d0009",
+"ko": "{#0}명",
+"en": "{0} people"
+},
+{
+"id": "d0010",
+"ko": "{#0}개",
+"en": "{0}"
+},
+{
+"id": "d0011",
+"ko": "{#0}년",
+"en": "{0} yr"
+},
+{
+"id": "d0012",
+"ko": "{#0}위",
+"en": "#{0}"
+},
+{
+"id": "d0013",
+"ko": "{#0}대",
+"en": "{0} cars"
+},
+{
+"id": "d0014",
+"ko": "1명",
+"en": "1 person"
+},
+{
+"id": "d0015",
+"ko": "1대",
+"en": "1 car"
+},
+{
+"id": "d0016",
+"ko": "{#0}회",
+"en": "{0}"
+},
+{
+"id": "d0017",
+"ko": "{#0}배",
+"en": "{0}×"
+},
+{
+"id": "d0018",
+"ko": "{#0}차례",
+"en": "{0}"
+},
+{
+"id": "d0019",
+"ko": "{#0}차례 뒤",
+"en": "after step {0}"
+},
+{
+"id": "d0020",
+"ko": "{#0}라운드",
+"en": "{0} rounds"
+},
+{
+"id": "d0021",
+"ko": "{#0}단계",
+"en": "Level {0}"
+},
+{
+"id": "d0022",
+"ko": "{#0}주째",
+"en": "Week {0}"
+},
+{
+"id": "d0023",
+"ko": "{#0}명​",
+"en": "{0}"
+},
+{
+"id": "d0024",
+"ko": "이번 주 손님 / 정원 {0}명",
+"en": "Guests this week / capacity {0}"
+},
+{
+"id": "d0025",
+"ko": "붐볐어요",
+"en": "It was crowded"
+},
+{
+"id": "d0026",
+"ko": "여유로웠어요",
+"en": "It was comfortable"
+},
+{
+"id": "d0027",
+"ko": "{0}/{1}주째",
+"en": "Week {0}/{1}"
+},
+{
+"id": "d0028",
+"ko": "최근 {0}주 (오른쪽이 최근)",
+"en": "Last {0} weeks (right is most recent)"
+},
+{
+"id": "d0029",
+"ko": "정원 {#0}명",
+"en": "Capacity {0}"
+},
+{
+"id": "d0030",
+"ko": "정원 (명)",
+"en": "Capacity (people)"
+},
+{
+"id": "d0031",
+"ko": "동전 던지기 (50%)",
+"en": "Coin flip (50%)"
+},
+{
+"id": "d0032",
+"ko": "모두 같은 예측 {%0}",
+"en": "Everyone the same {0}"
+},
+{
+"id": "d0033",
+"ko": "한 사람이 가진 예측법 수",
+"en": "Predictors per person"
+},
+{
+"id": "d0034",
+"ko": "평균 손님 수",
+"en": "Average attendance"
+},
+{
+"id": "d0035",
+"ko": "정원 {0}명 (뒤쪽 절반 기준)",
+"en": "Capacity {0} (second half of the run)"
+},
+{
+"id": "d0036",
+"ko": "주마다 흔들리는 폭",
+"en": "Week-to-week swing"
+},
+{
+"id": "d0037",
+"ko": "표준편차. 작을수록 안정적",
+"en": "Standard deviation; smaller is more stable"
+},
+{
+"id": "d0038",
+"ko": "잘못 고른 사람",
+"en": "People who chose wrongly"
+},
+{
+"id": "d0039",
+"ko": "갔는데 붐볐거나, 안 갔는데 한산했던 사람 (50%면 동전 던지기)",
+"en": "Went but it was crowded, or stayed home but it was empty (50% is a coin flip)"
+},
+{
+"id": "d0040",
+"ko": "이번 주",
+"en": "This week"
+},
+{
+"id": "d0041",
+"ko": "{#0}명 · {1}",
+"en": "{0} people · {1}"
+},
+{
+"id": "d0042",
+"ko": "붐빔",
+"en": "Crowded"
+},
+{
+"id": "d0043",
+"ko": "여유",
+"en": "Comfortable"
+},
+{
+"id": "d0044",
+"ko": "{0}주째",
+"en": "Week {0}"
+},
+{
+"id": "d0045",
+"ko": "회색 선: 손님 수 = 정원",
+"en": "Gray line: attendance = capacity"
+},
+{
+"id": "d0046",
+"ko": "예측법이 많아져도 잘못 고르는 사람의 비율은 50% 근처에 머뭅니다",
+"en": "Even with more predictors, the share of people choosing wrongly stays near 50%"
+},
+{
+"id": "d0047",
+"ko": "동네 번호",
+"en": "Neighborhood"
+},
+{
+"id": "d0048",
+"ko": "A 집단",
+"en": "Group A"
+},
+{
+"id": "d0049",
+"ko": "B 집단",
+"en": "Group B"
+},
+{
+"id": "d0050",
+"ko": "↑ 매력 높음 · 낮음 ↓ (세로 위치)",
+"en": "↑ More attractive · less attractive ↓ (vertical position)"
+},
+{
+"id": "d0051",
+"ko": "{0}/{1} 라운드 · 짝 {2}",
+"en": "Round {0}/{1} · matched {2}"
+},
+{
+"id": "d0052",
+"ko": "A의 매력 (가로) vs 짝이 된 B의 매력 (세로)",
+"en": "A's attractiveness (horizontal) vs matched B's (vertical)"
+},
+{
+"id": "d0053",
+"ko": "라운드",
+"en": "Round"
+},
+{
+"id": "d0054",
+"ko": "눈높이 (내 매력 대비 %p)",
+"en": "Aim (points relative to own attractiveness)"
+},
+{
+"id": "d0055",
+"ko": "짝을 찾은 사람",
+"en": "People matched"
+},
+{
+"id": "d0056",
+"ko": "{0}명 중 {1}명",
+"en": "{1} of {0} people"
+},
+{
+"id": "d0057",
+"ko": "평균 걸린 시간",
+"en": "Average time taken"
+},
+{
+"id": "d0058",
+"ko": "짝을 찾은 사람 기준",
+"en": "Among matched people"
+},
+{
+"id": "d0059",
+"ko": "아직 혼자인 사람",
+"en": "Still single"
+},
+{
+"id": "d0060",
+"ko": "매력 상위 20% {0}명, 하위 20% {1}명",
+"en": "Top 20% by attractiveness: {0}, bottom 20%: {1}"
+},
+{
+"id": "d0061",
+"ko": "커플의 매력 차이",
+"en": "Couples' attractiveness gap"
+},
+{
+"id": "d0062",
+"ko": "작을수록 비슷한 사람끼리",
+"en": "Smaller means more alike"
+},
+{
+"id": "d0063",
+"ko": "파랑: 짝을 찾은 비율, 금색: 짝을 찾기까지 걸린 시간(전체 기간 대비)",
+"en": "Blue: share matched, gold: time to find a match (relative to the full period)"
+},
+{
+"id": "d0064",
+"ko": "시장 번호",
+"en": "Market"
+},
+{
+"id": "d0065",
+"ko": "최고 능력자 승진",
+"en": "Promote the best performer"
+},
+{
+"id": "d0066",
+"ko": "최저 능력자 승진",
+"en": "Promote the worst performer"
+},
+{
+"id": "d0067",
+"ko": "무작위 승진",
+"en": "Promote at random"
+},
+{
+"id": "d0068",
+"ko": "번갈아 승진",
+"en": "Alternate best and worst"
+},
+{
+"id": "d0069",
+"ko": "최고 능력자",
+"en": "Best"
+},
+{
+"id": "d0070",
+"ko": "최저 능력자",
+"en": "Worst"
+},
+{
+"id": "d0071",
+"ko": "무작위",
+"en": "Random"
+},
+{
+"id": "d0072",
+"ko": "번갈아",
+"en": "Alternating"
+},
+{
+"id": "d0073",
+"ko": "최상위",
+"en": "Top"
+},
+{
+"id": "d0074",
+"ko": "말단",
+"en": "Bottom"
+},
+{
+"id": "d0075",
+"ko": "{#0}년째 · 조직 효율 {#1}",
+"en": "Year {0} · efficiency {1}"
+},
+{
+"id": "d0076",
+"ko": "경과 시간",
+"en": "Elapsed time"
+},
+{
+"id": "d0077",
+"ko": "처음 수준",
+"en": "Starting level"
+},
+{
+"id": "d0078",
+"ko": "처음 7.0",
+"en": "Start 7.0"
+},
+{
+"id": "d0079",
+"ko": "조직 효율",
+"en": "Efficiency"
+},
+{
+"id": "d0080",
+"ko": "처음 {#0} → {1}{#2}",
+"en": "Start {0} → {1}{2}"
+},
+{
+"id": "d0081",
+"ko": "최상위 평균 능력",
+"en": "Top-level average competence"
+},
+{
+"id": "d0082",
+"ko": "처음엔 평균 7 정도",
+"en": "About 7 on average at the start"
+},
+{
+"id": "d0083",
+"ko": "말단 평균 능력",
+"en": "Bottom-level average competence"
+},
+{
+"id": "d0084",
+"ko": "가장 큰 층(81명)",
+"en": "The largest level (81 people)"
+},
+{
+"id": "d0085",
+"ko": "지금까지 승진",
+"en": "Promotions so far"
+},
+{
+"id": "d0086",
+"ko": "{0}년 동안",
+"en": "over {0} years"
+},
+{
+"id": "d0087",
+"ko": "상식 가설에서 최고 능력자 승진은 {#0}, 피터 가설에서는 {#1}입니다 (무작위 승진은 {#2})",
+"en": "Under the common-sense hypothesis, promoting the best gives {0}; under the Peter hypothesis, {1} (random promotion: {2})"
+},
+{
+"id": "d0088",
+"ko": "조직 번호",
+"en": "Organization"
+},
+{
+"id": "d0089",
+"ko": "질서",
+"en": "Orderly"
+},
+{
+"id": "d0090",
+"ko": "새치기",
+"en": "Cutter"
+},
+{
+"id": "d0091",
+"ko": "눈총",
+"en": "Punisher"
+},
+{
+"id": "d0092",
+"ko": "{0}/{1} 라운드 · 새치기 {2}",
+"en": "Round {0}/{1} · cutters {2}"
+},
+{
+"id": "d0093",
+"ko": "눈총의 효과 (새치기 이득과 비교)",
+"en": "Punishment effect (compared with the gain from cutting)"
+},
+{
+"id": "d0094",
+"ko": "처음에 눈총형이던 사람의 비율",
+"en": "Initial share of punishers"
+},
+{
+"id": "d0095",
+"ko": "가만히 줄 서는 사람",
+"en": "People who wait quietly"
+},
+{
+"id": "d0096",
+"ko": "가장 많았을 때 {0}",
+"en": "Peak {0}"
+},
+{
+"id": "d0097",
+"ko": "새치기를 응징하는 사람",
+"en": "People who punish cutters"
+},
+{
+"id": "d0098",
+"ko": "끝",
+"en": "Finished"
+},
+{
+"id": "d0099",
+"ko": "진행 중",
+"en": "Running"
+},
+{
+"id": "d0100",
+"ko": "세로축은 100라운드 뒤 새치기의 비율입니다. 눈총의 효과가 새치기 이득을 넘어서면 새치기가 사라집니다",
+"en": "The vertical axis is the share of cutters after 100 rounds. When the punishment effect exceeds the gain from cutting, cutting disappears"
+},
+{
+"id": "d0101",
+"ko": "눈총형이 처음에 일정 비율을 넘지 못하면 새치기가 판을 차지합니다",
+"en": "If punishers don't exceed a certain share at the start, cutters take over"
+},
+{
+"id": "d0102",
+"ko": "줄 번호",
+"en": "Line"
+},
+{
+"id": "d0103",
+"ko": "· 정정은 {#0}차례째에 시작",
+"en": "· correction starts at step {0}"
+},
+{
+"id": "d0104",
+"ko": "· 정정 퍼지는 중",
+"en": "· correction spreading"
+},
+{
+"id": "d0105",
+"ko": "{#0}차례 · 소문을 아는 사람 {%1}{2}",
+"en": "Step {0} · people who know the rumor {1}{2}"
+},
+{
+"id": "d0106",
+"ko": "차례",
+"en": "Step"
+},
+{
+"id": "d0107",
+"ko": "정정 시작",
+"en": "Correction starts"
+},
+{
+"id": "d0108",
+"ko": "정정 없음 {%0}",
+"en": "No correction {0}"
+},
+{
+"id": "d0109",
+"ko": "솔깃할 확률",
+"en": "Chance of being tempted"
+},
+{
+"id": "d0110",
+"ko": "정정이 시작되는 시점 (차례)",
+"en": "When the correction starts (step)"
+},
+{
+"id": "d0111",
+"ko": "정정이 {#0}차례 뒤에 나오면 {%1}, {#2}차례 뒤에 나오면 {%3}가 소문을 알게 됩니다",
+"en": "If the correction comes at step {0}, {1} learn the rumor; at step {2}, {3} do"
+},
+{
+"id": "d0112",
+"ko": "점이 흩어진 곳이 운에 따라 결과가 갈리는 구간입니다",
+"en": "Where the dots scatter, the outcome depends on luck"
+},
+{
+"id": "d0113",
+"ko": "소문을 아는 사람",
+"en": "People who know the rumor"
+},
+{
+"id": "d0114",
+"ko": "{#0}명 / {#1}명",
+"en": "{0} / {1} people"
+},
+{
+"id": "d0115",
+"ko": "한꺼번에 퍼뜨린 최대 인원",
+"en": "Peak simultaneous spreaders"
+},
+{
+"id": "d0116",
+"ko": "가장 뜨거웠던 순간",
+"en": "The hottest moment"
+},
+{
+"id": "d0117",
+"ko": "지나간 차례",
+"en": "Steps elapsed"
+},
+{
+"id": "d0118",
+"ko": "소문이 잦아듦",
+"en": "The rumor died down"
+},
+{
+"id": "d0119",
+"ko": "정정 덕에 안 속은 사람",
+"en": "People not fooled thanks to the correction"
+},
+{
+"id": "d0120",
+"ko": "소문보다 정정을 먼저 본 사람",
+"en": "Saw the correction before the rumor"
+},
+{
+"id": "d0121",
+"ko": "정정 없음",
+"en": "No correction"
+},
+{
+"id": "d0122",
+"ko": "단톡방 구성 #{#0}",
+"en": "Chat setup #{0}"
+},
+{
+"id": "d0123",
+"ko": "지금 분리도",
+"en": "Segregation now"
+},
+{
+"id": "d0124",
+"ko": "처음 {%0} → 지금 {%1} (섞여 있으면 약 50%)",
+"en": "Start {0} → now {1} (about 50% if mixed)"
+},
+{
+"id": "d0125",
+"ko": "원하던 비율",
+"en": "Share they wanted"
+},
+{
+"id": "d0126",
+"ko": "사람들이 바란 같은 이웃 비율",
+"en": "Share of similar neighbors people wanted"
+},
+{
+"id": "d0127",
+"ko": "불만족한 사람",
+"en": "Unhappy people"
+},
+{
+"id": "d0128",
+"ko": "전체의 {%0} · 처음엔 {%1}",
+"en": "{0} of everyone · {1} at the start"
+},
+{
+"id": "d0129",
+"ko": "이사 라운드",
+"en": "Moving rounds"
+},
+{
+"id": "d0130",
+"ko": "모두 만족해서 멈춤",
+"en": "Stopped because everyone is happy"
+}
+]

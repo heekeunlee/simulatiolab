@@ -1,0 +1,222 @@
+[
+{
+"id": "s0890",
+"en": "This is this project's own simplified implementation, inspired by the serial-reproduction experiments with \"The War of the Ghosts\" in Bartlett (1932), <i>Remembering</i>, and by cultural-evolution experiments such as Mesoudi &amp; Whiten (2008) and Kirby, Cornish &amp; Smith (2008, <i>PNAS</i>). It does not reproduce results from those papers."
+},
+{
+"id": "s0891",
+"en": "There are 30 motifs, 12 chains and 40 retellings. The probability of recalling a motif is 1 − (1 − memory) × (1.5 × (1 − memorability) + 0.1), and if fewer than 3 motifs are recalled, the 3 most memorable are kept. Memorability is 0.7 to 1.0 (vivid) for 30% of motifs and 0.15 to 0.6 (plain) for 70%, and 25% are odd details."
+},
+{
+"id": "s0892",
+"en": "With the default settings (memory 96%, embellishment 30%, conventionality 30%), the 8-run average after 40 retellings was 25% of the original motifs remaining, an average story length of 15.7 (starting at 30), and an average memorability that went from 0.56 to 0.62. The overlap between chains was 0.31, a little more than twice the chance approximation of 0.14."
+},
+{
+"id": "s0893",
+"en": "Even with memory at 100%, only 75% of the original motifs remain, because odd details are changed by conventionality. Embellishment barely changes the share of original motifs that remain (24 to 25%) and mainly lengthens the story (the original's share of the story is 80% at 0% embellishment and 22% at 100%). Raising conventionality from 0% to 30% or more cut the original motifs from 32% to 25%."
+},
+{
+"id": "s0894",
+"en": "The \"overlap expected by chance\" is the approximate Jaccard similarity s / (2 − s) when two chains each independently keep a random fraction s of the motifs. Graph ④ is based on 3 runs for each memory level, and you can verify with <code>node tools/validate-telephone.js</code>."
+},
+{
+"id": "s0895",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/telephone\">GitHub</a>."
+},
+{
+"id": "s0896",
+"en": "Phantom Traffic Jams: Why Does Traffic Stop Without an Accident? · Simulatio Lab"
+},
+{
+"id": "s0897",
+"en": "Why does traffic jam with no accident or roadwork? Run the Nagel–Schreckenberg traffic model yourself."
+},
+{
+"id": "s0898",
+"en": "Have you ever hit a jam on a road with no accident, no roadwork and no bottleneck, where cars stop and then start moving again? On a circular road, we check whether jams can arise by themselves even when every car follows the rules."
+},
+{
+"id": "s0899",
+"en": "On a one-lane circular road, every car follows the same 4 rules every second: ① accelerate, ② slow down to avoid hitting the car ahead, ③ <b>occasionally slow down at random</b>, ④ move."
+},
+{
+"id": "s0900",
+"en": "③ stands for a brief glance away or an unnecessary tap on the brake. It's a tiny wobble."
+},
+{
+"id": "s0901",
+"en": "Cars are colored by speed, from <b style=\"color:var(--unlucky)\">red</b> (stopped) to <b style=\"color:var(--lucky)\">green</b> (top speed)."
+},
+{
+"id": "s0902",
+"en": "How full the road is (density) <output id=\"o-density\"></output>"
+},
+{
+"id": "s0903",
+"en": "Share of road cells occupied by cars"
+},
+{
+"id": "s0904",
+"en": "Chance of an occasional brake tap <output id=\"o-p\"></output>"
+},
+{
+"id": "s0905",
+"en": "0% is perfect driving; larger is more erratic"
+},
+{
+"id": "s0906",
+"en": "① The Road From Above"
+},
+{
+"id": "s0907",
+"en": "Cars drive clockwise around the ring road. Clusters of red dots are jams; watch where the jam moves along the road."
+},
+{
+"id": "s0908",
+"en": "② The Road Over Time (Space–Time Diagram)"
+},
+{
+"id": "s0909",
+"en": "The horizontal axis is position on the road, the vertical axis is time (flowing downward). Red bands are jams; a band slanting down to the left means the jam moves against the direction of travel."
+},
+{
+"id": "s0910",
+"en": "③ What Happens to Throughput as the Road Fills"
+},
+{
+"id": "s0911",
+"en": "Vehicles per hour passing a point, by density. The gray line is perfect driving with no braking at all."
+},
+{
+"id": "s0912",
+"en": "④ The Big Effect of Small Braking"
+},
+{
+"id": "s0913",
+"en": "See how average speed changes with the chance of occasional braking at the current density. Dots are the results of 3 different roads."
+},
+{
+"id": "s0914",
+"en": "<b>What it shows:</b> When the road is reasonably full, even if every driver follows the rules, one tiny brake tap spreads to the cars behind and creates a \"phantom jam.\" The jam travels backward against the traffic, and the car that caused it is long gone, so when you reach the jam there seems to be no reason at all."
+},
+{
+"id": "s0915",
+"en": "<b>What it doesn't show:</b> It doesn't mean all real traffic jams are caused this way. Accidents, bottlenecks, lane changes and signals are not in this model, which is a very simple one-lane ring road. The km/h conversion follows the standard setup of 7.5 m per cell and 1 second per step."
+},
+{
+"id": "s0916",
+"en": "The model from Nagel, Schreckenberg (1992), \"A cellular automaton model for freeway traffic\", <i>Journal de Physique I</i> 2(12). Implemented with a top speed of 5 cells on a ring road 300 cells long."
+},
+{
+"id": "s0917",
+"en": "Verification: with no random slowing, there is no jam up to a density of about 1/6 (17%); with a 25% chance, jams already appear at 15% density (<code>node tools/validate-more.js traffic</code>)."
+},
+{
+"id": "s0918",
+"en": "Graphs ③ and ④ discard the first 150 steps and average the following 150–200 steps."
+},
+{
+"id": "s0919",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/traffic\">GitHub</a>."
+},
+{
+"id": "s0920",
+"en": "How Does a Zebra Get Its Stripes? · Simulatio Lab"
+},
+{
+"id": "s0921",
+"en": "Spots, stripes and coral shapes arise on their own from two chemicals that diffuse and react. Run the Gray–Scott model yourself."
+},
+{
+"id": "s0922",
+"en": "Nobody paints them, yet animal coats develop spots and stripes. In 1952 Alan Turing proposed that \"two chemicals that spread and react\" could be enough to create patterns by themselves. Change two numbers and see what patterns appear."
+},
+{
+"id": "s0923",
+"en": "On a 96×96 grid there are two chemicals. <b>u</b> is food that is constantly supplied, and <b>v</b> is the \"pattern chemical\" that grows by consuming u. The dark areas have a lot of v."
+},
+{
+"id": "s0924",
+"en": "Both chemicals spread to neighboring cells. v spreads more slowly than u (diffusion coefficients 0.16 and 0.08), and when they meet, a reaction turns u into v (u + 2v → 3v)."
+},
+{
+"id": "s0925",
+"en": "Changing just two numbers, <b>F</b> (feed rate) and <b>k</b> (kill rate), produces completely different patterns. F is how fast u is replenished, and v disappears at rate F + k."
+},
+{
+"id": "s0926",
+"en": "At first the grid is full of u with only a little v scattered in a few places. You can also click the canvas to drop a new seed."
+},
+{
+"id": "s0927",
+"en": "F (feed rate) <output id=\"o-F\"></output>"
+},
+{
+"id": "s0928",
+"en": "How fast u is replenished"
+},
+{
+"id": "s0929",
+"en": "k (kill rate) <output id=\"o-k\"></output>"
+},
+{
+"id": "s0930",
+"en": "How fast v is removed (added to F)"
+},
+{
+"id": "s0931",
+"en": "Pattern type <output id=\"o-preset\"></output>"
+},
+{
+"id": "s0932",
+"en": "Spots"
+},
+{
+"id": "s0933",
+"en": "Stripes (labyrinth)"
+},
+{
+"id": "s0934",
+"en": "Mitosis"
+},
+{
+"id": "s0935",
+"en": "Coral"
+},
+{
+"id": "s0936",
+"en": "Choosing one sets F and k to match"
+},
+{
+"id": "s0937",
+"en": "Same settings, new seed layout"
+},
+{
+"id": "s0938",
+"en": "① Watching the Pattern Grow"
+},
+{
+"id": "s0939",
+"en": "Dark areas have a lot of v. The pattern spreads from the seeds. Click the canvas to drop a new seed at that spot."
+},
+{
+"id": "s0940",
+"en": "The horizontal axis is the number of iterations, the vertical axis is the value. Once the pattern settles, both lines flatten out."
+},
+{
+"id": "s0941",
+"en": "<i style=\"background:var(--accent)\"></i>Pattern area (share of cells with v above 0.2)"
+},
+{
+"id": "s0942",
+"en": "<i style=\"background:var(--rich)\"></i>Mean concentration v"
+},
+{
+"id": "s0943",
+"en": "③ The F–k Map"
+},
+{
+"id": "s0944",
+"en": "The purple dots are the four pattern settings on this page, and the red circle is the current setting. Moving a little away from a dot can change the pattern."
+}
+]

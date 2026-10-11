@@ -1,7 +1,7 @@
 // 메인 페이지: ① 히어로의 점 떼(분야별로 모이고, 마우스를 피하고, 클릭하면 흩어짐) ② 주기율표 칸의 작은 애니메이션 ③ 실험 노트
 (function () {
   'use strict';
-  const en = window.I18N && window.I18N.lang === 'en';
+  const en = window.I18N && window.I18N.lang !== 'ko', U = (ko, e) => (window.I18N ? window.I18N.u(ko, e) : ko);
   const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const dpr = Math.min(2, window.devicePixelRatio || 1);
   const tiles = Array.from(document.querySelectorAll('.el'));
@@ -65,8 +65,7 @@
 
   // "만약에…" 질문 순환
   const rq = document.getElementById('rq');
-  const QS = en ? ['What if success were mostly luck?', 'What if everyone wanted a slightly better partner?', 'What if a tiny brake tap could jam a whole highway?', 'What if one person could tip a revolution?', 'What if 100 painters copied each other?', 'What if the voting method changed the winner?']
-    : ['만약에 성공이 대부분 운이라면?', '만약에 모두가 조금 더 나은 짝을 바란다면?', '만약에 브레이크 한 번이 고속도로 전체를 막는다면?', '만약에 한 사람이 혁명의 방아쇠가 된다면?', '만약에 화가 100명이 서로 따라 그린다면?', '만약에 투표 방식이 당선자를 바꾼다면?'];
+  const QS = [['만약에 성공이 대부분 운이라면?', 'What if success were mostly luck?'], ['만약에 모두가 조금 더 나은 짝을 바란다면?', 'What if everyone wanted a slightly better partner?'], ['만약에 브레이크 한 번이 고속도로 전체를 막는다면?', 'What if a tiny brake tap could jam a whole highway?'], ['만약에 한 사람이 혁명의 방아쇠가 된다면?', 'What if one person could tip a revolution?'], ['만약에 화가 100명이 서로 따라 그린다면?', 'What if 100 painters copied each other?'], ['만약에 투표 방식이 당선자를 바꾼다면?', 'What if the voting method changed the winner?']].map((p) => U(p[0], p[1]));
   let qi = 0;
   function whatIf() { if (!rq) return; rq.classList.add('fade'); setTimeout(() => { qi = (qi + 1) % QS.length; rq.textContent = QS[qi]; rq.classList.remove('fade'); }, 350); }
   if (rq) { rq.textContent = QS[0]; if (!reduce) setInterval(whatIf, 5200); }
@@ -117,7 +116,7 @@
   let current = null, pinned = null;
   function show(el, isToday) {
     current = el;
-    const g = (cls) => { const s = el.querySelector('.' + cls); return en ? (s.getAttribute('data-en') || s.innerHTML) : s.innerHTML; };
+    const g = (cls) => { const s = el.querySelector('.' + cls); return s.innerHTML; };
     nbTitle.innerHTML = g('t-title'); nbDesc.innerHTML = g('t-desc'); nbModel.innerHTML = g('t-model');
     nbGo.href = el.getAttribute('href'); nbSym.textContent = el.querySelector('.sym').textContent;
     document.querySelector('.nb-visual').style.background = `linear-gradient(135deg, #0f1222, ${getComputedStyle(el).getPropertyValue('--c').trim()}66)`;

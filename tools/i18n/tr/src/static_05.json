@@ -1,0 +1,214 @@
+[
+{
+"id": "s0336",
+"en": "After each generation, everyone looks at one random person and is more likely to copy their strategy the higher that person scored. With a tiny probability a new strategy appears."
+},
+{
+"id": "s0337",
+"en": "Initial share of defectors <output id=\"o-defectors\"></output>"
+},
+{
+"id": "s0338",
+"en": "People who start as \"Always defect\""
+},
+{
+"id": "s0339",
+"en": "Chance of a mistake <output id=\"o-noise\"></output>"
+},
+{
+"id": "s0340",
+"en": "Chance a move flips against intent"
+},
+{
+"id": "s0341",
+"en": "Rounds per meeting <output id=\"o-rounds\"></output>"
+},
+{
+"id": "s0342",
+"en": "How many times in a row they meet the same person"
+},
+{
+"id": "s0343",
+"en": "Temptation score <output id=\"o-T\"></output>"
+},
+{
+"id": "s0344",
+"en": "Score for defecting against a cooperator"
+},
+{
+"id": "s0345",
+"en": "Same settings, new village"
+},
+{
+"id": "s0346",
+"en": "① How the Village Changes"
+},
+{
+"id": "s0347",
+"en": "Each dot is one person and the color is their strategy. Watch which color spreads as generations pass."
+},
+{
+"id": "s0348",
+"en": "<i style=\"background:#3b82f6\"></i>Always cooperate"
+},
+{
+"id": "s0349",
+"en": "<i style=\"background:#e5484d\"></i>Always defect"
+},
+{
+"id": "s0350",
+"en": "<i style=\"background:#1fa463\"></i>Tit-for-Tat"
+},
+{
+"id": "s0351",
+"en": "<i style=\"background:#0ea5a5\"></i>Generous Tit-for-Tat"
+},
+{
+"id": "s0352",
+"en": "<i style=\"background:#7c5cff\"></i>Pavlov"
+},
+{
+"id": "s0353",
+"en": "② Share of Each Strategy Over Time"
+},
+{
+"id": "s0354",
+"en": "The stacked area is the whole (100%). See what happens to the defectors who start as half of the population."
+},
+{
+"id": "s0355",
+"en": "③ Cooperation Rate"
+},
+{
+"id": "s0356",
+"en": "The share of moves that were cooperation. It approaches 100% when everyone cooperates and 0% when everyone defects."
+},
+{
+"id": "s0357",
+"en": "④ When Mistakes Become More Common"
+},
+{
+"id": "s0358",
+"en": "The horizontal axis is the chance of a mistake, the vertical axis is the average cooperation rate over the last 20 generations. Dots are 4 runs (240 people, 150 generations, in steps of 2 points)."
+},
+{
+"id": "s0359",
+"en": "<b>What it shows:</b> In relationships where people meet only once or twice, betrayal took over almost entirely (3% cooperation), but when the same people meet many times, cooperation spread. Running the default settings 12 times, 11 runs ended with 74–93% cooperation and one with 51%. But when mistakes become frequent, cooperation can suddenly collapse: at a 10% mistake rate, 10 of 12 runs ended at 11% cooperation. When mistakes happen, Generous Tit-for-Tat and Pavlov outlasted plain Tit-for-Tat (about 37%, 25% and 17% at a 5% mistake rate). What sustains cooperation is not just a kind heart but the fact that people meet again, and the generosity to overlook each other's mistakes."
+},
+{
+"id": "s0360",
+"en": "<b>What it doesn't show:</b> It doesn't mean nice people always win, or that people use only these five strategies. Real trust involves reputation, gossip, third-party punishment, laws and institutions, none of which are in this model. Results are sensitive to settings such as the payoff table, the number of meetings and the copying rule, and even with the same settings whether cooperation spreads or collapses depends on chance (the range where dots split in graph ④). This is not a moral prescription to \"be nice\"; it shows the conditions under which cooperation survives."
+},
+{
+"id": "s0361",
+"en": "This is this project's own implementation, inspired by Axelrod (1984), <i>The Evolution of Cooperation</i>; Axelrod & Hamilton (1981), \"The Evolution of Cooperation\", <i>Science</i> 211; and Nowak & Sigmund (1993), \"A strategy of win-stay, lose-shift that outperforms tit-for-tat in the Prisoner's Dilemma game\", <i>Nature</i> 364. It does not reproduce the papers' numbers."
+},
+{
+"id": "s0362",
+"en": "The payoffs are R=3, P=1, S=0, T=5 (adjustable), and each generation everyone plays 6 opponents. Copying follows the Fermi rule (a logistic of the score difference divided by 0.4) and mutation is 1%. These are values measured in this setup and change with the settings (<code>node tools/validate-cooperation.js</code>)."
+},
+{
+"id": "s0363",
+"en": "The textbook claim that \"Tit-for-Tat is strongest\" did not come out as such in this setup. With mistakes in this evolutionary setting, Generous Tit-for-Tat and Pavlov outlasted Tit-for-Tat; at a temptation score of 4 Pavlov reached 89% and at 7 Tit-for-Tat reached 80% (average of 6 runs). When meetings get very long (30–50 rounds), outcomes differ widely from run to run."
+},
+{
+"id": "s0364",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/cooperation\">GitHub</a>."
+},
+{
+"id": "s0365",
+"en": "Does Lowering Your Standards Help You Find a Match? · Simulatio Lab"
+},
+{
+"id": "s0366",
+"en": "In a market where both sides must agree, how does aiming higher or lower change how long it takes to find a match? Try it yourself."
+},
+{
+"id": "s0367",
+"en": "If everyone wants \"someone a little better than me,\" how long does it take to find a match? In a market where both sides must agree, change how high people aim and how quickly they lower their standards."
+},
+{
+"id": "s0368",
+"en": "There are 200 people in Group A and 200 in Group B, each with an \"attractiveness\" from 0 to 1. We assume everyone rates attractiveness the same way."
+},
+{
+"id": "s0369",
+"en": "Each person's <b>minimum standard = own attractiveness + aim</b>. A positive aim means wanting someone better than yourself; a negative aim means lowering your standards."
+},
+{
+"id": "s0370",
+"en": "Each round, unmatched people are randomly paired up. A pair is matched only if <b>both</b> think the other meets their standard."
+},
+{
+"id": "s0371",
+"en": "Unmatched people lower their standards a little each round (how fast they accept reality). Dot color shows when the match happened: <b style=\"color:var(--accent)\">blue</b> early, <b style=\"color:#f59e42\">orange</b> late."
+},
+{
+"id": "s0372",
+"en": "Aim (relative to own attractiveness) <output id=\"o-eye\"></output>"
+},
+{
+"id": "s0373",
+"en": "+ wants someone better than self, − lowers standards"
+},
+{
+"id": "s0374",
+"en": "How fast standards drop (per round) <output id=\"o-drift\"></output>"
+},
+{
+"id": "s0375",
+"en": "At 0%, standards never change"
+},
+{
+"id": "s0376",
+"en": "Duration <output id=\"o-rounds\"></output>"
+},
+{
+"id": "s0377",
+"en": "How many chances to meet new people"
+},
+{
+"id": "s0378",
+"en": "① Who Gets Matched with Whom"
+},
+{
+"id": "s0379",
+"en": "Group A is on the left and Group B on the right; height is attractiveness. Filled dots are matched people and lines are couples. Hollow dots are still single."
+},
+{
+"id": "s0380",
+"en": "② Attractiveness of Couples"
+},
+{
+"id": "s0381",
+"en": "The horizontal axis is A's attractiveness, the vertical axis is the matched B's. The closer to the diagonal, the more alike the couple. Gray ticks outside the axes are people still single."
+},
+{
+"id": "s0382",
+"en": "③ Finding Matches Over Time"
+},
+{
+"id": "s0383",
+"en": "Shows how the share of matched people grows as rounds pass."
+},
+{
+"id": "s0384",
+"en": "④ When the Aim Changes"
+},
+{
+"id": "s0385",
+"en": "The horizontal axis is the aim, the vertical axis is the share. Dots are the results of 5 markets."
+},
+{
+"id": "s0386",
+"en": "<b>What it shows:</b> If everyone wants \"someone a little better than me,\" almost nobody satisfies both sides at once, so everyone waits until their standards drop. Raising the aim by just +10 points noticeably lengthens the search, and past a certain point most people fail to find a match within the time limit."
+},
+{
+"id": "s0387",
+"en": "<b>What it doesn't show:</b> It doesn't mean love or marriage works by such calculations, and it makes no judgment about what aim is right. Reality has personality, taste, distance and timing, and attractiveness can't be ranked on a single line. This model keeps only \"both must agree\" and \"standards change gradually.\" It does not explain the causes of social problems such as low birth rates."
+},
+{
+"id": "s0388",
+"en": "This is this project's own design, combining the Gale–Shapley (stable marriage problem) idea that \"both sides must agree\" with the search-theory idea that \"the reservation level falls over time.\" It does not reproduce any specific paper."
+}
+]

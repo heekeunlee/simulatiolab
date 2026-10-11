@@ -1,0 +1,562 @@
+[
+{
+"id": "d0131",
+"ko": "끝내 만족 못 한 채 중단",
+"en": "Stopped without everyone being satisfied"
+},
+{
+"id": "d0132",
+"ko": "{#0}라운드 · 분리도 {%1}",
+"en": "Round {0} · segregation {1}"
+},
+{
+"id": "d0133",
+"ko": "지금 ({#0}라운드 만에 모두 만족)",
+"en": "Now (everyone happy after {0} rounds)"
+},
+{
+"id": "d0134",
+"ko": "지금 ({#0}라운드, 계속 이사 중)",
+"en": "Now (round {0}, still moving)"
+},
+{
+"id": "d0135",
+"ko": "지금 ({#0}라운드)",
+"en": "Now (round {0})"
+},
+{
+"id": "d0136",
+"ko": "섞여 있을 때",
+"en": "When mixed"
+},
+{
+"id": "d0137",
+"ko": "사람들이 원하는 같은 이웃 비율",
+"en": "Share of similar neighbors people want"
+},
+{
+"id": "d0138",
+"ko": "원한 만큼만",
+"en": "Only as much as wanted"
+},
+{
+"id": "d0139",
+"ko": "원하는 비율이 30%일 때 결과는 {%0}",
+"en": "When people want 30%, the result is {0}"
+},
+{
+"id": "d0140",
+"ko": "배치 번호 #{#0}",
+"en": "Layout #{0}"
+},
+{
+"id": "d0141",
+"ko": "최종 자본 (시작값 {#0})",
+"en": "Final capital (starting value {0})"
+},
+{
+"id": "d0142",
+"ko": "재능",
+"en": "Talent"
+},
+{
+"id": "d0143",
+"ko": "최고 부자 {0}",
+"en": "Richest {0}"
+},
+{
+"id": "d0144",
+"ko": "최고 재능자 {0}",
+"en": "Most talented {0}"
+},
+{
+"id": "d0145",
+"ko": "{0} · 자본 {1}",
+"en": "{0} · capital {1}"
+},
+{
+"id": "d0146",
+"ko": "최고 재능자 · 자본 {0}",
+"en": "Most talented · capital {0}"
+},
+{
+"id": "d0147",
+"ko": "최고 부자 · 자본 {0}",
+"en": "Richest · capital {0}"
+},
+{
+"id": "d0148",
+"ko": "최고 재능자",
+"en": "Most talented"
+},
+{
+"id": "d0149",
+"ko": "최고 부자",
+"en": "Richest"
+},
+{
+"id": "d0150",
+"ko": "{#0}년 {#1}개월 · 상위 20%의 몫 {#2}%",
+"en": "{0} yr {1} mo · top 20% share {2}%"
+},
+{
+"id": "d0151",
+"ko": "최고 부자의 재능",
+"en": "Richest person's talent"
+},
+{
+"id": "d0152",
+"ko": "평균 {#0} · 재능 순위 {#1}위 / {#2}명",
+"en": "Mean {0} · talent rank {1} of {2} people"
+},
+{
+"id": "d0153",
+"ko": "최고 재능자의 최종 자본",
+"en": "Most talented person's final capital"
+},
+{
+"id": "d0154",
+"ko": "재능 {#0} (1위) · 시작은 {#1}",
+"en": "Talent {0} (#1) · started with {1}"
+},
+{
+"id": "d0155",
+"ko": "상위 20%가 가진 자본",
+"en": "Capital held by the top 20%"
+},
+{
+"id": "d0156",
+"ko": "파레토 법칙(80/20)과 비교해 보세요",
+"en": "Compare with the Pareto rule (80/20)"
+},
+{
+"id": "d0157",
+"ko": "시작값보다 줄어든 사람",
+"en": "People below their starting capital"
+},
+{
+"id": "d0158",
+"ko": "운이 나쁘면 재능이 있어도 줄어요",
+"en": "With bad luck, capital shrinks even with talent"
+},
+{
+"id": "d0159",
+"ko": "부자 상위 10명 중 재능 상위 10%",
+"en": "Top-10% talent among the 10 richest"
+},
+{
+"id": "d0160",
+"ko": "재능만으로 정해진다면 10명",
+"en": "10 if talent alone decided"
+},
+{
+"id": "d0161",
+"ko": "운의 번호 #{#0}",
+"en": "Luck seed #{0}"
+},
+{
+"id": "d0162",
+"ko": "계산 중… {#0}/{#1}",
+"en": "Calculating… {0}/{1}"
+},
+{
+"id": "d0163",
+"ko": "같은 설정으로 운만 바꿔 {#0}번 돌렸습니다. 최고 부자의 재능 중앙값은 {#1}(평균 {#2}), 그 판에서 재능이 가장 높은 사람이 최고 부자가 된 횟수는 {#3}번이었고, 상위 20%의 자본 비중은 평균 {#4}%였습니다.",
+"en": "We ran the same settings {0} times, changing only the luck. The median talent of the richest person was {1} (mean {2}); the most talented person in each run became the richest {3} times, and the top 20% held {4}% of capital on average."
+},
+{
+"id": "d0164",
+"ko": "평균 {#0}",
+"en": "Mean {0}"
+},
+{
+"id": "d0165",
+"ko": "재능 1위의 평균 {#0}",
+"en": "Top talent average {0}"
+},
+{
+"id": "d0166",
+"ko": "평균 속도",
+"en": "Average speed"
+},
+{
+"id": "d0167",
+"ko": "멈춰 있는 차 {%0}",
+"en": "Stopped cars {0}"
+},
+{
+"id": "d0168",
+"ko": "{#0}초 경과",
+"en": "{0} s elapsed"
+},
+{
+"id": "d0169",
+"ko": "도로 위치 →",
+"en": "Position on the road →"
+},
+{
+"id": "d0170",
+"ko": "시간 ↓ (최근 160초)",
+"en": "Time ↓ (last 160 s)"
+},
+{
+"id": "d0171",
+"ko": "도로가 찬 정도(밀도)",
+"en": "How full the road is (density)"
+},
+{
+"id": "d0172",
+"ko": "잠깐 브레이크를 밟는 확률",
+"en": "Chance of a brief brake tap"
+},
+{
+"id": "d0173",
+"ko": "제한속도(최고) {#0} km/h",
+"en": "Speed limit (top speed) {0} km/h"
+},
+{
+"id": "d0174",
+"ko": "멈춰 있는 차",
+"en": "Stopped cars"
+},
+{
+"id": "d0175",
+"ko": "{#0}대 중 {#1}대",
+"en": "{1} of {0} cars"
+},
+{
+"id": "d0176",
+"ko": "시간당 통과 대수",
+"en": "Vehicles per hour"
+},
+{
+"id": "d0177",
+"ko": "한 지점을 지나가는 차량 수",
+"en": "Vehicles passing a single point"
+},
+{
+"id": "d0178",
+"ko": "차량 수",
+"en": "Number of cars"
+},
+{
+"id": "d0179",
+"ko": "길이 {#0}칸 (약 {#1}km) 한 차선",
+"en": "{0} cells long (about {1} km), one lane"
+},
+{
+"id": "d0180",
+"ko": "파랑: 지금 설정, 회색: 브레이크를 전혀 안 밟는 완벽한 운전",
+"en": "Blue: current setting, gray: perfect driving with no braking"
+},
+{
+"id": "d0181",
+"ko": "브레이크 0%일 때 {#0} km/h, 25%일 때 {#1} km/h",
+"en": "At 0% braking, {0} km/h; at 25%, {1} km/h"
+},
+{
+"id": "d0182",
+"ko": "도로 번호",
+"en": "Road"
+},
+{
+"id": "d0183",
+"ko": "단순다수",
+"en": "Plurality"
+},
+{
+"id": "d0184",
+"ko": "결선투표",
+"en": "Runoff"
+},
+{
+"id": "d0185",
+"ko": "선호투표",
+"en": "Ranked-choice"
+},
+{
+"id": "d0186",
+"ko": "보르다",
+"en": "Borda"
+},
+{
+"id": "d0187",
+"ko": "★ 당선: {0}",
+"en": "★ Winner: {0}"
+},
+{
+"id": "d0188",
+"ko": "1순위 득표율",
+"en": "First-choice vote share"
+},
+{
+"id": "d0189",
+"ko": "결선: {0}",
+"en": "Runoff: {0}"
+},
+{
+"id": "d0190",
+"ko": "1차에서 과반",
+"en": "Majority in round 1"
+},
+{
+"id": "d0191",
+"ko": "{#0}번째 집계에서 결정",
+"en": "Decided at count {0}"
+},
+{
+"id": "d0192",
+"ko": "순위 점수 비율",
+"en": "Share of rank points"
+},
+{
+"id": "d0193",
+"ko": "후보 수",
+"en": "Number of candidates"
+},
+{
+"id": "d0194",
+"ko": "후보 {0}",
+"en": "Candidate {0}"
+},
+{
+"id": "d0195",
+"ko": "득표 비중 {%0}",
+"en": "Vote share {0}"
+},
+{
+"id": "d0196",
+"ko": "중도 후보 (콩도르세 승자)",
+"en": "Centrist candidate (Condorcet winner)"
+},
+{
+"id": "d0197",
+"ko": "다른 모든 후보와 1:1로 붙으면 이기는 후보",
+"en": "Beats every other candidate one-on-one"
+},
+{
+"id": "d0198",
+"ko": "같은 설정의 선거 200번 중 단순다수와 선호투표의 당선자가 달랐던 선거: {%0}",
+"en": "Of 200 elections with this setup, share where plurality and ranked-choice picked different winners: {0}"
+},
+{
+"id": "d0199",
+"ko": "후보가 2명이면 모든 방식이 같은 결과입니다",
+"en": "With 2 candidates, every method gives the same result"
+},
+{
+"id": "d0200",
+"ko": "선거 번호",
+"en": "Election"
+},
+{
+"id": "d0201",
+"ko": "평균 (모두 같았을 때)",
+"en": "Average (if everyone were equal)"
+},
+{
+"id": "d0202",
+"ko": "가난 →",
+"en": "Poor →"
+},
+{
+"id": "d0203",
+"ko": "→ 부자",
+"en": "→ Rich"
+},
+{
+"id": "d0204",
+"ko": "{0}/{1} 라운드 · 상위 10%의 몫 {2}",
+"en": "Round {0}/{1} · top 10% share {2}"
+},
+{
+"id": "d0205",
+"ko": "가난한 사람부터 줄 세운 인구 비율",
+"en": "Share of population, lined up from the poorest"
+},
+{
+"id": "d0206",
+"ko": "완전한 평등",
+"en": "Perfect equality"
+},
+{
+"id": "d0207",
+"ko": "지니계수 {#0}",
+"en": "Gini coefficient {0}"
+},
+{
+"id": "d0208",
+"ko": "하위 50%는 {%0}",
+"en": "Bottom 50% hold {0}"
+},
+{
+"id": "d0209",
+"ko": "1배",
+"en": "1×"
+},
+{
+"id": "d0210",
+"ko": "라운드마다 걷어서 나누는 비율",
+"en": "Share collected and split each round"
+},
+{
+"id": "d0211",
+"ko": "걷지 않으면 지니계수 {#0}, 1%만 걷어 나누면 {#1}",
+"en": "With no collection the Gini is {0}; collecting just 1% gives {1}"
+},
+{
+"id": "d0212",
+"ko": "지니계수",
+"en": "Gini coefficient"
+},
+{
+"id": "d0213",
+"ko": "0이면 평등, 1이면 한 사람이 전부",
+"en": "0 is equal, 1 is one person holds all"
+},
+{
+"id": "d0214",
+"ko": "상위 10%의 몫",
+"en": "Top 10% share"
+},
+{
+"id": "d0215",
+"ko": "처음엔 10%",
+"en": "10% at the start"
+},
+{
+"id": "d0216",
+"ko": "하위 50%의 몫",
+"en": "Bottom 50% share"
+},
+{
+"id": "d0217",
+"ko": "처음엔 50%",
+"en": "50% at the start"
+},
+{
+"id": "d0218",
+"ko": "가장 부자의 재산",
+"en": "Richest person's wealth"
+},
+{
+"id": "d0219",
+"ko": "평균 대비 (처음엔 모두 1배)",
+"en": "Relative to average (everyone starts at 1×)"
+},
+{
+"id": "d0220",
+"ko": "{0}위 채널 #{1}",
+"en": "No. {0} · Channel #{1}"
+},
+{
+"id": "d0221",
+"ko": "품질 {0}위",
+"en": "Quality rank {0}"
+},
+{
+"id": "d0222",
+"ko": "{0}/{1} 라운드 · 누적 구독 {2}",
+"en": "Round {0}/{1} · total subscriptions {2}"
+},
+{
+"id": "d0223",
+"ko": "보통",
+"en": "Average"
+},
+{
+"id": "d0224",
+"ko": "낮음",
+"en": "Low"
+},
+{
+"id": "d0225",
+"ko": "높음",
+"en": "High"
+},
+{
+"id": "d0226",
+"ko": "콘텐츠 품질",
+"en": "Content quality"
+},
+{
+"id": "d0227",
+"ko": "현재 1위",
+"en": "Current #1"
+},
+{
+"id": "d0228",
+"ko": "품질 1위",
+"en": "Best quality"
+},
+{
+"id": "d0229",
+"ko": "1위가 된 채널의 품질 순위 (왼쪽일수록 품질 좋음)",
+"en": "Quality rank of the channel that came out #1 (further left means better quality)"
+},
+{
+"id": "d0230",
+"ko": "평행우주 {0}",
+"en": "Parallel universe {0}"
+},
+{
+"id": "d0231",
+"ko": "평행우주",
+"en": "Parallel universe"
+},
+{
+"id": "d0232",
+"ko": "추천이 인기 순을 따르는 비율",
+"en": "Share of recommendations following popularity"
+},
+{
+"id": "d0233",
+"ko": "1위 채널의 구독자",
+"en": "Subscribers of the #1 channel"
+},
+{
+"id": "d0234",
+"ko": "전체 구독의 {%0}",
+"en": "{0} of all subscriptions"
+},
+{
+"id": "d0235",
+"ko": "1위 채널의 품질 순위",
+"en": "Quality rank of the #1 channel"
+},
+{
+"id": "d0236",
+"ko": "{0}개 채널 중 (1위가 최고 품질)",
+"en": "Out of {0} channels (rank 1 is best quality)"
+},
+{
+"id": "d0237",
+"ko": "품질과 구독자의 상관",
+"en": "Correlation of quality and subscribers"
+},
+{
+"id": "d0238",
+"ko": "1에 가까울수록 품질대로 결과가 나옴",
+"en": "Closer to 1 means outcomes follow quality"
+},
+{
+"id": "d0239",
+"ko": "채널 10개 중 1개가 가져가는 구독",
+"en": "Subscriptions taken by 1 in every 10 channels"
+},
+{
+"id": "d0240",
+"ko": "품질 1위 채널의 성적",
+"en": "Result of the best-quality channel"
+},
+{
+"id": "d0241",
+"ko": "가장 좋은 콘텐츠의 최종 순위",
+"en": "Final rank of the best content"
+},
+{
+"id": "d0242",
+"ko": "같은 채널로 시작했는데 1위의 품질 순위는 {#0}위부터 {#1}위까지 다양합니다",
+"en": "Starting from the same channels, the #1 channel's quality rank ranges from #{0} to #{1}"
+}
+]

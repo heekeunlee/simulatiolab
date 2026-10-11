@@ -11,3 +11,17 @@
 2. `en_blocks_*.py`에 영어 문장, `en_dyn.py`에 실행 중 문구 규칙을 추가한다 (`scan_js.py`가 한글 문자열 목록을 뽑아줌)
 3. `python3 tools/i18n/apply_html.py` 로 HTML에 `data-en`을 넣고, `en_dyn.py`로 `site/i18n-en.js`를 다시 만든다
 4. 페이지 HTML을 다시 생성하면 `data-en`이 사라지므로 3번을 다시 실행한다
+
+
+## 스페인어 · 프랑스어 · 일본어 (es / fr / ja)
+
+우상단 언어 메뉴는 한국어·English·Español·Français·日本語 다섯 개입니다. es/fr/ja는 **영어 문구(data-en)를 원문 키로** 삼아 번역합니다.
+
+- `site/i18n.js`: 언어 선택, 해당 언어 사전(`i18n-es.js` 등)만 동기로 불러옴. 번역이 없으면 영어로 대체.
+- `site/i18n-xx.js`: `I18N.addLang`(실행 중 문구: 한국어 키 → 번역), `I18N.addStatic`(정적 문구: 영어 HTML → 번역)을 담은 **생성 파일**.
+- JS가 직접 쓰는 짧은 문구(바로가기, 링크 복사, 이전/다음 등)는 `i18n.js`의 `UI` 표와 `I18N.u(ko, en)`을 씁니다. 페이지 코드에서 `lang === 'en'`으로 분기하지 말고 `lang !== 'ko'`나 `I18N.t`를 쓰세요.
+
+새 실험을 추가했을 때 (영어 번역 작업 3단계까지 끝낸 뒤):
+1. `python3 tools/i18n/tr_extract.py` → `tools/i18n/tr/src/`에 번역 대상 묶음 생성
+2. 묶음마다 `tr/GUIDE.md` 지침대로 es/fr/ja 번역을 `tr/out/<같은 이름>.json`으로 저장 (에이전트에 맡길 수 있음). 이미 번역된 문구는 새로 만든 묶음 번호가 달라질 수 있으니 `out/`을 지우고 전체를 다시 하거나, 새 문구만 따로 묶어 번역할 것
+3. `python3 tools/i18n/tr_build.py` → 태그·자리표시자·한글 잔존을 검증하고 `site/i18n-es.js`, `i18n-fr.js`, `i18n-ja.js` 생성

@@ -1,0 +1,12 @@
+{
+"d0576": {"es": "Escrito hasta 100 000 palabras", "fr": "Écrit jusqu'à 100 000 mots", "ja": "10万語まで書き続けます"},
+"d0577": {"es": "Tamaño del vocabulario", "fr": "Taille du vocabulaire", "ja": "語彙の大きさ"},
+"d0578": {"es": "Número de palabras distintas", "fr": "Nombre de mots distincts", "ja": "異なる単語の数"},
+"d0579": {"es": "Proporción de las 10 palabras principales", "fr": "Part des 10 premiers mots", "ja": "上位10語の割合"},
+"d0580": {"es": "Proporción del texto completo", "fr": "Part du texte entier", "ja": "文章全体に占める割合"},
+"d0581": {"es": "Proporción de las 100 palabras principales", "fr": "Part des 100 premiers mots", "ja": "上位100語の割合"},
+"d0582": {"es": "Pendiente rango-frecuencia", "fr": "Pente rang-fréquence", "ja": "順位と頻度の傾き"},
+"d0583": {"es": "La ley de Zipf se acerca a -1 · medida en los rangos {0} a {1}", "fr": "La loi de Zipf est proche de -1 · mesurée sur les rangs {0} à {1}", "ja": "ジップの法則は-1に近い値です · 順位{0}〜{1}で測定"},
+"d0584": {"es": "Incluso cuando la probabilidad de palabra nueva va de 0,5 % a 10 %, el tamaño de la pendiente es de {0} a {1} en el modo copia y de {2} a {3} con elección uniforme", "fr": "Même lorsque la probabilité de nouveau mot passe de 0,5 % à 10 %, la taille de la pente va de {0} à {1} en mode copie et de {2} à {3} avec un choix uniforme", "ja": "新しい単語の確率を0.5%から10%に変えても、傾きの大きさはコピーモードで{0}〜{1}、一様選択で{2}〜{3}です"},
+"d0585": {"es": "Texto", "fr": "Texte", "ja": "文章"}
+}

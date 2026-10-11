@@ -16,7 +16,7 @@
   });
 
   function wrapText(ctx, text, x, y, maxW, lh) {
-    const tr = window.I18N && window.I18N.lang === 'en' ? window.I18N.t(text) : text; // 영어 모드: 문장 전체를 먼저 번역한 뒤 줄바꿈
+    const tr = window.I18N && window.I18N.lang !== 'ko' ? window.I18N.t(text) : text; // 번역 모드: 문장 전체를 먼저 번역한 뒤 줄바꿈
     const words = tr.split(' '); let line = '';
     words.forEach((w) => { const t = line ? line + ' ' + w : w; if (ctx.measureText(t).width > maxW && line) { ctx.fillText(line, x, y); line = w; y += lh; } else line = t; });
     ctx.fillText(line, x, y); return y;

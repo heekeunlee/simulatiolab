@@ -1,0 +1,237 @@
+{
+"s0251": {
+"es": "Las subastas se suceden una tras otra. Los postores se ordenan por su puja, de mayor a menor, y la línea discontinua dorada es el valor real. El círculo rojo es el ganador, normalmente a la derecha del valor real.",
+"fr": "Les enchères se succèdent. Les enchérisseurs sont alignés selon leur offre, de la plus haute à la plus basse, et la ligne pointillée dorée est la valeur réelle. Le cercle rouge est le gagnant, généralement à droite de la valeur réelle.",
+"ja": "オークションを次々に実行します。入札者は入札額の高い順に並び、金色の破線が真の価値です。赤い丸が落札者で、たいてい真の価値より右側にあります。"
+},
+"s0252": {
+"es": "② Distribución de la ganancia del ganador",
+"fr": "② Répartition du gain du gagnant",
+"ja": "② 落札者の利益の分布"
+},
+"s0253": {
+"es": "Distribución de la ganancia del ganador al ejecutar 3.000 subastas con los mismos ajustes. El rojo es pérdida, el verde es ganancia.",
+"fr": "Répartition du gain du gagnant lorsque 3 000 enchères sont lancées avec les mêmes réglages. Le rouge indique une perte, le vert un gain.",
+"ja": "同じ設定で3,000回のオークションを実行したときの、落札者の利益の分布です。赤は損失、緑は利益です。"
+},
+"s0254": {
+"es": "③ Al aumentar los postores",
+"fr": "③ Quand les enchérisseurs augmentent",
+"ja": "③ 入札者が増えると"
+},
+"s0255": {
+"es": "El eje horizontal es el número de postores y el eje vertical, la ganancia media del ganador. Por debajo de la línea discontinua (0), los ganadores pierden dinero de media.",
+"fr": "L'axe horizontal est le nombre d'enchérisseurs, l'axe vertical le gain moyen du gagnant. Sous la ligne pointillée (0), les gagnants perdent de l'argent en moyenne.",
+"ja": "横軸は入札者の数、縦軸は落札者の平均利益です。破線(0)より下では、落札者は平均して損をします。"
+},
+"s0256": {
+"es": "<i style=\"background:var(--accent)\"></i>Pujar la estimación · primer precio",
+"fr": "<i style=\"background:var(--accent)\"></i>Offrir l'estimation · premier prix",
+"ja": "<i style=\"background:var(--accent)\"></i>推定値で入札 · 第一価格"
+},
+"s0257": {
+"es": "<i style=\"background:#1fa463\"></i>Reducción actual · primer precio",
+"fr": "<i style=\"background:#1fa463\"></i>Décote actuelle · premier prix",
+"ja": "<i style=\"background:#1fa463\"></i>現在の割引入札 · 第一価格"
+},
+"s0258": {
+"es": "<i style=\"background:#e0a100\"></i>Pujar la estimación · segundo precio",
+"fr": "<i style=\"background:#e0a100\"></i>Offrir l'estimation · second prix",
+"ja": "<i style=\"background:#e0a100\"></i>推定値で入札 · 第二価格"
+},
+"s0259": {
+"es": "④ Cuando las pujas se reducen",
+"fr": "④ Quand les offres sont diminuées",
+"ja": "④ 入札額を割り引くと"
+},
+"s0260": {
+"es": "El eje horizontal indica cuánto reduce su puja cada uno y el eje vertical, la ganancia media del ganador. Cada línea tiene un número distinto de postores, y donde cruza el 0 está el punto de equilibrio.",
+"fr": "L'axe horizontal indique de combien chacun diminue son offre, l'axe vertical le gain moyen du gagnant. Chaque ligne correspond à un nombre différent d'enchérisseurs, et là où elle croise 0 se trouve le seuil de rentabilité.",
+"ja": "横軸は全員が入札額をどれだけ割り引くか、縦軸は落札者の平均利益です。線ごとに入札者の数が異なり、0と交わる点が損益分岐点です。"
+},
+"s0261": {
+"es": "<b>Qué muestra:</b> Con 10 postores y un error de estimación del 20 %, pujar la estimación (regla de primer precio) dio a los ganadores una ganancia media de −30,9 sobre un valor de 100, y la proporción de ganadores con pérdidas se redondeó al 100 % sobre 40.000 subastas. Ganar significa «mi estimación fue la más alta», que es la que más se equivocó en sentido optimista. El tamaño de la pérdida crece con el error: −7,7 con un 5 % de error, −15,4 con un 10 % y −61,7 con un 40 %, siempre alrededor de 1,54 veces el tamaño del error. Más postores lo empeoran: −11,4 con 2, −23,5 con 5, −30,9 con 10 y −40,9 con 30. Todos tienen que reducir su puja en 1,54 tamaños de error para que la ganancia media llegue a 0 (1,00 en la regla de segundo precio), y más postores necesitan más reducción.",
+"fr": "<b>Ce que cela montre :</b> Avec 10 enchérisseurs et une erreur d'estimation de 20 %, offrir l'estimation (règle du premier prix) a donné aux gagnants un gain moyen de −30,9 pour une valeur de 100, et la part de gagnants perdants arrondie à 100 % sur 40 000 enchères. Gagner signifie « mon estimation était la plus élevée », c'est-à-dire celle qui s'est le plus trompée dans le sens optimiste. L'ampleur de la perte augmente avec l'erreur : −7,7 pour 5 % d'erreur, −15,4 pour 10 % et −61,7 pour 40 %, toujours environ 1,54 fois la taille de l'erreur. Plus d'enchérisseurs aggrave la situation : −11,4 avec 2, −23,5 avec 5, −30,9 avec 10 et −40,9 avec 30. Chacun doit diminuer son offre de 1,54 fois la taille de l'erreur pour que le gain moyen atteigne 0 (1,00 avec la règle du second prix), et plus d'enchérisseurs demandent une plus grande décote.",
+"ja": "<b>わかること:</b> 入札者10人、推定誤差20%の場合、推定値どおりに入札する(第一価格ルール)と、価値100に対して落札者の平均利益は−30.9となり、損をする落札者の割合は40,000回のオークションで丸めて100%でした。落札するとは「自分の推定がいちばん高かった」ということで、それは楽観的な方向に最も大きく外れた推定です。損失の大きさは誤差に比例し、誤差5%で−7.7、10%で−15.4、40%で−61.7と、いつも誤差の大きさの約1.54倍でした。入札者が増えるほど悪化し、2人で−11.4、5人で−23.5、10人で−30.9、30人で−40.9です。平均利益を0にするには全員が誤差の1.54倍ぶん割り引く必要があり(第二価格ルールでは1.00)、入札者が多いほどより大きな割引が必要です。"
+},
+"s0262": {
+"es": "<b>Qué no muestra:</b> Esto no significa que los ganadores de las subastas de arte reales siempre pierdan dinero. El modelo es una subasta de valor común en la que todos comparten un único valor real; las obras reales también incluyen el gusto personal (valor privado), y los postores aprenden con la experiencia. Además, los postores aquí son simples: no tienen en cuenta que «ganar es una mala noticia», y el modelo no calcula las pujas de equilibrio de la teoría de subastas. Tampoco concluye que la regla de segundo precio sea siempre mejor: con 2 postores, los ganadores obtuvieron +11,3 de media con la regla de segundo precio.",
+"fr": "<b>Ce que cela ne montre pas :</b> Cela ne signifie pas que les gagnants des ventes aux enchères d'art réelles perdent toujours de l'argent. Le modèle est une enchère à valeur commune dans laquelle tous partagent une seule valeur réelle ; les œuvres réelles comportent aussi du goût personnel (valeur privée), et les enchérisseurs apprennent par l'expérience. Les enchérisseurs ici sont aussi simples : ils ne tiennent pas compte du fait que « gagner est une mauvaise nouvelle », et le modèle ne calcule pas les offres d'équilibre de la théorie des enchères. Il ne conclut pas non plus que la règle du second prix est toujours meilleure : avec 2 enchérisseurs, les gagnants ont gagné +11,3 en moyenne avec la règle du second prix.",
+"ja": "<b>わからないこと:</b> 実際の美術品オークションの落札者がいつも損をするという意味ではありません。このモデルは、全員が一つの真の価値を共有する共通価値オークションです。実際の作品には個人的な好み(私的価値)もあり、入札者は経験から学びます。ここでの入札者も単純で、「落札は悪い知らせである」ことを考慮せず、モデルはオークション理論の均衡入札額も計算しません。また、第二価格ルールがいつも優れているという結論でもありません。入札者2人では、第二価格ルールで落札者の平均利益は+11.3でした。"
+},
+"s0263": {
+"es": "Implementación propia de este proyecto que ilustra la «maldición del ganador» descrita en Capen, Clapp y Campbell (1971), «Competitive bidding in high-risk situations», <i>Journal of Petroleum Technology</i> 23, y en Thaler (1988), «The winner's curse», <i>Journal of Economic Perspectives</i> 2(1). No reproduce las cifras de ninguno de los dos artículos.",
+"fr": "Implémentation propre à ce projet illustrant la « malédiction du vainqueur » décrite dans Capen, Clapp et Campbell (1971), « Competitive bidding in high-risk situations », <i>Journal of Petroleum Technology</i> 23, et Thaler (1988), « The winner's curse », <i>Journal of Economic Perspectives</i> 2(1). Elle ne reproduit pas les chiffres de l'un ou l'autre article.",
+"ja": "Capen, Clapp, Campbell (1971)「Competitive bidding in high-risk situations」(<i>Journal of Petroleum Technology</i> 23)と、Thaler (1988)「The winner's curse」(<i>Journal of Economic Perspectives</i> 2(1))で述べられた「勝者の呪い」を説明する、このプロジェクト独自の実装です。どちらの論文の数値も再現するものではありません。"
+},
+"s0264": {
+"es": "El error de estimación sigue una distribución normal de media 0, y su desviación estándar es un porcentaje del valor 100. Si todos reducen su puja en la misma cantidad, el ganador no cambia y el precio baja en reducción × desviación estándar, así que la ganancia media sube de forma exactamente lineal con la reducción. Los gráficos ③ y ④ promedian 3 ejecuciones de 3.000 subastas cada una.",
+"fr": "L'erreur d'estimation suit une loi normale de moyenne 0, et son écart type est un pourcentage de la valeur 100. Si tout le monde diminue son offre du même montant, le gagnant ne change pas et le prix baisse de décote × écart type, de sorte que le gain moyen augmente exactement de façon linéaire avec la décote. Les graphiques ③ et ④ font la moyenne de 3 exécutions de 3 000 enchères chacune.",
+"ja": "推定誤差は平均0の正規分布で、その標準偏差は価値100に対する割合です。全員が同じだけ入札額を割り引くと、落札者は変わらず、価格は割引 × 標準偏差だけ下がるため、平均利益は割引に対して厳密に線形に上がります。グラフ③と④は、3,000回のオークションを3回実行した平均です。"
+},
+"s0265": {
+"es": "Puede verificarlo con <code>node tools/validate-auction.js</code>. Con 40.000 subastas, la reducción de equilibrio es 1,54σ en la regla de primer precio y 1,00σ en la regla de segundo precio.",
+"fr": "Vous pouvez le vérifier avec <code>node tools/validate-auction.js</code>. Avec 40 000 enchères, la décote d'équilibre est de 1,54σ avec la règle du premier prix et de 1,00σ avec la règle du second prix.",
+"ja": "<code>node tools/validate-auction.js</code>で確認できます。40,000回のオークションでは、損益分岐の割引は第一価格ルールで1.54σ、第二価格ルールで1.00σです。"
+},
+"s0266": {
+"es": "El código está disponible en <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/auction\">GitHub</a>.",
+"fr": "Le code est disponible sur <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/auction\">GitHub</a>.",
+"ja": "コードは<a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/auction\">GitHub</a>で公開しています。"
+},
+"s0267": {
+"es": "¿Por qué el restaurante popular siempre está lleno? · Simulatio Lab",
+"fr": "Pourquoi le restaurant populaire est-il toujours bondé ? · Simulatio Lab",
+"ja": "なぜ人気のお店はいつも満員なのか · Simulatio Lab"
+},
+"s0268": {
+"es": "¿Por qué todos pierden cuando todos piensan igual? Ejecuta el problema del bar El Farol y cambia la forma en que la gente predice.",
+"fr": "Pourquoi tout le monde perd-il quand tout le monde pense pareil ? Lancez le problème du bar El Farol et changez la façon dont les gens prédisent.",
+"ja": "みんなが同じように考えると、なぜみんなが損をするのでしょうか。エル・ファロル・バー問題を実行して、人々の予測のしかたを変えてみましょう。"
+},
+"s0269": {
+"es": "«Ese lugar estaba vacío la semana pasada, así que iré esta semana». Si todos piensan así, el lugar se llena a reventar. Si todos piensan «La semana pasada estaba lleno, mejor no vamos», queda vacío. ¿Cómo resuelve la gente este dilema?",
+"fr": "« Cet endroit était vide la semaine dernière, donc j'irai cette semaine. » Si tout le monde pense ainsi, l'endroit est bondé. Si tout le monde pense « C'était plein la semaine dernière, on n'y va pas », il est vide. Comment les gens résolvent-ils ce dilemme ?",
+"ja": "「先週は空いていたから、今週行こう」。みんながそう考えると、お店は満員になります。みんなが「先週は混んでいたからやめておこう」と考えると、空っぽになります。人々はこのジレンマをどう解いているのでしょうか。"
+},
+"s0270": {
+"es": "100 personas deciden cada semana si van al restaurante. Si acuden más que la <b>capacidad (60 por defecto)</b>, está lleno y todos están descontentos; si no, están contentos.",
+"fr": "100 personnes décident chaque semaine d'aller ou non au restaurant. Si plus que la <b>capacité (60 par défaut)</b> s'y présentent, c'est bondé et tout le monde est mécontent ; sinon, tout le monde est content.",
+"ja": "100人が毎週、お店に行くかどうかを決めます。<b>定員(初期値は60)</b>を超える人が来ると混雑して全員が不満になり、そうでなければ満足します。"
+},
+"s0271": {
+"es": "Cada persona tiene una forma de predecir «¿cuánta gente vendrá esta semana?». Cada una es una fórmula que pondera de manera distinta las últimas 8 semanas: unos «siguen la semana pasada» y otros «hacen lo contrario de la semana pasada».",
+"fr": "Chacun a une façon de prédire « combien de personnes viendront cette semaine ? ». Chacune est une formule qui pondère différemment les 8 dernières semaines : certains « suivent la semaine dernière », d'autres « font le contraire de la semaine dernière ».",
+"ja": "誰もが「今週は何人来るか」を予測する方法を持っています。それぞれ過去8週間に異なる重みをつける式で、「先週と同じ」と考える人もいれば、「先週の逆」と考える人もいます。"
+},
+"s0272": {
+"es": "Cada persona predice la afluencia de esta semana con el método que ha sido más preciso últimamente, y va si <b>la predicción está por debajo de la capacidad</b>.",
+"fr": "Chaque personne prédit l'affluence de cette semaine avec la méthode la plus précise ces derniers temps, et y va si <b>la prédiction est inférieure à la capacité</b>.",
+"ja": "各自が、最近もっとも当たっている方法で今週の混雑を予測し、<b>予測が定員を下回れば</b>行きます。"
+},
+"s0273": {
+"es": "En el ajuste «Todos iguales», cada persona predice que «esta semana será igual que la semana pasada».",
+"fr": "Dans le réglage « Tous pareils », chaque personne prédit que « cette semaine sera comme la semaine dernière ».",
+"ja": "「全員同じ」の設定では、全員が「今週は先週と同じ」と予測します。"
+},
+"s0274": {
+"es": "Capacidad <output id=\"o-cap\"></output>",
+"fr": "Capacité <output id=\"o-cap\"></output>",
+"ja": "定員 <output id=\"o-cap\"></output>"
+},
+"s0275": {
+"es": "Cuánta gente hasta que resulta cómodo",
+"fr": "Combien de personnes avant que ce soit confortable",
+"ja": "何人までなら快適か"
+},
+"s0276": {
+"es": "Predictores por persona <output id=\"o-strategies\"></output>",
+"fr": "Prédicteurs par personne <output id=\"o-strategies\"></output>",
+"ja": "1人あたりの予測方法 <output id=\"o-strategies\"></output>"
+},
+"s0277": {
+"es": "Más significa una persona que elige con más sofisticación",
+"fr": "Plus il y en a, plus la personne choisit de façon sophistiquée",
+"ja": "多いほど、より洗練された選び方になります"
+},
+"s0278": {
+"es": "Cómo predice la gente <output id=\"o-mode\"></output>",
+"fr": "Comment les gens prédisent <output id=\"o-mode\"></output>",
+"ja": "人々の予測のしかた <output id=\"o-mode\"></output>"
+},
+"s0279": {
+"es": "Variada (cada persona tiene predictores distintos)",
+"fr": "Variée (chaque personne a des prédicteurs différents)",
+"ja": "さまざま(人ごとに予測方法が異なる)"
+},
+"s0280": {
+"es": "Todos iguales («igual que la semana pasada»)",
+"fr": "Tous pareils (« comme la semaine dernière »)",
+"ja": "全員同じ(「先週と同じ」)"
+},
+"s0281": {
+"es": "Qué ocurre cuando todos predicen de la misma manera",
+"fr": "Ce qui se passe quand tout le monde prédit de la même façon",
+"ja": "全員が同じ方法で予測するとどうなるか"
+},
+"s0282": {
+"es": "① Esta semana en el restaurante",
+"fr": "① Cette semaine au restaurant",
+"ja": "① 今週のお店"
+},
+"s0283": {
+"es": "Los 100 puntos son personas. Azul: fue y lo disfrutó; rojo: fue y sufrió la multitud; amarillo: se quedó en casa pero estaba vacío (arrepentimiento); gris: se quedó en casa y acertó.",
+"fr": "Les 100 points sont des personnes. Bleu : y est allé et en a profité ; rouge : y est allé et a subi la foule ; jaune : est resté chez soi mais c'était vide (regret) ; gris : est resté chez soi et a bien fait.",
+"ja": "100個の点は人です。青は行って楽しんだ人、赤は行って混雑に苦しんだ人、黄色は家にいたのに空いていた人(後悔)、灰色は家にいて正解だった人です。"
+},
+"s0284": {
+"es": "② Asistencia semanal",
+"fr": "② Fréquentation hebdomadaire",
+"ja": "② 週ごとの来店者数"
+},
+"s0285": {
+"es": "Asistencia en las últimas 80 semanas. La línea discontinua es la capacidad; las barras rojas son las semanas en que estuvo lleno.",
+"fr": "Fréquentation des 80 dernières semaines. La ligne pointillée est la capacité ; les barres rouges sont les semaines où c'était bondé.",
+"ja": "過去80週間の来店者数です。破線は定員で、赤い棒は混雑した週です。"
+},
+"s0286": {
+"es": "③ La asistencia sigue a la capacidad, sea cual sea",
+"fr": "③ La fréquentation suit la capacité, quelle qu'elle soit",
+"ja": "③ 来店者数は定員がいくつでも定員に近づく"
+},
+"s0287": {
+"es": "El eje horizontal es la capacidad y el eje vertical, la asistencia media. Observa si se pega a la línea gris (asistencia = capacidad). Los puntos son 4 ejecuciones.",
+"fr": "L'axe horizontal est la capacité et l'axe vertical la fréquentation moyenne. Regardez si elle colle à la ligne grise (fréquentation = capacité). Les points sont 4 exécutions.",
+"ja": "横軸は定員、縦軸は平均来店者数です。灰色の線(来店者数 = 定員)に沿っているか確かめてみましょう。点は4回の実行結果です。"
+},
+"s0288": {
+"es": "④ Ser más listo no ayuda",
+"fr": "④ Être plus malin n'aide pas",
+"ja": "④ 賢くなっても役に立たない"
+},
+"s0289": {
+"es": "El eje horizontal son los predictores por persona; el eje vertical es la proporción de personas que eligieron mal esta semana. Aunque se prediga mejor, apenas baja del 50 %.",
+"fr": "L'axe horizontal est le nombre de prédicteurs par personne ; l'axe vertical est la part de personnes qui ont mal choisi cette semaine. Même avec une meilleure prédiction, elle descend à peine sous 50 %.",
+"ja": "横軸は1人あたりの予測方法の数、縦軸は今週に選択を誤った人の割合です。予測がよくなっても、50%をほとんど下回りません。"
+},
+"s0290": {
+"es": "<b>Qué muestra:</b> Cuando todos predicen de la misma manera, el lugar está vacío una semana y abarrotado la siguiente. Cuando las predicciones varían, la asistencia se estabiliza por sí sola cerca de la capacidad. Sin embargo, cada individuo sigue cerca de lanzar una moneda: por inteligente que sea su predicción, alrededor de la mitad de las veces se arrepiente de haber ido o de no haber ido. En el momento en que todos usan la misma información y el mismo razonamiento, ese razonamiento deja de ser acertado.",
+"fr": "<b>Ce que cela montre :</b> Quand tout le monde prédit de la même façon, l'endroit est vide une semaine et bondé la suivante. Quand les prédictions varient, la fréquentation se stabilise d'elle-même près de la capacité. Pourtant, chaque individu reste proche d'un pile ou face : quelle que soit l'intelligence de sa prédiction, environ une fois sur deux il regrette d'y être allé ou de ne pas y être allé. Dès que tout le monde utilise la même information et le même raisonnement, ce raisonnement devient faux.",
+"ja": "<b>わかること:</b> 全員が同じ方法で予測すると、ある週は空っぽ、次の週は満員になります。予測がばらばらだと、来店者数はひとりでに定員の近くに落ち着きます。それでも個人はコイン投げに近いままで、どれだけ賢く予測しても、行ったことか行かなかったことを約半分の確率で後悔します。全員が同じ情報と同じ推論を使った瞬間、その推論は誤りになります。"
+},
+"s0291": {
+"es": "<b>Qué no muestra:</b> No significa que la gente elija realmente restaurantes con esas fórmulas. En la realidad hay gustos, precio, planes y boca a boca, y la asistencia no sigue reglas fijas. La forma de los predictores (una suma ponderada de las últimas 8 semanas) y el número de personas (100) son decisiones de este proyecto; si se cambian, los resultados cambian.",
+"fr": "<b>Ce que cela ne montre pas :</b> Cela ne signifie pas que les gens choisissent réellement un restaurant avec de telles formules. Dans la réalité, il y a les goûts, le prix, les projets et le bouche-à-oreille, et la fréquentation ne suit pas de règles fixes. La forme des prédicteurs (une somme pondérée des 8 dernières semaines) et le nombre de personnes (100) sont des choix de ce projet ; si on les change, les résultats changent.",
+"ja": "<b>わからないこと:</b> 人々が実際にこのような式でお店を選んでいるという意味ではありません。現実には好み、価格、予定、口コミがあり、来店者数は決まった規則には従いません。予測方法の形(過去8週間の重み付き合計)と人数(100人)はこのプロジェクトの選択であり、変えれば結果も変わります。"
+},
+"s0292": {
+"es": "Implementa el problema del bar El Farol de W. Brian Arthur (1994), «Inductive reasoning and bounded rationality», <i>American Economic Review</i> 84(2). El original usa una capacidad de 60 y 100 personas, y los valores por defecto de aquí también.",
+"fr": "Implémente le problème du bar El Farol de W. Brian Arthur (1994), « Inductive reasoning and bounded rationality », <i>American Economic Review</i> 84(2). L'original utilise une capacité de 60 et 100 personnes, et c'est aussi le cas des valeurs par défaut ici.",
+"ja": "W. Brian Arthur (1994)「Inductive reasoning and bounded rationality」(<i>American Economic Review</i> 84(2))のエル・ファロル・バー問題を実装したものです。原典は定員60人、参加者100人で、ここの初期値も同じです。"
+},
+"s0293": {
+"es": "A diferencia de la lista de predictores del original, esta implementación asigna a cada persona predictores aleatorios de suma ponderada, así que los gráficos no se parecen exactamente a los del artículo. Una característica de este planteamiento es que la asistencia se concentra de forma muy estable en torno a la capacidad.",
+"fr": "Contrairement à la liste de prédicteurs de l'original, cette implémentation attribue à chaque personne des prédicteurs aléatoires de somme pondérée, de sorte que les graphiques ne ressemblent pas exactement à ceux de l'article. Une caractéristique de ce dispositif est que la fréquentation se rassemble de façon très stable autour de la capacité.",
+"ja": "原典の予測方法の一覧とは異なり、この実装では各人にランダムな重み付き合計の予測方法を与えているため、グラフは論文のものと完全には一致しません。この設定の特徴として、来店者数が定員の周りに非常に安定して集まります。"
+},
+"s0294": {
+"es": "«Eligió mal» se juzga por el resultado de esa semana: ir cuando estaba lleno, o quedarse en casa cuando estaba vacío, cuenta como error. Puede verificarlo con <code>node tools/validate-more.js bar</code>.",
+"fr": "« A mal choisi » se juge d'après le résultat de la semaine : y aller quand c'était bondé, ou rester chez soi quand c'était vide, compte comme une erreur. Vous pouvez le vérifier avec <code>node tools/validate-more.js bar</code>.",
+"ja": "「選択を誤った」かどうかはその週の結果で判定します。混んでいたのに行った場合や、空いていたのに家にいた場合は誤りとみなします。<code>node tools/validate-more.js bar</code>で確認できます。"
+},
+"s0295": {
+"es": "El código está disponible en <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/bar\">GitHub</a>.",
+"fr": "Le code est disponible sur <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/bar\">GitHub</a>.",
+"ja": "コードは<a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/bar\">GitHub</a>で公開しています。"
+},
+"s0296": {
+"es": "¿Es inevitable la tragedia de los comunes? · Simulatio Lab",
+"fr": "La tragédie des biens communs est-elle inévitable ? · Simulatio Lab",
+"ja": "共有地の悲劇は避けられないのか · Simulatio Lab"
+},
+"s0297": {
+"es": "¿Una pesquería o un pastizal compartidos siempre acaban agotados? Ejecútalo con y sin vigilancia y multas.",
+"fr": "Une pêcherie ou un pâturage partagés finissent-ils toujours par s'épuiser ? Lancez la simulation avec et sans surveillance ni amendes.",
+"ja": "共有の漁場や牧草地は、いつも枯渇してしまうのでしょうか。監視と罰金がある場合とない場合で実行してみましょう。"
+}
+}

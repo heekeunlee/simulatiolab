@@ -1,0 +1,514 @@
+[
+{
+"id": "s0000",
+"en": "Simulatio Lab"
+},
+{
+"id": "s0001",
+"en": "We test \"what if\" questions about people and society with AI-designed simulations. Change the variables and run them yourself."
+},
+{
+"id": "s0002",
+"en": "Visitors today · total (Korea time)"
+},
+{
+"id": "s0003",
+"en": "<i class=\"live\"></i>Today <b id=\"v-today\">0</b>"
+},
+{
+"id": "s0004",
+"en": "Total <b id=\"v-total\">0</b>"
+},
+{
+"id": "s0005",
+"en": "SIMULATIO LAB · 28 experiments · 10 fields"
+},
+{
+"id": "s0006",
+"en": "A Lab for<br>Testing \"What If?\""
+},
+{
+"id": "s0007",
+"en": "Is success luck? How do rumors spread? We test \"what if\" questions about people, society, nature and art with simulations, and publish them so you can change the variables and run them yourself."
+},
+{
+"id": "s0008",
+"en": "Explore the lab ↓"
+},
+{
+"id": "s0009",
+"en": "🎲 Random experiment"
+},
+{
+"id": "s0010",
+"en": "Play with the dots. They dodge your cursor, and a click asks \"what if?\": they scatter, then sort themselves out again."
+},
+{
+"id": "s0011",
+"en": "The Periodic Table of Experiments"
+},
+{
+"id": "s0012",
+"en": "28 experiments in 10 fields (columns). Hover a cell and its page opens in the lab notebook below."
+},
+{
+"id": "s0013",
+"en": "Success &amp; Inequality"
+},
+{
+"id": "s0014",
+"en": "Talent vs Luck"
+},
+{
+"id": "s0015",
+"en": "Is Success Talent or Luck?"
+},
+{
+"id": "s0016",
+"en": "Talent clusters around the average, so why does wealth pile up in a few hands? Is the richest person really the most talented?"
+},
+{
+"id": "s0017",
+"en": "Talent vs Luck model"
+},
+{
+"id": "s0018",
+"en": "Wealth"
+},
+{
+"id": "s0019",
+"en": "Wealth Concentration"
+},
+{
+"id": "s0020",
+"en": "Even if every trade is as fair as a coin flip, does wealth concentrate? How much sharing does it take to stop it?"
+},
+{
+"id": "s0021",
+"en": "Yard-sale exchange model"
+},
+{
+"id": "s0022",
+"en": "Creators"
+},
+{
+"id": "s0023",
+"en": "Why Do Only the Top 1% of YouTubers Break Through?"
+},
+{
+"id": "s0024",
+"en": "Does good content win, or do channels that broke out first keep winning? Compare parallel universes that start with the same channels."
+},
+{
+"id": "s0025",
+"en": "Preferential attachment model"
+},
+{
+"id": "s0026",
+"en": "People &amp; Relationships"
+},
+{
+"id": "s0027",
+"en": "Segregation"
+},
+{
+"id": "s0028",
+"en": "Why Birds of a Feather Flock Together"
+},
+{
+"id": "s0029",
+"en": "Can a mild wish like \"I don't want to be a minority\" split a neighborhood completely apart?"
+},
+{
+"id": "s0030",
+"en": "Schelling segregation model"
+},
+{
+"id": "s0031",
+"en": "Rumors"
+},
+{
+"id": "s0032",
+"en": "Rumor Spread in Group Chats"
+},
+{
+"id": "s0033",
+"en": "How fast does a rumor spread, and through whom? How late can a correction come and still matter?"
+},
+{
+"id": "s0034",
+"en": "Rumor spreading model (SIR)"
+},
+{
+"id": "s0035",
+"en": "Matching"
+},
+{
+"id": "s0036",
+"en": "Does Lowering Your Standards Help You Find a Match?"
+},
+{
+"id": "s0037",
+"en": "See how aspiration level affects the time to find a partner in a market where both sides must agree."
+},
+{
+"id": "s0038",
+"en": "Matching &amp; search model"
+},
+{
+"id": "s0039",
+"en": "Work &amp; Institutions"
+},
+{
+"id": "s0040",
+"en": "Peter Principle"
+},
+{
+"id": "s0041",
+"en": "Why Do Incompetent Bosses Exist?"
+},
+{
+"id": "s0042",
+"en": "Does promoting your best performers make an organization better? Compare promotion methods."
+},
+{
+"id": "s0043",
+"en": "Peter principle model"
+},
+{
+"id": "s0044",
+"en": "Voting"
+},
+{
+"id": "s0045",
+"en": "Does the Voting Method Change the Winner?"
+},
+{
+"id": "s0046",
+"en": "Count the same votes by plurality, runoff, ranked-choice and Borda. Can the winner change?"
+},
+{
+"id": "s0047",
+"en": "Spatial voting model"
+},
+{
+"id": "s0048",
+"en": "Everyday Choices &amp; Order"
+},
+{
+"id": "s0049",
+"en": "Phantom Jams"
+},
+{
+"id": "s0050",
+"en": "Phantom Traffic Jams: Why Does Traffic Stop Without an Accident?"
+},
+{
+"id": "s0051",
+"en": "Watch how a single occasional tap of the brake can block a whole road."
+},
+{
+"id": "s0052",
+"en": "Nagel–Schreckenberg model"
+},
+{
+"id": "s0053",
+"en": "El Farol"
+},
+{
+"id": "s0054",
+"en": "Why Is the Popular Restaurant Always Packed?"
+},
+{
+"id": "s0055",
+"en": "Why does everyone lose when everyone thinks alike? And what if predictions differ?"
+},
+{
+"id": "s0056",
+"en": "El Farol Bar problem"
+},
+{
+"id": "s0057",
+"en": "Queue Jumping"
+},
+{
+"id": "s0058",
+"en": "What Happens When Queue-Jumping Spreads?"
+},
+{
+"id": "s0059",
+"en": "Test the idea that order isn't kept by itself but by someone paying a price to keep it."
+},
+{
+"id": "s0060",
+"en": "Spatial evolutionary game"
+},
+{
+"id": "s0061",
+"en": "Science"
+},
+{
+"id": "s0062",
+"en": "Fireflies"
+},
+{
+"id": "s0063",
+"en": "Why Do Fireflies Flash in Unison?"
+},
+{
+"id": "s0064",
+"en": "Watch hundreds of fireflies fall into the same rhythm with no conductor."
+},
+{
+"id": "s0065",
+"en": "Pulse-coupled oscillators"
+},
+{
+"id": "s0066",
+"en": "Zebra Stripes"
+},
+{
+"id": "s0067",
+"en": "How Does a Zebra Get Its Stripes?"
+},
+{
+"id": "s0068",
+"en": "Two simple reacting chemicals can form spots, stripes and mazes by themselves. Drop your own seeds."
+},
+{
+"id": "s0069",
+"en": "Turing reaction–diffusion (Gray–Scott)"
+},
+{
+"id": "s0070",
+"en": "History"
+},
+{
+"id": "s0071",
+"en": "Revolution"
+},
+{
+"id": "s0072",
+"en": "How Does a Revolution Begin?"
+},
+{
+"id": "s0073",
+"en": "When everyone has a different \"I'll join if this many others do\" threshold, can one person change the whole square?"
+},
+{
+"id": "s0074",
+"en": "Threshold model (Granovetter)"
+},
+{
+"id": "s0075",
+"en": "Easter Island"
+},
+{
+"id": "s0076",
+"en": "Why Did Easter Island Collapse?"
+},
+{
+"id": "s0077",
+"en": "Forest and people grow together, then crash: trace the overshoot-and-collapse curve. (The real history is still debated.)"
+},
+{
+"id": "s0078",
+"en": "Resource–population overshoot model"
+},
+{
+"id": "s0079",
+"en": "Alliances"
+},
+{
+"id": "s0080",
+"en": "How Does a Single Shot Become a World War?"
+},
+{
+"id": "s0081",
+"en": "How far does a small clash spread as alliances get denser? A cascade experiment with anonymous states."
+},
+{
+"id": "s0082",
+"en": "Alliance-network cascade model"
+},
+{
+"id": "s0083",
+"en": "Philosophy"
+},
+{
+"id": "s0084",
+"en": "Cooperation"
+},
+{
+"id": "s0085",
+"en": "Do Nice People Survive?"
+},
+{
+"id": "s0086",
+"en": "In a world full of defectors, how do cooperation and trust come back? What changes when mistakes creep in?"
+},
+{
+"id": "s0087",
+"en": "Iterated prisoner's dilemma"
+},
+{
+"id": "s0088",
+"en": "Veil of Ignorance"
+},
+{
+"id": "s0089",
+"en": "Which Society Would You Choose Behind the Veil of Ignorance?"
+},
+{
+"id": "s0090",
+"en": "If you didn't know who you'd be, which society would you pick? The choice flips with how much you dislike risk."
+},
+{
+"id": "s0091",
+"en": "Rawls–Harsanyi choice model"
+},
+{
+"id": "s0092",
+"en": "Commons"
+},
+{
+"id": "s0093",
+"en": "Is the Tragedy of the Commons Inevitable?"
+},
+{
+"id": "s0094",
+"en": "Is a shared pasture doomed, or can monitoring and rules save it? Run both views side by side."
+},
+{
+"id": "s0095",
+"en": "Commons game (Hardin vs Ostrom)"
+},
+{
+"id": "s0096",
+"en": "Literature"
+},
+{
+"id": "s0097",
+"en": "Monkeys"
+},
+{
+"id": "s0098",
+"en": "Can Monkeys Write Hamlet?"
+},
+{
+"id": "s0099",
+"en": "Compare monkeys typing at random with evolution that keeps the best at every step."
+},
+{
+"id": "s0100",
+"en": "Infinite monkeys vs cumulative selection"
+},
+{
+"id": "s0101",
+"en": "Zipf's Law"
+},
+{
+"id": "s0102",
+"en": "Why Are a Few Words Used Constantly?"
+},
+{
+"id": "s0103",
+"en": "Why do a few words make up most of any text? Generate one yourself with a rich-get-richer rule."
+},
+{
+"id": "s0104",
+"en": "Zipf's law · Simon model"
+},
+{
+"id": "s0105",
+"en": "Telephone"
+},
+{
+"id": "s0106",
+"en": "How Do Stories Change as They're Retold?"
+},
+{
+"id": "s0107",
+"en": "What survives as a story passes mouth to mouth? Watch only the memorable parts remain."
+},
+{
+"id": "s0108",
+"en": "Serial reproduction"
+},
+{
+"id": "s0109",
+"en": "Art"
+},
+{
+"id": "s0110",
+"en": "Fashion"
+},
+{
+"id": "s0111",
+"en": "Why Do Fashions Come Around?"
+},
+{
+"id": "s0112",
+"en": "On a color wheel, watch the cycle created by a copying crowd and trendsetters running away."
+},
+{
+"id": "s0113",
+"en": "Imitation–distinction model"
+},
+{
+"id": "s0114",
+"en": "AI Painters"
+},
+{
+"id": "s0115",
+"en": "What If 100 AI Painters Copy Each Other?"
+},
+{
+"id": "s0116",
+"en": "Does imitation collapse styles into one? Watch 100 paintings change."
+},
+{
+"id": "s0117",
+"en": "Cultural transmission model"
+},
+{
+"id": "s0118",
+"en": "Sunflower"
+},
+{
+"id": "s0119",
+"en": "Why Do Sunflower Seeds Sit at That Angle?"
+},
+{
+"id": "s0120",
+"en": "Turn each seed by 137.5° and they pack with no gaps. Nudge the angle and watch the pattern fall apart."
+},
+{
+"id": "s0121",
+"en": "Golden-angle phyllotaxis"
+},
+{
+"id": "s0122",
+"en": "Auctions"
+},
+{
+"id": "s0123",
+"en": "Why Does Winning an Auction Cost You?"
+},
+{
+"id": "s0124",
+"en": "The highest bidder wins, so why does the winner lose on average? How much should you shade your bid to break even?"
+},
+{
+"id": "s0125",
+"en": "Winner's curse model"
+},
+{
+"id": "s0126",
+"en": "Society Today"
+},
+{
+"id": "s0127",
+"en": "Population"
+}
+]

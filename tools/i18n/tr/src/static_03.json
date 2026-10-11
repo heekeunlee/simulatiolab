@@ -1,0 +1,190 @@
+[
+{
+"id": "s0251",
+"en": "Auctions run one after another. Bidders are lined up by bid, highest first, and the gold dashed line is the true value. The red circle is the winner, usually to the right of the true value."
+},
+{
+"id": "s0252",
+"en": "② Distribution of the Winner's Profit"
+},
+{
+"id": "s0253",
+"en": "The distribution of the winner's profit when 3,000 auctions are run with the same settings. Red is a loss, green is a gain."
+},
+{
+"id": "s0254",
+"en": "③ As Bidders Increase"
+},
+{
+"id": "s0255",
+"en": "The horizontal axis is the number of bidders, the vertical axis is the winner's average profit. Below the dashed line (0), winners lose money on average."
+},
+{
+"id": "s0256",
+"en": "<i style=\"background:var(--accent)\"></i>Bid the estimate · first-price"
+},
+{
+"id": "s0257",
+"en": "<i style=\"background:#1fa463\"></i>Current shading · first-price"
+},
+{
+"id": "s0258",
+"en": "<i style=\"background:#e0a100\"></i>Bid the estimate · second-price"
+},
+{
+"id": "s0259",
+"en": "④ When Bids Are Shaded"
+},
+{
+"id": "s0260",
+"en": "The horizontal axis is how much everyone shades their bid, the vertical axis is the winner's average profit. Each line has a different number of bidders, and where it crosses 0 is the break-even."
+},
+{
+"id": "s0261",
+"en": "<b>What it shows:</b> With 10 bidders and a 20% estimation error, bidding the estimate (first-price rule) gave winners an average profit of −30.9 on a value of 100, and the share of losing winners rounded to 100% out of 40,000 auctions. Winning itself means \"my estimate was the highest one\", which is the one most wrong in the optimistic direction. The size of the loss scales with the error: −7.7 at 5% error, −15.4 at 10% and −61.7 at 40%, always about 1.54 times the error size. More bidders make it worse: −11.4 with 2, −23.5 with 5, −30.9 with 10 and −40.9 with 30. Everyone has to shade by 1.54 error sizes for the average profit to reach 0 (1.00 in the second-price rule), and more bidders need more shading."
+},
+{
+"id": "s0262",
+"en": "<b>What it doesn't show:</b> This does not mean winners of real art auctions always lose money. The model is a common-value auction in which everyone shares one true value; real works also carry personal taste (private value), and bidders learn from experience. The bidders here are also simple: they do not account for \"winning is bad news\", and the model does not compute the equilibrium bids of auction theory. It does not conclude that the second-price rule is always better either: with 2 bidders, winners made +11.3 on average under the second-price rule."
+},
+{
+"id": "s0263",
+"en": "This project's own implementation illustrating the \"winner's curse\" described in Capen, Clapp and Campbell (1971), \"Competitive bidding in high-risk situations\", <i>Journal of Petroleum Technology</i> 23, and Thaler (1988), \"The winner's curse\", <i>Journal of Economic Perspectives</i> 2(1). It does not reproduce the numbers of either paper."
+},
+{
+"id": "s0264",
+"en": "The estimation error is a normal distribution with mean 0, and its standard deviation is a percentage of the value 100. If everyone shades by the same amount, the winner does not change and the price drops by shading × standard deviation, so the average profit rises exactly linearly with shading. Graphs ③ and ④ average 3 runs of 3,000 auctions each."
+},
+{
+"id": "s0265",
+"en": "You can verify with <code>node tools/validate-auction.js</code>. With 40,000 auctions, the break-even shading is 1.54σ in the first-price rule and 1.00σ in the second-price rule."
+},
+{
+"id": "s0266",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/auction\">GitHub</a>."
+},
+{
+"id": "s0267",
+"en": "Why Is the Popular Restaurant Always Packed? · Simulatio Lab"
+},
+{
+"id": "s0268",
+"en": "Why does everyone lose when everyone thinks alike? Run the El Farol Bar problem and change how people predict."
+},
+{
+"id": "s0269",
+"en": "\"That place was empty last week, so I'll go this week.\" If everyone thinks that way, the place is jammed. If everyone thinks \"It was crowded last week, so let's skip it,\" it's empty. How do people solve this dilemma?"
+},
+{
+"id": "s0270",
+"en": "100 people decide every week whether to go to the restaurant. If more than the <b>capacity (60 by default)</b> show up, it's crowded and everyone is unhappy; otherwise they're happy."
+},
+{
+"id": "s0271",
+"en": "Everyone has a way of predicting \"how many people will come this week?\" Each is a formula that weights the past 8 weeks differently: some \"follow last week,\" others \"do the opposite of last week.\""
+},
+{
+"id": "s0272",
+"en": "Each person predicts this week's crowd using whichever method has been most accurate lately, and goes if <b>the prediction is below capacity</b>."
+},
+{
+"id": "s0273",
+"en": "In the \"Everyone the same\" setting, every person predicts \"this week will be the same as last week.\""
+},
+{
+"id": "s0274",
+"en": "Capacity <output id=\"o-cap\"></output>"
+},
+{
+"id": "s0275",
+"en": "How many people before it feels comfortable"
+},
+{
+"id": "s0276",
+"en": "Predictors per person <output id=\"o-strategies\"></output>"
+},
+{
+"id": "s0277",
+"en": "More means a more sophisticated chooser"
+},
+{
+"id": "s0278",
+"en": "How people predict <output id=\"o-mode\"></output>"
+},
+{
+"id": "s0279",
+"en": "Varied (each person has different predictors)"
+},
+{
+"id": "s0280",
+"en": "Everyone the same (\"same as last week\")"
+},
+{
+"id": "s0281",
+"en": "What happens when everyone predicts the same way"
+},
+{
+"id": "s0282",
+"en": "① This Week at the Restaurant"
+},
+{
+"id": "s0283",
+"en": "The 100 dots are people. Blue went and enjoyed it, red went and suffered the crowd, yellow stayed home but it was empty (regret), and gray stayed home and was right to."
+},
+{
+"id": "s0284",
+"en": "② Weekly Attendance"
+},
+{
+"id": "s0285",
+"en": "Attendance over the last 80 weeks. The dashed line is capacity; red bars are weeks it was crowded."
+},
+{
+"id": "s0286",
+"en": "③ Attendance Tracks Capacity, Whatever It Is"
+},
+{
+"id": "s0287",
+"en": "The horizontal axis is capacity, the vertical axis is average attendance. See whether it hugs the gray line (attendance = capacity). Dots are 4 runs."
+},
+{
+"id": "s0288",
+"en": "④ Getting Smarter Doesn't Help"
+},
+{
+"id": "s0289",
+"en": "The horizontal axis is predictors per person; the vertical axis is the share of people who chose wrongly this week. Even with better prediction it barely drops below 50%."
+},
+{
+"id": "s0290",
+"en": "<b>What it shows:</b> When everyone predicts the same way, the place is empty one week and packed the next. When predictions vary, attendance settles near capacity on its own. Yet each individual stays close to a coin flip: however smartly they predict, about half the time they regret going or not going. The moment everyone uses the same information and reasoning, that reasoning becomes wrong."
+},
+{
+"id": "s0291",
+"en": "<b>What it doesn't show:</b> It doesn't mean people actually choose restaurants with such formulas. In reality there is taste, price, plans and word of mouth, and attendance doesn't follow fixed rules. The form of the predictors (a weighted sum of the past 8 weeks) and the number of people (100) are this project's choices; change them and the results change."
+},
+{
+"id": "s0292",
+"en": "This implements the El Farol Bar problem from W. Brian Arthur (1994), \"Inductive reasoning and bounded rationality\", <i>American Economic Review</i> 84(2). The original uses a capacity of 60 and 100 people, and so do the defaults here."
+},
+{
+"id": "s0293",
+"en": "Unlike the original's list of predictors, this implementation gives each person random weighted-sum predictors, so the graphs don't look exactly like the paper's. A feature of this setup is that attendance gathers very stably around capacity."
+},
+{
+"id": "s0294",
+"en": "\"Chose wrongly\" is judged by that week's outcome: going when it was crowded, or staying home when it was empty, counts as wrong. You can verify with <code>node tools/validate-more.js bar</code>."
+},
+{
+"id": "s0295",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/bar\">GitHub</a>."
+},
+{
+"id": "s0296",
+"en": "Is the Tragedy of the Commons Inevitable? · Simulatio Lab"
+},
+{
+"id": "s0297",
+"en": "Do a shared fishery or pasture always end up depleted? Run it with and without monitoring and fines."
+}
+]

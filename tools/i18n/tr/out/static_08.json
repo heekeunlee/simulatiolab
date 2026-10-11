@@ -1,0 +1,227 @@
+{
+"s0491": {
+"es": "<b>Lo que no muestra:</b> Esto no prueba que las luciérnagas reales ajusten sus destellos de este modo. En la naturaleza solo algunas especies de luciérnagas se sincronizan, y este modelo reduce un destello a un único reloj, sin intensidad de luz, sin un campo de visión que dependa de la distancia y sin aprendizaje por parte de las luciérnagas. Tampoco está ajustado a ningún dato observado en particular.",
+"fr": "<b>Ce qu'il ne montre pas :</b> Ce n'est pas la preuve que les vraies lucioles règlent leurs éclats de cette façon. Dans la nature, seules certaines espèces de lucioles se synchronisent, et ce modèle réduit un éclat à une simple horloge, sans intensité lumineuse, sans champ de vision dépendant de la distance, et sans apprentissage de la part des lucioles. Il n'est pas non plus ajusté à des données observées précises.",
+"ja": "<b>示していないこと:</b> 実際のホタルがこのように点滅を合わせているという証明ではありません。自然界で同期するのは一部のホタルの種だけで、このモデルは点滅を1つの時計に単純化しており、光の強さや距離による視野の違い、ホタルの学習は含まれていません。特定の観測データに合わせて調整したものでもありません。"
+},
+"s0492": {
+"es": "Una implementación simplificada de la idea de osciladores acoplados por pulsos (Mirollo, Strogatz (1990), “Synchronization of pulse-coupled biological oscillators”, <i>SIAM Journal on Applied Mathematics</i> 50(6)). No reproduce los números del artículo; es un diseño propio de este proyecto.",
+"fr": "Une implémentation simplifiée de l'idée d'oscillateurs couplés par impulsions (Mirollo, Strogatz (1990), « Synchronization of pulse-coupled biological oscillators », <i>SIAM Journal on Applied Mathematics</i> 50(6)). Elle ne reproduit pas les chiffres de l'article ; c'est une conception propre à ce projet.",
+"ja": "パルス結合振動子の考え方を簡略化して実装したものです(Mirollo, Strogatz (1990), 「Synchronization of pulse-coupled biological oscillators」, <i>SIAM Journal on Applied Mathematics</i> 50(6))。論文の数値を再現するものではなく、このプロジェクト独自の設計です。"
+},
+"s0493": {
+"es": "La fase cuenta un ciclo como 1 y crece 0,02 por paso. La velocidad de cada luciérnaga sigue una distribución normal con media 1 y una desviación estándar igual a la “dispersión de velocidad”. Cuando una luciérnaga destella, la fase de las vecinas dentro del alcance aumenta en la fuerza de acoplamiento, y las que superan 1 destellan en el mismo paso.",
+"fr": "La phase compte un cycle comme 1 et augmente de 0,02 à chaque pas. La vitesse de chaque luciole suit une loi normale de moyenne 1 et d'écart type égal à la « dispersion des vitesses ». Quand une luciole émet un éclat, la phase des voisines à portée augmente de la force de couplage, et celles qui dépassent 1 émettent un éclat au même pas.",
+"ja": "位相は1周期を1として数え、1ステップごとに0.02ずつ増えます。各ホタルの速さは、平均1、標準偏差が「速さのばらつき」に等しい正規分布に従います。ホタルが光ると、範囲内にいる近くのホタルの位相が結合の強さだけ増え、1を超えたホタルは同じステップで光ります。"
+},
+"s0494": {
+"es": "Con los ajustes por defecto (acoplamiento 2,5 %, alcance 30 %, dispersión de velocidad 10 %), 10 semillas alcanzan todas la sincronía (r>0,9), tardando entre 2 y 31 ciclos (la mayoría entre 2 y 6). Con un acoplamiento de 1 % o menos, r se mantiene por debajo de 0,2, y con 3 % o más está cerca de 0,95 (se puede verificar con <code>node tools/validate-firefly.js</code>).",
+"fr": "Avec les réglages par défaut (couplage 2,5 %, portée 30 %, dispersion des vitesses 10 %), 10 graines atteignent toutes la synchronisation (r>0,9), en 2 à 31 cycles (le plus souvent 2 à 6). Avec un couplage de 1 % ou moins, r reste inférieur à 0,2, et à partir de 3 % il est proche de 0,95 (à vérifier avec <code>node tools/validate-firefly.js</code>).",
+"ja": "初期設定(結合2.5%、範囲30%、速さのばらつき10%)では、10個のシードすべてが同期(r>0.9)に達し、必要な周期は2〜31周期(ほとんどは2〜6周期)でした。結合が1%以下ではrは0.2未満にとどまり、3%以上では0.95付近になります(<code>node tools/validate-firefly.js</code>で確認できます)。"
+},
+"s0495": {
+"es": "Los gráficos ④ y ⑤ cambian solo el valor indicado con la misma configuración, ejecutan 30 ciclos 3 veces cada uno y muestran el r medio de los últimos 6 ciclos.",
+"fr": "Les graphiques ④ et ⑤ ne modifient que la valeur indiquée dans le même réglage, lancent 30 cycles 3 fois chacun et montrent le r moyen des 6 derniers cycles.",
+"ja": "グラフ④と⑤は、同じ設定で指定した値だけを変え、30周期を3回ずつ実行して、最後の6周期のrの平均を示しています。"
+},
+"s0496": {
+"es": "El código está disponible en <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/firefly\">GitHub</a>.",
+"fr": "Le code est disponible sur <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/firefly\">GitHub</a>.",
+"ja": "コードは<a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/firefly\">GitHub</a>で公開しています。"
+},
+"s0497": {
+"es": "¿Pueden unos monos escribir Hamlet? · Simulatio Lab",
+"fr": "Des singes peuvent-ils écrire Hamlet ? · Simulatio Lab",
+"ja": "サルはハムレットを書けるか · Simulatio Lab"
+},
+"s0498": {
+"es": "¿Podrían unos monos que teclean letras al azar escribir un verso de Hamlet? Compara tú mismo el puro azar con la selección acumulativa.",
+"fr": "Des singes tapant des lettres au hasard pourraient-ils écrire un vers d'Hamlet ? Compare toi-même le pur hasard et la sélection cumulative.",
+"ja": "でたらめに文字を打つサルは、ハムレットの一節を書けるでしょうか。純粋な偶然と累積選択を、自分で比べてみましょう。"
+},
+"s0499": {
+"es": "El “teorema del mono infinito” dice que un mono que golpea al azar las teclas de una máquina de escribir acabará produciendo Hamlet. Pero ¿cuánto dura ese “acabará”? Aquí tienes una carrera hacia el mismo objetivo: un lado por puro azar y el otro por una selección que mejora poco a poco.",
+"fr": "Le « théorème du singe savant » (ou des singes infinis) dit qu'un singe qui frappe au hasard les touches d'une machine à écrire finira par produire Hamlet. Mais combien de temps dure ce « finira par » ? Voici une course vers la même cible : d'un côté par pur hasard, de l'autre par une sélection qui s'améliore peu à peu.",
+"ja": "「無限の猿定理」は、タイプライターのキーをでたらめに叩くサルがいつかハムレットを書き上げる、と言います。では、その「いつか」はどれくらい先でしょうか。ここでは同じ目標に向けて、純粋な偶然と、少しずつ良くなる選択とを競走させます。"
+},
+"s0500": {
+"es": "Los símbolos son las 26 letras mayúsculas más el espacio, 27 en total, y el objetivo es un verso de Hamlet (<code>TO BE OR NOT TO BE</code> o <code>METHINKS IT IS LIKE A WEASEL</code>).",
+"fr": "Les symboles sont les 26 lettres majuscules plus l'espace, soit 27 en tout, et la cible est un vers d'Hamlet (<code>TO BE OR NOT TO BE</code> ou <code>METHINKS IT IS LIKE A WEASEL</code>).",
+"ja": "使う記号は大文字26字とスペースの計27種類で、目標はハムレットの一節(<code>TO BE OR NOT TO BE</code> または <code>METHINKS IT IS LIKE A WEASEL</code>)です。"
+},
+"s0501": {
+"es": "<b style=\"color:var(--unlucky)\">Puro azar</b>: en cada paso se escriben 5.000 frases completamente aleatorias y se registra la que coincide con el objetivo en más posiciones. Los resultados anteriores no influyen en los intentos posteriores.",
+"fr": "<b style=\"color:var(--unlucky)\">Pur hasard</b> : à chaque pas, 5 000 phrases totalement aléatoires sont tapées et celle qui correspond à la cible en le plus d'endroits est retenue. Les résultats précédents n'influencent pas les essais suivants.",
+"ja": "<b style=\"color:var(--unlucky)\">純粋な偶然</b>:各ステップで、まったくでたらめな文を5,000個打ち、目標と一致する場所がいちばん多いものを記録します。以前の結果は、あとの試行に影響しません。"
+},
+"s0502": {
+"es": "<b style=\"color:var(--lucky)\">Selección acumulativa</b>: se parte de una frase aleatoria; cada generación hace copias y cambia cada letra con cierta probabilidad. La frase (incluido el progenitor) que coincide con el objetivo en más posiciones se convierte en el progenitor de la siguiente generación. La diferencia es que las letras correctas se conservan.",
+"fr": "<b style=\"color:var(--lucky)\">Sélection cumulative</b> : on part d'une phrase aléatoire ; à chaque génération, on fait des copies et on modifie chaque lettre avec une certaine probabilité. La phrase (parent compris) qui correspond à la cible en le plus d'endroits devient le parent de la génération suivante. La différence est que les lettres correctes sont conservées.",
+"ja": "<b style=\"color:var(--lucky)\">累積選択</b>:1つのでたらめな文から始め、世代ごとにコピーを作り、各文字を一定の確率で変えます。目標と一致する場所がいちばん多い文(親も含む)が次の世代の親になります。違いは、正しい文字が引き継がれることです。"
+},
+"s0503": {
+"es": "Ambos métodos se puntúan solo por “cuántas letras coinciden con el objetivo”. Las casillas de letras resaltadas son las que coinciden.",
+"fr": "Les deux méthodes sont notées uniquement sur « le nombre de lettres qui correspondent à la cible ». Les cases de lettres en surbrillance sont celles qui correspondent.",
+"ja": "どちらの方法も、評価は「目標と一致する文字がいくつあるか」だけです。色のついた文字のマスが、一致している文字です。"
+},
+"s0504": {
+"es": "Copias por generación <output id=\"o-offspring\"></output>",
+"fr": "Copies par génération <output id=\"o-offspring\"></output>",
+"ja": "1世代あたりのコピー数 <output id=\"o-offspring\"></output>"
+},
+"s0505": {
+"es": "Cuántos candidatos crea a la vez la selección acumulativa",
+"fr": "Combien de candidats la sélection cumulative produit à la fois",
+"ja": "累積選択が一度に作る候補の数"
+},
+"s0506": {
+"es": "Probabilidad de que cada letra cambie <output id=\"o-mutation\"></output>",
+"fr": "Probabilité que chaque lettre change <output id=\"o-mutation\"></output>",
+"ja": "各文字が変わる確率 <output id=\"o-mutation\"></output>"
+},
+"s0507": {
+"es": "La tasa de mutación. Si es muy baja es lenta; si es muy alta, sacude también las letras correctas",
+"fr": "Le taux de mutation. Trop bas, c'est lent ; trop haut, cela perturbe aussi les lettres correctes",
+"ja": "突然変異の率です。低すぎると遅く、高すぎると正しい文字まで変わってしまいます"
+},
+"s0508": {
+"es": "Frase objetivo <output id=\"o-target\"></output>",
+"fr": "Phrase cible <output id=\"o-target\"></output>",
+"ja": "目標の文 <output id=\"o-target\"></output>"
+},
+"s0509": {
+"es": "TO BE OR NOT TO BE (18 letras)",
+"fr": "TO BE OR NOT TO BE (18 lettres)",
+"ja": "TO BE OR NOT TO BE(18文字)"
+},
+"s0510": {
+"es": "METHINKS IT IS LIKE A WEASEL (28 letras)",
+"fr": "METHINKS IT IS LIKE A WEASEL (28 lettres)",
+"ja": "METHINKS IT IS LIKE A WEASEL(28文字)"
+},
+"s0511": {
+"es": "Ambas son versos de Hamlet",
+"fr": "Les deux sont des vers d'Hamlet",
+"ja": "どちらもハムレットの一節です"
+},
+"s0512": {
+"es": "Mismos ajustes, monos nuevos",
+"fr": "Mêmes réglages, nouveaux singes",
+"ja": "同じ設定で新しいサル"
+},
+"s0513": {
+"es": "① La carrera entre los dos métodos",
+"fr": "① La course entre les deux méthodes",
+"ja": "① 2つの方法の競走"
+},
+"s0514": {
+"es": "Arriba está el puro azar y abajo la selección acumulativa. Las casillas de color son letras que coinciden con el objetivo. La fila gris es el texto aleatorio que el azar acaba de escribir.",
+"fr": "En haut, le pur hasard ; en bas, la sélection cumulative. Les cases colorées sont des lettres qui correspondent à la cible. La ligne grise est le texte aléatoire que le hasard vient de taper.",
+"ja": "上が純粋な偶然、下が累積選択です。色のついたマスは目標と一致している文字です。灰色の行は、偶然がいま打ったでたらめな文です。"
+},
+"s0515": {
+"es": "② Intentos y letras coincidentes",
+"fr": "② Essais et lettres correspondantes",
+"ja": "② 試行回数と一致した文字数"
+},
+"s0516": {
+"es": "El eje horizontal es el número de intentos (escala logarítmica) y el vertical, las letras coincidentes. La selección termina en unos pocos miles de intentos, mientras que el azar se queda muy lejos incluso tras un millón.",
+"fr": "L'axe horizontal est le nombre d'essais (échelle logarithmique), l'axe vertical le nombre de lettres correspondantes. La sélection termine en quelques milliers d'essais, alors que le hasard reste très loin du compte, même après un million.",
+"ja": "横軸は試行回数(対数目盛)、縦軸は一致した文字数です。選択は数千回の試行で完成しますが、偶然は100万回たってもまったく届きません。"
+},
+"s0517": {
+"es": "<i style=\"background:var(--unlucky)\"></i>Puro azar",
+"fr": "<i style=\"background:var(--unlucky)\"></i>Pur hasard",
+"ja": "<i style=\"background:var(--unlucky)\"></i>純粋な偶然"
+},
+"s0518": {
+"es": "<i style=\"background:var(--lucky)\"></i>Selección acumulativa",
+"fr": "<i style=\"background:var(--lucky)\"></i>Sélection cumulative",
+"ja": "<i style=\"background:var(--lucky)\"></i>累積選択"
+},
+"s0519": {
+"es": "③ A medida que la frase se alarga",
+"fr": "③ Quand la phrase s'allonge",
+"ja": "③ 文が長くなると"
+},
+"s0520": {
+"es": "El eje horizontal es la longitud de la frase y el vertical, el número de intentos necesarios (escala logarítmica). La línea roja es el valor esperado del azar (27<sup>L</sup>) y los puntos azules son 6 ejecuciones de la selección cada uno.",
+"fr": "L'axe horizontal est la longueur de la phrase, l'axe vertical le nombre d'essais nécessaires (échelle logarithmique). La ligne rouge est l'espérance du hasard (27<sup>L</sup>), et les points bleus sont 6 exécutions de la sélection chacun.",
+"ja": "横軸は文の長さ、縦軸は必要な試行回数(対数目盛)です。赤い線は偶然の期待値(27<sup>L</sup>)で、青い点は選択をそれぞれ6回実行した結果です。"
+},
+"s0521": {
+"es": "<i style=\"background:var(--accent)\"></i>Selección acumulativa (promedio de la simulación)",
+"fr": "<i style=\"background:var(--accent)\"></i>Sélection cumulative (moyenne de la simulation)",
+"ja": "<i style=\"background:var(--accent)\"></i>累積選択(シミュレーションの平均)"
+},
+"s0522": {
+"es": "<i style=\"background:var(--unlucky)\"></i>Puro azar (valor esperado 27^L)",
+"fr": "<i style=\"background:var(--unlucky)\"></i>Pur hasard (espérance 27^L)",
+"ja": "<i style=\"background:var(--unlucky)\"></i>純粋な偶然(期待値 27^L)"
+},
+"s0523": {
+"es": "④ Cuando cambia la tasa de mutación",
+"fr": "④ Quand le taux de mutation change",
+"ja": "④ 突然変異の率を変えると"
+},
+"s0524": {
+"es": "El eje horizontal es la tasa de mutación y el vertical, el número de generaciones hasta completar la frase. Los puntos son 6 ejecuciones.",
+"fr": "L'axe horizontal est le taux de mutation, l'axe vertical le nombre de générations jusqu'à l'achèvement. Les points sont 6 exécutions.",
+"ja": "横軸は突然変異の率、縦軸は完成までの世代数です。点は6回の実行結果です。"
+},
+"s0525": {
+"es": "<b>Lo que muestra:</b> Para el azar que intenta dar con el objetivo de una sola vez, el número esperado de intentos se multiplica por 27 con cada letra añadida, lo que lo hace prácticamente imposible. La selección acumulativa, que conserva las letras acertadas, llega a la misma frase en unos pocos miles de intentos. Incluso con la misma aleatoriedad, “acertarlo todo de golpe” y “construir paso a paso” son cosas completamente distintas.",
+"fr": "<b>Ce qu'il montre :</b> Pour le hasard qui tente d'atteindre la cible d'un seul coup, le nombre d'essais attendu est multiplié par 27 à chaque lettre ajoutée, ce qui le rend pratiquement impossible. La sélection cumulative, qui garde les lettres déjà justes, atteint la même phrase en quelques milliers d'essais. Même avec le même hasard, « tout réussir d'un coup » et « construire pas à pas » sont deux choses complètement différentes.",
+"ja": "<b>示していること:</b> 一度で目標に当てようとする偶然では、文字が1つ増えるごとに期待される試行回数が27倍になり、事実上不可能です。正解の文字を残していく累積選択なら、同じ文に数千回の試行でたどり着きます。同じ偶然を使っても、「一度にすべてを当てる」ことと「一歩ずつ積み上げる」ことはまったく別のものです。"
+},
+"s0526": {
+"es": "<b>Lo que no muestra:</b> No significa que la evolución biológica real funcione como este programa. El modelo tiene una frase objetivo predefinida, mientras que la evolución no tiene una meta fijada, algo que el propio Dawkins señaló. Este experimento solo muestra la diferencia de poder entre “el azar que debe acertar de una sola vez” y “la selección que filtra en cada paso”. Tampoco afirma nada sobre si los monos podrían escribir realmente Hamlet.",
+"fr": "<b>Ce qu'il ne montre pas :</b> Cela ne signifie pas que l'évolution biologique réelle fonctionne comme ce programme. Le modèle a une phrase cible prédéfinie, alors que l'évolution n'a pas de but fixé, ce que Dawkins lui-même a souligné. Cette expérience montre seulement la différence de puissance entre « le hasard qui doit réussir d'un seul coup » et « la sélection qui filtre à chaque étape ». Elle ne dit rien non plus sur la question de savoir si des singes pourraient réellement écrire Hamlet.",
+"ja": "<b>示していないこと:</b> 現実の生物の進化がこのプログラムのように働くという意味ではありません。このモデルにはあらかじめ決めた目標の文がありますが、進化には決まった目標がなく、これはドーキンス自身も指摘した点です。この実験が示すのは、「一度で当てなければならない偶然」と「各段階でふるい分ける選択」との力の差だけです。サルが実際にハムレットを書けるかどうかについての主張でもありません。"
+},
+"s0527": {
+"es": "Es una implementación propia de este proyecto, inspirada en el experimento mental conocido como “teorema del mono infinito” y en el “programa weasel” que Richard Dawkins describió en <i>The Blind Watchmaker</i> (1986). No es una traducción literal del programa del libro.",
+"fr": "Il s'agit d'une implémentation propre à ce projet, inspirée de l'expérience de pensée connue sous le nom de « théorème du singe savant » et du « programme weasel » décrit par Richard Dawkins dans <i>The Blind Watchmaker</i> (1986). Ce n'est pas un portage littéral du programme du livre.",
+"ja": "「無限の猿定理」として知られる思考実験と、リチャード・ドーキンスが<i>The Blind Watchmaker</i>(1986)で述べた「weasel プログラム」に着想を得た、このプロジェクト独自の実装です。本に載っているプログラムをそのまま移したものではありません。"
+},
+"s0528": {
+"es": "Los objetivos son versos de Hamlet: “To be, or not to be” (Acto 3, Escena 1) y “Methinks it is like a weasel” (Acto 3, Escena 2). Los símbolos son las 26 letras mayúsculas y el espacio; se omiten los signos de puntuación como las comas.",
+"fr": "Les cibles sont des vers d'Hamlet : « To be, or not to be » (acte 3, scène 1) et « Methinks it is like a weasel » (acte 3, scène 2). Les symboles sont les 26 lettres majuscules et l'espace ; la ponctuation, comme les virgules, est omise.",
+"ja": "目標はハムレットの一節で、「To be, or not to be」(第3幕第1場)と「Methinks it is like a weasel」(第3幕第2場)です。使う記号は大文字26字とスペースで、カンマなどの句読点は除いています。"
+},
+"s0529": {
+"es": "Con los ajustes por defecto (100 copias, 5 % de mutación), 20 ejecuciones tardaron en promedio 46 generaciones (mín. 26, máx. 89) para <code>TO BE OR NOT TO BE</code> y 77 generaciones (mín. 43, máx. 116) para <code>METHINKS IT IS LIKE A WEASEL</code>. Tras un millón de intentos, el azar había acertado solo unos 7/18 y 9/28.",
+"fr": "Avec les réglages par défaut (100 copies, 5 % de mutation), 20 exécutions ont pris en moyenne 46 générations (min 26, max 89) pour <code>TO BE OR NOT TO BE</code> et 77 générations (min 43, max 116) pour <code>METHINKS IT IS LIKE A WEASEL</code>. Après un million d'essais, le hasard n'avait trouvé qu'environ 7/18 et 9/28.",
+"ja": "初期設定(コピー100個、突然変異5%)で20回実行したところ、<code>TO BE OR NOT TO BE</code>は平均46世代(最小26、最大89)、<code>METHINKS IT IS LIKE A WEASEL</code>は平均77世代(最小43、最大116)かかりました。100万回の試行後でも、偶然が一致させられたのは約7/18と9/28にとどまりました。"
+},
+"s0530": {
+"es": "El número esperado de intentos para dar con una frase de L letras por azar de una sola vez es 27<sup>L</sup>. “Mil millones de intentos por segundo” es una suposición de este proyecto, y la edad del universo se toma como unos 13.800 millones de años. Para 18 letras eso son unos 1.800 millones de años (0,13 veces la edad del universo); para 28 letras, unos 3,8×10<sup>23</sup> años.",
+"fr": "Le nombre d'essais attendu pour atteindre par hasard, d'un seul coup, une phrase de L lettres est 27<sup>L</sup>. « Un milliard d'essais par seconde » est une hypothèse de ce projet, et l'âge de l'univers est pris à environ 13,8 milliards d'années. Pour 18 lettres, cela fait environ 1,8 milliard d'années (0,13 fois l'âge de l'univers) ; pour 28 lettres, environ 3,8×10<sup>23</sup> années.",
+"ja": "L文字の文を偶然で一度に当てるまでに期待される試行回数は27<sup>L</sup>です。「1秒間に10億回の試行」はこのプロジェクトの仮定で、宇宙の年齢は約138億年としています。18文字なら約18億年(宇宙の年齢の0.13倍)、28文字なら約3.8×10<sup>23</sup>年です。"
+},
+"s0531": {
+"es": "Para frases muy cortas (de 1 a 2 letras), la selección acumulativa con estos ajustes es en realidad más lenta que el azar, porque al cambiar solo el 5 % de las letras, ni siquiera 100 copias suelen diferir. Puedes verificarlo con <code>node tools/validate-monkey.js</code>.",
+"fr": "Pour des phrases très courtes (1 à 2 lettres), la sélection cumulative avec ces réglages est en fait plus lente que le hasard, car, avec seulement 5 % de lettres modifiées, même 100 copies diffèrent rarement. Vous pouvez le vérifier avec <code>node tools/validate-monkey.js</code>.",
+"ja": "ごく短い文(1〜2文字)では、この設定の累積選択は偶然よりかえって遅くなります。変わる文字が5%だけなので、コピーが100個あってもほとんど違いが出ないためです。<code>node tools/validate-monkey.js</code>で確認できます。"
+},
+"s0532": {
+"es": "El código está disponible en <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/monkey\">GitHub</a>.",
+"fr": "Le code est disponible sur <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/monkey\">GitHub</a>.",
+"ja": "コードは<a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/monkey\">GitHub</a>で公開しています。"
+},
+"s0533": {
+"es": "¿Y si 100 pintores de IA se copian entre sí? · Simulatio Lab",
+"fr": "Et si 100 peintres IA se copiaient entre eux ? · Simulatio Lab",
+"ja": "AI画家100人がたがいに真似したら · Simulatio Lab"
+},
+"s0534": {
+"es": "¿Qué pasa con la diversidad de estilos cuando los pintores se copian entre sí? Cambia la tasa de copia y la originalidad y ejecútalo tú mismo.",
+"fr": "Que devient la diversité des styles quand les peintres se copient entre eux ? Modifie le taux de copie et l'originalité, puis lance l'expérience toi-même.",
+"ja": "画家たちがたがいに真似をすると、スタイルの多様性はどうなるでしょうか。真似をする頻度と独創性を変えて、自分で実行してみましょう。"
+},
+"s0535": {
+"es": "Cien pintores miran las obras de los demás y copian los estilos que les gustan. ¿Cómo cambian unas pinturas que empiezan siendo todas distintas? Varía la frecuencia con que copian y su originalidad, y busca el punto en el que todo converge en un único estilo.",
+"fr": "Cent peintres regardent les œuvres des autres et copient les styles qui leur plaisent. Comment évoluent des tableaux qui, au départ, sont tous différents ? Fais varier la fréquence de la copie et l'originalité, et cherche le point où tout converge vers un seul style.",
+"ja": "100人の画家がたがいの作品を見て、気に入ったスタイルを真似します。最初はすべて違っていた絵は、どう変わっていくでしょうか。真似をする頻度と独創性を変えて、すべてがひとつのスタイルに収束する分かれ目を探してみましょう。"
+}
+}

@@ -198,3 +198,18 @@ details.notes[open] > summary { border-bottom: 1px solid var(--line); margin-bot
 .xnav .next { text-align: right; align-items: flex-end; }
 .xnav .all { justify-content: center; color: var(--muted); font-size: 14px; }
 @media (max-width: 640px) { .xnav { grid-template-columns: 1fr 1fr; } .xnav .all { grid-column: 1 / -1; order: 3; } }
+
+/* ---------- 언어 선택 드롭다운 (5개 언어) ---------- */
+.langtoggle { position: relative; display: inline-block; padding: 0; background: transparent; border: 0; }
+.langtoggle .lt-btn { display: inline-flex; align-items: center; gap: 6px; font: inherit; font-size: 12.5px; font-weight: 700; padding: 6px 10px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); color: var(--text); cursor: pointer; white-space: nowrap; }
+.langtoggle .lt-btn:hover { border-color: var(--accent); color: var(--accent); }
+.langtoggle .lt-caret { font-size: 10px; color: var(--muted); }
+.langtoggle .lt-menu { position: absolute; right: 0; top: calc(100% + 6px); z-index: 50; min-width: 150px; margin: 0; padding: 5px; list-style: none; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 12px 32px rgba(20,30,60,.16); }
+.langtoggle .lt-menu[hidden] { display: none; }
+.langtoggle .lt-menu li { padding: 8px 12px; border-radius: 8px; font-size: 13.5px; font-weight: 600; color: var(--text); cursor: pointer; outline: none; }
+.langtoggle .lt-menu li:hover, .langtoggle .lt-menu li:focus { background: var(--bg); }
+.langtoggle .lt-menu li.on { color: var(--accent); }
+.langtoggle .lt-menu li.on::after { content: " ✓"; }
+html[lang="es"] body, html[lang="fr"] body { word-break: normal; }
+html[lang="ja"] body { word-break: normal; line-break: strict; }
+@media (max-width: 480px) { .langtoggle .lt-btn { padding: 5px 8px; font-size: 12px; } .langtoggle .lt-cur { max-width: 74px; overflow: hidden; text-overflow: ellipsis; } }

@@ -7,7 +7,7 @@
   if (!ctl) return;
   const panel = ctl.closest('.panel');
   if (panel.parentElement !== main) return;
-  const en = window.I18N && window.I18N.lang === 'en';
+  const LG = window.I18N ? window.I18N.lang : 'ko', en = LG !== 'ko', U = (ko, e) => (window.I18N ? window.I18N.u(ko, e) : ko);
 
   const lead = main.querySelector('p.lead') || main.querySelector('h1');
   const h2s = Array.from(main.children).filter((e) => e.tagName === 'H2');
@@ -32,7 +32,7 @@
 
   // 바로가기
   const jump = document.createElement('nav'); jump.className = 'jump';
-  const labels = en ? ['How it works', 'What it shows', 'Notes'] : ['모델 설명', '결과 해석', '구현 메모'];
+  const labels = [U('모델 설명', 'How it works'), U('결과 해석', 'What it shows'), U('구현 메모', 'Notes')];
   jump.innerHTML = `<a href="#model">${labels[0]}</a><a href="#insight">${labels[1]}</a><a href="#notes">${labels[2]}</a>`;
   lead.after(jump); jump.after(bench);
 
@@ -62,7 +62,7 @@
   // 휴대폰: 아래에서 올라오는 설정 패널
   const fab = document.createElement('button');
   fab.type = 'button'; fab.className = 'wb-fab';
-  const label = (open) => (open ? (en ? '✕ Close' : '✕ 닫기') : (en ? '⚙ Settings' : '⚙ 설정'));
+  const label = (open) => (open ? U('✕ 닫기', '✕ Close') : U('⚙ 설정', '⚙ Settings'));
   fab.textContent = label(false);
   fab.addEventListener('click', () => { const o = panel.classList.toggle('open'); fab.textContent = label(o); });
   document.body.appendChild(fab);
@@ -77,7 +77,7 @@
   const main = document.querySelector('main.wrap');
   const ctl = main && main.querySelector('.panel .controls');
   if (!ctl) return;
-  const en = window.I18N && window.I18N.lang === 'en';
+  const LG = window.I18N ? window.I18N.lang : 'ko', en = LG !== 'ko', U = (ko, e) => (window.I18N ? window.I18N.u(ko, e) : ko);
   const $ = (id) => document.getElementById(id);
   const inputs = () => Array.from(ctl.querySelectorAll('input[type=range], select'));
 
@@ -91,14 +91,14 @@
   const btns = ctl.parentElement.querySelector('.btns');
   if (btns) {
     const b = document.createElement('button'); b.type = 'button'; b.id = 'share';
-    const base = en ? '🔗 Copy link' : '🔗 링크 복사';
-    b.textContent = base; b.title = en ? 'Copies a link that opens this experiment with the current settings' : '지금 설정 그대로 열리는 주소를 복사해요';
+    const base = U('🔗 링크 복사', '🔗 Copy link');
+    b.textContent = base; b.title = U('지금 설정 그대로 열리는 주소를 복사해요', 'Copies a link that opens this experiment with the current settings');
     b.addEventListener('click', () => {
       const q = inputs().map((el) => el.id + ':' + encodeURIComponent(el.value)).join(',');
-      const u = new URL(location.href); u.searchParams.set('s', q); if (en) u.searchParams.set('lang', 'en');
-      const done = () => { b.textContent = en ? '✓ Copied' : '✓ 복사했어요'; setTimeout(() => { b.textContent = base; }, 1800); };
-      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(u.toString()).then(done, () => prompt(en ? 'Copy this link:' : '이 주소를 복사하세요:', u.toString()));
-      else prompt(en ? 'Copy this link:' : '이 주소를 복사하세요:', u.toString());
+      const u = new URL(location.href); u.searchParams.set('s', q); if (en) u.searchParams.set('lang', LG);
+      const done = () => { b.textContent = U('✓ 복사했어요', '✓ Copied'); setTimeout(() => { b.textContent = base; }, 1800); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(u.toString()).then(done, () => prompt(U('이 주소를 복사하세요:', 'Copy this link:'), u.toString()));
+      else prompt(U('이 주소를 복사하세요:', 'Copy this link:'), u.toString());
     });
     const seed = $('seedinfo'); btns.insertBefore(b, seed || null);
   }
@@ -119,8 +119,8 @@
     if (i >= 0) {
       const prev = list[(i - 1 + list.length) % list.length], next = list[(i + 1) % list.length];
       const nav = document.createElement('nav'); nav.className = 'xnav';
-      const card = (x, cls, lab) => `<a class="${cls}" href="../${x.s}/" style="--c:${x.c}"><small>${lab}</small><b><span class="sym">${x.sym}</span> ${en ? x.en : x.ko}</b></a>`;
-      nav.innerHTML = card(prev, 'prev', en ? '← Previous (P)' : '← 이전 실험 (P)') + `<a class="all" href="../../">${en ? 'All experiments' : '실험 목록'}</a>` + card(next, 'next', en ? 'Next (N) →' : '다음 실험 (N) →');
+      const card = (x, cls, lab) => `<a class="${cls}" href="../${x.s}/" style="--c:${x.c}"><small>${lab}</small><b><span class="sym">${x.sym}</span> ${en ? window.I18N.st(x.en) : x.ko}</b></a>`;
+      nav.innerHTML = card(prev, 'prev', U('← 이전 실험 (P)', '← Previous (P)')) + `<a class="all" href="../../">${U('실험 목록', 'All experiments')}</a>` + card(next, 'next', U('다음 실험 (N) →', 'Next (N) →'));
       main.appendChild(nav);
     }
   }

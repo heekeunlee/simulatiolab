@@ -1,0 +1,222 @@
+[
+{
+"id": "s0436",
+"en": "A style is an angle on a color wheel (0 to 360 degrees). Of 200 people, some are <b>trendsetters</b> and the rest are the <b>crowd</b>, and at first everyone is clustered around a similar style (one season's fashion)."
+},
+{
+"id": "s0437",
+"en": "Each round, the <b>crowd</b> moves a little toward the style of the nearest trendsetter (imitation)."
+},
+{
+"id": "s0438",
+"en": "The more the crowd gathers around a <b>trendsetter</b>, the faster they run away (distinction). Assuming \"novelty has a direction,\" the direction of flight is fixed to one side of the wheel (clockwise)."
+},
+{
+"id": "s0439",
+"en": "Everyone also gets a small random wobble. Also try setting the flight speed to 0 to see what happens."
+},
+{
+"id": "s0440",
+"en": "Share of trendsetters <output id=\"o-share\"></output>"
+},
+{
+"id": "s0441",
+"en": "The share of people who lead the way"
+},
+{
+"id": "s0442",
+"en": "How fast the crowd imitates <output id=\"o-alpha\"></output>"
+},
+{
+"id": "s0443",
+"en": "The largest angle a style can shift in one round"
+},
+{
+"id": "s0444",
+"en": "How fast trendsetters run away <output id=\"o-beta\"></output>"
+},
+{
+"id": "s0445",
+"en": "At 0, they never run away"
+},
+{
+"id": "s0446",
+"en": "Random wobble <output id=\"o-jitter\"></output>"
+},
+{
+"id": "s0447",
+"en": "The size of everyone's random wobble"
+},
+{
+"id": "s0448",
+"en": "Same settings, new start"
+},
+{
+"id": "s0449",
+"en": "① Fashion on the Color Wheel"
+},
+{
+"id": "s0450",
+"en": "On the rim of the color wheel, small dots are the crowd and the large outer dots are trendsetters. The color in the middle is the dominant style right now. Watch whether the crowd chases the trendsetters around in one direction."
+},
+{
+"id": "s0451",
+"en": "② The Flow of Fashion Over Time"
+},
+{
+"id": "s0452",
+"en": "The horizontal axis is time, the vertical axis is the angle on the color wheel. The more people share a style, the darker it is painted. A slanted stripe means fashion keeps shifting in one direction."
+},
+{
+"id": "s0453",
+"en": "③ Diversity of Styles"
+},
+{
+"id": "s0454",
+"en": "0 means everyone has the same style and 1 means they are all different. It stays low while a single fashion dominates."
+},
+{
+"id": "s0455",
+"en": "④ Flight Speed and the Speed of Fashion"
+},
+{
+"id": "s0456",
+"en": "The horizontal axis is how fast trendsetters run away, the vertical axis is how fast fashion rotates (turns per 100 rounds). Dots are the results of 2 runs."
+},
+{
+"id": "s0457",
+"en": "⑤ Imitation Speed and the Speed of Fashion"
+},
+{
+"id": "s0458",
+"en": "The horizontal axis is how fast the crowd imitates, the vertical axis is how fast fashion rotates."
+},
+{
+"id": "s0459",
+"en": "<b>What it shows:</b> With imitation alone (trendsetters never run away), everyone stays on one style and fashion stops. When those out in front run away to stand out, the crowd chases them and one fashion keeps circling the wheel. In this model the speed of rotation is set by the slower of the \"flight speed\" and the \"imitation speed.\" It takes both forces, imitation and distinction, for fashion to come around."
+},
+{
+"id": "s0460",
+"en": "<b>What it doesn't show:</b> It does not mean real fashion moves by these rules, and it makes no claim about art history. Real fashion is shaped by industry, the economy, media and technology, and the direction of flight is not fixed to one side. That the rotation speed is set by the slower of the two speeds follows from this model's rules; it is not a prediction of real fashion cycles."
+},
+{
+"id": "s0461",
+"en": "A stylized model inspired by Georg Simmel's \"Fashion\" (1904), where the upper class tries to stand apart while the masses imitate, and by Thorstein Veblen's <i>The Theory of the Leisure Class</i> (1899). It is this project's own design, not a reproduction of a paper."
+},
+{
+"id": "s0462",
+"en": "200 people (by default, 30 trendsetters) over 600 rounds. A trendsetter runs at full speed when at least 3 times the number of people expected if the crowd were spread evenly gather within ±30° of them, and proportionally slower when fewer do (the direction of flight is always the + direction)."
+},
+{
+"id": "s0463",
+"en": "Starting from simply scattered styles, the crowd split among many trendsetters and no single flow formed. So the simulation starts with everyone gathered around one season's fashion. Also, when trendsetters moved only \"away from the crowd\" without a fixed direction, no single cycle formed either (as tested)."
+},
+{
+"id": "s0464",
+"en": "Measurements (average of 6 runs, default settings): with flight speed 0 there is no rotation and diversity is about 0.09 (about 0.16 after 6,000 rounds). The default (imitation 2°, flight 2°) gives 0.53 turns per 100 rounds (about 190 rounds per turn) and diversity of about 0.03. Imitation of 0.5/1/2/3° gives 0.13/0.27/0.53/0.54 turns, and flight speed behaves similarly. You can verify with <code>node tools/validate-fashion.js</code>."
+},
+{
+"id": "s0465",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/fashion\">GitHub</a>."
+},
+{
+"id": "s0466",
+"en": "Why Do Fireflies Flash in Unison? · Simulatio Lab"
+},
+{
+"id": "s0467",
+"en": "Nobody conducts them, yet hundreds flash together. Run a pulse-coupled oscillator model yourself to see why."
+},
+{
+"id": "s0468",
+"en": "There is no conductor and no signal, yet on a summer night the fireflies in a forest end up flashing all at once. Can merely seeing each other's light produce that? We check with 150 fireflies."
+},
+{
+"id": "s0469",
+"en": "150 fireflies are scattered across the screen, and each has an internal \"clock\" (its phase). The clock runs at a steady speed, and when it completes a turn the firefly <b>flashes</b> and resets."
+},
+{
+"id": "s0470",
+"en": "Each firefly's clock runs at a slightly different speed. Left alone, their beats drift apart and they flash independently."
+},
+{
+"id": "s0471",
+"en": "When a nearby firefly (within its visible range) flashes, it <b>advances its own clock a little</b>. If that fills the turn, it flashes right along with it."
+},
+{
+"id": "s0472",
+"en": "The synchrony r is the length of the average arrow when every clock is placed as a point on a circle. 0 means independent, 1 means perfectly simultaneous."
+},
+{
+"id": "s0473",
+"en": "Coupling strength <output id=\"o-coupling\"></output>"
+},
+{
+"id": "s0474",
+"en": "How far a firefly advances its clock each time it sees a neighbor flash"
+},
+{
+"id": "s0475",
+"en": "Visible range <output id=\"o-radius\"></output>"
+},
+{
+"id": "s0476",
+"en": "Relative to the screen width. Only fireflies inside are seen"
+},
+{
+"id": "s0477",
+"en": "Spread in flashing speed <output id=\"o-spread\"></output>"
+},
+{
+"id": "s0478",
+"en": "Larger means each firefly keeps a more different beat"
+},
+{
+"id": "s0479",
+"en": "Same settings, new forest"
+},
+{
+"id": "s0480",
+"en": "① Watching the Night Forest"
+},
+{
+"id": "s0481",
+"en": "The glowing yellow dots are fireflies that have just flashed. They start out independent; watch what happens as time goes on."
+},
+{
+"id": "s0482",
+"en": "② The Phase Clock"
+},
+{
+"id": "s0483",
+"en": "Every firefly's clock is placed on one circle. The top is the \"flash\" point. When the dots gather in one place, they are synchronized."
+},
+{
+"id": "s0484",
+"en": "③ Synchrony Over Time"
+},
+{
+"id": "s0485",
+"en": "The horizontal axis is elapsed cycles, the vertical axis is synchrony r. Above the dashed line (0.9), they flash almost together."
+},
+{
+"id": "s0486",
+"en": "④ Changing How Much They Nudge Each Other"
+},
+{
+"id": "s0487",
+"en": "The horizontal axis is the coupling strength, the vertical axis is synchrony after 30 cycles. Dots are the results of 3 different forests."
+},
+{
+"id": "s0488",
+"en": "⑤ Changing the Visible Range"
+},
+{
+"id": "s0489",
+"en": "The horizontal axis is the visible range, the vertical axis is synchrony after 30 cycles. What happens if each firefly can see only very close neighbors?"
+},
+{
+"id": "s0490",
+"en": "<b>What it shows:</b> When the nudge is strong enough and each firefly can see enough of the others, they settle into one beat on their own, with nobody setting the rhythm. Below a threshold almost nothing happens, then synchrony appears suddenly past it, and the more the individual beats differ, the more imperfect the synchrony becomes."
+}
+]
