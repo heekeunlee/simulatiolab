@@ -1,0 +1,202 @@
+(function () {
+  'use strict';
+  const SV = window.Survivor, L = window.Lab;
+  const { css, mix } = L;
+  const $ = (id) => document.getElementById(id);
+  const NAMES = SV.NAMES, COLORS = ['#c0392b', '#8e44ad', '#5b7db1', '#4f9a8a', '#c98a2b'];
+  const FONT = '-apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif';
+  const tr = (s) => (window.I18N && window.I18N.lang !== 'ko' ? window.I18N.t(s) : s);
+  let sim = null, picks = null, full = null, mine = [], geo = null, sweep = [];
+  let seedGetter = () => 1;
+  const params = () => ({ seed: seedGetter(), n: Number($('n').value), eng: Number($('eng').value) / 100, budget: Number($('budget').value) });
+  const pc = (v) => (v * 100).toFixed(1) + '%';
+  const nameList = (a) => (a.length ? a.map((i) => NAMES[i]).join(' · ') : '-');
+  const sortNum = (a) => a.slice().sort((x, y) => x - y);
+
+  // ---------- 비행기 그림 ----------
+  function sectionPath(ctx, s, P) { // P(x,y) → 화면 좌표
+    ctx.beginPath();
+    const ell = (c, rx, ry) => { const [x, y] = P(c[0], c[1]); ctx.moveTo(x + rx * P.s, y); ctx.ellipse(x, y, rx * P.s, ry * P.s, 0, 0, Math.PI * 2); };
+    const poly = (pts) => pts.forEach(([x, y], i) => { const q = P(x, y); if (i) ctx.lineTo(q[0], q[1]); else ctx.moveTo(q[0], q[1]); });
+    if (s === 0) SV.ENG.forEach((c) => ell(c, SV.ENG_RX, SV.ENG_RY));
+    else if (s === 1) ell(SV.COCK, SV.COCK_RX, SV.COCK_RY);
+    else if (s === 2) { const a = P(SV.FUS.x0, SV.FUS.y0), b = P(SV.FUS.x1, SV.FUS.y1); ctx.rect(a[0], a[1], b[0] - a[0], b[1] - a[1]); }
+    else if (s === 3) { poly(SV.wingPoly(1)); ctx.closePath(); poly(SV.wingPoly(-1)); }
+    else { const a = P(SV.TAIL.x0, SV.TAIL.y0), b = P(SV.TAIL.x1, SV.TAIL.y1); ctx.rect(a[0], a[1], b[0] - a[0], b[1] - a[1]); }
+    if (s === 3) ctx.closePath();
+  }
+  const ANCHOR = [[0.27, 0.40], [0.5, 0.17], [0.5, 0.55], [0.84, 0.52], [0.5, 0.84]];
+
+  function drawPlane(ctx, ox, oy, ms, mode) {
+    const P = (x, y) => [ox + x * ms, oy + y * ms]; P.s = ms;
+    const armored = (s) => mine.indexOf(s) >= 0;
+    // 부위 바탕 (겹치는 부위는 위에 덮어 그린다: 날개 → 동체 → 꼬리 → 조종석 → 엔진)
+    [3, 2, 4, 1, 0].forEach((s) => {
+      sectionPath(ctx, s, P);
+      ctx.fillStyle = armored(s) ? 'rgba(31,164,99,.28)' : '#e4eaf4'; ctx.fill();
+      ctx.strokeStyle = armored(s) ? '#1fa463' : '#9aa5ba'; ctx.lineWidth = armored(s) ? 2.6 : 1; ctx.stroke();
+    });
+    ctx.lineWidth = 1;
+    // 총탄 자국
+    const H = sim.hits, r = Math.max(1.3, ms / 130);
+    for (let i = 0; i < sim.round; i++) {
+      const down = H.down[i];
+      if (mode === 'ret' && down) continue;
+      ctx.fillStyle = mode === 'ret' ? 'rgba(40,52,84,.85)' : down ? 'rgba(210,50,40,.85)' : 'rgba(40,52,84,.55)';
+      for (let q = H.start[i]; q < H.start[i + 1]; q++) ctx.fillRect(ox + H.x[q] * ms - r, oy + H.y[q] * ms - r, 2 * r, 2 * r);
+    }
+    // 이름표
+    ctx.font = `600 ${Math.max(10, Math.round(ms / 24))}px ${FONT}`; ctx.textAlign = 'center';
+    NAMES.forEach((nm, s) => {
+      const [x, y] = P(ANCHOR[s][0], ANCHOR[s][1]);
+      ctx.fillStyle = armored(s) ? '#117a46' : '#5a6578';
+      const lab = armored(s) ? tr(nm) + ' ' + tr('방탄') : nm;
+      if (s === 0) { ctx.fillText(lab, x - ms * 0.13, y + ms * 0.17); }
+      else ctx.fillText(lab, x, y + (s === 1 ? ms * 0.14 : 0));
+    });
+  }
+
+  function drawMaps() {
+    const c = L.chart($('c-map'), 0.66, { l: 8, r: 8, t: 34, b: 30 }), { ctx, w, h } = c;
+    ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
+    const ms = Math.max(120, Math.min((w - 28) / 2, h - 34 - 30)), oy = 34, lx = 8 + ((w - 28) / 2 - ms) / 2, rx = w - 8 - ms - ((w - 28) / 2 - ms) / 2;
+    geo = { ms, oy, lx, rx };
+    ctx.fillStyle = css('--text'); ctx.font = `600 13px ${FONT}`; ctx.textAlign = 'center';
+    ctx.fillText('돌아온 비행기에서 보이는 구멍', lx + ms / 2, 17);
+    ctx.fillText('실제로 맞은 총탄 전부', rx + ms / 2, 17);
+    ctx.fillStyle = css('--muted'); ctx.font = `12px ${FONT}`;
+    ctx.fillText(`${sim.returned}대 귀환`, lx + ms / 2, 31);
+    ctx.fillText(`${sim.round}대 출격 · ${sim.lost}대 추락`, rx + ms / 2, 31);
+    drawPlane(ctx, lx, oy + 6, ms - 6, 'ret'); drawPlane(ctx, rx, oy + 6, ms - 6, 'all');
+    geo.ms = ms - 6; geo.oy = oy + 6;
+    ctx.fillStyle = css('--muted'); ctx.font = `12px ${FONT}`; ctx.textAlign = 'center';
+    ctx.fillText(mine.length ? `방탄 장갑 ${mine.length}/${sim.params.budget}곳 · 다시 누르면 뗍니다` : '부위를 눌러 방탄 장갑을 붙여 보세요 (최대 ' + sim.params.budget + '곳)', w / 2, h - 10);
+    $('when').textContent = `${sim.round}/${sim.params.n}회 출격 · ${sim.returned}대 귀환`;
+  }
+
+  function drawVisible() {
+    const c = L.chart($('c-vis'), 0.5, { l: 54, r: 46, t: 14, b: 36 }), { ctx, m, pw, ph, w, h } = c;
+    const X = (v) => m.l + v * pw, row = ph / 5;
+    ctx.strokeStyle = css('--line'); ctx.fillStyle = css('--muted'); ctx.textAlign = 'center';
+    [0, 0.25, 0.5, 0.75, 1].forEach((v) => { ctx.beginPath(); ctx.moveTo(X(v), m.t); ctx.lineTo(X(v), m.t + ph); ctx.stroke(); ctx.fillText(Math.round(v * 100) + '%', X(v), h - m.b + 16); });
+    ctx.fillText('맞은 총탄 중 돌아온 비행기에서 보이는 비율', m.l + pw / 2, h - 4);
+    NAMES.forEach((nm, s) => {
+      const y = m.t + s * row + row / 2, v = sim.holesAll[s] ? sim.holesRet[s] / sim.holesAll[s] : 0;
+      ctx.textAlign = 'right'; ctx.fillStyle = css('--text'); ctx.fillText(nm, m.l - 8, y + 4);
+      if (sim.holesAll[s]) {
+        ctx.fillStyle = v < 0.5 ? mix(css('--unlucky'), 0.85) : mix(css('--accent'), 0.75);
+        ctx.fillRect(X(0), y - row * 0.3, v * pw, row * 0.6);
+        ctx.textAlign = 'left'; ctx.fillStyle = css('--text'); ctx.fillText((v * 100).toFixed(0) + '%', X(v) + 5, y + 4);
+      }
+    });
+    if (!sim.round) { ctx.textAlign = 'center'; ctx.fillStyle = css('--muted'); ctx.fillText('재생을 누르면 채워져요', m.l + pw / 2, m.t + ph / 2); }
+  }
+
+  function strategyRows() {
+    const rows = [
+      { k: '보강 없음', arm: [], v: full.none, color: '#8a93a6' },
+      { k: '구멍 많은 곳', arm: picks.intuitive, v: full.intuitive, color: '#e0a100' },
+      { k: '빈 곳 (월드)', arm: picks.wald, v: full.wald, color: css('--accent') },
+    ];
+    if (mine.length) rows.push({ k: '내 선택', arm: sortNum(mine), v: sim.survival(mine), color: '#1fa463' });
+    rows.push({ k: '최선 (모든 조합 비교)', arm: picks.best, v: full.best, color: '#7c5cff' });
+    return rows;
+  }
+  function drawBars() {
+    const rows = strategyRows(), c = L.chart($('c-bar'), 0.1 + rows.length * 0.1, { l: 112, r: 50, t: 12, b: 36 }), { ctx, m, pw, ph, w, h } = c;
+    const X = (v) => m.l + v * pw, row = ph / rows.length;
+    ctx.strokeStyle = css('--line'); ctx.fillStyle = css('--muted'); ctx.textAlign = 'center';
+    [0, 0.25, 0.5, 0.75, 1].forEach((v) => { ctx.beginPath(); ctx.moveTo(X(v), m.t); ctx.lineTo(X(v), m.t + ph); ctx.stroke(); ctx.fillText(Math.round(v * 100) + '%', X(v), h - m.b + 16); });
+    ctx.fillText('출격한 비행기가 돌아오는 비율 (생존율)', m.l + pw / 2, h - 4);
+    rows.forEach((r, i) => {
+      const y = m.t + i * row + row / 2;
+      ctx.textAlign = 'right'; ctx.fillStyle = css('--text'); ctx.font = `600 12px ${FONT}`; ctx.fillText(r.k, m.l - 8, y - 1);
+      ctx.fillStyle = css('--muted'); ctx.font = `11px ${FONT}`; ctx.fillText(nameList(r.arm), m.l - 8, y + 12);
+      ctx.fillStyle = r.color; ctx.fillRect(X(0), y - row * 0.28, r.v * pw, row * 0.56);
+      ctx.textAlign = 'left'; ctx.fillStyle = css('--text'); ctx.font = `600 12px ${FONT}`; ctx.fillText(pc(r.v), X(r.v) + 5, y + 4);
+      ctx.font = `12px ${FONT}`;
+    });
+  }
+
+  function drawSweep() {
+    if (!sweep.length) { L.dots($('c-sweep'), { data: [], x0: 0, x1: 0.9, y0: 0.4, y1: 1, xTicks: [0, 0.3, 0.6, 0.9], xFmt: L.pct, xLabel: '엔진에 맞은 총탄이 추락시키는 확률' }); return; }
+    L.dots($('c-sweep'), {
+      data: sweep[0].pts, y0: 0.4, y1: 1, series: sweep.slice(1).map((r) => ({ data: r.pts, color: r.color })),
+      x0: 0, x1: 0.9, xTicks: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9], xFmt: (v) => Math.round(v * 100) + '%', xLabel: '엔진에 맞은 총탄이 추락시키는 확률',
+      marker: { x: sim.params.eng, label: '지금 설정' },
+    });
+  }
+
+  function renderStats() {
+    const P = sim.params, mineV = mine.length ? sim.survival(mine) : null;
+    const cards = [
+      ['보강 없을 때 생존율', pc(full.none), `${P.n}회 출격 중 ${Math.round(full.none * P.n)}회 귀환`],
+      ['구멍 많은 곳에 보강', pc(full.intuitive), nameList(picks.intuitive)],
+      ['빈 곳에 보강 (월드)', pc(full.wald), nameList(picks.wald)],
+      ['내 선택', mineV == null ? '-' : pc(mineV), mineV == null ? '그림의 부위를 눌러 고르세요' : nameList(sortNum(mine))],
+    ];
+    $('stats').innerHTML = cards.map(([k, v, s]) => `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join('');
+    const d = full.wald - full.intuitive;
+    const dd = Math.abs(d * 100).toFixed(1) + '%p';
+    $('note-s').textContent = d >= 0 ? `빈 곳에 보강하면 구멍 많은 곳에 보강할 때보다 생존율이 ${dd} 높아요` : `빈 곳에 보강하면 구멍 많은 곳에 보강할 때보다 생존율이 ${dd} 낮아요`;
+  }
+
+  function syncButtons() {
+    NAMES.forEach((nm, s) => { const b = $('tg-' + s); if (b) b.className = mine.indexOf(s) >= 0 ? 'primary' : ''; });
+  }
+  function toggle(s) {
+    const i = mine.indexOf(s);
+    if (i >= 0) mine.splice(i, 1); else { mine.push(s); while (mine.length > sim.params.budget) mine.shift(); }
+    refreshMine();
+  }
+  function setMine(a) { mine = a.slice(0, sim.params.budget); refreshMine(); }
+  function refreshMine() { syncButtons(); renderStats(); drawMaps(); drawBars(); }
+
+  function draw() { renderStats(); drawMaps(); drawVisible(); drawBars(); syncButtons(); }
+
+  function after() {
+    const P = params(); sweep = []; drawSweep(); $('note-n').textContent = '계산 중…';
+    const cfg = [{ key: 'wald', color: css('--accent') }, { key: 'none', color: '#8a93a6' }, { key: 'intuitive', color: '#e0a100' }];
+    cfg.forEach((c) => { c.pts = []; sweep.push(c); });
+    const jobs = [];
+    for (let e = 0; e <= 90; e += 10) jobs.push(() => {
+      const runs = { none: [], intuitive: [], wald: [] };
+      [1, 2, 3].forEach((k) => { const r = SV.study({ seed: k * 17 + e, n: P.n, eng: e / 100, budget: P.budget }); ['none', 'intuitive', 'wald'].forEach((q) => runs[q].push(r[q])); });
+      cfg.forEach((c) => c.pts.push({ x: e / 100, runs: c.key === 'wald' ? runs.wald : [], mean: L.mean(runs[c.key]) }));
+    });
+    L.jobs(jobs, drawSweep, () => {
+      const at = (key, x) => sweep.find((c) => c.key === key).pts.find((p) => Math.abs(p.x - x) < 1e-9).mean;
+      $('note-n').textContent = `엔진 치명률 0%에서 구멍 많은 곳 보강 ${pc(at('intuitive', 0))} · 빈 곳 보강 ${pc(at('wald', 0))}, 90%에서는 ${pc(at('intuitive', 0.9))} · ${pc(at('wald', 0.9))}입니다`;
+    });
+  }
+
+  const h = L.harness({
+    controls: ['eng', 'n', 'budget'],
+    format: { eng: (v) => v + '%', n: (v) => v + '회', budget: (v) => v + '곳' },
+    defaults: { eng: 50, n: 2000, budget: 2 },
+    build() {
+      const P = params(); sim = SV.create(P);
+      picks = sim.picks(P.budget);
+      full = { none: sim.survival([]), intuitive: sim.survival(picks.intuitive), wald: sim.survival(picks.wald), best: sim.survival(picks.best) };
+      mine = mine.slice(0, P.budget);
+    },
+    advance() { return sim.advance(); },
+    isDone() { return sim.done(); },
+    draw, after, redrawExtra() { drawVisible(); drawBars(); drawSweep(); }, seedLabel: '출격 기록 번호',
+  });
+  seedGetter = h.seed;
+
+  // 눌러서 고르기: 그림의 부위, 또는 아래 버튼
+  $('c-map').addEventListener('click', (ev) => {
+    if (!geo || !sim) return;
+    const r = $('c-map').getBoundingClientRect(), px = ev.clientX - r.left, py = ev.clientY - r.top;
+    for (const ox of [geo.lx, geo.rx]) {
+      const s = SV.sectionAt((px - ox) / geo.ms, (py - geo.oy) / geo.ms);
+      if (px >= ox && px <= ox + geo.ms && s >= 0) { toggle(s); return; }
+    }
+  });
+  NAMES.forEach((nm, s) => { const b = $('tg-' + s); if (b) b.addEventListener('click', () => toggle(s)); });
+  $('pick-int').addEventListener('click', () => setMine(picks.intuitive));
+  $('pick-wald').addEventListener('click', () => setMine(picks.wald));
+  $('pick-clear').addEventListener('click', () => setMine([]));
+})();

@@ -1,657 +1,547 @@
 [
 {
-"id": "d0000",
-"ko": "지금 설정",
-"en": "Current setting"
+"id": "d0307",
+"ko": "{#0}라운드 · 평균 출근 시간 {#1}분",
+"en": "Round {0} · average commute {1} min"
 },
 {
-"id": "d0001",
-"ko": "운의 번호",
-"en": "Luck seed"
+"id": "d0308",
+"ko": "지름길 열림",
+"en": "Shortcut open"
 },
 {
-"id": "d0002",
-"ko": "⏸ 일시정지",
-"en": "⏸ Pause"
+"id": "d0309",
+"ko": "지름길 닫힘",
+"en": "Shortcut closed"
 },
 {
-"id": "d0003",
-"ko": "▶ 재생",
-"en": "▶ Play"
+"id": "d0310",
+"ko": "출발",
+"en": "Start"
 },
 {
-"id": "d0004",
-"ko": "▶ 다시 재생",
-"en": "▶ Replay"
+"id": "d0311",
+"ko": "도착",
+"en": "End"
 },
 {
-"id": "d0005",
-"ko": "계산 중…",
-"en": "Calculating…"
+"id": "d0312",
+"ko": "{#0}분 · {#1}명",
+"en": "{0} min · {1} drivers"
 },
 {
-"id": "d0006",
-"ko": "없음",
-"en": "None"
+"id": "d0313",
+"ko": "막히는 길",
+"en": "Congestible road"
 },
 {
-"id": "d0007",
-"ko": "{0} #{#1}",
-"en": "{0} #{1}"
+"id": "d0314",
+"ko": "늘 일정한 길",
+"en": "Fixed-time road"
 },
 {
-"id": "d0008",
-"ko": "±{#0}명",
-"en": "±{0} people"
+"id": "d0315",
+"ko": "지름길",
+"en": "Shortcut"
 },
 {
-"id": "d0009",
-"ko": "{#0}명",
-"en": "{0} people"
+"id": "d0316",
+"ko": "A 길 {#0}%",
+"en": "Route A {0}%"
 },
 {
-"id": "d0010",
-"ko": "{#0}개",
+"id": "d0317",
+"ko": "B 길 {#0}%",
+"en": "Route B {0}%"
+},
+{
+"id": "d0318",
+"ko": "지름길 경유 {#0}%",
+"en": "Via shortcut {0}%"
+},
+{
+"id": "d0319",
+"ko": "{0}/{1}라운드 · {2}",
+"en": "Round {0}/{1} · {2}"
+},
+{
+"id": "d0320",
+"ko": "지름길 열기",
+"en": "Open the shortcut"
+},
+{
+"id": "d0321",
+"ko": "지름길 막기",
+"en": "Close the shortcut"
+},
+{
+"id": "d0322",
+"ko": "라운드 (운전자들이 길을 다시 고르는 차례)",
+"en": "Round (turns in which drivers re-pick their routes)"
+},
+{
+"id": "d0323",
+"ko": "{#0}분",
+"en": "{0} min"
+},
+{
+"id": "d0324",
+"ko": "{#0}분/천 명",
+"en": "{0} min per 1,000"
+},
+{
+"id": "d0325",
+"ko": "지름길 없는 균형 {#0}분",
+"en": "Equilibrium without shortcut {0} min"
+},
+{
+"id": "d0326",
+"ko": "지름길 있는 균형 {#0}분",
+"en": "Equilibrium with shortcut {0} min"
+},
+{
+"id": "d0327",
+"ko": "사회 최적 {#0}분",
+"en": "Social optimum {0} min"
+},
+{
+"id": "d0328",
+"ko": "출근하는 운전자 수",
+"en": "Number of commuting drivers"
+},
+{
+"id": "d0329",
+"ko": "지름길을 지나는 데 드는 시간(비용)",
+"en": "Time needed to cross the shortcut (cost)"
+},
+{
+"id": "d0330",
+"ko": "지름길이 도움이 되는 운전자 수:",
+"en": "Driver counts where the shortcut helps:"
+},
+{
+"id": "d0331",
+"ko": "해가 되는 운전자 수:",
+"en": "where it hurts:"
+},
+{
+"id": "d0332",
+"ko": "지름길이 도움이 되는 비용:",
+"en": "Shortcut costs where it helps:"
+},
+{
+"id": "d0333",
+"ko": "해가 되는 비용:",
+"en": "where it hurts:"
+},
+{
+"id": "d0334",
+"ko": "{#0}명 미만",
+"en": "under {0}"
+},
+{
+"id": "d0335",
+"ko": "{#0}명 이상",
+"en": "{0} or more"
+},
+{
+"id": "d0336",
+"ko": "{#0}~{#1}명",
+"en": "{0} to {1}"
+},
+{
+"id": "d0337",
+"ko": "{#0}분 미만",
+"en": "under {0} min"
+},
+{
+"id": "d0338",
+"ko": "{#0}분 이상",
+"en": "{0} min or more"
+},
+{
+"id": "d0339",
+"ko": "{#0}~{#1}분",
+"en": "{0} to {1} min"
+},
+{
+"id": "d0340",
+"ko": "지금 평균 출근 시간",
+"en": "Average commute now"
+},
+{
+"id": "d0341",
+"ko": "균형 시간: 지름길 없음 → 있음",
+"en": "Equilibrium time: without → with shortcut"
+},
+{
+"id": "d0342",
+"ko": "{#0} → {#1}분",
+"en": "{0} → {1} min"
+},
+{
+"id": "d0343",
+"ko": "이론값. 모두가 자기에게 가장 빠른 길만 고를 때",
+"en": "Theory. When everyone picks only their own fastest route"
+},
+{
+"id": "d0344",
+"ko": "사회 최적 평균 시간",
+"en": "Social optimum average time"
+},
+{
+"id": "d0345",
+"ko": "누군가 길을 나눠 줄 수 있다면 도달할 최선",
+"en": "The best reachable if someone could assign routes"
+},
+{
+"id": "d0346",
+"ko": "이기적 선택의 비용",
+"en": "Cost of selfish choices"
+},
+{
+"id": "d0347",
+"ko": "×{#0}",
+"en": "×{0}"
+},
+{
+"id": "d0348",
+"ko": "지금 상태의 균형 시간 ÷ 사회 최적 (무정부 가격)",
+"en": "Equilibrium time in the current state ÷ social optimum (price of anarchy)"
+},
+{
+"id": "d0349",
+"ko": "출근길 번호",
+"en": "Commute"
+},
+{
+"id": "d0350",
+"ko": "생일",
+"en": "birthday"
+},
+{
+"id": "d0351",
+"ko": "고향",
+"en": "hometown"
+},
+{
+"id": "d0352",
+"ko": "취미",
+"en": "hobby"
+},
+{
+"id": "d0353",
+"ko": "같은 학교",
+"en": "school"
+},
+{
+"id": "d0354",
+"ko": "좋아하는 음식",
+"en": "favorite food"
+},
+{
+"id": "d0355",
+"ko": "가 본 여행지",
+"en": "travel destination"
+},
+{
+"id": "d0356",
+"ko": "재생을 누르면 모임이 열려요",
+"en": "Press play to start the gatherings"
+},
+{
+"id": "d0357",
+"ko": "{0}번째 모임 · {1}명",
+"en": "Gathering {0} · {1} people"
+},
+{
+"id": "d0358",
+"ko": "나",
+"en": "Me"
+},
+{
+"id": "d0359",
+"ko": "이번 모임: 일치한 쌍 {0}개 · 나와 일치하는 사람 {1}명",
+"en": "This gathering: {0} matching pairs · {1} people match me"
+},
+{
+"id": "d0360",
+"ko": "예: 나 ↔ {0}번 · 같은 {1}",
+"en": "Example: me ↔ #{0} · same {1}"
+},
+{
+"id": "d0361",
+"ko": "예: {0}번 ↔ {1}번 · 같은 {2}",
+"en": "Example: #{0} ↔ #{1} · same {2}"
+},
+{
+"id": "d0362",
+"ko": "이번 모임에는 일치하는 쌍이 없어요",
+"en": "No matching pair in this gathering"
+},
+{
+"id": "d0363",
+"ko": "붉은 선: 나와 일치, 파란 선: 다른 사람끼리 일치, 속이 찬 점: 누군가와 일치",
+"en": "Red line: matches me; blue line: matches between others; filled dot: matches someone"
+},
+{
+"id": "d0364",
+"ko": "{0}/{1}번 · 일치가 있던 모임 {2}",
+"en": "Gathering {0}/{1} · gatherings with a match {2}"
+},
+{
+"id": "d0365",
+"ko": "모인 사람 수",
+"en": "People in the room"
+},
+{
+"id": "d0366",
+"ko": "가능한 짝",
+"en": "Possible pairs"
+},
+{
+"id": "d0367",
+"ko": "사람",
+"en": "People"
+},
+{
+"id": "d0368",
+"ko": "가능한 짝의 수",
+"en": "Possible pairs"
+},
+{
+"id": "d0369",
+"ko": "{0}명이면 N(N−1)/2 쌍 · 나와의 짝은 {1}쌍",
+"en": "With {0} people: N(N−1)/2 pairs · {1} pairs involve me"
+},
+{
+"id": "d0370",
+"ko": "어딘가에서 일치할 확률",
+"en": "Chance of a match somewhere"
+},
+{
+"id": "d0371",
+"ko": "계산값 · 직접 돌린 {0}번 중 {1}",
+"en": "Calculated · of {0} gatherings run, {1}"
+},
+{
+"id": "d0372",
+"ko": "계산값",
+"en": "Calculated"
+},
+{
+"id": "d0373",
+"ko": "나와 일치할 확률",
+"en": "Chance of a match with me"
+},
+{
+"id": "d0374",
+"ko": "일치한 쌍의 기댓값",
+"en": "Expected matching pairs"
+},
+{
+"id": "d0375",
+"ko": "{0}쌍",
+"en": "{0} pairs"
+},
+{
+"id": "d0376",
+"ko": "특징 {0}가지 · 짝 하나가 일치할 확률 {1}%",
+"en": "{0} features · chance that one pair matches {1}%"
+},
+{
+"id": "d0377",
+"ko": "{#0}가지",
 "en": "{0}"
 },
 {
-"id": "d0011",
-"ko": "{#0}년",
-"en": "{0} yr"
+"id": "d0378",
+"ko": "어딘가에서 일치할 확률이 50%를 넘는 인원: 지금 설정 {0}명, 생일만 {1}명",
+"en": "Headcount where a match somewhere passes 50%: {0} with current settings, {1} with birthday only"
 },
 {
-"id": "d0012",
-"ko": "{#0}위",
-"en": "#{0}"
+"id": "d0379",
+"ko": "나와 일치할 확률이 50%를 넘는 인원: 지금 설정 {0}명 (생일만이면 {1}명)",
+"en": "Headcount where a match with me passes 50%: {0} with current settings ({1} with birthday only)"
 },
 {
-"id": "d0013",
-"ko": "{#0}대",
-"en": "{0} cars"
+"id": "d0380",
+"ko": "모임 번호",
+"en": "Gathering"
 },
 {
-"id": "d0014",
-"ko": "1명",
-"en": "1 person"
+"id": "d0485",
+"ko": "선택한 사람: 내 친구 {0}명 · 친구들의 평균 {1}명",
+"en": "Selected person: {0} friends · friends' average {1}"
 },
 {
-"id": "d0015",
-"ko": "1대",
-"en": "1 car"
+"id": "d0486",
+"ko": "점의 크기 = 친구 수. 사람을 눌러 보세요: 친구는 금색으로 표시됩니다",
+"en": "Dot size = number of friends. Click a person: their friends turn gold"
 },
 {
-"id": "d0016",
-"ko": "{#0}회",
-"en": "{0}"
+"id": "d0487",
+"ko": "표본 {0}/{1}번 · 무작위 사람 평균 {2}명 · 그 사람이 말한 친구 평균 {3}명",
+"en": "Sample {0}/{1} · random person averages {2} · a friend they named averages {3}"
 },
 {
-"id": "d0017",
-"ko": "{#0}배",
-"en": "{0}×"
+"id": "d0488",
+"ko": "친구들의 평균 친구 수 − 내 친구 수 (명)",
+"en": "Friends' average number of friends − my number of friends"
 },
 {
-"id": "d0018",
-"ko": "{#0}차례",
-"en": "{0}"
+"id": "d0489",
+"ko": "같음",
+"en": "Equal"
 },
 {
-"id": "d0019",
-"ko": "{#0}차례 뒤",
-"en": "after step {0}"
+"id": "d0490",
+"ko": "친구들이 더 많음 {0}",
+"en": "Friends have more {0}"
 },
 {
-"id": "d0020",
-"ko": "{#0}라운드",
-"en": "{0} rounds"
+"id": "d0491",
+"ko": "내가 더 많음 {0}",
+"en": "I have more {0}"
 },
 {
-"id": "d0021",
-"ko": "{#0}단계",
-"en": "Level {0}"
+"id": "d0492",
+"ko": "내 친구 수 (명, 로그 눈금)",
+"en": "My number of friends (log scale)"
 },
 {
-"id": "d0022",
-"ko": "{#0}주째",
-"en": "Week {0}"
+"id": "d0493",
+"ko": "친구 수가 같은 선",
+"en": "Equal-friends line"
 },
 {
-"id": "d0023",
-"ko": "{#0}명​",
-"en": "{0}"
+"id": "d0494",
+"ko": "위: 친구들이 더 많음",
+"en": "Above: friends have more"
 },
 {
-"id": "d0024",
-"ko": "이번 주 손님 / 정원 {0}명",
-"en": "Guests this week / capacity {0}"
+"id": "d0495",
+"ko": "아래: 내가 더 많음",
+"en": "Below: I have more"
 },
 {
-"id": "d0025",
-"ko": "붐볐어요",
-"en": "It was crowded"
+"id": "d0496",
+"ko": "친구들의 평균 친구 수 (명)",
+"en": "Friends' average number of friends"
 },
 {
-"id": "d0026",
-"ko": "여유로웠어요",
-"en": "It was comfortable"
+"id": "d0497",
+"ko": "허브 쏠림 (친구 많은 사람에게 몰리는 정도)",
+"en": "Hub concentration (how strongly friendships pile onto popular people)"
 },
 {
-"id": "d0027",
-"ko": "{0}/{1}주째",
-"en": "Week {0}/{1}"
+"id": "d0498",
+"ko": "한 사람의 평균 친구 수",
+"en": "A person's average number of friends"
 },
 {
-"id": "d0028",
-"ko": "최근 {0}주 (오른쪽이 최근)",
-"en": "Last {0} weeks (right is most recent)"
+"id": "d0499",
+"ko": "무작위로 고른 사람 기준 · {0}명",
+"en": "For a randomly picked person · {0} people"
 },
 {
-"id": "d0029",
-"ko": "정원 {#0}명",
-"en": "Capacity {0}"
+"id": "d0500",
+"ko": "그 친구들의 평균 친구 수",
+"en": "Their friends' average number of friends"
 },
 {
-"id": "d0030",
-"ko": "정원 (명)",
-"en": "Capacity (people)"
+"id": "d0501",
+"ko": "내 친구들 평균을 사람마다 구해 평균 낸 값 · {0}배",
+"en": "Each person's friends' average, averaged over everyone · {0} times"
 },
 {
-"id": "d0031",
-"ko": "동전 던지기 (50%)",
-"en": "Coin flip (50%)"
+"id": "d0502",
+"ko": "친구들이 더 많은 사람",
+"en": "People whose friends have more"
 },
 {
-"id": "d0032",
-"ko": "모두 같은 예측 {%0}",
-"en": "Everyone the same {0}"
+"id": "d0503",
+"ko": "내 친구들의 평균이 내 친구 수보다 높은 사람의 비율",
+"en": "Share of people whose friends' average exceeds their own friend count"
 },
 {
-"id": "d0033",
-"ko": "한 사람이 가진 예측법 수",
-"en": "Predictors per person"
+"id": "d0504",
+"ko": "선택한 사람",
+"en": "Selected person"
 },
 {
-"id": "d0034",
-"ko": "평균 손님 수",
-"en": "Average attendance"
+"id": "d0505",
+"ko": "내 친구 수 : 친구들의 평균 (사람을 눌러 바꾸기)",
+"en": "My friends : friends' average (click a person to change)"
 },
 {
-"id": "d0035",
-"ko": "정원 {0}명 (뒤쪽 절반 기준)",
-"en": "Capacity {0} (second half of the run)"
+"id": "d0506",
+"ko": "허브 쏠림이 0%이면 {0}, 100%이면 {1}입니다 (파랑 선, 평균 친구 4명)",
+"en": "With 0% hub concentration it is {0}, with 100% it is {1} (blue line, 4 friends on average)"
 },
 {
-"id": "d0036",
-"ko": "주마다 흔들리는 폭",
-"en": "Week-to-week swing"
+"id": "d0507",
+"ko": "관계망 번호",
+"en": "Network"
 },
 {
-"id": "d0037",
-"ko": "표준편차. 작을수록 안정적",
-"en": "Standard deviation; smaller is more stable"
+"id": "d0508",
+"ko": "재생을 누르면 승객이 한 명씩 도착해요",
+"en": "Press play and passengers arrive one by one"
 },
 {
-"id": "d0038",
-"ko": "잘못 고른 사람",
-"en": "People who chose wrongly"
+"id": "d0509",
+"ko": "{#0}번째 승객 · 이 승객이 걸린 간격은 {#1}분",
+"en": "Passenger {0} · the gap they landed in is {1} min"
 },
 {
-"id": "d0039",
-"ko": "갔는데 붐볐거나, 안 갔는데 한산했던 사람 (50%면 동전 던지기)",
-"en": "Went but it was crowded, or stayed home but it was empty (50% is a coin flip)"
+"id": "d0510",
+"ko": "기다린 시간 {#0}분",
+"en": "Wait {0} min"
 },
 {
-"id": "d0040",
-"ko": "이번 주",
-"en": "This week"
+"id": "d0511",
+"ko": "버스 간격",
+"en": "Bus gap"
 },
 {
-"id": "d0041",
-"ko": "{#0}명 · {1}",
-"en": "{0} people · {1}"
+"id": "d0512",
+"ko": "세로선: 버스, 빨간 점: 이 승객, 파란 점: 먼저 도착한 승객들",
+"en": "Vertical lines: buses, red dot: this passenger, blue dots: earlier passengers"
 },
 {
-"id": "d0042",
-"ko": "붐빔",
-"en": "Crowded"
+"id": "d0513",
+"ko": "지금까지 평균 대기 {#0}분 (단순 계산 {#1}분)",
+"en": "Average wait so far {0} min (naive {1} min)"
 },
 {
-"id": "d0043",
-"ko": "여유",
-"en": "Comfortable"
+"id": "d0514",
+"ko": "단순 계산",
+"en": "Naive"
 },
 {
-"id": "d0044",
-"ko": "{0}주째",
-"en": "Week {0}"
+"id": "d0515",
+"ko": "이론",
+"en": "Theory"
 },
 {
-"id": "d0045",
-"ko": "회색 선: 손님 수 = 정원",
-"en": "Gray line: attendance = capacity"
+"id": "d0516",
+"ko": "{#0}/{#1}명 · 평균 대기 {#2}분",
+"en": "{0}/{1} passengers · average wait {2} min"
 },
 {
-"id": "d0046",
-"ko": "예측법이 많아져도 잘못 고르는 사람의 비율은 50% 근처에 머뭅니다",
-"en": "Even with more predictors, the share of people choosing wrongly stays near 50%"
+"id": "d0517",
+"ko": "버스 간격 (분)",
+"en": "Bus gap (minutes)"
 },
 {
-"id": "d0047",
-"ko": "동네 번호",
-"en": "Neighborhood"
+"id": "d0518",
+"ko": "버스를 센 평균 {#0}분",
+"en": "Counted by bus: {0} min"
 },
 {
-"id": "d0048",
-"ko": "A 집단",
-"en": "Group A"
-},
-{
-"id": "d0049",
-"ko": "B 집단",
-"en": "Group B"
-},
-{
-"id": "d0050",
-"ko": "↑ 매력 높음 · 낮음 ↓ (세로 위치)",
-"en": "↑ More attractive · less attractive ↓ (vertical position)"
-},
-{
-"id": "d0051",
-"ko": "{0}/{1} 라운드 · 짝 {2}",
-"en": "Round {0}/{1} · matched {2}"
-},
-{
-"id": "d0052",
-"ko": "A의 매력 (가로) vs 짝이 된 B의 매력 (세로)",
-"en": "A's attractiveness (horizontal) vs matched B's (vertical)"
-},
-{
-"id": "d0053",
-"ko": "라운드",
-"en": "Round"
-},
-{
-"id": "d0054",
-"ko": "눈높이 (내 매력 대비 %p)",
-"en": "Aim (points relative to own attractiveness)"
-},
-{
-"id": "d0055",
-"ko": "짝을 찾은 사람",
-"en": "People matched"
-},
-{
-"id": "d0056",
-"ko": "{0}명 중 {1}명",
-"en": "{1} of {0} people"
-},
-{
-"id": "d0057",
-"ko": "평균 걸린 시간",
-"en": "Average time taken"
-},
-{
-"id": "d0058",
-"ko": "짝을 찾은 사람 기준",
-"en": "Among matched people"
-},
-{
-"id": "d0059",
-"ko": "아직 혼자인 사람",
-"en": "Still single"
-},
-{
-"id": "d0060",
-"ko": "매력 상위 20% {0}명, 하위 20% {1}명",
-"en": "Top 20% by attractiveness: {0}, bottom 20%: {1}"
-},
-{
-"id": "d0061",
-"ko": "커플의 매력 차이",
-"en": "Couples' attractiveness gap"
-},
-{
-"id": "d0062",
-"ko": "작을수록 비슷한 사람끼리",
-"en": "Smaller means more alike"
-},
-{
-"id": "d0063",
-"ko": "파랑: 짝을 찾은 비율, 금색: 짝을 찾기까지 걸린 시간(전체 기간 대비)",
-"en": "Blue: share matched, gold: time to find a match (relative to the full period)"
-},
-{
-"id": "d0064",
-"ko": "시장 번호",
-"en": "Market"
-},
-{
-"id": "d0065",
-"ko": "최고 능력자 승진",
-"en": "Promote the best performer"
-},
-{
-"id": "d0066",
-"ko": "최저 능력자 승진",
-"en": "Promote the worst performer"
-},
-{
-"id": "d0067",
-"ko": "무작위 승진",
-"en": "Promote at random"
-},
-{
-"id": "d0068",
-"ko": "번갈아 승진",
-"en": "Alternate best and worst"
-},
-{
-"id": "d0069",
-"ko": "최고 능력자",
-"en": "Best"
-},
-{
-"id": "d0070",
-"ko": "최저 능력자",
-"en": "Worst"
-},
-{
-"id": "d0071",
-"ko": "무작위",
-"en": "Random"
-},
-{
-"id": "d0072",
-"ko": "번갈아",
-"en": "Alternating"
-},
-{
-"id": "d0073",
-"ko": "최상위",
-"en": "Top"
-},
-{
-"id": "d0074",
-"ko": "말단",
-"en": "Bottom"
-},
-{
-"id": "d0075",
-"ko": "{#0}년째 · 조직 효율 {#1}",
-"en": "Year {0} · efficiency {1}"
-},
-{
-"id": "d0076",
-"ko": "경과 시간",
-"en": "Elapsed time"
-},
-{
-"id": "d0077",
-"ko": "처음 수준",
-"en": "Starting level"
-},
-{
-"id": "d0078",
-"ko": "처음 7.0",
-"en": "Start 7.0"
-},
-{
-"id": "d0079",
-"ko": "조직 효율",
-"en": "Efficiency"
-},
-{
-"id": "d0080",
-"ko": "처음 {#0} → {1}{#2}",
-"en": "Start {0} → {1}{2}"
-},
-{
-"id": "d0081",
-"ko": "최상위 평균 능력",
-"en": "Top-level average competence"
-},
-{
-"id": "d0082",
-"ko": "처음엔 평균 7 정도",
-"en": "About 7 on average at the start"
-},
-{
-"id": "d0083",
-"ko": "말단 평균 능력",
-"en": "Bottom-level average competence"
-},
-{
-"id": "d0084",
-"ko": "가장 큰 층(81명)",
-"en": "The largest level (81 people)"
-},
-{
-"id": "d0085",
-"ko": "지금까지 승진",
-"en": "Promotions so far"
-},
-{
-"id": "d0086",
-"ko": "{0}년 동안",
-"en": "over {0} years"
-},
-{
-"id": "d0087",
-"ko": "상식 가설에서 최고 능력자 승진은 {#0}, 피터 가설에서는 {#1}입니다 (무작위 승진은 {#2})",
-"en": "Under the common-sense hypothesis, promoting the best gives {0}; under the Peter hypothesis, {1} (random promotion: {2})"
-},
-{
-"id": "d0088",
-"ko": "조직 번호",
-"en": "Organization"
-},
-{
-"id": "d0089",
-"ko": "질서",
-"en": "Orderly"
-},
-{
-"id": "d0090",
-"ko": "새치기",
-"en": "Cutter"
-},
-{
-"id": "d0091",
-"ko": "눈총",
-"en": "Punisher"
-},
-{
-"id": "d0092",
-"ko": "{0}/{1} 라운드 · 새치기 {2}",
-"en": "Round {0}/{1} · cutters {2}"
-},
-{
-"id": "d0093",
-"ko": "눈총의 효과 (새치기 이득과 비교)",
-"en": "Punishment effect (compared with the gain from cutting)"
-},
-{
-"id": "d0094",
-"ko": "처음에 눈총형이던 사람의 비율",
-"en": "Initial share of punishers"
-},
-{
-"id": "d0095",
-"ko": "가만히 줄 서는 사람",
-"en": "People who wait quietly"
-},
-{
-"id": "d0096",
-"ko": "가장 많았을 때 {0}",
-"en": "Peak {0}"
-},
-{
-"id": "d0097",
-"ko": "새치기를 응징하는 사람",
-"en": "People who punish cutters"
-},
-{
-"id": "d0098",
-"ko": "끝",
-"en": "Finished"
-},
-{
-"id": "d0099",
-"ko": "진행 중",
-"en": "Running"
-},
-{
-"id": "d0100",
-"ko": "세로축은 100라운드 뒤 새치기의 비율입니다. 눈총의 효과가 새치기 이득을 넘어서면 새치기가 사라집니다",
-"en": "The vertical axis is the share of cutters after 100 rounds. When the punishment effect exceeds the gain from cutting, cutting disappears"
-},
-{
-"id": "d0101",
-"ko": "눈총형이 처음에 일정 비율을 넘지 못하면 새치기가 판을 차지합니다",
-"en": "If punishers don't exceed a certain share at the start, cutters take over"
-},
-{
-"id": "d0102",
-"ko": "줄 번호",
-"en": "Line"
-},
-{
-"id": "d0103",
-"ko": "· 정정은 {#0}차례째에 시작",
-"en": "· correction starts at step {0}"
-},
-{
-"id": "d0104",
-"ko": "· 정정 퍼지는 중",
-"en": "· correction spreading"
-},
-{
-"id": "d0105",
-"ko": "{#0}차례 · 소문을 아는 사람 {%1}{2}",
-"en": "Step {0} · people who know the rumor {1}{2}"
-},
-{
-"id": "d0106",
-"ko": "차례",
-"en": "Step"
-},
-{
-"id": "d0107",
-"ko": "정정 시작",
-"en": "Correction starts"
-},
-{
-"id": "d0108",
-"ko": "정정 없음 {%0}",
-"en": "No correction {0}"
-},
-{
-"id": "d0109",
-"ko": "솔깃할 확률",
-"en": "Chance of being tempted"
-},
-{
-"id": "d0110",
-"ko": "정정이 시작되는 시점 (차례)",
-"en": "When the correction starts (step)"
-},
-{
-"id": "d0111",
-"ko": "정정이 {#0}차례 뒤에 나오면 {%1}, {#2}차례 뒤에 나오면 {%3}가 소문을 알게 됩니다",
-"en": "If the correction comes at step {0}, {1} learn the rumor; at step {2}, {3} do"
-},
-{
-"id": "d0112",
-"ko": "점이 흩어진 곳이 운에 따라 결과가 갈리는 구간입니다",
-"en": "Where the dots scatter, the outcome depends on luck"
-},
-{
-"id": "d0113",
-"ko": "소문을 아는 사람",
-"en": "People who know the rumor"
-},
-{
-"id": "d0114",
-"ko": "{#0}명 / {#1}명",
-"en": "{0} / {1} people"
-},
-{
-"id": "d0115",
-"ko": "한꺼번에 퍼뜨린 최대 인원",
-"en": "Peak simultaneous spreaders"
-},
-{
-"id": "d0116",
-"ko": "가장 뜨거웠던 순간",
-"en": "The hottest moment"
-},
-{
-"id": "d0117",
-"ko": "지나간 차례",
-"en": "Steps elapsed"
-},
-{
-"id": "d0118",
-"ko": "소문이 잦아듦",
-"en": "The rumor died down"
-},
-{
-"id": "d0119",
-"ko": "정정 덕에 안 속은 사람",
-"en": "People not fooled thanks to the correction"
-},
-{
-"id": "d0120",
-"ko": "소문보다 정정을 먼저 본 사람",
-"en": "Saw the correction before the rumor"
-},
-{
-"id": "d0121",
-"ko": "정정 없음",
-"en": "No correction"
-},
-{
-"id": "d0122",
-"ko": "단톡방 구성 #{#0}",
-"en": "Chat setup #{0}"
-},
-{
-"id": "d0123",
-"ko": "지금 분리도",
-"en": "Segregation now"
-},
-{
-"id": "d0124",
-"ko": "처음 {%0} → 지금 {%1} (섞여 있으면 약 50%)",
-"en": "Start {0} → now {1} (about 50% if mixed)"
-},
-{
-"id": "d0125",
-"ko": "원하던 비율",
-"en": "Share they wanted"
-},
-{
-"id": "d0126",
-"ko": "사람들이 바란 같은 이웃 비율",
-"en": "Share of similar neighbors people wanted"
-},
-{
-"id": "d0127",
-"ko": "불만족한 사람",
-"en": "Unhappy people"
-},
-{
-"id": "d0128",
-"ko": "전체의 {%0} · 처음엔 {%1}",
-"en": "{0} of everyone · {1} at the start"
-},
-{
-"id": "d0129",
-"ko": "이사 라운드",
-"en": "Moving rounds"
-},
-{
-"id": "d0130",
-"ko": "모두 만족해서 멈춤",
-"en": "Stopped because everyone is happy"
+"id": "d0519",
+"ko": "승객이 본 평균 {#0}분",
+"en": "Seen by passengers: {0} min"
 }
 ]

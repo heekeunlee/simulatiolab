@@ -1,514 +1,258 @@
 [
 {
-"id": "s0000",
-"en": "Simulatio Lab"
-},
-{
-"id": "s0001",
-"en": "We test \"what if\" questions about people and society with AI-designed simulations. Change the variables and run them yourself."
-},
-{
-"id": "s0002",
-"en": "Visitors today · total (Korea time)"
-},
-{
-"id": "s0003",
-"en": "<i class=\"live\"></i>Today <b id=\"v-today\">0</b>"
-},
-{
-"id": "s0004",
-"en": "Total <b id=\"v-total\">0</b>"
-},
-{
 "id": "s0005",
-"en": "SIMULATIO LAB · 28 experiments · 10 fields"
-},
-{
-"id": "s0006",
-"en": "A Lab for<br>Testing \"What If?\""
-},
-{
-"id": "s0007",
-"en": "Is success luck? How do rumors spread? We test \"what if\" questions about people, society, nature and art with simulations, and publish them so you can change the variables and run them yourself."
-},
-{
-"id": "s0008",
-"en": "Explore the lab ↓"
-},
-{
-"id": "s0009",
-"en": "🎲 Random experiment"
-},
-{
-"id": "s0010",
-"en": "Play with the dots. They dodge your cursor, and a click asks \"what if?\": they scatter, then sort themselves out again."
-},
-{
-"id": "s0011",
-"en": "The Periodic Table of Experiments"
+"en": "SIMULATIO LAB · 34 experiments · 11 fields"
 },
 {
 "id": "s0012",
-"en": "28 experiments in 10 fields (columns). Hover a cell and its page opens in the lab notebook below."
-},
-{
-"id": "s0013",
-"en": "Success &amp; Inequality"
-},
-{
-"id": "s0014",
-"en": "Talent vs Luck"
-},
-{
-"id": "s0015",
-"en": "Is Success Talent or Luck?"
-},
-{
-"id": "s0016",
-"en": "Talent clusters around the average, so why does wealth pile up in a few hands? Is the richest person really the most talented?"
-},
-{
-"id": "s0017",
-"en": "Talent vs Luck model"
-},
-{
-"id": "s0018",
-"en": "Wealth"
-},
-{
-"id": "s0019",
-"en": "Wealth Concentration"
-},
-{
-"id": "s0020",
-"en": "Even if every trade is as fair as a coin flip, does wealth concentrate? How much sharing does it take to stop it?"
-},
-{
-"id": "s0021",
-"en": "Yard-sale exchange model"
-},
-{
-"id": "s0022",
-"en": "Creators"
-},
-{
-"id": "s0023",
-"en": "Why Do Only the Top 1% of YouTubers Break Through?"
-},
-{
-"id": "s0024",
-"en": "Does good content win, or do channels that broke out first keep winning? Compare parallel universes that start with the same channels."
-},
-{
-"id": "s0025",
-"en": "Preferential attachment model"
-},
-{
-"id": "s0026",
-"en": "People &amp; Relationships"
-},
-{
-"id": "s0027",
-"en": "Segregation"
-},
-{
-"id": "s0028",
-"en": "Why Birds of a Feather Flock Together"
-},
-{
-"id": "s0029",
-"en": "Can a mild wish like \"I don't want to be a minority\" split a neighborhood completely apart?"
-},
-{
-"id": "s0030",
-"en": "Schelling segregation model"
-},
-{
-"id": "s0031",
-"en": "Rumors"
-},
-{
-"id": "s0032",
-"en": "Rumor Spread in Group Chats"
-},
-{
-"id": "s0033",
-"en": "How fast does a rumor spread, and through whom? How late can a correction come and still matter?"
-},
-{
-"id": "s0034",
-"en": "Rumor spreading model (SIR)"
-},
-{
-"id": "s0035",
-"en": "Matching"
-},
-{
-"id": "s0036",
-"en": "Does Lowering Your Standards Help You Find a Match?"
-},
-{
-"id": "s0037",
-"en": "See how aspiration level affects the time to find a partner in a market where both sides must agree."
-},
-{
-"id": "s0038",
-"en": "Matching &amp; search model"
-},
-{
-"id": "s0039",
-"en": "Work &amp; Institutions"
-},
-{
-"id": "s0040",
-"en": "Peter Principle"
-},
-{
-"id": "s0041",
-"en": "Why Do Incompetent Bosses Exist?"
-},
-{
-"id": "s0042",
-"en": "Does promoting your best performers make an organization better? Compare promotion methods."
-},
-{
-"id": "s0043",
-"en": "Peter principle model"
-},
-{
-"id": "s0044",
-"en": "Voting"
-},
-{
-"id": "s0045",
-"en": "Does the Voting Method Change the Winner?"
-},
-{
-"id": "s0046",
-"en": "Count the same votes by plurality, runoff, ranked-choice and Borda. Can the winner change?"
-},
-{
-"id": "s0047",
-"en": "Spatial voting model"
-},
-{
-"id": "s0048",
-"en": "Everyday Choices &amp; Order"
-},
-{
-"id": "s0049",
-"en": "Phantom Jams"
-},
-{
-"id": "s0050",
-"en": "Phantom Traffic Jams: Why Does Traffic Stop Without an Accident?"
-},
-{
-"id": "s0051",
-"en": "Watch how a single occasional tap of the brake can block a whole road."
-},
-{
-"id": "s0052",
-"en": "Nagel–Schreckenberg model"
-},
-{
-"id": "s0053",
-"en": "El Farol"
-},
-{
-"id": "s0054",
-"en": "Why Is the Popular Restaurant Always Packed?"
-},
-{
-"id": "s0055",
-"en": "Why does everyone lose when everyone thinks alike? And what if predictions differ?"
-},
-{
-"id": "s0056",
-"en": "El Farol Bar problem"
-},
-{
-"id": "s0057",
-"en": "Queue Jumping"
-},
-{
-"id": "s0058",
-"en": "What Happens When Queue-Jumping Spreads?"
-},
-{
-"id": "s0059",
-"en": "Test the idea that order isn't kept by itself but by someone paying a price to keep it."
-},
-{
-"id": "s0060",
-"en": "Spatial evolutionary game"
-},
-{
-"id": "s0061",
-"en": "Science"
-},
-{
-"id": "s0062",
-"en": "Fireflies"
-},
-{
-"id": "s0063",
-"en": "Why Do Fireflies Flash in Unison?"
-},
-{
-"id": "s0064",
-"en": "Watch hundreds of fireflies fall into the same rhythm with no conductor."
-},
-{
-"id": "s0065",
-"en": "Pulse-coupled oscillators"
-},
-{
-"id": "s0066",
-"en": "Zebra Stripes"
-},
-{
-"id": "s0067",
-"en": "How Does a Zebra Get Its Stripes?"
-},
-{
-"id": "s0068",
-"en": "Two simple reacting chemicals can form spots, stripes and mazes by themselves. Drop your own seeds."
-},
-{
-"id": "s0069",
-"en": "Turing reaction–diffusion (Gray–Scott)"
-},
-{
-"id": "s0070",
-"en": "History"
-},
-{
-"id": "s0071",
-"en": "Revolution"
-},
-{
-"id": "s0072",
-"en": "How Does a Revolution Begin?"
-},
-{
-"id": "s0073",
-"en": "When everyone has a different \"I'll join if this many others do\" threshold, can one person change the whole square?"
-},
-{
-"id": "s0074",
-"en": "Threshold model (Granovetter)"
-},
-{
-"id": "s0075",
-"en": "Easter Island"
-},
-{
-"id": "s0076",
-"en": "Why Did Easter Island Collapse?"
-},
-{
-"id": "s0077",
-"en": "Forest and people grow together, then crash: trace the overshoot-and-collapse curve. (The real history is still debated.)"
-},
-{
-"id": "s0078",
-"en": "Resource–population overshoot model"
-},
-{
-"id": "s0079",
-"en": "Alliances"
-},
-{
-"id": "s0080",
-"en": "How Does a Single Shot Become a World War?"
-},
-{
-"id": "s0081",
-"en": "How far does a small clash spread as alliances get denser? A cascade experiment with anonymous states."
-},
-{
-"id": "s0082",
-"en": "Alliance-network cascade model"
-},
-{
-"id": "s0083",
-"en": "Philosophy"
-},
-{
-"id": "s0084",
-"en": "Cooperation"
-},
-{
-"id": "s0085",
-"en": "Do Nice People Survive?"
-},
-{
-"id": "s0086",
-"en": "In a world full of defectors, how do cooperation and trust come back? What changes when mistakes creep in?"
-},
-{
-"id": "s0087",
-"en": "Iterated prisoner's dilemma"
-},
-{
-"id": "s0088",
-"en": "Veil of Ignorance"
-},
-{
-"id": "s0089",
-"en": "Which Society Would You Choose Behind the Veil of Ignorance?"
-},
-{
-"id": "s0090",
-"en": "If you didn't know who you'd be, which society would you pick? The choice flips with how much you dislike risk."
-},
-{
-"id": "s0091",
-"en": "Rawls–Harsanyi choice model"
-},
-{
-"id": "s0092",
-"en": "Commons"
-},
-{
-"id": "s0093",
-"en": "Is the Tragedy of the Commons Inevitable?"
-},
-{
-"id": "s0094",
-"en": "Is a shared pasture doomed, or can monitoring and rules save it? Run both views side by side."
-},
-{
-"id": "s0095",
-"en": "Commons game (Hardin vs Ostrom)"
-},
-{
-"id": "s0096",
-"en": "Literature"
-},
-{
-"id": "s0097",
-"en": "Monkeys"
-},
-{
-"id": "s0098",
-"en": "Can Monkeys Write Hamlet?"
-},
-{
-"id": "s0099",
-"en": "Compare monkeys typing at random with evolution that keeps the best at every step."
-},
-{
-"id": "s0100",
-"en": "Infinite monkeys vs cumulative selection"
-},
-{
-"id": "s0101",
-"en": "Zipf's Law"
-},
-{
-"id": "s0102",
-"en": "Why Are a Few Words Used Constantly?"
-},
-{
-"id": "s0103",
-"en": "Why do a few words make up most of any text? Generate one yourself with a rich-get-richer rule."
-},
-{
-"id": "s0104",
-"en": "Zipf's law · Simon model"
-},
-{
-"id": "s0105",
-"en": "Telephone"
-},
-{
-"id": "s0106",
-"en": "How Do Stories Change as They're Retold?"
-},
-{
-"id": "s0107",
-"en": "What survives as a story passes mouth to mouth? Watch only the memorable parts remain."
-},
-{
-"id": "s0108",
-"en": "Serial reproduction"
-},
-{
-"id": "s0109",
-"en": "Art"
-},
-{
-"id": "s0110",
-"en": "Fashion"
-},
-{
-"id": "s0111",
-"en": "Why Do Fashions Come Around?"
-},
-{
-"id": "s0112",
-"en": "On a color wheel, watch the cycle created by a copying crowd and trendsetters running away."
-},
-{
-"id": "s0113",
-"en": "Imitation–distinction model"
-},
-{
-"id": "s0114",
-"en": "AI Painters"
-},
-{
-"id": "s0115",
-"en": "What If 100 AI Painters Copy Each Other?"
-},
-{
-"id": "s0116",
-"en": "Does imitation collapse styles into one? Watch 100 paintings change."
-},
-{
-"id": "s0117",
-"en": "Cultural transmission model"
-},
-{
-"id": "s0118",
-"en": "Sunflower"
-},
-{
-"id": "s0119",
-"en": "Why Do Sunflower Seeds Sit at That Angle?"
-},
-{
-"id": "s0120",
-"en": "Turn each seed by 137.5° and they pack with no gaps. Nudge the angle and watch the pattern fall apart."
-},
-{
-"id": "s0121",
-"en": "Golden-angle phyllotaxis"
-},
-{
-"id": "s0122",
-"en": "Auctions"
-},
-{
-"id": "s0123",
-"en": "Why Does Winning an Auction Cost You?"
-},
-{
-"id": "s0124",
-"en": "The highest bidder wins, so why does the winner lose on average? How much should you shade your bid to break even?"
-},
-{
-"id": "s0125",
-"en": "Winner's curse model"
+"en": "34 experiments in 11 fields (columns). Hover a cell and its page opens in the lab notebook below."
 },
 {
 "id": "s0126",
-"en": "Society Today"
+"en": "Flip the View"
 },
 {
 "id": "s0127",
-"en": "Population"
+"en": "Braess"
+},
+{
+"id": "s0128",
+"en": "A New Road Made Everyone Slower"
+},
+{
+"id": "s0129",
+"en": "Open a shortcut and everyone's commute gets longer? Let drivers pick their own routes and see."
+},
+{
+"id": "s0130",
+"en": "Braess network model"
+},
+{
+"id": "s0131",
+"en": "Regression"
+},
+{
+"id": "s0132",
+"en": "Praise Was Followed by Worse, Scolding by Better"
+},
+{
+"id": "s0133",
+"en": "Even if words do nothing, scolding seems to work and praise seems to backfire. What does the coach learn?"
+},
+{
+"id": "s0134",
+"en": "Regression-to-the-mean model"
+},
+{
+"id": "s0135",
+"en": "Survivors"
+},
+{
+"id": "s0136",
+"en": "Bullet Holes on Returning Planes: Where Does the Armor Go?"
+},
+{
+"id": "s0137",
+"en": "The places with no holes may be the real weak spots. Add the planes that never came back."
+},
+{
+"id": "s0138",
+"en": "Survivorship-bias model"
+},
+{
+"id": "s0139",
+"en": "Friend Paradox"
+},
+{
+"id": "s0140",
+"en": "Why Do My Friends Have More Friends Than I Do?"
+},
+{
+"id": "s0141",
+"en": "Popular people appear on many friend lists. Click a person to check."
+},
+{
+"id": "s0142",
+"en": "Growing social network model"
+},
+{
+"id": "s0143",
+"en": "Waiting"
+},
+{
+"id": "s0144",
+"en": "Why Does the Bus Always Make You Wait Longer?"
+},
+{
+"id": "s0145",
+"en": "If a bus comes every 10 minutes on average, how long do you wait on average? The same reason makes your class feel crowded."
+},
+{
+"id": "s0146",
+"en": "Inspection-paradox model"
+},
+{
+"id": "s0147",
+"en": "Coincidence"
+},
+{
+"id": "s0148",
+"en": "Is a Coincidence Not a Coincidence?"
+},
+{
+"id": "s0149",
+"en": "With 23 people the chance of a shared birthday is 50%. How different is a match with me?"
+},
+{
+"id": "s0150",
+"en": "Birthday-problem model"
+},
+{
+"id": "s0321",
+"en": "Braess's Paradox · Simulatio Lab"
+},
+{
+"id": "s0322",
+"en": "Run Braess's paradox yourself: simulate drivers choosing their own routes and see why opening a shortcut can raise everyone's average commute."
+},
+{
+"id": "s0323",
+"en": "A New Road Made Everyone Slower: Braess's Paradox"
+},
+{
+"id": "s0324",
+"en": "It is easy to think that if roads are jammed, you should build a new one: more roads should shorten everyone's commute. In this simple road network, though, opening a shortcut in front of 4,000 drivers sends them all onto it, and the average commute grows from 65 to 80 minutes. Close one road and things get faster. Nobody did anything wrong: everyone just picked the route that was fastest for them."
+},
+{
+"id": "s0325",
+"en": "There are two routes from start to destination: <b>Route A</b> (start→A→destination) and <b>Route B</b> (start→B→destination). Start→A and B→destination are <b>congestible roads</b>: the time grows by the sensitivity for every 1,000 drivers on them (10 minutes by default, so x drivers take x/100 minutes). A→destination and start→B always take 45 minutes, however many cars use them."
+},
+{
+"id": "s0326",
+"en": "Opening the <b>shortcut</b> adds a third route (start→A→B→destination) that crosses from A to B. Crossing takes a fixed time (0 minutes by default) and never gets congested."
+},
+{
+"id": "s0327",
+"en": "Each round, 8% of drivers reconsider their route. They switch only if the time they would get after switching is clearly shorter, and they move one at a time, so the system ends where nobody can gain by switching alone."
+},
+{
+"id": "s0328",
+"en": "The lowest average time reachable if a planner could assign routes in the same network is the <b>social optimum</b>. The selfish equilibrium's average time divided by the social optimum is the <b>price of anarchy</b>."
+},
+{
+"id": "s0329",
+"en": "Number of drivers <output id=\"o-n\"></output>"
+},
+{
+"id": "s0330",
+"en": "More drivers slow the congestible roads faster. The shortcut's effect flips depending on this value"
+},
+{
+"id": "s0331",
+"en": "Shortcut cost <output id=\"o-cost\"></output>"
+},
+{
+"id": "s0332",
+"en": "Minutes needed to cross the shortcut. If large, nobody uses it"
+},
+{
+"id": "s0333",
+"en": "Congestion sensitivity <output id=\"o-sens\"></output>"
+},
+{
+"id": "s0334",
+"en": "Minutes added to a congestible road per 1,000 more drivers. 10 means x/100 minutes"
+},
+{
+"id": "s0335",
+"en": "Order of the experiment <output id=\"o-plan\"></output>"
+},
+{
+"id": "s0336",
+"en": "No shortcut at first, then open it"
+},
+{
+"id": "s0337",
+"en": "Shortcut at first, then close it"
+},
+{
+"id": "s0338",
+"en": "Drivers adapt for 50 rounds, then the road changes. You can also open or close it yourself with the button"
+},
+{
+"id": "s0339",
+"en": "Same settings, different drivers"
+},
+{
+"id": "s0340",
+"en": "① Watching the Commute"
+},
+{
+"id": "s0341",
+"en": "A road's thickness shows how many drivers use it, and its color the time it takes (green fast, red slow). When the shortcut opens, drivers move one by one to whatever is faster, and the bar below shows the share choosing each route."
+},
+{
+"id": "s0342",
+"en": "You can open or close the shortcut at any time while the drivers are choosing."
+},
+{
+"id": "s0343",
+"en": "② Average Commute Over Time"
+},
+{
+"id": "s0344",
+"en": "The blue line is the average commute in each round. The green dashed line is the equilibrium without the shortcut, the red one the equilibrium with it (theory), and gray is the social optimum a planner could reach. The vertical dashed line marks when the road changed."
+},
+{
+"id": "s0345",
+"en": "③ Which Route Do Drivers Pick?"
+},
+{
+"id": "s0346",
+"en": "The share of drivers on each of the three routes in every round, stacked. When the shortcut opens, blue and purple (Routes A and B) shrink and orange (via the shortcut) grows."
+},
+{
+"id": "s0347",
+"en": "<i style=\"background:var(--accent)\"></i>Route A"
+},
+{
+"id": "s0348",
+"en": "<i style=\"background:#7c5cff\"></i>Route B"
+},
+{
+"id": "s0349",
+"en": "<i style=\"background:#e0a100\"></i>Via the shortcut"
+},
+{
+"id": "s0350",
+"en": "④ When Does the Shortcut Help, and When Does It Hurt?"
+},
+{
+"id": "s0351",
+"en": "The horizontal axis is the number of drivers, the vertical axis the average commute at equilibrium (theory). Where the area between the two lines is green the shortcut helps, where it is red it hurts. It helps when roads are quiet and hurts most at middling traffic."
+},
+{
+"id": "s0352",
+"en": "<i style=\"background:#1fa463\"></i>No shortcut"
+},
+{
+"id": "s0353",
+"en": "<i style=\"background:#e5484d\"></i>With shortcut"
+},
+{
+"id": "s0354",
+"en": "<i style=\"background:#8a93a6\"></i>Social optimum"
+},
+{
+"id": "s0355",
+"en": "⑤ If the Shortcut Gets Costlier"
+},
+{
+"id": "s0356",
+"en": "The horizontal axis is the time needed to cross the shortcut, the vertical axis the average commute at equilibrium. Past a certain cost nobody uses the shortcut and it is as good as closed."
+},
+{
+"id": "s0357",
+"en": "<b>What it shows:</b> With 4,000 drivers, a 0-minute shortcut and sensitivity 10 (x/100 minutes), the equilibrium without the shortcut split drivers evenly between Routes A and B for an average of 65.0 minutes. Once the shortcut opened, drivers drifted to it, the average reached 79.5 minutes by round 100, and by round 180 everyone (100%) used the shortcut route for an average of 80.0 minutes. At that end state, switching alone gained 0 minutes. Going the other way, closing the shortcut brought the average from 79.7 minutes just before the closure down to 65.0 minutes within 5 rounds. If everyone agreed to skip the shortcut it would be 65.0 minutes, and a planner assigning routes optimally (about 13% on the shortcut) reached 64.7, so the price of anarchy was 1.24. The effect depended on the number of drivers. Below 3,000 drivers the shortcut helped (2,000 drivers: 55.0 → 40.0 minutes), at 3,000 it was a tie at 60.0 minutes, between 3,000 and 9,000 it hurt, most at 4,500 drivers with 67.5 → 90.0 minutes (1.33 times), and from 9,000 drivers on nobody used it so nothing changed. With a shortcut cost of 25 minutes or more the result was 65.0 minutes, the same as closed, and at 5 minutes it was 85.0 minutes, worse than at 0 minutes (80.0). With congestion sensitivity 5 the shortcut helped (55.0 → 40.0 minutes), and with 20 it hurt (85.0 → 90.0 minutes)."
 }
 ]

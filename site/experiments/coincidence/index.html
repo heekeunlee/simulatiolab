@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Is a Coincidence Not a Coincidence? · Simulatio Lab">우연의 일치는 우연이 아니다? · 시뮬라티오 랩</title>
+<meta name="description" content="소름 돋는 우연은 사실 일어나지 않는 게 더 이상합니다. 생일 문제로 &quot;어딘가에서 일치&quot;와 &quot;나와 일치&quot;가 얼마나 다른지 직접 돌려보세요." data-en-content="A spooky coincidence is often stranger when it never happens. Use the birthday problem to see how different &quot;a match somewhere&quot; is from &quot;a match with me&quot;.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1 data-en="Is a Coincidence Not a Coincidence?">우연의 일치는 우연이 아니다?</h1>
+  <p class="lead" data-en="Learning that two people in a gathering share a birthday gives you a chill: &quot;this can&#x27;t be chance&quot;. Yet with only a few people in the room, it would be stranger if nothing like it happened. Change the headcount, the number of features and the size of each feature, and watch how &quot;someone matches somewhere&quot; differs from &quot;someone matches me&quot;.">모임에서 두 사람의 생일이 같다는 걸 알게 되면 "이건 우연이 아니야" 싶은 소름이 돋습니다. 그런데 방에 사람이 몇 명만 있어도 이런 일은 오히려 일어나지 않는 쪽이 이상합니다. 인원, 특징의 가짓수, 각 특징의 가짓수를 바꾸며 "누군가 어딘가에서 일치"와 "나와 일치"가 어떻게 다른지 지켜보세요.</p>
+
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li data-en="&lt;b&gt;N people&lt;/b&gt; gather in a room. Everyone has &lt;b&gt;k features&lt;/b&gt;: the first is a birthday (365 values, leap days ignored) and the others are things like hometown, hobby or school, each with a fixed number of possible values. All are drawn independently with equal chances.">방에 <b>N명</b>이 모입니다. 사람마다 <b>특징 k가지</b>를 갖는데, 첫째는 생일(365가지, 윤일은 무시)이고 나머지는 고향·취미·같은 학교처럼 정해진 가짓수 중 하나입니다. 모두 같은 확률로 독립적으로 정해집니다.</li>
+    <li data-en="Two people who share at least one feature form a &lt;b&gt;matching pair&lt;/b&gt;. N people make N(N−1)/2 possible pairs: when the headcount grows N-fold, the pairs grow roughly N²-fold.">두 사람이 특징 하나라도 같으면 <b>일치한 쌍</b>입니다. N명이면 가능한 짝은 N(N−1)/2쌍인데, 사람은 N배로 늘 때 짝은 거의 N²배로 늘어납니다.</li>
+    <li data-en="Person 0 is &lt;b&gt;me&lt;/b&gt;. The model counts separately &quot;a match somewhere in the room&quot; and &quot;someone matches me&quot;. Lines are calculated values (theory) and dots are results of actually running many gatherings.">0번 사람이 <b>나</b>입니다. "방 안 어딘가에서 일치가 있을 확률"과 "나와 일치하는 사람이 있을 확률"을 따로 셉니다. 선은 계산값(이론), 점은 모임을 직접 여러 번 연 결과입니다.</li>
+    <li data-en="The model assumes every feature is uniform and independent. Real birthdays are not perfectly even through the year, and people from the same hometown may share hobbies, so reality is more complicated.">이 모델은 모든 특징이 균등하고 서로 독립이라고 가정합니다. 실제 생일은 달마다 조금 고르지 않고, 같은 고향 사람이 같은 취미를 가질 가능성도 있어서 현실은 이보다 복잡합니다.</li>
+  </ul>
+
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="n" data-en="People in the room &lt;output id=&quot;o-n&quot;&gt;&lt;/output&gt;">모인 사람 수 <output id="o-n"></output></label>
+        <input type="range" id="n" min="2" max="100" step="1" value="23">
+        <span class="hint" data-en="The headcount N. 23 is the famous number in the birthday problem">방에 있는 사람 수 N. 23명이 생일 문제의 유명한 숫자예요</span></div>
+<div class="ctl"><label for="k" data-en="Number of features &lt;output id=&quot;o-k&quot;&gt;&lt;/output&gt;">특징의 가짓수 <output id="o-k"></output></label>
+        <input type="range" id="k" min="1" max="6" step="1" value="1">
+        <span class="hint" data-en="1 means birthday only. 2 or more adds features like hometown and hobby">1이면 생일만. 2 이상이면 고향·취미 같은 특징이 더해져요</span></div>
+<div class="ctl"><label for="pool" data-en="Values per other feature &lt;output id=&quot;o-pool&quot;&gt;&lt;/output&gt;">다른 특징의 가짓수 <output id="o-pool"></output></label>
+        <input type="range" id="pool" min="5" max="200" step="5" value="30">
+        <span class="hint" data-en="How many values each non-birthday feature can take (e.g. 30 hobbies). Larger means rarer matches">생일 말고 다른 특징이 가질 수 있는 값의 수 (예: 취미 30가지). 클수록 일치가 드물어요</span></div>
+    </div>
+    <div class="btns">
+      <button class=primary id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Same settings, new gatherings">같은 설정, 다른 모임</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3 data-en="① Watching the Gatherings">① 모임 지켜보기</h3>
+    <p data-en="Gatherings run one after another. The red dot at the top is me and everyone else stands around the circle. Matching pairs are joined by lines, and lines to me are red.">모임이 한 번씩 열립니다. 위쪽의 붉은 점이 나이고, 나머지 사람은 원 둘레에 서 있습니다. 일치한 쌍은 선으로 이어지고, 나와 일치한 선은 붉게 표시됩니다.</p>
+    <canvas id="c-room" class="rounded" aria-label="① Watching the Gatherings"></canvas>
+    <div class="anim-bar">
+      <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
+      <button id="stepbtn" data-en="Step">한 단계</button>
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="speed"><option value="2" data-en="Slow">느리게</option><option value="5" selected data-en="Normal">보통</option><option value="15" data-en="Fast">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3 data-en="② Chance of a Match Somewhere">② 어딘가에서 일치할 확률</h3>
+    <p data-en="The horizontal axis is the headcount, the vertical axis is the chance that some pair in the room matches. The blue line and dots are the current settings and the dashed line is the calculation for birthdays only. Where the dashed line passes 50% is the famous 23 people.">가로는 모인 사람 수, 세로는 방 안 어딘가에 일치한 쌍이 있을 확률입니다. 파란 선과 점은 지금 설정, 점선은 생일만 볼 때의 계산값입니다. 점선의 50%를 넘는 지점이 유명한 23명입니다.</p>
+    <canvas id="c-a" class="" aria-label="② Chance of a Match Somewhere"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Current settings (line: calculation, dots: simulation)"><i style="background:var(--accent)"></i>지금 설정 (선: 계산, 점: 직접 돌림)</span><span data-en="&lt;i style=&quot;background:var(--muted)&quot;&gt;&lt;/i&gt;Birthday only (calculation)"><i style="background:var(--muted)"></i>생일만 (계산)</span></div>
+      <div class="legend"><span id="note-a" data-en="Calculating…">계산 중…</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ &quot;Somewhere&quot; versus &quot;With Me&quot;">③ "어딘가에서"와 "나와"</h3>
+    <p data-en="The same current settings, with the headcount extended to 365. The blue line is &quot;someone matches somewhere&quot; and the red line is &quot;someone matches me&quot;. The dashed red line is the chance of matching me when birthday is the only feature, and it needs 253 people besides me to pass 50%.">같은 지금 설정으로 인원을 365명까지 늘렸습니다. 파란 선은 "누군가 어딘가에서 일치", 붉은 선은 "나와 일치"입니다. 붉은 점선은 특징이 생일뿐일 때 나와 일치할 확률로, 50%를 넘으려면 나 말고 253명이 필요합니다.</p>
+    <canvas id="c-b" class="" aria-label="③ &quot;Somewhere&quot; versus &quot;With Me&quot;"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;A match somewhere"><i style="background:var(--accent)"></i>어딘가에서 일치</span><span data-en="&lt;i style=&quot;background:var(--unlucky)&quot;&gt;&lt;/i&gt;A match with me"><i style="background:var(--unlucky)"></i>나와 일치</span><span data-en="&lt;i style=&quot;background:#e8a29a&quot;&gt;&lt;/i&gt;A match with me, birthday only (calculation)"><i style="background:#e8a29a"></i>나와 일치, 생일만 (계산)</span></div>
+      <div class="legend"><span id="note-b" data-en="Calculating…">계산 중…</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="④ N People, N(N−1)/2 Pairs">④ 사람은 N명, 짝은 N(N−1)/2쌍</h3>
+    <p data-en="Gray is the number of people, blue is the number of possible pairs and the red line is the expected number of matching pairs under the current settings. A small rise in headcount multiplies the chances of a match much faster.">회색은 사람 수, 파랑은 가능한 짝의 수, 붉은 선은 지금 설정에서 일치한 쌍의 기댓값입니다. 인원이 조금만 늘어도 일치할 기회가 훨씬 빠르게 늘어납니다.</p>
+    <canvas id="c-c" class="" aria-label="④ N People, N(N−1)/2 Pairs"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--muted)&quot;&gt;&lt;/i&gt;People"><i style="background:var(--muted)"></i>사람</span><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Possible pairs"><i style="background:var(--accent)"></i>가능한 짝</span><span data-en="&lt;i style=&quot;background:var(--unlucky)&quot;&gt;&lt;/i&gt;Expected matching pairs"><i style="background:var(--unlucky)"></i>일치한 쌍의 기댓값</span></div>
+    </section>
+  </div>
+
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout" data-en="&lt;b&gt;What it shows:&lt;/b&gt; With birthday only (one feature), the chance that some pair in the room shares a birthday was 50.7% with 23 people and 99.0% with 57 people (running 20,000 gatherings gave 50.4% and 99.0%, matching the calculation). Among 23 people there are as many as 253 possible pairs. But the chance that someone shares a birthday with me was only 5.9% with the same 23 people and just 14.2% with 57, and to pass 50% it took 253 people besides me (254 in all). The same 23 people give 50.7% for &quot;someone, somewhere&quot; and 5.9% for &quot;me&quot;. Adding features makes &quot;somewhere&quot; nearly certain very quickly. With 23 people and features of birthday plus one 30-value feature (2 features), the chance of some match was above 99.999%, effectively 100% and the chance of matching me rose to 55.3%. With 3 features the chance of matching me was 78.8%, and with 6 features it was 97.7%. A striking coincidence needs only &quot;any match at all&quot;, not &quot;the specific match I picked in advance&quot;, so wherever people gather, some match turns up somewhere. The statisticians Diaconis and Mosteller (1989) called this the &quot;law of truly large numbers&quot;: with a large enough sample, even very rare events happen somewhere."><b>말하는 것:</b> 생일만 볼 때(특징 1가지), 23명이면 방 안 어딘가에서 생일이 같은 쌍이 있을 확률은 50.7%, 57명이면 99.0%였습니다(2만 번 모임을 연 결과도 50.4%, 99.0%로 계산값과 같았습니다). 23명 사이에는 가능한 짝이 253쌍이나 있기 때문입니다. 그런데 "나와" 생일이 같은 사람이 있을 확률은 같은 23명에서 5.9%, 57명에서도 14.2%에 그쳤고, 50%를 넘으려면 나 말고 253명(모두 254명)이 필요했습니다. 같은 23명인데 "누군가 어딘가에서"는 50.7%, "나와"는 5.9%입니다. 특징을 늘리면 "어딘가에서"는 금방 거의 확실해집니다. 23명에서 특징이 생일과 30가지짜리 하나(특징 2가지)이면 방 안 어딘가에서 일치할 확률은 99.999%를 넘어 사실상 100%였고, 나와 일치할 확률도 55.3%로 올라갔습니다. 특징이 3가지면 나와 일치할 확률이 78.8%, 6가지면 97.7%였습니다. 소름 돋는 일치가 일어나려면 "내가 정한 특정한 일치"가 아니라 "아무 일치나 하나"만 있으면 되기 때문에, 사람이 모이는 곳마다 일치는 늘 어딘가에서 일어납니다. 통계학자 Diaconis와 Mosteller(1989)는 이런 현상을 "아주 큰 수의 법칙(law of truly large numbers)"이라고 불렀습니다. 표본이 충분히 크면 아무리 드문 일도 어딘가에서는 일어난다는 뜻입니다.</div>
+  <div class="callout" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; This does not mean every spooky coincidence in the real world is mere chance. The model assumes features are uniform and independent, which real features are not, so real matches may be more or less frequent. The birthday-problem probabilities only show that there are many possible pairs; they cannot tell whether a particular event was chance. And the fact that matches are common somewhere does not make it wrong to feel something special when it happens to you: the chance of matching me is low, so it is right that it feels rare. This page contains no statistics on real-world coincidences or how often they occur."><b>말하지 않는 것:</b> 실제 세상의 모든 소름 돋는 우연이 그냥 우연이라는 뜻은 아닙니다. 이 모델은 특징이 균등하고 서로 독립이라고 가정하는데, 현실의 특징은 그렇지 않아서 일치가 더 잦거나 드물 수 있습니다. 생일 문제의 확률도 일치 가능한 쌍이 많다는 것만 보여줄 뿐, 어떤 특정한 사건이 우연이었는지 아닌지는 판정하지 못합니다. 또 일치가 어딘가에서 흔하다고 해서 나에게 일어난 일이 특별하게 느껴지는 마음이 틀렸다는 뜻도 아닙니다. 나와 일치할 확률은 낮으니, 나에게 일어난 일이 드물게 느껴지는 건 맞습니다. 이 페이지는 현실의 일치 사례나 발생 빈도에 대한 통계를 담고 있지 않습니다.</div>
+
+  <h2 data-en="Implementation notes">구현 메모</h2>
+  <ul class="small">
+    <li  data-en="The birthday problem is a classic, well-known problem in probability. I understand the name &quot;law of truly large numbers&quot; comes from Diaconis &amp; Mosteller (1989), &quot;Methods for studying coincidences&quot;, &lt;i&gt;Journal of the American Statistical Association&lt;/i&gt; 84. This project does not reproduce the numbers of that paper and shows the same idea with its own simplified model.">생일 문제(birthday problem)는 확률론에서 잘 알려진 고전적인 문제입니다. "아주 큰 수의 법칙"이라는 이름은 Diaconis & Mosteller (1989), "Methods for studying coincidences", <i>Journal of the American Statistical Association</i> 84에서 붙인 것으로 알고 있으며, 이 프로젝트는 그 논문의 수치를 재현하지 않고 이 프로젝트의 단순화된 모델로 같은 아이디어를 보여줍니다.</li>
+    <li  data-en="The calculated values are exact formulas. The chance that N people all differ on one feature is (1−1/c)(1−2/c)…(1−(N−1)/c), and since features are independent, the product gives &quot;no matching pair in the room&quot;. The chance of matching me is 1 − Π(1−1/c)&lt;sup&gt;N−1&lt;/sup&gt;. The dots are counted by actually running many gatherings (800 per point in ②, 400 in ③).">계산값은 정확한 공식입니다. 한 특징에서 N명이 모두 다를 확률은 (1−1/c)(1−2/c)…(1−(N−1)/c)이고, 특징들이 독립이라 곱하면 "방 안에 일치한 쌍이 하나도 없을 확률"이 됩니다. 나와 일치할 확률은 1 − Π(1−1/c)<sup>N−1</sup>입니다. 점은 모임을 직접 여러 번(②는 800번, ③은 400번씩) 열어 센 값입니다.</li>
+    <li  data-en="You can verify with &lt;code&gt;node tools/validate-coincidence.js&lt;/code&gt;. For birthday only: 23 people give 50.7%, 57 people give 99.0%, and the smallest headcount where a match with me passes 50% is 254 (253 besides me).">검증은 <code>node tools/validate-coincidence.js</code>로 할 수 있습니다. 생일만 볼 때 23명 50.7%, 57명 99.0%, 나와 일치가 50%를 넘는 최소 인원은 254명(나 말고 253명)입니다.</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/coincidence&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/coincidence">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap" data-en="Simulatio Lab · Operator: Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
+<script src="../../exps.js"></script>
+<script src="../../layout.js"></script>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../counter.js"></script>
+</body>
+</html>

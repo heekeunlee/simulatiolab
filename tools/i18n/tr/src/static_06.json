@@ -1,190 +1,22 @@
 [
 {
-"id": "s0389",
-"en": "Because everyone is assumed to rate attractiveness the same way, in this model the most and least attractive people stay single for about equally long (check with <code>node tools/validate-more.js dating</code>)."
+"id": "s1073",
+"en": "The sources usually cited are Wald (1943), \"A method of estimating plane vulnerability based on damage of survivors\" (a Statistical Research Group, Columbia University report, reprinted by the Center for Naval Analyses in 1980), and the account by Mangel and Samaniego (1984), \"Abraham Wald's work on aircraft survivability\", <i>Journal of the American Statistical Association</i> 79. This page reproduces neither the methods nor the numbers of those works; it is this project's own implementation of the story as a model."
 },
 {
-"id": "s0390",
-"en": "Graph ④ keeps the current drop rate and duration, changes only the aim, and runs 5 times each."
+"id": "s1074",
+"en": "The plane is a hand-defined shape (two engines, cockpit, fuselage, two wings, tail), and the section area shares are computed from the drawing on a grid (engine 13.6%, cockpit 7.2%, fuselage 23.2%, wings 38.8%, tail 17.3%). The number of hits follows a Poisson distribution with mean 3, and each lands on a random point of the plane. The lethalities are: engine (slider), cockpit 40%, fuselage 5%, wings 3%, tail 5%."
 },
 {
-"id": "s0391",
-"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/dating\">GitHub</a>."
+"id": "s1075",
+"en": "The exact survival chance per sortie is exp(−3 × Σ area share × lethality × (0.3 if armored)). Simulation and formula agree within 0.1 points when averaged over 200 seeds. \"Where the holes are\" means the sections with the most holes on returned planes, and \"missing\" means the sections with the smallest holes ÷ area. Graph ④ averages 3 seeds for each engine lethality."
 },
 {
-"id": "s0392",
-"en": "Why Did Easter Island Collapse? · Simulatio Lab"
+"id": "s1076",
+"en": "You can verify with <code>node tools/validate-survivor.js</code>."
 },
 {
-"id": "s0393",
-"en": "With a simple model where a forest and a population feed and erode each other, see when a population overshoots and then crashes."
-},
-{
-"id": "s0394",
-"en": "The island's forest feeds the people, and the people cut the forest. Can that one simple feedback make a population swell and then shrink? We run the \"overshoot\" structure often told in the Easter Island (Rapa Nui) story as a toy model. It does not settle what actually happened on the island."
-},
-{
-"id": "s0395",
-"en": "The <b style=\"color:#2f8f4e\">forest</b> is measured against the island's maximum (100%) and regrows following a logistic curve. The more people there are, the more they cut."
-},
-{
-"id": "s0396",
-"en": "The <b style=\"color:#2f3a8f\">population</b> grows fast when the forest is intact; as the forest shrinks the growth weakens, and once it falls below the death rate the population declines."
-},
-{
-"id": "s0397",
-"en": "Children take time to grow into workers, so the population reacts not to the forest today but to its <b>average over recent decades</b>. This \"reaction delay\" feeds the overshoot."
-},
-{
-"id": "s0398",
-"en": "Harvest intensity is the load one person puts on the forest, and conservation is the share by which logging is cut back. We follow 600 years in 5-year steps, starting from 50 people and a 100% forest."
-},
-{
-"id": "s0399",
-"en": "Forest regrowth rate (per year) <output id=\"o-regrowth\"></output>"
-},
-{
-"id": "s0400",
-"en": "Larger means the forest recovers faster"
-},
-{
-"id": "s0401",
-"en": "Population growth rate (per year) <output id=\"o-growth\"></output>"
-},
-{
-"id": "s0402",
-"en": "The top growth rate when the forest is intact"
-},
-{
-"id": "s0403",
-"en": "Delay before population reacts to the forest <output id=\"o-delay\"></output>"
-},
-{
-"id": "s0404",
-"en": "Longer means the population keeps growing for a while after the forest declines"
-},
-{
-"id": "s0405",
-"en": "Harvest intensity (×10⁻⁶ per person-year) <output id=\"o-harvest\"></output>"
-},
-{
-"id": "s0406",
-"en": "The load one person puts on the forest"
-},
-{
-"id": "s0407",
-"en": "Conservation (share of logging cut back) <output id=\"o-conservation\"></output>"
-},
-{
-"id": "s0408",
-"en": "0% means no limit"
-},
-{
-"id": "s0409",
-"en": "Replay"
-},
-{
-"id": "s0410",
-"en": "① 600 Years on the Island"
-},
-{
-"id": "s0411",
-"en": "Green dots are standing trees, small brown dots are felled spots, and navy dots are people. Watch the order in which the forest thins and the people multiply."
-},
-{
-"id": "s0412",
-"en": "② Population and Forest Over Time"
-},
-{
-"id": "s0413",
-"en": "The blue line is the population (left axis) and the green line is the remaining forest (right axis). The dashed line is the population at which the two balance. See whether the population overshoots that point and then falls back."
-},
-{
-"id": "s0414",
-"en": "<i style=\"background:#2f6fed\"></i>Population"
-},
-{
-"id": "s0415",
-"en": "<i style=\"background:#2f8f4e\"></i>Forest remaining"
-},
-{
-"id": "s0416",
-"en": "③ The Forest–Population Path (Phase Portrait)"
-},
-{
-"id": "s0417",
-"en": "The horizontal axis is the remaining forest and the vertical axis is the population. The path runs from the green dot to the red dot (blue to red), and ✕ marks the equilibrium. The two dashed lines are where the population, or the forest, stops changing."
-},
-{
-"id": "s0418",
-"en": "<i style=\"background:#1fa463\"></i>Start"
-},
-{
-"id": "s0419",
-"en": "<i style=\"background:#e5484d\"></i>Now"
-},
-{
-"id": "s0420",
-"en": "④ The Faster the Population Grows"
-},
-{
-"id": "s0421",
-"en": "The horizontal axis is the population growth rate. The blue line is the 600th-year population divided by the peak (1 means no decline) and the green line is the share of forest left at its lowest."
-},
-{
-"id": "s0422",
-"en": "⑤ The Slower the Forest Regrows"
-},
-{
-"id": "s0423",
-"en": "The horizontal axis is the forest regrowth rate. See whether the population falls further from its peak on islands where the forest recovers slowly."
-},
-{
-"id": "s0424",
-"en": "⑥ When Logging Is Cut Back (Conservation)"
-},
-{
-"id": "s0425",
-"en": "The horizontal axis is the share of logging cut back and the vertical axis is the population (people). Compare how the peak and final populations change with conservation, and whether the rate of decline changes."
-},
-{
-"id": "s0426",
-"en": "<b>What it shows:</b> In this model, the later the population reacts to the forest, the faster it grows, and the slower the forest regrows, the further it falls after its peak. With the default settings, the population peaks at 5,287 in year 310 and falls to 696 (13% of the peak) by year 600, while the forest dips to 38% in year 400 and recovers to 62% by year 600. At a growth rate of 4% the population barely fell (92% of the peak), at 5% it fell to 13%, and at 7% and above it nearly or entirely died out. In contrast, harvest intensity and conservation changed the \"size\" of the population the island supports but hardly changed the proportion lost (13–19% of the peak across 0–80% conservation, while the peak population went from 5,287 to 26,378)."
-},
-{
-"id": "s0427",
-"en": "<b>What it doesn't show:</b> This is not a model that explains or settles what actually happened on Easter Island (Rapa Nui). The island's history is still debated among researchers, including the role of rats, disease and slave raids after Europeans arrived, and estimates of population size and timing, and some studies argue the story that people destroyed their own forest and collapsed is overstated. This page only shows what motions are possible when a resource and a population feed back on each other; the numbers (600 years, 50 people, the rates) are values chosen for explanation, not real data."
-},
-{
-"id": "s0428",
-"en": "This is this project's simplified implementation of the idea in Brander & Taylor (1998), \"The Simple Economics of Easter Island: A Ricardo-Malthus Model of Renewable Resource Use\", <i>American Economic Review</i> 88(1) (a population rising and falling on a renewable resource). It does not use the paper's equations or values, and adds a delay so that the population reacts to the recent average of the forest."
-},
-{
-"id": "s0429",
-"en": "Equations: the forest R follows dR/dt = regrowth × R × (1−R) − harvest × (1−conservation) × population × R, and the population P follows dP/dt = P × (growth × recent-average forest − 0.03). The equilibrium is R* = 0.03 ÷ growth rate and P* = regrowth × (1−R*) ÷ (harvest × (1−conservation)); the population is considered gone when it falls below 1 person."
-},
-{
-"id": "s0430",
-"en": "\"Collapse\" means the year-600 population is under 25% of the peak, \"sharp decline\" is 25–70%, and \"stable\" is 70% or more; these are this page's own cutoffs. The model has no randomness, so the same settings always give the same result, and the points in graphs ④–⑥ are calculated values for each setting. You can verify with <code>node tools/validate-easter.js</code>."
-},
-{
-"id": "s0431",
-"en": "Raising harvest intensity to 16 shrinks the peak population to 691 and lowering it to 0.5 raises it to 21,104. In this model harvest intensity and conservation play the same role (the size of the population the island supports); that does not mean they have the same effect in reality."
-},
-{
-"id": "s0432",
-"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/easter\">GitHub</a>."
-},
-{
-"id": "s0433",
-"en": "Why Do Fashions Come Around? · Simulatio Lab"
-},
-{
-"id": "s0434",
-"en": "When an imitating crowd meets trendsetters who want to stand out, do fashions go in cycles? Run it yourself."
-},
-{
-"id": "s0435",
-"en": "People imitate those who look good, and the people out in front run off to something new to stay different. Can these two forces alone keep a fashion cycle turning? Let's check on a color wheel."
+"id": "s1077",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/survivor\">GitHub</a>."
 }
 ]

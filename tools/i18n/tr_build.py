@@ -8,14 +8,17 @@ dyn = json.load(open(os.path.join(D, 'src/all_dyn.json'), encoding='utf-8'))
 HAN = re.compile('[ㄱ-ㆎ가-힣]')
 tag = lambda s: Counter(re.findall(r'<[^>]+>', s))
 ph = lambda s: Counter(re.findall(r'\{[#%]?\d+\}', s))
+MEM = os.path.join(D, 'memory.json')   # 지금까지 검증을 통과한 번역 전체 (s: 영어 HTML→번역, d: 한국어 키→번역)
+mem = json.load(open(MEM, encoding='utf-8')) if os.path.exists(MEM) else {'s': {}, 'd': {}}
 tr = {}
-for f in sorted(glob.glob(os.path.join(D, 'out/*.json'))):
+outs = sorted(glob.glob(os.path.join(D, 'out/*.json')))
+for f in outs:
     try: tr.update(json.load(open(f, encoding='utf-8')))
     except Exception as e: print('JSON 오류', f, e)
 bad = []
 out = {l: ({}, {}) for l in ('es', 'fr', 'ja')}
 for i, en in enumerate(static):
-    r = tr.get('s%04d' % i)
+    r = tr.get('s%04d' % i) or mem['s'].get(en)
     for l in out:
         v = r.get(l) if r else None
         if not v: bad.append(('s%04d' % i, l, '누락')); continue
@@ -26,14 +29,16 @@ for i, en in enumerate(static):
             if nm(v) != nm(en) or Counter(re.findall(r'(?:id|href)="[^"]*"', v)) != Counter(re.findall(r'(?:id|href)="[^"]*"', en)):
                 bad.append(('s%04d' % i, l, '태그')); continue
         out[l][0][en] = v
+        mem['s'].setdefault(en, {})[l] = v
 for i, (ko, en) in enumerate(dyn):
-    r = tr.get('d%04d' % i)
+    r = tr.get('d%04d' % i) or mem['d'].get(ko)
     for l in out:
         v = r.get(l) if r else None
         if not v: bad.append(('d%04d' % i, l, '누락')); continue
         if HAN.search(v): bad.append(('d%04d' % i, l, '한글')); continue
         if ph(v) != ph(en): bad.append(('d%04d' % i, l, '자리표시자 ' + en + ' | ' + v)); continue
         out[l][1][ko] = v
+        mem['d'].setdefault(ko, {})[l] = v
 for l, (st, dy) in out.items():
     js = '// %s 번역 (tools/i18n/tr_build.py 로 생성)\n(function () {\n  var I = window.I18N; if (!I) return;\n  I.addLang(%s, %s);\n  I.addStatic(%s, %s);\n  I.apply();\n})();\n' % (l, json.dumps(l), json.dumps(dy, ensure_ascii=False), json.dumps(l), json.dumps(st, ensure_ascii=False))
     open(os.path.join(SITE, 'i18n-%s.js' % l), 'w', encoding='utf-8').write(js)
@@ -41,3 +46,6 @@ for l, (st, dy) in out.items():
 for b in bad[:60]: print('불량', b)
 print('불량 총', len(bad))
 json.dump([b[0] for b in bad], open(os.path.join(D, 'bad.json'), 'w'))
+json.dump(mem, open(MEM, 'w', encoding='utf-8'), ensure_ascii=False)
+if not bad:
+    for f in outs: os.remove(f)   # 번호 체계가 다음 추출 때 바뀌므로 흡수한 조각은 지운다

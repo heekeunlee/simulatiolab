@@ -50,6 +50,14 @@ CATS = [
   ('sunflower', T('황금각 잎차례 모델', 'Golden-angle phyllotaxis'), T('해바라기 씨는 왜 그 각도로 배열될까', 'Why Do Sunflower Seeds Sit at That Angle?'), T('씨앗을 137.5°씩 돌려 놓으면 틈 없이 빽빽해져요. 각도를 조금만 바꿔도 무늬가 무너지는 걸 보세요.', 'Turn each seed by 137.5° and they pack with no gaps. Nudge the angle and watch the pattern fall apart.')),
   ('auction', T('승자의 저주 모델', "Winner's curse model"), T('경매에서 이기면 왜 손해일까', 'Why Does Winning an Auction Cost You?'), T('가장 높게 쓴 사람이 이기는데, 왜 이긴 사람이 평균적으로 손해일까요? 얼마나 깎아 써야 본전일까요?', 'The highest bidder wins, so why does the winner lose on average? How much should you shade your bid to break even?')),
  ]),
+ ('paradox', '#4d7c0f', '🔄', T('뒤집어 보기', 'Flip the View'), T('"이렇게도 해석할 수 있구나" 싶은 직관의 반전', 'Counterintuitive twists that make you say "oh, so that\'s how to read it"'), [
+  ('braess', T('브라에스 네트워크 모델', 'Braess network model'), T('새 길을 뚫었더니 모두가 느려졌다', 'A New Road Made Everyone Slower'), T('지름길을 열었더니 모두의 출근 시간이 늘어난다? 운전자들이 스스로 길을 고르게 두고 확인해요.', 'Open a shortcut and everyone\'s commute gets longer? Let drivers pick their own routes and see.')),
+  ('regression', T('평균으로의 회귀 모델', 'Regression-to-the-mean model'), T('칭찬했더니 못하고, 혼냈더니 잘하더라', 'Praise Was Followed by Worse, Scolding by Better'), T('말에 아무 효과가 없어도 혼낸 뒤엔 좋아지고 칭찬한 뒤엔 나빠져 보여요. 코치는 무엇을 배우게 될까요?', 'Even if words do nothing, scolding seems to work and praise seems to backfire. What does the coach learn?')),
+  ('survivor', T('생존자 편향 모델', 'Survivorship-bias model'), T('돌아온 비행기의 총탄 자국, 어디를 보강할까', 'Bullet Holes on Returning Planes: Where Does the Armor Go?'), T('구멍이 없는 곳이 진짜 약점일 수 있어요. 돌아오지 못한 비행기를 함께 놓고 비교해요.', 'The places with no holes may be the real weak spots. Add the planes that never came back.')),
+  ('friendship', T('관계망 성장 모델', 'Growing social network model'), T('내 친구들은 왜 나보다 친구가 많을까', 'Why Do My Friends Have More Friends Than I Do?'), T('인기 있는 사람은 많은 친구 목록에 등장해요. 사람을 눌러 확인해 보세요.', 'Popular people appear on many friend lists. Click a person to check.')),
+  ('inspection', T('검사 역설 모델', 'Inspection-paradox model'), T('버스는 왜 늘 더 오래 기다릴까', 'Why Does the Bus Always Make You Wait Longer?'), T('평균 10분마다 오는 버스를 기다리면 평균 몇 분을 기다릴까요? 내 반이 늘 붐비는 이유도 같아요.', 'If a bus comes every 10 minutes on average, how long do you wait on average? The same reason makes your class feel crowded.')),
+  ('coincidence', T('생일 문제 모델', 'Birthday-problem model'), T('우연의 일치는 우연이 아니다?', 'Is a Coincidence Not a Coincidence?'), T('23명이면 생일이 겹칠 확률이 50%. 그런데 "나와 겹칠" 확률은 얼마나 다를까요?', 'With 23 people the chance of a shared birthday is 50%. How different is a match with me?')),
+ ]),
  ('society', '#475569', '🏙️', T('사회 현안', 'Society Today'), T('수치로 따져 보는 우리 사회의 큰 흐름', 'Big trends in society, worked through with numbers'), [
   ('population', T('코호트 인구 모델', 'Cohort-component model'), T('저출산이 계속되면 2070년 인구 구조는?', "What Does Korea's Population Look Like in 2070?"), T('출산율이 이대로면 인구 피라미드는 어떻게 바뀔까? 출산율과 이민을 바꿔 보세요.', 'If fertility stays as it is, how does the population pyramid change? Try other fertility and migration levels.')),
   ('apartment', T('공간 확산 모델', 'Spatial contagion model'), T('아파트 가격은 어떻게 번질까', 'How Do Apartment Prices Spread?'), T('한 동네의 상승이 이웃으로 번지는 과정과, 대출 규제·금리가 미치는 영향을 장난감 모델로 봐요.', 'See, in a toy model, how a rise in one neighborhood spreads to the next, and what lending limits and interest rates do.')),
@@ -87,6 +95,12 @@ META = {
  'telephone': ('Tp', T('전달 게임', 'Telephone'), 'letters'),
  'sunflower': ('Ph', T('해바라기', 'Sunflower'), 'sunflower'),
  'auction': ('Au', T('경매', 'Auctions'), 'drift'),
+ 'braess': ('Br', T('새 길의 역설', 'Braess'), 'net'),
+ 'regression': ('Rg', T('평균 회귀', 'Regression'), 'drift'),
+ 'survivor': ('Sv', T('생존자 편향', 'Survivors'), 'heat'),
+ 'friendship': ('Fp', T('친구의 역설', 'Friend Paradox'), 'net'),
+ 'inspection': ('Ip', T('대기 시간', 'Waiting'), 'stripes'),
+ 'coincidence': ('Ci', T('우연의 일치', 'Coincidence'), 'ring'),
 }
 
 def build(only_existing=True):

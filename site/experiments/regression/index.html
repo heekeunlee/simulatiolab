@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Regression to the Mean · Simulatio Lab">평균으로의 회귀 · 시뮬라티오 랩</title>
+<meta name="description" content="말에는 아무 효과가 없는데도, 잘한 사람은 다음에 못하고 못한 사람은 다음에 잘하게 되는 평균으로의 회귀를 직접 돌려보세요." data-en-content="Even when words have no effect at all, the best performers do worse next time and the worst do better. Run regression to the mean yourself.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1 data-en="Praise Was Followed by Worse, Scolding by Better">칭찬했더니 다음엔 못하고, 혼냈더니 다음엔 잘하더라</h1>
+  <p class="lead" data-en="People often report that praising a great performance was followed by a worse one, while scolding a bad performance was followed by a better one. It is easy to conclude that &quot;scolding works&quot;. Here the true effect of praise and scolding is set to 0. Watch whether the same experience still appears when the words do nothing.">잘한 사람을 칭찬했더니 다음엔 오히려 못하고, 못한 사람을 혼냈더니 다음엔 더 잘하더라는 경험담을 흔히 듣습니다. 그래서 "혼내는 게 효과가 있다"고 결론짓기 쉽습니다. 그런데 여기서는 칭찬과 꾸중의 진짜 효과를 0으로 맞춰 둡니다. 말이 아무 일도 하지 않는데도 같은 경험이 생기는지 지켜봅니다.</p>
+
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li data-en="Each person has a fixed &lt;b&gt;skill&lt;/b&gt; and a &lt;b&gt;luck&lt;/b&gt; draw that is new on every trial. Scores average 50, and a slider sets how much of the spread is luck. At 50% luck, trial 1 and trial 2 scores correlate at 0.5.">사람마다 변하지 않는 <b>실력</b>이 있고, 시도마다 새로 뽑히는 <b>운</b>이 있습니다. 점수는 50을 평균으로 하고, 흩어짐 중 운이 차지하는 몫을 슬라이더로 정합니다. 운의 몫이 50%면 1회와 2회 점수의 상관은 0.5입니다.</li>
+    <li data-en="After trial 1, the top few percent are praised and the bottom few percent are scolded. Everyone else hears nothing.">1회가 끝나면 점수 상위 몇 %는 칭찬하고 하위 몇 %는 혼냅니다. 나머지는 아무 말도 듣지 않습니다.</li>
+    <li data-en="Trial 2 keeps the same skill and draws new luck. With the &lt;b&gt;true effect&lt;/b&gt; slider at 0, neither praise nor scolding changes any score. Otherwise a + effect is added for the praised and a − effect for the scolded.">2회 점수는 실력은 그대로, 운만 새로 뽑아 계산합니다. <b>진짜 효과</b> 슬라이더가 0이면 칭찬도 꾸중도 점수에 아무 영향이 없습니다. 0이 아니면 칭찬받은 쪽에 +효과, 혼난 쪽에 −효과를 더합니다.</li>
+    <li data-en="The &quot;Sports illustration&quot; scene moves the same calculation to seasons. The top group is on the magazine cover, the bottom group had its worst season, and the true effect applies only to the cover. No real player or magazine data is used.">"스포츠 예시" 장면은 같은 계산을 시즌에 옮긴 것입니다. 상위는 표지를 장식한 쪽, 하위는 최악의 시즌을 보낸 쪽이고, 진짜 효과는 표지에만 적용합니다. 실제 선수나 잡지의 자료는 쓰지 않았습니다.</li>
+  </ul>
+
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="n" data-en="Number of performers &lt;output id=&quot;o-n&quot;&gt;&lt;/output&gt;">사람 수 <output id="o-n"></output></label>
+        <input type="range" id="n" min="20" max="2000" step="20" value="400">
+        <span class="hint" data-en="More people give steadier results; with few, chance matters more">많을수록 결과가 안정돼요. 적으면 우연이 크게 끼어요</span></div>
+<div class="ctl"><label for="luck" data-en="Luck share &lt;output id=&quot;o-luck&quot;&gt;&lt;/output&gt;">운의 몫 <output id="o-luck"></output></label>
+        <input type="range" id="luck" min="0" max="100" step="5" value="50">
+        <span class="hint" data-en="The % of score spread that is luck. At 0, the score is pure skill">점수의 흩어짐 중 운이 차지하는 %. 0이면 점수가 실력 그대로</span></div>
+<div class="ctl"><label for="cut" data-en="Share praised / scolded &lt;output id=&quot;o-cut&quot;&gt;&lt;/output&gt;">칭찬·꾸중 대상 <output id="o-cut"></output></label>
+        <input type="range" id="cut" min="5" max="50" step="5" value="20">
+        <span class="hint" data-en="The top and bottom % of trial 1 scores that get praised and scolded">1회 점수 상위 몇 %를 칭찬하고, 하위 몇 %를 혼낼지</span></div>
+<div class="ctl"><label for="eff" data-en="True effect of the words &lt;output id=&quot;o-eff&quot;&gt;&lt;/output&gt;">말의 진짜 효과 <output id="o-eff"></output></label>
+        <input type="range" id="eff" min="-10" max="10" step="1" value="0">
+        <span class="hint" data-en="Points added for the praised (opposite sign for the scolded). 0 means the words do nothing">칭찬받은 쪽에 더하는 점수(혼난 쪽은 반대 부호). 0이면 말은 아무 효과가 없어요</span></div>
+<div class="ctl"><label for="view" data-en="Scene &lt;output id=&quot;o-view&quot;&gt;&lt;/output&gt;">장면 <output id="o-view"></output></label>
+        <select id="view" class="sel"><option value="coach" selected data-en="Coach and performers">코치와 선수</option><option value="sports" data-en="Sports illustration (rookie award, magazine cover)">스포츠 예시 (신인상·잡지 표지)</option></select>
+        <span class="hint" data-en="The same model told as another story. The sports one is an analogy, not real data">같은 모델을 다른 이야기로 보기. 스포츠 쪽은 비유일 뿐 실제 자료가 아니에요</span></div>
+    </div>
+    <div class="btns">
+      <button class=primary id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Same settings, new luck">같은 설정, 다른 운</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3 data-en="① Trial 1 and Trial 2 Scores">① 1회 점수와 2회 점수</h3>
+    <p data-en="The horizontal axis is the trial 1 score, the vertical axis the trial 2 score. The dashed diagonal means &quot;exactly the same score next time&quot;. Green is the praised (top of trial 1), red the scolded (bottom of trial 1). The blue regression line is flatter than the diagonal, pulling the right end down and the left end up.">가로는 1회 점수, 세로는 2회 점수입니다. 점선 대각선은 "다음에도 똑같은 점수"입니다. 초록은 칭찬받은 쪽(1회 상위), 빨강은 혼난 쪽(1회 하위)이고, 파란 회귀선은 대각선보다 평평해서 오른쪽 끝은 아래로, 왼쪽 끝은 위로 끌려옵니다.</p>
+    <canvas id="c-scatter" class="rounded" aria-label="① Trial 1 and Trial 2 Scores"></canvas>
+    <div class="anim-bar">
+      <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
+      
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="speed"><option value="30" data-en="Slow">느리게</option><option value="120" selected data-en="Normal">보통</option><option value="500" data-en="Fast">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;The praised (top in trial 1)"><i style="background:#1fa463"></i>칭찬받은 쪽 (1회 상위)</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;The scolded (bottom in trial 1)"><i style="background:#e5484d"></i>혼난 쪽 (1회 하위)</span><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Regression line"><i style="background:var(--accent)"></i>회귀선</span></div>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3 data-en="② Average Change of the Praised and the Scolded">② 칭찬받은 쪽과 혼난 쪽의 평균 변화</h3>
+    <p data-en="How many points each group changed on average in the next trial. The gold dashed line is the change the words really caused, which sits at 0 when the true effect is 0. The gap between a bar and its dashed line is all regression.">두 집단이 다음 시도에서 평균 몇 점 변했는지입니다. 금색 점선은 말이 실제로 만든 변화로, 진짜 효과가 0이면 0에 있습니다. 막대와 점선의 차이가 전부 회귀입니다.</p>
+    <canvas id="c-bars" class="rounded" aria-label="② Average Change of the Praised and the Scolded"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ The Conclusion the Coach Draws">③ 코치가 얻는 결론</h3>
+    <p data-en="The coach (or reporter) only sees the difference between the two groups&#x27; changes. The black needle is the difference the coach sees, the gold diamond the true difference. Even when the words do nothing, the needle points to &quot;scolding works&quot;, and it does not swing back easily as the true effect grows.">코치(또는 기자)는 두 집단의 변화 차이만 봅니다. 검은 바늘이 코치가 보는 차이, 금색 마름모가 진짜 차이입니다. 말이 효과가 없어도 바늘은 "혼내는 게 낫다" 쪽으로 가고, 효과를 키워도 바늘은 쉽게 돌아오지 않습니다.</p>
+    <canvas id="c-coach" class="rounded" aria-label="③ The Conclusion the Coach Draws"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="④ Depending on the Luck Share">④ 운의 몫에 따라</h3>
+    <p data-en="The horizontal axis is the luck share, the vertical axis the average change of each group. With no luck there is no change; the more luck, the more the praised fall and the scolded rise. Dots are three runs with the same settings.">가로는 운의 몫, 세로는 두 집단의 평균 변화입니다. 운이 없으면 변화도 없고, 운이 클수록 칭찬받은 쪽은 더 크게 떨어지고 혼난 쪽은 더 크게 오릅니다. 점은 같은 설정으로 3번 돌린 결과입니다.</p>
+    <canvas id="c-luck" class="" aria-label="④ Depending on the Luck Share"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;The praised"><i style="background:#1fa463"></i>칭찬받은 쪽</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;The scolded"><i style="background:#e5484d"></i>혼난 쪽</span></div>
+      <div class="legend"><span id="note-l" data-en="Calculating…">계산 중…</span></div>
+    </section>
+  </div>
+
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout" data-en="&lt;b&gt;What it shows:&lt;/b&gt; Averaging 400 repeats with 50% luck, 400 people, the top and bottom 20% and a true effect of 0, the praised dropped by 7.0 points on average and the scolded rose by 7.1 (theory: ∓7.0). The difference the coach sees was +14.1 points, and in all 400 samples the scolded rose more. The slope of the regression line was 0.50, equal to the reliability (1 − luck share), which is the correlation between the two trials. At 0% luck the change was 0, at 10% it was ∓1.4, at 90% ∓12.6 and at 100% ∓14.0. Picking only the top and bottom 5% gave a change of about ∓10.4, and picking 50% each cut it to about ∓4.0. Even with only 20 people, 97% of samples led to the same conclusion. Praise would have to truly add 7 points and scolding truly subtract 7 (at 50% luck and 20%) before the difference the coach sees reaches 0. In the sports illustration, even with a true cover effect of 0 the cover group changed by −7.0 and the worst-season group by +7.1, and when the cover truly caused −3 points the cover group fell by 10.0, so true effect and regression could not be told apart by eye."><b>말하는 것:</b> 운의 몫 50%, 400명, 상위·하위 20%, 말의 진짜 효과 0으로 400번 반복해 평균을 내면, 칭찬받은 쪽은 다음에 평균 −7.0점 떨어졌고 혼난 쪽은 +7.1점 올랐습니다(이론값 ∓7.0). 코치가 보는 차이는 +14.1점이었고, 400번의 표본 모두에서 혼난 쪽이 더 많이 올랐습니다. 회귀선의 기울기는 0.50으로, 두 시도 점수의 상관인 신뢰도(1 − 운의 몫)와 같았습니다. 운의 몫이 0%면 변화는 0, 10%면 ∓1.4, 90%면 ∓12.6, 100%면 ∓14.0이었습니다. 상위·하위를 5%만 고르면 변화가 약 ∓10.4, 50%씩 고르면 약 ∓4.0으로 줄었습니다. 사람이 20명뿐이어도 표본의 97%에서 같은 결론이 나왔습니다. 칭찬이 실제로 +7점을 올리고 꾸중이 −7점을 내려야(운 50%, 20% 기준) 비로소 코치가 보는 차이가 0이 됩니다. 스포츠 예시에서는 표지의 진짜 효과가 0이어도 표지 그룹이 −7.0점, 최악의 시즌 그룹이 +7.1점 변했고, 표지가 실제로 −3점을 만들면 표지 그룹은 −10.0점이 되어 진짜 효과와 회귀를 눈으로 가려낼 수 없었습니다.</div>
+  <div class="callout" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; This does not mean praise has no effect or that scolding is better. The model sets the true effect to 0, and what real praise and scolding do must be judged with experiments that include a comparison group. The flight instructor story is an anecdote told by Daniel Kahneman in &lt;i&gt;Thinking, Fast and Slow&lt;/i&gt;; this page&#x27;s model is a simplified retelling of it, not an experimental result. The sports scene is likewise only an illustration of the familiar stories &quot;slump after winning rookie of the year&quot; and &quot;slump after a magazine cover&quot;. It uses no real player or magazine records and says nothing about whether such jinxes actually exist. The model also assumes skill never changes and luck is independent on each trial, while real skill changes with practice and age."><b>말하지 않는 것:</b> 칭찬이 효과가 없다거나 꾸중이 낫다는 뜻이 아닙니다. 이 모델은 진짜 효과를 0으로 맞춘 것이고, 현실의 칭찬과 꾸중이 어떤 효과를 내는지는 비교 집단을 둔 실험으로 따져야 합니다. 비행 교관 이야기는 대니얼 카너먼이 『생각에 관한 생각』(Thinking, Fast and Slow)에서 소개한 일화로, 이 페이지의 모델은 그 일화를 단순화해 다시 만든 것이지 실험 결과가 아닙니다. 스포츠 장면도 "신인상을 받은 뒤 부진하다" "잡지 표지에 나오면 부진하다"는 흔한 이야기를 빗댄 예시일 뿐 실제 선수·잡지의 기록을 쓰지 않았고, 그런 징크스가 실제로 있는지 없는지는 말하지 않습니다. 또 이 모델은 실력이 변하지 않고 운이 시도마다 독립이라고 가정하며, 현실의 실력은 연습과 나이로 변합니다.</div>
+
+  <h2 data-en="Implementation notes">구현 메모</h2>
+  <ul class="small">
+    <li  data-en="In &lt;i&gt;Thinking, Fast and Slow&lt;/i&gt; (2011), Daniel Kahneman explains an anecdote in which a flight instructor came to believe that &quot;praise is followed by worse performance, scolding by better&quot; as regression to the mean. This project&#x27;s implementation is a simplified model of that anecdote and does not reproduce the anecdote or any figures from the book. The concept of regression itself is generally traced to the work of Francis Galton.">대니얼 카너먼, 『생각에 관한 생각』(<i>Thinking, Fast and Slow</i>, 2011)에서 비행 교관이 "칭찬하면 다음에 못하고 혼내면 다음에 잘한다"고 믿게 된 일화를 평균으로의 회귀로 설명합니다. 이 프로젝트의 구현은 그 일화를 단순화한 모델이며, 일화나 책의 수치를 재현한 것이 아닙니다. 평균으로의 회귀라는 개념 자체는 프랜시스 골턴의 연구에서 비롯됐다고 알려져 있습니다.</li>
+    <li  data-en="Score = 50 + 10 × (√(1 − luck share) × skill + √(luck share) × luck), with skill and luck standard normal. This gives both trials the same spread and a correlation of 1 − luck share, so the regression slope equals the reliability (when the true effect is 0). The theory value is (luck share) × how far above 50 the top group averaged in trial 1, taken from the tail mean φ(z)/cut share of the normal distribution.">점수 = 50 + 10 × (√(1 − 운의 몫) × 실력 + √(운의 몫) × 운)이고 실력과 운은 표준정규분포입니다. 이렇게 하면 1회와 2회 점수의 흩어짐이 같고 상관이 1 − 운의 몫이라서, 회귀선의 기울기가 신뢰도와 같습니다(진짜 효과가 0일 때). 이론값은 상위 집단의 1회 평균이 50보다 높은 만큼 × (운의 몫)으로, 정규분포 꼬리의 평균 φ(z)/컷 비율에서 나옵니다.</li>
+    <li  data-en="You can verify with &lt;code&gt;node tools/validate-regression.js&lt;/code&gt;. The numbers above average 400 repeats of a 400-person sample, and the same seed gives the same result. Graph ④ averages 3 runs of 40 samples each.">검증은 <code>node tools/validate-regression.js</code>로 할 수 있습니다. 위 숫자는 400명 표본을 400번 반복한 평균이고, 같은 시드는 같은 결과를 냅니다. ④번 그래프는 표본을 40번씩 3번 반복한 평균입니다.</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/regression&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/regression">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap" data-en="Simulatio Lab · Operator: Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
+<script src="../../exps.js"></script>
+<script src="../../layout.js"></script>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../counter.js"></script>
+</body>
+</html>

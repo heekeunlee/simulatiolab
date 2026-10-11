@@ -18,7 +18,7 @@
 <header class="hero" id="hero">
   <canvas id="swarm" aria-hidden="true"></canvas>
   <div class="hero-in wrap">
-    <p class="eyebrow" data-en="SIMULATIO LAB · 28 experiments · 10 fields">SIMULATIO LAB · 실험 28개 · 분야 10개</p>
+    <p class="eyebrow" data-en="SIMULATIO LAB · 34 experiments · 11 fields">SIMULATIO LAB · 실험 34개 · 분야 11개</p>
     <h1 class="mega" data-en="A Lab for&lt;br&gt;Testing &quot;What If?&quot;">만약에를<br>실험하는 곳</h1>
     <p class="rq" id="rq" aria-live="polite"></p>
     <p class="lead" data-en="Is success luck? How do rumors spread? We test &quot;what if&quot; questions about people, society, nature and art with simulations, and publish them so you can change the variables and run them yourself.">성공은 운일까? 소문은 어떻게 퍼질까? 사람과 사회, 자연과 예술에 대한 '만약에'를 시뮬레이션으로 실험하고, 변수를 바꿔 직접 돌려볼 수 있게 공개합니다.</p>
@@ -30,7 +30,7 @@
 <main class="wrap wide">
   <section class="table-sec" id="table">
     <h2 data-en="The Periodic Table of Experiments">실험 주기율표</h2>
-    <p class="muted" data-en="28 experiments in 10 fields (columns). Hover a cell and its page opens in the lab notebook below.">28개의 실험을 10개 분야(열)로 묶었어요. 칸 위에 마우스를 올리면 아래 실험 노트에 내용이 나타납니다.</p>
+    <p class="muted" data-en="34 experiments in 11 fields (columns). Hover a cell and its page opens in the lab notebook below.">34개의 실험을 11개 분야(열)로 묶었어요. 칸 위에 마우스를 올리면 아래 실험 노트에 내용이 나타납니다.</p>
     <div class="ptable">
       <div class="col" data-field="success" data-color="#e0a100" data-icon="💰" style="--c:#e0a100">
         <div class="fh"><span class="ic">💰</span><b data-en="Success &amp;amp; Inequality">성공과 불평등</b><i>3</i></div>
@@ -215,17 +215,56 @@
           <span class="hid t-title" data-en="Why Does Winning an Auction Cost You?">경매에서 이기면 왜 손해일까</span><span class="hid t-desc" data-en="The highest bidder wins, so why does the winner lose on average? How much should you shade your bid to break even?">가장 높게 쓴 사람이 이기는데, 왜 이긴 사람이 평균적으로 손해일까요? 얼마나 깎아 써야 본전일까요?</span><span class="hid t-model" data-en="Winner&#x27;s curse model">승자의 저주 모델</span>
         </a>
       </div>
+      <div class="col" data-field="paradox" data-color="#4d7c0f" data-icon="🔄" style="--c:#4d7c0f">
+        <div class="fh"><span class="ic">🔄</span><b data-en="Flip the View">뒤집어 보기</b><i>6</i></div>
+        <a class="el" href="experiments/braess/" data-field="paradox" data-kind="net" style="--c:#4d7c0f">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">27</span><span class="sym">Br</span>
+          <span class="nm" data-en="Braess">새 길의 역설</span>
+          <span class="hid t-title" data-en="A New Road Made Everyone Slower">새 길을 뚫었더니 모두가 느려졌다</span><span class="hid t-desc" data-en="Open a shortcut and everyone&#x27;s commute gets longer? Let drivers pick their own routes and see.">지름길을 열었더니 모두의 출근 시간이 늘어난다? 운전자들이 스스로 길을 고르게 두고 확인해요.</span><span class="hid t-model" data-en="Braess network model">브라에스 네트워크 모델</span>
+        </a>
+        <a class="el" href="experiments/regression/" data-field="paradox" data-kind="drift" style="--c:#4d7c0f">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">28</span><span class="sym">Rg</span>
+          <span class="nm" data-en="Regression">평균 회귀</span>
+          <span class="hid t-title" data-en="Praise Was Followed by Worse, Scolding by Better">칭찬했더니 못하고, 혼냈더니 잘하더라</span><span class="hid t-desc" data-en="Even if words do nothing, scolding seems to work and praise seems to backfire. What does the coach learn?">말에 아무 효과가 없어도 혼낸 뒤엔 좋아지고 칭찬한 뒤엔 나빠져 보여요. 코치는 무엇을 배우게 될까요?</span><span class="hid t-model" data-en="Regression-to-the-mean model">평균으로의 회귀 모델</span>
+        </a>
+        <a class="el" href="experiments/survivor/" data-field="paradox" data-kind="heat" style="--c:#4d7c0f">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">29</span><span class="sym">Sv</span>
+          <span class="nm" data-en="Survivors">생존자 편향</span>
+          <span class="hid t-title" data-en="Bullet Holes on Returning Planes: Where Does the Armor Go?">돌아온 비행기의 총탄 자국, 어디를 보강할까</span><span class="hid t-desc" data-en="The places with no holes may be the real weak spots. Add the planes that never came back.">구멍이 없는 곳이 진짜 약점일 수 있어요. 돌아오지 못한 비행기를 함께 놓고 비교해요.</span><span class="hid t-model" data-en="Survivorship-bias model">생존자 편향 모델</span>
+        </a>
+        <a class="el" href="experiments/friendship/" data-field="paradox" data-kind="net" style="--c:#4d7c0f">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">30</span><span class="sym">Fp</span>
+          <span class="nm" data-en="Friend Paradox">친구의 역설</span>
+          <span class="hid t-title" data-en="Why Do My Friends Have More Friends Than I Do?">내 친구들은 왜 나보다 친구가 많을까</span><span class="hid t-desc" data-en="Popular people appear on many friend lists. Click a person to check.">인기 있는 사람은 많은 친구 목록에 등장해요. 사람을 눌러 확인해 보세요.</span><span class="hid t-model" data-en="Growing social network model">관계망 성장 모델</span>
+        </a>
+        <a class="el" href="experiments/inspection/" data-field="paradox" data-kind="stripes" style="--c:#4d7c0f">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">31</span><span class="sym">Ip</span>
+          <span class="nm" data-en="Waiting">대기 시간</span>
+          <span class="hid t-title" data-en="Why Does the Bus Always Make You Wait Longer?">버스는 왜 늘 더 오래 기다릴까</span><span class="hid t-desc" data-en="If a bus comes every 10 minutes on average, how long do you wait on average? The same reason makes your class feel crowded.">평균 10분마다 오는 버스를 기다리면 평균 몇 분을 기다릴까요? 내 반이 늘 붐비는 이유도 같아요.</span><span class="hid t-model" data-en="Inspection-paradox model">검사 역설 모델</span>
+        </a>
+        <a class="el" href="experiments/coincidence/" data-field="paradox" data-kind="ring" style="--c:#4d7c0f">
+          <canvas class="glyph" aria-hidden="true"></canvas>
+          <span class="num">32</span><span class="sym">Ci</span>
+          <span class="nm" data-en="Coincidence">우연의 일치</span>
+          <span class="hid t-title" data-en="Is a Coincidence Not a Coincidence?">우연의 일치는 우연이 아니다?</span><span class="hid t-desc" data-en="With 23 people the chance of a shared birthday is 50%. How different is a match with me?">23명이면 생일이 겹칠 확률이 50%. 그런데 "나와 겹칠" 확률은 얼마나 다를까요?</span><span class="hid t-model" data-en="Birthday-problem model">생일 문제 모델</span>
+        </a>
+      </div>
       <div class="col" data-field="society" data-color="#475569" data-icon="🏙️" style="--c:#475569">
         <div class="fh"><span class="ic">🏙️</span><b data-en="Society Today">사회 현안</b><i>2</i></div>
         <a class="el" href="experiments/population/" data-field="society" data-kind="tri2" style="--c:#475569">
           <canvas class="glyph" aria-hidden="true"></canvas>
-          <span class="num">27</span><span class="sym">Po</span>
+          <span class="num">33</span><span class="sym">Po</span>
           <span class="nm" data-en="Population">2070 인구</span>
           <span class="hid t-title" data-en="What Does Korea&#x27;s Population Look Like in 2070?">저출산이 계속되면 2070년 인구 구조는?</span><span class="hid t-desc" data-en="If fertility stays as it is, how does the population pyramid change? Try other fertility and migration levels.">출산율이 이대로면 인구 피라미드는 어떻게 바뀔까? 출산율과 이민을 바꿔 보세요.</span><span class="hid t-model" data-en="Cohort-component model">코호트 인구 모델</span>
         </a>
         <a class="el" href="experiments/apartment/" data-field="society" data-kind="heat" style="--c:#475569">
           <canvas class="glyph" aria-hidden="true"></canvas>
-          <span class="num">28</span><span class="sym">Ap</span>
+          <span class="num">34</span><span class="sym">Ap</span>
           <span class="nm" data-en="Housing">아파트 가격</span>
           <span class="hid t-title" data-en="How Do Apartment Prices Spread?">아파트 가격은 어떻게 번질까</span><span class="hid t-desc" data-en="See, in a toy model, how a rise in one neighborhood spreads to the next, and what lending limits and interest rates do.">한 동네의 상승이 이웃으로 번지는 과정과, 대출 규제·금리가 미치는 영향을 장난감 모델로 봐요.</span><span class="hid t-model" data-en="Spatial contagion model">공간 확산 모델</span>
         </a>

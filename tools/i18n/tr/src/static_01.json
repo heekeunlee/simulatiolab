@@ -1,254 +1,150 @@
 [
 {
-"id": "s0128",
-"en": "What Does Korea's Population Look Like in 2070?"
+"id": "s0358",
+"en": "<b>What it doesn't show:</b> This does not reproduce any real city's road network. It is this project's simplified model: a small symmetric network, everyone with the same origin and destination, drivers who care only about time, and the same choices repeated day after day. It does not mean shortcuts or new roads are always harmful, nor that roads should not be built: with light traffic the shortcut clearly helped. Stories from places such as Stuttgart or Seoul's Cheonggyecheon, where closing or removing a road supposedly improved traffic, are often cited as examples of this paradox, but they are mixed with other changes in traffic, so the evidence is anecdotal, and this model neither explains nor reproduces those events. Reality also involves things this model leaves out, such as switching to public transport, changing departure times, and induced demand where a new road brings new traffic."
 },
 {
-"id": "s0129",
-"en": "If fertility stays as it is, how does the population pyramid change? Try other fertility and migration levels."
+"id": "s0359",
+"en": "This project's own implementation illustrating the paradox described in Braess (1968), \"Über ein Paradoxon aus der Verkehrsplanung\", <i>Unternehmensforschung</i> 12, 258-268. It does not reproduce that paper's numbers; the setting of 4,000 drivers, x/100 minutes on congestible roads and a fixed 45 minutes follows the widely used textbook example (Easley &amp; Kleinberg, <i>Networks, Crowds, and Markets</i>)."
 },
 {
-"id": "s0130",
-"en": "Cohort-component model"
+"id": "s0360",
+"en": "Treating drivers as a continuous quantity, the equilibrium can be solved in closed form. With a = sensitivity/1000, fixed time 45 and shortcut cost c: if a × drivers + c ≤ 45 everyone takes the shortcut and the average is 2a × drivers + c; if it is more crowded but a × drivers < 2(45 − c), only some take it and all three routes tie at 90 − c; beyond that nobody takes it, same as closed. Graphs ④ and ⑤ use these formulas, and I checked that the end state of the simulation matches them."
 },
 {
-"id": "s0131",
-"en": "Housing"
+"id": "s0361",
+"en": "For linear delays (a congestible road's time proportional to its drivers), Roughgarden &amp; Tardos (2002), \"How bad is selfish routing?\", <i>Journal of the ACM</i> 49(2) show that the selfish equilibrium is at most 4/3 times worse than the social optimum. In this model the price of anarchy peaks at 1.33 (4/3) with 4,500 drivers (cost 0, sensitivity 10), equal to that bound."
 },
 {
-"id": "s0132",
-"en": "How Do Apartment Prices Spread?"
+"id": "s0362",
+"en": "You can verify with <code>node tools/validate-braess.js</code>. The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. The social optimum is the minimum average time found by trying every possible number of shortcut users one by one."
 },
 {
-"id": "s0133",
-"en": "See, in a toy model, how a rise in one neighborhood spreads to the next, and what lending limits and interest rates do."
+"id": "s0363",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/braess\">GitHub</a>."
 },
 {
-"id": "s0134",
-"en": "Spatial contagion model"
+"id": "s0364",
+"en": "Is a Coincidence Not a Coincidence? · Simulatio Lab"
 },
 {
-"id": "s0135",
-"en": "Experiment of the day"
+"id": "s0365",
+"en": "A spooky coincidence is often stranger when it never happens. Use the birthday problem to see how different \"a match somewhere\" is from \"a match with me\"."
 },
 {
-"id": "s0136",
-"en": "Lab notebook"
+"id": "s0366",
+"en": "Learning that two people in a gathering share a birthday gives you a chill: \"this can't be chance\". Yet with only a few people in the room, it would be stranger if nothing like it happened. Change the headcount, the number of features and the size of each feature, and watch how \"someone matches somewhere\" differs from \"someone matches me\"."
 },
 {
-"id": "s0137",
-"en": "Try it yourself →"
+"id": "s0367",
+"en": "<b>N people</b> gather in a room. Everyone has <b>k features</b>: the first is a birthday (365 values, leap days ignored) and the others are things like hometown, hobby or school, each with a fixed number of possible values. All are drawn independently with equal chances."
 },
 {
-"id": "s0138",
-"en": "Simulatio Lab · Operator: Heekeun Lee (<a href=\"mailto:clzmyiz@gmail.com\">clzmyiz@gmail.com</a>) · YouTube <a href=\"https://www.youtube.com/@simulatiolab\">youtube.com/@simulatiolab</a>"
+"id": "s0368",
+"en": "Two people who share at least one feature form a <b>matching pair</b>. N people make N(N−1)/2 possible pairs: when the headcount grows N-fold, the pairs grow roughly N²-fold."
 },
 {
-"id": "s0139",
-"en": "How Does a Single Shot Become a World War? · Simulatio Lab"
+"id": "s0369",
+"en": "Person 0 is <b>me</b>. The model counts separately \"a match somewhere in the room\" and \"someone matches me\". Lines are calculated values (theory) and dots are results of actually running many gatherings."
 },
 {
-"id": "s0140",
-"en": "See how far a small clash spreads depending on how dense the alliances are and how strictly pacts are honored, using an abstract cascade model."
+"id": "s0370",
+"en": "The model assumes every feature is uniform and independent. Real birthdays are not perfectly even through the year, and people from the same hometown may share hobbies, so reality is more complicated."
 },
 {
-"id": "s0141",
-"en": "All experiments"
+"id": "s0371",
+"en": "People in the room <output id=\"o-n\"></output>"
 },
 {
-"id": "s0142",
-"en": "When one country attacks another, its allies are drawn in one by one. Sometimes it ends with two or three countries; sometimes nearly every country is entangled. At what point does that difference appear as alliances thicken? This is an abstract toy model with 24 anonymous countries, and it does not explain the causes of any real war."
+"id": "s0372",
+"en": "The headcount N. 23 is the famous number in the birthday problem"
 },
 {
-"id": "s0143",
-"en": "How the model works"
+"id": "s0373",
+"en": "Number of features <output id=\"o-k\"></output>"
 },
 {
-"id": "s0144",
-"en": "There are 24 countries (A–X). If two countries are <b>allies</b>, one gets a call for help when the other enters a war. Alliances are mutual-aid pacts, and the countries are anonymous, with no names or map."
+"id": "s0374",
+"en": "1 means birthday only. 2 or more adds features like hometown and hobby"
 },
 {
-"id": "s0145",
-"en": "Choose one of three alliance structures: <b>random</b> (an average number of allies per country), <b>two blocs</b> (alliances inside each bloc, with 2 links between blocs), or <b>isolated pairs</b> (each country has exactly one ally)."
+"id": "s0375",
+"en": "Values per other feature <output id=\"o-pool\"></output>"
 },
 {
-"id": "s0146",
-"en": "At the start one country (the <b style=\"color:#e5484d\">red side</b>) attacks another (the <b style=\"color:#2f6fed\">blue side</b>). Each round, every neutral country is pulled in by each of its allies already at war with the probability \"chance an ally honors the pact.\" If it is called from both sides at once, it goes to the side with more calls, and picks randomly on a tie."
+"id": "s0376",
+"en": "How many values each non-birthday feature can take (e.g. 30 hobbies). Larger means rarer matches"
 },
 {
-"id": "s0147",
-"en": "The war ends when no new country joins. On this page, a war that pulls in half of all countries (12) or more is called \"world-war scale,\" and 4 countries or fewer is \"stayed small.\" These cutoffs are for explanation only."
+"id": "s0377",
+"en": "Same settings, new gatherings"
 },
 {
-"id": "s0148",
-"en": "Try it yourself"
+"id": "s0378",
+"en": "① Watching the Gatherings"
 },
 {
-"id": "s0149",
-"en": "Average allies per country <output id=\"o-allies\"></output>"
+"id": "s0379",
+"en": "Gatherings run one after another. The red dot at the top is me and everyone else stands around the circle. Matching pairs are joined by lines, and lines to me are red."
 },
 {
-"id": "s0150",
-"en": "Used only for random alliances and two blocs (average within a bloc)"
+"id": "s0380",
+"en": "② Chance of a Match Somewhere"
 },
 {
-"id": "s0151",
-"en": "Chance an ally honors the pact <output id=\"o-commit\"></output>"
+"id": "s0381",
+"en": "The horizontal axis is the headcount, the vertical axis is the chance that some pair in the room matches. The blue line and dots are the current settings and the dashed line is the calculation for birthdays only. Where the dashed line passes 50% is the famous 23 people."
 },
 {
-"id": "s0152",
-"en": "The chance of joining when an ally is at war"
+"id": "s0382",
+"en": "<i style=\"background:var(--accent)\"></i>Current settings (line: calculation, dots: simulation)"
 },
 {
-"id": "s0153",
-"en": "Alliance structure <output id=\"o-structure\"></output>"
+"id": "s0383",
+"en": "<i style=\"background:var(--muted)\"></i>Birthday only (calculation)"
 },
 {
-"id": "s0154",
-"en": "Random alliances"
+"id": "s0384",
+"en": "③ \"Somewhere\" versus \"With Me\""
 },
 {
-"id": "s0155",
-"en": "Two blocs (2 links between)"
+"id": "s0385",
+"en": "The same current settings, with the headcount extended to 365. The blue line is \"someone matches somewhere\" and the red line is \"someone matches me\". The dashed red line is the chance of matching me when birthday is the only feature, and it needs 253 people besides me to pass 50%."
 },
 {
-"id": "s0156",
-"en": "Isolated pairs"
+"id": "s0386",
+"en": "<i style=\"background:var(--accent)\"></i>A match somewhere"
 },
 {
-"id": "s0157",
-"en": "\"Another shot\" draws a new world and a new first attack"
+"id": "s0387",
+"en": "<i style=\"background:var(--unlucky)\"></i>A match with me"
 },
 {
-"id": "s0158",
-"en": "Start over"
+"id": "s0388",
+"en": "<i style=\"background:#e8a29a\"></i>A match with me, birthday only (calculation)"
 },
 {
-"id": "s0159",
-"en": "Same settings, another shot"
+"id": "s0389",
+"en": "④ N People, N(N−1)/2 Pairs"
 },
 {
-"id": "s0160",
-"en": "Reset to defaults"
+"id": "s0390",
+"en": "Gray is the number of people, blue is the number of possible pairs and the red line is the expected number of matching pairs under the current settings. A small rise in headcount multiplies the chances of a match much faster."
 },
 {
-"id": "s0161",
-"en": "① The Cascade Spreading"
+"id": "s0391",
+"en": "<i style=\"background:var(--muted)\"></i>People"
 },
 {
-"id": "s0162",
-"en": "Circles are countries and lines are alliances. Black rings mark the first attacker and the attacked country, and orange dashed lines are alliances that cross the two sides (ties pulling toward different sides). Watch how far it spreads each round."
+"id": "s0392",
+"en": "<i style=\"background:var(--accent)\"></i>Possible pairs"
 },
 {
-"id": "s0163",
-"en": "⏸ Pause"
+"id": "s0393",
+"en": "<i style=\"background:var(--unlucky)\"></i>Expected matching pairs"
 },
 {
-"id": "s0164",
-"en": "Step"
-},
-{
-"id": "s0165",
-"en": "Restart"
-},
-{
-"id": "s0166",
-"en": "Slow"
-},
-{
-"id": "s0167",
-"en": "Normal"
-},
-{
-"id": "s0168",
-"en": "Fast"
-},
-{
-"id": "s0169",
-"en": "<i style=\"background:#e9edf5;border:1.5px solid #c4cbdb\"></i>Neutral"
-},
-{
-"id": "s0170",
-"en": "<i style=\"background:#e5484d\"></i>Red side"
-},
-{
-"id": "s0171",
-"en": "<i style=\"background:#2f6fed\"></i>Blue side"
-},
-{
-"id": "s0172",
-"en": "<i style=\"background:#d97706\"></i>Alliance across the sides (dashed)"
-},
-{
-"id": "s0173",
-"en": "② Countries at War by Round"
-},
-{
-"id": "s0174",
-"en": "The black line is all countries at war, and red and blue are the two sides. The dashed line is half of all countries. See whether the line passes half, and after how many rounds it stops."
-},
-{
-"id": "s0175",
-"en": "③ When the Shot Is Fired 300 Times With These Settings"
-},
-{
-"id": "s0176",
-"en": "The distribution of the number of countries at war when the alliance web and the first attack are redrawn 300 times with these settings. Gray is 4 or fewer, orange is in between, and red is half or more (world-war scale). See whether outcomes split toward the two ends."
-},
-{
-"id": "s0177",
-"en": "Calculating…"
-},
-{
-"id": "s0178",
-"en": "④ As Alliances Thicken"
-},
-{
-"id": "s0179",
-"en": "The horizontal axis is the average number of allies per country. The blue line is the average share of countries at war and the red line is the share that became world-war scale. See where they rise steeply."
-},
-{
-"id": "s0180",
-"en": "⑤ As Pacts Are Honored More Strictly"
-},
-{
-"id": "s0181",
-"en": "The horizontal axis is the chance an ally honors the pact. Compare how much that chance changes the spread when the alliances stay the same."
-},
-{
-"id": "s0182",
-"en": "What This Shows, and What It Doesn't"
-},
-{
-"id": "s0183",
-"en": "<b>What it shows:</b> In this model, with the same 24 countries and the same pacts, once alliances got reasonably dense a small clash suddenly spread to nearly every country. At a 70% chance of honoring pacts, with an average of 0 allies per country the war always ended with 2 countries; with 1 ally it averaged 6.3 countries (world-war scale 15%), 1.5 allies 12.1 (56%), 2 allies 17.4 (85%), 3 allies 22.4 (99%), and with 4 or more nearly every country was drawn in. Even with 3 allies on average, a 10% chance of honoring pacts gave 4.0 countries on average (world-war scale 6%) and 30% gave 16.0 (71%). With isolated pairs, the war stopped at 4 countries at most however strictly pacts were honored."
-},
-{
-"id": "s0184",
-"en": "<b>What it doesn't show:</b> It does not mean real wars, or the events of 1914, unfolded like this, and it assigns responsibility to no country or leader. Real wars involve politics, economics, military planning, misunderstandings, choices and the actual content of alliances, and none of that is here. It is a very simple toy model in which countries are identical, alliances are plain links, and being \"pulled in\" is decided by probability alone. The average number of allies and the chance of honoring a pact are not real-world figures."
-},
-{
-"id": "s0185",
-"en": "Implementation notes"
-},
-{
-"id": "s0186",
-"en": "This is a simple design by this project, inspired by contagion and cascade models (for example Watts (2002), \"A simple model of global cascades on random networks\", <i>PNAS</i> 99(9)). It does not reproduce a paper's model or values, and it is not historical research. The countries are anonymous A–X, with no real countries, leaders or dates."
-},
-{
-"id": "s0187",
-"en": "Random alliances give every pair of countries the same chance of being allied (the average number of allies is the slider value). In two blocs, each bloc of 12 forms alliances the same way only inside the bloc, with 2 links between the blocs, and the first attack happens between different blocs. In isolated pairs, the 24 countries are matched into 12 pairs."
-},
-{
-"id": "s0188",
-"en": "The figures above are averages of 400 runs of the same setting (<code>node tools/validate-alliance.js</code>), while graphs ③–⑤ are results of 300 runs or 6 batches of 40 on screen, so the numbers can differ slightly. In two blocs, with an average of 1 ally inside a bloc the war averaged 7.4 countries (world-war scale 22%), and with 2 allies 18.9 countries (90%)."
-},
-{
-"id": "s0189",
-"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/alliance\">GitHub</a>."
-},
-{
-"id": "s0190",
-"en": "How Do Apartment Prices Spread? · Simulatio Lab"
+"id": "s0394",
+"en": "<b>What it shows:</b> With birthday only (one feature), the chance that some pair in the room shares a birthday was 50.7% with 23 people and 99.0% with 57 people (running 20,000 gatherings gave 50.4% and 99.0%, matching the calculation). Among 23 people there are as many as 253 possible pairs. But the chance that someone shares a birthday with me was only 5.9% with the same 23 people and just 14.2% with 57, and to pass 50% it took 253 people besides me (254 in all). The same 23 people give 50.7% for \"someone, somewhere\" and 5.9% for \"me\". Adding features makes \"somewhere\" nearly certain very quickly. With 23 people and features of birthday plus one 30-value feature (2 features), the chance of some match was above 99.999%, effectively 100% and the chance of matching me rose to 55.3%. With 3 features the chance of matching me was 78.8%, and with 6 features it was 97.7%. A striking coincidence needs only \"any match at all\", not \"the specific match I picked in advance\", so wherever people gather, some match turns up somewhere. The statisticians Diaconis and Mosteller (1989) called this the \"law of truly large numbers\": with a large enough sample, even very rare events happen somewhere."
 }
 ]

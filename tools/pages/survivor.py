@@ -1,0 +1,66 @@
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from mk2 import *
+
+def b(i, ko, en, cls=''):
+    return f'<button{" class=%s" % cls if cls else ""} id="{i}" data-en="{esc(en)}">{ko}</button>'
+SECS = [('엔진', 'Engine'), ('조종석', 'Cockpit'), ('동체', 'Fuselage'), ('날개', 'Wings'), ('꼬리', 'Tail')]
+armor_buttons = ('\n    <div class="btns">' + ''.join(b(f'tg-{i}', k, e) for i, (k, e) in enumerate(SECS)) + '</div>'
+                 '\n    <div class="btns">' + b('pick-int', '직관대로: 구멍이 많은 곳에 보강', 'The intuitive way: armor where the holes are') + b('pick-wald', '월드처럼: 구멍이 빈 곳에 보강', 'Wald\'s way: armor where holes are missing') + b('pick-clear', '내 선택 지우기', 'Clear my choice') + '</div>')
+
+page(dict(
+ slug='survivor',
+ title=T('돌아온 비행기의 총탄 자국, 어디를 보강해야 할까', 'Bullet Holes on the Planes That Came Back: Where Should the Armor Go?'),
+ title_tag=T('생존자 편향: 돌아온 비행기의 총탄 자국 · 시뮬라티오 랩', 'Survivorship Bias: Bullet Holes on Returning Planes · Simulatio Lab'),
+ desc=T('돌아온 비행기에는 날개와 동체에 구멍이 가장 많습니다. 그곳에 철판을 덧대면 될까요? 생존자 편향을 직접 돌려 보세요.',
+        'Returning planes have the most holes in the wings and fuselage. Should the armor go there? Run survivorship bias yourself.'),
+ lead=T('전투에서 돌아온 비행기를 살펴보니 날개와 동체에 총탄 자국이 가장 많았습니다. 그렇다면 가장 많이 맞는 곳에 철판을 덧대는 게 당연해 보입니다. 하지만 우리가 보는 것은 "돌아온 비행기"뿐입니다. 엔진을 맞은 비행기는 돌아오지 못했으니 엔진의 구멍은 우리 눈에 거의 보이지 않습니다. 구멍이 많은 곳과 구멍이 비어 있는 곳 중 어디를 보강해야 할까요?',
+        'Looking at the planes that came back from battle, the wings and fuselage carry the most bullet holes. So it seems obvious that armor belongs where planes get hit most. But all we ever see are the planes that came back. A plane hit in the engine did not return, so engine holes are almost invisible to us. Should the armor go where the holes are, or where they are missing?'),
+ model=[T('비행기 그림을 <b>엔진·조종석·동체·날개·꼬리</b> 다섯 부위로 나눕니다. 총탄은 비행기 위 무작위 한 점에 떨어지므로 넓은 부위(날개, 동체)가 더 많이 맞습니다. 출격 한 번에 평균 3발을 맞습니다.',
+          'The plane drawing is split into five sections: <b>engine, cockpit, fuselage, wings and tail</b>. Each bullet lands on a random point of the plane, so larger sections (wings, fuselage) get hit more. A plane takes 3 hits per sortie on average.'),
+        T('부위마다 총탄 한 발이 비행기를 추락시킬 확률이 다릅니다. 엔진(슬라이더)과 조종석(40%)은 치명적이고, 동체·날개·꼬리는 5% 안팎으로 거의 버팁니다.',
+          'Each section has a different chance that one bullet brings the plane down. The engine (slider) and cockpit (40%) are deadly; the fuselage, wings and tail are around 5% or less.'),
+        T('<b>추락하지 않은 비행기만 돌아와 검사를 받습니다.</b> 왼쪽 그림은 돌아온 비행기의 구멍만, 오른쪽 그림은 실제로 맞은 총탄 전부(붉은 점은 돌아오지 못한 비행기의 것)입니다.',
+          '<b>Only planes that did not go down come back to be inspected.</b> The left picture shows only the holes on returned planes; the right shows every bullet that actually hit (red dots belong to planes that never came back).'),
+        T('방탄 장갑을 붙인 부위에 맞은 총탄은 70% 확률로 막힙니다. 장갑은 보강할 수 있는 곳 수(슬라이더)만큼만 붙일 수 있고, 같은 총탄과 같은 운으로 장갑 유무만 비교합니다.',
+          'A bullet hitting an armored section is stopped with 70% probability. You can armor only as many sections as the budget slider allows, and the same bullets and the same luck are used to compare with and without armor.'),
+        T('이야기의 바탕은 2차 세계대전 때 컬럼비아 대학 통계연구그룹의 에이브러햄 월드(Abraham Wald)가 했다고 전해지는 작업입니다. 다만 널리 퍼진 이야기는 많이 단순화되어 있고, 이 모델은 그 이야기를 이해하기 위해 이 프로젝트가 만든 단순화된 모델이지 실제 보고서의 재현이 아닙니다.',
+          'The story comes from work attributed to Abraham Wald of Columbia University\'s Statistical Research Group in the Second World War. The widely told version is heavily simplified, though, and this model is a simplified one built by this project to understand the story, not a reproduction of the actual report.')],
+ sliders=[('eng', T('엔진의 치명률', 'Engine lethality'), 0, 90, 10, 50, T('엔진에 맞은 총탄 한 발이 비행기를 추락시킬 확률', 'Chance that one bullet in the engine brings the plane down')),
+          ('n', T('출격 횟수', 'Number of sorties'), 100, 5000, 100, 2000, T('적으면 구멍 분포가 들쭉날쭉해서 해석이 흔들려요', 'With few sorties the hole pattern is noisy and the reading wobbles')),
+          ('budget', T('보강할 수 있는 곳', 'Armor budget'), 1, 3, 1, 2, T('무거워서 이만큼의 부위에만 장갑을 붙일 수 있어요', 'The armor is heavy, so only this many sections can get it'))],
+ reroll=T('같은 설정, 다른 출격 기록', 'Same settings, new sortie record'),
+ sections=[
+  dict(title=T('① 돌아온 비행기와 실제로 맞은 총탄', '① Returned Planes and the Bullets That Really Hit'),
+       p=T('출격이 한 번씩 이어집니다. 왼쪽은 돌아온 비행기에서 보이는 구멍, 오른쪽은 실제로 맞은 총탄 전부입니다. 왼쪽에서 엔진과 조종석이 유난히 비어 있는 것을 보세요. 그림의 부위(또는 아래 버튼)를 눌러 장갑을 붙여 볼 수 있습니다.',
+           'Sorties run one after another. The left picture is what you can see on returned planes; the right is every bullet that really hit. Notice how empty the engine and cockpit are on the left. Click a section of the plane (or a button below) to add armor.'),
+       id='c-map', rounded=True, anim=True,
+       speeds=[('30', T('느리게', 'Slow')), ('120', T('보통', 'Normal')), ('500', T('빠르게', 'Fast'))], speed_default='120',
+       legend=[leg('background:rgba(40,52,84,.85)', '돌아온 비행기의 구멍', 'Hole on a returned plane'), leg('background:rgba(210,50,40,.85)', '돌아오지 못한 비행기가 맞은 총탄', 'Bullet that hit a plane that never returned'), leg('background:#1fa463', '방탄 장갑', 'Armor')],
+       after_canvas=armor_buttons),
+  dict(title=T('② 맞은 총탄 중 눈에 보이는 비율', '② How Much of the Damage You Can See'),
+       p=T('부위마다 실제로 맞은 총탄 중 돌아온 비행기에서 보이는 비율입니다. 치명적인 부위일수록 증거가 사라집니다.',
+           'For each section, the share of the bullets that really hit it which you can still see on returned planes. The deadlier the section, the more of the evidence disappears.'),
+       id='c-vis'),
+  dict(title=T('③ 어디에 보강하면 살아 돌아올까', '③ Where Does Armor Bring More Planes Home?'),
+       p=T('같은 총탄, 같은 운으로 장갑을 달리 붙였을 때 생존율입니다. "구멍 많은 곳"은 돌아온 비행기에서 구멍이 가장 많은 부위, "빈 곳"은 넓이에 비해 구멍이 가장 적은 부위입니다. "최선"은 모든 부위 조합을 이론값으로 비교한 결과입니다.',
+           'Survival rate when armor is placed differently, using the same bullets and luck. "Where the holes are" means the sections with the most holes on returned planes; "missing" means the sections with the fewest holes for their size. "Best" compares every combination of sections using the exact formula.'),
+       id='c-bar', note='s'),
+  dict(title=T('④ 엔진이 치명적일수록', '④ The Deadlier the Engine'),
+       p=T('가로는 엔진의 치명률, 세로는 생존율입니다. 선 세 개는 보강 없음, 구멍 많은 곳 보강, 빈 곳 보강입니다(출격 횟수와 보강 곳수는 지금 설정).',
+           'The horizontal axis is the engine lethality, the vertical axis is the survival rate. The three lines are no armor, armor where the holes are, and armor where they are missing (sortie count and armor budget as currently set).'),
+       id='c-sweep', legend=[leg('background:#8a93a6', '보강 없음', 'No armor'), leg('background:#e0a100', '구멍 많은 곳 보강', 'Armor where the holes are'), leg('background:var(--accent)', '빈 곳 보강', 'Armor where holes are missing')], note='n'),
+ ],
+ says=T('엔진 치명률 50%, 2,000회 출격, 2곳 보강이라는 기본 설정을 시드 200개로 평균하면, 장갑이 없을 때 생존율은 67.9%였습니다. 돌아온 비행기에서 구멍이 가장 많은 동체와 날개에 장갑을 붙이면 71.3%로 3.4%p 오르는 데 그쳤고, 구멍이 비어 있는 엔진과 조종석에 붙이면 83.3%로 15.4%p 올랐습니다(이론값은 각각 68.0%, 71.4%, 83.3%). 200번 모두 직관은 동체와 날개를, 월드식은 엔진과 조종석을 골랐습니다. 이유는 ②번 그래프에 있습니다. 맞은 총탄 중 돌아온 비행기에서 보이는 비율이 엔진은 33.8%, 조종석은 40.5%인 반면 동체·날개·꼬리는 64.5~65.8%였습니다. 치명적인 곳일수록 증거가 사라지므로 "구멍이 적다"는 것은 "덜 맞는다"가 아니라 "맞으면 못 돌아온다"로 읽어야 합니다. 이 결과는 출격 횟수와 엔진 치명률에 따라 달라집니다. 엔진 치명률을 0%에서 90%까지 올려도 빈 곳 보강이 이겼고(0%에서 빈 곳 90.5% 대 구멍 많은 곳 87.6%, 90%에서 79.4% 대 60.6%, 시드 100개 평균), 이는 조종석이 계속 치명적이기 때문입니다. 보강할 수 있는 곳이 1곳이면 빈 곳 78.3% 대 구멍 많은 곳 69.7%, 3곳이면 85.2% 대 72.7%였습니다. 출격이 100회뿐이면 월드식이 최선을 고른 경우는 85%(시드 200개)였고, 500회부터는 100%였습니다.',
+        'Averaged over 200 seeds, the default setting (engine lethality 50%, 2,000 sorties, 2 sections armored) gave a survival rate of 67.9% without armor. Armoring the fuselage and wings, where returned planes have the most holes, raised it only 3.4 points to 71.3%, while armoring the engine and cockpit, where holes are missing, raised it 15.4 points to 83.3% (the exact values are 68.0%, 71.4% and 83.3%). In all 200 runs the intuitive choice was fuselage and wings and the Wald-style choice was engine and cockpit. The reason is in graph ②: the share of bullets that you can still see on returned planes was 33.8% for the engine and 40.5% for the cockpit, but 64.5 to 65.8% for the fuselage, wings and tail. The deadlier a section, the more of its evidence disappears, so "few holes" should be read not as "rarely hit" but as "if hit, it does not come home". The result depends on the sortie count and the engine lethality. Raising the engine lethality from 0% to 90% never let the intuitive choice win (missing-hole armor 90.5% vs hole-based armor 87.6% at 0%, 79.4% vs 60.6% at 90%, averaged over 100 seeds), because the cockpit stays deadly. With a budget of 1 section it was 78.3% (missing holes) vs 69.7% (hole-based), and with 3 sections 85.2% vs 72.7%. With only 100 sorties the Wald-style choice found the best pair in 85% of 200 seeds, and from 500 sorties on, in 100%.'),
+ **{'not': T('이것이 월드의 실제 보고서 내용은 아닙니다. 널리 퍼진 이야기는 "구멍이 없는 곳을 보강하라"는 한 줄로 요약되지만, 월드의 연구는 돌아온 비행기만으로 부위별 피격 후 생존 확률을 수학적으로 추정하는 방법에 관한 것이었고, 구체적인 부위나 수치는 이야기마다 다르게 전해집니다. 여기서는 부위 넓이, 치명률, 장갑 효과(70%)를 모두 이 프로젝트가 임의로 정했고, 모델은 총탄이 한 점에 한 발씩 독립적으로 떨어진다고 단순하게 가정합니다. 실제 비행기에서는 총탄이 여러 부위를 지나가고 기종, 임무, 적의 무기에 따라 달라집니다. 이 모델은 치명률을 이미 알고 있지만 현실에서는 모르기 때문에 월드식 선택은 "구멍이 적은 곳"을 고르는 간단한 규칙으로 흉내 낸 것이고, 출격이 적으면 틀릴 수 있습니다. 또한 "많이 맞는 곳을 보강하라"가 늘 틀리다는 뜻도 아닙니다. 모든 총탄이 같은 확률로 치명적이라면 돌아온 비행기의 구멍도 실제 피격과 비슷하게 보입니다. 이 현상은 비행기뿐 아니라 "성공한 사람들만 보고 배우는" 모든 상황에 해당할 수 있지만, 이 페이지는 비행기 모델 하나만 돌려 본 것입니다.',
+                  'This is not the content of Wald\'s actual report. The popular story is boiled down to one line, "armor the places without holes", but Wald\'s work was about mathematically estimating the chance of surviving a hit in each section from returned planes only, and the specific sections and numbers differ between retellings. Here the section areas, lethalities and the armor effect (70%) are all chosen by this project, and the model simply assumes that each bullet lands independently at a single point. Real bullets pass through several sections and vary with the aircraft, the mission and the enemy weapons. The model knows the lethalities, which in reality are unknown, so the Wald-style choice is imitated by a simple rule, "pick the sections with the fewest holes", and it can go wrong with few sorties. It also does not mean that "armor where planes are hit most" is always wrong: if every bullet were equally deadly, the holes on returned planes would look like the real hits. The same logic may apply to any situation where we learn only from successes, but this page runs only the one aircraft model.')},
+ memo=[T('이야기의 출처로는 Wald (1943), "A method of estimating plane vulnerability based on damage of survivors" (Statistical Research Group, Columbia University 보고서, 1980년 Center for Naval Analyses에서 재간행)와 이를 해설한 Mangel & Samaniego (1984), "Abraham Wald\'s work on aircraft survivability", <i>Journal of the American Statistical Association</i> 79가 알려져 있습니다. 이 페이지는 두 자료의 방법이나 수치를 재현한 것이 아니라 이야기를 모델로 옮긴 이 프로젝트의 구현입니다.',
+         'The sources usually cited are Wald (1943), "A method of estimating plane vulnerability based on damage of survivors" (a Statistical Research Group, Columbia University report, reprinted by the Center for Naval Analyses in 1980), and the account by Mangel and Samaniego (1984), "Abraham Wald\'s work on aircraft survivability", <i>Journal of the American Statistical Association</i> 79. This page reproduces neither the methods nor the numbers of those works; it is this project\'s own implementation of the story as a model.'),
+       T('비행기 그림은 직접 정의한 도형(엔진 2개, 조종석, 동체, 날개 2개, 꼬리)이고, 부위 넓이 비율은 그림에서 격자로 계산합니다(엔진 13.6%, 조종석 7.2%, 동체 23.2%, 날개 38.8%, 꼬리 17.3%). 총탄 수는 평균 3인 푸아송 분포이며 비행기 위 무작위 점에 떨어집니다. 부위별 치명률은 엔진(슬라이더), 조종석 40%, 동체 5%, 날개 3%, 꼬리 5%입니다.',
+         'The plane is a hand-defined shape (two engines, cockpit, fuselage, two wings, tail), and the section area shares are computed from the drawing on a grid (engine 13.6%, cockpit 7.2%, fuselage 23.2%, wings 38.8%, tail 17.3%). The number of hits follows a Poisson distribution with mean 3, and each lands on a random point of the plane. The lethalities are: engine (slider), cockpit 40%, fuselage 5%, wings 3%, tail 5%.'),
+       T('출격당 생존 확률의 이론값은 exp(−3 × Σ 넓이비율 × 치명률 × (장갑이면 0.3))입니다. 시뮬레이션과 이론값은 시드 200개 평균에서 0.1%p 안으로 맞습니다. "구멍 많은 곳"은 돌아온 비행기의 구멍 수가 가장 많은 부위, "빈 곳"은 구멍 수 ÷ 넓이가 가장 작은 부위입니다. ④번 그래프는 엔진 치명률마다 시드 3개의 평균입니다.',
+         'The exact survival chance per sortie is exp(−3 × Σ area share × lethality × (0.3 if armored)). Simulation and formula agree within 0.1 points when averaged over 200 seeds. "Where the holes are" means the sections with the most holes on returned planes, and "missing" means the sections with the smallest holes ÷ area. Graph ④ averages 3 seeds for each engine lethality.'),
+       T('검증은 <code>node tools/validate-survivor.js</code>로 할 수 있습니다.',
+         'You can verify with <code>node tools/validate-survivor.js</code>.')],
+))

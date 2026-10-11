@@ -1,0 +1,137 @@
+(function () {
+  'use strict';
+  const CO = window.Coincidence, L = window.Lab;
+  const { css, mix } = L;
+  const $ = (id) => document.getElementById(id);
+  const FONT = '-apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif';
+  const ATTRS = ['생일', '고향', '취미', '같은 학교', '좋아하는 음식', '가 본 여행지'];
+  const NMAX = 100, SIMN_A = [5, 10, 15, 20, 23, 30, 40, 50, 60, 70, 80, 90, 100], SIMN_B = [10, 25, 50, 100, 150, 200, 254, 300, 365];
+  const GOLD = '#d19200';
+  let sim = null, rowsA = [], rowsB = [];
+  let seedGetter = () => 1;
+  const params = () => ({ seed: seedGetter(), n: Number($('n').value), k: Number($('k').value), pool: Number($('pool').value) });
+  const pc = (v) => (v * 100 < 99.95 ? (v * 100).toFixed(1) : v * 100 < 100 ? '99.9+' : '100') + '%';
+  const nOthers50 = () => CO.smallestN((n) => CO.theoryMe(n, 1, 30), 0.5, 2000) - 1;
+
+  // ---------- ① 방 하나 (원 둘레에 사람, 일치한 쌍은 선으로) ----------
+  function drawRoom() {
+    const c = L.chart($('c-room'), 0.95, { l: 14, r: 14, t: 34, b: 66 }), { ctx, w, h, m, pw, ph } = c;
+    const P = sim.params, a = sim.last;
+    ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
+    ctx.textAlign = 'left'; ctx.fillStyle = css('--text'); ctx.font = '600 13px ' + FONT;
+    if (!a) { ctx.fillStyle = css('--muted'); ctx.fillText('재생을 누르면 모임이 열려요', m.l, 24); }
+    else {
+      const n = P.n, cx = m.l + pw / 2, cy = m.t + ph / 2 + 4, R = Math.min(pw, ph) / 2 - 12;
+      const pos = (i) => { const t = -Math.PI / 2 + (i / n) * Math.PI * 2; return [cx + R * Math.cos(t), cy + R * Math.sin(t)]; };
+      ctx.fillText(`${sim.round}번째 모임 · ${n}명`, m.l, 22);
+      const lw = a.pairs.length > 600 ? 0.4 : a.pairs.length > 150 ? 0.7 : 1.2;
+      ctx.lineWidth = lw; ctx.strokeStyle = mix(css('--accent'), a.pairs.length > 600 ? 0.18 : 0.38);
+      a.pairs.forEach((q) => { if (q.a === 0) return; const A = pos(q.a), B = pos(q.b); ctx.beginPath(); ctx.moveTo(A[0], A[1]); ctx.lineTo(B[0], B[1]); ctx.stroke(); });
+      ctx.lineWidth = 2.2; ctx.strokeStyle = css('--unlucky');
+      a.pairs.forEach((q) => { if (q.a !== 0) return; const A = pos(0), B = pos(q.b); ctx.beginPath(); ctx.moveTo(A[0], A[1]); ctx.lineTo(B[0], B[1]); ctx.stroke(); });
+      ctx.lineWidth = 1;
+      const r = Math.max(2.2, Math.min(6, (Math.PI * R) / n * 0.8));
+      for (let i = 1; i < n; i++) {
+        const p = pos(i); ctx.beginPath(); ctx.arc(p[0], p[1], r, 0, 7);
+        if (a.has[i]) { ctx.fillStyle = css('--accent'); ctx.fill(); } else { ctx.strokeStyle = css('--muted'); ctx.stroke(); }
+      }
+      const p0 = pos(0); ctx.beginPath(); ctx.arc(p0[0], p0[1], r + 3, 0, 7); ctx.fillStyle = a.meCount ? css('--unlucky') : '#ffffff'; ctx.fill();
+      ctx.strokeStyle = css('--unlucky'); ctx.lineWidth = 2.2; ctx.stroke(); ctx.lineWidth = 1;
+      ctx.fillStyle = css('--unlucky'); ctx.textAlign = 'center'; ctx.font = '600 12px ' + FONT; ctx.fillText('나', p0[0], p0[1] - r - 8);
+      ctx.textAlign = 'left'; ctx.font = '600 13px ' + FONT;
+      ctx.fillStyle = a.pairs.length ? css('--text') : css('--muted');
+      ctx.fillText(`이번 모임: 일치한 쌍 ${a.pairs.length}개 · 나와 일치하는 사람 ${a.meCount}명`, m.l, h - 44);
+      ctx.fillStyle = css('--muted'); ctx.font = '12px ' + FONT;
+      const ex = a.pairs.find((q) => q.a === 0) || a.pairs[0];
+      ctx.fillText(!ex ? '이번 모임에는 일치하는 쌍이 없어요' : ex.a === 0 ? `예: 나 ↔ ${ex.b}번 · 같은 ${ATTRS[ex.attrs[0]]}` : `예: ${ex.a}번 ↔ ${ex.b}번 · 같은 ${ATTRS[ex.attrs[0]]}`, m.l, h - 26);
+      ctx.fillText('붉은 선: 나와 일치, 파란 선: 다른 사람끼리 일치, 속이 찬 점: 누군가와 일치', m.l, h - 8);
+    }
+    $('when').textContent = `${sim.round}/${P.rounds}번 · 일치가 있던 모임 ${pc(sim.anyShare())}`;
+  }
+
+  // ---------- 공통: 확률-인원 그래프 틀 ----------
+  function frame(canvas, x1, xticks, aspect) {
+    const c = L.chart(canvas, aspect || 0.62, { b: 40, r: 14, t: 14 }), { ctx, m, pw, ph } = c;
+    const X = (v) => m.l + ((v - 2) / (x1 - 2)) * pw, Y = (v) => m.t + ph - v * ph;
+    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: L.pct, xTicks: xticks, xFmt: (v) => v + '명', xLabel: '모인 사람 수' });
+    ctx.setLineDash([5, 3]); ctx.strokeStyle = '#8a93a6'; ctx.beginPath(); ctx.moveTo(m.l, Y(0.5)); ctx.lineTo(m.l + pw, Y(0.5)); ctx.stroke(); ctx.setLineDash([]);
+    return { c, X, Y };
+  }
+  function curve(f, x1, X, Y, ctx, color, width, dash) {
+    const pts = []; for (let n = 2; n <= x1; n++) pts.push([X(n), Y(f(n))]);
+    if (dash) ctx.setLineDash(dash); L.line(ctx, pts, color, width); ctx.setLineDash([]);
+  }
+  function simDots(rows, key, X, Y, ctx, color) {
+    ctx.fillStyle = color; rows.forEach((r) => { ctx.beginPath(); ctx.arc(X(r.n), Y(r[key]), 3.4, 0, 7); ctx.fill(); });
+  }
+
+  // ---------- ② 어딘가에서 일치할 확률 ----------
+  function drawA() {
+    const P = sim.params, { c, X, Y } = frame($('c-a'), NMAX, [2, 10, 23, 40, 60, 80, 100]), { ctx } = c;
+    curve((n) => CO.theoryAny(n, 1, P.pool), NMAX, X, Y, ctx, css('--muted'), 2, [6, 4]);
+    curve((n) => CO.theoryAny(n, P.k, P.pool), NMAX, X, Y, ctx, css('--accent'), 2.6);
+    simDots(rowsA, 'any', X, Y, ctx, css('--accent'));
+    L.vline(c, X(P.n), css('--rich'), '지금 설정', P.n > 50 ? 'right' : 'left');
+  }
+  // ---------- ③ 어딘가 vs 나와 ----------
+  function drawB() {
+    const P = sim.params, X1 = 365, { c, X, Y } = frame($('c-b'), X1, [2, 50, 100, 150, 200, 254, 300, 365]), { ctx } = c;
+    curve((n) => CO.theoryAny(n, P.k, P.pool), X1, X, Y, ctx, css('--accent'), 2.6);
+    curve((n) => CO.theoryMe(n, P.k, P.pool), X1, X, Y, ctx, css('--unlucky'), 2.6);
+    curve((n) => CO.theoryMe(n, 1, P.pool), X1, X, Y, ctx, css('--unlucky'), 1.8, [6, 4]);
+    simDots(rowsB, 'any', X, Y, ctx, css('--accent')); simDots(rowsB, 'me', X, Y, ctx, css('--unlucky'));
+    L.vline(c, X(P.n), css('--rich'), '지금 설정', P.n > X1 / 2 ? 'right' : 'left');
+  }
+  // ---------- ④ 짝의 수 ----------
+  function drawC() {
+    const P = sim.params, c = L.chart($('c-c'), 0.62, { b: 40, r: 14, t: 14 }), { ctx, m, pw, ph } = c;
+    const ymax = CO.pairsOf(NMAX), X = (v) => m.l + ((v - 2) / (NMAX - 2)) * pw, Y = (v) => m.t + ph - (v / ymax) * ph;
+    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1].map((q) => q * ymax), yFmt: (v) => String(Math.round(v)), xTicks: [2, 10, 23, 40, 60, 80, 100], xFmt: (v) => v + '명', xLabel: '모인 사람 수' });
+    const pts = (f) => { const a = []; for (let n = 2; n <= NMAX; n++) a.push([X(n), Y(f(n))]); return a; };
+    L.line(ctx, pts((n) => n), css('--muted'), 2);
+    L.line(ctx, pts((n) => CO.pairsOf(n)), css('--accent'), 2.6);
+    L.line(ctx, pts((n) => CO.expectedPairs(n, P.k, P.pool)), css('--unlucky'), 2.6);
+    ctx.font = '12px ' + FONT; ctx.textAlign = 'right';
+    ctx.fillStyle = css('--accent'); ctx.fillText('가능한 짝', X(NMAX) - 6, Y(CO.pairsOf(NMAX)) + 14);
+    ctx.fillStyle = css('--muted'); ctx.fillText('사람', X(NMAX) - 6, Y(NMAX) - 6);
+    L.vline(c, X(P.n), css('--rich'), '지금 설정', P.n > 50 ? 'right' : 'left');
+  }
+
+  function renderStats() {
+    const P = sim.params, k = P.k;
+    const cards = [
+      ['가능한 짝의 수', String(CO.pairsOf(P.n)), `${P.n}명이면 N(N−1)/2 쌍 · 나와의 짝은 ${P.n - 1}쌍`],
+      ['어딘가에서 일치할 확률', pc(CO.theoryAny(P.n, k, P.pool)), sim.round ? `계산값 · 직접 돌린 ${sim.round}번 중 ${pc(sim.anyShare())}` : '계산값'],
+      ['나와 일치할 확률', pc(CO.theoryMe(P.n, k, P.pool)), sim.round ? `계산값 · 직접 돌린 ${sim.round}번 중 ${pc(sim.meShare())}` : '계산값'],
+      ['일치한 쌍의 기댓값', CO.expectedPairs(P.n, k, P.pool).toFixed(2) + '쌍', `특징 ${k}가지 · 짝 하나가 일치할 확률 ${(CO.pairMatch(k, P.pool) * 100).toFixed(2)}%`],
+    ];
+    $('stats').innerHTML = cards.map(([a, v, s]) => `<div class="stat"><div class="k">${a}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join('');
+  }
+
+  function draw() { renderStats(); drawRoom(); drawA(); drawB(); drawC(); }
+
+  function after() {
+    const P = params(); rowsA = []; rowsB = []; drawA(); drawB();
+    $('note-a').textContent = '계산 중…'; $('note-b').textContent = '계산 중…';
+    const jobs = [];
+    SIMN_A.forEach((n) => jobs.push(() => { const s = CO.study({ n, k: P.k, pool: P.pool }, 800, n * 3 + 1); rowsA.push({ n, any: s.any, me: s.me }); }));
+    SIMN_B.forEach((n) => jobs.push(() => { const s = CO.study({ n, k: P.k, pool: P.pool }, 400, n * 5 + 2); rowsB.push({ n, any: s.any, me: s.me }); }));
+    L.jobs(jobs, () => { drawA(); drawB(); }, () => {
+      const nA = CO.smallestN((n) => CO.theoryAny(n, P.k, P.pool), 0.5, 400), nB = CO.smallestN((n) => CO.theoryAny(n, 1, P.pool), 0.5, 400);
+      const nM = CO.smallestN((n) => CO.theoryMe(n, P.k, P.pool), 0.5, 3000);
+      $('note-a').textContent = `어딘가에서 일치할 확률이 50%를 넘는 인원: 지금 설정 ${nA}명, 생일만 ${nB}명`;
+      $('note-b').textContent = `나와 일치할 확률이 50%를 넘는 인원: 지금 설정 ${nM}명 (생일만이면 ${nOthers50() + 1}명)`;
+    });
+  }
+
+  const h = L.harness({
+    controls: ['n', 'k', 'pool'],
+    format: { n: (v) => v + '명', k: (v) => v + '가지', pool: (v) => v + '가지' },
+    defaults: { n: 23, k: 1, pool: 30 },
+    build() { sim = CO.create(Object.assign({}, params(), { rounds: 300 })); },
+    advance() { return sim.advance(); },
+    isDone() { return sim.done(); },
+    draw, after, redrawExtra() { drawA(); drawB(); drawC(); }, seedLabel: '모임 번호',
+  });
+  seedGetter = h.seed;
+})();

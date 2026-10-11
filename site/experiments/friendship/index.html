@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="The Friendship Paradox · Simulatio Lab">친구의 역설 · 시뮬라티오 랩</title>
+<meta name="description" content="내 친구들은 왜 나보다 친구가 많을까요? 인기 있는 사람이 친구 목록마다 등장하기 때문입니다. 관계망을 만들고 사람을 눌러 직접 확인해 보세요." data-en-content="Why do your friends tend to have more friends than you? Popular people show up on many friend lists. Build a network and click a person to check it yourself.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1 data-en="Why Do My Friends Have More Friends Than I Do?">내 친구들은 왜 나보다 친구가 많을까</h1>
+  <p class="lead" data-en="Look around and your friends seem to know more people than you do. It is tempting to blame your own social skills. But in a network like this, almost everyone sees the same thing. Change the number of people, how much popularity concentrates and the average number of friends to check.">주변을 둘러보면 내 친구들은 대체로 나보다 아는 사람이 많은 것 같습니다. "내가 사교적이지 못해서일까?" 하고 생각하기 쉽습니다. 하지만 이런 관계망에서는 거의 누구에게나 그렇게 보일 수밖에 없습니다. 인원, 인기인 쏠림, 평균 친구 수를 바꿔 가며 확인해 봅니다.</p>
+
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li data-en="People join one at a time. The first few are all friends with each other, and each newcomer befriends a few existing people (half the average number of friends), so the average number of friends stays near the slider value.">사람이 한 명씩 들어옵니다. 처음 몇 명은 서로 모두 친구이고, 이후 들어오는 사람은 기존 사람 몇 명과 친구가 됩니다(평균 친구 수의 절반). 그래서 평균 친구 수는 슬라이더 값 근처에서 정해집니다.</li>
+    <li data-en="Who a newcomer befriends depends on &lt;b&gt;hub concentration&lt;/b&gt;. At 0% anyone is picked with equal chance; at 100% people who already have more friends are more likely to be picked (&quot;the popular get more popular&quot;).">누구와 친구가 될지는 <b>허브 쏠림</b>이 정합니다. 쏠림이 0%이면 아무나 같은 확률로 고르고, 100%이면 이미 친구가 많은 사람일수록 더 잘 뽑힙니다("인기 있는 사람에게 더 몰린다").</li>
+    <li data-en="For each person it computes &lt;b&gt;my number of friends&lt;/b&gt; and the &lt;b&gt;average number of friends my friends have&lt;/b&gt;, and compares them. If the friends&#x27; average is bigger, that person has &quot;friends with more friends&quot;.">각 사람마다 <b>내 친구 수</b>와 <b>내 친구들이 가진 친구 수의 평균</b>을 계산해 비교합니다. 친구들의 평균이 내 친구 수보다 크면 "친구들이 더 많은" 사람입니다.</li>
+    <li data-en="Press play and it repeatedly draws one random person (black ring) and one friend named by another random person (dashed gold ring), comparing the two averages.">재생하면 사람을 한 명 무작위로 뽑고(검은 고리), 다른 무작위 사람이 말해 준 친구를 한 명 뽑아(금색 점선 고리) 두 평균을 비교하는 표본 추출을 반복합니다.</li>
+  </ul>
+
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="n" data-en="Number of people &lt;output id=&quot;o-n&quot;&gt;&lt;/output&gt;">사람 수 <output id="o-n"></output></label>
+        <input type="range" id="n" min="30" max="300" step="10" value="150">
+        <span class="hint" data-en="With more people, hubs can grow bigger">많을수록 허브가 더 크게 자랄 수 있어요</span></div>
+<div class="ctl"><label for="hub" data-en="Hub concentration &lt;output id=&quot;o-hub&quot;&gt;&lt;/output&gt;">허브 쏠림 <output id="o-hub"></output></label>
+        <input type="range" id="hub" min="0" max="100" step="10" value="80">
+        <span class="hint" data-en="0% picks anyone equally; 100% favours the popular">0%는 아무나 똑같이, 100%는 인기인에게 몰려요</span></div>
+<div class="ctl"><label for="avg" data-en="Average friends &lt;output id=&quot;o-avg&quot;&gt;&lt;/output&gt;">평균 친구 수 <output id="o-avg"></output></label>
+        <input type="range" id="avg" min="2" max="12" step="2" value="6">
+        <span class="hint" data-en="How many friends a person has on average">한 사람이 평균 몇 명과 친구인지</span></div>
+    </div>
+    <div class="btns">
+      <button class=primary id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Same settings, new network">같은 설정, 다른 관계망</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3 data-en="① The Friend Network">① 친구 관계망</h3>
+    <p data-en="Dots are people, lines are friendships, and bigger dots have more friends. Click a person to colour their friends gold and see &quot;my friends&quot; and &quot;my friends&#x27; average&quot; below. Press play to draw random samples and watch the two averages drift apart.">점은 사람, 선은 친구 관계이고 점이 클수록 친구가 많습니다. 사람을 누르면 그 사람의 친구가 금색으로 표시되고, 아래에 "내 친구 수"와 "친구들의 평균"이 나옵니다. 재생하면 무작위 표본을 뽑아 두 평균이 벌어지는 모습을 보여 줍니다.</p>
+    <canvas id="c-net" class="rounded" aria-label="① The Friend Network"></canvas>
+    <div class="anim-bar">
+      <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
+      <button id="stepbtn" data-en="Step">한 단계</button>
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="speed"><option value="3" data-en="Slow">느리게</option><option value="10" selected data-en="Normal">보통</option><option value="40" data-en="Fast">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;Friends of the selected person"><i style="background:#e0a100"></i>선택한 사람의 친구</span><span data-en="&lt;i style=&quot;background:var(--unlucky)&quot;&gt;&lt;/i&gt;Selected person"><i style="background:var(--unlucky)"></i>선택한 사람</span><span data-en="&lt;i style=&quot;background:var(--text)&quot;&gt;&lt;/i&gt;Sample: random person"><i style="background:var(--text)"></i>표본: 무작위 사람</span><span data-en="&lt;i style=&quot;background:#a06b00&quot;&gt;&lt;/i&gt;Sample: a friend named by someone"><i style="background:#a06b00"></i>표본: 그 사람이 말한 친구</span></div>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3 data-en="② Friends&#x27; Average Minus My Friend Count">② 친구들의 평균 − 내 친구 수</h3>
+    <p data-en="The distribution, over everyone, of &quot;friends&#x27; average number of friends&quot; minus &quot;my number of friends&quot;. The right side of 0 (red) is people whose friends have more friends than they do.">모든 사람에 대해 "친구들의 평균 친구 수"에서 "내 친구 수"를 뺀 값의 분포입니다. 0보다 오른쪽(빨강)이 친구들이 나보다 친구가 더 많은 사람입니다.</p>
+    <canvas id="c-hist" class="" aria-label="② Friends&#x27; Average Minus My Friend Count"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ Person by Person">③ 사람마다 비교하기</h3>
+    <p data-en="The horizontal axis is my number of friends, the vertical axis is my friends&#x27; average (both on a log scale). Dots above the dashed line have friends with more friends, dots below have fewer. The fewer friends someone has, the further above the line they tend to sit.">가로는 내 친구 수, 세로는 내 친구들의 평균입니다(두 축 모두 로그 눈금). 점선 위의 점은 친구들이 더 많은 사람, 아래는 내가 더 많은 사람입니다. 친구가 적은 사람일수록 위쪽으로 많이 벗어납니다.</p>
+    <canvas id="c-scat" class="" aria-label="③ Person by Person"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="④ As Hubs Concentrate More">④ 허브가 더 몰릴수록</h3>
+    <p data-en="The horizontal axis is hub concentration, the vertical axis is the share of people whose friends have more friends. Each line has a different average number of friends (blue 4, green 8, purple 12), and the dashed line is one half.">가로는 허브 쏠림, 세로는 "친구들이 더 많은 사람"의 비율입니다. 선마다 평균 친구 수가 다르고(파랑 4명, 초록 8명, 보라 12명), 점선이 절반입니다.</p>
+    <canvas id="c-sweep" class="" aria-label="④ As Hubs Concentrate More"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Average 4 friends"><i style="background:var(--accent)"></i>평균 친구 4명</span><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Average 8 friends"><i style="background:#1fa463"></i>평균 친구 8명</span><span data-en="&lt;i style=&quot;background:#7c5cff&quot;&gt;&lt;/i&gt;Average 12 friends"><i style="background:#7c5cff"></i>평균 친구 12명</span></div>
+      <div class="legend"><span id="note-s" data-en="Calculating…">계산 중…</span></div>
+    </section>
+  </div>
+
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout" data-en="&lt;b&gt;What it shows:&lt;/b&gt; Across 300 different networks of 150 people with 6 friends on average and 80% hub concentration, a person had 5.92 friends on average, but their friends had 10.17 friends on average, 1.72 times as many. Computing &quot;friends&#x27; average&quot; for each person, 82.6% had friends with more friends (75.3% to 88.7% depending on the network), and 16.8% had more friends than their friends&#x27; average. The reason is that a popular person appears on every one of their friends&#x27; lists. In one network, the top 10% by friend count (15 people) held 29.6% of all friend-list slots. Picking a random person gave 5.92 friends on average, but picking a friend named by a random person gave 10.17. Even with 0% hub concentration, 71.3% had friends with more friends, and 85.4% at 100% (6 friends on average), so more concentration widened the gap. Connecting people at random did not make the result go away. It only needs people to differ in how many friends they have."><b>말하는 것:</b> 사람 150명, 평균 친구 6명, 허브 쏠림 80%의 서로 다른 관계망 300개를 만들면 한 사람의 평균 친구 수는 5.92명인데, 그 친구들의 평균 친구 수는 10.17명으로 1.72배였습니다. 사람마다 "친구들의 평균"을 구해 비교하면 82.6%가 친구들이 더 많은 쪽이었고(관계망마다 75.3%~88.7%), 내가 더 많은 사람은 16.8%였습니다. 이유는 인기 있는 사람이 친구 목록마다 한 번씩 등장하기 때문입니다. 관계망 하나에서 친구 수 상위 10%(15명)가 모든 친구 목록 칸의 29.6%를 차지했습니다. 한 사람을 무작위로 뽑으면 평균 5.92명이지만 그 사람이 말해 준 친구를 뽑으면 평균 10.17명이었습니다. 허브 쏠림이 0%일 때도 71.3%, 100%일 때는 85.4%가 친구들이 더 많았고(평균 친구 6명), 쏠림이 클수록 격차가 커졌습니다. 친구 관계를 단순히 아무나 연결해도 이 결과는 사라지지 않았습니다. 사람마다 친구 수가 다르기만 하면 생깁니다.</div>
+  <div class="callout" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; This does not mean that people with more friends are happier or that you are unpopular, and nothing here measures real friend counts or popularity. The network is this project&#x27;s simplified construction: everyone has at least a few friends (no loners), and there are no real-world clusters like families, neighbourhoods or schools. What is guaranteed is the average (friends&#x27; average is at least the average friend count); that a majority has friends with more friends is a result of this model, not a law for every network. Hub concentration of 0% is not a fully random network but a &quot;pick anyone as they arrive&quot; rule, so people who arrive early still end up with more friends."><b>말하지 않는 것:</b> 이것은 "친구가 많은 사람이 더 행복하다"거나 "내가 인기가 없다"는 뜻이 아니고, 실제 친구 수나 인기를 측정한 것도 아닙니다. 이 모델의 관계망은 이 프로젝트가 단순화해 만든 것으로, 모두가 최소한 몇 명과 친구이고(외톨이가 없음), 실제 사회의 모임·동네·학교 같은 묶음 구조는 없습니다. 보장되는 것은 평균(친구들의 평균 ≥ 내 친구 수의 평균)이고, "다수가 친구들이 더 많다"는 것은 이 모델에서 실험으로 나온 결과이지 모든 관계망에서 성립하는 법칙이 아닙니다. 허브 쏠림 0%는 완전한 무작위 관계망이 아니라 "들어오는 순서대로 아무나 고르는" 규칙이라, 먼저 온 사람이 친구를 더 많이 얻는 효과가 남아 있습니다.</div>
+
+  <h2 data-en="Implementation notes">구현 메모</h2>
+  <ul class="small">
+    <li  data-en="This project&#x27;s simplified model illustrating the &quot;friendship paradox&quot; laid out in Scott L. Feld (1991), &quot;Why your friends have more friends than you do&quot;, &lt;i&gt;American Journal of Sociology&lt;/i&gt; 96(6). It does not reproduce the paper&#x27;s numbers. The network rule mixes preferential attachment (the idea behind Barabási and Albert&#x27;s rule) with uniform choice.">Scott L. Feld (1991), "Why your friends have more friends than you do", <i>American Journal of Sociology</i> 96(6)에서 정리된 "친구의 역설"을 이 프로젝트가 단순화한 모델로 보여 줍니다. 논문의 수치를 재현한 것은 아닙니다. 관계망 만드는 규칙은 선호 연결(Barabási와 Albert의 규칙과 같은 아이디어)에 균등 선택을 섞은 것입니다.</li>
+    <li  data-en="In formulas, the average when all friend lists are joined together and one name is drawn is &amp;lt;k²&amp;gt;/&amp;lt;k&amp;gt;, which is at least the average &amp;lt;k&amp;gt; (larger unless everyone has the same number of friends). The cards on this page instead compute each person&#x27;s &quot;friends&#x27; average&quot; and average those, which is also always at least the average friend count because each friendship contributes (neighbour&#x27;s friends ÷ my friends) + (my friends ÷ neighbour&#x27;s friends) ≥ 2. Over 300 default networks the two values were 10.17 and 9.70, both larger than 5.92.">수식으로는 친구 목록을 모두 이어 붙여 한 명을 뽑을 때의 평균이 &lt;k²&gt;/&lt;k&gt;이고, 이 값은 평균 &lt;k&gt; 이상입니다(친구 수의 분산이 0이 아닌 한 더 큽니다). 이 페이지의 카드는 사람마다 "친구들의 평균"을 구해 다시 평균 낸 값을 쓰는데, 친구 관계 하나마다 (이웃의 친구 수 ÷ 내 친구 수) + (내 친구 수 ÷ 이웃의 친구 수) ≥ 2이므로 이 값도 항상 평균 친구 수 이상입니다. 기본값 관계망 300개에서 두 값은 각각 10.17명, 9.70명이었고 모두 5.92명보다 컸습니다.</li>
+    <li  data-en="The sampling in the animation draws &quot;a friend named by a randomly chosen person&quot;, so it converges to the average of per-person friend averages (10.17). Christakis and Fowler (2010), &quot;Social network sensors for early detection of contagious outbreaks&quot;, &lt;i&gt;PLoS ONE&lt;/i&gt; 5(9), proposed using this property: comparing randomly chosen Harvard students with the friends they named, they reported that the flu outbreak appeared earlier in the friend group. That was a proposal tested in one university sample, and this page does not reproduce it.">재생의 표본 추출은 "무작위로 고른 사람이 말해 준 친구"를 뽑는 방식이라 사람별 친구들 평균의 평균(10.17명)에 수렴합니다. Christakis와 Fowler (2010), "Social network sensors for early detection of contagious outbreaks", <i>PLoS ONE</i> 5(9)는 이 성질을 이용해, 무작위로 고른 하버드 학생들과 그들이 지목한 친구들을 비교하면 친구 집단에서 독감 유행이 더 일찍 나타난다고 보고했습니다. 이는 한 대학 표본에서 시험한 제안이고 이 페이지가 그 결과를 재현하는 것은 아닙니다.</li>
+    <li  data-en="The layout is precomputed with a force-directed algorithm (Fruchterman-Reingold) where neighbours attract and everyone repels. You can verify with &lt;code&gt;node tools/validate-friendship.js&lt;/code&gt;.">관계망 배치는 이웃은 끌어당기고 모두는 밀어내는 힘 방향 알고리즘(Fruchterman-Reingold)으로 미리 계산합니다. 검증은 <code>node tools/validate-friendship.js</code>로 할 수 있습니다.</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/friendship&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/friendship">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap" data-en="Simulatio Lab · Operator: Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
+<script src="../../exps.js"></script>
+<script src="../../layout.js"></script>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../counter.js"></script>
+</body>
+</html>

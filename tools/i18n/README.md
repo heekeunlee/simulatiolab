@@ -23,5 +23,5 @@
 
 새 실험을 추가했을 때 (영어 번역 작업 3단계까지 끝낸 뒤):
 1. `python3 tools/i18n/tr_extract.py` → `tools/i18n/tr/src/`에 번역 대상 묶음 생성
-2. 묶음마다 `tr/GUIDE.md` 지침대로 es/fr/ja 번역을 `tr/out/<같은 이름>.json`으로 저장 (에이전트에 맡길 수 있음). 이미 번역된 문구는 새로 만든 묶음 번호가 달라질 수 있으니 `out/`을 지우고 전체를 다시 하거나, 새 문구만 따로 묶어 번역할 것
-3. `python3 tools/i18n/tr_build.py` → 태그·자리표시자·한글 잔존을 검증하고 `site/i18n-es.js`, `i18n-fr.js`, `i18n-ja.js` 생성
+2. 묶음마다 `tr/GUIDE.md` 지침대로 es/fr/ja 번역을 `tr/out/<같은 이름>.json`으로 저장 (에이전트에 맡길 수 있음). 이미 번역된 문구는 `tr/memory.json`에 쌓여 있어 **새 문구만** 묶음으로 나온다
+3. `python3 tools/i18n/tr_build.py` → 태그·자리표시자·한글 잔존을 검증하고 memory.json에 합쳐(out 조각은 삭제) `site/i18n-es.js`, `i18n-fr.js`, `i18n-ja.js` 생성
