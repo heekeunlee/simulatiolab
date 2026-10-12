@@ -66,7 +66,7 @@
     const ccs = [...new Set(R.map((x) => x.cc))].sort((a, b) => (cV.get(b) || 0) - (cV.get(a) || 0) || (cP.get(b) || 0) - (cP.get(a) || 0));
     const top = ccs.slice(0, 7), color = (cc) => (top.indexOf(cc) >= 0 ? COLORS[top.indexOf(cc)] : COLORS[7]);
     const today = dfmt.format(new Date());
-    loadPreds();
+    loadPreds(); loadPolls(); loadSubs();
     $('status').textContent = `기록 ${fmtN(R.length)}건 (기간 안) · 시간 기준: ${tz === 'UTC' ? 'UTC' : '한국 시간'}` + (total != null ? ` · 시트 전체 ${fmtN(total)}건` : '');
     const dwell = LV.length ? Math.round(LV.reduce((a, x) => a + x.secs, 0) / LV.length) : null;
     const expLV = LV.filter((x) => /\/experiments\//.test(x.page));
@@ -117,6 +117,27 @@
     if (demo) { const f = {}; Object.keys(P).forEach((s, i) => { const n = 30 + i * 7; const a = P[s].a; const c = P[s].o.map((_, k) => (k === a ? Math.round(n * (0.25 + 0.04 * i)) : Math.round(n * 0.3))); f[s] = c; }); return draw(f); }
     if (!LOG_URL) return draw(null);
     fetch(LOG_URL + '?a=preds&pw=' + encodeURIComponent(pw)).then((r) => r.json()).then((j) => draw(j && j.ok ? j.preds : null)).catch(() => draw(null));
+  }
+  // 주제 투표·오늘의 만약에 결과, 알림 신청자 수 (시트 v3/v4부터)
+  function loadPolls() {
+    const box = $('polls'); if (!box) return;
+    const D = window.LAB_DAILY; if (!D) { box.innerHTML = ''; return; }
+    const ymd = (off) => new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Seoul' }).format(new Date(Date.now() + off * 864e5)).replace(/-/g, '');
+    const dayIndex = (d) => Math.floor(Date.parse(d.slice(0, 4) + '-' + d.slice(4, 6) + '-' + d.slice(6, 8) + 'T00:00:00+09:00') / 864e5);
+    const draw = (preds) => {
+      const row = (label, opts, c) => { const n = c ? c.slice(0, opts.length).reduce((a, b) => a + (b || 0), 0) : 0; return `<tr><td style="text-align:left">${label}</td><td>${fmtN(n)}</td><td style="text-align:left">${n ? opts.map((o, i) => `${o} <b>${Math.round((100 * (c[i] || 0)) / n)}%</b>`).join(' · ') : '아직 없음'}</td></tr>`; };
+      let h = `<table class="ad-tbl"><thead><tr><th>투표</th><th>참여</th><th>선택 분포</th></tr></thead><tbody>` + row('🗳 ' + D.topic.q, D.topic.o, preds && preds[D.topic.id]);
+      for (let i = 0; i < 7; i++) { const d = ymd(-i), Q = D.daily[((dayIndex(d) % D.daily.length) + D.daily.length) % D.daily.length]; h += row(`${d.slice(4, 6)}/${d.slice(6)} ${Q.q}`, Q.o, preds && preds['daily-' + d]); }
+      box.innerHTML = h + '</tbody></table>';
+    };
+    if (demo) { const f = {}; f[D.topic.id] = [31, 12, 22, 9]; return draw(f); }
+    if (!LOG_URL) return draw(null);
+    fetch(LOG_URL + '?a=preds&pw=' + encodeURIComponent(pw)).then((r) => r.json()).then((j) => draw(j && j.ok ? j.preds : null)).catch(() => draw(null));
+  }
+  let subsCount = null;
+  function loadSubs() {
+    if (demo) { subsCount = 12; return; } if (!LOG_URL) return;
+    fetch(LOG_URL + '?a=subs&pw=' + encodeURIComponent(pw)).then((r) => r.json()).then((j) => { if (j && j.ok) { subsCount = j.count; const c = $('cards'); if (c && !c.querySelector('.subs')) c.insertAdjacentHTML('beforeend', card('알림 신청자', fmtN(subsCount), '이메일은 구글 시트(subscribers)에서 확인').replace('class="ad-card"', 'class="ad-card subs"')); } }).catch(() => {});
   }
   const groupTop = (arr, top) => { const g = top.map(() => 0); let other = 0; arr.forEach((x) => { const i = top.indexOf(x.cc); if (i >= 0) g[i]++; else other++; }); g.push(other); return g; };
   const legend = (top, hasOther) => top.map((c, i) => `<span><i style="background:${COLORS[i]}"></i>${flag(c)} ${cname(c)}</span>`).join('') + (hasOther ? `<span><i style="background:${COLORS[7]}"></i>기타</span>` : '');

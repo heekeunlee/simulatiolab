@@ -284,3 +284,10 @@ span.popt { cursor: default; }
 .lead.pgated-lead { display: none; }
 .pskip { font: inherit; font-size: 13px; font-weight: 700; margin-left: 6px; padding: 3px 10px; border-radius: 8px; border: 1px solid #c3ccf5; background: #fff; color: #3b4cc0; cursor: pointer; }
 .pskip:hover { background: #eef0ff; }
+
+/* ---------- 영상 연결 (engage.js) ---------- */
+.vidbox { margin: 36px 0 8px; }
+.vidbox h2 { font-size: 20px; margin: 0 0 12px; }
+.vid, .vframe { position: relative; display: block; width: 100%; max-width: 720px; aspect-ratio: 16 / 9; border: 0; padding: 0; border-radius: 14px; overflow: hidden; background: #0f1222; cursor: pointer; }
+.vid img { width: 100%; height: 100%; object-fit: cover; opacity: .9; }
+.vid .vplay { position: absolute; inset: 0; margin: auto; width: 68px; height: 68px; border-radius: 50%; background: rgba(229, 72, 77, .95); color: #fff; font-size: 26px; display: grid; place-items: center; padding-left: 5px; box-shadow: 0 6px 20px rgba(0,0,0,.35); }

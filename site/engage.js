@@ -14,6 +14,7 @@
   const EXPS = window.LAB_EXPS || [];
   if (!EXPS.length) return;
   const byId = {}; EXPS.forEach((x) => { byId[x.s] = x; });
+  const $ = (id) => document.getElementById(id);
 
   // ---------- 화면 문구 (영어 문구가 키, 한국어는 코드에) ----------
   if (I.addUI) I.addUI({
@@ -39,7 +40,7 @@
 
   // ---------- 저장 상태 ----------
   const KEY = 'lab-state';
-  let S = { done: {}, stars: [], days: [], last: 0, nudged: 0, pred: {} };
+  let S = { done: {}, stars: [], days: [], last: 0, nudged: 0, pred: {}, polls: {}, subscribed: 0 };
   try { Object.assign(S, JSON.parse(localStorage.getItem(KEY) || '{}')); } catch (e) {}
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} };
   const kst = () => { try { return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Seoul' }).format(new Date()); } catch (e) { return new Date().toISOString().slice(0, 10); } };
@@ -112,6 +113,18 @@
     document.addEventListener('visibilitychange', () => { if (document.hidden) leave(); });
     window.addEventListener('pagehide', leave);
     window.LAB_ENGAGE = { slug, secs: () => secs, ran: () => ran };
+
+    // ---------- 영상 연결: site/videos.js 에 실험별 유튜브 영상 ID가 있으면 "이 실험을 영상으로" 칸을 보여준다 ----------
+    { const vs = document.createElement('script'); vs.src = BASE + 'videos.js';
+      vs.onload = () => {
+        const id = (window.LAB_VIDEOS || {})[slug]; if (!id || !/^[\w-]{6,20}$/.test(id)) return;
+        const tv = (ko) => (I.t ? I.t(ko) : ko);
+        const sec = document.createElement('section'); sec.className = 'vidbox';
+        sec.innerHTML = `<h2>${esc(tv('▶ 이 실험을 영상으로 보기'))}</h2><button type="button" class="vid" aria-label="${esc(tv('영상 재생'))}"><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="" loading="lazy"><span class="vplay">▶</span></button>`;
+        const anchor = document.querySelector('.more-like') || document.querySelector('.xnav'); if (anchor) anchor.before(sec); else document.querySelector('main').appendChild(sec);
+        sec.querySelector('.vid').addEventListener('click', (e) => { e.currentTarget.outerHTML = `<iframe class="vframe" src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0" title="YouTube" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`; });
+      };
+      document.head.appendChild(vs); }
 
     // ---------- 먼저 예상해 보세요 ----------
     // 질문 데이터(predict.js, 한국어)를 필요할 때만 불러온다. 번역은 I18N.t(한국어 문구)로 한다.
@@ -258,6 +271,83 @@
       mine.querySelectorAll('.ec-rm').forEach((b) => b.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); toggleStar(b.dataset.s); render(); }));
     }
     render();
+    // ---------- 오늘의 만약에 · 다음 실험 투표 · 새 실험 알림 ----------
+    const tt = (ko) => (I.t ? I.t(ko) : ko);
+    const send = (type, extra) => {
+      const url = window.LAB_LOG_URL; if (!url || !real) return;
+      let cc = 'ZZ'; try { cc = sessionStorage.getItem('lab-cc') || 'ZZ'; } catch (e) {}
+      try { fetch(url, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(Object.assign({ type, country: cc, lang: LANG, device: /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? 'mobile' : 'desktop' }, extra)), keepalive: true }); } catch (e) {}
+    };
+    const counts = (id, n) => { const url = window.LAB_LOG_URL; if (!url || !real) return Promise.resolve(null); return fetch(url + '?a=pred&slug=' + encodeURIComponent(id) + '&n=' + n).then((r) => r.json()).then((j) => (j && j.counts && j.counts.length === n ? j.counts : null)).catch(() => null); };
+    const kstDay = (offset) => { const d = new Date(Date.now() + (offset || 0) * 864e5); try { return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Seoul' }).format(d).replace(/-/g, ''); } catch (e) { return d.toISOString().slice(0, 10).replace(/-/g, ''); } };
+    const dayIndex = (ymd) => Math.floor(Date.parse(ymd.slice(0, 4) + '-' + ymd.slice(4, 6) + '-' + ymd.slice(6, 8) + 'T00:00:00+09:00') / 864e5);
+    const ds = document.createElement('script'); ds.src = BASE + 'daily.js';
+    ds.onload = () => { if (window.LAB_DAILY) buildDaily(window.LAB_DAILY); };
+    document.head.appendChild(ds);
+    function bars(opts, c, mark) {
+      const n = c.reduce((a, b) => a + b, 0), pct = (v) => Math.round((100 * v) / n);
+      return opts.map((o, i) => `<div class="pbar${mark === i ? ' right' : ''}"><span class="pl">${esc(tt(o))}${mark === i ? ' ◀' : ''}</span><span class="pb"><i style="width:${pct(c[i])}%"></i></span><span class="pv">${pct(c[i])}%</span></div>`).join('');
+    }
+    function pollCard(box, id, q, opts, extra) {
+      const render = (c) => {
+        const mine = S.polls[id];
+        let h = extra.head + `<p class="pq">${esc(tt(q))}</p>`;
+        if (mine == null) h += `<div class="popts">${opts.map((o, i) => `<button type="button" class="popt" data-i="${i}">${esc(tt(o))}</button>`).join('')}</div>`;
+        else {
+          const n = c ? c.reduce((a, b) => a + b, 0) : 0;
+          h += n >= 5 ? bars(opts, c, mine) + `<p class="poth-s">${esc(tt('지금까지 ' + n + '명이 투표했어요'))}</p>` : `<p class="pmine">${esc(tt('투표해 주셔서 고마워요! 더 많이 모이면 결과가 보여요.'))}</p>`;
+        }
+        box.innerHTML = h + (extra.foot ? extra.foot() : '');
+        box.querySelectorAll('.popt[data-i]').forEach((b) => b.addEventListener('click', () => {
+          S.polls[id] = +b.dataset.i; save(); send('predict', { page: id, choice: +b.dataset.i });
+          render(null); setTimeout(() => counts(id, opts.length).then((cc) => render(cc)), 1500);
+        }));
+      };
+      render(null); if (S.polls[id] != null) counts(id, opts.length).then((cc) => { if (cc) render(cc); });
+    }
+    function buildDaily(D) {
+      const row = document.createElement('section'); row.className = 'dailyrow';
+      row.innerHTML = '<div class="dcard" id="daily"></div><div class="dcard" id="topic"></div>';
+      (document.querySelector('main') || document.body).prepend(row);
+      // 오늘의 질문: 한국 날짜로 하루 하나씩 돌아가며
+      const today = kstDay(0), idx = ((dayIndex(today) % D.daily.length) + D.daily.length) % D.daily.length, Q = D.daily[idx];
+      const e = byId[Q.s]; const dayLabel = today.slice(0, 4) + '.' + today.slice(4, 6) + '.' + today.slice(6);
+      pollCard($('daily'), 'daily-' + today, Q.q, Q.o, {
+        head: `<h3>${esc(tt('🌤 오늘의 만약에'))} <small>${dayLabel}</small></h3>`,
+        foot: () => (e ? `<a class="dlink" href="${BASE}experiments/${e.s}/">${esc(tt('이 질문, 실험해 볼까요? →'))}</a>` : '') + '<div id="dyest"></div>',
+      });
+      // 어제의 결과 (5명 이상 투표했을 때만)
+      const yd = kstDay(-1), yQ = D.daily[((dayIndex(yd) % D.daily.length) + D.daily.length) % D.daily.length];
+      counts('daily-' + yd, yQ.o.length).then((c) => {
+        const box = document.getElementById('dyest'); if (!c || !box) return;
+        const n = c.reduce((a, b) => a + b, 0); if (n < 5) return;
+        const top = c.indexOf(Math.max.apply(null, c));
+        box.innerHTML = `<p class="dyest"><b>${esc(tt(yQ.q))}</b><br>${esc(tt('어제는 ' + n + '명이 투표했어요. 가장 많이 고른 답: ' + yQ.o[top] + ' (' + Math.round((100 * c[top]) / n) + '%)'))}</p>`;
+      });
+      // 다음 실험 주제 투표
+      pollCard($('topic'), D.topic.id, D.topic.q, D.topic.o, { head: `<h3>${esc(tt('🗳 다음 실험 투표'))}</h3>` });
+    }
+    // 새 실험 알림 신청 (시트가 v4일 때만 이메일 칸을 보여준다. 아니면 RSS·유튜브 링크만)
+    const nb = document.getElementById('nb');
+    if (nb) {
+      const sec = document.createElement('section'); sec.className = 'notify'; sec.id = 'notify'; nb.after(sec);
+      const rss = BASE + (LANG === 'ko' ? 'feed.xml' : 'feed-en.xml');
+      const links = `<p class="nlinks"><a href="${rss}">${esc(tt('RSS로 받기'))}</a> · <a href="https://www.youtube.com/@simulatiolab?sub_confirmation=1" target="_blank" rel="noopener">${esc(tt('유튜브 구독'))}</a></p>`;
+      const paint = (form) => {
+        sec.innerHTML = `<h3>${esc(tt('📬 새 실험이 나오면 알려드릴게요'))}</h3>` + (S.subscribed ? `<p class="nok">${esc(tt('신청했어요! 새 실험이 나오면 알려드릴게요.'))}</p>` : form ? `<form class="nform" novalidate><input type="email" name="email" autocomplete="email" placeholder="${esc(tt('이메일 주소'))}" aria-label="${esc(tt('이메일 주소'))}" maxlength="120"><label class="nconsent"><input type="checkbox" name="consent"> <span>${esc(tt('새 실험 소식을 이메일로 받는 데 동의합니다'))}</span></label><button type="submit" class="btn big">${esc(tt('알림 신청'))}</button></form><p class="nnote">${esc(tt('이메일은 새 실험 소식을 보내는 데에만 쓰고, 받고 싶지 않으면 메일에 회신해 주시면 바로 지워요.'))}</p><p class="nmsg" role="status"></p>` : '') + links;
+        const f = sec.querySelector('.nform');
+        if (f) f.addEventListener('submit', (ev) => {
+          ev.preventDefault(); const msg = sec.querySelector('.nmsg'), em = f.email.value.trim().toLowerCase();
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)) { msg.textContent = tt('이메일 주소를 확인해 주세요.'); return; }
+          if (!f.consent.checked) { msg.textContent = tt('동의에 체크해 주세요.'); return; }
+          if (!window.LAB_LOG_URL || !real) { msg.textContent = tt('지금은 신청할 수 없어요. 잠시 뒤에 다시 해 주세요.'); return; }
+          send('subscribe', { email: em, consent: 1 }); S.subscribed = 1; save(); paint(false);
+        });
+      };
+      paint(false);
+      // 시트 버전 확인이 끝나면(최대 4초) 이메일 칸을 보여줄지 정한다
+      let tries = 0; const wait = setInterval(() => { tries++; if (window.LAB_LOG_VER >= 4) { clearInterval(wait); paint(true); } else if (tries > 13) clearInterval(wait); }, 300);
+    }
     window.addEventListener('pageshow', (e) => { if (e.persisted) { try { Object.assign(S, JSON.parse(localStorage.getItem(KEY) || '{}')); } catch (x) {} render(); } });
   }
 })();

@@ -141,7 +141,7 @@ def build(only_existing=True):
     total = sum(len(i) for _, i in cats)
 
     # 주기율표 열(분야) + 칸(실험)
-    cols = ''; n = 0; exps = []
+    cols = ''; n = 0; exps = []; feed = []
     for (k, col, ic, t, d), items in cats:
         tiles = ''
         for slug, method, title, desc in items:
@@ -151,6 +151,7 @@ def build(only_existing=True):
             if thumb(slug): ex['t'] = thumb(slug)
             if slug in ADDED: ex['a'] = ADDED[slug]
             exps.append(ex)
+            feed.append((slug, ADDED.get(slug, '2026-10-10'), title, desc))
             th = thumb(slug)
             vis = f'<img class="thumb" src="{th}" alt="" loading="lazy" decoding="async">' if th else '<canvas class="glyph" aria-hidden="true"></canvas>'
             tiles += f"""
@@ -171,6 +172,7 @@ def build(only_existing=True):
     lead = T("성공은 운일까? 소문은 어떻게 퍼질까? 새 길을 뚫으면 왜 더 막힐까? 사람과 사회, 자연과 예술이 그렇게 돌아가는 이유를 시뮬레이션으로 돌려보고, 변수를 바꿔 직접 확인할 수 있게 공개합니다.",
              'Is success luck? How do rumors spread? Why does a new road make traffic worse? We rerun people, society, nature and art in simulations to see why things happen, and publish them so you can change the variables and check for yourself.')
     cta1 = T('실험실 둘러보기 ↓', 'Explore the lab ↓'); cta2 = T('🎲 무작위 실험', '🎲 Random experiment')
+    cta3 = T('▶ 유튜브 구독', '▶ Subscribe on YouTube')
     hint = T('점들을 만져 보세요. 마우스를 피하고, 클릭하면 "만약에!" 하고 흩어졌다가 다시 모입니다.', 'Play with the dots. They dodge your cursor, and a click asks "what if?": they scatter, then sort themselves out again.')
     h_tab = T('실험 주기율표', 'The Periodic Table of Experiments')
     p_tab = T(f'{total}개의 실험을 {len(cats)}개 분야(열)로 묶었어요. 칸 위에 마우스를 올리면 아래 실험 노트에 내용이 나타납니다.', f'{total} experiments in {len(cats)} fields (columns). Hover over a cell to see its details in the lab notebook below.')
@@ -186,6 +188,7 @@ def build(only_existing=True):
 <meta name="description" content="{esc(desc[0])}" data-en-content="{esc(desc[1])}">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="manifest" href="manifest.webmanifest">
+<link rel="alternate" type="application/rss+xml" title="Simulatio Lab | New experiments (RSS)" href="feed.xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#2f6fed">
 <link rel="stylesheet" href="style.css">
@@ -201,7 +204,7 @@ def build(only_existing=True):
     <h1 class="mega"{da(mega)}>{mega[0]}</h1>
     <p class="rq" id="rq" aria-live="polite"></p>
     <p class="lead"{da(lead)}>{lead[0]}</p>
-    <div class="cta"><a class="btn big" href="#table"{da(cta1)}>{cta1[0]}</a><button type="button" class="btn ghost" id="rand"{da(cta2)}>{cta2[0]}</button></div>
+    <div class="cta"><a class="btn big" href="#table"{da(cta1)}>{cta1[0]}</a><button type="button" class="btn ghost" id="rand"{da(cta2)}>{cta2[0]}</button><a class="btn ghost yt" href="https://www.youtube.com/@simulatiolab?sub_confirmation=1" target="_blank" rel="noopener"{da(cta3)}>{cta3[0]}</a></div>
     <p class="hint"{da(hint)}>{hint[0]}</p>
   </div>
 </header>
@@ -239,6 +242,13 @@ def build(only_existing=True):
     open(os.path.join(ROOT, 'index.html'), 'w', encoding='utf-8').write(out)
     # 실험 페이지의 이전/다음 이동에 쓰는 목록
     import json
+    # RSS 피드 (한국어 feed.xml, 영어 feed-en.xml): 새 실험 알림용
+    import email.utils, datetime as _dt
+    def rfc(d): return email.utils.format_datetime(_dt.datetime.strptime(d, '%Y-%m-%d').replace(hour=9, tzinfo=_dt.timezone(_dt.timedelta(hours=9))))
+    def strip(x): return re.sub('<[^>]+>', '', H.unescape(x))
+    for idx, fname, title_ch, desc_ch in ((0, 'feed.xml', '시뮬라티오 랩 | 새 실험', '세상을 시뮬레이션으로 돌려보는 실험실의 새 실험 소식'), (1, 'feed-en.xml', 'Simulatio Lab | New experiments', 'New experiments from the lab that reruns the world')):
+        items = ''.join(f'<item><title>{H.escape(strip(t[idx]))}</title><link>https://heekeunlee.github.io/simulatiolab/experiments/{sl}/</link><guid isPermaLink="true">https://heekeunlee.github.io/simulatiolab/experiments/{sl}/</guid><pubDate>{rfc(d)}</pubDate><description>{H.escape(strip(ds[idx]))}</description></item>' for sl, d, t, ds in sorted(feed, key=lambda x: x[1], reverse=True))
+        open(os.path.join(ROOT, fname), 'w', encoding='utf-8').write(f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>{H.escape(title_ch)}</title><link>https://heekeunlee.github.io/simulatiolab/</link><description>{H.escape(desc_ch)}</description><language>{"ko" if idx == 0 else "en"}</language>{items}</channel></rss>')
     open(os.path.join(ROOT, 'exps.js'), 'w', encoding='utf-8').write('// 실험 목록 (tools/pages/index.py 가 만든다)\nwindow.LAB_EXPS = ' + json.dumps(exps, ensure_ascii=False) + ';\n')
     return total, len(cats)
 
