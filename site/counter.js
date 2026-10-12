@@ -5,7 +5,7 @@
 // 실제 사이트 주소에서 사람이 볼 때만 세고 기록한다 (로컬 테스트·자동화 브라우저는 읽기만).
 (function () {
   // Apps Script 웹 앱 주소 (tools/analytics/README.md 참고). 비어 있으면 방문 기록을 하지 않는다.
-  const LOG_URL = '';
+  const LOG_URL = 'https://script.google.com/macros/s/AKfycbw0eJdnbOftjzqREDW89QTh-qcLtx4LS4Jqp48CQrDW_erf6XGBnzIXf5KhnbFLDE4q/exec';
   window.LAB_LOG_URL = LOG_URL;
   const real = location.hostname === 'heekeunlee.github.io' && !navigator.webdriver && !/HeadlessChrome/.test(navigator.userAgent);
   const isAdmin = /\/admin\/?/.test(location.pathname);
