@@ -229,3 +229,29 @@ canvas.view3d:active { cursor: grabbing; }
 
 /* ---------- 왼쪽 시작선 맞추기: 메뉴·제목·본문·바닥글을 모두 같은 폭(1320px)으로 ---------- */
 .nav .wrap, footer .wrap, .hero-in.wrap { max-width: 1320px; }
+
+/* ---------- 다시 오게 만드는 장치 (engage.js) ---------- */
+.jump .star-chip { font: inherit; font-size: 13px; font-weight: 700; color: var(--muted); padding: 4px 12px; border: 1px solid var(--line); border-radius: 99px; background: var(--surface); cursor: pointer; }
+.jump .star-chip:hover { color: #b7791f; border-color: #e0a100; }
+.jump .star-chip.on { color: #8a5a00; background: #fff4d6; border-color: #e0a100; }
+.more-like { margin: 36px 0 8px; }
+.more-like h2 { font-size: 20px; margin: 0 0 12px; }
+.ecards { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; }
+.ecard { position: relative; display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; text-decoration: none; color: var(--text); box-shadow: var(--shadow); transition: transform .18s, border-color .18s; }
+.ecard:hover { transform: translateY(-3px); border-color: var(--c, var(--accent)); }
+.ec-img { position: relative; display: block; aspect-ratio: 16 / 9; background: #eef1f8; overflow: hidden; }
+.ec-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ec-sym { position: absolute; left: 10px; top: 8px; font-size: 20px; font-weight: 800; color: var(--c, var(--accent)); text-shadow: 0 0 6px #fff, 0 0 2px #fff; }
+.ec-done { position: absolute; right: 8px; top: 8px; width: 22px; height: 22px; border-radius: 50%; background: #1fa463; color: #fff; font-size: 13px; font-weight: 800; display: grid; place-items: center; }
+.ec-t { padding: 10px 14px 13px; font-size: 14.5px; font-weight: 700; line-height: 1.35; word-break: keep-all; }
+.ec-rm { position: absolute; right: 8px; bottom: 8px; width: 24px; height: 24px; padding: 0; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--muted); font-size: 11px; cursor: pointer; opacity: 0; transition: opacity .15s; }
+.ecard:hover .ec-rm, .ec-rm:focus { opacity: 1; }
+@media (hover: none) { .ec-rm { opacity: .8; } }
+#nudge { position: fixed; left: 50%; transform: translateX(-50%); bottom: 18px; z-index: 70; width: max-content; max-width: min(520px, calc(100vw - 90px)); display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; background: #1b1f2a; color: #fff; padding: 12px 14px; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.28); font-size: 13.5px; line-height: 1.45; animation: ndin .35s ease; }
+@keyframes ndin { from { opacity: 0; transform: translate(-50%, 10px); } }
+#nudge .nd-msg { flex: 1 1 200px; }
+#nudge button { font: inherit; font-size: 13px; font-weight: 700; padding: 6px 12px; border-radius: 9px; border: 1px solid rgba(255,255,255,.35); background: transparent; color: #fff; cursor: pointer; }
+#nudge .nd-go { background: var(--accent, #2f6fed); border-color: var(--accent, #2f6fed); }
+@media (max-width: 980px) { #nudge { left: 14px; transform: none; bottom: 82px; max-width: calc(100vw - 28px); } @keyframes ndin { from { opacity: 0; } } }
+@media (prefers-reduced-motion: reduce) { #nudge { animation: none; } .ecard { transition: none; } }
+@media (max-width: 600px) { .ecards, .mine .ecards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } .ec-t { font-size: 13px; padding: 8px 10px 11px; } }

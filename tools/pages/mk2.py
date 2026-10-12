@@ -75,6 +75,9 @@ def page(sp):
 <title{da(sp["title_tag"])}>{sp["title_tag"][0]}</title>
 <meta name="description" content="{esc(sp["desc"][0])}" data-en-content="{esc(sp["desc"][1])}">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="theme-color" content="#2f6fed">
 <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
@@ -126,6 +129,7 @@ def page(sp):
 <script src="sim.js"></script>
 <script src="app.js"></script>
 {three_tag}<script src="../../counter.js"></script>
+<script src="../../engage.js"></script>
 </body>
 </html>
 '''

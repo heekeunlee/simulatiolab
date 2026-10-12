@@ -15,6 +15,9 @@
   let last = null;
   try { last = localStorage.getItem('lab-visit-day'); } catch (e) {}
   const firstToday = last !== day;
+  // 다시 온 방문자: 이 브라우저가 처음 온 날과 오늘이 다르면 "다시 온" 것
+  let firstDay = null; try { firstDay = localStorage.getItem('lab-first-day'); if (!firstDay) { firstDay = day; localStorage.setItem('lab-first-day', day); } } catch (e) {}
+  const returning = !!firstDay && firstDay !== day;
 
   // ① 방문자 수
   const box = document.getElementById('visits');
@@ -44,7 +47,7 @@
       let ref = ''; try { const r = document.referrer && new URL(document.referrer); if (r && r.hostname !== location.hostname) ref = r.hostname; } catch (e) {}
       const body = JSON.stringify({
         country: cc, page: location.pathname.replace(/^\/simulatiolab/, '') || '/', lang: (window.I18N && window.I18N.lang) || '',
-        device: /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? 'mobile' : 'desktop', first: firstToday, ref,
+        type: 'view', device: /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? 'mobile' : 'desktop', first: firstToday, ref, returning: returning ? 1 : 0,
       });
       fetch(LOG_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body, keepalive: true }).catch(() => {});
     });

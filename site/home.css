@@ -64,3 +64,21 @@ main.wide { max-width: 1320px; }
   .col .fh { grid-column: 1 / -1; }
 }
 @media (prefers-reduced-motion: reduce) { .el { transition: none; } }
+
+/* ---------- 도장판 · 내 실험실 · NEW (engage.js) ---------- */
+.eng-progress { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin: -6px 0 18px; }
+.eng-progress[hidden] { display: none; }
+.pg-bar { flex: 0 0 min(280px, 100%); height: 8px; border-radius: 99px; background: #e4e8f2; overflow: hidden; }
+.pg-bar i { display: block; height: 100%; background: linear-gradient(90deg, #2f6fed, #7c5cff); border-radius: 99px; transition: width .5s ease; }
+.pg-t { font-size: 14px; font-weight: 700; color: var(--text); }
+.pg-new { font-size: 12.5px; font-weight: 800; color: #fff; background: linear-gradient(135deg, #e5484d, #e0a100); padding: 3px 10px; border-radius: 99px; }
+.mine { margin: 0 0 22px; padding: 14px 16px 16px; background: #fff9e8; border: 1px solid #f0d58a; border-radius: 16px; }
+.mine h3 { margin: 0 0 10px; font-size: 16px; }
+.mine .ecards { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
+.el .done-mark { position: absolute; right: 8px; bottom: 34px; z-index: 3; width: 20px; height: 20px; border-radius: 50%; background: #1fa463; color: #fff; font-size: 12px; font-weight: 800; display: grid; place-items: center; box-shadow: 0 1px 4px rgba(0,0,0,.25); }
+.el.is-star .nm::after { content: " ★"; color: #e0a100; }
+.el .new-pill { position: absolute; left: 8px; bottom: 34px; z-index: 3; padding: 1px 7px; border-radius: 99px; background: #e5484d; color: #fff; font-size: 10.5px; font-weight: 800; letter-spacing: .05em; }
+.col.complete .fh { border-bottom-color: #1fa463; }
+.fh .fcomp { font-style: normal; font-size: 10.5px; font-weight: 800; color: #1fa463; margin-left: 6px; white-space: nowrap; }
+.fh i { margin-left: auto; }
+.fh .fcomp + i { margin-left: 4px; }

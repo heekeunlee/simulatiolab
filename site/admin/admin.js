@@ -57,7 +57,9 @@
     const dfmt = new Intl.DateTimeFormat('en-CA', { timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit' });
     const hfmt = new Intl.DateTimeFormat('en-GB', { timeZone: tz, hour: '2-digit', hour12: false });
     const tfmt = new Intl.DateTimeFormat('ko-KR', { timeZone: tz, month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false });
-    const R = rows.map((r) => { const t = new Date(r[0]); return { t, d: dfmt.format(t), h: +hfmt.format(t) % 24, cc: r[1] || 'ZZ', page: r[2] || '/', lang: r[3] || '-', dev: r[4] || '-', first: +r[5] === 1, ref: r[6] || '' }; }).sort((a, b) => a.t - b.t);
+    const ALL = rows.map((r) => { const t = new Date(r[0]); return { t, d: dfmt.format(t), h: +hfmt.format(t) % 24, cc: r[1] || 'ZZ', page: r[2] || '/', lang: r[3] || '-', dev: r[4] || '-', first: +r[5] === 1, ref: r[6] || '', type: r[7] || 'view', secs: +r[8] || 0, ran: +r[9] === 1, ret: +r[10] === 1 }; }).sort((a, b) => a.t - b.t);
+    const R = ALL.filter((x) => x.type !== 'leave');          // 페이지를 연 기록
+    const LV = ALL.filter((x) => x.type === 'leave');         // 떠날 때 기록 (머문 시간·실험 실행 여부, 시트 v2부터)
     const V = R.filter((x) => x.first);   // 방문자 = 그 브라우저의 그날 첫 방문
     const by = (arr, f) => { const m = new Map(); arr.forEach((x) => { const k = f(x); m.set(k, (m.get(k) || 0) + 1); }); return m; };
     const cV = by(V, (x) => x.cc), cP = by(R, (x) => x.cc);
@@ -65,8 +67,17 @@
     const top = ccs.slice(0, 7), color = (cc) => (top.indexOf(cc) >= 0 ? COLORS[top.indexOf(cc)] : COLORS[7]);
     const today = dfmt.format(new Date());
     $('status').textContent = `기록 ${fmtN(R.length)}건 (기간 안) · 시간 기준: ${tz === 'UTC' ? 'UTC' : '한국 시간'}` + (total != null ? ` · 시트 전체 ${fmtN(total)}건` : '');
+    const dwell = LV.length ? Math.round(LV.reduce((a, x) => a + x.secs, 0) / LV.length) : null;
+    const expLV = LV.filter((x) => /\/experiments\//.test(x.page));
+    const ranPct = expLV.length ? Math.round((100 * expLV.filter((x) => x.ran).length) / expLV.length) : null;
+    const retPct = V.length ? Math.round((100 * V.filter((x) => x.ret).length) / V.length) : null;
+    const hasRet = V.some((x) => x.ret) || LV.length > 0;
+    const mmss = (sec) => (sec == null ? '-' : sec >= 60 ? Math.floor(sec / 60) + '분 ' + String(sec % 60).padStart(2, '0') + '초' : sec + '초');
     $('cards').innerHTML = card('방문자', fmtN(V.length), '브라우저별 하루 첫 방문') + card('페이지 조회', fmtN(R.length)) + card('나라 수', fmtN(ccs.filter((c) => c !== 'ZZ').length)) +
-      card('오늘 방문자', fmtN(V.filter((x) => x.d === today).length)) + card('1인당 페이지', V.length ? (R.length / V.length).toFixed(1) : '-');
+      card('오늘 방문자', fmtN(V.filter((x) => x.d === today).length)) + card('1인당 페이지', V.length ? (R.length / V.length).toFixed(1) : '-') +
+      card('평균 머문 시간', mmss(dwell), dwell == null ? '시트를 v2로 바꾸면 기록됨' : `실험 페이지 ${expLV.length ? mmss(Math.round(expLV.reduce((a, x) => a + x.secs, 0) / expLV.length)) : '-'}`) +
+      card('다시 온 방문자', hasRet && retPct != null ? retPct + '%' : '-', '이전 날에도 온 브라우저') +
+      card('실험을 돌린 비율', ranPct == null ? '-' : ranPct + '%', '실험 페이지에서 설정을 만지거나 버튼을 누른 비율');
     const maxV = Math.max(1, ...ccs.map((c) => cV.get(c) || 0));
     $('countries').innerHTML = ccs.length ? ccs.map((c) => `<div class="ad-row"><span class="fl">${flag(c)}</span><span class="nm">${cname(c)} <small style="color:var(--muted)">${c}</small></span><span class="v">${fmtN(cV.get(c) || 0)}명</span><span class="p">${fmtN(cP.get(c) || 0)}회</span><span class="bar" style="width:${(100 * (cV.get(c) || 0)) / maxV}%;background:${color(c)}"></span></div>`).join('') : '<p class="small">기간 안 기록이 없어요.</p>';
     // 날짜별 (기간의 모든 날짜를 빈칸 없이)
@@ -125,7 +136,9 @@
     const out = [];
     for (let i = 0; i < Math.min(days, 90) * 18; i++) {
       const t = new Date(Date.now() - r() * days * 864e5), cc = pick(), first = r() < 0.45;
-      out.push([t.toISOString(), cc, pages[Math.floor(r() * pages.length)], L[cc], r() < 0.6 ? 'mobile' : 'desktop', first ? 1 : 0, r() < 0.3 ? (r() < 0.7 ? 'www.youtube.com' : 'www.google.com') : '']);
+      const pg = pages[Math.floor(r() * pages.length)], dev = r() < 0.6 ? 'mobile' : 'desktop', ret = r() < 0.22 ? 1 : 0;
+      out.push([t.toISOString(), cc, pg, L[cc], dev, first ? 1 : 0, r() < 0.3 ? (r() < 0.7 ? 'www.youtube.com' : 'www.google.com') : '', 'view', 0, 0, ret]);
+      if (r() < 0.8) out.push([new Date(t.getTime() + 60000).toISOString(), cc, pg, L[cc], dev, 0, '', 'leave', Math.round(20 + r() * r() * 400), r() < 0.55 ? 1 : 0, ret]);
     }
     return out;
   }

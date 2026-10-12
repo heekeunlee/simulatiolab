@@ -33,3 +33,10 @@
 
 ## 코드를 고쳤을 때
 Apps Script에서 **배포 → 배포 관리 → 연필(수정) → 버전: 새 버전 → 배포**를 해야 반영됩니다 (URL은 그대로).
+
+## v2로 올리기 (머문 시간·다시 온 방문자·실험 실행 비율 기록)
+1. Apps Script를 열고 `Code.gs` 내용을 지운 뒤 아래 주소의 최신 코드를 전부 붙여 넣고 저장합니다.
+   https://raw.githubusercontent.com/heekeunlee/simulatiolab/main/tools/analytics/apps-script.gs
+2. **배포 → 배포 관리 → 연필(수정) → 버전: 새 버전 → 배포**. (URL은 그대로)
+3. 확인: 브라우저에서 `웹앱URL?a=v` 를 열어 `{"v":2}`가 나오면 성공입니다. 이후 사이트가 자동으로 머문 시간 기록을 보내기 시작합니다.
+시트에는 `type`(view/leave), `secs`, `ran`, `returning` 칸이 추가됩니다. v1 그대로 두어도 사이트는 정상 작동하고, 새 지표만 비어 있습니다.

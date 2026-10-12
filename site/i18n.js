@@ -105,6 +105,8 @@
     'Why does the bus always make you wait longer?': { es: '¿Por qué el autobús siempre te hace esperar más?', fr: 'Pourquoi le bus fait-il toujours attendre plus longtemps ?', ja: 'なぜバスはいつも長く待たされるのか？', ru: 'Почему автобус всегда заставляет ждать дольше?', zh: '为什么公交车总让人等更久？' },
     'Why does scolding seem to work?': { es: '¿Por qué parece que regañar funciona?', fr: 'Pourquoi les réprimandes semblent-elles marcher ?', ja: 'なぜ叱ると次はうまくいくように見えるのか？', ru: 'Почему кажется, что ругань помогает?', zh: '为什么批评似乎更管用？' }
   };
+  // 다른 스크립트(engage.js 등)가 자기 화면 문구의 번역을 UI 사전에 더한다: addUI({ '영어 문구': { es, fr, ja, ru, zh } })
+  const addUI = (d) => Object.assign(UI, d);
   // 한국어면 ko, 영어면 en, 그 밖의 언어면 UI 사전(없으면 영어)
   function u(ko, en) {
     if (lang === 'ko') return ko;
@@ -180,7 +182,7 @@
     brand.after(t);
   }
 
-  window.I18N = { lang, t, u, st, add, addLang, addStatic, apply: applyStatic, missing, fallbacks, langs: LANGS };
+  window.I18N = { lang, t, u, st, addUI, add, addLang, addStatic, apply: applyStatic, missing, fallbacks, langs: LANGS };
   document.documentElement.lang = lang;
   toggle(); tagline();
   // es / fr / ja / ru / zh 사전은 이 스크립트 바로 뒤에 동기적으로 불러온다

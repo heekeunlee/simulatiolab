@@ -74,6 +74,24 @@ def thumb(slug):
         if os.path.exists(fp): return f'thumbs/{f}?v={int(os.path.getmtime(fp))}'
     return None
 
+# 주제로 이어지는 "이게 흥미로웠다면" 추천 (앞의 것이 더 가까운 주제)
+RELATED = {
+ 'talent-vs-luck': ['wealth', 'regression', 'youtube'], 'wealth': ['talent-vs-luck', 'veil', 'youtube'], 'youtube': ['wealth', 'friendship', 'talent-vs-luck'],
+ 'schelling': ['rumor', 'fashion', 'friendship'], 'rumor': ['schelling', 'revolution', 'telephone'], 'dating': ['auction', 'bar', 'schelling'],
+ 'peter': ['regression', 'voting', 'cooperation'], 'voting': ['veil', 'revolution', 'alliance'],
+ 'traffic': ['braess', 'queue', 'firefly'], 'bar': ['traffic', 'braess', 'dating'], 'queue': ['cooperation', 'commons', 'traffic'],
+ 'firefly': ['turing', 'sunflower', 'revolution'], 'turing': ['sunflower', 'firefly', 'zipf'],
+ 'revolution': ['rumor', 'alliance', 'fashion'], 'easter': ['commons', 'population', 'apartment'], 'alliance': ['revolution', 'rumor', 'veil'],
+ 'cooperation': ['queue', 'commons', 'veil'], 'veil': ['wealth', 'cooperation', 'voting'], 'commons': ['easter', 'cooperation', 'queue'],
+ 'monkey': ['zipf', 'telephone', 'painters'], 'zipf': ['monkey', 'telephone', 'youtube'], 'telephone': ['rumor', 'monkey', 'painters'],
+ 'fashion': ['painters', 'schelling', 'rumor'], 'painters': ['fashion', 'telephone', 'sunflower'], 'sunflower': ['turing', 'firefly', 'painters'], 'auction': ['dating', 'survivor', 'regression'],
+ 'population': ['apartment', 'easter', 'wealth'], 'apartment': ['population', 'rumor', 'auction'],
+ 'braess': ['traffic', 'bar', 'queue'], 'regression': ['survivor', 'talent-vs-luck', 'peter'], 'survivor': ['regression', 'talent-vs-luck', 'auction'],
+ 'friendship': ['inspection', 'rumor', 'youtube'], 'inspection': ['friendship', 'coincidence', 'traffic'], 'coincidence': ['inspection', 'friendship', 'regression'],
+}
+# 새 실험을 추가한 날 (NEW 표시는 이 날짜부터 7일 동안, 그리고 "지난 방문 이후 새 실험" 계산에 쓴다). 새 실험을 만들면 한 줄 추가.
+ADDED = {s: '2026-10-12' for s in ['braess', 'regression', 'survivor', 'friendship', 'inspection', 'coincidence']}
+
 # slug -> (기호, 짧은 이름 T, 미니 애니메이션 종류)
 META = {
  'talent-vs-luck': ('Tl', T('재능 vs 운', 'Talent vs Luck'), 'bars'),
@@ -129,7 +147,10 @@ def build(only_existing=True):
         for slug, method, title, desc in items:
             n += 1
             sym, short, kind = META[slug]
-            exps.append({'s': slug, 'n': '%02d' % n, 'c': col, 'sym': sym, 'ko': title[0], 'en': re.sub('<[^>]+>', '', H.unescape(title[1]))})
+            ex = {'s': slug, 'n': '%02d' % n, 'c': col, 'sym': sym, 'ko': title[0], 'en': re.sub('<[^>]+>', '', H.unescape(title[1])), 'f': k, 'r': RELATED.get(slug, [])}
+            if thumb(slug): ex['t'] = thumb(slug)
+            if slug in ADDED: ex['a'] = ADDED[slug]
+            exps.append(ex)
             th = thumb(slug)
             vis = f'<img class="thumb" src="{th}" alt="" loading="lazy" decoding="async">' if th else '<canvas class="glyph" aria-hidden="true"></canvas>'
             tiles += f"""
@@ -164,6 +185,9 @@ def build(only_existing=True):
 <title data-en="Simulatio Lab">시뮬라티오 랩</title>
 <meta name="description" content="{esc(desc[0])}" data-en-content="{esc(desc[1])}">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#2f6fed">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="home.css">
 </head>
@@ -205,8 +229,10 @@ def build(only_existing=True):
 {foot}
 <script src="i18n.js"></script>
 <script src="i18n-en.js"></script>
+<script src="exps.js"></script>
 <script src="home.js"></script>
 <script src="counter.js"></script>
+<script src="engage.js"></script>
 </body>
 </html>
 """
