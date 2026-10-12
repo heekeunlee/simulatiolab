@@ -39,7 +39,7 @@
 
   // ---------- 저장 상태 ----------
   const KEY = 'lab-state';
-  let S = { done: {}, stars: [], days: [], last: 0, nudged: 0 };
+  let S = { done: {}, stars: [], days: [], last: 0, nudged: 0, pred: {} };
   try { Object.assign(S, JSON.parse(localStorage.getItem(KEY) || '{}')); } catch (e) {}
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} };
   const kst = () => { try { return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Seoul' }).format(new Date()); } catch (e) { return new Date().toISOString().slice(0, 10); } };
@@ -91,7 +91,7 @@
       const t = e.target; if (!t || !t.closest) return;
       if (t.closest('.jump, .xnav, .more-like, nav.nav, footer, .langtoggle, #admin-gate')) return;
       if (e.type === 'click' && !t.closest('button, select, input, summary, canvas')) return;
-      ran = true; markDone(slug);
+      ran = true; markDone(slug); document.dispatchEvent(new Event('lab:ran'));
     };
     ['input', 'change', 'click'].forEach((ev) => document.addEventListener(ev, touch, true));
     // 머문 시간(보이는 동안만) + 즐겨찾기 안내 시점 판단
@@ -112,14 +112,79 @@
     document.addEventListener('visibilitychange', () => { if (document.hidden) leave(); });
     window.addEventListener('pagehide', leave);
     window.LAB_ENGAGE = { slug, secs: () => secs, ran: () => ran };
+
+    // ---------- 먼저 예상해 보세요 ----------
+    // 질문 데이터(predict.js, 한국어)를 필요할 때만 불러온다. 번역은 I18N.t(한국어 문구)로 한다.
+    const tt = (ko) => (I.t ? I.t(ko) : ko);
+    const wb = document.querySelector('.workbench');
+    if (wb && !/[?&]thumb=1/.test(location.search)) {
+      const ps = document.createElement('script'); ps.src = BASE + 'predict.js';
+      ps.onload = () => { const P = (window.LAB_PREDICT || {})[slug]; if (P) predictCard(P); };
+      document.head.appendChild(ps);
+    }
+    function predictCard(P) {
+      S.pred = S.pred || {}; const mine = S.pred[slug] || null;
+      const el = document.createElement('section'); el.className = 'predict'; el.id = 'predict';
+      wb.before(el);
+      let timer = null;
+      const optTxt = (i) => esc(tt(P.o[i]));
+      const lead = document.querySelector('main p.lead');
+      // 답을 고르거나 건너뛰기 전까지 정답이 들어 있는 소개 글을 숨기고 실험 화면을 흐리게 한다
+      const gate = (on) => { wb.classList.toggle('pgated', on); if (lead) lead.classList.toggle('pgated-lead', on); };
+      function send(choice) {
+        const url = window.LAB_LOG_URL; if (!url || !real || !(window.LAB_LOG_VER >= 3)) return;
+        let cc = 'ZZ'; try { cc = sessionStorage.getItem('lab-cc') || 'ZZ'; } catch (e) {}
+        try { fetch(url, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ type: 'predict', page: slug, choice, country: cc, device: /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? 'mobile' : 'desktop' }), keepalive: true }); } catch (e) {}
+      }
+      function render() {
+        const m = S.pred[slug];
+        let h = `<h2>${esc(tt('🔮 먼저 예상해 보세요'))}</h2><p class="pq">${esc(tt(P.q))}</p>`;
+        gate(!m);
+        if (!m) {
+          h += `<div class="popts">${P.o.map((o, i) => `<button type="button" class="popt" data-i="${i}">${optTxt(i)}</button>`).join('')}</div><p class="pnote">${esc(tt('예상을 고르면 실험 결과가 열려요.'))} <button type="button" class="pskip">${esc(tt('건너뛰고 바로 보기'))}</button></p>`;
+        } else if (m.skip) {
+          h += `<div class="popts">${P.o.map((o, i) => `<button type="button" class="popt" data-i="${i}">${optTxt(i)}</button>`).join('')}</div><p class="pnote">${esc(tt('건너뛰었어요. 지금 골라도 돼요.'))}</p>`;
+        } else if (!m.r) {
+          h += `<p class="pmine">${esc(tt('내 예상: ' + P.o[m.c]))}</p><p class="pnote">${esc(tt('이제 아래 실험을 돌려 보세요. 결과를 본 뒤 정답을 확인할 수 있어요.'))}</p><button type="button" class="preveal">${esc(tt('정답 보기'))}</button>`;
+        } else {
+          const ok = m.c === P.a;
+          h += `<div class="popts">${P.o.map((o, i) => `<span class="popt ${i === P.a ? 'right' : (i === m.c ? 'wrong' : 'off')}${i === m.c ? ' mine' : ''}">${i === P.a ? '✓ ' : ''}${optTxt(i)}${i === m.c ? ' ◀' : ''}</span>`).join('')}</div>` +
+            `<p class="pres ${ok ? 'ok' : 'no'}">${esc(tt(ok ? '🎯 맞혔어요!' : '🤔 틀렸어도 괜찮아요. 이 반전이 바로 이 실험이에요.'))}</p>` +
+            `<p class="pwhy"><b>${esc(tt('정답: ' + P.o[P.a]))}</b> — ${esc(tt(P.w))}</p><div id="pothers"></div>`;
+        }
+        el.innerHTML = h;
+        el.querySelectorAll('.popt[data-i]').forEach((b) => b.addEventListener('click', () => choose(+b.dataset.i)));
+        const rv = el.querySelector('.preveal'); if (rv) rv.addEventListener('click', reveal);
+        const sk = el.querySelector('.pskip'); if (sk) sk.addEventListener('click', () => { S.pred[slug] = { skip: 1, r: 0, t: Date.now() }; save(); render(); });
+        if (m && m.r && !m.late) others();
+      }
+      function choose(i) { const late = !!(S.pred[slug] && S.pred[slug].skip); S.pred[slug] = { c: i, r: 0, t: Date.now(), late: late ? 1 : 0 }; save(); if (!late) send(i); render(); }   // 건너뛴 뒤에 고른 답은 투표·적중에 세지 않는다
+      function reveal() { clearTimeout(timer); const m = S.pred[slug]; if (!m || m.r || m.c == null) return; m.r = 1; m.ok = m.c === P.a ? 1 : 0; save(); render(); }
+      // 다른 방문자들의 예상 (구글 시트가 v3일 때만, 5명 이상 모였을 때만)
+      function others() {
+        const url = window.LAB_LOG_URL; if (!url || !real) return;
+        fetch(url + '?a=pred&slug=' + encodeURIComponent(slug)).then((r) => r.json()).then((j) => {
+          const c = j && j.counts; if (!c || c.length !== P.o.length) return;
+          const n = c.reduce((a, b) => a + b, 0); if (n < 5) return;
+          const box = document.getElementById('pothers'); if (!box) return;
+          const pct = (v) => Math.round((100 * v) / n);
+          box.innerHTML = `<p class="poth-t">${esc(tt('다른 방문자 ' + n + '명의 예상'))}</p>` + P.o.map((o, i) => `<div class="pbar${i === P.a ? ' right' : ''}"><span class="pl">${optTxt(i)}</span><span class="pb"><i style="width:${pct(c[i])}%"></i></span><span class="pv">${pct(c[i])}%</span></div>`).join('') +
+            `<p class="poth-s">${esc(tt('정답을 맞힌 사람: ' + pct(c[P.a]) + '%'))}</p>`;
+        }).catch(() => {});
+      }
+      // 답을 고른 뒤 실험을 돌려 보면 몇 초 뒤 정답을 자동으로 보여준다
+      document.addEventListener('lab:ran', () => { const m = S.pred[slug]; if (m && m.c != null && !m.r && !timer) timer = setTimeout(reveal, 9000); });
+      render();
+    }
   }
 
   // 시트가 v2(머문 시간 기록을 받는 버전)인지 확인 — 하루 한 번만 물어 본다
   (function () {
     const url = window.LAB_LOG_URL; if (!url || !real) return;
     let v = null; try { v = sessionStorage.getItem('lab-v2'); } catch (e) {}
-    if (v != null) { window.LAB_LOG_V2 = v === '1'; return; }
-    fetch(url + '?a=v').then((r) => r.json()).then((j) => { window.LAB_LOG_V2 = !!(j && j.v >= 2); try { sessionStorage.setItem('lab-v2', window.LAB_LOG_V2 ? '1' : '0'); } catch (e) {} }).catch(() => {});
+    const set = (n) => { window.LAB_LOG_VER = n; window.LAB_LOG_V2 = n >= 2; };
+    if (v != null) { set(+v || 0); return; }
+    fetch(url + '?a=v').then((r) => r.json()).then((j) => { const n = (j && j.v) || 1; set(n); try { sessionStorage.setItem('lab-v2', String(n)); } catch (e) {} }).catch(() => {});
   })();
 
   // =================== 즐겨찾기·홈 화면 안내 ===================
@@ -182,8 +247,10 @@
       });
       const fresh = prevVisit ? EXPS.filter((x) => x.a && Date.parse(x.a) > prevVisit && !isDone(x.s)).length : 0;
       const msg = n === total ? T('🎉 모든 실험을 해 봤어요!', '🎉 You tried every experiment!') : T('{1}개 중 {0}개 해 봤어요', '{0} of {1} experiments tried', n, total);
+      const pr = Object.values(S.pred || {}).filter((x) => x && x.r && !x.late), prOk = pr.filter((x) => x.ok).length;
       strip.hidden = false;
       strip.innerHTML = `<div class="pg-bar" role="progressbar" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${n}"><i style="width:${(100 * n) / total}%"></i></div><span class="pg-t">${esc(msg)}</span>` +
+        (pr.length ? `<span class="pg-pred">🔮 ${esc(I.t ? I.t('예상 적중 ' + prOk + '/' + pr.length) : '')}</span>` : '') +
         (fresh ? `<span class="pg-new">${esc(T('지난 방문 이후 새 실험 {0}개', 'New since your last visit: {0}', fresh))}</span>` : '');
       const st = S.stars.map((s) => byId[s]).filter(Boolean);
       mine.hidden = !st.length;

@@ -8,7 +8,22 @@
  */
 var SHEET = 'visits';
 var HEAD = ['time', 'country', 'page', 'lang', 'device', 'first_today', 'referrer', 'type', 'secs', 'ran', 'returning'];
-var VERSION = 2;   // 2: 머문 시간(leave)·실험 실행 여부·다시 온 방문자를 함께 기록
+var VERSION = 3;   // 2: 머문 시간(leave)·실험 실행 여부·다시 온 방문자 기록 / 3: '먼저 예상해 보세요' 투표(predictions 시트)
+var PSHEET = 'predictions';
+function psheet_() {
+  var ss = SpreadsheetApp.getActive(), sh = ss.getSheetByName(PSHEET);
+  if (!sh) { sh = ss.insertSheet(PSHEET); sh.appendRow(['time', 'slug', 'choice', 'country', 'device']); sh.setFrozenRows(1); }
+  return sh;
+}
+// 실험별 선택지 집계 {slug: [a, b, c]} (1분 동안 캐시)
+function predCounts_() {
+  var cache = CacheService.getScriptCache(), hit = cache.get('pc');
+  if (hit) return JSON.parse(hit);
+  var v = psheet_().getDataRange().getValues(), out = {};
+  for (var i = 1; i < v.length; i++) { var s = String(v[i][1]), c = Number(v[i][2]) || 0; if (!out[s]) out[s] = [0, 0, 0, 0, 0]; if (c >= 0 && c < 5) out[s][c]++; }
+  cache.put('pc', JSON.stringify(out), 60);
+  return out;
+}
 
 function sheet_() {
   var ss = SpreadsheetApp.getActive();
@@ -24,6 +39,10 @@ function doPost(e) {
   try {
     var d = JSON.parse(e.postData.contents);
     var cc = clean_(d.country, 2).toUpperCase().replace(/[^A-Z]/g, '') || 'ZZ';
+    if (d.type === 'predict') {   // 예상 투표: 한 줄 추가
+      var ps = psheet_(); ps.appendRow([new Date(), clean_(d.page, 60), Math.max(0, Math.min(4, Number(d.choice) || 0)), cc, clean_(d.device, 10)]);
+      return ContentService.createTextOutput('ok');
+    }
     var lock = LockService.getScriptLock(); lock.waitLock(5000);
     var leave = d.type === 'leave';
     sheet_().appendRow([new Date(), cc, clean_(d.page, 120), clean_(d.lang, 5), clean_(d.device, 10), (!leave && d.first) ? 1 : 0, clean_(d.ref, 80),
@@ -36,9 +55,14 @@ function doPost(e) {
 function doGet(e) {
   var p = (e && e.parameter) || {};
   var out = function (o) { return ContentService.createTextOutput(JSON.stringify(o)).setMimeType(ContentService.MimeType.JSON); };
-  if (p.a === 'v') return out({ v: VERSION });   // 사이트가 어떤 버전인지 묻는다 (비밀번호 필요 없음)
+  if (p.a === 'v') return out({ v: VERSION });
+  if (p.a === 'pred') {   // 한 실험의 예상 분포 (집계만, 비밀번호 없이)
+    var all = predCounts_(), c = all[String(p.slug || '')] || [0, 0, 0, 0, 0];
+    return out({ counts: c.slice(0, Math.max(2, Number(p.n) || 3)) });
+  }   // 사이트가 어떤 버전인지 묻는다 (비밀번호 필요 없음)
   if (p.pw !== pw_()) return out({ ok: false });
   if (p.a === 'check') return out({ ok: true, v: VERSION });
+  if (p.a === 'preds') return out({ ok: true, preds: predCounts_() });   // 관리자: 모든 실험의 예상 분포
   var days = Math.min(400, Number(p.days) || 30);
   var since = new Date(Date.now() - days * 864e5);
   var v = sheet_().getDataRange().getValues(), rows = [];

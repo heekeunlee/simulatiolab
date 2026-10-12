@@ -66,6 +66,7 @@
     const ccs = [...new Set(R.map((x) => x.cc))].sort((a, b) => (cV.get(b) || 0) - (cV.get(a) || 0) || (cP.get(b) || 0) - (cP.get(a) || 0));
     const top = ccs.slice(0, 7), color = (cc) => (top.indexOf(cc) >= 0 ? COLORS[top.indexOf(cc)] : COLORS[7]);
     const today = dfmt.format(new Date());
+    loadPreds();
     $('status').textContent = `기록 ${fmtN(R.length)}건 (기간 안) · 시간 기준: ${tz === 'UTC' ? 'UTC' : '한국 시간'}` + (total != null ? ` · 시트 전체 ${fmtN(total)}건` : '');
     const dwell = LV.length ? Math.round(LV.reduce((a, x) => a + x.secs, 0) / LV.length) : null;
     const expLV = LV.filter((x) => /\/experiments\//.test(x.page));
@@ -104,6 +105,18 @@
     // 최근 기록
     $('recent').innerHTML = `<table class="ad-tbl"><thead><tr><th>시각</th><th>나라</th><th>페이지</th><th>언어</th><th>기기</th><th>첫 방문</th><th>들어온 곳</th></tr></thead><tbody>` +
       R.slice(-100).reverse().map((x) => `<tr><td>${tfmt.format(x.t)}</td><td>${flag(x.cc)} ${cname(x.cc)}</td><td style="text-align:left">${pageTitle(x.page)}</td><td>${LN[x.lang] || x.lang}</td><td>${x.dev === 'mobile' ? '휴대폰' : x.dev === 'desktop' ? '컴퓨터' : x.dev}</td><td>${x.first ? '●' : ''}</td><td>${x.ref}</td></tr>`).join('') + '</tbody></table>';
+  }
+  // 예상 투표: 실험별 참여 수·정답률·선택 분포 (시트 v3부터)
+  function loadPreds() {
+    const box = $('preds'); if (!box) return;
+    const P = window.LAB_PREDICT || {}, E = {}; (window.LAB_EXPS || []).forEach((x) => { E[x.s] = x.ko; });
+    const draw = (preds) => {
+      const rowsP = Object.keys(P).map((s) => { const c = (preds && preds[s]) || [], n = c.slice(0, P[s].o.length).reduce((a, b) => a + (b || 0), 0); return { s, c, n, ok: n ? Math.round((100 * (c[P[s].a] || 0)) / n) : null }; }).sort((a, b) => b.n - a.n);
+      box.innerHTML = `<table class="ad-tbl"><thead><tr><th>실험</th><th>참여</th><th>정답률</th><th>선택 분포 (보기 순서대로)</th></tr></thead><tbody>` + rowsP.map((r) => `<tr><td style="text-align:left">${E[r.s] || r.s}</td><td>${fmtN(r.n)}</td><td class="h">${r.ok == null ? '-' : r.ok + '%'}</td><td style="text-align:left">${r.n ? P[r.s].o.map((o, i) => `${i === P[r.s].a ? '✓ ' : ''}${o} <b>${Math.round((100 * (r.c[i] || 0)) / r.n)}%</b>`).join(' · ') : '아직 없음'}</td></tr>`).join('') + '</tbody></table>';
+    };
+    if (demo) { const f = {}; Object.keys(P).forEach((s, i) => { const n = 30 + i * 7; const a = P[s].a; const c = P[s].o.map((_, k) => (k === a ? Math.round(n * (0.25 + 0.04 * i)) : Math.round(n * 0.3))); f[s] = c; }); return draw(f); }
+    if (!LOG_URL) return draw(null);
+    fetch(LOG_URL + '?a=preds&pw=' + encodeURIComponent(pw)).then((r) => r.json()).then((j) => draw(j && j.ok ? j.preds : null)).catch(() => draw(null));
   }
   const groupTop = (arr, top) => { const g = top.map(() => 0); let other = 0; arr.forEach((x) => { const i = top.indexOf(x.cc); if (i >= 0) g[i]++; else other++; }); g.push(other); return g; };
   const legend = (top, hasOther) => top.map((c, i) => `<span><i style="background:${COLORS[i]}"></i>${flag(c)} ${cname(c)}</span>`).join('') + (hasOther ? `<span><i style="background:${COLORS[7]}"></i>기타</span>` : '');

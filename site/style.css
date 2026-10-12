@@ -255,3 +255,32 @@ canvas.view3d:active { cursor: grabbing; }
 @media (max-width: 980px) { #nudge { left: 14px; transform: none; bottom: 82px; max-width: calc(100vw - 28px); } @keyframes ndin { from { opacity: 0; } } }
 @media (prefers-reduced-motion: reduce) { #nudge { animation: none; } .ecard { transition: none; } }
 @media (max-width: 600px) { .ecards, .mine .ecards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } .ec-t { font-size: 13px; padding: 8px 10px 11px; } }
+
+/* ---------- 먼저 예상해 보세요 (engage.js) ---------- */
+.predict { margin: 16px 0 0; padding: 16px 20px 18px; background: linear-gradient(135deg, #f1f4ff, #f7f1ff); border: 1px solid #cfd8ff; border-radius: 16px; }
+.predict h2 { margin: 0 0 6px; font-size: 16px; color: #3b4cc0; }
+.predict .pq { margin: 0 0 12px; font-size: 16.5px; font-weight: 700; line-height: 1.5; max-width: 900px; }
+.popts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; }
+.popt { font: inherit; font-size: 15px; font-weight: 700; line-height: 1.4; text-align: left; padding: 12px 14px; border-radius: 12px; border: 1.5px solid #c3ccf5; background: #fff; color: var(--text); cursor: pointer; transition: transform .12s, border-color .12s, background .12s; }
+button.popt:hover { transform: translateY(-2px); border-color: #5b6ee6; background: #f5f7ff; }
+span.popt { cursor: default; }
+.popt.right { border-color: #1fa463; background: #e8f7ee; color: #14663f; }
+.popt.wrong { border-color: #e5484d; background: #fdecec; color: #a32a2e; }
+.popt.off { opacity: .55; }
+.pnote { margin: 10px 0 0; font-size: 13px; color: var(--muted); }
+.pmine { margin: 0 0 6px; font-size: 15px; font-weight: 800; color: #3b4cc0; }
+.preveal { margin-top: 10px; font: inherit; font-weight: 700; font-size: 14px; padding: 8px 16px; border-radius: 10px; border: 0; background: #3b4cc0; color: #fff; cursor: pointer; }
+.pres { margin: 12px 0 4px; font-size: 17px; font-weight: 800; }
+.pres.ok { color: #14663f; } .pres.no { color: #8a5a00; }
+.pwhy { margin: 4px 0 0; font-size: 14.5px; line-height: 1.6; max-width: 900px; }
+.poth-t { margin: 14px 0 6px; font-size: 13px; font-weight: 800; color: var(--muted); }
+.pbar { display: grid; grid-template-columns: minmax(120px, 280px) minmax(0, 1fr) 44px; gap: 10px; align-items: center; font-size: 13px; margin: 3px 0; }
+.pbar .pb { height: 8px; background: #e4e8f2; border-radius: 99px; overflow: hidden; }
+.pbar .pb i { display: block; height: 100%; background: #8f9bd6; border-radius: 99px; }
+.pbar.right .pb i { background: #1fa463; } .pbar .pv { text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; }
+.poth-s { margin: 6px 0 0; font-size: 13px; color: var(--muted); }
+@media (max-width: 600px) { .predict { padding: 14px 14px 16px; } .pbar { grid-template-columns: 1fr 70px 40px; } }
+.workbench.pgated { filter: blur(9px) saturate(.5); pointer-events: none; user-select: none; max-height: 300px; overflow: hidden; opacity: .75; }
+.lead.pgated-lead { display: none; }
+.pskip { font: inherit; font-size: 13px; font-weight: 700; margin-left: 6px; padding: 3px 10px; border-radius: 8px; border: 1px solid #c3ccf5; background: #fff; color: #3b4cc0; cursor: pointer; }
+.pskip:hover { background: #eef0ff; }
