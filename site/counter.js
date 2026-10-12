@@ -10,7 +10,9 @@
   catch (e) { const d = new Date(); day = String(d.getFullYear()) + (d.getMonth() + 1) + d.getDate(); }
   let last = null;
   try { last = localStorage.getItem('lab-visit-day'); } catch (e) {}
-  const counted = last === day;
+  // 실제 사이트 주소에서 사람이 볼 때만 센다: 로컬 테스트(localhost)나 자동화 브라우저(헤드리스 크롬 등)는 숫자만 읽고 올리지 않는다
+  const real = location.hostname === 'heekeunlee.github.io' && !navigator.webdriver && !/HeadlessChrome/.test(navigator.userAgent);
+  const counted = last === day || !real;
   const call = (key) => fetch(`${API}/${counted ? 'get' : 'hit'}/${NS}/${key}`).then((r) => (r.ok ? r.json() : null)).then((j) => (j && typeof j.value === 'number' ? j.value : null)).catch(() => null);
   Promise.all([call('d-' + day), call('visits')]).then(([today, total]) => {
     if (total == null && today == null) return;
@@ -18,6 +20,6 @@
     document.getElementById('v-today').textContent = fmt(today);
     document.getElementById('v-total').textContent = fmt(total);
     box.hidden = false;
-    if (!counted) { try { localStorage.setItem('lab-visit-day', day); } catch (e) {} }
+    if (!counted && real) { try { localStorage.setItem('lab-visit-day', day); } catch (e) {} }
   });
 })();
