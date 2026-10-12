@@ -159,3 +159,9 @@
 - 유튜브 채널 생성 확인: `youtube.com/@simulatiolab` → "시뮬라티오 랩 | 세상을 돌려보는 실험실".
 - 플라스크 로고를 **원상**(점들이 모여 그린 열린 원 + 금빛 점 하나)으로 교체: 웹사이트 로고·파비콘(`site/logo.svg`, `favicon.svg`), 유튜브 프로필(`profile-800.png`), 배너(`banner-2560x1440.png`, 한지색 바탕 + 먹색 글자).
 - 생성 스크립트: `python3 tools/make_logos.py` (후보 3종과 미리보기 `docs/youtube/logo/`도 함께 생성). PNG 변환은 resvg로 함.
+
+## 18차 — 러시아어·중국어(간체) 추가 (2026-10-12)
+
+- 언어 메뉴 7개: 한국어 · English · Español · Français · 日本語 · Русский · 中文. 정적 문구 1,378개 + 실행 중 문구 808개를 ru/zh로 번역(AI 번역, 원어민 검수 전). 태그·자리표시자 자동 검증 통과, 35개 페이지 × 2개 언어 jsdom 실행에서 한글 잔존·번역 누락 없음.
+- 번역 도구가 언어를 골라 번역하도록 변경: `CHUNK=14000 python3 tools/i18n/tr_extract.py ru zh` → 번역 → `tr_build.py`.
+- 유튜브 "언어 추가"용 러시아어·중국어 채널 이름·설명을 `docs/youtube/채널-만들기.md`에 추가.

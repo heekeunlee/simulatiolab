@@ -14,6 +14,9 @@ for f in files:
         v = html.unescape(m.group(1))
         seen.setdefault(v, len(seen))
 items = sorted(seen, key=lambda v: seen[v])
+# 지원 언어 (영어·한국어 제외). 인자를 주면 그 언어만 대상: python3 tr_extract.py ru zh
+ALL_LANGS = ['es', 'fr', 'ja', 'ru', 'zh']
+LANGS = sys.argv[1:] or ALL_LANGS
 MEM = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tr', 'memory.json')
 mem = json.load(open(MEM, encoding='utf-8')) if os.path.exists(MEM) else {'s': {}, 'd': {}}
 json.dump(items, open(os.path.join(SRC, 'all_static.json'), 'w', encoding='utf-8'), ensure_ascii=False)
@@ -26,7 +29,7 @@ def chunk(lst, size, key):
     if cur: out.append(cur)
     return out
 for old in glob.glob(os.path.join(SRC, '*_[0-9][0-9].json')): os.remove(old)
-cs = chunk([(k, v) for k, v in enumerate(items) if v not in mem['s']], 8000, lambda p: p[1])
+cs = chunk([(k, v) for k, v in enumerate(items) if any(l not in mem['s'].get(v, {}) for l in LANGS)], int(os.environ.get('CHUNK', 8000)), lambda p: p[1])
 for i, c in enumerate(cs):
     json.dump([{'id': 's%04d' % k, 'en': v} for k, v in c], open(os.path.join(SRC, 'static_%02d.json' % i), 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
 # 실행 중 문구
@@ -38,7 +41,8 @@ for f in sorted(glob.glob(os.path.join(ROOT, 'tools/pages/dyn_*.py'))):
     for k, v in m.DYN.items(): merged.setdefault(k, v)
 ditems = list(merged.items())
 json.dump(ditems, open(os.path.join(SRC, 'all_dyn.json'), 'w', encoding='utf-8'), ensure_ascii=False)
-cd = chunk([(k, kv) for k, kv in enumerate(ditems) if kv[0] not in mem['d']], 7000, lambda p: p[1][0] + p[1][1])
+cd = chunk([(k, kv) for k, kv in enumerate(ditems) if any(l not in mem['d'].get(kv[0], {}) for l in LANGS)], int(os.environ.get('CHUNK', 8000)) - 1000, lambda p: p[1][0] + p[1][1])
 for i, c in enumerate(cd):
     json.dump([{'id': 'd%04d' % k, 'ko': ko, 'en': en} for k, (ko, en) in c], open(os.path.join(SRC, 'dyn_%02d.json' % i), 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
-print(len(items), 'static,', len(ditems), 'dyn; 새로 번역할 묶음: static', len(cs), ' dyn', len(cd))
+json.dump(LANGS, open(os.path.join(SRC, 'langs.json'), 'w'))
+print('대상 언어', LANGS, len(items), 'static,', len(ditems), 'dyn; 새로 번역할 묶음: static', len(cs), ' dyn', len(cd))

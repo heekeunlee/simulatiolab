@@ -211,5 +211,6 @@ details.notes[open] > summary { border-bottom: 1px solid var(--line); margin-bot
 .langtoggle .lt-menu li.on { color: var(--accent); }
 .langtoggle .lt-menu li.on::after { content: " ✓"; }
 html[lang="es"] body, html[lang="fr"] body { word-break: normal; }
-html[lang="ja"] body { word-break: normal; line-break: strict; }
+html[lang="ja"] body, html[lang="zh"] body { word-break: normal; line-break: strict; }
+html[lang="ru"] body { word-break: normal; hyphens: auto; }
 @media (max-width: 480px) { .langtoggle .lt-btn { padding: 5px 8px; font-size: 12px; } .langtoggle .lt-cur { max-width: 74px; overflow: hidden; text-overflow: ellipsis; } }

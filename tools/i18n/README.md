@@ -13,7 +13,7 @@
 4. 페이지 HTML을 다시 생성하면 `data-en`이 사라지므로 3번을 다시 실행한다
 
 
-## 스페인어 · 프랑스어 · 일본어 (es / fr / ja)
+## 스페인어 · 프랑스어 · 일본어 · 러시아어 · 중국어 (es / fr / ja / ru / zh)
 
 우상단 언어 메뉴는 한국어·English·Español·Français·日本語 다섯 개입니다. es/fr/ja는 **영어 문구(data-en)를 원문 키로** 삼아 번역합니다.
 
@@ -25,3 +25,5 @@
 1. `python3 tools/i18n/tr_extract.py` → `tools/i18n/tr/src/`에 번역 대상 묶음 생성
 2. 묶음마다 `tr/GUIDE.md` 지침대로 es/fr/ja 번역을 `tr/out/<같은 이름>.json`으로 저장 (에이전트에 맡길 수 있음). 이미 번역된 문구는 `tr/memory.json`에 쌓여 있어 **새 문구만** 묶음으로 나온다
 3. `python3 tools/i18n/tr_build.py` → 태그·자리표시자·한글 잔존을 검증하고 memory.json에 합쳐(out 조각은 삭제) `site/i18n-es.js`, `i18n-fr.js`, `i18n-ja.js` 생성
+
+새 언어를 더할 때: `site/i18n.js`의 LANGS와 UI 표, `tr_build.py`의 언어 목록, `tr_extract.py`의 ALL_LANGS에 추가하고 `python3 tools/i18n/tr_extract.py <언어>`로 그 언어만 번역한다.

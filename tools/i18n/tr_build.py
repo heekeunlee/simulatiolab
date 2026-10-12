@@ -16,11 +16,11 @@ for f in outs:
     try: tr.update(json.load(open(f, encoding='utf-8')))
     except Exception as e: print('JSON 오류', f, e)
 bad = []
-out = {l: ({}, {}) for l in ('es', 'fr', 'ja')}
+out = {l: ({}, {}) for l in ('es', 'fr', 'ja', 'ru', 'zh')}
 for i, en in enumerate(static):
-    r = tr.get('s%04d' % i) or mem['s'].get(en)
+    r = dict(mem['s'].get(en, {})); r.update(tr.get('s%04d' % i, {}))
     for l in out:
-        v = r.get(l) if r else None
+        v = r.get(l)
         if not v: bad.append(('s%04d' % i, l, '누락')); continue
         if HAN.search(v): bad.append(('s%04d' % i, l, '한글')); continue
         if tag(v) != tag(en):
@@ -31,9 +31,9 @@ for i, en in enumerate(static):
         out[l][0][en] = v
         mem['s'].setdefault(en, {})[l] = v
 for i, (ko, en) in enumerate(dyn):
-    r = tr.get('d%04d' % i) or mem['d'].get(ko)
+    r = dict(mem['d'].get(ko, {})); r.update(tr.get('d%04d' % i, {}))
     for l in out:
-        v = r.get(l) if r else None
+        v = r.get(l)
         if not v: bad.append(('d%04d' % i, l, '누락')); continue
         if HAN.search(v): bad.append(('d%04d' % i, l, '한글')); continue
         if ph(v) != ph(en): bad.append(('d%04d' % i, l, '자리표시자 ' + en + ' | ' + v)); continue

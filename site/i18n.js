@@ -1,11 +1,11 @@
-// 다국어: 한국어 · English · Español · Français · 日本語
+// 다국어: 한국어 · English · Español · Français · 日本語 · Русский · 中文(간체)
 //  - 언어 선택: 주소의 ?lang= > 저장된 선택 > 브라우저 언어 (지원 언어가 아니면 영어)
 //  - 정적 문구: 요소의 data-en(영어 HTML)을 원문 키로 삼아, 선택한 언어의 사전(i18n-xx.js)에서 찾아 바꿔 끼운다. 없으면 영어.
 //  - 실행 중 JS가 만드는 문구와 캔버스 글자: I18N.t()가 한국어 원문을 번역 규칙으로 번역한다 (없으면 영어)
-//  - es/fr/ja 사전은 해당 언어를 고를 때만 불러온다 (i18n-es.js 등)
+//  - es/fr/ja/ru/zh 사전은 해당 언어를 고를 때만 불러온다 (i18n-es.js 등)
 (function () {
   const KEY = 'lab-lang';
-  const LANGS = [['ko', '한국어'], ['en', 'English'], ['es', 'Español'], ['fr', 'Français'], ['ja', '日本語']];
+  const LANGS = [['ko', '한국어'], ['en', 'English'], ['es', 'Español'], ['fr', 'Français'], ['ja', '日本語'], ['ru', 'Русский'], ['zh', '中文']];
   const CODES = LANGS.map((x) => x[0]);
   let lang = null;
   try {
@@ -82,28 +82,28 @@
 
   // 자바스크립트가 직접 쓰는 짧은 화면 문구 (영어 문구가 키)
   const UI = {
-    'How it works': { es: 'Cómo funciona', fr: 'Fonctionnement', ja: 'しくみ' },
-    'What it shows': { es: 'Qué muestra', fr: 'Ce que ça montre', ja: '結果の読み方' },
-    'Notes': { es: 'Notas', fr: 'Notes', ja: '実装メモ' },
-    '✕ Close': { es: '✕ Cerrar', fr: '✕ Fermer', ja: '✕ 閉じる' },
-    '⚙ Settings': { es: '⚙ Ajustes', fr: '⚙ Réglages', ja: '⚙ 設定' },
-    '🔗 Copy link': { es: '🔗 Copiar enlace', fr: '🔗 Copier le lien', ja: '🔗 リンクをコピー' },
-    'Copies a link that opens this experiment with the current settings': { es: 'Copia un enlace que abre este experimento con los ajustes actuales', fr: 'Copie un lien qui ouvre cette expérience avec les réglages actuels', ja: '現在の設定のままこの実験を開くリンクをコピーします' },
-    '✓ Copied': { es: '✓ Copiado', fr: '✓ Copié', ja: '✓ コピーしました' },
-    'Copy this link:': { es: 'Copia este enlace:', fr: 'Copiez ce lien :', ja: 'このリンクをコピーしてください:' },
-    '← Previous (P)': { es: '← Anterior (P)', fr: '← Précédente (P)', ja: '← 前の実験 (P)' },
-    'All experiments': { es: 'Todos los experimentos', fr: 'Toutes les expériences', ja: '実験一覧' },
-    'Next (N) →': { es: 'Siguiente (N) →', fr: 'Suivante (N) →', ja: '次の実験 (N) →' },
-    'What if success were mostly luck?': { es: '¿Y si el éxito fuera sobre todo suerte?', fr: 'Et si la réussite était surtout une question de chance ?', ja: 'もし成功のほとんどが運だったら?' },
-    'What if everyone wanted a slightly better partner?': { es: '¿Y si todos quisieran una pareja un poco mejor?', fr: 'Et si chacun voulait un partenaire un peu meilleur ?', ja: 'もし誰もが少しだけ良い相手を望んだら?' },
-    'What if a tiny brake tap could jam a whole highway?': { es: '¿Y si un leve toque de freno atascara toda una autopista?', fr: 'Et si un simple coup de frein bloquait toute une autoroute ?', ja: 'もしブレーキ一回が高速道路全体を止めたら?' },
-    'What if one person could tip a revolution?': { es: '¿Y si una sola persona pudiera desatar una revolución?', fr: 'Et si une seule personne pouvait déclencher une révolution ?', ja: 'もし一人の人が革命の引き金になったら?' },
-    'What if 100 painters copied each other?': { es: '¿Y si 100 pintores se copiaran entre sí?', fr: 'Et si 100 peintres se copiaient les uns les autres ?', ja: 'もし100人の画家が互いに真似し合ったら?' },
-    'What if the voting method changed the winner?': { es: '¿Y si el sistema de votación cambiara al ganador?', fr: 'Et si le mode de scrutin changeait le vainqueur ?', ja: 'もし投票方式が当選者を変えたら?' },
-    'Why does a new road make traffic worse?': { es: '¿Por qué una carretera nueva empeora el tráfico?', fr: 'Pourquoi une nouvelle route aggrave-t-elle les bouchons ?', ja: '新しい道を作ったのに、なぜもっと渋滞するのか?' },
-    'Why do my friends have more friends than I do?': { es: '¿Por qué mis amigos tienen más amigos que yo?', fr: 'Pourquoi mes amis ont-ils plus d\'amis que moi ?', ja: 'なぜ私の友人は私より友人が多いのか?' },
-    'Why does the bus always make you wait longer?': { es: '¿Por qué el autobús siempre te hace esperar más?', fr: 'Pourquoi le bus fait-il toujours attendre plus longtemps ?', ja: 'なぜバスはいつも長く待たされるのか?' },
-    'Why does scolding seem to work?': { es: '¿Por qué parece que regañar funciona?', fr: 'Pourquoi gronder semble-t-il marcher ?', ja: 'なぜ叱ると次はうまくいくように見えるのか?' }
+    'How it works': { es: 'Cómo funciona', fr: 'Fonctionnement', ja: 'しくみ', ru: 'Как это работает', zh: '模型说明' },
+    'What it shows': { es: 'Qué muestra', fr: 'Ce que ça montre', ja: '結果の読み方', ru: 'Что это показывает', zh: '结果解读' },
+    'Notes': { es: 'Notas', fr: 'Notes', ja: '実装メモ', ru: 'Заметки', zh: '实现说明' },
+    '✕ Close': { es: '✕ Cerrar', fr: '✕ Fermer', ja: '✕ 閉じる', ru: '✕ Закрыть', zh: '✕ 关闭' },
+    '⚙ Settings': { es: '⚙ Ajustes', fr: '⚙ Réglages', ja: '⚙ 設定', ru: '⚙ Настройки', zh: '⚙ 设置' },
+    '🔗 Copy link': { es: '🔗 Copiar enlace', fr: '🔗 Copier le lien', ja: '🔗 リンクをコピー', ru: '🔗 Копировать ссылку', zh: '🔗 复制链接' },
+    'Copies a link that opens this experiment with the current settings': { es: 'Copia un enlace que abre este experimento con los ajustes actuales', fr: 'Copie un lien qui ouvre cette expérience avec les réglages actuels', ja: '現在の設定のままこの実験を開くリンクをコピーします', ru: 'Копирует ссылку, которая откроет этот эксперимент с текущими настройками', zh: '复制一个以当前设置打开此实验的链接' },
+    '✓ Copied': { es: '✓ Copiado', fr: '✓ Copié', ja: '✓ コピーしました', ru: '✓ Скопировано', zh: '✓ 已复制' },
+    'Copy this link:': { es: 'Copia este enlace:', fr: 'Copiez ce lien :', ja: 'このリンクをコピーしてください:', ru: 'Скопируйте эту ссылку:', zh: '请复制此链接：' },
+    '← Previous (P)': { es: '← Anterior (P)', fr: '← Précédente (P)', ja: '← 前の実験 (P)', ru: '← Предыдущий (P)', zh: '← 上一个 (P)' },
+    'All experiments': { es: 'Todos los experimentos', fr: 'Toutes les expériences', ja: '実験一覧', ru: 'Все эксперименты', zh: '全部实验' },
+    'Next (N) →': { es: 'Siguiente (N) →', fr: 'Suivante (N) →', ja: '次の実験 (N) →', ru: 'Следующий (N) →', zh: '下一个 (N) →' },
+    'What if success were mostly luck?': { es: '¿Y si el éxito fuera sobre todo suerte?', fr: 'Et si la réussite était surtout une question de chance ?', ja: 'もし成功のほとんどが運だったら?', ru: 'А что, если успех — это в основном удача?', zh: '如果成功主要靠运气呢？' },
+    'What if everyone wanted a slightly better partner?': { es: '¿Y si todos quisieran una pareja un poco mejor?', fr: 'Et si chacun voulait un partenaire un peu meilleur ?', ja: 'もし誰もが少しだけ良い相手を望んだら?', ru: 'А что, если каждый хочет партнёра чуть лучше?', zh: '如果每个人都想要稍微更好的伴侣呢？' },
+    'What if a tiny brake tap could jam a whole highway?': { es: '¿Y si un leve toque de freno atascara toda una autopista?', fr: 'Et si un simple coup de frein bloquait toute une autoroute ?', ja: 'もしブレーキ一回が高速道路全体を止めたら?', ru: 'А что, если одно нажатие на тормоз остановит всё шоссе?', zh: '如果轻踩一下刹车就能堵住整条高速公路呢？' },
+    'What if one person could tip a revolution?': { es: '¿Y si una sola persona pudiera desatar una revolución?', fr: 'Et si une seule personne pouvait déclencher une révolution ?', ja: 'もし一人の人が革命の引き金になったら?', ru: 'А что, если один человек может запустить революцию?', zh: '如果一个人就能引发一场革命呢？' },
+    'What if 100 painters copied each other?': { es: '¿Y si 100 pintores se copiaran entre sí?', fr: 'Et si 100 peintres se copiaient les uns les autres ?', ja: 'もし100人の画家が互いに真似し合ったら?', ru: 'А что, если 100 художников будут копировать друг друга?', zh: '如果100位画家互相模仿呢？' },
+    'What if the voting method changed the winner?': { es: '¿Y si el sistema de votación cambiara al ganador?', fr: 'Et si le mode de scrutin changeait le vainqueur ?', ja: 'もし投票方式が当選者を変えたら?', ru: 'А что, если способ голосования изменит победителя?', zh: '如果投票方式改变了获胜者呢？' },
+    'Why does a new road make traffic worse?': { es: '¿Por qué una carretera nueva empeora el tráfico?', fr: 'Pourquoi une nouvelle route aggrave-t-elle les bouchons ?', ja: '新しい道を作ったのに、なぜもっと渋滞するのか?', ru: 'Почему новая дорога ухудшает пробки?', zh: '为什么修了新路反而更堵？' },
+    'Why do my friends have more friends than I do?': { es: '¿Por qué mis amigos tienen más amigos que yo?', fr: 'Pourquoi mes amis ont-ils plus d\'amis que moi ?', ja: 'なぜ私の友人は私より友人が多いのか?', ru: 'Почему у моих друзей больше друзей, чем у меня?', zh: '为什么我的朋友比我朋友多？' },
+    'Why does the bus always make you wait longer?': { es: '¿Por qué el autobús siempre te hace esperar más?', fr: 'Pourquoi le bus fait-il toujours attendre plus longtemps ?', ja: 'なぜバスはいつも長く待たされるのか?', ru: 'Почему автобус всегда заставляет ждать дольше?', zh: '为什么公交车总让人等更久？' },
+    'Why does scolding seem to work?': { es: '¿Por qué parece que regañar funciona?', fr: 'Pourquoi gronder semble-t-il marcher ?', ja: 'なぜ叱ると次はうまくいくように見えるのか?', ru: 'Почему кажется, что ругать — работает?', zh: '为什么批评似乎更管用？' }
   };
   // 한국어면 ko, 영어면 en, 그 밖의 언어면 UI 사전(없으면 영어)
   function u(ko, en) {
@@ -166,12 +166,12 @@
   window.I18N = { lang, t, u, st, add, addLang, addStatic, apply: applyStatic, missing, fallbacks, langs: LANGS };
   document.documentElement.lang = lang;
   toggle();
-  // es / fr / ja 사전은 이 스크립트 바로 뒤에 동기적으로 불러온다
+  // es / fr / ja / ru / zh 사전은 이 스크립트 바로 뒤에 동기적으로 불러온다
   if (lang !== 'ko' && lang !== 'en') {
     const me = document.currentScript, src = me && me.src;
     if (src) document.write('<script src="' + src.replace(/i18n\.js(\?.*)?$/, 'i18n-' + lang + '.js') + '"><\/script>');
   }
-  if (lang === 'en') applyStatic(); // es/fr/ja는 사전 파일이 끝에서 I18N.apply()를 부른다
+  if (lang === 'en') applyStatic(); // 그 밖의 언어는 사전 파일이 끝에서 I18N.apply()를 부른다
   if (lang !== 'ko') {
     new MutationObserver((recs) => {
       for (const r of recs) {
