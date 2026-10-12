@@ -309,21 +309,52 @@
       const row = document.createElement('section'); row.className = 'dailyrow';
       row.innerHTML = '<div class="dcard" id="daily"></div><div class="dcard" id="topic"></div>';
       (document.querySelector('main') || document.body).prepend(row);
-      // 오늘의 질문: 한국 날짜로 하루 하나씩 돌아가며
-      const today = kstDay(0), idx = ((dayIndex(today) % D.daily.length) + D.daily.length) % D.daily.length, Q = D.daily[idx];
-      const e = byId[Q.s]; const dayLabel = today.slice(0, 4) + '.' + today.slice(4, 6) + '.' + today.slice(6);
-      pollCard($('daily'), 'daily-' + today, Q.q, Q.o, {
-        head: `<h3>${esc(tt('🌤 오늘의 만약에'))} <small>${dayLabel}</small></h3>`,
-        foot: () => (e ? `<a class="dlink" href="${BASE}experiments/${e.s}/">${esc(tt('이 질문, 실험해 볼까요? →'))}</a>` : '') + '<div id="dyest"></div>',
-      });
-      // 어제의 결과 (5명 이상 투표했을 때만)
-      const yd = kstDay(-1), yQ = D.daily[((dayIndex(yd) % D.daily.length) + D.daily.length) % D.daily.length];
-      counts('daily-' + yd, yQ.o.length).then((c) => {
-        const box = document.getElementById('dyest'); if (!c || !box) return;
-        const n = c.reduce((a, b) => a + b, 0); if (n < 5) return;
-        const top = c.indexOf(Math.max.apply(null, c));
-        box.innerHTML = `<p class="dyest"><b>${esc(tt(yQ.q))}</b><br>${esc(tt('어제는 ' + n + '명이 투표했어요. 가장 많이 고른 답: ' + yQ.o[top] + ' (' + Math.round((100 * c[top]) / n) + '%)'))}</p>`;
-      });
+      // ---- 오늘의 만약에: 방문할 때마다 다른 질문이 나오고, 몇 초마다 다음 질문으로 바뀐다 ----
+      const box = $('daily'), ROTATE_MS = 9000;
+      const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const idOf = (q) => 'q-' + q.s;
+      // 순서: 아직 안 답한 질문을 먼저, 연이어 같은 분야가 나오지 않게 섞는다. 지난 방문의 첫 질문은 피한다.
+      const shuffle = (a) => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+      const fieldOf = (q) => (byId[q.s] || {}).f;
+      let pool = shuffle(D.daily.slice());
+      pool = pool.filter((q) => S.polls[idOf(q)] == null).concat(pool.filter((q) => S.polls[idOf(q)] != null));
+      const order = [];
+      while (pool.length) { const prev = order.length ? fieldOf(order[order.length - 1]) : null; let k = pool.findIndex((q) => fieldOf(q) !== prev); if (k < 0) k = 0; order.push(pool.splice(k, 1)[0]); }
+      let last = null; try { last = localStorage.getItem('lab-dstart'); } catch (e) {}
+      if (order.length > 1 && order[0].s === last) order.push(order.shift());
+      try { localStorage.setItem('lab-dstart', order[0].s); } catch (e) {}
+      let pos = 0, timer = null, paused = false, stopped = false;
+      const rotating = () => !reduce && !stopped;
+      function schedule() { clearTimeout(timer); if (!rotating() || paused) return; timer = setTimeout(() => { if (document.hidden) { schedule(); return; } go(1); }, ROTATE_MS); }
+      function render(c) {
+        const Q = order[pos], id = idOf(Q), mine = S.polls[id], e = byId[Q.s];
+        let h = `<h3>${esc(tt('🌤 오늘의 만약에'))}<span class="dnav"><button type="button" class="dprev" aria-label="${esc(tt('이전 질문'))}" title="${esc(tt('이전 질문'))}">‹</button><button type="button" class="dnext" aria-label="${esc(tt('다음 질문'))}" title="${esc(tt('다음 질문'))}">›</button></span></h3>`;
+        h += `<div class="dprog${rotating() && !paused ? ' run' : ''}"><i></i></div><div class="dbody"><p class="pq">${esc(tt(Q.q))}</p>`;
+        if (mine == null) h += `<div class="popts">${Q.o.map((o, i) => `<button type="button" class="popt" data-i="${i}">${esc(tt(o))}</button>`).join('')}</div>`;
+        else { const n = c ? c.reduce((a, b) => a + b, 0) : 0; h += n >= 5 ? bars(Q.o, c, mine) + `<p class="poth-s">${esc(tt('지금까지 ' + n + '명이 투표했어요'))}</p>` : `<p class="pmine">${esc(tt('투표해 주셔서 고마워요! 더 많이 모이면 결과가 보여요.'))}</p>`; }
+        if (e) h += `<a class="dlink" href="${BASE}experiments/${e.s}/">${esc(tt('이 질문, 실험해 볼까요? →'))}</a>`;
+        box.innerHTML = h + '</div>';
+        box.querySelector('.dprev').addEventListener('click', () => go(-1, true));
+        box.querySelector('.dnext').addEventListener('click', () => go(1, true));
+        box.querySelectorAll('.popt[data-i]').forEach((b) => b.addEventListener('click', () => {
+          S.polls[id] = +b.dataset.i; save(); send('predict', { page: id, choice: +b.dataset.i });
+          stopped = true; clearTimeout(timer);        // 답을 골랐으면 결과를 읽을 수 있게 자동 전환을 멈춘다 (›를 누르면 계속)
+          render(null); setTimeout(() => counts(id, Q.o.length).then((cc) => { if (order[pos] === Q) render(cc); }), 1500);
+        }));
+        if (mine != null && !c) counts(id, Q.o.length).then((cc) => { if (cc && order[pos] === Q) render(cc); });
+        schedule();
+      }
+      // 부드럽게 바꾸기: 살짝 사라졌다가 다음 질문이 나타난다
+      function go(d, manual) {
+        if (manual) { stopped = false; }
+        const body = box.querySelector('.dbody'); if (body && !reduce) { body.classList.add('fade'); }
+        setTimeout(() => { pos = (pos + d + order.length) % order.length; render(null); }, body && !reduce ? 220 : 0);
+      }
+      box.addEventListener('mouseenter', () => { paused = true; clearTimeout(timer); const pr = box.querySelector('.dprog'); if (pr) pr.classList.remove('run'); });
+      box.addEventListener('mouseleave', () => { paused = false; const pr = box.querySelector('.dprog'); if (pr && rotating()) { void pr.offsetWidth; pr.classList.add('run'); } schedule(); });
+      box.addEventListener('focusin', () => { paused = true; clearTimeout(timer); });
+      box.addEventListener('focusout', () => { paused = false; schedule(); });
+      render(null);
       // 다음 실험 주제 투표
       pollCard($('topic'), D.topic.id, D.topic.q, D.topic.o, { head: `<h3>${esc(tt('🗳 다음 실험 투표'))}</h3>` });
     }

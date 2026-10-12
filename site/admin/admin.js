@@ -127,7 +127,9 @@
     const draw = (preds) => {
       const row = (label, opts, c) => { const n = c ? c.slice(0, opts.length).reduce((a, b) => a + (b || 0), 0) : 0; return `<tr><td style="text-align:left">${label}</td><td>${fmtN(n)}</td><td style="text-align:left">${n ? opts.map((o, i) => `${o} <b>${Math.round((100 * (c[i] || 0)) / n)}%</b>`).join(' · ') : '아직 없음'}</td></tr>`; };
       let h = `<table class="ad-tbl"><thead><tr><th>투표</th><th>참여</th><th>선택 분포</th></tr></thead><tbody>` + row('🗳 ' + D.topic.q, D.topic.o, preds && preds[D.topic.id]);
-      for (let i = 0; i < 7; i++) { const d = ymd(-i), Q = D.daily[((dayIndex(d) % D.daily.length) + D.daily.length) % D.daily.length]; h += row(`${d.slice(4, 6)}/${d.slice(6)} ${Q.q}`, Q.o, preds && preds['daily-' + d]); }
+      // 오늘의 만약에: 질문마다 따로 투표를 받는다 → 참여가 많은 순
+      const qs = D.daily.map((Q) => { const c = preds && preds['q-' + Q.s]; return { Q, c, n: c ? c.slice(0, Q.o.length).reduce((a, b) => a + (b || 0), 0) : 0 }; }).sort((a, b) => b.n - a.n);
+      qs.forEach((x) => { h += row('🌤 ' + x.Q.q, x.Q.o, x.c); });
       box.innerHTML = h + '</tbody></table>';
     };
     if (demo) { const f = {}; f[D.topic.id] = [31, 12, 22, 9]; return draw(f); }

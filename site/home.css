@@ -114,3 +114,16 @@ main.wide { max-width: 1320px; }
 .nlinks a { color: var(--accent); font-weight: 700; text-decoration: none; }
 .nlinks a:hover { text-decoration: underline; }
 @media (max-width: 860px) { .dailyrow { grid-template-columns: 1fr; } }
+
+/* 오늘의 만약에: 자동으로 바뀌는 질문 */
+.dcard h3 { display: flex; align-items: center; gap: 8px; }
+.dnav { margin-left: auto; display: inline-flex; gap: 6px; }
+.dnav button { width: 28px; height: 28px; border-radius: 50%; border: 1px solid #e0cf9c; background: #fff; color: #8a5a00; font: inherit; font-size: 18px; line-height: 1; cursor: pointer; padding: 0 0 2px; }
+.dnav button:hover { background: #fff4d6; }
+.dprog { height: 3px; background: #f0e3b8; border-radius: 3px; overflow: hidden; margin: 0 0 12px; }
+.dprog i { display: block; height: 100%; width: 0; background: #e0a100; }
+.dprog.run i { animation: dprog 9s linear forwards; }
+@keyframes dprog { from { width: 0; } to { width: 100%; } }
+.dbody { transition: opacity .22s ease, transform .22s ease; min-height: 150px; }
+.dbody.fade { opacity: 0; transform: translateY(6px); }
+@media (prefers-reduced-motion: reduce) { .dprog.run i { animation: none; } .dbody { transition: none; } }

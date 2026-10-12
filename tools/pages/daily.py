@@ -1,8 +1,8 @@
-"""메인 페이지의 "오늘의 만약에"(매일 바뀌는 질문 + 투표), "다음 실험 주제 투표", 새 실험 알림 문구.
+"""메인 페이지의 "오늘의 만약에"(방문할 때마다 무작위로, 9초마다 자동으로 바뀌는 질문 + 투표), "다음 실험 주제 투표", 새 실험 알림 문구.
 실행하면 site/daily.js(한국어 데이터)와 tools/pages/dyn_daily.py(한국어→영어)를 만든다. 번역은 tr_extract/tr_build로.
-- 오늘의 질문: DAILY를 하루에 하나씩(한국 시간 기준) 돌아가며 보여준다. 각 질문은 관련 실험으로 이어진다.
+- 오늘의 만약에: DAILY를 방문할 때마다 무작위(안 답한 것 먼저, 연이어 같은 분야 제외)로 보여주고 9초마다 다음 질문으로 넘어간다. 각 질문은 관련 실험으로 이어진다.
 - 주제 투표: TOPIC의 후보 중 하나를 고르게 한다. 새 실험이 정해지면 TOPIC.id를 새로 바꾸고 후보를 교체한다.
-투표 저장은 구글 시트 predictions 시트를 같이 쓴다 (page = 'daily-YYYYMMDD' / TOPIC.id)."""
+투표 저장은 구글 시트 predictions 시트를 같이 쓴다 (page = 'q-<실험 slug>' / TOPIC.id)."""
 import json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); SITE = os.path.join(HERE, '..', '..', 'site')
 sys.path.insert(0, HERE)
@@ -58,7 +58,8 @@ UI = [
  T('이 질문, 실험해 볼까요? →', 'Try this question as an experiment →'),
  T('지금까지 {#0}명이 투표했어요', '{0} people have voted so far'),
  T('투표해 주셔서 고마워요! 더 많이 모이면 결과가 보여요.', 'Thanks for voting! The results appear once more people join.'),
- T('어제는 {#0}명이 투표했어요. 가장 많이 고른 답: {1} ({%2})', 'Yesterday {0} people voted. Most popular answer: {1} ({2})'),
+ T('이전 질문', 'Previous question'),
+ T('다음 질문', 'Next question'),
  T('🗳 다음 실험 투표', '🗳 Vote for the next experiment'),
  T('📬 새 실험이 나오면 알려드릴게요', '📬 Get notified when a new experiment arrives'),
  T('이메일 주소', 'Email address'),
