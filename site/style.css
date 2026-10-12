@@ -226,3 +226,6 @@ canvas.view3d:active { cursor: grabbing; }
 /* ---------- 상단 제목 옆 소개 문구 ---------- */
 .nav .tagline { flex: 1 1 auto; min-width: 0; margin: 0 18px 0 16px; padding-left: 16px; border-left: 1px solid var(--line); font-size: 12.5px; font-weight: 600; line-height: 1.35; color: var(--muted); letter-spacing: -0.005em; max-width: 430px; }
 @media (max-width: 1020px) { .nav .tagline { display: none; } }
+
+/* ---------- 왼쪽 시작선 맞추기: 메뉴·제목·본문·바닥글을 모두 같은 폭(1320px)으로 ---------- */
+.nav .wrap, footer .wrap, .hero-in.wrap { max-width: 1320px; }

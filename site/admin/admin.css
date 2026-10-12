@@ -1,4 +1,4 @@
-.admin .ad-main { max-width: 1240px; padding-top: 24px; padding-bottom: 60px; }
+.admin .ad-main { max-width: 1320px; padding-top: 24px; padding-bottom: 60px; }
 .ad-btn { font: inherit; font-weight: 700; font-size: 13.5px; padding: 8px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--text); cursor: pointer; }
 .ad-btn.on { background: var(--accent); border-color: var(--accent); color: #fff; }
 .ad-gate { max-width: 340px; margin: 60px auto; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 26px; box-shadow: var(--shadow); }
