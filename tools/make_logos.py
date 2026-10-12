@@ -97,3 +97,8 @@ banner = (f'<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1440" v
           f'<text x="1016" y="885" font-family="-apple-system,\'Helvetica Neue\',sans-serif" font-size="40" font-weight="600" letter-spacing="12" fill="#b07d2a">SIMULATIO LAB</text></svg>')
 open(os.path.join(YT, 'banner.svg'), 'w').write(banner)
 print('site logo/favicon, profile, banner written')
+# ---- 유튜브 동영상 워터마크 (정사각형, 투명 바탕 위 한지색 원) ----
+open(os.path.join(YT, 'watermark.svg'), 'w').write(
+    f'<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 800 800">'
+    f'<circle cx="400" cy="400" r="392" fill="{PAPER}" opacity=".92"/>'
+    f'<g transform="translate(400 400) scale(1.05) translate(-400 -405)">{enso_marks(220, 2.0)}</g></svg>')
