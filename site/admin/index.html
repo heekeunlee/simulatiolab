@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>관리자 · 시뮬라티오 랩</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin">
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../"><img src="../logo.svg" alt="" width="42" height="42"><span class="bt"><b>시뮬라티오 랩</b><small>ADMIN</small></span></a>
+  <span class="navr"><button type="button" id="logout" class="ad-btn">로그아웃</button></span>
+</div></nav>
+<main class="wrap ad-main">
+  <div id="gate" class="ad-gate" hidden>
+    <h1>관리자 모드</h1>
+    <p>비밀번호를 입력하세요.</p>
+    <input id="pw" type="password" inputmode="numeric" autocomplete="off">
+    <button type="button" id="enter" class="ad-btn on">확인</button>
+    <p class="ad-err" id="gerr" hidden>비밀번호가 맞지 않아요.</p>
+  </div>
+
+  <section id="setup" class="ad-panel" hidden>
+    <h1>방문 기록 저장소 연결이 필요해요</h1>
+    <p>나라·날짜·시간별 방문 기록은 운영자의 구글 시트에 쌓입니다. 아직 연결되지 않았어요.</p>
+    <ol>
+      <li><code>tools/analytics/README.md</code>의 순서대로 구글 시트에 Apps Script를 붙여 넣고 <b>웹 앱으로 배포</b>합니다.</li>
+      <li>배포하면 나오는 <b>웹 앱 URL</b>(https://script.google.com/macros/s/…/exec)을 Claude에게 알려 주세요.</li>
+      <li>Claude가 <code>site/counter.js</code>의 <code>LOG_URL</code>에 넣고 배포하면, 그때부터 방문이 기록됩니다.</li>
+    </ol>
+    <p class="small">지금 보이는 숫자는 기존 카운터의 오늘·누적 방문자 수입니다 (나라·시간 정보 없음).</p>
+    <div class="ad-cards" id="legacy"></div>
+    <p><button type="button" id="demo" class="ad-btn">예시 데이터로 화면 미리보기</button></p>
+  </section>
+
+  <section id="dash" hidden>
+    <div class="ad-head">
+      <h1>방문 통계</h1>
+      <div class="ad-ctl">
+        <label>기간 <select id="days"><option value="1">오늘(24시간)</option><option value="7" selected>최근 7일</option><option value="30">최근 30일</option><option value="90">최근 90일</option><option value="365">최근 1년</option></select></label>
+        <label>시간대 <select id="tz"><option value="Asia/Seoul" selected>한국 시간</option><option value="UTC">UTC</option></select></label>
+        <button type="button" id="reload" class="ad-btn">새로고침</button>
+      </div>
+    </div>
+    <p class="ad-demo" id="demo-note" hidden>⚠ 지금 보이는 것은 <b>예시 데이터</b>입니다. 실제 방문 기록이 아니에요.</p>
+    <p class="small" id="status">불러오는 중…</p>
+    <div class="ad-cards" id="cards"></div>
+    <div class="ad-grid">
+      <section class="ad-panel"><h2>나라별</h2><div id="countries"></div></section>
+      <section class="ad-panel"><h2>날짜별 방문자 <small>(나라별로 색 구분)</small></h2><canvas id="c-days"></canvas><div class="ad-leg" id="leg-days"></div></section>
+      <section class="ad-panel"><h2>시간대별 방문자 <small id="hour-note"></small></h2><canvas id="c-hours"></canvas><div class="ad-leg" id="leg-hours"></div></section>
+      <section class="ad-panel"><h2>많이 본 페이지</h2><div id="pages"></div></section>
+      <section class="ad-panel"><h2>언어 · 기기 · 들어온 곳</h2><div id="mix"></div></section>
+      <section class="ad-panel ad-wide"><h2>나라 × 날짜 <small>(방문자 수)</small></h2><div id="matrix" class="ad-scroll"></div></section>
+      <section class="ad-panel ad-wide"><h2>최근 기록 <small>(최대 100건)</small></h2><div id="recent" class="ad-scroll"></div></section>
+    </div>
+  </section>
+</main>
+<script src="../exps.js"></script>
+<script src="../counter.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
