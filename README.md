@@ -15,6 +15,7 @@ https://heekeunlee.github.io/simulatiolab/ — 슬라이더로 변수를 바꿔 
 - `site/` — 정적 웹사이트 (GitHub Pages로 배포). 실험 하나가 `site/experiments/<주제>/` 폴더 하나
 - `tools/` — 검증 스크립트 (`node tools/validate.js`)
 - `docs/` — 주제 백로그와 진행 기록
+- `videos/` — 영상 대본·썸네일 (영상 원본·결과물은 깃에서 제외, [안내](videos/README.md))
 
 ## 문서
 

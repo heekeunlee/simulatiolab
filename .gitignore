@@ -1,0 +1,47 @@
+# ---- 영상·대용량 미디어는 저장소에 넣지 않는다 (유튜브에 올리고 사이트에는 링크/임베드만) ----
+*.mp4
+*.mov
+*.mkv
+*.webm
+*.avi
+*.m4v
+*.wav
+*.aif
+*.aiff
+*.flac
+*.psd
+*.ai
+*.blend
+*.zip
+*.7z
+*.tar
+*.tar.gz
+videos/raw/
+videos/render/
+videos/assets/
+videos/tmp/
+
+# ---- 자동 생성·임시 ----
+tools/i18n/tr/bad.json
+tools/i18n/tr/src/
+tools/i18n/tr/out/
+__pycache__/
+*.pyc
+node_modules/
+.venv/
+.cache/
+*.log
+tmp/
+scratch/
+
+# ---- 운영체제·편집기 ----
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# ---- 비밀 값 ----
+.env
+.env.*
+*.pem
+*.key

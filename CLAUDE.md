@@ -78,3 +78,9 @@
 - [ ] KIPRIS에서 '시뮬라티오/SIMULATIO' 상표 검색
 - [ ] 프로젝트 구조 정하기 (시뮬레이션 코드 / 웹사이트 / 영상용 렌더링)
 - [ ] Talent vs Luck 시뮬레이션 구현 → 시각화 → 웹 인터랙티브 버전
+
+## 저장소 규칙
+
+- 영상(mp4 등)·음원·원본 소스는 깃에 올리지 않는다(`.gitignore`, `tools/check-size.sh` 훅이 5MB 초과 파일을 막음). 완성 영상은 유튜브, 사이트에는 링크/임베드만.
+- 영상 작업은 `videos/` 아래에서: `scripts/`(대본), `thumbnails/`는 올리고 `raw/ render/ assets/ tmp/`는 올리지 않는다.
+- 번역 작업 중간 산출물(`tools/i18n/tr/src, out, bad.json`)은 무시하고 `tools/i18n/tr/memory.json`만 올린다.
