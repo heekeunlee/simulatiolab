@@ -11,7 +11,7 @@ DYN = {
 '트렌드세터가 달아나는 속도 (도/라운드)': 'Speed trendsetters run away (degrees per round)',
 '대중이 따라 하는 속도 (도/라운드)': 'Speed the crowd imitates (degrees per round)',
 '대중의 평균 스타일 (색상환의 각도)': "The crowd's average style (angle on the color wheel)",
-'유행이 도는 속도': 'How fast the trend rotates',
+'유행이 도는 속도': 'How fast fashion rotates',
 '{#0}바퀴/100라운드': '{0} turns per 100 rounds',
 '한 바퀴에 약 {0}라운드': 'About {0} rounds per full turn',
 '도는 유행이 없어요': 'No rotating trend',

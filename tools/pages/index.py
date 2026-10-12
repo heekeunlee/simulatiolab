@@ -7,7 +7,7 @@ ROOT = os.path.join(EXP, '..')
 # (id, 색, 아이콘, 분야 T, 설명 T, [(slug, 모델 T, 제목 T, 설명 T)])
 CATS = [
  ('success', '#e0a100', '💰', T('성공과 불평등', 'Success &amp; Inequality'), T('운과 재능, 부와 인기는 왜 소수에게 쏠릴까?', 'Why do luck, talent, wealth and popularity pile up in a few hands?'), [
-  ('talent-vs-luck', T('Talent vs Luck 모델', 'Talent vs Luck model'), T('성공은 재능일까, 운일까?', 'Is Success Talent or Luck?'), T('재능은 평균 근처에 모여 있는데 부는 왜 몇 사람에게 쏠릴까요. 최고 부자는 정말 최고 재능자일까?', 'Talent clusters around the average, so why does wealth pile up in a few hands? Is the richest person really the most talented?')),
+  ('talent-vs-luck', T('Talent vs Luck 모델', 'Talent vs Luck model'), T('성공은 재능일까, 운일까?', 'Is Success Talent or Luck?'), T('재능은 평균 근처에 모여 있는데 부는 왜 몇 사람에게 쏠릴까요? 최고 부자는 정말 최고 재능자일까?', 'Talent clusters around the average, so why does wealth pile up in a few hands? Is the richest person really the most talented?')),
   ('wealth', T('야드세일 교환 모델', 'Yard-sale exchange model'), T('부의 쏠림', 'Wealth Concentration'), T('모든 거래가 동전 던지기처럼 공정해도 부는 쏠릴까? 얼마나 나누면 막을 수 있을까?', 'Even if every trade is as fair as a coin flip, does wealth concentrate? How much sharing does it take to stop it?')),
   ('youtube', T('선호적 연결 모델', 'Preferential attachment model'), T('유튜브는 왜 상위 1%만 뜰까', 'Why Do Only the Top 1% of YouTubers Break Through?'), T('좋은 콘텐츠가 이길까, 먼저 뜬 채널이 이길까? 같은 채널로 시작한 평행우주를 비교해요.', 'Does good content win, or do channels that broke out first keep winning? Compare parallel universes that start with the same channels.')),
  ]),
@@ -21,7 +21,7 @@ CATS = [
   ('voting', T('공간 투표 모델', 'Spatial voting model'), T('투표 방식이 달라지면 당선자가 바뀔까', 'Does the Voting Method Change the Winner?'), T('같은 표를 단순다수·결선·선호투표·보르다로 세면 당선자가 달라질 수 있을까요?', 'Count the same votes by plurality, runoff, ranked-choice and Borda. Can the winner change?')),
  ]),
  ('daily', '#1fa463', '🚦', T('일상의 선택과 질서', 'Everyday Choices &amp; Order'), T('길, 식당, 줄에서 우리가 매일 겪는 일', 'What we run into every day on the road, at restaurants and in lines'), [
-  ('traffic', T('나겔-슈레켄베르크 모델', 'Nagel–Schreckenberg model'), T('유령 정체: 사고도 공사도 없는데 왜 막힐까', 'Phantom Traffic Jams: Why Does Traffic Stop Without an Accident?'), T('가끔 밟는 브레이크 하나가 도로 전체를 막는 과정을 지켜봐요.', 'Watch how a single occasional tap of the brake can block a whole road.')),
+  ('traffic', T('나겔-슈레켄베르크 모델', 'Nagel–Schreckenberg model'), T('유령 정체: 사고도 공사도 없는데 왜 막힐까', 'Phantom Traffic Jams: Why Does Traffic Stop Without an Accident?'), T('가끔 밟는 브레이크 하나가 도로 전체를 막는 과정을 지켜봐요.', 'Watch how one occasional tap on the brakes can jam a whole road.')),
   ('bar', T('엘 파롤 바 문제', 'El Farol Bar problem'), T('다 같이 가는 식당은 왜 늘 붐빌까', 'Why Is the Popular Restaurant Always Packed?'), T('모두가 같은 생각을 하면 왜 모두 손해일까? 예측이 제각각이면 어떻게 될까?', 'Why does everyone lose when everyone thinks alike? And what if predictions differ?')),
   ('queue', T('공간 진화 게임', 'Spatial evolutionary game'), T('새치기가 늘면 줄은 어떻게 될까', 'What Happens When Queue-Jumping Spreads?'), T('질서는 가만히 지켜지지 않고 누군가 비용을 치르며 지켜진다는 걸 실험해요.', "Test the idea that order isn't kept by itself but by someone paying a price to keep it.")),
  ]),
@@ -42,24 +42,24 @@ CATS = [
  ('literature', '#a16207', '📖', T('문학', 'Literature'), T('우연과 선택이 글을 쓸 수 있을까', 'Can chance and selection write a text?'), [
   ('monkey', T('무한 원숭이 vs 누적 선택', 'Infinite monkeys vs cumulative selection'), T('원숭이가 햄릿을 쓸 수 있을까', 'Can Monkeys Write Hamlet?'), T('무작위로 타자를 치는 원숭이와, 조금씩 고르며 나아가는 진화를 나란히 비교해요.', 'Compare monkeys typing at random with evolution that keeps the best at every step.')),
   ('zipf', T('지프의 법칙 · 사이먼 모델', "Zipf's law · Simon model"), T('왜 소수의 단어만 자주 쓰일까', 'Why Are a Few Words Used Constantly?'), T('왜 어느 언어에서나 소수의 단어가 글의 대부분을 차지할까? 부익부 규칙으로 직접 글을 써 봐요.', 'Why do a few words make up most of any text? Generate one yourself with a rich-get-richer rule.')),
-  ('telephone', T('전달 게임 (연쇄 재현)', 'Serial reproduction'), T('이야기는 전해지며 어떻게 변할까', "How Do Stories Change as They're Retold?"), T('입에서 입으로 전해지는 이야기에서 무엇이 살아남을까요? 기억에 남는 것만 남는 과정을 지켜봐요.', 'What survives as a story passes mouth to mouth? Watch only the memorable parts remain.')),
+  ('telephone', T('전달 게임 (연쇄 재현)', 'Serial reproduction'), T('이야기는 전해지며 어떻게 변할까', "How Do Stories Change as They're Retold?"), T('입에서 입으로 전해지는 이야기에서 무엇이 살아남을까요? 기억에 남는 것만 남는 과정을 지켜봐요.', 'What survives as a story passes from mouth to mouth? Watch as only the memorable parts remain.')),
  ]),
  ('art', '#9333ea', '🎨', T('예술', 'Art'), T('취향과 화풍은 어떻게 변하고 사라질까', 'How do taste and style change and disappear?'), [
-  ('fashion', T('모방과 차별화 모델', 'Imitation–distinction model'), T('유행은 왜 돌고 돌까', 'Why Do Fashions Come Around?'), T('따라 하는 대중과 도망가는 선두가 만드는 색의 순환을 색상환 위에서 봐요.', 'On a color wheel, watch the cycle created by a copying crowd and trendsetters running away.')),
+  ('fashion', T('모방과 차별화 모델', 'Imitation–distinction model'), T('유행은 왜 돌고 돌까', 'Why Does Fashion Go in Cycles?'), T('따라 하는 대중과 도망가는 선두가 만드는 색의 순환을 색상환 위에서 봐요.', 'On a color wheel, watch the cycle created by a copying crowd and trendsetters running away.')),
   ('painters', T('문화 전파 모델', 'Cultural transmission model'), T('AI 화가 100명이 서로 따라 그리면', 'What If 100 AI Painters Copy Each Other?'), T('모방이 늘수록 화풍은 하나로 수렴할까? 100점의 그림이 어떻게 달라지는지 지켜봐요.', 'Does imitation collapse styles into one? Watch 100 paintings change.')),
   ('sunflower', T('황금각 잎차례 모델', 'Golden-angle phyllotaxis'), T('해바라기 씨는 왜 그 각도로 배열될까', 'Why Do Sunflower Seeds Sit at That Angle?'), T('씨앗을 137.5°씩 돌려 놓으면 틈 없이 빽빽해져요. 각도를 조금만 바꿔도 무늬가 무너지는 걸 보세요.', 'Turn each seed by 137.5° and they pack with no gaps. Nudge the angle and watch the pattern fall apart.')),
   ('auction', T('승자의 저주 모델', "Winner's curse model"), T('경매에서 이기면 왜 손해일까', 'Why Does Winning an Auction Cost You?'), T('가장 높게 쓴 사람이 이기는데, 왜 이긴 사람이 평균적으로 손해일까요? 얼마나 깎아 써야 본전일까요?', 'The highest bidder wins, so why does the winner lose on average? How much should you shade your bid to break even?')),
  ]),
  ('paradox', '#4d7c0f', '🔄', T('뒤집어 보기', 'Flip the View'), T('"이렇게도 해석할 수 있구나" 싶은 직관의 반전', 'Counterintuitive twists that make you say "oh, so that\'s how to read it"'), [
   ('braess', T('브라에스 네트워크 모델', 'Braess network model'), T('새 길을 뚫었더니 모두가 느려졌다', 'A New Road Made Everyone Slower'), T('지름길을 열었더니 모두의 출근 시간이 늘어난다? 운전자들이 스스로 길을 고르게 두고 확인해요.', 'Open a shortcut and everyone\'s commute gets longer? Let drivers pick their own routes and see.')),
-  ('regression', T('평균으로의 회귀 모델', 'Regression-to-the-mean model'), T('칭찬했더니 못하고, 혼냈더니 잘하더라', 'Praise Was Followed by Worse, Scolding by Better'), T('말에 아무 효과가 없어도 혼낸 뒤엔 좋아지고 칭찬한 뒤엔 나빠져 보여요. 코치는 무엇을 배우게 될까요?', 'Even if words do nothing, scolding seems to work and praise seems to backfire. What does the coach learn?')),
+  ('regression', T('평균으로의 회귀 모델', 'Regression-to-the-mean model'), T('칭찬했더니 못하고, 혼냈더니 잘하더라', 'Praise Them and They Slip, Scold Them and They Improve'), T('말에 아무 효과가 없어도 혼낸 뒤엔 좋아지고 칭찬한 뒤엔 나빠져 보여요. 코치는 무엇을 배우게 될까요?', 'Even if words do nothing, scolding seems to work and praise seems to backfire. What does the coach learn?')),
   ('survivor', T('생존자 편향 모델', 'Survivorship-bias model'), T('돌아온 비행기의 총탄 자국, 어디를 보강할까', 'Bullet Holes on Returning Planes: Where Does the Armor Go?'), T('구멍이 없는 곳이 진짜 약점일 수 있어요. 돌아오지 못한 비행기를 함께 놓고 비교해요.', 'The places with no holes may be the real weak spots. Add the planes that never came back.')),
   ('friendship', T('관계망 성장 모델', 'Growing social network model'), T('내 친구들은 왜 나보다 친구가 많을까', 'Why Do My Friends Have More Friends Than I Do?'), T('인기 있는 사람은 많은 친구 목록에 등장해요. 사람을 눌러 확인해 보세요.', 'Popular people appear on many friend lists. Click a person to check.')),
-  ('inspection', T('검사 역설 모델', 'Inspection-paradox model'), T('버스는 왜 늘 더 오래 기다릴까', 'Why Does the Bus Always Make You Wait Longer?'), T('평균 10분마다 오는 버스를 기다리면 평균 몇 분을 기다릴까요? 내 반이 늘 붐비는 이유도 같아요.', 'If a bus comes every 10 minutes on average, how long do you wait on average? The same reason makes your class feel crowded.')),
-  ('coincidence', T('생일 문제 모델', 'Birthday-problem model'), T('우연의 일치는 우연이 아니다?', 'Is a Coincidence Not a Coincidence?'), T('23명이면 생일이 겹칠 확률이 50%. 그런데 "나와 겹칠" 확률은 얼마나 다를까요?', 'With 23 people the chance of a shared birthday is 50%. How different is a match with me?')),
+  ('inspection', T('검사 역설 모델', 'Inspection-paradox model'), T('버스는 왜 늘 더 오래 기다릴까', 'Why Does the Bus Always Make You Wait Longer?'), T('평균 10분마다 오는 버스를 기다리면 평균 몇 분을 기다릴까요? 내 반이 늘 붐비는 이유도 같아요.', 'If a bus comes every 10 minutes on average, how long do you wait on average? It is also why your class always seems crowded.')),
+  ('coincidence', T('생일 문제 모델', 'Birthday-problem model'), T('우연의 일치는 우연이 아니다?', "A Coincidence That Isn't a Coincidence?"), T('23명이면 생일이 겹칠 확률이 50%. 그런데 "나와 겹칠" 확률은 얼마나 다를까요?', "With 23 people, there's a 50% chance that two share a birthday. But how different is the chance that someone shares yours?")),
  ]),
  ('society', '#475569', '🏙️', T('사회 현안', 'Society Today'), T('수치로 따져 보는 우리 사회의 큰 흐름', 'Big trends in society, worked through with numbers'), [
-  ('population', T('코호트 인구 모델', 'Cohort-component model'), T('저출산이 계속되면 2070년 인구 구조는?', "What Does Korea's Population Look Like in 2070?"), T('출산율이 이대로면 인구 피라미드는 어떻게 바뀔까? 출산율과 이민을 바꿔 보세요.', 'If fertility stays as it is, how does the population pyramid change? Try other fertility and migration levels.')),
+  ('population', T('코호트 인구 모델', 'Cohort-component model'), T('저출산이 계속되면 2070년 인구 구조는?', "What If Korea's Birth Rate Stays This Low Until 2070?"), T('출산율이 이대로면 인구 피라미드는 어떻게 바뀔까? 출산율과 이민을 바꿔 보세요.', 'If fertility stays as it is, how does the population pyramid change? Try other fertility and migration levels.')),
   ('apartment', T('공간 확산 모델', 'Spatial contagion model'), T('아파트 가격은 어떻게 번질까', 'How Do Apartment Prices Spread?'), T('한 동네의 상승이 이웃으로 번지는 과정과, 대출 규제·금리가 미치는 영향을 장난감 모델로 봐요.', 'See, in a toy model, how a rise in one neighborhood spreads to the next, and what lending limits and interest rates do.')),
  ]),
 ]
@@ -152,7 +152,7 @@ def build(only_existing=True):
     cta1 = T('실험실 둘러보기 ↓', 'Explore the lab ↓'); cta2 = T('🎲 무작위 실험', '🎲 Random experiment')
     hint = T('점들을 만져 보세요. 마우스를 피하고, 클릭하면 "만약에!" 하고 흩어졌다가 다시 모입니다.', 'Play with the dots. They dodge your cursor, and a click asks "what if?": they scatter, then sort themselves out again.')
     h_tab = T('실험 주기율표', 'The Periodic Table of Experiments')
-    p_tab = T(f'{total}개의 실험을 {len(cats)}개 분야(열)로 묶었어요. 칸 위에 마우스를 올리면 아래 실험 노트에 내용이 나타납니다.', f'{total} experiments in {len(cats)} fields (columns). Hover a cell and its page opens in the lab notebook below.')
+    p_tab = T(f'{total}개의 실험을 {len(cats)}개 분야(열)로 묶었어요. 칸 위에 마우스를 올리면 아래 실험 노트에 내용이 나타납니다.', f'{total} experiments in {len(cats)} fields (columns). Hover over a cell to see its details in the lab notebook below.')
     nb_today = T('오늘의 실험', 'Experiment of the day'); nb_sel = T('실험 노트', 'Lab notebook')
     nb_go = T('직접 돌려보기 →', 'Try it yourself →')
     desc = T("세상이 그렇게 돌아가는 이유를 AI 시뮬레이션으로 돌려봅니다. 변수를 바꿔 직접 확인해 보세요.", 'We rerun the world in AI-designed simulations to see why things happen. Change the variables and check for yourself.')

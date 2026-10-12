@@ -35,7 +35,7 @@
       const y = m.t + r * rowH + (r === 0 ? 0 : 6) + (rowH - bh) / 2, story = r === 0 ? sim.original : sim.chains[r - 1];
       if (!THUMB) {
         ctx.font = (r === 0 ? '700 12px' : '11px') + ' -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillStyle = r === 0 ? css('--text') : css('--muted'); ctx.textAlign = 'right';
-        ctx.fillText(r === 0 ? '원본' : `체인 ${r}`, m.l - 8, y + bh * 0.72);
+        ctx.fillText(r === 0 ? '원본' : `사슬 ${r}`, m.l - 8, y + bh * 0.72);
       }
       // 빈 자리(잊혔거나 바뀐 원래 모티프)
       ctx.strokeStyle = '#d5dbe7'; ctx.setLineDash([2, 2]);

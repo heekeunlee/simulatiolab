@@ -1,11 +1,11 @@
 DYN = {
  '최대 지속 수확 수준': 'Level of the largest sustainable catch',
  '저량 (수용력 대비)': 'Stock (relative to capacity)',
- '붉은 후광: 이번 라운드에 많이 잡음 · 검은 테두리: 적발되어 벌금': 'Red halo: caught a lot this round · black ring: caught and fined',
+ '붉은 후광: 이번 라운드에 많이 잡음 · 검은 테두리: 적발되어 벌금': 'Red halo: big catch this round · black ring: caught and fined',
  '{#0}/{#1}라운드 · 저량 {2}': 'Round {0}/{1} · stock {2}',
  '최대 지속 수확 수준 50%': 'Largest sustainable level, 50%',
  '감시에 적발될 확률': 'Chance of being caught by monitoring',
- '50%일 때 해마다 가장 많이 지속적으로 잡을 수 있어요': 'At 50% the catch can be largest and sustainable',
+ '50%일 때 라운드마다 가장 많이 지속적으로 잡을 수 있어요': 'At 50%, the largest catch can be sustained',
  '이번 라운드 수확': "This round's catch",
  '지속 가능한 최대치는 {#0}': 'The sustainable maximum is {0}',
  '절제하는 사람': 'People restraining',

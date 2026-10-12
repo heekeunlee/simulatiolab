@@ -7,7 +7,7 @@ DYN = {
  '✓ 고른 사회': '✓ Chosen',
  '최소 {#0}': 'Min {0}',
  '아직 자리를 뽑지 않았어요': 'No position drawn yet',
- '당신의 자리: {#0}분위 → 소득 {#1}': 'Your position: {0} → income {1}',
+ '당신의 자리: {#0}분위 → 소득 {#1}': 'Your position: {0} of 5 → income {1}',
  '{#0}/{#1}번째 추첨 · 평균 {2}': 'Draw {0}/{1} · average {2}',
  '위험 회피 정도 γ': 'Risk aversion γ',
  '고른 사회': 'Chosen society',

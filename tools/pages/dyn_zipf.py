@@ -6,7 +6,7 @@ DYN = {
 '기울기 -1 (지프의 법칙)': 'Slope -1 (Zipf\'s law)',
 '새 단어가 나올 확률': 'Chance of a new word',
 '쓴 단어 수': 'Words written',
-'10만 단어까지 이어 써요': 'Written up to 100,000 words',
+'10만 단어까지 이어 써요': 'The text runs up to 100,000 words',
 '어휘 크기': 'Vocabulary size',
 '서로 다른 단어의 수': 'Number of distinct words',
 '상위 10개 단어의 몫': 'Share of the top 10 words',
@@ -14,7 +14,7 @@ DYN = {
 '상위 100개 단어의 몫': 'Share of the top 100 words',
 '순위-빈도 기울기': 'Rank–frequency slope',
 '지프의 법칙은 -1 근처 · 순위 {0}~{1}에서 측정': "Zipf's law is near -1 · measured over ranks {0} to {1}",
-'새 단어 확률을 0.5%~10%로 바꿔도 복사 모드의 기울기는 {#0}~{#1}, 균등 선택은 {#2}~{#3}입니다': 'Even when the new-word probability goes from 0.5% to 10%, the slope size is {0} to {1} in copy mode and {2} to {3} with uniform choice',
+'새 단어 확률을 0.5%~10%로 바꿔도 복사 모드의 기울기는 {#0}~{#1}, 균등 선택은 {#2}~{#3}입니다': 'Across new-word probabilities from 0.5% to 10%, the slope size is {0} to {1} in copy mode and {2} to {3} with uniform choice',
 '글 번호': 'Text',
 '← 1위: 맨 처음 생긴 단어': '← Rank 1: the very first word',
 }

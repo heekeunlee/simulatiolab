@@ -11,7 +11,7 @@ page(dict(
  model=[T('이야기는 <b>모티프</b>(사건이나 세부 내용) 30개의 목록입니다. 모티프마다 "기억에 얼마나 잘 남는가"(기억용이성)가 숨어 있고, 블록이 붉을수록 잘 남는 모티프입니다. 일부 모티프는 낯설고 튀는 세부입니다.',
           'A story is a list of 30 <b>motifs</b> (events or details). Each motif hides a "how memorable is it" score (memorability), and the redder a block, the more memorable the motif. Some motifs are odd, unusual details.'),
         T('전달자는 이야기를 다시 말할 때 모티프마다 일정 확률로 기억해 냅니다. 기억용이성이 높을수록 잘 기억하고, <b>기억력</b>이 높을수록 덜 잊습니다.',
-          'When retelling, each teller recalls every motif with some probability. The more memorable the motif, the better it is recalled, and the higher the <b>memory</b>, the less is forgotten.'),
+          'When retelling, each teller recalls each motif with some probability. The more memorable the motif, the better it is recalled, and the higher the <b>memory</b>, the less is forgotten.'),
         T('낯선 세부는 일정 확률(<b>관습화</b>)로 평범하고 익숙한 모티프로 바뀌고, 일정 확률(<b>덧붙이기</b>)로 새 모티프가 하나 지어 붙으며, 가끔 이웃한 두 모티프의 순서가 바뀝니다.',
           'An odd detail is replaced with some probability (<b>conventionality</b>) by a plain, familiar motif; with some probability (<b>embellishment</b>) a new motif is invented and added; and occasionally two neighboring motifs swap places.'),
         T('같은 원본에서 출발한 사슬 12개가 서로 모르게 전해집니다. 실선 테두리는 원래 이야기에 있던 모티프, 점선 테두리는 중간에 새로 생긴 모티프예요.',

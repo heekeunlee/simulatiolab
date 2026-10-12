@@ -1,0 +1,289 @@
+[
+{
+"id": "d0815",
+"page": "(실행 중 문구)",
+"ko": "가파른 피라미드",
+"en": "Steep pyramid",
+"tr": "Pirámide empinada"
+},
+{
+"id": "d0816",
+"page": "(실행 중 문구)",
+"ko": "승자독식 복권",
+"en": "Winner-take-all lottery",
+"tr": "Lotería: el ganador se lo lleva todo"
+},
+{
+"id": "d0817",
+"page": "(실행 중 문구)",
+"ko": "기대효용 (γ {#0})",
+"en": "Expected utility (γ {0})",
+"tr": "Utilidad esperada (γ {0})"
+},
+{
+"id": "d0818",
+"page": "(실행 중 문구)",
+"ko": "평균 극대화",
+"en": "Maximize the average",
+"tr": "Maximizar el promedio"
+},
+{
+"id": "d0819",
+"page": "(실행 중 문구)",
+"ko": "최소 극대화",
+"en": "Maximize the minimum",
+"tr": "Maximizar el mínimo"
+},
+{
+"id": "d0820",
+"page": "(실행 중 문구)",
+"ko": "✓ 고른 사회",
+"en": "✓ Chosen",
+"tr": "✓ Elegida"
+},
+{
+"id": "d0821",
+"page": "(실행 중 문구)",
+"ko": "최소 {#0}",
+"en": "Min {0}",
+"tr": "Mín. {0}"
+},
+{
+"id": "d0822",
+"page": "(실행 중 문구)",
+"ko": "아직 자리를 뽑지 않았어요",
+"en": "No position drawn yet",
+"tr": "Aún no se ha sorteado ninguna posición"
+},
+{
+"id": "d0823",
+"page": "(실행 중 문구)",
+"ko": "당신의 자리: {#0}분위 → 소득 {#1}",
+"en": "Your position: {0} → income {1}",
+"tr": "Tu posición: {0} → ingreso {1}"
+},
+{
+"id": "d0824",
+"page": "(실행 중 문구)",
+"ko": "{#0}/{#1}번째 추첨 · 평균 {2}",
+"en": "Draw {0}/{1} · average {2}",
+"tr": "Sorteo {0}/{1} · promedio {2}"
+},
+{
+"id": "d0825",
+"page": "(실행 중 문구)",
+"ko": "위험 회피 정도 γ",
+"en": "Risk aversion γ",
+"tr": "Aversión al riesgo γ"
+},
+{
+"id": "d0826",
+"page": "(실행 중 문구)",
+"ko": "고른 사회",
+"en": "Chosen society",
+"tr": "Sociedad elegida"
+},
+{
+"id": "d0827",
+"page": "(실행 중 문구)",
+"ko": "규칙: {0}",
+"en": "Rule: {0}",
+"tr": "Regla: {0}"
+},
+{
+"id": "d0828",
+"page": "(실행 중 문구)",
+"ko": "그 사회의 평균 소득",
+"en": "That society's average income",
+"tr": "Ingreso medio de esa sociedad"
+},
+{
+"id": "d0829",
+"page": "(실행 중 문구)",
+"ko": "다섯 자리의 평균",
+"en": "Average of the five positions",
+"tr": "Promedio de las cinco posiciones"
+},
+{
+"id": "d0830",
+"page": "(실행 중 문구)",
+"ko": "가장 가난한 자리의 소득",
+"en": "Income of the poorest position",
+"tr": "Ingreso de la posición más pobre"
+},
+{
+"id": "d0831",
+"page": "(실행 중 문구)",
+"ko": "1분위 자리",
+"en": "Position 1 (poorest)",
+"tr": "Posición 1 (la más pobre)"
+},
+{
+"id": "d0832",
+"page": "(실행 중 문구)",
+"ko": "지금까지 뽑힌 내 소득",
+"en": "Your income drawn so far",
+"tr": "Tu ingreso sorteado hasta ahora"
+},
+{
+"id": "d0833",
+"page": "(실행 중 문구)",
+"ko": "{#0}번 추첨의 평균",
+"en": "Average of {0} draws",
+"tr": "Promedio de {0} sorteos"
+},
+{
+"id": "d0834",
+"page": "(실행 중 문구)",
+"ko": "선택이 바뀌는 지점: γ = {0}",
+"en": "The choice changes at γ = {0}",
+"tr": "La elección cambia en γ = {0}"
+},
+{
+"id": "d0835",
+"page": "(실행 중 문구)",
+"ko": "위험 회피 평균 {0}, 퍼짐 {1}인 1,000명이 각자 고른 결과",
+"en": "Choices of 1,000 people with average risk aversion {0} and spread {1}",
+"tr": "Elecciones de 1.000 personas con aversión al riesgo media {0} y dispersión {1}"
+},
+{
+"id": "d0836",
+"page": "(실행 중 문구)",
+"ko": "추첨",
+"en": "Draw",
+"tr": "Sorteo"
+},
+{
+"id": "d0837",
+"page": "(실행 중 문구)",
+"ko": "내 평균",
+"en": "My average",
+"tr": "Mi media"
+},
+{
+"id": "d0838",
+"page": "(실행 중 문구)",
+"ko": "{0}번째 단어 · 어휘 {1}개",
+"en": "Word {0} · vocabulary {1}",
+"tr": "Palabra {0} · vocabulario {1}"
+},
+{
+"id": "d0839",
+"page": "(실행 중 문구)",
+"ko": "단어 순위 (로그 눈금)",
+"en": "Word rank (log scale)",
+"tr": "Rango de la palabra (escala logarítmica)"
+},
+{
+"id": "d0840",
+"page": "(실행 중 문구)",
+"ko": "쓰인 횟수 (로그 눈금) ↑",
+"en": "Number of uses (log scale) ↑",
+"tr": "Número de usos (escala logarítmica) ↑"
+},
+{
+"id": "d0841",
+"page": "(실행 중 문구)",
+"ko": "관측 기울기 {#0}",
+"en": "Observed slope {0}",
+"tr": "Pendiente observada {0}"
+},
+{
+"id": "d0842",
+"page": "(실행 중 문구)",
+"ko": "기울기 -1 (지프의 법칙)",
+"en": "Slope -1 (Zipf's law)",
+"tr": "Pendiente -1 (ley de Zipf)"
+},
+{
+"id": "d0843",
+"page": "(실행 중 문구)",
+"ko": "새 단어가 나올 확률",
+"en": "Chance of a new word",
+"tr": "Probabilidad de una palabra nueva"
+},
+{
+"id": "d0844",
+"page": "(실행 중 문구)",
+"ko": "쓴 단어 수",
+"en": "Words written",
+"tr": "Palabras escritas"
+},
+{
+"id": "d0845",
+"page": "(실행 중 문구)",
+"ko": "10만 단어까지 이어 써요",
+"en": "Written up to 100,000 words",
+"tr": "Escrito hasta 100 000 palabras"
+},
+{
+"id": "d0846",
+"page": "(실행 중 문구)",
+"ko": "어휘 크기",
+"en": "Vocabulary size",
+"tr": "Tamaño del vocabulario"
+},
+{
+"id": "d0847",
+"page": "(실행 중 문구)",
+"ko": "서로 다른 단어의 수",
+"en": "Number of distinct words",
+"tr": "Número de palabras distintas"
+},
+{
+"id": "d0848",
+"page": "(실행 중 문구)",
+"ko": "상위 10개 단어의 몫",
+"en": "Share of the top 10 words",
+"tr": "Proporción de las 10 palabras principales"
+},
+{
+"id": "d0849",
+"page": "(실행 중 문구)",
+"ko": "글 전체에서 차지하는 비율",
+"en": "Share of the whole text",
+"tr": "Proporción del texto completo"
+},
+{
+"id": "d0850",
+"page": "(실행 중 문구)",
+"ko": "상위 100개 단어의 몫",
+"en": "Share of the top 100 words",
+"tr": "Proporción de las 100 palabras principales"
+},
+{
+"id": "d0851",
+"page": "(실행 중 문구)",
+"ko": "순위-빈도 기울기",
+"en": "Rank–frequency slope",
+"tr": "Pendiente rango-frecuencia"
+},
+{
+"id": "d0852",
+"page": "(실행 중 문구)",
+"ko": "지프의 법칙은 -1 근처 · 순위 {0}~{1}에서 측정",
+"en": "Zipf's law is near -1 · measured over ranks {0} to {1}",
+"tr": "La ley de Zipf se acerca a -1 · medida en los rangos {0} a {1}"
+},
+{
+"id": "d0853",
+"page": "(실행 중 문구)",
+"ko": "새 단어 확률을 0.5%~10%로 바꿔도 복사 모드의 기울기는 {#0}~{#1}, 균등 선택은 {#2}~{#3}입니다",
+"en": "Even when the new-word probability goes from 0.5% to 10%, the slope size is {0} to {1} in copy mode and {2} to {3} with uniform choice",
+"tr": "Incluso cuando la probabilidad de palabra nueva va de 0,5 % a 10 %, el tamaño de la pendiente es de {0} a {1} en el modo copia y de {2} a {3} con elección uniforme"
+},
+{
+"id": "d0854",
+"page": "(실행 중 문구)",
+"ko": "글 번호",
+"en": "Text",
+"tr": "Texto"
+},
+{
+"id": "d0855",
+"page": "(실행 중 문구)",
+"ko": "← 1위: 맨 처음 생긴 단어",
+"en": "← Rank 1: the very first word",
+"tr": "← Puesto 1: la primera palabra"
+}
+]

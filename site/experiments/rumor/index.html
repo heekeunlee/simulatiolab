@@ -16,12 +16,12 @@
 
 <main class="wrap">
   <h1 data-en="Rumor Spread in Group Chats">단톡방 소문 확산</h1>
-  <p class="lead" data-en="A single rumor posted in a group chat becomes common knowledge within hours. By what routes does a rumor spread, and how late can a correction come and still matter?">누군가 단톡방에 올린 소문 하나가 몇 시간 만에 모두가 아는 이야기가 됩니다. 소문은 어떤 길로 퍼지고, 정정 글은 언제까지 올려야 소용이 있을까요?</p>
+  <p class="lead" data-en="A single rumor posted in a group chat becomes common knowledge within hours. Which paths does a rumor take, and how late can a correction come and still matter?">누군가 단톡방에 올린 소문 하나가 몇 시간 만에 모두가 아는 이야기가 됩니다. 소문은 어떤 길로 퍼지고, 정정 글은 언제까지 올려야 소용이 있을까요?</p>
 
   <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
   <ul>
-    <li data-en="People belong to several group chats (dots are people, squares are chat rooms), and rooms differ in size, so there are big and small ones.">사람들이 여러 단톡방에 들어 있고(점이 사람, 네모가 단톡방), 방마다 인원이 달라 큰 방과 작은 방이 있습니다.</li>
-    <li data-en="People who know the &lt;b style=&quot;color:var(--unlucky)&quot;&gt;rumor&lt;/b&gt; post it in every room they belong to. Someone who sees it for the first time in a room is tempted with some probability and reposts it in their own rooms next round."><b style="color:var(--unlucky)">소문</b>을 아는 사람은 자기가 든 모든 방에 글을 올립니다. 방에서 소문을 처음 본 사람은 일정 확률로 솔깃해서 다음 차례에 자기 방들에 다시 올립니다.</li>
+    <li data-en="People belong to several group chats (dots are people, squares are chat rooms), and rooms vary in size, from big to small.">사람들이 여러 단톡방에 들어 있고(점이 사람, 네모가 단톡방), 방마다 인원이 달라 큰 방과 작은 방이 있습니다.</li>
+    <li data-en="People who know the &lt;b style=&quot;color:var(--unlucky)&quot;&gt;rumor&lt;/b&gt; post it in every room they belong to. Someone who sees it for the first time in a room is tempted with some probability and reposts it in their own rooms at the next step."><b style="color:var(--unlucky)">소문</b>을 아는 사람은 자기가 든 모든 방에 글을 올립니다. 방에서 소문을 처음 본 사람은 일정 확률로 솔깃해서 다음 차례에 자기 방들에 다시 올립니다.</li>
     <li data-en="Each time they post, they lose interest and stop with some probability.">한 번 올릴 때마다 일정 확률로 관심을 잃고 멈춥니다.</li>
     <li data-en="From the chosen moment, a &lt;b style=&quot;color:var(--accent)&quot;&gt;correction&lt;/b&gt; starts to spread. We assume the correction is less tempting than the rumor (70% as much), and anyone who sees the correction neither believes nor spreads the rumor.">설정한 시점부터 <b style="color:var(--accent)">정정 글</b>이 퍼지기 시작합니다. 정정 글은 소문보다 덜 솔깃하다고 가정했고(소문의 70%), 정정을 본 사람은 소문을 믿지도, 퍼뜨리지도 않습니다.</li>
   </ul>
@@ -34,7 +34,7 @@
         <span class="hint" data-en="Chance someone who sees the rumor in a room passes it on">방에서 소문을 본 사람이 퍼뜨릴 확률</span></div>
       <div class="ctl"><label for="correctionDelay" data-en="Correction starts &lt;output id=&quot;o-correctionDelay&quot;&gt;&lt;/output&gt;">정정 시작 <output id="o-correctionDelay"></output></label>
         <input type="range" id="correctionDelay" min="0" max="10" step="1" value="3">
-        <span class="hint" data-en="How many rounds after the rumor starts the correction appears">소문이 시작되고 몇 차례 뒤에 정정이 나오는지</span></div>
+        <span class="hint" data-en="How many steps after the rumor starts the correction appears">소문이 시작되고 몇 차례 뒤에 정정이 나오는지</span></div>
       <div class="ctl"><label for="rooms" data-en="Group chats &lt;output id=&quot;o-rooms&quot;&gt;&lt;/output&gt;">단톡방 수 <output id="o-rooms"></output></label>
         <input type="range" id="rooms" min="10" max="100" step="10" value="50">
         <span class="hint" data-en="More chats means smaller rooms">많을수록 방 하나가 작아져요</span></div>
@@ -103,7 +103,7 @@
 
   <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
   <div class="callout" data-en="&lt;b&gt;What it shows:&lt;/b&gt; Once the &quot;chance of being tempted&quot; crosses a threshold, the rumor suddenly reaches almost everyone. A correction works better the earlier it comes and barely helps once the rumor has spread widely. People in several rooms act as bridges between rooms."><b>말하는 것:</b> 소문은 "솔깃할 확률"이 어느 문턱을 넘으면 갑자기 거의 모두에게 퍼집니다. 그리고 정정은 빠를수록 효과가 크고, 소문이 이미 널리 퍼진 뒤에는 거의 막지 못합니다. 여러 방에 걸친 사람이 방과 방을 이어 주는 다리가 됩니다.</div>
-  <div class="callout" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; It doesn&#x27;t mean rumors in real group chats spread by these numbers. The content of the rumor, trust in the sender and the mood of the room are not captured, and the assumption that a correction is 70% as tempting as a rumor is only an assumption."><b>말하지 않는 것:</b> 실제 단톡방의 소문이 이 숫자대로 퍼진다는 뜻은 아닙니다. 소문의 내용, 보낸 사람에 대한 신뢰, 방 분위기는 담지 못했고, 정정이 소문보다 70% 덜 솔깃하다는 값도 가정일 뿐입니다.</div>
+  <div class="callout" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; It doesn&#x27;t mean rumors in real group chats spread by these numbers. The content of the rumor, trust in the sender and the mood of the room are not captured, and the figure of a correction being 70% as tempting as a rumor is just an assumption."><b>말하지 않는 것:</b> 실제 단톡방의 소문이 이 숫자대로 퍼진다는 뜻은 아닙니다. 소문의 내용, 보낸 사람에 대한 신뢰, 방 분위기는 담지 못했고, 정정이 소문의 70%만큼만 솔깃하다는 값도 가정일 뿐입니다.</div>
 
   <h2 data-en="Implementation notes">구현 메모</h2>
   <ul class="small">
@@ -114,7 +114,7 @@
   </ul>
 </main>
 
-<footer><div class="wrap" data-en="Simulatio Lab · Operator: Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<footer><div class="wrap" data-en="Simulatio Lab · Run by Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
 <script src="../../i18n.js"></script>
 <script src="../../i18n-en.js"></script>
 <script src="../../exps.js"></script>

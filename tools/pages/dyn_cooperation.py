@@ -5,7 +5,7 @@ DYN = {
 '협력률': 'Cooperation rate',
 '낸 수 중 협력의 비율': 'Share of moves that were cooperation',
 '가장 많은 전략': 'Most common strategy',
-'전체의 {0}': '{0} of everyone',
+'전체의 {0}': '{0} of the population',
 '항상 배신하는 사람': 'Always-defect players',
 '처음엔 {0}': '{0} at the start',
 '평균 점수 (한 판당)': 'Average score (per round)',
@@ -18,4 +18,5 @@ DYN = {
 '너그러운 맞받아치기': 'Generous Tit-for-Tat',
 '파블로프': 'Pavlov',
 '{#0}판': '{0} rounds',
+'1판': '1 round',
 }

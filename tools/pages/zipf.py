@@ -13,7 +13,7 @@ page(dict(
         T('<b>복사 모드</b>: 지금까지 쓴 글에서 무작위 위치의 단어를 그대로 베낍니다. 많이 쓴 단어는 글에 많이 흩어져 있으니 더 자주 베껴집니다(부익부).',
           '<b>Copy mode</b>: copy the word at a random earlier position in the text. A word used often is scattered across the text, so it gets copied even more often (the rich get richer).'),
         T('<b>균등 선택 모드</b>(대조군): 지금까지 나온 서로 다른 단어 중 하나를 똑같은 확률로 고릅니다. 얼마나 자주 썼는지는 상관없습니다.',
-          '<b>Uniform mode</b> (the control): pick one of the distinct words seen so far with equal probability, no matter how often it has been used.'),
+          '<b>Uniform-choice mode</b> (the control): pick one of the distinct words seen so far with equal probability, no matter how often it has been used.'),
         T('결과는 "순위-빈도" 그래프로 봅니다. 가장 자주 쓰인 단어를 1위로 세워 순위를 가로, 쓰인 횟수를 세로로 놓고 로그 눈금으로 그리면, 지프의 법칙은 기울기 -1 근처의 직선이 됩니다.',
           'The result is viewed as a rank–frequency plot: rank the words from most to least used, put rank on the horizontal axis and the number of uses on the vertical axis, and draw both on log scales. Zipf\'s law then looks like a straight line with slope near -1.')],
  sliders=[('novelty', T('새 단어가 나올 확률', 'Chance of a new word'), 0.5, 10, 0.5, 3, T('높을수록 어휘가 빨리 늘어나요', 'Higher means the vocabulary grows faster'))],

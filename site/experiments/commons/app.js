@@ -78,7 +78,7 @@
   function renderStats() {
     const K = sim.params.K, last = sim.harvestHist.length ? sim.harvestHist[sim.harvestHist.length - 1] : null, rs = sim.restrainHist.length ? sim.restrainHist[sim.restrainHist.length - 1] : null;
     const cards = [
-      ['저량 (수용력 대비)', pct(sim.S / K), '50%일 때 해마다 가장 많이 지속적으로 잡을 수 있어요'],
+      ['저량 (수용력 대비)', pct(sim.S / K), '50%일 때 라운드마다 가장 많이 지속적으로 잡을 수 있어요'],
       ['이번 라운드 수확', last == null ? '-' : last.toFixed(1), `지속 가능한 최대치는 ${(sim.params.r * K / 4).toFixed(0)}`],
       ['절제하는 사람', rs == null ? '-' : pct(rs), '이번 라운드에 절제 노력으로 잡은 사람'],
       ['적발된 횟수 (누적)', String(sim.fined), '감시에 걸려 벌금을 낸 횟수'],

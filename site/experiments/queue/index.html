@@ -20,7 +20,7 @@
 
   <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
   <ul>
-    <li data-en="2,500 people stand on a grid with three types: &lt;b style=&quot;color:#3b82f6&quot;&gt;Orderly&lt;/b&gt; (wait quietly), &lt;b style=&quot;color:#e5484d&quot;&gt;Cutter&lt;/b&gt;, and &lt;b style=&quot;color:#1fa463&quot;&gt;Punisher&lt;/b&gt; (waits in line, but punishes cutters when they see one).">2,500명이 격자 위에 서 있고 세 가지 유형이 있습니다: <b style="color:#3b82f6">질서</b>(가만히 줄 섬), <b style="color:#e5484d">새치기</b>, <b style="color:#1fa463">눈총</b>(줄은 서고, 새치기를 보면 응징함).</li>
+    <li data-en="2,500 people stand on a grid with three types: &lt;b style=&quot;color:#3b82f6&quot;&gt;Orderly&lt;/b&gt; (waits quietly), &lt;b style=&quot;color:#e5484d&quot;&gt;Cutter&lt;/b&gt;, and &lt;b style=&quot;color:#1fa463&quot;&gt;Punisher&lt;/b&gt; (waits in line, but punishes any cutter they see).">2,500명이 격자 위에 서 있고 세 가지 유형이 있습니다: <b style="color:#3b82f6">질서</b>(가만히 줄 섬), <b style="color:#e5484d">새치기</b>, <b style="color:#1fa463">눈총</b>(줄은 서고, 새치기를 보면 응징함).</li>
     <li data-en="Each round every person meets their 8 neighbors once and collects points. A cutter gains when meeting an Orderly person, who loses the same amount. When a cutter meets a Punisher, the gain is reduced by the punishment&#x27;s effect, and Punishers pay a cost for punishing.">라운드마다 이웃 8명과 한 번씩 만나 점수를 모읍니다. 새치기는 질서를 만나면 이득을 얻고, 질서는 그만큼 손해를 봅니다. 새치기가 눈총을 만나면 이득이 눈총의 효과만큼 깎이고, 눈총형은 응징에 비용을 씁니다.</li>
     <li data-en="Everyone copies the type of the highest-scoring person among their neighbors. With a tiny probability, a new person arrives as Orderly or Cutter.">모든 사람이 이웃 중 가장 점수가 높은 사람의 유형을 따라 합니다. 아주 작은 확률로 새로운 사람이 질서나 새치기로 들어옵니다.</li>
   </ul>
@@ -36,7 +36,7 @@
         <span class="hint" data-en="How much a cutter&#x27;s gain shrinks when punished">눈총을 받으면 새치기 이득이 얼마나 깎이는지</span></div>
 <div class="ctl"><label for="cost" data-en="Punishment cost &lt;output id=&quot;o-cost&quot;&gt;&lt;/output&gt;">눈총의 비용 <output id="o-cost"></output></label>
         <input type="range" id="cost" min="0" max="100" step="10" value="20">
-        <span class="hint" data-en="The cost paid by the one who punishes">응징하는 사람이 치르는 비용</span></div>
+        <span class="hint" data-en="The cost a punisher pays">응징하는 사람이 치르는 비용</span></div>
 <div class="ctl"><label for="cutters" data-en="Initial share of cutters &lt;output id=&quot;o-cutters&quot;&gt;&lt;/output&gt;">처음 새치기 비율 <output id="o-cutters"></output></label>
         <input type="range" id="cutters" min="5" max="50" step="5" value="20">
         <span class="hint" data-en="People who cut at the start">처음에 새치기하던 사람</span></div>
@@ -70,7 +70,7 @@
   <div class="charts">
     <section class="panel chart">
       <h3 data-en="② Share of Each Type Over Time">② 유형별 비율의 변화</h3>
-    <p data-en="The stacked area is the whole (100%). Cutters grow at first, but see what happens next.">쌓인 면적이 전체(100%)입니다. 처음엔 새치기가 늘지만 어떻게 되는지 보세요.</p>
+    <p data-en="The stacked areas add up to 100%. Cutters grow at first, but see what happens next.">쌓인 면적이 전체(100%)입니다. 처음엔 새치기가 늘지만 어떻게 되는지 보세요.</p>
     <canvas id="c-area" class="" aria-label="② 유형별 비율의 변화"></canvas>
       <div class="legend"><span data-en="&lt;i style=&quot;background:#3b82f6&quot;&gt;&lt;/i&gt;Orderly"><i style="background:#3b82f6"></i>질서</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Cutter"><i style="background:#e5484d"></i>새치기</span><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Punisher"><i style="background:#1fa463"></i>눈총</span></div>
     </section>
@@ -95,13 +95,13 @@
   <h2 data-en="Implementation notes">구현 메모</h2>
   <ul class="small">
     <li data-en="A grid model in the style of spatial evolutionary games (Nowak, May (1992), &quot;Evolutionary games and spatial chaos&quot;, &lt;i&gt;Nature&lt;/i&gt; 359): play with neighbors and copy the strategy of the best-scoring neighbor. Adding the &quot;punishing cooperator&quot; is this project&#x27;s own design, not a reproduction of the paper&#x27;s numbers.">공간 진화 게임(Nowak, May (1992), "Evolutionary games and spatial chaos", <i>Nature</i> 359)의 방식으로, 이웃과 게임을 하고 이웃 중 최고 점수의 전략을 따라 하는 격자 모델입니다. "응징하는 협력자"를 넣은 것은 이 프로젝트의 설계이며 논문 수치의 재현이 아닙니다.</li>
-    <li data-en="If the gain is smaller than the cost (e.g., gain 0.1, cost 0.2), punishing is a net loss, so Punishers vanish first and cutting spreads. At the extreme gain of 1.0 Orderly people lose heavily and results can change, so the slider is capped at 1.0.">이득이 비용보다 작으면(예: 이득 0.1, 비용 0.2) 응징이 손해라서 눈총형이 먼저 사라지고 새치기가 퍼집니다. 이득이 1.0인 극단에서는 질서가 크게 손해를 보는 구조라 결과가 달라질 수 있어 슬라이더를 1.0까지로 제한했습니다.</li>
+    <li data-en="If the gain is smaller than the cost (e.g., gain 0.1, cost 0.2), punishing is a net loss, so Punishers vanish first and cutting spreads. With gains above 1.0, Orderly people lose heavily and the results can change, so the slider is capped at 1.0.">이득이 비용보다 작으면(예: 이득 0.1, 비용 0.2) 응징이 손해라서 눈총형이 먼저 사라지고 새치기가 퍼집니다. 이득이 1.0을 넘는 극단에서는 질서가 크게 손해를 보는 구조라 결과가 달라질 수 있어 슬라이더를 1.0까지로 제한했습니다.</li>
     <li data-en="Graphs ③ and ④ change only the given value in the same setup and run 5 times each for 100 rounds. You can verify with &lt;code&gt;node tools/validate-more.js queue&lt;/code&gt;.">③, ④번 그래프는 같은 설정에서 해당 값만 바꿔 5번씩, 100라운드 돌린 결과입니다. 검증은 <code>node tools/validate-more.js queue</code>로 할 수 있습니다.</li>
     <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/queue&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/queue">GitHub</a>에서 볼 수 있습니다.</li>
   </ul>
 </main>
 
-<footer><div class="wrap" data-en="Simulatio Lab · Operator: Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<footer><div class="wrap" data-en="Simulatio Lab · Run by Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
 <script src="../../i18n.js"></script>
 <script src="../../i18n-en.js"></script>
 <script src="../../exps.js"></script>

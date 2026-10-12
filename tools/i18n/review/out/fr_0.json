@@ -1,0 +1,218 @@
+{
+ "s0007": {
+  "tr": "La réussite est-elle une question de chance ? Comment les rumeurs se propagent-elles ? Pourquoi une nouvelle route aggrave-t-elle les bouchons ? Pour comprendre pourquoi les gens, la société, la nature et l'art fonctionnent comme ils le font, nous les rejouons en simulation, et nous publions le tout pour que vous puissiez changer les variables et vérifier par vous-même.",
+  "why": "'rejouer les gens' 어색, 원문 '그렇게 돌아가는 이유'를 살림"
+ },
+ "s0012": {
+  "tr": "34 expériences dans 11 domaines (colonnes). Survolez une case et son contenu s'affiche dans le carnet de laboratoire ci-dessous.",
+  "why": "원문은 '내용이 나타남'(페이지가 열리지 않음), 실험 노트 용어 통일(carnet)"
+ },
+ "s0033": {
+  "tr": "À quelle vitesse une rumeur se propage-t-elle, et par qui ? Jusqu'à quand un démenti reste-t-il utile ?",
+  "why": "'Quel retard peut avoir un démenti' 직역투"
+ },
+ "s0068": {
+  "tr": "Une simple réaction entre deux substances suffit à former d'elles-mêmes des taches, des rayures et des labyrinthes. Déposez vos propres graines.",
+  "why": "원문은 '단순한 반응'(물질이 단순한 게 아님)"
+ },
+ "s0086": {
+  "tr": "Dans un monde plein de traîtres, comment la coopération et la confiance reviennent-elles ? Qu'est-ce qui change quand des erreurs s'en mêlent ?",
+  "why": "배신=trahir 용어 통일(Toujours trahir)"
+ },
+ "s0087": {
+  "tr": "Dilemme du prisonnier répété",
+  "why": "실험 페이지의 'répété'와 통일"
+ },
+ "s0103": {
+  "tr": "Pourquoi, dans toutes les langues, quelques mots forment-ils l'essentiel d'un texte ? Générez-en un vous-même avec une règle « les riches s'enrichissent ».",
+  "why": "원문 '어느 언어에서나' 누락"
+ },
+ "s0112": {
+  "tr": "Sur un cercle chromatique, observez le cycle créé par une foule qui copie et des lanceurs de tendance qui fuient.",
+  "why": "용어 통일(lanceurs de tendance)"
+ },
+ "s0145": {
+  "tr": "Si un bus passe toutes les 10 minutes en moyenne, combien de temps attend-on en moyenne ? C'est aussi pour cela que votre classe semble toujours bondée.",
+  "why": "'La même raison fait paraître' 직역투, '늘' 누락"
+ },
+ "s0148": {
+  "tr": "Les coïncidences ne sont-elles pas dues au hasard ?",
+  "why": "'Une coïncidence n'est-elle pas une coïncidence' 동어반복으로 뜻이 흐림"
+ },
+ "s0149": {
+  "tr": "Avec 23 personnes, la probabilité qu'un anniversaire soit partagé est de 50 %. Mais en quoi diffère la probabilité que quelqu'un partage le mien ?",
+  "why": "% 앞 공백, '나와 겹칠 확률'을 명확히"
+ },
+ "s0153": {
+  "tr": "Si la faible natalité persiste, à quoi ressemblera la population en 2070 ?",
+  "why": "원문 '저출산이 계속되면' 누락, 원문에 없는 '한국' 추가 제거"
+ },
+ "s0167": {
+  "tr": "Quand un pays en attaque un autre, ses alliés sont entraînés les uns après les autres. Parfois cela se termine avec deux ou trois pays ; parfois presque tous les pays sont impliqués. À partir de quand cette différence apparaît-elle à mesure que les alliances se densifient ? C'est un modèle simplifié abstrait de 24 pays anonymes, qui n'explique les causes d'aucune guerre réelle.",
+  "why": "alliances에 'épaissir'는 어색 → se densifier"
+ },
+ "s0172": {
+  "tr": "La guerre se termine lorsqu'aucun nouveau pays ne s'y joint. Sur cette page, une guerre qui entraîne la moitié des pays (12) ou plus est dite « d'échelle mondiale », et celle de 4 pays ou moins « restée petite ». Ces seuils ne servent qu'à l'explication.",
+  "why": "성 일치 오류(guerre → restée)"
+ },
+ "s0182": {
+  "tr": "« Mêmes réglages, un autre coup » tire au sort un nouveau monde et une nouvelle première attaque",
+  "why": "버튼 이름(s0184)과 일치시킴"
+ },
+ "s0201": {
+  "tr": "La distribution du nombre de pays en guerre lorsque le réseau d'alliances et la première attaque sont tirés au sort à nouveau 300 fois avec ces réglages. Le gris correspond à 4 ou moins, l'orange à l'intermédiaire, et le rouge à la moitié ou plus (échelle de guerre mondiale). Regardez si les résultats se concentrent aux deux extrémités.",
+  "why": "'retirés'는 '제거'로 읽힘, '양 끝으로 갈리는지' 자연스럽게"
+ },
+ "s0203": {
+  "tr": "④ À mesure que les alliances se densifient",
+  "why": "s0167과 통일"
+ },
+ "s0208": {
+  "tr": "<b>Ce que cela montre :</b> Dans ce modèle, avec les mêmes 24 pays et les mêmes pactes, dès que les alliances sont devenues raisonnablement denses, un petit affrontement s'est soudain propagé à presque tous les pays. Avec 70 % de chance de respecter les pactes, avec en moyenne 0 allié par pays, la guerre se terminait toujours avec 2 pays ; avec 1 allié, la moyenne était de 6,3 pays (échelle de guerre mondiale 15 %), avec 1,5 allié 12,1 (56 %), avec 2 alliés 17,4 (85 %), avec 3 alliés 22,4 (99 %), et avec 4 ou plus presque tous les pays étaient entraînés. Même avec 3 alliés en moyenne, 10 % de chance de respecter les pactes donnait 4,0 pays en moyenne (échelle de guerre mondiale 6 %) et 30 % donnait 16,0 (71 %). Avec des paires isolées, la guerre s'arrêtait à 4 pays au maximum, quelle que soit la rigueur avec laquelle les pactes étaient respectés.",
+  "why": "프랑스어 소수점 쉼표(사이트 다른 페이지와 통일)"
+ },
+ "s0213": {
+  "tr": "Les chiffres ci-dessus sont des moyennes de 400 exécutions du même réglage (<code>node tools/validate-alliance.js</code>), tandis que les graphiques ③–⑤ sont des résultats de 300 exécutions ou de 6 lots de 40 à l'écran, de sorte que les chiffres peuvent différer légèrement. Dans les deux blocs, avec en moyenne 1 allié au sein d'un bloc, la guerre a compté en moyenne 7,4 pays (échelle de guerre mondiale 22 %), et avec 2 alliés 18,9 pays (90 %).",
+  "why": "프랑스어 소수점 쉼표"
+ },
+ "s0238": {
+  "tr": "La ligne bleue est l'indice de prix moyen. La ligne grise en pointillés est la ligne de revenus et la ligne dorée en pointillés est le plafond d'accessibilité permis par le plafond de prêt. Les prix montent vers le plafond, puis baissent après le choc de taux.",
+  "why": "'plafond ... plafond' 혼동, 감당 상한 용어 명시"
+ },
+ "s0255": {
+  "tr": "« Surévalué » dans les graphiques ③ et ④ signifie un prix supérieur de plus de 30 % à la ligne de revenus. Le graphique ④ correspond à 5 exécutions de 80 trimestres pour chaque réglage, sans choc de taux. Vous pouvez le vérifier avec <code>node tools/validate-apartment.js</code>.",
+  "why": "'exécute 80 trimestres, 5 fois chacun' 어색"
+ },
+ "s0261": {
+  "tr": "Chacun offre « estimation − décote × taille de l'erreur ». Avec une décote de 0, chacun offre simplement son estimation : c'est l'enchère naïve.",
+  "why": "원문 '순진한 입찰' 누락, réduction/décote 용어 통일"
+ },
+ "s0268": {
+  "tr": "Décote de l'offre <output id=\"o-shade\"></output>",
+  "why": "용어 통일(décote)"
+ },
+ "s0269": {
+  "tr": "Décote en multiples de l'erreur (σ). 0 signifie offrir l'estimation telle quelle",
+  "why": "'De combien de tailles d'erreur...' 비문"
+ },
+ "s0286": {
+  "tr": "<b>Ce que cela montre :</b> Avec 10 enchérisseurs et une erreur d'estimation de 20 %, offrir l'estimation (règle du premier prix) a donné aux gagnants un gain moyen de −30,9 pour une valeur de 100, et, sur 40 000 enchères, la part de gagnants en perte était de 100 % une fois arrondie. Gagner signifie « mon estimation était la plus élevée », c'est-à-dire celle qui s'est le plus trompée dans le sens optimiste. L'ampleur de la perte augmente avec l'erreur : −7,7 pour 5 % d'erreur, −15,4 pour 10 % et −61,7 pour 40 %, toujours environ 1,54 fois la taille de l'erreur. Plus d'enchérisseurs aggrave la situation : −11,4 avec 2, −23,5 avec 5, −30,9 avec 10 et −40,9 avec 30. Chacun doit diminuer son offre de 1,54 fois la taille de l'erreur pour que le gain moyen atteigne 0 (1,00 avec la règle du second prix), et plus d'enchérisseurs demandent une plus grande décote.",
+  "why": "동사 누락 비문"
+ },
+ "s0287": {
+  "tr": "<b>Ce que cela ne montre pas :</b> Cela ne signifie pas que les gagnants des ventes aux enchères d'art réelles perdent toujours de l'argent. Le modèle est une enchère à valeur commune dans laquelle tous partagent une seule valeur réelle ; les œuvres réelles comportent aussi du goût personnel (valeur privée), et les enchérisseurs apprennent par l'expérience. De plus, les enchérisseurs sont naïfs : ils ne tiennent pas compte du fait que « gagner est une mauvaise nouvelle », et le modèle ne calcule pas les offres d'équilibre de la théorie des enchères. Il ne conclut pas non plus que la règle du second prix est toujours meilleure : avec 2 enchérisseurs, les gagnants ont gagné +11,3 en moyenne avec la règle du second prix.",
+  "why": "'aussi simples' 뜻 불명(원문: 단순한 입찰자)"
+ },
+ "s0296": {
+  "tr": "Chacun a une façon de prédire « combien de personnes viendront cette semaine ? ». Chacune est une formule qui pondère différemment les 8 dernières semaines : certaines « suivent la semaine dernière », d'autres « font le contraire de la semaine dernière ».",
+  "why": "'어떤 건'은 계산식(formule, 여성) 가리킴"
+ },
+ "s0300": {
+  "tr": "Jusqu'à combien de personnes l'endroit reste agréable",
+  "why": "오역: '편해지기 전까지'가 아니라 '몇 명까지 여유로운지'"
+ },
+ "s0327": {
+  "tr": "À chaque tour, 8 % des conducteurs reconsidèrent leur itinéraire. Ils ne changent que si le temps obtenu après le changement est nettement plus court, et ils bougent un par un : le système s'arrête donc là où personne ne peut gagner en changeant seul.",
+  "why": "% 앞 공백"
+ },
+ "s0342": {
+  "tr": "Cliquez à tout moment pour ouvrir ou fermer le raccourci : les conducteurs choisissent alors à nouveau leur itinéraire.",
+  "why": "오역: '운전자가 고르는 동안'이 아니라 '그때마다 다시 고른다'"
+ },
+ "s0357": {
+  "tr": "<b>Ce que cela montre :</b> Avec 4 000 conducteurs, un raccourci de 0 minute et une sensibilité de 10 (x/100 minutes), l'équilibre sans raccourci répartissait les conducteurs à égalité entre les itinéraires A et B, pour une moyenne de 65,0 minutes. Une fois le raccourci ouvert, les conducteurs s'y sont reportés peu à peu, la moyenne a atteint 79,5 minutes au tour 100, et au tour 180 tout le monde (100 %) empruntait l'itinéraire par le raccourci, pour une moyenne de 80,0 minutes. Dans cet état final, changer seul ne faisait gagner aucune minute (0). En sens inverse, la fermeture du raccourci a fait passer la moyenne de 79,7 minutes juste avant la fermeture à 65,0 minutes en 5 tours. Si tout le monde acceptait d'éviter le raccourci, ce serait 65,0 minutes, et un planificateur attribuant les itinéraires de façon optimale (environ 13 % par le raccourci) a atteint 64,7, donc le prix de l'anarchie était de 1,24. L'effet dépendait du nombre de conducteurs. Sous 3 000 conducteurs, le raccourci aidait (2 000 conducteurs : 55,0 → 40,0 minutes), à 3 000 il y avait égalité à 60,0 minutes, entre 3 000 et 9 000 il nuisait, surtout à 4 500 conducteurs avec 67,5 → 90,0 minutes (1,33 fois), et à partir de 9 000 conducteurs personne ne l'utilisait, donc rien ne changeait. Avec un coût du raccourci de 25 minutes ou plus, le résultat était de 65,0 minutes, comme fermé, et à 5 minutes il était de 85,0 minutes, pire qu'à 0 minute (80,0). Avec une sensibilité à la congestion de 5, le raccourci aidait (55,0 → 40,0 minutes), et avec 20 il nuisait (85,0 → 90,0 minutes).",
+  "why": "% 앞 공백"
+ },
+ "s0358": {
+  "tr": "<b>Ce que cela ne montre pas :</b> Ce modèle ne reproduit le réseau routier d'aucune ville réelle. C'est le modèle simplifié de ce projet : un petit réseau symétrique, tous avec la même origine et la même destination, des conducteurs qui ne se soucient que du temps, et les mêmes choix répétés jour après jour. Cela ne signifie pas que les raccourcis ou les routes nouvelles sont toujours nuisibles, ni qu'il ne faut pas construire de routes : avec peu de circulation, le raccourci aidait clairement. Des histoires de lieux comme Stuttgart ou le Cheonggyecheon de Séoul, où la fermeture ou la suppression d'une route aurait amélioré la circulation, sont souvent citées comme exemples de ce paradoxe, mais elles se mêlent à d'autres changements de circulation ; les preuves sont donc anecdotiques, et ce modèle ne les explique ni ne les reproduit. La réalité comporte aussi des éléments que ce modèle laisse de côté, comme le passage aux transports en commun, le changement des heures de départ et la demande induite, où une nouvelle route amène un nouveau trafic.",
+  "why": "다른 페이지의 소제목 표현과 통일"
+ },
+ "s0364": {
+  "tr": "Les coïncidences ne sont-elles pas dues au hasard ? · Simulatio Lab",
+  "why": "s0148과 같은 수정"
+ },
+ "s0365": {
+  "tr": "En réalité, il serait plus étrange que les coïncidences troublantes ne se produisent pas. Utilisez le problème des anniversaires pour voir à quel point « une coïncidence quelque part » diffère de « une coïncidence avec moi ».",
+  "why": "오역: 원문은 '일어나지 않는 게 더 이상하다'"
+ },
+ "s0366": {
+  "tr": "Apprendre que deux personnes d'un rassemblement ont le même anniversaire donne des frissons : « ça ne peut pas être le hasard ». Pourtant, avec seulement quelques personnes dans la pièce, il serait plus étrange que rien de tel n'arrive. Modifiez le nombre de personnes, le nombre de caractéristiques et le nombre de valeurs de chaque caractéristique, et observez en quoi « quelqu'un coïncide quelque part » diffère de « quelqu'un coïncide avec moi ».",
+  "why": "'taille' 뜻 불명(가짓수)"
+ },
+ "s0394": {
+  "tr": "<b>Ce que cela montre :</b> Avec l'anniversaire seul (une caractéristique), la probabilité qu'une paire de la pièce partage un anniversaire était de 50,7 % avec 23 personnes et de 99,0 % avec 57 (20 000 rassemblements simulés ont donné 50,4 % et 99,0 %, en accord avec le calcul). C'est parce que 23 personnes forment déjà 253 paires possibles. Mais la probabilité que quelqu'un partage mon anniversaire n'était que de 5,9 % avec ces mêmes 23 personnes et de seulement 14,2 % avec 57, et pour dépasser 50 % il a fallu 253 personnes en plus de moi (254 au total). Les mêmes 23 personnes donnent 50,7 % pour « quelqu'un, quelque part » et 5,9 % pour « moi ». Ajouter des caractéristiques rend « quelque part » presque certain très vite. Avec 23 personnes, l'anniversaire et une caractéristique à 30 valeurs (2 caractéristiques), la probabilité d'une coïncidence quelque part dans la pièce était supérieure à 99,999 %, soit effectivement 100 %, et la probabilité de coïncider avec moi est montée à 55,3 %. Avec 3 caractéristiques, la probabilité de coïncider avec moi était de 78,8 %, et avec 6 caractéristiques de 97,7 %. Une coïncidence frappante n'exige qu'« une coïncidence quelconque », pas « la coïncidence précise que j'avais choisie d'avance » ; partout où des gens se réunissent, une coïncidence apparaît donc quelque part. Les statisticiens Diaconis et Mosteller (1989) ont appelé cela la « loi des très grands nombres » : avec un échantillon assez grand, même les événements très rares se produisent quelque part.",
+  "why": "소제목 통일, 'il y a pas' 문법·인과 누락, 어색한 구문, 모음 생략"
+ },
+ "s0397": {
+  "tr": "Les valeurs calculées sont des formules exactes. La probabilité que N personnes diffèrent toutes sur une caractéristique est (1−1/c)(1−2/c)…(1−(N−1)/c) et, comme les caractéristiques sont indépendantes, le produit donne « aucune paire identique dans la pièce ». La probabilité de coïncider avec moi est 1 − Π(1−1/c)<sup>N−1</sup>. Les points sont obtenus en lançant réellement de nombreux rassemblements (800 par point en ②, 400 en ③).",
+  "why": "페이지 내 용어 통일(pièce, rassemblement)"
+ },
+ "s0410": {
+  "tr": "Multiple de la prise du tour à payer si l'on est pris",
+  "why": "'capture'는 어획으로 오해됨"
+ },
+ "s0430": {
+  "tr": "<b>Ce que cela ne montre pas :</b> Ce n'est pas une preuve que Hardin ou Ostrom a raison. Les résultats dépendent des chiffres choisis par ce projet : le coût de l'effort (25), le taux de reconstitution (0,4), l'intensité de l'avidité (3 fois la part durable), la règle de copie, et une structure où « être avide ne paie pas quand le stock est bas », ce qui explique que le stock n'ait pas entièrement disparu sans surveillance mais soit resté près du coût, à environ 26 %. Une structure différente donnerait des résultats différents. De plus, dans les petits groupes (10 et 20 utilisateurs), certaines exécutions se sont effondrées jusqu'à 0, et la part de coopérateurs conditionnels n'a pas clairement changé le résultat dans ce cadre (22–26 % sans surveillance). Les ressources partagées réelles impliquent la propriété, l'entrée d'acteurs extérieurs, l'information, la confiance et le rôle de l'État, et les réussites étudiées par Ostrom concernent des cas où des conditions comme des limites claires et des règles locales étaient réunies.",
+  "why": "외부인≠외국인(étrangers)"
+ },
+ "s0436": {
+  "tr": "Les personnes qui font confiance aux autres et coopèrent se font-elles simplement exploiter par les traîtres ? Que devient la confiance quand une société compte beaucoup de menteurs et de traîtres ? Regardez des personnes répéter un « jeu de confiance » (le dilemme du prisonnier répété), où coopérer ensemble rapporte mais trahir seul rapporte encore plus, tout en se copiant les unes les autres.",
+  "why": "배신=trahir 용어 통일"
+ },
+ "s0441": {
+  "tr": "Part initiale de traîtres <output id=\"o-defectors\"></output>",
+  "why": "용어 통일(Toujours trahir)"
+ },
+ "s0454": {
+  "tr": "<i style=\"background:#1fa463\"></i>Donnant-donnant",
+  "why": "표기 통일(Donnant-donnant)"
+ },
+ "s0458": {
+  "tr": "L'aire empilée représente le tout (100 %), avec les mêmes couleurs qu'en ①. Observez ce qui arrive aux traîtres (rouge), qui forment au départ la moitié de la population.",
+  "why": "% 앞 공백, 용어 통일"
+ },
+ "s0463": {
+  "tr": "<b>Ce que cela montre :</b> Dans les relations où les gens ne se rencontrent qu'une ou deux fois, la trahison l'a emporté presque totalement (3 % de coopération), mais lorsque les mêmes personnes se rencontrent de nombreuses fois, la coopération s'est répandue. En lançant 12 fois les réglages par défaut, 11 exécutions se sont terminées avec 74 à 93 % de coopération et une avec 51 %. Mais lorsque les erreurs deviennent fréquentes, la coopération peut s'effondrer brusquement : avec un taux d'erreur de 10 %, 10 exécutions sur 12 se sont terminées à 11 % de coopération. Quand des erreurs surviennent, le donnant-donnant généreux et Pavlov ont mieux résisté que le donnant-donnant simple (environ 37 %, 25 % et 17 % avec un taux d'erreur de 5 %). Ce qui soutient la coopération, ce n'est pas seulement un bon cœur, c'est le fait que les gens se revoient, et la générosité de passer sur les erreurs de l'autre.",
+  "why": "표기 통일"
+ },
+ "s0466": {
+  "tr": "Les gains sont R=3, P=1, S=0, T=5 (réglable), et à chaque génération chacun joue contre 6 adversaires. La copie suit la règle de Fermi (une logistique de la différence de score divisée par 0,4) et la mutation est de 1 %. Ce sont des valeurs mesurées dans cette configuration, et elles changent avec les réglages (<code>node tools/validate-cooperation.js</code>).",
+  "why": "소수점 쉼표"
+ },
+ "s0467": {
+  "tr": "L'affirmation des manuels selon laquelle « le donnant-donnant est le plus fort » ne s'est pas vérifiée telle quelle dans cette configuration. Avec des erreurs dans ce cadre évolutif, le donnant-donnant généreux et Pavlov ont mieux résisté que le donnant-donnant ; avec un score de tentation de 4, Pavlov a atteint 89 %, et avec 7, le donnant-donnant a atteint 80 % (moyenne de 6 exécutions). Quand les rencontres deviennent très longues (30 à 50 tours), les résultats diffèrent beaucoup d'une exécution à l'autre.",
+  "why": "표기 통일"
+ },
+ "s0470": {
+  "tr": "Dans un marché de rencontres où les deux parties doivent être d'accord, comment viser plus haut ou plus bas change-t-il le temps nécessaire pour trouver quelqu'un ? Essayez par vous-même.",
+  "why": "원문 '소개팅 시장' 맥락 누락"
+ },
+ "s0493": {
+  "tr": "Comme on suppose que tout le monde juge l'attractivité de la même façon, dans ce modèle les personnes les plus et les moins attirantes restent célibataires à peu près aussi longtemps (vérifié avec <code>node tools/validate-more.js dating</code>).",
+  "why": "'à vérifier'은 '확인 필요'로 읽힘(원문: 확인함), 용어 통일(attractivité)"
+ },
+ "s0494": {
+  "tr": "Le graphique ④ conserve la vitesse de baisse des exigences et la durée actuels, ne change que la visée et lance 5 fois chaque cas.",
+  "why": "슬라이더 이름과 통일"
+ },
+ "s0538": {
+  "tr": "Quand une foule qui imite rencontre des lanceurs de tendance qui veulent se démarquer, les modes vont-elles par cycles ? Lancez-le vous-même.",
+  "why": "용어 통일"
+ },
+ "s0554": {
+  "tr": "Sur le pourtour de la roue chromatique, les petits points sont la foule et les grands points extérieurs sont les lanceurs de tendance. La couleur au centre est le style dominant du moment, et la flèche intérieure est le chemin suivi par le style dominant au cours des 80 derniers tours. Observez si la foule poursuit les lanceurs de tendance en tournant dans un seul sens.",
+  "why": "용어 통일"
+ },
+ "s0566": {
+  "tr": "200 personnes (par défaut, 30 lanceurs de tendance) sur 600 tours. Un lanceur de tendance s'enfuit à pleine vitesse lorsqu'au moins 3 fois le nombre de personnes attendu si la foule était répartie uniformément se rassemblent à ±30° de lui, et proportionnellement plus lentement quand elles sont moins nombreuses (la direction de fuite est toujours la direction +).",
+  "why": "'달아난다' 의미 명확화"
+ },
+ "s0568": {
+  "tr": "Mesures (moyenne de 6 lancements, réglages par défaut) : avec une vitesse de fuite de 0, il n'y a pas de rotation et la diversité est d'environ 0,09 (environ 0,16 après 6 000 tours). Le réglage par défaut (imitation 2°, fuite 2°) donne 0,53 tour par 100 tours de simulation (environ 190 tours par rotation) et une diversité d'environ 0,03. Une imitation de 0,5/1/2/3° donne 0,13/0,27/0,53/0,54 tour, et la vitesse de fuite se comporte de façon similaire. Vous pouvez le vérifier avec <code>node tools/validate-fashion.js</code>.",
+  "why": "프랑스어 숫자 표기(소수점 쉼표, 천 단위 공백)"
+ },
+ "s0574": {
+  "tr": "L'horloge de chaque luciole avance à une vitesse légèrement différente. Laissées à elles-mêmes, leurs rythmes se décalent et elles clignotent indépendamment.",
+  "why": "성 일치(lucioles)"
+ }
+}

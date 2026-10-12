@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title data-en="What Does Korea&#x27;s Population Look Like in 2070? · Simulatio Lab">저출산이 계속되면 2070년 인구 구조는? · 시뮬라티오 랩</title>
+<title data-en="What If Korea&#x27;s Birth Rate Stays This Low Until 2070? · Simulatio Lab">저출산이 계속되면 2070년 인구 구조는? · 시뮬라티오 랩</title>
 <meta name="description" content="합계출산율, 이민, 기대수명을 바꿔 한국의 2070년 인구 피라미드를 직접 그려 보세요. 공식 추계가 아닌 단순 모델입니다." data-en-content="Change the fertility rate, migration and life expectancy and watch Korea&#x27;s population pyramid evolve to 2070. A simple model, not an official forecast.">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="stylesheet" href="../../style.css">
@@ -15,7 +15,7 @@
 </div></nav>
 
 <main class="wrap">
-  <h1 data-en="What Does Korea&#x27;s Population Look Like in 2070?">저출산이 계속되면 2070년 인구 구조는?</h1>
+  <h1 data-en="What If Korea&#x27;s Birth Rate Stays This Low Until 2070?">저출산이 계속되면 2070년 인구 구조는?</h1>
   <p class="lead" data-en="If the fertility rate stays around 0.7, what shape does Korea&#x27;s population pyramid take over time? Change fertility, migration and life expectancy and watch it year by year from 2024 to 2070.">합계출산율이 0.7 안팎에 머무는 채로 시간이 흐르면 한국의 인구 피라미드는 어떤 모양이 될까요? 출산율, 이민, 기대수명을 바꿔 가며 2024년부터 2070년까지 한 해씩 지켜봅니다.</p>
 
   <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
@@ -73,7 +73,7 @@
     </section>
     <section class="panel chart">
       <h3 data-en="③ How Aging Progresses">③ 고령화의 진행</h3>
-    <p data-en="The old-age dependency ratio is the 65+ population divided by the 15–64 population. At 100%, one person of working age corresponds to one older person.">노년부양비는 65세 이상 인구를 15~64세 인구로 나눈 값입니다. 100%면 일하는 나이 한 명이 노인 한 명을 "떠받치는" 셈이에요.</p>
+    <p data-en="The old-age dependency ratio is the 65+ population divided by the 15–64 population. At 100%, each working-age person &quot;supports&quot; one older person.">노년부양비는 65세 이상 인구를 15~64세 인구로 나눈 값입니다. 100%면 일하는 나이 한 명이 노인 한 명을 "떠받치는" 셈이에요.</p>
     <canvas id="c-aging" class="" aria-label="③ How Aging Progresses"></canvas>
       <div class="legend"><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Old-age dependency ratio"><i style="background:#e5484d"></i>노년부양비</span><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;Share aged 65+"><i style="background:#e0a100"></i>65세 이상 비중</span><span data-en="&lt;i style=&quot;background:#2f6fed&quot;&gt;&lt;/i&gt;Share aged 15–64"><i style="background:#2f6fed"></i>15~64세 비중</span></div>
     </section>
@@ -92,8 +92,8 @@
 
   <h2 data-en="Implementation notes">구현 메모</h2>
   <ul class="small">
-    <li  data-en="&lt;b&gt;This is an approximation.&lt;/b&gt; It differs from official Statistics Korea projections. For reference, the median scenario of the 2022–2072 population projections (as reported in the press) gives about 36 million people and 47.7% aged 65+ in 2072, assuming fertility recovers from about 0.65 in 2025 to 1.08 in 2072. This model, with fertility fixed at 0.72, gives about 28.2 million and 54.6% in 2072, which is lower."><b>근사 모델입니다.</b> 한국 통계청의 공식 추계와 다릅니다. 참고로 통계청이 2024년에 낸 장래인구추계(2022~2072년)의 중위 추계는 2072년 총인구 약 3,600만 명, 65세 이상 비중 약 47.7%이고, 합계출산율이 2025년 0.65 수준에서 2072년 1.08까지 회복한다고 가정합니다(언론 보도 기준). 이 모델은 출산율을 0.72로 고정한 경우 2072년 약 2,820만 명, 54.6%가 나와서 더 낮습니다.</li>
-    <li  data-en="Figures checked (via press reports; I did not read the original Statistics Korea tables): 2023 total fertility rate 0.72 (0.78 in 2022); 2024 age shares 70.2% aged 15–64 and 19.2% aged 65+; total population about 51.7–52 million; 2023 life expectancy 83.5 (OECD Health Statistics).">확인한 수치(언론 보도로 확인, 통계청 원자료는 직접 보지 못함): 2023년 합계출산율 0.72(2022년 0.78), 2024년 연령별 비중 15~64세 70.2%·65세 이상 19.2%, 총인구 약 5,170만~5,200만 명, 2023년 기대수명 83.5세(OECD 보건통계).</li>
+    <li  data-en="&lt;b&gt;This is an approximation.&lt;/b&gt; It differs from official Statistics Korea projections. For reference, the medium scenario of the 2022–2072 population projections (as reported in the press) gives about 36 million people and 47.7% aged 65+ in 2072, assuming fertility recovers from about 0.65 in 2025 to 1.08 in 2072. This model, with fertility fixed at 0.72, gives about 28.2 million and 54.6% in 2072, which is lower."><b>근사 모델입니다.</b> 한국 통계청의 공식 추계와 다릅니다. 참고로 통계청이 2023년 12월에 낸 장래인구추계(2022~2072년)의 중위 추계는 2072년 총인구 약 3,600만 명, 65세 이상 비중 약 47.7%이고, 합계출산율이 2025년 0.65 수준에서 2072년 1.08까지 회복한다고 가정합니다(언론 보도 기준). 이 모델은 출산율을 0.72로 고정한 경우 2072년 약 2,820만 명, 54.6%가 나와서 더 낮습니다.</li>
+    <li  data-en="Figures checked (via press reports; the original Statistics Korea tables were not consulted directly): 2023 total fertility rate 0.72 (0.78 in 2022); 2024 age shares 70.2% aged 15–64 and 19.2% aged 65+; total population about 51.7–52 million; 2023 life expectancy 83.5 (OECD Health Statistics).">확인한 수치(언론 보도로 확인, 통계청 원자료는 직접 보지 못함): 2023년 합계출산율 0.72(2022년 0.78), 2024년 연령별 비중 15~64세 70.2%·65세 이상 19.2%, 총인구 약 5,170만~5,200만 명, 2023년 기대수명 83.5세(OECD 보건통계).</li>
     <li  data-en="Single-year population counts are not official values. The shape is built from approximate annual births and survival, and the three age-group totals are scaled to the published shares. So the 2024 median age comes out at about 47.5 in the model, which may differ from the actual value.">연령별 인구(한 살 단위)는 공식 값이 아닙니다. 연도별 출생아 수(대략값)와 생존율로 모양을 만들고 세 연령대 합계를 공표 비중에 맞췄습니다. 그래서 2024년 중위연령은 모델에서 약 47.5세로, 실제와 차이가 있을 수 있습니다.</li>
     <li  data-en="Births spread the fertility rate over an age curve for women aged 15–49 (mean 32.5, SD 4.5), and deaths use an exponentially rising mortality curve calibrated to life expectancy. You can verify with &lt;code&gt;node tools/validate-population.js&lt;/code&gt;.">출산은 15~49세 여성의 연령별 출산율 곡선(평균 32.5세, 표준편차 4.5)에 합계출산율을 나눠 적용하고, 사망은 지수적으로 커지는 사망확률을 기대수명에 맞춰 보정합니다. 검증은 <code>node tools/validate-population.js</code>로 할 수 있습니다.</li>
     <li  data-en="The reference lines in graph ② (fertility 0.7 and 1.5) and graph ④ keep your migration and life-expectancy settings and change only the fertility rate.">②번 그래프의 기준선(합계출산율 0.7, 1.5)과 ④번 그래프는 현재 이민·기대수명 설정을 그대로 두고 출산율만 바꿔 계산합니다.</li>
@@ -101,7 +101,7 @@
   </ul>
 </main>
 
-<footer><div class="wrap" data-en="Simulatio Lab · Operator: Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<footer><div class="wrap" data-en="Simulatio Lab · Run by Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
 <script src="../../i18n.js"></script>
 <script src="../../i18n-en.js"></script>
 <script src="../../exps.js"></script>

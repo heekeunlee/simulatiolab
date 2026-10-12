@@ -72,7 +72,7 @@
     </section>
     <section class="panel chart">
       <h3 data-en="④ The Big Effect of Small Braking">④ 작은 브레이크의 큰 효과</h3>
-    <p data-en="See how average speed changes with the chance of occasional braking at the current density. Dots are the results of 3 different roads.">지금 밀도에서 가끔 브레이크를 밟는 확률에 따라 평균 속도가 어떻게 달라지는지 봅니다. 점은 서로 다른 도로 3개의 결과예요.</p>
+    <p data-en="See how average speed changes with the chance of occasional braking at the current density. Dots show results from 3 different roads.">지금 밀도에서 가끔 브레이크를 밟는 확률에 따라 평균 속도가 어떻게 달라지는지 봅니다. 점은 서로 다른 도로 3개의 결과예요.</p>
     <canvas id="c-p" class="" aria-label="④ 작은 브레이크의 큰 효과"></canvas>
       <div class="legend"><span id="note-p" data-en="Calculating…">계산 중…</span></div>
     </section>
@@ -81,9 +81,9 @@
 
   <section class="panel chart" style="margin-top:16px">
     <h3><span data-en="⑤ Viewing in 3D: The Road With Time Stacked as Height">⑤ 3D로 보기: 시간을 높이로 쌓은 도로</span><span class="badge3d">3D</span></h3>
-    <p data-en="The ring at the top is the road right now, with the same cars as ① shown as boxes. Below it, each earlier second is stacked downward like a tower, so going down means going back in time. The red stripes wind around the tower: a jam that moves backward against the traffic shows up as a red spiral, and the black line spiralling the other way is the outlined car.">맨 위 고리가 지금 이 순간의 도로이고, ①과 같은 차들이 상자로 달립니다. 그 아래로 지난 1초 1초가 탑처럼 쌓여, 아래로 내려갈수록 과거입니다. 붉은 줄무늬가 탑을 감고 도는데, 차와 반대 방향으로 물러나는 정체가 이렇게 붉은 나선으로 보이고, 반대쪽으로 감기는 검은 선이 테두리 친 그 차입니다.</p>
+    <p data-en="The ring at the top is the road right now, with the same cars as ① shown as boxes. Below it, each earlier second is stacked downward like a tower, so going down means going back in time. The red stripes wind around the tower: a jam that moves backward against the traffic shows up as a red spiral, and the black line spiraling the other way is the outlined car.">맨 위 고리가 지금 이 순간의 도로이고, ①과 같은 차들이 상자로 달립니다. 그 아래로 지난 1초 1초가 탑처럼 쌓여, 아래로 내려갈수록 과거입니다. 붉은 줄무늬가 탑을 감고 도는데, 차와 반대 방향으로 물러나는 정체가 이렇게 붉은 나선으로 보이고, 반대쪽으로 감기는 검은 선이 테두리 친 그 차입니다.</p>
     <canvas id="c-3d" class="view3d" data-thumb aria-label="3D 도로와 시공간 탑"></canvas>
-    <p class="hint3d" data-en="Drag to rotate · scroll or pinch to zoom · it moves together with the play/pause controls of ①">드래그로 회전 · 휠이나 두 손가락으로 확대 · ①의 재생/일시정지와 함께 움직입니다</p>
+    <p class="hint3d" data-en="Drag to rotate · scroll or pinch to zoom · it follows the play/pause controls in ①">드래그로 회전 · 휠이나 두 손가락으로 확대 · ①의 재생/일시정지와 함께 움직입니다</p>
   </section>
 
   <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
@@ -94,12 +94,12 @@
   <ul class="small">
     <li data-en="The model from Nagel, Schreckenberg (1992), &quot;A cellular automaton model for freeway traffic&quot;, &lt;i&gt;Journal de Physique I&lt;/i&gt; 2(12). Implemented with a top speed of 5 cells on a ring road 300 cells long.">Nagel, Schreckenberg (1992), "A cellular automaton model for freeway traffic", <i>Journal de Physique I</i> 2(12)의 모델입니다. 최고 속도 5칸, 길이 300칸 고리 도로로 구현했습니다.</li>
     <li data-en="Verification: with no random slowing, there is no jam up to a density of about 1/6 (17%); with a 25% chance, jams already appear at 15% density (&lt;code&gt;node tools/validate-more.js traffic&lt;/code&gt;).">검증 결과: 무작위 감속이 없으면 밀도 약 1/6(17%)까지 정체가 없고, 확률이 25%이면 밀도 15%에서 이미 정체가 나타납니다 (<code>node tools/validate-more.js traffic</code>).</li>
-    <li data-en="Graphs ③ and ④ discard the first 150 steps and average the following 150–200 steps.">③, ④번 그래프는 처음 150단계를 버리고 이어지는 150~200단계의 평균입니다.</li>
+    <li data-en="Graphs ③ and ④ discard the first 150 steps and average over the next 200 steps (③) or 150 steps (④).">③, ④번 그래프는 처음 150단계를 버리고 이어지는 200단계(③) 또는 150단계(④)의 평균입니다.</li>
     <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/traffic&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/traffic">GitHub</a>에서 볼 수 있습니다.</li>
   </ul>
 </main>
 
-<footer><div class="wrap" data-en="Simulatio Lab · Operator: Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<footer><div class="wrap" data-en="Simulatio Lab · Run by Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
 <script src="../../i18n.js"></script>
 <script src="../../i18n-en.js"></script>
 <script src="../../exps.js"></script>

@@ -1,0 +1,11 @@
+{
+"d0832": {"tr": "Tus ingresos en los sorteos hasta ahora", "why": "'ingreso sorteado' 직역투 어색"},
+"d0837": {"tr": "Mi promedio", "why": "같은 실험에서 '평균'을 promedio로 통일"},
+"d0845": {"tr": "Se escribe hasta llegar a 100 000 palabras", "why": "'Escrito hasta…' 문법 어색, 원문 '이어 써요' 반영"},
+"d0848": {"tr": "Proporción de las 10 palabras más frecuentes", "why": "'principales'는 모호, 상위=빈도 상위"},
+"d0849": {"tr": "Porcentaje sobre el total del texto", "why": "'del texto completo'는 '전체 텍스트의 비율'로 뜻이 흐림"},
+"d0850": {"tr": "Proporción de las 100 palabras más frecuentes", "why": "d0848과 같은 이유"},
+"d0852": {"tr": "Según la ley de Zipf, cerca de -1 · medida en los rangos {0} a {1}", "why": "'법칙이 -1에 가까워진다'로 오역 → 법칙상 기울기가 -1 근처"},
+"d0853": {"tr": "Aunque la probabilidad de palabra nueva varíe entre 0,5 % y 10 %, la pendiente es de {0} a {1} en el modo copia y de {2} a {3} con elección uniforme", "why": "'바꿔도' 뉘앙스, 'tamaño de la pendiente' 어색"},
+"d0855": {"tr": "← Puesto 1: la primera palabra en aparecer", "why": "원문 '맨 처음 생긴 단어' 반영(단순 '첫 단어'와 다름)"}
+}

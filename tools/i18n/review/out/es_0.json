@@ -1,0 +1,202 @@
+{
+ "s0028": {
+  "tr": "Por qué nos juntamos con quienes se nos parecen",
+  "why": "영어 관용구(birds of a feather) 직역 → 스페인어로 자연스럽게"
+ },
+ "s0033": {
+  "tr": "¿Con qué rapidez se propaga un rumor y a través de quiénes? ¿Hasta cuándo se puede publicar una corrección para que todavía sirva?",
+  "why": "원문 \"언제까지 올려야 소용 있나\" 뜻을 자연스럽게"
+ },
+ "s0036": {
+  "tr": "¿Bajar el listón ayuda a encontrar pareja?",
+  "why": "dating 페이지 제목(el listón)과 통일"
+ },
+ "s0067": {
+  "tr": "¿Cómo se forman las rayas de la cebra?",
+  "why": "직역투(consigue) → 자연스러운 표현"
+ },
+ "s0068": {
+  "tr": "Una simple reacción entre dos sustancias basta para formar manchas, rayas y laberintos por sí solas. Siembra tus propias semillas.",
+  "why": "원문은 \"단순한 반응\"(물질이 단순한 게 아님)"
+ },
+ "s0164": {
+  "tr": "¿Cómo se convierte un solo disparo en una guerra mundial? · Simulatio Lab",
+  "why": "어순 자연스럽게, 목록 제목과 통일"
+ },
+ "s0182": {
+  "tr": "«Mismos ajustes, otro disparo» genera un mundo nuevo y un primer ataque nuevo",
+  "why": "버튼 이름과 일치시킴"
+ },
+ "s0185": {
+  "tr": "Valores predeterminados",
+  "why": "UI 버튼 짧게"
+ },
+ "s0208": {
+  "tr": "<b>Lo que muestra:</b> En este modelo, con los mismos 24 países y los mismos pactos, en cuanto las alianzas alcanzaban cierta densidad, un pequeño choque se extendió de repente a casi todos los países. Con un 70 % de probabilidad de cumplir los pactos, con un promedio de 0 aliados por país la guerra siempre terminaba con 2 países; con 1 aliado, el promedio fue de 6,3 países (escala de guerra mundial 15 %), con 1,5 aliados 12,1 (56 %), con 2 aliados 17,4 (85 %), con 3 aliados 22,4 (99 %), y con 4 o más casi todos los países se vieron arrastrados. Incluso con 3 aliados en promedio, una probabilidad del 10 % de cumplir los pactos dio 4,0 países en promedio (escala de guerra mundial 6 %) y una del 30 % dio 16,0 (71 %). Con parejas aisladas, la guerra se detenía en 4 países como máximo por muy estrictamente que se cumplieran los pactos.",
+  "why": "\"어느 정도 촘촘해지면\" 뉘앙스, 소수점 쉼표(사이트 관례)"
+ },
+ "s0212": {
+  "tr": "En las alianzas aleatorias, cada par de países tiene la misma probabilidad de ser aliados (el número medio de aliados es el valor del control deslizante). En dos bloques, cada bloque de 12 forma alianzas de la misma manera solo dentro del bloque, con 2 vínculos entre los bloques, y el primer ataque ocurre entre bloques distintos. En parejas aisladas, los 24 países forman 12 parejas.",
+  "why": "중복 표현 정리"
+ },
+ "s0213": {
+  "tr": "Las cifras anteriores son promedios de 400 ejecuciones con el mismo ajuste (<code>node tools/validate-alliance.js</code>), mientras que los gráficos ③–⑤ son resultados de 300 ejecuciones o de 6 lotes de 40 en pantalla, por lo que las cifras pueden diferir ligeramente. En dos bloques, con un promedio de 1 aliado dentro de un bloque la guerra tuvo en promedio 7,4 países (escala de guerra mundial 22 %), y con 2 aliados 18,9 países (90 %).",
+  "why": "소수점 쉼표(사이트 관례)"
+ },
+ "s0223": {
+  "tr": "Cuánto influyen las subidas recientes de los vecinos en un barrio. Con 0, no depende de los vecinos",
+  "why": "\"0 significa independiente\" 어색 → 자연스럽게"
+ },
+ "s0244": {
+  "tr": "<i style=\"background:#e5484d\"></i>Barrios sobrevalorados (proporción)",
+  "why": "\"과대평가된 비율\"로 읽힘 → 고평가 동네 비율"
+ },
+ "s0261": {
+  "tr": "Todos pujan “estimación − reducción × tamaño del error”. Con una reducción de 0 es una puja ingenua: se puja la estimación tal cual.",
+  "why": "원문 \"순진한 입찰\" 누락"
+ },
+ "s0269": {
+  "tr": "Cuántas veces σ (el tamaño del error) se resta a la estimación. Con 0 se puja la estimación tal cual",
+  "why": "직역투 문장 어색 → 자연스럽게"
+ },
+ "s0286": {
+  "tr": "<b>Qué muestra:</b> Con 10 postores y un error de estimación del 20 %, pujar la estimación (regla de primer precio) dio a los ganadores una ganancia media de −30,9 sobre un valor de 100, y la proporción de ganadores con pérdidas se redondeó al 100 % sobre 40.000 subastas. Ganar significa, en sí mismo, que «mi estimación fue la que más se equivocó al alza». El tamaño de la pérdida crece con el error: −7,7 con un 5 % de error, −15,4 con un 10 % y −61,7 con un 40 %, siempre alrededor de 1,54 veces el tamaño del error. Más postores lo empeoran: −11,4 con 2, −23,5 con 5, −30,9 con 10 y −40,9 con 30. Todos tienen que reducir su puja en 1,54 tamaños de error para que la ganancia media llegue a 0 (1,00 en la regla de segundo precio), y más postores necesitan más reducción.",
+  "why": "원문 \"이긴 것 자체가 내 추정이 가장 높게 틀렸다는 뜻\" 정확히"
+ },
+ "s0290": {
+  "tr": "Puedes verificarlo con <code>node tools/validate-auction.js</code>. Con 40.000 subastas, la reducción de equilibrio es 1,54σ en la regla de primer precio y 1,00σ en la regla de segundo precio.",
+  "why": "사이트 전체 tú 존칭으로 통일"
+ },
+ "s0300": {
+  "tr": "Hasta cuántas personas se está a gusto",
+  "why": "뜻이 어색하게 깨짐 → 자연스럽게"
+ },
+ "s0302": {
+  "tr": "Cuantos más, con más sofisticación elige cada persona",
+  "why": "직역투 → 자연스럽게"
+ },
+ "s0308": {
+  "tr": "Los 100 puntos son personas: a la izquierda está el restaurante (los círculos vacíos son asientos) y a la derecha, sus casas. Azul fue y lo disfrutó, rojo fue y sufrió la aglomeración (los que están bajo la línea discontinua no encontraron asiento), amarillo se quedó en casa pero estaba vacío (arrepentimiento) y gris se quedó en casa y acertó.",
+  "why": "자연스럽게"
+ },
+ "s0317": {
+  "tr": "Implementa el problema del bar El Farol de W. Brian Arthur (1994), «Inductive reasoning and bounded rationality», <i>American Economic Review</i> 84(2). El original usa una capacidad de 60 y 100 personas, y esta implementación usa los mismos valores por defecto.",
+  "why": "어색한 문장 정리"
+ },
+ "s0319": {
+  "tr": "«Eligió mal» se juzga por el resultado de esa semana: ir cuando estaba lleno, o quedarse en casa cuando estaba vacío, cuenta como error. Puedes verificarlo con <code>node tools/validate-more.js bar</code>.",
+  "why": "tú 존칭 통일"
+ },
+ "s0341": {
+  "tr": "El grosor de una carretera muestra cuántos conductores la usan, y su color el tiempo que lleva (verde rápido, rojo lento). Al abrirse el atajo, los conductores pasan uno a uno a la ruta más rápida, y la barra de abajo muestra la proporción que elige cada ruta.",
+  "why": "어색한 표현"
+ },
+ "s0342": {
+  "tr": "Pulsa cuando quieras para abrir o cerrar el atajo. Cada vez, los conductores vuelven a elegir su ruta.",
+  "why": "원문 \"그때마다 길을 다시 고른다\" 누락"
+ },
+ "s0357": {
+  "tr": "<b>Qué muestra:</b> Con 4.000 conductores, un atajo de 0 minutos y sensibilidad 10 (x/100 minutos), el equilibrio sin atajo repartió a los conductores por igual entre las Rutas A y B, con una media de 65,0 minutos. Una vez abierto el atajo, los conductores fueron pasando a él, la media llegó a 79,5 minutos en la ronda 100, y en la ronda 180 todos (100%) usaban la ruta del atajo, con una media de 80,0 minutos. En ese estado final, cambiar por sí solo ganaba 0 minutos. En sentido contrario, cerrar el atajo bajó la media de 79,7 minutos justo antes del cierre a 65,0 minutos en 5 rondas. Si todos acordaran no usar el atajo serían 65,0 minutos, y un planificador que asignara las rutas de forma óptima (cerca del 13% por el atajo) llegó a 64,7, por lo que el precio de la anarquía fue 1,24. El efecto dependió del número de conductores. Por debajo de 3.000 conductores el atajo ayudó (2.000 conductores: 55,0 → 40,0 minutos), con 3.000 hubo empate en 60,0 minutos, entre 3.000 y 9.000 perjudicó, sobre todo con 4.500 conductores (67,5 → 90,0 minutos, 1,33 veces), y desde 9.000 conductores nadie lo usó, así que nada cambió. Con un coste del atajo de 25 minutos o más el resultado fue 65,0 minutos, igual que cerrado, y con 5 minutos fue 85,0 minutos, peor que con 0 minutos (80,0). Con sensibilidad a la congestión 5 el atajo ayudó (55,0 → 40,0 minutos), y con 20 perjudicó (85,0 → 90,0 minutos).",
+  "why": "\"가장 컸다\" 부분 문장 깨짐 수정"
+ },
+ "s0365": {
+  "tr": "Lo realmente extraño sería que las coincidencias escalofriantes no ocurrieran. Usa el problema del cumpleaños para ver cuánto difiere «una coincidencia en algún lugar» de «una coincidencia conmigo».",
+  "why": "오역: 원문은 \"안 일어나는 게 더 이상하다\""
+ },
+ "s0366": {
+  "tr": "Enterarse de que dos personas de una reunión comparten cumpleaños da escalofríos: «esto no puede ser casualidad». Sin embargo, con solo unas pocas personas en la sala, sería más extraño que no pasara algo así. Cambia el número de personas, el número de características y el número de valores de cada característica, y observa en qué se diferencia «alguien coincide en algún lugar» de «alguien coincide conmigo».",
+  "why": "\"각 특징의 가짓수\" 정확히"
+ },
+ "s0367": {
+  "tr": "<b>N personas</b> se reúnen en una sala. Cada una tiene <b>k características</b>: la primera es el cumpleaños (365 valores, sin contar el 29 de febrero) y las demás son cosas como ciudad natal, afición o escuela, cada una con un número fijo de valores posibles. Todas se sortean de forma independiente y con igual probabilidad.",
+  "why": "원문은 윤일(2월 29일) 무시"
+ },
+ "s0390": {
+  "tr": "El gris es el número de personas, el azul es el número de parejas posibles y la línea roja es el número esperado de parejas coincidentes con los ajustes actuales. Con solo unas pocas personas más, las ocasiones de coincidir crecen mucho más deprisa.",
+  "why": "어색한 문장 정리"
+ },
+ "s0394": {
+  "tr": "<b>Lo que muestra:</b> Con solo el cumpleaños (una característica), la probabilidad de que alguna pareja de la sala comparta cumpleaños fue del 50,7 % con 23 personas y del 99,0 % con 57 (ejecutar 20.000 reuniones dio 50,4 % y 99,0 %, coincidiendo con el cálculo). Entre 23 personas hay nada menos que 253 parejas posibles. Pero la probabilidad de que alguien comparta cumpleaños conmigo fue de solo el 5,9 % con esas mismas 23 personas y de apenas el 14,2 % con 57, y para pasar del 50 % hicieron falta 253 personas además de mí (254 en total). Las mismas 23 personas dan 50,7 % para «alguien, en algún lugar» y 5,9 % para «conmigo». Añadir características hace que «en algún lugar» sea casi seguro enseguida. Con 23 personas y características de cumpleaños más una de 30 valores (2 características), la probabilidad de alguna coincidencia superó el 99,999 %, en la práctica el 100 %, y la probabilidad de coincidir conmigo subió al 55,3 %. Con 3 características la probabilidad de coincidir conmigo fue del 78,8 % y con 6 características fue del 97,7 %. Una coincidencia llamativa solo necesita «cualquier coincidencia», no «la coincidencia concreta que elegí de antemano», así que dondequiera que se reúna la gente, aparece alguna coincidencia en algún lugar. Los estadísticos Diaconis y Mosteller (1989) lo llamaron la «ley de los números verdaderamente grandes»: con una muestra lo bastante grande, incluso los sucesos muy raros ocurren en algún lugar.",
+  "why": "③ 그래프 용어(«conmigo»)와 통일, 어순"
+ },
+ "s0395": {
+  "tr": "<b>Lo que no muestra:</b> Esto no significa que toda coincidencia asombrosa del mundo real sea mero azar. El modelo supone que las características son uniformes e independientes, algo que las características reales no son, así que las coincidencias reales pueden ser más o menos frecuentes. Las probabilidades del problema del cumpleaños solo muestran que hay muchas parejas posibles; no pueden decir si un hecho concreto fue azar. Y que las coincidencias sean comunes en algún lugar no hace que esté mal sentir algo especial cuando te ocurre a ti: la probabilidad de coincidir conmigo es baja, así que tienes razón en sentirlo como algo raro. Esta página no contiene estadísticas sobre coincidencias reales ni sobre su frecuencia.",
+  "why": "용어 통일(parejas), 원문 \"드물게 느껴지는 건 맞다\""
+ },
+ "s0397": {
+  "tr": "Los valores calculados son fórmulas exactas. La probabilidad de que N personas difieran todas en una característica es (1−1/c)(1−2/c)…(1−(N−1)/c), y como las características son independientes, el producto da «ninguna pareja coincidente en la sala». La probabilidad de coincidir conmigo es 1 − Π(1−1/c)<sup>N−1</sup>. Los puntos se cuentan ejecutando realmente muchas reuniones (800 por punto en ②, 400 en ③).",
+  "why": "용어 통일(pareja)"
+ },
+ "s0403": {
+  "tr": "La reserva de un recurso compartido (una pesquería o un pasto) comienza en su capacidad de 100 y se regenera de forma logística en cada ronda. Cuando la reserva está a la mitad (50), lo máximo que se puede capturar de forma sostenible en cada ronda es <b>10</b>.",
+  "why": "원문에 없는 \"근처\" 삭제"
+ },
+ "s0406": {
+  "tr": "La ganancia es un promedio de las ganancias recientes (memoria 0,8). En cada ronda, cada persona tiene un 25% de probabilidad de observar a otra al azar y copiar su estrategia con más probabilidad cuanto más haya ganado esa persona. Con un 1% de probabilidad aparece una estrategia nueva. Al comienzo, el 10% se modera, la proporción de cooperadores condicionales la fija el control deslizante y el resto es codicioso.",
+  "why": "뜻 명확히"
+ },
+ "s0435": {
+  "tr": "¿Las personas que confían y cooperan terminan siendo traicionadas? Ejecuta el dilema del prisionero iterado (un juego de confianza) y observa cuándo la cooperación se extiende o se derrumba.",
+  "why": "용어 통일(목록: iterado)"
+ },
+ "s0436": {
+  "tr": "¿Las personas que confían en los demás y cooperan son simplemente aprovechadas por los traidores? ¿Qué pasa con la confianza cuando una sociedad tiene muchos mentirosos y traidores? Observa cómo las personas repiten un «juego de confianza» (el dilema del prisionero iterado), en el que cooperar juntos compensa pero traicionar en solitario compensa aún más, mientras se copian unas a otras.",
+  "why": "원문 배신자=traidores, 용어 통일"
+ },
+ "s0455": {
+  "tr": "<i style=\"background:#f5a524\"></i>Ojo por ojo generoso",
+  "why": "같은 전략 이름 불일치(본문은 Ojo por ojo generoso)"
+ },
+ "s0466": {
+  "tr": "Los pagos son R=3, P=1, S=0, T=5 (ajustable), y en cada generación todos juegan contra 6 oponentes. La copia sigue la regla de Fermi (una logística de la diferencia de puntuación dividida por 0,4) y la mutación es del 1%. Son valores medidos en esta configuración y cambian con los ajustes (<code>node tools/validate-cooperation.js</code>).",
+  "why": "소수점 쉼표(페이지 관례)"
+ },
+ "s0470": {
+  "tr": "En un mercado de citas donde ambas partes deben estar de acuerdo, ¿cómo cambia el tiempo que se tarda en encontrar pareja si se apunta más alto o más bajo? Pruébalo tú mismo.",
+  "why": "원문 \"소개팅 시장\" 누락"
+ },
+ "s0494": {
+  "tr": "El gráfico ④ mantiene la tasa de caída y la duración actuales, cambia solo el objetivo y ejecuta 5 veces cada caso.",
+  "why": "용어 통일(눈높이=objetivo)"
+ },
+ "s0539": {
+  "tr": "La gente imita a quienes se ven bien, y quienes van por delante huyen hacia algo nuevo para seguir siendo diferentes. ¿Pueden estas dos fuerzas por sí solas mantener girando un ciclo de moda? Lo comprobamos en el círculo cromático.",
+  "why": "용어 통일(목록: círculo cromático)"
+ },
+ "s0540": {
+  "tr": "Un estilo es un ángulo en el círculo cromático (de 0 a 360 grados). De las 200 personas, unas pocas son <b>creadores de tendencia</b> y el resto es la <b>multitud</b>; al principio todos se agrupan en torno a un estilo parecido (la moda de una temporada).",
+  "why": "용어 통일(círculo cromático, creadores de tendencia)"
+ },
+ "s0541": {
+  "tr": "En cada ronda, la <b>multitud</b> se acerca un poco al estilo de el creador de tendencia más cercano (imitación).",
+  "why": "용어 통일"
+ },
+ "s0542": {
+  "tr": "Cuanto más se agrupa la multitud en torno a un <b>creador de tendencia</b>, más rápido huye este (distinción). Suponiendo que «la novedad tiene una dirección», la dirección de huida se fija hacia un lado del círculo (sentido horario).",
+  "why": "용어 통일"
+ },
+ "s0553": {
+  "tr": "① La moda en el círculo cromático",
+  "why": "용어 통일"
+ },
+ "s0554": {
+  "tr": "En el borde del círculo cromático, los puntos pequeños son la multitud y los puntos grandes exteriores, los creadores de tendencia. El color del centro es el estilo dominante ahora, y la flecha interior es el recorrido del estilo dominante en las últimas 80 rondas. Observa si la multitud persigue a los creadores de tendencia girando en una dirección.",
+  "why": "용어 통일"
+ },
+ "s0556": {
+  "tr": "El eje horizontal es el tiempo y el vertical es el ángulo en el círculo cromático. Cuanta más gente comparte un estilo, más oscuro se pinta. Una franja inclinada significa que la moda sigue cambiando en una dirección.",
+  "why": "용어 통일"
+ },
+ "s0563": {
+  "tr": "<b>Qué muestra:</b> Solo con imitación (los creadores de tendencia nunca huyen), todos se quedan en un mismo estilo y la moda se detiene. Cuando quienes van delante huyen para destacar, la multitud los persigue y una misma moda sigue girando por el círculo cromático. En este modelo, la velocidad de rotación la fija la más lenta entre la «velocidad de huida» y la «velocidad de imitación». Hacen falta ambas fuerzas, imitación y distinción, para que la moda dé la vuelta.",
+  "why": "용어 통일"
+ },
+ "s0568": {
+  "tr": "Mediciones (promedio de 6 ejecuciones, ajustes por defecto): con velocidad de huida 0 no hay rotación y la diversidad es de aproximadamente 0,09 (aproximadamente 0,16 tras 6.000 rondas). El valor por defecto (imitación 2°, huida 2°) da 0,53 vueltas por cada 100 rondas (unas 190 rondas por vuelta) y una diversidad de aproximadamente 0,03. Una imitación de 0,5/1/2/3° da 0,13/0,27/0,53/0,54 vueltas, y la velocidad de huida se comporta de forma similar. Puedes verificarlo con <code>node tools/validate-fashion.js</code>.",
+  "why": "영어식 숫자 표기(0.09, 6,000) → 스페인어 관례(0,09, 6.000)"
+ },
+ "s0589": {
+  "tr": "El eje horizontal son los ciclos transcurridos y el vertical es la sincronía r. Por encima de la línea discontinua (0,9), destellan casi a la vez.",
+  "why": "소수점 쉼표"
+ }
+}

@@ -2,7 +2,7 @@ import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from mk2 import *
 
-TOGGLE = '\n    <div class="anim-bar"><button id="toggle">지름길 열기</button><span class="muted small" data-en="You can open or close the shortcut at any time while the drivers are choosing.">언제든 눌러서 지름길을 열고 닫아 보세요. 운전자들이 그때마다 길을 다시 고릅니다.</span></div>'
+TOGGLE = '\n    <div class="anim-bar"><button id="toggle">지름길 열기</button><span class="muted small" data-en="Press anytime to open or close the shortcut; drivers re-pick their routes each time.">언제든 눌러서 지름길을 열고 닫아 보세요. 운전자들이 그때마다 길을 다시 고릅니다.</span></div>'
 
 page(dict(
  slug='braess',

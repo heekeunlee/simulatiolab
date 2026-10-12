@@ -20,10 +20,10 @@
 
   <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
   <ul>
-    <li data-en="The stock of a shared resource (a fishery or pasture) starts near its capacity of 100 and regrows logistically each round. When the stock is at half (50), the most that can be caught sustainably each round is &lt;b&gt;10&lt;/b&gt;.">공유 자원(어장이나 목초지)의 저량은 수용력 100에서 시작해 해마다 로지스틱으로 다시 자랍니다. 저량이 절반(50)일 때 해마다 가장 많이, <b>10</b>까지 지속적으로 잡을 수 있습니다.</li>
-    <li data-en="Several users decide each round how much to catch. Payoff is the catch minus the cost of effort. There are three strategies: &lt;b&gt;Greedy&lt;/b&gt; (catch 3 times the sustainable share), &lt;b&gt;Restrained&lt;/b&gt; (catch only the sustainable share) and &lt;b&gt;Conditional cooperator&lt;/b&gt; (restrain if at least half of people restrained last round, otherwise be greedy).">이용자 여럿이 라운드마다 얼마나 잡을지 정합니다. 이득은 잡은 양에서 노력 비용을 뺀 값입니다. 전략은 세 가지입니다. <b>탐욕</b>(지속 가능한 몫의 3배를 잡음), <b>절제</b>(지속 가능한 몫만 잡음), <b>조건부 협력</b>(지난 라운드에 절제한 사람이 절반 이상이면 절제, 아니면 탐욕).</li>
+    <li data-en="The stock of a shared resource (a fishery or pasture) starts at 80 out of a capacity of 100 and regrows logistically each round. When the stock is at half (50), the most that can be caught sustainably each round is &lt;b&gt;10&lt;/b&gt;.">공유 자원(어장이나 목초지)의 저량은 수용력 100 중 80에서 시작해 라운드마다 로지스틱으로 다시 자랍니다. 저량이 절반(50)일 때 라운드마다 가장 많이, <b>10</b>까지 지속적으로 잡을 수 있습니다.</li>
+    <li data-en="Several users decide each round how much to catch. Payoff is the catch minus the cost of effort. There are three strategies: &lt;b&gt;Greedy&lt;/b&gt; (catch 3 times the sustainable share), &lt;b&gt;Restrained&lt;/b&gt; (catch only the sustainable share) and &lt;b&gt;Conditional cooperator&lt;/b&gt; (restrain if at least half of users restrained last round, otherwise be greedy).">이용자 여럿이 라운드마다 얼마나 잡을지 정합니다. 이득은 잡은 양에서 노력 비용을 뺀 값입니다. 전략은 세 가지입니다. <b>탐욕</b>(지속 가능한 몫의 3배를 잡음), <b>절제</b>(지속 가능한 몫만 잡음), <b>조건부 협력</b>(지난 라운드에 절제한 사람이 절반 이상이면 절제, 아니면 탐욕).</li>
     <li data-en="With &lt;b&gt;monitoring&lt;/b&gt; on, anyone who catches more than the restrained share is caught with some probability and pays a fine equal to a multiple of that round&#x27;s catch. This stands in for the community monitoring and sanctions Ostrom described."><b>감시</b>를 켜면 절제 몫보다 많이 잡은 사람이 일정 확률로 적발되고, 그 라운드 수확의 벌금 배수만큼 벌금을 냅니다. 오스트롬이 말한 공동체의 감시와 제재에 해당하는 장치입니다.</li>
-    <li data-en="Payoff is an average of recent payoffs (memory 0.8). Each round, each person has a 25% chance of looking at one random person and copying that person&#x27;s strategy the more that person earned. With a 1% chance a new strategy appears. At the start 10% are restrained, the conditional cooperators follow the slider, and the rest are greedy.">이득은 최근 이득의 평균(기억 0.8)으로 셉니다. 라운드마다 각자 25% 확률로 무작위 한 명을 보고, 그 사람의 이득이 더 클수록 그 사람의 전략을 따라 합니다. 1%의 확률로 새 전략이 생겨요. 처음에는 절제 10%, 조건부 협력은 슬라이더 값, 나머지는 탐욕입니다.</li>
+    <li data-en="Payoff is tracked as a running average of recent payoffs (memory 0.8). Each round, each person has a 25% chance of looking at one random person and copying that person&#x27;s strategy the more that person earned. With a 1% chance a new strategy appears. At the start 10% are restrained, the conditional cooperators follow the slider, and the rest are greedy.">이득은 최근 이득의 평균(기억 0.8)으로 셉니다. 라운드마다 각자 25% 확률로 무작위 한 명을 보고, 그 사람의 이득이 더 클수록 그 사람의 전략을 따라 합니다. 1%의 확률로 새 전략이 생겨요. 처음에는 절제 10%, 조건부 협력은 슬라이더 값, 나머지는 탐욕입니다.</li>
   </ul>
 
   <h2 data-en="Try it yourself">직접 돌려보기</h2>
@@ -34,7 +34,7 @@
         <span class="hint" data-en="Chance a greedy user is caught each round">욕심낸 사람이 매 라운드 적발될 확률</span></div>
 <div class="ctl"><label for="fine" data-en="Fine (multiple of the catch) &lt;output id=&quot;o-fine&quot;&gt;&lt;/output&gt;">벌금 (잡은 양의 몇 배) <output id="o-fine"></output></label>
         <input type="range" id="fine" min="0" max="300" step="50" value="100">
-        <span class="hint" data-en="How many times that round&#x27;s catch is paid when caught">적발되면 그 라운드 수확의 몇 배를 내는지</span></div>
+        <span class="hint" data-en="How many times that round&#x27;s catch you pay if caught">적발되면 그 라운드 수확의 몇 배를 내는지</span></div>
 <div class="ctl"><label for="n" data-en="Number of users &lt;output id=&quot;o-n&quot;&gt;&lt;/output&gt;">이용자 수 <output id="o-n"></output></label>
         <input type="range" id="n" min="10" max="100" step="10" value="40">
         <span class="hint" data-en="More users make it harder to watch each other">많을수록 서로 지켜보기 어려워요</span></div>
@@ -54,7 +54,7 @@
 
   <section class="panel chart" style="margin-top:16px">
     <h3 data-en="① The Fishery and Its Users">① 어장과 이용자</h3>
-    <p data-en="The tank on the left is the stock (relative to capacity), and the dashed line marks the level (50%) at which the largest sustainable catch is possible. The dots on the right are users, colored by strategy. Anyone who caught a lot gets a red halo, and anyone caught gets a black ring.">왼쪽 수조는 저량(수용력 대비)이고, 점선이 해마다 가장 많이 지속적으로 잡을 수 있는 수준(50%)입니다. 오른쪽 점은 이용자이고 색이 전략이에요. 많이 잡은 사람은 붉은 후광, 적발된 사람은 검은 테두리가 생깁니다.</p>
+    <p data-en="The tank on the left is the stock (relative to capacity), and the dashed line marks the level (50%) at which the largest sustainable catch is possible. The dots on the right are users, colored by strategy. Anyone with a big catch gets a red halo, and anyone caught by monitoring gets a black ring.">왼쪽 수조는 저량(수용력 대비)이고, 점선이 라운드마다 가장 많이 지속적으로 잡을 수 있는 수준(50%)입니다. 오른쪽 점은 이용자이고 색이 전략이에요. 많이 잡은 사람은 붉은 후광, 적발된 사람은 검은 테두리가 생깁니다.</p>
     <canvas id="c-lake" class="rounded" data-thumb aria-label="① The Fishery and Its Users"></canvas>
     <div class="anim-bar">
       <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
@@ -99,7 +99,7 @@
   </ul>
 </main>
 
-<footer><div class="wrap" data-en="Simulatio Lab · Operator: Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<footer><div class="wrap" data-en="Simulatio Lab · Run by Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
 <script src="../../i18n.js"></script>
 <script src="../../i18n-en.js"></script>
 <script src="../../exps.js"></script>

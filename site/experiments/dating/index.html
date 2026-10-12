@@ -82,19 +82,19 @@
   </div>
 
   <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
-  <div class="callout" data-en="&lt;b&gt;What it shows:&lt;/b&gt; If everyone wants &quot;someone a little better than me,&quot; almost nobody satisfies both sides at once, so everyone waits until their standards drop. Raising the aim by just +10 points noticeably lengthens the search, and past a certain point most people fail to find a match within the time limit."><b>말하는 것:</b> 모두가 "나보다 조금 나은 사람"을 바라면 서로의 조건을 동시에 만족하는 상대가 거의 없어서, 기준이 낮아질 때까지 아무도 짝을 못 찾고 기다립니다. 눈높이가 +10%p만 올라가도 짝을 찾는 데 걸리는 시간이 눈에 띄게 늘고, 어느 선을 넘으면 정해진 기간 안에 대부분이 짝을 못 찾아요.</div>
+  <div class="callout" data-en="&lt;b&gt;What it shows:&lt;/b&gt; If everyone wants &quot;someone a little better than me,&quot; almost nobody satisfies both sides at once, so everyone waits until their standards drop. Raising the aim by just 10 percentage points noticeably lengthens the search, and past a certain point most people fail to find a match within the time limit."><b>말하는 것:</b> 모두가 "나보다 조금 나은 사람"을 바라면 서로의 조건을 동시에 만족하는 상대가 거의 없어서, 기준이 낮아질 때까지 아무도 짝을 못 찾고 기다립니다. 눈높이가 +10%p만 올라가도 짝을 찾는 데 걸리는 시간이 눈에 띄게 늘고, 어느 선을 넘으면 정해진 기간 안에 대부분이 짝을 못 찾아요.</div>
   <div class="callout" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; It doesn&#x27;t mean love or marriage works by such calculations, and it makes no judgment about what aim is right. Reality has personality, taste, distance and timing, and attractiveness can&#x27;t be ranked on a single line. This model keeps only &quot;both must agree&quot; and &quot;standards change gradually.&quot; It does not explain the causes of social problems such as low birth rates."><b>말하지 않는 것:</b> 사랑이나 결혼이 이런 계산으로 이루어진다는 뜻이 아니고, 어떤 눈높이가 옳다는 판단도 아닙니다. 현실에는 성격, 취향, 거리, 타이밍 같은 요소가 많고 매력을 한 줄로 줄 세울 수도 없습니다. 이 모델은 "서로 동의해야 한다"와 "기준이 서서히 변한다"만 남긴 단순한 시장입니다. 저출산 같은 사회 문제의 원인을 설명하는 모델은 아닙니다.</div>
 
   <h2 data-en="Implementation notes">구현 메모</h2>
   <ul class="small">
     <li data-en="This is this project&#x27;s own design, combining the Gale–Shapley (stable marriage problem) idea that &quot;both sides must agree&quot; with the search-theory idea that &quot;the reservation level falls over time.&quot; It does not reproduce any specific paper.">게일-섀플리(안정 결혼 문제)의 "양쪽이 모두 동의해야 맺어진다"는 발상과 탐색 이론의 "기준(reservation level)이 시간이 지나며 낮아진다"는 발상을 합친 이 프로젝트의 설계입니다. 특정 논문을 재현한 것은 아닙니다.</li>
     <li data-en="Because everyone is assumed to rate attractiveness the same way, in this model the most and least attractive people stay single for about equally long (check with &lt;code&gt;node tools/validate-more.js dating&lt;/code&gt;).">모든 사람이 같은 기준으로 매력을 평가한다고 가정했기 때문에, 이 모델에서 매력이 가장 높은 사람과 가장 낮은 사람은 같은 정도로 오래 혼자 남습니다(<code>node tools/validate-more.js dating</code>로 확인).</li>
-    <li data-en="Graph ④ keeps the current drop rate and duration, changes only the aim, and runs 5 times each.">④번 그래프는 현재 기준 하향 속도와 기간을 유지하고 눈높이만 바꿔 5번씩 돌린 결과입니다.</li>
+    <li data-en="Graph ④ keeps the current drop rate and duration, varies only the aim, and runs each value 5 times.">④번 그래프는 현재 기준 하향 속도와 기간을 유지하고 눈높이만 바꿔 5번씩 돌린 결과입니다.</li>
     <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/dating&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/dating">GitHub</a>에서 볼 수 있습니다.</li>
   </ul>
 </main>
 
-<footer><div class="wrap" data-en="Simulatio Lab · Operator: Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<footer><div class="wrap" data-en="Simulatio Lab · Run by Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
 <script src="../../i18n.js"></script>
 <script src="../../i18n-en.js"></script>
 <script src="../../exps.js"></script>

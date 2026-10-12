@@ -1,6 +1,6 @@
 DYN = {
 '목표 문장 (햄릿)': 'Target sentence (Hamlet)',
-'순수한 우연: 지금까지의 최고 기록': 'Pure chance: best record so far',
+'순수한 우연: 지금까지의 최고 기록': 'Pure chance: best so far',
 '{0}번 시도 · 일치 {1}/{2}': '{0} attempts · matched {1}/{2}',
 '방금 찍은 글자': 'Latest random attempt',
 '누적 선택: 지금 부모 문장': 'Cumulative selection: current parent',

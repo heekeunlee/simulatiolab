@@ -16,7 +16,7 @@
 
 <main class="wrap">
   <h1 data-en="Is Success Talent or Luck?">성공은 재능일까, 운일까?</h1>
-  <p class="lead" data-en="Talent clusters around the average, yet wealth and success pile up extremely at the top. We check with a model in which 1,000 people meet lucky and unlucky events over 40 years.">사람의 재능은 평균 근처에 모여 있는데, 부와 성공은 소수에게 극단적으로 쏠립니다. 1,000명이 40년 동안 운 좋은 일과 나쁜 일을 만나는 모델로 확인해 봅니다.</p>
+  <p class="lead" data-en="Talent clusters around the average, yet wealth and success are extremely concentrated among a few. We test this with a model in which 1,000 people meet lucky and unlucky events over 40 years.">사람의 재능은 평균 근처에 모여 있는데, 부와 성공은 소수에게 극단적으로 쏠립니다. 1,000명이 40년 동안 운 좋은 일과 나쁜 일을 만나는 모델로 확인해 봅니다.</p>
 
   <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
   <ul>
@@ -85,8 +85,8 @@
       <p data-en="The gold line is the richest person&#x27;s capital over time, the purple line is the most talented person&#x27;s. Dots are the events they experienced.">금색 선이 최고 부자의 자본 변화, 보라색 선은 최고 재능자입니다. 점은 겪은 이벤트예요.</p>
       <canvas id="c-time" aria-label="상위자 자본 타임라인"></canvas>
       <div class="legend">
-        <span data-en="&lt;i style=&quot;background:var(--lucky)&quot;&gt;&lt;/i&gt;Seized the luck"><i style="background:var(--lucky)"></i>행운을 잡음</span>
-        <span data-en="&lt;i style=&quot;background:none;border:1.5px solid var(--lucky)&quot;&gt;&lt;/i&gt;Luck came but missed"><i style="background:none;border:1.5px solid var(--lucky)"></i>행운이 왔지만 놓침</span>
+        <span data-en="&lt;i style=&quot;background:var(--lucky)&quot;&gt;&lt;/i&gt;Caught a lucky break"><i style="background:var(--lucky)"></i>행운을 잡음</span>
+        <span data-en="&lt;i style=&quot;background:none;border:1.5px solid var(--lucky)&quot;&gt;&lt;/i&gt;Missed a lucky break"><i style="background:none;border:1.5px solid var(--lucky)"></i>행운이 왔지만 놓침</span>
         <span data-en="&lt;i style=&quot;background:var(--unlucky)&quot;&gt;&lt;/i&gt;Bad luck"><i style="background:var(--unlucky)"></i>불운</span>
       </div>
     </section>
@@ -102,7 +102,7 @@
   <div class="callout" data-en="&lt;b&gt;What it shows:&lt;/b&gt; Even among people of similar talent, a few lucky breaks can open an extreme gap in wealth and success. It is very rare for the most successful person to be the most talented.">
     <b>말하는 것:</b> 재능이 비슷한 사람들 사이에서도, 운이 몇 번 겹치는 것만으로 부와 성공의 격차가 극단적으로 벌어질 수 있습니다. 가장 성공한 사람이 가장 뛰어난 사람인 경우는 매우 드뭅니다.
   </div>
-  <div class="callout" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; It doesn&#x27;t mean talent is useless or effort is pointless. Real wealth is shaped by many factors such as education, inheritance and institutions; this model is a simplified one that keeps only luck and talent.">
+  <div class="callout" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; It doesn&#x27;t mean talent is useless or effort is pointless. Real wealth is shaped by many factors such as education, inheritance and institutions; this simple model keeps only luck and talent.">
     <b>말하지 않는 것:</b> 재능이 소용없다거나 노력이 무의미하다는 뜻은 아닙니다. 현실의 부는 교육, 상속, 제도 등 많은 요인으로 정해지는데, 이 모델은 그중 운과 재능만 남긴 단순한 모델입니다.
   </div>
 
@@ -110,13 +110,13 @@
   <ul class="small">
     <li data-en="Original paper: Pluchino, Biondo, Rapisarda (2018), &lt;a href=&quot;https://arxiv.org/abs/1802.07068&quot;&gt;&quot;Talent vs Luck: the role of randomness in success and failure&quot;&lt;/a&gt;">원 논문: Pluchino, Biondo, Rapisarda (2018), <a href="https://arxiv.org/abs/1802.07068">"Talent vs Luck: the role of randomness in success and failure"</a></li>
     <li data-en="The world is a 201×201 torus; events move 2 cells per step in a random direction, and an event counts as met when it comes within a radius of 1 cell.">세계는 201×201 칸의 토러스이고, 이벤트는 한 스텝에 2칸씩 임의 방향으로 이동하며, 반경 1칸 안에 들어오면 만난 것으로 칩니다.</li>
-    <li data-en="The paper does not say what to do when several events are met in one step, so all of them are applied in the order met.">논문에는 한 스텝에 이벤트를 여러 개 만났을 때의 처리가 없어서, 만난 순서대로 모두 적용했습니다.</li>
-    <li data-en="Running the default settings 300 times, the top 20% hold about 79% of capital (paper: 80%), and the richest person&#x27;s median talent is about 0.67, only a little above the mean (0.6).">기본 설정으로 300번 돌려 보면 상위 20%가 자본의 약 79%를 가져가고(논문: 80%), 최고 부자의 재능은 중앙값 약 0.67로 평균(0.6)보다 조금 높은 정도입니다.</li>
+    <li data-en="The paper doesn&#x27;t say how to handle several events met in one step, so we apply all of them in the order they are met.">논문에는 한 스텝에 이벤트를 여러 개 만났을 때의 처리가 없어서, 만난 순서대로 모두 적용했습니다.</li>
+    <li data-en="Over 300 runs with the default settings, the top 20% hold about 79% of capital (paper: 80%), and the richest person&#x27;s median talent is about 0.67, only a little above the mean (0.6).">기본 설정으로 300번 돌려 보면 상위 20%가 자본의 약 79%를 가져가고(논문: 80%), 최고 부자의 재능은 중앙값 약 0.67로 평균(0.6)보다 조금 높은 정도입니다.</li>
     <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/talent-vs-luck&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/talent-vs-luck">GitHub</a>에서 볼 수 있습니다.</li>
   </ul>
 </main>
 
-<footer><div class="wrap" data-en="Simulatio Lab · Operator: Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<footer><div class="wrap" data-en="Simulatio Lab · Run by Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
 <script src="../../i18n.js"></script>
 <script src="../../i18n-en.js"></script>
 <script src="../../exps.js"></script>

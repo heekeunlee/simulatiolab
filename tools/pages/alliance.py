@@ -14,7 +14,7 @@ page(dict(
   T('동맹 구조는 셋 중에서 고릅니다: <b>무작위</b>(나라마다 평균 몇 개의 동맹), <b>두 진영</b>(진영 안에서 동맹을 맺고 진영 사이에는 연결 2개), <b>둘씩 묶인 동맹</b>(나라마다 동맹이 하나).',
     'Choose one of three alliance structures: <b>random</b> (an average number of allies per country), <b>two blocs</b> (alliances inside each bloc, with 2 links between blocs), or <b>isolated pairs</b> (each country has exactly one ally).'),
   T('처음에 나라 하나(<b style="color:#e5484d">붉은 편</b>)가 다른 나라(<b style="color:#2f6fed">푸른 편</b>)를 공격합니다. 매 라운드마다 중립인 나라는 전쟁 중인 동맹국 하나하나에게서 확률 "조약을 지킬 확률"로 끌려 들어옵니다. 양쪽에서 동시에 요청을 받으면 요청이 더 많은 쪽으로, 같으면 무작위로 갑니다.',
-    'At the start one country (the <b style="color:#e5484d">red side</b>) attacks another (the <b style="color:#2f6fed">blue side</b>). Each round, every neutral country is pulled in by each of its allies already at war with the probability "chance an ally honors the pact." If it is called from both sides at once, it goes to the side with more calls, and picks randomly on a tie.'),
+    'At the start one country (the <b style="color:#e5484d">red side</b>) attacks another (the <b style="color:#2f6fed">blue side</b>). Each round, each ally already at war pulls a neutral country in with probability equal to the "chance an ally honors the pact." If it is called from both sides at once, it goes to the side with more calls, and picks randomly on a tie.'),
   T('새로 들어가는 나라가 없으면 전쟁은 끝납니다. 이 페이지에서는 전체의 절반(12개국) 이상이 끌려 들어온 경우를 "세계대전급", 4개국 이하는 "작게 끝남"이라 부릅니다. 이 기준은 설명을 위한 것입니다.',
     'The war ends when no new country joins. On this page, a war that pulls in half of all countries (12) or more is called "world-war scale," and 4 countries or fewer is "stayed small." These cutoffs are for explanation only.'),
  ],

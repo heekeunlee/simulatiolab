@@ -16,13 +16,13 @@
 
 <main class="wrap">
   <h1 data-en="Why Do Fireflies Flash in Unison?">반딧불이는 왜 동시에 깜빡일까</h1>
-  <p class="lead" data-en="There is no conductor and no signal, yet on a summer night the fireflies in a forest end up flashing all at once. Can merely seeing each other&#x27;s light produce that? We check with 150 fireflies.">지휘자도 신호도 없는데, 여름밤 숲의 반딧불이들은 어느새 한꺼번에 반짝입니다. 서로의 불빛을 본다는 것만으로 이런 일이 생길 수 있을까요? 반딧불이 150마리로 확인해 봅니다.</p>
+  <p class="lead" data-en="There is no conductor and no signal, yet on a summer night the fireflies in a forest end up flashing all at once. Can merely seeing each other&#x27;s light produce that? Let&#x27;s find out with 150 fireflies.">지휘자도 신호도 없는데, 여름밤 숲의 반딧불이들은 어느새 한꺼번에 반짝입니다. 서로의 불빛을 본다는 것만으로 이런 일이 생길 수 있을까요? 반딧불이 150마리로 확인해 봅니다.</p>
 
   <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
   <ul>
     <li data-en="150 fireflies are scattered across the screen, and each has an internal &quot;clock&quot; (its phase). The clock runs at a steady speed, and when it completes a turn the firefly &lt;b&gt;flashes&lt;/b&gt; and resets.">150마리가 화면에 흩어져 있고, 저마다 안에 "시계"(위상)가 하나 있습니다. 시계는 일정한 속도로 돌다가 한 바퀴를 채우면 <b>반짝</b>이고 처음으로 돌아갑니다.</li>
     <li data-en="Each firefly&#x27;s clock runs at a slightly different speed. Left alone, their beats drift apart and they flash independently.">반딧불이마다 시계가 도는 속도가 조금씩 다릅니다. 그대로 두면 서로 박자가 어긋나 제각각 깜빡입니다.</li>
-    <li data-en="When a nearby firefly (within its visible range) flashes, it &lt;b&gt;advances its own clock a little&lt;/b&gt;. If that fills the turn, it flashes right along with it.">가까이 있는 반딧불이(볼 수 있는 범위 안)가 반짝이는 걸 보면, 자기 시계를 <b>조금 앞당깁니다</b>. 그 바람에 한 바퀴가 차면 바로 따라서 반짝입니다.</li>
+    <li data-en="When a nearby firefly (within its visible range) flashes, it &lt;b&gt;advances its own clock a little&lt;/b&gt;. If that completes the turn, it flashes right along with it.">가까이 있는 반딧불이(볼 수 있는 범위 안)가 반짝이는 걸 보면, 자기 시계를 <b>조금 앞당깁니다</b>. 그 바람에 한 바퀴가 차면 바로 따라서 반짝입니다.</li>
     <li data-en="The synchrony r is the length of the average arrow when every clock is placed as a point on a circle. 0 means independent, 1 means perfectly simultaneous.">동기화 정도 r은 모든 시계를 원 위의 점으로 놓고 평균 낸 화살표의 길이입니다. 0이면 제각각, 1이면 완전히 동시입니다.</li>
   </ul>
 
@@ -75,7 +75,7 @@
     </section>
     <section class="panel chart">
       <h3 data-en="④ Changing How Much They Nudge Each Other">④ 서로 앞당겨 주는 정도를 바꾸면</h3>
-    <p data-en="The horizontal axis is the coupling strength, the vertical axis is synchrony after 30 cycles. Dots are the results of 3 different forests.">가로는 결합 세기, 세로는 30주기 뒤의 동기화 정도입니다. 점은 서로 다른 숲 3곳의 결과예요.</p>
+    <p data-en="The horizontal axis is the coupling strength, the vertical axis is synchrony after 30 cycles. Dots show results from 3 different forests.">가로는 결합 세기, 세로는 30주기 뒤의 동기화 정도입니다. 점은 서로 다른 숲 3곳의 결과예요.</p>
     <canvas id="c-coupling" class="" aria-label="④ Changing How Much They Nudge Each Other"></canvas>
       <div class="legend"><span id="note-coupling" data-en="Calculating…">계산 중…</span></div>
     </section>
@@ -87,7 +87,7 @@
     </section>
     <section class="panel chart">
       <h3 data-en="⑥ Watching in a 3D Forest &lt;span class=&quot;badge3d&quot;&gt;3D&lt;/span&gt;">⑥ 입체 숲에서 보기 <span class="badge3d">3D</span></h3>
-    <p data-en="The same rule and settings, with 150 fireflies scattered through a forest that has height (30% of its width). The visible range is now a ball (the faint sphere), not a circle. Choose &quot;Color by phase&quot; and fireflies whose clocks agree share a color. At first several colored groups flash separately; watch one color spread through the whole forest.">같은 규칙, 같은 설정으로 반딧불이 150마리를 높이가 있는 숲(높이는 가로의 30%)에 흩어 놓았습니다. 볼 수 있는 범위는 이제 원이 아니라 공(옅은 구)이에요. "위상을 색으로"를 고르면 시계가 같은 반딧불이끼리 같은 색이 됩니다. 처음엔 여러 색 무리가 따로 반짝이다가, 한 색이 숲 전체로 번지는 모습을 보세요.</p>
+    <p data-en="Same rule, same settings: 150 fireflies are scattered through a forest that has height (30% of its width). The visible range is now a ball (the faint sphere), not a circle. Choose &quot;Color by phase&quot; and fireflies whose clocks agree share a color. At first several colored groups flash separately; watch one color spread through the whole forest.">같은 규칙, 같은 설정으로 반딧불이 150마리를 높이가 있는 숲(높이는 가로의 30%)에 흩어 놓았습니다. 볼 수 있는 범위는 이제 원이 아니라 공(옅은 구)이에요. "위상을 색으로"를 고르면 시계가 같은 반딧불이끼리 같은 색이 됩니다. 처음엔 여러 색 무리가 따로 반짝이다가, 한 색이 숲 전체로 번지는 모습을 보세요.</p>
     <canvas id="c-3d" class="view3d" aria-label="⑥ Watching in a 3D Forest 3D"></canvas>
     <p class="hint3d" data-en="Drag to rotate, scroll or pinch to zoom. It turns slowly on its own.">드래그로 회전, 휠·핀치로 확대. 가만히 두면 천천히 돌아갑니다.</p>
     <div class="anim-bar">
@@ -107,15 +107,15 @@
   <h2 data-en="Implementation notes">구현 메모</h2>
   <ul class="small">
     <li  data-en="A simplified implementation of the idea of pulse-coupled oscillators (Mirollo, Strogatz (1990), &quot;Synchronization of pulse-coupled biological oscillators&quot;, &lt;i&gt;SIAM Journal on Applied Mathematics&lt;/i&gt; 50(6)). It does not reproduce the paper&#x27;s numbers; it is this project&#x27;s own design.">펄스 결합 진동자(Mirollo, Strogatz (1990), "Synchronization of pulse-coupled biological oscillators", <i>SIAM Journal on Applied Mathematics</i> 50(6))의 발상을 단순화한 구현입니다. 논문 수치를 재현한 것은 아니고 이 프로젝트의 설계입니다.</li>
-    <li  data-en="Phase counts one cycle as 1 and grows by 0.02 per step. Each firefly&#x27;s speed is normally distributed with mean 1 and a standard deviation equal to the &quot;speed spread.&quot; When a firefly flashes, the phase of neighbors in range is increased by the coupling strength, and any that pass 1 flash in the same step.">위상은 한 주기를 1로 보고 한 단계마다 0.02씩 자랍니다. 개체마다 속도는 평균 1, 표준편차 "속도 차이"의 정규분포이고, 한 반딧불이가 반짝이면 범위 안의 이웃 위상이 결합 세기만큼 더해지며 1을 넘으면 같은 단계에 따라서 반짝입니다.</li>
-    <li  data-en="With the default settings (coupling 2.5%, range 30%, speed spread 10%), 10 seeds all reach synchrony (r&gt;0.9), taking 2 to 31 cycles (mostly 2 to 6). At coupling of 1% or less r stays below 0.2, and at 3% or more it is near 0.95 (verify with &lt;code&gt;node tools/validate-firefly.js&lt;/code&gt;).">기본 설정(결합 2.5%, 범위 30%, 속도 차이 10%)으로 시드 10개를 돌리면 모두 동기화(r>0.9)에 닿고, 걸린 주기는 2~31주기(대부분 2~6주기)입니다. 결합이 1% 이하면 r이 0.2 아래, 3% 이상이면 0.95 근처입니다 (<code>node tools/validate-firefly.js</code>로 확인).</li>
+    <li  data-en="Phase treats one cycle as 1 and grows by 0.02 per step. Each firefly&#x27;s speed is normally distributed with mean 1 and a standard deviation equal to the &quot;spread in flashing speed.&quot; When a firefly flashes, the phase of neighbors in range is increased by the coupling strength, and any that pass 1 flash in the same step.">위상은 한 주기를 1로 보고 한 단계마다 0.02씩 자랍니다. 개체마다 속도는 평균 1, 표준편차 "속도 차이"의 정규분포이고, 한 반딧불이가 반짝이면 범위 안의 이웃 위상이 결합 세기만큼 더해지며 1을 넘으면 같은 단계에 따라서 반짝입니다.</li>
+    <li  data-en="With the default settings (coupling 2.5%, range 30%, speed spread 10%), 10 seeds all reach synchrony (r&gt;0.9), taking 2 to 31 cycles (6 of the 10 within 2 to 6). At coupling of 1% or less r stays below 0.2, and at 3% or more it is near 0.95 (verify with &lt;code&gt;node tools/validate-firefly.js&lt;/code&gt;).">기본 설정(결합 2.5%, 범위 30%, 속도 차이 10%)으로 시드 10개를 돌리면 모두 동기화(r>0.9)에 닿고, 걸린 주기는 2~31주기(10개 중 6개는 2~6주기)입니다. 결합이 1% 이하면 r이 0.2 아래, 3% 이상이면 0.95 근처입니다 (<code>node tools/validate-firefly.js</code>로 확인).</li>
     <li  data-en="⑥ The 3D forest applies the same rule inside a box with a 1×1 floor and a height of 0.3. Fireflies only appear to hover near their spot; neighbors are fixed by the starting positions. With the same range (30%), each firefly sees 28 neighbors on average, fewer than in 2D (32), and they are farther apart, so with default settings 9 of 10 seeds reach synchrony (r&gt;0.9) but take 5 to 66 cycles, longer than in 2D. One did not reach it within 150 cycles.">⑥ 3D 숲은 바닥 1×1, 높이 0.3인 상자에 같은 규칙을 적용합니다. 반딧불이는 제자리 근처에서 살짝 떠다니는 것처럼 보일 뿐, 이웃은 처음 자리로 정해집니다. 같은 범위(30%)라도 한 마리가 보는 이웃이 평균 28마리로 2D(32마리)보다 적고 거리가 더 멀어서, 기본 설정에서 시드 10개 중 9개가 동기화(r>0.9)에 닿지만 걸린 주기는 5~66주기로 2D보다 깁니다. 하나는 150주기까지 닿지 못했습니다.</li>
     <li  data-en="Graphs ④ and ⑤ change only the given value in the same setup, run 30 cycles 3 times each, and show the average r of the last 6 cycles.">④, ⑤번 그래프는 같은 설정에서 해당 값만 바꿔 30주기를 3번씩 돌린 결과이고, 마지막 6주기의 평균 r입니다.</li>
     <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/firefly&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/firefly">GitHub</a>에서 볼 수 있습니다.</li>
   </ul>
 </main>
 
-<footer><div class="wrap" data-en="Simulatio Lab · Operator: Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<footer><div class="wrap" data-en="Simulatio Lab · Run by Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
 <script src="../../i18n.js"></script>
 <script src="../../i18n-en.js"></script>
 <script src="../../exps.js"></script>

@@ -118,7 +118,7 @@ EN3 = {
 'B416': "Art",
 'B417': "100 AI Painters",
 'B418': "What happens to diversity when they copy each other?",
-'B419': "Simulatio Lab · Operator: Heekeun Lee (<a href=\"mailto:clzmyiz@gmail.com\">clzmyiz@gmail.com</a>) · YouTube <a href=\"https://www.youtube.com/@simulatiolab\">youtube.com/@simulatiolab</a> · Simulations are simplified models and may not predict reality as it is.",
+'B419': "Simulatio Lab · Run by Heekeun Lee (<a href=\"mailto:clzmyiz@gmail.com\">clzmyiz@gmail.com</a>) · YouTube <a href=\"https://www.youtube.com/@simulatiolab\">youtube.com/@simulatiolab</a> · Simulations are simplified models and may not predict reality as it is.",
 'B420': "Why Do Only the Top 1% of YouTubers Break Through?",
 'B421': "Simulatio Lab",
 'B422': "<i class=\"live\"></i>Today <b id=\"v-today\">0</b>",

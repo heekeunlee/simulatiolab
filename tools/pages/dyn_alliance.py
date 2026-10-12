@@ -9,7 +9,7 @@ DYN = {
 '전쟁에 들어간 나라 수': 'Countries at war',
 '나라마다 평균 동맹국 수 (무작위 동맹일 때)': 'Average number of allies per country (random alliances)',
 '조약을 지킬 확률': 'Chance an ally honors the pact',
-'전쟁에 들어간 나라': 'Countries in the war',
+'전쟁에 들어간 나라': 'Countries at war',
 '전체 {0}개 중 {1}': '{1} of all {0} countries',
 '붉은 편 / 푸른 편': 'Red side / blue side',
 '처음에는 1 / 1': '1 / 1 at the start',

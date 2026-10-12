@@ -1,0 +1,3523 @@
+[
+{
+"id": "s0595",
+"page": "firefly",
+"ko": "같은 규칙, 같은 설정으로 반딧불이 150마리를 높이가 있는 숲(높이는 가로의 30%)에 흩어 놓았습니다. 볼 수 있는 범위는 이제 원이 아니라 공(옅은 구)이에요. \"위상을 색으로\"를 고르면 시계가 같은 반딧불이끼리 같은 색이 됩니다. 처음엔 여러 색 무리가 따로 반짝이다가, 한 색이 숲 전체로 번지는 모습을 보세요.",
+"en": "The same rule and settings, with 150 fireflies scattered through a forest that has height (30% of its width). The visible range is now a ball (the faint sphere), not a circle. Choose \"Color by phase\" and fireflies whose clocks agree share a color. At first several colored groups flash separately; watch one color spread through the whole forest.",
+"tr": "同じルールと設定で、高さ（幅の30%）のある森に150匹のホタルを散らばらせました。見える範囲は円ではなく球（薄い球体）になります。「位相で色分け」を選ぶと、時計がそろったホタルが同じ色になります。最初はいくつかの色の集団がばらばらに光りますが、一つの色が森全体に広がっていく様子を見てください。"
+},
+{
+"id": "s0596",
+"page": "firefly",
+"ko": "드래그로 회전, 휠·핀치로 확대. 가만히 두면 천천히 돌아갑니다.",
+"en": "Drag to rotate, scroll or pinch to zoom. It turns slowly on its own.",
+"tr": "ドラッグで回転、スクロールまたはピンチで拡大・縮小できます。自動でゆっくり回ります。"
+},
+{
+"id": "s0597",
+"page": "firefly",
+"ko": "불빛만",
+"en": "Light only",
+"tr": "光のみ"
+},
+{
+"id": "s0598",
+"page": "firefly",
+"ko": "위상을 색으로",
+"en": "Color by phase",
+"tr": "位相で色分け"
+},
+{
+"id": "s0599",
+"page": "firefly",
+"ko": "<i style=\"background:linear-gradient(90deg,#e8413a,#e8d23a,#3ae86a,#3ad8e8,#4a5ae8,#d83ae8,#e8413a)\"></i>색: 시계의 위치 (같은 색 = 같은 박자)",
+"en": "<i style=\"background:linear-gradient(90deg,#e8413a,#e8d23a,#3ae86a,#3ad8e8,#4a5ae8,#d83ae8,#e8413a)\"></i>Color: position of the clock (same color = same beat)",
+"tr": "<i style=\"background:linear-gradient(90deg,#e8413a,#e8d23a,#3ae86a,#3ad8e8,#4a5ae8,#d83ae8,#e8413a)\"></i>色：時計の位置（同じ色＝同じ拍子）"
+},
+{
+"id": "s0600",
+"page": "firefly",
+"ko": "<i style=\"background:#ffe680;box-shadow:0 0 6px #ffd84a\"></i>밝게 커진 점: 지금 반짝인 반딧불이",
+"en": "<i style=\"background:#ffe680;box-shadow:0 0 6px #ffd84a\"></i>Large bright dot: a firefly that just flashed",
+"tr": "<i style=\"background:#ffe680;box-shadow:0 0 6px #ffd84a\"></i>大きく明るい点：光ったばかりのホタル"
+},
+{
+"id": "s0601",
+"page": "firefly",
+"ko": "<i style=\"border:1px solid #9fb4ff;background:transparent;border-radius:50%\"></i>옅은 구: 한 마리가 볼 수 있는 범위",
+"en": "<i style=\"border:1px solid #9fb4ff;background:transparent;border-radius:50%\"></i>Faint sphere: the range one firefly can see",
+"tr": "<i style=\"border:1px solid #9fb4ff;background:transparent;border-radius:50%\"></i>薄い球体：1匹のホタルが見える範囲"
+},
+{
+"id": "s0602",
+"page": "firefly",
+"ko": "<b>말하는 것:</b> 서로 앞당겨 주는 정도가 일정 세기를 넘고 서로 볼 수 있는 범위가 충분하면, 중앙에서 박자를 정해 주는 존재가 없어도 반딧불이들이 스스로 한 박자로 맞춰집니다. 기준을 넘기 전에는 거의 변화가 없다가 넘는 순간 갑자기 동기화되는 문턱 현상이 나타나고, 개체마다 박자가 다를수록 동기화는 불완전해집니다.",
+"en": "<b>What it shows:</b> When the nudge is strong enough and each firefly can see enough of the others, they settle into one beat on their own, with nobody setting the rhythm. Below a threshold almost nothing happens, then synchrony appears suddenly past it, and the more the individual beats differ, the more imperfect the synchrony becomes.",
+"tr": "<b>わかること:</b> 押す力が十分に強く、それぞれのホタルが十分な数の仲間を見られるとき、誰もリズムを決めなくても、自然にひとつの拍に落ち着きます。ある境目より下ではほとんど何も起きず、それを超えると突然同期が現れます。また、ホタルごとの拍の違いが大きいほど、同期は不完全になります。"
+},
+{
+"id": "s0603",
+"page": "firefly",
+"ko": "<b>말하지 않는 것:</b> 실제 반딧불이가 이런 식으로 박자를 맞춘다는 증명은 아닙니다. 실제 동기화하는 반딧불이 종은 일부이고, 이 모델은 반짝임을 시계 하나로 단순화했으며 빛의 세기, 거리에 따른 시야, 반딧불이의 학습 같은 요소가 없습니다. 특정 관측 자료에 맞춘 모델도 아닙니다.",
+"en": "<b>What it doesn't show:</b> This is not proof that real fireflies tune their beats this way. Only some firefly species synchronize in nature, and this model reduces a flash to a single clock, without light intensity, field of view that depends on distance, or learning by the fireflies. It is not fitted to any particular observed data either.",
+"tr": "<b>示していないこと:</b> 実際のホタルがこのように点滅を合わせているという証明ではありません。自然界で同期するのは一部のホタルの種だけで、このモデルは点滅を1つの時計に単純化しており、光の強さや距離による視野の違い、ホタルの学習は含まれていません。特定の観測データに合わせて調整したものでもありません。"
+},
+{
+"id": "s0604",
+"page": "firefly",
+"ko": "펄스 결합 진동자(Mirollo, Strogatz (1990), \"Synchronization of pulse-coupled biological oscillators\", <i>SIAM Journal on Applied Mathematics</i> 50(6))의 발상을 단순화한 구현입니다. 논문 수치를 재현한 것은 아니고 이 프로젝트의 설계입니다.",
+"en": "A simplified implementation of the idea of pulse-coupled oscillators (Mirollo, Strogatz (1990), \"Synchronization of pulse-coupled biological oscillators\", <i>SIAM Journal on Applied Mathematics</i> 50(6)). It does not reproduce the paper's numbers; it is this project's own design.",
+"tr": "パルス結合振動子の考え方を簡略化して実装したものです(Mirollo, Strogatz (1990), 「Synchronization of pulse-coupled biological oscillators」, <i>SIAM Journal on Applied Mathematics</i> 50(6))。論文の数値を再現するものではなく、このプロジェクト独自の設計です。"
+},
+{
+"id": "s0605",
+"page": "firefly",
+"ko": "위상은 한 주기를 1로 보고 한 단계마다 0.02씩 자랍니다. 개체마다 속도는 평균 1, 표준편차 \"속도 차이\"의 정규분포이고, 한 반딧불이가 반짝이면 범위 안의 이웃 위상이 결합 세기만큼 더해지며 1을 넘으면 같은 단계에 따라서 반짝입니다.",
+"en": "Phase counts one cycle as 1 and grows by 0.02 per step. Each firefly's speed is normally distributed with mean 1 and a standard deviation equal to the \"speed spread.\" When a firefly flashes, the phase of neighbors in range is increased by the coupling strength, and any that pass 1 flash in the same step.",
+"tr": "位相は1周期を1として数え、1ステップごとに0.02ずつ増えます。各ホタルの速さは、平均1、標準偏差が「速さのばらつき」に等しい正規分布に従います。ホタルが光ると、範囲内にいる近くのホタルの位相が結合の強さだけ増え、1を超えたホタルは同じステップで光ります。"
+},
+{
+"id": "s0606",
+"page": "firefly",
+"ko": "기본 설정(결합 2.5%, 범위 30%, 속도 차이 10%)으로 시드 10개를 돌리면 모두 동기화(r&gt;0.9)에 닿고, 걸린 주기는 2~31주기(대부분 2~6주기)입니다. 결합이 1% 이하면 r이 0.2 아래, 3% 이상이면 0.95 근처입니다 (<code>node tools/validate-firefly.js</code>로 확인).",
+"en": "With the default settings (coupling 2.5%, range 30%, speed spread 10%), 10 seeds all reach synchrony (r>0.9), taking 2 to 31 cycles (mostly 2 to 6). At coupling of 1% or less r stays below 0.2, and at 3% or more it is near 0.95 (verify with <code>node tools/validate-firefly.js</code>).",
+"tr": "初期設定(結合2.5%、範囲30%、速さのばらつき10%)では、10個のシードすべてが同期(r>0.9)に達し、必要な周期は2〜31周期(ほとんどは2〜6周期)でした。結合が1%以下ではrは0.2未満にとどまり、3%以上では0.95付近になります(<code>node tools/validate-firefly.js</code>で確認できます)。"
+},
+{
+"id": "s0607",
+"page": "firefly",
+"ko": "⑥ 3D 숲은 바닥 1×1, 높이 0.3인 상자에 같은 규칙을 적용합니다. 반딧불이는 제자리 근처에서 살짝 떠다니는 것처럼 보일 뿐, 이웃은 처음 자리로 정해집니다. 같은 범위(30%)라도 한 마리가 보는 이웃이 평균 28마리로 2D(32마리)보다 적고 거리가 더 멀어서, 기본 설정에서 시드 10개 중 9개가 동기화(r&gt;0.9)에 닿지만 걸린 주기는 5~66주기로 2D보다 깁니다. 하나는 150주기까지 닿지 못했습니다.",
+"en": "⑥ The 3D forest applies the same rule inside a box with a 1×1 floor and a height of 0.3. Fireflies only appear to hover near their spot; neighbors are fixed by the starting positions. With the same range (30%), each firefly sees 28 neighbors on average, fewer than in 2D (32), and they are farther apart, so with default settings 9 of 10 seeds reach synchrony (r>0.9) but take 5 to 66 cycles, longer than in 2D. One did not reach it within 150 cycles.",
+"tr": "⑥ 3Dの森では、床が1×1、高さ0.3の箱の中で同じルールを適用します。ホタルは自分の場所の近くで漂っているように見えるだけで、近所は最初の位置で固定されます。同じ範囲（30%）で、1匹が見る近所は平均28匹と2D（32匹）より少なく、距離も遠いため、初期設定ではシード10個中9個が同期（r>0.9）に達しますが、5〜66周期と2Dより時間がかかります。1個は150周期以内に達しませんでした。"
+},
+{
+"id": "s0608",
+"page": "firefly",
+"ko": "④, ⑤번 그래프는 같은 설정에서 해당 값만 바꿔 30주기를 3번씩 돌린 결과이고, 마지막 6주기의 평균 r입니다.",
+"en": "Graphs ④ and ⑤ change only the given value in the same setup, run 30 cycles 3 times each, and show the average r of the last 6 cycles.",
+"tr": "グラフ④と⑤は、同じ設定で指定した値だけを変え、30周期を3回ずつ実行して、最後の6周期のrの平均を示しています。"
+},
+{
+"id": "s0609",
+"page": "firefly",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/firefly\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/firefly\">GitHub</a>.",
+"tr": "コードは<a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/firefly\">GitHub</a>で公開しています。"
+},
+{
+"id": "s0610",
+"page": "friendship",
+"ko": "친구의 역설 · 시뮬라티오 랩",
+"en": "The Friendship Paradox · Simulatio Lab",
+"tr": "友達のパラドックス · Simulatio Lab"
+},
+{
+"id": "s0611",
+"page": "friendship",
+"ko": "내 친구들은 왜 나보다 친구가 많을까요? 인기 있는 사람이 친구 목록마다 등장하기 때문입니다. 관계망을 만들고 사람을 눌러 직접 확인해 보세요.",
+"en": "Why do your friends tend to have more friends than you? Popular people show up on many friend lists. Build a network and click a person to check it yourself.",
+"tr": "なぜ友達のほうが自分より友達が多いのでしょうか。人気のある人は、たくさんの人の友達リストに載っているからです。ネットワークを作り、人をクリックして自分で確かめてみましょう。"
+},
+{
+"id": "s0612",
+"page": "friendship",
+"ko": "주변을 둘러보면 내 친구들은 대체로 나보다 아는 사람이 많은 것 같습니다. \"내가 사교적이지 못해서일까?\" 하고 생각하기 쉽습니다. 하지만 이런 관계망에서는 거의 누구에게나 그렇게 보일 수밖에 없습니다. 인원, 인기인 쏠림, 평균 친구 수를 바꿔 가며 확인해 봅니다.",
+"en": "Look around and your friends seem to know more people than you do. It is tempting to blame your own social skills. But in a network like this, almost everyone sees the same thing. Change the number of people, how much popularity concentrates and the average number of friends to check.",
+"tr": "周りを見ると、友達のほうが自分より顔が広いように思えます。自分の社交性のせいだと考えたくなりますが、このようなネットワークでは、ほとんどの人が同じ状況に見えます。人数、人気の集中度、平均の友達数を変えて確かめてみましょう。"
+},
+{
+"id": "s0613",
+"page": "friendship",
+"ko": "사람이 한 명씩 들어옵니다. 처음 몇 명은 서로 모두 친구이고, 이후 들어오는 사람은 기존 사람 몇 명과 친구가 됩니다(평균 친구 수의 절반). 그래서 평균 친구 수는 슬라이더 값 근처에서 정해집니다.",
+"en": "People join one at a time. The first few are all friends with each other, and each newcomer befriends a few existing people (half the average number of friends), so the average number of friends stays near the slider value.",
+"tr": "人は1人ずつ加わります。最初の数人は全員が互いに友達で、新しく加わった人は既にいる数人(平均の友達数の半分)と友達になるため、平均の友達数はスライダーの値に近いままです。"
+},
+{
+"id": "s0614",
+"page": "friendship",
+"ko": "누구와 친구가 될지는 <b>허브 쏠림</b>이 정합니다. 쏠림이 0%이면 아무나 같은 확률로 고르고, 100%이면 이미 친구가 많은 사람일수록 더 잘 뽑힙니다(\"인기 있는 사람에게 더 몰린다\").",
+"en": "Who a newcomer befriends depends on <b>hub concentration</b>. At 0% anyone is picked with equal chance; at 100% people who already have more friends are more likely to be picked (\"the popular get more popular\").",
+"tr": "新しく加わった人が誰と友達になるかは<b>ハブへの集中度</b>で決まります。0%では誰でも同じ確率で選ばれ、100%では、すでに友達が多い人ほど選ばれやすくなります(「人気者はさらに人気者になる」)。"
+},
+{
+"id": "s0615",
+"page": "friendship",
+"ko": "각 사람마다 <b>내 친구 수</b>와 <b>내 친구들이 가진 친구 수의 평균</b>을 계산해 비교합니다. 친구들의 평균이 내 친구 수보다 크면 \"친구들이 더 많은\" 사람입니다.",
+"en": "For each person it computes <b>my number of friends</b> and the <b>average number of friends my friends have</b>, and compares them. If the friends' average is bigger, that person has \"friends with more friends\".",
+"tr": "一人ひとりについて、<b>自分の友達の数</b>と<b>友達が持つ友達数の平均</b>を計算し、比べます。友達の平均のほうが大きければ、その人は「自分より友達が多い友達」を持っていることになります。"
+},
+{
+"id": "s0616",
+"page": "friendship",
+"ko": "재생하면 사람을 한 명 무작위로 뽑고(검은 고리), 다른 무작위 사람이 말해 준 친구를 한 명 뽑아(금색 점선 고리) 두 평균을 비교하는 표본 추출을 반복합니다.",
+"en": "Press play and it repeatedly draws one random person (black ring) and one friend named by another random person (dashed gold ring), comparing the two averages.",
+"tr": "再生を押すと、ランダムに1人(黒い輪)と、別のランダムな人が挙げた友達1人(金色の破線の輪)を繰り返し選び、2つの平均を比べます。"
+},
+{
+"id": "s0617",
+"page": "friendship",
+"ko": "사람 수 <output id=\"o-n\"></output>",
+"en": "Number of people <output id=\"o-n\"></output>",
+"tr": "人数 <output id=\"o-n\"></output>"
+},
+{
+"id": "s0618",
+"page": "friendship",
+"ko": "많을수록 허브가 더 크게 자랄 수 있어요",
+"en": "With more people, hubs can grow bigger",
+"tr": "人数が多いほど、ハブは大きくなれます"
+},
+{
+"id": "s0619",
+"page": "friendship",
+"ko": "허브 쏠림 <output id=\"o-hub\"></output>",
+"en": "Hub concentration <output id=\"o-hub\"></output>",
+"tr": "ハブへの集中度 <output id=\"o-hub\"></output>"
+},
+{
+"id": "s0620",
+"page": "friendship",
+"ko": "0%는 아무나 똑같이, 100%는 인기인에게 몰려요",
+"en": "0% picks anyone equally; 100% favours the popular",
+"tr": "0%は誰でも同じ確率、100%は人気者が有利"
+},
+{
+"id": "s0621",
+"page": "friendship",
+"ko": "평균 친구 수 <output id=\"o-avg\"></output>",
+"en": "Average friends <output id=\"o-avg\"></output>",
+"tr": "平均の友達数 <output id=\"o-avg\"></output>"
+},
+{
+"id": "s0622",
+"page": "friendship",
+"ko": "한 사람이 평균 몇 명과 친구인지",
+"en": "How many friends a person has on average",
+"tr": "1人あたりの友達数の平均"
+},
+{
+"id": "s0623",
+"page": "friendship",
+"ko": "같은 설정, 다른 관계망",
+"en": "Same settings, new network",
+"tr": "同じ設定で新しいネットワーク"
+},
+{
+"id": "s0624",
+"page": "friendship",
+"ko": "① 친구 관계망",
+"en": "① The Friend Network",
+"tr": "① 友達ネットワーク"
+},
+{
+"id": "s0625",
+"page": "friendship",
+"ko": "점은 사람, 선은 친구 관계이고 점이 클수록 친구가 많습니다. 사람을 누르면 그 사람의 친구가 금색으로 표시되고, 아래에 \"내 친구 수\"와 \"친구들의 평균\"이 나옵니다. 재생하면 무작위 표본을 뽑아 두 평균이 벌어지는 모습을 보여 줍니다.",
+"en": "Dots are people, lines are friendships, and bigger dots have more friends. Click a person to colour their friends gold and see \"my friends\" and \"my friends' average\" below. Press play to draw random samples and watch the two averages drift apart.",
+"tr": "点は人、線は友達関係を表し、大きい点ほど友達が多い人です。人をクリックするとその友達が金色になり、下に「自分の友達」と「友達の平均」が表示されます。再生を押すとランダムに標本を取り、2つの平均が離れていく様子を見られます。"
+},
+{
+"id": "s0626",
+"page": "friendship",
+"ko": "<i style=\"background:#e0a100\"></i>선택한 사람의 친구",
+"en": "<i style=\"background:#e0a100\"></i>Friends of the selected person",
+"tr": "<i style=\"background:#e0a100\"></i>選択した人の友達"
+},
+{
+"id": "s0627",
+"page": "friendship",
+"ko": "<i style=\"background:var(--unlucky)\"></i>선택한 사람",
+"en": "<i style=\"background:var(--unlucky)\"></i>Selected person",
+"tr": "<i style=\"background:var(--unlucky)\"></i>選択した人"
+},
+{
+"id": "s0628",
+"page": "friendship",
+"ko": "<i style=\"background:var(--text)\"></i>표본: 무작위 사람",
+"en": "<i style=\"background:var(--text)\"></i>Sample: random person",
+"tr": "<i style=\"background:var(--text)\"></i>標本:ランダムな人"
+},
+{
+"id": "s0629",
+"page": "friendship",
+"ko": "<i style=\"background:#a06b00\"></i>표본: 그 사람이 말한 친구",
+"en": "<i style=\"background:#a06b00\"></i>Sample: a friend named by someone",
+"tr": "<i style=\"background:#a06b00\"></i>標本:誰かが挙げた友達"
+},
+{
+"id": "s0630",
+"page": "friendship",
+"ko": "② 입체로 본 관계망 <span class=\"badge3d\">3D</span>",
+"en": "② The Network in 3D <span class=\"badge3d\">3D</span>",
+"tr": "② 3Dで見るネットワーク <span class=\"badge3d\">3D</span>"
+},
+{
+"id": "s0631",
+"page": "friendship",
+"ko": "같은 관계망을 3차원 공간에 다시 펼쳤습니다. 점이 크고 금빛일수록 친구가 많고, 빛나는 점이 허브입니다. 몇 초마다 무작위로 한 사람(빨간 고리)을 뽑아 그 친구들에게 금색 선을 뻗습니다. 대부분은 친구가 적은 평범한 사람이 뽑히지만, 그 선은 자꾸 빛나는 허브로 이어집니다. \"높이 = 친구 수로 보기\"를 누르면 친구가 많을수록 위로 올라가, 선이 대부분 위쪽(나보다 친구가 많은 사람)으로 뻗는 것을 볼 수 있습니다.",
+"en": "The same network spread out in three dimensions. Bigger, more golden dots have more friends, and the glowing dots are hubs. Every few seconds a random person (red ring) is picked and gold lines reach out to their friends. Most picks are ordinary people with few friends, yet the lines keep landing on glowing hubs. Press \"Height = number of friends\" and people with more friends rise higher, so you can see most lines reach upward, to people with more friends than the one picked.",
+"tr": "同じネットワークを3次元に広げたものです。大きく金色に近い点ほど友達が多く、光っている点がハブです。数秒ごとにランダムに1人（赤い輪）が選ばれ、その友達へ金色の線が伸びます。選ばれるのはたいてい友達の少ない普通の人なのに、線は何度も光るハブに届きます。「高さ＝友達の数」を押すと友達が多い人ほど高く上がり、ほとんどの線が上向き、つまり選ばれた人より友達の多い人へ伸びているのがわかります。"
+},
+{
+"id": "s0632",
+"page": "friendship",
+"ko": "높이 = 친구 수로 보기",
+"en": "Height = number of friends",
+"tr": "高さ＝友達の数"
+},
+{
+"id": "s0633",
+"page": "friendship",
+"ko": "다른 사람 뽑기",
+"en": "Pick someone else",
+"tr": "別の人を選ぶ"
+},
+{
+"id": "s0634",
+"page": "friendship",
+"ko": "드래그로 돌리기 · 휠이나 두 손가락으로 확대 · 위 ① 그림에서 사람을 누르면 여기서도 그 사람을 보여 줍니다",
+"en": "Drag to rotate · scroll or pinch to zoom · click a person in ① above to show them here too",
+"tr": "ドラッグで回転 · スクロールまたはピンチで拡大・縮小 · 上の①で人をクリックするとここにも表示されます"
+},
+{
+"id": "s0635",
+"page": "friendship",
+"ko": "③ 친구들의 평균 − 내 친구 수",
+"en": "③ Friends' Average Minus My Friend Count",
+"tr": "③ 友達の平均 − 自分の友達の数"
+},
+{
+"id": "s0636",
+"page": "friendship",
+"ko": "모든 사람에 대해 \"친구들의 평균 친구 수\"에서 \"내 친구 수\"를 뺀 값의 분포입니다. 0보다 오른쪽(빨강)이 친구들이 나보다 친구가 더 많은 사람입니다.",
+"en": "The distribution, over everyone, of \"friends' average number of friends\" minus \"my number of friends\". The right side of 0 (red) is people whose friends have more friends than they do.",
+"tr": "全員について、「友達が持つ友達数の平均」から「自分の友達数」を引いた値の分布です。0より右(赤)は、自分より友達が多い友達を持つ人です。"
+},
+{
+"id": "s0637",
+"page": "friendship",
+"ko": "④ 사람마다 비교하기",
+"en": "④ Person by Person",
+"tr": "④ 一人ひとり見る"
+},
+{
+"id": "s0638",
+"page": "friendship",
+"ko": "가로는 내 친구 수, 세로는 내 친구들의 평균입니다(두 축 모두 로그 눈금). 점선 위의 점은 친구들이 더 많은 사람, 아래는 내가 더 많은 사람입니다. 친구가 적은 사람일수록 위쪽으로 많이 벗어납니다.",
+"en": "The horizontal axis is my number of friends, the vertical axis is my friends' average (both on a log scale). Dots above the dashed line have friends with more friends, dots below have fewer. The fewer friends someone has, the further above the line they tend to sit.",
+"tr": "横軸は自分の友達数、縦軸は友達の平均です(どちらも対数目盛)。破線より上の点は友達のほうが友達が多く、下の点は少ない人です。友達が少ない人ほど、線より高い位置にある傾向があります。"
+},
+{
+"id": "s0639",
+"page": "friendship",
+"ko": "⑤ 허브가 더 몰릴수록",
+"en": "⑤ As Hubs Concentrate More",
+"tr": "⑤ ハブの集中が強まると"
+},
+{
+"id": "s0640",
+"page": "friendship",
+"ko": "가로는 허브 쏠림, 세로는 \"친구들이 더 많은 사람\"의 비율입니다. 선마다 평균 친구 수가 다르고(파랑 4명, 초록 8명, 보라 12명), 점선이 절반입니다.",
+"en": "The horizontal axis is hub concentration, the vertical axis is the share of people whose friends have more friends. Each line has a different average number of friends (blue 4, green 8, purple 12), and the dashed line is one half.",
+"tr": "横軸はハブへの集中度、縦軸は友達のほうが友達が多い人の割合です。線ごとに平均の友達数が異なり(青は4、緑は8、紫は12)、破線は2分の1を表します。"
+},
+{
+"id": "s0641",
+"page": "friendship",
+"ko": "<i style=\"background:var(--accent)\"></i>평균 친구 4명",
+"en": "<i style=\"background:var(--accent)\"></i>Average 4 friends",
+"tr": "<i style=\"background:var(--accent)\"></i>平均4人の友達"
+},
+{
+"id": "s0642",
+"page": "friendship",
+"ko": "<i style=\"background:#1fa463\"></i>평균 친구 8명",
+"en": "<i style=\"background:#1fa463\"></i>Average 8 friends",
+"tr": "<i style=\"background:#1fa463\"></i>平均8人の友達"
+},
+{
+"id": "s0643",
+"page": "friendship",
+"ko": "<i style=\"background:#7c5cff\"></i>평균 친구 12명",
+"en": "<i style=\"background:#7c5cff\"></i>Average 12 friends",
+"tr": "<i style=\"background:#7c5cff\"></i>平均12人の友達"
+},
+{
+"id": "s0644",
+"page": "friendship",
+"ko": "<b>말하는 것:</b> 사람 150명, 평균 친구 6명, 허브 쏠림 80%의 서로 다른 관계망 300개를 만들면 한 사람의 평균 친구 수는 5.92명인데, 그 친구들의 평균 친구 수는 10.17명으로 1.72배였습니다. 사람마다 \"친구들의 평균\"을 구해 비교하면 82.6%가 친구들이 더 많은 쪽이었고(관계망마다 75.3%~88.7%), 내가 더 많은 사람은 16.8%였습니다. 이유는 인기 있는 사람이 친구 목록마다 한 번씩 등장하기 때문입니다. 관계망 하나에서 친구 수 상위 10%(15명)가 모든 친구 목록 칸의 29.6%를 차지했습니다. 한 사람을 무작위로 뽑으면 평균 5.92명이지만 그 사람이 말해 준 친구를 뽑으면 평균 10.17명이었습니다. 허브 쏠림이 0%일 때도 71.3%, 100%일 때는 85.4%가 친구들이 더 많았고(평균 친구 6명), 쏠림이 클수록 격차가 커졌습니다. 친구 관계를 단순히 아무나 연결해도 이 결과는 사라지지 않았습니다. 사람마다 친구 수가 다르기만 하면 생깁니다.",
+"en": "<b>What it shows:</b> Across 300 different networks of 150 people with 6 friends on average and 80% hub concentration, a person had 5.92 friends on average, but their friends had 10.17 friends on average, 1.72 times as many. Computing \"friends' average\" for each person, 82.6% had friends with more friends (75.3% to 88.7% depending on the network), and 16.8% had more friends than their friends' average. The reason is that a popular person appears on every one of their friends' lists. In one network, the top 10% by friend count (15 people) held 29.6% of all friend-list slots. Picking a random person gave 5.92 friends on average, but picking a friend named by a random person gave 10.17. Even with 0% hub concentration, 71.3% had friends with more friends, and 85.4% at 100% (6 friends on average), so more concentration widened the gap. Connecting people at random did not make the result go away. It only needs people to differ in how many friends they have.",
+"tr": "<b>この実験が示すこと:</b> 平均の友達数6人、ハブへの集中度80%、150人のネットワークを300通り作ったところ、1人あたりの友達数は平均5.92人でしたが、その友達が持つ友達数は平均10.17人で、1.72倍でした。一人ひとりについて「友達の平均」を計算すると、82.6%の人が自分より友達の多い友達を持ち(ネットワークによって75.3%から88.7%)、友達の平均より自分の友達が多い人は16.8%でした。理由は、人気のある人が友達全員の友達リストに載っているからです。あるネットワークでは、友達数の上位10%(15人)が、友達リスト全体の29.6%を占めていました。ランダムに1人を選ぶと友達数は平均5.92人でしたが、ランダムな人が挙げた友達を選ぶと10.17人でした。ハブへの集中度が0%でも71.3%の人が自分より友達の多い友達を持ち、100%(平均6人)では85.4%となり、集中が強まるほど差は広がりました。人をランダムにつないでも結果は消えませんでした。人によって友達の数が違いさえすれば成り立ちます。"
+},
+{
+"id": "s0645",
+"page": "friendship",
+"ko": "<b>말하지 않는 것:</b> 이것은 \"친구가 많은 사람이 더 행복하다\"거나 \"내가 인기가 없다\"는 뜻이 아니고, 실제 친구 수나 인기를 측정한 것도 아닙니다. 이 모델의 관계망은 이 프로젝트가 단순화해 만든 것으로, 모두가 최소한 몇 명과 친구이고(외톨이가 없음), 실제 사회의 모임·동네·학교 같은 묶음 구조는 없습니다. 보장되는 것은 평균(친구들의 평균 ≥ 내 친구 수의 평균)이고, \"다수가 친구들이 더 많다\"는 것은 이 모델에서 실험으로 나온 결과이지 모든 관계망에서 성립하는 법칙이 아닙니다. 허브 쏠림 0%는 완전한 무작위 관계망이 아니라 \"들어오는 순서대로 아무나 고르는\" 규칙이라, 먼저 온 사람이 친구를 더 많이 얻는 효과가 남아 있습니다.",
+"en": "<b>What it doesn't show:</b> This does not mean that people with more friends are happier or that you are unpopular, and nothing here measures real friend counts or popularity. The network is this project's simplified construction: everyone has at least a few friends (no loners), and there are no real-world clusters like families, neighbourhoods or schools. What is guaranteed is the average (friends' average is at least the average friend count); that a majority has friends with more friends is a result of this model, not a law for every network. Hub concentration of 0% is not a fully random network but a \"pick anyone as they arrive\" rule, so people who arrive early still end up with more friends.",
+"tr": "<b>この実験が示さないこと:</b> 友達が多い人のほうが幸せだとか、あなたが人気がないという意味ではなく、ここでは実際の友達の数や人気を測っているわけでもありません。このネットワークは、このプロジェクトが作った簡略化したもので、誰もが少なくとも数人の友達を持ち(孤立した人はいません)、家族・近所・学校のような現実のまとまりもありません。保証されているのは平均についてだけです(友達の平均は、平均の友達数以上になります)。過半数の人が自分より友達の多い友達を持つというのは、このモデルでの結果であり、あらゆるネットワークに当てはまる法則ではありません。ハブへの集中度0%は完全にランダムなネットワークではなく、「加わるときに誰でも選ぶ」というルールなので、早く加わった人のほうが結局は友達が多くなります。"
+},
+{
+"id": "s0646",
+"page": "friendship",
+"ko": "Scott L. Feld (1991), \"Why your friends have more friends than you do\", <i>American Journal of Sociology</i> 96(6)에서 정리된 \"친구의 역설\"을 이 프로젝트가 단순화한 모델로 보여 줍니다. 논문의 수치를 재현한 것은 아닙니다. 관계망 만드는 규칙은 선호 연결(Barabási와 Albert의 규칙과 같은 아이디어)에 균등 선택을 섞은 것입니다.",
+"en": "This project's simplified model illustrating the \"friendship paradox\" laid out in Scott L. Feld (1991), \"Why your friends have more friends than you do\", <i>American Journal of Sociology</i> 96(6). It does not reproduce the paper's numbers. The network rule mixes preferential attachment (the idea behind Barabási and Albert's rule) with uniform choice.",
+"tr": "Scott L. Feld (1991), “Why your friends have more friends than you do”, <i>American Journal of Sociology</i> 96(6) で示された「友達のパラドックス」を説明するために、このプロジェクトが作った簡略化モデルです。論文の数値を再現するものではありません。ネットワークのルールは、優先的選択(バラバシとアルバートのルールの考え方)と一様な選択を組み合わせたものです。"
+},
+{
+"id": "s0647",
+"page": "friendship",
+"ko": "수식으로는 친구 목록을 모두 이어 붙여 한 명을 뽑을 때의 평균이 &lt;k²&gt;/&lt;k&gt;이고, 이 값은 평균 &lt;k&gt; 이상입니다(친구 수의 분산이 0이 아닌 한 더 큽니다). 이 페이지의 카드는 사람마다 \"친구들의 평균\"을 구해 다시 평균 낸 값을 쓰는데, 친구 관계 하나마다 (이웃의 친구 수 ÷ 내 친구 수) + (내 친구 수 ÷ 이웃의 친구 수) ≥ 2이므로 이 값도 항상 평균 친구 수 이상입니다. 기본값 관계망 300개에서 두 값은 각각 10.17명, 9.70명이었고 모두 5.92명보다 컸습니다.",
+"en": "In formulas, the average when all friend lists are joined together and one name is drawn is &lt;k²&gt;/&lt;k&gt;, which is at least the average &lt;k&gt; (larger unless everyone has the same number of friends). The cards on this page instead compute each person's \"friends' average\" and average those, which is also always at least the average friend count because each friendship contributes (neighbour's friends ÷ my friends) + (my friends ÷ neighbour's friends) ≥ 2. Over 300 default networks the two values were 10.17 and 9.70, both larger than 5.92.",
+"tr": "式で表すと、すべての友達リストをまとめて名前を1つ引いたときの平均は &lt;k²&gt;/&lt;k&gt; で、平均 &lt;k&gt; 以上になります（全員の友達の数が同じでない限り、より大きくなります）。このページのカードは、代わりに各人の「友達の平均」を計算してそれらを平均します。これも常に平均の友達数以上になります。友人関係1つにつき (隣人の友達数 ÷ 自分の友達数) + (自分の友達数 ÷ 隣人の友達数) ≥ 2 となるためです。初期設定のネットワーク300個では、2つの値は10.17と9.70で、どちらも5.92より大きくなりました。"
+},
+{
+"id": "s0648",
+"page": "friendship",
+"ko": "재생의 표본 추출은 \"무작위로 고른 사람이 말해 준 친구\"를 뽑는 방식이라 사람별 친구들 평균의 평균(10.17명)에 수렴합니다. Christakis와 Fowler (2010), \"Social network sensors for early detection of contagious outbreaks\", <i>PLoS ONE</i> 5(9)는 이 성질을 이용해, 무작위로 고른 하버드 학생들과 그들이 지목한 친구들을 비교하면 친구 집단에서 독감 유행이 더 일찍 나타난다고 보고했습니다. 이는 한 대학 표본에서 시험한 제안이고 이 페이지가 그 결과를 재현하는 것은 아닙니다.",
+"en": "The sampling in the animation draws \"a friend named by a randomly chosen person\", so it converges to the average of per-person friend averages (10.17). Christakis and Fowler (2010), \"Social network sensors for early detection of contagious outbreaks\", <i>PLoS ONE</i> 5(9), proposed using this property: comparing randomly chosen Harvard students with the friends they named, they reported that the flu outbreak appeared earlier in the friend group. That was a proposal tested in one university sample, and this page does not reproduce it.",
+"tr": "アニメーションのサンプリングは「無作為に選んだ人が挙げた友達」を引くので、人ごとの友達平均の平均（10.17）に収束します。Christakis と Fowler（2010）「Social network sensors for early detection of contagious outbreaks」（<i>PLoS ONE</i> 5(9)）は、この性質の利用を提案しました。無作為に選んだハーバード大学の学生と、その学生が挙げた友達を比べ、インフルエンザの流行は友達グループのほうが早く現れたと報告しています。これは1つの大学の標本で検証された提案であり、このページでは再現していません。"
+},
+{
+"id": "s0649",
+"page": "friendship",
+"ko": "관계망 배치는 이웃은 끌어당기고 모두는 밀어내는 힘 방향 알고리즘(Fruchterman-Reingold)으로 미리 계산합니다. 검증은 <code>node tools/validate-friendship.js</code>로 할 수 있습니다.",
+"en": "The layout is precomputed with a force-directed algorithm (Fruchterman-Reingold) where neighbours attract and everyone repels. You can verify with <code>node tools/validate-friendship.js</code>.",
+"tr": "配置は力指向アルゴリズム（Fruchterman-Reingold）で事前に計算しています。隣り合う点は引き合い、すべての点は互いに反発します。<code>node tools/validate-friendship.js</code> で確認できます。"
+},
+{
+"id": "s0650",
+"page": "friendship",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/friendship\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/friendship\">GitHub</a>.",
+"tr": "コードは <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/friendship\">GitHub</a> で公開しています。"
+},
+{
+"id": "s0651",
+"page": "inspection",
+"ko": "버스는 왜 늘 더 오래 기다릴까 · 시뮬라티오 랩",
+"en": "Why Does the Bus Always Make You Wait Longer? · Simulatio Lab",
+"tr": "なぜバスはいつも待たされるのか · Simulatio Lab"
+},
+{
+"id": "s0652",
+"page": "inspection",
+"ko": "평균 10분마다 온다는 버스를 기다리면 왜 평균 10분을 기다리게 될까요? 대기 시간의 역설(검사 역설)과, 내 반이 늘 평균보다 붐비는 이유를 직접 돌려보세요.",
+"en": "If a bus comes every 10 minutes on average, why can you end up waiting 10 minutes on average? Run the waiting-time paradox (inspection paradox) and see why your class always feels more crowded than average.",
+"tr": "バスが平均10分おきに来るのに、平均10分も待つことがあるのはなぜでしょうか。待ち時間のパラドックス（検査のパラドックス）を実行して、自分のクラスがいつも平均より混んでいるように感じる理由を確かめましょう。"
+},
+{
+"id": "s0653",
+"page": "inspection",
+"ko": "\"버스는 평균 10분마다 온다는데, 왜 나는 늘 더 오래 기다리지?\" 평균 간격이 10분이니 아무 때나 가면 평균 5분만 기다릴 것 같습니다. 그런데 버스가 들쭉날쭉 오면 평균 대기는 5분이 아니라 10분이 될 수 있습니다. 내가 하필 운이 나쁜 게 아니라, 아무 때나 도착한 사람은 긴 간격에 걸릴 확률이 더 높기 때문입니다. 버스가 얼마나 들쭉날쭉한지, 평균 간격, 승객 수를 바꿔 보고, 같은 착시가 \"내 반이 학교 평균보다 붐비는 이유\"에도 숨어 있는지 확인합니다.",
+"en": "\"The bus is supposed to come every 10 minutes on average, so why do I always wait longer?\" With a 10-minute average gap, showing up at a random moment should mean waiting 5 minutes on average. But if buses arrive unevenly, the average wait can be 10 minutes, not 5. It is not bad luck: a person who arrives at a random moment is more likely to land inside a long gap. Change how uneven the buses are, the average gap and the number of passengers, then check whether the same illusion explains why your class feels more crowded than the school average.",
+"tr": "「バスは平均10分おきに来るはずなのに、なぜいつも待たされるのだろう」。平均の間隔が10分なら、適当なタイミングで行けば平均5分待つはずです。ところがバスが不規則に来ると、平均の待ち時間は5分ではなく10分になることがあります。運が悪いわけではありません。適当なタイミングで着いた人は、長い間隔に入りやすいのです。バスの不規則さ、平均の間隔、乗客の数を変えて、同じ錯覚が「自分のクラスは学校の平均より混んでいる」と感じる理由も説明するかどうか確かめましょう。"
+},
+{
+"id": "s0654",
+"page": "inspection",
+"ko": "버스는 평균 <b>평균 간격</b>(분)마다 오지만, 실제 간격은 감마분포로 들쭉날쭉합니다. <b>불규칙한 정도</b>(변동계수 = 간격의 표준편차 ÷ 평균)가 0이면 시간표대로 정확히 오고, 1이면 무작위로 도착하고, 그보다 크면 버스가 몰려서 옵니다.",
+"en": "Buses come every <b>average gap</b> minutes, but the real gaps vary according to a gamma distribution. An <b>irregularity</b> (coefficient of variation = standard deviation of the gap ÷ mean) of 0 means a strict timetable, 1 means random arrivals, and larger values mean buses arrive in bunches.",
+"tr": "バスは平均して<b>平均間隔</b>分おきに来ますが、実際の間隔はガンマ分布に従ってばらつきます。<b>不規則さ</b>（変動係数 ＝ 間隔の標準偏差 ÷ 平均）が0なら厳密な時刻表どおり、1ならランダムな到着、それより大きいとバスが固まってやって来ます。"
+},
+{
+"id": "s0655",
+"page": "inspection",
+"ko": "승객은 버스 시간표를 모르고 아무 때나 도착합니다. 도착한 순간부터 다음 버스까지가 <b>대기 시간</b>, 도착했을 때 걸쳐 있던 버스 간격이 <b>승객이 본 간격</b>입니다.",
+"en": "Passengers do not know the timetable and arrive at any moment. The time until the next bus is the <b>wait</b>, and the bus gap they happened to land in is the <b>gap the passenger saw</b>.",
+"tr": "乗客は時刻表を知らず、いつでも到着します。次のバスが来るまでの時間が<b>待ち時間</b>、たまたま入ったバスの間隔が<b>乗客が見た間隔</b>です。"
+},
+{
+"id": "s0656",
+"page": "inspection",
+"ko": "긴 간격은 시간축에서 자리를 더 많이 차지하므로 승객이 그 안에 떨어질 확률이 간격 길이에 비례합니다. 그래서 승객이 본 간격의 평균은 버스를 하나씩 센 평균보다 큽니다. 이론값은 평균 대기 = 평균 간격 ÷ 2 × (1 + 변동계수²)입니다.",
+"en": "A long gap takes up more room on the time axis, so the chance of a passenger landing in it is proportional to its length. That makes the average gap passengers see larger than the average gap you get by counting buses. The theory: average wait = average gap ÷ 2 × (1 + CV²).",
+"tr": "長い間隔は時間軸上で広い場所を占めるので、乗客がそこに入る確率は間隔の長さに比例します。そのため、乗客が見る平均の間隔は、バスを1台ずつ数えたときの平均の間隔より大きくなります。理論式は、平均の待ち時間 ＝ 平均間隔 ÷ 2 × (1 + CV²) です。"
+},
+{
+"id": "s0657",
+"page": "inspection",
+"ko": "아래쪽 패널은 같은 계산을 학급 인원에 적용합니다. 학급을 하나씩 세면 평균 25명이지만, 학생에게 \"너희 반은 몇 명이야?\"라고 물으면 큰 반의 학생이 더 많이 대답하므로 평균이 더 커집니다.",
+"en": "The last panel applies the same calculation to class sizes. Counting classes one by one gives an average of 25, but if you ask students \"how many are in your class?\", students from big classes answer more often, so the average grows.",
+"tr": "最後のパネルでは、同じ計算をクラスの人数に当てはめます。クラスを1つずつ数えると平均は25人ですが、生徒に「あなたのクラスは何人ですか」と聞くと、大きなクラスの生徒のほうが多く答えるので、平均が大きくなります。"
+},
+{
+"id": "s0658",
+"page": "inspection",
+"ko": "평균 버스 간격 <output id=\"o-mean\"></output>",
+"en": "Average bus gap <output id=\"o-mean\"></output>",
+"tr": "バスの平均間隔 <output id=\"o-mean\"></output>"
+},
+{
+"id": "s0659",
+"page": "inspection",
+"ko": "버스가 평균 몇 분마다 오는지",
+"en": "How many minutes apart buses come on average",
+"tr": "バスが平均して何分おきに来るか"
+},
+{
+"id": "s0660",
+"page": "inspection",
+"ko": "불규칙한 정도 <output id=\"o-cv\"></output>",
+"en": "Irregularity <output id=\"o-cv\"></output>",
+"tr": "不規則さ <output id=\"o-cv\"></output>"
+},
+{
+"id": "s0661",
+"page": "inspection",
+"ko": "0은 시간표대로, 1은 무작위, 2는 많이 몰려서 와요 (변동계수)",
+"en": "0 is a strict timetable, 1 is random, 2 is heavily bunched (coefficient of variation)",
+"tr": "0は厳密な時刻表、1はランダム、2はかなり固まって来る状態（変動係数）"
+},
+{
+"id": "s0662",
+"page": "inspection",
+"ko": "승객 수 <output id=\"o-n\"></output>",
+"en": "Number of passengers <output id=\"o-n\"></output>",
+"tr": "乗客の数 <output id=\"o-n\"></output>"
+},
+{
+"id": "s0663",
+"page": "inspection",
+"ko": "많을수록 평균이 이론값에 가까워져요",
+"en": "More passengers bring the average closer to the theory",
+"tr": "乗客が多いほど、平均は理論に近づきます"
+},
+{
+"id": "s0664",
+"page": "inspection",
+"ko": "같은 설정, 다른 노선",
+"en": "Same settings, new route",
+"tr": "同じ設定で新しい路線"
+},
+{
+"id": "s0665",
+"page": "inspection",
+"ko": "① 승객이 한 명씩 도착한다",
+"en": "① Passengers Arrive One by One",
+"tr": "① 乗客が1人ずつ到着"
+},
+{
+"id": "s0666",
+"page": "inspection",
+"ko": "승객이 도착할 때마다 그 사람이 걸린 버스 간격(주황)과 기다린 시간(빨간 선)을 보여 줍니다. 파란 점은 앞서 도착한 승객들인데, 긴 간격 안에 훨씬 많이 모여 있습니다. 아래 그래프는 지금까지 도착한 승객들의 평균 대기로, 금색 이론선으로 다가가고 회색 단순 계산(간격의 절반)과는 멀어집니다.",
+"en": "Each time a passenger arrives, you see the bus gap they landed in (orange) and their wait (red line). The blue dots are earlier passengers, and far more of them sit inside long gaps. The graph below is the average wait of everyone who has arrived so far; it closes in on the gold theory line and stays far from the gray naive estimate (half the gap).",
+"tr": "乗客が到着するたびに、その人が入ったバスの間隔（オレンジ）と待ち時間（赤い線）が表示されます。青い点はそれ以前の乗客で、長い間隔の中にいる人のほうがずっと多くなっています。下のグラフはこれまでに到着した全員の平均待ち時間で、金色の理論線に近づき、灰色の素朴な見積もり（間隔の半分）からは離れたままです。"
+},
+{
+"id": "s0667",
+"page": "inspection",
+"ko": "② 버스를 센 간격과 승객이 본 간격",
+"en": "② Gaps Counted by Bus vs Gaps Seen by Passengers",
+"tr": "② バスごとに数えた間隔と、乗客が見た間隔"
+},
+{
+"id": "s0668",
+"page": "inspection",
+"ko": "파란 막대는 버스 간격을 하나씩 센 분포이고, 주황 선은 승객이 실제로 걸린 간격의 분포입니다. 주황은 긴 간격 쪽으로 쏠려 있어서 평균이 오른쪽으로 밀립니다.",
+"en": "The blue bars are the distribution of gaps when you count buses one by one, and the orange line is the distribution of the gaps passengers actually landed in. The orange one leans toward long gaps, which pushes its mean to the right.",
+"tr": "青い棒は、バスを1台ずつ数えたときの間隔の分布、オレンジの線は、乗客が実際に入った間隔の分布です。オレンジは長い間隔に偏っているため、平均が右にずれます。"
+},
+{
+"id": "s0669",
+"page": "inspection",
+"ko": "<i style=\"background:var(--accent)\"></i>버스 간격 (하나씩 센 값)",
+"en": "<i style=\"background:var(--accent)\"></i>Bus gaps (counted one by one)",
+"tr": "<i style=\"background:var(--accent)\"></i>バスの間隔（1台ずつ数えたもの）"
+},
+{
+"id": "s0670",
+"page": "inspection",
+"ko": "<i style=\"background:#e0a100\"></i>승객이 본 간격",
+"en": "<i style=\"background:#e0a100\"></i>Gaps seen by passengers",
+"tr": "<i style=\"background:#e0a100\"></i>乗客が見た間隔"
+},
+{
+"id": "s0671",
+"page": "inspection",
+"ko": "③ 들쭉날쭉할수록 오래 기다린다",
+"en": "③ The More Uneven, the Longer the Wait",
+"tr": "③ 不規則なほど、待ち時間は長くなる"
+},
+{
+"id": "s0672",
+"page": "inspection",
+"ko": "가로는 버스가 얼마나 들쭉날쭉한지, 세로는 평균 대기 시간입니다. 파랑이 실측, 금색 선이 이론(평균 간격 ÷ 2 × (1 + 변동계수²)), 회색 점선이 \"간격의 절반\" 단순 계산입니다. 시간표대로 오는 왼쪽 끝에서만 단순 계산과 같습니다.",
+"en": "The horizontal axis is how uneven the buses are and the vertical axis is the average wait. Blue is measured, the gold line is the theory (average gap ÷ 2 × (1 + CV²)), and the gray dashed line is the naive \"half the gap\" estimate. They match only at the far left, where buses run on a strict timetable.",
+"tr": "横軸はバスの不規則さ、縦軸は平均の待ち時間です。青は実測値、金色の線は理論値（平均間隔 ÷ 2 × (1 + CV²)）、灰色の破線は「間隔の半分」という素朴な見積もりです。3つが一致するのは、バスが厳密な時刻表どおりに走る左端だけです。"
+},
+{
+"id": "s0673",
+"page": "inspection",
+"ko": "<i style=\"background:var(--accent)\"></i>실측",
+"en": "<i style=\"background:var(--accent)\"></i>Measured",
+"tr": "<i style=\"background:var(--accent)\"></i>実測"
+},
+{
+"id": "s0674",
+"page": "inspection",
+"ko": "<i style=\"background:#e0a100\"></i>이론",
+"en": "<i style=\"background:#e0a100\"></i>Theory",
+"tr": "<i style=\"background:#e0a100\"></i>理論"
+},
+{
+"id": "s0675",
+"page": "inspection",
+"ko": "<i style=\"background:#8a93a6\"></i>단순 계산 (간격의 절반)",
+"en": "<i style=\"background:#8a93a6\"></i>Naive (half the gap)",
+"tr": "<i style=\"background:#8a93a6\"></i>素朴な見積もり（間隔の半分）"
+},
+{
+"id": "s0676",
+"page": "inspection",
+"ko": "④ 같은 착시: 내 반은 왜 늘 붐빌까",
+"en": "④ The Same Illusion: Why Is My Class Always Crowded?",
+"tr": "④ 同じ錯覚：なぜ自分のクラスはいつも混んでいるのか"
+},
+{
+"id": "s0677",
+"page": "inspection",
+"ko": "평균 25명인 학급 1,000개를 만들고(인원이 들쭉날쭉한 정도는 위의 슬라이더 값), 학급을 하나씩 센 평균과 학생 한 명 한 명에게 자기 반 인원을 물은 평균을 비교합니다. 큰 반에는 학생이 많아서 \"큰 반 학생\"의 대답이 더 많이 모입니다.",
+"en": "We create 1,000 classes with an average of 25 students (the unevenness is set by the slider above) and compare the average counted class by class with the average you get by asking each student the size of their own class. Big classes hold more students, so \"big class\" answers pile up.",
+"tr": "平均25人のクラスを1,000個作り（不規則さは上のスライダーで決まります）、クラスごとに数えた平均と、各生徒に自分のクラスの人数を聞いて得た平均を比べます。大きなクラスにはより多くの生徒がいるので、「大きなクラス」という答えが積み重なります。"
+},
+{
+"id": "s0678",
+"page": "inspection",
+"ko": "<i style=\"background:var(--accent)\"></i>학급 인원 (학급을 하나씩 센 값)",
+"en": "<i style=\"background:var(--accent)\"></i>Class sizes (counted class by class)",
+"tr": "<i style=\"background:var(--accent)\"></i>クラスの人数（クラスごとに数えたもの）"
+},
+{
+"id": "s0679",
+"page": "inspection",
+"ko": "<i style=\"background:#e0a100\"></i>학생이 말한 자기 반 인원",
+"en": "<i style=\"background:#e0a100\"></i>Own class size reported by students",
+"tr": "<i style=\"background:#e0a100\"></i>生徒が答えた自分のクラスの人数"
+},
+{
+"id": "s0680",
+"page": "inspection",
+"ko": "<b>말하는 것:</b> 평균 간격 10분에서 버스가 무작위로 오면(불규칙한 정도 1.0), 버스를 하나씩 센 평균 간격은 10.1분인데 승객이 본 간격의 평균은 20.2분(이론 20.0분)이었고, 평균 대기는 10.1분(이론 10.0분)으로 단순 계산 5분의 두 배였습니다(버스 2만 대, 승객 4만 명). 시간표대로 오면(0) 평균 대기는 5.0분으로 단순 계산과 같았고, 0.5에서는 6.3분(이론 6.3분), 2.0에서는 25.0분(이론 25.0분)까지 늘었습니다. 기본 설정(승객 500명)에서 버스 간격 중 20분 이상인 것은 13%뿐인데, 승객은 41%가 그런 간격에 걸렸습니다. 대기 시간의 중앙값은 7.0분이었지만 가장 오래 기다린 승객은 60.7분이었습니다. 학급 인원도 같은 계산입니다. 평균 25명인 학급 2만 개에서 학급 인원이 들쭉날쭉한 정도가 0.3이면 학급 평균은 25.0명, 학생이 겪는 평균은 27.3명(이론 27.3명)이었고, 1.0이면 49.8명(이론 50.0명)이었습니다. 내 반이 평균보다 붐비는 건 기분 탓이 아니라, 큰 반에 학생이 더 많이 있기 때문입니다.",
+"en": "<b>What it shows:</b> With a 10-minute average gap and random arrivals (irregularity 1.0), counting buses gave an average gap of 10.1 minutes, but the average gap passengers saw was 20.2 minutes (theory 20.0), and the average wait was 10.1 minutes (theory 10.0), twice the naive 5 minutes (20,000 buses, 40,000 passengers). On a strict timetable (0) the average wait was 5.0 minutes, equal to the naive estimate; it was 6.3 minutes at 0.5 (theory 6.3) and grew to 25.0 minutes at 2.0 (theory 25.0). In the default setting (500 passengers), only 13% of bus gaps were 20 minutes or longer, yet 41% of passengers landed in such a gap. The median wait was 7.0 minutes, but the longest wait was 60.7 minutes. Class sizes follow the same arithmetic. With 20,000 classes averaging 25 students, an unevenness of 0.3 gave a class average of 25.0 and a student-experienced average of 27.3 (theory 27.3); at 1.0 it was 49.8 (theory 50.0). Your class feels more crowded than average not by imagination but because big classes contain more students.",
+"tr": "<b>わかること：</b>平均間隔が10分でランダムな到着（不規則さ 1.0）の場合、バスを数えた平均間隔は10.1分でしたが、乗客が見た平均間隔は20.2分（理論値20.0）、平均の待ち時間は10.1分（理論値10.0）で、素朴な見積もりの5分の2倍でした（バス20,000台、乗客40,000人）。厳密な時刻表（0）では平均の待ち時間は5.0分で、素朴な見積もりと同じでした。0.5では6.3分（理論値6.3）、2.0では25.0分（理論値25.0）まで増えました。初期設定（乗客500人）では、20分以上のバスの間隔は全体の13%だけでしたが、乗客の41%がそのような間隔に入りました。待ち時間の中央値は7.0分でしたが、最長の待ち時間は60.7分でした。クラスの人数も同じ算術です。平均25人のクラス20,000個で、不規則さ0.3のとき、クラスごとの平均は25.0、生徒が体験する平均は27.3（理論値27.3）で、1.0では49.8（理論値50.0）でした。自分のクラスが平均より混んでいると感じるのは、想像のせいではなく、大きなクラスにはより多くの生徒がいるからです。"
+},
+{
+"id": "s0681",
+"page": "inspection",
+"ko": "<b>말하지 않는 것:</b> 실제 버스 대부분이 이 정도로 들쭉날쭉하다는 뜻은 아닙니다. 이 모델은 간격이 서로 독립인 단순한 모델이고, 변동계수 1.0은 \"무작위 도착\"을 보여 주려고 고른 값이지 실제 노선의 측정값이 아닙니다. 또 시간표가 있는 노선에서는 승객이 시간에 맞춰 나오므로 \"아무 때나 도착\"이라는 가정이 맞지 않아, 대기가 훨씬 짧을 수 있습니다(이 모델은 배차 간격이 짧아 시간표를 보지 않고 나가는 경우에 해당합니다). 기분 나쁜 기억이 더 오래 남는 심리 효과를 설명하는 것도 아닙니다. 학급 패널에서는 인원을 최소 1명의 정수로 반올림했기 때문에 변동계수 1.5 이상에서는 이론값과 조금 달라집니다(1.5에서 82.5명 대 81.3명). 한 반이 실제로 얼마나 들쭉날쭉한지는 이 프로젝트가 측정한 적이 없고, 현실적이라고 둔 0.3도 예시 값입니다. 변동계수가 2처럼 큰 경우는 드문 긴 간격에 평균이 크게 좌우되어 승객 3천 명으로도 결과가 이론값에서 흔들립니다.",
+"en": "<b>What it doesn't show:</b> This does not mean most real buses are this uneven. The model is a simple one in which gaps are independent, and an irregularity of 1.0 was chosen to show \"random arrivals\", not measured on a real route. On timetabled routes people time their arrival to the schedule, so \"arriving at any moment\" does not hold and waits can be much shorter (this model fits frequent service where people go out without checking the timetable). It does not explain the psychological effect that unpleasant memories last longer either. In the class panel, sizes are rounded to integers of at least 1, so above an irregularity of 1.5 the results drift from the theory a little (82.5 vs 81.3 at 1.5). This project has not measured how uneven real classes are, and the 0.3 used as \"realistic\" is just an example value. For large values such as 2, rare long gaps dominate the average, so even 3,000 passengers can land away from the theory.",
+"tr": "<b>わからないこと：</b>実際のバスの多くがこれほど不規則だという意味ではありません。このモデルは間隔が互いに独立した単純なもので、不規則さ1.0は「ランダムな到着」を示すために選んだ値であり、実在の路線で測ったものではありません。時刻表のある路線では、人は時刻に合わせて到着するため「いつでも到着する」という前提が成り立たず、待ち時間はずっと短くなりえます（このモデルは、時刻表を確認せずに出かけるような頻繁な運行に当てはまります）。不快な記憶のほうが長く残るという心理的な効果も説明しません。クラスのパネルでは、人数を1以上の整数に丸めているため、不規則さが1.5を超えると結果が理論から少しずれます（1.5で82.5、理論値は81.3）。このプロジェクトでは実際のクラスの不規則さを測っておらず、「現実的」として使った0.3は例として選んだ値にすぎません。2のような大きな値では、まれな長い間隔が平均を支配するため、乗客3,000人でも理論からずれることがあります。"
+},
+{
+"id": "s0682",
+"page": "inspection",
+"ko": "검사 역설(대기 시간의 역설)은 갱신 이론의 고전적인 결과로, 예를 들어 William Feller의 <i>An Introduction to Probability Theory and Its Applications</i> 2권에서 다룹니다. 친구의 친구가 더 많다는 \"우정 역설\"(Scott Feld, 1991, <i>American Journal of Sociology</i> 96(6))도 같은 표본 편향입니다. 이 페이지는 이를 단순화한 이 프로젝트의 구현이며, 논문의 수치를 재현한 것이 아닙니다.",
+"en": "The inspection (waiting-time) paradox is a classical result of renewal theory, treated for example in William Feller's <i>An Introduction to Probability Theory and Its Applications</i>, volume 2. The \"friendship paradox\" (Scott Feld, 1991, <i>American Journal of Sociology</i> 96(6)), where your friends have more friends than you do, is the same sampling bias. This page is this project's simplified implementation and does not reproduce numbers from any paper.",
+"tr": "検査のパラドックス（待ち時間のパラドックス）は再生理論の古典的な結果で、たとえばウィリアム・フェラーの <i>An Introduction to Probability Theory and Its Applications</i> 第2巻で扱われています。自分の友達のほうが自分より友達が多いという「友情のパラドックス」（Scott Feld, 1991, <i>American Journal of Sociology</i> 96(6)）も、同じ標本抽出のバイアスです。このページは本プロジェクトによる簡略化した実装であり、論文の数値を再現するものではありません。"
+},
+{
+"id": "s0683",
+"page": "inspection",
+"ko": "버스 간격은 감마분포(평균 = 평균 간격, 변동계수 = 슬라이더 값)에서 뽑은 3,000개를 이어 붙여 시간축을 만들고, 승객은 그 시간축 전체에서 균일하게 뽑습니다. 승객이 걸린 간격과 다음 버스까지의 시간은 이진 탐색으로 구합니다. ③번 그래프의 점은 승객 3,000명으로 3번 돌린 값입니다. 학급 인원은 같은 분포에서 뽑아 정수로 반올림하고 최소 1명으로 둡니다.",
+"en": "Bus gaps are 3,000 draws from a gamma distribution (mean = average gap, coefficient of variation = the slider) laid end to end to form the time axis, and passengers are drawn uniformly over the whole axis. The gap a passenger lands in and the time to the next bus are found by binary search. Each point in graph ③ is a run with 3,000 passengers, done 3 times. Class sizes are drawn from the same distribution, rounded to integers and set to at least 1.",
+"tr": "バスの間隔は、ガンマ分布（平均＝平均間隔、変動係数＝スライダー）から3,000回抽出して順につなぎ、時間軸にしたものです。乗客は時間軸全体に一様に配置します。乗客が入る間隔と次のバスまでの時間は二分探索で求めます。グラフ③の各点は乗客3,000人での実行で、これを3回行っています。クラスの人数も同じ分布から抽出し、整数に丸めて最小1としています。"
+},
+{
+"id": "s0684",
+"page": "inspection",
+"ko": "검증은 <code>node tools/validate-inspection.js</code>로 할 수 있습니다. 이론은 승객이 본 간격 = 평균 간격 × (1 + 변동계수²), 평균 대기 = 그 절반이며, 변동계수 0, 0.25, 0.5, 1, 1.5, 2에서 실측 평균 대기는 5.0, 5.3, 6.3, 10.1, 16.1, 25.0분(이론 5.0, 5.3, 6.3, 10.0, 16.3, 25.0분)이었습니다.",
+"en": "You can verify with <code>node tools/validate-inspection.js</code>. The theory is the gap seen = average gap × (1 + CV²) and the average wait is half of that. At irregularity 0, 0.25, 0.5, 1, 1.5 and 2, the measured average waits were 5.0, 5.3, 6.3, 10.1, 16.1 and 25.0 minutes (theory 5.0, 5.3, 6.3, 10.0, 16.3 and 25.0).",
+"tr": "<code>node tools/validate-inspection.js</code> で検証できます。理論上、観測される間隔＝平均間隔 × (1 + CV²) で、平均待ち時間はその半分です。不規則さが 0、0.25、0.5、1、1.5、2 のとき、測定した平均待ち時間は 5.0、5.3、6.3、10.1、16.1、25.0 分でした（理論値は 5.0、5.3、6.3、10.0、16.3、25.0）。"
+},
+{
+"id": "s0685",
+"page": "inspection",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/inspection\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/inspection\">GitHub</a>.",
+"tr": "コードは <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/inspection\">GitHub</a> で公開しています。"
+},
+{
+"id": "s0686",
+"page": "monkey",
+"ko": "원숭이가 햄릿을 쓸 수 있을까 · 시뮬라티오 랩",
+"en": "Can Monkeys Write Hamlet? · Simulatio Lab",
+"tr": "サルはハムレットを書けるか · Simulatio Lab"
+},
+{
+"id": "s0687",
+"page": "monkey",
+"ko": "원숭이가 아무 글자나 쳐서 햄릿의 대사를 쓸 수 있을까? 순수한 우연과 누적 선택을 직접 비교해 보세요.",
+"en": "Could monkeys typing random letters write a line of Hamlet? Compare pure chance with cumulative selection yourself.",
+"tr": "でたらめに文字を打つサルは、ハムレットの一節を書けるでしょうか。純粋な偶然と累積選択を、自分で比べてみましょう。"
+},
+{
+"id": "s0688",
+"page": "monkey",
+"ko": "원숭이가 타자기를 무작위로 두드리면 언젠가 햄릿이 나온다는 \"무한 원숭이 정리\"가 있습니다. 하지만 \"언젠가\"는 얼마나 걸릴까요? 같은 목표를 \"순수한 우연\"과 \"조금씩 나아지는 선택\"으로 찾아가는 경주를 보여 드립니다.",
+"en": "The \"infinite monkey theorem\" says that a monkey hitting typewriter keys at random will eventually produce Hamlet. But how long is \"eventually\"? Here is a race toward the same target, one side by pure chance and one by selection that improves little by little.",
+"tr": "「無限の猿定理」は、タイプライターのキーをでたらめに叩くサルがいつかハムレットを書き上げる、と言います。では、その「いつか」はどれくらい先でしょうか。ここでは同じ目標に向けて、純粋な偶然と、少しずつ良くなる選択とを競走させます。"
+},
+{
+"id": "s0689",
+"page": "monkey",
+"ko": "글자는 알파벳 대문자 26개와 띄어쓰기를 합친 27가지이고, 목표는 햄릿의 대사입니다(<code>TO BE OR NOT TO BE</code>, <code>METHINKS IT IS LIKE A WEASEL</code>).",
+"en": "The symbols are the 26 uppercase letters plus the space, 27 in all, and the target is a line from Hamlet (<code>TO BE OR NOT TO BE</code> or <code>METHINKS IT IS LIKE A WEASEL</code>).",
+"tr": "使う記号は大文字26字とスペースの計27種類で、目標はハムレットの一節(<code>TO BE OR NOT TO BE</code> または <code>METHINKS IT IS LIKE A WEASEL</code>)です。"
+},
+{
+"id": "s0690",
+"page": "monkey",
+"ko": "<b style=\"color:var(--unlucky)\">순수한 우연</b>: 한 단계마다 완전히 무작위인 문장 5,000개를 찍어 보고, 목표와 가장 많이 맞은 문장을 기록합니다. 이전 결과는 다음 시도에 아무 영향을 주지 않습니다.",
+"en": "<b style=\"color:var(--unlucky)\">Pure chance</b>: at every step, 5,000 completely random sentences are typed and the one matching the target in the most places is recorded. Earlier results have no influence on later attempts.",
+"tr": "<b style=\"color:var(--unlucky)\">純粋な偶然</b>:各ステップで、まったくでたらめな文を5,000個打ち、目標と一致する場所がいちばん多いものを記録します。以前の結果は、あとの試行に影響しません。"
+},
+{
+"id": "s0691",
+"page": "monkey",
+"ko": "<b style=\"color:var(--lucky)\">누적 선택</b>: 무작위 문장 하나에서 시작해, 한 세대마다 복사본을 만들고 글자마다 일정 확률로 바꿉니다. 목표와 가장 많이 맞는 문장(부모 포함)이 다음 세대의 부모가 됩니다. 맞은 글자가 다음 세대로 이어지는 것이 차이입니다.",
+"en": "<b style=\"color:var(--lucky)\">Cumulative selection</b>: start from one random sentence; each generation makes copies and changes each letter with some probability. The sentence (parent included) matching the target in the most places becomes the next generation's parent. The difference is that correct letters are carried over.",
+"tr": "<b style=\"color:var(--lucky)\">累積選択</b>:1つのでたらめな文から始め、世代ごとにコピーを作り、各文字を一定の確率で変えます。目標と一致する場所がいちばん多い文(親も含む)が次の世代の親になります。違いは、正しい文字が引き継がれることです。"
+},
+{
+"id": "s0692",
+"page": "monkey",
+"ko": "두 방식 모두 \"목표와 맞은 글자 수\"로만 평가합니다. 색칠된 글자 칸이 목표와 맞은 곳이에요.",
+"en": "Both methods are scored only by \"how many letters match the target.\" Highlighted letter boxes are the ones that match.",
+"tr": "どちらの方法も、評価は「目標と一致する文字がいくつあるか」だけです。色のついた文字のマスが、一致している文字です。"
+},
+{
+"id": "s0693",
+"page": "monkey",
+"ko": "한 세대의 복사본 수 <output id=\"o-offspring\"></output>",
+"en": "Copies per generation <output id=\"o-offspring\"></output>",
+"tr": "1世代あたりのコピー数 <output id=\"o-offspring\"></output>"
+},
+{
+"id": "s0694",
+"page": "monkey",
+"ko": "누적 선택에서 한 번에 만드는 후보 수",
+"en": "How many candidates cumulative selection makes at once",
+"tr": "累積選択が一度に作る候補の数"
+},
+{
+"id": "s0695",
+"page": "monkey",
+"ko": "글자마다 바뀔 확률 <output id=\"o-mutation\"></output>",
+"en": "Chance each letter changes <output id=\"o-mutation\"></output>",
+"tr": "各文字が変わる確率 <output id=\"o-mutation\"></output>"
+},
+{
+"id": "s0696",
+"page": "monkey",
+"ko": "돌연변이율. 너무 낮으면 느리고, 너무 높으면 맞은 글자도 흔들려요",
+"en": "The mutation rate. Too low is slow; too high shakes the correct letters too",
+"tr": "突然変異の率です。低すぎると遅く、高すぎると正しい文字まで変わってしまいます"
+},
+{
+"id": "s0697",
+"page": "monkey",
+"ko": "목표 문장 <output id=\"o-target\"></output>",
+"en": "Target sentence <output id=\"o-target\"></output>",
+"tr": "目標の文 <output id=\"o-target\"></output>"
+},
+{
+"id": "s0698",
+"page": "monkey",
+"ko": "TO BE OR NOT TO BE (18글자)",
+"en": "TO BE OR NOT TO BE (18 letters)",
+"tr": "TO BE OR NOT TO BE(18文字)"
+},
+{
+"id": "s0699",
+"page": "monkey",
+"ko": "METHINKS IT IS LIKE A WEASEL (28글자)",
+"en": "METHINKS IT IS LIKE A WEASEL (28 letters)",
+"tr": "METHINKS IT IS LIKE A WEASEL(28文字)"
+},
+{
+"id": "s0700",
+"page": "monkey",
+"ko": "둘 다 햄릿의 대사예요",
+"en": "Both are lines from Hamlet",
+"tr": "どちらもハムレットの一節です"
+},
+{
+"id": "s0701",
+"page": "monkey",
+"ko": "같은 설정, 다른 원숭이",
+"en": "Same settings, new monkeys",
+"tr": "同じ設定で新しいサル"
+},
+{
+"id": "s0702",
+"page": "monkey",
+"ko": "① 두 방식의 경주",
+"en": "① The Race Between the Two Methods",
+"tr": "① 2つの方法の競走"
+},
+{
+"id": "s0703",
+"page": "monkey",
+"ko": "위쪽은 순수한 우연(빨강), 아래쪽은 누적 선택(초록)입니다. 색칠된 칸이 목표와 맞은 글자예요. 회색 줄은 우연이 방금 찍은 무작위 글자이고, 아래쪽의 옅은 줄들은 누적 선택에서 맞은 글자 수가 늘어날 때마다의 부모 문장입니다. 맞은 글자가 다음 세대로 이어지며 위에서 아래로 쌓여 가는 것을 보세요.",
+"en": "The top is pure chance (red) and the bottom is cumulative selection (green). Colored boxes are letters that match the target. The gray row is the random text chance just typed, and the faint rows at the bottom are the parent sentences of cumulative selection each time the number of matching letters went up. Watch the correct letters carry over and pile up from top to bottom.",
+"tr": "上は純粋な偶然（赤）、下は累積選択（緑）です。色の付いたマスは目標と一致した文字です。灰色の行は偶然がいま打った無作為な文章で、下の薄い行は一致する文字数が増えるたびの累積選択の親の文です。正しい文字が受け継がれ、上から下へ積み上がっていく様子を見てください。"
+},
+{
+"id": "s0704",
+"page": "monkey",
+"ko": "② 시도 횟수와 맞은 글자 수",
+"en": "② Attempts and Letters Matched",
+"tr": "② 試行回数と一致した文字数"
+},
+{
+"id": "s0705",
+"page": "monkey",
+"ko": "가로는 시도 횟수(로그 눈금), 세로는 맞은 글자 수입니다. 선택은 몇천 번 만에 끝나는데 우연은 100만 번을 찍어도 한참 모자랍니다.",
+"en": "The horizontal axis is the number of attempts (log scale), the vertical axis is letters matched. Selection finishes in a few thousand attempts, while chance falls far short even after a million.",
+"tr": "横軸は試行回数(対数目盛)、縦軸は一致した文字数です。選択は数千回の試行で完成しますが、偶然は100万回たってもまったく届きません。"
+},
+{
+"id": "s0706",
+"page": "monkey",
+"ko": "<i style=\"background:var(--unlucky)\"></i>순수한 우연",
+"en": "<i style=\"background:var(--unlucky)\"></i>Pure chance",
+"tr": "<i style=\"background:var(--unlucky)\"></i>純粋な偶然"
+},
+{
+"id": "s0707",
+"page": "monkey",
+"ko": "<i style=\"background:var(--lucky)\"></i>누적 선택",
+"en": "<i style=\"background:var(--lucky)\"></i>Cumulative selection",
+"tr": "<i style=\"background:var(--lucky)\"></i>累積選択"
+},
+{
+"id": "s0708",
+"page": "monkey",
+"ko": "③ 문장이 길어지면",
+"en": "③ As the Sentence Gets Longer",
+"tr": "③ 文が長くなると"
+},
+{
+"id": "s0709",
+"page": "monkey",
+"ko": "가로는 문장 길이, 세로는 성공에 필요한 시도 횟수(로그 눈금)입니다. 붉은 선은 우연의 기대값(27<sup>L</sup>), 파란 점은 선택을 6번씩 돌린 결과예요.",
+"en": "The horizontal axis is sentence length, the vertical axis is the number of attempts needed (log scale). The red line is chance's expected value (27<sup>L</sup>), and the blue dots are 6 runs of selection each.",
+"tr": "横軸は文の長さ、縦軸は必要な試行回数(対数目盛)です。赤い線は偶然の期待値(27<sup>L</sup>)で、青い点は選択をそれぞれ6回実行した結果です。"
+},
+{
+"id": "s0710",
+"page": "monkey",
+"ko": "<i style=\"background:var(--accent)\"></i>누적 선택 (시뮬레이션 평균)",
+"en": "<i style=\"background:var(--accent)\"></i>Cumulative selection (simulation average)",
+"tr": "<i style=\"background:var(--accent)\"></i>累積選択(シミュレーションの平均)"
+},
+{
+"id": "s0711",
+"page": "monkey",
+"ko": "<i style=\"background:var(--unlucky)\"></i>순수한 우연 (기대값 27^L)",
+"en": "<i style=\"background:var(--unlucky)\"></i>Pure chance (expected value 27^L)",
+"tr": "<i style=\"background:var(--unlucky)\"></i>純粋な偶然(期待値 27^L)"
+},
+{
+"id": "s0712",
+"page": "monkey",
+"ko": "④ 돌연변이율을 바꾸면",
+"en": "④ When the Mutation Rate Changes",
+"tr": "④ 突然変異の率を変えると"
+},
+{
+"id": "s0713",
+"page": "monkey",
+"ko": "가로는 돌연변이율, 세로는 완성에 걸린 세대 수입니다. 점은 6번의 실행이에요.",
+"en": "The horizontal axis is the mutation rate, the vertical axis is the number of generations until completion. Dots are 6 runs.",
+"tr": "横軸は突然変異の率、縦軸は完成までの世代数です。点は6回の実行結果です。"
+},
+{
+"id": "s0714",
+"page": "monkey",
+"ko": "<b>말하는 것:</b> 목표를 한 번에 맞히려는 우연은 문장이 길어질수록 기대 시도 횟수가 27배씩 불어나서 사실상 불가능해지지만, 맞은 글자를 이어 가는 누적 선택은 몇천 번 만에 같은 문장에 도달합니다. 같은 우연이라도 \"한 번에 다 맞히기\"와 \"조금씩 쌓기\"는 전혀 다른 일이에요.",
+"en": "<b>What it shows:</b> For chance trying to hit the target in one go, the expected number of attempts grows 27-fold with every added letter, which makes it practically impossible. Cumulative selection, which keeps the letters it got right, reaches the same sentence in a few thousand attempts. Even with the same randomness, \"getting everything right at once\" and \"building up step by step\" are completely different things.",
+"tr": "<b>示していること:</b> 一度で目標に当てようとする偶然では、文字が1つ増えるごとに期待される試行回数が27倍になり、事実上不可能です。正解の文字を残していく累積選択なら、同じ文に数千回の試行でたどり着きます。同じ偶然を使っても、「一度にすべてを当てる」ことと「一歩ずつ積み上げる」ことはまったく別のものです。"
+},
+{
+"id": "s0715",
+"page": "monkey",
+"ko": "<b>말하지 않는 것:</b> 실제 생물의 진화가 이 프로그램처럼 일어난다는 뜻이 아닙니다. 이 모델에는 미리 정해진 목표 문장이 있지만 진화에는 정해진 목표가 없고, 도킨스 자신도 이 점을 밝혔습니다. 이 실험은 \"한 번에 맞히는 우연\"과 \"단계마다 걸러 내는 선택\"의 힘의 차이만 보여줍니다. 원숭이가 실제로 햄릿을 쓰는지에 대한 이야기도 아닙니다.",
+"en": "<b>What it doesn't show:</b> It does not mean real biological evolution works like this program. The model has a preset target sentence, whereas evolution has no set goal, a point Dawkins himself made. This experiment only shows the difference in power between \"chance that must hit in one go\" and \"selection that filters at every step.\" It is also not a claim about whether monkeys could actually write Hamlet.",
+"tr": "<b>示していないこと:</b> 現実の生物の進化がこのプログラムのように働くという意味ではありません。このモデルにはあらかじめ決めた目標の文がありますが、進化には決まった目標がなく、これはドーキンス自身も指摘した点です。この実験が示すのは、「一度で当てなければならない偶然」と「各段階でふるい分ける選択」との力の差だけです。サルが実際にハムレットを書けるかどうかについての主張でもありません。"
+},
+{
+"id": "s0716",
+"page": "monkey",
+"ko": "\"무한 원숭이 정리\"라고 알려진 사고 실험과, 리처드 도킨스가 <i>The Blind Watchmaker</i>(1986)에서 소개한 \"위즐(weasel) 프로그램\"에서 발상을 얻은 이 프로젝트의 구현입니다. 책의 프로그램을 그대로 옮긴 것은 아닙니다.",
+"en": "This is this project's own implementation, inspired by the thought experiment known as the \"infinite monkey theorem\" and by the \"weasel program\" Richard Dawkins described in <i>The Blind Watchmaker</i> (1986). It is not a literal port of the program in the book.",
+"tr": "「無限の猿定理」として知られる思考実験と、リチャード・ドーキンスが<i>The Blind Watchmaker</i>(1986)で述べた「weasel プログラム」に着想を得た、このプロジェクト独自の実装です。本に載っているプログラムをそのまま移したものではありません。"
+},
+{
+"id": "s0717",
+"page": "monkey",
+"ko": "목표 문장은 햄릿의 대사입니다: \"To be, or not to be\"(3막 1장)와 \"Methinks it is like a weasel\"(3막 2장). 글자는 알파벳 대문자 26개와 띄어쓰기이고 쉼표 같은 부호는 뺐습니다.",
+"en": "The targets are lines from Hamlet: \"To be, or not to be\" (Act 3, Scene 1) and \"Methinks it is like a weasel\" (Act 3, Scene 2). The symbols are the 26 uppercase letters and the space; punctuation such as commas is left out.",
+"tr": "目標はハムレットの一節で、「To be, or not to be」(第3幕第1場)と「Methinks it is like a weasel」(第3幕第2場)です。使う記号は大文字26字とスペースで、カンマなどの句読点は除いています。"
+},
+{
+"id": "s0718",
+"page": "monkey",
+"ko": "기본 설정(복사본 100개, 돌연변이율 5%)으로 20번 돌리면 <code>TO BE OR NOT TO BE</code>는 평균 46세대(최소 26, 최대 89), <code>METHINKS IT IS LIKE A WEASEL</code>은 평균 77세대(최소 43, 최대 116)가 걸렸습니다. 우연은 100만 번을 찍어도 각각 7/18, 9/28 정도만 맞았습니다.",
+"en": "With the default settings (100 copies, 5% mutation), 20 runs took on average 46 generations (min 26, max 89) for <code>TO BE OR NOT TO BE</code> and 77 generations (min 43, max 116) for <code>METHINKS IT IS LIKE A WEASEL</code>. After a million attempts, chance had matched only about 7/18 and 9/28.",
+"tr": "初期設定(コピー100個、突然変異5%)で20回実行したところ、<code>TO BE OR NOT TO BE</code>は平均46世代(最小26、最大89)、<code>METHINKS IT IS LIKE A WEASEL</code>は平均77世代(最小43、最大116)かかりました。100万回の試行後でも、偶然が一致させられたのは約7/18と9/28にとどまりました。"
+},
+{
+"id": "s0719",
+"page": "monkey",
+"ko": "우연으로 L글자를 한 번에 맞힐 기대 시도 횟수는 27<sup>L</sup>입니다. \"초당 10억 번 시도\"는 이 프로젝트의 가정이고, 우주 나이는 약 138억 년으로 계산했습니다. 18글자는 약 18억 년(우주 나이의 0.13배), 28글자는 약 3.8×10<sup>23</sup>년입니다.",
+"en": "The expected number of attempts to hit an L-letter sentence by chance in one go is 27<sup>L</sup>. \"One billion attempts per second\" is this project's assumption, and the age of the universe is taken as about 13.8 billion years. For 18 letters that is about 1.8 billion years (0.13 times the age of the universe); for 28 letters, about 3.8×10<sup>23</sup> years.",
+"tr": "L文字の文を偶然で一度に当てるまでに期待される試行回数は27<sup>L</sup>です。「1秒間に10億回の試行」はこのプロジェクトの仮定で、宇宙の年齢は約138億年としています。18文字なら約18億年(宇宙の年齢の0.13倍)、28文字なら約3.8×10<sup>23</sup>年です。"
+},
+{
+"id": "s0720",
+"page": "monkey",
+"ko": "문장이 아주 짧을 때(1~2글자)는 이 설정의 누적 선택이 오히려 우연보다 느립니다. 글자마다 5%만 바뀌기 때문에 복사본 100개로도 변화가 드물기 때문입니다. 검증은 <code>node tools/validate-monkey.js</code>로 할 수 있습니다.",
+"en": "For very short sentences (1 to 2 letters), cumulative selection with these settings is actually slower than chance, because with only 5% of letters changing, even 100 copies rarely differ. You can verify with <code>node tools/validate-monkey.js</code>.",
+"tr": "ごく短い文(1〜2文字)では、この設定の累積選択は偶然よりかえって遅くなります。変わる文字が5%だけなので、コピーが100個あってもほとんど違いが出ないためです。<code>node tools/validate-monkey.js</code>で確認できます。"
+},
+{
+"id": "s0721",
+"page": "monkey",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/monkey\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/monkey\">GitHub</a>.",
+"tr": "コードは<a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/monkey\">GitHub</a>で公開しています。"
+},
+{
+"id": "s0722",
+"page": "painters",
+"ko": "AI 화가 100명이 서로 따라 그리면 · 시뮬라티오 랩",
+"en": "What If 100 AI Painters Copy Each Other? · Simulatio Lab",
+"tr": "AI画家100人がたがいに真似したら · Simulatio Lab"
+},
+{
+"id": "s0723",
+"page": "painters",
+"ko": "화가들이 서로 따라 그리면 화풍의 다양성은 어떻게 될까? 따라 그리는 비율과 독창성을 바꿔 직접 돌려보세요.",
+"en": "What happens to the diversity of styles when painters copy each other? Change the copy rate and originality and run it yourself.",
+"tr": "画家たちがたがいに真似をすると、スタイルの多様性はどうなるでしょうか。真似をする頻度と独創性を変えて、自分で実行してみましょう。"
+},
+{
+"id": "s0724",
+"page": "painters",
+"ko": "화가 100명이 서로의 그림을 보고 마음에 드는 화풍을 따라 그립니다. 처음엔 제각각이던 그림이 어떻게 변할까요? 따라 그리는 비율과 독창성을 바꿔 가며 \"하나의 화풍\"으로 수렴하는 지점을 찾아봅니다.",
+"en": "One hundred painters look at each other's work and copy the styles they like. How do paintings that start out all different change? Vary how often they copy and how original they are, and look for the point where everything converges on a single style.",
+"tr": "100人の画家がたがいの作品を見て、気に入ったスタイルを真似します。最初はすべて違っていた絵は、どう変わっていくでしょうか。真似をする頻度と独創性を変えて、すべてがひとつのスタイルに収束する分かれ目を探してみましょう。"
+},
+{
+"id": "s0725",
+"page": "painters",
+"ko": "화가마다 네 가지 숫자로 된 <b>화풍</b>이 있습니다: 색조, 붓 크기, 복잡도, 각진 정도. 이 숫자로 작은 추상화를 그려서 갤러리에 걸어요. 화풍이 비슷하면 그림도 비슷해 보입니다.",
+"en": "Each painter has a <b>style</b> made of four numbers: hue, brush size, complexity and angularity. These numbers generate a small abstract painting for the gallery. Similar styles produce similar-looking paintings.",
+"tr": "各画家は、色相・筆の太さ・複雑さ・角ばり具合という4つの数値でできた<b>スタイル</b>を持っています。この数値からギャラリー用の小さな抽象画が生成されます。似たスタイルからは似た見た目の絵ができます。"
+},
+{
+"id": "s0726",
+"page": "painters",
+"ko": "라운드마다 모든 화가가 동시에, 확률 <b>모방률</b>로 다른 화가 한 명의 화풍을 절반쯤 <b>따라갑니다</b>. 나머지는 <b>혁신</b>이라서 자기 화풍을 <b>독창성</b>만큼 무작위로 바꿔요.",
+"en": "Each round, every painter at the same time <b>copies</b> half of another painter's style with the <b>copy rate</b> probability. Otherwise they <b>innovate</b>, randomly changing their own style by the amount of <b>originality</b>.",
+"tr": "各ラウンドで、すべての画家が同時に、<b>コピー率</b>の確率で他の画家のスタイルの半分を<b>コピー</b>します。そうでない場合は<b>革新</b>を行い、<b>独創性</b>の大きさだけ自分のスタイルをランダムに変えます。"
+},
+{
+"id": "s0727",
+"page": "painters",
+"ko": "누구를 따라 할지는 <b>인기</b>가 영향을 줍니다. 따라 그린 사람이 많을수록 인기가 오르고(시간이 지나면 줄어듦), <b>인기 편향</b>이 클수록 인기 높은 화가가 더 자주 뽑힙니다.",
+"en": "Whom to copy is influenced by <b>popularity</b>. Popularity rises with the number of people who copied a painter (and fades over time), and the larger the <b>popularity bias</b>, the more often popular painters are chosen.",
+"tr": "誰をコピーするかは<b>人気</b>に左右されます。人気は、その画家をコピーした人の数に応じて上がり(時間とともに薄れます)、<b>人気バイアス</b>が大きいほど、人気の画家がよく選ばれます。"
+},
+{
+"id": "s0728",
+"page": "painters",
+"ko": "<b>다양성</b>은 화가 쌍 사이 화풍 거리의 평균(최대 1), <b>쏠림</b>은 가장 인기 있는 화풍과 비슷한 화가의 비율입니다.",
+"en": "<b>Diversity</b> is the average style distance between pairs of painters (maximum 1), and <b>concentration</b> is the share of painters close to the most popular style.",
+"tr": "<b>多様性</b>は画家のペア間のスタイル距離の平均(最大1)で、<b>集中度</b>は最も人気のあるスタイルに近い画家の割合です。"
+},
+{
+"id": "s0729",
+"page": "painters",
+"ko": "따라 그리는 비율 <output id=\"o-copy\"></output>",
+"en": "Copy rate <output id=\"o-copy\"></output>",
+"tr": "コピー率 <output id=\"o-copy\"></output>"
+},
+{
+"id": "s0730",
+"page": "painters",
+"ko": "100%면 모두가 매번 누군가를 따라 해요",
+"en": "At 100%, everyone copies someone every round",
+"tr": "100%だと、毎ラウンド全員が誰かをコピーします"
+},
+{
+"id": "s0731",
+"page": "painters",
+"ko": "인기 편향 <output id=\"o-bias\"></output>",
+"en": "Popularity bias <output id=\"o-bias\"></output>",
+"tr": "人気バイアス <output id=\"o-bias\"></output>"
+},
+{
+"id": "s0732",
+"page": "painters",
+"ko": "클수록 인기 있는 화가가 더 자주 모방 대상이 돼요",
+"en": "The larger it is, the more often popular painters get copied",
+"tr": "大きいほど、人気の画家がよくコピーされます"
+},
+{
+"id": "s0733",
+"page": "painters",
+"ko": "독창성 <output id=\"o-originality\"></output>",
+"en": "Originality <output id=\"o-originality\"></output>",
+"tr": "独創性 <output id=\"o-originality\"></output>"
+},
+{
+"id": "s0734",
+"page": "painters",
+"ko": "혁신할 때 화풍을 얼마나 크게 바꾸는지",
+"en": "How much a style changes when painters innovate",
+"tr": "画家が革新するときにスタイルがどれだけ変わるか"
+},
+{
+"id": "s0735",
+"page": "painters",
+"ko": "같은 설정, 다른 화단",
+"en": "Same settings, new gallery",
+"tr": "同じ設定で、新しいギャラリー"
+},
+{
+"id": "s0736",
+"page": "painters",
+"ko": "① 갤러리",
+"en": "① The Gallery",
+"tr": "① ギャラリー"
+},
+{
+"id": "s0737",
+"page": "painters",
+"ko": "그림 한 장이 화가 한 명입니다. 금색 테두리는 가장 인기 있는 화가, 오른쪽 위 초록 점은 이번 라운드에 새 화풍을 시도한 화가예요. 그림들이 점점 닮아 가는지 지켜보세요.",
+"en": "Each picture is one painter. The gold outline marks the most popular painter, and a green dot in the top-right corner marks painters who tried a new style this round. Watch whether the pictures grow more alike.",
+"tr": "一枚一枚の絵が一人の画家です。金色の枠は最も人気のある画家、右上の緑の点はこのラウンドで新しい画風を試した画家を表します。絵がだんだん似てくるかを見てください。"
+},
+{
+"id": "s0738",
+"page": "painters",
+"ko": "② 다양성과 쏠림의 변화",
+"en": "② Diversity and Concentration Over Time",
+"tr": "② 時間による多様性と集中度の変化"
+},
+{
+"id": "s0739",
+"page": "painters",
+"ko": "파란 선은 다양성(화풍이 얼마나 다른가), 금색 선은 쏠림(인기 화풍을 따르는 비율)입니다.",
+"en": "The blue line is diversity (how different the styles are) and the gold line is concentration (the share following the popular style).",
+"tr": "青い線は多様性(スタイルの違いの大きさ)、金色の線は集中度(人気のスタイルに従う割合)です。"
+},
+{
+"id": "s0740",
+"page": "painters",
+"ko": "<i style=\"background:var(--accent)\"></i>다양성",
+"en": "<i style=\"background:var(--accent)\"></i>Diversity",
+"tr": "<i style=\"background:var(--accent)\"></i>多様性"
+},
+{
+"id": "s0741",
+"page": "painters",
+"ko": "<i style=\"background:var(--rich)\"></i>화풍 쏠림",
+"en": "<i style=\"background:var(--rich)\"></i>Style concentration",
+"tr": "<i style=\"background:var(--rich)\"></i>スタイルの集中度"
+},
+{
+"id": "s0742",
+"page": "painters",
+"ko": "③ 화풍 지도",
+"en": "③ Style Map",
+"tr": "③ スタイルマップ"
+},
+{
+"id": "s0743",
+"page": "painters",
+"ko": "가로는 색조, 세로는 복잡도이고 점 하나가 화가 한 명입니다. 점이 한곳에 모이면 하나의 화풍으로 수렴한 거예요. 큰 점일수록 인기가 높습니다.",
+"en": "The horizontal axis is hue and the vertical axis is complexity; each dot is one painter. When the dots pile into one place, the painters have converged on one style. Larger dots are more popular.",
+"tr": "横軸は色相、縦軸は複雑さで、各点が1人の画家です。点が一か所に集まると、画家たちが1つのスタイルに収束したことになります。大きい点ほど人気があります。"
+},
+{
+"id": "s0744",
+"page": "painters",
+"ko": "④ 따라 그리는 비율이 높아지면",
+"en": "④ As the Copy Rate Rises",
+"tr": "④ コピー率が上がると"
+},
+{
+"id": "s0745",
+"page": "painters",
+"ko": "가로는 따라 그리는 비율, 세로는 80라운드 뒤의 다양성(파랑)과 쏠림(금색)입니다. 회색 선은 인기 편향이 없을 때의 다양성이에요. 점은 4번의 실행입니다.",
+"en": "The horizontal axis is the copy rate and the vertical axis is diversity (blue) and concentration (gold) after 80 rounds. The gray line is diversity with no popularity bias. Dots are 4 runs.",
+"tr": "横軸はコピー率、縦軸は80ラウンド後の多様性(青)と集中度(金)です。灰色の線は人気バイアスがない場合の多様性です。点は4回の実行結果です。"
+},
+{
+"id": "s0746",
+"page": "painters",
+"ko": "<b>말하는 것:</b> 따라 그리는 비율이 높아질수록 화풍의 다양성이 줄고 하나의 \"대표 화풍\"에 쏠립니다. 이 모델에서는 갑자기 무너지는 한 지점이 있다기보다 연속적으로 줄어들고, 따라 그리는 비율이 40~80% 사이에서 쏠림이 크게 늘어납니다. 인기 있는 화가를 더 자주 따라 하는 편향이 있으면 같은 모방률에서도 쏠림이 훨씬 커지고, 독창성이 낮으면 모방률이 중간이어도 하나의 화풍으로 굳어요.",
+"en": "<b>What it shows:</b> The higher the copy rate, the less diverse the styles become and the more they pile onto a single \"house style.\" In this model there is no single sudden collapse point; diversity falls continuously, and concentration rises sharply between copy rates of about 40% and 80%. A bias toward copying popular painters makes concentration much larger at the same copy rate, and with low originality even a moderate copy rate hardens into one style.",
+"tr": "<b>わかること:</b> コピー率が高いほどスタイルの多様性は下がり、1つの「ハウススタイル」に集中していきます。このモデルでは、突然崩れる単一の転換点はなく、多様性は連続的に低下し、集中度はコピー率およそ40%から80%の間で急激に上がります。人気の画家をコピーしやすい偏りがあると、同じコピー率でも集中度ははるかに大きくなり、独創性が低いと、中程度のコピー率でも1つのスタイルに固まってしまいます。"
+},
+{
+"id": "s0747",
+"page": "painters",
+"ko": "<b>말하지 않는 것:</b> 실제 이미지 생성 AI나 화가들의 행동을 재현한 것이 아닙니다. 화풍을 네 개의 숫자로 줄이고 \"따라 그리기\"와 \"무작위 혁신\"만 남긴 매우 단순한 문화 전파 모델이고, 그림은 이 숫자로 만든 장식용 추상화입니다. 모방이 나쁘다거나 독창성이 항상 좋다는 판단도 아닙니다. 모방은 기술을 퍼뜨리고 좋은 화풍을 키우기도 해요.",
+"en": "<b>What it doesn't show:</b> This does not reproduce real image-generating AI or how painters actually behave. It is a very simple model of cultural transmission that reduces style to four numbers and keeps only \"copying\" and \"random innovation,\" and the pictures are decorative abstracts drawn from those numbers. It also does not claim that copying is bad or that originality is always good: copying spreads skills and can nurture good styles.",
+"tr": "<b>わからないこと:</b> 実際の画像生成AIや画家の実際の行動を再現するものではありません。スタイルを4つの数値に単純化し、「コピー」と「ランダムな革新」だけを残した、ごく単純な文化伝達のモデルであり、絵はその数値から描いた装飾的な抽象画です。また、コピーが悪いことだとか、独創性が常に良いことだと主張するものでもありません。コピーは技術を広め、良いスタイルを育てることもあります。"
+},
+{
+"id": "s0748",
+"page": "painters",
+"ko": "모방과 독창성이 다양성에 미치는 영향을 보는 문화 전파 모델로, 사회적 영향이 성공의 예측 가능성을 바꾼다는 Salganik, Dodds, Watts (2006), <i>Science</i> 311의 실험과 문화 진화 연구에서 발상을 얻은 이 프로젝트의 설계입니다. 논문 수치를 재현한 것은 아닙니다.",
+"en": "A cultural-transmission model of how copying and originality affect diversity, inspired by the experiment of Salganik, Dodds, Watts (2006), <i>Science</i> 311, on how social influence changes the predictability of success, and by cultural-evolution research. It is this project's own design and does not reproduce a paper's numbers.",
+"tr": "コピーと独創性が多様性にどう影響するかを示す文化伝達のモデルで、社会的影響が成功の予測しやすさをどう変えるかを調べたSalganik, Dodds, Watts (2006), <i>Science</i> 311の実験と、文化進化の研究に着想を得ています。このプロジェクト独自の設計であり、論文の数値を再現するものではありません。"
+},
+{
+"id": "s0749",
+"page": "painters",
+"ko": "인기 편향은 뽑힐 가중치를 (1-편향) + 편향 × (인기/평균 인기)²로 두었습니다. 처음에는 인기에 비례하게만 했더니 편향 슬라이더가 결과에 거의 영향을 주지 않아서 제곱으로 바꿨습니다. 혁신한 화가가 \"주목받아\" 인기를 얻을 확률(주목 보상)도 시험했지만 쏠림이 52~58%로 거의 바뀌지 않아서 화면에서는 뺐습니다.",
+"en": "The popularity bias sets the weight of being chosen to (1 - bias) + bias × (popularity / mean popularity)². An earlier version used popularity directly, but then the bias slider barely affected results, so it was squared. We also tested a chance for innovators to be \"noticed\" and gain popularity (a novelty reward), but concentration stayed at about 52–58%, so it was left out of the interface.",
+"tr": "人気バイアスは、選ばれる重みを (1 - バイアス) + バイアス × (人気 / 平均人気)² と定めます。以前のバージョンでは人気をそのまま使っていましたが、それではバイアスのスライダーが結果にほとんど影響しなかったため、2乗にしました。革新した人が「注目」されて人気を得る確率(新奇性への報酬)も試しましたが、集中度は52〜58%程度のままだったため、画面には含めていません。"
+},
+{
+"id": "s0750",
+"page": "painters",
+"ko": "다양성은 색조(원형이라 가장 먼 거리는 0.5)를 포함한 네 숫자의 거리를 0~1로 맞춰 쌍마다 평균낸 값입니다. 처음(무작위)은 약 0.44이고, 마지막 20라운드의 평균을 결과로 씁니다. 검증은 <code>node tools/validate-painters.js</code>로 할 수 있습니다.",
+"en": "Diversity is the pairwise average of the distance across the four numbers (hue is circular, so its largest distance is 0.5), scaled to 0–1. The random start is about 0.44, and results use the average of the last 20 rounds. You can verify with <code>node tools/validate-painters.js</code>.",
+"tr": "多様性は、4つの数値にわたる距離のペア平均で、0〜1に正規化しています(色相は円環状なので、その最大距離は0.5です)。ランダムな初期状態はおよそ0.44で、結果は最後の20ラウンドの平均を使っています。<code>node tools/validate-painters.js</code>で検証できます。"
+},
+{
+"id": "s0751",
+"page": "painters",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/painters\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/painters\">GitHub</a>.",
+"tr": "コードは<a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/painters\">GitHub</a>で公開しています。"
+},
+{
+"id": "s0752",
+"page": "peter",
+"ko": "무능한 상사는 왜 생길까 · 시뮬라티오 랩",
+"en": "Why Do Incompetent Bosses Exist? · Simulatio Lab",
+"tr": "なぜ無能な上司が生まれるのか · Simulatio Lab"
+},
+{
+"id": "s0753",
+"page": "peter",
+"ko": "일 잘하는 사람을 승진시키면 조직은 좋아질까? 피터의 원리를 승진 방식을 바꿔 직접 돌려보세요.",
+"en": "Does promoting your best performer make an organization better? Compare promotion methods under the Peter principle.",
+"tr": "成績の一番良い人を昇進させると組織は良くなるのでしょうか。ピーターの法則のもとで昇進方法を比べます。"
+},
+{
+"id": "s0754",
+"page": "peter",
+"ko": "일을 가장 잘하는 사람을 승진시키는 건 당연해 보입니다. 그런데 \"승진한 자리에서도 잘할지는 별개\"라면 어떨까요? 160명 조직으로 승진 방식을 바꿔 가며 조직의 효율을 비교해 봅니다.",
+"en": "Promoting your best performer seems obvious. But what if \"being good at one job says nothing about the next\"? Compare promotion methods and organizational efficiency in a 160-person company.",
+"tr": "成績の一番良い人を昇進させるのは当たり前に思えます。でも、「ある仕事が得意でも、次の仕事ができるとは限らない」としたらどうでしょう。160人の会社で、昇進方法と組織の効率を比べます。"
+},
+{
+"id": "s0755",
+"page": "peter",
+"ko": "위에서부터 1, 5, 11, 21, 41, 81명인 6단계 피라미드 조직입니다. 사람마다 능력(0~10)이 있고 색으로 보입니다(<b style=\"color:var(--unlucky)\">빨강</b>은 낮음, <b style=\"color:var(--accent)\">파랑</b>은 높음).",
+"en": "A 6-level pyramid with 1, 5, 11, 21, 41 and 81 people from top to bottom. Each person has a competence (0–10) shown by color (<b style=\"color:var(--unlucky)\">red</b> is low, <b style=\"color:var(--accent)\">blue</b> is high).",
+"tr": "上から順に1人、5人、11人、21人、41人、81人の6段のピラミッドです。各人には能力(0〜10)があり、色で表します(<b style=\"color:var(--unlucky)\">赤</b>は低く、<b style=\"color:var(--accent)\">青</b>は高い)。"
+},
+{
+"id": "s0756",
+"page": "peter",
+"ko": "해마다 60세가 된 사람이 은퇴하고, 빈자리는 한 단계 아래에서 승진한 사람이 채웁니다. 맨 아래는 신입이 채웁니다.",
+"en": "Each year, people who reach 60 retire and the vacancy is filled by someone promoted from the level below. The bottom level is filled by new hires.",
+"tr": "毎年、60歳に達した人が退職し、その空きは1つ下の階層から昇進した人が埋めます。最下層は新規採用で埋めます。"
+},
+{
+"id": "s0757",
+"page": "peter",
+"ko": "<b>상식 가설</b>(연속성 100%)에서는 승진해도 능력이 그대로입니다. <b>피터 가설</b>(연속성 0%)에서는 승진하면 새 직무에서의 능력이 처음부터 다시 정해집니다.",
+"en": "In the <b>common-sense hypothesis</b> (continuity 100%), competence stays the same after promotion. In the <b>Peter hypothesis</b> (continuity 0%), competence in the new job is drawn fresh.",
+"tr": "<b>常識仮説</b>(継続性100%)では、昇進後も能力は変わりません。<b>ピーター仮説</b>(継続性0%)では、新しい仕事での能力は改めて引き直されます。"
+},
+{
+"id": "s0758",
+"page": "peter",
+"ko": "승진 방식은 최고 능력자 / 최저 능력자 / 무작위 / 번갈아 중에서 고릅니다. 조직 효율은 단계별 평균 능력을 위 단계일수록 크게 반영해 계산합니다.",
+"en": "Choose the promotion method: best performer / worst performer / random / alternating. Efficiency is the average competence per level, weighted more for higher levels.",
+"tr": "昇進方法を選びます(最高の人/最低の人/ランダム/交互)。効率は階層ごとの平均能力で、上の階層ほど重みを大きくしています。"
+},
+{
+"id": "s0759",
+"page": "peter",
+"ko": "승진 후에도 능력이 이어질 확률 <output id=\"o-continuity\"></output>",
+"en": "Chance competence carries over after promotion <output id=\"o-continuity\"></output>",
+"tr": "昇進後も能力が引き継がれる確率 <output id=\"o-continuity\"></output>"
+},
+{
+"id": "s0760",
+"page": "peter",
+"ko": "100%면 상식, 0%면 피터의 원리",
+"en": "100% is common sense, 0% is the Peter principle",
+"tr": "100%は常識、0%はピーターの法則です"
+},
+{
+"id": "s0761",
+"page": "peter",
+"ko": "기간 <output id=\"o-years\"></output>",
+"en": "Duration <output id=\"o-years\"></output>",
+"tr": "期間 <output id=\"o-years\"></output>"
+},
+{
+"id": "s0762",
+"page": "peter",
+"ko": "은퇴·승진이 이어지는 햇수",
+"en": "Years of retirements and promotions",
+"tr": "退職と昇進を繰り返す年数"
+},
+{
+"id": "s0763",
+"page": "peter",
+"ko": "승진 방식 <output id=\"o-strategy\"></output>",
+"en": "Promotion method <output id=\"o-strategy\"></output>",
+"tr": "昇進方法 <output id=\"o-strategy\"></output>"
+},
+{
+"id": "s0764",
+"page": "peter",
+"ko": "최고 능력자 승진",
+"en": "Promote the best performer",
+"tr": "最も成績の良い人を昇進"
+},
+{
+"id": "s0765",
+"page": "peter",
+"ko": "최저 능력자 승진",
+"en": "Promote the worst performer",
+"tr": "最も成績の悪い人を昇進"
+},
+{
+"id": "s0766",
+"page": "peter",
+"ko": "무작위 승진",
+"en": "Promote at random",
+"tr": "ランダムに昇進"
+},
+{
+"id": "s0767",
+"page": "peter",
+"ko": "번갈아 승진",
+"en": "Alternate best and worst",
+"tr": "最高と最低を交互に昇進"
+},
+{
+"id": "s0768",
+"page": "peter",
+"ko": "빈자리가 생기면 누구를 올릴지",
+"en": "Who gets promoted when a vacancy opens",
+"tr": "空きが出たとき誰が昇進するか"
+},
+{
+"id": "s0769",
+"page": "peter",
+"ko": "① 조직이 바뀌는 모습",
+"en": "① How the Organization Changes",
+"tr": "① 組織はどう変わるか"
+},
+{
+"id": "s0770",
+"page": "peter",
+"ko": "한 덩어리가 한 단계(위가 최상위)이고 점이 한 사람이며, 능력 순으로 놓았습니다. <b style=\"color:#2f6fed\">파랑</b>은 능력이 높고 <b style=\"color:#a89a7a\">베이지</b>는 처음 평균(7) 정도, <b style=\"color:#e5484d\">빨강</b>은 낮아요. 해가 갈수록 색이 어떻게 달라지는지 보세요.",
+"en": "Each block is a level (top to bottom) and each dot is a person, sorted by ability: <b style=\"color:#2f6fed\">blue</b> is high, <b style=\"color:#a89a7a\">beige</b> is about the starting average (7), <b style=\"color:#e5484d\">red</b> is low. Watch how the colors change over the years.",
+"tr": "各ブロックが階層（上から下）、各点が一人の人で、能力順に並んでいます：<b style=\"color:#2f6fed\">青</b>は高い、<b style=\"color:#a89a7a\">ベージュ</b>は最初の平均（7）くらい、<b style=\"color:#e5484d\">赤</b>は低い人です。年月とともに色がどう変わるかを見てください。"
+},
+{
+"id": "s0771",
+"page": "peter",
+"ko": "② 조직 효율의 변화",
+"en": "② Organizational Efficiency Over Time",
+"tr": "② 時間による組織効率の変化"
+},
+{
+"id": "s0772",
+"page": "peter",
+"ko": "가로는 시간, 세로는 조직 효율입니다. 점선이 처음 수준이에요.",
+"en": "The horizontal axis is time, the vertical axis is organizational efficiency. The dashed line is the starting level.",
+"tr": "横軸は時間、縦軸は組織の効率です。破線は開始時の水準です。"
+},
+{
+"id": "s0773",
+"page": "peter",
+"ko": "③ 단계별 평균 능력",
+"en": "③ Average Competence by Level",
+"tr": "③ 階層ごとの平均能力"
+},
+{
+"id": "s0774",
+"page": "peter",
+"ko": "점선(7)은 처음 평균입니다. 어느 단계가 올라가고 어느 단계가 내려가는지 보세요.",
+"en": "The dashed line (7) is the starting average. See which levels rise and which fall.",
+"tr": "破線(7)は開始時の平均です。どの階層が上がり、どの階層が下がるか見てみましょう。"
+},
+{
+"id": "s0775",
+"page": "peter",
+"ko": "④ 승진 방식 비교",
+"en": "④ Comparing Promotion Methods",
+"tr": "④ 昇進方法の比較"
+},
+{
+"id": "s0776",
+"page": "peter",
+"ko": "지금 설정의 기간으로 각 방식을 12번씩 돌린 평균 효율입니다. 파랑은 상식 가설, 빨강은 피터 가설이에요.",
+"en": "Average efficiency from 12 runs of each method over the current duration. Blue is the common-sense hypothesis, red is the Peter hypothesis.",
+"tr": "現在の期間について、各方法を12回実行した平均効率です。青は常識仮説、赤はピーター仮説です。"
+},
+{
+"id": "s0777",
+"page": "peter",
+"ko": "<i style=\"background:#2f6fed\"></i>상식 가설 (연속성 100%)",
+"en": "<i style=\"background:#2f6fed\"></i>Common sense (continuity 100%)",
+"tr": "<i style=\"background:#2f6fed\"></i>常識(継続性100%)"
+},
+{
+"id": "s0778",
+"page": "peter",
+"ko": "<i style=\"background:#e5484d\"></i>피터 가설 (연속성 0%)",
+"en": "<i style=\"background:#e5484d\"></i>Peter hypothesis (continuity 0%)",
+"tr": "<i style=\"background:#e5484d\"></i>ピーター仮説(継続性0%)"
+},
+{
+"id": "s0779",
+"page": "peter",
+"ko": "<b>말하는 것:</b> \"일 잘하는 사람을 승진시키면 된다\"는 말은 승진 후에도 능력이 이어진다는 가정에서만 맞습니다. 새 직무의 능력이 별개라면 최고 능력자만 올리는 방식은 오히려 평균 이하의 결과를 냅니다. 승진 기준을 \"지금 일을 잘하는가\"가 아니라 \"새 일을 잘할 수 있는가\"로 바꿔야 한다는 뜻이에요.",
+"en": "<b>What it shows:</b> \"Promote whoever is good at the job\" works only if competence carries over after promotion. If competence in the new role is independent, promoting only the top performers gives below-average results. The promotion criterion should be \"can they do the new job well?\" rather than \"are they good at the current job?\"",
+"tr": "<b>わかること:</b> 「仕事ができる人を昇進させる」という方法がうまくいくのは、昇進後も能力が引き継がれる場合だけです。新しい役職での能力が独立している場合、成績上位者だけを昇進させても結果は平均を下回ります。昇進の基準は「今の仕事が得意か」ではなく、「新しい仕事をうまくこなせるか」であるべきです。"
+},
+{
+"id": "s0780",
+"page": "peter",
+"ko": "<b>말하지 않는 것:</b> 피터의 원리가 현실의 모든 조직에 해당한다는 뜻은 아닙니다. 능력이 승진 뒤에 얼마나 이어지는지는 직무마다 다르고, 이 모델에는 교육, 팀워크, 동기 같은 요소가 없습니다. 특히 \"최저 능력자를 승진시키는 것\"이 좋은 정책이라는 뜻이 절대 아닙니다. 이 단순 모델에서는 유능한 사람을 말단에 남겨 두는 효과 때문에 그렇게 나올 뿐입니다.",
+"en": "<b>What it doesn't show:</b> It doesn't mean the Peter principle applies to every real organization. How much competence carries over varies by role, and this model has no training, teamwork or motivation. In particular, it absolutely does not mean \"promoting the worst performer\" is good policy. In this simple model it only comes out that way because it keeps capable people at the bottom.",
+"tr": "<b>示していないこと:</b> ピーターの法則がすべての現実の組織に当てはまるという意味ではありません。能力がどれだけ引き継がれるかは役割によって異なり、このモデルには研修、チームワーク、やる気は含まれていません。特に、「最も成績の悪い人を昇進させる」ことが良い方針だという意味では決してありません。この単純なモデルでそうなるのは、有能な人を下の階層に残すからにすぎません。"
+},
+{
+"id": "s0781",
+"page": "peter",
+"ko": "Pluchino, Rapisarda, Garofalo (2010), \"The Peter principle revisited: a computational study\", <i>Physica A</i> 389(3)의 아이디어를 단순화한 구현입니다. 논문과 같은 방향(피터 가설에서는 최고 능력자 승진이 가장 나쁜 쪽)이지만, 논문 수치를 그대로 재현한 것은 아닙니다.",
+"en": "A simplified implementation of the ideas in Pluchino, Rapisarda, Garofalo (2010), \"The Peter principle revisited: a computational study\", <i>Physica A</i> 389(3). It points the same way as the paper (under the Peter hypothesis, promoting the best is the worst option) but does not reproduce its numbers exactly.",
+"tr": "Pluchino、Rapisarda、Garofalo(2010)の「The Peter principle revisited: a computational study」(<i>Physica A</i> 389(3))の考え方を簡略化して実装したものです。論文と同じ方向(ピーターの仮説の下では、最良の人を昇進させるのが最悪の選択)を示しますが、数値までは正確に再現していません。"
+},
+{
+"id": "s0782",
+"page": "peter",
+"ko": "논문에서는 \"무작위\" 또는 \"최고·최저 번갈아\" 승진이 가장 좋았지만, 이 구현에서는 \"최저 능력자 승진\"이 가장 높게 나옵니다. 효율 가중치와 능력 재추첨 방식 같은 세부 설정이 달라서 생기는 차이로 보이며 확인하지는 못했습니다.",
+"en": "In the paper, \"random\" or \"alternating best/worst\" promotion did best, but in this implementation \"promote the worst performer\" scores highest. This appears to come from differences in details such as efficiency weights and how competence is redrawn, though this has not been confirmed.",
+"tr": "論文では「ランダム」または「最良と最悪を交互に」昇進させる方法が最も良い結果でしたが、この実装では「最も成績の悪い人を昇進させる」方法が最高得点になります。効率の重みや能力の再抽選方法といった細部の違いによるものと思われますが、確認はできていません。"
+},
+{
+"id": "s0783",
+"page": "peter",
+"ko": "능력은 평균 7, 표준편차 2의 정규분포를 0~10으로 자른 값이고, 효율 가중치는 위에서부터 6, 5, 4, 3, 2, 1입니다. 검증은 <code>node tools/validate-more.js peter</code>로 할 수 있습니다.",
+"en": "Competence is a normal distribution (mean 7, SD 2) clipped to 0–10, and the efficiency weights from the top are 6, 5, 4, 3, 2, 1. You can verify with <code>node tools/validate-more.js peter</code>.",
+"tr": "能力は正規分布(平均7、標準偏差2)を0〜10に切り詰めたもので、効率の重みは上位から6、5、4、3、2、1です。<code>node tools/validate-more.js peter</code>で検証できます。"
+},
+{
+"id": "s0784",
+"page": "peter",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/peter\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/peter\">GitHub</a>.",
+"tr": "コードは<a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/peter\">GitHub</a>で公開しています。"
+},
+{
+"id": "s0785",
+"page": "population",
+"ko": "저출산이 계속되면 2070년 인구 구조는? · 시뮬라티오 랩",
+"en": "What Does Korea's Population Look Like in 2070? · Simulatio Lab",
+"tr": "2070年の韓国の人口はどうなる? · Simulatio Lab"
+},
+{
+"id": "s0786",
+"page": "population",
+"ko": "합계출산율, 이민, 기대수명을 바꿔 한국의 2070년 인구 피라미드를 직접 그려 보세요. 공식 추계가 아닌 단순 모델입니다.",
+"en": "Change the fertility rate, migration and life expectancy and watch Korea's population pyramid evolve to 2070. A simple model, not an official forecast.",
+"tr": "出生率、移住、平均寿命を変えて、2070年までの韓国の人口ピラミッドの変化を見てみましょう。簡単なモデルであり、公式の予測ではありません。"
+},
+{
+"id": "s0787",
+"page": "population",
+"ko": "합계출산율이 0.7 안팎에 머무는 채로 시간이 흐르면 한국의 인구 피라미드는 어떤 모양이 될까요? 출산율, 이민, 기대수명을 바꿔 가며 2024년부터 2070년까지 한 해씩 지켜봅니다.",
+"en": "If the fertility rate stays around 0.7, what shape does Korea's population pyramid take over time? Change fertility, migration and life expectancy and watch it year by year from 2024 to 2070.",
+"tr": "出生率が0.7前後のままだと、韓国の人口ピラミッドは時間とともにどんな形になるでしょうか。出生率、移住、平均寿命を変えて、2024年から2070年まで1年ずつ見てみましょう。"
+},
+{
+"id": "s0788",
+"page": "population",
+"ko": "0세부터 100세 이상까지 나이별 인구를 한 살 단위로 두고, 해마다 모든 사람이 한 살씩 나이를 먹습니다. 이것이 인구 추계의 기본 방식인 \"코호트 요인법\"입니다.",
+"en": "The population is tracked by single year of age, from 0 to 100+, and everyone ages one year each year. This is the basic \"cohort-component method\" of population projection.",
+"tr": "人口は0歳から100歳以上まで1歳ごとに追跡し、毎年全員が1歳ずつ年を取ります。これは人口推計の基本的な「コーホート要因法」です。"
+},
+{
+"id": "s0789",
+"page": "population",
+"ko": "<b>출산</b>: 합계출산율(한 여성이 평생 낳는 아이 수)을 15~49세 여성의 연령별 출산율 곡선에 나누어 적용합니다. 남녀는 합쳐서 계산하고, 각 나이의 절반이 여성이라고 가정합니다.",
+"en": "<b>Births</b>: the total fertility rate (children per woman over a lifetime) is spread over an age pattern of fertility for women aged 15–49. Sexes are combined, and half of each age group is assumed to be female.",
+"tr": "<b>出生</b>: 合計特殊出生率(女性1人が生涯に産む子どもの数)を、15〜49歳の女性の年齢別出生パターンに配分します。男女は合算し、各年齢層の半分が女性であると仮定します。"
+},
+{
+"id": "s0790",
+"page": "population",
+"ko": "<b>사망</b>: 나이가 많을수록 사망 확률이 커지는 곡선을 쓰고, 그 해의 기대수명이 나오도록 맞춥니다. 기대수명은 슬라이더로 10년마다 얼마나 늘지 정합니다.",
+"en": "<b>Deaths</b>: mortality rises with age along a fixed curve, calibrated so each year matches that year's life expectancy. The slider sets how much life expectancy rises per decade.",
+"tr": "<b>死亡</b>: 死亡率は固定された曲線に沿って年齢とともに上がり、各年の平均寿命に合うように調整されています。スライダーで、10年あたりの平均寿命の伸びを設定します。"
+},
+{
+"id": "s0791",
+"page": "population",
+"ko": "<b>이민</b>: 해마다 정해진 수의 사람이 20~39세로 들어오거나(양수) 나갑니다(음수).",
+"en": "<b>Migration</b>: each year a fixed number of people enter (positive) or leave (negative) at ages 20–39.",
+"tr": "<b>移住</b>: 毎年、20〜39歳の一定数の人が入ってくる(正)か出ていく(負)ものとします。"
+},
+{
+"id": "s0792",
+"page": "population",
+"ko": "2024년 연령 구조는 공식 연령별 통계가 아니라 <b>근사</b>입니다. 공표된 연령대 비중(0~14세 약 10.6%, 15~64세 약 70.2%, 65세 이상 약 19.2%)에 맞춘 값이에요.",
+"en": "The 2024 age structure is an <b>approximation</b>, not official single-age data. It is scaled to published age-group shares (about 10.6% aged 0–14, 70.2% aged 15–64 and 19.2% aged 65+).",
+"tr": "2024年の年齢構成は公式の1歳ごとのデータではなく<b>近似値</b>です。公表されている年齢層別の割合(0〜14歳が約10.6%、15〜64歳が70.2%、65歳以上が19.2%)に合わせて調整しています。"
+},
+{
+"id": "s0793",
+"page": "population",
+"ko": "합계출산율 <output id=\"o-tfr\"></output>",
+"en": "Total fertility rate <output id=\"o-tfr\"></output>",
+"tr": "合計特殊出生率 <output id=\"o-tfr\"></output>"
+},
+{
+"id": "s0794",
+"page": "population",
+"ko": "2023년 한국은 약 0.72였고, 이 값이 계속된다고 가정한 것이 기본값입니다 (인구 유지 수준은 약 2.1)",
+"en": "Korea was about 0.72 in 2023; the default holds that value constant (replacement level is about 2.1)",
+"tr": "韓国は2023年に約0.72でした。初期値はこの値を一定に保ちます(人口置換水準は約2.1)"
+},
+{
+"id": "s0795",
+"page": "population",
+"ko": "순이민 <output id=\"o-migration\"></output>",
+"en": "Net migration <output id=\"o-migration\"></output>",
+"tr": "純移住 <output id=\"o-migration\"></output>"
+},
+{
+"id": "s0796",
+"page": "population",
+"ko": "해마다 늘거나 줄어드는 인원(천 명). 0은 이민이 없다는 가정",
+"en": "People added or removed per year (thousands). 0 means no migration",
+"tr": "1年あたりに加わる、または減る人数(千人)。0は移住なしを意味します"
+},
+{
+"id": "s0797",
+"page": "population",
+"ko": "기대수명 증가 <output id=\"o-lifeGain\"></output>",
+"en": "Life expectancy gain <output id=\"o-lifeGain\"></output>",
+"tr": "平均寿命の伸び <output id=\"o-lifeGain\"></output>"
+},
+{
+"id": "s0798",
+"page": "population",
+"ko": "10년마다 늘어나는 기대수명(년). 2024년 기대수명은 83.5세로 시작",
+"en": "Years added to life expectancy per decade. It starts at 83.5 in 2024",
+"tr": "10年あたりに平均寿命に加わる年数。2024年は83.5から始まります"
+},
+{
+"id": "s0799",
+"page": "population",
+"ko": "① 인구 피라미드가 바뀌는 모습",
+"en": "① How the Population Pyramid Changes",
+"tr": "① 人口ピラミッドの変化"
+},
+{
+"id": "s0800",
+"page": "population",
+"ko": "한 줄이 한 살입니다. 초록은 0~14세, 파랑은 15~64세, 금색은 65세 이상이고, 회색 선은 2024년의 모양이에요. 시간이 흐르며 아래(젊은 층)가 좁아지고 위(고령층)가 두꺼워지는지 보세요.",
+"en": "Each row is one year of age. Green is 0–14, blue is 15–64, gold is 65+, and the gray outline is the 2024 shape. Watch whether the bottom (young) narrows and the top (old) thickens over time.",
+"tr": "1行が1歳です。緑は0〜14歳、青は15〜64歳、金色は65歳以上、灰色の輪郭は2024年の形です。時間とともに下(若い世代)が細くなり、上(高齢世代)が厚くなるかどうかに注目してください。"
+},
+{
+"id": "s0801",
+"page": "population",
+"ko": "<i style=\"background:#1fa463\"></i>0~14세",
+"en": "<i style=\"background:#1fa463\"></i>Ages 0–14",
+"tr": "<i style=\"background:#1fa463\"></i>0〜14歳"
+},
+{
+"id": "s0802",
+"page": "population",
+"ko": "<i style=\"background:#2f6fed\"></i>15~64세",
+"en": "<i style=\"background:#2f6fed\"></i>Ages 15–64",
+"tr": "<i style=\"background:#2f6fed\"></i>15〜64歳"
+},
+{
+"id": "s0803",
+"page": "population",
+"ko": "<i style=\"background:#e0a100\"></i>65세 이상",
+"en": "<i style=\"background:#e0a100\"></i>Ages 65+",
+"tr": "<i style=\"background:#e0a100\"></i>65歳以上"
+},
+{
+"id": "s0804",
+"page": "population",
+"ko": "② 총인구의 변화",
+"en": "② Total Population Over Time",
+"tr": "② 総人口の推移"
+},
+{
+"id": "s0805",
+"page": "population",
+"ko": "파란 선이 지금 설정, 점선은 같은 이민·기대수명에서 합계출산율이 0.7일 때(회색)와 1.5일 때(초록)입니다.",
+"en": "The blue line is your current setting; dashed lines show the same migration and life expectancy with a fertility rate of 0.7 (gray) and 1.5 (green).",
+"tr": "青い線が現在の設定です。破線は、同じ移住と平均寿命のまま出生率を0.7(灰色)と1.5(緑)にした場合を示します。"
+},
+{
+"id": "s0806",
+"page": "population",
+"ko": "<i style=\"background:#2f6fed\"></i>지금 설정",
+"en": "<i style=\"background:#2f6fed\"></i>Your setting",
+"tr": "<i style=\"background:#2f6fed\"></i>現在の設定"
+},
+{
+"id": "s0807",
+"page": "population",
+"ko": "<i style=\"background:#1fa463\"></i>합계출산율 1.5",
+"en": "<i style=\"background:#1fa463\"></i>Fertility rate 1.5",
+"tr": "<i style=\"background:#1fa463\"></i>出生率 1.5"
+},
+{
+"id": "s0808",
+"page": "population",
+"ko": "<i style=\"background:#8a93a6\"></i>합계출산율 0.7",
+"en": "<i style=\"background:#8a93a6\"></i>Fertility rate 0.7",
+"tr": "<i style=\"background:#8a93a6\"></i>出生率 0.7"
+},
+{
+"id": "s0809",
+"page": "population",
+"ko": "③ 고령화의 진행",
+"en": "③ How Aging Progresses",
+"tr": "③ 高齢化の進み方"
+},
+{
+"id": "s0810",
+"page": "population",
+"ko": "노년부양비는 65세 이상 인구를 15~64세 인구로 나눈 값입니다. 100%면 일하는 나이 한 명이 노인 한 명을 \"떠받치는\" 셈이에요.",
+"en": "The old-age dependency ratio is the 65+ population divided by the 15–64 population. At 100%, one person of working age corresponds to one older person.",
+"tr": "老年従属人口比は、65歳以上の人口を15〜64歳の人口で割ったものです。100%なら、働く世代1人に対して高齢者が1人いることになります。"
+},
+{
+"id": "s0811",
+"page": "population",
+"ko": "<i style=\"background:#e5484d\"></i>노년부양비",
+"en": "<i style=\"background:#e5484d\"></i>Old-age dependency ratio",
+"tr": "<i style=\"background:#e5484d\"></i>老年従属人口比"
+},
+{
+"id": "s0812",
+"page": "population",
+"ko": "<i style=\"background:#e0a100\"></i>65세 이상 비중",
+"en": "<i style=\"background:#e0a100\"></i>Share aged 65+",
+"tr": "<i style=\"background:#e0a100\"></i>65歳以上の割合"
+},
+{
+"id": "s0813",
+"page": "population",
+"ko": "<i style=\"background:#2f6fed\"></i>15~64세 비중",
+"en": "<i style=\"background:#2f6fed\"></i>Share aged 15–64",
+"tr": "<i style=\"background:#2f6fed\"></i>15〜64歳の割合"
+},
+{
+"id": "s0814",
+"page": "population",
+"ko": "④ 출산율이 달라지면 2070년은",
+"en": "④ How 2070 Changes With Fertility",
+"tr": "④ 出生率による2070年の変化"
+},
+{
+"id": "s0815",
+"page": "population",
+"ko": "가로는 합계출산율, 세로는 2070년의 값입니다. 파란 선은 2024년 인구 대비 2070년 인구, 금색 선은 2070년 65세 이상 비중이에요.",
+"en": "The horizontal axis is the fertility rate; the vertical axis shows 2070 values. The blue line is the 2070 population relative to 2024, and the gold line is the 2070 share aged 65+.",
+"tr": "横軸は出生率、縦軸は2070年の値です。青い線は2024年を基準にした2070年の人口、金色の線は2070年の65歳以上の割合です。"
+},
+{
+"id": "s0816",
+"page": "population",
+"ko": "<i style=\"background:#2f6fed\"></i>2070년 인구 (2024년=100%)",
+"en": "<i style=\"background:#2f6fed\"></i>2070 population (2024 = 100%)",
+"tr": "<i style=\"background:#2f6fed\"></i>2070年の人口(2024年 = 100%)"
+},
+{
+"id": "s0817",
+"page": "population",
+"ko": "<i style=\"background:#e0a100\"></i>2070년 65세 이상 비중",
+"en": "<i style=\"background:#e0a100\"></i>2070 share aged 65+",
+"tr": "<i style=\"background:#e0a100\"></i>2070年の65歳以上の割合"
+},
+{
+"id": "s0818",
+"page": "population",
+"ko": "<b>말하는 것:</b> 합계출산율이 0.72로 유지되면, 이 모델에서 2070년 총인구는 약 2,940만 명으로 줄고 65세 이상이 54%를 차지합니다. 출산율을 1.5까지 올려도 2070년 인구는 약 3,860만 명으로 지금보다 적고, 인구를 지금 수준으로 유지하려면 출산율 회복과 이민 같은 큰 변화가 함께 필요합니다. 고령화는 출산율만이 아니라 이미 태어난 세대의 크기와 기대수명이 함께 만드는 결과예요.",
+"en": "<b>What it shows:</b> If fertility stays at 0.72, this model gives a 2070 population of about 29.4 million with 54% aged 65+. Even raising fertility to 1.5 leaves about 38.6 million in 2070, below today, and holding the population near today's level takes large changes such as a fertility recovery together with migration. Aging comes not just from fertility but from the size of generations already born and from rising life expectancy.",
+"tr": "<b>示していること:</b> 出生率が0.72のままなら、このモデルでは2070年の人口は約2940万人で、そのうち54%が65歳以上になります。出生率を1.5まで上げても2070年は約3860万人で、現在を下回ります。人口を今の水準近くに保つには、出生率の回復と移住を組み合わせるような大きな変化が必要です。高齢化は出生率だけでなく、すでに生まれた世代の大きさや平均寿命の伸びからも生じます。"
+},
+{
+"id": "s0819",
+"page": "population",
+"ko": "<b>말하지 않는 것:</b> 통계청의 공식 인구 추계가 아니고 미래를 예측하는 것도 아닙니다. 출산율이 고정되어 있다는 가정, 남녀를 합친 계산, 근사한 2024년 연령 구조 때문에 공식 추계와 숫자가 다릅니다. 이 모델은 어떤 정책이 옳은지에 대해 말하지 않으며, 이민이나 출산 정책의 효과를 평가하지도 않습니다.",
+"en": "<b>What it doesn't show:</b> This is not an official projection by Statistics Korea, nor a forecast. Because fertility is held fixed, sexes are combined and the 2024 age structure is approximate, its numbers differ from official projections. The model takes no position on which policy is right and does not evaluate the effects of migration or birth policies.",
+"tr": "<b>示していないこと:</b> 韓国統計庁(Statistics Korea)の公式推計でも、予測でもありません。出生率を固定し、男女を合算し、2024年の年齢構成が近似であるため、数値は公式推計とは異なります。このモデルはどの政策が正しいかについて立場を取らず、移住や出産政策の効果も評価しません。"
+},
+{
+"id": "s0820",
+"page": "population",
+"ko": "<b>근사 모델입니다.</b> 한국 통계청의 공식 추계와 다릅니다. 참고로 통계청이 2024년에 낸 장래인구추계(2022~2072년)의 중위 추계는 2072년 총인구 약 3,600만 명, 65세 이상 비중 약 47.7%이고, 합계출산율이 2025년 0.65 수준에서 2072년 1.08까지 회복한다고 가정합니다(언론 보도 기준). 이 모델은 출산율을 0.72로 고정한 경우 2072년 약 2,820만 명, 54.6%가 나와서 더 낮습니다.",
+"en": "<b>This is an approximation.</b> It differs from official Statistics Korea projections. For reference, the median scenario of the 2022–2072 population projections (as reported in the press) gives about 36 million people and 47.7% aged 65+ in 2072, assuming fertility recovers from about 0.65 in 2025 to 1.08 in 2072. This model, with fertility fixed at 0.72, gives about 28.2 million and 54.6% in 2072, which is lower.",
+"tr": "<b>これは近似です。</b> 韓国統計庁(Statistics Korea)の公式推計とは異なります。参考までに、2022〜2072年の人口推計の中位シナリオ(報道による)では、出生率が2025年の約0.65から2072年に1.08まで回復すると仮定して、2072年の人口は約3600万人、65歳以上は47.7%です。このモデルでは出生率を0.72に固定すると、2072年は約2820万人、54.6%となり、人口はより少なくなります。"
+},
+{
+"id": "s0821",
+"page": "population",
+"ko": "확인한 수치(언론 보도로 확인, 통계청 원자료는 직접 보지 못함): 2023년 합계출산율 0.72(2022년 0.78), 2024년 연령별 비중 15~64세 70.2%·65세 이상 19.2%, 총인구 약 5,170만~5,200만 명, 2023년 기대수명 83.5세(OECD 보건통계).",
+"en": "Figures checked (via press reports; I did not read the original Statistics Korea tables): 2023 total fertility rate 0.72 (0.78 in 2022); 2024 age shares 70.2% aged 15–64 and 19.2% aged 65+; total population about 51.7–52 million; 2023 life expectancy 83.5 (OECD Health Statistics).",
+"tr": "確認した数値(報道経由。韓国統計庁の原表は読んでいません): 2023年の合計特殊出生率0.72(2022年は0.78)、2024年の年齢層別割合は15〜64歳が70.2%、65歳以上が19.2%、総人口は約5170万〜5200万人、2023年の平均寿命83.5(OECD Health Statistics)。"
+},
+{
+"id": "s0822",
+"page": "population",
+"ko": "연령별 인구(한 살 단위)는 공식 값이 아닙니다. 연도별 출생아 수(대략값)와 생존율로 모양을 만들고 세 연령대 합계를 공표 비중에 맞췄습니다. 그래서 2024년 중위연령은 모델에서 약 47.5세로, 실제와 차이가 있을 수 있습니다.",
+"en": "Single-year population counts are not official values. The shape is built from approximate annual births and survival, and the three age-group totals are scaled to the published shares. So the 2024 median age comes out at about 47.5 in the model, which may differ from the actual value.",
+"tr": "1歳ごとの人口は公式の値ではありません。形は概算の年間出生数と生存率から作り、3つの年齢層の合計は公表されている割合に合わせています。そのため、モデルでの2024年の年齢中央値は約47.5となり、実際の値とは異なる可能性があります。"
+},
+{
+"id": "s0823",
+"page": "population",
+"ko": "출산은 15~49세 여성의 연령별 출산율 곡선(평균 32.5세, 표준편차 4.5)에 합계출산율을 나눠 적용하고, 사망은 지수적으로 커지는 사망확률을 기대수명에 맞춰 보정합니다. 검증은 <code>node tools/validate-population.js</code>로 할 수 있습니다.",
+"en": "Births spread the fertility rate over an age curve for women aged 15–49 (mean 32.5, SD 4.5), and deaths use an exponentially rising mortality curve calibrated to life expectancy. You can verify with <code>node tools/validate-population.js</code>.",
+"tr": "出生は、15〜49歳の女性の年齢曲線(平均32.5、標準偏差4.5)に出生率を配分し、死亡は平均寿命に合わせて調整した指数関数的に上昇する死亡率曲線を使います。<code>node tools/validate-population.js</code>で検証できます。"
+},
+{
+"id": "s0824",
+"page": "population",
+"ko": "②번 그래프의 기준선(합계출산율 0.7, 1.5)과 ④번 그래프는 현재 이민·기대수명 설정을 그대로 두고 출산율만 바꿔 계산합니다.",
+"en": "The reference lines in graph ② (fertility 0.7 and 1.5) and graph ④ keep your migration and life-expectancy settings and change only the fertility rate.",
+"tr": "グラフ②の基準線(出生率0.7と1.5)とグラフ④は、あなたの移住と平均寿命の設定をそのままにして、出生率だけを変えています。"
+},
+{
+"id": "s0825",
+"page": "population",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/population\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/population\">GitHub</a>.",
+"tr": "コードは<a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/population\">GitHub</a>で公開しています。"
+},
+{
+"id": "s0826",
+"page": "queue",
+"ko": "새치기가 늘면 줄은 어떻게 될까 · 시뮬라티오 랩",
+"en": "What Happens When Queue-Jumping Spreads? · Simulatio Lab",
+"tr": "割り込みが広がるとどうなる? · Simulatio Lab"
+},
+{
+"id": "s0827",
+"page": "queue",
+"ko": "새치기가 이득이면 줄은 무너질까? 눈총의 힘을 바꿔 가며 질서가 지켜지는 조건을 직접 돌려보세요.",
+"en": "Can order survive when queue-jumping pays? Change the strength of punishment and see when order holds.",
+"tr": "割り込みが得になるとき、秩序は保てるでしょうか。罰の強さを変えて、秩序が保たれる条件を見てみましょう。"
+},
+{
+"id": "s0828",
+"page": "queue",
+"ko": "새치기를 하면 이득을 보고, 당하면 손해를 봅니다. 모두가 새치기를 하면 줄은 엉망이 되겠죠. 그런데 새치기를 보고 눈총을 주는 사람이 있다면 어떻게 달라질까요? 눈총을 주는 데도 비용이 든다는 점이 핵심이에요.",
+"en": "Cutting in line pays off, and being cut costs you. If everyone cuts, the line falls apart. But what if some people scold cutters? The catch is that scolding has a cost too.",
+"tr": "割り込みは得になり、割り込まれると損をします。全員が割り込めば、列は崩れてしまいます。では、割り込む人を叱る人がいたらどうなるでしょうか。問題は、叱ることにもコストがかかる点です。"
+},
+{
+"id": "s0829",
+"page": "queue",
+"ko": "2,500명이 격자 위에 서 있고 세 가지 유형이 있습니다: <b style=\"color:#3b82f6\">질서</b>(가만히 줄 섬), <b style=\"color:#e5484d\">새치기</b>, <b style=\"color:#1fa463\">눈총</b>(줄은 서고, 새치기를 보면 응징함).",
+"en": "2,500 people stand on a grid with three types: <b style=\"color:#3b82f6\">Orderly</b> (wait quietly), <b style=\"color:#e5484d\">Cutter</b>, and <b style=\"color:#1fa463\">Punisher</b> (waits in line, but punishes cutters when they see one).",
+"tr": "2,500人がグリッド上に立ち、3つのタイプに分かれます。<b style=\"color:#3b82f6\">順番を守る人</b>(静かに待つ)、<b style=\"color:#e5484d\">割り込む人</b>、<b style=\"color:#1fa463\">罰する人</b>(列に並びますが、割り込みを見つけると罰します)です。"
+},
+{
+"id": "s0830",
+"page": "queue",
+"ko": "라운드마다 이웃 8명과 한 번씩 만나 점수를 모읍니다. 새치기는 질서를 만나면 이득을 얻고, 질서는 그만큼 손해를 봅니다. 새치기가 눈총을 만나면 이득이 눈총의 효과만큼 깎이고, 눈총형은 응징에 비용을 씁니다.",
+"en": "Each round every person meets their 8 neighbors once and collects points. A cutter gains when meeting an Orderly person, who loses the same amount. When a cutter meets a Punisher, the gain is reduced by the punishment's effect, and Punishers pay a cost for punishing.",
+"tr": "各ラウンドで、全員が8人の隣人と1回ずつ出会い、ポイントを得ます。割り込む人は順番を守る人に会うと得をし、相手は同じ分だけ損をします。割り込む人が罰する人に会うと、得は罰の効果の分だけ減り、罰する人は罰するためのコストを払います。"
+},
+{
+"id": "s0831",
+"page": "queue",
+"ko": "모든 사람이 이웃 중 가장 점수가 높은 사람의 유형을 따라 합니다. 아주 작은 확률로 새로운 사람이 질서나 새치기로 들어옵니다.",
+"en": "Everyone copies the type of the highest-scoring person among their neighbors. With a tiny probability, a new person arrives as Orderly or Cutter.",
+"tr": "全員が、隣人のうち最も得点の高い人のタイプをまねします。ごくわずかな確率で、新しい人が順番を守る人または割り込む人として加わります。"
+},
+{
+"id": "s0832",
+"page": "queue",
+"ko": "새치기의 이득 <output id=\"o-gain\"></output>",
+"en": "Gain from cutting <output id=\"o-gain\"></output>",
+"tr": "割り込みの得 <output id=\"o-gain\"></output>"
+},
+{
+"id": "s0833",
+"page": "queue",
+"ko": "새치기가 한 번에 얻는 시간 이득",
+"en": "Time saved by one cut",
+"tr": "1回の割り込みで節約できる時間"
+},
+{
+"id": "s0834",
+"page": "queue",
+"ko": "눈총의 효과 <output id=\"o-punish\"></output>",
+"en": "Punishment effect <output id=\"o-punish\"></output>",
+"tr": "罰の効果 <output id=\"o-punish\"></output>"
+},
+{
+"id": "s0835",
+"page": "queue",
+"ko": "눈총을 받으면 새치기 이득이 얼마나 깎이는지",
+"en": "How much a cutter's gain shrinks when punished",
+"tr": "罰を受けたとき、割り込む人の得がどれだけ減るか"
+},
+{
+"id": "s0836",
+"page": "queue",
+"ko": "눈총의 비용 <output id=\"o-cost\"></output>",
+"en": "Punishment cost <output id=\"o-cost\"></output>",
+"tr": "罰のコスト <output id=\"o-cost\"></output>"
+},
+{
+"id": "s0837",
+"page": "queue",
+"ko": "응징하는 사람이 치르는 비용",
+"en": "The cost paid by the one who punishes",
+"tr": "罰する人が払うコスト"
+},
+{
+"id": "s0838",
+"page": "queue",
+"ko": "처음 새치기 비율 <output id=\"o-cutters\"></output>",
+"en": "Initial share of cutters <output id=\"o-cutters\"></output>",
+"tr": "割り込む人の初期割合 <output id=\"o-cutters\"></output>"
+},
+{
+"id": "s0839",
+"page": "queue",
+"ko": "처음에 새치기하던 사람",
+"en": "People who cut at the start",
+"tr": "最初に割り込む人"
+},
+{
+"id": "s0840",
+"page": "queue",
+"ko": "처음 눈총형 비율 <output id=\"o-punishers\"></output>",
+"en": "Initial share of punishers <output id=\"o-punishers\"></output>",
+"tr": "罰する人の初期割合 <output id=\"o-punishers\"></output>"
+},
+{
+"id": "s0841",
+"page": "queue",
+"ko": "처음에 눈총을 주던 사람",
+"en": "People who punished at the start",
+"tr": "最初に罰する人"
+},
+{
+"id": "s0842",
+"page": "queue",
+"ko": "① 줄이 바뀌는 모습",
+"en": "① How the Line Changes",
+"tr": "① 列の変化"
+},
+{
+"id": "s0843",
+"page": "queue",
+"ko": "한 칸이 한 사람입니다. 파랑은 질서, 빨강은 새치기, 초록은 눈총형이에요. 어느 색이 어디서부터 퍼지는지 지켜보세요.",
+"en": "Each cell is one person. Blue is Orderly, red is Cutter, green is Punisher. Watch which color spreads from where.",
+"tr": "1マスが1人です。青は順番を守る人、赤は割り込む人、緑は罰する人です。どの色がどこから広がるかを見てください。"
+},
+{
+"id": "s0844",
+"page": "queue",
+"ko": "② 유형별 비율의 변화",
+"en": "② Share of Each Type Over Time",
+"tr": "② 各タイプの割合の推移"
+},
+{
+"id": "s0845",
+"page": "queue",
+"ko": "쌓인 면적이 전체(100%)입니다. 처음엔 새치기가 늘지만 어떻게 되는지 보세요.",
+"en": "The stacked area is the whole (100%). Cutters grow at first, but see what happens next.",
+"tr": "積み上げ面積が全体(100%)です。最初は割り込む人が増えますが、その後どうなるかを見てください。"
+},
+{
+"id": "s0846",
+"page": "queue",
+"ko": "<i style=\"background:#3b82f6\"></i>질서",
+"en": "<i style=\"background:#3b82f6\"></i>Orderly",
+"tr": "<i style=\"background:#3b82f6\"></i>順番を守る人"
+},
+{
+"id": "s0847",
+"page": "queue",
+"ko": "<i style=\"background:#e5484d\"></i>새치기",
+"en": "<i style=\"background:#e5484d\"></i>Cutter",
+"tr": "<i style=\"background:#e5484d\"></i>割り込む人"
+},
+{
+"id": "s0848",
+"page": "queue",
+"ko": "<i style=\"background:#1fa463\"></i>눈총",
+"en": "<i style=\"background:#1fa463\"></i>Punisher",
+"tr": "<i style=\"background:#1fa463\"></i>罰する人"
+},
+{
+"id": "s0849",
+"page": "queue",
+"ko": "③ 눈총의 효과가 커지면",
+"en": "③ As Punishment Gets Stronger",
+"tr": "③ 罰が強くなると"
+},
+{
+"id": "s0850",
+"page": "queue",
+"ko": "가로는 눈총의 효과, 세로는 100라운드 뒤에 남은 새치기의 비율입니다. 점은 5번의 실행이에요.",
+"en": "The horizontal axis is the punishment effect, the vertical axis is the share of cutters left after 100 rounds. Dots are 5 runs.",
+"tr": "横軸は罰の効果、縦軸は100ラウンド後に残る割り込む人の割合です。点は5回の実行結果です。"
+},
+{
+"id": "s0851",
+"page": "queue",
+"ko": "④ 처음 눈총형이 몇 명이어야 할까",
+"en": "④ How Many Punishers Do We Need at the Start?",
+"tr": "④ 最初に罰する人は何人必要か"
+},
+{
+"id": "s0852",
+"page": "queue",
+"ko": "가로는 처음 눈총형의 비율, 세로는 100라운드 뒤 새치기의 비율입니다.",
+"en": "The horizontal axis is the initial share of punishers, the vertical axis is the share of cutters after 100 rounds.",
+"tr": "横軸は罰する人の初期割合、縦軸は100ラウンド後の割り込む人の割合です。"
+},
+{
+"id": "s0853",
+"page": "queue",
+"ko": "<b>말하는 것:</b> 새치기는 처음에는 이득이어서 빠르게 퍼지지만, 새치기를 응징하는 사람이 충분히 있고 응징의 효과가 새치기의 이득보다 크면 새치기가 다시 사라집니다. 반대로 눈총을 주는 사람이 너무 적거나, 눈총을 주는 비용이 크면 질서는 무너집니다. 질서는 가만히 지켜지는 게 아니라 누군가 비용을 치르며 지키는 거예요.",
+"en": "<b>What it shows:</b> Cutting spreads fast at first because it pays, but if enough people punish cutters and the punishment outweighs the gain, cutting dies out again. Conversely, if there are too few punishers or punishing is too costly, order collapses. Order isn't kept by itself; someone pays a price to keep it.",
+"tr": "<b>わかること:</b> 割り込みは得になるため最初は急速に広がりますが、十分な人が割り込む人を罰し、罰が得を上回れば、割り込みはまた消えていきます。逆に、罰する人が少なすぎたり、罰するコストが高すぎたりすると、秩序は崩れます。秩序はひとりでに保たれるのではなく、誰かが代償を払って保っています。"
+},
+{
+"id": "s0854",
+"page": "queue",
+"ko": "<b>말하지 않는 것:</b> 현실의 줄 서기가 이렇게 단순하다는 뜻은 아닙니다. 실제 새치기는 법과 제도, 직원의 개입, 사회적 평판으로도 억제되고 이 모델에는 그런 요소가 없습니다. 눈총형이 새로 생기지 않는다는 가정도 현실과 다릅니다. 이득과 비용의 숫자는 비교를 위한 상대적인 값입니다.",
+"en": "<b>What it doesn't show:</b> It doesn't mean real queues are this simple. In reality, cutting is also deterred by laws, staff intervention and social reputation, none of which are in this model. The assumption that no new punishers appear also differs from reality. The gains and costs are relative numbers for comparison.",
+"tr": "<b>わからないこと:</b> 実際の行列がこれほど単純だという意味ではありません。現実では、割り込みは法律、係員の介入、社会的な評判によっても抑えられますが、このモデルにはどれも含まれていません。新しい罰する人が現れないという仮定も現実とは異なります。得とコストは比較のための相対的な数字です。"
+},
+{
+"id": "s0855",
+"page": "queue",
+"ko": "공간 진화 게임(Nowak, May (1992), \"Evolutionary games and spatial chaos\", <i>Nature</i> 359)의 방식으로, 이웃과 게임을 하고 이웃 중 최고 점수의 전략을 따라 하는 격자 모델입니다. \"응징하는 협력자\"를 넣은 것은 이 프로젝트의 설계이며 논문 수치의 재현이 아닙니다.",
+"en": "A grid model in the style of spatial evolutionary games (Nowak, May (1992), \"Evolutionary games and spatial chaos\", <i>Nature</i> 359): play with neighbors and copy the strategy of the best-scoring neighbor. Adding the \"punishing cooperator\" is this project's own design, not a reproduction of the paper's numbers.",
+"tr": "空間進化ゲーム(Nowak, May (1992), \"Evolutionary games and spatial chaos\", <i>Nature</i> 359)の流れをくむ格子モデルです。隣人と対戦し、最も得点の高い隣人の戦略をまねします。「罰する協力者」を加えたのは、このプロジェクト独自の設計であり、論文の数値を再現したものではありません。"
+},
+{
+"id": "s0856",
+"page": "queue",
+"ko": "이득이 비용보다 작으면(예: 이득 0.1, 비용 0.2) 응징이 손해라서 눈총형이 먼저 사라지고 새치기가 퍼집니다. 이득이 1.0인 극단에서는 질서가 크게 손해를 보는 구조라 결과가 달라질 수 있어 슬라이더를 1.0까지로 제한했습니다.",
+"en": "If the gain is smaller than the cost (e.g., gain 0.1, cost 0.2), punishing is a net loss, so Punishers vanish first and cutting spreads. At the extreme gain of 1.0 Orderly people lose heavily and results can change, so the slider is capped at 1.0.",
+"tr": "得がコストより小さい場合(例:得0.1、コスト0.2)、罰することは差し引きで損になるため、罰する人が先に消え、割り込みが広がります。得が極端な1.0になると順番を守る人の損失が大きくなり、結果が変わることがあるため、スライダーの上限は1.0にしています。"
+},
+{
+"id": "s0857",
+"page": "queue",
+"ko": "③, ④번 그래프는 같은 설정에서 해당 값만 바꿔 5번씩, 100라운드 돌린 결과입니다. 검증은 <code>node tools/validate-more.js queue</code>로 할 수 있습니다.",
+"en": "Graphs ③ and ④ change only the given value in the same setup and run 5 times each for 100 rounds. You can verify with <code>node tools/validate-more.js queue</code>.",
+"tr": "グラフ③と④は、同じ設定のまま指定した値だけを変え、それぞれ100ラウンドを5回ずつ実行しています。<code>node tools/validate-more.js queue</code> で確認できます。"
+},
+{
+"id": "s0858",
+"page": "queue",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/queue\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/queue\">GitHub</a>.",
+"tr": "コードは <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/queue\">GitHub</a> で公開しています。"
+},
+{
+"id": "s0859",
+"page": "regression",
+"ko": "평균으로의 회귀 · 시뮬라티오 랩",
+"en": "Regression to the Mean · Simulatio Lab",
+"tr": "平均への回帰 · Simulatio Lab"
+},
+{
+"id": "s0860",
+"page": "regression",
+"ko": "말에는 아무 효과가 없는데도, 잘한 사람은 다음에 못하고 못한 사람은 다음에 잘하게 되는 평균으로의 회귀를 직접 돌려보세요.",
+"en": "Even when words have no effect at all, the best performers do worse next time and the worst do better. Run regression to the mean yourself.",
+"tr": "言葉にまったく効果がなくても、最高の成績の人は次に成績が下がり、最低の人は上がります。平均への回帰を自分で実験してみましょう。"
+},
+{
+"id": "s0861",
+"page": "regression",
+"ko": "잘한 사람을 칭찬했더니 다음엔 오히려 못하고, 못한 사람을 혼냈더니 다음엔 더 잘하더라는 경험담을 흔히 듣습니다. 그래서 \"혼내는 게 효과가 있다\"고 결론짓기 쉽습니다. 그런데 여기서는 칭찬과 꾸중의 진짜 효과를 0으로 맞춰 둡니다. 말이 아무 일도 하지 않는데도 같은 경험이 생기는지 지켜봅니다.",
+"en": "People often report that praising a great performance was followed by a worse one, while scolding a bad performance was followed by a better one. It is easy to conclude that \"scolding works\". Here the true effect of praise and scolding is set to 0. Watch whether the same experience still appears when the words do nothing.",
+"tr": "すばらしい成績をほめると次は悪くなり、悪い成績を叱ると次は良くなった、という話はよく聞きます。そこから「叱るのは効く」と考えがちです。ここでは、ほめることと叱ることの本当の効果を 0 にしています。言葉が何もしなくても同じ経験が現れるかどうか、見てみましょう。"
+},
+{
+"id": "s0862",
+"page": "regression",
+"ko": "사람마다 변하지 않는 <b>실력</b>이 있고, 시도마다 새로 뽑히는 <b>운</b>이 있습니다. 점수는 50을 평균으로 하고, 흩어짐 중 운이 차지하는 몫을 슬라이더로 정합니다. 운의 몫이 50%면 1회와 2회 점수의 상관은 0.5입니다.",
+"en": "Each person has a fixed <b>skill</b> and a <b>luck</b> draw that is new on every trial. Scores average 50, and a slider sets how much of the spread is luck. At 50% luck, trial 1 and trial 2 scores correlate at 0.5.",
+"tr": "各人には固定の<b>実力</b>と、試行ごとに新しく引き直される<b>運</b>があります。得点の平均は 50 で、ばらつきのうち運が占める割合はスライダーで決めます。運が 50% のとき、1回目と2回目の得点の相関は 0.5 です。"
+},
+{
+"id": "s0863",
+"page": "regression",
+"ko": "1회가 끝나면 점수 상위 몇 %는 칭찬하고 하위 몇 %는 혼냅니다. 나머지는 아무 말도 듣지 않습니다.",
+"en": "After trial 1, the top few percent are praised and the bottom few percent are scolded. Everyone else hears nothing.",
+"tr": "1回目の後、上位の数パーセントはほめられ、下位の数パーセントは叱られます。それ以外の人には何も言われません。"
+},
+{
+"id": "s0864",
+"page": "regression",
+"ko": "2회 점수는 실력은 그대로, 운만 새로 뽑아 계산합니다. <b>진짜 효과</b> 슬라이더가 0이면 칭찬도 꾸중도 점수에 아무 영향이 없습니다. 0이 아니면 칭찬받은 쪽에 +효과, 혼난 쪽에 −효과를 더합니다.",
+"en": "Trial 2 keeps the same skill and draws new luck. With the <b>true effect</b> slider at 0, neither praise nor scolding changes any score. Otherwise a + effect is added for the praised and a − effect for the scolded.",
+"tr": "2回目は同じ実力のまま、運だけを新しく引き直します。<b>本当の効果</b>のスライダーが 0 なら、ほめても叱ってもどの得点も変わりません。0 以外のときは、ほめられた人に + の効果、叱られた人に − の効果が加わります。"
+},
+{
+"id": "s0865",
+"page": "regression",
+"ko": "\"스포츠 예시\" 장면은 같은 계산을 시즌에 옮긴 것입니다. 상위는 표지를 장식한 쪽, 하위는 최악의 시즌을 보낸 쪽이고, 진짜 효과는 표지에만 적용합니다. 실제 선수나 잡지의 자료는 쓰지 않았습니다.",
+"en": "The \"Sports illustration\" scene moves the same calculation to seasons. The top group is on the magazine cover, the bottom group had its worst season, and the true effect applies only to the cover. No real player or magazine data is used.",
+"tr": "「スポーツの例」の場面では、同じ計算をシーズンに置き換えます。上位グループは雑誌の表紙を飾り、下位グループは最悪のシーズンを過ごし、本当の効果は表紙にだけ働きます。実在の選手や雑誌のデータは使っていません。"
+},
+{
+"id": "s0866",
+"page": "regression",
+"ko": "사람 수 <output id=\"o-n\"></output>",
+"en": "Number of performers <output id=\"o-n\"></output>",
+"tr": "参加者の数 <output id=\"o-n\"></output>"
+},
+{
+"id": "s0867",
+"page": "regression",
+"ko": "많을수록 결과가 안정돼요. 적으면 우연이 크게 끼어요",
+"en": "More people give steadier results; with few, chance matters more",
+"tr": "人数が多いほど結果は安定し、少ないと偶然の影響が大きくなります"
+},
+{
+"id": "s0868",
+"page": "regression",
+"ko": "운의 몫 <output id=\"o-luck\"></output>",
+"en": "Luck share <output id=\"o-luck\"></output>",
+"tr": "運の割合 <output id=\"o-luck\"></output>"
+},
+{
+"id": "s0869",
+"page": "regression",
+"ko": "점수의 흩어짐 중 운이 차지하는 %. 0이면 점수가 실력 그대로",
+"en": "The % of score spread that is luck. At 0, the score is pure skill",
+"tr": "得点のばらつきのうち運が占める割合（%）。0 なら得点は実力だけで決まります"
+},
+{
+"id": "s0870",
+"page": "regression",
+"ko": "칭찬·꾸중 대상 <output id=\"o-cut\"></output>",
+"en": "Share praised / scolded <output id=\"o-cut\"></output>",
+"tr": "ほめる・叱る割合 <output id=\"o-cut\"></output>"
+},
+{
+"id": "s0871",
+"page": "regression",
+"ko": "1회 점수 상위 몇 %를 칭찬하고, 하위 몇 %를 혼낼지",
+"en": "The top and bottom % of trial 1 scores that get praised and scolded",
+"tr": "1回目の得点の上位と下位の何%をほめる・叱るか"
+},
+{
+"id": "s0872",
+"page": "regression",
+"ko": "말의 진짜 효과 <output id=\"o-eff\"></output>",
+"en": "True effect of the words <output id=\"o-eff\"></output>",
+"tr": "言葉の本当の効果 <output id=\"o-eff\"></output>"
+},
+{
+"id": "s0873",
+"page": "regression",
+"ko": "칭찬받은 쪽에 더하는 점수(혼난 쪽은 반대 부호). 0이면 말은 아무 효과가 없어요",
+"en": "Points added for the praised (opposite sign for the scolded). 0 means the words do nothing",
+"tr": "ほめられた人に加わる点数（叱られた人には逆の符号）。0 なら言葉は何もしません"
+},
+{
+"id": "s0874",
+"page": "regression",
+"ko": "장면 <output id=\"o-view\"></output>",
+"en": "Scene <output id=\"o-view\"></output>",
+"tr": "場面 <output id=\"o-view\"></output>"
+},
+{
+"id": "s0875",
+"page": "regression",
+"ko": "코치와 선수",
+"en": "Coach and performers",
+"tr": "コーチと参加者"
+},
+{
+"id": "s0876",
+"page": "regression",
+"ko": "스포츠 예시 (신인상·잡지 표지)",
+"en": "Sports illustration (rookie award, magazine cover)",
+"tr": "スポーツの例（新人賞、雑誌の表紙）"
+},
+{
+"id": "s0877",
+"page": "regression",
+"ko": "같은 모델을 다른 이야기로 보기. 스포츠 쪽은 비유일 뿐 실제 자료가 아니에요",
+"en": "The same model told as another story. The sports one is an analogy, not real data",
+"tr": "同じモデルを別の物語で語ります。スポーツの例はたとえ話で、実際のデータではありません"
+},
+{
+"id": "s0878",
+"page": "regression",
+"ko": "① 1회 점수와 2회 점수",
+"en": "① Trial 1 and Trial 2 Scores",
+"tr": "① 1回目と2回目の得点"
+},
+{
+"id": "s0879",
+"page": "regression",
+"ko": "가로는 1회 점수, 세로는 2회 점수입니다. 점선 대각선은 \"다음에도 똑같은 점수\"입니다. 초록은 칭찬받은 쪽(1회 상위), 빨강은 혼난 쪽(1회 하위)이고, 파란 회귀선은 대각선보다 평평해서 오른쪽 끝은 아래로, 왼쪽 끝은 위로 끌려옵니다. 동그라미는 \"다음에도 같은 점수였다면\" 집단 평균이 있었을 자리이고, 화살표 끝이 실제 2회 평균입니다.",
+"en": "The horizontal axis is the trial 1 score, the vertical axis the trial 2 score. The dashed diagonal means \"exactly the same score next time\". Green is the praised (top of trial 1), red the scolded (bottom of trial 1). The blue regression line is flatter than the diagonal, pulling the right end down and the left end up. Each circle marks where a group's average would sit if everyone scored the same next time, and the arrowhead is the actual trial 2 average.",
+"tr": "横軸は1回目の点数、縦軸は2回目の点数です。破線の対角線は「次もまったく同じ点数」を意味します。緑はほめられた人（1回目の上位）、赤は叱られた人（1回目の下位）です。青い回帰直線は対角線より傾きが緩く、右端を引き下げ、左端を引き上げます。丸は全員が次も同じ点数だった場合のグループ平均の位置、矢印の先は実際の2回目の平均です。"
+},
+{
+"id": "s0880",
+"page": "regression",
+"ko": "<i style=\"background:#1fa463\"></i>칭찬받은 쪽 (1회 상위)",
+"en": "<i style=\"background:#1fa463\"></i>The praised (top in trial 1)",
+"tr": "<i style=\"background:#1fa463\"></i>ほめられた人（1回目の上位）"
+},
+{
+"id": "s0881",
+"page": "regression",
+"ko": "<i style=\"background:#e5484d\"></i>혼난 쪽 (1회 하위)",
+"en": "<i style=\"background:#e5484d\"></i>The scolded (bottom in trial 1)",
+"tr": "<i style=\"background:#e5484d\"></i>叱られた人（1回目の下位）"
+},
+{
+"id": "s0882",
+"page": "regression",
+"ko": "<i style=\"background:var(--accent)\"></i>회귀선",
+"en": "<i style=\"background:var(--accent)\"></i>Regression line",
+"tr": "<i style=\"background:var(--accent)\"></i>回帰直線"
+},
+{
+"id": "s0883",
+"page": "regression",
+"ko": "② 칭찬받은 쪽과 혼난 쪽의 평균 변화",
+"en": "② Average Change of the Praised and the Scolded",
+"tr": "② ほめられた人と叱られた人の平均の変化"
+},
+{
+"id": "s0884",
+"page": "regression",
+"ko": "두 집단이 다음 시도에서 평균 몇 점 변했는지입니다. 금색 점선은 말이 실제로 만든 변화로, 진짜 효과가 0이면 0에 있습니다. 막대와 점선의 차이가 전부 회귀입니다.",
+"en": "How many points each group changed on average in the next trial. The gold dashed line is the change the words really caused, which sits at 0 when the true effect is 0. The gap between a bar and its dashed line is all regression.",
+"tr": "次の試行で各グループの得点が平均して何点変わったかを示します。金色の破線は言葉が実際にもたらした変化で、本当の効果が 0 のときは 0 にあります。棒と破線の差は、すべて回帰によるものです。"
+},
+{
+"id": "s0885",
+"page": "regression",
+"ko": "③ 코치가 얻는 결론",
+"en": "③ The Conclusion the Coach Draws",
+"tr": "③ コーチが引き出す結論"
+},
+{
+"id": "s0886",
+"page": "regression",
+"ko": "코치(또는 기자)는 두 집단의 변화 차이만 봅니다. 검은 바늘이 코치가 보는 차이, 금색 마름모가 진짜 차이입니다. 말이 효과가 없어도 바늘은 \"혼내는 게 낫다\" 쪽으로 가고, 효과를 키워도 바늘은 쉽게 돌아오지 않습니다.",
+"en": "The coach (or reporter) only sees the difference between the two groups' changes. The black needle is the difference the coach sees, the gold diamond the true difference. Even when the words do nothing, the needle points to \"scolding works\", and it does not swing back easily as the true effect grows.",
+"tr": "コーチ（や記者）が見るのは、2つのグループの変化の差だけです。黒い針がコーチに見える差、金色のひし形が本当の差です。言葉が何もしなくても針は「叱るのは効く」を指し、本当の効果が大きくなってもなかなか戻りません。"
+},
+{
+"id": "s0887",
+"page": "regression",
+"ko": "④ 운의 몫에 따라",
+"en": "④ Depending on the Luck Share",
+"tr": "④ 運の割合による違い"
+},
+{
+"id": "s0888",
+"page": "regression",
+"ko": "가로는 운의 몫, 세로는 두 집단의 평균 변화입니다. 운이 없으면 변화도 없고, 운이 클수록 칭찬받은 쪽은 더 크게 떨어지고 혼난 쪽은 더 크게 오릅니다. 점은 같은 설정으로 3번 돌린 결과입니다.",
+"en": "The horizontal axis is the luck share, the vertical axis the average change of each group. With no luck there is no change; the more luck, the more the praised fall and the scolded rise. Dots are three runs with the same settings.",
+"tr": "横軸は運の割合、縦軸は各グループの平均の変化です。運がなければ変化はなく、運が大きいほど、ほめられた人は下がり、叱られた人は上がります。点は同じ設定での3回の実行です。"
+},
+{
+"id": "s0889",
+"page": "regression",
+"ko": "<i style=\"background:#1fa463\"></i>칭찬받은 쪽",
+"en": "<i style=\"background:#1fa463\"></i>The praised",
+"tr": "<i style=\"background:#1fa463\"></i>ほめられた人"
+},
+{
+"id": "s0890",
+"page": "regression",
+"ko": "<i style=\"background:#e5484d\"></i>혼난 쪽",
+"en": "<i style=\"background:#e5484d\"></i>The scolded",
+"tr": "<i style=\"background:#e5484d\"></i>叱られた人"
+},
+{
+"id": "s0891",
+"page": "regression",
+"ko": "<b>말하는 것:</b> 운의 몫 50%, 400명, 상위·하위 20%, 말의 진짜 효과 0으로 400번 반복해 평균을 내면, 칭찬받은 쪽은 다음에 평균 −7.0점 떨어졌고 혼난 쪽은 +7.1점 올랐습니다(이론값 ∓7.0). 코치가 보는 차이는 +14.1점이었고, 400번의 표본 모두에서 혼난 쪽이 더 많이 올랐습니다. 회귀선의 기울기는 0.50으로, 두 시도 점수의 상관인 신뢰도(1 − 운의 몫)와 같았습니다. 운의 몫이 0%면 변화는 0, 10%면 ∓1.4, 90%면 ∓12.6, 100%면 ∓14.0이었습니다. 상위·하위를 5%만 고르면 변화가 약 ∓10.4, 50%씩 고르면 약 ∓4.0으로 줄었습니다. 사람이 20명뿐이어도 표본의 97%에서 같은 결론이 나왔습니다. 칭찬이 실제로 +7점을 올리고 꾸중이 −7점을 내려야(운 50%, 20% 기준) 비로소 코치가 보는 차이가 0이 됩니다. 스포츠 예시에서는 표지의 진짜 효과가 0이어도 표지 그룹이 −7.0점, 최악의 시즌 그룹이 +7.1점 변했고, 표지가 실제로 −3점을 만들면 표지 그룹은 −10.0점이 되어 진짜 효과와 회귀를 눈으로 가려낼 수 없었습니다.",
+"en": "<b>What it shows:</b> Averaging 400 repeats with 50% luck, 400 people, the top and bottom 20% and a true effect of 0, the praised dropped by 7.0 points on average and the scolded rose by 7.1 (theory: ∓7.0). The difference the coach sees was +14.1 points, and in all 400 samples the scolded rose more. The slope of the regression line was 0.50, equal to the reliability (1 − luck share), which is the correlation between the two trials. At 0% luck the change was 0, at 10% it was ∓1.4, at 90% ∓12.6 and at 100% ∓14.0. Picking only the top and bottom 5% gave a change of about ∓10.4, and picking 50% each cut it to about ∓4.0. Even with only 20 people, 97% of samples led to the same conclusion. Praise would have to truly add 7 points and scolding truly subtract 7 (at 50% luck and 20%) before the difference the coach sees reaches 0. In the sports illustration, even with a true cover effect of 0 the cover group changed by −7.0 and the worst-season group by +7.1, and when the cover truly caused −3 points the cover group fell by 10.0, so true effect and regression could not be told apart by eye.",
+"tr": "<b>わかること：</b>運 50%、400人、上位・下位 20%、本当の効果 0 の条件で400回の繰り返しを平均すると、ほめられた人は平均 7.0 点下がり、叱られた人は 7.1 点上がりました（理論値：∓7.0）。コーチに見える差は +14.1 点で、400回すべてで叱られた人のほうがより上がりました。回帰直線の傾きは 0.50 で、2回の試行の相関である信頼性（1 − 運の割合）と等しくなりました。運が 0% では変化は 0、10% では ∓1.4、90% では ∓12.6、100% では ∓14.0 でした。上位・下位の 5% だけを選ぶと変化は約 ∓10.4 に、それぞれ 50% を選ぶと約 ∓4.0 に小さくなりました。20人だけでも、97% の試行で同じ結論になりました。コーチに見える差が 0 になるには、ほめることが本当に 7 点を加え、叱ることが本当に 7 点を引く必要があります（運 50%、20% の場合）。スポーツの例では、表紙の本当の効果が 0 でも、表紙グループは −7.0、最悪シーズングループは +7.1 変化し、表紙が本当に −3 点をもたらす場合は表紙グループが 10.0 下がったため、本当の効果と回帰は目で見ても区別できませんでした。"
+},
+{
+"id": "s0892",
+"page": "regression",
+"ko": "<b>말하지 않는 것:</b> 칭찬이 효과가 없다거나 꾸중이 낫다는 뜻이 아닙니다. 이 모델은 진짜 효과를 0으로 맞춘 것이고, 현실의 칭찬과 꾸중이 어떤 효과를 내는지는 비교 집단을 둔 실험으로 따져야 합니다. 비행 교관 이야기는 대니얼 카너먼이 『생각에 관한 생각』(Thinking, Fast and Slow)에서 소개한 일화로, 이 페이지의 모델은 그 일화를 단순화해 다시 만든 것이지 실험 결과가 아닙니다. 스포츠 장면도 \"신인상을 받은 뒤 부진하다\" \"잡지 표지에 나오면 부진하다\"는 흔한 이야기를 빗댄 예시일 뿐 실제 선수·잡지의 기록을 쓰지 않았고, 그런 징크스가 실제로 있는지 없는지는 말하지 않습니다. 또 이 모델은 실력이 변하지 않고 운이 시도마다 독립이라고 가정하며, 현실의 실력은 연습과 나이로 변합니다.",
+"en": "<b>What it doesn't show:</b> This does not mean praise has no effect or that scolding is better. The model sets the true effect to 0, and what real praise and scolding do must be judged with experiments that include a comparison group. The flight instructor story is an anecdote told by Daniel Kahneman in <i>Thinking, Fast and Slow</i>; this page's model is a simplified retelling of it, not an experimental result. The sports scene is likewise only an illustration of the familiar stories \"slump after winning rookie of the year\" and \"slump after a magazine cover\". It uses no real player or magazine records and says nothing about whether such jinxes actually exist. The model also assumes skill never changes and luck is independent on each trial, while real skill changes with practice and age.",
+"tr": "<b>わからないこと：</b>ほめても効果がないとか、叱るほうがよいという意味ではありません。このモデルは本当の効果を 0 としており、実際のほめ方・叱り方がどう働くかは、比較グループを含む実験で判断する必要があります。飛行教官の話は、ダニエル・カーネマンが <i>Thinking, Fast and Slow</i> で紹介した逸話で、このページのモデルはそれを簡略化して語り直したものであり、実験結果ではありません。スポーツの場面も、「新人賞のあとに不調になる」「雑誌の表紙のあとに不調になる」というよく知られた話の例示にすぎません。実在の選手や雑誌の記録は使っておらず、そうしたジンクスが本当に存在するかについては何も述べていません。また、このモデルは実力が変わらず、運は毎回独立していると仮定していますが、実際の実力は練習や年齢によって変わります。"
+},
+{
+"id": "s0893",
+"page": "regression",
+"ko": "대니얼 카너먼, 『생각에 관한 생각』(<i>Thinking, Fast and Slow</i>, 2011)에서 비행 교관이 \"칭찬하면 다음에 못하고 혼내면 다음에 잘한다\"고 믿게 된 일화를 평균으로의 회귀로 설명합니다. 이 프로젝트의 구현은 그 일화를 단순화한 모델이며, 일화나 책의 수치를 재현한 것이 아닙니다. 평균으로의 회귀라는 개념 자체는 프랜시스 골턴의 연구에서 비롯됐다고 알려져 있습니다.",
+"en": "In <i>Thinking, Fast and Slow</i> (2011), Daniel Kahneman explains an anecdote in which a flight instructor came to believe that \"praise is followed by worse performance, scolding by better\" as regression to the mean. This project's implementation is a simplified model of that anecdote and does not reproduce the anecdote or any figures from the book. The concept of regression itself is generally traced to the work of Francis Galton.",
+"tr": "<i>Thinking, Fast and Slow</i>（2011）で、ダニエル・カーネマンは、飛行教官が「ほめると次の成績は悪くなり、叱ると良くなる」と思い込むようになった逸話を、平均への回帰として説明しています。本プロジェクトの実装はその逸話を簡略化したモデルであり、逸話や本の数値を再現するものではありません。回帰という概念自体は、一般にフランシス・ゴルトンの研究にさかのぼるとされています。"
+},
+{
+"id": "s0894",
+"page": "regression",
+"ko": "점수 = 50 + 10 × (√(1 − 운의 몫) × 실력 + √(운의 몫) × 운)이고 실력과 운은 표준정규분포입니다. 이렇게 하면 1회와 2회 점수의 흩어짐이 같고 상관이 1 − 운의 몫이라서, 회귀선의 기울기가 신뢰도와 같습니다(진짜 효과가 0일 때). 이론값은 상위 집단의 1회 평균이 50보다 높은 만큼 × (운의 몫)으로, 정규분포 꼬리의 평균 φ(z)/컷 비율에서 나옵니다.",
+"en": "Score = 50 + 10 × (√(1 − luck share) × skill + √(luck share) × luck), with skill and luck standard normal. This gives both trials the same spread and a correlation of 1 − luck share, so the regression slope equals the reliability (when the true effect is 0). The theory value is (luck share) × how far above 50 the top group averaged in trial 1, taken from the tail mean φ(z)/cut share of the normal distribution.",
+"tr": "スコア = 50 + 10 × (√(1 − 運の割合) × 実力 + √(運の割合) × 運)。実力と運は標準正規分布に従います。これにより2回の試験は同じ散らばりを持ち、相関は 1 − 運の割合 になるため、回帰直線の傾きは信頼性と等しくなります(真の効果が0のとき)。理論値は、(運の割合) × 試験1で上位グループの平均が50をどれだけ上回ったか、で、正規分布の裾の平均 φ(z)/切り取り割合 から求めます。"
+},
+{
+"id": "s0895",
+"page": "regression",
+"ko": "검증은 <code>node tools/validate-regression.js</code>로 할 수 있습니다. 위 숫자는 400명 표본을 400번 반복한 평균이고, 같은 시드는 같은 결과를 냅니다. ④번 그래프는 표본을 40번씩 3번 반복한 평균입니다.",
+"en": "You can verify with <code>node tools/validate-regression.js</code>. The numbers above average 400 repeats of a 400-person sample, and the same seed gives the same result. Graph ④ averages 3 runs of 40 samples each.",
+"tr": "<code>node tools/validate-regression.js</code> で検証できます。上の数値は、400人の標本を400回繰り返した平均で、同じシードなら同じ結果になります。グラフ④は、40標本の実行3回分の平均です。"
+},
+{
+"id": "s0896",
+"page": "regression",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/regression\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/regression\">GitHub</a>.",
+"tr": "コードは <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/regression\">GitHub</a> で公開しています。"
+},
+{
+"id": "s0897",
+"page": "revolution",
+"ko": "혁명은 어떻게 시작될까 · 시뮬라티오 랩",
+"en": "How Does a Revolution Begin? · Simulatio Lab",
+"tr": "革命はどう始まるのか · Simulatio Lab"
+},
+{
+"id": "s0898",
+"page": "revolution",
+"ko": "광장에 몇 사람이 나서면 수백, 수천 명이 따라 나설까? 문턱 모델로 집단행동이 갑자기 번지는 조건을 직접 돌려보세요.",
+"en": "When does a few people stepping forward turn into thousands? Run the threshold model yourself and see how collective action tips.",
+"tr": "数人が前に出ることが、いつ数千人に変わるのでしょうか。閾値モデルを自分で実行して、集団行動が転換する様子を確かめましょう。"
+},
+{
+"id": "s0899",
+"page": "revolution",
+"ko": "어떤 때는 수백 명이 모여도 아무 일도 일어나지 않고, 어떤 때는 몇 사람의 불씨가 광장을 가득 채웁니다. 모두가 같은 사람들인데 결과가 왜 이렇게 갈릴까요? \"다른 사람이 얼마나 나왔는지 보고 나설지 정한다\"는 단순한 규칙으로 집단행동이 번지는 조건을 확인해 봅니다.",
+"en": "Sometimes hundreds gather and nothing happens; sometimes a handful of sparks fill the whole square. Why do outcomes split so sharply among the same kind of people? With one simple rule, \"decide whether to join by seeing how many others have come out,\" we look at when collective action spreads.",
+"tr": "何百人も集まっても何も起こらないことがあれば、ほんの数人のきっかけで広場全体が埋まることもあります。同じような人たちなのに、なぜ結果はこれほど大きく分かれるのでしょうか。「何人が外に出ているかを見て、参加するかを決める」というひとつの単純なルールで、集団行動が広がる条件を見ていきます。"
+},
+{
+"id": "s0900",
+"page": "revolution",
+"ko": "사람 1,000명은 각자 \"문턱\"을 가집니다. 광장에 이미 나온 사람이 전체의 이 비율 이상이면 자기도 나섭니다. 문턱이 낮은 사람은 쉽게 나서고, 높은 사람은 많은 사람이 모인 뒤에야 나서요.",
+"en": "Each of the 1,000 people has a \"threshold\": they join once at least this share of everyone is already in the square. Low-threshold people join easily; high-threshold people join only after a crowd has formed.",
+"tr": "1,000人の一人ひとりに「閾値」があり、全体のうちこの割合以上がすでに広場にいると参加します。閾値が低い人は簡単に参加し、閾値が高い人は群衆ができてから参加します。"
+},
+{
+"id": "s0901",
+"page": "revolution",
+"ko": "문턱은 평균과 퍼짐을 가진 정규분포(0~100%)를 따릅니다. 그중 일부는 문턱이 0인 <b>선동가</b>로, 아무도 없어도 먼저 나섭니다.",
+"en": "Thresholds follow a normal distribution (0–100%) with a mean and a spread. A few people are <b>instigators</b> with a threshold of 0, who step forward even when nobody is there.",
+"tr": "閾値は平均とばらつきをもつ正規分布(0〜100%)に従います。ごく少数の人は閾値0の<b>きっかけをつくる人</b>で、誰もいなくても前に出ます。"
+},
+{
+"id": "s0902",
+"page": "revolution",
+"ko": "라운드마다 \"지금 나온 사람의 비율\" 이하의 문턱을 가진 사람이 모두 나서고, 더는 늘지 않으면 끝납니다.",
+"en": "Each round, everyone whose threshold is at or below \"the share already out\" steps forward. It ends when no one new joins.",
+"tr": "各ラウンドで、閾値が「すでに出ている人の割合」以下の人が全員前に出ます。新しく参加する人がいなくなると終わります。"
+},
+{
+"id": "s0903",
+"page": "revolution",
+"ko": "점은 사람이고 나선 라운드에 따라 <b style=\"color:#f5b041\">노랑</b>(일찍)에서 <b style=\"color:#c8283c\">빨강</b>(늦게)으로 칠해집니다. 검은 테두리는 선동가예요.",
+"en": "Dots are people, colored from <b style=\"color:#f5b041\">yellow</b> (early) to <b style=\"color:#c8283c\">red</b> (late) by the round they joined. A black ring marks an instigator.",
+"tr": "点は人を表し、参加したラウンドに応じて<b style=\"color:#f5b041\">黄色</b>(早い)から<b style=\"color:#c8283c\">赤</b>(遅い)に色分けしています。黒い輪はきっかけをつくる人の印です。"
+},
+{
+"id": "s0904",
+"page": "revolution",
+"ko": "평균 문턱 <output id=\"o-mean\"></output>",
+"en": "Mean threshold <output id=\"o-mean\"></output>",
+"tr": "平均閾値 <output id=\"o-mean\"></output>"
+},
+{
+"id": "s0905",
+"page": "revolution",
+"ko": "클수록 나서기 어려운 사회",
+"en": "Larger means a harder place to step forward",
+"tr": "大きいほど、前に出にくい環境です"
+},
+{
+"id": "s0906",
+"page": "revolution",
+"ko": "문턱의 퍼짐 <output id=\"o-spread\"></output>",
+"en": "Threshold spread <output id=\"o-spread\"></output>",
+"tr": "閾値のばらつき <output id=\"o-spread\"></output>"
+},
+{
+"id": "s0907",
+"page": "revolution",
+"ko": "클수록 사람마다 문턱이 제각각",
+"en": "Larger means thresholds vary more",
+"tr": "大きいほど、閾値のばらつきが大きくなります"
+},
+{
+"id": "s0908",
+"page": "revolution",
+"ko": "선동가 비율 <output id=\"o-radicals\"></output>",
+"en": "Share of instigators <output id=\"o-radicals\"></output>",
+"tr": "きっかけをつくる人の割合 <output id=\"o-radicals\"></output>"
+},
+{
+"id": "s0909",
+"page": "revolution",
+"ko": "처음부터 나서는 사람 (문턱 0)",
+"en": "People who step forward first (threshold 0)",
+"tr": "最初に前に出る人(閾値0)"
+},
+{
+"id": "s0910",
+"page": "revolution",
+"ko": "문턱 분포 <output id=\"o-mode\"></output>",
+"en": "Threshold distribution <output id=\"o-mode\"></output>",
+"tr": "閾値の分布 <output id=\"o-mode\"></output>"
+},
+{
+"id": "s0911",
+"page": "revolution",
+"ko": "정규분포 (기본)",
+"en": "Normal distribution (default)",
+"tr": "正規分布(既定)"
+},
+{
+"id": "s0912",
+"page": "revolution",
+"ko": "고전 예시: 문턱이 0%, 1%, 2%, … (100명)",
+"en": "Classic example: thresholds 0%, 1%, 2%, … (100 people)",
+"tr": "古典的な例:閾値 0%、1%、2%、…(100人)"
+},
+{
+"id": "s0913",
+"page": "revolution",
+"ko": "고전 예시에서 한 명만 바꾸면",
+"en": "Classic example with just one person changed",
+"tr": "古典的な例で1人だけ変えたもの"
+},
+{
+"id": "s0914",
+"page": "revolution",
+"ko": "고전 예시를 고르면 위 슬라이더는 쓰지 않아요",
+"en": "The sliders above are ignored for the classic examples",
+"tr": "古典的な例では、上のスライダーは無視されます"
+},
+{
+"id": "s0915",
+"page": "revolution",
+"ko": "① 광장",
+"en": "① The Square",
+"tr": "① 広場"
+},
+{
+"id": "s0916",
+"page": "revolution",
+"ko": "한 점이 한 사람입니다. 문턱이 낮은 사람이 왼쪽 위에 있고 높은 사람이 오른쪽 아래에 있어요. 라운드마다 광장에 나오는 사람이 어떻게 번지는지 지켜보세요.",
+"en": "Each dot is a person, with low-threshold people at the top left and high-threshold people at the bottom right. Watch how the crowd spreads round by round.",
+"tr": "点は一人ひとりを表し、閾値が低い人は左上、高い人は右下にいます。群衆がラウンドごとに広がる様子を見てください。"
+},
+{
+"id": "s0917",
+"page": "revolution",
+"ko": "② 어디서 멈출까",
+"en": "② Where Does It Stop?",
+"tr": "② どこで止まるのか"
+},
+{
+"id": "s0918",
+"page": "revolution",
+"ko": "파란 곡선은 \"지금 광장에 이만큼 나와 있으면 다음에 나설 사람의 비율\"입니다. 곡선이 대각선(y=x)보다 위에 있는 동안은 계속 늘고, 대각선과 만나는 곳에서 멈춰요. 빨간 계단이 실제 진행 경로입니다.",
+"en": "The blue curve is \"the share who will join next if this many are already out.\" While the curve is above the diagonal (y=x) the crowd keeps growing, and it stops where the curve meets the diagonal. The red staircase is the actual path.",
+"tr": "青い曲線は「これだけの人がすでに出ているとき、次に参加する人の割合」です。曲線が対角線(y=x)より上にある間は群衆が増え続け、曲線が対角線と交わるところで止まります。赤い階段が実際の経路です。"
+},
+{
+"id": "s0919",
+"page": "revolution",
+"ko": "③ 시간에 따른 참여",
+"en": "③ Participation Over Time",
+"tr": "③ 参加の推移"
+},
+{
+"id": "s0920",
+"page": "revolution",
+"ko": "라운드가 지나며 광장에 나온 사람의 비율이 어떻게 변하는지 보여줍니다. 처음엔 천천히 늘다가 한꺼번에 터지는지 보세요.",
+"en": "Shows how the share of people in the square changes over rounds. See whether it grows slowly at first and then bursts.",
+"tr": "広場にいる人の割合がラウンドごとにどう変わるかを示します。最初はゆっくり増え、その後一気に広がるかを見てください。"
+},
+{
+"id": "s0921",
+"page": "revolution",
+"ko": "④ 평균 문턱을 바꾸면",
+"en": "④ When the Mean Threshold Changes",
+"tr": "④ 平均閾値を変えると"
+},
+{
+"id": "s0922",
+"page": "revolution",
+"ko": "가로는 평균 문턱, 세로는 끝난 뒤 광장에 나온 사람의 비율입니다. 점은 6번의 실행이고, 회색 선은 선동가가 한 명도 없을 때예요.",
+"en": "The horizontal axis is the mean threshold, the vertical axis is the share in the square at the end. Dots are 6 runs, and the gray line is the case with no instigators at all.",
+"tr": "横軸は平均閾値、縦軸は最終的に広場にいる人の割合です。点は6回の実行結果で、灰色の線はきっかけをつくる人が一人もいない場合です。"
+},
+{
+"id": "s0923",
+"page": "revolution",
+"ko": "<b>말하는 것:</b> 같은 사람들이어도 불씨가 있는지, 문턱이 얼마나 제각각인지에 따라 결과가 \"광장을 가득 채움\"과 \"아무 일 없음\"으로 갈릴 수 있습니다. 평균 문턱이 같아도 문턱이 다양할수록 연쇄가 쉽게 이어지고, 불씨가 한 명도 없으면 평균 문턱이 아무리 낮아도 아무 일도 시작되지 않아요. 고전 예시에서는 문턱이 1%인 사람 한 명이 바뀌었을 뿐인데 100명 모두가 나서던 광장이 1명에서 멈춥니다.",
+"en": "<b>What it shows:</b> Among the very same people, the outcome can split between \"the square fills up\" and \"nothing happens,\" depending on whether there is a spark and how varied the thresholds are. With the same mean threshold, more varied thresholds let the cascade continue more easily, and with no spark at all nothing starts however low the mean is. In the classic example, changing just one person with a 1% threshold turns a square where all 100 join into one that stops at 1.",
+"tr": "<b>わかること:</b> まったく同じ人たちでも、きっかけがあるか、閾値がどれだけばらついているかによって、「広場が埋まる」か「何も起こらない」かに結果が分かれることがあります。平均閾値が同じなら、閾値のばらつきが大きいほど連鎖が続きやすく、きっかけがまったくなければ平均がどれだけ低くても何も始まりません。古典的な例では、閾値1%の人をたった1人変えるだけで、100人全員が参加する広場が1人で止まる広場に変わります。"
+},
+{
+"id": "s0924",
+"page": "revolution",
+"ko": "<b>말하지 않는 것:</b> 실제 혁명이나 시위가 이 숫자대로 일어난다는 뜻이 아니고, 어느 쪽 편을 들거나 무언가를 예측하는 모델도 아닙니다. 현실에는 정보, 두려움, 조직, 정부의 대응, 사람들 사이의 연결망이 있는데 이 모델은 \"다른 사람이 나온 비율\"만 보고 결정하는 아주 단순한 사회입니다. 사람들의 문턱은 눈에 보이지 않아 현실에서는 알기 어렵고, 여기서 쓴 숫자는 설명을 위한 설정일 뿐입니다.",
+"en": "<b>What it doesn't show:</b> It does not mean real revolutions or protests unfold by these numbers, and it takes no side and predicts nothing. Reality has information, fear, organization, government responses and social networks; this model is a very simple society where people decide only by \"the share of others who have come out.\" People's thresholds are invisible in reality, and the numbers here are settings chosen for explanation.",
+"tr": "<b>わからないこと:</b> 現実の革命や抗議行動がこの数字どおりに進むという意味ではなく、特定の立場をとるものでも、何かを予測するものでもありません。現実には情報、恐れ、組織、政府の対応、社会的なつながりがありますが、このモデルは「外に出ている他の人の割合」だけで決める、とても単純な社会です。現実では人の閾値は見えませんし、ここでの数字は説明のために選んだ設定です。"
+},
+{
+"id": "s0925",
+"page": "revolution",
+"ko": "Granovetter (1978), \"Threshold Models of Collective Behavior\", <i>American Journal of Sociology</i> 83(6)의 모델을 구현했습니다. 고전 예시(문턱이 0, 1, 2, …, 99)와 그중 한 명을 바꾼 경우는 이 논문의 유명한 예를 100명으로 재현한 것이고, <code>node tools/validate-revolution.js</code>로 확인할 수 있습니다.",
+"en": "This implements the model of Granovetter (1978), \"Threshold Models of Collective Behavior\", <i>American Journal of Sociology</i> 83(6). The classic example (thresholds 0, 1, 2, …, 99) and the case with one person changed reproduce the paper's famous illustration with 100 people; verify with <code>node tools/validate-revolution.js</code>.",
+"tr": "これはGranovetter (1978)「Threshold Models of Collective Behavior」(<i>American Journal of Sociology</i> 83(6))のモデルを実装したものです。古典的な例(しきい値 0, 1, 2, …, 99)と1人だけ変えたケースは、論文で有名な100人の例を再現します。<code>node tools/validate-revolution.js</code>で検証できます。"
+},
+{
+"id": "s0926",
+"page": "revolution",
+"ko": "정규분포 문턱(평균 20%, 퍼짐 15%, 선동가 1%)은 이 프로젝트의 설정이며 논문의 수치가 아닙니다. 기본 설정으로 20번 돌리면 모두 100%였고 선동가가 0%이면 모두 0%였습니다. 평균을 25%로 올리면 결과가 2%에서 100%까지 갈라집니다.",
+"en": "The normal-distribution thresholds (mean 20%, spread 15%, 1% instigators) are this project's settings, not the paper's numbers. Across 20 runs of the default settings every run reached 100%, and with 0% instigators every run stayed at 0%. At a mean of 25% the outcomes split anywhere from 2% to 100%.",
+"tr": "正規分布のしきい値(平均20%、広がり15%、扇動者1%)は、論文の数値ではなくこのプロジェクトの設定です。既定の設定で20回実行すると、すべて100%に達し、扇動者が0%だとすべて0%のままでした。平均が25%のときは、結果が2%から100%までばらつきました。"
+},
+{
+"id": "s0927",
+"page": "revolution",
+"ko": "④번 그래프는 현재 퍼짐과 선동가 비율을 유지하고 평균 문턱만 바꿔 6번씩 돌린 결과입니다. 고전 예시를 고르면 ①~③은 100명, 문턱이 정확히 0, 1%, 2%…인 경우를 보여주고 ④는 정규분포 기준으로 유지됩니다.",
+"en": "Graph ④ keeps the current spread and instigator share, changes only the mean threshold, and runs 6 times each. With a classic example, ①–③ show 100 people with thresholds exactly 0, 1%, 2%, …, while ④ stays based on the normal distribution.",
+"tr": "グラフ④は、現在の広がりと扇動者の割合はそのままに平均しきい値だけを変え、それぞれ6回ずつ実行します。古典的な例では、①–③は しきい値がちょうど0、1%、2%、…の100人を表示し、④は引き続き正規分布に基づきます。"
+},
+{
+"id": "s0928",
+"page": "revolution",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/revolution\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/revolution\">GitHub</a>.",
+"tr": "コードは<a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/revolution\">GitHub</a>で公開しています。"
+},
+{
+"id": "s0929",
+"page": "rumor",
+"ko": "단톡방 소문 확산 · 시뮬라티오 랩",
+"en": "Rumor Spread in Group Chats · Simulatio Lab",
+"tr": "グループチャットでのうわさの広がり · Simulatio Lab"
+},
+{
+"id": "s0930",
+"page": "rumor",
+"ko": "단톡방에서 소문은 얼마나 빨리, 누구를 거쳐 퍼질까? 정정이 늦으면 어떻게 될까? 직접 돌려보세요.",
+"en": "How fast does a rumor spread in group chats, and how late can a correction come and still matter? Try it yourself.",
+"tr": "グループチャットでうわさはどれほど速く広がり、訂正はいつまでなら意味があるのでしょうか。ご自身で試してみてください。"
+},
+{
+"id": "s0931",
+"page": "rumor",
+"ko": "누군가 단톡방에 올린 소문 하나가 몇 시간 만에 모두가 아는 이야기가 됩니다. 소문은 어떤 길로 퍼지고, 정정 글은 언제까지 올려야 소용이 있을까요?",
+"en": "A single rumor posted in a group chat becomes common knowledge within hours. By what routes does a rumor spread, and how late can a correction come and still matter?",
+"tr": "グループチャットに投稿された1つのうわさは、数時間で皆が知るところになります。うわさはどんな経路で広がり、訂正はいつまでなら意味があるのでしょうか。"
+},
+{
+"id": "s0932",
+"page": "rumor",
+"ko": "사람들이 여러 단톡방에 들어 있고(점이 사람, 네모가 단톡방), 방마다 인원이 달라 큰 방과 작은 방이 있습니다.",
+"en": "People belong to several group chats (dots are people, squares are chat rooms), and rooms differ in size, so there are big and small ones.",
+"tr": "人は複数のグループチャットに所属しており(点が人、四角がチャットルーム)、ルームの大きさはまちまちで、大きいものも小さいものもあります。"
+},
+{
+"id": "s0933",
+"page": "rumor",
+"ko": "<b style=\"color:var(--unlucky)\">소문</b>을 아는 사람은 자기가 든 모든 방에 글을 올립니다. 방에서 소문을 처음 본 사람은 일정 확률로 솔깃해서 다음 차례에 자기 방들에 다시 올립니다.",
+"en": "People who know the <b style=\"color:var(--unlucky)\">rumor</b> post it in every room they belong to. Someone who sees it for the first time in a room is tempted with some probability and reposts it in their own rooms next round.",
+"tr": "<b style=\"color:var(--unlucky)\">うわさ</b>を知っている人は、所属するすべてのルームにそれを投稿します。あるルームで初めて目にした人は、ある確率で心が動き、次のラウンドで自分のルームに再投稿します。"
+},
+{
+"id": "s0934",
+"page": "rumor",
+"ko": "한 번 올릴 때마다 일정 확률로 관심을 잃고 멈춥니다.",
+"en": "Each time they post, they lose interest and stop with some probability.",
+"tr": "投稿するたびに、ある確率で興味を失って投稿をやめます。"
+},
+{
+"id": "s0935",
+"page": "rumor",
+"ko": "설정한 시점부터 <b style=\"color:var(--accent)\">정정 글</b>이 퍼지기 시작합니다. 정정 글은 소문보다 덜 솔깃하다고 가정했고(소문의 70%), 정정을 본 사람은 소문을 믿지도, 퍼뜨리지도 않습니다.",
+"en": "From the chosen moment, a <b style=\"color:var(--accent)\">correction</b> starts to spread. We assume the correction is less tempting than the rumor (70% as much), and anyone who sees the correction neither believes nor spreads the rumor.",
+"tr": "選んだ時点から<b style=\"color:var(--accent)\">訂正</b>が広がり始めます。訂正はうわさより心を動かしにくい(うわさの70%)と仮定し、訂正を見た人はうわさを信じず、広めもしません。"
+},
+{
+"id": "s0936",
+"page": "rumor",
+"ko": "솔깃할 확률 <output id=\"o-p\"></output>",
+"en": "Chance of being tempted <output id=\"o-p\"></output>",
+"tr": "心が動く確率 <output id=\"o-p\"></output>"
+},
+{
+"id": "s0937",
+"page": "rumor",
+"ko": "방에서 소문을 본 사람이 퍼뜨릴 확률",
+"en": "Chance someone who sees the rumor in a room passes it on",
+"tr": "ルームでうわさを見た人が広める確率"
+},
+{
+"id": "s0938",
+"page": "rumor",
+"ko": "정정 시작 <output id=\"o-correctionDelay\"></output>",
+"en": "Correction starts <output id=\"o-correctionDelay\"></output>",
+"tr": "訂正の開始 <output id=\"o-correctionDelay\"></output>"
+},
+{
+"id": "s0939",
+"page": "rumor",
+"ko": "소문이 시작되고 몇 차례 뒤에 정정이 나오는지",
+"en": "How many rounds after the rumor starts the correction appears",
+"tr": "うわさが始まってから何ラウンド後に訂正が現れるか"
+},
+{
+"id": "s0940",
+"page": "rumor",
+"ko": "단톡방 수 <output id=\"o-rooms\"></output>",
+"en": "Group chats <output id=\"o-rooms\"></output>",
+"tr": "グループチャット数 <output id=\"o-rooms\"></output>"
+},
+{
+"id": "s0941",
+"page": "rumor",
+"ko": "많을수록 방 하나가 작아져요",
+"en": "More chats means smaller rooms",
+"tr": "チャットが多いほどルームは小さくなります"
+},
+{
+"id": "s0942",
+"page": "rumor",
+"ko": "한 사람이 든 방 수 <output id=\"o-perPerson\"></output>",
+"en": "Chats per person <output id=\"o-perPerson\"></output>",
+"tr": "1人あたりのチャット数 <output id=\"o-perPerson\"></output>"
+},
+{
+"id": "s0943",
+"page": "rumor",
+"ko": "여러 방에 걸친 사람이 다리 역할을 해요",
+"en": "People in several rooms act as bridges",
+"tr": "複数のルームにいる人が橋渡し役になります"
+},
+{
+"id": "s0944",
+"page": "rumor",
+"ko": "처음 퍼뜨린 사람 <output id=\"o-seeds\"></output>",
+"en": "Initial spreaders <output id=\"o-seeds\"></output>",
+"tr": "最初の拡散者 <output id=\"o-seeds\"></output>"
+},
+{
+"id": "s0945",
+"page": "rumor",
+"ko": "처음에 소문을 올린 사람 수",
+"en": "Number of people who post the rumor at first",
+"tr": "最初にうわさを投稿する人の数"
+},
+{
+"id": "s0946",
+"page": "rumor",
+"ko": "같은 설정, 다른 단톡방",
+"en": "Same settings, new chat rooms",
+"tr": "同じ設定で新しいチャットルーム"
+},
+{
+"id": "s0947",
+"page": "rumor",
+"ko": "① 소문이 퍼지는 모습",
+"en": "① How the Rumor Spreads",
+"tr": "① うわさが広がるしくみ"
+},
+{
+"id": "s0948",
+"page": "rumor",
+"ko": "네모는 단톡방이고 점은 사람입니다. 방을 잇는 가는 선은 \"이 방에 들어 있다\"는 뜻이에요. 방이 붉게 빛나면 그 방에 소문이 올라온 거예요.",
+"en": "Squares are chat rooms and dots are people. The faint lines mean \"belongs to this room.\" When a room glows red, the rumor was posted in it.",
+"tr": "四角はチャットルーム、点は人です。薄い線は「このルームに所属している」ことを表します。ルームが赤く光ると、そこにうわさが投稿されたことを示します。"
+},
+{
+"id": "s0949",
+"page": "rumor",
+"ko": "<i style=\"background:#b6bfd3\"></i>아직 모름",
+"en": "<i style=\"background:#b6bfd3\"></i>Hasn't heard yet",
+"tr": "<i style=\"background:#b6bfd3\"></i>まだ聞いていない"
+},
+{
+"id": "s0950",
+"page": "rumor",
+"ko": "<i style=\"background:var(--unlucky)\"></i>소문 퍼뜨리는 중",
+"en": "<i style=\"background:var(--unlucky)\"></i>Spreading the rumor",
+"tr": "<i style=\"background:var(--unlucky)\"></i>うわさを広めている"
+},
+{
+"id": "s0951",
+"page": "rumor",
+"ko": "<i style=\"background:#f2a3a6\"></i>소문을 알지만 멈춤",
+"en": "<i style=\"background:#f2a3a6\"></i>Knows the rumor, stopped",
+"tr": "<i style=\"background:#f2a3a6\"></i>うわさを知っているが、やめた"
+},
+{
+"id": "s0952",
+"page": "rumor",
+"ko": "<i style=\"background:var(--accent)\"></i>정정을 퍼뜨리는 중",
+"en": "<i style=\"background:var(--accent)\"></i>Spreading the correction",
+"tr": "<i style=\"background:var(--accent)\"></i>訂正を広めている"
+},
+{
+"id": "s0953",
+"page": "rumor",
+"ko": "<i style=\"background:#9ec1ff\"></i>정정을 본 사람",
+"en": "<i style=\"background:#9ec1ff\"></i>Saw the correction",
+"tr": "<i style=\"background:#9ec1ff\"></i>訂正を見た"
+},
+{
+"id": "s0954",
+"page": "rumor",
+"ko": "② 시간에 따른 변화",
+"en": "② Change Over Time",
+"tr": "② 時間による変化"
+},
+{
+"id": "s0955",
+"page": "rumor",
+"ko": "한 차례마다 사람들의 상태가 어떻게 바뀌는지 쌓아서 보여줍니다.",
+"en": "Stacked view of how people's states change at each step.",
+"tr": "各ステップで人々の状態がどう変わるかを積み上げて表示します。"
+},
+{
+"id": "s0956",
+"page": "rumor",
+"ko": "<i style=\"background:#cfd5e3\"></i>모름",
+"en": "<i style=\"background:#cfd5e3\"></i>Unaware",
+"tr": "<i style=\"background:#cfd5e3\"></i>知らない"
+},
+{
+"id": "s0957",
+"page": "rumor",
+"ko": "<i style=\"background:#9ec1ff\"></i>정정 덕에 안 속음",
+"en": "<i style=\"background:#9ec1ff\"></i>Not fooled thanks to the correction",
+"tr": "<i style=\"background:#9ec1ff\"></i>訂正のおかげでだまされなかった"
+},
+{
+"id": "s0958",
+"page": "rumor",
+"ko": "<i style=\"background:var(--unlucky)\"></i>퍼뜨리는 중",
+"en": "<i style=\"background:var(--unlucky)\"></i>Spreading",
+"tr": "<i style=\"background:var(--unlucky)\"></i>広めている"
+},
+{
+"id": "s0959",
+"page": "rumor",
+"ko": "<i style=\"background:#f2a3a6\"></i>알고 멈춤",
+"en": "<i style=\"background:#f2a3a6\"></i>Knows, stopped",
+"tr": "<i style=\"background:#f2a3a6\"></i>知っているが、やめた"
+},
+{
+"id": "s0960",
+"page": "rumor",
+"ko": "③ 솔깃할 확률의 문턱",
+"en": "③ The Threshold of Temptation",
+"tr": "③ 心が動くしきい値"
+},
+{
+"id": "s0961",
+"page": "rumor",
+"ko": "가로는 솔깃할 확률, 세로는 끝내 소문을 알게 된 사람의 비율입니다. 점 하나가 한 번의 실행이에요.",
+"en": "The horizontal axis is the chance of being tempted, the vertical axis is the share of people who eventually learn the rumor. Each dot is one run.",
+"tr": "横軸は心が動く確率、縦軸は最終的にうわさを知る人の割合です。点1つが1回の実行です。"
+},
+{
+"id": "s0962",
+"page": "rumor",
+"ko": "④ 정정이 늦으면 소용없다",
+"en": "④ Late Corrections Don't Help",
+"tr": "④ 遅い訂正は効果がない"
+},
+{
+"id": "s0963",
+"page": "rumor",
+"ko": "가로는 정정이 시작되는 시점, 세로는 소문에 도달한 사람의 비율입니다. 점선은 정정이 아예 없을 때예요.",
+"en": "The horizontal axis is when the correction starts, the vertical axis is the share of people the rumor reached. The dashed line is the case with no correction at all.",
+"tr": "横軸は訂正が始まる時点、縦軸はうわさが届いた人の割合です。破線は訂正がまったくない場合です。"
+},
+{
+"id": "s0964",
+"page": "rumor",
+"ko": "<b>말하는 것:</b> 소문은 \"솔깃할 확률\"이 어느 문턱을 넘으면 갑자기 거의 모두에게 퍼집니다. 그리고 정정은 빠를수록 효과가 크고, 소문이 이미 널리 퍼진 뒤에는 거의 막지 못합니다. 여러 방에 걸친 사람이 방과 방을 이어 주는 다리가 됩니다.",
+"en": "<b>What it shows:</b> Once the \"chance of being tempted\" crosses a threshold, the rumor suddenly reaches almost everyone. A correction works better the earlier it comes and barely helps once the rumor has spread widely. People in several rooms act as bridges between rooms.",
+"tr": "<b>わかること:</b>「心が動く確率」がしきい値を超えると、うわさは突然ほぼ全員に届きます。訂正は早いほど効果があり、うわさが広く行き渡ってからではほとんど役に立ちません。複数のルームにいる人は、ルーム同士の橋渡し役になります。"
+},
+{
+"id": "s0965",
+"page": "rumor",
+"ko": "<b>말하지 않는 것:</b> 실제 단톡방의 소문이 이 숫자대로 퍼진다는 뜻은 아닙니다. 소문의 내용, 보낸 사람에 대한 신뢰, 방 분위기는 담지 못했고, 정정이 소문보다 70% 덜 솔깃하다는 값도 가정일 뿐입니다.",
+"en": "<b>What it doesn't show:</b> It doesn't mean rumors in real group chats spread by these numbers. The content of the rumor, trust in the sender and the mood of the room are not captured, and the assumption that a correction is 70% as tempting as a rumor is only an assumption.",
+"tr": "<b>わからないこと:</b> 実際のグループチャットのうわさがこの数値どおりに広がるという意味ではありません。うわさの内容、送り手への信頼、ルームの雰囲気は反映されておらず、訂正がうわさの70%の誘引力だという仮定も、あくまで仮定にすぎません。"
+},
+{
+"id": "s0966",
+"page": "rumor",
+"ko": "소문 전파 모델의 일종인 SIR 모델(모름→퍼뜨림→멈춤)을 사람과 단톡방의 관계망에 올렸고, 정정 글을 두 번째 전파로 추가했습니다. 특정 논문을 그대로 재현한 것은 아니고 이 프로젝트의 설계입니다.",
+"en": "We placed an SIR-type rumor model (unaware → spreading → stopped) on a network of people and chat rooms, and added the correction as a second spreading process. It does not reproduce a specific paper; it is this project's own design.",
+"tr": "人とチャットルームのネットワーク上にSIR型のうわさモデル(知らない → 広めている → やめた)を置き、訂正を2つ目の拡散過程として加えました。特定の論文を再現したものではなく、このプロジェクト独自の設計です。"
+},
+{
+"id": "s0967",
+"page": "rumor",
+"ko": "사람 500명, 방 50개, 방 인기도는 순위의 -0.6제곱에 비례해 큰 방과 작은 방이 생기도록 했습니다. 소문을 올리는 사람은 자기가 든 모든 방에 올리고, 관심을 잃을 확률은 70%입니다.",
+"en": "500 people and 50 rooms; room popularity is proportional to rank^−0.6 so that big and small rooms appear. A person who spreads the rumor posts in every room they belong to, and the chance of losing interest is 70%.",
+"tr": "500人と50のルーム。ルームの人気度は順位^−0.6に比例させ、大きいルームも小さいルームも現れるようにしています。うわさを広める人は所属するすべてのルームに投稿し、興味を失う確率は70%です。"
+},
+{
+"id": "s0968",
+"page": "rumor",
+"ko": "③, ④번 그래프는 현재 설정에서 해당 값만 바꿔 여러 번 돌린 결과입니다.",
+"en": "Graphs ③ and ④ change only the given value in the current setup and run it several times.",
+"tr": "グラフ③と④は、現在の設定のうち指定された値だけを変え、複数回実行します。"
+},
+{
+"id": "s0969",
+"page": "rumor",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/rumor\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/rumor\">GitHub</a>.",
+"tr": "コードは<a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/rumor\">GitHub</a>で公開しています。"
+},
+{
+"id": "s0970",
+"page": "schelling",
+"ko": "끼리끼리 모이는 이유 · 시뮬라티오 랩",
+"en": "Why Birds of a Feather Flock Together · Simulatio Lab",
+"tr": "類は友を呼ぶのはなぜか · Simulatio Lab"
+},
+{
+"id": "s0971",
+"page": "schelling",
+"ko": "약한 편견만으로도 완전한 분리가 생길까? 셸링 분리 모델을 변수를 바꿔 직접 돌려보세요.",
+"en": "Can a mild wish not to be a minority split a neighborhood completely apart? Run the Schelling segregation model yourself.",
+"tr": "少数派になりたくないという穏やかな願いだけで、街は完全に分かれてしまうのでしょうか。シェリングの分離モデルをご自身で実行してみてください。"
+},
+{
+"id": "s0972",
+"page": "schelling",
+"ko": "\"나는 이웃이 다양해도 괜찮아. 그냥 3분의 1만 나와 비슷하면 돼.\" 이 정도로 관대한 사람들만 있어도 동네는 거의 완전히 갈라질 수 있을까요?",
+"en": "\"I don't mind a diverse neighborhood. I just want a third of my neighbors to be like me.\" Could a neighborhood of such tolerant people still split almost completely apart?",
+"tr": "「いろいろな人が住む街でもかまいません。ただ、近所の3分の1は自分と同じ人であってほしいだけです。」そんな寛容な人たちの街でも、ほぼ完全に分かれてしまうことがあるのでしょうか。"
+},
+{
+"id": "s0973",
+"page": "schelling",
+"ko": "격자 위에 <b style=\"color:var(--ga)\">파랑</b>과 <b style=\"color:var(--gb)\">주황</b> 두 집단이 무작위로 섞여 살고, 일부 칸은 비어 있습니다.",
+"en": "On a grid, two groups, <b style=\"color:var(--ga)\">blue</b> and <b style=\"color:var(--gb)\">orange</b>, live randomly mixed, and some cells are empty.",
+"tr": "格子の上で、<b style=\"color:var(--ga)\">青</b>と<b style=\"color:var(--gb)\">オレンジ</b>の2つのグループがランダムに混ざって暮らしており、空きマスもあります。"
+},
+{
+"id": "s0974",
+"page": "schelling",
+"ko": "모든 사람은 둘레 8칸 이웃 중 <b>같은 집단이 일정 비율 이상</b>이면 만족합니다. 이 비율이 슬라이더의 \"원하는 비율\"입니다.",
+"en": "Everyone is content if <b>at least a certain share of their 8 surrounding neighbors belong to their own group</b>. That share is the slider's \"desired share.\"",
+"tr": "<b>まわりの8マスの隣人のうち、一定の割合以上が自分と同じグループ</b>であれば、誰もが満足します。この割合がスライダーの「希望する割合」です。"
+},
+{
+"id": "s0975",
+"page": "schelling",
+"ko": "불만족한 사람은 무작위 빈 칸으로 이사합니다. 모두 만족할 때까지 반복합니다.",
+"en": "An unhappy person moves to a random empty cell. This repeats until everyone is happy.",
+"tr": "不満のある人は、ランダムな空きマスに引っ越します。これを全員が満足するまで繰り返します。"
+},
+{
+"id": "s0976",
+"page": "schelling",
+"ko": "누구도 \"다른 집단과 살기 싫다\"고 하지 않습니다. 단지 \"소수가 되기는 싫다\"일 뿐이에요.",
+"en": "Nobody says \"I don't want to live with the other group.\" They only say \"I don't want to be a minority.\"",
+"tr": "「ほかのグループとは暮らしたくない」と言う人はいません。「少数派にはなりたくない」と言うだけです。"
+},
+{
+"id": "s0977",
+"page": "schelling",
+"ko": "원하는 같은 이웃 비율 <output id=\"o-threshold\"></output>",
+"en": "Desired share of similar neighbors <output id=\"o-threshold\"></output>",
+"tr": "希望する同類の隣人の割合 <output id=\"o-threshold\"></output>"
+},
+{
+"id": "s0978",
+"page": "schelling",
+"ko": "이보다 적으면 불만족해서 이사해요",
+"en": "Below this share, they are unhappy and move",
+"tr": "この割合を下回ると、不満を感じて引っ越します"
+},
+{
+"id": "s0979",
+"page": "schelling",
+"ko": "빈 칸 비율 <output id=\"o-empty\"></output>",
+"en": "Share of empty cells <output id=\"o-empty\"></output>",
+"tr": "空きマスの割合 <output id=\"o-empty\"></output>"
+},
+{
+"id": "s0980",
+"page": "schelling",
+"ko": "이사 갈 곳이 얼마나 있는지",
+"en": "How many places there are to move to",
+"tr": "引っ越せる場所がどれだけあるか"
+},
+{
+"id": "s0981",
+"page": "schelling",
+"ko": "파랑 집단 비율 <output id=\"o-shareA\"></output>",
+"en": "Share of the blue group <output id=\"o-shareA\"></output>",
+"tr": "青グループの割合 <output id=\"o-shareA\"></output>"
+},
+{
+"id": "s0982",
+"page": "schelling",
+"ko": "나머지는 주황 집단",
+"en": "The rest is the orange group",
+"tr": "残りはオレンジグループです"
+},
+{
+"id": "s0983",
+"page": "schelling",
+"ko": "같은 설정, 다른 배치",
+"en": "Same settings, new layout",
+"tr": "同じ設定で新しい配置"
+},
+{
+"id": "s0984",
+"page": "schelling",
+"ko": "① 동네가 어떻게 바뀌나",
+"en": "① How the Neighborhood Changes",
+"tr": "① 街の変化"
+},
+{
+"id": "s0985",
+"page": "schelling",
+"ko": "작은 점이 찍힌 칸은 지금 불만족해서 이사를 고민하는 사람입니다.",
+"en": "Cells with a small dot hold someone who is unhappy right now and thinking about moving.",
+"tr": "小さな点のあるマスには、いま不満を感じて引っ越しを考えている人がいます。"
+},
+{
+"id": "s0986",
+"page": "schelling",
+"ko": "처음 (무작위로 섞임)",
+"en": "Start (randomly mixed)",
+"tr": "開始時(ランダムに混在)"
+},
+{
+"id": "s0987",
+"page": "schelling",
+"ko": "지금",
+"en": "Now",
+"tr": "現在"
+},
+{
+"id": "s0988",
+"page": "schelling",
+"ko": "▶ 재생",
+"en": "▶ Play",
+"tr": "▶ 再生"
+},
+{
+"id": "s0989",
+"page": "schelling",
+"ko": "한 라운드",
+"en": "One round",
+"tr": "1ラウンド"
+},
+{
+"id": "s0990",
+"page": "schelling",
+"ko": "<i style=\"background:var(--ga)\"></i>파랑 집단",
+"en": "<i style=\"background:var(--ga)\"></i>Blue group",
+"tr": "<i style=\"background:var(--ga)\"></i>青グループ"
+},
+{
+"id": "s0991",
+"page": "schelling",
+"ko": "<i style=\"background:var(--gb)\"></i>주황 집단",
+"en": "<i style=\"background:var(--gb)\"></i>Orange group",
+"tr": "<i style=\"background:var(--gb)\"></i>オレンジグループ"
+},
+{
+"id": "s0992",
+"page": "schelling",
+"ko": "<i style=\"background:#fff;border:1.5px solid var(--muted)\"></i>빈 칸",
+"en": "<i style=\"background:#fff;border:1.5px solid var(--muted)\"></i>Empty cell",
+"tr": "<i style=\"background:#fff;border:1.5px solid var(--muted)\"></i>空きマス"
+},
+{
+"id": "s0993",
+"page": "schelling",
+"ko": "② 라운드마다 높아지는 분리도",
+"en": "② Segregation Rising Each Round",
+"tr": "② ラウンドごとに高まる分離"
+},
+{
+"id": "s0994",
+"page": "schelling",
+"ko": "분리도는 \"내 이웃 중 같은 집단의 평균 비율\"입니다. 섞여 있으면 50% 근처예요.",
+"en": "Segregation is \"the average share of same-group people among one's neighbors.\" A mixed neighborhood sits near 50%.",
+"tr": "分離度とは「隣人のうち同じグループの人の平均的な割合」です。混ざり合った街では50%前後になります。"
+},
+{
+"id": "s0995",
+"page": "schelling",
+"ko": "③ 조금만 바라도 크게 갈라진다",
+"en": "③ A Mild Preference Leads to Strong Separation",
+"tr": "③ 穏やかな好みが強い分離を生む"
+},
+{
+"id": "s0996",
+"page": "schelling",
+"ko": "가로는 사람들이 원하는 비율, 세로는 결과로 나온 분리도입니다. 점선(y=x)보다 위에 있을수록 원한 것보다 더 갈라졌다는 뜻이에요.",
+"en": "The horizontal axis is the share people want, the vertical axis is the resulting segregation. The higher above the dashed line (y=x), the more separated it ended up than people wanted.",
+"tr": "横軸は人々が望む割合、縦軸は結果として生じた分離の度合いです。点線(y=x)より上にあるほど、望まれていた以上に分かれてしまったことを表します。"
+},
+{
+"id": "s0997",
+"page": "schelling",
+"ko": "<b>말하는 것:</b> 개인은 \"소수가 되기 싫다\" 정도의 약한 바람만 가졌는데, 그 선택이 모이면 아무도 원하지 않았던 강한 분리가 나타날 수 있습니다. 집단의 모습이 개개인의 의도와 다를 수 있다는 뜻이에요.",
+"en": "<b>What it shows:</b> Each individual holds only a mild wish, \"I don't want to be a minority,\" yet together these choices can produce strong separation that nobody wanted. The shape of the group can differ from what individuals intended.",
+"tr": "<b>わかること:</b> 一人ひとりは「少数派にはなりたくない」というささやかな望みしか持っていませんが、その選択が集まると、誰も望んでいなかった強い分離が生まれることがあります。集団の姿は、個人の意図とは違うものになりえます。"
+},
+{
+"id": "s0998",
+"page": "schelling",
+"ko": "<b>말하지 않는 것:</b> 현실의 주거 분리가 모두 이런 이유 때문이라는 뜻은 아닙니다. 집값, 학군, 일자리, 차별적 제도 같은 요인은 이 모델에 없습니다. 그리고 \"원하는 비율\"을 너무 높이면(60% 이상) 모두가 만족하는 배치가 거의 없어서 계속 이사만 하는 상태가 됩니다.",
+"en": "<b>What it doesn't show:</b> It doesn't mean real residential segregation is all due to this. Housing prices, school districts, jobs and discriminatory policies are not in this model. Also, if the \"desired share\" is set too high (60% or more), there is almost no arrangement that satisfies everyone, and people just keep moving.",
+"tr": "<b>わからないこと:</b> 現実の居住分離がすべてこれで説明できるという意味ではありません。住宅価格、学区、仕事、差別的な政策はこのモデルには入っていません。また「希望する割合」を高く(60%以上)しすぎると、全員が満足する配置はほとんどなくなり、人々は移動し続けます。"
+},
+{
+"id": "s0999",
+"page": "schelling",
+"ko": "원 모델: Thomas C. Schelling (1971), \"Dynamic Models of Segregation\", <i>Journal of Mathematical Sociology</i> 1(2). 이 구현은 격자(50×50, 가장자리가 이어짐), 이웃 8칸, 무작위 빈 칸으로 이사하는 흔한 변형입니다.",
+"en": "Original model: Thomas C. Schelling (1971), \"Dynamic Models of Segregation\", <i>Journal of Mathematical Sociology</i> 1(2). This implementation is the common variant: a 50×50 grid with wrap-around edges, 8 neighbors, and moving to a random empty cell.",
+"tr": "原典モデル: Thomas C. Schelling (1971), 「Dynamic Models of Segregation」, <i>Journal of Mathematical Sociology</i> 1(2)。この実装は一般的な変形版で、端がつながった50×50のグリッド、8近傍、ランダムな空きマスへの移動を用いています。"
+},
+{
+"id": "s1000",
+"page": "schelling",
+"ko": "이웃이 한 명도 없는 사람은 만족한 것으로 봅니다. 한 라운드에서는 불만족한 사람들이 무작위 순서로 한 명씩 이사합니다.",
+"en": "A person with no neighbors at all counts as content. In each round, unhappy people move one at a time in random order.",
+"tr": "隣人がまったくいない人は満足しているものとして数えます。各ラウンドでは、不満のある人がランダムな順番で1人ずつ移動します。"
+},
+{
+"id": "s1001",
+"page": "schelling",
+"ko": "③번 그래프는 같은 배치로 원하는 비율만 바꿔 최대 100라운드까지 돌린 결과이고, 끝까지 만족하는 배치를 못 찾으면 그 상태에서 측정합니다.",
+"en": "Graph ③ changes only the desired share on the same layout and runs up to 100 rounds; if no arrangement satisfies everyone, it measures the state at that point.",
+"tr": "グラフ③は、同じ配置のまま希望する割合だけを変えて最大100ラウンド実行します。全員が満足する配置がない場合は、その時点の状態を測ります。"
+},
+{
+"id": "s1002",
+"page": "schelling",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/schelling\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/schelling\">GitHub</a>.",
+"tr": "コードは<a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/schelling\">GitHub</a>で公開しています。"
+},
+{
+"id": "s1003",
+"page": "sunflower",
+"ko": "해바라기 씨는 왜 그 각도로 배열될까 · 시뮬라티오 랩",
+"en": "Why Do Sunflower Seeds Sit at That Angle? · Simulatio Lab",
+"tr": "ヒマワリの種はなぜその角度で並ぶの? · Simulatio Lab"
+},
+{
+"id": "s1004",
+"page": "sunflower",
+"ko": "씨앗을 한 알씩 놓을 때 돌리는 각도를 바꿔 가며, 어떤 각도가 빈틈 없이 고르게 채우는지 직접 돌려보세요.",
+"en": "Change the turning angle as seeds are placed one by one, and see which angle fills the disc evenly with no gaps.",
+"tr": "種を1つずつ置くときの回転角を変えて、どの角度なら円盤がすき間なく均等に埋まるか確かめましょう。"
+},
+{
+"id": "s1005",
+"page": "sunflower",
+"ko": "해바라기 씨앗은 왜 하필 약 137.5도씩 돌아가며 자랄까요? 씨앗을 한 알씩 놓을 때 돌리는 각도를 바꿔 가며, 어떤 각도가 빈틈 없이 고르게 채우는지 확인해 봅니다.",
+"en": "Why do sunflower seeds grow around at about 137.5 degrees per step? Change the angle you turn as each seed is placed, and check which angle fills the disc evenly without gaps.",
+"tr": "ヒマワリの種はなぜ1つごとに約137.5度ずつ回って並ぶのでしょうか。種を置くたびに回す角度を変えて、どの角度なら円盤がすき間なく均等に埋まるか確かめましょう。"
+},
+{
+"id": "s1006",
+"page": "sunflower",
+"ko": "k번째 씨앗은 중심에서 √k만큼 떨어지고, 앞 씨앗보다 정해진 각도만큼 더 돌아간 자리에 놓입니다. 이런 배열을 피로택시스(Vogel의 나선)라고 부릅니다.",
+"en": "The k-th seed sits √k away from the center, turned a fixed angle further than the previous seed. This arrangement is called phyllotaxis (Vogel's spiral).",
+"tr": "k番目の種は中心から√kの距離にあり、1つ前の種から一定の角度だけ回った位置に置かれます。この配置を葉序(フォーゲルのらせん)と呼びます。"
+},
+{
+"id": "s1007",
+"page": "sunflower",
+"ko": "각도가 360°의 간단한 분수(90°는 1/4, 120°는 1/3, 144°는 2/5)에 가까우면 씨앗이 같은 방향으로 겹쳐 쌓여서 바큇살 모양과 큰 빈틈이 생깁니다.",
+"en": "When the angle is close to a simple fraction of 360° (90° is 1/4, 120° is 1/3, 144° is 2/5), seeds pile up along the same directions, leaving spokes and large gaps.",
+"tr": "角度が360°の単純な分数(90°は1/4、120°は1/3、144°は2/5)に近いと、種が同じ方向に積み重なり、放射状の筋と大きなすき間ができます。"
+},
+{
+"id": "s1008",
+"page": "sunflower",
+"ko": "<b>황금각</b>(약 137.508°)은 360°를 황금비로 나눈 각도로, 간단한 분수에서 가장 멀리 떨어진 각도로 알려져 있습니다.",
+"en": "The <b>golden angle</b> (about 137.508°) divides 360° in the golden ratio, and is known as the angle farthest from any simple fraction.",
+"tr": "<b>黄金角</b>(約137.508°)は360°を黄金比で分ける角度で、どんな単純な分数からも最も遠い角度として知られています。"
+},
+{
+"id": "s1009",
+"page": "sunflower",
+"ko": "채움 품질은 원판 위의 여러 점에서 가장 가까운 씨앗까지 거리를 재서, 평균(빈틈 평균)과 최댓값(가장 큰 빈틈)을 이상 간격으로 나눈 값입니다. 작을수록 고르게 채워진 것입니다. \"색 보기\"에서 번호를 34 같은 수로 나눈 나머지로 칠하면 나선 팔을 볼 수 있어요.",
+"en": "Packing quality is measured by taking many points on the disc and finding the distance to the nearest seed; the mean (average gap) and the maximum (largest gap) are divided by the ideal spacing. Smaller means more evenly filled. In \"Color by\", coloring by the remainder after dividing the seed number by something like 34 reveals the spiral arms.",
+"tr": "充填の質は、円盤上の多数の点について最も近い種までの距離を求め、その平均(平均すき間)と最大値(最大すき間)を理想的な間隔で割って測ります。小さいほど均等に埋まっています。「色分け」で、種の番号を34などで割った余りで色を付けると、らせんの腕が見えてきます。"
+},
+{
+"id": "s1010",
+"page": "sunflower",
+"ko": "씨앗 사이의 각도 <output id=\"o-angle\"></output>",
+"en": "Angle between seeds <output id=\"o-angle\"></output>",
+"tr": "種どうしの角度 <output id=\"o-angle\"></output>"
+},
+{
+"id": "s1011",
+"page": "sunflower",
+"ko": "황금각은 약 137.508°입니다. 조금만 움직여 보세요",
+"en": "The golden angle is about 137.508°. Try moving it just a little",
+"tr": "黄金角は約137.508°です。ほんの少しだけ動かしてみましょう"
+},
+{
+"id": "s1012",
+"page": "sunflower",
+"ko": "씨앗 수 <output id=\"o-n\"></output>",
+"en": "Number of seeds <output id=\"o-n\"></output>",
+"tr": "種の数 <output id=\"o-n\"></output>"
+},
+{
+"id": "s1013",
+"page": "sunflower",
+"ko": "많을수록 무늬가 선명해져요",
+"en": "More seeds make the pattern clearer",
+"tr": "種が多いほど模様がはっきりします"
+},
+{
+"id": "s1014",
+"page": "sunflower",
+"ko": "씨앗 크기 <output id=\"o-size\"></output>",
+"en": "Seed size <output id=\"o-size\"></output>",
+"tr": "種の大きさ <output id=\"o-size\"></output>"
+},
+{
+"id": "s1015",
+"page": "sunflower",
+"ko": "100%면 이상 간격만큼 커서 서로 맞닿아요",
+"en": "At 100% a seed is as wide as the ideal spacing, so they touch",
+"tr": "100%では種の幅が理想的な間隔と同じになり、互いに接します"
+},
+{
+"id": "s1016",
+"page": "sunflower",
+"ko": "각도 프리셋 <output id=\"o-preset\"></output>",
+"en": "Angle preset <output id=\"o-preset\"></output>",
+"tr": "角度のプリセット <output id=\"o-preset\"></output>"
+},
+{
+"id": "s1017",
+"page": "sunflower",
+"ko": "직접 조절",
+"en": "Custom",
+"tr": "カスタム"
+},
+{
+"id": "s1018",
+"page": "sunflower",
+"ko": "황금각 137.508°",
+"en": "Golden angle 137.508°",
+"tr": "黄金角 137.508°"
+},
+{
+"id": "s1019",
+"page": "sunflower",
+"ko": "137°",
+"en": "137°",
+"tr": "137°"
+},
+{
+"id": "s1020",
+"page": "sunflower",
+"ko": "138°",
+"en": "138°",
+"tr": "138°"
+},
+{
+"id": "s1021",
+"page": "sunflower",
+"ko": "120° (1/3)",
+"en": "120° (1/3)",
+"tr": "120° (1/3)"
+},
+{
+"id": "s1022",
+"page": "sunflower",
+"ko": "144° (2/5)",
+"en": "144° (2/5)",
+"tr": "144° (2/5)"
+},
+{
+"id": "s1023",
+"page": "sunflower",
+"ko": "90° (1/4)",
+"en": "90° (1/4)",
+"tr": "90° (1/4)"
+},
+{
+"id": "s1024",
+"page": "sunflower",
+"ko": "150°",
+"en": "150°",
+"tr": "150°"
+},
+{
+"id": "s1025",
+"page": "sunflower",
+"ko": "고르면 각도 슬라이더가 맞춰져요",
+"en": "Choosing one sets the angle slider",
+"tr": "選ぶと角度のスライダーが設定されます"
+},
+{
+"id": "s1026",
+"page": "sunflower",
+"ko": "색 보기 <output id=\"o-color\"></output>",
+"en": "Color by <output id=\"o-color\"></output>",
+"tr": "色分け <output id=\"o-color\"></output>"
+},
+{
+"id": "s1027",
+"page": "sunflower",
+"ko": "번호 순서 (안쪽→바깥)",
+"en": "Seed order (inside → outside)",
+"tr": "種の順番(内側 → 外側)"
+},
+{
+"id": "s1028",
+"page": "sunflower",
+"ko": "21로 나눈 나머지",
+"en": "Remainder mod 21",
+"tr": "21で割った余り"
+},
+{
+"id": "s1029",
+"page": "sunflower",
+"ko": "34로 나눈 나머지",
+"en": "Remainder mod 34",
+"tr": "34で割った余り"
+},
+{
+"id": "s1030",
+"page": "sunflower",
+"ko": "55로 나눈 나머지",
+"en": "Remainder mod 55",
+"tr": "55で割った余り"
+},
+{
+"id": "s1031",
+"page": "sunflower",
+"ko": "나선 팔이 몇 개로 보이는지 확인해 보세요",
+"en": "See how many spiral arms appear",
+"tr": "らせんの腕がいくつ現れるか見てみましょう"
+},
+{
+"id": "s1032",
+"page": "sunflower",
+"ko": "다시 자라기",
+"en": "Grow again",
+"tr": "もう一度育てる"
+},
+{
+"id": "s1033",
+"page": "sunflower",
+"ko": "① 해바라기가 자라는 모습",
+"en": "① Watching the Sunflower Grow",
+"tr": "① ヒマワリが育つ様子を見る"
+},
+{
+"id": "s1034",
+"page": "sunflower",
+"ko": "씨앗이 한 알씩 더해집니다. 각도를 바꾸면 무늬가 어떻게 달라지는지 보세요. 황금각 근처에서는 빈틈이 거의 없고, 120°나 144° 같은 각도에서는 바큇살이 생겨요.",
+"en": "Seeds are added one at a time. Change the angle and watch how the pattern differs. Near the golden angle there are almost no gaps, while angles like 120° or 144° produce spokes.",
+"tr": "種が1つずつ加わっていきます。角度を変えて、模様がどう違うか見てみましょう。黄金角の近くではほとんどすき間がなく、120°や144°のような角度では放射状の筋ができます。"
+},
+{
+"id": "s1035",
+"page": "sunflower",
+"ko": "② 3D로 보기: 볼록한 꽃판과 솔방울 <span class=\"badge3d\">3D</span>",
+"en": "② See It in 3D: a Domed Seed Head and a Pinecone <span class=\"badge3d\">3D</span>",
+"tr": "② 3Dで見る：ドーム型の花盤と松かさ <span class=\"badge3d\">3D</span>"
+},
+{
+"id": "s1036",
+"page": "sunflower",
+"ko": "위에서 고른 각도로 씨앗을 볼록한 꽃판 위에 올렸습니다. 돌려 보면 시계 방향과 반시계 방향의 나선이 겹쳐 보이고, 색 칠하기를 34나 55로 바꾸면 한 방향의 나선 팔이 한 색으로 묶입니다. 각도를 120°나 144°로 바꾸면 씨앗이 바큇살로 몰리고 그 사이로 짙은 꽃판이 드러납니다. 솔방울도 같은 규칙(비늘 하나마다 같은 각도만큼 돌기)으로 비늘을 쌓은 것이며, 이때는 나선이 8개, 13개로 보입니다.",
+"en": "Seeds are placed on a domed head using the angle chosen above. Rotate it and you will see clockwise and counterclockwise spirals crossing; color by 34 or 55 and the arms of one direction group into single colors. Change the angle to 120° or 144° and the seeds crowd into spokes, exposing the dark head between them. A pinecone stacks its scales by the same rule (turn the same angle for each scale), and there the spirals show up as 8 and 13.",
+"tr": "上で選んだ角度を使って、ドーム型の花盤に種を配置します。回転させると時計回りと反時計回りのらせんが交差しているのが見え、34または55で色分けすると同じ向きの腕がそれぞれ一色にまとまります。角度を120°や144°に変えると種が放射状に固まり、その間から暗い花盤が見えます。松かさも同じルール（りん片ごとに同じ角度だけ回す）でりん片を積み重ねており、そこではらせんが8と13として現れます。"
+},
+{
+"id": "s1037",
+"page": "sunflower",
+"ko": "해바라기 꽃판",
+"en": "Sunflower head",
+"tr": "ヒマワリの花盤"
+},
+{
+"id": "s1038",
+"page": "sunflower",
+"ko": "솔방울",
+"en": "Pinecone",
+"tr": "松かさ"
+},
+{
+"id": "s1039",
+"page": "sunflower",
+"ko": "색 칠하기: 위 설정과 같게",
+"en": "Color: same as above",
+"tr": "色：上と同じ"
+},
+{
+"id": "s1040",
+"page": "sunflower",
+"ko": "색 칠하기: 번호 순서",
+"en": "Color: seed order",
+"tr": "色：種の順番"
+},
+{
+"id": "s1041",
+"page": "sunflower",
+"ko": "색 칠하기: 8로 나눈 나머지",
+"en": "Color: remainder mod 8",
+"tr": "色：8で割った余り"
+},
+{
+"id": "s1042",
+"page": "sunflower",
+"ko": "색 칠하기: 13로 나눈 나머지",
+"en": "Color: remainder mod 13",
+"tr": "色：13で割った余り"
+},
+{
+"id": "s1043",
+"page": "sunflower",
+"ko": "색 칠하기: 21로 나눈 나머지",
+"en": "Color: remainder mod 21",
+"tr": "色：21で割った余り"
+},
+{
+"id": "s1044",
+"page": "sunflower",
+"ko": "색 칠하기: 34로 나눈 나머지",
+"en": "Color: remainder mod 34",
+"tr": "色：34で割った余り"
+},
+{
+"id": "s1045",
+"page": "sunflower",
+"ko": "색 칠하기: 55로 나눈 나머지",
+"en": "Color: remainder mod 55",
+"tr": "色：55で割った余り"
+},
+{
+"id": "s1046",
+"page": "sunflower",
+"ko": "▶ 처음부터 자라기",
+"en": "▶ Grow from the start",
+"tr": "▶ 最初から育てる"
+},
+{
+"id": "s1047",
+"page": "sunflower",
+"ko": "드래그로 회전 · 휠(두 손가락)로 확대 · 꽃판은 위 그림과 함께 자랍니다",
+"en": "Drag to rotate · scroll (or pinch) to zoom · the head grows along with the picture above",
+"tr": "ドラッグで回転 · スクロール（またはピンチ）で拡大・縮小 · 花盤は上の図と一緒に育ちます"
+},
+{
+"id": "s1048",
+"page": "sunflower",
+"ko": "③ 각도마다 빈틈은 얼마나 될까",
+"en": "③ How Big Are the Gaps at Each Angle?",
+"tr": "③ 角度ごとの隙間の大きさは？"
+},
+{
+"id": "s1049",
+"page": "sunflower",
+"ko": "가로는 씨앗 사이의 각도, 세로는 빈틈 평균입니다(로그 눈금). 대부분의 각도는 비슷하게 낮지만, 360°의 간단한 분수 근처에서는 뾰족하게 나빠집니다.",
+"en": "The horizontal axis is the angle between seeds, the vertical axis is the average gap (log scale). Most angles stay similarly low, but near simple fractions of 360° the gap spikes sharply.",
+"tr": "横軸は種どうしの角度、縦軸は平均すき間(対数目盛)です。ほとんどの角度は同じように低いままですが、360°の単純な分数の近くではすき間が急に大きくなります。"
+},
+{
+"id": "s1050",
+"page": "sunflower",
+"ko": "④ 특별한 각도 비교",
+"en": "④ Comparing Special Angles",
+"tr": "④ 特別な角度を比べる"
+},
+{
+"id": "s1051",
+"page": "sunflower",
+"ko": "지금 씨앗 수에서 몇 가지 각도의 빈틈 평균을 비교합니다. 낮을수록 고르게 채워진 것이고, 금색이 황금각입니다.",
+"en": "Compares the average gap of a few angles at the current seed count. Lower means more evenly filled, and gold is the golden angle.",
+"tr": "現在の種の数で、いくつかの角度の平均すき間を比べます。低いほど均等に埋まっており、金色が黄金角です。"
+},
+{
+"id": "s1052",
+"page": "sunflower",
+"ko": "⑤ 이웃까지의 거리",
+"en": "⑤ Distance to the Nearest Neighbor",
+"tr": "⑤ 最も近い隣までの距離"
+},
+{
+"id": "s1053",
+"page": "sunflower",
+"ko": "지금 각도에서 씨앗마다 가장 가까운 이웃까지의 거리 분포입니다. 간격이 일정하면 한 곳에 뾰족하게 모이고, 겹치거나 듬성듬성하면 넓게 퍼집니다.",
+"en": "The distribution of the distance from each seed to its nearest neighbor at the current angle. Even spacing gives one sharp peak; overlap or sparse spots spread it out.",
+"tr": "現在の角度での、各種から最も近い隣までの距離の分布です。間隔が均等なら鋭いピークが1つになり、重なりやまばらな部分があると広がります。"
+},
+{
+"id": "s1054",
+"page": "sunflower",
+"ko": "<b>말하는 것:</b> 씨앗 600개일 때 황금각(137.508°)의 빈틈 평균은 0.38로, 90°~180°를 0.1° 간격으로 훑은 각도 중 이보다 낮은 것은 0.3%뿐이었습니다. 90°, 120°, 144°, 180°처럼 간단한 분수에 가까운 각도는 2.4~5.0으로 6~13배 나쁩니다. 간격의 균일함(이웃 거리의 변동계수)도 황금각은 0.012인데, 0.2°만 어긋난 137.7°는 0.107로 약 9배 들쭉날쭉합니다. 황금각에서는 가까운 이웃의 번호 차이가 피보나치 수로 나옵니다(씨앗 1000개일 때 55와 34).",
+"en": "<b>What it shows:</b> With 600 seeds, the golden angle (137.508°) has an average gap of 0.38, and only 0.3% of the angles from 90° to 180° (scanned in 0.1° steps) scored lower. Angles near simple fractions such as 90°, 120°, 144° and 180° score 2.4 to 5.0, which is 6 to 13 times worse. The evenness of spacing (coefficient of variation of neighbor distances) is 0.012 at the golden angle, while 137.7°, off by only 0.2°, gives 0.107, about 9 times less even. At the golden angle, the index difference between close neighbors is a Fibonacci number (55 and 34 with 1000 seeds).",
+"tr": "<b>わかること:</b> 種が600個のとき、黄金角(137.508°)の平均すき間は0.38で、90°〜180°の角度(0.1°刻みで調べた結果)のうち、これより低かったのはわずか0.3%でした。90°、120°、144°、180°のような単純な分数に近い角度は2.4〜5.0で、6〜13倍も悪い値です。間隔の均等さ(隣との距離の変動係数)は黄金角で0.012ですが、わずか0.2°ずれた137.7°では0.107となり、約9倍も不均等です。黄金角では、近い隣どうしの番号の差がフィボナッチ数になります(種が1000個のとき55と34)。"
+},
+{
+"id": "s1055",
+"page": "sunflower",
+"ko": "<b>말하지 않는 것:</b> 실제 해바라기가 이런 계산으로 만들어진다는 증명은 아닙니다. 이 모델은 \"어떤 각도가 기하학적으로 고르게 채우는가\"만 보며, 실제 식물에서는 새 씨앗이 기존 씨앗 사이의 가장 빈 자리에서 생기는 과정(호르몬과 억제 효과)으로 각도가 정해진다는 설명이 있습니다. 또 황금각만 잘 채우는 것은 아닙니다. 600개일 때 빈틈 평균이 0.5 미만인 각도가 전체의 73%였습니다. 황금각은 그중에서도 가장 낮은 편이고 가장 고른 편이라는 것이 측정 결과입니다.",
+"en": "<b>What it doesn't show:</b> This does not prove that real sunflowers are built by this calculation. The model only looks at which angle fills a disc evenly in geometry; for real plants there is an explanation in which new seeds form in the emptiest spot between existing ones (hormones and inhibition), and the angle follows from that. Also, the golden angle is not the only one that fills well: with 600 seeds, 73% of the angles had an average gap below 0.5. The measured result is that the golden angle is among the lowest and most even of them.",
+"tr": "<b>わからないこと:</b> 実際のヒマワリがこの計算で作られていることの証明ではありません。このモデルは、どの角度なら円盤が均等に埋まるかを幾何学的に調べているだけです。実際の植物については、新しい種が既存の種のあいだで最も空いた場所にできる(ホルモンと抑制)という説明があり、角度はそこから導かれます。また、よく埋まる角度は黄金角だけではありません。種が600個のとき、73%の角度で平均すき間が0.5未満でした。測定結果として言えるのは、黄金角が最も低く均等なものの1つだということです。"
+},
+{
+"id": "s1056",
+"page": "sunflower",
+"ko": "Vogel (1979), \"A better way to construct the sunflower head\", <i>Mathematical Biosciences</i> 44의 나선 배열과, Douady, Couder (1992), \"Phyllotaxis as a physical self-organized growth process\", <i>Physical Review Letters</i> 68의 연구에서 발상을 얻었습니다. 이 구현은 위치를 계산하는 기하학 모델이며 논문 수치의 재현이 아닙니다.",
+"en": "Inspired by the spiral arrangement in Vogel (1979), \"A better way to construct the sunflower head\", <i>Mathematical Biosciences</i> 44, and by Douady and Couder (1992), \"Phyllotaxis as a physical self-organized growth process\", <i>Physical Review Letters</i> 68. This implementation is a geometric model that computes positions; it does not reproduce the numbers of either paper.",
+"tr": "Vogel (1979) 「A better way to construct the sunflower head」, <i>Mathematical Biosciences</i> 44 のらせん配置と、Douady and Couder (1992) 「Phyllotaxis as a physical self-organized growth process」, <i>Physical Review Letters</i> 68 に着想を得ています。この実装は位置を計算する幾何学的なモデルであり、どちらの論文の数値も再現するものではありません。"
+},
+{
+"id": "s1057",
+"page": "sunflower",
+"ko": "채움 품질은 반지름의 85% 안쪽 원판에 이상 간격의 0.35배 간격으로 찍은 점에서 가장 가까운 씨앗까지의 거리로 계산합니다. 씨앗 k는 반지름 √(k+0.5)에 놓입니다.",
+"en": "Packing quality uses probe points spaced 0.35 times the ideal spacing inside 85% of the disc radius, measuring the distance to the nearest seed. Seed k sits at radius √(k+0.5).",
+"tr": "充填の質は、円盤の半径の85%の内側に理想的な間隔の0.35倍ごとに置いた測定点を使い、最も近い種までの距離を測ります。k番目の種は半径√(k+0.5)の位置にあります。"
+},
+{
+"id": "s1058",
+"page": "sunflower",
+"ko": "90°~180°를 0.1° 간격(901개 각도)으로 측정하면, 이웃 거리의 변동계수는 99.5°(황금비에서 나오는 또 다른 각도 360°/(φ+2)와 같은 값)가 0.011로 황금각(0.012)보다 근소하게 낮았고 다른 각도는 모두 더 높았습니다. 검증은 <code>node tools/validate-sunflower.js</code>로 할 수 있습니다.",
+"en": "Measuring 90° to 180° in 0.1° steps (901 angles), the coefficient of variation of neighbor distances was slightly lower at 99.5° (the same value as another golden-ratio angle, 360°/(φ+2)) at 0.011 than at the golden angle (0.012), and every other angle was higher. You can verify with <code>node tools/validate-sunflower.js</code>.",
+"tr": "90°〜180°を0.1°刻み(901通りの角度)で測ったところ、隣との距離の変動係数は、99.5°(もう1つの黄金比の角度、360°/(φ+2)と同じ値)では0.011で、黄金角(0.012)よりわずかに低く、それ以外の角度はすべてこれより高くなりました。<code>node tools/validate-sunflower.js</code>で確認できます。"
+},
+{
+"id": "s1059",
+"page": "sunflower",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/sunflower\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/sunflower\">GitHub</a>.",
+"tr": "コードは<a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/sunflower\">GitHub</a>で公開しています。"
+},
+{
+"id": "s1060",
+"page": "survivor",
+"ko": "생존자 편향: 돌아온 비행기의 총탄 자국 · 시뮬라티오 랩",
+"en": "Survivorship Bias: Bullet Holes on Returning Planes · Simulatio Lab",
+"tr": "生存者バイアス:帰還した飛行機の弾痕 · Simulatio Lab"
+},
+{
+"id": "s1061",
+"page": "survivor",
+"ko": "돌아온 비행기에는 날개와 동체에 구멍이 가장 많습니다. 그곳에 철판을 덧대면 될까요? 생존자 편향을 직접 돌려 보세요.",
+"en": "Returning planes have the most holes in the wings and fuselage. Should the armor go there? Run survivorship bias yourself.",
+"tr": "帰還した飛行機は、翼と胴体に弾痕が最も多く残っています。装甲はそこに付けるべきでしょうか。生存者バイアスを自分で実行してみましょう。"
+},
+{
+"id": "s1062",
+"page": "survivor",
+"ko": "돌아온 비행기의 총탄 자국, 어디를 보강해야 할까",
+"en": "Bullet Holes on the Planes That Came Back: Where Should the Armor Go?",
+"tr": "帰還した飛行機の弾痕:装甲はどこに付けるべきか"
+},
+{
+"id": "s1063",
+"page": "survivor",
+"ko": "전투에서 돌아온 비행기를 살펴보니 날개와 동체에 총탄 자국이 가장 많았습니다. 그렇다면 가장 많이 맞는 곳에 철판을 덧대는 게 당연해 보입니다. 하지만 우리가 보는 것은 \"돌아온 비행기\"뿐입니다. 엔진을 맞은 비행기는 돌아오지 못했으니 엔진의 구멍은 우리 눈에 거의 보이지 않습니다. 구멍이 많은 곳과 구멍이 비어 있는 곳 중 어디를 보강해야 할까요?",
+"en": "Looking at the planes that came back from battle, the wings and fuselage carry the most bullet holes. So it seems obvious that armor belongs where planes get hit most. But all we ever see are the planes that came back. A plane hit in the engine did not return, so engine holes are almost invisible to us. Should the armor go where the holes are, or where they are missing?",
+"tr": "戦闘から帰還した飛行機を見ると、翼と胴体に最も多くの弾痕があります。そのため、最もよく撃たれる場所に装甲を付けるのは当然に思えます。しかし、私たちが目にするのは帰還した飛行機だけです。エンジンに被弾した飛行機は戻ってこなかったので、エンジンの弾痕はほとんど見えません。装甲は弾痕のある場所に付けるべきでしょうか、それとも弾痕のない場所でしょうか。"
+},
+{
+"id": "s1064",
+"page": "survivor",
+"ko": "비행기 그림을 <b>엔진·조종석·동체·날개·꼬리</b> 다섯 부위로 나눕니다. 총탄은 비행기 위 무작위 한 점에 떨어지므로 넓은 부위(날개, 동체)가 더 많이 맞습니다. 출격 한 번에 평균 3발을 맞습니다.",
+"en": "The plane drawing is split into five sections: <b>engine, cockpit, fuselage, wings and tail</b>. Each bullet lands on a random point of the plane, so larger sections (wings, fuselage) get hit more. A plane takes 3 hits per sortie on average.",
+"tr": "飛行機の図は、<b>エンジン、コックピット、胴体、翼、尾翼</b>の5つの区画に分かれています。弾は機体のランダムな1点に当たるので、大きい区画(翼、胴体)ほど多く被弾します。1回の出撃で平均3発被弾します。"
+},
+{
+"id": "s1065",
+"page": "survivor",
+"ko": "부위마다 총탄 한 발이 비행기를 추락시킬 확률이 다릅니다. 엔진(슬라이더)과 조종석(40%)은 치명적이고, 동체·날개·꼬리는 5% 안팎으로 거의 버팁니다.",
+"en": "Each section has a different chance that one bullet brings the plane down. The engine (slider) and cockpit (40%) are deadly; the fuselage, wings and tail are around 5% or less.",
+"tr": "1発の弾で飛行機が撃墜される確率は、区画ごとに異なります。エンジン(スライダー)とコックピット(40%)は致命的で、胴体・翼・尾翼は5%前後かそれ以下です。"
+},
+{
+"id": "s1066",
+"page": "survivor",
+"ko": "<b>추락하지 않은 비행기만 돌아와 검사를 받습니다.</b> 왼쪽 그림은 돌아온 비행기의 구멍만, 오른쪽 그림은 실제로 맞은 총탄 전부(붉은 점은 돌아오지 못한 비행기의 것)입니다.",
+"en": "<b>Only planes that did not go down come back to be inspected.</b> The left picture shows only the holes on returned planes; the right shows every bullet that actually hit (red dots belong to planes that never came back).",
+"tr": "<b>撃墜されなかった飛行機だけが戻ってきて点検を受けます。</b>左の図は帰還した飛行機の弾痕だけを、右の図は実際に当たったすべての弾を示します(赤い点は帰還しなかった飛行機のものです)。"
+},
+{
+"id": "s1067",
+"page": "survivor",
+"ko": "방탄 장갑을 붙인 부위에 맞은 총탄은 70% 확률로 막힙니다. 장갑은 보강할 수 있는 곳 수(슬라이더)만큼만 붙일 수 있고, 같은 총탄과 같은 운으로 장갑 유무만 비교합니다.",
+"en": "A bullet hitting an armored section is stopped with 70% probability. You can armor only as many sections as the budget slider allows, and the same bullets and the same luck are used to compare with and without armor.",
+"tr": "装甲を付けた区画に当たった弾は、70%の確率で止められます。装甲を付けられる区画の数は予算スライダーで決まり、装甲あり・なしの比較には同じ弾と同じ運が使われます。"
+},
+{
+"id": "s1068",
+"page": "survivor",
+"ko": "이야기의 바탕은 2차 세계대전 때 컬럼비아 대학 통계연구그룹의 에이브러햄 월드(Abraham Wald)가 했다고 전해지는 작업입니다. 다만 널리 퍼진 이야기는 많이 단순화되어 있고, 이 모델은 그 이야기를 이해하기 위해 이 프로젝트가 만든 단순화된 모델이지 실제 보고서의 재현이 아닙니다.",
+"en": "The story comes from work attributed to Abraham Wald of Columbia University's Statistical Research Group in the Second World War. The widely told version is heavily simplified, though, and this model is a simplified one built by this project to understand the story, not a reproduction of the actual report.",
+"tr": "この話は、第二次世界大戦中にコロンビア大学の統計研究グループ(Statistical Research Group)にいたエイブラハム・ウォルド(Abraham Wald)の仕事によるものとされています。ただし、広く語られている版は大幅に単純化されており、このモデルも、話を理解するために本プロジェクトが作った簡略版であって、実際の報告書の再現ではありません。"
+},
+{
+"id": "s1069",
+"page": "survivor",
+"ko": "엔진의 치명률 <output id=\"o-eng\"></output>",
+"en": "Engine lethality <output id=\"o-eng\"></output>",
+"tr": "エンジンの致命度 <output id=\"o-eng\"></output>"
+},
+{
+"id": "s1070",
+"page": "survivor",
+"ko": "엔진에 맞은 총탄 한 발이 비행기를 추락시킬 확률",
+"en": "Chance that one bullet in the engine brings the plane down",
+"tr": "エンジンに当たった1発で撃墜される確率"
+},
+{
+"id": "s1071",
+"page": "survivor",
+"ko": "출격 횟수 <output id=\"o-n\"></output>",
+"en": "Number of sorties <output id=\"o-n\"></output>",
+"tr": "出撃回数 <output id=\"o-n\"></output>"
+},
+{
+"id": "s1072",
+"page": "survivor",
+"ko": "적으면 구멍 분포가 들쭉날쭉해서 해석이 흔들려요",
+"en": "With few sorties the hole pattern is noisy and the reading wobbles",
+"tr": "出撃回数が少ないと、弾痕のパターンがばらついて読み取りが揺れます"
+},
+{
+"id": "s1073",
+"page": "survivor",
+"ko": "보강할 수 있는 곳 <output id=\"o-budget\"></output>",
+"en": "Armor budget <output id=\"o-budget\"></output>",
+"tr": "装甲の予算 <output id=\"o-budget\"></output>"
+},
+{
+"id": "s1074",
+"page": "survivor",
+"ko": "무거워서 이만큼의 부위에만 장갑을 붙일 수 있어요",
+"en": "The armor is heavy, so only this many sections can get it",
+"tr": "装甲は重いため、付けられる区画はこの数までです"
+},
+{
+"id": "s1075",
+"page": "survivor",
+"ko": "같은 설정, 다른 출격 기록",
+"en": "Same settings, new sortie record",
+"tr": "同じ設定で、出撃記録を新しくする"
+},
+{
+"id": "s1076",
+"page": "survivor",
+"ko": "① 돌아온 비행기와 실제로 맞은 총탄",
+"en": "① Returned Planes and the Bullets That Really Hit",
+"tr": "① 帰還した飛行機と、実際に当たった弾"
+},
+{
+"id": "s1077",
+"page": "survivor",
+"ko": "출격이 한 번씩 이어집니다. 왼쪽은 돌아온 비행기에서 보이는 구멍, 오른쪽은 실제로 맞은 총탄 전부입니다. 왼쪽에서 엔진과 조종석이 유난히 비어 있는 것을 보세요. 동그라미는 방금 출격한 비행기가 맞은 자리입니다(빨간 동그라미는 추락). 그림의 부위(또는 아래 버튼)를 눌러 장갑을 붙여 볼 수 있습니다.",
+"en": "Sorties run one after another. The left picture is what you can see on returned planes; the right is every bullet that really hit. Notice how empty the engine and cockpit are on the left. Circles mark where the plane that just flew was hit (red circles: it went down). Click a section of the plane (or a button below) to add armor.",
+"tr": "出撃が次々に行われます。左の図は帰還した機体で見える弾痕、右の図は実際に命中したすべての弾です。左ではエンジンと操縦席がいかに空っぽかに注目してください。丸は今飛んだ機体が被弾した場所です（赤い丸：撃墜された機体）。機体の部位（または下のボタン）をクリックすると装甲を追加できます。"
+},
+{
+"id": "s1078",
+"page": "survivor",
+"ko": "엔진",
+"en": "Engine",
+"tr": "エンジン"
+},
+{
+"id": "s1079",
+"page": "survivor",
+"ko": "조종석",
+"en": "Cockpit",
+"tr": "コックピット"
+},
+{
+"id": "s1080",
+"page": "survivor",
+"ko": "동체",
+"en": "Fuselage",
+"tr": "胴体"
+},
+{
+"id": "s1081",
+"page": "survivor",
+"ko": "날개",
+"en": "Wings",
+"tr": "翼"
+},
+{
+"id": "s1082",
+"page": "survivor",
+"ko": "꼬리",
+"en": "Tail",
+"tr": "尾翼"
+},
+{
+"id": "s1083",
+"page": "survivor",
+"ko": "직관대로: 구멍이 많은 곳에 보강",
+"en": "The intuitive way: armor where the holes are",
+"tr": "直感的な方法:弾痕のある場所に装甲"
+},
+{
+"id": "s1084",
+"page": "survivor",
+"ko": "월드처럼: 구멍이 빈 곳에 보강",
+"en": "Wald's way: armor where holes are missing",
+"tr": "ウォルドの方法:弾痕のない場所に装甲"
+},
+{
+"id": "s1085",
+"page": "survivor",
+"ko": "내 선택 지우기",
+"en": "Clear my choice",
+"tr": "選択をクリア"
+},
+{
+"id": "s1086",
+"page": "survivor",
+"ko": "<i style=\"background:rgba(40,52,84,.85)\"></i>돌아온 비행기의 구멍",
+"en": "<i style=\"background:rgba(40,52,84,.85)\"></i>Hole on a returned plane",
+"tr": "<i style=\"background:rgba(40,52,84,.85)\"></i>帰還した飛行機の弾痕"
+},
+{
+"id": "s1087",
+"page": "survivor",
+"ko": "<i style=\"background:rgba(210,50,40,.85)\"></i>돌아오지 못한 비행기가 맞은 총탄",
+"en": "<i style=\"background:rgba(210,50,40,.85)\"></i>Bullet that hit a plane that never returned",
+"tr": "<i style=\"background:rgba(210,50,40,.85)\"></i>帰還しなかった飛行機に当たった弾"
+},
+{
+"id": "s1088",
+"page": "survivor",
+"ko": "<i style=\"background:#1fa463\"></i>방탄 장갑",
+"en": "<i style=\"background:#1fa463\"></i>Armor",
+"tr": "<i style=\"background:#1fa463\"></i>装甲"
+},
+{
+"id": "s1089",
+"page": "survivor",
+"ko": "② 맞은 총탄 중 눈에 보이는 비율",
+"en": "② How Much of the Damage You Can See",
+"tr": "② 被害のどれだけが見えるか"
+},
+{
+"id": "s1090",
+"page": "survivor",
+"ko": "부위마다 실제로 맞은 총탄 중 돌아온 비행기에서 보이는 비율입니다. 치명적인 부위일수록 증거가 사라집니다.",
+"en": "For each section, the share of the bullets that really hit it which you can still see on returned planes. The deadlier the section, the more of the evidence disappears.",
+"tr": "各区画について、実際に当たった弾のうち、帰還した飛行機にまだ見えている割合です。致命的な区画ほど、証拠が多く消えてしまいます。"
+},
+{
+"id": "s1091",
+"page": "survivor",
+"ko": "③ 어디에 보강하면 살아 돌아올까",
+"en": "③ Where Does Armor Bring More Planes Home?",
+"tr": "③ 装甲はどこに付けるとより多くの飛行機が帰還するか"
+},
+{
+"id": "s1092",
+"page": "survivor",
+"ko": "같은 총탄, 같은 운으로 장갑을 달리 붙였을 때 생존율입니다. \"구멍 많은 곳\"은 돌아온 비행기에서 구멍이 가장 많은 부위, \"빈 곳\"은 넓이에 비해 구멍이 가장 적은 부위입니다. \"최선\"은 모든 부위 조합을 이론값으로 비교한 결과입니다.",
+"en": "Survival rate when armor is placed differently, using the same bullets and luck. \"Where the holes are\" means the sections with the most holes on returned planes; \"missing\" means the sections with the fewest holes for their size. \"Best\" compares every combination of sections using the exact formula.",
+"tr": "同じ弾と同じ運を使い、装甲の付け方を変えたときの生存率です。「弾痕のある場所」は帰還した飛行機で弾痕が最も多い区画、「弾痕のない場所」は大きさのわりに弾痕が最も少ない区画を指します。「最良」は、すべての区画の組み合わせを正確な式で比べたものです。"
+},
+{
+"id": "s1093",
+"page": "survivor",
+"ko": "④ 엔진이 치명적일수록",
+"en": "④ The Deadlier the Engine",
+"tr": "④ エンジンが致命的になるほど"
+},
+{
+"id": "s1094",
+"page": "survivor",
+"ko": "가로는 엔진의 치명률, 세로는 생존율입니다. 선 세 개는 보강 없음, 구멍 많은 곳 보강, 빈 곳 보강입니다(출격 횟수와 보강 곳수는 지금 설정).",
+"en": "The horizontal axis is the engine lethality, the vertical axis is the survival rate. The three lines are no armor, armor where the holes are, and armor where they are missing (sortie count and armor budget as currently set).",
+"tr": "横軸はエンジンの致命度、縦軸は生存率です。3本の線は、装甲なし、弾痕のある場所に装甲、弾痕のない場所に装甲を表します(出撃回数と装甲の予算は現在の設定のままです)。"
+},
+{
+"id": "s1095",
+"page": "survivor",
+"ko": "<i style=\"background:#8a93a6\"></i>보강 없음",
+"en": "<i style=\"background:#8a93a6\"></i>No armor",
+"tr": "<i style=\"background:#8a93a6\"></i>装甲なし"
+},
+{
+"id": "s1096",
+"page": "survivor",
+"ko": "<i style=\"background:#e0a100\"></i>구멍 많은 곳 보강",
+"en": "<i style=\"background:#e0a100\"></i>Armor where the holes are",
+"tr": "<i style=\"background:#e0a100\"></i>弾痕のある場所に装甲"
+},
+{
+"id": "s1097",
+"page": "survivor",
+"ko": "<i style=\"background:var(--accent)\"></i>빈 곳 보강",
+"en": "<i style=\"background:var(--accent)\"></i>Armor where holes are missing",
+"tr": "<i style=\"background:var(--accent)\"></i>弾痕のない場所に装甲"
+}
+]

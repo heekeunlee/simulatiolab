@@ -43,7 +43,7 @@ EN1 = {
 'B041': "Calculating…",
 'B042': "What This Shows, and What It Doesn't",
 'B043': "Implementation notes",
-'B044': "Simulatio Lab · Operator: Heekeun Lee (<a href=\"mailto:clzmyiz@gmail.com\">clzmyiz@gmail.com</a>) · YouTube <a href=\"https://www.youtube.com/@simulatiolab\">youtube.com/@simulatiolab</a>",
+'B044': "Simulatio Lab · Run by Heekeun Lee (<a href=\"mailto:clzmyiz@gmail.com\">clzmyiz@gmail.com</a>) · YouTube <a href=\"https://www.youtube.com/@simulatiolab\">youtube.com/@simulatiolab</a>",
 'B045': "Does Lowering Your Standards Help You Find a Match? · Simulatio Lab",
 'B046': "If everyone wants \"someone a little better than me,\" how long does it take to find a match? In a market where both sides must agree, change how high people aim and how quickly they lower their standards.",
 'B047': "There are 200 people in Group A and 200 in Group B, each with an \"attractiveness\" from 0 to 1. We assume everyone rates attractiveness the same way.",

@@ -1,0 +1,302 @@
+{
+ "s0589": {
+  "tr": "L'axe horizontal est le nombre de cycles écoulés, l'axe vertical est la synchronie r. Au-dessus de la ligne pointillée (0,9), elles clignotent presque ensemble.",
+  "why": "프랑스어 표기 통일(소수점 쉼표, % 앞 공백)"
+ },
+ "s0595": {
+  "tr": "Même règle et mêmes réglages, avec 150 lucioles dispersées dans une forêt qui a une hauteur (30 % de sa largeur). La portée visible est désormais une boule (la sphère pâle), et non un cercle. Choisissez « Couleur selon la phase » et les lucioles dont les horloges concordent partagent une couleur. Au début, plusieurs groupes de couleurs clignotent séparément ; observez une couleur se répandre dans toute la forêt.",
+  "why": "프랑스어 표기 통일(소수점 쉼표, % 앞 공백)"
+ },
+ "s0603": {
+  "tr": "<b>Ce que cela ne montre pas :</b> Ce n'est pas la preuve que les vraies lucioles règlent leurs éclats de cette façon. Dans la nature, seules certaines espèces de lucioles se synchronisent, et ce modèle réduit un éclat à une simple horloge, sans intensité lumineuse, sans champ de vision dépendant de la distance, et sans apprentissage de la part des lucioles. Il n'est pas non plus ajusté à des données observées précises.",
+  "why": "같은 페이지 '말하는 것'(Ce que cela montre)과 표제 통일"
+ },
+ "s0607": {
+  "tr": "⑥ La forêt 3D applique la même règle dans une boîte au sol de 1×1 et de hauteur 0,3. Les lucioles semblent seulement flotter près de leur place ; les voisines sont fixées par les positions de départ. Avec la même portée (30 %), chaque luciole voit en moyenne 28 voisines, moins qu'en 2D (32), et plus éloignées : avec les réglages par défaut, 9 graines sur 10 atteignent la synchronie (r>0,9), mais en 5 à 66 cycles, plus longtemps qu'en 2D. Une ne l'a pas atteinte en 150 cycles.",
+  "why": "프랑스어 표기 통일(소수점 쉼표, % 앞 공백)"
+ },
+ "s0615": {
+  "tr": "Pour chaque personne, on calcule <b>mon nombre d'amis</b> et le <b>nombre moyen d'amis de mes amis</b>, puis les compare. Si la moyenne des amis est plus grande, cette personne a des « amis qui ont plus d'amis ».",
+  "why": "주어 'il'이 가리키는 대상 불분명"
+ },
+ "s0616": {
+  "tr": "Pendant la lecture, la simulation tire de façon répétée une personne au hasard (anneau noir) et un ami cité par une autre personne au hasard (anneau doré en pointillés), puis compare les deux moyennes.",
+  "why": "주어 불분명·현재분사 구문 어색"
+ },
+ "s0631": {
+  "tr": "Le même réseau déployé en trois dimensions. Les points plus grands et plus dorés ont plus d'amis, et les points lumineux sont des pôles. Toutes les quelques secondes, une personne au hasard (anneau rouge) est choisie et des traits dorés partent vers ses amis. La plupart des personnes choisies sont ordinaires, avec peu d'amis, et pourtant les traits atterrissent sans cesse sur des pôles lumineux. Appuyez sur « Hauteur = nombre d'amis » : les personnes ayant plus d'amis montent plus haut, et l'on voit que la plupart des traits vont vers le haut, vers des personnes ayant plus d'amis que la personne choisie.",
+  "why": "허브 용어 통일(슬라이더 'pôles')"
+ },
+ "s0639": {
+  "tr": "⑤ Quand la concentration autour des pôles augmente",
+  "why": "허브 쏠림 용어 통일(슬라이더 이름과 일치)"
+ },
+ "s0645": {
+  "tr": "<b>Ce que cela ne montre pas :</b> Cela ne veut pas dire que les personnes ayant plus d'amis sont plus heureuses ou que vous êtes impopulaire, et rien ici ne mesure de vrais nombres d'amis ni la popularité. Le réseau est une construction simplifiée de ce projet : chacun a au moins quelques amis (pas de solitaires), et il n'y a pas de regroupements réels comme les associations, les quartiers ou les écoles. Ce qui est garanti, c'est la moyenne (la moyenne des amis est au moins égale au nombre moyen d'amis) ; qu'une majorité ait des amis qui ont plus d'amis est un résultat de ce modèle, pas une loi valable pour tout réseau. Une concentration autour des pôles de 0 % n'est pas un réseau totalement aléatoire mais une règle « choisir n'importe qui à l'arrivée », si bien que les personnes arrivées tôt finissent quand même avec plus d'amis.",
+  "why": "오역: 모임 ≠ 가족"
+ },
+ "s0647": {
+  "tr": "En formules, la moyenne obtenue en réunissant toutes les listes d'amis et en tirant un nom au hasard est &lt;k²&gt;/&lt;k&gt;, qui est au moins égale à la moyenne &lt;k&gt; (plus grande, sauf si tout le monde a le même nombre d'amis). Les cartes de cette page calculent plutôt la « moyenne des amis » de chaque personne, puis moyennent ces valeurs, ce qui est aussi toujours au moins égal au nombre moyen d'amis, car chaque amitié apporte (amis du voisin ÷ mes amis) + (mes amis ÷ amis du voisin) ≥ 2. Sur 300 réseaux par défaut, les deux valeurs ont été 10,17 et 9,70, toutes deux supérieures à 5,92.",
+  "why": "프랑스어 표기 통일(소수점 쉼표, % 앞 공백)"
+ },
+ "s0648": {
+  "tr": "L'échantillonnage de l'animation tire « un ami cité par une personne choisie au hasard », donc il converge vers la moyenne des moyennes d'amis par personne (10,17). Christakis et Fowler (2010), « Social network sensors for early detection of contagious outbreaks », <i>PLoS ONE</i> 5(9), ont proposé d'utiliser cette propriété : en comparant des étudiants de Harvard choisis au hasard avec les amis qu'ils avaient cités, ils ont rapporté que l'épidémie de grippe apparaissait plus tôt dans le groupe d'amis. C'était une proposition testée sur un échantillon d'une seule université, et cette page ne la reproduit pas.",
+  "why": "프랑스어 표기 통일(소수점 쉼표, % 앞 공백)"
+ },
+ "s0654": {
+  "tr": "Les bus passent toutes les <b>intervalle moyen</b> minutes, mais les intervalles réels varient selon une loi gamma. Une <b>irrégularité</b> (coefficient de variation, CV = écart type de l'intervalle ÷ moyenne) de 0 correspond à un horaire strict, 1 à des arrivées aléatoires, et les valeurs plus grandes à des bus qui arrivent par grappes.",
+  "why": "뒤 문구에서 쓰는 약어 CV를 처음에 정의"
+ },
+ "s0659": {
+  "tr": "Intervalle moyen entre deux bus, en minutes",
+  "why": "'Tous les combien'은 구어이고 성 불일치(minutes는 여성)"
+ },
+ "s0661": {
+  "tr": "0 = horaire strict, 1 = aléatoire, 2 = bus très groupés (coefficient de variation)",
+  "why": "'0 est un horaire' 직역투 → 간결한 라벨"
+ },
+ "s0677": {
+  "tr": "Nous créons 1 000 classes de 25 élèves en moyenne (l'irrégularité est fixée par le curseur ci-dessus) et comparons la moyenne comptée classe par classe avec celle obtenue en demandant à chaque élève l'effectif de sa propre classe. Les grandes classes contiennent plus d'élèves, donc les réponses « grande classe » s'accumulent.",
+  "why": "천 단위 구분은 공백(영어식 쉼표는 소수점으로 읽힘)"
+ },
+ "s0680": {
+  "tr": "<b>Ce que cela montre :</b> Avec un intervalle moyen de 10 minutes et des arrivées aléatoires (irrégularité 1,0), le comptage des bus a donné un intervalle moyen de 10,1 minutes, mais l'intervalle moyen vu par les passagers était de 20,2 minutes (théorie 20,0), et l'attente moyenne de 10,1 minutes (théorie 10,0), soit le double des 5 minutes naïves (20 000 bus, 40 000 passagers). Avec un horaire strict (0), l'attente moyenne était de 5,0 minutes, égale à l'estimation naïve ; elle était de 6,3 minutes à 0,5 (théorie 6,3) et atteignait 25,0 minutes à 2,0 (théorie 25,0). Avec le réglage par défaut (500 passagers), seuls 13 % des intervalles entre bus duraient 20 minutes ou plus, mais 41 % des passagers sont tombés dans un tel intervalle. L'attente médiane était de 7,0 minutes, mais l'attente la plus longue était de 60,7 minutes. Les effectifs des classes suivent la même arithmétique. Avec 20 000 classes de 25 élèves en moyenne, une irrégularité de 0,3 a donné une moyenne par classe de 25,0 et une moyenne vécue par les élèves de 27,3 (théorie 27,3) ; à 1,0, elle était de 49,8 (théorie 50,0). Si votre classe paraît plus remplie que la moyenne, ce n'est pas une impression : les grandes classes contiennent tout simplement plus d'élèves.",
+  "why": "소수점·천 단위 프랑스식 통일, 마지막 문장 어색한 'non par imagination' 수정"
+ },
+ "s0681": {
+  "tr": "<b>Ce que cela ne montre pas :</b> Cela ne veut pas dire que la plupart des bus réels sont aussi irréguliers. Le modèle est simple : les intervalles sont indépendants, et une irrégularité de 1,0 a été choisie pour illustrer des « arrivées aléatoires », sans être mesurée sur une vraie ligne. Sur les lignes à horaires, les gens règlent leur arrivée sur l'horaire, donc « arriver à n'importe quel moment » ne tient pas et les attentes peuvent être bien plus courtes (ce modèle convient à un service fréquent où l'on sort sans consulter l'horaire). Il n'explique pas non plus l'effet psychologique selon lequel les souvenirs désagréables durent plus longtemps. Dans le panneau des classes, les effectifs sont arrondis à des entiers d'au moins 1, donc au-delà d'une irrégularité de 1,5, les résultats s'écartent un peu de la théorie (82,5 contre 81,3 à 1,5). Ce projet n'a pas mesuré l'irrégularité des vraies classes, et le 0,3 utilisé comme valeur « réaliste » n'est qu'un exemple. Pour de grandes valeurs comme 2, de rares longs intervalles dominent la moyenne, donc même 3 000 passagers peuvent s'écarter de la théorie.",
+  "why": "소수점·천 단위 프랑스식 통일(같은 페이지 s0684와 일치)"
+ },
+ "s0687": {
+  "tr": "Des singes tapant des lettres au hasard pourraient-ils écrire une réplique d'Hamlet ? Comparez vous-même le pur hasard et la sélection cumulative.",
+  "why": "tu → vous 통일, 대사=réplique('Methinks…'는 운문 아님)"
+ },
+ "s0688": {
+  "tr": "Le « théorème du singe infini » (ou paradoxe du singe savant) dit qu'un singe qui frappe au hasard les touches d'une machine à écrire finira par produire Hamlet. Mais combien de temps dure ce « finira par » ? Voici une course vers la même cible : d'un côté par pur hasard, de l'autre par une sélection qui s'améliore peu à peu.",
+  "why": "통용 명칭: théorème du singe infini / paradoxe du singe savant"
+ },
+ "s0689": {
+  "tr": "Les symboles sont les 26 lettres majuscules plus l'espace, soit 27 en tout, et la cible est une réplique d'Hamlet (<code>TO BE OR NOT TO BE</code> ou <code>METHINKS IT IS LIKE A WEASEL</code>).",
+  "why": "대사 = réplique(산문 대사 포함)"
+ },
+ "s0700": {
+  "tr": "Les deux sont des répliques d'Hamlet",
+  "why": "대사 = réplique"
+ },
+ "s0714": {
+  "tr": "<b>Ce qu'il montre :</b> Pour le hasard qui tente d'atteindre la cible d'un seul coup, le nombre d'essais attendu est multiplié par 27 à chaque lettre ajoutée, ce qui rend la tâche pratiquement impossible. La sélection cumulative, qui garde les lettres déjà justes, atteint la même phrase en quelques milliers d'essais. Même avec le même hasard, « tout réussir d'un coup » et « construire pas à pas » sont deux choses complètement différentes.",
+  "why": "'le'가 '시도 횟수'를 가리켜 의미가 어긋남"
+ },
+ "s0716": {
+  "tr": "Il s'agit d'une implémentation propre à ce projet, inspirée de l'expérience de pensée connue sous le nom de « théorème du singe infini » et du « programme weasel » décrit par Richard Dawkins dans <i>The Blind Watchmaker</i> (1986). Ce n'est pas un portage littéral du programme du livre.",
+  "why": "통용 명칭 통일(s0688)"
+ },
+ "s0717": {
+  "tr": "Les cibles sont des répliques d'Hamlet : « To be, or not to be » (acte 3, scène 1) et « Methinks it is like a weasel » (acte 3, scène 2). Les symboles sont les 26 lettres majuscules et l'espace ; la ponctuation, comme les virgules, est omise.",
+  "why": "대사 = réplique"
+ },
+ "s0723": {
+  "tr": "Que devient la diversité des styles quand les peintres se copient entre eux ? Modifiez le taux de copie et l'originalité, puis lancez l'expérience vous-même.",
+  "why": "2인칭 tu → 사이트 전체 존칭(vous)으로 통일"
+ },
+ "s0724": {
+  "tr": "Cent peintres regardent les œuvres des autres et copient les styles qui leur plaisent. Comment évoluent des tableaux qui, au départ, sont tous différents ? Faites varier le taux de copie et l'originalité, et cherchez le point où tout converge vers un seul style.",
+  "why": "2인칭 tu → 사이트 전체 존칭(vous)으로 통일, 용어 'taux de copie' 통일"
+ },
+ "s0746": {
+  "tr": "<b>Ce que cela montre :</b> Plus le taux de copie est élevé, moins les styles sont diversifiés et plus ils s'entassent sur un unique « style dominant ». Dans ce modèle, il n'y a pas de point d'effondrement soudain unique ; la diversité baisse de façon continue, et la concentration augmente fortement entre des taux de copie d'environ 40 % et 80 %. Un biais favorisant la copie des peintres populaires rend la concentration bien plus grande au même taux de copie, et avec une faible originalité, même un taux de copie modéré se fige en un seul style.",
+  "why": "대표 화풍 ≠ 'style maison'(회사 고유 양식)"
+ },
+ "s0750": {
+  "tr": "La diversité est la moyenne par paires de la distance sur les quatre nombres (la teinte est circulaire, donc sa distance maximale est 0,5), mise à l'échelle de 0 à 1. Le départ aléatoire est d'environ 0,44, et les résultats utilisent la moyenne des 20 derniers tours. Vous pouvez vérifier avec <code>node tools/validate-painters.js</code>.",
+  "why": "프랑스어 표기 통일(소수점 쉼표, % 앞 공백)"
+ },
+ "s0770": {
+  "tr": "Chaque bloc est un niveau (le niveau supérieur en haut) et chaque point une personne, classée par compétence : <b style=\"color:#2f6fed\">bleu</b> élevée, <b style=\"color:#a89a7a\">beige</b> proche de la moyenne de départ (7), <b style=\"color:#e5484d\">rouge</b> faible. Observez comment les couleurs évoluent au fil des années.",
+  "why": "원문 '위가 최상위'의 뜻을 정확히"
+ },
+ "s0780": {
+  "tr": "<b>Ce que cela ne montre pas :</b> Cela ne signifie pas que le principe de Peter s'applique à toutes les organisations réelles. La part de compétence qui se transmet varie selon le poste, et ce modèle ne comporte ni formation, ni travail d'équipe, ni motivation. En particulier, cela ne signifie surtout pas que « promouvoir le moins performant » soit une bonne politique. Dans ce modèle simple, il en est ainsi uniquement parce que cette méthode laisse les personnes compétentes aux échelons du bas.",
+  "why": "같은 페이지 표제(Ce que cela montre)와 통일, 'il' 지시 대상 명확화"
+ },
+ "s0782": {
+  "tr": "Dans l'article, la promotion « aléatoire » ou « en alternant meilleur/pire » donnait les meilleurs résultats, mais dans cette implémentation, « promouvoir le moins performant » obtient le score le plus élevé. Cela semble venir de différences de détail, comme les poids d'efficacité et la façon de tirer à nouveau la compétence, mais cela n'a pas été confirmé.",
+  "why": "'retirer'는 '빼다'로 읽힘(재추첨 의미)"
+ },
+ "s0783": {
+  "tr": "La compétence suit une loi normale (moyenne 7, écart-type 2) tronquée à 0–10, et les poids d'efficacité à partir du haut sont 6, 5, 4, 3, 2, 1. Vous pouvez le vérifier avec <code>node tools/validate-more.js peter</code>.",
+  "why": "2인칭 tu → 사이트 전체 존칭(vous)으로 통일"
+ },
+ "s0785": {
+  "tr": "Si la natalité reste faible, à quoi ressemblera la population coréenne en 2070 ? · Simulatio Lab",
+  "why": "원문 '저출산이 계속되면' 조건 누락"
+ },
+ "s0786": {
+  "tr": "Modifiez le taux de fécondité, la migration et l'espérance de vie et observez l'évolution de la pyramide des âges de la Corée jusqu'en 2070. Un modèle simple, pas une prévision officielle.",
+  "why": "2인칭 tu → 사이트 전체 존칭(vous)으로 통일"
+ },
+ "s0787": {
+  "tr": "Si le taux de fécondité reste autour de 0,7, quelle forme prend la pyramide des âges de la Corée au fil du temps ? Modifiez la fécondité, la migration et l'espérance de vie et observez-la année par année de 2024 à 2070.",
+  "why": "2인칭 tu → 사이트 전체 존칭(vous)으로 통일"
+ },
+ "s0798": {
+  "tr": "Années ajoutées à l'espérance de vie par décennie. Elle part de 83,5 ans en 2024",
+  "why": "단위(ans) 누락"
+ },
+ "s0800": {
+  "tr": "Chaque ligne correspond à une année d'âge. Le vert représente les 0–14 ans, le bleu les 15–64 ans, l'or les 65+, et le contour gris la forme de 2024. Observez si, avec le temps, le bas (les jeunes) se rétrécit et le haut (les âgés) s'épaissit.",
+  "why": "2인칭 tu → 사이트 전체 존칭(vous)으로 통일"
+ },
+ "s0805": {
+  "tr": "La ligne bleue correspond à votre réglage actuel ; les lignes pointillées montrent la même migration et la même espérance de vie avec un taux de fécondité de 0,7 (gris) et de 1,5 (vert).",
+  "why": "2인칭 tu → 사이트 전체 존칭(vous)으로 통일"
+ },
+ "s0806": {
+  "tr": "<i style=\"background:#2f6fed\"></i>Votre réglage",
+  "why": "2인칭 tu → 사이트 전체 존칭(vous)으로 통일"
+ },
+ "s0810": {
+  "tr": "Le rapport de dépendance des personnes âgées est la population de 65+ divisée par celle de 15–64 ans. À 100 %, chaque personne en âge de travailler « porte » une personne âgée.",
+  "why": "'떠받치는' 뉘앙스 누락('correspond à'는 의미가 약함)"
+ },
+ "s0821": {
+  "tr": "Chiffres vérifiés (via la presse ; les tableaux originaux de Statistics Korea n'ont pas été consultés directement) : indice de fécondité 2023 de 0,72 (0,78 en 2022) ; parts par âge en 2024 : 70,2 % de 15–64 ans et 19,2 % de 65+ ; population totale d'environ 51,7–52 millions ; espérance de vie 2023 de 83,5 ans (OECD Health Statistics).",
+  "why": "1인칭 'je' 사이트 문체와 어긋남, 단위 누락"
+ },
+ "s0823": {
+  "tr": "Les naissances répartissent le taux de fécondité selon une courbe d'âge pour les femmes de 15–49 ans (moyenne 32,5, écart-type 4,5), et les décès utilisent une courbe de mortalité à croissance exponentielle calibrée sur l'espérance de vie. Vous pouvez le vérifier avec <code>node tools/validate-population.js</code>.",
+  "why": "2인칭 tu → 사이트 전체 존칭(vous)으로 통일"
+ },
+ "s0824": {
+  "tr": "Les lignes de référence du graphique ② (fécondité 0,7 et 1,5) et du graphique ④ conservent vos réglages de migration et d'espérance de vie et ne modifient que le taux de fécondité.",
+  "why": "2인칭 tu → 사이트 전체 존칭(vous)으로 통일"
+ },
+ "s0827": {
+  "tr": "L'ordre peut-il survivre quand resquiller rapporte ? Modifiez la force de la punition et voyez quand l'ordre tient.",
+  "why": "2인칭 tu → 사이트 전체 존칭(vous)으로 통일, 용어 'punition' 통일"
+ },
+ "s0855": {
+  "tr": "Un modèle de grille dans le style des jeux évolutionnaires spatiaux (Nowak, May (1992), « Evolutionary games and spatial chaos », <i>Nature</i> 359) : on joue avec ses voisins et on copie la stratégie du voisin ayant le meilleur score. L'ajout du « coopérateur qui punit » est une conception propre à ce projet, et non une reproduction des chiffres de l'article.",
+  "why": "인용부호 « » 통일"
+ },
+ "s0862": {
+  "tr": "Chaque personne a une <b>compétence</b> fixe et une <b>chance</b> tirée à nouveau à chaque essai. Les scores ont pour moyenne 50, et un curseur règle la part de la dispersion due à la chance. Avec 50 % de chance, les scores de l'essai 1 et de l'essai 2 sont corrélés à 0,5.",
+  "why": "'retirée'는 '제거된'으로 읽힘(새로 뽑힘)"
+ },
+ "s0875": {
+  "tr": "Entraîneur et joueurs",
+  "why": "선수 = joueurs"
+ },
+ "s0876": {
+  "tr": "Illustration sportive (recrue de l'année, couverture de magazine)",
+  "why": "신인상의 통용 표현"
+ },
+ "s0891": {
+  "tr": "<b>Ce que cela montre :</b> En moyennant 400 répétitions avec 50 % de chance, 400 personnes, les 20 % du haut et du bas et un effet réel de 0, les félicités ont baissé de 7,0 points en moyenne et les réprimandés ont gagné 7,1 (théorie : ∓7,0). La différence vue par l'entraîneur était de +14,1 points, et dans les 400 échantillons les réprimandés ont davantage progressé. La pente de la droite de régression était de 0,50, égale à la fiabilité (1 − part de chance), qui est la corrélation entre les deux essais. Avec 0 % de chance, la variation était 0 ; avec 10 %, ∓1,4 ; avec 90 %, ∓12,6 ; avec 100 %, ∓14,0. Ne retenir que les 5 % du haut et du bas donnait une variation d'environ ∓10,4, et en retenir 50 % de chaque côté la ramenait à environ ∓4,0. Même avec seulement 20 personnes, 97 % des échantillons menaient à la même conclusion. Il faudrait que les félicitations ajoutent réellement 7 points et que les reproches en retirent 7 (avec 50 % de chance et 20 % de chaque côté) pour que la différence vue par l'entraîneur atteigne 0. Dans l'illustration sportive, même avec un effet réel de la couverture de 0, le groupe de la couverture a varié de −7,0 et celui de la pire saison de +7,1, et quand la couverture causait réellement −3 points, le groupe de la couverture a baissé de 10,0, si bien que l'effet réel et la régression ne pouvaient pas être distingués à l'œil.",
+  "why": "'20 %'가 무엇인지 불분명"
+ },
+ "s0892": {
+  "tr": "<b>Ce que cela ne montre pas :</b> Cela ne signifie pas que les félicitations n'ont aucun effet ni que les reproches valent mieux. Le modèle fixe l'effet réel à 0, et ce que font réellement les félicitations et les reproches doit être jugé par des expériences incluant un groupe de comparaison. L'histoire de l'instructeur de vol est une anecdote racontée par Daniel Kahneman dans <i>Thinking, Fast and Slow</i> (en français : Système 1 / Système 2) ; le modèle de cette page en est une version simplifiée, pas un résultat expérimental. La scène sportive n'est de même qu'une illustration des histoires bien connues de « méforme après le titre de recrue de l'année » et de « méforme après une couverture de magazine ». Elle n'utilise aucun relevé de joueur ou de magazine réel et ne dit rien sur l'existence réelle de telles malédictions. Le modèle suppose aussi que la compétence ne change jamais et que la chance est indépendante à chaque essai, alors que la compétence réelle évolue avec la pratique et l'âge.",
+  "why": "신인상 통용 표현, 카너먼 책의 프랑스어판 제목 병기"
+ },
+ "s0893": {
+  "tr": "Dans <i>Thinking, Fast and Slow</i> (2011 ; en français : Système 1 / Système 2), Daniel Kahneman explique par la régression vers la moyenne une anecdote où un instructeur de vol en est venu à croire que « les félicitations sont suivies d'une moins bonne performance, les reproches d'une meilleure ». L'implémentation de ce projet est un modèle simplifié de cette anecdote et ne reproduit ni l'anecdote ni aucun chiffre du livre. Le concept de régression lui-même est généralement attribué aux travaux de Francis Galton.",
+  "why": "프랑스어판 제목 병기"
+ },
+ "s0894": {
+  "tr": "Score = 50 + 10 × (√(1 − part de chance) × compétence + √(part de chance) × chance), avec compétence et chance suivant une loi normale centrée réduite. Les deux essais ont ainsi la même dispersion et une corrélation de 1 − part de chance, si bien que la pente de la régression est égale à la fiabilité (quand l'effet réel est 0). La valeur théorique est (part de chance) × l'écart au-dessus de 50 de la moyenne du groupe de tête à l'essai 1, obtenu à partir de la moyenne de queue φ(z)/proportion de coupure de la loi normale.",
+  "why": "용어 통일(essai, part de chance)"
+ },
+ "s0899": {
+  "tr": "Parfois des centaines de personnes se rassemblent et rien ne se passe ; parfois une poignée d'étincelles remplit toute la place. Pourquoi, avec les mêmes personnes, les résultats divergent-ils autant ? Avec une règle simple, « décider de se joindre en voyant combien d'autres sont sortis », nous observons quand l'action collective se propage.",
+  "why": "'du même genre'는 원문 '같은 사람들'과 다름"
+ },
+ "s0905": {
+  "tr": "Plus il est élevé, plus il est difficile de s'avancer",
+  "why": "직역투·어색한 문장"
+ },
+ "s0907": {
+  "tr": "Plus elle est grande, plus les seuils diffèrent d'une personne à l'autre",
+  "why": "직역투 정리"
+ },
+ "s0920": {
+  "tr": "Ce graphique montre comment la part de personnes sur la place évolue au fil des tours. Voyez si elle croît lentement au début, puis explose.",
+  "why": "주어 누락"
+ },
+ "s0924": {
+  "tr": "<b>Ce que cela ne montre pas :</b> Cela ne signifie pas que les révolutions ou manifestations réelles se déroulent selon ces chiffres, et cela ne prend parti pour personne et ne prédit rien. La réalité comporte de l'information, de la peur, de l'organisation, des réactions gouvernementales et des réseaux de relations entre les gens ; ce modèle est une société très simple où les gens décident uniquement selon « la part des autres qui sont sortis ». Les seuils des gens sont invisibles dans la réalité, et les chiffres ici sont des réglages choisis pour expliquer.",
+  "why": "'réseaux sociaux'는 SNS로 읽힘"
+ },
+ "s0930": {
+  "tr": "À quelle vitesse une rumeur se propage-t-elle dans les discussions de groupe, et par qui passe-t-elle ? Que se passe-t-il si la correction arrive trop tard ? Essayez par vous-même.",
+  "why": "원문 '누구를 거쳐', '정정이 늦으면' 누락·변형"
+ },
+ "s0934": {
+  "tr": "À chaque publication, la personne perd son intérêt et s'arrête avec une certaine probabilité.",
+  "why": "주어 'ils' 지시 대상 불분명"
+ },
+ "s0940": {
+  "tr": "Nombre de salons <output id=\"o-rooms\"></output>",
+  "why": "단톡방 용어 통일(salons), 라벨 간결화"
+ },
+ "s0941": {
+  "tr": "Plus il y a de salons, plus chacun est petit",
+  "why": "용어 통일·자연스러운 표현"
+ },
+ "s0942": {
+  "tr": "Salons par personne <output id=\"o-perPerson\"></output>",
+  "why": "단톡방 용어 통일(salons)"
+ },
+ "s0965": {
+  "tr": "<b>Ce que cela ne montre pas :</b> Cela ne signifie pas que les rumeurs dans les vraies discussions de groupe se propagent selon ces chiffres. Le contenu de la rumeur, la confiance envers l'expéditeur et l'ambiance du salon ne sont pas pris en compte, et l'idée qu'une correction n'est tentante qu'à 70 % d'une rumeur n'est qu'une hypothèse.",
+  "why": "'70 % aussi tentante' 비문, 'hypothèse' 중복. 원문 확인 필요: ko는 '70% 덜 솔깃'인데 s0935는 '소문의 70%'"
+ },
+ "s0967": {
+  "tr": "500 personnes et 50 salons ; la popularité d'un salon est proportionnelle à rang^−0,6 afin que des salons grands et petits apparaissent. Une personne qui propage la rumeur la publie dans tous les salons auxquels elle appartient, et la probabilité de perdre l'intérêt est de 70 %.",
+  "why": "관사 누락, 소수점 쉼표"
+ },
+ "s1004": {
+  "tr": "Changez l'angle de rotation à mesure que les graines sont posées une à une, et voyez quel angle remplit le disque uniformément, sans trous.",
+  "why": "2인칭 tu → 사이트 전체 존칭(vous)으로 통일"
+ },
+ "s1005": {
+  "tr": "Pourquoi les graines de tournesol poussent-elles en tournant d'environ 137,5 degrés à chaque pas ? Changez l'angle de rotation à chaque graine posée et vérifiez quel angle remplit le disque uniformément, sans trous.",
+  "why": "2인칭 tu → 사이트 전체 존칭(vous)으로 통일"
+ },
+ "s1011": {
+  "tr": "L'angle d'or vaut environ 137,508°. Essayez de le déplacer très légèrement",
+  "why": "2인칭 tu → 사이트 전체 존칭(vous)으로 통일"
+ },
+ "s1031": {
+  "tr": "Regardez combien de bras de spirale apparaissent",
+  "why": "2인칭 tu → 사이트 전체 존칭(vous)으로 통일"
+ },
+ "s1034": {
+  "tr": "Les graines sont ajoutées une à une. Changez l'angle et observez comment le motif varie. Près de l'angle d'or, il n'y a presque pas de vides, alors que des angles comme 120° ou 144° produisent des rayons.",
+  "why": "2인칭 tu → 사이트 전체 존칭(vous)으로 통일"
+ },
+ "s1036": {
+  "tr": "Les graines sont placées sur un capitule bombé selon l'angle choisi plus haut. Faites-le pivoter et vous verrez des spirales dans le sens horaire et antihoraire se croiser ; colorez par 34 ou 55 et les bras d'un même sens se regroupent en une seule couleur. Passez l'angle à 120° ou 144° et les graines s'entassent en rayons, laissant voir le capitule sombre entre eux. Une pomme de pin empile ses écailles selon la même règle (tourner du même angle à chaque écaille), et l'on y voit 8 et 13 spirales.",
+  "why": "'apparaissent comme 8 et 13' 직역투"
+ },
+ "s1051": {
+  "tr": "Comparaison de l'écart moyen de quelques angles pour le nombre actuel de graines. Plus c'est bas, plus le remplissage est uniforme ; l'or correspond à l'angle d'or.",
+  "why": "tu 명령형 제거(설명문)"
+ },
+ "s1054": {
+  "tr": "<b>Ce que cela montre :</b> Avec 600 graines, l'angle d'or (137,508°) a un écart moyen de 0,38, et seulement 0,3 % des angles de 90° à 180° (balayés par pas de 0,1°) ont obtenu une valeur plus basse. Les angles proches de fractions simples comme 90°, 120°, 144° et 180° obtiennent de 2,4 à 5,0, soit 6 à 13 fois pire. L'uniformité de l'espacement (coefficient de variation des distances entre voisines) est de 0,012 à l'angle d'or, alors que 137,7°, décalé de seulement 0,2°, donne 0,107, soit environ 9 fois moins uniforme. À l'angle d'or, la différence d'indice entre voisines proches est un nombre de Fibonacci (55 et 34 avec 1 000 graines).",
+  "why": "천 단위 공백"
+ },
+ "s1058": {
+  "tr": "En mesurant de 90° à 180° par pas de 0,1° (901 angles), le coefficient de variation des distances entre voisines était légèrement plus bas à 99,5° (la même valeur qu'un autre angle lié au nombre d'or, 360°/(φ+2)), soit 0,011, qu'à l'angle d'or (0,012), et tous les autres angles étaient plus élevés. Vous pouvez le vérifier avec <code>node tools/validate-sunflower.js</code>.",
+  "why": "2인칭 tu → 사이트 전체 존칭(vous)으로 통일"
+ },
+ "s1065": {
+  "tr": "Chaque section a une probabilité différente qu'une seule balle abatte l'avion. Le moteur (curseur) et le cockpit (40 %) sont mortels ; le fuselage, les ailes et la queue sont autour de 5 % ou moins.",
+  "why": "프랑스어 표기 통일(소수점 쉼표, % 앞 공백)"
+ },
+ "s1067": {
+  "tr": "Une balle qui touche une section blindée est arrêtée avec une probabilité de 70 %. Vous ne pouvez blinder que le nombre de sections permis par le curseur du budget, et les mêmes balles et la même chance sont utilisées pour comparer avec et sans blindage.",
+  "why": "프랑스어 표기 통일(소수점 쉼표, % 앞 공백)"
+ }
+}

@@ -1,0 +1,6 @@
+{
+"d0840": {"tr": "Nombre d'occurrences (échelle logarithmique) ↑", "why": "단어 빈도 맥락의 통용어는 occurrences"},
+"d0843": {"tr": "Probabilité d'un nouveau mot", "why": "형용사 위치 자연스럽게(nouveau mot)"},
+"d0845": {"tr": "On écrit jusqu'à 100 000 mots", "why": "주어 없는 과거분사 'Écrit'는 어색, 원문 '이어 써요'의 진행 뉘앙스"},
+"d0849": {"tr": "Part dans l'ensemble du texte", "why": "'글 전체에서 차지하는 비율' 뜻을 정확히 (texte entier의 몫이 아님)"}
+}

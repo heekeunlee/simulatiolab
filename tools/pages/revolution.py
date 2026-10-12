@@ -19,7 +19,7 @@ page(dict(
     'Dots are people, colored from <b style="color:#f5b041">yellow</b> (early) to <b style="color:#c8283c">red</b> (late) by the round they joined. A black ring marks an instigator.'),
  ],
  sliders=[
-  ('mean', T('평균 문턱', 'Mean threshold'), 5, 60, 5, 20, T('클수록 나서기 어려운 사회', 'Larger means a harder place to step forward')),
+  ('mean', T('평균 문턱', 'Mean threshold'), 5, 60, 5, 20, T('클수록 나서기 어려운 사회', 'Larger means a society where stepping forward is harder')),
   ('spread', T('문턱의 퍼짐', 'Threshold spread'), 0, 30, 5, 15, T('클수록 사람마다 문턱이 제각각', 'Larger means thresholds vary more')),
   ('radicals', T('선동가 비율', 'Share of instigators'), 0, 5, 0.5, 1, T('처음부터 나서는 사람 (문턱 0)', 'People who step forward first (threshold 0)')),
  ],
@@ -38,9 +38,9 @@ page(dict(
         'The horizontal axis is the mean threshold, the vertical axis is the share in the square at the end. Dots are 6 runs, and the gray line is the case with no instigators at all.'), id='c-sweep', note='sweep'),
  ],
  says=T('같은 사람들이어도 불씨가 있는지, 문턱이 얼마나 제각각인지에 따라 결과가 "광장을 가득 채움"과 "아무 일 없음"으로 갈릴 수 있습니다. 평균 문턱이 같아도 문턱이 다양할수록 연쇄가 쉽게 이어지고, 불씨가 한 명도 없으면 평균 문턱이 아무리 낮아도 아무 일도 시작되지 않아요. 고전 예시에서는 문턱이 1%인 사람 한 명이 바뀌었을 뿐인데 100명 모두가 나서던 광장이 1명에서 멈춥니다.',
-        'Among the very same people, the outcome can split between "the square fills up" and "nothing happens," depending on whether there is a spark and how varied the thresholds are. With the same mean threshold, more varied thresholds let the cascade continue more easily, and with no spark at all nothing starts however low the mean is. In the classic example, changing just one person with a 1% threshold turns a square where all 100 join into one that stops at 1.'),
+        'Among the very same people, the outcome can split between "the square fills up" and "nothing happens," depending on whether there is a spark and how varied the thresholds are. With the same mean threshold, more varied thresholds let the cascade continue more easily, and with no spark at all nothing starts however low the mean is. In the classic example, changing just the one person whose threshold is 1% turns a square where all 100 join into one that stops at 1.'),
  **{'not': T('실제 혁명이나 시위가 이 숫자대로 일어난다는 뜻이 아니고, 어느 쪽 편을 들거나 무언가를 예측하는 모델도 아닙니다. 현실에는 정보, 두려움, 조직, 정부의 대응, 사람들 사이의 연결망이 있는데 이 모델은 "다른 사람이 나온 비율"만 보고 결정하는 아주 단순한 사회입니다. 사람들의 문턱은 눈에 보이지 않아 현실에서는 알기 어렵고, 여기서 쓴 숫자는 설명을 위한 설정일 뿐입니다.',
-        'It does not mean real revolutions or protests unfold by these numbers, and it takes no side and predicts nothing. Reality has information, fear, organization, government responses and social networks; this model is a very simple society where people decide only by "the share of others who have come out." People\'s thresholds are invisible in reality, and the numbers here are settings chosen for explanation.')},
+        'This does not mean real revolutions or protests unfold by these numbers, nor does the model take sides or predict anything. Reality has information, fear, organization, government responses and social networks; this model is a very simple society where people decide only by "the share of others who have come out." People\'s thresholds are invisible in reality, and the numbers here are settings chosen for explanation.')},
  memo=[
   T('Granovetter (1978), "Threshold Models of Collective Behavior", <i>American Journal of Sociology</i> 83(6)의 모델을 구현했습니다. 고전 예시(문턱이 0, 1, 2, …, 99)와 그중 한 명을 바꾼 경우는 이 논문의 유명한 예를 100명으로 재현한 것이고, <code>node tools/validate-revolution.js</code>로 확인할 수 있습니다.',
     'This implements the model of Granovetter (1978), "Threshold Models of Collective Behavior", <i>American Journal of Sociology</i> 83(6). The classic example (thresholds 0, 1, 2, …, 99) and the case with one person changed reproduce the paper\'s famous illustration with 100 people; verify with <code>node tools/validate-revolution.js</code>.'),

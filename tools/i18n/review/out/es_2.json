@@ -1,0 +1,290 @@
+{
+ "s1098": {
+  "tr": "<b>Qué muestra:</b> Promediando 200 semillas, el ajuste por defecto (letalidad del motor 50%, 2.000 salidas, 2 secciones blindadas) dio una tasa de supervivencia del 67.9% sin blindaje. Blindar el fuselaje y las alas, donde los aviones que regresan tienen más agujeros, la subió solo 3.4 puntos hasta el 71.3%, mientras que blindar el motor y la cabina, donde faltan agujeros, la subió 15.4 puntos hasta el 83.3% (los valores teóricos son 68.0%, 71.4% y 83.3%). En las 200 ejecuciones, la elección intuitiva fue fuselaje y alas, y la elección al estilo de Wald fue motor y cabina. La razón está en el gráfico ②: la proporción de balas que aún se ven en los aviones que regresaron fue del 33.8% para el motor y del 40.5% para la cabina, pero del 64.5 al 65.8% para el fuselaje, las alas y la cola. Cuanto más letal es una sección, más pruebas suyas desaparecen, así que «pocos agujeros» no debe leerse como «rara vez impactada» sino como «si recibe un impacto, no vuelve a casa». El resultado depende del número de salidas y de la letalidad del motor. Subir la letalidad del motor del 0% al 90% nunca permitió que ganara la elección intuitiva (blindaje donde faltan agujeros 90.5% frente a blindaje según los agujeros 87.6% con 0%, 79.4% frente a 60.6% con 90%, promediado sobre 100 semillas), porque la cabina sigue siendo letal. Con un presupuesto de 1 sección fue 78.3% (donde faltan agujeros) frente a 69.7% (según los agujeros), y con 3 secciones 85.2% frente a 72.7%. Con solo 100 salidas, la elección al estilo de Wald encontró el mejor par en el 85% de 200 semillas, y desde 500 salidas, en el 100%.",
+  "why": "'이론값'을 exactos로 옮김 → teóricos"
+ },
+ "s1102": {
+  "tr": "La probabilidad teórica de sobrevivir por salida es exp(−3 × Σ proporción de área × letalidad × (0.3 si está blindada)). La simulación y la fórmula coinciden dentro de 0.1 puntos al promediar 200 semillas. «Donde están los agujeros» son las secciones con más agujeros en los aviones que regresaron, y «Donde faltan agujeros» son las secciones con el menor valor de agujeros ÷ área. El gráfico ④ promedia 3 semillas para cada letalidad del motor.",
+  "why": "이론값=teórica; 라벨을 화면 버튼(Donde están/faltan agujeros)과 통일, 의문사 악센트 오류·따옴표 통일"
+ },
+ "s1100": {
+  "tr": "Las fuentes que se citan habitualmente son Wald (1943), \"A method of estimating plane vulnerability based on damage of survivors\" (informe del Statistical Research Group de la Universidad de Columbia, reeditado por el Center for Naval Analyses en 1980), y el relato de Mangel y Samaniego (1984), \"Abraham Wald's work on aircraft survivability\", <i>Journal of the American Statistical Association</i> 79. Esta página no reproduce ni los métodos ni los números de esas obras; es una implementación propia de este proyecto que traslada la historia a un modelo.",
+  "why": "끝 문장 구조가 어색함"
+ },
+ "s1107": {
+  "tr": "El talento se concentra en torno al promedio, pero la riqueza y el éxito se concentran de forma extrema en unos pocos. Lo comprobamos con un modelo en el que 1.000 personas se encuentran con eventos afortunados y desafortunados durante 40 años.",
+  "why": "원문 '소수에게' 반영, 'en la cima' 어색"
+ },
+ "s1118": {
+  "tr": "Cuanto mayor, más diferencias de talento entre las personas",
+  "why": "직역투(Más grande significa) 개선"
+ },
+ "s1126": {
+  "tr": "Cada punto es una persona. Tener más talento no significa estar más arriba. El eje vertical está en escala logarítmica.",
+  "why": "'te coloca' 어색한 표현"
+ },
+ "s1138": {
+  "tr": "El mundo es un toro de 201×201; los eventos se mueven 2 celdas por paso en una dirección aleatoria, y se considera que se encontró un evento cuando está dentro de un radio de 1 celda.",
+  "why": "'반경 1칸 안' 뜻 정확히"
+ },
+ "s1150": {
+  "tr": "Cuanto más alta, menos se olvida la historia",
+  "why": "직역투 개선"
+ },
+ "s1157": {
+  "tr": "La fila de arriba es el original, y las 12 filas de abajo son las historias que cuentan ahora las distintas cadenas. Cada casilla es un motivo, y cuanto más roja, más memorable. Los 30 motivos originales se disponen desde la izquierda por orden de memorabilidad, y cuando una cadena olvida o cambia uno, su casilla queda como un contorno discontinuo vacío. Las casillas pequeñas de la derecha son motivos inventados por el camino. Observa si las filas se vacían desde la derecha a medida que avanzan los relatos.",
+  "why": "범례·다른 문구의 'discontinuo'와 통일"
+ },
+ "s1175": {
+  "tr": "<b>Lo que no muestra:</b> No significa que la memoria humana funcione como este modelo. Es un modelo de juguete muy simple que alinea motivos en una fila y los conserva o elimina con probabilidades; no recoge el significado de una historia, su contexto, su público ni la forma de contarla. La distribución de la «memorabilidad» y de los «detalles extraños», y la manera de crear motivos nuevos, son supuestos de este proyecto.",
+  "why": "말투≠redacción(문장 작성)"
+ },
+ "s1178": {
+  "tr": "Con la configuración predeterminada (memoria 96 %, adorno 30 %, convencionalidad 30 %), tras 40 repeticiones quedaba de media (8 ejecuciones) el 25 % de los motivos originales; la longitud media del relato era 15,7 (partiendo de 30) y la memorabilidad media pasó de 0,56 a 0,62. El solapamiento entre cadenas fue de 0,31, algo más del doble de la aproximación por azar de 0,14.",
+  "why": "슬라이더 이름 'Adorno'와 용어 통일(embellecimiento→adorno), 'fue que quedaba' 비문 정리"
+ },
+ "s1179": {
+  "tr": "Incluso con la memoria al 100 %, solo permanece el 75 % de los motivos originales, porque los detalles extraños se modifican por la convencionalidad. El adorno apenas cambia la proporción de motivos originales que permanecen (del 24 al 25 %) y sobre todo alarga el relato (la proporción del original en el relato es del 80 % con 0 % de adorno y del 22 % con 100 %). Subir la convencionalidad de 0 % a 30 % o más redujo los motivos originales del 32 % al 25 %.",
+  "why": "슬라이더 이름 'Adorno'와 용어 통일"
+ },
+ "s1180": {
+  "tr": "El «solapamiento esperado por azar» es la similitud de Jaccard aproximada s / (2 − s) cuando dos cadenas conservan, cada una de forma independiente, una fracción aleatoria s de los motivos. El gráfico ④ se basa en 3 ejecuciones por cada nivel de memoria, y puedes comprobarlo con <code>node tools/validate-telephone.js</code>.",
+  "why": "범례 'Solapamiento esperado por azar'와 통일"
+ },
+ "s1182": {
+  "tr": "Atascos fantasma: ¿por qué se atasca el tráfico sin accidentes ni obras? · Simulatio Lab",
+  "why": "원문 '공사도' 누락"
+ },
+ "s1191": {
+  "tr": "0 %: conducción perfecta; cuanto más alto, más irregular",
+  "why": "직역투 개선"
+ },
+ "s1193": {
+  "tr": "Los coches circulan en sentido horario por la carretera circular. Donde los coches rojos se amontonan hay un atasco; observa hacia dónde se mueve el atasco a lo largo de la carretera. Sigue <b>el coche con contorno negro</b>: entra en el atasco por detrás y sale por delante, mientras que el atasco, en cambio, retrocede.",
+  "why": "원문에 없는 'lentamente' 덧붙임, '오히려' 반영"
+ },
+ "s1205": {
+  "tr": "El modelo de Nagel y Schreckenberg (1992), «A cellular automaton model for freeway traffic», <i>Journal de Physique I</i> 2(12). Implementado con una velocidad máxima de 5 celdas en una carretera circular de 300 celdas de largo.",
+  "why": "저자 나열 표기"
+ },
+ "s1210": {
+  "tr": "Manchas, rayas y formas de coral surgen por sí solas con una regla simple: dos sustancias que se difunden y reaccionan. Pruébalo tú mismo.",
+  "why": "원문에 없는 'Gray–Scott 모델' 덧붙임 제거, '단순한 규칙' 반영"
+ },
+ "s1241": {
+  "tr": "Ecuaciones: du = 0.16·lap(u) − u·v² + F(1 − u), dv = 0.08·lap(v) + u·v² − (F + k)·v. Cada paso usa dt = 1, el laplaciano se calcula a partir de los cuatro vecinos y cada borde se conecta con el opuesto. Un paso en pantalla equivale a 40 cálculos. Los coeficientes de difusión difieren de los de Pearson, por lo que las formas no son idénticas.",
+  "why": "'반대편과 이어짐'(주기 경계) 정확히"
+ },
+ "s1242": {
+  "tr": "Los cuatro preajustes (F, k) son manchas (0.035, 0.065), rayas (0.029, 0.057), mitosis (0.0367, 0.0649) y coral (0.0545, 0.062). Al ejecutar 3 semillas durante 20.000 iteraciones, todos los valores se mantuvieron finitos, y el área cubierta por el patrón fue de aproximadamente 19% para manchas, 21% para mitosis, 43% para rayas y 53% para coral. El número de regiones separadas fue de unas 50 para manchas y mitosis, y en su mayoría 1 (una forma conectada) para rayas y coral. Los picos de las colinas de manchas estabilizadas fueron casi iguales, con v 0.355–0.373, mientras que las crestas de rayas oscilaron entre 0.25–0.35 (mediana 0.30) (verifícalo con <code>node tools/validate-turing.js</code>).",
+  "why": "스페인어에서 쉼표는 소수점 → 천 단위는 마침표(사이트 다른 문구와 동일)"
+ },
+ "s1243": {
+  "tr": "Las semillas iniciales se colocan en 12 lugares. El número de iteraciones hasta que el patrón se estabiliza fue de unas 1.000 para rayas, unas 3.000 para coral, unas 5.000 para mitosis y unas 7.000 para manchas. La pantalla ejecuta hasta 30.000 iteraciones.",
+  "why": "천 단위 쉼표는 소수점으로 읽힘 → 마침표"
+ },
+ "s1246": {
+  "tr": "Si no supieras en qué lugar de la sociedad vas a nacer, ¿qué sociedad elegirías? Ejecuta el experimento mental de Rawls y Harsanyi variando la aversión al riesgo.",
+  "why": "용어 'aversión al riesgo'로 통일"
+ },
+ "s1253": {
+  "tr": "0: solo cuenta el promedio; cuanto mayor, más preocupa la peor posición",
+  "why": "'값이 걱정한다'는 주어 어색"
+ },
+ "s1255": {
+  "tr": "Aversión al riesgo promedio de las 1.000 personas del gráfico ③",
+  "why": "천 단위 표기"
+ },
+ "s1265": {
+  "tr": "Las cinco barras son los ingresos de las cinco posiciones (la barra de la izquierda es la más pobre). La sociedad con el contorno más marcado es la elegida por la regla actual. Pulsa reproducir para sortear una posición al azar en esa sociedad, una a la vez, y ver cuál sería tu ingreso.",
+  "why": "'테두리가 진한' 반영, columna 부정확"
+ },
+ "s1267": {
+  "tr": "<i style=\"background:#b07d00;height:3px\"></i>Línea discontinua: promedio de mi ingreso en los sorteos hasta ahora (×número indica cuántas veces salió esa posición)",
+  "why": "'ingresos sorteados'는 소득을 추첨한 것처럼 읽힘"
+ },
+ "s1274": {
+  "tr": "<i style=\"background:#e5484d\"></i>Lotería en la que el ganador se lo lleva todo",
+  "why": "'del ganador se lo lleva todo' 비문"
+ },
+ "s1281": {
+  "tr": "<b>Qué muestra:</b> Con estas cinco sociedades y estos ingresos, la elección cambia paso a paso con la aversión al riesgo γ. Por debajo de γ = 0.7 se eligió la lotería en la que el ganador se lo lleva todo; de 0.7 hasta 1.0, la de pirámide empinada; de 1.0 hasta 2.15, la de brecha moderada; de 2.15 hasta 6.1, la de red de seguridad; y con 6.1 o más, la sociedad igualitaria. Maximizar el promedio eligió la sociedad de lotería y maximizar el mínimo eligió la igualitaria. Con un γ promedio del grupo de 2 y una dispersión de 1, de 1.000 personas alrededor del 44–46% eligió la sociedad de red de seguridad, cerca del 38% la de brecha moderada, cerca del 11% la lotería en la que el ganador se lo lleva todo y cerca del 5–6% la de pirámide empinada (dos semillas). Incluso tras el mismo velo, lo que cuenta como «elección justa» puede cambiar según cómo traten las personas el riesgo.",
+  "why": "'del ganador se lo lleva todo' 비문, 천 단위 표기"
+ },
+ "s1283": {
+  "tr": "Es una ilustración propia de este proyecto, un experimento mental inspirado en la \"posición original y el velo de la ignorancia\" de Rawls (1971), <i>A Theory of Justice</i>, y en Harsanyi (1953), \"Cardinal utility in welfare economics and in the theory of risk-taking\", <i>Journal of Political Economy</i> 61, y Harsanyi (1955), \"Cardinal welfare, individualistic ethics, and interpersonal comparisons of utility\", <i>Journal of Political Economy</i> 63, quien a partir del mismo experimento mental derivó la utilidad esperada (maximizar la utilidad promedio). No reproduce cifras de esas obras.",
+  "why": "'del mismo recurso' 오역(원문: 같은 사고 실험), 평균 효용 '극대화' 누락"
+ },
+ "s1284": {
+  "tr": "Ingresos de las cinco sociedades (posición 1 a 5, en unidades arbitrarias): Igualitaria 50 ×5 (promedio 50, mínimo 50), Red de seguridad 40·48·58·72·96 (promedio 62.8, mínimo 40), Brecha moderada 36·46·58·80·130 (promedio 70.0, mínimo 36), Pirámide empinada 22·36·56·96·230 (promedio 88.0, mínimo 22), Lotería en la que el ganador se lo lleva todo 6·24·62·130·330 (promedio 110.4, mínimo 6). Elegí las cifras para que la elección cambie varias veces.",
+  "why": "'de el' 문법 오류(del), 라벨 통일"
+ },
+ "s1287": {
+  "tr": "¿Cambia el ganador si cambia el método de votación? · Simulatio Lab",
+  "why": "'cambia ... al ganador' 중의적(당선자를 바꾸다/당선자에게)"
+ },
+ "s1290": {
+  "tr": "1.000 votantes están dispersos en un plano bidimensional de «orientación política», y los candidatos A–F son puntos en el mismo plano. Los ejes horizontal y vertical no tienen un significado especial. Al subir la «polarización», los votantes se dividen en dos grupos.",
+  "why": "천 단위 표기, '정책 성향' 자연스럽게, 따옴표 통일"
+ },
+ "s1295": {
+  "tr": "Cuantos más candidatos, más se divide el voto",
+  "why": "직역투 개선"
+ },
+ "s1305": {
+  "tr": "El eje horizontal es el número de candidatos, el eje vertical es la proporción de veces que ganó el candidato centrista. Cada línea es un método.",
+  "why": "'se separan' 부자연"
+ },
+ "s1310": {
+  "tr": "<b>Lo que muestra:</b> Con dos candidatos todos los métodos dan el mismo resultado, pero con más candidatos el ganador puede diferir según el método incluso con votos idénticos. La mayoría simple tiende a pasar por alto al candidato centrista que prefiere la mayoría cuando candidatos similares se reparten el voto, mientras que la segunda vuelta y el voto preferencial reducen este problema. Un método de votación puede parecer una herramienta neutral, pero puede cambiar el resultado.",
+  "why": "'lo'가 가리키는 대상 불명확"
+ },
+ "s1317": {
+  "tr": "Si cada intercambio es tan justo como lanzar una moneda, ¿se concentra aun así la riqueza en pocas manos? Cambia la tasa de redistribución y pruébalo tú mismo.",
+  "why": "'igualmente'는 '균등하게'로도 읽힘, '소수에게' 누락"
+ },
+ "s1329": {
+  "tr": "Cada persona hace unos dos intercambios por ronda",
+  "why": "용어 intercambio로 통일(comerciar 어색)"
+ },
+ "s1346": {
+  "tr": "<b>Qué muestra:</b> Aunque cada intercambio sea justo, en una estructura donde los efectos del azar se multiplican, la riqueza se concentra en pocas manos con el tiempo. Quien se vuelve pobre puede apostar muy poco, así que su recuperación es lenta. Y incluso una pequeña redistribución reduce mucho la concentración.",
+  "why": "'우연이 곱해지는' 반영"
+ },
+ "s1357": {
+  "tr": "Una parte fija de los espectadores sigue las <b>recomendaciones basadas en popularidad</b>. Cuanto más popular es un canal, más se recomienda, así que los canales con más suscriptores crecen más rápido.",
+  "why": "'일정 비율로'≠'a veces'"
+ },
+ "s1362": {
+  "tr": "Cuantos más canales, más dura la competencia",
+  "why": "직역투 개선"
+ },
+ "s1377": {
+  "tr": "¿Por qué solo unas pocas palabras se usan tanto? · Simulatio Lab",
+  "why": "'소수의 단어만' 뉘앙스, constantemente 어색"
+ },
+ "s1378": {
+  "tr": "Tanto en libros como en periódicos, un puñado de palabras forma la mayor parte del texto. Comprueba por ti mismo si «copiar palabras anteriores» basta para crear esta concentración.",
+  "why": "쏠림=concentración(사이트 다른 실험과 통일)"
+ },
+ "s1379": {
+  "tr": "Unas pocas palabras como «el», «de» y «y» forman gran parte de cualquier texto, mientras que la mayoría de las palabras casi nunca aparecen. ¿Puede producirse esta concentración no por lo que significan las palabras, sino solo por el hábito de reutilizar lo ya escrito?",
+  "why": "쏠림=concentración"
+ },
+ "s1381": {
+  "tr": "<b>Modo copia</b>: copia la palabra de una posición al azar del texto ya escrito. Una palabra muy usada aparece repartida por el texto, así que se copia aún más a menudo (los ricos se hacen más ricos).",
+  "why": "어순 어색(anterior al azar)"
+ },
+ "s1387": {
+  "tr": "Copiar del texto ya escrito (los ricos se hacen más ricos)",
+  "why": "'hasta ahora' 어색"
+ },
+ "s1389": {
+  "tr": "Compara los dos métodos",
+  "why": "안내 문구는 권유형(비교해 보세요)"
+ },
+ "s1407": {
+  "tr": "<b>Qué muestra:</b> Aunque las palabras nuevas aparezcan solo de vez en cuando y todo lo demás sea simplemente «copiar de lo ya escrito», unas pocas palabras acaban cubriendo la mayor parte del texto y el gráfico de rango y frecuencia se convierte en una recta de pendiente cercana a -1 en ejes log–log. Con la misma probabilidad de palabra nueva, elegir cada palabra con igual probabilidad casi no produce esta concentración. Sin significado ni gramática alguna, la única regla «lo que se usa mucho se usa aún más» puede producir la forma de la ley de Zipf.",
+  "why": "쏠림=concentración"
+ },
+ "s1408": {
+  "tr": "<b>Qué no muestra:</b> No significa que el lenguaje real se produzca de esta manera. Los idiomas reales siguen la ley de Zipf solo de forma aproximada, y hay varias explicaciones distintas para la misma forma (por ejemplo, el principio del mínimo esfuerzo al hablar, o estudios que muestran que teclear letras al azar da una distribución similar). Este experimento solo muestra que «una sola regla de los ricos se hacen más ricos puede producir la misma forma». Las palabras inventadas no tienen significado, y ni la gramática ni la semántica forman parte del modelo.",
+  "why": "'무작위로 글자를 쳐도' 정확히"
+ },
+ "s1410": {
+  "tr": "El texto tiene como máximo 100 000 palabras, y la pendiente es el ajuste por mínimos cuadrados en escala log–log entre los rangos 3 y 200. Con el ajuste predeterminado (3% de palabras nuevas), un texto de 100 000 palabras tiene unas 3000 palabras distintas; las 10 primeras cubren alrededor del 85% del texto y las 100 primeras alrededor del 91% (promedio de 6 textos). La mayor parte corresponde a la primera palabra sola (alrededor del 77%): en el modelo de Simon, la primera palabra sigue siendo copiada durante más tiempo, lo que la hace mucho mayor que en el lenguaje real (\"the\" en inglés es alrededor del 6%).",
+  "why": "천 단위 쉼표는 소수점으로 읽힘 → 같은 페이지(s1411) 표기와 통일"
+ },
+ "d0035": {
+  "tr": "Todos con la misma predicción {0}",
+  "why": "'Todos igual' 뜻 불명확"
+ },
+ "d0159": {
+  "tr": "Compáralo con la regla de Pareto (80/20)",
+  "why": "사이트 전체 tú 말투와 통일"
+ },
+ "d0162": {
+  "tr": "Entre los 10 más ricos, cuántos están en el 10% con más talento",
+  "why": "원문은 '부자 상위 10명 중' 인원 수"
+ },
+ "d0176": {
+  "tr": "Cuán llena está la carretera (densidad)",
+  "why": "슬라이더 라벨(s1188)과 통일"
+ },
+ "d0177": {
+  "tr": "Probabilidad de un toque ocasional de freno",
+  "why": "frenazo=급제동, 원문 '잠깐 밟음'과 다름, 슬라이더 라벨과 통일"
+ },
+ "d0279": {
+  "tr": "Choque de tipos de interés",
+  "why": "'tipos'만으로는 금리로 읽히지 않음"
+ },
+ "d0291": {
+  "tr": "Calculado sin choque de tipos de interés. Verde: límite de préstamo del 40%; azul: tu límite de préstamo actual",
+  "why": "금리 명확히"
+ },
+ "d0324": {
+  "tr": "Salida",
+  "why": "출발=Salida"
+ },
+ "d0325": {
+  "tr": "Llegada",
+  "why": "도착=Llegada"
+ },
+ "d0374": {
+  "tr": "Ejemplo: yo ↔ n.º {0} · coinciden en: {1}",
+  "why": "'mismo {1}'은 여성명사(ciudad natal, afición…)에서 성 불일치"
+ },
+ "d0375": {
+  "tr": "Ejemplo: n.º {0} ↔ n.º {1} · coinciden en: {2}",
+  "why": "'mismo {2}' 성 불일치"
+ },
+ "d0383": {
+  "tr": "Con {0} personas: N(N−1)/2 parejas · {1} me incluyen",
+  "why": "'a mi persona' 어색"
+ },
+ "d0400": {
+  "tr": "Nivel de máxima captura sostenible",
+  "why": "d0404와 용어 통일"
+ },
+ "d0404": {
+  "tr": "Nivel de máxima captura sostenible: 50%",
+  "why": "d0400과 통일"
+ },
+ "d0447": {
+  "tr": "Reducción de la tala (conservación)",
+  "why": "'Parte de tala reducida' 어색"
+ },
+ "d0460": {
+  "tr": "Reproducir",
+  "why": "재생=Reproducir(다른 버튼과 통일)"
+ },
+ "d0550": {
+  "tr": "Cálculo simple (la mitad del intervalo medio)",
+  "why": "단순 계산 용어 통일(ingenuo→simple)"
+ },
+ "d0561": {
+  "tr": "Cálculo simple (la mitad del intervalo)",
+  "why": "단순 계산 용어 통일"
+ },
+ "d0576": {
+  "tr": "Selección acumulativa: cada vez que subieron las coincidencias → frase madre actual",
+  "why": "d0575 'frase madre'와 통일"
+ },
+ "d0779": {
+  "tr": "Media sobre los {0} iniciales",
+  "why": "'primeros {0}'는 앞쪽 몇 개로 오해"
+ },
+ "d0797": {
+  "tr": "F (tasa de alimentación)",
+  "why": "본문·슬라이더 'tasa de alimentación'과 통일"
+ },
+ "d0809": {
+  "tr": "Sociedad de brecha moderada",
+  "why": "범례 'Brecha moderada'와 통일"
+ },
+ "d0814": {
+  "tr": "Brecha moderada",
+  "why": "범례와 통일"
+ }
+}

@@ -1,0 +1,298 @@
+{
+ "s0603": {
+  "tr": "<b>Qué no muestra:</b> Esto no prueba que las luciérnagas reales ajusten sus destellos de este modo. En la naturaleza solo algunas especies de luciérnagas se sincronizan, y este modelo reduce un destello a un único reloj, sin intensidad de luz, sin un campo de visión que dependa de la distancia y sin aprendizaje por parte de las luciérnagas. Tampoco está ajustado a ningún dato observado en particular.",
+  "why": "제목 표기를 사이트 다수형 «Qué no muestra:»로 통일"
+ },
+ "s0644": {
+  "tr": "<b>Qué muestra:</b> En 300 redes distintas de 150 personas con 6 amigos de promedio y 80 % de concentración en nodos centrales, una persona tenía en promedio 5,92 amigos, pero sus amigos tenían en promedio 10,17 amigos, 1,72 veces más. Calculando el «promedio de los amigos» para cada persona, el 82,6 % tenía amigos con más amigos (del 75,3 % al 88,7 % según la red), y el 16,8 % tenía más amigos que el promedio de sus amigos. La razón es que una persona popular aparece en la lista de cada uno de sus amigos. En una red, el 10 % superior por número de amigos (15 personas) ocupaba el 29,6 % de todos los puestos en listas de amigos. Elegir a una persona al azar daba 5,92 amigos de promedio, pero elegir a un amigo nombrado por una persona al azar daba 10,17. Incluso con 0 % de concentración en nodos centrales, el 71,3 % tenía amigos con más amigos, y el 85,4 % con 100 % (6 amigos de promedio), de modo que más concentración ampliaba la diferencia. Conectar a las personas al azar no hizo desaparecer el resultado. Solo hace falta que las personas difieran en cuántos amigos tienen.",
+  "why": "제목 표기를 사이트 다수형 «Qué muestra:»로 통일"
+ },
+ "s0645": {
+  "tr": "<b>Qué no muestra:</b> Esto no significa que las personas con más amigos sean más felices ni que tú seas impopular, y nada aquí mide números reales de amigos ni popularidad. La red es una construcción simplificada de este proyecto: todos tienen al menos unos pocos amigos (no hay solitarios) y no existen agrupaciones del mundo real como grupos, vecindarios o escuelas. Lo que está garantizado es el promedio (promedio de amigos de los amigos ≥ promedio de amigos); que la mayoría tenga amigos con más amigos es un resultado de este modelo, no una ley para toda red. Una concentración en nodos centrales de 0 % no es una red totalmente aleatoria sino una regla de «elegir a cualquiera a medida que llega», por lo que quienes llegan antes acaban teniendo más amigos.",
+  "why": "제목 표기를 사이트 다수형 «Qué no muestra:»로 통일 / 오역: 모임≠가족; 괄호 속 부등식이 불명확"
+ },
+ "s0714": {
+  "tr": "<b>Qué muestra:</b> Para el azar que intenta dar con el objetivo de una sola vez, el número esperado de intentos se multiplica por 27 con cada letra añadida, lo que lo hace prácticamente imposible. La selección acumulativa, que conserva las letras acertadas, llega a la misma frase en unos pocos miles de intentos. Incluso con la misma aleatoriedad, “acertarlo todo de golpe” y “construir paso a paso” son cosas completamente distintas.",
+  "why": "제목 표기를 사이트 다수형 «Qué muestra:»로 통일"
+ },
+ "s0715": {
+  "tr": "<b>Qué no muestra:</b> No significa que la evolución biológica real funcione como este programa. El modelo tiene una frase objetivo predefinida, mientras que la evolución no tiene una meta fijada, algo que el propio Dawkins señaló. Este experimento solo muestra la diferencia de poder entre “el azar que debe acertar de una sola vez” y “la selección que filtra en cada paso”. Tampoco afirma nada sobre si los monos podrían escribir realmente Hamlet.",
+  "why": "제목 표기를 사이트 다수형 «Qué no muestra:»로 통일"
+ },
+ "s0780": {
+  "tr": "<b>Qué no muestra:</b> No significa que el principio de Peter se aplique a todas las organizaciones reales. Cuánta competencia se traslada de un puesto a otro varía según el rol, y este modelo no incluye formación, trabajo en equipo ni motivación. En particular, no significa en absoluto que «ascender al peor» sea una buena política. En este modelo simple solo resulta así porque mantiene a las personas capaces en los puestos inferiores.",
+  "why": "제목 표기를 사이트 다수형 «Qué no muestra:»로 통일 / 따옴표를 페이지 내 «»로 통일"
+ },
+ "s0818": {
+  "tr": "<b>Qué muestra:</b> Si la fecundidad se mantiene en 0,72, este modelo da una población de 2070 de unos 29,4 millones, con un 54 % de 65+. Incluso subir la fecundidad a 1,5 deja unos 38,6 millones en 2070, por debajo de la actual, y mantener la población cerca del nivel de hoy exige grandes cambios, como una recuperación de la fecundidad junto con migración. El envejecimiento no viene solo de la fecundidad, sino del tamaño de las generaciones ya nacidas y del aumento de la esperanza de vida.",
+  "why": "제목 표기를 사이트 다수형 «Qué muestra:»로 통일"
+ },
+ "s0819": {
+  "tr": "<b>Qué no muestra:</b> No es una proyección oficial de Statistics Korea ni una previsión. Como la fecundidad se mantiene fija, los sexos se combinan y la estructura por edad de 2024 es aproximada, sus cifras difieren de las proyecciones oficiales. El modelo no toma postura sobre qué política es la correcta ni evalúa los efectos de la migración o de las políticas de natalidad.",
+  "why": "제목 표기를 사이트 다수형 «Qué no muestra:»로 통일"
+ },
+ "s0595": {
+  "tr": "La misma regla y los mismos ajustes, con 150 luciérnagas repartidas por un bosque con altura (30% de su anchura). El alcance de visión es ahora una esfera (la esfera tenue), no un círculo. Elige «Color por fase» y las luciérnagas cuyos relojes coinciden comparten color. Al principio varios grupos de colores destellan por separado; observa cómo un color se extiende por todo el bosque.",
+  "why": "용어 통일(alcance de visión)"
+ },
+ "s0601": {
+  "tr": "<i style=\"border:1px solid #9fb4ff;background:transparent;border-radius:50%\"></i>Esfera tenue: alcance de visión de una luciérnaga",
+  "why": "어색한 표현, 용어 통일"
+ },
+ "s0605": {
+  "tr": "La fase cuenta un ciclo como 1 y crece 0,02 por paso. La velocidad de cada luciérnaga sigue una distribución normal con media 1 y una desviación estándar igual a la «dispersión de velocidad». Cuando una luciérnaga destella, la fase de las vecinas dentro del alcance aumenta en la fuerza de acoplamiento, y las que superan 1 destellan en el mismo paso.",
+  "why": "따옴표를 페이지 내 «»로 통일"
+ },
+ "s0607": {
+  "tr": "⑥ El bosque 3D aplica la misma regla dentro de una caja con un suelo de 1×1 y una altura de 0,3. Las luciérnagas solo parecen flotar cerca de su sitio; los vecinos quedan fijados por las posiciones iniciales. Con el mismo alcance (30 %), cada luciérnaga ve 28 vecinas de media, menos que en 2D (32), y están más lejos, así que con los ajustes por defecto 9 de 10 semillas llegan a la sincronía (r>0,9), pero tardan de 5 a 66 ciclos, más que en 2D. Una no la alcanzó en 150 ciclos.",
+  "why": "소수점·% 표기를 같은 페이지(s0606)와 통일"
+ },
+ "s0631": {
+  "tr": "La misma red desplegada en tres dimensiones. Los puntos más grandes y dorados tienen más amigos, y los puntos brillantes son nodos centrales (hubs). Cada pocos segundos se elige a una persona al azar (anillo rojo) y unas líneas doradas llegan hasta sus amigos. La mayoría de las elegidas son personas corrientes con pocos amigos, pero las líneas siguen llegando a los nodos centrales brillantes. Pulsa «Altura = número de amigos» y quienes tienen más amigos suben más alto, así verás que la mayoría de las líneas van hacia arriba, hacia personas con más amigos que la elegida.",
+  "why": "용어 통일(허브 = nodos centrales, 슬라이더 이름과 맞춤)"
+ },
+ "s0635": {
+  "tr": "③ Promedio de mis amigos − mi número de amigos",
+  "why": "용어 통일(promedio)"
+ },
+ "s0639": {
+  "tr": "⑤ Cuanto mayor es la concentración en nodos centrales",
+  "why": "용어 통일(허브 쏠림 = concentración en nodos centrales)"
+ },
+ "s0647": {
+  "tr": "En fórmulas, el promedio que se obtiene al juntar todas las listas de amigos y sacar un nombre al azar es &lt;k²&gt;/&lt;k&gt;, que es como mínimo el promedio &lt;k&gt; (mayor, salvo que todos tengan el mismo número de amigos). En cambio, las tarjetas de esta página calculan el «promedio de los amigos» de cada persona y luego promedian esos valores, que también es siempre al menos el promedio de amigos, porque cada amistad aporta (amigos del vecino ÷ mis amigos) + (mis amigos ÷ amigos del vecino) ≥ 2. En 300 redes con los valores por defecto, los dos valores fueron 10,17 y 9,70, ambos mayores que 5,92.",
+  "why": "소수점·천 단위 표기를 스페인어식(쉼표·마침표)으로 통일"
+ },
+ "s0648": {
+  "tr": "El muestreo de la animación elige «un amigo nombrado por una persona elegida al azar», por lo que converge al promedio de los promedios de amigos por persona (10,17). Christakis y Fowler (2010), «Social network sensors for early detection of contagious outbreaks», <i>PLoS ONE</i> 5(9), propusieron usar esta propiedad: al comparar estudiantes de Harvard elegidos al azar con los amigos que nombraron, informaron que el brote de gripe apareció antes en el grupo de amigos. Fue una propuesta probada en una muestra de una universidad, y esta página no la reproduce.",
+  "why": "소수점·천 단위 표기를 스페인어식(쉼표·마침표)으로 통일"
+ },
+ "s0652": {
+  "tr": "Si un autobús pasa cada 10 minutos de media, ¿por qué puedes acabar esperando 10 minutos de media? Simula tú mismo la paradoja del tiempo de espera (paradoja de la inspección) y descubre por qué tu clase siempre parece más llena que el promedio.",
+  "why": "«paradoja를 실행하라»는 어색한 연어"
+ },
+ "s0661": {
+  "tr": "0: horario estricto; 1: aleatorio; 2: muy agrupados (coeficiente de variación)",
+  "why": "UI 문구가 어색하고 김"
+ },
+ "s0675": {
+  "tr": "<i style=\"background:#8a93a6\"></i>Estimación ingenua (la mitad del intervalo)",
+  "why": "형용사만 남은 범례를 본문 용어와 통일"
+ },
+ "s0677": {
+  "tr": "Creamos 1.000 clases con un promedio de 25 estudiantes (la irregularidad la fija el control deslizante de arriba) y comparamos el promedio contado clase por clase con el promedio que se obtiene al preguntar a cada estudiante el tamaño de su propia clase. Las clases grandes tienen más estudiantes, así que se acumulan las respuestas de «clase grande».",
+  "why": "천 단위 표기 오류(1,000은 스페인어에서 1로 읽힘)"
+ },
+ "s0680": {
+  "tr": "<b>Qué muestra:</b> Con un intervalo medio de 10 minutos y llegadas aleatorias (irregularidad 1,0), contar autobuses dio un intervalo medio de 10,1 minutos, pero el intervalo medio que vieron los pasajeros fue de 20,2 minutos (teoría 20,0), y la espera media fue de 10,1 minutos (teoría 10,0), el doble de los 5 minutos ingenuos (20.000 autobuses, 40.000 pasajeros). Con un horario estricto (0), la espera media fue de 5,0 minutos, igual a la estimación ingenua; fue de 6,3 minutos con 0,5 (teoría 6,3) y creció hasta 25,0 minutos con 2,0 (teoría 25,0). En el ajuste por defecto (500 pasajeros), solo el 13% de los intervalos entre autobuses fueron de 20 minutos o más, pero el 41% de los pasajeros cayó en uno de ellos. La espera mediana fue de 7,0 minutos, pero la espera más larga fue de 60,7 minutos. Los tamaños de clase siguen la misma aritmética. Con 20.000 clases de 25 estudiantes de promedio, una irregularidad de 0,3 dio un promedio por clase de 25,0 y un promedio vivido por los estudiantes de 27,3 (teoría 27,3); con 1,0 fue 49,8 (teoría 50,0). Tu clase parece más llena que el promedio no por imaginación, sino porque las clases grandes contienen más estudiantes.",
+  "why": "소수점·천 단위 표기 오류(20,000은 스페인어에서 20으로 읽힘), 같은 페이지 표기와 통일"
+ },
+ "s0681": {
+  "tr": "<b>Qué no muestra:</b> No significa que la mayoría de los autobuses reales sean así de irregulares. El modelo es simple: los intervalos son independientes, y se eligió una irregularidad de 1,0 para mostrar «llegadas aleatorias», no se midió en una ruta real. En las rutas con horario, la gente ajusta su llegada al horario, así que «llegar en cualquier momento» no se cumple y las esperas pueden ser mucho más cortas (este modelo se ajusta a un servicio frecuente en el que la gente sale sin mirar el horario). Tampoco explica el efecto psicológico por el que los recuerdos desagradables duran más. En el panel de clases, los tamaños se redondean a enteros de al menos 1, así que con una irregularidad de 1,5 o más los resultados se alejan un poco de la teoría (82,5 frente a 81,3 con 1,5). Este proyecto no ha medido lo irregulares que son las clases reales, y el 0,3 usado como «realista» es solo un valor de ejemplo. Con valores grandes como 2, los intervalos largos poco frecuentes dominan el promedio, así que incluso 3.000 pasajeros pueden alejarse de la teoría.",
+  "why": "오역: 1.5 이상(≥)인데 «superior a»(>)로 번역 / 소수점·천 단위 표기 통일(3,000 → 3.000)"
+ },
+ "s0682": {
+  "tr": "La paradoja de la inspección (tiempo de espera) es un resultado clásico de la teoría de la renovación, tratado por ejemplo en <i>An Introduction to Probability Theory and Its Applications</i> de William Feller, volumen 2. La «paradoja de la amistad» (Scott Feld, 1991, <i>American Journal of Sociology</i> 96(6)), según la cual tus amigos tienen más amigos que tú, es el mismo sesgo de muestreo. Esta página es la implementación simplificada de este proyecto y no reproduce cifras de ningún artículo.",
+  "why": "통용 학술 용어"
+ },
+ "s0698": {
+  "tr": "TO BE OR NOT TO BE (18 caracteres)",
+  "why": "공백 포함 글자 수이므로 letras는 사실과 다름"
+ },
+ "s0699": {
+  "tr": "METHINKS IT IS LIKE A WEASEL (28 caracteres)",
+  "why": "공백 포함 글자 수이므로 letras는 사실과 다름"
+ },
+ "s0709": {
+  "tr": "El eje horizontal es la longitud de la frase y el vertical, el número de intentos necesarios (escala logarítmica). La línea roja es el valor esperado del azar (27<sup>L</sup>) y cada punto azul resume 6 ejecuciones de la selección.",
+  "why": "«cada uno» 수식이 어색함"
+ },
+ "s0719": {
+  "tr": "El número esperado de intentos para dar con una frase de L caracteres por azar de una sola vez es 27<sup>L</sup>. “Mil millones de intentos por segundo” es una suposición de este proyecto, y la edad del universo se toma como unos 13.800 millones de años. Para 18 caracteres eso son unos 1.800 millones de años (0,13 veces la edad del universo); para 28 caracteres, unos 3,8×10<sup>23</sup> años.",
+  "why": "공백 포함 글자 수(caracteres)로 통일"
+ },
+ "s0726": {
+  "tr": "En cada ronda, todos los pintores a la vez, con una probabilidad igual a la <b>tasa de copia</b>, <b>copian</b> a otro pintor: acercan su estilo a mitad de camino hacia el de este. Si no, <b>innovan</b>: cambian al azar su propio estilo en la medida de la <b>originalidad</b>.",
+  "why": "오역: «화풍을 절반쯤 따라감»은 절반만큼 다가가는 것이지 화풍의 절반을 복사하는 것이 아님"
+ },
+ "s0746": {
+  "tr": "<b>Qué muestra:</b> Cuanto mayor es la tasa de copia, menos diversos se vuelven los estilos y más se amontonan en un único «estilo dominante». En este modelo no hay un único punto de colapso repentino; la diversidad cae de forma continua, y la concentración sube bruscamente entre tasas de copia de aproximadamente 40 % y 80 %. Un sesgo a copiar a los pintores populares hace que la concentración sea mucho mayor con la misma tasa de copia, y con baja originalidad, incluso con una tasa de copia moderada, todo se fija en un solo estilo.",
+  "why": "«estilo de la casa»는 엉뚱한 연어; 주어가 어긋난 문장"
+ },
+ "s0747": {
+  "tr": "<b>Qué no muestra:</b> No reproduce el comportamiento real de las IA generadoras de imágenes ni de los pintores. Es un modelo muy simple de transmisión cultural que reduce el estilo a cuatro números y conserva solo la «copia» y la «innovación aleatoria», y los cuadros son abstracciones decorativas dibujadas a partir de esos números. Tampoco afirma que copiar sea malo ni que la originalidad sea siempre buena: copiar difunde habilidades y puede nutrir buenos estilos.",
+  "why": "원문은 «행동을 재현한 것이 아님»"
+ },
+ "s0750": {
+  "tr": "La diversidad es el promedio por pares de la distancia en los cuatro números (el tono es circular, por lo que su distancia máxima es 0,5), escalado de 0 a 1. El inicio aleatorio es de aproximadamente 0,44, y los resultados usan el promedio de las últimas 20 rondas. Puedes verificarlo con <code>node tools/validate-painters.js</code>.",
+  "why": "소수점·천 단위 표기를 스페인어식(쉼표·마침표)으로 통일"
+ },
+ "s0770": {
+  "tr": "Cada bloque es un nivel (arriba, el más alto) y cada punto es una persona, ordenada por competencia: <b style=\"color:#2f6fed\">azul</b> es alta, <b style=\"color:#a89a7a\">beis</b> es más o menos la media inicial (7), <b style=\"color:#e5484d\">rojo</b> es baja. Observa cómo cambian los colores con los años.",
+  "why": "원문 «위가 최상위»; 용어 통일(competencia)"
+ },
+ "s0777": {
+  "tr": "<i style=\"background:#2f6fed\"></i>Hipótesis del sentido común (continuidad 100 %)",
+  "why": "범례 짝(Hipótesis de Peter)과 통일"
+ },
+ "s0782": {
+  "tr": "En el artículo, el ascenso «aleatorio» o «alternando mejor/peor» dio los mejores resultados, pero en esta implementación «ascender al peor» obtiene la puntuación más alta. Parece deberse a diferencias en detalles como los pesos de eficiencia y la forma de volver a sortear la competencia, aunque no se ha confirmado.",
+  "why": "따옴표를 페이지 내 «»로 통일"
+ },
+ "s0785": {
+  "tr": "Si la baja natalidad continúa, ¿cómo será la población de Corea en 2070? · Simulatio Lab",
+  "why": "원문의 조건 «저출산이 계속되면» 누락"
+ },
+ "s0788": {
+  "tr": "La población se sigue por edad simple, de 0 a 100+, y todos envejecen un año cada año. Este es el «método de los componentes por cohortes» básico de las proyecciones de población.",
+  "why": "스페인어 따옴표 «»"
+ },
+ "s0810": {
+  "tr": "La razón de dependencia de la vejez es la población de 65+ dividida por la de 15–64. Con 100 %, cada persona en edad de trabajar «sostiene» a una persona mayor.",
+  "why": "원문의 «떠받치는» 뉘앙스 누락"
+ },
+ "s0820": {
+  "tr": "<b>Esto es una aproximación.</b> Difiere de las proyecciones oficiales de Statistics Korea. Como referencia, el escenario medio de las proyecciones de población 2022–2072 publicadas por Statistics Korea en 2024 (según la prensa) da unos 36 millones de personas y un 47,7 % de 65+ en 2072, suponiendo que la fecundidad se recupera de aprox. 0,65 en 2025 a 1,08 en 2072. Este modelo, con la fecundidad fija en 0,72, da unos 28,2 millones y un 54,6 % en 2072, es decir, menos población.",
+  "why": "«통계청이 2024년에 낸» 누락"
+ },
+ "s0828": {
+  "tr": "Colarse en la fila compensa, y que te cuelen sale caro. Si todos se cuelan, la fila se deshace. Pero ¿y si algunos regañan a quienes se cuelan? El problema es que regañar también tiene un costo.",
+  "why": "페이지 내 용어 통일(costo)"
+ },
+ "s0829": {
+  "tr": "2.500 personas están en una cuadrícula con tres tipos: <b style=\"color:#3b82f6\">Ordenado</b> (espera en silencio), <b style=\"color:#e5484d\">Colado</b> y <b style=\"color:#1fa463\">Castigador</b> (espera en la fila, pero castiga a quien se cuela cuando lo ve).",
+  "why": "«colador»는 «체(거름망)»라는 뜻, 오역"
+ },
+ "s0833": {
+  "tr": "Tiempo que se gana cada vez que alguien se cuela",
+  "why": "어색한 표현"
+ },
+ "s0838": {
+  "tr": "Proporción inicial de colados <output id=\"o-cutters\"></output>",
+  "why": "«colador»=체(거름망), 라벨(Colado)과 통일"
+ },
+ "s0845": {
+  "tr": "El área apilada es el total (100 %). Al principio los colados aumentan, pero mira qué pasa después.",
+  "why": "«colador»=체(거름망), 용어 통일"
+ },
+ "s0850": {
+  "tr": "El eje horizontal es el efecto del castigo; el eje vertical es la proporción de colados que quedan tras 100 rondas. Los puntos son 5 ejecuciones.",
+  "why": "«colador»=체(거름망), 용어 통일"
+ },
+ "s0852": {
+  "tr": "El eje horizontal es la proporción inicial de castigadores; el eje vertical es la proporción de colados tras 100 rondas.",
+  "why": "«colador»=체(거름망), 용어 통일"
+ },
+ "s0853": {
+  "tr": "<b>Qué muestra:</b> Colarse se extiende rápido al principio porque conviene, pero si suficientes personas castigan a quienes se cuelan y el castigo supera la ganancia, colarse vuelve a desaparecer. Al contrario, si hay muy pocos castigadores o castigar cuesta demasiado, el orden se derrumba. El orden no se mantiene solo; alguien paga un precio para mantenerlo.",
+  "why": "«colador»=체(거름망)"
+ },
+ "s0855": {
+  "tr": "Un modelo de cuadrícula al estilo de los juegos evolutivos espaciales (Nowak, May (1992), «Evolutionary games and spatial chaos», <i>Nature</i> 359): se juega con los vecinos y se copia la estrategia del vecino con mejor puntuación. Añadir al «cooperador que castiga» es un diseño propio de este proyecto, no una reproducción de los números del artículo.",
+  "why": "스페인어 따옴표 «»"
+ },
+ "s0863": {
+  "tr": "Tras el intento 1, se elogia a cierto porcentaje superior y se regaña a cierto porcentaje inferior. Los demás no oyen nada.",
+  "why": "원문에 없는 «작은»이 덧붙음"
+ },
+ "s0865": {
+  "tr": "La escena «Ejemplo deportivo» traslada el mismo cálculo a las temporadas. El grupo superior sale en la portada de la revista, el grupo inferior tuvo su peor temporada, y el efecto real se aplica solo a la portada. No se usan datos de jugadores ni de revistas reales.",
+  "why": "«Ilustración deportiva»는 잡지명처럼 읽혀 어색; 원문은 «스포츠 예시»"
+ },
+ "s0875": {
+  "tr": "Entrenador y jugadores",
+  "why": "원문 «선수»"
+ },
+ "s0876": {
+  "tr": "Ejemplo deportivo (premio al novato, portada de revista)",
+  "why": "원문 «스포츠 예시», 잡지명처럼 읽히는 문제"
+ },
+ "s0891": {
+  "tr": "<b>Qué muestra:</b> Promediando 400 repeticiones con 50 % de suerte, 400 personas, el 20 % superior e inferior y un efecto real de 0, los elogiados bajaron 7,0 puntos de media y los regañados subieron 7,1 (teoría: ∓7,0). La diferencia que ve el entrenador fue de +14,1 puntos, y en las 400 muestras los regañados subieron más. La pendiente de la recta de regresión fue 0,50, igual a la fiabilidad (1 − parte de suerte), que es la correlación entre los dos intentos. Con 0 % de suerte el cambio fue 0, con 10 % fue ∓1,4, con 90 % ∓12,6 y con 100 % ∓14,0. Elegir solo el 5 % superior e inferior dio un cambio de unos ∓10,4, y elegir el 50 % de cada lado lo redujo a unos ∓4,0. Incluso con solo 20 personas, el 97 % de las muestras llevó a la misma conclusión. El elogio tendría que sumar de verdad 7 puntos y la regañina restar 7 (con 50 % de suerte y el 20 % superior e inferior) para que la diferencia que ve el entrenador llegue a 0. En el ejemplo deportivo, incluso con un efecto real de la portada de 0, el grupo de la portada cambió −7,0 y el grupo de la peor temporada +7,1, y cuando la portada causaba realmente −3 puntos el grupo de la portada bajó 10,0, de modo que el efecto real y la regresión no se podían distinguir a simple vista.",
+  "why": "«20 %»가 무엇인지 불명확; 용어 통일"
+ },
+ "s0894": {
+  "tr": "Puntuación = 50 + 10 × (√(1 − parte de suerte) × habilidad + √(parte de suerte) × suerte), con habilidad y suerte de distribución normal estándar. Así ambos intentos tienen la misma dispersión y una correlación de 1 − parte de suerte, de modo que la pendiente de la regresión es igual a la fiabilidad (cuando el efecto real es 0). El valor teórico es (parte de suerte) × cuánto por encima de 50 estuvo la media del grupo superior en el intento 1, calculado con la media de la cola φ(z)/proporción de corte de la distribución normal.",
+  "why": "용어 통일(parte de suerte, intento)"
+ },
+ "s0899": {
+  "tr": "A veces cientos de personas se reúnen y no pasa nada; otras veces la chispa de unas pocas personas llena toda la plaza. ¿Por qué los resultados se separan tanto entre el mismo tipo de personas? Con una regla simple, «decidir si unirse viendo cuántas otras personas han salido», observamos cuándo se extiende la acción colectiva.",
+  "why": "«몇 사람의 불씨»; 따옴표 «»"
+ },
+ "s0900": {
+  "tr": "Cada una de las 1.000 personas tiene un «umbral»: se une cuando al menos esta proporción del total ya está en la plaza. Las personas con umbral bajo se unen con facilidad; las de umbral alto se unen solo cuando ya se ha formado una multitud.",
+  "why": "스페인어 따옴표 «»"
+ },
+ "s0902": {
+  "tr": "En cada ronda, todas las personas cuyo umbral es igual o menor que «la proporción que ya ha salido» dan un paso al frente. Termina cuando no se une nadie más.",
+  "why": "스페인어 따옴표 «»"
+ },
+ "s0905": {
+  "tr": "Cuanto mayor, más cuesta dar el paso en esa sociedad",
+  "why": "직역투 UI 문구"
+ },
+ "s0907": {
+  "tr": "Cuanto mayor, más varían los umbrales entre personas",
+  "why": "직역투 UI 문구"
+ },
+ "s0918": {
+  "tr": "La curva azul es «la proporción que se unirá a continuación si ya han salido tantas personas». Mientras la curva esté por encima de la diagonal (y=x), la multitud sigue creciendo, y se detiene donde la curva corta la diagonal. La escalera roja es el recorrido real.",
+  "why": "스페인어 따옴표 «»"
+ },
+ "s0923": {
+  "tr": "<b>Qué muestra:</b> Entre las mismas personas, el resultado puede dividirse entre «la plaza se llena» y «no pasa nada», según haya o no una chispa y según lo variados que sean los umbrales. Con el mismo umbral medio, unos umbrales más variados permiten que la cascada continúe con más facilidad, y sin ninguna chispa no empieza nada por bajo que sea el promedio. En el ejemplo clásico, cambiar solo a una persona con umbral del 1 % convierte una plaza donde se unen las 100 en una que se detiene en 1.",
+  "why": "스페인어 따옴표 «»"
+ },
+ "s0924": {
+  "tr": "<b>Qué no muestra:</b> No significa que las revoluciones o protestas reales se desarrollen según estos números, ni toma partido ni predice nada. La realidad tiene información, miedo, organización, respuestas del gobierno y redes de contactos entre personas; este modelo es una sociedad muy simple donde las personas deciden solo según «la proporción de otras que han salido». Los umbrales de las personas son invisibles en la realidad, y los números de aquí son valores elegidos para explicar.",
+  "why": "«redes sociales»는 SNS로 읽힘; 따옴표 «»"
+ },
+ "s0926": {
+  "tr": "Los umbrales con distribución normal (media 20 %, dispersión 15 %, 1 % de instigadores) son ajustes de este proyecto, no cifras del artículo. En 20 ejecuciones con los ajustes por defecto, todas llegaron al 100 %, y con 0 % de instigadores todas se quedaron en 0 %. Con una media de 25 %, los resultados se repartieron entre el 2 % y el 100 %.",
+  "why": "% 앞 공백을 같은 페이지와 통일"
+ },
+ "s0927": {
+  "tr": "El gráfico ④ mantiene la dispersión y la proporción de instigadores actuales, cambia solo el umbral medio y ejecuta 6 veces cada caso. Con el ejemplo clásico, ①–③ muestran 100 personas con umbrales exactos 0, 1 %, 2 %, …, mientras que ④ sigue basándose en la distribución normal.",
+  "why": "% 앞 공백을 같은 페이지와 통일"
+ },
+ "s0930": {
+  "tr": "¿Con qué rapidez y a través de quién se propaga un rumor en los chats grupales? ¿Y si la corrección llega tarde? Pruébalo tú mismo.",
+  "why": "원문의 «누구를 거쳐», «정정이 늦으면» 누락·변경"
+ },
+ "s0955": {
+  "tr": "Vista apilada de cómo cambian los estados de las personas en cada ronda.",
+  "why": "용어 통일(차례 = ronda)"
+ },
+ "s0965": {
+  "tr": "<b>Qué no muestra:</b> No significa que los rumores en los chats grupales reales se propaguen con estas cifras. No se recogen el contenido del rumor, la confianza en quien lo envía ni el ambiente de la sala, y que una corrección resulte un 70% de lo tentador que es un rumor es solo una suposición.",
+  "why": "문법 오류. 원문 확인 필요: ko «70% 덜 솔깃»이 s0935(«소문의 70%»)·en(«70% as tempting»)과 어긋남"
+ },
+ "s0967": {
+  "tr": "500 personas y 50 salas; la popularidad de cada sala es proporcional a rango^−0,6, de modo que aparecen salas grandes y pequeñas. Una persona que propaga el rumor lo publica en todas las salas a las que pertenece, y la probabilidad de perder interés es del 70%.",
+  "why": "소수점 표기 통일"
+ },
+ "s1003": {
+  "tr": "¿Por qué las semillas del girasol se disponen con ese ángulo? · Simulatio Lab",
+  "why": "어색한 표현"
+ },
+ "s1009": {
+  "tr": "La calidad del relleno se mide tomando muchos puntos del disco y calculando la distancia a la semilla más cercana; la media (hueco promedio) y el máximo (hueco mayor) se dividen por el espaciado ideal. Cuanto menor, más uniforme el relleno. En «Colorear por», colorear según el resto de dividir el número de semilla entre un valor como 34 revela los brazos de la espiral.",
+  "why": "용어 통일(채움 = relleno)"
+ },
+ "s1057": {
+  "tr": "La calidad del relleno usa puntos de sondeo separados 0,35 veces el espaciado ideal dentro del 85% del radio del disco, y mide la distancia a la semilla más cercana. La semilla k está en el radio √(k+0.5).",
+  "why": "용어 통일(채움 = relleno)"
+ },
+ "s1061": {
+  "tr": "Los aviones que regresan tienen más agujeros en las alas y el fuselaje. ¿Hay que poner el blindaje ahí? Compruébalo tú mismo con una simulación del sesgo del superviviente.",
+  "why": "«편향을 실행하라»는 어색한 연어"
+ },
+ "s1065": {
+  "tr": "Cada sección tiene una probabilidad distinta de que una sola bala derribe el avión. El motor (control deslizante) y la cabina (40%) son letales; el fuselaje, las alas y la cola rondan el 5% y casi siempre aguantan.",
+  "why": "오역: «5% 안팎»을 «5% 이하»로 바꿈, «거의 버팀» 누락"
+ },
+ "s1077": {
+  "tr": "Las salidas se suceden una tras otra. La imagen de la izquierda es lo que se ve en los aviones que regresan; la de la derecha, todas las balas que realmente impactaron. Fíjate en lo vacíos que están el motor y la cabina a la izquierda. Los círculos marcan dónde recibió impactos el avión que acaba de volar (círculos rojos: fue derribado). Haz clic en una sección del avión (o en un botón de abajo) para añadir blindaje.",
+  "why": "용어 통일(출격 = salida)"
+ }
+}

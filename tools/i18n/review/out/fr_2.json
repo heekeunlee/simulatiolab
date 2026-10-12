@@ -1,0 +1,326 @@
+{
+ "s1106": {
+  "tr": "Le talent suit une loi normale, alors pourquoi la richesse s'accumule-t-elle entre quelques mains ? Lancez vous-même la simulation Talent vs Luck en changeant les variables.",
+  "why": "tu→vous 통일, 모델명은 원문대로 Talent vs Luck, '정규분포' 직역 보완"
+ },
+ "s1245": {
+  "tr": "Quelle société choisiriez-vous derrière le voile d’ignorance ? · Simulatio Lab",
+  "why": "사이트 전체 존칭(vous)에 맞춤(tu → vous)"
+ },
+ "s1246": {
+  "tr": "Si vous ne saviez pas où vous naîtriez dans la société, quelle société choisiriez-vous ? Lancez vous-même l’expérience de pensée de Rawls et Harsanyi en faisant varier l’aversion au risque.",
+  "why": "사이트 전체 존칭(vous)에 맞춤(tu → vous), 시제 일치(naîtriez), 원문에 없는 'des gens' 삭제, '직접' 반영"
+ },
+ "s1247": {
+  "tr": "Si vous ne saviez pas si vous naîtriez riche ou pauvre, quelle société choisiriez-vous ? Le philosophe Rawls soutenait que les règles choisies derrière un tel « voile d’ignorance » sont justes. Mais, pour une même question, la réponse dépend de votre aversion au risque. Suivez cette bifurcation avec des chiffres.",
+  "why": "사이트 전체 존칭(vous)에 맞춤(tu → vous), 조건법 시제 일치"
+ },
+ "s1252": {
+  "tr": "Aversion au risque γ (moi) <output id=\"o-gamma\"></output>",
+  "why": "원문 '(나)' — 1인칭 라벨, tu 제거"
+ },
+ "s1253": {
+  "tr": "À 0, on ne regarde que la moyenne ; plus c’est grand, plus on s’inquiète de la pire position",
+  "why": "'0 ne regarde que…'는 0이 주어가 되는 비문"
+ },
+ "s1262": {
+  "tr": "Ma règle de choix",
+  "why": "원문 '나는 어떤 기준으로' 1인칭, tu 제거·간결화"
+ },
+ "s1263": {
+  "tr": "Mêmes réglages, nouveau tirage",
+  "why": "다른 버튼(Mêmes réglages, nouveau …)과 같은 명사형으로"
+ },
+ "s1265": {
+  "tr": "Les cinq barres sont les revenus des cinq positions (la barre de gauche est la plus pauvre). La colonne encadrée est la société choisie par la règle actuelle. Appuyez sur lecture pour tirer au hasard une position dans cette société, une à la fois, et voir quel serait votre revenu.",
+  "why": "사이트 전체 존칭(vous)에 맞춤(tu → vous)"
+ },
+ "s1255": {
+  "tr": "Aversion au risque moyenne des 1 000 personnes du graphique ③",
+  "why": "프랑스어에서 1,000은 소수(1.0)로 읽힘 → 1 000"
+ },
+ "s1275": {
+  "tr": "③ Quand 1 000 personnes choisissent chacune",
+  "why": "프랑스어에서 1,000은 소수(1.0)로 읽힘 → 1 000"
+ },
+ "s1276": {
+  "tr": "Les gens diffèrent dans leur aversion au risque. Ce graphique montre combien de personnes sur 1 000 choisissent chaque société selon l’utilité espérée. Les curseurs « γ moyen » et « dispersion » le modifient.",
+  "why": "프랑스어에서 1,000은 소수(1.0)로 읽힘 → 1 000"
+ },
+ "s1281": {
+  "tr": "<b>Ce que cela montre :</b> Avec ces cinq sociétés et ces revenus, le choix change par paliers avec l’aversion au risque γ. En dessous de γ = 0.7, la société de loterie où le gagnant rafle tout est choisie ; de 0.7 à 1.0, la pyramide abrupte ; de 1.0 à 2.15, l’écart modéré ; de 2.15 à 6.1, le filet de sécurité ; et à partir de 6.1, la société égalitaire. Maximiser la moyenne a choisi la société de loterie et maximiser le minimum a choisi la société égalitaire. Avec un γ moyen de 2 pour le groupe et une dispersion de 1, sur 1 000 personnes environ 44–46 % ont choisi le filet de sécurité, environ 38 % l’écart modéré, environ 11 % la loterie où le gagnant rafle tout et environ 5–6 % la pyramide abrupte (deux graines). Même derrière le même voile, ce qui compte comme « choix juste » peut changer selon la façon dont les gens traitent le risque.",
+  "why": "프랑스어에서 1,000은 소수(1.0)로 읽힘 → 1 000"
+ },
+ "s1285": {
+  "tr": "L'utilité est la fonction à aversion relative au risque constante (CRRA), et le classement est le même que celui des revenus équivalents certains. L'aversion au risque γ des 1 000 personnes est tirée d'une loi normale (tronquée à 0). Les points de bascule et les effectifs ont été vérifiés avec <code>node tools/validate-veil.js</code> et varient selon les réglages.",
+  "why": "프랑스어에서 1,000은 소수(1.0)로 읽힘 → 1 000"
+ },
+ "s1290": {
+  "tr": "1 000 électeurs sont répartis sur un plan à 2 dimensions de « préférence politique », et les candidats A–F sont des points sur ce même plan. Les axes horizontal et vertical n'ont pas de signification particulière. En augmentant la « polarisation », les électeurs se séparent en deux groupes.",
+  "why": "프랑스어에서 1,000은 소수(1.0)로 읽힘 → 1 000"
+ },
+ "s1319": {
+  "tr": "1 000 personnes commencent avec la même richesse (1).",
+  "why": "프랑스어에서 1,000은 소수(1.0)로 읽힘 → 1 000"
+ },
+ "s1410": {
+  "tr": "Le texte compte au plus 100 000 mots, et la pente est l'ajustement par moindres carrés en log–log sur les rangs 3 à 200. Avec le réglage par défaut (3% de mots nouveaux), un texte de 100 000 mots contient environ 3 000 mots distincts ; les 10 premiers mots couvrent environ 85% du texte et les 100 premiers environ 91% (moyenne sur 6 textes). L'essentiel vient du seul premier mot (environ 77%) : dans le modèle de Simon, le tout premier mot est copié le plus longtemps, ce qui le rend bien plus fréquent que dans une vraie langue (le « the » anglais représente environ 6%).",
+  "why": "프랑스어에서 1,000은 소수(1.0)로 읽힘 → 1 000"
+ },
+ "s1242": {
+  "tr": "Les quatre préréglages (F, k) sont taches (0.035, 0.065), rayures (0.029, 0.057), mitose (0.0367, 0.0649) et corail (0.0545, 0.062). En lançant 3 graines sur 20 000 itérations, toutes les valeurs sont restées finies, et la surface couverte par le motif était d'environ 19% pour les taches, 21% pour la mitose, 43% pour les rayures et 53% pour le corail. Le nombre d'îlots était d'environ 50 pour les taches et la mitose, et le plus souvent 1 (une seule forme connexe) pour les rayures et le corail. Les sommets des collines de taches stabilisées étaient presque égaux, à v 0.355–0.373, tandis que les crêtes des rayures allaient de 0.25 à 0.35 (médiane 0.30) (vérifier avec <code>node tools/validate-turing.js</code>).",
+  "why": "프랑스어에서 1,000은 소수(1.0)로 읽힘 → 1 000"
+ },
+ "s1243": {
+  "tr": "Les graines initiales sont déposées à 12 endroits. Le nombre d'itérations nécessaires pour que le motif se stabilise était d'environ 1 000 pour les rayures, 3 000 pour le corail, 5 000 pour la mitose et 7 000 pour les taches. À l'écran, la simulation va jusqu'à 30 000 itérations.",
+  "why": "프랑스어에서 1,000은 소수(1.0)로 읽힘 → 1 000; 용어 통일(씨앗=graine), '화면이 …를 한다' 어색한 직역"
+ },
+ "s1288": {
+  "tr": "Les mêmes votes, comptés à la pluralité, au scrutin à deux tours, au vote préférentiel ou par Borda, peuvent-ils changer le gagnant ? Essayez vous-même.",
+  "why": "사이트 전체 존칭(vous)에 맞춤(tu → vous)"
+ },
+ "s1289": {
+  "tr": "Si les mêmes électeurs votent avec les mêmes préférences, la manière de compter les votes peut-elle changer le gagnant ? Modifiez le nombre de candidats et la répartition des électeurs pour comparer quatre méthodes. C'est une expérience mathématique sans lien avec aucun parti ni candidat.",
+  "why": "사이트 전체 존칭(vous)에 맞춤(tu → vous)"
+ },
+ "s1301": {
+  "tr": "Chaque barre montre la part obtenue par chaque candidat avec cette méthode, et ★ marque le gagnant. Regardez si le gagnant est le même ou différent selon la méthode.",
+  "why": "사이트 전체 존칭(vous)에 맞춤(tu → vous)"
+ },
+ "s1317": {
+  "tr": "Si chaque échange est aussi équitable qu'un pile ou face, la richesse se concentre-t-elle quand même ? Modifiez le taux de redistribution et essayez vous-même.",
+  "why": "사이트 전체 존칭(vous)에 맞춤(tu → vous)"
+ },
+ "s1143": {
+  "tr": "Que reste-t-il, et qu'est-ce qui disparaît, quand une histoire passe 40 fois de personne en personne ? Modifiez la mémoire et l'enjolivement et essayez vous-même.",
+  "why": "'que disparaît'는 비문(주어 의문 → qu'est-ce qui)"
+ },
+ "s1144": {
+  "tr": "Une personne transmet à la suivante une histoire qu'elle a entendue, et celle-ci la transmet à son tour. Quand 12 chaînes parties du même original sont racontées 40 fois, que reste-t-il et qu'est-ce qui change ?",
+  "why": "'que change'는 비문(주어 의문 → qu'est-ce qui)"
+ },
+ "s1178": {
+  "tr": "Avec les réglages par défaut (mémoire 96 %, enjolivement 30 %, conventionnalité 30 %), la moyenne de 8 exécutions après 40 récits était de 25 % des motifs d'origine conservés, une longueur moyenne du récit de 15,7 (contre 30 au départ) et une mémorabilité moyenne passée de 0,56 à 0,62. Le recoupement entre chaînes était de 0,31, un peu plus du double de l'approximation due au hasard, 0,14.",
+  "why": "용어 통일: 덧붙이기=enjolivement, 겹침=recoupement(슬라이더·범례와 같게)"
+ },
+ "s1179": {
+  "tr": "Même avec une mémoire à 100 %, seuls 75 % des motifs d'origine subsistent, car les détails étranges sont modifiés par la conventionnalité. L'enjolivement ne change presque pas la part des motifs d'origine qui subsistent (de 24 à 25 %) et allonge surtout le récit (la part de l'original dans le récit est de 80 % à 0 % d'enjolivement et de 22 % à 100 %). Faire passer la conventionnalité de 0 % à 30 % ou plus a fait baisser les motifs d'origine de 32 % à 25 %.",
+  "why": "용어 통일: 덧붙이기=enjolivement"
+ },
+ "s1180": {
+  "tr": "Le « recoupement attendu par hasard » est la similarité de Jaccard approchée s / (2 − s) lorsque deux chaînes conservent chacune, de façon indépendante, une fraction aléatoire s des motifs. Le graphique ④ repose sur 3 exécutions pour chaque niveau de mémoire, et vous pouvez le vérifier avec <code>node tools/validate-telephone.js</code>.",
+  "why": "용어 통일: 겹침=recoupement(범례와 같게)"
+ },
+ "s1126": {
+  "tr": "Chaque point est une personne. Avoir plus de talent ne place pas forcément plus haut. L'axe vertical est en échelle logarithmique.",
+  "why": "'Un talent plus élevé ne place pas plus haut' 어색한 직역"
+ },
+ "s1225": {
+  "tr": "Choisir un type ajuste F et k en conséquence",
+  "why": "'En choisir un règle F et k' 어색하고 'règle'가 명사로 오독됨"
+ },
+ "s1344": {
+  "tr": "⑤ Combien faut-il redistribuer pour l'empêcher ?",
+  "why": "'Quelle part de partage l'empêche' 어색함"
+ },
+ "s1346": {
+  "tr": "<b>Ce que cela montre :</b> Même quand chaque échange est équitable, dans une structure où les effets du hasard se multiplient, la richesse se concentre avec le temps entre quelques mains. Une fois pauvre, on ne peut miser que très peu, donc le redressement est lent. Et même une petite redistribution réduit fortement la concentration.",
+  "why": "원문 '우연이 곱해지는'(곱셈적) 뜻 반영"
+ },
+ "s1353": {
+  "tr": "Le bon contenu l'emporte-t-il, ou la chaîne qui a percé la première ? Voyez vous-même comment les abonnés se concentrent quand les recommandations suivent la popularité.",
+  "why": "원문 '먼저 뜬 채널'(celui=contenu로 오독), '직접' 반영"
+ },
+ "s1357": {
+  "tr": "Une certaine proportion de spectateurs suit les <b>recommandations fondées sur la popularité</b>. Plus une chaîne est populaire, plus elle est recommandée, si bien que les chaînes qui ont plus d'abonnés grandissent plus vite.",
+  "why": "원문 '일정 비율로'(parfois=가끔은 뜻이 다름), 다음 문장 'Les autres'와 연결"
+ },
+ "s1374": {
+  "tr": "La recommandation fondée sur la popularité tire 2 candidates avec une probabilité proportionnelle à (abonnés + 1) et recommande la plus grande. N'en tirer qu'une seule donne une concentration faible (les 10 % en tête détiennent environ 23–33 %), nous avons donc supposé que l'algorithme penche davantage vers la popularité.",
+  "why": "'de abonnés' 축약 오류·어색한 표현"
+ },
+ "s1378": {
+  "tr": "Dans les livres comme dans les journaux, une poignée de mots forme l'essentiel du texte. Vérifiez par vous-même si le simple fait de « copier des mots antérieurs » suffit à créer cette concentration.",
+  "why": "쏠림=concentration(사이트 다른 페이지와 같게)"
+ },
+ "s1379": {
+  "tr": "Quelques mots comme « le », « de » et « et » composent une grande partie de n'importe quel texte, tandis que la plupart des mots n'apparaissent presque jamais. Cette concentration peut-elle être produite non par le sens des mots, mais seulement par l'habitude de réutiliser ce qui a déjà été écrit ?",
+  "why": "쏠림=concentration"
+ },
+ "s1407": {
+  "tr": "<b>Ce que cela montre :</b> même si les mots nouveaux n'apparaissent qu'occasionnellement et que tout le reste consiste simplement à « copier ce qui a déjà été écrit », quelques mots finissent par couvrir l'essentiel du texte et le graphique rang-fréquence devient une droite de pente proche de -1 sur des axes log–log. Avec la même probabilité de mot nouveau, choisir chaque mot de façon équiprobable ne produit presque pas cette concentration. Sans aucun sens ni aucune grammaire, la seule règle « ce qui est souvent utilisé l'est encore plus » peut produire la forme de la loi de Zipf.",
+  "why": "쏠림=concentration"
+ },
+ "d0136": {
+  "tr": "Maintenant (tout le monde satisfait après {0} tours)",
+  "why": "같은 화면의 'satisfait'와 통일"
+ },
+ "d0175": {
+  "tr": "Temps ↓ (160 dernières secondes)",
+  "why": "'160 dernières s' 단위 약어만 남아 어색"
+ },
+ "d0184": {
+  "tr": "{0} cellules de long (environ {1} km), une voie",
+  "why": "교통 페이지 용어 통일(칸=cellule)"
+ },
+ "d0194": {
+  "tr": "★ Pluralité",
+  "why": "같은 방식의 다른 라벨(Pluralité)과 통일"
+ },
+ "d0254": {
+  "tr": "Bleu : corrélation entre qualité et résultat ; doré : part des 10 % supérieurs",
+  "why": "'or'는 접속사로 오독 가능 → doré, 용어 통일(10 % supérieurs)"
+ },
+ "d0459": {
+  "tr": "Bleu : population maximale (personnes), doré : population à l'année 600 (personnes)",
+  "why": "'or'는 접속사로 오독 가능 → doré"
+ },
+ "d0610": {
+  "tr": "Bleu : diversité, doré : concentration des styles, gris : diversité sans biais de popularité",
+  "why": "'or'는 접속사로 오독 가능 → doré"
+ },
+ "d0282": {
+  "tr": "100 au départ",
+  "why": "'Part de 100'은 '100의 몫'으로 오독됨; 다른 라벨(… au départ)과 통일"
+ },
+ "d0291": {
+  "tr": "Calculé sans choc de taux. Vert : plafond d'emprunt de 40 % ; bleu : plafond d'emprunt du réglage actuel",
+  "why": "사이트 전체 존칭(vous)에 맞춤(tu → vous)(원문 '지금 설정의')"
+ },
+ "d0292": {
+  "tr": "Appuyez sur lecture pour lancer les enchères",
+  "why": "사이트 전체 존칭(vous)에 맞춤(tu → vous)"
+ },
+ "d0644": {
+  "tr": "Appuyez sur lecture et les personnes apparaissent une par une",
+  "why": "사이트 전체 존칭(vous)에 맞춤(tu → vous)"
+ },
+ "d0730": {
+  "tr": "Appuyez sur lecture pour remplir ce graphique",
+  "why": "사이트 전체 존칭(vous)에 맞춤(tu → vous), 'ceci' 어색"
+ },
+ "d0726": {
+  "tr": "Blindage sur {0}/{1} sections · cliquez à nouveau pour l'enlever",
+  "why": "사이트 전체 존칭(vous)에 맞춤(tu → vous)"
+ },
+ "d0727": {
+  "tr": "Cliquez sur une section pour ajouter un blindage (jusqu'à {0})",
+  "why": "사이트 전체 존칭(vous)에 맞춤(tu → vous)"
+ },
+ "d0742": {
+  "tr": "Cliquez sur les sections de l'avion pour choisir",
+  "why": "사이트 전체 존칭(vous)에 맞춤(tu → vous)"
+ },
+ "d0319": {
+  "tr": "Évolution du gain moyen",
+  "why": "'추이'는 누적(cumulé)이 아니라 변화 추이"
+ },
+ "d0395": {
+  "tr": "Rencontre {0} · {1} personnes · {2} paires possibles",
+  "why": "같은 실험의 용어 통일(모임=rencontre)"
+ },
+ "d0397": {
+  "tr": "Fils pâles : toutes les paires possibles · bleu : paires identiques · rouge : correspondances avec moi",
+  "why": "같은 실험의 용어 통일(일치=correspondance/identique)"
+ },
+ "d0398": {
+  "tr": "Jusqu'ici, {1} rencontres sur {0} ont eu une correspondance ({2}) · calcul {3}",
+  "why": "같은 실험의 용어 통일(rencontre, correspondance)"
+ },
+ "d0399": {
+  "tr": "Fils : paires possibles · bleu : correspondance · rouge : correspondance avec moi",
+  "why": "같은 실험의 용어 통일(correspondance)"
+ },
+ "d0400": {
+  "tr": "Niveau du rendement maximal durable",
+  "why": "어업 통용 용어 '최대 지속 수확'=rendement maximal durable(RMD)"
+ },
+ "d0404": {
+  "tr": "Rendement maximal durable : 50 %",
+  "why": "통용 용어(RMD)"
+ },
+ "d0474": {
+  "tr": "{0} rotations / 100 tours",
+  "why": "'tours'가 바퀴·라운드 두 뜻으로 겹쳐 혼동"
+ },
+ "d0522": {
+  "tr": "Moyenne des amis de leurs amis pour chaque personne, moyennée sur tous · {0}×",
+  "why": "'{0}배'는 배수 → ×(사이트 표기 통일), 'fois'는 횟수로 읽힘"
+ },
+ "d0526": {
+  "tr": "Mon nombre d'amis : moyenne de mes amis (cliquez sur une personne pour changer)",
+  "why": "원문 '내 친구 수' 누락"
+ },
+ "d0625": {
+  "tr": "Ratio de dépendance des personnes âgées",
+  "why": "프랑스 통용 용어(aînés는 캐나다식)"
+ },
+ "d0630": {
+  "tr": "+{0} an(s) par décennie",
+  "why": "{0}이 2 이상이면 'an' 단수가 틀림"
+ },
+ "d0684": {
+  "tr": "y = x (la croissance s'arrête)",
+  "why": "'plus de croissance'는 '더 많은 성장'으로도 읽혀 모호"
+ },
+ "d0739": {
+  "tr": "{1} retours sur {0} sorties",
+  "why": "'sorties … sont revenues'는 출격이 돌아왔다는 어색한 표현"
+ },
+ "d0760": {
+  "tr": "Moteur · Cockpit · Queue",
+  "why": "꼬리=Queue로 통일(다른 조합 라벨과 같게)"
+ },
+ "d0762": {
+  "tr": "Moteur · Fuselage · Queue",
+  "why": "꼬리=Queue로 통일(다른 조합 라벨과 같게)"
+ },
+ "d0763": {
+  "tr": "Moteur · Ailes · Queue",
+  "why": "꼬리=Queue로 통일(다른 조합 라벨과 같게)"
+ },
+ "d0765": {
+  "tr": "Cockpit · Fuselage · Queue",
+  "why": "꼬리=Queue로 통일(다른 조합 라벨과 같게)"
+ },
+ "d0766": {
+  "tr": "Cockpit · Ailes · Queue",
+  "why": "꼬리=Queue로 통일(다른 조합 라벨과 같게)"
+ },
+ "d0767": {
+  "tr": "Fuselage · Ailes · Queue",
+  "why": "꼬리=Queue로 통일(다른 조합 라벨과 같게)"
+ },
+ "d0797": {
+  "tr": "F (taux d'alimentation)",
+  "why": "슬라이더 라벨(taux d'alimentation)과 통일"
+ },
+ "d0793": {
+  "tr": "{0} itérations · surface du motif {1}",
+  "why": "범례 'Surface du motif'와 통일"
+ },
+ "d0798": {
+  "tr": "Surface couverte par le motif",
+  "why": "범례 'Surface du motif'와 통일"
+ },
+ "d0809": {
+  "tr": "Société à écart modéré",
+  "why": "'완만한 격차' 다른 곳(Écart modéré)과 통일"
+ },
+ "d0814": {
+  "tr": "Écart modéré",
+  "why": "'완만한 격차' 다른 곳(Écart modéré)과 통일"
+ },
+ "d0816": {
+  "tr": "Loterie où le gagnant rafle tout",
+  "why": "범례·본문 표기와 통일"
+ },
+ "d0823": {
+  "tr": "Votre position : {0} → revenu {1}",
+  "why": "사이트 전체 존칭(vous)에 맞춤(tu → vous)"
+ },
+ "d0832": {
+  "tr": "Mes revenus tirés jusqu'ici",
+  "why": "원문 '내 소득' 1인칭(범례 'mes revenus'와 통일), tu 제거"
+ }
+}

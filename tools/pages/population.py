@@ -2,8 +2,8 @@ import sys; sys.path.insert(0, '.')
 from mk2 import *
 page(dict(
  slug='population',
- title=T('저출산이 계속되면 2070년 인구 구조는?', "What Does Korea's Population Look Like in 2070?"),
- title_tag=T('저출산이 계속되면 2070년 인구 구조는? · 시뮬라티오 랩', "What Does Korea's Population Look Like in 2070? · Simulatio Lab"),
+ title=T('저출산이 계속되면 2070년 인구 구조는?', "What If Korea's Birth Rate Stays This Low Until 2070?"),
+ title_tag=T('저출산이 계속되면 2070년 인구 구조는? · 시뮬라티오 랩', "What If Korea's Birth Rate Stays This Low Until 2070? · Simulatio Lab"),
  desc=T('합계출산율, 이민, 기대수명을 바꿔 한국의 2070년 인구 피라미드를 직접 그려 보세요. 공식 추계가 아닌 단순 모델입니다.',
         "Change the fertility rate, migration and life expectancy and watch Korea's population pyramid evolve to 2070. A simple model, not an official forecast."),
  lead=T('합계출산율이 0.7 안팎에 머무는 채로 시간이 흐르면 한국의 인구 피라미드는 어떤 모양이 될까요? 출산율, 이민, 기대수명을 바꿔 가며 2024년부터 2070년까지 한 해씩 지켜봅니다.',
@@ -36,7 +36,7 @@ page(dict(
        id='c-total', legend=[leg('background:#2f6fed', '지금 설정', 'Your setting'), leg('background:#1fa463', '합계출산율 1.5', 'Fertility rate 1.5'), leg('background:#8a93a6', '합계출산율 0.7', 'Fertility rate 0.7')]),
   dict(title=T('③ 고령화의 진행', '③ How Aging Progresses'),
        p=T('노년부양비는 65세 이상 인구를 15~64세 인구로 나눈 값입니다. 100%면 일하는 나이 한 명이 노인 한 명을 "떠받치는" 셈이에요.',
-           'The old-age dependency ratio is the 65+ population divided by the 15–64 population. At 100%, one person of working age corresponds to one older person.'),
+           'The old-age dependency ratio is the 65+ population divided by the 15–64 population. At 100%, each working-age person "supports" one older person.'),
        id='c-aging', legend=[leg('background:#e5484d', '노년부양비', 'Old-age dependency ratio'), leg('background:#e0a100', '65세 이상 비중', 'Share aged 65+'), leg('background:#2f6fed', '15~64세 비중', 'Share aged 15–64')]),
   dict(title=T('④ 출산율이 달라지면 2070년은', '④ How 2070 Changes With Fertility'),
        p=T('가로는 합계출산율, 세로는 2070년의 값입니다. 파란 선은 2024년 인구 대비 2070년 인구, 금색 선은 2070년 65세 이상 비중이에요.',
@@ -48,10 +48,10 @@ page(dict(
  **{'not': T('통계청의 공식 인구 추계가 아니고 미래를 예측하는 것도 아닙니다. 출산율이 고정되어 있다는 가정, 남녀를 합친 계산, 근사한 2024년 연령 구조 때문에 공식 추계와 숫자가 다릅니다. 이 모델은 어떤 정책이 옳은지에 대해 말하지 않으며, 이민이나 출산 정책의 효과를 평가하지도 않습니다.',
                 'This is not an official projection by Statistics Korea, nor a forecast. Because fertility is held fixed, sexes are combined and the 2024 age structure is approximate, its numbers differ from official projections. The model takes no position on which policy is right and does not evaluate the effects of migration or birth policies.')},
  memo=[
-  T('<b>근사 모델입니다.</b> 한국 통계청의 공식 추계와 다릅니다. 참고로 통계청이 2024년에 낸 장래인구추계(2022~2072년)의 중위 추계는 2072년 총인구 약 3,600만 명, 65세 이상 비중 약 47.7%이고, 합계출산율이 2025년 0.65 수준에서 2072년 1.08까지 회복한다고 가정합니다(언론 보도 기준). 이 모델은 출산율을 0.72로 고정한 경우 2072년 약 2,820만 명, 54.6%가 나와서 더 낮습니다.',
-    '<b>This is an approximation.</b> It differs from official Statistics Korea projections. For reference, the median scenario of the 2022–2072 population projections (as reported in the press) gives about 36 million people and 47.7% aged 65+ in 2072, assuming fertility recovers from about 0.65 in 2025 to 1.08 in 2072. This model, with fertility fixed at 0.72, gives about 28.2 million and 54.6% in 2072, which is lower.'),
+  T('<b>근사 모델입니다.</b> 한국 통계청의 공식 추계와 다릅니다. 참고로 통계청이 2023년 12월에 낸 장래인구추계(2022~2072년)의 중위 추계는 2072년 총인구 약 3,600만 명, 65세 이상 비중 약 47.7%이고, 합계출산율이 2025년 0.65 수준에서 2072년 1.08까지 회복한다고 가정합니다(언론 보도 기준). 이 모델은 출산율을 0.72로 고정한 경우 2072년 약 2,820만 명, 54.6%가 나와서 더 낮습니다.',
+    '<b>This is an approximation.</b> It differs from official Statistics Korea projections. For reference, the medium scenario of the 2022–2072 population projections (as reported in the press) gives about 36 million people and 47.7% aged 65+ in 2072, assuming fertility recovers from about 0.65 in 2025 to 1.08 in 2072. This model, with fertility fixed at 0.72, gives about 28.2 million and 54.6% in 2072, which is lower.'),
   T('확인한 수치(언론 보도로 확인, 통계청 원자료는 직접 보지 못함): 2023년 합계출산율 0.72(2022년 0.78), 2024년 연령별 비중 15~64세 70.2%·65세 이상 19.2%, 총인구 약 5,170만~5,200만 명, 2023년 기대수명 83.5세(OECD 보건통계).',
-    'Figures checked (via press reports; I did not read the original Statistics Korea tables): 2023 total fertility rate 0.72 (0.78 in 2022); 2024 age shares 70.2% aged 15–64 and 19.2% aged 65+; total population about 51.7–52 million; 2023 life expectancy 83.5 (OECD Health Statistics).'),
+    'Figures checked (via press reports; the original Statistics Korea tables were not consulted directly): 2023 total fertility rate 0.72 (0.78 in 2022); 2024 age shares 70.2% aged 15–64 and 19.2% aged 65+; total population about 51.7–52 million; 2023 life expectancy 83.5 (OECD Health Statistics).'),
   T('연령별 인구(한 살 단위)는 공식 값이 아닙니다. 연도별 출생아 수(대략값)와 생존율로 모양을 만들고 세 연령대 합계를 공표 비중에 맞췄습니다. 그래서 2024년 중위연령은 모델에서 약 47.5세로, 실제와 차이가 있을 수 있습니다.',
     'Single-year population counts are not official values. The shape is built from approximate annual births and survival, and the three age-group totals are scaled to the published shares. So the 2024 median age comes out at about 47.5 in the model, which may differ from the actual value.'),
   T('출산은 15~49세 여성의 연령별 출산율 곡선(평균 32.5세, 표준편차 4.5)에 합계출산율을 나눠 적용하고, 사망은 지수적으로 커지는 사망확률을 기대수명에 맞춰 보정합니다. 검증은 <code>node tools/validate-population.js</code>로 할 수 있습니다.',

@@ -3,7 +3,7 @@ DYN = {
 '가장 인기 있는 화풍': 'Most popular style',
 '따라 그리는 비율': 'Copy rate',
 '지금 다양성': 'Diversity now',
-'처음 {#0} (최대 1)': 'Start {0} (max 1)',
+'처음 {#0} (최대 1)': 'Started at {0} (max 1)',
 '화풍 쏠림': 'Style concentration',
 '가장 인기 있는 화풍과 비슷한 화가': 'Painters close to the most popular style',
 '이번 라운드 따라 그림': 'Copied this round',
