@@ -3,23 +3,25 @@ import math, random, os
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'docs', 'youtube', 'logo')
 INK, PAPER, GOLD, NAVY = '#1c2440', '#f3ecdf', '#d9a441', '#121833'
 
-def enso():
-    # 원상(圓相): 점(사람)들이 모여 한 번의 붓질 같은 원을 이룬다. 끝은 열려 있다 — 다시 돌려보는 세계
-    r = random.Random(7); s = [f'<rect width="800" height="800" fill="{PAPER}"/>']
+def enso_marks(n=900, mul=1.0, ink=INK, gold=GOLD, seed=7):
+    # 원상(圓相): 점(사람)들이 모여 한 번의 붓질 같은 원을 이룬다. 끝은 열려 있다 — 다시 돌려보는 세계. 800x800 좌표
+    r = random.Random(seed); s = []
     cx, cy, R = 400, 410, 245
     a0, a1 = math.radians(-60), math.radians(-60 + 318)
-    n = 900
     for i in range(n):
         t = i / (n - 1); a = a0 + (a1 - a0) * t
         w = 70 * (math.sin(math.pi * min(1, t * 1.1)) ** 0.5) * (1 - 0.6 * t) + 10   # 붓의 굵기
-        spread = (r.random() - 0.5) * w * (1 + 1.6 * t * t)
+        spread = (r.random() - 0.5) * w * (1 + 1.6 * t * t) / max(1, mul ** 0.5)
         rr = R + spread + 6 * math.sin(a * 3)
         x, y = cx + rr * math.cos(a), cy + rr * math.sin(a)
-        size = max(2.2, (w / 5.5) * (0.5 + r.random() * 0.7) * (1 - 0.45 * t))
+        size = mul * max(2.2, (w / 5.5) * (0.5 + r.random() * 0.7) * (1 - 0.45 * t))
         op = 0.92 - 0.4 * t * r.random()
-        s.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{size:.1f}" fill="{INK}" opacity="{op:.2f}"/>')
-    s.append(f'<circle cx="{cx + 70:.0f}" cy="{cy - 40:.0f}" r="34" fill="{GOLD}"/>')   # 하나의 물음
+        s.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{size:.1f}" fill="{ink}" opacity="{op:.2f}"/>')
+    s.append(f'<circle cx="{cx + 70:.0f}" cy="{cy - 40:.0f}" r="{34 * max(1, mul * .8):.0f}" fill="{gold}"/>')   # 하나의 물음
     return ''.join(s)
+
+def enso():
+    return f'<rect width="800" height="800" fill="{PAPER}"/>' + enso_marks()
 
 def question():
     # 물음표 성좌: 수많은 점(개인)이 모여 하나의 '왜?'를 그린다. 마침점은 금빛 해
@@ -71,3 +73,27 @@ for i, (name, label, f) in enumerate(LOGOS):
 pv.append('</svg>')
 open(os.path.join(OUT, 'preview.svg'), 'w').write(''.join(pv))
 print('ok')
+
+# ---- 웹사이트 로고·파비콘 (작은 크기용: 점 수를 줄이고 크게) ----
+SITE = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'site')
+def small(n, mul):
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="48" height="48" role="img" aria-label="시뮬라티오 랩 로고">'
+            f'<rect width="800" height="800" rx="200" fill="{PAPER}"/><g transform="translate(400 400) scale(1.12) translate(-400 -405)">{enso_marks(n, mul)}</g></svg>')
+open(os.path.join(SITE, 'logo.svg'), 'w').write(small(150, 2.6))
+open(os.path.join(SITE, 'favicon.svg'), 'w').write(small(70, 4.2))
+# ---- 유튜브 프로필 (원상) ----
+YT = os.path.join(OUT, '..')
+open(os.path.join(YT, 'profile.svg'), 'w').write(f'<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">{enso()}</svg>')
+# ---- 유튜브 배너 (2560x1440, 글자·로고는 가운데 1546x423 안전 영역 안) ----
+r = random.Random(11)
+dots = ''.join(f'<circle cx="{r.uniform(0,2560):.0f}" cy="{r.uniform(0,1440):.0f}" r="{r.uniform(2,6):.1f}" fill="{INK}" opacity="{r.uniform(.04,.12):.2f}"/>' for _ in range(160))
+FONT = "-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif"
+banner = (f'<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1440" viewBox="0 0 2560 1440">'
+          f'<defs><radialGradient id="glow" cx="0.5" cy="0.5" r="0.6"><stop offset="0" stop-color="#fbf7ef"/><stop offset="1" stop-color="#ebe1cf"/></radialGradient></defs>'
+          f'<rect width="2560" height="1440" fill="url(#glow)"/>{dots}'
+          f'<g transform="translate(470 460) scale(0.62)">{enso_marks(700, 1.25)}</g>'
+          f'<text x="1010" y="715" font-family="{FONT}" font-size="150" font-weight="800" fill="{INK}">시뮬라티오 랩</text>'
+          f'<text x="1014" y="815" font-family="{FONT}" font-size="64" font-weight="500" fill="#4a5270">세상을 돌려보는 실험실</text>'
+          f'<text x="1016" y="885" font-family="-apple-system,\'Helvetica Neue\',sans-serif" font-size="40" font-weight="600" letter-spacing="12" fill="#b07d2a">SIMULATIO LAB</text></svg>')
+open(os.path.join(YT, 'banner.svg'), 'w').write(banner)
+print('site logo/favicon, profile, banner written')
