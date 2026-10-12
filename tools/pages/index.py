@@ -135,16 +135,16 @@ def build(only_existing=True):
 
     L = lambda ko, en: (ko, en)
     eyebrow = T(f'SIMULATIO LAB · 실험 {total}개 · 분야 {len(cats)}개', f'SIMULATIO LAB · {total} experiments · {len(cats)} fields')
-    mega = T('만약에를<br>실험하는 곳', 'A Lab for<br>Testing "What If?"')
-    lead = T("성공은 운일까? 소문은 어떻게 퍼질까? 사람과 사회, 자연과 예술에 대한 '만약에'를 시뮬레이션으로 실험하고, 변수를 바꿔 직접 돌려볼 수 있게 공개합니다.",
-             'Is success luck? How do rumors spread? We test "what if" questions about people, society, nature and art with simulations, and publish them so you can change the variables and run them yourself.')
+    mega = T('세상을<br>돌려보는 실험실', 'A Lab That<br>Reruns the World')
+    lead = T("성공은 운일까? 소문은 어떻게 퍼질까? 새 길을 뚫으면 왜 더 막힐까? 사람과 사회, 자연과 예술이 그렇게 돌아가는 이유를 시뮬레이션으로 돌려보고, 변수를 바꿔 직접 확인할 수 있게 공개합니다.",
+             'Is success luck? How do rumors spread? Why does a new road make traffic worse? We rerun people, society, nature and art in simulations to see why things happen, and publish them so you can change the variables and check for yourself.')
     cta1 = T('실험실 둘러보기 ↓', 'Explore the lab ↓'); cta2 = T('🎲 무작위 실험', '🎲 Random experiment')
     hint = T('점들을 만져 보세요. 마우스를 피하고, 클릭하면 "만약에!" 하고 흩어졌다가 다시 모입니다.', 'Play with the dots. They dodge your cursor, and a click asks "what if?": they scatter, then sort themselves out again.')
     h_tab = T('실험 주기율표', 'The Periodic Table of Experiments')
     p_tab = T(f'{total}개의 실험을 {len(cats)}개 분야(열)로 묶었어요. 칸 위에 마우스를 올리면 아래 실험 노트에 내용이 나타납니다.', f'{total} experiments in {len(cats)} fields (columns). Hover a cell and its page opens in the lab notebook below.')
     nb_today = T('오늘의 실험', 'Experiment of the day'); nb_sel = T('실험 노트', 'Lab notebook')
     nb_go = T('직접 돌려보기 →', 'Try it yourself →')
-    desc = T("사람과 사회에 대한 '만약에'를 AI 시뮬레이션으로 실험합니다. 변수를 바꿔 직접 돌려보세요.", 'We test "what if" questions about people and society with AI-designed simulations. Change the variables and run them yourself.')
+    desc = T("세상이 그렇게 돌아가는 이유를 AI 시뮬레이션으로 돌려봅니다. 변수를 바꿔 직접 확인해 보세요.", 'We rerun the world in AI-designed simulations to see why things happen. Change the variables and check for yourself.')
     out = f"""<!doctype html>
 <html lang="ko">
 <head>

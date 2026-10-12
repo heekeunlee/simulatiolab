@@ -14,7 +14,7 @@ missing = [k for k in ids if k not in EN]
 if missing: print('번역 누락:', missing); sys.exit(1)
 
 META = {
- 'index': "We test \"what if\" questions about people and society with AI-designed simulations. Change the variables and run them yourself.",
+ 'index': "We rerun the world in AI-designed simulations to see why things happen. Change the variables and check for yourself.",
  'talent-vs-luck': "Talent is bell-shaped, so why does wealth pile up in a few hands? Run the Talent vs Luck simulation yourself by changing the variables.",
  'schelling': "Can a mild wish not to be a minority split a neighborhood completely apart? Run the Schelling segregation model yourself.",
  'rumor': "How fast does a rumor spread in group chats, and how late can a correction come and still matter? Try it yourself.",

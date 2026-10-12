@@ -99,7 +99,11 @@
     'What if a tiny brake tap could jam a whole highway?': { es: '¿Y si un leve toque de freno atascara toda una autopista?', fr: 'Et si un simple coup de frein bloquait toute une autoroute ?', ja: 'もしブレーキ一回が高速道路全体を止めたら?' },
     'What if one person could tip a revolution?': { es: '¿Y si una sola persona pudiera desatar una revolución?', fr: 'Et si une seule personne pouvait déclencher une révolution ?', ja: 'もし一人の人が革命の引き金になったら?' },
     'What if 100 painters copied each other?': { es: '¿Y si 100 pintores se copiaran entre sí?', fr: 'Et si 100 peintres se copiaient les uns les autres ?', ja: 'もし100人の画家が互いに真似し合ったら?' },
-    'What if the voting method changed the winner?': { es: '¿Y si el sistema de votación cambiara al ganador?', fr: 'Et si le mode de scrutin changeait le vainqueur ?', ja: 'もし投票方式が当選者を変えたら?' }
+    'What if the voting method changed the winner?': { es: '¿Y si el sistema de votación cambiara al ganador?', fr: 'Et si le mode de scrutin changeait le vainqueur ?', ja: 'もし投票方式が当選者を変えたら?' },
+    'Why does a new road make traffic worse?': { es: '¿Por qué una carretera nueva empeora el tráfico?', fr: 'Pourquoi une nouvelle route aggrave-t-elle les bouchons ?', ja: '新しい道を作ったのに、なぜもっと渋滞するのか?' },
+    'Why do my friends have more friends than I do?': { es: '¿Por qué mis amigos tienen más amigos que yo?', fr: 'Pourquoi mes amis ont-ils plus d\'amis que moi ?', ja: 'なぜ私の友人は私より友人が多いのか?' },
+    'Why does the bus always make you wait longer?': { es: '¿Por qué el autobús siempre te hace esperar más?', fr: 'Pourquoi le bus fait-il toujours attendre plus longtemps ?', ja: 'なぜバスはいつも長く待たされるのか?' },
+    'Why does scolding seem to work?': { es: '¿Por qué parece que regañar funciona?', fr: 'Pourquoi gronder semble-t-il marcher ?', ja: 'なぜ叱ると次はうまくいくように見えるのか?' }
   };
   // 한국어면 ko, 영어면 en, 그 밖의 언어면 UI 사전(없으면 영어)
   function u(ko, en) {

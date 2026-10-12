@@ -65,7 +65,7 @@
 
   // "만약에…" 질문 순환
   const rq = document.getElementById('rq');
-  const QS = [['만약에 성공이 대부분 운이라면?', 'What if success were mostly luck?'], ['만약에 모두가 조금 더 나은 짝을 바란다면?', 'What if everyone wanted a slightly better partner?'], ['만약에 브레이크 한 번이 고속도로 전체를 막는다면?', 'What if a tiny brake tap could jam a whole highway?'], ['만약에 한 사람이 혁명의 방아쇠가 된다면?', 'What if one person could tip a revolution?'], ['만약에 화가 100명이 서로 따라 그린다면?', 'What if 100 painters copied each other?'], ['만약에 투표 방식이 당선자를 바꾼다면?', 'What if the voting method changed the winner?']].map((p) => U(p[0], p[1]));
+  const QS = [['만약에 성공이 대부분 운이라면?', 'What if success were mostly luck?'], ['만약에 모두가 조금 더 나은 짝을 바란다면?', 'What if everyone wanted a slightly better partner?'], ['만약에 브레이크 한 번이 고속도로 전체를 막는다면?', 'What if a tiny brake tap could jam a whole highway?'], ['만약에 한 사람이 혁명의 방아쇠가 된다면?', 'What if one person could tip a revolution?'], ['만약에 화가 100명이 서로 따라 그린다면?', 'What if 100 painters copied each other?'], ['만약에 투표 방식이 당선자를 바꾼다면?', 'What if the voting method changed the winner?'], ['새 길을 뚫었는데 왜 더 막힐까?', 'Why does a new road make traffic worse?'], ['내 친구들은 왜 나보다 친구가 많을까?', 'Why do my friends have more friends than I do?'], ['버스는 왜 늘 더 오래 기다리게 될까?', 'Why does the bus always make you wait longer?'], ['혼냈더니 왜 다음엔 잘할까?', 'Why does scolding seem to work?']].map((p) => U(p[0], p[1]));
   let qi = 0;
   function whatIf() { if (!rq) return; rq.classList.add('fade'); setTimeout(() => { qi = (qi + 1) % QS.length; rq.textContent = QS[qi]; rq.classList.remove('fade'); }, 350); }
   if (rq) { rq.textContent = QS[0]; if (!reduce) setInterval(whatIf, 5200); }
