@@ -5,6 +5,8 @@
   const $ = (id) => document.getElementById(id);
   const DEFAULTS = { tax: 0, stake: 20, bias: 0, rounds: 300 };
   const TAXES = [0, 0.5, 1, 2, 3, 4, 5, 6, 8];
+  const THUMB = /[?&]thumb=1/.test(location.search); // 메인 페이지 썸네일용: 대표 장면으로 바로 간다
+  const SPEED = 0.7; // 2026-10-12: 애니메이션을 30% 느리게
 
   let seed = 1, sim = null;
   let playing = false, acc = 0, lastTs = 0;
@@ -36,7 +38,7 @@
 
   // ---------- ① 부의 계단 ----------
   function drawBars() {
-    const { ctx, w, h } = setup($('c-bars'), 0.5);
+    const { ctx, w, h } = setup($('c-bars'), THUMB ? 1 : 0.5);
     const q = sim.current(), s = q.sorted, n = sim.n, B = 100, per = n / B;
     const bins = [];
     for (let b = 0; b < B; b++) { let t = 0; for (let i = b * per; i < (b + 1) * per; i++) t += s[i]; bins.push(t / per); }
@@ -202,7 +204,7 @@
 
   function tick(ts) {
     if (playing) {
-      acc += ((ts - lastTs) / 1000) * Number($('speed').value);
+      acc += Math.min(0.25, (ts - lastTs) / 1000) * Number($('speed').value) * SPEED; // 첫 프레임·탭 복귀 때 한꺼번에 건너뛰지 않게
       let moved = false;
       while (acc >= 1 && playing) {
         acc -= 1; moved = sim.advance() || moved;
@@ -234,5 +236,6 @@
 
   showOutputs();
   newExperiment();
-  requestAnimationFrame(tick);
+  if (THUMB) { sim.run(); playing = false; refresh(); }
+  requestAnimationFrame((ts) => { lastTs = ts; tick(ts); });
 })();

@@ -106,7 +106,7 @@
   } else tiles.forEach((el) => visible.add(el));
   let last = 0;
   function glyphLoop(now) {
-    if (now - last > 66) { last = now; for (const el of visible) drawGlyph(el.querySelector('.glyph'), el.dataset.kind, getComputedStyle(el).getPropertyValue('--c').trim(), now); if (current) drawGlyph(nbCanvas, current.dataset.kind, getComputedStyle(current).getPropertyValue('--c').trim(), now); }
+    if (now - last > 66) { last = now; for (const el of visible) { const g = el.querySelector('.glyph'); if (g) drawGlyph(g, el.dataset.kind, getComputedStyle(el).getPropertyValue('--c').trim(), now); } if (current && !current.dataset.thumb) drawGlyph(nbCanvas, current.dataset.kind, getComputedStyle(current).getPropertyValue('--c').trim(), now); }
     if (!reduce) requestAnimationFrame(glyphLoop);
   }
   // ---------- ③ 실험 노트 ----------
@@ -119,10 +119,13 @@
     const g = (cls) => { const s = el.querySelector('.' + cls); return s.innerHTML; };
     nbTitle.innerHTML = g('t-title'); nbDesc.innerHTML = g('t-desc'); nbModel.innerHTML = g('t-model');
     nbGo.href = el.getAttribute('href'); nbSym.textContent = el.querySelector('.sym').textContent;
-    document.querySelector('.nb-visual').style.background = `linear-gradient(135deg, #0f1222, ${getComputedStyle(el).getPropertyValue('--c').trim()}66)`;
+    const vis = document.querySelector('.nb-visual'), th = el.dataset.thumb;
+    // 썸네일(실제 실험 결과 화면)이 있으면 그것을 크게 보여주고, 없으면 미니 애니메이션
+    vis.style.background = th ? `#0f1222 url("${th}") center / cover no-repeat` : `linear-gradient(135deg, #0f1222, ${getComputedStyle(el).getPropertyValue('--c').trim()}66)`;
+    vis.classList.toggle('has-thumb', !!th); nbCanvas.style.visibility = th ? 'hidden' : '';
     tagToday.hidden = !isToday; tagSel.hidden = !!isToday;
     tiles.forEach((x) => x.classList.toggle('active', x === el));
-    if (reduce) drawGlyph(nbCanvas, el.dataset.kind, getComputedStyle(el).getPropertyValue('--c').trim(), 2000);
+    if (reduce && !th) drawGlyph(nbCanvas, el.dataset.kind, getComputedStyle(el).getPropertyValue('--c').trim(), 2000);
   }
   if (tiles.length && nbCanvas) {
     const day = Math.floor(Date.now() / 864e5);

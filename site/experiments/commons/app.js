@@ -4,6 +4,7 @@
   const { css, mix, pct, roundRect } = L;
   const $ = (id) => document.getElementById(id);
   const COL = ['#e5484d', '#2f6fed', '#0ea5a5'];
+  const THUMB = /[?&]thumb=1/.test(location.search);   // 메인 페이지 썸네일용: 저량이 바닥난 직후의 장면으로 바로 간다
   let sim = null, sweep = [];
   let seedGetter = () => 1;
   const params = () => ({
@@ -13,9 +14,9 @@
 
   // ① 호수(저량 수위)와 이용자 점들
   function drawLake() {
-    const c = L.chart($('c-lake'), 0.62, { l: 8, r: 8, t: 8, b: 8 }), { ctx, w, h } = c, K = sim.params.K;
+    const c = L.chart($('c-lake'), THUMB ? 1 : 0.62, { l: 8, r: 8, t: 8, b: 8 }), { ctx, w, h } = c, K = sim.params.K;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
-    const tw = Math.min(190, w * 0.3), tx = 18, ty = 22, th = h - 56;
+    const tw = THUMB ? w * 0.34 : Math.min(190, w * 0.3), tx = 18, ty = 22, th = h - 56;
     ctx.fillStyle = '#e8edf6'; roundRect(ctx, tx, ty, tw, th, 10); ctx.fill();
     const lvl = Math.min(1, sim.S / K), wh = th * lvl;
     ctx.save(); roundRect(ctx, tx, ty, tw, th, 10); ctx.clip();
@@ -24,19 +25,19 @@
     ctx.setLineDash([5, 3]); ctx.strokeStyle = css('--text'); ctx.lineWidth = 1.3; ctx.beginPath(); ctx.moveTo(tx - 4, ty + th * 0.5); ctx.lineTo(tx + tw + 4, ty + th * 0.5); ctx.stroke(); ctx.setLineDash([]); ctx.lineWidth = 1;
     ctx.fillStyle = css('--text'); ctx.textAlign = 'left'; ctx.font = '11px -apple-system, "Apple SD Gothic Neo", sans-serif';
     ctx.fillText('최대 지속 수확 수준', tx + 6, ty + th * 0.5 - 5);
-    ctx.textAlign = 'center'; ctx.font = '700 22px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillStyle = lvl > 0.12 ? '#fff' : css('--text');
-    ctx.fillText(pct(lvl), tx + tw / 2, ty + th - Math.max(10, Math.min(wh - 8, th * 0.12)));
+    ctx.textAlign = 'center'; ctx.font = '700 22px -apple-system, "Apple SD Gothic Neo", sans-serif'; const inside = wh > 46; ctx.fillStyle = inside ? '#fff' : css('--text');
+    ctx.fillText(pct(lvl), tx + tw / 2, inside ? ty + th - wh + 30 : ty + th - wh - 10);   // 수면 바로 아래(안) 또는 바로 위
     ctx.fillStyle = css('--muted'); ctx.font = '12px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillText('저량 (수용력 대비)', tx + tw / 2, ty + th + 18);
     // 이용자 점
     const n = sim.n, gx = tx + tw + 28, gw = w - gx - 14, gh = h - 44, cols = Math.ceil(Math.sqrt(n * gw / gh)), rows = Math.ceil(n / cols), cw = gw / cols, ch = gh / rows, r = Math.min(cw, ch) * 0.34;
     for (let i = 0; i < n; i++) {
       const x = gx + (i % cols) * cw + cw / 2, y = 14 + Math.floor(i / cols) * ch + ch / 2;
-      if (sim.round > 0 && sim.act[i]) { ctx.fillStyle = mix('#e5484d', 0.18); ctx.beginPath(); ctx.arc(x, y, r * 1.8, 0, 7); ctx.fill(); }
+      if (sim.round > 0 && sim.act[i]) { ctx.fillStyle = mix('#e5484d', 0.18); ctx.beginPath(); ctx.arc(x, y, r * 1.45, 0, 7); ctx.fill(); }
       ctx.fillStyle = COL[sim.strat[i]]; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill();
-      if (sim.caught[i]) { ctx.strokeStyle = '#1b1f2a'; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(x, y, r * 1.6, 0, 7); ctx.stroke(); ctx.lineWidth = 1; }
+      if (sim.caught[i]) { ctx.strokeStyle = '#1b1f2a'; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(x, y, r * 1.3, 0, 7); ctx.stroke(); ctx.lineWidth = 1; }
     }
     ctx.fillStyle = css('--muted'); ctx.textAlign = 'left'; ctx.font = '11.5px -apple-system, "Apple SD Gothic Neo", sans-serif';
-    ctx.fillText('붉은 후광: 이번 라운드에 많이 잡음 · 검은 테두리: 적발되어 벌금', gx, h - 8);
+    if (!THUMB && w >= 560) ctx.fillText('붉은 후광: 이번 라운드에 많이 잡음 · 검은 테두리: 적발되어 벌금', gx, h - 8);
     $('when').textContent = `${sim.round}/${sim.params.rounds}라운드 · 저량 ${pct(lvl)}`;
   }
 
@@ -46,7 +47,7 @@
     const X = (t) => m.l + (t / T) * pw, Y = (v) => m.t + ph - v * ph, xt = []; for (let t = 0; t <= T; t += T / 5) xt.push(t);
     L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: pct, xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '라운드' });
     ctx.setLineDash([5, 3]); ctx.strokeStyle = css('--muted'); ctx.beginPath(); ctx.moveTo(m.l, Y(0.5)); ctx.lineTo(m.l + pw, Y(0.5)); ctx.stroke(); ctx.setLineDash([]);
-    ctx.fillStyle = css('--muted'); ctx.textAlign = 'left'; ctx.fillText('최대 지속 수확 수준 50%', m.l + 6, Y(0.5) - 6);
+    ctx.fillStyle = css('--muted'); ctx.textAlign = 'right'; ctx.fillText('최대 지속 수확 수준 50%', m.l + pw - 4, Y(0.5) - 6);
     L.line(ctx, sim.harvestHist.map((v, t) => [X(t + 1), Y(Math.min(1, v / MSY))]), '#e0a100', 2);
     L.line(ctx, sim.stockHist.map((v, t) => [X(t), Y(Math.min(1, v / K))]), css('--accent'), 2.6);
   }
@@ -102,7 +103,8 @@
     controls: ['n', 'monitor', 'fine', 'cc'],
     format: { n: (v) => v + '명', monitor: (v) => v + '%', fine: (v) => (Number(v) / 100).toFixed(1) + '배', cc: (v) => v + '%' },
     defaults: { n: 40, monitor: 0, fine: 100, cc: 20 },
-    build() { sim = CM.create(params()); },
+    build() { sim = CM.create(params()); if (THUMB) for (let k = 0; k < 14; k++) sim.advance(); },
+    autoplay: !THUMB,
     advance() { return sim.advance(); },
     isDone() { return sim.done; },
     draw, after, redrawExtra: drawSweep, seedLabel: '어장 번호',

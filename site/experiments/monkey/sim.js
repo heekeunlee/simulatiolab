@@ -45,6 +45,7 @@
       params: p, text, L, step: 0, done: false,
       chanceBest: [], chanceLast: [], chanceBestMatch: 0, chanceAttempts: 0, chanceHist: [],
       selParent: parent, selMatch: parentMatch, selGen: 0, selAttempts: 0, selDoneGen: -1, selHist: [[1, parentMatch]],
+      selLineage: [{ gen: 0, str: parent.slice(), m: parentMatch }],   // 일치 수가 늘어난 세대의 부모 문장 (화면의 계보용, 결과에는 영향 없음)
       advance() {
         if (sim.done) return false;
         sim.step++;
@@ -69,6 +70,7 @@
             const m = matches(child);
             if (m >= bm) { bm = m; best = child; }
           }
+          if (bm > parentMatch) sim.selLineage.push({ gen: sim.selGen + 1, str: best.slice(), m: bm });
           parent = best; parentMatch = bm; sim.selParent = parent; sim.selMatch = bm;
           sim.selGen++; sim.selAttempts += p.offspring; sim.selHist.push([sim.selAttempts, bm]);
           if (bm === L) sim.selDoneGen = sim.selGen;
@@ -79,6 +81,7 @@
       chanceLastString() { return sim.chanceLast.length ? strOf(sim.chanceLast) : ''.padEnd(L, ' '); },
       chanceString() { return sim.chanceBest.length ? strOf(sim.chanceBest) : ''.padEnd(L, '?'); },
       selString() { return strOf(sim.selParent); },
+      strOf,
       targetIdx: tgt,
       run() { while (sim.advance()); return sim; },
     };

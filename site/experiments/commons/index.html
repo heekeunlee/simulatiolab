@@ -55,12 +55,12 @@
   <section class="panel chart" style="margin-top:16px">
     <h3 data-en="① The Fishery and Its Users">① 어장과 이용자</h3>
     <p data-en="The tank on the left is the stock (relative to capacity), and the dashed line marks the level (50%) at which the largest sustainable catch is possible. The dots on the right are users, colored by strategy. Anyone who caught a lot gets a red halo, and anyone caught gets a black ring.">왼쪽 수조는 저량(수용력 대비)이고, 점선이 해마다 가장 많이 지속적으로 잡을 수 있는 수준(50%)입니다. 오른쪽 점은 이용자이고 색이 전략이에요. 많이 잡은 사람은 붉은 후광, 적발된 사람은 검은 테두리가 생깁니다.</p>
-    <canvas id="c-lake" class="rounded" aria-label="① The Fishery and Its Users"></canvas>
+    <canvas id="c-lake" class="rounded" data-thumb aria-label="① The Fishery and Its Users"></canvas>
     <div class="anim-bar">
       <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
       <button id="stepbtn" data-en="Step">한 단계</button>
       <button id="restart" data-en="Restart">처음부터</button>
-      <select id="speed" aria-label="speed"><option value="8" data-en="Slow">느리게</option><option value="20" selected data-en="Normal">보통</option><option value="50" data-en="Fast">빠르게</option></select>
+      <select id="speed" aria-label="speed"><option value="3" data-en="Slow">느리게</option><option value="8" selected data-en="Normal">보통</option><option value="20" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
       <div class="legend"><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Greedy"><i style="background:#e5484d"></i>탐욕</span><span data-en="&lt;i style=&quot;background:#2f6fed&quot;&gt;&lt;/i&gt;Restrained"><i style="background:#2f6fed"></i>절제</span><span data-en="&lt;i style=&quot;background:#0ea5a5&quot;&gt;&lt;/i&gt;Conditional cooperator"><i style="background:#0ea5a5"></i>조건부 협력</span></div>

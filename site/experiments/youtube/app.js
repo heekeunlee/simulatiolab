@@ -4,6 +4,7 @@
   const { css, mix, pct } = L;
   const $ = (id) => document.getElementById(id);
   let sim = null, worldRows = [], sweepRows = [];
+  const THUMB = /[?&]thumb=1/.test(location.search); // 메인 페이지 썸네일용: 150라운드가 끝난 순위표로 바로 간다
   let seedGetter = () => 1;
   const params = () => ({ seed: seedGetter(), social: Number($('social').value) / 100, n: Number($('n').value) });
 
@@ -16,13 +17,14 @@
   }
 
   function drawRace() {
-    const c = L.chart($('c-race'), 0.66, { l: 12, r: 12, t: 10, b: 10 });
+    const narrow = ($('c-race').clientWidth || 600) < 560; // 휴대폰: 줄 간격이 너무 좁아 두 줄 라벨이 겹치므로 세로로 길게
+    const c = L.chart($('c-race'), THUMB ? 1 : narrow ? 1.25 : 0.66, { l: 12, r: 12, t: 10, b: 10 });
     const { ctx, w, h } = c;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
     const s = sim.summary(), top = s.order.slice(0, 12), max = Math.max(1, sim.subs[top[0]]);
-    const rowH = (h - 20) / 12, left = 150;
+    const rowH = (h - 20) / 12, left = narrow ? 104 : 150;
     top.forEach((id, i) => {
-      const y = 10 + i * rowH, v = sim.subs[id], len = Math.max(3, (v / max) * (w - left - 70));
+      const y = 10 + i * rowH, v = sim.subs[id], len = Math.max(3, (v / max) * (w - left - (narrow ? 44 : 70)));
       ctx.fillStyle = qcolor(sim.qrank[id], sim.n); L.roundRect(ctx, left, y + rowH * 0.15, len, rowH * 0.7, 5); ctx.fill();
       ctx.font = '600 12px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.textAlign = 'right'; ctx.fillStyle = css('--text');
       ctx.fillText(`${i + 1}위 채널 #${id + 1}`, left - 8, y + rowH / 2 + 1);
@@ -52,7 +54,7 @@
 
   function drawWorlds() {
     const rows = worldRows, n = sim.n;
-    const c = L.chart($('c-worlds'), 0.7, { l: 74, b: 40 });
+    const c = L.chart($('c-worlds'), 0.7, { l: 74, r: 24, b: 40 }); // 오른쪽 끝 '200위' 눈금이 잘리지 않게
     const { ctx, m, pw, ph } = c;
     const X = (r) => m.l + ((r - 1) / (n - 1)) * pw, rowH = ph / 8;
     ctx.strokeStyle = css('--line'); ctx.fillStyle = css('--muted'); ctx.textAlign = 'center';
@@ -116,4 +118,5 @@
     draw, after, redrawExtra() { drawWorlds(); drawSweep(); }, seedLabel: '평행우주',
   });
   seedGetter = h.seed;
+  if (THUMB) { while (sim.advance()); draw(); }
 })();

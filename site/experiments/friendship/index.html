@@ -57,7 +57,7 @@
       <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
       <button id="stepbtn" data-en="Step">한 단계</button>
       <button id="restart" data-en="Restart">처음부터</button>
-      <select id="speed" aria-label="speed"><option value="3" data-en="Slow">느리게</option><option value="10" selected data-en="Normal">보통</option><option value="40" data-en="Fast">빠르게</option></select>
+      <select id="speed" aria-label="speed"><option value="1.5" data-en="Slow">느리게</option><option value="4" selected data-en="Normal">보통</option><option value="15" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
       <div class="legend"><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;Friends of the selected person"><i style="background:#e0a100"></i>선택한 사람의 친구</span><span data-en="&lt;i style=&quot;background:var(--unlucky)&quot;&gt;&lt;/i&gt;Selected person"><i style="background:var(--unlucky)"></i>선택한 사람</span><span data-en="&lt;i style=&quot;background:var(--text)&quot;&gt;&lt;/i&gt;Sample: random person"><i style="background:var(--text)"></i>표본: 무작위 사람</span><span data-en="&lt;i style=&quot;background:#a06b00&quot;&gt;&lt;/i&gt;Sample: a friend named by someone"><i style="background:#a06b00"></i>표본: 그 사람이 말한 친구</span></div>
@@ -65,19 +65,27 @@
 
   <div class="charts">
     <section class="panel chart">
-      <h3 data-en="② Friends&#x27; Average Minus My Friend Count">② 친구들의 평균 − 내 친구 수</h3>
+      <h3 data-en="② The Network in 3D &lt;span class=&quot;badge3d&quot;&gt;3D&lt;/span&gt;">② 입체로 본 관계망 <span class="badge3d">3D</span></h3>
+    <p data-en="The same network spread out in three dimensions. Bigger, more golden dots have more friends, and the glowing dots are hubs. Every few seconds a random person (red ring) is picked and gold lines reach out to their friends. Most picks are ordinary people with few friends, yet the lines keep landing on glowing hubs. Press &quot;Height = number of friends&quot; and people with more friends rise higher, so you can see most lines reach upward, to people with more friends than the one picked.">같은 관계망을 3차원 공간에 다시 펼쳤습니다. 점이 크고 금빛일수록 친구가 많고, 빛나는 점이 허브입니다. 몇 초마다 무작위로 한 사람(빨간 고리)을 뽑아 그 친구들에게 금색 선을 뻗습니다. 대부분은 친구가 적은 평범한 사람이 뽑히지만, 그 선은 자꾸 빛나는 허브로 이어집니다. "높이 = 친구 수로 보기"를 누르면 친구가 많을수록 위로 올라가, 선이 대부분 위쪽(나보다 친구가 많은 사람)으로 뻗는 것을 볼 수 있습니다.</p>
+    <canvas id="c-3d" class="view3d" data-thumb aria-label="② The Network in 3D 3D"></canvas>
+    <div class="anim-bar"><button id="lift3d" data-en="Height = number of friends">높이 = 친구 수로 보기</button><button id="next3d" data-en="Pick someone else">다른 사람 뽑기</button></div>
+    <div id="cmp3d" aria-live="polite" style="margin-top:8px"></div>
+    <p class="hint3d" data-en="Drag to rotate · scroll or pinch to zoom · click a person in ① above to show them here too">드래그로 돌리기 · 휠이나 두 손가락으로 확대 · 위 ① 그림에서 사람을 누르면 여기서도 그 사람을 보여 줍니다</p>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ Friends&#x27; Average Minus My Friend Count">③ 친구들의 평균 − 내 친구 수</h3>
     <p data-en="The distribution, over everyone, of &quot;friends&#x27; average number of friends&quot; minus &quot;my number of friends&quot;. The right side of 0 (red) is people whose friends have more friends than they do.">모든 사람에 대해 "친구들의 평균 친구 수"에서 "내 친구 수"를 뺀 값의 분포입니다. 0보다 오른쪽(빨강)이 친구들이 나보다 친구가 더 많은 사람입니다.</p>
-    <canvas id="c-hist" class="" aria-label="② Friends&#x27; Average Minus My Friend Count"></canvas>
+    <canvas id="c-hist" class="" aria-label="③ Friends&#x27; Average Minus My Friend Count"></canvas>
     </section>
     <section class="panel chart">
-      <h3 data-en="③ Person by Person">③ 사람마다 비교하기</h3>
+      <h3 data-en="④ Person by Person">④ 사람마다 비교하기</h3>
     <p data-en="The horizontal axis is my number of friends, the vertical axis is my friends&#x27; average (both on a log scale). Dots above the dashed line have friends with more friends, dots below have fewer. The fewer friends someone has, the further above the line they tend to sit.">가로는 내 친구 수, 세로는 내 친구들의 평균입니다(두 축 모두 로그 눈금). 점선 위의 점은 친구들이 더 많은 사람, 아래는 내가 더 많은 사람입니다. 친구가 적은 사람일수록 위쪽으로 많이 벗어납니다.</p>
-    <canvas id="c-scat" class="" aria-label="③ Person by Person"></canvas>
+    <canvas id="c-scat" class="" aria-label="④ Person by Person"></canvas>
     </section>
     <section class="panel chart">
-      <h3 data-en="④ As Hubs Concentrate More">④ 허브가 더 몰릴수록</h3>
+      <h3 data-en="⑤ As Hubs Concentrate More">⑤ 허브가 더 몰릴수록</h3>
     <p data-en="The horizontal axis is hub concentration, the vertical axis is the share of people whose friends have more friends. Each line has a different average number of friends (blue 4, green 8, purple 12), and the dashed line is one half.">가로는 허브 쏠림, 세로는 "친구들이 더 많은 사람"의 비율입니다. 선마다 평균 친구 수가 다르고(파랑 4명, 초록 8명, 보라 12명), 점선이 절반입니다.</p>
-    <canvas id="c-sweep" class="" aria-label="④ As Hubs Concentrate More"></canvas>
+    <canvas id="c-sweep" class="" aria-label="⑤ As Hubs Concentrate More"></canvas>
       <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Average 4 friends"><i style="background:var(--accent)"></i>평균 친구 4명</span><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Average 8 friends"><i style="background:#1fa463"></i>평균 친구 8명</span><span data-en="&lt;i style=&quot;background:#7c5cff&quot;&gt;&lt;/i&gt;Average 12 friends"><i style="background:#7c5cff"></i>평균 친구 12명</span></div>
       <div class="legend"><span id="note-s" data-en="Calculating…">계산 중…</span></div>
     </section>
@@ -105,6 +113,7 @@
 <script src="../../lib.js"></script>
 <script src="sim.js"></script>
 <script src="app.js"></script>
+<script src="../../lazy3d.js" data-module="app3d.js"></script>
 <script src="../../counter.js"></script>
 </body>
 </html>

@@ -6,6 +6,7 @@
   const NAMES = SV.NAMES, COLORS = ['#c0392b', '#8e44ad', '#5b7db1', '#4f9a8a', '#c98a2b'];
   const FONT = '-apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif';
   const tr = (s) => (window.I18N && window.I18N.lang !== 'ko' ? window.I18N.t(s) : s);
+  const THUMB = /[?&]thumb=1/.test(location.search); // 썸네일 촬영용: 돌아온 비행기의 구멍 지도 한 장
   let sim = null, picks = null, full = null, mine = [], geo = null, sweep = [];
   let seedGetter = () => 1;
   const params = () => ({ seed: seedGetter(), n: Number($('n').value), eng: Number($('eng').value) / 100, budget: Number($('budget').value) });
@@ -34,41 +35,69 @@
     [3, 2, 4, 1, 0].forEach((s) => {
       sectionPath(ctx, s, P);
       ctx.fillStyle = armored(s) ? 'rgba(31,164,99,.28)' : '#e4eaf4'; ctx.fill();
-      ctx.strokeStyle = armored(s) ? '#1fa463' : '#9aa5ba'; ctx.lineWidth = armored(s) ? 2.6 : 1; ctx.stroke();
+      ctx.strokeStyle = armored(s) ? '#1fa463' : mode === 'thumb' ? '#6f7d96' : '#9aa5ba'; ctx.lineWidth = armored(s) ? 2.6 : mode === 'thumb' ? 2.5 : 1; ctx.stroke();
     });
     ctx.lineWidth = 1;
     // 총탄 자국
-    const H = sim.hits, r = Math.max(1.3, ms / 130);
+    const H = sim.hits, r = mode === 'thumb' ? ms / 190 : Math.max(1.3, ms / 130);
     for (let i = 0; i < sim.round; i++) {
       const down = H.down[i];
-      if (mode === 'ret' && down) continue;
-      ctx.fillStyle = mode === 'ret' ? 'rgba(40,52,84,.85)' : down ? 'rgba(210,50,40,.85)' : 'rgba(40,52,84,.55)';
+      if (mode !== 'all' && down) continue;
+      ctx.fillStyle = mode === 'thumb' ? 'rgba(200,40,35,.9)' : mode === 'ret' ? 'rgba(40,52,84,.85)' : down ? 'rgba(210,50,40,.85)' : 'rgba(40,52,84,.55)';
       for (let q = H.start[i]; q < H.start[i + 1]; q++) ctx.fillRect(ox + H.x[q] * ms - r, oy + H.y[q] * ms - r, 2 * r, 2 * r);
     }
-    // 이름표
+    // 방금 출격한 비행기의 총탄: 크게 표시 (어디에 맞았고, 돌아왔는지)
+    if (mode !== 'thumb' && sim.round && sim.round < sim.params.n) {
+      const i = sim.round - 1, down = H.down[i];
+      if (mode === 'all' || !down) {
+        ctx.strokeStyle = down ? '#d23228' : '#1d2a4a'; ctx.lineWidth = 2;
+        for (let q = H.start[i]; q < H.start[i + 1]; q++) { ctx.beginPath(); ctx.arc(ox + H.x[q] * ms, oy + H.y[q] * ms, r + 4, 0, 7); ctx.stroke(); }
+        ctx.lineWidth = 1;
+      }
+    }
+    if (mode === 'thumb') return;
+    // 이름표 (흰 테두리를 둘러 구멍 위에서도 읽히게)
+    ctx.lineJoin = 'round';
     ctx.font = `600 ${Math.max(10, Math.round(ms / 24))}px ${FONT}`; ctx.textAlign = 'center';
     NAMES.forEach((nm, s) => {
       const [x, y] = P(ANCHOR[s][0], ANCHOR[s][1]);
       ctx.fillStyle = armored(s) ? '#117a46' : '#5a6578';
       const lab = armored(s) ? tr(nm) + ' ' + tr('방탄') : nm;
-      if (s === 0) { ctx.fillText(lab, x - ms * 0.13, y + ms * 0.17); }
-      else ctx.fillText(lab, x, y + (s === 1 ? ms * 0.14 : 0));
+      const at = s === 0 ? SV.ENG.map((e) => P(e[0], e[1])) : [[x, y]]; // 엔진은 양쪽 엔진 위에, 나머지는 부위 가운데
+      at.forEach(([tx, ty]) => {
+        ty += 4; ctx.strokeStyle = 'rgba(255,255,255,.9)'; ctx.lineWidth = 3.5; ctx.strokeText(lab, tx, ty); ctx.lineWidth = 1;
+        ctx.fillText(lab, tx, ty);
+      });
     });
   }
 
   function drawMaps() {
-    const c = L.chart($('c-map'), 0.66, { l: 8, r: 8, t: 34, b: 30 }), { ctx, w, h } = c;
+    if (THUMB) {
+      const c = L.chart($('c-map'), 1, { l: 0, r: 0, t: 0, b: 0 }), { ctx, w } = c;
+      ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, w);
+      drawPlane(ctx, w * 0.04, w * 0.04, w * 0.92, 'thumb'); return;
+    }
+    const cw = $('c-map').clientWidth || 600, stack = cw < 480; // 휴대폰: 두 그림을 위아래로
+    let ms, aspect;
+    if (stack) { ms = Math.min(cw * 0.78, 300); aspect = (2 * (40 + ms * 0.92) + 30) / cw; }
+    else { ms = Math.min((cw - 28) / 2, 440); aspect = (40 + ms * 0.9 + 34) / cw; }
+    const c = L.chart($('c-map'), aspect, { l: 8, r: 8, t: 34, b: 30 }), { ctx, w, h } = c;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
-    const ms = Math.max(120, Math.min((w - 28) / 2, h - 34 - 30)), oy = 34, lx = 8 + ((w - 28) / 2 - ms) / 2, rx = w - 8 - ms - ((w - 28) / 2 - ms) / 2;
-    geo = { ms, oy, lx, rx };
-    ctx.fillStyle = css('--text'); ctx.font = `600 13px ${FONT}`; ctx.textAlign = 'center';
-    ctx.fillText('돌아온 비행기에서 보이는 구멍', lx + ms / 2, 17);
-    ctx.fillText('실제로 맞은 총탄 전부', rx + ms / 2, 17);
-    ctx.fillStyle = css('--muted'); ctx.font = `12px ${FONT}`;
-    ctx.fillText(`${sim.returned}대 귀환`, lx + ms / 2, 31);
-    ctx.fillText(`${sim.round}대 출격 · ${sim.lost}대 추락`, rx + ms / 2, 31);
-    drawPlane(ctx, lx, oy + 6, ms - 6, 'ret'); drawPlane(ctx, rx, oy + 6, ms - 6, 'all');
-    geo.ms = ms - 6; geo.oy = oy + 6;
+    let planes;
+    if (stack) {
+      const ox = (w - ms) / 2, blk = 40 + ms * 0.92;
+      planes = [{ ox, ty: 17, oy: 40 }, { ox, ty: 17 + blk, oy: 40 + blk }];
+    } else {
+      const lx = 8 + ((w - 28) / 2 - ms) / 2, rx = w - 8 - ms - ((w - 28) / 2 - ms) / 2;
+      planes = [{ ox: lx, ty: 17, oy: 40 }, { ox: rx, ty: 17, oy: 40 }];
+    }
+    const pm = ms - 6, txt = [['돌아온 비행기에서 보이는 구멍', `${sim.returned}대 귀환`], ['실제로 맞은 총탄 전부', `${sim.round}대 출격 · ${sim.lost}대 추락`]];
+    planes.forEach((q, k) => {
+      ctx.textAlign = 'center'; ctx.fillStyle = css('--text'); ctx.font = `600 13px ${FONT}`; ctx.fillText(txt[k][0], q.ox + ms / 2, q.ty);
+      ctx.fillStyle = css('--muted'); ctx.font = `12px ${FONT}`; ctx.fillText(txt[k][1], q.ox + ms / 2, q.ty + 14);
+      drawPlane(ctx, q.ox, q.oy, pm, k ? 'all' : 'ret');
+    });
+    geo = { ms: pm, planes };
     ctx.fillStyle = css('--muted'); ctx.font = `12px ${FONT}`; ctx.textAlign = 'center';
     ctx.fillText(mine.length ? `방탄 장갑 ${mine.length}/${sim.params.budget}곳 · 다시 누르면 뗍니다` : '부위를 눌러 방탄 장갑을 붙여 보세요 (최대 ' + sim.params.budget + '곳)', w / 2, h - 10);
     $('when').textContent = `${sim.round}/${sim.params.n}회 출격 · ${sim.returned}대 귀환`;
@@ -180,19 +209,20 @@
       full = { none: sim.survival([]), intuitive: sim.survival(picks.intuitive), wald: sim.survival(picks.wald), best: sim.survival(picks.best) };
       mine = mine.slice(0, P.budget);
     },
-    advance() { return sim.advance(); },
+    advance() { return THUMB ? false : sim.advance(); },
     isDone() { return sim.done(); },
     draw, after, redrawExtra() { drawVisible(); drawBars(); drawSweep(); }, seedLabel: '출격 기록 번호',
   });
   seedGetter = h.seed;
+  if (THUMB) { while (sim.round < 500 && sim.advance()); draw(); }
 
   // 눌러서 고르기: 그림의 부위, 또는 아래 버튼
   $('c-map').addEventListener('click', (ev) => {
     if (!geo || !sim) return;
     const r = $('c-map').getBoundingClientRect(), px = ev.clientX - r.left, py = ev.clientY - r.top;
-    for (const ox of [geo.lx, geo.rx]) {
-      const s = SV.sectionAt((px - ox) / geo.ms, (py - geo.oy) / geo.ms);
-      if (px >= ox && px <= ox + geo.ms && s >= 0) { toggle(s); return; }
+    for (const q of geo.planes) {
+      const s = SV.sectionAt((px - q.ox) / geo.ms, (py - q.oy) / geo.ms);
+      if (px >= q.ox && px <= q.ox + geo.ms && py >= q.oy && py <= q.oy + geo.ms && s >= 0) { toggle(s); return; }
     }
   });
   NAMES.forEach((nm, s) => { const b = $('tg-' + s); if (b) b.addEventListener('click', () => toggle(s)); });

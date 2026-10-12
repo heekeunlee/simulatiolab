@@ -9,7 +9,7 @@
  *      dv = Dv * lap(v) + u*v*v - (F + k) * v
  *    (Du = 0.16, Dv = 0.08, 한 단계 dt = 1, lap은 상하좌우 4칸으로 계산)
  *  - F(공급 속도)와 k(제거 속도) 두 숫자만 바꿔도 점, 줄무늬, 세포 분열, 산호 같은 전혀 다른 무늬가 생긴다
- *  - 처음엔 u=1, v=0이고, 몇 군데에 v를 조금 뿌려 놓는다
+ *  - 처음엔 u=1, v=0이고, 12군데에 v를 조금 뿌려 놓는다
  */
 (function (root, factory) {
   if (typeof module === 'object' && module.exports) module.exports = factory();
@@ -21,7 +21,7 @@
     mitosis: { F: 0.0367, k: 0.0649 },
     coral:   { F: 0.0545, k: 0.062 },
   };
-  const DEFAULTS = { size: 96, F: 0.035, k: 0.065, Du: 0.16, Dv: 0.08, seed: 1, seeds: 6 };
+  const DEFAULTS = { size: 96, F: 0.035, k: 0.065, Du: 0.16, Dv: 0.08, seed: 1, seeds: 12 };
 
   function mulberry32(a) {
     return function () {
@@ -57,7 +57,7 @@
           for (let y = 0; y < S; y++) {
             const ym = ((y + S - 1) % S) * S, y0 = y * S, yp = ((y + 1) % S) * S;
             for (let x = 0; x < S; x++) {
-              const xm = (x + S - 1) % S, xp = (x + 1) % S, i = y0 + x;
+              const xm = x === 0 ? S - 1 : x - 1, xp = x === S - 1 ? 0 : x + 1, i = y0 + x;
               const uc = u[i], vc = v[i], uvv = uc * vc * vc;
               const lu = u[y0 + xm] + u[y0 + xp] + u[ym + x] + u[yp + x] - 4 * uc;
               const lv = v[y0 + xm] + v[y0 + xp] + v[ym + x] + v[yp + x] - 4 * vc;

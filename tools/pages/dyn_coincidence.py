@@ -31,4 +31,9 @@ DYN = {
 '어딘가에서 일치할 확률이 50%를 넘는 인원: 지금 설정 {0}명, 생일만 {1}명': 'Headcount where a match somewhere passes 50%: {0} with current settings, {1} with birthday only',
 '나와 일치할 확률이 50%를 넘는 인원: 지금 설정 {0}명 (생일만이면 {1}명)': 'Headcount where a match with me passes 50%: {0} with current settings ({1} with birthday only)',
 '모임 번호': 'Gathering',
+'{0}번째 모임 · {1}명 · 가능한 짝 {2}쌍': 'Gathering {0} · {1} people · {2} possible pairs',
+'{0} {1}번': '{0} #{1}',
+'옅은 실: 가능한 모든 짝 · 파란 선: 일치한 쌍 · 붉은 선: 나와 일치': 'Faint threads: every possible pair · blue: matching pairs · red: matches with me',
+'지금까지 {0}번 중 {1}번 일치 ({2}) · 계산값 {3}': 'So far {1} of {0} gatherings had a match ({2}) · calculated {3}',
+'실: 가능한 짝 · 파랑: 일치 · 빨강: 나와 일치': 'Threads: possible pairs · blue: match · red: match with me',
 }

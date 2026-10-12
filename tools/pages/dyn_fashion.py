@@ -6,6 +6,8 @@ DYN = {
 '라운드 (세로는 색상환의 각도)': 'Round (vertical axis is the angle on the color wheel)',
 '제각각 (최대)': 'All different (max)',
 '모두 같은 스타일': 'Everyone the same style',
+'1 = 제각각 (최대) · 0 = 모두 같은 스타일': '1 = all different (max) · 0 = everyone the same style',
+'안쪽 화살표: 최근 80라운드의 흐름': 'Inner arrow: the flow over the last 80 rounds',
 '트렌드세터가 달아나는 속도 (도/라운드)': 'Speed trendsetters run away (degrees per round)',
 '대중이 따라 하는 속도 (도/라운드)': 'Speed the crowd imitates (degrees per round)',
 '대중의 평균 스타일 (색상환의 각도)': "The crowd's average style (angle on the color wheel)",

@@ -10,6 +10,7 @@
   const MAXINC = 330, GMAX = 8;
   let sim = null, popCounts = [0, 0, 0, 0, 0], flips = [];
   let seedGetter = () => 1;
+  const THUMB = /[?&]thumb=1/.test(location.search);   // 메인 썸네일용: 다섯 사회를 정사각형에 담고 몇 번 추첨한 장면
   const params = () => ({
     seed: seedGetter(), gamma: Number($('gamma').value), rule: $('rule').value,
     popMean: Number($('popMean').value), popSd: Number($('popSd').value),
@@ -24,35 +25,49 @@
 
   // ① 후보 사회 5개를 나란히, 고른 사회 강조, 베일 뒤 추첨
   function drawSocieties() {
-    const c = L.chart($('c-soc'), 0.66, { l: 8, r: 8, t: 8, b: 8 });
+    const narrow = ($('c-soc').clientWidth || 400) < 560;
+    const c = L.chart($('c-soc'), THUMB ? 1 : narrow ? 0.95 : 0.66, { l: 8, r: 8, t: 8, b: 8 });
     const { ctx, w, h } = c;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
-    const colW = (w - 16) / 5, top = 66, bot = h - 62, bh = bot - top;
+    // 아래쪽 28px은 "당신의 자리" 문구 자리 (고른 사회 테두리와 겹치지 않게)
+    const colW = (w - 16) / 5, top = THUMB ? 20 : narrow ? 78 : 66, bot = h - (THUMB ? 20 : 78), bh = bot - top, boxB = h - (THUMB ? 8 : 34);
+    const hits = [0, 0, 0, 0, 0]; sim.positions.forEach((q) => { hits[q]++; });
     ctx.textAlign = 'center';
     VL.SOCIETIES.forEach((s, i) => {
       const x0 = 8 + i * colW, on = i === sim.chosen;
-      if (on) { ctx.fillStyle = mix(COL[i], 0.1); roundRect(ctx, x0 + 3, 4, colW - 6, h - 8, 12); ctx.fill(); ctx.strokeStyle = COL[i]; ctx.lineWidth = 2.5; roundRect(ctx, x0 + 3, 4, colW - 6, h - 8, 12); ctx.stroke(); ctx.lineWidth = 1; }
+      if (on) { ctx.fillStyle = mix(COL[i], 0.1); roundRect(ctx, x0 + 3, 4, colW - 6, boxB - 4, 12); ctx.fill(); ctx.strokeStyle = COL[i]; ctx.lineWidth = 2.5; roundRect(ctx, x0 + 3, 4, colW - 6, boxB - 4, 12); ctx.stroke(); ctx.lineWidth = 1; }
+      if (!THUMB) {
       ctx.fillStyle = on ? COL[i] : css('--text'); ctx.font = '700 12.5px -apple-system, "Apple SD Gothic Neo", sans-serif';
       wrapText(ctx, SHORT[i], x0 + colW / 2, 24, colW - 14, 15);
-      if (on) { ctx.fillStyle = COL[i]; ctx.font = '700 11px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillText('✓ 고른 사회', x0 + colW / 2, 56); }
+      if (on) { ctx.fillStyle = COL[i]; ctx.font = '700 11px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillText('✓ 고른 사회', x0 + colW / 2, top - 10); }
+      }
       const bw = (colW - 24) / 5;
       s.inc.forEach((y, k) => {
         const bh2 = Math.max(2, (y / MAXINC) * bh), x = x0 + 12 + k * bw;
         const hit = on && sim.lastPos() === k;
         ctx.fillStyle = hit ? '#e0a100' : mix(COL[i], on ? 0.85 : 0.55);
         roundRect(ctx, x + 1, bot - bh2, bw - 2, bh2, 2); ctx.fill();
-        if (hit) { ctx.fillStyle = '#b07d00'; ctx.font = '700 11px -apple-system, sans-serif'; ctx.fillText(String(y), x + bw / 2, bot - bh2 - 4); }
+        if (hit && !THUMB) { ctx.fillStyle = '#b07d00'; ctx.font = '700 11px -apple-system, sans-serif'; ctx.fillText(String(y), x + bw / 2, bot - bh2 - 4); }
+        // 고른 사회: 지금까지 그 자리가 뽑힌 횟수를 막대 아래 작은 점으로 쌓는다
+        if (on && hits[k] && !THUMB && bw >= 20) { ctx.fillStyle = css('--muted'); ctx.font = '10px -apple-system, sans-serif'; ctx.fillText('×' + hits[k], x + bw / 2, bot + 12); }
       });
+      if (on && sim.step) {   // 지금까지 뽑힌 내 소득의 평균 (추첨이 쌓일수록 그 사회의 평균에 가까워진다)
+        const ya = bot - (sim.avgSoFar() / MAXINC) * bh;
+        ctx.strokeStyle = '#b07d00'; ctx.setLineDash([5, 3]); ctx.lineWidth = 1.6; ctx.beginPath(); ctx.moveTo(x0 + 8, ya); ctx.lineTo(x0 + colW - 8, ya); ctx.stroke(); ctx.setLineDash([]); ctx.lineWidth = 1;
+        if (!THUMB && !narrow) { ctx.fillStyle = '#b07d00'; ctx.font = '600 10.5px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.textAlign = 'left'; ctx.fillText('내 평균', x0 + 10, ya - 4); ctx.textAlign = 'center'; }
+      }
+      if (THUMB) return;
       ctx.strokeStyle = css('--line'); ctx.beginPath(); ctx.moveTo(x0 + 10, bot + 0.5); ctx.lineTo(x0 + colW - 10, bot + 0.5); ctx.stroke();
       ctx.fillStyle = css('--muted'); ctx.font = '11px -apple-system, "Apple SD Gothic Neo", sans-serif';
-      ctx.fillText('평균 ' + VL.mean(s.inc).toFixed(1), x0 + colW / 2, bot + 18);
-      ctx.fillText('최소 ' + VL.minOf(s.inc), x0 + colW / 2, bot + 33);
+      ctx.fillText('평균 ' + VL.mean(s.inc).toFixed(1), x0 + colW / 2, bot + 28);
+      ctx.fillText('최소 ' + VL.minOf(s.inc), x0 + colW / 2, bot + 42);
     });
+    $('when').textContent = `${sim.step}/${sim.params.draws}번째 추첨 · 평균 ${sim.step ? sim.avgSoFar().toFixed(1) : '-'}`;
+    if (THUMB) return;
     // 지금 뽑힌 자리
     const pos = sim.lastPos();
     ctx.fillStyle = css('--text'); ctx.font = '600 12.5px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.textAlign = 'center';
-    ctx.fillText(pos < 0 ? '아직 자리를 뽑지 않았어요' : `당신의 자리: ${pos + 1}분위 → 소득 ${sim.incomes[sim.step - 1]}`, w / 2, h - 10);
-    $('when').textContent = `${sim.step}/${sim.params.draws}번째 추첨 · 평균 ${sim.step ? sim.avgSoFar().toFixed(1) : '-'}`;
+    ctx.fillText(pos < 0 ? '아직 자리를 뽑지 않았어요' : `당신의 자리: ${pos + 1}분위 → 소득 ${sim.incomes[sim.step - 1]}`, w / 2, h - 12);
   }
 
   // ② 확실성 등가 소득 vs γ
@@ -120,7 +135,8 @@
     controls: ['gamma', 'rule', 'popMean', 'popSd'],
     format: { gamma: (v) => Number(v).toFixed(2), rule: () => '', popMean: (v) => Number(v).toFixed(2), popSd: (v) => Number(v).toFixed(2) },
     defaults: { gamma: 1.5, rule: 'eu', popMean: 2, popSd: 1 },
-    build() { const P = params(); sim = VL.create(P); popCounts = VL.population(P.popMean, P.popSd, 1000, P.seed); },
+    build() { const P = params(); sim = VL.create(P); popCounts = VL.population(P.popMean, P.popSd, 1000, P.seed); if (THUMB) for (let i = 0; i < 12; i++) sim.advance(); },
+    autoplay: !THUMB,
     advance() { return sim.advance(); },
     isDone() { return sim.done; },
     draw, after, seedLabel: '추첨',

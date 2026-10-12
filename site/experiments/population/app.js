@@ -6,6 +6,7 @@
   const GC = { young: '#1fa463', work: '#2f6fed', old: '#e0a100' };
   let sim = null, refLow = null, refHigh = null, sweepRows = [];
   let seedGetter = () => 1;
+  const THUMB = /[?&]thumb=1/.test(location.search); // 썸네일 촬영: 2070년(역피라미드)으로 바로 간다
   const params = () => ({ tfr: Number($('tfr').value), migration: Number($('migration').value) * 1000, lifeGain: Number($('lifeGain').value) });
   const M = (v) => (v / 1e6).toFixed(1);
 
@@ -24,8 +25,14 @@
     [-1, 1].forEach((side) => { ctx.beginPath(); for (let a = 0; a < PO.AGES; a++) { const x = cx + side * (12 + Math.min(sim.start[a] / 2, half) * scale); (a ? ctx.lineTo(x, y(a) + rowH / 2) : ctx.moveTo(x, y(a) + rowH / 2)); } ctx.stroke(); });
     for (let a = 0; a < PO.AGES; a++) {
       const wd = Math.min(sim.pop[a] / 2, half * 1.3) * scale, col = a <= 14 ? GC.young : a <= 64 ? GC.work : GC.old;
-      ctx.fillStyle = mix(col, 0.85);
+      const top = a === PO.AGES - 1; // 맨 위 칸은 100세 이상을 모두 합친 칸이라 한 살 칸보다 넓어 보인다 → 옅게 칠하고 표시
+      ctx.fillStyle = mix(col, top ? 0.4 : 0.85);
       ctx.fillRect(cx + 12, y(a), wd, Math.max(1, rowH - 0.6)); ctx.fillRect(cx - 12 - wd, y(a), wd, Math.max(1, rowH - 0.6));
+      if (top && wd > 4 && !THUMB) {
+        ctx.font = '11px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillStyle = css('--muted');
+        const lx = cx + 12 + wd + 6, room = lx + 80 < w - m.r;
+        ctx.textAlign = room ? 'left' : 'right'; ctx.fillText('100세 이상 합계', room ? lx : cx - 12 - wd - 6, y(a) + rowH * 0.9 + 3);
+      }
     }
     ctx.fillStyle = css('--text'); ctx.textAlign = 'left'; ctx.font = '700 22px -apple-system, "Apple SD Gothic Neo", sans-serif';
     ctx.fillText(String(sim.year), m.l + 4, 28);
@@ -101,11 +108,12 @@
     defaults: { tfr: 0.72, migration: 0, lifeGain: 1 },
     build() {
       const P = params(); sim = PO.create(P);
+      if (THUMB) while (!sim.done) sim.advance();
       refLow = PO.project(Object.assign({}, P, { tfr: 0.7 })); refHigh = PO.project(Object.assign({}, P, { tfr: 1.5 }));
     },
     advance() { return sim.advance(); },
     isDone() { return sim.done; },
-    draw, after, redrawExtra: drawSweep, seedLabel: '시나리오',
+    draw, after, redrawExtra: drawSweep, seedLabel: '시나리오', autoplay: !THUMB,
   });
   seedGetter = h.seed;
 })();

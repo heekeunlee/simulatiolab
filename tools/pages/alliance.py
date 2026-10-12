@@ -29,7 +29,7 @@ page(dict(
  sections=[
   dict(title=T('① 동맹 연쇄가 번지는 모습', '① The Cascade Spreading'), p=T('동그라미는 나라, 선은 동맹입니다. 검은 테두리가 첫 공격과 공격받은 나라이고, 주황 점선은 양쪽 편에 동맹이 걸친 연결(서로 다른 편으로 끌려가는 관계)이에요. 라운드마다 어디까지 번지는지 지켜보세요.',
         'Circles are countries and lines are alliances. Black rings mark the first attacker and the attacked country, and orange dashed lines are alliances that cross the two sides (ties pulling toward different sides). Watch how far it spreads each round.'),
-       id='c-net', rounded=True, anim=True, speeds=[('1', T('느리게', 'Slow')), ('2.5', T('보통', 'Normal')), ('6', T('빠르게', 'Fast'))], speed_default='2.5',
+       id='c-net', rounded=True, anim=True, thumb=True, speeds=[('0.8', T('느리게', 'Slow')), ('2', T('보통', 'Normal')), ('5', T('빠르게', 'Fast'))], speed_default='2',
        legend=[leg('background:#e9edf5;border:1.5px solid #c4cbdb', '중립국', 'Neutral'), leg('background:#e5484d', '붉은 편', 'Red side'), leg('background:#2f6fed', '푸른 편', 'Blue side'), leg('background:#d97706', '양쪽에 걸친 동맹(점선)', 'Alliance across the sides (dashed)')]),
   dict(title=T('② 라운드별 전쟁에 들어간 나라', '② Countries at War by Round'), p=T('검은 선은 전쟁에 들어간 나라 전체, 빨강과 파랑은 각 편입니다. 점선은 전체의 절반이에요. 선이 절반을 넘는지, 몇 라운드 만에 멈추는지 보세요.',
         'The black line is all countries at war, and red and blue are the two sides. The dashed line is half of all countries. See whether the line passes half, and after how many rounds it stops.'),

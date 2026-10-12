@@ -4,6 +4,8 @@
   const { css, setup, mix, roundRect } = window.Lab;
   const $ = (id) => document.getElementById(id);
   const DEFAULTS = { p: 1.5, correctionDelay: 3, rooms: 50, perPerson: 3, seeds: 3 };
+  const THUMB = /[?&]thumb=1/.test(location.search); // 메인 페이지 썸네일용: 대표 장면으로 바로 간다
+  const SPEED = 0.7; // 2026-10-12: 애니메이션을 30% 느리게
   const COL = { unknown: '#b6bfd3', spread: '#e5484d', done: '#f2a3a6', cspread: '#2f6fed', cdone: '#9ec1ff' };
 
   let seed = 1, sim = null, pos = null;
@@ -201,7 +203,7 @@
       ctx.setLineDash([5, 3]); ctx.strokeStyle = css('--unlucky'); ctx.beginPath();
       ctx.moveTo(m.l, Y(opts.baseline)); ctx.lineTo(w - m.r, Y(opts.baseline)); ctx.stroke(); ctx.setLineDash([]);
       ctx.fillStyle = css('--unlucky'); ctx.textAlign = 'left';
-      ctx.fillText('정정 없음 ' + pct(opts.baseline), m.l + 6, Y(opts.baseline) - 6);
+      ctx.fillText('정정 없음 ' + pct(opts.baseline), m.l + 6, Y(opts.baseline) + 15); // 위쪽 '지금 설정' 표시와 겹치지 않게 선 아래에
     }
     ctx.fillStyle = mix(css('--accent'), 0.22);
     data.forEach((d) => d.runs.forEach((r) => { ctx.beginPath(); ctx.arc(X(d.x), Y(r), 2.6, 0, 7); ctx.fill(); }));
@@ -300,7 +302,7 @@
 
   function tick(ts) {
     if (playing) {
-      acc += ((ts - lastTs) / 1000) * Number($('speed').value);
+      acc += Math.min(0.25, (ts - lastTs) / 1000) * Number($('speed').value) * SPEED; // 첫 프레임·탭 복귀 때 한꺼번에 건너뛰지 않게
       while (acc >= 1 && playing) {
         acc -= 1;
         if (!stepOnce()) { playing = false; $('play').textContent = '▶ 다시 재생'; }
@@ -331,5 +333,11 @@
 
   showOutputs();
   newExperiment();
-  requestAnimationFrame(tick);
+  if (THUMB) { // 소문이 가장 뜨겁게 퍼지는 차례에서 멈춘 장면
+    const probe = RM.create(readParams()); let best = 0, at = 0;
+    while (!probe.done) { probe.advance(); const c = probe.history[probe.history.length - 1]; if (c.spreading > best) { best = c.spreading; at = probe.round; } }
+    while (sim.round < at && !sim.done) sim.advance();
+    playing = false; refresh();
+  }
+  requestAnimationFrame((ts) => { lastTs = ts; tick(ts); });
 })();

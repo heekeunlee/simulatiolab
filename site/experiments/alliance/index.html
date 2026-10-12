@@ -52,12 +52,12 @@
   <section class="panel chart" style="margin-top:16px">
     <h3 data-en="① The Cascade Spreading">① 동맹 연쇄가 번지는 모습</h3>
     <p data-en="Circles are countries and lines are alliances. Black rings mark the first attacker and the attacked country, and orange dashed lines are alliances that cross the two sides (ties pulling toward different sides). Watch how far it spreads each round.">동그라미는 나라, 선은 동맹입니다. 검은 테두리가 첫 공격과 공격받은 나라이고, 주황 점선은 양쪽 편에 동맹이 걸친 연결(서로 다른 편으로 끌려가는 관계)이에요. 라운드마다 어디까지 번지는지 지켜보세요.</p>
-    <canvas id="c-net" class="rounded" aria-label="① The Cascade Spreading"></canvas>
+    <canvas id="c-net" class="rounded" data-thumb aria-label="① The Cascade Spreading"></canvas>
     <div class="anim-bar">
       <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
       <button id="stepbtn" data-en="Step">한 단계</button>
       <button id="restart" data-en="Restart">처음부터</button>
-      <select id="speed" aria-label="speed"><option value="1" data-en="Slow">느리게</option><option value="2.5" selected data-en="Normal">보통</option><option value="6" data-en="Fast">빠르게</option></select>
+      <select id="speed" aria-label="speed"><option value="0.8" data-en="Slow">느리게</option><option value="2" selected data-en="Normal">보통</option><option value="5" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
       <div class="legend"><span data-en="&lt;i style=&quot;background:#e9edf5;border:1.5px solid #c4cbdb&quot;&gt;&lt;/i&gt;Neutral"><i style="background:#e9edf5;border:1.5px solid #c4cbdb"></i>중립국</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Red side"><i style="background:#e5484d"></i>붉은 편</span><span data-en="&lt;i style=&quot;background:#2f6fed&quot;&gt;&lt;/i&gt;Blue side"><i style="background:#2f6fed"></i>푸른 편</span><span data-en="&lt;i style=&quot;background:#d97706&quot;&gt;&lt;/i&gt;Alliance across the sides (dashed)"><i style="background:#d97706"></i>양쪽에 걸친 동맹(점선)</span></div>

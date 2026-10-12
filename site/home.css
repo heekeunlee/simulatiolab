@@ -33,6 +33,11 @@ main.wide { max-width: 1320px; }
 .el::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, var(--surface) 82%); pointer-events: none; }
 .el:hover, .el.active { transform: translateY(-3px) scale(1.03); border-color: var(--c); box-shadow: 0 10px 26px rgba(20,30,60,.14); z-index: 2; }
 .el .glyph { position: absolute; inset: 0; width: 100%; height: 100%; }
+.el .thumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+.el.has-thumb::after { background: linear-gradient(180deg, rgba(255,255,255,.0) 30%, rgba(255,255,255,.55) 58%, var(--surface) 84%); }
+.el.has-thumb .num, .el.has-thumb .sym { text-shadow: 0 0 6px #fff, 0 0 2px #fff; }
+.el.has-thumb:hover .thumb, .el.has-thumb.active .thumb { transform: scale(1.08); }
+.nb-visual.has-thumb .nb-sym { color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,.45); }
 .el .num { position: absolute; top: 8px; left: 10px; font-size: 11px; font-weight: 800; color: var(--c); letter-spacing: .04em; z-index: 1; }
 .el .sym { position: absolute; top: 4px; right: 10px; font-size: 22px; font-weight: 800; color: var(--c); letter-spacing: -0.02em; z-index: 1; opacity: .9; }
 .el .nm { position: absolute; left: 10px; right: 8px; bottom: 9px; font-size: 13px; font-weight: 700; line-height: 1.2; z-index: 1; word-break: keep-all; }

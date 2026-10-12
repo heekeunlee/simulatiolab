@@ -55,12 +55,12 @@
   <section class="panel chart" style="margin-top:16px">
     <h3 data-en="① Watching the Commute">① 출근길 지켜보기</h3>
     <p data-en="A road&#x27;s thickness shows how many drivers use it, and its color the time it takes (green fast, red slow). When the shortcut opens, drivers move one by one to whatever is faster, and the bar below shows the share choosing each route.">길의 굵기는 지나는 운전자 수, 색은 걸리는 시간입니다(초록은 빠름, 빨강은 느림). 지름길이 열리면 운전자들이 한 명씩 더 빠른 길로 옮겨 가고, 아래 막대는 세 길의 선택 비율입니다.</p>
-    <canvas id="c-net" class="rounded" aria-label="① Watching the Commute"></canvas>
+    <canvas id="c-net" class="rounded" data-thumb aria-label="① Watching the Commute"></canvas>
     <div class="anim-bar">
       <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
       <button id="stepbtn" data-en="Step">한 단계</button>
       <button id="restart" data-en="Restart">처음부터</button>
-      <select id="speed" aria-label="speed"><option value="8" data-en="Slow">느리게</option><option value="20" selected data-en="Normal">보통</option><option value="60" data-en="Fast">빠르게</option></select>
+      <select id="speed" aria-label="speed"><option value="5" data-en="Slow">느리게</option><option value="12" selected data-en="Normal">보통</option><option value="40" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
     <div class="anim-bar"><button id="toggle">지름길 열기</button><span class="muted small" data-en="You can open or close the shortcut at any time while the drivers are choosing.">언제든 눌러서 지름길을 열고 닫아 보세요. 운전자들이 그때마다 길을 다시 고릅니다.</span></div>

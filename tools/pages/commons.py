@@ -29,7 +29,7 @@ page(dict(
   dict(title=T('① 어장과 이용자', '① The Fishery and Its Users'),
        p=T('왼쪽 수조는 저량(수용력 대비)이고, 점선이 해마다 가장 많이 지속적으로 잡을 수 있는 수준(50%)입니다. 오른쪽 점은 이용자이고 색이 전략이에요. 많이 잡은 사람은 붉은 후광, 적발된 사람은 검은 테두리가 생깁니다.',
            'The tank on the left is the stock (relative to capacity), and the dashed line marks the level (50%) at which the largest sustainable catch is possible. The dots on the right are users, colored by strategy. Anyone who caught a lot gets a red halo, and anyone caught gets a black ring.'),
-       id='c-lake', rounded=True, anim=True, speeds=[('8', T('느리게', 'Slow')), ('20', T('보통', 'Normal')), ('50', T('빠르게', 'Fast'))], speed_default='20',
+       id='c-lake', rounded=True, anim=True, speeds=[('3', T('느리게', 'Slow')), ('8', T('보통', 'Normal')), ('20', T('빠르게', 'Fast'))], speed_default='8', thumb=True,
        legend=[leg('background:#e5484d', '탐욕', 'Greedy'), leg('background:#2f6fed', '절제', 'Restrained'), leg('background:#0ea5a5', '조건부 협력', 'Conditional cooperator')]),
   dict(title=T('② 저량과 수확의 변화', '② Stock and Catch Over Time'),
        p=T('파란 선은 저량(수용력 대비), 금색 선은 수확(지속 가능한 최대치 10 대비)입니다. 점선은 50% 수준이에요. 저량이 한 번 바닥까지 내려갔다가 어떻게 되는지 보세요.',

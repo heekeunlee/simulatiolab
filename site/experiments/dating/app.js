@@ -3,37 +3,48 @@
   const DT = window.Dating, L = window.Lab;
   const { css, mix, pct } = L;
   const $ = (id) => document.getElementById(id);
+  const THUMB = /[?&]thumb=1/.test(location.search); // 썸네일 촬영: 시장이 끝난 뒤의 커플 선
   let sim = null, sweep = [];
   let seedGetter = () => 1;
   const params = () => ({ seed: seedGetter(), eye: Number($('eye').value) / 100, drift: Number($('drift').value) / 100, rounds: Number($('rounds').value) });
 
-  // 만난 시점: 일찍(파랑) → 늦게(주황)
+  // 만난 시점: 일찍(파랑) → 중간(자주) → 늦게(주황). 두 색을 바로 섞으면 가운데가 탁한 회색이 되어 자주색을 거쳐 간다
   function tcolor(round, total) {
     const t = Math.min(1, (round - 1) / Math.max(1, total - 1));
-    const a = [47, 111, 237], b = [245, 158, 66];
-    return `rgb(${a.map((v, i) => Math.round(v + (b[i] - v) * t)).join(',')})`;
+    const st = [[47, 111, 237], [176, 76, 196], [245, 158, 66]], k = t < 0.5 ? 0 : 1, u = t < 0.5 ? t * 2 : (t - 0.5) * 2;
+    return `rgb(${st[k].map((v, i) => Math.round(v + (st[k + 1][i] - v) * u)).join(',')})`;
   }
 
+  // 같은 높이(매력)의 점이 겹치지 않도록 사람마다 정해진 가로 흔들림을 준다
+  const jit = (i, side) => (((i * 0.6180339 + side * 0.37) % 1) - 0.5);
   function drawMarket() {
-    const c = L.chart($('c-market'), 0.85, { l: 10, r: 10, t: 34, b: 24 });
+    const c = L.chart($('c-market'), THUMB ? 1 : 0.72, { l: 10, r: 10, t: 34, b: 24 });
     const { ctx, w, h, m, ph } = c, n = sim.n, R = sim.params.rounds;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
-    const xl = w * 0.22, xr = w * 0.78, Y = (a) => m.t + (1 - a) * ph;
-    ctx.fillStyle = css('--muted'); ctx.textAlign = 'center'; ctx.font = '600 13px -apple-system, "Apple SD Gothic Neo", sans-serif';
+    const band = Math.min(110, w * 0.13), xl = w * 0.2, xr = w * 0.8, Y = (a) => m.t + (1 - a) * ph;
+    const XA = (i) => xl + jit(i, 0) * band, XB = (i) => xr + jit(i, 1) * band;
+    // 띠 배경과 눈금
+    ctx.fillStyle = 'rgba(47,111,237,0.05)'; [xl, xr].forEach((x) => ctx.fillRect(x - band / 2 - 8, m.t - 6, band + 16, ph + 12));
+    ctx.strokeStyle = css('--line'); ctx.fillStyle = css('--muted'); ctx.font = '11px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.textAlign = 'center';
+    [0, 0.25, 0.5, 0.75, 1].forEach((v) => { ctx.setLineDash([2, 4]); ctx.beginPath(); ctx.moveTo(xl + band / 2 + 10, Y(v)); ctx.lineTo(xr - band / 2 - 10, Y(v)); ctx.stroke(); ctx.setLineDash([]); if (!THUMB) ctx.fillText(pct(v), w / 2, Y(v) - 3); });
+    ctx.font = '600 13px -apple-system, "Apple SD Gothic Neo", sans-serif';
     ctx.fillText('A 집단', xl, 20); ctx.fillText('B 집단', xr, 20);
     ctx.font = '12px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillText('↑ 매력 높음 · 낮음 ↓ (세로 위치)', w / 2, h - 6);
-    ctx.lineWidth = 1;
+    ctx.lineWidth = THUMB ? 2.4 : 1.1;
     for (let i = 0; i < n; i++) if (sim.mA[i] >= 0) {
-      ctx.strokeStyle = mix(tcolor(sim.wA[i], R), 0.35).replace('rgb', 'rgb'); ctx.beginPath(); ctx.moveTo(xl, Y(sim.a[i])); ctx.lineTo(xr, Y(sim.b[sim.mA[i]])); ctx.stroke();
+      ctx.strokeStyle = tcolor(sim.wA[i], R); ctx.globalAlpha = THUMB ? 0.5 : 0.42; ctx.beginPath(); ctx.moveTo(XA(i), Y(sim.a[i])); ctx.lineTo(XB(sim.mA[i]), Y(sim.b[sim.mA[i]])); ctx.stroke();
     }
-    const dot = (x, y, matched, col) => {
-      ctx.beginPath(); ctx.arc(x, y, 3.2, 0, 7);
-      if (matched) { ctx.fillStyle = col; ctx.fill(); } else { ctx.strokeStyle = '#9aa3b5'; ctx.lineWidth = 1.2; ctx.stroke(); ctx.lineWidth = 1; }
+    ctx.globalAlpha = 1;
+    const r = THUMB ? 5.5 : w < 500 ? 2.6 : 3.4;
+    const dot = (x, y, col) => {
+      ctx.beginPath(); ctx.arc(x, y, r, 0, 7);
+      if (col) { ctx.fillStyle = col; ctx.fill(); } else { ctx.strokeStyle = '#8f99ad'; ctx.lineWidth = 1.2; ctx.stroke(); }
     };
     for (let i = 0; i < n; i++) {
-      dot(xl, Y(sim.a[i]), sim.mA[i] >= 0, sim.mA[i] >= 0 ? tcolor(sim.wA[i], R) : null);
-      dot(xr, Y(sim.b[i]), sim.mB[i] >= 0, sim.mB[i] >= 0 ? tcolor(sim.wB[i], R) : null);
+      dot(XA(i), Y(sim.a[i]), sim.mA[i] >= 0 ? tcolor(sim.wA[i], R) : null);
+      dot(XB(i), Y(sim.b[i]), sim.mB[i] >= 0 ? tcolor(sim.wB[i], R) : null);
     }
+    ctx.lineWidth = 1;
     const s = sim.stats();
     $('when').textContent = `${sim.round}/${R} 라운드 · 짝 ${pct(s.matched)}`;
   }
@@ -96,7 +107,8 @@
     controls: ['eye', 'drift', 'rounds'],
     format: { eye: (v) => (Number(v) > 0 ? '+' : '') + v + '%p', drift: (v) => v + '%p', rounds: (v) => v + '라운드' },
     defaults: { eye: 10, drift: 0.5, rounds: 50 },
-    build() { sim = DT.create(params()); },
+    build() { sim = DT.create(params()); if (THUMB) sim.run(); },
+    autoplay: !THUMB, speedScale: 0.5, // 20라운드쯤에 짝이 한꺼번에 생겨서, 그 순간을 따라갈 수 있게 보통 속도를 초당 4라운드로
     advance() { return sim.advance(); },
     isDone() { return sim.done; },
     draw, after, redrawExtra: drawSweep, seedLabel: '시장 번호',

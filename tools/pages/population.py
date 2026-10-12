@@ -28,7 +28,7 @@ page(dict(
   dict(title=T('① 인구 피라미드가 바뀌는 모습', '① How the Population Pyramid Changes'),
        p=T('한 줄이 한 살입니다. 초록은 0~14세, 파랑은 15~64세, 금색은 65세 이상이고, 회색 선은 2024년의 모양이에요. 시간이 흐르며 아래(젊은 층)가 좁아지고 위(고령층)가 두꺼워지는지 보세요.',
            'Each row is one year of age. Green is 0–14, blue is 15–64, gold is 65+, and the gray outline is the 2024 shape. Watch whether the bottom (young) narrows and the top (old) thickens over time.'),
-       id='c-pyr', rounded=True, anim=True, speeds=[('4', T('느리게', 'Slow')), ('10', T('보통', 'Normal')), ('25', T('빠르게', 'Fast'))], speed_default='10', step=False,
+       id='c-pyr', rounded=True, anim=True, thumb=True, speeds=[('3', T('느리게', 'Slow')), ('6', T('보통', 'Normal')), ('15', T('빠르게', 'Fast'))], speed_default='6', step=False,
        legend=[leg('background:#1fa463', '0~14세', 'Ages 0–14'), leg('background:#2f6fed', '15~64세', 'Ages 15–64'), leg('background:#e0a100', '65세 이상', 'Ages 65+')]),
   dict(title=T('② 총인구의 변화', '② Total Population Over Time'),
        p=T('파란 선이 지금 설정, 점선은 같은 이민·기대수명에서 합계출산율이 0.7일 때(회색)와 1.5일 때(초록)입니다.',

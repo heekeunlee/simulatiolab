@@ -29,7 +29,7 @@ page(dict(
  sections=[
   dict(title=T('① 광장', '① The Square'), p=T('한 점이 한 사람입니다. 문턱이 낮은 사람이 왼쪽 위에 있고 높은 사람이 오른쪽 아래에 있어요. 라운드마다 광장에 나오는 사람이 어떻게 번지는지 지켜보세요.',
         'Each dot is a person, with low-threshold people at the top left and high-threshold people at the bottom right. Watch how the crowd spreads round by round.'),
-       id='c-crowd', rounded=True, anim=True, speeds=[('3', T('느리게', 'Slow')), ('8', T('보통', 'Normal')), ('20', T('빠르게', 'Fast'))], speed_default='8'),
+       id='c-crowd', rounded=True, anim=True, thumb=True, speeds=[('1', T('느리게', 'Slow')), ('2', T('보통', 'Normal')), ('5', T('빠르게', 'Fast'))], speed_default='2'),
   dict(title=T('② 어디서 멈출까', '② Where Does It Stop?'), p=T('파란 곡선은 "지금 광장에 이만큼 나와 있으면 다음에 나설 사람의 비율"입니다. 곡선이 대각선(y=x)보다 위에 있는 동안은 계속 늘고, 대각선과 만나는 곳에서 멈춰요. 빨간 계단이 실제 진행 경로입니다.',
         'The blue curve is "the share who will join next if this many are already out." While the curve is above the diagonal (y=x) the crowd keeps growing, and it stops where the curve meets the diagonal. The red staircase is the actual path.'), id='c-cdf'),
   dict(title=T('③ 시간에 따른 참여', '③ Participation Over Time'), p=T('라운드가 지나며 광장에 나온 사람의 비율이 어떻게 변하는지 보여줍니다. 처음엔 천천히 늘다가 한꺼번에 터지는지 보세요.',

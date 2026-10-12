@@ -54,13 +54,13 @@
 
   <section class="panel chart" style="margin-top:16px">
     <h3 data-en="① Watching the Auctions">① 경매 지켜보기</h3>
-    <p data-en="Auctions run one after another. Bidders are lined up by bid, highest first, and the gold dashed line is the true value. The red circle is the winner, usually to the right of the true value.">경매가 한 번씩 열립니다. 입찰가가 높은 순서로 줄 세웠고, 금색 점선이 진짜 가치입니다. 붉은 동그라미가 낙찰자인데, 대부분 진짜 가치보다 오른쪽에 있습니다.</p>
+    <p data-en="Auctions run one after another. Bidders are lined up by bid, highest first, and the gold dashed line is the true value. The red circle is the winner, usually to the right of the true value. The shaded band on the winner&#x27;s row is the gap between the true value and the price paid: what the winner lost by winning.">경매가 한 번씩 열립니다. 입찰가가 높은 순서로 줄 세웠고, 금색 점선이 진짜 가치입니다. 붉은 동그라미가 낙찰자인데, 대부분 진짜 가치보다 오른쪽에 있습니다. 낙찰자 줄에 칠한 띠가 진짜 가치와 낙찰 가격의 차이, 곧 이기고도 잃은 만큼이에요.</p>
     <canvas id="c-auction" class="rounded" aria-label="① Watching the Auctions"></canvas>
     <div class="anim-bar">
       <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
       <button id="stepbtn" data-en="Step">한 단계</button>
       <button id="restart" data-en="Restart">처음부터</button>
-      <select id="speed" aria-label="speed"><option value="3" data-en="Slow">느리게</option><option value="10" selected data-en="Normal">보통</option><option value="40" data-en="Fast">빠르게</option></select>
+      <select id="speed" aria-label="speed"><option value="1.5" data-en="Slow">느리게</option><option value="4" selected data-en="Normal">보통</option><option value="20" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
   </section>
@@ -69,7 +69,7 @@
     <section class="panel chart">
       <h3 data-en="② Distribution of the Winner&#x27;s Profit">② 낙찰자의 손익 분포</h3>
     <p data-en="The distribution of the winner&#x27;s profit when 3,000 auctions are run with the same settings. Red is a loss, green is a gain.">같은 설정으로 경매를 3,000번 열었을 때 낙찰자 손익의 분포입니다. 빨강은 손해, 초록은 이익입니다.</p>
-    <canvas id="c-hist" class="" aria-label="② Distribution of the Winner&#x27;s Profit"></canvas>
+    <canvas id="c-hist" class="" data-thumb aria-label="② Distribution of the Winner&#x27;s Profit"></canvas>
     </section>
     <section class="panel chart">
       <h3 data-en="③ As Bidders Increase">③ 입찰자가 많아지면</h3>

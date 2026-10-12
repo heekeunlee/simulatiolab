@@ -4,38 +4,44 @@
   const { css, mix, pct } = L;
   const $ = (id) => document.getElementById(id);
   let sim = null, sweep = [];
-  let seedGetter = () => 1;
+  let seedGetter = () => 1, finalRounds = 10;
+  const THUMB = /[?&]thumb=1/.test(location.search);   // 메인 썸네일용: 불씨가 반쯤 번진 장면에서 멈춘다
   const params = () => ({
     seed: seedGetter(), mode: $('mode').value,
     mean: Number($('mean').value) / 100, spread: Number($('spread').value) / 100, radicals: Number($('radicals').value) / 100,
   });
 
   // 나선 라운드: 일찍(노랑) → 늦게(진한 빨강)
-  function rcolor(r, total) {
-    const t = Math.min(1, r / Math.max(6, total));
-    const a = [245, 176, 65], b = [200, 40, 60];
-    return `rgb(${a.map((v, i) => Math.round(v + (b[i] - v) * t)).join(',')})`;
+  // 색 눈금은 끝까지 돌렸을 때의 라운드 수로 고정한다 (진행 중에 앞서 나온 사람의 색이 바뀌지 않게)
+  function rcolor(r) {
+    const t = Math.min(1, r / Math.max(4, finalRounds - 1));
+    const A = [255, 200, 50], B = [245, 120, 40], C = [180, 20, 55];   // 노랑 → 주황 → 진한 빨강
+    const [a, b, u] = t < 0.5 ? [A, B, t * 2] : [B, C, t * 2 - 1];
+    return `rgb(${a.map((v, i) => Math.round(v + (b[i] - v) * u)).join(',')})`;
   }
 
   function drawCrowd() {
-    const c = L.chart($('c-crowd'), 0.62, { l: 8, r: 8, t: 8, b: 26 });
+    const cv = $('c-crowd'), narrow = (cv.clientWidth || 400) < 560;
+    const c = L.chart(cv, THUMB ? 1 : narrow ? 1.05 : 0.62, { l: 8, r: 8, t: 8, b: 26 });
     const { ctx, w, h } = c, n = sim.n;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
     // 문턱이 낮은 사람부터 왼쪽 위에서 오른쪽 아래로 늘어놓는다
     const order = Array.from({ length: n }, (_, i) => i).sort((a, b) => sim.threshold[a] - sim.threshold[b]);
-    const cols = n <= 100 ? 20 : 40, rows = Math.ceil(n / cols);
-    const cw = (w - 16) / cols, ch = (h - 34) / rows, r = Math.min(cw, ch) * 0.34;
-    const total = Math.max(sim.round, 1), last = sim.round - 1;
+    const cols = narrow || THUMB ? Math.round(Math.sqrt(n * (w - 16) / (h - 34))) : n <= 100 ? 20 : 40, rows = Math.ceil(n / cols);
+    const cw = (w - 16) / cols, ch = (h - 34) / rows, r = Math.min(cw, ch) * 0.36;
+    const last = sim.round - 1;
     order.forEach((i, k) => {
       const x = 8 + (k % cols) * cw + cw / 2, y = 8 + Math.floor(k / cols) * ch + ch / 2;
       if (sim.out[i]) {
-        if (sim.joinedAt[i] === last && !sim.done) { ctx.fillStyle = 'rgba(229,72,77,.25)'; ctx.beginPath(); ctx.arc(x, y, r * 2.4, 0, 7); ctx.fill(); }
-        ctx.fillStyle = rcolor(sim.joinedAt[i], total); ctx.beginPath(); ctx.arc(x, y, r * 1.15, 0, 7); ctx.fill();
-      } else { ctx.fillStyle = '#c7cedd'; ctx.beginPath(); ctx.arc(x, y, r * 0.85, 0, 7); ctx.fill(); }
-      if (sim.threshold[i] === 0) { ctx.strokeStyle = css('--text'); ctx.lineWidth = 1.6; ctx.beginPath(); ctx.arc(x, y, r * 1.7, 0, 7); ctx.stroke(); ctx.lineWidth = 1; }
+        if (sim.joinedAt[i] === last && last > 0 && !sim.done && !THUMB) { ctx.fillStyle = 'rgba(229,72,77,.22)'; ctx.beginPath(); ctx.arc(x, y, r * 1.75, 0, 7); ctx.fill(); }
+        ctx.fillStyle = rcolor(sim.joinedAt[i]); ctx.beginPath(); ctx.arc(x, y, r * 1.12, 0, 7); ctx.fill();
+      } else { ctx.fillStyle = '#c7cedd'; ctx.beginPath(); ctx.arc(x, y, r * 0.8, 0, 7); ctx.fill(); }
+      if (sim.threshold[i] === 0) { ctx.strokeStyle = css('--text'); ctx.lineWidth = 1.6; ctx.beginPath(); ctx.arc(x, y, r * 1.55, 0, 7); ctx.stroke(); ctx.lineWidth = 1; }
     });
-    ctx.fillStyle = css('--muted'); ctx.textAlign = 'left'; ctx.fillText('문턱이 낮은 사람 →', 10, h - 8);
-    ctx.textAlign = 'right'; ctx.fillText('→ 문턱이 높은 사람', w - 10, h - 8);
+    if (!THUMB) {
+      ctx.fillStyle = css('--muted'); ctx.textAlign = 'left'; ctx.fillText('문턱이 낮은 사람 →', 10, h - 8);
+      ctx.textAlign = 'right'; ctx.fillText('→ 문턱이 높은 사람', w - 10, h - 8);
+    }
     const cnt = sim.out.reduce((a, b) => a + b, 0);
     $('when').textContent = `${sim.round}라운드 · 광장에 나온 사람 ${pct(cnt / n)}`;
   }
@@ -103,7 +109,11 @@
     controls: ['mode', 'mean', 'spread', 'radicals'],
     format: { mode: () => '', mean: (v) => v + '%', spread: (v) => v + '%', radicals: (v) => v + '%' },
     defaults: { mode: 'normal', mean: 20, spread: 15, radicals: 1 },
-    build() { sim = RV.create(params()); },
+    build() {
+      sim = RV.create(params()); finalRounds = RV.create(params()).run().round;
+      if (THUMB) { const goal = RV.create(params()).run().share() * 0.4; while (!sim.done && sim.share() < goal) sim.advance(); }
+    },
+    autoplay: !THUMB,
     advance() { return sim.advance(); },
     isDone() { return sim.done; },
     draw, after, redrawExtra: drawSweep, seedLabel: '광장 번호',

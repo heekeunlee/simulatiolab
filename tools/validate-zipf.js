@@ -18,3 +18,4 @@ for (const [lo, hi] of [[1, 50], [3, 200], [5, 500], [10, 1000]]) { const r = Z.
 console.log('토큰 수 민감도 (복사, novelty 3%)');
 for (const t of [5000, 20000, 100000]) { const r = Z.slopes({ novelty: 0.03, total: t }, 6); console.log(`  ${t}단어: 기울기 ${f2(-mean(r.map((x) => x.slope)))}  어휘 ${Math.round(mean(r.map((x) => x.vocab)))}`); }
 const names = new Set(); for (let i = 0; i < 3000; i++) names.add(Z.wordName(i)); console.log('가짜 단어 3000개 중 서로 다른 단어:', names.size, '예:', [0, 1, 2, 50, 500, 2999].map(Z.wordName).join(' '));
+{ const r = Z.slopes({ novelty: 0.03 }, 6); console.log('1위 단어의 몫 (복사, novelty 3%, 6편 평균):', (mean(r.map((x) => x.ranked[0].count / 100000)) * 100).toFixed(1) + '%'); }

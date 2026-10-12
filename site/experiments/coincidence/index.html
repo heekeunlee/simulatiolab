@@ -51,13 +51,13 @@
 
   <section class="panel chart" style="margin-top:16px">
     <h3 data-en="① Watching the Gatherings">① 모임 지켜보기</h3>
-    <p data-en="Gatherings run one after another. The red dot at the top is me and everyone else stands around the circle. Matching pairs are joined by lines, and lines to me are red.">모임이 한 번씩 열립니다. 위쪽의 붉은 점이 나이고, 나머지 사람은 원 둘레에 서 있습니다. 일치한 쌍은 선으로 이어지고, 나와 일치한 선은 붉게 표시됩니다.</p>
-    <canvas id="c-room" class="rounded" aria-label="① Watching the Gatherings"></canvas>
+    <p data-en="Gatherings run one after another. The red dot at the top is me and everyone else stands around the circle. The faint threads are every possible pair; matching pairs are joined by thick lines, and lines to me are red. The shared birthday (month/day) is written next to each matching person. The squares below are the gatherings so far: blue means someone matched, a red outline means someone matched me.">모임이 한 번씩 열립니다. 위쪽의 붉은 점이 나이고, 나머지 사람은 원 둘레에 서 있습니다. 옅은 실은 가능한 모든 짝이고, 일치한 쌍은 굵은 선으로 이어지며 나와 일치한 선은 붉게 표시됩니다. 일치한 사람 옆에는 같은 생일(월/일)이 적힙니다. 아래 칸은 지금까지 열린 모임으로, 파란 칸은 누군가 일치한 모임, 붉은 테두리는 나와 일치한 모임입니다.</p>
+    <canvas id="c-room" class="rounded" data-thumb aria-label="① Watching the Gatherings"></canvas>
     <div class="anim-bar">
       <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
       <button id="stepbtn" data-en="Step">한 단계</button>
       <button id="restart" data-en="Restart">처음부터</button>
-      <select id="speed" aria-label="speed"><option value="2" data-en="Slow">느리게</option><option value="5" selected data-en="Normal">보통</option><option value="15" data-en="Fast">빠르게</option></select>
+      <select id="speed" aria-label="speed"><option value="1" data-en="Slow">느리게</option><option value="2" selected data-en="Normal">보통</option><option value="8" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
   </section>

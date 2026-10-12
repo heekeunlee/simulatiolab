@@ -18,4 +18,5 @@ DYN = {
 '{0}천 명/년': '{0}k people/yr',
 '+{#0}년/10년': '+{0} yr per decade',
 '시나리오': 'Scenario',
+'100세 이상 합계': 'All aged 100+',
 }

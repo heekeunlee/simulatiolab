@@ -57,13 +57,13 @@
 
   <section class="panel chart" style="margin-top:16px">
     <h3 data-en="① Trial 1 and Trial 2 Scores">① 1회 점수와 2회 점수</h3>
-    <p data-en="The horizontal axis is the trial 1 score, the vertical axis the trial 2 score. The dashed diagonal means &quot;exactly the same score next time&quot;. Green is the praised (top of trial 1), red the scolded (bottom of trial 1). The blue regression line is flatter than the diagonal, pulling the right end down and the left end up.">가로는 1회 점수, 세로는 2회 점수입니다. 점선 대각선은 "다음에도 똑같은 점수"입니다. 초록은 칭찬받은 쪽(1회 상위), 빨강은 혼난 쪽(1회 하위)이고, 파란 회귀선은 대각선보다 평평해서 오른쪽 끝은 아래로, 왼쪽 끝은 위로 끌려옵니다.</p>
-    <canvas id="c-scatter" class="rounded" aria-label="① Trial 1 and Trial 2 Scores"></canvas>
+    <p data-en="The horizontal axis is the trial 1 score, the vertical axis the trial 2 score. The dashed diagonal means &quot;exactly the same score next time&quot;. Green is the praised (top of trial 1), red the scolded (bottom of trial 1). The blue regression line is flatter than the diagonal, pulling the right end down and the left end up. Each circle marks where a group&#x27;s average would sit if everyone scored the same next time, and the arrowhead is the actual trial 2 average.">가로는 1회 점수, 세로는 2회 점수입니다. 점선 대각선은 "다음에도 똑같은 점수"입니다. 초록은 칭찬받은 쪽(1회 상위), 빨강은 혼난 쪽(1회 하위)이고, 파란 회귀선은 대각선보다 평평해서 오른쪽 끝은 아래로, 왼쪽 끝은 위로 끌려옵니다. 동그라미는 "다음에도 같은 점수였다면" 집단 평균이 있었을 자리이고, 화살표 끝이 실제 2회 평균입니다.</p>
+    <canvas id="c-scatter" class="rounded" data-thumb aria-label="① Trial 1 and Trial 2 Scores"></canvas>
     <div class="anim-bar">
       <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
       
       <button id="restart" data-en="Restart">처음부터</button>
-      <select id="speed" aria-label="speed"><option value="30" data-en="Slow">느리게</option><option value="120" selected data-en="Normal">보통</option><option value="500" data-en="Fast">빠르게</option></select>
+      <select id="speed" aria-label="speed"><option value="15" data-en="Slow">느리게</option><option value="60" selected data-en="Normal">보통</option><option value="300" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
       <div class="legend"><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;The praised (top in trial 1)"><i style="background:#1fa463"></i>칭찬받은 쪽 (1회 상위)</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;The scolded (bottom in trial 1)"><i style="background:#e5484d"></i>혼난 쪽 (1회 하위)</span><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Regression line"><i style="background:var(--accent)"></i>회귀선</span></div>

@@ -26,3 +26,19 @@ for (const [name, pr] of Object.entries(T.PRESETS)) {
   const row = [1, 2, 3].map((seed) => { const s = T.create({ F: pr.F, k: pr.k, seed }); s.advance(20000); const b = blobs(s); return `${b.count}/${b.mean.toFixed(0)}/${b.biggest}`; });
   console.log(`  ${name.padEnd(8)} ${row.join('   ')}`);
 }
+
+// 3D 보기 문구 확인: 자리 잡은 뒤 무늬 꼭대기(주변 8칸보다 높은 v>0.2 칸)의 높이 범위
+function peaks(sim) {
+  const S = sim.size, v = sim.v, pk = [];
+  for (let y = 0; y < S; y++) for (let x = 0; x < S; x++) {
+    const c = v[y * S + x]; if (c <= 0.2) continue; let top = true;
+    for (let dy = -1; dy <= 1 && top; dy++) for (let dx = -1; dx <= 1; dx++) if ((dx || dy) && v[((y + dy + S) % S) * S + (x + dx + S) % S] > c) { top = false; break; }
+    if (top) pk.push(c);
+  }
+  pk.sort((a, b) => a - b); return pk;
+}
+console.log('\n20000회 뒤 꼭대기 높이 v (개수 / 최소 / 중앙값 / 최대), 시드 1~3');
+for (const [name, pr] of Object.entries(T.PRESETS)) {
+  const row = [1, 2, 3].map((seed) => { const s = T.create({ F: pr.F, k: pr.k, seed }); s.advance(20000); const p = peaks(s); return `${p.length}/${p[0].toFixed(3)}/${p[p.length >> 1].toFixed(3)}/${p[p.length - 1].toFixed(3)}`; });
+  console.log(`  ${name.padEnd(8)} ${row.join('   ')}`);
+}

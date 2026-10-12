@@ -4,6 +4,7 @@
   const { css, mix } = L;
   const $ = (id) => document.getElementById(id);
   const FONT = '12px -apple-system, "Apple SD Gothic Neo", sans-serif', FONTB = '600 13px -apple-system, "Apple SD Gothic Neo", sans-serif';
+  const THUMB = /[?&]thumb=1/.test(location.search); // 썸네일 촬영용: 전원이 나타난 장면으로 바로
   let sim = null, sweep = [];
   let seedGetter = () => 1;
   const params = () => ({ seed: seedGetter(), n: Number($('n').value), luck: Number($('luck').value) / 100, cut: Number($('cut').value) / 100, eff: Number($('eff').value), view: $('view').value });
@@ -23,19 +24,34 @@
     // 대각선 = 다음에도 똑같은 점수를 받는 선
     ctx.setLineDash([5, 4]); ctx.strokeStyle = css('--muted'); ctx.beginPath(); ctx.moveTo(X(lo), Y(lo)); ctx.lineTo(X(hi), Y(hi)); ctx.stroke(); ctx.setLineDash([]);
     ctx.textAlign = 'left'; ctx.font = FONTB; ctx.fillStyle = css('--text');
-    ctx.fillText(sim.shown ? `${sim.shown}명 · 점선: 다음에도 같은 점수` : '재생을 누르면 한 명씩 나타나요', m.l, 18);
+    if (!THUMB) ctx.fillText(sim.shown ? (w < 560 ? `${sim.shown}명 · 점선: 같은 점수 · 화살표: 평균 이동` : `${sim.shown}명 · 점선: 다음에도 같은 점수 · 화살표: 집단 평균의 이동`) : '재생을 누르면 한 명씩 나타나요', m.l, 18);
     ctx.font = FONT;
     const col = { 1: css('--lucky'), '-1': css('--unlucky'), 0: '#8a93a6' };
     for (let pass = 0; pass < 2; pass++) for (let i = 0; i < sim.shown; i++) {
       const g = d.grp[i]; if ((g === 0) !== (pass === 0)) continue;
       ctx.fillStyle = mix(col[g], g === 0 ? 0.28 : 0.85); ctx.beginPath(); ctx.arc(X(d.s1[i]), Y(d.s2[i]), g === 0 ? 2.3 : 3, 0, 7); ctx.fill();
     }
+    // 집단 평균의 이동: 대각선 위(다음에도 같은 점수였다면) → 실제 2회 평균
+    if (sim.shown > 20) {
+      [1, -1].forEach((g) => {
+        let k = 0, a1 = 0, a2 = 0; for (let i = 0; i < sim.shown; i++) if (d.grp[i] === g) { k++; a1 += d.s1[i]; a2 += d.s2[i]; }
+        if (k < 3) return; a1 /= k; a2 /= k;
+        const x = X(a1), y0 = Y(a1), y1 = Y(a2), c0 = col[g], dir = y1 > y0 ? 1 : -1;
+        ctx.fillStyle = '#ffffff'; ctx.strokeStyle = c0; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(x, y0, 6, 0, 7); ctx.fill(); ctx.stroke();
+        if (Math.abs(y1 - y0) > 12) {
+          ctx.beginPath(); ctx.moveTo(x, y0 + dir * 7); ctx.lineTo(x, y1 - dir * 6); ctx.stroke();
+          ctx.fillStyle = c0; ctx.beginPath(); ctx.moveTo(x, y1); ctx.lineTo(x - 6, y1 - dir * 10); ctx.lineTo(x + 6, y1 - dir * 10); ctx.closePath(); ctx.fill();
+        }
+        ctx.lineWidth = 1; ctx.font = FONTB; ctx.textAlign = g === 1 ? 'left' : 'right'; ctx.fillStyle = c0;
+        const tx = x + (g === 1 ? 10 : -10), ty = (y0 + y1) / 2 + 4; ctx.strokeStyle = 'rgba(255,255,255,.92)'; ctx.lineWidth = 4; ctx.lineJoin = 'round'; ctx.strokeText(`평균 ${f1(a2 - a1)}`, tx, ty); ctx.lineWidth = 1; ctx.fillText(`평균 ${f1(a2 - a1)}`, tx, ty); ctx.font = FONT;
+      });
+    }
     // 회귀선
     if (sim.shown > 5) {
       const a = S.intercept, b = S.slope, clip = (x) => Math.max(lo, Math.min(hi, a + b * x));
       L.line(ctx, [[X(lo), Y(clip(lo))], [X(hi), Y(clip(hi))]], css('--accent'), 2.5);
       ctx.fillStyle = css('--accent'); ctx.textAlign = 'left'; ctx.font = FONTB;
-      ctx.fillText(`회귀선 기울기 ${S.slope.toFixed(2)}`, m.l + 8, m.t + 16);
+      if (!THUMB) ctx.fillText(`회귀선 기울기 ${S.slope.toFixed(2)}`, m.l + 8, m.t + 16);
       ctx.font = FONT;
     }
     $('when').textContent = `${sim.shown}/${sim.params.n}`;
@@ -69,7 +85,7 @@
 
   // ---------- ③ 코치의 믿음 ----------
   function drawCoach() {
-    const c = L.chart($('c-coach'), 0.4, { l: 20, r: 20, t: 40, b: 20 }), { ctx, w, h, m, pw } = c;
+    const c = L.chart($('c-coach'), 0.5, { l: 20, r: 20, t: 40, b: 20 }), { ctx, w, h, m, pw } = c;
     const S = sim.summary(), T = RG.theory(sim.params), R = 30, X = (v) => m.l + ((Math.max(-R, Math.min(R, v)) + R) / (2 * R)) * pw, y = m.t + 22;
     const gap = sim.shown ? S.gap : 0;
     ctx.fillStyle = mix(css('--lucky'), 0.28); ctx.fillRect(m.l, y, pw / 2, 18); ctx.fillStyle = mix(css('--unlucky'), 0.28); ctx.fillRect(m.l + pw / 2, y, pw / 2, 18);
@@ -83,20 +99,22 @@
     const gx = X(gap); ctx.fillStyle = css('--text'); ctx.fillRect(gx - 2, y - 6, 4, 30);
     ctx.font = FONTB; ctx.textAlign = 'center'; ctx.fillStyle = css('--text');
     const msg = !sim.shown ? '아직 아무것도 보지 못했어요' : gap > 2 ? (sports() ? `기자의 결론: 표지 저주가 있다 (차이 ${f1(gap)}점)` : `코치의 결론: 혼내는 게 낫다 (차이 ${f1(gap)}점)`) : gap < -2 ? (sports() ? `기자의 결론: 표지가 도움이 된다 (차이 ${f1(gap)}점)` : `코치의 결론: 칭찬이 낫다 (차이 ${f1(gap)}점)`) : `결론: 별 차이 없어 보인다 (차이 ${f1(gap)}점)`;
-    ctx.fillText(msg, m.l + pw / 2, h - 52);
+    ctx.fillText(msg, m.l + pw / 2, Math.max(y + 76, h - 40));
     ctx.font = FONT; ctx.fillStyle = css('--muted');
-    ctx.fillText('차이 = 혼난 쪽의 평균 변화 − 칭찬받은 쪽의 평균 변화', m.l + pw / 2, h - 32);
+    ctx.fillText('차이 = 혼난 쪽의 평균 변화 − 칭찬받은 쪽의 평균 변화', m.l + pw / 2, Math.max(y + 96, h - 18));
   }
 
   // ---------- ④ 운의 몫에 따라 ----------
   function drawLuck() {
-    const lim = (() => { let mx = 10; sweep.forEach((s) => s.pts.forEach((d) => d.runs.forEach((v) => { mx = Math.max(mx, Math.abs(v)); }))); return Math.ceil(mx / 5) * 5; })();
-    L.dots($('c-luck'), {
+    const lim = (() => { let mx = 10; sweep.forEach((s) => s.pts.forEach((d) => d.runs.forEach((v) => { mx = Math.max(mx, Math.abs(v)); }))); return Math.ceil(mx / 4) * 4; })();
+    const c = L.dots($('c-luck'), {
       data: [], y0: -lim, y1: lim, yFmt: (v) => (v > 0 ? '+' : '') + Math.round(v),
       series: sweep.map((s) => ({ data: s.pts, color: s.color, dots: true })),
       x0: 0, x1: 100, xTicks: [0, 20, 40, 60, 80, 100], xFmt: (v) => v + '%', xLabel: '점수의 흩어짐 중 운이 차지하는 몫',
-      refs: [{ y: 0, label: '변화 없음', color: '#8a93a6' }], marker: { x: sim.params.luck * 100, label: '지금 설정' },
+      refs: [{ y: 0, label: '', color: '#8a93a6' }], marker: { x: sim.params.luck * 100, label: '지금 설정' },
     });
+    const { ctx, m, pw, ph } = c, y0 = m.t + ph / 2; // 0 선은 가운데
+    ctx.font = FONT; ctx.textAlign = 'right'; ctx.fillStyle = '#8a93a6'; ctx.fillText('변화 없음', m.l + pw - 4, y0 - 6);
   }
 
   function renderStats() {
@@ -141,4 +159,5 @@
     draw, after, redrawExtra() { drawLuck(); },
   });
   seedGetter = h.seed;
+  if (THUMB) { sim.run(); draw(); }
 })();

@@ -5,6 +5,7 @@
   const $ = (id) => document.getElementById(id);
   let sim = null, sweepRows = [];
   let seedGetter = () => 1;
+  const THUMB = /[?&]thumb=1/.test(location.search); // 썸네일 촬영: 가격이 가운데서 번져 나가는 도중으로 바로 간다
   const params = () => ({
     seed: seedGetter(), contagion: Number($('contagion').value), ltv: Number($('ltv').value) / 100,
     optimism: Number($('optimism').value) / 100, rateStep: Number($('rateStep').value),
@@ -19,9 +20,10 @@
   }
 
   function drawMap() {
-    const { ctx, w } = L.setup($('c-map'), 1.08);
+    const cw = $('c-map').clientWidth || 600, asp = THUMB ? 1 : 1 + 44 / cw; // 지도 아래 범례 몫 44px (휴대폰에서 범례 글자가 잘리지 않게). 썸네일은 범례 없이 정사각형
+    const { ctx, w } = L.setup($('c-map'), asp);
     const S = sim.size, pad = 8, bar = 30, side = w - pad * 2, cell = side / S;
-    ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, w * 1.08);
+    ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, w * asp);
     const anchor = 100 * sim.income;
     for (let i = 0; i < S * S; i++) {
       const [r, g, b] = heat(sim.price[i] / anchor);
@@ -33,10 +35,13 @@
     ctx.strokeStyle = 'rgba(30,40,70,.55)'; ctx.setLineDash([4, 3]); ctx.lineWidth = 1.2;
     ctx.strokeRect(pad + (c0 - 3) * cell, pad + (c0 - 3) * cell, 7 * cell, 7 * cell); ctx.setLineDash([]); ctx.lineWidth = 1;
     // 색 범례
-    const y0 = pad + side + 10, x0 = pad + 40, bw = side - 80;
+    if (THUMB) return;
+    const y0 = pad + side + 10, x0 = pad + 44, bw = side - 108, xb = x0 + bw * (0.1 / 1.5);
     for (let k = 0; k < bw; k++) { const [r, g, b] = heat(0.9 + (1.5 * k) / bw); ctx.fillStyle = `rgb(${r},${g},${b})`; ctx.fillRect(x0 + k, y0, 1.5, 10); }
-    ctx.fillStyle = css('--muted'); ctx.textAlign = 'center'; ctx.font = '11px -apple-system, "Apple SD Gothic Neo", sans-serif';
-    ctx.fillText('싼 편', x0 - 22, y0 + 9); ctx.fillText('소득 기준선', x0 + bw * 0.07, y0 + 24); ctx.fillText('매우 비쌈', x0 + bw + 24, y0 + 9);
+    ctx.strokeStyle = 'rgba(30,40,70,.6)'; ctx.beginPath(); ctx.moveTo(xb, y0 - 2); ctx.lineTo(xb, y0 + 13); ctx.stroke(); // 소득 기준선 위치
+    ctx.fillStyle = css('--muted'); ctx.font = '11px -apple-system, "Apple SD Gothic Neo", sans-serif';
+    ctx.textAlign = 'right'; ctx.fillText('싼 편', x0 - 6, y0 + 9); ctx.textAlign = 'left'; ctx.fillText('매우 비쌈', x0 + bw + 6, y0 + 9);
+    ctx.textAlign = 'center'; ctx.fillText('소득 기준선', xb, y0 + 25);
     const s = sim.history[sim.history.length - 1];
     $('when').textContent = `${sim.step}분기째 · 평균 가격지수 ${s.mean.toFixed(0)}`;
   }
@@ -99,7 +104,8 @@
     controls: ['contagion', 'ltv', 'optimism', 'rateStep'],
     format: { contagion: (v) => Number(v).toFixed(2), ltv: (v) => v + '%', optimism: (v) => v + '%', rateStep: () => '' },
     defaults: { contagion: 0.6, ltv: 60, optimism: 50, rateStep: '50' },
-    build() { sim = AP.create(params()); },
+    build() { sim = AP.create(params()); if (THUMB) for (let k = 0; k < 20; k++) sim.advance(); }, // 썸네일: 가운데서 시작된 상승이 번져 나가는 중
+    autoplay: !THUMB,
     advance() { return sim.advance(); },
     isDone() { return sim.done; },
     draw, after, redrawExtra: drawSweep, seedLabel: '시장 번호',

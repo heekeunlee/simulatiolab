@@ -55,12 +55,12 @@
   <section class="panel chart" style="margin-top:16px">
     <h3 data-en="① How Prices Spread">① 가격이 번지는 모습</h3>
     <p data-en="Each cell is a neighborhood, and color shows how expensive it is relative to the income line. Watch whether the rise spreads out from the dashed square in the middle, and whether it cools after the rate shock.">한 칸이 한 동네이고, 색은 소득 기준선에 비해 얼마나 비싼지입니다. 가운데 점선 네모에서 시작해 이웃으로 번지는지, 금리 충격 뒤에 식는지 지켜보세요.</p>
-    <canvas id="c-map" class="rounded" aria-label="① How Prices Spread"></canvas>
+    <canvas id="c-map" class="rounded" data-thumb aria-label="① How Prices Spread"></canvas>
     <div class="anim-bar">
       <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
       <button id="stepbtn" data-en="Step">한 단계</button>
       <button id="restart" data-en="Restart">처음부터</button>
-      <select id="speed" aria-label="speed"><option value="5" data-en="Slow">느리게</option><option value="12" selected data-en="Normal">보통</option><option value="30" data-en="Fast">빠르게</option></select>
+      <select id="speed" aria-label="speed"><option value="4" data-en="Slow">느리게</option><option value="8" selected data-en="Normal">보통</option><option value="25" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
   </section>

@@ -65,6 +65,15 @@ CATS = [
 ]
 
 
+# 칸 썸네일: 각 실험의 실제 결과 화면 (tools/browser/make_thumbs.js가 site/thumbs/<slug>.jpg로 만든다).
+# 직접 고른 그림을 쓰려면 site/thumbs/custom/<slug>.jpg (또는 .png/.webp)를 넣으면 그것이 우선한다. 둘 다 없으면 미니 애니메이션.
+def thumb(slug):
+    base = os.path.join(EXP, '..', 'thumbs')
+    for f in [f'custom/{slug}.jpg', f'custom/{slug}.png', f'custom/{slug}.webp', f'{slug}.jpg']:
+        fp = os.path.join(base, f)
+        if os.path.exists(fp): return f'thumbs/{f}?v={int(os.path.getmtime(fp))}'
+    return None
+
 # slug -> (기호, 짧은 이름 T, 미니 애니메이션 종류)
 META = {
  'talent-vs-luck': ('Tl', T('재능 vs 운', 'Talent vs Luck'), 'bars'),
@@ -121,9 +130,11 @@ def build(only_existing=True):
             n += 1
             sym, short, kind = META[slug]
             exps.append({'s': slug, 'n': '%02d' % n, 'c': col, 'sym': sym, 'ko': title[0], 'en': re.sub('<[^>]+>', '', H.unescape(title[1]))})
+            th = thumb(slug)
+            vis = f'<img class="thumb" src="{th}" alt="" loading="lazy" decoding="async">' if th else '<canvas class="glyph" aria-hidden="true"></canvas>'
             tiles += f"""
-        <a class="el" href="experiments/{slug}/" data-field="{k}" data-kind="{kind}" style="--c:{col}">
-          <canvas class="glyph" aria-hidden="true"></canvas>
+        <a class="el{' has-thumb' if th else ''}" href="experiments/{slug}/" data-field="{k}" data-kind="{kind}"{f' data-thumb="{th}"' if th else ''} style="--c:{col}">
+          {vis}
           <span class="num">{n:02d}</span><span class="sym">{sym}</span>
           <span class="nm"{da(short)}>{short[0]}</span>
           <span class="hid t-title"{da(title)}>{title[0]}</span><span class="hid t-desc"{da(desc)}>{desc[0]}</span><span class="hid t-model"{da(method)}>{method[0]}</span>

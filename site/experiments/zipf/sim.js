@@ -13,7 +13,7 @@
   if (typeof module === 'object' && module.exports) module.exports = factory();
   else root.Zipf = factory();
 })(typeof self !== 'undefined' ? self : this, function () {
-  const DEFAULTS = { novelty: 0.03, mode: 'copy', total: 100000, batch: 250, seed: 1, fitFrom: 3, fitTo: 200 };
+  const DEFAULTS = { novelty: 0.03, mode: 'copy', total: 100000, batch: 2500, batchFrac: 0.03, batchMin: 8, seed: 1, fitFrom: 3, fitTo: 200 };
 
   function mulberry32(a) {
     return function () {
@@ -50,7 +50,8 @@
       },
       advance() {
         if (sim.done) return false;
-        const m = Math.min(p.batch, p.total - sim.n);
+        // 처음에는 몇 단어씩(눈으로 따라갈 수 있게), 글이 길어질수록 지금 길이의 3%씩 (최대 batch) — 결과 수치에는 영향 없음
+        const m = Math.min(p.batch, Math.max(p.batchMin, Math.round(sim.n * p.batchFrac)), p.total - sim.n);
         for (let k = 0; k < m; k++) sim.addOne();
         if (sim.n >= p.total) sim.done = true;
         return true;

@@ -5,6 +5,7 @@
   const $ = (id) => document.getElementById(id);
   let sim = null, rows = [];
   let seedGetter = () => 1;
+  const THUMB = /[?&]thumb=1/.test(location.search); // 썸네일 촬영: 화풍이 어느 정도 수렴한 장면으로 바로 간다
   const params = () => ({
     seed: seedGetter(), copy: Number($('copy').value) / 100, bias: Number($('bias').value) / 100,
     originality: Number($('originality').value) / 100,
@@ -40,7 +41,10 @@
       paint(ctx, x, y, tile, i, sim.style[i]);
       ctx.restore();
       if (i === m.top) { ctx.strokeStyle = '#d19200'; ctx.lineWidth = 2.5; ctx.strokeRect(x, y, tile, tile); }
-      else if (sim.act[i] === 2) { ctx.strokeStyle = 'rgba(31,164,99,.9)'; ctx.lineWidth = 1.8; ctx.strokeRect(x + 0.5, y + 0.5, tile - 1, tile - 1); }
+      else if (sim.act[i] === 2 && !THUMB) { // 혁신한 화가: 테두리 대신 모서리의 초록 점 (테두리는 40장이 한꺼번에 깜빡여 그림을 가렸다)
+        const r = Math.max(3, tile * 0.07); ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(x + tile - r - 2, y + r + 2, r + 1.5, 0, 7); ctx.fill();
+        ctx.fillStyle = '#1fa463'; ctx.beginPath(); ctx.arc(x + tile - r - 2, y + r + 2, r, 0, 7); ctx.fill();
+      }
     }
     ctx.lineWidth = 1;
     $('when').textContent = `${sim.round}/${sim.params.rounds} 라운드 · 화풍 쏠림 ${pct(sim.history[sim.history.length - 1].concentration)}`;
@@ -64,7 +68,10 @@
       ctx.fillStyle = hsl(st[0], 0.7, 0.5, 0.55); ctx.beginPath(); ctx.arc(X(st[0]), Y(st[2]), r, 0, 7); ctx.fill();
     }
     const t = sim.style[mt.top]; ctx.strokeStyle = '#d19200'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(X(t[0]), Y(t[2]), 12, 0, 7); ctx.stroke(); ctx.lineWidth = 1;
-    ctx.fillStyle = '#d19200'; ctx.textAlign = t[0] > 0.6 ? 'right' : 'left'; ctx.fillText('가장 인기 있는 화풍', X(t[0]) + (t[0] > 0.6 ? -16 : 16), Y(t[2]) - 14);
+    ctx.textAlign = t[0] > 0.6 ? 'right' : 'left'; ctx.font = '600 12px -apple-system, "Apple SD Gothic Neo", sans-serif';
+    const lx = X(t[0]) + (t[0] > 0.6 ? -16 : 16), ly = Y(t[2]) + (t[2] > 0.85 ? 26 : -14); // 점들 위에서도 읽히게 흰 테두리
+    ctx.lineWidth = 4; ctx.strokeStyle = 'rgba(255,255,255,.92)'; ctx.lineJoin = 'round'; ctx.strokeText('가장 인기 있는 화풍', lx, ly); ctx.lineWidth = 1;
+    ctx.fillStyle = '#b07a00'; ctx.fillText('가장 인기 있는 화풍', lx, ly);
   }
 
   function drawSweep() {
@@ -104,7 +111,8 @@
     controls: ['copy', 'bias', 'originality'],
     format: { copy: (v) => v + '%', bias: (v) => v + '%', originality: (v) => v + '%' },
     defaults: { copy: 60, bias: 50, originality: 40 },
-    build() { sim = PA.create(params()); },
+    build() { sim = PA.create(params()); if (THUMB) for (let k = 0; k < 90; k++) sim.advance(); },
+    autoplay: !THUMB,
     advance() { return sim.advance(); },
     isDone() { return sim.done; },
     draw, after, redrawExtra: drawSweep, seedLabel: '화단 번호',

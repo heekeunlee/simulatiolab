@@ -7,6 +7,9 @@
   const AVGS = [4, 8, 12];
   let sim = null, sel = 0, pos = [], rows = [], staticDirty = true;
   let seedGetter = () => 1;
+  const THUMB = /[?&]thumb=1/.test(location.search);   // 썸네일 촬영: 표본을 끝까지 뽑은 장면으로 바로 간다
+  // 3D 보기(app3d.js)가 같은 관계망을 쓰도록 공개한다
+  function share(ev) { window.FriendshipView = { sim, sel }; window.dispatchEvent(new Event(ev || 'friendship-built')); }
   const params = () => ({ seed: seedGetter(), n: Number($('n').value), hub: Number($('hub').value) / 100, avg: Number($('avg').value) });
   const FONT = '12px -apple-system, "Apple SD Gothic Neo", sans-serif', FONTB = '600 13px -apple-system, "Apple SD Gothic Neo", sans-serif';
   const f1 = (v) => v.toFixed(1);
@@ -20,7 +23,7 @@
     pos = []; for (let i = 0; i < n; i++) pos.push([m.l + lay.x[i] * pw, m.t + lay.y[i] * ph]);
     const isFriend = new Uint8Array(n); if (sel >= 0) adj[sel].forEach((j) => { isFriend[j] = 1; });
     // 모든 관계는 흐리게
-    ctx.strokeStyle = sel >= 0 ? 'rgba(99,106,122,.10)' : 'rgba(99,106,122,.22)'; ctx.lineWidth = 1; ctx.beginPath();
+    ctx.strokeStyle = sel >= 0 ? 'rgba(99,106,122,.13)' : 'rgba(99,106,122,.24)'; ctx.lineWidth = 1; ctx.beginPath();
     for (let i = 0; i < n; i++) adj[i].forEach((j) => { if (j > i) { ctx.moveTo(pos[i][0], pos[i][1]); ctx.lineTo(pos[j][0], pos[j][1]); } });
     ctx.stroke();
     if (sel >= 0) {
@@ -28,14 +31,17 @@
       adj[sel].forEach((j) => { ctx.moveTo(pos[sel][0], pos[sel][1]); ctx.lineTo(pos[j][0], pos[j][1]); });
       ctx.stroke(); ctx.lineWidth = 1;
     }
-    const rad = (i) => 2.2 + 0.85 * Math.sqrt(M.deg[i]);
+    const rad = (i) => 2.2 + 1.05 * Math.sqrt(M.deg[i]);
+    const lmin = Math.log(Math.max(1, Math.min(...M.deg))), lmax = Math.log(M.maxDeg), hubT = (i) => (Math.log(M.deg[i]) - lmin) / (lmax - lmin || 1);
     const order = Array.from({ length: n }, (_, i) => i).sort((a, b) => M.deg[a] - M.deg[b]);
     order.forEach((i) => {
       const dim = sel >= 0 && i !== sel && !isFriend[i];
-      ctx.fillStyle = i === sel ? css('--unlucky') : isFriend[i] ? '#e0a100' : mix(css('--accent'), dim ? 0.3 : 0.7);
+      // 친구가 많을수록 진한 색 (허브가 한눈에 보이게)
+      ctx.fillStyle = i === sel ? css('--unlucky') : isFriend[i] ? '#e0a100' : mix(css('--accent'), dim ? 0.22 + 0.4 * hubT(i) : 0.38 + 0.62 * hubT(i));
       ctx.beginPath(); ctx.arc(pos[i][0], pos[i][1], rad(i), 0, 7); ctx.fill();
       ctx.strokeStyle = 'rgba(255,255,255,.85)'; ctx.beginPath(); ctx.arc(pos[i][0], pos[i][1], rad(i), 0, 7); ctx.stroke();
     });
+    if (sel >= 0) { ctx.lineWidth = 2; ctx.strokeStyle = css('--unlucky'); ctx.beginPath(); ctx.arc(pos[sel][0], pos[sel][1], rad(sel) + 3, 0, 7); ctx.stroke(); ctx.lineWidth = 1; }
     // 표본으로 뽑힌 사람 (재생 중)
     if (sim.lastSelf >= 0) {
       ctx.lineWidth = 2.6; ctx.strokeStyle = css('--text');
@@ -141,7 +147,7 @@
     const r = $('c-net').getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
     let best = -1, bd = 18 * 18;
     pos.forEach((p, i) => { const d = (p[0] - x) * (p[0] - x) + (p[1] - y) * (p[1] - y); if (d < bd) { bd = d; best = i; } });
-    if (best >= 0) { sel = best; renderStats(); drawNet(); drawScat(); }
+    if (best >= 0) { sel = best; renderStats(); drawNet(); drawScat(); share('friendship-select'); }
   });
 
   const h = L.harness({
@@ -151,10 +157,12 @@
     build() {
       const P = params(); sim = FR.create(Object.assign({}, P, { rounds: 300 }));
       sel = FR.typicalPerson(sim.M); staticDirty = true;
+      if (THUMB) sim.run();
+      share();
     },
     advance() { return sim.advance(); },
     isDone() { return sim.done(); },
-    draw, after, redrawExtra() { drawStatic(); drawSweep(); }, seedLabel: '관계망 번호',
+    draw, after, autoplay: !THUMB, redrawExtra() { drawStatic(); drawSweep(); }, seedLabel: '관계망 번호',
   });
   seedGetter = h.seed;
 })();

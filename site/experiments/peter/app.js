@@ -3,6 +3,7 @@
   const PT = window.Peter, L = window.Lab;
   const { css, mix, pct } = L;
   const $ = (id) => document.getElementById(id);
+  const THUMB = /[?&]thumb=1/.test(location.search); // 썸네일 촬영: 60년 뒤의 피라미드
   const NAMES = { best: '최고 능력자 승진', worst: '최저 능력자 승진', random: '무작위 승진', alt: '번갈아 승진' };
   const ORDER = ['best', 'worst', 'random', 'alt'];
   let sim = null, cmp = [], cmpDone = false;
@@ -10,26 +11,37 @@
   const params = () => ({ seed: seed(), strategy: $('strategy').value, continuity: Number($('continuity').value) / 100, years: Number($('years').value) });
   let seedGetter = () => 1; const seed = () => seedGetter();
 
-  // 능력 0~10 → 색 (빨강 - 노랑 - 파랑)
+  // 능력 → 색. 처음 평균(7)을 가운데(옅은 베이지)로, 낮을수록 빨강, 높을수록 파랑 (중간색이 탁해지지 않게 두 갈래로 섞는다)
   function color(c) {
-    const t = Math.min(1, Math.max(0, c / 10));
-    const a = t < 0.5 ? [229, 72, 77] : [245, 196, 81], b = t < 0.5 ? [245, 196, 81] : [47, 111, 237], u = t < 0.5 ? t * 2 : (t - 0.5) * 2;
-    return `rgb(${a.map((v, i) => Math.round(v + (b[i] - v) * u)).join(',')})`;
+    const mid = [214, 205, 186], lo = [229, 72, 77], hi = [47, 111, 237];
+    const t = c < 7 ? Math.min(1, (7 - c) / 3.5) : Math.min(1, (c - 7) / 2.5), to = c < 7 ? lo : hi;
+    return `rgb(${mid.map((v, i) => Math.round(v + (to[i] - v) * Math.pow(t, 0.8))).join(',')})`;
   }
 
+  // 단계마다 한 줄에 최대 21명씩 쌓아 피라미드 모양으로 그린다 (휴대폰에서도 점이 너무 작아지지 않게)
+  const PER_ROW = 21;
   function drawPyramid() {
-    const c = L.chart($('c-pyramid'), 0.62, { l: 8, r: 8, t: 8, b: 8 });
+    const cv = $('c-pyramid'), W = cv.clientWidth || 400, labW = W < 520 ? 52 : 74;
+    const rowsOf = (lv) => Math.ceil(lv.length / PER_ROW);
+    const nRows = sim.levels.reduce((t, lv) => t + rowsOf(lv), 0), gaps = sim.levels.length - 1;
+    const cell = Math.min(THUMB ? 40 : 30, (W - labW - 16) / PER_ROW), lg = cell * 0.55, need = nRows * cell + gaps * lg + 24;
+    const c = L.chart(cv, THUMB ? 1 : need / W, { l: 0, r: 0, t: 0, b: 0 });
     const { ctx, w, h } = c;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
-    const rows = sim.levels.length, rowH = (h - 16) / rows;
+    const cx = labW + (w - labW - 8) / 2, r = cell * 0.4, rows = sim.levels.length;
+    let y = (h - need) / 2 + 12;
     sim.levels.forEach((lv, l) => {
-      const sorted = lv.slice().sort((a, b) => b.c - a.c);
-      const size = lv.length, maxW = w - 120, r = Math.min(7, (maxW / Math.max(81, size)) / 2.1);
-      const gap = Math.min(r * 2.3, maxW / size);
-      const total = gap * size, x0 = 100 + (maxW - total) / 2 + gap / 2, y = 8 + rowH * l + rowH / 2;
-      ctx.fillStyle = css('--muted'); ctx.textAlign = 'left'; ctx.font = '12px -apple-system, "Apple SD Gothic Neo", sans-serif';
-      ctx.fillText(l === 0 ? '최상위' : l === rows - 1 ? '말단' : `${rows - l}단계`, 10, y + 4);
-      sorted.forEach((p, i) => { ctx.fillStyle = color(p.c); ctx.beginPath(); ctx.arc(x0 + i * gap, y, r, 0, 7); ctx.fill(); });
+      const sorted = lv.slice().sort((a, b) => b.c - a.c), nr = rowsOf(lv);
+      if (!THUMB) {
+        ctx.fillStyle = css('--muted'); ctx.textAlign = 'left'; ctx.font = (W < 520 ? 11 : 12) + 'px -apple-system, "Apple SD Gothic Neo", sans-serif';
+        ctx.fillText(l === 0 ? '최상위' : l === rows - 1 ? '말단' : `${rows - l}단계`, 8, y + (nr * cell) / 2 + 4);
+      }
+      sorted.forEach((p, i) => {
+        const row = Math.floor(i / PER_ROW), inRow = Math.min(PER_ROW, lv.length - row * PER_ROW), col = i % PER_ROW;
+        const x = cx + (col - (inRow - 1) / 2) * cell, yy = y + row * cell + cell / 2;
+        ctx.fillStyle = color(p.c); ctx.beginPath(); ctx.arc(x, yy, r, 0, 7); ctx.fill();
+      });
+      y += nr * cell + lg;
     });
     const e = sim.efficiency();
     $('when').textContent = `${sim.year}년째 · 조직 효율 ${e.toFixed(2)}`;
@@ -81,7 +93,7 @@
       ctx.fillStyle = css('--muted'); ctx.textAlign = 'center'; ctx.fillText(NAMES[k].replace(' 승진', ''), cx, m.t + ph + 18);
     });
     ctx.setLineDash([4, 3]); ctx.strokeStyle = css('--muted'); ctx.beginPath(); ctx.moveTo(m.l, Y(7)); ctx.lineTo(m.l + pw, Y(7)); ctx.stroke(); ctx.setLineDash([]);
-    ctx.fillStyle = css('--muted'); ctx.textAlign = 'left'; ctx.fillText('처음 7.0', m.l + 4, Y(7) - 5);
+    ctx.fillStyle = css('--muted'); ctx.textAlign = 'center'; ctx.font = '11px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillText('처음 7.0', m.l + gw * 2, Y(7) + 13); // 막대 사이 빈 곳, 선 아래에
   }
 
   function renderStats() {
@@ -111,7 +123,8 @@
     controls: ['strategy', 'continuity', 'years'],
     format: { continuity: (v) => v + '%', years: (v) => v + '년', strategy: () => '' },
     defaults: { strategy: 'best', continuity: 0, years: 60 },
-    build() { sim = PT.create(params()); },
+    build() { sim = PT.create(params()); if (THUMB) sim.run(); },
+    autoplay: !THUMB,
     advance() { return sim.advance(); },
     isDone() { return sim.done; },
     draw, after, redrawExtra: drawCmp, seedLabel: '조직 번호',

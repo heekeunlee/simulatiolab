@@ -4,6 +4,8 @@
   const $ = (id) => document.getElementById(id);
   const { css, setup, mix, roundRect } = window.Lab;
   const DEFAULTS = { events: 500, pLucky: 50, years: 40, sdT: 0.1 };
+  const THUMB = /[?&]thumb=1/.test(location.search); // 메인 페이지 썸네일용: 40년 뒤 장면으로 바로 간다
+  const SPEED = 0.7; // 2026-10-12: 전체 애니메이션을 30% 느리게
 
   let seed = 1;
   let sim = null, st = null, anim = null;
@@ -32,21 +34,24 @@
 
   // ---------- ② 히스토그램 ----------
   function drawHist() {
-    const { ctx, w, h } = setup($('c-hist'), 0.7);
+    const { ctx, w, h } = setup($('c-hist'), 0.95);
     const c0 = sim.params.c0;
     const ks = Array.from(sim.capital, (c) => Math.round(Math.log2(c / c0)));
     const kmin = Math.min(...ks), kmax = Math.max(...ks);
     const counts = new Array(kmax - kmin + 1).fill(0);
     ks.forEach((k) => counts[k - kmin]++);
-    const cmax = Math.max(...counts);
-    const m = { l: 40, r: 8, t: 10, b: 36 };
+    const rawMax = Math.max(...counts);
+    const mag = Math.pow(10, Math.floor(Math.log10(rawMax / 4))), r0 = rawMax / 4 / mag;
+    const gstep = (r0 <= 1 ? 1 : r0 <= 2 ? 2 : r0 <= 5 ? 5 : 10) * mag;
+    const cmax = Math.ceil(rawMax / gstep) * gstep;
+    const m = { l: 40, r: 8, t: 34, b: 36 };
     const pw = w - m.l - m.r, ph = h - m.t - m.b;
     const bw = pw / counts.length;
     const text = css('--muted'), line = css('--line');
 
     ctx.strokeStyle = line; ctx.fillStyle = text; ctx.textAlign = 'right';
-    for (let g = 0; g <= 3; g++) {
-      const v = Math.round((cmax * g) / 3), y = m.t + ph - (ph * g) / 3;
+    for (let v = 0; v <= cmax; v += gstep) {
+      const y = m.t + ph - (ph * v) / cmax;
       ctx.beginPath(); ctx.moveTo(m.l, y); ctx.lineTo(w - m.r, y); ctx.stroke();
       ctx.fillText(String(v), m.l - 6, y + 4);
     }
@@ -59,10 +64,27 @@
     ctx.fillStyle = text; ctx.textAlign = 'center';
     const every = Math.max(1, Math.ceil(counts.length / 7));
     counts.forEach((_, i) => {
-      if (i % every) return;
-      ctx.fillText(fmtCap(c0 * Math.pow(2, i + kmin)), m.l + i * bw + bw / 2, h - m.b + 16);
+      const k = i + kmin;
+      if (((k % every) + every) % every) return; // 시작값(k=0)에 늘 눈금이 오도록
+      ctx.fillStyle = k === 0 ? css('--text') : text;
+      ctx.fillText(fmtCap(c0 * Math.pow(2, k)), m.l + i * bw + bw / 2, h - m.b + 16);
     });
+    ctx.fillStyle = text;
     ctx.fillText('최종 자본 (시작값 ' + c0 + ')', m.l + pw / 2, h - 4);
+
+    // 최고 부자가 있는 막대 위에 금색 표시
+    const kr = Math.round(Math.log2(sim.capital[st.richest] / c0)) - kmin;
+    const rx = m.l + kr * bw + bw / 2, ry = m.t + ph - (ph * counts[kr]) / cmax - 6;
+    ctx.fillStyle = css('--rich');
+    ctx.beginPath(); ctx.moveTo(rx, ry); ctx.lineTo(rx - 5, ry - 8); ctx.lineTo(rx + 5, ry - 8); ctx.closePath(); ctx.fill();
+    ctx.textAlign = rx > m.l + pw * 0.75 ? 'right' : 'center';
+    ctx.fillText('최고 부자', rx + (rx > m.l + pw * 0.75 ? 6 : 0), ry - 12);
+    // 핵심 한 줄: 시작값보다 늘어난(파랑) 사람과 그들이 가진 몫
+    const up = Array.from(sim.capital).filter((c) => c > c0 * 1.0001).length;
+    ctx.font = '600 13px -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif';
+    ctx.textAlign = 'left'; ctx.fillStyle = css('--accent');
+    ctx.fillText(`시작보다 늘어난 사람 ${Math.round(up / sim.n * 100)}% (파랑)`, m.l, 16);
+    ctx.font = '12px -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif';
   }
 
   // ---------- ③ 산점도 ----------
@@ -86,6 +108,10 @@
     ctx.textAlign = 'center';
     for (let t = Math.ceil(tmin * 10) / 10; t <= tmax; t += 0.1) ctx.fillText(t.toFixed(1), X(t), h - m.b + 16);
     ctx.fillText('재능', m.l + pw / 2, h - 4);
+    // 시작 자본선
+    ctx.setLineDash([5, 3]); ctx.strokeStyle = css('--muted'); ctx.beginPath();
+    ctx.moveTo(m.l, Y(0)); ctx.lineTo(w - m.r, Y(0)); ctx.stroke(); ctx.setLineDash([]);
+    ctx.textAlign = 'left'; ctx.fillText('시작 자본', m.l + 4, Y(0) - 5);
 
     ctx.fillStyle = mix(css('--accent'), 0.35);
     for (let i = 0; i < n; i++) {
@@ -167,6 +193,9 @@
   function drawWorld() {
     const { ctx, w } = setup($('c-world'), 1);
     const W = anim.params.world, s = w / W, c0 = anim.params.c0;
+    // 세계는 토러스(끝과 끝이 이어짐)라서, 썸네일에서는 최고 부자가 가운데 오도록 화면을 돌려 본다
+    const ox = THUMB ? W / 2 - anim.ax[st.richest] : 0, oy = THUMB ? W / 2 - anim.ay[st.richest] : 0;
+    const PX = (v) => ((((v + ox) % W) + W) % W + 0.5) * s, PY = (v) => ((((v + oy) % W) + W) % W + 0.5) * s;
 
     // 바탕: 아주 옅은 점 격자
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, w);
@@ -178,15 +207,15 @@
     // 이벤트: 번지는 빛 (행운=초록, 불운=빨강)
     const R = Math.max(10, s * 7);
     for (let k = 0; k < anim.ex.length; k++) {
-      const x = (anim.ex[k] + 0.5) * s, y = (anim.ey[k] + 0.5) * s;
+      const x = PX(anim.ex[k]), y = PY(anim.ey[k]);
       const col = anim.lucky[k] ? '#1fa463' : '#e5484d';
       const gr = ctx.createRadialGradient(x, y, 0, x, y, R);
-      gr.addColorStop(0, mix(col, 0.30)); gr.addColorStop(1, mix(col, 0));
+      gr.addColorStop(0, mix(col, THUMB ? 0.16 : 0.30)); gr.addColorStop(1, mix(col, 0));
       ctx.fillStyle = gr; ctx.beginPath(); ctx.arc(x, y, R, 0, 7); ctx.fill();
     }
     for (let k = 0; k < anim.ex.length; k++) {
       ctx.fillStyle = mix(anim.lucky[k] ? '#1fa463' : '#e5484d', 0.85);
-      ctx.beginPath(); ctx.arc((anim.ex[k] + 0.5) * s, (anim.ey[k] + 0.5) * s, 1.6, 0, 7); ctx.fill();
+      ctx.beginPath(); ctx.arc(PX(anim.ex[k]), PY(anim.ey[k]), 1.6, 0, 7); ctx.fill();
     }
 
     // 사람: 자본이 클수록 크고 진한 파랑, 줄었으면 작고 옅은 회색
@@ -194,20 +223,37 @@
     for (const i of order) {
       const v = Math.log2(anim.capital[i] / c0);
       let r, col;
-      if (v > 0) { r = Math.min(2 + v * 0.7, 8); col = mix('#2f6fed', Math.min(0.5 + v * 0.07, 0.95)); }
+      if (v > 0) { r = Math.min(2 + v * 0.7, 8) * (THUMB ? 1.35 : 1); col = mix('#2f6fed', Math.min(0.5 + v * 0.07, 0.95)); }
       else if (v === 0) { r = 2; col = 'rgba(99,106,122,.55)'; }
       else { r = 1.5; col = 'rgba(99,106,122,.28)'; }
       ctx.fillStyle = col;
-      ctx.beginPath(); ctx.arc((anim.ax[i] + 0.5) * s, (anim.ay[i] + 0.5) * s, r, 0, 7); ctx.fill();
+      ctx.beginPath(); ctx.arc(PX(anim.ax[i]), PY(anim.ay[i]), r, 0, 7); ctx.fill();
+    }
+
+    // 방금 이벤트를 만난 사람: 자본이 늘었으면 초록 고리, 줄었으면 빨간 고리
+    if (anim.step > 0 && !THUMB) {
+      const prev = (anim.step - 1) * anim.n;
+      ctx.lineWidth = 1.6;
+      for (let i = 0; i < anim.n; i++) {
+        const a = anim.history[prev + i], b = anim.capital[i];
+        if (a === b) continue;
+        ctx.strokeStyle = b > a ? '#1fa463' : '#e5484d';
+        const v = Math.log2(b / c0), rr = (v > 0 ? Math.min(2 + v * 0.7, 8) : 2) + 3.5;
+        ctx.beginPath(); ctx.arc(PX(anim.ax[i]), PY(anim.ay[i]), rr, 0, 7); ctx.stroke();
+      }
+      ctx.lineWidth = 1;
     }
 
     // 최고 재능자 / 최고 부자 (최종 결과 기준으로 계속 따라다니며 표시)
     const mark = (i, color, label) => {
-      const x = (anim.ax[i] + 0.5) * s, y = (anim.ay[i] + 0.5) * s;
-      ctx.strokeStyle = color; ctx.lineWidth = 2.5;
-      ctx.beginPath(); ctx.arc(x, y, 8, 0, 7); ctx.stroke();
+      const x = PX(anim.ax[i]), y = PY(anim.ay[i]);
+      const R0 = THUMB ? 13 : 9;
+      ctx.strokeStyle = '#fff'; ctx.lineWidth = 5;
+      ctx.beginPath(); ctx.arc(x, y, R0, 0, 7); ctx.stroke();
+      ctx.strokeStyle = color; ctx.lineWidth = THUMB ? 4 : 2.5;
+      ctx.beginPath(); ctx.arc(x, y, R0, 0, 7); ctx.stroke();
       ctx.fillStyle = color; ctx.beginPath(); ctx.arc(x, y, 3, 0, 7); ctx.fill();
-      chip(ctx, `${label} · 자본 ${fmtCap(anim.capital[i])}`, x, y, color, w);
+      if (!THUMB) chip(ctx, `${label} · 자본 ${fmtCap(anim.capital[i])}`, x, y, color, w);
     };
     mark(st.mostTalented, '#7c5cff', '최고 재능자');
     mark(st.richest, '#d19200', '최고 부자');
@@ -231,7 +277,7 @@
 
   function tick(ts) {
     if (playing) {
-      acc += ((ts - lastTs) / 1000) * Number($('speed').value);
+      acc += Math.min(0.25, (ts - lastTs) / 1000) * Number($('speed').value) * SPEED;
       let moved = false;
       while (acc >= 1) {
         acc -= 1;
@@ -288,6 +334,7 @@
     $('seedinfo').textContent = `운의 번호 #${seed}`;
     renderStats();
     resetAnim();
+    if (!THUMB) { playing = true; $('play').textContent = '⏸ 일시정지'; } // 실행하면 바로 40년을 재생
     drawHist(); drawScatter(); drawTimeline();
   }
 
@@ -377,5 +424,6 @@
 
   showOutputs();
   run();
-  requestAnimationFrame(tick);
+  if (THUMB) { anim.run(); drawWorld(); }
+  requestAnimationFrame((ts) => { lastTs = ts; tick(ts); });
 })();

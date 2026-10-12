@@ -3,9 +3,10 @@
   const CO = window.Cooperation, L = window.Lab;
   const { css, mix, pct, roundRect } = L;
   const $ = (id) => document.getElementById(id);
-  const COL = ['#3b82f6', '#e5484d', '#1fa463', '#0ea5a5', '#7c5cff'];
+  const COL = ['#3b82f6', '#e5484d', '#1fa463', '#f5a524', '#8b5cf6'];   // 너그러운 맞받아치기는 초록과 헷갈리지 않게 주황
   let sim = null, sweep = [];
   let seedGetter = () => 1;
+  const THUMB = /[?&]thumb=1/.test(location.search);   // 메인 썸네일용: 150세대를 끝까지 돌린 전략 비율 그림
   const params = () => ({
     seed: seedGetter(), defectors: Number($('defectors').value) / 100, noise: Number($('noise').value) / 100,
     rounds: Number($('rounds').value), T: Number($('T').value),
@@ -17,16 +18,17 @@
     const n = sim.n, cols = 24, rows = Math.ceil(n / cols), cw = (w - 20) / cols, chh = (h - 20) / rows, r = Math.min(cw, chh) * 0.38;
     const st = sim.strat;
     for (let i = 0; i < n; i++) {
-      ctx.fillStyle = COL[st[i]]; ctx.beginPath(); ctx.arc(10 + (i % cols) * cw + cw / 2, 10 + Math.floor(i / cols) * chh + chh / 2, r, 0, 7); ctx.fill();
+      const x = 10 + (i % cols) * cw + cw / 2, y = 10 + Math.floor(i / cols) * chh + chh / 2;
+      ctx.fillStyle = COL[st[i]]; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill();
     }
     const has = sim.coopHistory.length > 0;
     $('when').textContent = `${sim.gen}/${sim.params.generations}세대 · 협력률 ${has ? pct(sim.coopHistory[sim.coopHistory.length - 1]) : '-'}`;
   }
 
   function drawArea() {
-    const c = L.chart($('c-area'), 0.7), { ctx, m, pw, ph } = c, H = sim.history, T = sim.params.generations;
+    const c = L.chart($('c-area'), THUMB ? 1 : 0.7, THUMB ? { l: 0, r: 0, t: 0, b: 0 } : {}), { ctx, m, pw, ph } = c, H = THUMB ? sim.history.slice(0, 71) : sim.history, T = THUMB ? 70 : sim.params.generations;   // 썸네일은 배신자가 무너지는 앞부분 70세대
     const X = (t) => m.l + (t / T) * pw, Y = (v) => m.t + ph - v * ph, xt = []; for (let t = 0; t <= T; t += T / 5) xt.push(t);
-    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: pct, xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '세대' });
+    if (!THUMB) L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: pct, xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '세대' });
     const acc = H.map(() => 0);
     [1, 0, 2, 3, 4].forEach((k) => {
       ctx.fillStyle = COL[k]; ctx.beginPath();
@@ -81,8 +83,9 @@
     controls: ['defectors', 'noise', 'rounds', 'T'],
     format: { defectors: (v) => v + '%', noise: (v) => v + '%', rounds: (v) => v + '판', T: (v) => Number(v).toFixed(1) },
     defaults: { defectors: 50, noise: 2, rounds: 10, T: 5 },
-    build() { sim = CO.create(params()); },
+    build() { sim = CO.create(params()); if (THUMB) sim.run(); },
     advance() { return sim.advance(); },
+    autoplay: !THUMB,
     isDone() { return sim.done; },
     draw, after, redrawExtra: drawSweep, seedLabel: '마을 번호',
   });

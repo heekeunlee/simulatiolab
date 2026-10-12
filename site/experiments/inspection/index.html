@@ -51,13 +51,13 @@
 
   <section class="panel chart" style="margin-top:16px">
     <h3 data-en="① Passengers Arrive One by One">① 승객이 한 명씩 도착한다</h3>
-    <p data-en="Each time a passenger arrives, you see the bus gap they landed in (orange) and their wait (red line). The blue dots are earlier passengers, and far more of them sit inside long gaps. The line below is the average wait so far.">승객이 도착할 때마다 그 사람이 걸린 버스 간격(주황)과 기다린 시간(빨간 선)을 보여 줍니다. 파란 점은 앞서 도착한 승객들인데, 긴 간격 안에 훨씬 많이 모여 있습니다. 아래 선은 지금까지의 평균 대기입니다.</p>
+    <p data-en="Each time a passenger arrives, you see the bus gap they landed in (orange) and their wait (red line). The blue dots are earlier passengers, and far more of them sit inside long gaps. The graph below is the average wait of everyone who has arrived so far; it closes in on the gold theory line and stays far from the gray naive estimate (half the gap).">승객이 도착할 때마다 그 사람이 걸린 버스 간격(주황)과 기다린 시간(빨간 선)을 보여 줍니다. 파란 점은 앞서 도착한 승객들인데, 긴 간격 안에 훨씬 많이 모여 있습니다. 아래 그래프는 지금까지 도착한 승객들의 평균 대기로, 금색 이론선으로 다가가고 회색 단순 계산(간격의 절반)과는 멀어집니다.</p>
     <canvas id="c-bus" class="rounded" aria-label="① Passengers Arrive One by One"></canvas>
     <div class="anim-bar">
       <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
       <button id="stepbtn" data-en="Step">한 단계</button>
       <button id="restart" data-en="Restart">처음부터</button>
-      <select id="speed" aria-label="speed"><option value="5" data-en="Slow">느리게</option><option value="20" selected data-en="Normal">보통</option><option value="80" data-en="Fast">빠르게</option></select>
+      <select id="speed" aria-label="speed"><option value="2" data-en="Slow">느리게</option><option value="6" selected data-en="Normal">보통</option><option value="40" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
   </section>
@@ -66,7 +66,7 @@
     <section class="panel chart">
       <h3 data-en="② Gaps Counted by Bus vs Gaps Seen by Passengers">② 버스를 센 간격과 승객이 본 간격</h3>
     <p data-en="The blue bars are the distribution of gaps when you count buses one by one, and the orange line is the distribution of the gaps passengers actually landed in. The orange one leans toward long gaps, which pushes its mean to the right.">파란 막대는 버스 간격을 하나씩 센 분포이고, 주황 선은 승객이 실제로 걸린 간격의 분포입니다. 주황은 긴 간격 쪽으로 쏠려 있어서 평균이 오른쪽으로 밀립니다.</p>
-    <canvas id="c-hist" class="" aria-label="② Gaps Counted by Bus vs Gaps Seen by Passengers"></canvas>
+    <canvas id="c-hist" class="" data-thumb aria-label="② Gaps Counted by Bus vs Gaps Seen by Passengers"></canvas>
       <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Bus gaps (counted one by one)"><i style="background:var(--accent)"></i>버스 간격 (하나씩 센 값)</span><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;Gaps seen by passengers"><i style="background:#e0a100"></i>승객이 본 간격</span></div>
     </section>
     <section class="panel chart">

@@ -29,7 +29,7 @@ page(dict(
  sections=[
   dict(title=T('① 섬의 600년', '① 600 Years on the Island'), p=T('초록 점은 서 있는 나무, 작은 갈색 점은 베어진 자리, 남색 점은 사람입니다. 숲이 줄고 사람이 늘어나는 순서를 지켜보세요.',
         'Green dots are standing trees, small brown dots are felled spots, and navy dots are people. Watch the order in which the forest thins and the people multiply.'),
-       id='c-island', rounded=True, anim=True, speeds=[('6', T('느리게', 'Slow')), ('15', T('보통', 'Normal')), ('40', T('빠르게', 'Fast'))], speed_default='15'),
+       id='c-island', rounded=True, anim=True, thumb=True, speeds=[('4', T('느리게', 'Slow')), ('10', T('보통', 'Normal')), ('30', T('빠르게', 'Fast'))], speed_default='10'),
   dict(title=T('② 인구와 숲의 변화', '② Population and Forest Over Time'), p=T('파란 선은 인구(왼쪽 눈금), 초록 선은 남은 숲(오른쪽 눈금)입니다. 점선은 두 값이 서로 균형을 이루는 인구예요. 인구가 균형점을 지나쳐서 늘어났다가 줄어드는지 보세요.',
         'The blue line is the population (left axis) and the green line is the remaining forest (right axis). The dashed line is the population at which the two balance. See whether the population overshoots that point and then falls back.'),
        id='c-time', legend=[leg('background:#2f6fed', '인구', 'Population'), leg('background:#2f8f4e', '남은 숲', 'Forest remaining')]),

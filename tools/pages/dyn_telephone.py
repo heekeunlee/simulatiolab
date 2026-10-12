@@ -1,5 +1,8 @@
 DYN = {
 '원본': 'Original',
+'← 기억에 잘 남는 모티프': '← More memorable motifs',
+'잘 잊히는 모티프 →': 'Easily forgotten motifs →',
+'새로 생긴 모티프': 'New motifs',
 '체인 {#0}': 'Chain {0}',
 '{0}번째 전달 · 원본 모티프 {1} 남음': 'Retelling {0} · original motifs remaining {1}',
 '전달 횟수': 'Number of retellings',

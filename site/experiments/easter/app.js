@@ -5,6 +5,7 @@
   const $ = (id) => document.getElementById(id);
   let sim = null, sw = { growth: [], regrowth: [], cons: [] };
   let seedGetter = () => 1;
+  const THUMB = /[?&]thumb=1/.test(location.search);   // 메인 썸네일용: 인구가 최고점을 지나 숲이 크게 줄어든 장면에서 멈춘다
   const params = () => ({
     regrowth: Number($('regrowth').value) / 100, growth: Number($('growth').value) / 100, delay: Number($('delay').value),
     harvest: Number($('harvest').value) * 1e-6, conservation: Number($('conservation').value) / 100,
@@ -20,29 +21,34 @@
   const ticks = (max) => [0, 1, 2, 3, 4].map((i) => (max * i) / 4);
 
   function drawIsland() {
-    const c = L.chart($('c-island'), 0.62, { l: 0, r: 0, t: 0, b: 0 });
+    const narrow = ($('c-island').clientWidth || 400) < 560;
+    const c = L.chart($('c-island'), THUMB ? 1 : narrow ? 0.8 : 0.62, { l: 0, r: 0, t: 0, b: 0 });
     const { ctx, w, h } = c, cur = sim.current();
     const g = ctx.createLinearGradient(0, 0, 0, h); g.addColorStop(0, '#dcecff'); g.addColorStop(1, '#eef6ff');
     ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
     const cx = w / 2, cy = h / 2, rx = w * 0.36, ry = h * 0.36;
     const shape = (k) => { ctx.beginPath(); for (let i = 0; i <= 64; i++) { const a = (i / 64) * 6.2832, r = k * (1 + 0.08 * Math.sin(3 * a + 1) + 0.05 * Math.sin(5 * a)); const x = cx + Math.cos(a) * rx * r, y = cy + Math.sin(a) * ry * r; i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); } ctx.closePath(); };
     shape(1.1); ctx.fillStyle = '#f6e7bf'; ctx.fill();
-    shape(1); ctx.fillStyle = '#e6edc9'; ctx.fill();
+    // 땅색: 숲이 많으면 초록 풀밭, 줄수록 메마른 흙빛
+    const lush = [205, 228, 166], bare = [226, 204, 160], gr = cur.R;
+    shape(1); ctx.fillStyle = `rgb(${lush.map((v, i) => Math.round(bare[i] + (v - bare[i]) * gr)).join(',')})`; ctx.fill();
+    const u = Math.max(0.8, w / 900) * (THUMB ? 1.8 : 1);   // 화면 크기에 맞춘 점 크기
     // 숲: 남은 비율만큼 나무가 서 있다. 베어진 자리는 밑동으로 표시
     SITES.forEach((s) => {
       const x = cx + s.x * rx * 0.95, y = cy + s.y * ry * 0.95;
-      if (s.u < cur.R) { ctx.fillStyle = '#2f8f4e'; ctx.beginPath(); ctx.arc(x, y, 3.4, 0, 7); ctx.fill(); ctx.fillStyle = '#4fb06b'; ctx.beginPath(); ctx.arc(x - 0.8, y - 0.8, 1.7, 0, 7); ctx.fill(); }
-      else if (cur.R < 0.995) { ctx.fillStyle = 'rgba(150,110,70,.45)'; ctx.beginPath(); ctx.arc(x, y, 1.4, 0, 7); ctx.fill(); }
+      if (s.u < cur.R) { ctx.fillStyle = '#23793f'; ctx.beginPath(); ctx.arc(x, y, 4.6 * u, 0, 7); ctx.fill(); ctx.fillStyle = '#4fb06b'; ctx.beginPath(); ctx.arc(x - 1.1 * u, y - 1.1 * u, 2.3 * u, 0, 7); ctx.fill(); }
+      else if (cur.R < 0.995) { ctx.fillStyle = 'rgba(122,80,42,.8)'; ctx.beginPath(); ctx.arc(x, y, 2.4 * u, 0, 7); ctx.fill(); }
     });
     // 사람: 점 하나가 scale명
     const scale = Math.max(10, (sim.Pstar * 3) / 260), k = Math.min(FOLK.length, Math.ceil(cur.P / scale));
-    for (let i = 0; i < k; i++) { const f = FOLK[i]; ctx.fillStyle = '#1e2a78'; ctx.beginPath(); ctx.arc(cx + f.x * rx * 0.95, cy + f.y * ry * 0.95, 2.6, 0, 7); ctx.fill(); }
+    for (let i = 0; i < k; i++) { const f = FOLK[i]; ctx.fillStyle = '#1e2a78'; ctx.beginPath(); ctx.arc(cx + f.x * rx * 0.95, cy + f.y * ry * 0.95, 2.8 * u, 0, 7); ctx.fill(); }
+    $('when').textContent = `${sim.year()}년째 · 인구 ${fmt(cur.P)}명 · 숲 ${pct(cur.R)}`;
+    if (THUMB) return;
     ctx.fillStyle = css('--text'); ctx.textAlign = 'left'; ctx.font = '700 28px -apple-system, "Apple SD Gothic Neo", sans-serif';
     ctx.fillText(`${sim.year()}년`, 16, 40);
     ctx.font = '12.5px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillStyle = css('--muted');
     ctx.fillText(`인구 ${fmt(cur.P)}명 · 숲 ${pct(cur.R)}`, 16, 60);
     ctx.textAlign = 'right'; ctx.fillText(`점 하나 ≈ ${fmt(scale)}명`, w - 14, h - 12);
-    $('when').textContent = `${sim.year()}년째 · 인구 ${fmt(cur.P)}명 · 숲 ${pct(cur.R)}`;
   }
 
   function drawTime() {
@@ -94,7 +100,7 @@
     });
   }
   function drawSweepC() {
-    const mx = niceMax(Math.max(1, ...sw.cons.map((d) => d.peak)));
+    const mx = niceMax(Math.max(sim.Pstar * 1.5, ...sw.cons.map((d) => d.peak)));   // 계산 전에도 눈금이 0,1,1,1처럼 깨지지 않게
     L.dots($('c-cons'), {
       data: sw.cons.map((d) => ({ x: d.x, runs: [], mean: d.peak })),
       series: [{ data: sw.cons.map((d) => ({ x: d.x, runs: [], mean: d.final })), color: '#e0a100' }],
@@ -136,7 +142,11 @@
     controls: ['regrowth', 'growth', 'delay', 'harvest', 'conservation'],
     format: { regrowth: (v) => Number(v).toFixed(1) + '%', growth: (v) => Number(v).toFixed(1) + '%', delay: (v) => v + '년', harvest: (v) => v, conservation: (v) => v + '%' },
     defaults: { regrowth: 1, growth: 5, delay: 30, harvest: 2, conservation: 0 },
-    build() { sim = ES.create(params()); },
+    build() {
+      sim = ES.create(params());
+      if (THUMB) { const ref = ES.create(params()).run(); while (!sim.done && sim.current().R > ref.minR * 1.08) sim.advance(); }
+    },
+    autoplay: !THUMB,
     advance() { return sim.advance(); },
     isDone() { return sim.done; },
     draw, after, redrawExtra: sweeps, seedLabel: '재생',

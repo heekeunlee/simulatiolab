@@ -25,9 +25,9 @@ page(dict(
  ],
  sections=[
   dict(title=T('① 갤러리', '① The Gallery'),
-       p=T('그림 한 장이 화가 한 명입니다. 금색 테두리는 가장 인기 있는 화가, 초록 테두리는 이번 라운드에 새 화풍을 시도한 화가예요. 그림들이 점점 닮아 가는지 지켜보세요.',
-           'Each picture is one painter. The gold outline marks the most popular painter, and a green outline marks painters who tried a new style this round. Watch whether the pictures grow more alike.'),
-       id='c-gallery', rounded=True, anim=True, speeds=[('2', T('느리게', 'Slow')), ('5', T('보통', 'Normal')), ('12', T('빠르게', 'Fast'))], speed_default='5'),
+       p=T('그림 한 장이 화가 한 명입니다. 금색 테두리는 가장 인기 있는 화가, 오른쪽 위 초록 점은 이번 라운드에 새 화풍을 시도한 화가예요. 그림들이 점점 닮아 가는지 지켜보세요.',
+           'Each picture is one painter. The gold outline marks the most popular painter, and a green dot in the top-right corner marks painters who tried a new style this round. Watch whether the pictures grow more alike.'),
+       id='c-gallery', rounded=True, anim=True, thumb=True, speeds=[('2', T('느리게', 'Slow')), ('5', T('보통', 'Normal')), ('12', T('빠르게', 'Fast'))], speed_default='5'),
   dict(title=T('② 다양성과 쏠림의 변화', '② Diversity and Concentration Over Time'),
        p=T('파란 선은 다양성(화풍이 얼마나 다른가), 금색 선은 쏠림(인기 화풍을 따르는 비율)입니다.',
            'The blue line is diversity (how different the styles are) and the gold line is concentration (the share following the popular style).'),

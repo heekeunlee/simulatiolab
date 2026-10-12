@@ -3,31 +3,51 @@
   const EF = window.ElFarol, L = window.Lab;
   const { css, mix, pct } = L;
   const $ = (id) => document.getElementById(id);
+  const THUMB = /[?&]thumb=1/.test(location.search); // 썸네일 촬영: 한참 지난 뒤 붐빈 주의 식당 풍경
   let sim = null, capRows = [], stratRows = [], sameRegret = null;
   let seedGetter = () => 1;
   const params = () => ({ seed: seedGetter(), cap: Number($('cap').value), strategies: Number($('strategies').value), mode: $('mode').value });
 
+  // 식당(자리 = 정원)과 집, 두 칸으로 나눠 이번 주에 누가 어디 있었는지 그린다
   function drawRoom() {
-    const c = L.chart($('c-room'), 0.62, { l: 8, r: 8, t: 8, b: 8 });
-    const { ctx, w, h } = c, n = sim.n;
+    const cv = $('c-room'), W = cv.clientWidth || 400, pad = W < 520 ? 10 : 18, head = W < 520 ? 58 : 64, lab = 26;
+    const n0 = sim.n, cap0 = sim.params.cap, att0 = sim.hist.length ? sim.hist[sim.hist.length - 1] : 0;
+    // 칸 높이: 보통 주에 필요한 줄 수만 (정원±15명 여유), 아주 붐비거나 텅 빈 주에만 늘어난다
+    const rowsBox = Math.min(10, Math.ceil(Math.max(cap0 + 15, n0 - cap0 + 15, att0, n0 - att0) / 10));
+    const cell = Math.min(THUMB ? 60 : 34, (W - pad * 3) / 20), boxW = cell * 10, boxH = cell * rowsBox;
+    const need = head + lab + boxH + pad * 2, aspect = THUMB ? 1 : need / W;
+    const c = L.chart(cv, aspect, { l: 0, r: 0, t: 0, b: 0 });
+    const { ctx, w, h } = c, n = sim.n, cap = sim.params.cap, has = sim.hist.length > 0;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
-    const last = sim.hist.length ? sim.hist[sim.hist.length - 1] : null;
-    const cols = 20, rows = Math.ceil(n / cols), gx = 120, cell = Math.min((w - gx - 12) / cols, (h - 20) / rows), r = cell * 0.36;
-    const ox = gx, oy = (h - rows * cell) / 2;
-    const COLORS = { ok: '#2f6fed', crowd: '#e5484d', rightStay: '#d3d9e6', regretStay: '#f5c451' };
-    for (let i = 0; i < n; i++) {
-      let col = '#e6eaf2';
-      if (last != null) {
-        const went = sim.went[i], crowded = sim.crowded;
-        col = went ? (crowded ? COLORS.crowd : COLORS.ok) : (crowded ? COLORS.rightStay : COLORS.regretStay);
-      }
-      ctx.fillStyle = col; ctx.beginPath(); ctx.arc(ox + (i % cols) * cell + cell / 2, oy + Math.floor(i / cols) * cell + cell / 2, r, 0, 7); ctx.fill();
+    const oy = (h - need) / 2, gx = (w - boxW * 2 - pad) / 2, x1 = gx, x2 = gx + boxW + pad, by = oy + head + lab;
+    const crowded = has && sim.crowded, att = has ? sim.hist[sim.hist.length - 1] : 0;
+    const C = { ok: '#2f6fed', crowd: '#e5484d', rightStay: '#b9c1d0', regretStay: '#f5b731', idle: '#e2e7f0' };
+    const F = (wt, px) => `${wt} ${px}px -apple-system, "Apple SD Gothic Neo", sans-serif`;
+    // 위쪽 설명
+    ctx.textAlign = 'left'; ctx.fillStyle = css('--text'); ctx.font = F(700, W < 520 ? 22 : 26);
+    const big = has ? att + '명' : '-'; ctx.fillText(big, x1, oy + 30);
+    const bw = ctx.measureText(big).width;
+    ctx.font = F(400, 12); ctx.fillStyle = css('--muted'); ctx.fillText(`이번 주 손님 / 정원 ${cap}명`, x1 + bw + 10, oy + 29);
+    if (has) { ctx.font = F(700, 14); ctx.fillStyle = crowded ? C.crowd : C.ok; ctx.fillText(crowded ? '붐볐어요' : '여유로웠어요', x1, oy + 50); }
+    // 칸 제목과 테두리
+    const box = (x, title, col) => {
+      ctx.font = F(600, 13); ctx.fillStyle = col; ctx.textAlign = 'left'; ctx.fillText(title, x, by - 9);
+      ctx.strokeStyle = css('--line'); ctx.lineWidth = 1; L.roundRect(ctx, x - 3, by - 3, boxW + 6, boxH + 6, 8); ctx.stroke();
+    };
+    const went = [], stay = [];
+    for (let i = 0; i < n; i++) (has && sim.went[i] ? went : stay).push(i);
+    box(x1, `식당 · 자리 ${cap}석`, css('--text'));
+    box(x2, has ? `집에 있음 ${stay.length}명` : '집에 있음', css('--muted'));
+    const r = cell * 0.36, at = (x0, k) => [x0 + (k % 10) * cell + cell / 2, by + Math.floor(k / 10) * cell + cell / 2];
+    // 빈 자리(의자) 표시, 정원을 넘은 사람은 자리 밖(점선 아래)에 선다
+    for (let k = 0; k < cap; k++) { const [x, y] = at(x1, k); ctx.strokeStyle = '#cfd6e3'; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.stroke(); }
+    if (att > cap) {
+      const yl = by + Math.floor(cap / 10) * cell + (cap % 10 ? cell : 0);
+      ctx.setLineDash([4, 3]); ctx.strokeStyle = C.crowd; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(x1, yl); ctx.lineTo(x1 + boxW, yl); ctx.stroke(); ctx.setLineDash([]);
     }
-    ctx.textAlign = 'left'; ctx.fillStyle = css('--text'); ctx.font = '700 26px -apple-system, "Apple SD Gothic Neo", sans-serif';
-    ctx.fillText(last == null ? '-' : last + '명', 12, h / 2 - 6);
-    ctx.font = '12px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillStyle = css('--muted');
-    ctx.fillText(`이번 주 손님 / 정원 ${sim.params.cap}명`, 12, h / 2 + 14);
-    if (last != null) { ctx.fillStyle = sim.crowded ? css('--unlucky') : css('--accent'); ctx.font = '600 13px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillText(sim.crowded ? '붐볐어요' : '여유로웠어요', 12, h / 2 + 34); }
+    went.forEach((i, k) => { const [x, y] = at(x1, k); ctx.fillStyle = crowded ? C.crowd : C.ok; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill(); });
+    stay.forEach((i, k) => { const [x, y] = at(x2, k); ctx.fillStyle = !has ? C.idle : crowded ? C.rightStay : C.regretStay; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill(); });
+    ctx.lineWidth = 1;
     $('when').textContent = `${sim.weeks}/${sim.params.weeks}주째`;
   }
 
@@ -93,7 +113,11 @@
     controls: ['cap', 'strategies', 'mode'],
     format: { cap: (v) => v + '명', strategies: (v) => v + '개', mode: () => '' },
     defaults: { cap: 60, strategies: 5, mode: 'diverse' },
-    build() { sim = EF.create(params()); },
+    build() {
+      sim = EF.create(params());
+      if (THUMB) { while (!sim.done && !(sim.weeks >= 120 && sim.hist[sim.hist.length - 1] > sim.params.cap + 2)) sim.advance(); }
+    },
+    autoplay: !THUMB, speedScale: 0.35, // 보통 속도 초당 약 5주 (한 주 한 주의 식당 풍경을 따라갈 수 있게)
     advance() { return sim.advance(); },
     isDone() { return sim.done; },
     draw, after, redrawExtra() { drawCap(); drawStrat(); }, seedLabel: '동네 번호',

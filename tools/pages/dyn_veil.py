@@ -21,4 +21,5 @@ DYN = {
  '선택이 바뀌는 지점: γ = {0}': 'The choice changes at γ = {0}',
  '위험 회피 평균 {0}, 퍼짐 {1}인 1,000명이 각자 고른 결과': 'Choices of 1,000 people with average risk aversion {0} and spread {1}',
  '추첨': 'Draw',
+ '내 평균': 'My average',
 }

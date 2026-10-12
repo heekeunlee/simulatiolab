@@ -3,6 +3,7 @@
   const QU = window.Queue, L = window.Lab;
   const { css, mix, pct, roundRect } = L;
   const $ = (id) => document.getElementById(id);
+  const THUMB = /[?&]thumb=1/.test(location.search); // 썸네일 촬영: 초록(눈총)이 빨강(새치기)을 밀어내는 한가운데 장면
   const COL = ['#3b82f6', '#e5484d', '#1fa463'];
   const NAME = ['질서', '새치기', '눈총'];
   let sim = null, pRows = [], iRows = [];
@@ -13,14 +14,23 @@
     cutters: Number($('cutters').value) / 100, punishers: Number($('punishers').value) / 100,
   });
 
+  // 칸 모양(둥근 사각형)을 색마다 한 번만 그려 두고 찍는다 (2,500칸을 매번 경로로 그리면 느린 기기가 있음)
+  let sprites = null, spriteKey = '';
+  function cellSprites(c, dpr) {
+    const key = c.toFixed(3) + '|' + dpr;
+    if (sprites && spriteKey === key) return sprites;
+    const px = Math.max(1, Math.round(c * dpr)), gap = Math.max(0.6, c * 0.12) * dpr;
+    sprites = COL.map((col) => {
+      const o = document.createElement('canvas'); o.width = o.height = px; const x = o.getContext('2d');
+      x.fillStyle = col; roundRect(x, gap / 2, gap / 2, px - gap, px - gap, (px - gap) * 0.32); x.fill(); return o;
+    });
+    spriteKey = key; return sprites;
+  }
   function drawGrid() {
-    const { ctx, w } = L.setup($('c-grid'), 1);
+    const { ctx, w } = L.setup($('c-grid'), 1), dpr = window.devicePixelRatio || 1;
     ctx.fillStyle = '#f1f4fa'; ctx.fillRect(0, 0, w, w);
-    const S = sim.size, c = w / S, gap = Math.max(0.6, c * 0.12);
-    for (let i = 0; i < S * S; i++) {
-      ctx.fillStyle = COL[sim.grid[i]];
-      roundRect(ctx, (i % S) * c + gap / 2, Math.floor(i / S) * c + gap / 2, c - gap, c - gap, c * 0.28); ctx.fill();
-    }
+    const S = sim.size, c = w / S, sp = cellSprites(c, dpr);
+    for (let i = 0; i < S * S; i++) ctx.drawImage(sp[sim.grid[i]], (i % S) * c, Math.floor(i / S) * c, c, c);
     const s = sim.shares();
     $('when').textContent = `${sim.round}/${sim.params.rounds} 라운드 · 새치기 ${pct(s[1])}`;
   }
@@ -77,7 +87,8 @@
     controls: ['gain', 'punish', 'cost', 'cutters', 'punishers'],
     format: { gain: (v) => (v / 100).toFixed(1), punish: (v) => (v / 100).toFixed(1), cost: (v) => (v / 100).toFixed(1), cutters: (v) => v + '%', punishers: (v) => v + '%' },
     defaults: { gain: 50, punish: 100, cost: 20, cutters: 20, punishers: 20 },
-    build() { sim = QU.create(params()); },
+    build() { sim = QU.create(params()); if (THUMB) for (let k = 0; k < 10; k++) sim.advance(); },
+    autoplay: !THUMB, speedScale: 0.25, // 이야기가 처음 20라운드 안에 다 일어나서, 보통 속도를 초당 약 2라운드로
     advance() { return sim.advance(); },
     isDone() { return sim.done; },
     draw, after, redrawExtra() { drawP(); drawI(); }, seedLabel: '줄 번호',

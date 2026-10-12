@@ -60,17 +60,17 @@
       <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
       <button id="stepbtn" data-en="Step">한 단계</button>
       <button id="restart" data-en="Restart">처음부터</button>
-      <select id="speed" aria-label="speed"><option value="4" data-en="Slow">느리게</option><option value="10" selected data-en="Normal">보통</option><option value="25" data-en="Fast">빠르게</option></select>
+      <select id="speed" aria-label="speed"><option value="2.5" data-en="Slow">느리게</option><option value="6" selected data-en="Normal">보통</option><option value="15" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#3b82f6&quot;&gt;&lt;/i&gt;Always cooperate"><i style="background:#3b82f6"></i>항상 협력</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Always defect"><i style="background:#e5484d"></i>항상 배신</span><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Tit-for-Tat"><i style="background:#1fa463"></i>맞받아치기</span><span data-en="&lt;i style=&quot;background:#0ea5a5&quot;&gt;&lt;/i&gt;Generous Tit-for-Tat"><i style="background:#0ea5a5"></i>너그러운 맞받아치기</span><span data-en="&lt;i style=&quot;background:#7c5cff&quot;&gt;&lt;/i&gt;Pavlov"><i style="background:#7c5cff"></i>파블로프</span></div>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#3b82f6&quot;&gt;&lt;/i&gt;Always cooperate"><i style="background:#3b82f6"></i>항상 협력</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Always defect"><i style="background:#e5484d"></i>항상 배신</span><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Tit-for-Tat"><i style="background:#1fa463"></i>맞받아치기</span><span data-en="&lt;i style=&quot;background:#f5a524&quot;&gt;&lt;/i&gt;Generous Tit-for-Tat"><i style="background:#f5a524"></i>너그러운 맞받아치기</span><span data-en="&lt;i style=&quot;background:#8b5cf6&quot;&gt;&lt;/i&gt;Pavlov"><i style="background:#8b5cf6"></i>파블로프</span></div>
   </section>
 
   <div class="charts">
     <section class="panel chart">
       <h3 data-en="② Share of Each Strategy Over Time">② 전략 비율의 변화</h3>
-    <p data-en="The stacked area is the whole (100%). See what happens to the defectors who start as half of the population.">쌓인 면적이 전체(100%)입니다. 처음 절반을 차지하던 배신자가 어떻게 되는지 보세요.</p>
-    <canvas id="c-area" class="" aria-label="② Share of Each Strategy Over Time"></canvas>
+    <p data-en="The stacked area is the whole (100%), with the same colors as ①. See what happens to the defectors (red) who start as half of the population.">쌓인 면적이 전체(100%)이고 색은 ①과 같습니다. 처음 절반을 차지하던 배신자(빨강)가 어떻게 되는지 보세요.</p>
+    <canvas id="c-area" class="" data-thumb aria-label="② Share of Each Strategy Over Time"></canvas>
     </section>
     <section class="panel chart">
       <h3 data-en="③ Cooperation Rate">③ 협력률</h3>

@@ -40,7 +40,8 @@
   let anchor = bench;
   if (modelH2) {
     const sec = document.createElement('section'); sec.className = 'story'; sec.id = 'model';
-    sec.appendChild(modelH2); sec.appendChild(nextOf(modelH2) || document.createTextNode(''));
+    const ul = nextOf(modelH2); // 제목을 옮기기 전에 목록을 먼저 잡아 둔다 (옮긴 뒤에는 다음 형제가 없어짐)
+    sec.appendChild(modelH2); if (ul) sec.appendChild(ul);
     anchor.after(sec); anchor = sec;
   }
   if (saysH2) {
@@ -63,11 +64,13 @@
   const fab = document.createElement('button');
   fab.type = 'button'; fab.className = 'wb-fab';
   const label = (open) => (open ? U('✕ 닫기', '✕ Close') : U('⚙ 설정', '⚙ Settings'));
-  fab.textContent = label(false);
-  fab.addEventListener('click', () => { const o = panel.classList.toggle('open'); fab.textContent = label(o); });
+  // 아이콘만 보이는 동그란 버튼 (재생 막대의 글자를 덜 가리도록). 글자 라벨은 화면 낭독기와 툴팁용
+  const setFab = (o) => { const t = label(o); fab.textContent = t.split(' ')[0]; fab.setAttribute('aria-label', t.slice(2)); fab.title = t.slice(2); fab.setAttribute('aria-expanded', String(o)); };
+  setFab(false);
+  fab.addEventListener('click', () => setFab(panel.classList.toggle('open')));
   document.body.appendChild(fab);
   const mq = window.matchMedia('(max-width: 980px)');
-  const apply = () => { panel.classList.toggle('wb-sheet', mq.matches); if (!mq.matches) { panel.classList.remove('open'); fab.textContent = label(false); } };
+  const apply = () => { panel.classList.toggle('wb-sheet', mq.matches); if (!mq.matches) { panel.classList.remove('open'); setFab(false); } };
   (mq.addEventListener ? mq.addEventListener('change', apply) : mq.addListener(apply));
   apply();
 })();

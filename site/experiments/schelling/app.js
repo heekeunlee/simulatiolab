@@ -4,6 +4,8 @@
   const { css, setup, mix, roundRect } = window.Lab;
   const $ = (id) => document.getElementById(id);
   const DEFAULTS = { threshold: 30, empty: 10, shareA: 50 };
+  const THUMB = /[?&]thumb=1/.test(location.search); // 메인 페이지 썸네일용: 대표 장면으로 바로 간다
+  const SPEED = 0.7; // 2026-10-12: 애니메이션을 30% 느리게
 
   let seed = 1, sim = null, m0 = null;
   let playing = false, acc = 0, lastTs = 0;
@@ -177,7 +179,7 @@
 
   function tick(ts) {
     if (playing) {
-      acc += ((ts - lastTs) / 1000) * Number($('speed').value);
+      acc += Math.min(0.25, (ts - lastTs) / 1000) * Number($('speed').value) * SPEED; // 첫 프레임·탭 복귀 때 한꺼번에 건너뛰지 않게
       while (acc >= 1 && playing) {
         acc -= 1;
         if (!stepOnce()) { playing = false; $('play').textContent = '▶ 다시 재생'; }
@@ -213,5 +215,9 @@
 
   showOutputs();
   newExperiment();
-  requestAnimationFrame(tick);
+  if (THUMB) { while (!sim.done && sim.round < 200) sim.advance(); renderStats(); drawBoards(); drawLine(); }
+  else { // 처음 들어오면 1초 뒤 이사를 자동으로 재생 (처음 배치를 잠깐 보여 준 뒤)
+    setTimeout(() => { if (!playing && sim.round === 0) { playing = true; $('play').textContent = '⏸ 일시정지'; } }, 1000);
+  }
+  requestAnimationFrame((ts) => { lastTs = ts; tick(ts); });
 })();

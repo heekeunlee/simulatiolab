@@ -52,15 +52,15 @@
 
   <section class="panel chart" style="margin-top:16px">
     <h3 data-en="① Returned Planes and the Bullets That Really Hit">① 돌아온 비행기와 실제로 맞은 총탄</h3>
-    <p data-en="Sorties run one after another. The left picture is what you can see on returned planes; the right is every bullet that really hit. Notice how empty the engine and cockpit are on the left. Click a section of the plane (or a button below) to add armor.">출격이 한 번씩 이어집니다. 왼쪽은 돌아온 비행기에서 보이는 구멍, 오른쪽은 실제로 맞은 총탄 전부입니다. 왼쪽에서 엔진과 조종석이 유난히 비어 있는 것을 보세요. 그림의 부위(또는 아래 버튼)를 눌러 장갑을 붙여 볼 수 있습니다.</p>
-    <canvas id="c-map" class="rounded" aria-label="① Returned Planes and the Bullets That Really Hit"></canvas>
+    <p data-en="Sorties run one after another. The left picture is what you can see on returned planes; the right is every bullet that really hit. Notice how empty the engine and cockpit are on the left. Circles mark where the plane that just flew was hit (red circles: it went down). Click a section of the plane (or a button below) to add armor.">출격이 한 번씩 이어집니다. 왼쪽은 돌아온 비행기에서 보이는 구멍, 오른쪽은 실제로 맞은 총탄 전부입니다. 왼쪽에서 엔진과 조종석이 유난히 비어 있는 것을 보세요. 동그라미는 방금 출격한 비행기가 맞은 자리입니다(빨간 동그라미는 추락). 그림의 부위(또는 아래 버튼)를 눌러 장갑을 붙여 볼 수 있습니다.</p>
+    <canvas id="c-map" class="rounded" data-thumb aria-label="① Returned Planes and the Bullets That Really Hit"></canvas>
     <div class="btns"><button id="tg-0" data-en="Engine">엔진</button><button id="tg-1" data-en="Cockpit">조종석</button><button id="tg-2" data-en="Fuselage">동체</button><button id="tg-3" data-en="Wings">날개</button><button id="tg-4" data-en="Tail">꼬리</button></div>
     <div class="btns"><button id="pick-int" data-en="The intuitive way: armor where the holes are">직관대로: 구멍이 많은 곳에 보강</button><button id="pick-wald" data-en="Wald&#x27;s way: armor where holes are missing">월드처럼: 구멍이 빈 곳에 보강</button><button id="pick-clear" data-en="Clear my choice">내 선택 지우기</button></div>
     <div class="anim-bar">
       <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
       <button id="stepbtn" data-en="Step">한 단계</button>
       <button id="restart" data-en="Restart">처음부터</button>
-      <select id="speed" aria-label="speed"><option value="30" data-en="Slow">느리게</option><option value="120" selected data-en="Normal">보통</option><option value="500" data-en="Fast">빠르게</option></select>
+      <select id="speed" aria-label="speed"><option value="20" data-en="Slow">느리게</option><option value="80" selected data-en="Normal">보통</option><option value="400" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
       <div class="legend"><span data-en="&lt;i style=&quot;background:rgba(40,52,84,.85)&quot;&gt;&lt;/i&gt;Hole on a returned plane"><i style="background:rgba(40,52,84,.85)"></i>돌아온 비행기의 구멍</span><span data-en="&lt;i style=&quot;background:rgba(210,50,40,.85)&quot;&gt;&lt;/i&gt;Bullet that hit a plane that never returned"><i style="background:rgba(210,50,40,.85)"></i>돌아오지 못한 비행기가 맞은 총탄</span><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Armor"><i style="background:#1fa463"></i>방탄 장갑</span></div>

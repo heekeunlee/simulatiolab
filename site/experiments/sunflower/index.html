@@ -63,27 +63,40 @@
       <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
       
       <button id="restart" data-en="Restart">처음부터</button>
-      <select id="speed" aria-label="speed"><option value="15" data-en="Slow">느리게</option><option value="40" selected data-en="Normal">보통</option><option value="100" data-en="Fast">빠르게</option></select>
+      <select id="speed" aria-label="speed"><option value="10" data-en="Slow">느리게</option><option value="28" selected data-en="Normal">보통</option><option value="80" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
+  </section>
+  <section class="panel chart" style="margin-top:16px">
+    <style>@media (max-width: 640px) { #c-3d { aspect-ratio: 1 / 1; } }</style>
+    <h3 data-en="② See It in 3D: a Domed Seed Head and a Pinecone &lt;span class=&quot;badge3d&quot;&gt;3D&lt;/span&gt;">② 3D로 보기: 볼록한 꽃판과 솔방울 <span class="badge3d">3D</span></h3>
+    <p data-en="Seeds are placed on a domed head using the angle chosen above. Rotate it and you will see clockwise and counterclockwise spirals crossing; color by 34 or 55 and the arms of one direction group into single colors. Change the angle to 120° or 144° and the seeds crowd into spokes, exposing the dark head between them. A pinecone stacks its scales by the same rule (turn the same angle for each scale), and there the spirals show up as 8 and 13.">위에서 고른 각도로 씨앗을 볼록한 꽃판 위에 올렸습니다. 돌려 보면 시계 방향과 반시계 방향의 나선이 겹쳐 보이고, 색 칠하기를 34나 55로 바꾸면 한 방향의 나선 팔이 한 색으로 묶입니다. 각도를 120°나 144°로 바꾸면 씨앗이 바큇살로 몰리고 그 사이로 짙은 꽃판이 드러납니다. 솔방울도 같은 규칙(비늘 하나마다 같은 각도만큼 돌기)으로 비늘을 쌓은 것이며, 이때는 나선이 8개, 13개로 보입니다.</p>
+    <canvas id="c-3d" class="view3d" data-thumb aria-label="② See It in 3D: a Domed Seed Head and a Pinecone"></canvas>
+    <div class="anim-bar">
+      <select id="shape3d" aria-label="shape"><option value="flower" selected data-en="Sunflower head">해바라기 꽃판</option><option value="cone" data-en="Pinecone">솔방울</option></select>
+      <select id="col3d" aria-label="color"><option value="same" selected data-en="Color: same as above">색 칠하기: 위 설정과 같게</option><option value="index" data-en="Color: seed order">색 칠하기: 번호 순서</option><option value="8" data-en="Color: remainder mod 8">색 칠하기: 8로 나눈 나머지</option><option value="13" data-en="Color: remainder mod 13">색 칠하기: 13로 나눈 나머지</option><option value="21" data-en="Color: remainder mod 21">색 칠하기: 21로 나눈 나머지</option><option value="34" data-en="Color: remainder mod 34">색 칠하기: 34로 나눈 나머지</option><option value="55" data-en="Color: remainder mod 55">색 칠하기: 55로 나눈 나머지</option></select>
+      <button id="grow3d" data-en="▶ Grow from the start">▶ 처음부터 자라기</button>
+      <span class="when" id="info3d"></span>
+    </div>
+    <p class="hint3d" data-en="Drag to rotate · scroll (or pinch) to zoom · the head grows along with the picture above">드래그로 회전 · 휠(두 손가락)로 확대 · 꽃판은 위 그림과 함께 자랍니다</p>
   </section>
 
   <div class="charts">
     <section class="panel chart">
-      <h3 data-en="② How Big Are the Gaps at Each Angle?">② 각도마다 빈틈은 얼마나 될까</h3>
+      <h3 data-en="③ How Big Are the Gaps at Each Angle?">③ 각도마다 빈틈은 얼마나 될까</h3>
     <p data-en="The horizontal axis is the angle between seeds, the vertical axis is the average gap (log scale). Most angles stay similarly low, but near simple fractions of 360° the gap spikes sharply.">가로는 씨앗 사이의 각도, 세로는 빈틈 평균입니다(로그 눈금). 대부분의 각도는 비슷하게 낮지만, 360°의 간단한 분수 근처에서는 뾰족하게 나빠집니다.</p>
-    <canvas id="c-sweep" class="" aria-label="② How Big Are the Gaps at Each Angle?"></canvas>
+    <canvas id="c-sweep" class="" aria-label="③ How Big Are the Gaps at Each Angle?"></canvas>
       <div class="legend"><span id="note-sweep" data-en="Calculating…">계산 중…</span></div>
     </section>
     <section class="panel chart">
-      <h3 data-en="③ Comparing Special Angles">③ 특별한 각도 비교</h3>
+      <h3 data-en="④ Comparing Special Angles">④ 특별한 각도 비교</h3>
     <p data-en="Compares the average gap of a few angles at the current seed count. Lower means more evenly filled, and gold is the golden angle.">지금 씨앗 수에서 몇 가지 각도의 빈틈 평균을 비교합니다. 낮을수록 고르게 채워진 것이고, 금색이 황금각입니다.</p>
-    <canvas id="c-bars" class="" aria-label="③ Comparing Special Angles"></canvas>
+    <canvas id="c-bars" class="" aria-label="④ Comparing Special Angles"></canvas>
     </section>
     <section class="panel chart">
-      <h3 data-en="④ Distance to the Nearest Neighbor">④ 이웃까지의 거리</h3>
+      <h3 data-en="⑤ Distance to the Nearest Neighbor">⑤ 이웃까지의 거리</h3>
     <p data-en="The distribution of the distance from each seed to its nearest neighbor at the current angle. Even spacing gives one sharp peak; overlap or sparse spots spread it out.">지금 각도에서 씨앗마다 가장 가까운 이웃까지의 거리 분포입니다. 간격이 일정하면 한 곳에 뾰족하게 모이고, 겹치거나 듬성듬성하면 넓게 퍼집니다.</p>
-    <canvas id="c-hist" class="" aria-label="④ Distance to the Nearest Neighbor"></canvas>
+    <canvas id="c-hist" class="" aria-label="⑤ Distance to the Nearest Neighbor"></canvas>
     </section>
   </div>
 
@@ -108,6 +121,7 @@
 <script src="../../lib.js"></script>
 <script src="sim.js"></script>
 <script src="app.js"></script>
+<script src="../../lazy3d.js" data-module="app3d.js"></script>
 <script src="../../counter.js"></script>
 </body>
 </html>

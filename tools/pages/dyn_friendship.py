@@ -23,4 +23,13 @@ DYN = {
 '내 친구 수 : 친구들의 평균 (사람을 눌러 바꾸기)': "My friends : friends' average (click a person to change)",
 '허브 쏠림이 0%이면 {0}, 100%이면 {1}입니다 (파랑 선, 평균 친구 4명)': 'With 0% hub concentration it is {0}, with 100% it is {1} (blue line, 4 friends on average)',
 '관계망 번호': 'Network',
+# 3D 보기
+'뽑힌 사람의 친구 수 · {0}명': "Picked person's friends · {0}",
+'그 친구들의 평균 친구 수 · {0}명': "Their friends' average · {0}",
+'친구 {#0}명 중 {#1}명이 이 사람보다 친구가 많아요': '{1} of their {0} friends have more friends than they do',
+'이 사람은 친구들보다 친구가 많은 드문 경우예요 (친구 {#0}명 중 {#1}명만 더 많음)': 'A rare case: this person has more friends than their friends do (only {1} of {0} friends have more)',
+'지금까지 {#0}명을 뽑았고 그중 {#1}명({%2})이 친구들이 더 많았어요': 'Picked {0} people so far; {1} ({2}) had friends with more friends',
+'높이 = 친구 수로 보기': 'Height = number of friends',
+'입체 배치로 돌아가기': 'Back to the 3D layout',
+'높이: 위로 갈수록 친구가 많은 사람 · 옅은 빨간 판 = 뽑힌 사람의 높이': 'Height: higher means more friends · faint red disc = height of the picked person',
 }

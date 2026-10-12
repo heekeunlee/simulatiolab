@@ -163,9 +163,26 @@
     host.appendChild(box);
   }
 
+  // 상단 제목 오른쪽의 작은 소개 문구 (모든 페이지 공통, 좁은 화면에서는 숨김)
+  const TAGLINE = {
+    ko: '인문, 문학, 사회, 철학, 예술 그리고 과학, 세상 모든 것의 시뮬레이션!!!',
+    en: 'Humanities, literature, society, philosophy, art and science: a simulation of everything in the world!!!',
+    es: 'Humanidades, literatura, sociedad, filosofía, arte y ciencia: ¡¡¡la simulación de todo lo que hay en el mundo!!!',
+    fr: 'Lettres, littérature, société, philosophie, art et science : la simulation de tout ce qui existe !!!',
+    ja: '人文、文学、社会、哲学、芸術、そして科学。世界のすべてをシミュレーション!!!',
+    ru: 'Гуманитарные науки, литература, общество, философия, искусство и наука — симуляция всего на свете!!!',
+    zh: '人文、文学、社会、哲学、艺术与科学——模拟世间万物！！！'
+  };
+  function tagline() {
+    const brand = document.querySelector('.nav .brand');
+    if (!brand || document.querySelector('.nav .tagline')) return;
+    const t = document.createElement('span'); t.className = 'tagline'; t.textContent = TAGLINE[lang] || TAGLINE.en;
+    brand.after(t);
+  }
+
   window.I18N = { lang, t, u, st, add, addLang, addStatic, apply: applyStatic, missing, fallbacks, langs: LANGS };
   document.documentElement.lang = lang;
-  toggle();
+  toggle(); tagline();
   // es / fr / ja / ru / zh 사전은 이 스크립트 바로 뒤에 동기적으로 불러온다
   if (lang !== 'ko' && lang !== 'en') {
     const me = document.currentScript, src = me && me.src;

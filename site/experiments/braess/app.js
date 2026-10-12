@@ -10,23 +10,26 @@
   let seedGetter = () => 1;
   const params = () => ({ seed: seedGetter(), n: Number($('n').value), cost: Number($('cost').value), sens: Number($('sens').value), plan: $('plan').value });
   const f1 = (v) => v.toFixed(1);
+  const THUMB = /[?&]thumb=1/.test(location.search); // 썸네일 촬영: 지름길이 열리고 자리 잡은 장면으로 바로 간다
 
-  // 시간(분)에 따라 초록 -> 빨강
+  // 한 구간을 지나는 시간(분)에 따라 초록(5분 이하) -> 노랑 -> 빨강(45분 이상).
+  // RGB로 섞으면 중간이 탁한 갈색·올리브가 되어 색상(hue)을 돌려 섞는다
   function heat(t) {
-    const q = Math.max(0, Math.min(1, (t - 10) / 70)), a = [31, 164, 99], b = [229, 72, 77];
-    return `rgb(${a.map((v, i) => Math.round(v + (b[i] - v) * q)).join(',')})`;
+    const q = Math.max(0, Math.min(1, (t - 5) / 40));
+    return `hsl(${Math.round(145 * (1 - q))}, ${Math.round(68 + 10 * q)}%, ${Math.round(42 + 4 * Math.sin(Math.PI * q))}%)`;
   }
 
   // ---------- ① 도로망 ----------
   function drawNet() {
-    const c = L.chart($('c-net'), 0.7, { l: 14, r: 14, t: 34, b: 66 }), { ctx, w, h, m, pw, ph } = c;
+    const cw = $('c-net').clientWidth || 600, asp = THUMB ? 1 : cw < 560 ? 0.95 : 0.7; // 휴대폰에서는 마름모가 납작해지지 않게 더 높게
+    const c = L.chart($('c-net'), asp, { l: 14, r: 14, t: 34, b: 66 }), { ctx, w, h, m, pw, ph } = c;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
     const P = sim.params, n = P.n, a = P.sens / 1000, F = P.fixed, cn = sim.counts(), t = sim.routeTimes();
     const LA = cn[0] + cn[2], LB = cn[1] + cn[2];
-    ctx.textAlign = 'left'; ctx.fillStyle = css('--text'); ctx.font = '600 13px ' + FONT;
+    ctx.textAlign = 'left'; ctx.fillStyle = THUMB ? 'rgba(0,0,0,0)' : css('--text'); ctx.font = '600 13px ' + FONT;
     ctx.fillText(`${sim.round}라운드 · 평균 출근 시간 ${f1(sim.avgNow())}분`, m.l, 22);
     ctx.textAlign = 'right'; ctx.fillStyle = sim.open ? css('--unlucky') : css('--lucky');
-    ctx.fillText(sim.open ? '지름길 열림' : '지름길 닫힘', w - m.r, 22);
+    if (!THUMB) ctx.fillText(sim.open ? '지름길 열림' : '지름길 닫힘', w - m.r, 22);
     ctx.font = '12px ' + FONT;
     const x0 = m.l + 30, x1 = w - m.r - 30, xm = (x0 + x1) / 2, yt = m.t + 26, yb = m.t + ph - 26, ym = (yt + yb) / 2;
     const Sx = [x0, ym], Ax = [xm, yt], Bx = [xm, yb], Ex = [x1, ym];
@@ -59,22 +62,23 @@
     node(Sx, '출발'); node(Ex, '도착'); node(Ax, 'A'); node(Bx, 'B');
     // 라벨
     ctx.font = '12px ' + FONT;
-    links.forEach(([p, q, load, tm, name, dx, dy, al]) => {
+    if (!THUMB) links.forEach(([p, q, load, tm, name, dx, dy, al]) => {
       const mx = (p[0] + q[0]) / 2 + dx, my = (p[1] + q[1]) / 2 + dy;
       ctx.textAlign = al; ctx.fillStyle = css('--text'); ctx.fillText(`${Math.round(tm)}분 · ${load}명`, mx, my);
       ctx.fillStyle = css('--muted'); ctx.font = '11px ' + FONT; ctx.fillText(name, mx, my + 13); ctx.font = '12px ' + FONT;
     });
     ctx.textAlign = 'left'; ctx.fillStyle = shortOpen ? css('--text') : css('--muted');
-    if (shortOpen) { ctx.fillText(`${Math.round(P.cost)}분 · ${cn[2]}명`, xm + 12, ym - 2); ctx.fillStyle = css('--muted'); ctx.font = '11px ' + FONT; ctx.fillText('지름길', xm + 12, ym + 11); ctx.font = '12px ' + FONT; }
+    if (THUMB) { /* 썸네일에는 작은 글자를 넣지 않는다 */ }
+    else if (shortOpen) { ctx.fillText(`${Math.round(P.cost)}분 · ${cn[2]}명`, xm + 12, ym - 2); ctx.fillStyle = css('--muted'); ctx.font = '11px ' + FONT; ctx.fillText('지름길', xm + 12, ym + 11); ctx.font = '12px ' + FONT; }
     else { ctx.fillText('지름길 닫힘', xm + 14, ym + 4); }
     // 길 선택 비율 막대
     const sh = [cn[0] / n, cn[1] / n, cn[2] / n], cols = ROUTE_COLORS(), by = h - 46, bh = 14;
     let x = m.l;
     sh.forEach((v, i) => { ctx.fillStyle = cols[i]; ctx.fillRect(x, by, v * pw, bh); x += v * pw; });
     ctx.strokeStyle = css('--line'); ctx.strokeRect(m.l + 0.5, by + 0.5, pw - 1, bh - 1);
-    const names = ['A 길', 'B 길', '지름길 경유']; let lx = m.l;
+    const names = THUMB ? [] : ['A 길', 'B 길', '지름길 경유']; let lx = m.l;
     ctx.font = '12px ' + FONT; ctx.textAlign = 'left';
-    sh.forEach((v, i) => {
+    names.forEach((_, i) => { const v = sh[i];
       ctx.fillStyle = cols[i]; ctx.fillRect(lx, by + 24, 10, 10);
       ctx.fillStyle = css('--text'); const label = `${names[i]} ${Math.round(v * 100)}%`; ctx.fillText(label, lx + 15, by + 33);
       lx += 15 + ctx.measureText(label).width + 16;
@@ -142,7 +146,7 @@
   function sweepChart(id, cv, x0, x1, xt, xfmt, xlabel, cur) {
     let hi = 0, lo = Infinity; cv.forEach((d) => { hi = Math.max(hi, d.open, d.closed); lo = Math.min(lo, d.open, d.closed, d.opt); });
     const y0 = Math.max(0, Math.floor((lo - 5) / 10) * 10), y1 = Math.ceil((hi + 3) / 10) * 10, yt = []; for (let v = y0; v <= y1; v += 10) yt.push(v);
-    const c = L.chart($(id), 0.66, { l: 46, b: 40 }), { ctx, m, pw, ph } = c;
+    const c = L.chart($(id), 0.66, { l: 46, b: 40, r: 30 }), { ctx, m, pw, ph } = c; // 오른쪽 끝 눈금(10000명)이 잘리지 않게
     const X = (v) => m.l + ((v - x0) / (x1 - x0)) * pw, Y = (v) => m.t + ph - ((v - y0) / (y1 - y0)) * ph;
     L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => v + '분', xTicks: xt, xFmt: xfmt, xLabel: xlabel });
     band(cv, ctx, X, Y, m, ph);
@@ -200,7 +204,9 @@
     defaults: { n: 4000, cost: 0, sens: 10, plan: 'open' },
     build() {
       const P = params(); sim = B.create(P); S = B.summary(P);
+      if (THUMB) for (let k = 0; k < 140 && !sim.done(); k++) sim.advance();
     },
+    autoplay: !THUMB,
     advance() { return sim.advance(); },
     isDone() { return sim.done(); },
     draw, after, redrawExtra() { drawN(); drawC(); }, seedLabel: '출근길 번호',

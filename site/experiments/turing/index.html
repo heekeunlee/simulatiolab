@@ -52,27 +52,33 @@
   <section class="panel chart" style="margin-top:16px">
     <h3 data-en="① Watching the Pattern Grow">① 무늬가 자라는 모습</h3>
     <p data-en="Dark areas have a lot of v. The pattern spreads from the seeds. Click the canvas to drop a new seed at that spot.">짙은 곳이 v가 많은 곳입니다. 씨앗에서 시작해 무늬가 퍼져 나갑니다. 캔버스를 누르면 그 자리에 새 씨앗이 떨어져요.</p>
-    <canvas id="c-world" class="rounded" aria-label="① Watching the Pattern Grow"></canvas>
+    <canvas id="c-world" class="rounded" data-thumb aria-label="① Watching the Pattern Grow"></canvas>
     <div class="anim-bar">
       <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
       <button id="stepbtn" data-en="Step">한 단계</button>
       <button id="restart" data-en="Restart">처음부터</button>
-      <select id="speed" aria-label="speed"><option value="10" data-en="Slow">느리게</option><option value="25" selected data-en="Normal">보통</option><option value="60" data-en="Fast">빠르게</option></select>
+      <select id="speed" aria-label="speed"><option value="15" data-en="Slow">느리게</option><option value="40" selected data-en="Normal">보통</option><option value="100" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
   </section>
 
   <div class="charts">
     <section class="panel chart">
-      <h3 data-en="② Change Over Time">② 시간에 따른 변화</h3>
+      <h3 data-en="② In 3D: The Concentration Landscape &lt;span class=&quot;badge3d&quot;&gt;3D&lt;/span&gt;">② 3D로 보기: 농도의 지형 <span class="badge3d">3D</span></h3>
+    <p data-en="The same simulation as ①, with the concentration of v raised as height. It rises here in real time while the pattern grows above. Spots become round hills with nearly the same peak height (v around 0.36 once settled), and stripes become slightly lower (v about 0.30) unbroken ridges. The hills do not grow taller or wider forever; they stop at a set height and width, because the difference in spreading speeds sets the size of the pattern.">①과 같은 시뮬레이션을 v 농도의 높이로 세웠습니다. 위에서 무늬가 자라는 동안 여기서도 실시간으로 솟아오릅니다. 점무늬는 꼭대기 높이가 거의 같은 둥근 언덕(자리 잡은 뒤 v 0.36 안팎)이 되고, 줄무늬는 그보다 조금 낮은(v 약 0.30) 능선이 끊기지 않고 이어집니다. 언덕은 끝없이 높아지거나 커지지 않고 정해진 높이와 폭에서 멈춥니다. 퍼지는 속도의 차이가 무늬의 크기를 정하기 때문입니다.</p>
+    <canvas id="c-3d" class="view3d" aria-label="② In 3D: The Concentration Landscape 3D"></canvas>
+    <p class="hint3d" data-en="Drag to rotate · scroll or pinch to zoom · it rotates slowly on its own">드래그로 회전 · 휠이나 두 손가락으로 확대 · 가만히 두면 천천히 돌아갑니다</p>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ Change Over Time">③ 시간에 따른 변화</h3>
     <p data-en="The horizontal axis is the number of iterations, the vertical axis is the value. Once the pattern settles, both lines flatten out.">가로는 진행한 횟수, 세로는 값입니다. 무늬가 자리를 잡으면 두 선이 평평해집니다.</p>
-    <canvas id="c-time" class="" aria-label="② Change Over Time"></canvas>
+    <canvas id="c-time" class="" aria-label="③ Change Over Time"></canvas>
       <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Pattern area (share of cells with v above 0.2)"><i style="background:var(--accent)"></i>무늬 면적 (v가 0.2보다 큰 칸의 비율)</span><span data-en="&lt;i style=&quot;background:var(--rich)&quot;&gt;&lt;/i&gt;Mean concentration v"><i style="background:var(--rich)"></i>평균 농도 v</span></div>
     </section>
     <section class="panel chart">
-      <h3 data-en="③ The F–k Map">③ F–k 지도</h3>
+      <h3 data-en="④ The F–k Map">④ F–k 지도</h3>
     <p data-en="The purple dots are the four pattern settings on this page, and the red circle is the current setting. Moving a little away from a dot can change the pattern.">보라색 점은 이 페이지의 네 가지 무늬 설정이고, 붉은 원은 지금 설정입니다. 점에서 조금만 벗어나도 무늬가 달라질 수 있어요.</p>
-    <canvas id="c-map" class="" aria-label="③ The F–k Map"></canvas>
+    <canvas id="c-map" class="" aria-label="④ The F–k Map"></canvas>
     </section>
   </div>
 
@@ -84,8 +90,8 @@
   <ul class="small">
     <li  data-en="An implementation inspired by the idea of Turing (1952, &quot;The chemical basis of morphogenesis&quot;, &lt;i&gt;Philosophical Transactions of the Royal Society B&lt;/i&gt; 237) and by the Gray–Scott patterns shown by Pearson (1993, &quot;Complex patterns in a simple system&quot;, &lt;i&gt;Science&lt;/i&gt; 261). It does not reproduce the paper&#x27;s figures exactly.">튜링(Turing, 1952, "The chemical basis of morphogenesis", <i>Philosophical Transactions of the Royal Society B</i> 237)의 발상과, 피어슨(Pearson, 1993, "Complex patterns in a simple system", <i>Science</i> 261)이 보여 준 그레이-스콧 모델의 무늬에서 영감을 받은 구현입니다. 논문의 그림을 그대로 재현한 것은 아닙니다.</li>
     <li  data-en="Equations: du = 0.16·lap(u) − u·v² + F(1 − u), dv = 0.08·lap(v) + u·v² − (F + k)·v. Each step uses dt = 1, the Laplacian is computed from the four neighbors, and the edges wrap around. One step on screen is 40 calculations. The diffusion coefficients differ from Pearson&#x27;s, so the shapes are not identical.">식: du = 0.16·lap(u) − u·v² + F(1 − u), dv = 0.08·lap(v) + u·v² − (F + k)·v. 한 단계에 dt = 1, 라플라시안은 상하좌우 4칸으로 계산했고 가장자리는 반대편과 이어집니다. 화면의 한 단계는 계산 40번입니다. 확산 계수가 Pearson의 설정과 달라서 모양이 같지는 않습니다.</li>
-    <li  data-en="The four presets (F, k) are spots (0.035, 0.065), stripes (0.029, 0.057), mitosis (0.0367, 0.0649) and coral (0.0545, 0.062). Running 3 seeds for 20,000 iterations, all values stayed finite, and the area covered by the pattern was about 19% for spots, 21% for mitosis, 43% for stripes and 53% for coral. The number of blobs was around 50 for spots and mitosis and 1 (one connected shape) for stripes and coral (verify with &lt;code&gt;node tools/validate-turing.js&lt;/code&gt;).">네 프리셋(F, k) = 점무늬 (0.035, 0.065), 줄무늬 (0.029, 0.057), 세포 분열 (0.0367, 0.0649), 산호 (0.0545, 0.062)입니다. 시드 3개로 20,000번 돌려 모두 값이 유한하게 유지됐고, 무늬가 차지한 면적은 점무늬 약 19%, 세포 분열 약 21%, 줄무늬 약 43%, 산호 약 53%였습니다. 덩어리 수는 점무늬와 세포 분열이 50개 안팎, 줄무늬와 산호는 1개(하나로 이어짐)였습니다 (<code>node tools/validate-turing.js</code>로 확인).</li>
-    <li  data-en="The number of iterations for the pattern to settle was about 2,000 for stripes, about 6,000 for coral and about 12,000 for spots and mitosis. The screen runs up to 30,000 iterations.">무늬가 자리 잡는 데 걸리는 횟수는 줄무늬 약 2,000번, 산호 약 6,000번, 점무늬와 세포 분열 약 12,000번이었습니다. 화면에서는 30,000번까지 진행합니다.</li>
+    <li  data-en="The four presets (F, k) are spots (0.035, 0.065), stripes (0.029, 0.057), mitosis (0.0367, 0.0649) and coral (0.0545, 0.062). Running 3 seeds for 20,000 iterations, all values stayed finite, and the area covered by the pattern was about 19% for spots, 21% for mitosis, 43% for stripes and 53% for coral. The number of blobs was around 50 for spots and mitosis and mostly 1 (one connected shape) for stripes and coral. The peaks of settled spot hills were nearly equal at v 0.355–0.373, while stripe ridges ranged 0.25–0.35 (median 0.30) (verify with &lt;code&gt;node tools/validate-turing.js&lt;/code&gt;).">네 프리셋(F, k) = 점무늬 (0.035, 0.065), 줄무늬 (0.029, 0.057), 세포 분열 (0.0367, 0.0649), 산호 (0.0545, 0.062)입니다. 시드 3개로 20,000번 돌려 모두 값이 유한하게 유지됐고, 무늬가 차지한 면적은 점무늬 약 19%, 세포 분열 약 21%, 줄무늬 약 43%, 산호 약 53%였습니다. 덩어리 수는 점무늬와 세포 분열이 50개 안팎, 줄무늬와 산호는 대부분 1개(하나로 이어짐)였습니다. 자리 잡은 점무늬 언덕의 꼭대기 v는 0.355~0.373으로 거의 같았고, 줄무늬 능선은 0.25~0.35(중앙값 0.30)였습니다 (<code>node tools/validate-turing.js</code>로 확인).</li>
+    <li  data-en="The initial seeds are dropped in 12 places. The number of iterations for the pattern to settle was about 1,000 for stripes, about 3,000 for coral, about 5,000 for mitosis and about 7,000 for spots. The screen runs up to 30,000 iterations.">처음 씨앗은 12군데에 뿌립니다. 무늬가 자리 잡는 데 걸리는 횟수는 줄무늬 약 1,000번, 산호 약 3,000번, 세포 분열 약 5,000번, 점무늬 약 7,000번이었습니다. 화면에서는 30,000번까지 진행합니다.</li>
     <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/turing&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/turing">GitHub</a>에서 볼 수 있습니다.</li>
   </ul>
 </main>
@@ -98,6 +104,7 @@
 <script src="../../lib.js"></script>
 <script src="sim.js"></script>
 <script src="app.js"></script>
+<script src="../../lazy3d.js" data-module="app3d.js"></script>
 <script src="../../counter.js"></script>
 </body>
 </html>

@@ -15,4 +15,6 @@ DYN = {
 '가장 흔한 두 값 (황금각이면 피보나치 수)': 'The two most common values (Fibonacci numbers at the golden angle)',
 '전체 {0}개 각도 중 {1}개는 빈틈 평균 0.5 미만이지만, 120°나 144°처럼 360°의 간단한 분수에 가까우면 크게 나빠집니다 (가장 낮은 값 {2}, 각도 {3}°)': 'Of {0} angles, {1} have an average gap below 0.5, but angles near simple fractions of 360° such as 120° or 144° get much worse (lowest value {2}, at {3}°)',
 '해바라기 번호': 'Sunflower',
+'씨앗 {0}/{1}개 · 각도 {2}°': 'Seeds {0}/{1} · angle {2}°',
+'비늘 {0}/{1}개 · 각도 {2}°': 'Scales {0}/{1} · angle {2}°',
 }

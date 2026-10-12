@@ -10,3 +10,10 @@ console.log('r>0.9에 처음 닿은 주기(10개 시드):', tt.join(','));
 console.log('결합 세기별 최종 r'); for (const c of [0, 0.005, 0.01, 0.015, 0.02, 0.03, 0.05, 0.08]) console.log(`  ${(c * 100).toFixed(1)}%  ${f({ coupling: c })}`);
 console.log('이웃 반경별 최종 r'); for (const r of [0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.6, 1]) console.log(`  ${(r * 100).toFixed(0)}%  ${f({ radius: r })}`);
 console.log('주파수 퍼짐별 최종 r'); for (const s of [0, 0.05, 0.1, 0.15, 0.2]) console.log(`  ${(s * 100).toFixed(0)}%  ${f({ spread: s })}`);
+// 3D 숲 (바닥 1x1, 높이 0.3): 같은 규칙, 같은 범위. 3D 보기(app3d.js)와 같은 설정
+const H3 = 0.3;
+const nbAvg = (o) => { const s = F.create(Object.assign({}, base, o)); return mean(s.nb.map((a) => a.length)).toFixed(1); };
+console.log('3D 숲(높이 30%) 평균 이웃 수:', nbAvg({ h3: H3 }), '(2D:', nbAvg({}) + ')');
+const t3 = [];
+for (let seed = 1; seed <= 10; seed++) { const s = F.create(Object.assign({ seed, h3: H3, cycles: 150 }, base)); let t = -1; while (s.advance()) if (s.step % 5 === 0 && s.sync() > 0.9 && t < 0) t = s.step * s.params.dt; t3.push(t < 0 ? 'X' : t.toFixed(0)); }
+console.log('3D 숲 r>0.9에 처음 닿은 주기(10개 시드, 150주기까지):', t3.join(','));

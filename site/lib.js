@@ -67,16 +67,24 @@ window.Lab = (function () {
     ctx.stroke(); ctx.lineWidth = 1;
   }
 
-  function vline(c, x, color, label, align) {
+  // 글자 뒤에 반투명 바탕을 깔고 쓴다 (선·점과 겹쳐도 읽히도록)
+  function label(ctx, text, x, y, align) {
+    const w = ctx.measureText(text).width, a = align || ctx.textAlign || 'left';
+    const lx = a === 'right' ? x - w : a === 'center' ? x - w / 2 : x;
+    const fill = ctx.fillStyle; ctx.fillStyle = 'rgba(255,255,255,0.85)';
+    ctx.fillRect(lx - 3, y - 11, w + 6, 15); ctx.fillStyle = fill; ctx.fillText(text, x, y);
+  }
+
+  function vline(c, x, color, label_, align) {
     const { ctx, m, ph } = c;
     ctx.strokeStyle = color; ctx.setLineDash([2, 3]); ctx.beginPath();
     ctx.moveTo(x, m.t); ctx.lineTo(x, m.t + ph); ctx.stroke(); ctx.setLineDash([]);
     ctx.fillStyle = color; ctx.textAlign = align || 'left';
-    ctx.fillText(label, x + (align === 'right' ? -5 : 5), m.t + 11);
+    label(ctx, label_, x + (align === 'right' ? -5 : 5), m.t + 11, align || 'left');
   }
 
   // 점+평균선 그래프(스윕). o = { aspect, data:[{x,runs,mean}], x0, x1, y0, y1, xTicks, xFmt, yFmt, xLabel,
-  //   marker:{x,label}, series:[{data,color}] (추가 평균선), refs:[{y,label,color}] }
+  //   color(첫 데이터 색), marker:{x,label}, series:[{data,color}] (추가 평균선), refs:[{y,label,color}] }
   function dots(canvas, o) {
     const c = chart(canvas, o.aspect || 0.7, { b: 40, r: 14, t: 14 });
     const { ctx, m, pw, ph } = c;
@@ -86,9 +94,9 @@ window.Lab = (function () {
     axes(c, { X, Y, yTicks: yt, yFmt: o.yFmt || pct, xTicks: o.xTicks, xFmt: o.xFmt, xLabel: o.xLabel });
     (o.refs || []).forEach((r) => {
       ctx.setLineDash([5, 3]); ctx.strokeStyle = r.color; ctx.beginPath(); ctx.moveTo(m.l, Y(r.y)); ctx.lineTo(m.l + pw, Y(r.y)); ctx.stroke(); ctx.setLineDash([]);
-      ctx.fillStyle = r.color; ctx.textAlign = 'left'; ctx.fillText(r.label, m.l + 6, Y(r.y) - 6);
+      ctx.fillStyle = r.color; ctx.textAlign = 'left'; label(ctx, r.label, m.l + 6, Y(r.y) - 6, 'left');
     });
-    const all = [{ data: o.data, color: css('--accent') }].concat(o.series || []);
+    const all = [{ data: o.data, color: o.color || css('--accent') }].concat(o.series || []); // o.color: 첫 데이터 색 (기본은 강조색)
     all.forEach((s, k) => {
       if (!s.data || !s.data.length) return;
       if (k === 0 || s.dots) { ctx.fillStyle = mix(s.color, 0.22); s.data.forEach((d) => (d.runs || []).forEach((r) => { ctx.beginPath(); ctx.arc(X(d.x), Y(r), 2.6, 0, 7); ctx.fill(); })); }
@@ -113,6 +121,7 @@ window.Lab = (function () {
 
   // ---------- 실행 틀: 슬라이더, 버튼, 재생 루프 ----------
   // cfg = { controls:[id...], format:{id:fn}, defaults:{id:value}, build(seed), advance()?, draw(), after()?, autoplay, seedLabel }
+  const SPEED_SCALE = 0.7; // 2026-10-12: 애니메이션이 빠르다는 의견으로 전체 속도를 70%로
   function harness(cfg) {
     const $ = (id) => document.getElementById(id);
     let seed = 1, playing = false, acc = 0, lastTs = 0;
@@ -129,7 +138,7 @@ window.Lab = (function () {
     function tick(ts) {
       if (playing && cfg.advance) {
         const sp = $('speed') ? Number($('speed').value) : 10;
-        acc += ((ts - lastTs) / 1000) * sp;
+        acc += Math.min(0.25, (ts - lastTs) / 1000) * sp * (cfg.speedScale || SPEED_SCALE); // 전체적으로 조금 느리게 (실험별로 cfg.speedScale로 조정)
         let moved = false;
         while (acc >= 1 && playing) {
           acc -= 1;
@@ -156,5 +165,5 @@ window.Lab = (function () {
     return { seed: () => seed };
   }
 
-  return { css, setup, mix, roundRect, pct, mean, chart, axes, line, vline, dots, jobs, harness };
+  return { css, setup, mix, roundRect, pct, mean, chart, axes, line, vline, label, dots, jobs, harness };
 })();

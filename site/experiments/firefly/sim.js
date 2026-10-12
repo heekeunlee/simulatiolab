@@ -12,7 +12,8 @@
   if (typeof module === 'object' && module.exports) module.exports = factory();
   else root.Firefly = factory();
 })(typeof self !== 'undefined' ? self : this, function () {
-  const DEFAULTS = { n: 150, coupling: 0.03, radius: 0.4, spread: 0.08, seed: 1, dt: 0.02, cycles: 60 };
+  // h3 > 0 이면 3D 숲: 바닥 1x1, 높이 h3 인 상자 안에 흩어진다 (높이 좌표 z는 별도 난수로 뽑아 2D 결과는 그대로)
+  const DEFAULTS = { n: 150, coupling: 0.03, radius: 0.4, spread: 0.08, seed: 1, dt: 0.02, cycles: 60, h3: 0 };
 
   function mulberry32(a) {
     return function () {
@@ -29,13 +30,15 @@
     const gauss = () => { let u = 0; while (u === 0) u = rng(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * rng()); };
     const x = new Float64Array(n), y = new Float64Array(n), phase = new Float64Array(n), omega = new Float64Array(n), glow = new Float64Array(n);
     for (let i = 0; i < n; i++) { x[i] = rng(); y[i] = rng(); phase[i] = rng(); omega[i] = Math.max(0.5, 1 + p.spread * gauss()); }
+    const z = new Float64Array(n);
+    if (p.h3 > 0) { const r3 = mulberry32(p.seed * 97 + 3); for (let i = 0; i < n; i++) z[i] = r3() * p.h3; }
     const nb = Array.from({ length: n }, () => []);
     for (let i = 0; i < n; i++) for (let j = i + 1; j < n; j++) {
-      const dx = x[i] - x[j], dy = y[i] - y[j];
-      if (dx * dx + dy * dy <= p.radius * p.radius) { nb[i].push(j); nb[j].push(i); }
+      const dx = x[i] - x[j], dy = y[i] - y[j], dz = z[i] - z[j];
+      if (dx * dx + dy * dy + dz * dz <= p.radius * p.radius) { nb[i].push(j); nb[j].push(i); }
     }
     const sim = {
-      params: p, n, x, y, phase, omega, glow, step: 0, flashes: 0, history: [], flashHist: [],
+      params: p, n, x, y, z, nb, phase, omega, glow, step: 0, flashes: 0, history: [], flashHist: [],
       maxSteps: Math.round(p.cycles / p.dt),
       sync() {
         let c = 0, s = 0;
@@ -60,6 +63,7 @@
         return true;
       },
       run() { while (sim.advance()); return sim; },
+      flashedLast() { return sim.flashHist.length ? sim.flashHist[sim.flashHist.length - 1] : 0; },
     };
     return sim;
   }

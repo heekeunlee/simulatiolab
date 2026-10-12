@@ -52,7 +52,7 @@
   <section class="panel chart" style="margin-top:16px">
     <h3 data-en="① Watching the Night Forest">① 밤숲 지켜보기</h3>
     <p data-en="The glowing yellow dots are fireflies that have just flashed. They start out independent; watch what happens as time goes on.">노랗게 빛나는 점이 지금 막 반짝인 반딧불이입니다. 처음엔 제각각이다가, 시간이 지나면 어떻게 되는지 보세요.</p>
-    <canvas id="c-night" class="rounded" aria-label="① Watching the Night Forest"></canvas>
+    <canvas id="c-night" class="rounded" data-thumb aria-label="① Watching the Night Forest"></canvas>
     <div class="anim-bar">
       <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
       
@@ -85,6 +85,19 @@
     <canvas id="c-radius" class="" aria-label="⑤ Changing the Visible Range"></canvas>
       <div class="legend"><span id="note-radius" data-en="Calculating…">계산 중…</span></div>
     </section>
+    <section class="panel chart">
+      <h3 data-en="⑥ Watching in a 3D Forest &lt;span class=&quot;badge3d&quot;&gt;3D&lt;/span&gt;">⑥ 입체 숲에서 보기 <span class="badge3d">3D</span></h3>
+    <p data-en="The same rule and settings, with 150 fireflies scattered through a forest that has height (30% of its width). The visible range is now a ball (the faint sphere), not a circle. Choose &quot;Color by phase&quot; and fireflies whose clocks agree share a color. At first several colored groups flash separately; watch one color spread through the whole forest.">같은 규칙, 같은 설정으로 반딧불이 150마리를 높이가 있는 숲(높이는 가로의 30%)에 흩어 놓았습니다. 볼 수 있는 범위는 이제 원이 아니라 공(옅은 구)이에요. "위상을 색으로"를 고르면 시계가 같은 반딧불이끼리 같은 색이 됩니다. 처음엔 여러 색 무리가 따로 반짝이다가, 한 색이 숲 전체로 번지는 모습을 보세요.</p>
+    <canvas id="c-3d" class="view3d" aria-label="⑥ Watching in a 3D Forest 3D"></canvas>
+    <p class="hint3d" data-en="Drag to rotate, scroll or pinch to zoom. It turns slowly on its own.">드래그로 회전, 휠·핀치로 확대. 가만히 두면 천천히 돌아갑니다.</p>
+    <div class="anim-bar">
+      <button id="ff3-restart" data-en="Restart">처음부터</button>
+      <select id="ff3-color" aria-label="color"><option value="glow" data-en="Light only">불빛만</option><option value="phase" selected data-en="Color by phase">위상을 색으로</option></select>
+      <select id="ff3-speed" aria-label="speed"><option value="25" data-en="Slow">느리게</option><option value="50" selected data-en="Normal">보통</option><option value="100" data-en="Fast">빠르게</option></select>
+      <span class="when" id="ff3-when"></span>
+    </div>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:linear-gradient(90deg,#e8413a,#e8d23a,#3ae86a,#3ad8e8,#4a5ae8,#d83ae8,#e8413a)&quot;&gt;&lt;/i&gt;Color: position of the clock (same color = same beat)"><i style="background:linear-gradient(90deg,#e8413a,#e8d23a,#3ae86a,#3ad8e8,#4a5ae8,#d83ae8,#e8413a)"></i>색: 시계의 위치 (같은 색 = 같은 박자)</span><span data-en="&lt;i style=&quot;background:#ffe680;box-shadow:0 0 6px #ffd84a&quot;&gt;&lt;/i&gt;Large bright dot: a firefly that just flashed"><i style="background:#ffe680;box-shadow:0 0 6px #ffd84a"></i>밝게 커진 점: 지금 반짝인 반딧불이</span><span data-en="&lt;i style=&quot;border:1px solid #9fb4ff;background:transparent;border-radius:50%&quot;&gt;&lt;/i&gt;Faint sphere: the range one firefly can see"><i style="border:1px solid #9fb4ff;background:transparent;border-radius:50%"></i>옅은 구: 한 마리가 볼 수 있는 범위</span></div>
+    </section>
   </div>
 
   <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
@@ -96,6 +109,7 @@
     <li  data-en="A simplified implementation of the idea of pulse-coupled oscillators (Mirollo, Strogatz (1990), &quot;Synchronization of pulse-coupled biological oscillators&quot;, &lt;i&gt;SIAM Journal on Applied Mathematics&lt;/i&gt; 50(6)). It does not reproduce the paper&#x27;s numbers; it is this project&#x27;s own design.">펄스 결합 진동자(Mirollo, Strogatz (1990), "Synchronization of pulse-coupled biological oscillators", <i>SIAM Journal on Applied Mathematics</i> 50(6))의 발상을 단순화한 구현입니다. 논문 수치를 재현한 것은 아니고 이 프로젝트의 설계입니다.</li>
     <li  data-en="Phase counts one cycle as 1 and grows by 0.02 per step. Each firefly&#x27;s speed is normally distributed with mean 1 and a standard deviation equal to the &quot;speed spread.&quot; When a firefly flashes, the phase of neighbors in range is increased by the coupling strength, and any that pass 1 flash in the same step.">위상은 한 주기를 1로 보고 한 단계마다 0.02씩 자랍니다. 개체마다 속도는 평균 1, 표준편차 "속도 차이"의 정규분포이고, 한 반딧불이가 반짝이면 범위 안의 이웃 위상이 결합 세기만큼 더해지며 1을 넘으면 같은 단계에 따라서 반짝입니다.</li>
     <li  data-en="With the default settings (coupling 2.5%, range 30%, speed spread 10%), 10 seeds all reach synchrony (r&gt;0.9), taking 2 to 31 cycles (mostly 2 to 6). At coupling of 1% or less r stays below 0.2, and at 3% or more it is near 0.95 (verify with &lt;code&gt;node tools/validate-firefly.js&lt;/code&gt;).">기본 설정(결합 2.5%, 범위 30%, 속도 차이 10%)으로 시드 10개를 돌리면 모두 동기화(r>0.9)에 닿고, 걸린 주기는 2~31주기(대부분 2~6주기)입니다. 결합이 1% 이하면 r이 0.2 아래, 3% 이상이면 0.95 근처입니다 (<code>node tools/validate-firefly.js</code>로 확인).</li>
+    <li  data-en="⑥ The 3D forest applies the same rule inside a box with a 1×1 floor and a height of 0.3. Fireflies only appear to hover near their spot; neighbors are fixed by the starting positions. With the same range (30%), each firefly sees 28 neighbors on average, fewer than in 2D (32), and they are farther apart, so with default settings 9 of 10 seeds reach synchrony (r&gt;0.9) but take 5 to 66 cycles, longer than in 2D. One did not reach it within 150 cycles.">⑥ 3D 숲은 바닥 1×1, 높이 0.3인 상자에 같은 규칙을 적용합니다. 반딧불이는 제자리 근처에서 살짝 떠다니는 것처럼 보일 뿐, 이웃은 처음 자리로 정해집니다. 같은 범위(30%)라도 한 마리가 보는 이웃이 평균 28마리로 2D(32마리)보다 적고 거리가 더 멀어서, 기본 설정에서 시드 10개 중 9개가 동기화(r>0.9)에 닿지만 걸린 주기는 5~66주기로 2D보다 깁니다. 하나는 150주기까지 닿지 못했습니다.</li>
     <li  data-en="Graphs ④ and ⑤ change only the given value in the same setup, run 30 cycles 3 times each, and show the average r of the last 6 cycles.">④, ⑤번 그래프는 같은 설정에서 해당 값만 바꿔 30주기를 3번씩 돌린 결과이고, 마지막 6주기의 평균 r입니다.</li>
     <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/firefly&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/firefly">GitHub</a>에서 볼 수 있습니다.</li>
   </ul>
@@ -109,6 +123,7 @@
 <script src="../../lib.js"></script>
 <script src="sim.js"></script>
 <script src="app.js"></script>
+<script src="../../lazy3d.js" data-module="app3d.js"></script>
 <script src="../../counter.js"></script>
 </body>
 </html>

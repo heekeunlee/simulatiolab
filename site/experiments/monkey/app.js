@@ -5,6 +5,7 @@
   const $ = (id) => document.getElementById(id);
   let sim = null, selRows = [], mutRows = [];
   let seedGetter = () => 1;
+  const THUMB = /[?&]thumb=1/.test(location.search);   // 메인 페이지 썸네일용: 누적 선택이 문장을 완성한 장면으로 바로 간다
   const params = () => ({ seed: seedGetter(), target: $('target').value, offspring: Number($('offspring').value), mutation: Number($('mutation').value) / 100 });
 
   // 큰 수를 읽기 좋게: 100만 이상은 1.8×10^9 꼴
@@ -29,28 +30,44 @@
   }
 
   function drawText() {
-    const c = L.chart($('c-text'), 0.8, { l: 14, r: 14, t: 10, b: 10 });
+    const c = L.chart($('c-text'), THUMB ? 1 : 0.8, { l: 14, r: 14, t: 10, b: 10 });
     const { ctx, w, h } = c, n = sim.L, tgt = sim.text;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
-    const cell = Math.min(30, (w - 28) / n), x0 = (w - cell * n) / 2;
-    const label = (txt, y, color) => { ctx.font = '700 13px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.textAlign = 'left'; ctx.fillStyle = color || css('--text'); ctx.fillText(txt, 14, y); };
-    const sub = (txt, y) => { ctx.font = '12px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.textAlign = 'right'; ctx.fillStyle = css('--muted'); ctx.fillText(txt, w - 14, y); };
-    const gap = (h - 20) / 4;
+    const cell = Math.min(THUMB ? 40 : 30, (w - 28) / n), x0 = (w - cell * n) / 2, ch = cell * 1.15;
+    const label = (txt, y, color) => { if (THUMB) return; ctx.font = '700 13px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.textAlign = 'left'; ctx.fillStyle = color || css('--text'); ctx.fillText(txt, 14, y); };
+    // 오른쪽 보조 글: 좁은 화면에서는 제목과 겹치므로 생략 (같은 내용이 위 숫자 카드에 있음)
+    const sub = (txt, y) => { if (THUMB || w < 560) return; ctx.font = '12px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.textAlign = 'right'; ctx.fillStyle = css('--muted'); ctx.fillText(txt, w - 14, y); };
+    let y = THUMB ? 24 : 30;
     label('목표 문장 (햄릿)', 22, css('--muted'));
-    drawRow(ctx, tgt, tgt, x0, 30, cell, '#8a93a6', false);
+    drawRow(ctx, tgt, tgt, x0, y, cell, '#8a93a6', false);
     // 순수한 우연
-    let y = 30 + gap;
-    label('순수한 우연: 지금까지의 최고 기록', y - 2, css('--unlucky'));
-    sub(`${sim.chanceAttempts.toLocaleString('ko-KR')}번 시도 · 일치 ${sim.chanceBestMatch}/${n}`, y - 2);
-    drawRow(ctx, sim.chanceString(), tgt, x0, y + 6, cell, css('--unlucky'), false);
-    ctx.font = '11px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.textAlign = 'left'; ctx.fillStyle = css('--muted');
-    ctx.fillText('방금 찍은 글자', 14, y + 6 + cell * 1.15 + 16);
-    drawRow(ctx, sim.chanceLastString(), null, x0, y + 6 + cell * 1.15 + 22, cell * 0.78, '#cfd5e3', true);
-    // 누적 선택
-    y = 30 + gap * 3 - 6;
-    label('누적 선택: 지금 부모 문장', y - 2, css('--lucky'));
-    sub(`${sim.selGen}세대 · 일치 ${sim.selMatch}/${n}`, y - 2);
-    drawRow(ctx, sim.selString(), tgt, x0, y + 6, cell, css('--lucky'), false);
+    y += ch + (THUMB ? 26 : 34);
+    label('순수한 우연: 지금까지의 최고 기록', y - 8, css('--unlucky'));
+    sub(`${sim.chanceAttempts.toLocaleString('ko-KR')}번 시도 · 일치 ${sim.chanceBestMatch}/${n}`, y - 8);
+    drawRow(ctx, sim.chanceString(), tgt, x0, y, cell, css('--unlucky'), false);
+    y += ch;
+    if (!THUMB) {
+      ctx.font = '11px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.textAlign = 'left'; ctx.fillStyle = css('--muted');
+      ctx.fillText('방금 찍은 글자', 14, y + 16);
+      drawRow(ctx, sim.chanceLastString(), null, x0, y + 22, cell * 0.78, '#cfd5e3', true);
+      y += 22 + cell * 0.78 * 1.15;
+    }
+    // 누적 선택: 일치 수가 늘어날 때마다의 부모 문장(계보)과 지금 부모 문장
+    y += THUMB ? 26 : 40;
+    label('누적 선택: 일치가 늘어난 순간들 → 지금 부모 문장', y - 8, css('--lucky'));
+    sub(`${sim.selGen}세대 · 일치 ${sim.selMatch}/${n}`, y - 8);
+    const bottom = h - 12 - ch, lin = sim.selLineage.slice(0, -1), sc = THUMB ? 0.7 : 0.62, sh = cell * sc * 1.15 + (THUMB ? 3 : 4);
+    const fit = Math.max(0, Math.floor((bottom - y - 6) / sh)), show = lin.slice(-fit);
+    const sx0 = (w - cell * sc * n) / 2;
+    show.forEach((e, k) => {
+      const yy = bottom - 6 - (show.length - k) * sh;
+      ctx.globalAlpha = 0.35 + 0.65 * ((k + 1) / show.length);
+      drawRow(ctx, sim.strOf(e.str), tgt, sx0, yy, cell * sc, css('--lucky'), true);
+      ctx.globalAlpha = 1;
+      if (!THUMB && sx0 > 52) { ctx.font = '10.5px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.textAlign = 'right'; ctx.fillStyle = css('--muted'); ctx.fillText(`${e.gen}세대`, sx0 - 6, yy + cell * sc * 0.8); }
+    });
+    drawRow(ctx, sim.selString(), tgt, x0, bottom, cell, css('--lucky'), false);
+    if (!THUMB && x0 > 52) { ctx.font = '700 11px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.textAlign = 'right'; ctx.fillStyle = css('--lucky'); ctx.fillText('지금', x0 - 6, bottom + cell * 0.75); }
     $('when').textContent = `단계 ${sim.step}/${sim.params.maxSteps} · 우연 ${sim.chanceAttempts.toLocaleString('ko-KR')}번 · 선택 ${sim.selGen}세대`;
   }
 
@@ -127,7 +144,8 @@
     controls: ['target', 'offspring', 'mutation'],
     format: { target: () => '', offspring: (v) => v + '개', mutation: (v) => Number(v).toFixed(1) + '%' },
     defaults: { target: 'tobe', offspring: 100, mutation: 5 },
-    build() { sim = MK.create(params()); },
+    build() { sim = MK.create(params()); if (THUMB) { let g = 0; while (sim.selMatch < sim.L && g++ < 400) sim.advance(); } },
+    autoplay: !THUMB,
     advance() { return sim.advance(); },
     isDone() { return sim.done; },
     draw, after, redrawExtra() { drawExpect(); drawMut(); }, seedLabel: '원숭이 번호',

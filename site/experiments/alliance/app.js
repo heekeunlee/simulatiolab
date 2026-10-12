@@ -6,7 +6,8 @@
   const RED = '#e5484d', BLUE = '#2f6fed', NEUTRAL = '#e9edf5';
   let sim = null, hist = null, swA = [], swC = [];
   let seedGetter = () => 1;
-  const params = () => ({ seed: seedGetter(), structure: $('structure').value, allies: Number($('allies').value) / 10, commit: Number($('commit').value) / 100 });
+  const THUMB = /[?&]thumb=1/.test(location.search);   // 메인 썸네일용: 전쟁이 크게 번진 세계(#2)를 끝까지 돌린 장면
+  const params = () => ({ seed: THUMB ? 2 : seedGetter(), structure: $('structure').value, allies: Number($('allies').value) / 10, commit: Number($('commit').value) / 100 });
   const name = (i) => String.fromCharCode(65 + i);
   const kind = (size, n) => (size <= 4 ? 'small' : size >= n / 2 ? 'world' : 'mid');
   const KIND = { small: '작게 끝남', mid: '여러 나라로 번짐', world: '세계대전급' };
@@ -26,30 +27,37 @@
   }
 
   function drawNet() {
-    const c = L.chart($('c-net'), 0.66, { l: 0, r: 0, t: 0, b: 0 });
-    const { ctx, w, h } = c, pts = layout(w, h), side = sim.side;
+    const narrow = ($('c-net').clientWidth || 400) < 560;
+    const c = L.chart($('c-net'), THUMB || narrow ? 1 : 0.66, { l: 0, r: 0, t: 0, b: 0 });
+    const { ctx, w, h } = c, pts = layout(w, h), side = sim.side, k = THUMB ? w / 360 : 1;   // 썸네일은 굵고 크게
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
     sim.edges().forEach(([i, j]) => {
       const same = side[i] && side[i] === side[j], opp = side[i] && side[j] && side[i] !== side[j];
       ctx.beginPath(); ctx.moveTo(pts[i][0], pts[i][1]); ctx.lineTo(pts[j][0], pts[j][1]);
-      if (same) { ctx.strokeStyle = side[i] === 1 ? RED : BLUE; ctx.lineWidth = 2.4; ctx.setLineDash([]); }
-      else if (opp) { ctx.strokeStyle = '#d97706'; ctx.lineWidth = 2; ctx.setLineDash([5, 4]); }
-      else { ctx.strokeStyle = '#b9c1d3'; ctx.lineWidth = 1.2; ctx.setLineDash([]); }
+      if (same) { ctx.strokeStyle = side[i] === 1 ? RED : BLUE; ctx.lineWidth = 2.4 * k; ctx.setLineDash([]); }
+      else if (opp) { ctx.strokeStyle = '#d97706'; ctx.lineWidth = 2 * k; ctx.setLineDash([5 * k, 4 * k]); }
+      else { ctx.strokeStyle = '#b9c1d3'; ctx.lineWidth = 1.2 * k; ctx.setLineDash([]); }
       ctx.stroke();
     });
     ctx.setLineDash([]); ctx.lineWidth = 1;
     for (let i = 0; i < sim.n; i++) {
       const [x, y] = pts[i], s = side[i], fresh = s && sim.joinedAt[i] === sim.round && sim.round > 0 && !sim.done;
-      if (fresh) { ctx.fillStyle = mix(s === 1 ? RED : BLUE, 0.22); ctx.beginPath(); ctx.arc(x, y, 24, 0, 7); ctx.fill(); }
-      ctx.fillStyle = s === 1 ? RED : s === 2 ? BLUE : NEUTRAL; ctx.beginPath(); ctx.arc(x, y, 13, 0, 7); ctx.fill();
-      ctx.strokeStyle = (i === sim.attacker || i === sim.defender) ? '#1b1f2a' : (s ? '#fff' : '#c4cbdb'); ctx.lineWidth = (i === sim.attacker || i === sim.defender) ? 3 : 1.5; ctx.stroke(); ctx.lineWidth = 1;
+      if (fresh) { ctx.fillStyle = mix(s === 1 ? RED : BLUE, 0.22); ctx.beginPath(); ctx.arc(x, y, 24 * k, 0, 7); ctx.fill(); }
+      ctx.fillStyle = s === 1 ? RED : s === 2 ? BLUE : NEUTRAL; ctx.beginPath(); ctx.arc(x, y, 13 * k, 0, 7); ctx.fill();
+      ctx.strokeStyle = (i === sim.attacker || i === sim.defender) ? '#1b1f2a' : (s ? '#fff' : '#c4cbdb'); ctx.lineWidth = (i === sim.attacker || i === sim.defender) ? 3 * k : 1.5 * k; ctx.stroke(); ctx.lineWidth = 1;
+      if (THUMB) continue;
       ctx.fillStyle = s ? '#fff' : '#5a6275'; ctx.textAlign = 'center'; ctx.font = '700 12px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillText(name(i), x, y + 4.2);
     }
-    const [ax, ay] = pts[sim.attacker], [dx, dy] = pts[sim.defender];
-    ctx.font = '600 11.5px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillStyle = '#1b1f2a'; ctx.textAlign = 'center';
-    ctx.fillText('첫 공격', ax, ay + (ay < h / 2 ? -20 : 28)); ctx.fillText('공격받음', dx, dy + (dy < h / 2 ? -20 : 28));
     const cnt = sim.counts();
     $('when').textContent = `${sim.round}라운드 · 전쟁에 들어간 나라 ${sim.size()}개 (붉은 편 ${cnt.a}, 푸른 편 ${cnt.b})`;
+    if (THUMB) return;
+    const [ax, ay] = pts[sim.attacker], [dx, dy] = pts[sim.defender];
+    ctx.font = '600 11.5px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillStyle = '#1b1f2a'; ctx.textAlign = 'center';
+    // 이름표: 흰 바탕 위에 써서 옆 나라 글자와 겹쳐도 읽히게
+    const tag = (txt, x, y) => { const ty = y + (y < h / 2 ? -22 : 30), tw = ctx.measureText(txt).width + 10;
+      ctx.fillStyle = 'rgba(255,255,255,.92)'; L.roundRect(ctx, Math.max(2, Math.min(w - tw - 2, x - tw / 2)), ty - 12, tw, 17, 5); ctx.fill();
+      ctx.fillStyle = '#1b1f2a'; ctx.fillText(txt, Math.max(2 + tw / 2, Math.min(w - tw / 2 - 2, x)), ty); };
+    tag('첫 공격', ax, ay); tag('공격받음', dx, dy);
   }
 
   function drawTime() {
@@ -127,7 +135,8 @@
     controls: ['structure', 'allies', 'commit'],
     format: { structure: () => '', allies: (v) => (Number(v) / 10).toFixed(1), commit: (v) => v + '%' },
     defaults: { structure: 'random', allies: 15, commit: 70 },
-    build() { sim = AL.create(params()); },
+    build() { sim = AL.create(params()); if (THUMB) while (sim.advance() && sim.round < 60); },
+    autoplay: !THUMB,
     advance() { return sim.advance(); },
     isDone() { return sim.done; },
     draw, after, redrawExtra: sweeps, seedLabel: '세계',

@@ -8,6 +8,7 @@
   const params = () => ({ seed: seedGetter(), novelty: Number($('novelty').value) / 100, mode: $('mode').value });
   const fmtN = (v) => Number(v).toLocaleString('ko-KR');
   const pow10 = (k) => Math.pow(10, k);
+  const THUMB = /[?&]thumb=1/.test(location.search);   // 메인 페이지 썸네일용: 10만 단어를 다 쓴 순위-빈도 그래프로 바로 간다
 
   function drawStream() {
     const c = L.chart($('c-stream'), 0.5, { l: 14, r: 14, t: 12, b: 12 });
@@ -32,28 +33,35 @@
   }
 
   function drawLog() {
-    const c = L.chart($('c-loglog'), 0.78, { l: 50, b: 40 });
+    const c = L.chart($('c-loglog'), THUMB ? 1 : 0.78, THUMB ? { l: 14, r: 14, t: 14, b: 14 } : { l: 50, b: 40 });
     const { ctx, m, pw, ph } = c, R = S.ranked;
     const xmax = Math.max(1, Math.ceil(Math.log10(Math.max(10, S.vocab)))), ymax = Math.max(1, Math.ceil(Math.log10(Math.max(10, R[0].count))));
     const X = (r) => m.l + (Math.log10(r) / xmax) * pw, Y = (f) => m.t + ph - (Math.log10(Math.max(1, f)) / ymax) * ph;
     const xt = [], yt = []; for (let k = 0; k <= xmax; k++) xt.push(pow10(k)); for (let k = 0; k <= ymax; k++) yt.push(pow10(k));
-    L.axes(c, { X, Y, yTicks: yt, yFmt: fmtN, xTicks: xt, xFmt: fmtN, xLabel: '단어 순위 (로그 눈금)' });
-    ctx.fillStyle = css('--muted'); ctx.textAlign = 'left'; ctx.fillText('쓰인 횟수 (로그 눈금) ↑', m.l + 4, m.t + 12);
+    if (THUMB) { ctx.strokeStyle = css('--line'); yt.forEach((v) => { ctx.beginPath(); ctx.moveTo(m.l, Y(v)); ctx.lineTo(m.l + pw, Y(v)); ctx.stroke(); }); xt.forEach((v) => { ctx.beginPath(); ctx.moveTo(X(v), m.t); ctx.lineTo(X(v), m.t + ph); ctx.stroke(); }); }
+    else {
+      L.axes(c, { X, Y, yTicks: yt, yFmt: fmtN, xTicks: xt, xFmt: fmtN, xLabel: '단어 순위 (로그 눈금)' });
+      ctx.fillStyle = css('--muted'); ctx.textAlign = 'left'; ctx.fillText('쓰인 횟수 (로그 눈금) ↑', m.l + 4, m.t + 12);
+    }
     // 점: 순위를 로그 간격으로 솎아서
+    // 기울기 -1 기준선: 적합 구간의 시작점(순위 fitFrom)을 지나게 그려 기울기를 바로 비교할 수 있게 한다
+    //  (1위 단어는 맨 처음 생겨 가장 오래 베껴진 탓에 선에서 크게 벗어나므로 기준점으로 쓰지 않는다)
+    const a0 = R.length >= S.fitFrom ? Math.log10(R[S.fitFrom - 1].count) + Math.log10(S.fitFrom) : Math.log10(R[0].count);
+    const rA = Math.pow(10, Math.max(0, a0 - ymax)), rB = Math.pow(10, Math.min(xmax, a0));
+    ctx.setLineDash([5, 4]); ctx.strokeStyle = css('--rich'); ctx.lineWidth = THUMB ? 3 : 1.8; ctx.beginPath();
+    ctx.moveTo(X(rA), Y(Math.pow(10, a0) / rA)); ctx.lineTo(X(rB), Y(Math.pow(10, a0) / rB)); ctx.stroke(); ctx.setLineDash([]); ctx.lineWidth = 1;
     ctx.fillStyle = mix(css('--accent'), 0.6);
-    let lastX = -9;
-    for (let r = 1; r <= R.length; r++) { const px = X(r); if (r > 60 && px - lastX < 2.2) continue; lastX = px; ctx.beginPath(); ctx.arc(px, Y(R[r - 1].count), 2.6, 0, 7); ctx.fill(); }
-    // 기울기 -1 기준선 (1위 점을 지남)
-    ctx.setLineDash([5, 4]); ctx.strokeStyle = css('--rich'); ctx.lineWidth = 1.8; ctx.beginPath();
-    ctx.moveTo(X(1), Y(R[0].count)); const rEnd = Math.pow(10, Math.min(xmax, Math.log10(R[0].count))); ctx.lineTo(X(rEnd), Y(1)); ctx.stroke(); ctx.setLineDash([]);
+    let lastX = -9; const dr = THUMB ? 4.2 : 2.6;
+    for (let r = 1; r <= R.length; r++) { const px = X(r); if (r > 60 && px - lastX < dr * 0.85) continue; lastX = px; ctx.beginPath(); ctx.arc(px, Y(R[r - 1].count), dr, 0, 7); ctx.fill(); }
+    if (!THUMB && R.length > 1 && R[0].count > 3 * R[1].count) { ctx.fillStyle = css('--muted'); ctx.textAlign = 'left'; const y1 = Y(R[0].count); ctx.fillText('← 1위: 맨 처음 생긴 단어', X(1) + 8, y1 < m.t + 24 ? y1 + 18 : y1 + 4); }
     // 적합선
     if (!isNaN(S.slope)) {
-      ctx.strokeStyle = css('--unlucky'); ctx.lineWidth = 2.4; ctx.beginPath();
+      ctx.strokeStyle = css('--unlucky'); ctx.lineWidth = THUMB ? 3.5 : 2.4; ctx.beginPath();
       const yy = (r) => Math.pow(10, S.icpt + S.slope * Math.log10(r));
       ctx.moveTo(X(S.fitFrom), Y(yy(S.fitFrom))); ctx.lineTo(X(S.fitTo), Y(yy(S.fitTo))); ctx.stroke(); ctx.lineWidth = 1;
-      ctx.fillStyle = css('--unlucky'); ctx.textAlign = 'right'; ctx.fillText('관측 기울기 ' + S.slope.toFixed(2), m.l + pw - 6, m.t + 28);
+      if (!THUMB) { ctx.fillStyle = css('--unlucky'); ctx.textAlign = 'right'; ctx.fillText('관측 기울기 ' + S.slope.toFixed(2), m.l + pw - 6, m.t + 28); }
     }
-    ctx.fillStyle = css('--rich'); ctx.textAlign = 'right'; ctx.fillText('기울기 -1 (지프의 법칙)', m.l + pw - 6, m.t + 12);
+    if (!THUMB) { ctx.fillStyle = css('--rich'); ctx.textAlign = 'right'; ctx.fillText('기울기 -1 (지프의 법칙)', m.l + pw - 6, m.t + 12); }
   }
 
   function drawTop() {
@@ -107,7 +115,8 @@
     controls: ['novelty', 'mode'],
     format: { novelty: (v) => v + '%', mode: () => '' },
     defaults: { novelty: 3, mode: 'copy' },
-    build() { sim = ZP.create(params()); },
+    build() { sim = ZP.create(params()); if (THUMB) sim.run(); },
+    autoplay: !THUMB,
     advance() { return sim.advance(); },
     isDone() { return sim.done; },
     draw, after, redrawExtra() { drawSweep(); }, seedLabel: '글 번호',

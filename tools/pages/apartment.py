@@ -26,7 +26,7 @@ page(dict(
   dict(title=T('① 가격이 번지는 모습', '① How Prices Spread'),
        p=T('한 칸이 한 동네이고, 색은 소득 기준선에 비해 얼마나 비싼지입니다. 가운데 점선 네모에서 시작해 이웃으로 번지는지, 금리 충격 뒤에 식는지 지켜보세요.',
            'Each cell is a neighborhood, and color shows how expensive it is relative to the income line. Watch whether the rise spreads out from the dashed square in the middle, and whether it cools after the rate shock.'),
-       id='c-map', rounded=True, anim=True, speeds=[('5', T('느리게', 'Slow')), ('12', T('보통', 'Normal')), ('30', T('빠르게', 'Fast'))], speed_default='12'),
+       id='c-map', rounded=True, anim=True, thumb=True, speeds=[('4', T('느리게', 'Slow')), ('8', T('보통', 'Normal')), ('25', T('빠르게', 'Fast'))], speed_default='8'),
   dict(title=T('② 평균 가격과 감당 상한', '② Average Price and Ceiling'),
        p=T('파란 선이 평균 가격지수입니다. 회색 점선은 소득 기준선, 금색 점선은 대출 한도가 허용하는 감당 상한이에요. 가격은 상한 근처까지 오르다가 금리 충격 뒤 내려옵니다.',
            'The blue line is the average price index. The gray dashed line is the income line and the gold dashed line is the ceiling allowed by the loan cap. Prices rise toward the ceiling, then fall after the rate shock.'),

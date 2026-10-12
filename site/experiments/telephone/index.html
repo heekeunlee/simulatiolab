@@ -51,8 +51,8 @@
 
   <section class="panel chart" style="margin-top:16px">
     <h3 data-en="① The Story Being Passed On">① 이야기가 전해지는 모습</h3>
-    <p data-en="The top row is the original, and the 12 rows below are the stories the different chains are telling right now. Each box is one motif, and the redder it is, the more memorable. Boxes from the original have a bold outline.">맨 위가 원본이고, 아래 12줄이 서로 다른 전달 사슬이 지금 전하고 있는 이야기입니다. 한 칸이 모티프 하나이고, 붉을수록 기억에 잘 남아요. 원본에 있던 칸은 굵은 테두리로 보입니다.</p>
-    <canvas id="c-chain" class="rounded" aria-label="① The Story Being Passed On"></canvas>
+    <p data-en="The top row is the original, and the 12 rows below are the stories the different chains are telling right now. Each box is one motif, and the redder it is, the more memorable. The 30 original motifs are laid out from the left in order of memorability, and when a chain forgets or changes one, its box is left as an empty dotted outline. The small boxes on the right are motifs invented along the way. Watch whether the rows empty out from the right as the retellings go on.">맨 위가 원본이고, 아래 12줄이 서로 다른 전달 사슬이 지금 전하고 있는 이야기입니다. 한 칸이 모티프 하나이고, 붉을수록 기억에 잘 남아요. 원래 모티프 30개는 기억에 잘 남는 순서로 왼쪽부터 늘어놓았고, 그 사슬에서 잊히거나 바뀌면 칸이 빈 점선으로 남습니다. 오른쪽 작은 칸들은 전달 중에 새로 생긴 모티프예요. 전달이 이어질수록 오른쪽부터 비어 가는지 보세요.</p>
+    <canvas id="c-chain" class="rounded" data-thumb aria-label="① The Story Being Passed On"></canvas>
     <div class="anim-bar">
       <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
       <button id="stepbtn" data-en="Step">한 단계</button>
@@ -60,7 +60,7 @@
       <select id="speed" aria-label="speed"><option value="1.5" data-en="Slow">느리게</option><option value="3" selected data-en="Normal">보통</option><option value="8" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#e4e8f1&quot;&gt;&lt;/i&gt;Less memorable motif"><i style="background:#e4e8f1"></i>기억에 덜 남는 모티프</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Highly memorable motif"><i style="background:#e5484d"></i>기억에 잘 남는 모티프</span><span data-en="&lt;i style=&quot;background:#fff;border:2px solid #1b1f2a&quot;&gt;&lt;/i&gt;Motif from the original story"><i style="background:#fff;border:2px solid #1b1f2a"></i>원래 이야기에 있던 모티프</span><span data-en="&lt;i style=&quot;background:#fff;border:1.5px dashed #9aa3b5&quot;&gt;&lt;/i&gt;Motif invented along the way"><i style="background:#fff;border:1.5px dashed #9aa3b5"></i>중간에 새로 생긴 모티프</span></div>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#e4e8f1&quot;&gt;&lt;/i&gt;Less memorable motif"><i style="background:#e4e8f1"></i>기억에 덜 남는 모티프</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Highly memorable motif"><i style="background:#e5484d"></i>기억에 잘 남는 모티프</span><span data-en="&lt;i style=&quot;background:#fff;border:2px solid #1b1f2a&quot;&gt;&lt;/i&gt;Motif from the original story"><i style="background:#fff;border:2px solid #1b1f2a"></i>원래 이야기에 있던 모티프</span><span data-en="&lt;i style=&quot;background:#fff;border:1.5px dashed #d5dbe7&quot;&gt;&lt;/i&gt;Original motif forgotten or changed (empty box)"><i style="background:#fff;border:1.5px dashed #d5dbe7"></i>잊혔거나 바뀐 원래 모티프 (빈 칸)</span><span data-en="&lt;i style=&quot;background:#fff;border:1.5px dashed #9aa3b5&quot;&gt;&lt;/i&gt;Motif invented along the way"><i style="background:#fff;border:1.5px dashed #9aa3b5"></i>중간에 새로 생긴 모티프</span></div>
   </section>
 
   <div class="charts">

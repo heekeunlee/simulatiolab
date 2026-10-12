@@ -3,6 +3,9 @@
   const FF = window.Firefly, L = window.Lab;
   const { css, mix, pct } = L;
   const $ = (id) => document.getElementById(id);
+  // ?thumb=1 (메인 페이지 썸네일용): 동기화가 끝난 뒤 다 함께 반짝이는 순간에서 멈춘다
+  const THUMB = /[?&]thumb=1/.test(location.search);
+  let thumbFrozen = false;
   let sim = null, avgNb = 0, couplingRows = [], radiusRows = [];
   let seedGetter = () => 1;
   const params = () => ({
@@ -16,6 +19,7 @@
 
   // ---------- ① 밤하늘 ----------
   function drawNight() {
+    $('when').textContent = `${cycles().toFixed(0)}주기 · 동기화 r=${sim.sync().toFixed(2)}`;
     const c = L.chart($('c-night'), 0.85, { l: 0, r: 0, t: 0, b: 0 });
     const { ctx, w, h } = c;
     const g = ctx.createLinearGradient(0, 0, 0, h);
@@ -37,11 +41,11 @@
       ctx.fillStyle = gl > 0.3 ? '#fff6b8' : 'rgba(140,152,190,.65)';
       ctx.beginPath(); ctx.arc(x, y, i === 0 ? 3.4 : 2.4, 0, 7); ctx.fill();
     }
+    if (THUMB) return;
     ctx.fillStyle = 'rgba(210,220,250,.85)'; ctx.textAlign = 'left'; ctx.font = '600 13px -apple-system, "Apple SD Gothic Neo", sans-serif';
     ctx.fillText('동기화 정도 r = ' + sim.sync().toFixed(2), 12, 22);
     ctx.font = '12px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillStyle = 'rgba(190,200,235,.7)';
     ctx.fillText('점선 원: 한 마리가 볼 수 있는 범위', 12, h - 12);
-    $('when').textContent = `${cycles().toFixed(0)}주기 · 동기화 r=${sim.sync().toFixed(2)}`;
   }
 
   // ---------- ② 위상 시계 ----------
@@ -57,7 +61,8 @@
       const a = sim.phase[i] * 2 * Math.PI - Math.PI / 2;
       sx += Math.cos(a); sy += Math.sin(a);
       ctx.fillStyle = sim.glow[i] > 0.3 ? '#e0a100' : mix(css('--accent'), 0.55);
-      ctx.beginPath(); ctx.arc(cx + R * Math.cos(a), cy + R * Math.sin(a), 3.2, 0, 7); ctx.fill();
+      const rr = R + ((i % 5) - 2) * 3.2;   // 같은 위상에 몰린 점이 겹쳐 사라지지 않게 원 둘레 안팎으로 조금씩 나눠 그린다
+      ctx.beginPath(); ctx.arc(cx + rr * Math.cos(a), cy + rr * Math.sin(a), 3.2, 0, 7); ctx.fill();
     }
     const r = Math.sqrt(sx * sx + sy * sy) / sim.n, ang = Math.atan2(sy, sx);
     ctx.strokeStyle = css('--unlucky'); ctx.lineWidth = 3; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + r * R * Math.cos(ang), cy + r * R * Math.sin(ang)); ctx.stroke(); ctx.lineWidth = 1; ctx.lineCap = 'butt';
@@ -136,10 +141,18 @@
     controls: ['coupling', 'radius', 'spread'],
     format: { coupling: (v) => Number(v).toFixed(1) + '%', radius: (v) => v + '%', spread: (v) => v + '%' },
     defaults: { coupling: 2.5, radius: 30, spread: 10 },
-    build() { sim = FF.create(params()); avgNb = neighbors(); },
-    advance() { return sim.advance(); },
+    build() {
+      sim = FF.create(params()); avgNb = neighbors(); thumbFrozen = false;
+      window.dispatchEvent(new CustomEvent('firefly:build', { detail: params() }));   // 3D 보기(app3d.js)도 같은 설정으로 다시 시작
+      if (THUMB) {   // 동기화(r>0.9)된 뒤, 절반 넘게 한꺼번에 반짝인 직후에서 멈춘다
+        while (sim.advance() && !(sim.step > 200 && sim.sync() > 0.9 && sim.flashedLast() > sim.n / 2));
+        sim.advance(); sim.advance(); thumbFrozen = true;
+      }
+    },
+    advance() { return thumbFrozen ? false : sim.advance(); },
     isDone() { return sim.step >= sim.maxSteps; },
     draw, after, redrawExtra() { drawCouplingSweep(); drawRadiusSweep(); }, seedLabel: '숲 번호',
   });
   seedGetter = h.seed;
+  window.FireflyApp = { params };   // 3D 보기가 현재 설정을 읽는다
 })();

@@ -2,50 +2,66 @@
   'use strict';
   const TU = window.Turing, L = window.Lab;
   const { css, mix, pct } = L;
+  const worldCv = document.getElementById('c-world');
+  worldCv.style.maxWidth = '600px';   // 정사각형이라 너무 크면 한 화면에 다 안 들어온다
+  { const bar = worldCv.parentElement.querySelector('.anim-bar'); if (bar) bar.style.maxWidth = '600px'; }
+  { const c3 = document.getElementById('c-3d');
+    if (c3) {
+      c3.setAttribute('aria-label', c3.getAttribute('aria-label').replace(/<[^>]*>/g, '').trim());   // 제목의 3D 배지 태그를 읽지 않게
+      const sec = c3.closest('section'); if (sec) sec.style.gridColumn = '1 / -1';   // 3D 지형은 가로 전체를 쓴다
+    } }
   const $ = (id) => document.getElementById(id);
-  const PER_STEP = 40, MAX_ITER = 30000, LEVELS = 28;
+  const PER_STEP = 40, MAX_ITER = 30000;
   const NAMES = { spots: '점무늬', stripes: '줄무늬', mitosis: '세포 분열', coral: '산호' };
   let sim = null, programmatic = false;
   let seedGetter = () => 1;
   const params = () => ({ seed: seedGetter(), F: Number($('F').value), k: Number($('k').value) });
 
-  // 약한 농도 -> 진한 농도 (밝은 바탕에서 짙은 남색까지)
-  const STOPS = [[251, 251, 248], [124, 92, 255], [27, 31, 58]];
-  const colors = Array.from({ length: LEVELS }, (_, q) => {
-    const t = q / (LEVELS - 1), s = t < 0.5 ? 0 : 1, u = t < 0.5 ? t * 2 : (t - 0.5) * 2, a = STOPS[s], b = STOPS[s + 1];
-    return `rgb(${a.map((x, i) => Math.round(x + (b[i] - x) * u)).join(',')})`;
-  });
+  const THUMB = /[?&]thumb=1/.test(location.search);   // 메인 페이지 썸네일용: 무늬가 다 자란 장면으로 바로 간다
+  const VMAX = 0.38;   // 색·높이의 최댓값 (자리 잡은 무늬의 v 꼭대기는 0.25~0.42, 넘으면 가장 진한 색)
+
+  // 약한 농도 -> 진한 농도 (밝은 바탕에서 보라를 거쳐 짙은 남색까지). 3D 보기(app3d.js)도 같은 색을 쓴다
+  const STOPS = [[251, 251, 248], [196, 182, 255], [124, 92, 255], [27, 31, 58]], POS = [0, 0.3, 0.62, 1];
+  const LUT = new Uint8ClampedArray(256 * 3);
+  for (let q = 0; q < 256; q++) {
+    const t = q / 255; let s = 0; while (s < POS.length - 2 && t > POS[s + 1]) s++;
+    const u = (t - POS[s]) / (POS[s + 1] - POS[s]), a = STOPS[s], b = STOPS[s + 1];
+    for (let j = 0; j < 3; j++) LUT[q * 3 + j] = Math.round(a[j] + (b[j] - a[j]) * u);
+  }
+  let off = null, offImg = null;
 
   function drawWorld() {
-    const c = L.chart($('c-world'), 1, { l: 0, r: 0, t: 0, b: 0 });
-    const { ctx, w } = c, S = sim.size, cell = w / S, v = sim.v;
-    ctx.fillStyle = colors[0]; ctx.fillRect(0, 0, w, w);
-    const buckets = Array.from({ length: LEVELS }, () => []);
+    const cv = $('c-world');
+    const c = L.chart(cv, 1, { l: 0, r: 0, t: 0, b: 0 });
+    const { ctx, w } = c, S = sim.size, v = sim.v;
+    if (!off || off.width !== S) { off = document.createElement('canvas'); off.width = off.height = S; offImg = off.getContext('2d').createImageData(S, S); }
+    const d = offImg.data;
     for (let i = 0; i < S * S; i++) {
-      const q = Math.min(LEVELS - 1, Math.max(0, Math.round((v[i] / 0.45) * (LEVELS - 1))));
-      if (q > 0) buckets[q].push(i);
+      const q = Math.max(0, Math.min(255, Math.round((v[i] / VMAX) * 255))) * 3, o = i * 4;
+      d[o] = LUT[q]; d[o + 1] = LUT[q + 1]; d[o + 2] = LUT[q + 2]; d[o + 3] = 255;
     }
-    for (let q = 1; q < LEVELS; q++) {
-      if (!buckets[q].length) continue;
-      ctx.fillStyle = colors[q]; ctx.beginPath();
-      for (const i of buckets[q]) ctx.rect((i % S) * cell, Math.floor(i / S) * cell, cell + 0.6, cell + 0.6);
-      ctx.fill();
-    }
+    off.getContext('2d').putImageData(offImg, 0, 0);
+    ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
+    ctx.drawImage(off, 0, 0, w, w);
     const st = sim.history[sim.history.length - 1];
     $('when').textContent = `${sim.iter.toLocaleString('ko-KR')}번 진행 · 무늬 면적 ${pct(st.area)}`;
+    rev++;
   }
+  // 3D 보기가 같은 상태를 쓰도록 노출한다 (rev가 바뀌면 다시 그림)
+  let rev = 0;
+  window.TuringLab = { get sim() { return sim; }, get rev() { return rev; }, LUT, VMAX };
 
   function drawTime() {
     const c = L.chart($('c-time'), 0.7), { ctx, m, pw, ph } = c, H = sim.history;
     const X = (it) => m.l + (it / MAX_ITER) * pw, Y = (val) => m.t + ph - (val / 0.6) * ph, xt = [0, 10000, 20000, 30000];
-    L.axes(c, { X, Y, yTicks: [0, 0.2, 0.4, 0.6], yFmt: (v) => v.toFixed(1), xTicks: xt, xFmt: (t) => (t / 1000) + '천', xLabel: '진행한 횟수' });
+    L.axes(c, { X, Y, yTicks: [0, 0.2, 0.4, 0.6], yFmt: (v) => v.toFixed(1), xTicks: xt, xFmt: (t) => (t ? (t / 1000) + '천' : '0'), xLabel: '진행한 횟수' });
     L.line(ctx, H.map((s, i) => [X(i * PER_STEP), Y(s.area)]), css('--accent'), 2.5);
     L.line(ctx, H.map((s, i) => [X(i * PER_STEP), Y(s.vMean)]), css('--rich'), 2.5);
   }
 
-  const PRESET_LABELS = { spots: [8, 4, 'left'], stripes: [8, 4, 'left'], mitosis: [-8, -6, 'right'], coral: [8, 4, 'left'] };
+  const PRESET_LABELS = { spots: [15, 4, 'left'], stripes: [8, 4, 'left'], mitosis: [-8, -6, 'right'], coral: [8, 4, 'left'] };
   function drawMap() {
-    const c = L.chart($('c-map'), 0.8, { l: 54, b: 40 }), { ctx, m, pw, ph } = c;
+    const c = L.chart($('c-map'), 0.8, { l: 54, b: 40, r: 26 }), { ctx, m, pw, ph } = c;
     const k0 = 0.05, k1 = 0.07, f0 = 0.02, f1 = 0.06;
     const X = (k) => m.l + ((k - k0) / (k1 - k0)) * pw, Y = (F) => m.t + ph - ((F - f0) / (f1 - f0)) * ph;
     L.axes(c, { X, Y, yTicks: [0.02, 0.03, 0.04, 0.05, 0.06], yFmt: (v) => v.toFixed(2), xTicks: [0.05, 0.055, 0.06, 0.065, 0.07], xFmt: (v) => v.toFixed(3), xLabel: 'k (제거 속도)' });
@@ -58,7 +74,8 @@
     });
     const P = sim.params, cx = X(P.k), cy = Y(P.F);
     ctx.strokeStyle = css('--unlucky'); ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(cx, cy, 10, 0, 7); ctx.stroke(); ctx.lineWidth = 1;
-    ctx.fillStyle = css('--unlucky'); ctx.textAlign = cx > m.l + pw * 0.6 ? 'right' : 'left'; ctx.fillText('지금 설정', cx + (cx > m.l + pw * 0.6 ? -14 : 14), cy - 12);
+    // '지금 설정' 글자는 원 아래에 둔다 (세포 분열·점무늬 이름과 겹치지 않게)
+    ctx.fillStyle = css('--unlucky'); ctx.textAlign = 'center'; ctx.fillText('지금 설정', cx, cy + (cy > m.t + ph - 30 ? -16 : 26));
   }
 
   function nearestPreset() {
@@ -98,11 +115,15 @@
     drawWorld();
   });
 
+  // 썸네일: 얼룩말을 닮은 줄무늬(미로)를 다 자란 상태로 보여 준다
+  const THUMB_ITERS = 6000;
+  if (THUMB) { const pr = TU.PRESETS.stripes; $('preset').value = 'stripes'; $('F').value = pr.F; $('k').value = pr.k; }
+
   const h = L.harness({
     controls: ['preset', 'F', 'k'],
     format: { preset: () => '', F: (v) => Number(v).toFixed(4), k: (v) => Number(v).toFixed(4) },
     defaults: { preset: 'spots', F: 0.035, k: 0.065 },
-    build() { sim = TU.create(params()); },
+    build() { sim = TU.create(params()); if (THUMB) for (let i = 0; i < THUMB_ITERS / PER_STEP; i++) sim.advance(PER_STEP); },
     advance() { if (sim.iter >= MAX_ITER) return false; sim.advance(PER_STEP); return true; },
     isDone() { return sim.iter >= MAX_ITER; },
     draw, redrawExtra() {}, seedLabel: '씨앗 배치',

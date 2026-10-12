@@ -5,6 +5,7 @@
   const $ = (id) => document.getElementById(id);
   let sim = null, sweep = [];
   let seedGetter = () => 1;
+  const THUMB = /[?&]thumb=1/.test(location.search);   // 메인 페이지 썸네일용: 40번 전달이 끝난 장면으로 바로 간다
   const params = () => ({ seed: seedGetter(), memory: Number($('memory').value) / 100, creativity: Number($('creativity').value) / 100, convention: Number($('convention').value) / 100 });
 
   // 기억용이성 0.1(옅은 회청색) → 1(붉은색)
@@ -13,23 +14,62 @@
     return `rgb(${a.map((v, i) => Math.round(v + (b[i] - v) * t)).join(',')})`;
   }
 
+  // ① 원래 모티프를 기억에 잘 남는 순서로 늘어놓은 격자: 칸이 차 있으면 그 사슬에 아직 남아 있는 것
+  //    오른쪽 작은 칸들은 중간에 새로 생긴 모티프, 맨 아래 막대는 원래 모티프마다 남아 있는 사슬 수
   function drawChain() {
-    const c = L.chart($('c-chain'), 0.74, { l: 62, r: 12, t: 10, b: 10 });
-    const { ctx, w, h, m, pw, ph } = c, rows = [sim.original].concat(sim.chains), K = rows.length;
+    const narrow = ($('c-chain').clientWidth || 600) < 560;
+    const left = THUMB ? 10 : narrow ? 44 : 62;
+    const c = L.chart($('c-chain'), THUMB ? 1 : narrow ? 0.8 : 0.74, { l: left, r: 12, t: 10, b: THUMB ? 10 : 30 });
+    const { ctx, w, h, m, pw, ph } = c, K = sim.chains.length + 1, M = sim.params.M;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
-    const slots = Math.max(sim.params.M, ...sim.chains.map((s) => s.length)), bw = pw / slots, rowH = ph / K;
-    rows.forEach((story, r) => {
-      const y = m.t + r * rowH + (r === 0 ? 0 : 4), bh = rowH * 0.66;
-      ctx.font = (r === 0 ? '700 12px' : '11px') + ' -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillStyle = r === 0 ? css('--text') : css('--muted'); ctx.textAlign = 'right';
-      ctx.fillText(r === 0 ? '원본' : `체인 ${r}`, m.l - 8, y + bh * 0.72);
-      story.forEach((mo, i) => {
-        const x = m.l + i * bw;
-        ctx.fillStyle = mcolor(mo.m); L.roundRect(ctx, x + 0.8, y, Math.max(1, bw - 1.6), bh, 3); ctx.fill();
-        if (mo.orig) { ctx.strokeStyle = '#1b1f2a'; ctx.lineWidth = 1.4; ctx.setLineDash([]); }
-        else { ctx.strokeStyle = '#9aa3b5'; ctx.lineWidth = 1; ctx.setLineDash([2, 2]); }
-        L.roundRect(ctx, x + 0.8, y, Math.max(1, bw - 1.6), bh, 3); ctx.stroke(); ctx.setLineDash([]); ctx.lineWidth = 1;
+    const order = sim.original.map((x, i) => i).sort((a, b) => sim.original[b].m - sim.original[a].m);
+    const col = new Map(); order.forEach((i, k) => col.set(sim.original[i].id, k));
+    const newW = THUMB ? 0 : Math.min(pw * (narrow ? 0.2 : 0.24), 150), gw = pw - newW - (THUMB ? 0 : 14), bw = gw / M;
+    const barH = THUMB ? ph * 0.12 : 0, rowH = (ph - barH - (THUMB ? 8 : 0)) / K, bh = Math.min(rowH * 0.74, bw * (narrow ? 2.6 : 1.6));
+    const kept = new Array(M).fill(0);
+    const cellAt = (x, y, mo, solid) => {
+      ctx.fillStyle = mcolor(mo.m); L.roundRect(ctx, x + 0.8, y, Math.max(1, bw - 1.6), bh, 3); ctx.fill();
+      if (solid && !THUMB) { ctx.strokeStyle = '#1b1f2a'; ctx.lineWidth = 1.2; L.roundRect(ctx, x + 0.8, y, Math.max(1, bw - 1.6), bh, 3); ctx.stroke(); ctx.lineWidth = 1; }
+    };
+    for (let r = 0; r < K; r++) {
+      const y = m.t + r * rowH + (r === 0 ? 0 : 6) + (rowH - bh) / 2, story = r === 0 ? sim.original : sim.chains[r - 1];
+      if (!THUMB) {
+        ctx.font = (r === 0 ? '700 12px' : '11px') + ' -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillStyle = r === 0 ? css('--text') : css('--muted'); ctx.textAlign = 'right';
+        ctx.fillText(r === 0 ? '원본' : `체인 ${r}`, m.l - 8, y + bh * 0.72);
+      }
+      // 빈 자리(잊혔거나 바뀐 원래 모티프)
+      ctx.strokeStyle = '#d5dbe7'; ctx.setLineDash([2, 2]);
+      for (let k = 0; k < M; k++) { L.roundRect(ctx, m.l + k * bw + 1.5, y + 0.5, Math.max(1, bw - 3), bh - 1, 3); ctx.stroke(); }
+      ctx.setLineDash([]);
+      const extra = [];
+      story.forEach((mo) => {
+        if (col.has(mo.id)) { const k = col.get(mo.id); cellAt(m.l + k * bw, y, mo, true); if (r > 0) kept[k]++; }
+        else extra.push(mo);
       });
-    });
+      if (!THUMB && r > 0 && extra.length) {
+        const ex = m.l + gw + 14, ew = Math.min(bw, newW / Math.max(8, extra.length));
+        extra.forEach((mo, i) => {
+          ctx.fillStyle = mcolor(mo.m); L.roundRect(ctx, ex + i * ew + 0.6, y, Math.max(1, ew - 1.2), bh, 2); ctx.fill();
+          ctx.strokeStyle = '#9aa3b5'; ctx.setLineDash([2, 2]); L.roundRect(ctx, ex + i * ew + 0.6, y, Math.max(1, ew - 1.2), bh, 2); ctx.stroke(); ctx.setLineDash([]);
+        });
+      }
+    }
+    if (!THUMB) {
+      ctx.font = '11px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillStyle = css('--muted');
+      ctx.textAlign = 'left'; ctx.fillText('← 기억에 잘 남는 모티프', m.l, h - 10);
+      if (!narrow) {
+        ctx.textAlign = 'right'; ctx.fillText('잘 잊히는 모티프 →', m.l + gw, h - 10);
+        ctx.textAlign = 'center'; ctx.fillText('새로 생긴 모티프', m.l + gw + 14 + newW / 2, h - 10);
+      }
+      ctx.strokeStyle = css('--line'); ctx.beginPath(); ctx.moveTo(m.l + gw + 7, m.t); ctx.lineTo(m.l + gw + 7, m.t + ph); ctx.stroke();
+    } else {
+      // 썸네일: 원래 모티프마다 남아 있는 사슬 수를 막대로
+      const by = h - 10;
+      for (let k = 0; k < M; k++) {
+        const v = kept[k] / sim.chains.length, mo = sim.original[order[k]];
+        ctx.fillStyle = mcolor(mo.m); L.roundRect(ctx, m.l + k * bw + 1.5, by - Math.max(2, v * barH), bw - 3, Math.max(2, v * barH), 2); ctx.fill();
+      }
+    }
     const cur = sim.current();
     $('when').textContent = `${sim.gen}번째 전달 · 원본 모티프 ${pct(cur.survMean)} 남음`;
   }
@@ -94,7 +134,8 @@
     controls: ['memory', 'creativity', 'convention'],
     format: { memory: (v) => v + '%', creativity: (v) => v + '%', convention: (v) => v + '%' },
     defaults: { memory: 96, creativity: 30, convention: 30 },
-    build() { sim = TP.create(params()); },
+    build() { sim = TP.create(params()); if (THUMB) sim.run(); },
+    autoplay: !THUMB,
     advance() { return sim.advance(); },
     isDone() { return sim.done; },
     draw, after, redrawExtra() { drawSweep(); }, seedLabel: '전달 번호',

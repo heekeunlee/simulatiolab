@@ -55,15 +55,15 @@
   <section class="panel chart" style="margin-top:16px">
     <h3 data-en="① Five Candidate Societies and the Lottery Behind the Veil">① 후보 사회 다섯 곳과 베일 뒤 추첨</h3>
     <p data-en="The five bars are the incomes of the five positions (the left bar is the poorest). The outlined column is the society chosen by the current rule. Press play to draw a random position in that society, one at a time, and see what your income would be.">막대 다섯 개는 소득 순으로 나눈 다섯 자리(왼쪽이 가장 가난한 자리)의 소득입니다. 테두리가 진한 곳이 지금 규칙으로 고른 사회이고, 재생하면 그 사회에서 자리를 한 번씩 무작위로 뽑아 내 소득이 얼마인지 보여줘요.</p>
-    <canvas id="c-soc" class="rounded" aria-label="① Five Candidate Societies and the Lottery Behind the Veil"></canvas>
+    <canvas id="c-soc" class="rounded" data-thumb aria-label="① Five Candidate Societies and the Lottery Behind the Veil"></canvas>
     <div class="anim-bar">
       <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
       <button id="stepbtn" data-en="Step">한 단계</button>
       <button id="restart" data-en="Restart">처음부터</button>
-      <select id="speed" aria-label="speed"><option value="4" data-en="Slow">느리게</option><option value="10" selected data-en="Normal">보통</option><option value="25" data-en="Fast">빠르게</option></select>
+      <select id="speed" aria-label="speed"><option value="1.5" data-en="Slow">느리게</option><option value="4" selected data-en="Normal">보통</option><option value="12" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;Position drawn this time"><i style="background:#e0a100"></i>이번에 뽑힌 자리</span></div>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;Position drawn this time"><i style="background:#e0a100"></i>이번에 뽑힌 자리</span><span data-en="&lt;i style=&quot;background:#b07d00;height:3px&quot;&gt;&lt;/i&gt;Dashed line: average of my incomes drawn so far (×number is how often that position was drawn)"><i style="background:#b07d00;height:3px"></i>점선: 지금까지 뽑힌 내 소득의 평균 (×숫자는 그 자리가 뽑힌 횟수)</span></div>
   </section>
 
   <div class="charts">

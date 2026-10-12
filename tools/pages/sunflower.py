@@ -2,7 +2,31 @@ import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from mk2 import *
 
+def _opt(v, t, sel=False): return f'<option value="{v}"{" selected" if sel else ""}{da(t)}>{t[0]}</option>'
+# 3D 섹션: 첫 섹션(①) 바로 아래에 전체 너비로 넣기 위해 ①의 extra에서 섹션을 닫고 새로 연다
+_T3 = T('② 3D로 보기: 볼록한 꽃판과 솔방울 <span class="badge3d">3D</span>', '② See It in 3D: a Domed Seed Head and a Pinecone <span class="badge3d">3D</span>')
+_P3 = T('위에서 고른 각도로 씨앗을 볼록한 꽃판 위에 올렸습니다. 돌려 보면 시계 방향과 반시계 방향의 나선이 겹쳐 보이고, 색 칠하기를 34나 55로 바꾸면 한 방향의 나선 팔이 한 색으로 묶입니다. 각도를 120°나 144°로 바꾸면 씨앗이 바큇살로 몰리고 그 사이로 짙은 꽃판이 드러납니다. 솔방울도 같은 규칙(비늘 하나마다 같은 각도만큼 돌기)으로 비늘을 쌓은 것이며, 이때는 나선이 8개, 13개로 보입니다.',
+        'Seeds are placed on a domed head using the angle chosen above. Rotate it and you will see clockwise and counterclockwise spirals crossing; color by 34 or 55 and the arms of one direction group into single colors. Change the angle to 120° or 144° and the seeds crowd into spokes, exposing the dark head between them. A pinecone stacks its scales by the same rule (turn the same angle for each scale), and there the spirals show up as 8 and 13.')
+_H3 = T('드래그로 회전 · 휠(두 손가락)로 확대 · 꽃판은 위 그림과 함께 자랍니다', 'Drag to rotate · scroll (or pinch) to zoom · the head grows along with the picture above')
+_COLS = _opt('same', T('색 칠하기: 위 설정과 같게', 'Color: same as above'), True) + _opt('index', T('색 칠하기: 번호 순서', 'Color: seed order')) + \
+        ''.join(_opt(str(f), T(f'색 칠하기: {f}로 나눈 나머지', f'Color: remainder mod {f}')) for f in (8, 13, 21, 34, 55))
+SEC3D = f'''
+  </section>
+  <section class="panel chart" style="margin-top:16px">
+    <style>@media (max-width: 640px) {{ #c-3d {{ aspect-ratio: 1 / 1; }} }}</style>
+    <h3{da(_T3)}>{_T3[0]}</h3>
+    <p{da(_P3)}>{_P3[0]}</p>
+    <canvas id="c-3d" class="view3d" data-thumb aria-label="{esc(_T3[1].split(' <')[0])}"></canvas>
+    <div class="anim-bar">
+      <select id="shape3d" aria-label="shape">{_opt('flower', T('해바라기 꽃판', 'Sunflower head'), True)}{_opt('cone', T('솔방울', 'Pinecone'))}</select>
+      <select id="col3d" aria-label="color">{_COLS}</select>
+      <button id="grow3d"{da(T('▶ 처음부터 자라기', '▶ Grow from the start'))}>▶ 처음부터 자라기</button>
+      <span class="when" id="info3d"></span>
+    </div>
+    <p class="hint3d"{da(_H3)}>{_H3[0]}</p>'''
+
 page(dict(
+ three=True,
  slug='sunflower',
  title=T('해바라기 씨는 왜 그 각도로 배열될까', 'Why Do Sunflower Seeds Sit at That Angle?'),
  title_tag=T('해바라기 씨는 왜 그 각도로 배열될까 · 시뮬라티오 랩', 'Why Do Sunflower Seeds Sit at That Angle? · Simulatio Lab'),
@@ -29,16 +53,17 @@ page(dict(
        p=T('씨앗이 한 알씩 더해집니다. 각도를 바꾸면 무늬가 어떻게 달라지는지 보세요. 황금각 근처에서는 빈틈이 거의 없고, 120°나 144° 같은 각도에서는 바큇살이 생겨요.',
            'Seeds are added one at a time. Change the angle and watch how the pattern differs. Near the golden angle there are almost no gaps, while angles like 120° or 144° produce spokes.'),
        id='c-flower', rounded=True, anim=True, step=False,
-       speeds=[('15', T('느리게', 'Slow')), ('40', T('보통', 'Normal')), ('100', T('빠르게', 'Fast'))], speed_default='40'),
-  dict(title=T('② 각도마다 빈틈은 얼마나 될까', '② How Big Are the Gaps at Each Angle?'),
+       speeds=[('10', T('느리게', 'Slow')), ('28', T('보통', 'Normal')), ('80', T('빠르게', 'Fast'))], speed_default='28',
+       extra=SEC3D),
+  dict(title=T('③ 각도마다 빈틈은 얼마나 될까', '③ How Big Are the Gaps at Each Angle?'),
        p=T('가로는 씨앗 사이의 각도, 세로는 빈틈 평균입니다(로그 눈금). 대부분의 각도는 비슷하게 낮지만, 360°의 간단한 분수 근처에서는 뾰족하게 나빠집니다.',
            'The horizontal axis is the angle between seeds, the vertical axis is the average gap (log scale). Most angles stay similarly low, but near simple fractions of 360° the gap spikes sharply.'),
        id='c-sweep', note='sweep'),
-  dict(title=T('③ 특별한 각도 비교', '③ Comparing Special Angles'),
+  dict(title=T('④ 특별한 각도 비교', '④ Comparing Special Angles'),
        p=T('지금 씨앗 수에서 몇 가지 각도의 빈틈 평균을 비교합니다. 낮을수록 고르게 채워진 것이고, 금색이 황금각입니다.',
            'Compares the average gap of a few angles at the current seed count. Lower means more evenly filled, and gold is the golden angle.'),
        id='c-bars'),
-  dict(title=T('④ 이웃까지의 거리', '④ Distance to the Nearest Neighbor'),
+  dict(title=T('⑤ 이웃까지의 거리', '⑤ Distance to the Nearest Neighbor'),
        p=T('지금 각도에서 씨앗마다 가장 가까운 이웃까지의 거리 분포입니다. 간격이 일정하면 한 곳에 뾰족하게 모이고, 겹치거나 듬성듬성하면 넓게 퍼집니다.',
            'The distribution of the distance from each seed to its nearest neighbor at the current angle. Even spacing gives one sharp peak; overlap or sparse spots spread it out.'),
        id='c-hist'),

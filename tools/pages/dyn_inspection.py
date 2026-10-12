@@ -30,4 +30,10 @@ DYN = {
 '시간표대로 오면(변동계수 0) {#0}분, 무작위로 오면(1) {#1}분, 많이 몰려 오면(2) {#2}분을 기다립니다 (평균 간격 {#3}분)':
   'You wait {0} min if buses run on a timetable (coefficient of variation 0), {1} min if they arrive randomly (1) and {2} min if they bunch heavily (2) (average gap {3} min)',
 '버스 노선 번호': 'Bus route',
+'세로선: 버스 · 빨간 점: 이 승객 · 파란 점: 먼저 도착한 승객들': 'Vertical lines: buses · red dot: this passenger · blue dots: earlier passengers',
+'지금까지 평균 대기 {#0}분': 'Average wait so far {0} min',
+'도착한 승객 수': 'Passengers arrived',
+'세로: 분': 'Vertical: minutes',
+'단순 계산 (간격의 절반) {#0}분': 'Naive (half the gap) {0} min',
+'이론 {#0}분': 'Theory {0} min',
 }

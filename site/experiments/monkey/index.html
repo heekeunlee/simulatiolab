@@ -23,7 +23,7 @@
     <li data-en="The symbols are the 26 uppercase letters plus the space, 27 in all, and the target is a line from Hamlet (&lt;code&gt;TO BE OR NOT TO BE&lt;/code&gt; or &lt;code&gt;METHINKS IT IS LIKE A WEASEL&lt;/code&gt;).">글자는 알파벳 대문자 26개와 띄어쓰기를 합친 27가지이고, 목표는 햄릿의 대사입니다(<code>TO BE OR NOT TO BE</code>, <code>METHINKS IT IS LIKE A WEASEL</code>).</li>
     <li data-en="&lt;b style=&quot;color:var(--unlucky)&quot;&gt;Pure chance&lt;/b&gt;: at every step, 5,000 completely random sentences are typed and the one matching the target in the most places is recorded. Earlier results have no influence on later attempts."><b style="color:var(--unlucky)">순수한 우연</b>: 한 단계마다 완전히 무작위인 문장 5,000개를 찍어 보고, 목표와 가장 많이 맞은 문장을 기록합니다. 이전 결과는 다음 시도에 아무 영향을 주지 않습니다.</li>
     <li data-en="&lt;b style=&quot;color:var(--lucky)&quot;&gt;Cumulative selection&lt;/b&gt;: start from one random sentence; each generation makes copies and changes each letter with some probability. The sentence (parent included) matching the target in the most places becomes the next generation&#x27;s parent. The difference is that correct letters are carried over."><b style="color:var(--lucky)">누적 선택</b>: 무작위 문장 하나에서 시작해, 한 세대마다 복사본을 만들고 글자마다 일정 확률로 바꿉니다. 목표와 가장 많이 맞는 문장(부모 포함)이 다음 세대의 부모가 됩니다. 맞은 글자가 다음 세대로 이어지는 것이 차이입니다.</li>
-    <li data-en="Both methods are scored only by &quot;how many letters match the target.&quot; Highlighted letter boxes are the ones that match.">두 방식 모두 "목표와 맞은 글자 수"로만 평가합니다. 초록색 글자 칸이 목표와 맞은 곳이에요.</li>
+    <li data-en="Both methods are scored only by &quot;how many letters match the target.&quot; Highlighted letter boxes are the ones that match.">두 방식 모두 "목표와 맞은 글자 수"로만 평가합니다. 색칠된 글자 칸이 목표와 맞은 곳이에요.</li>
   </ul>
 
   <h2 data-en="Try it yourself">직접 돌려보기</h2>
@@ -51,13 +51,13 @@
 
   <section class="panel chart" style="margin-top:16px">
     <h3 data-en="① The Race Between the Two Methods">① 두 방식의 경주</h3>
-    <p data-en="The top is pure chance and the bottom is cumulative selection. Colored boxes are letters that match the target. The gray row is the random text chance just typed.">위쪽은 순수한 우연, 아래쪽은 누적 선택입니다. 초록색으로 칠해진 칸이 목표와 맞은 글자예요. 회색 줄은 우연이 방금 찍은 무작위 글자입니다.</p>
-    <canvas id="c-text" class="rounded" aria-label="① The Race Between the Two Methods"></canvas>
+    <p data-en="The top is pure chance (red) and the bottom is cumulative selection (green). Colored boxes are letters that match the target. The gray row is the random text chance just typed, and the faint rows at the bottom are the parent sentences of cumulative selection each time the number of matching letters went up. Watch the correct letters carry over and pile up from top to bottom.">위쪽은 순수한 우연(빨강), 아래쪽은 누적 선택(초록)입니다. 색칠된 칸이 목표와 맞은 글자예요. 회색 줄은 우연이 방금 찍은 무작위 글자이고, 아래쪽의 옅은 줄들은 누적 선택에서 맞은 글자 수가 늘어날 때마다의 부모 문장입니다. 맞은 글자가 다음 세대로 이어지며 위에서 아래로 쌓여 가는 것을 보세요.</p>
+    <canvas id="c-text" class="rounded" data-thumb aria-label="① The Race Between the Two Methods"></canvas>
     <div class="anim-bar">
       <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
       <button id="stepbtn" data-en="Step">한 단계</button>
       <button id="restart" data-en="Restart">처음부터</button>
-      <select id="speed" aria-label="speed"><option value="4" data-en="Slow">느리게</option><option value="12" selected data-en="Normal">보통</option><option value="30" data-en="Fast">빠르게</option></select>
+      <select id="speed" aria-label="speed"><option value="2" data-en="Slow">느리게</option><option value="6" selected data-en="Normal">보통</option><option value="20" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
   </section>

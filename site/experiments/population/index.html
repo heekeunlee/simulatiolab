@@ -53,12 +53,12 @@
   <section class="panel chart" style="margin-top:16px">
     <h3 data-en="① How the Population Pyramid Changes">① 인구 피라미드가 바뀌는 모습</h3>
     <p data-en="Each row is one year of age. Green is 0–14, blue is 15–64, gold is 65+, and the gray outline is the 2024 shape. Watch whether the bottom (young) narrows and the top (old) thickens over time.">한 줄이 한 살입니다. 초록은 0~14세, 파랑은 15~64세, 금색은 65세 이상이고, 회색 선은 2024년의 모양이에요. 시간이 흐르며 아래(젊은 층)가 좁아지고 위(고령층)가 두꺼워지는지 보세요.</p>
-    <canvas id="c-pyr" class="rounded" aria-label="① How the Population Pyramid Changes"></canvas>
+    <canvas id="c-pyr" class="rounded" data-thumb aria-label="① How the Population Pyramid Changes"></canvas>
     <div class="anim-bar">
       <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
       
       <button id="restart" data-en="Restart">처음부터</button>
-      <select id="speed" aria-label="speed"><option value="4" data-en="Slow">느리게</option><option value="10" selected data-en="Normal">보통</option><option value="25" data-en="Fast">빠르게</option></select>
+      <select id="speed" aria-label="speed"><option value="3" data-en="Slow">느리게</option><option value="6" selected data-en="Normal">보통</option><option value="15" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
       <div class="legend"><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Ages 0–14"><i style="background:#1fa463"></i>0~14세</span><span data-en="&lt;i style=&quot;background:#2f6fed&quot;&gt;&lt;/i&gt;Ages 15–64"><i style="background:#2f6fed"></i>15~64세</span><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;Ages 65+"><i style="background:#e0a100"></i>65세 이상</span></div>

@@ -40,6 +40,7 @@ def page(sp):
 
     def sec(c):
         cls = 'rounded' if c.get('rounded') else ''
+        if c.get('three'): cls = (cls + ' view3d').strip()   # 3D 보기 캔버스 (app3d.js가 three.js로 그림)
         bar = ''
         if c.get('anim'):
             sp_ = c.get('speeds', [('2', T('느리게', 'Slow')), ('6', T('보통', 'Normal')), ('16', T('빠르게', 'Fast'))])
@@ -53,17 +54,19 @@ def page(sp):
         if c.get('note'): extra += note(c['note'])
         extra_canvas = c.get('after_canvas', '')
         return (f'<h3{da(c["title"])}>{c["title"][0]}</h3>\n    <p{da(c["p"])}>{c["p"][0]}</p>\n'
-                f'    <canvas id="{c["id"]}" class="{cls}" aria-label="{esc(c["title"][1])}"></canvas>{extra_canvas}{bar}{extra}')
+                f'    <canvas id="{c["id"]}" class="{cls}"{" data-thumb" if c.get("thumb") else ""} aria-label="{esc(re.sub(r"<[^>]+>", "", c["title"][1]).strip())}"></canvas>{extra_canvas}{bar}{extra}')
 
     secs = sp['sections']
     first = f'  <section class="panel chart" style="margin-top:16px">\n    {sec(secs[0])}\n  </section>\n'
-    rest = ''.join(f'    <section class="panel chart">\n      {sec(c)}\n    </section>\n' for c in secs[1:])
+    # wide=True 이면 결과 격자에서 한 줄 전체를 쓴다 (3D 보기 등 큰 화면)
+    rest = ''.join(f'    <section class="panel chart{" wide" if c.get("wide") else ""}">\n      {sec(c)}\n    </section>\n' for c in secs[1:])
     model = ''.join(f'\n    <li{da(b)}>{b[0]}</li>' for b in sp['model'])
     memo = ''.join(f'\n    <li class="memo"{da(b)}>{b[0]}</li>' for b in sp['memo'])
     code = T('코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/%s">GitHub</a>에서 볼 수 있습니다.' % sp['slug'],
              'The code is available on <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/%s">GitHub</a>.' % sp['slug'])
     h = lambda ko, en, tag='h2': f'<{tag} data-en="{esc(en)}">{ko}</{tag}>'
     btn = lambda i, ko, en, cls='': f'<button{" class=%s" % cls if cls else ""} id="{i}"{da(T(ko, en))}>{ko}</button>'
+    three_tag = '<script src="../../lazy3d.js" data-module="app3d.js"></script>\n' if sp.get('three') else ''   # 3D: page(three=True) + 실험 폴더의 app3d.js (ES 모듈, ../../lab3d.js 사용). lazy3d.js가 화면 가까이 오면 불러옴
     out = f'''<!doctype html>
 <html lang="ko">
 <head>
@@ -122,7 +125,7 @@ def page(sp):
 <script src="../../lib.js"></script>
 <script src="sim.js"></script>
 <script src="app.js"></script>
-<script src="../../counter.js"></script>
+{three_tag}<script src="../../counter.js"></script>
 </body>
 </html>
 '''

@@ -9,7 +9,7 @@ DYN = {
 '손익 0': 'Profit 0',
 '평균 {0}': 'Mean {0}',
 '입찰자 수': 'Number of bidders',
-'모두가 입찰가를 낮추는 정도 (추정 오차의 표준편차 σ 단위)': 'How much everyone shades their bid (in standard deviations σ of the estimation error)',
+'모두가 입찰가를 낮추는 정도 (추정 오차의 표준편차 σ 단위)': 'Bid shading by everyone (in σ of the estimation error)',
 '낙찰자 평균 손익': "Winner's average profit",
 '가치 평균 100 기준 · {0}번의 경매': 'Values average 100 · {0} auctions',
 '손해 본 낙찰자': 'Winners who lost money',
@@ -25,4 +25,7 @@ DYN = {
 '입찰자 {#0}명 {1}': '{0} bidders: {1}',
 '평균 손익이 0을 넘는 낮춤:': 'Shading at which the average profit passes 0:',
 '경매장 번호': 'Auction house',
+'낙찰자 {0}': 'Winner {0}',
+'평균 손익 추이': 'Running average profit',
+'{#0}명 입찰': '{0} bidders',
 }

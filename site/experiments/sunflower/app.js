@@ -3,8 +3,9 @@
   const SF = window.Sunflower, L = window.Lab;
   const { css, mix } = L;
   const $ = (id) => document.getElementById(id);
+  const THUMB = /[?&]thumb=1/.test(location.search); // 썸네일 촬영: 다 자란 꽃으로 바로
   const PRESETS = { golden: 137.508, a137: 137, a138: 138, a120: 120, a144: 144, a90: 90, a150: 150 };
-  const BARS = [[90, '90°'], [120, '120°'], [137, '137°'], [137.508, '황금각'], [138, '138°'], [144, '144°'], [150, '150°'], [180, '180°']];
+  const BARS = [[90, '90°'], [120, '120°'], [137, '137°'], [137.508, '137.5°'], [138, '138°'], [144, '144°'], [150, '150°'], [180, '180°']];
   let sim = null, mt = null, sweepRows = [], sweepN = 0, barRows = [], programmatic = false;
   let seedGetter = () => 1;
   const params = () => ({ seed: seedGetter(), angle: Number($('angle').value), n: Number($('n').value) });
@@ -17,18 +18,39 @@
   }
 
   // ---------- ① 해바라기 ----------
+  // 꽃판(짙은 갈색)과 꽃잎이 씨앗과 함께 자란다. 씨앗 사이 빈틈은 짙은 꽃판 색으로 드러난다
   function drawFlower() {
-    const c = L.chart($('c-flower'), 1, { l: 0, r: 0, t: 0, b: 0 });
+    const el = $('c-flower'), wide = (el.clientWidth || 400) > 560;
+    const c = L.chart(el, wide ? 0.72 : 1, { l: 0, r: 0, t: 0, b: 0 });
     const { ctx, w, h } = c;
     ctx.fillStyle = '#fdf8ec'; ctx.fillRect(0, 0, w, h);
-    const R = Math.min(w, h) / 2 - 10, sc = R / Math.sqrt(sim.n), cx = w / 2, cy = h / 2;
+    const R = Math.min(w, h) / 2 - 8, Rh = R / 1.36, sc = Rh / Math.sqrt(sim.n), cx = w / 2, cy = h / 2;
     const rad = Math.max(0.8, (Number($('size').value) / 100) * 0.5 * SF.IDEAL * sc);
+    const rc = Math.max(rad * 2, Math.sqrt(sim.placed + 0.5) * sc + rad * 1.1); // 지금까지 자란 꽃판 반지름
+    // 꽃잎 두 겹 (뒤쪽은 조금 진하게)
+    const pl = rc * 0.36 + 4, pw = Math.max(2, (Math.PI * 2 * rc) / 34 * 0.55);
+    [[0, '#e9a50f'], [0.5, '#f7c531']].forEach(([off, col]) => {
+      ctx.fillStyle = col;
+      for (let i = 0; i < 34; i++) {
+        const t = ((i + off) / 34) * Math.PI * 2;
+        ctx.save(); ctx.translate(cx + Math.cos(t) * (rc + pl * 0.42), cy + Math.sin(t) * (rc + pl * 0.42)); ctx.rotate(t);
+        ctx.beginPath(); ctx.ellipse(0, 0, pl * 0.62, pw, 0, 0, 7); ctx.fill(); ctx.restore();
+      }
+    });
+    const g = ctx.createRadialGradient(cx, cy, rc * 0.1, cx, cy, rc);
+    g.addColorStop(0, '#5a3a17'); g.addColorStop(1, '#2e1c0b');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, rc, 0, 7); ctx.fill();
     for (let k = 0; k < sim.placed; k++) {
       ctx.fillStyle = seedColor(k, sim.n);
       ctx.beginPath(); ctx.arc(cx + sim.x[k] * sc, cy + sim.y[k] * sc, rad, 0, 7); ctx.fill();
     }
     $('when').textContent = `${sim.placed}/${sim.n}번째 씨앗 · 각도 ${sim.params.angle.toFixed(3)}°`;
+    share();
   }
+
+  // 3D 보기(app3d.js)가 쓰는 상태
+  let ver = 0;
+  function share() { window.SunflowerState = { sim, color: $('color').value, size: Number($('size').value), ver: ++ver, thumb: THUMB }; }
 
   // ---------- ② 각도별 빈틈 (로그 눈금) ----------
   function drawSweep() {
@@ -37,11 +59,14 @@
     const X = (a) => m.l + ((a - 90) / 90) * pw, Y = (v) => m.t + ph - ((Math.log10(Math.max(0.3, Math.min(20, v))) - lo) / (hi - lo)) * ph;
     L.axes(c, { X, Y, yTicks: [0.5, 1, 2, 5, 10], yFmt: (v) => String(v), xTicks: [90, 105, 120, 135, 150, 165, 180], xFmt: (a) => a + '°', xLabel: '씨앗 사이의 각도' });
     L.line(ctx, sweepRows.map((r) => [X(r.angle), Y(r.gap)]), css('--accent'), 2);
-    L.vline(c, X(SF.GOLDEN), '#d19200', '황금각 137.5°', 'right');
-    L.vline(c, X(sim.params.angle), css('--unlucky'), '지금 설정', sim.params.angle > 135 ? 'left' : 'right');
-    const fr = [[120, '1/3'], [144, '2/5'], [90, '1/4']];
-    ctx.fillStyle = css('--muted'); ctx.textAlign = 'center';
-    fr.forEach(([a, t]) => ctx.fillText(t, X(a), m.t + 12));
+    // 두 이름이 서로 반대쪽으로 쓰이게 하고, 지금 설정이 황금각과 거의 같으면 선만 긋는다
+    const below = sim.params.angle < SF.GOLDEN, near = Math.abs(sim.params.angle - SF.GOLDEN) < 4;
+    L.vline(c, X(SF.GOLDEN), '#d19200', '황금각 137.5°', below && !near ? 'left' : 'right');
+    L.vline(c, X(sim.params.angle), css('--unlucky'), near ? '' : '지금 설정', below ? 'right' : 'left');
+    // 간단한 분수 이름은 둘째 줄에 (위쪽 선 이름과 겹치지 않게)
+    const fr = [[90, '1/4', 'left'], [120, '1/3', 'center'], [144, '2/5', 'center'], [180, '1/2', 'right']];
+    ctx.fillStyle = css('--muted');
+    fr.forEach(([a, t, al]) => { ctx.textAlign = al; ctx.fillText(t, X(a) + (al === 'left' ? 3 : al === 'right' ? -3 : 0), m.t + 27); });
   }
 
   // ---------- ③ 특별한 각도 비교 ----------
@@ -109,11 +134,12 @@
   });
   $('angle').addEventListener('input', () => { if (!programmatic) $('preset').value = 'custom'; });
 
+  if (THUMB) $('color').value = '34'; // 썸네일: 나선 팔이 색으로 드러나게
   const h = L.harness({
     controls: ['preset', 'angle', 'n', 'size', 'color'],
     format: { preset: () => '', color: () => '', angle: (v) => Number(v).toFixed(3) + '°', n: (v) => v + '개', size: (v) => v + '%' },
     defaults: { preset: 'golden', angle: 137.508, n: 600, size: 80, color: 'index' },
-    build() { sim = SF.create(params()); mt = SF.metrics(sim.n, sim.params.angle, true); },
+    build() { sim = SF.create(params()); if (THUMB) sim.run(); mt = SF.metrics(sim.n, sim.params.angle, true); },
     advance() { return sim.advance(); },
     isDone() { return sim.done(); },
     draw, after, redrawExtra() { drawSweep(); drawBars(); drawHist(); }, seedLabel: '해바라기 번호',

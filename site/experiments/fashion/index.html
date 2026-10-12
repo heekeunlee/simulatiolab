@@ -54,13 +54,13 @@
 
   <section class="panel chart" style="margin-top:16px">
     <h3 data-en="① Fashion on the Color Wheel">① 색상환 위의 유행</h3>
-    <p data-en="On the rim of the color wheel, small dots are the crowd and the large outer dots are trendsetters. The color in the middle is the dominant style right now. Watch whether the crowd chases the trendsetters around in one direction.">색상환의 둘레 위에서 작은 점은 대중, 바깥의 큰 점은 트렌드세터입니다. 가운데 색은 지금의 대세 스타일이에요. 대중이 트렌드세터를 쫓아 한 방향으로 도는지 지켜보세요.</p>
+    <p data-en="On the rim of the color wheel, small dots are the crowd and the large outer dots are trendsetters. The color in the middle is the dominant style right now, and the inner arrow is the path the dominant style took over the last 80 rounds. Watch whether the crowd chases the trendsetters around in one direction.">색상환의 둘레 위에서 작은 점은 대중, 바깥의 큰 점은 트렌드세터입니다. 가운데 색은 지금의 대세 스타일이고, 안쪽의 화살표는 최근 80라운드 동안 대세 스타일이 움직인 길이에요. 대중이 트렌드세터를 쫓아 한 방향으로 도는지 지켜보세요.</p>
     <canvas id="c-wheel" class="rounded" aria-label="① Fashion on the Color Wheel"></canvas>
     <div class="anim-bar">
       <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
       <button id="stepbtn" data-en="Step">한 단계</button>
       <button id="restart" data-en="Restart">처음부터</button>
-      <select id="speed" aria-label="speed"><option value="20" data-en="Slow">느리게</option><option value="60" selected data-en="Normal">보통</option><option value="150" data-en="Fast">빠르게</option></select>
+      <select id="speed" aria-label="speed"><option value="15" data-en="Slow">느리게</option><option value="40" selected data-en="Normal">보통</option><option value="100" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
   </section>
@@ -69,7 +69,7 @@
     <section class="panel chart">
       <h3 data-en="② The Flow of Fashion Over Time">② 시간에 따른 유행의 흐름</h3>
     <p data-en="The horizontal axis is time, the vertical axis is the angle on the color wheel. The more people share a style, the darker it is painted. A slanted stripe means fashion keeps shifting in one direction.">가로는 시간, 세로는 색상환의 각도입니다. 사람이 많이 모인 스타일일수록 진하게 칠했어요. 비스듬한 줄이 보이면 유행이 한 방향으로 계속 바뀌고 있다는 뜻입니다.</p>
-    <canvas id="c-strip" class="" aria-label="② The Flow of Fashion Over Time"></canvas>
+    <canvas id="c-strip" class="" data-thumb aria-label="② The Flow of Fashion Over Time"></canvas>
     </section>
     <section class="panel chart">
       <h3 data-en="③ Diversity of Styles">③ 스타일의 다양성</h3>

@@ -26,7 +26,7 @@ page(dict(
   dict(title=T('① 밤숲 지켜보기', '① Watching the Night Forest'),
        p=T('노랗게 빛나는 점이 지금 막 반짝인 반딧불이입니다. 처음엔 제각각이다가, 시간이 지나면 어떻게 되는지 보세요.',
            'The glowing yellow dots are fireflies that have just flashed. They start out independent; watch what happens as time goes on.'),
-       id='c-night', rounded=True, anim=True, step=False,
+       id='c-night', rounded=True, anim=True, step=False, thumb=True,
        speeds=[('20', T('느리게', 'Slow')), ('50', T('보통', 'Normal')), ('120', T('빠르게', 'Fast'))], speed_default='50'),
   dict(title=T('② 위상 시계', '② The Phase Clock'),
        p=T('모든 반딧불이의 시계를 한 원 위에 놓았습니다. 맨 위가 "반짝!"이 되는 지점이에요. 점들이 한곳에 모이면 동기화된 것입니다.',
@@ -44,6 +44,18 @@ page(dict(
        p=T('가로는 볼 수 있는 범위, 세로는 30주기 뒤의 동기화 정도입니다. 너무 가까운 이웃만 보이면 어떻게 될까요?',
            'The horizontal axis is the visible range, the vertical axis is synchrony after 30 cycles. What happens if each firefly can see only very close neighbors?'),
        id='c-radius', note='radius'),
+  dict(title=T('⑥ 입체 숲에서 보기 <span class="badge3d">3D</span>', '⑥ Watching in a 3D Forest <span class="badge3d">3D</span>'),
+       p=T('같은 규칙, 같은 설정으로 반딧불이 150마리를 높이가 있는 숲(높이는 가로의 30%)에 흩어 놓았습니다. 볼 수 있는 범위는 이제 원이 아니라 공(옅은 구)이에요. "위상을 색으로"를 고르면 시계가 같은 반딧불이끼리 같은 색이 됩니다. 처음엔 여러 색 무리가 따로 반짝이다가, 한 색이 숲 전체로 번지는 모습을 보세요.',
+           'The same rule and settings, with 150 fireflies scattered through a forest that has height (30% of its width). The visible range is now a ball (the faint sphere), not a circle. Choose "Color by phase" and fireflies whose clocks agree share a color. At first several colored groups flash separately; watch one color spread through the whole forest.'),
+       id='c-3d', three=True,
+       after_canvas=('\n    <p class="hint3d" data-en="Drag to rotate, scroll or pinch to zoom. It turns slowly on its own.">드래그로 회전, 휠·핀치로 확대. 가만히 두면 천천히 돌아갑니다.</p>'
+                     '\n    <div class="anim-bar">\n      <button id="ff3-restart" data-en="Restart">처음부터</button>'
+                     '\n      <select id="ff3-color" aria-label="color"><option value="glow" data-en="Light only">불빛만</option><option value="phase" selected data-en="Color by phase">위상을 색으로</option></select>'
+                     '\n      <select id="ff3-speed" aria-label="speed"><option value="25" data-en="Slow">느리게</option><option value="50" selected data-en="Normal">보통</option><option value="100" data-en="Fast">빠르게</option></select>'
+                     '\n      <span class="when" id="ff3-when"></span>\n    </div>'),
+       legend=[leg('background:linear-gradient(90deg,#e8413a,#e8d23a,#3ae86a,#3ad8e8,#4a5ae8,#d83ae8,#e8413a)', '색: 시계의 위치 (같은 색 = 같은 박자)', 'Color: position of the clock (same color = same beat)'),
+               leg('background:#ffe680;box-shadow:0 0 6px #ffd84a', '밝게 커진 점: 지금 반짝인 반딧불이', 'Large bright dot: a firefly that just flashed'),
+               leg('border:1px solid #9fb4ff;background:transparent;border-radius:50%', '옅은 구: 한 마리가 볼 수 있는 범위', 'Faint sphere: the range one firefly can see')]),
  ],
  says=T('서로 앞당겨 주는 정도가 일정 세기를 넘고 서로 볼 수 있는 범위가 충분하면, 중앙에서 박자를 정해 주는 존재가 없어도 반딧불이들이 스스로 한 박자로 맞춰집니다. 기준을 넘기 전에는 거의 변화가 없다가 넘는 순간 갑자기 동기화되는 문턱 현상이 나타나고, 개체마다 박자가 다를수록 동기화는 불완전해집니다.',
         'When the nudge is strong enough and each firefly can see enough of the others, they settle into one beat on their own, with nobody setting the rhythm. Below a threshold almost nothing happens, then synchrony appears suddenly past it, and the more the individual beats differ, the more imperfect the synchrony becomes.'),
@@ -55,6 +67,9 @@ page(dict(
          'Phase counts one cycle as 1 and grows by 0.02 per step. Each firefly\'s speed is normally distributed with mean 1 and a standard deviation equal to the "speed spread." When a firefly flashes, the phase of neighbors in range is increased by the coupling strength, and any that pass 1 flash in the same step.'),
        T('기본 설정(결합 2.5%, 범위 30%, 속도 차이 10%)으로 시드 10개를 돌리면 모두 동기화(r>0.9)에 닿고, 걸린 주기는 2~31주기(대부분 2~6주기)입니다. 결합이 1% 이하면 r이 0.2 아래, 3% 이상이면 0.95 근처입니다 (<code>node tools/validate-firefly.js</code>로 확인).',
          'With the default settings (coupling 2.5%, range 30%, speed spread 10%), 10 seeds all reach synchrony (r>0.9), taking 2 to 31 cycles (mostly 2 to 6). At coupling of 1% or less r stays below 0.2, and at 3% or more it is near 0.95 (verify with <code>node tools/validate-firefly.js</code>).'),
+       T('⑥ 3D 숲은 바닥 1×1, 높이 0.3인 상자에 같은 규칙을 적용합니다. 반딧불이는 제자리 근처에서 살짝 떠다니는 것처럼 보일 뿐, 이웃은 처음 자리로 정해집니다. 같은 범위(30%)라도 한 마리가 보는 이웃이 평균 28마리로 2D(32마리)보다 적고 거리가 더 멀어서, 기본 설정에서 시드 10개 중 9개가 동기화(r>0.9)에 닿지만 걸린 주기는 5~66주기로 2D보다 깁니다. 하나는 150주기까지 닿지 못했습니다.',
+         '⑥ The 3D forest applies the same rule inside a box with a 1×1 floor and a height of 0.3. Fireflies only appear to hover near their spot; neighbors are fixed by the starting positions. With the same range (30%), each firefly sees 28 neighbors on average, fewer than in 2D (32), and they are farther apart, so with default settings 9 of 10 seeds reach synchrony (r>0.9) but take 5 to 66 cycles, longer than in 2D. One did not reach it within 150 cycles.'),
        T('④, ⑤번 그래프는 같은 설정에서 해당 값만 바꿔 30주기를 3번씩 돌린 결과이고, 마지막 6주기의 평균 r입니다.',
          'Graphs ④ and ⑤ change only the given value in the same setup, run 30 cycles 3 times each, and show the average r of the last 6 cycles.')],
+ three=True,
 ))
