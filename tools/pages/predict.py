@@ -132,6 +132,12 @@ PRED.update({
   T('금리 차이가 크면 이자를 더 벌지만, 캐리 거래에서 가장 나쁜 한 주의 손실은 어떻게 될까요?', 'A bigger interest gap earns more interest. What happens to the loss in the carry trade\'s worst week?'), [T('거의 그대로이거나 오히려 줄어든다', 'It stays about the same or even shrinks'), T('이자가 늘어난 만큼 함께 커진다(약 3.6% → 10.5%)', 'It grows along with the interest (about 3.6% to 10.5%)'), T('금리 차이와 상관없이 늘 3.5% 안팎이다', 'It is always around 3.5% whatever the gap')], 1, T('금리 차이 0, 4, 10%p에서 연 평균 캐리는 0.20%, 3.06%, 7.70%로 늘었고 가장 나쁜 한 주의 평균 손실도 3.6%, 10.1%, 10.5%로 커졌습니다. 캐리가 매력적일수록 사람이 빨리 몰려 급락이 커지기 때문입니다.', 'With gaps of 0, 4 and 10 points the average yearly carry rose to 0.20%, 3.06% and 7.70%, and the average loss in the worst week also grew to 3.6%, 10.1% and 10.5%. The more attractive the carry, the faster the crowd piles in and the bigger the crash.')),
 })
 
+
+PRED.update({
+ 'war': (
+  T('전쟁이 양쪽 모두에게 비싸서 싸우지 않고 나누는 합의가 늘 있습니다. 그런데 상대 힘을 정확히 모르는 한쪽(불확실성 ±25%, 전쟁 비용 15%)이 가장 유리한 요구를 하면 분쟁의 몇 %가 전쟁이 될까요?','War is costly for both sides, so a deal that beats fighting always exists. If one side that cannot tell the other\'s strength exactly (uncertainty ±25%, war cost 15%) makes its best demand, what share of disputes become war?'), [T('0% (합의가 있으니 전쟁은 없다)','0% (a deal exists, so no war)'), T('약 40%','About 40%'), T('약 90%','About 90%')], 1, T('이론 40.0%(시뮬레이션 39.8%). 합의 범위가 있어도 A가 기대 몫을 키우려 욕심 낸 요구가 힘센 상대에게 거절되기 때문입니다. 정보가 정확하면 0%였습니다.','Theory gives 40.0% (39.8% in simulation). Even with a deal range, A\'s greedy demand to raise its expected share gets rejected by stronger opponents. With accurate information it was 0%.')),
+})
+
 # 카드에 쓰는 문구 (한국어 → 영어)
 UI = [
  (T('🔮 먼저 예상해 보세요', '🔮 Make a prediction first')),

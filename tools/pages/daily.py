@@ -65,6 +65,11 @@ DAILY += [
  ('fxrate', T('이자를 더 주는 나라의 통화를 사 두면 어떻게 될까요?', 'What happens if you hold the currency of a country that pays higher interest?'), [T('이자만큼 그냥 번다', 'You simply earn the interest'), T('환율이 이자를 깎아 먹어 별 이득이 없다', 'The exchange rate eats the interest and there is little gain'), T('오래 조금씩 벌다 한 번에 크게 잃을 수 있다', 'You may earn a little for years, then lose a lot at once')]),
 ]
 
+
+DAILY += [
+ ('war', T('서로 전쟁을 원하지 않고 전쟁이 둘 다에게 손해라면, 전쟁은 어떻게 될까요?','If neither side wants war and war hurts both, what happens?'), [T('일어나지 않는다','It never happens'), T('상대를 정확히 모르면 그래도 일어날 수 있다','It can still happen if each side misjudges the other'), T('늘 일어난다','It always happens')]),
+]
+
 TOPIC = {  # 다음 실험 주제 투표. 새 투표를 열 땐 id를 바꾼다.
  'id': 'topic-2026-10',
  'q': T('다음에 만들 실험을 골라 주세요', 'Pick the next experiment we build'),
@@ -104,7 +109,7 @@ for s, q, opts in DAILY:
 dyn[TOPIC['q'][0]] = TOPIC['q'][1]
 for o in TOPIC['o']: dyn[o[0]] = o[1]
 for t in UI: dyn[t[0]] = t[1]
-assert len(DAILY) == 47 and all(len(d[2]) == 3 for d in DAILY)
+assert len(DAILY) == 48 and all(len(d[2]) == 3 for d in DAILY)
 open(os.path.join(SITE, 'daily.js'), 'w', encoding='utf-8').write('// 오늘의 만약에 · 주제 투표 데이터 (tools/pages/daily.py 가 만든다)\nwindow.LAB_DAILY = ' + json.dumps(data, ensure_ascii=False) + ';\n')
 open(os.path.join(HERE, 'dyn_daily.py'), 'w', encoding='utf-8').write('# tools/pages/daily.py 가 만든다 (직접 고치지 말 것)\nDYN = ' + json.dumps(dyn, ensure_ascii=False, indent=1) + '\n')
 print(len(DAILY), '개 질문,', len(dyn), '개 문구')

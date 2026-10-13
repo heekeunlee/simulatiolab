@@ -44,6 +44,7 @@ CATS = [
   ('alliance', T('동맹 네트워크 연쇄 모델', 'Alliance-network cascade model'), T('한 발의 총성이 세계대전이 되려면', 'How Does a Single Shot Become a World War?'), T('동맹이 촘촘해지면 작은 충돌이 어디까지 번질까요? 이름 없는 나라들로 해 보는 연쇄 실험이에요.', 'How far does a small clash spread as alliances get denser? A cascade experiment with anonymous states.')),
   ('farming', T('진행파 모델 (피셔–콜모고로프)', 'Wave-of-advance model (Fisher–Kolmogorov)'), T('농사는 어떻게 대륙을 건넜을까: 한 해에 1킬로미터씩 번진 농경', 'How Did Farming Cross a Continent? About One Kilometer a Year'), T('인구가 늘고 조금씩 흩어지는 두 규칙만으로 농경이 한 해 1킬로미터쯤의 속도로 땅을 덮는 모습을 지도 위에서 봐요.', 'Population growth plus a little dispersal is enough for farming to cover the land at about a kilometer a year. Watch it on a map.')),
   ('lanchester', T('란체스터 제곱 법칙', "Lanchester's square law"), T('병력이 두 배면 왜 네 배 강할까: 나눠 싸우면 지는 이유', 'Why Double the Soldiers Is Four Times as Strong: Why Splitting Up Loses'), T('병력이 두 배면 전투력은 네 배. 서로 병력을 깎는 두 군대로 제곱 법칙과, 힘을 나누면 지는 이유를 확인해요.', 'Twice the numbers means four times the strength. See the square law and why splitting your force loses, with two armies wearing each other down.')),
+  ('war', T('협상 실패·군비 경쟁·번짐 모델', 'Bargaining failure, arms race and spread'), T('아무도 원하지 않는데 전쟁이 난다: 협상 실패와 군비 경쟁, 그리고 번짐', 'Nobody Wants It, Yet War Happens: Failed Bargains, Arms Races, and Spreading'), T('전쟁은 양쪽 모두에게 손해인데도 왜 일어날까요? 이름 없는 추상 국가들로 협상 실패, 군비 경쟁, 번짐을 돌려 봐요. (실제 전쟁을 설명하지 않아요)', 'War costs both sides, so why does it happen? Run failed bargaining, arms races and spreading among nameless abstract states. (It does not explain any real war.)')),
  ]),
  ('philosophy', '#be185d', '🧠', T('철학', 'Philosophy'), T('도덕과 신뢰는 어떻게 살아남을까', 'How do morality and trust survive?'), [
   ('cooperation', T('반복 죄수의 딜레마', "Iterated prisoner's dilemma"), T('착한 사람은 살아남을까', 'Do Nice People Survive?'), T('배신하는 사람이 많은 세상에서 협력과 신뢰는 어떻게 되살아날까? 실수가 끼어들면 어떻게 될까?', 'In a world full of defectors, how do cooperation and trust come back? What changes when mistakes creep in?')),
@@ -89,6 +90,7 @@ def thumb(slug):
 
 # 주제로 이어지는 "이게 흥미로웠다면" 추천 (앞의 것이 더 가까운 주제)
 RELATED = {
+ 'war': ['alliance','cooperation','lanchester'],
  'treasury': ['fxrate','regression','wealth'],
  'fxrate': ['treasury','bar','braess'],
  'lanchester': ['alliance', 'cooperation', 'braess'],
@@ -117,7 +119,7 @@ RELATED = {
 }
 # 새 실험을 추가한 날 (NEW 표시는 이 날짜부터 7일 동안, 그리고 "지난 방문 이후 새 실험" 계산에 쓴다). 새 실험을 만들면 한 줄 추가.
 ADDED = {s: '2026-10-12' for s in ['braess', 'regression', 'survivor', 'friendship', 'inspection', 'coincidence']}
-ADDED.update({s: '2026-10-13' for s in ['secretary', 'weakties', 'checkout', 'bunching', 'seating', 'dla', 'sandpile', 'wildfire', 'ant', 'farming', 'lanchester', 'treasury', 'fxrate']})
+ADDED.update({s: '2026-10-13' for s in ['secretary', 'weakties', 'checkout', 'bunching', 'seating', 'dla', 'sandpile', 'wildfire', 'ant', 'farming', 'lanchester', 'treasury', 'fxrate', 'war']})
 
 # slug -> (기호, 짧은 이름 T, 미니 애니메이션 종류)
 META = {
@@ -155,6 +157,7 @@ META = {
  'friendship': ('Fp', T('친구의 역설', 'Friend Paradox'), 'net'),
  'inspection': ('Ip', T('대기 시간', 'Waiting'), 'stripes'),
  'coincidence': ('Ci', T('우연의 일치', 'Coincidence'), 'ring'),
+ 'war': ('Wa', T('전쟁의 구조', 'How War Starts'), 'net'),
  'treasury': ('Ty', T('국채 금리', 'Treasury Yield'), 'rise'),
  'fxrate': ('Fx', T('환율과 캐리', 'FX Carry'), 'stairs'),
  'secretary': ('Sk', T('37%의 법칙', 'The 37% Rule'), 'ring'),
