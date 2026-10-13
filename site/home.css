@@ -168,3 +168,17 @@ html:not([lang="ko"]) .fh b { font-size: 12px; letter-spacing: -0.02em; overflow
   .hero-daily .popts { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 6px; }
   .dailyrow.solo { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* ---- 카드 안 글자 정렬 ---- */
+/* 분야 머리: "모두 완료" 표시가 이름을 밀어 내리지 않게 아이콘 줄 옆에 띄워 둔다 */
+.fh { position: relative; }
+.fh .fcomp { position: absolute; right: 8px; top: 9px; margin: 0; font-size: 9.5px; padding: 2px 6px; border-radius: 99px; background: #1fa463; color: #fff; }
+.col.complete .fh i { display: none; }   /* 완료한 분야는 개수 알약 자리에 ✓ 표시 */
+/* 실험 타일: 이름은 두 줄 높이의 칸 안에서 항상 같은 줄에서 시작(위 맞춤), 왼쪽 시작선도 번호·표시와 같게 */
+.el .nm { left: 10px; right: 8px; bottom: 8px; height: 2.45em; display: flex; align-items: flex-start; font-size: 12px; line-height: 1.22; }
+.el .num { left: 10px; }
+.el .new-pill { left: 10px; bottom: 44px; }
+.el .done-mark { right: 8px; bottom: 44px; }
+/* 영어·유럽어: 이름이 세 줄까지 가므로 세 줄 높이 칸, 글자는 조금 작게 */
+html:not([lang="ko"]) .el .nm { font-size: 11px; height: 3.7em; line-height: 1.2; hyphens: manual; }
+html:not([lang="ko"]) .el .new-pill, html:not([lang="ko"]) .el .done-mark { bottom: 56px; }
