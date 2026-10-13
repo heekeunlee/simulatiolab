@@ -153,3 +153,11 @@ html:not([lang="ko"]) .fh b { font-size: 12px; letter-spacing: -0.02em; overflow
 .table-sec h2 { font-size: 21px; margin: 0 0 2px; }
 .table-sec > p { margin: 0 0 10px; font-size: 13px; }
 @media (max-width: 760px) { .hero .lead { display: none; } .hero-in { padding: 20px 16px 16px; } }
+
+/* 넓은 화면: 오늘의 만약에를 소개 영역 오른쪽에 */
+@media (min-width: 1060px) {
+  .hero-in { display: grid; grid-template-columns: minmax(0, 1fr) 470px; column-gap: 32px; align-items: start; }
+  .hero-in > :not(.hero-daily) { grid-column: 1; }
+  .hero-in .hero-daily { grid-column: 2; grid-row: 1 / span 6; align-self: center; pointer-events: auto; background: rgba(255, 251, 240, .96); border-color: #f0dfae; }
+  .dailyrow.solo { grid-template-columns: minmax(0, 1fr); }
+}

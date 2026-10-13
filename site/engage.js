@@ -310,6 +310,13 @@
       row.innerHTML = '<div class="dcard" id="daily"></div><div class="dcard" id="topic"></div>';
       // 첫 화면에는 주기율표가 보이도록, 오늘의 만약에·투표는 주기율표와 실험 노트 아래에 둔다
       const nbEl = document.getElementById('nb'); if (nbEl) nbEl.after(row); else (document.querySelector('main') || document.body).prepend(row);
+      // 넓은 화면에서는 오늘의 만약에 카드를 소개 영역 오른쪽(빈 자리)에 둔다. 좁은 화면에서는 표 아래에 둔다.
+      const heroIn = document.querySelector('.hero-in'), dcard = row.querySelector('#daily');
+      if (heroIn && dcard && window.matchMedia) {
+        const mq = matchMedia('(min-width: 1060px)');
+        const place = () => { if (mq.matches) { heroIn.appendChild(dcard); dcard.classList.add('hero-daily'); } else { row.prepend(dcard); dcard.classList.remove('hero-daily'); } row.classList.toggle('solo', mq.matches); };
+        place(); (mq.addEventListener ? mq.addEventListener('change', place) : mq.addListener(place));
+      }
       // ---- 오늘의 만약에: 방문할 때마다 다른 질문이 나오고, 몇 초마다 다음 질문으로 바뀐다 ----
       const box = $('daily'), ROTATE_MS = 9000;
       const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
