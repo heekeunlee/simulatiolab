@@ -152,7 +152,7 @@ html:not([lang="ko"]) .fh b { font-size: 12px; letter-spacing: -0.02em; overflow
 .table-sec { margin-top: 16px; }
 .table-sec h2 { font-size: 21px; margin: 0 0 2px; }
 .table-sec > p { margin: 0 0 10px; font-size: 13px; }
-@media (max-width: 760px) { .hero .lead { display: none; } .hero-in { padding: 20px 16px 16px; } }
+@media (max-width: 760px) { #swarm { opacity: .4; } .hero .lead { display: block; font-size: 13px; line-height: 1.55; color: var(--muted); margin: 0 0 12px; } .hero-in { padding: 20px 16px 16px; } }
 
 /* 넓은 화면: 오늘의 만약에를 왼쪽 글 아래의 작은 카드로 두고, 오른쪽은 점 애니메이션이 온전히 보이게 비운다 */
 @media (min-width: 1060px) {
