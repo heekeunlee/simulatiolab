@@ -125,7 +125,7 @@ main.wide { max-width: 1320px; }
 .dnav button:hover { background: #fff4d6; }
 .dprog { height: 3px; background: #f0e3b8; border-radius: 3px; overflow: hidden; margin: 0 0 12px; }
 .dprog i { display: block; height: 100%; width: 0; background: #e0a100; }
-.dprog.run i { animation: dprog 9s linear forwards; }
+.dprog.run i { animation: dprog var(--dur, 7000ms) linear forwards; }
 @keyframes dprog { from { width: 0; } to { width: 100%; } }
 .dbody { transition: opacity .22s ease, transform .22s ease; min-height: 150px; }
 .dbody.fade { opacity: 0; transform: translateY(6px); }

@@ -323,6 +323,7 @@
       }
       // ---- 오늘의 만약에: 방문할 때마다 다른 질문이 나오고, 몇 초마다 다음 질문으로 바뀐다 ----
       const box = $('daily'), ROTATE_MS = 7000;
+      box.style.setProperty('--dur', ROTATE_MS + 'ms');   // 진행 막대가 차는 시간 = 다음 질문으로 넘어가는 시간
       const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
       const idOf = (q) => 'q-' + q.s;
       // 순서: 아직 안 답한 질문을 먼저, 연이어 같은 분야가 나오지 않게 섞는다. 지난 방문의 첫 질문은 피한다.
@@ -364,8 +365,8 @@
       }
       box.addEventListener('mouseenter', () => { paused = true; clearTimeout(timer); const pr = box.querySelector('.dprog'); if (pr) pr.classList.remove('run'); });
       box.addEventListener('mouseleave', () => { paused = false; const pr = box.querySelector('.dprog'); if (pr && rotating()) { void pr.offsetWidth; pr.classList.add('run'); } schedule(); });
-      box.addEventListener('focusin', () => { paused = true; clearTimeout(timer); });
-      box.addEventListener('focusout', () => { paused = false; schedule(); });
+      box.addEventListener('focusin', () => { paused = true; clearTimeout(timer); const pr = box.querySelector('.dprog'); if (pr) pr.classList.remove('run'); });
+      box.addEventListener('focusout', () => { paused = false; const pr = box.querySelector('.dprog'); if (pr && rotating()) { void pr.offsetWidth; pr.classList.add('run'); } schedule(); });
       render(null);
       // 다음 실험 주제 투표
       pollCard($('topic'), D.topic.id, D.topic.q, D.topic.o, { head: `<h3>${esc(tt('🗳 다음 실험 투표'))}</h3>` });
