@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-en="How Does a Single Shot Become a World War? · Simulatio Lab">한 발의 총성이 세계대전이 되려면 · 시뮬라티오 랩</title>
-<meta name="description" content="동맹이 얼마나 촘촘하고 조약을 얼마나 지키느냐에 따라 작은 충돌이 어디까지 번지는지, 추상적인 연쇄 모델로 직접 돌려보세요." data-en-content="See how far a small clash spreads depending on how dense the alliances are and how strictly pacts are honored, using an abstract cascade model.">
+<meta name="description" content="동맹이 얼마나 촘촘하고 조약을 얼마나 지키느냐에 따라 작은 충돌이 어디까지 번지는지 단순한 모델로 직접 돌려보세요." data-en-content="See how far a small clash spreads depending on how dense the alliances are and how strictly pacts are honored, using a simple model.">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="manifest" href="../../manifest.webmanifest">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -53,9 +53,9 @@
   <div class="stats" id="stats"></div>
 
   <section class="panel chart" style="margin-top:16px">
-    <h3 data-en="① The Cascade Spreading">① 동맹 연쇄가 번지는 모습</h3>
+    <h3 data-en="① How It Spreads Along the Alliances">① 동맹을 따라 번지는 모습</h3>
     <p data-en="Circles are countries and lines are alliances. Black rings mark the first attacker and the attacked country, and orange dashed lines are alliances that cross the two sides (ties pulling toward different sides). Watch how far it spreads each round.">동그라미는 나라, 선은 동맹입니다. 검은 테두리가 첫 공격과 공격받은 나라이고, 주황 점선은 양쪽 편에 동맹이 걸친 연결(서로 다른 편으로 끌려가는 관계)이에요. 라운드마다 어디까지 번지는지 지켜보세요.</p>
-    <canvas id="c-net" class="rounded" data-thumb aria-label="① The Cascade Spreading"></canvas>
+    <canvas id="c-net" class="rounded" data-thumb aria-label="① How It Spreads Along the Alliances"></canvas>
     <div class="anim-bar">
       <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
       <button id="stepbtn" data-en="Step">한 단계</button>
@@ -63,7 +63,6 @@
       <select id="speed" aria-label="speed"><option value="0.8" data-en="Slow">느리게</option><option value="2" selected data-en="Normal">보통</option><option value="5" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#e9edf5;border:1.5px solid #c4cbdb&quot;&gt;&lt;/i&gt;Neutral"><i style="background:#e9edf5;border:1.5px solid #c4cbdb"></i>중립국</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Red side"><i style="background:#e5484d"></i>붉은 편</span><span data-en="&lt;i style=&quot;background:#2f6fed&quot;&gt;&lt;/i&gt;Blue side"><i style="background:#2f6fed"></i>푸른 편</span><span data-en="&lt;i style=&quot;background:#d97706&quot;&gt;&lt;/i&gt;Alliance across the sides (dashed)"><i style="background:#d97706"></i>양쪽에 걸친 동맹(점선)</span></div>
   </section>
 
   <div class="charts">
@@ -74,7 +73,7 @@
     </section>
     <section class="panel chart">
       <h3 data-en="③ When the Shot Is Fired 300 Times With These Settings">③ 같은 설정에서 총성이 300번 울리면</h3>
-    <p data-en="The distribution of the number of countries at war when the alliance web and the first attack are redrawn 300 times with these settings. Gray is 4 or fewer, orange is in between, and red is half or more (world-war scale). See whether outcomes split toward the two ends.">같은 설정으로 동맹망과 첫 공격을 300번 새로 뽑았을 때, 전쟁에 들어간 나라 수의 분포입니다. 회색은 4개국 이하, 주황은 그 사이, 빨강은 절반 이상(세계대전급)이에요. 결과가 양 끝으로 갈리는지 보세요.</p>
+    <p data-en="How the number of countries at war is spread out when the alliance web and the first attack are redrawn 300 times with these settings. Gray is 4 or fewer, orange is in between, and red is half or more (world-war scale). See whether outcomes split toward the two ends.">같은 설정으로 동맹망과 첫 공격을 300번 새로 뽑았을 때, 전쟁에 들어간 나라 수가 어떻게 나뉘는지 보여줍니다. 회색은 4개국 이하, 주황은 그 사이, 빨강은 절반 이상(세계대전급)이에요. 결과가 양 끝으로 갈리는지 보세요.</p>
     <canvas id="c-hist" class="" aria-label="③ When the Shot Is Fired 300 Times With These Settings"></canvas>
       <div class="legend"><span id="note-hist" data-en="Calculating…">계산 중…</span></div>
     </section>

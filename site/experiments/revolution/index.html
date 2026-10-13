@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-en="How Does a Revolution Begin? · Simulatio Lab">혁명은 어떻게 시작될까 · 시뮬라티오 랩</title>
-<meta name="description" content="광장에 몇 사람이 나서면 수백, 수천 명이 따라 나설까? 문턱 모델로 집단행동이 갑자기 번지는 조건을 직접 돌려보세요." data-en-content="When does a few people stepping forward turn into thousands? Run the threshold model yourself and see how collective action tips.">
+<meta name="description" content="광장에 몇 사람이 나서면 수백, 수천 명이 따라 나설까? &quot;남들이 얼마나 나왔나&quot;를 보고 정하는 모델로, 여럿이 함께 나서는 일이 갑자기 번지는 조건을 돌려보세요." data-en-content="When does a few people stepping forward turn into thousands? Run a model where each person decides by watching how many others came, and see when joining together suddenly spreads.">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="manifest" href="../../manifest.webmanifest">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -19,12 +19,12 @@
 
 <main class="wrap">
   <h1 data-en="How Does a Revolution Begin?">혁명은 어떻게 시작될까</h1>
-  <p class="lead" data-en="Sometimes hundreds gather and nothing happens; sometimes a handful of sparks fill the whole square. Why do outcomes split so sharply among the same kind of people? With one simple rule, &quot;decide whether to join by seeing how many others have come out,&quot; we look at when collective action spreads.">어떤 때는 수백 명이 모여도 아무 일도 일어나지 않고, 어떤 때는 몇 사람의 불씨가 광장을 가득 채웁니다. 모두가 같은 사람들인데 결과가 왜 이렇게 갈릴까요? "다른 사람이 얼마나 나왔는지 보고 나설지 정한다"는 단순한 규칙으로 집단행동이 번지는 조건을 확인해 봅니다.</p>
+  <p class="lead" data-en="Sometimes hundreds gather and nothing happens; sometimes a handful of sparks fill the whole square. Why do outcomes split so sharply among the same kind of people? With one simple rule, &quot;decide whether to join by seeing how many others have come out,&quot; we look at when people joining together spreads.">어떤 때는 수백 명이 모여도 아무 일도 일어나지 않고, 어떤 때는 몇 사람의 불씨가 광장을 가득 채웁니다. 모두가 같은 사람들인데 결과가 왜 이렇게 갈릴까요? "다른 사람이 얼마나 나왔는지 보고 나설지 정한다"는 단순한 규칙으로 여럿이 함께 나서는 일이 번지는 조건을 확인해 봅니다.</p>
 
   <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
   <ul>
     <li data-en="Each of the 1,000 people has a &quot;threshold&quot;: they join once at least this share of everyone is already in the square. Low-threshold people join easily; high-threshold people join only after a crowd has formed.">사람 1,000명은 각자 "문턱"을 가집니다. 광장에 이미 나온 사람이 전체의 이 비율 이상이면 자기도 나섭니다. 문턱이 낮은 사람은 쉽게 나서고, 높은 사람은 많은 사람이 모인 뒤에야 나서요.</li>
-    <li data-en="Thresholds follow a normal distribution (0–100%) with a mean and a spread. A few people are &lt;b&gt;instigators&lt;/b&gt; with a threshold of 0, who step forward even when nobody is there.">문턱은 평균과 퍼짐을 가진 정규분포(0~100%)를 따릅니다. 그중 일부는 문턱이 0인 <b>선동가</b>로, 아무도 없어도 먼저 나섭니다.</li>
+    <li data-en="Thresholds follow a bell-shaped distribution (normal distribution, 0–100%) with an average and some variety. A few people are &lt;b&gt;instigators&lt;/b&gt; (people who go first) with a threshold of 0, who step forward even when nobody is there.">문턱은 평균 주변에 모여 있고 제각각인 정도를 가진 종 모양 분포(정규분포, 0~100%)를 따릅니다. 그중 일부는 문턱이 0인 <b>선동가</b>(먼저 나서는 사람)로, 아무도 없어도 먼저 나섭니다.</li>
     <li data-en="Each round, everyone whose threshold is at or below &quot;the share already out&quot; steps forward. It ends when no one new joins.">라운드마다 "지금 나온 사람의 비율" 이하의 문턱을 가진 사람이 모두 나서고, 더는 늘지 않으면 끝납니다.</li>
     <li data-en="Dots are people, colored from &lt;b style=&quot;color:#f5b041&quot;&gt;yellow&lt;/b&gt; (early) to &lt;b style=&quot;color:#c8283c&quot;&gt;red&lt;/b&gt; (late) by the round they joined. A black ring marks an instigator.">점은 사람이고 나선 라운드에 따라 <b style="color:#f5b041">노랑</b>(일찍)에서 <b style="color:#c8283c">빨강</b>(늦게)으로 칠해집니다. 검은 테두리는 선동가예요.</li>
   </ul>
@@ -35,14 +35,14 @@
       <div class="ctl"><label for="mean" data-en="Mean threshold &lt;output id=&quot;o-mean&quot;&gt;&lt;/output&gt;">평균 문턱 <output id="o-mean"></output></label>
         <input type="range" id="mean" min="5" max="60" step="5" value="20">
         <span class="hint" data-en="Larger means a society where stepping forward is harder">클수록 나서기 어려운 사회</span></div>
-<div class="ctl"><label for="spread" data-en="Threshold spread &lt;output id=&quot;o-spread&quot;&gt;&lt;/output&gt;">문턱의 퍼짐 <output id="o-spread"></output></label>
+<div class="ctl"><label for="spread" data-en="How varied the thresholds are &lt;output id=&quot;o-spread&quot;&gt;&lt;/output&gt;">문턱이 제각각인 정도 <output id="o-spread"></output></label>
         <input type="range" id="spread" min="0" max="30" step="5" value="15">
         <span class="hint" data-en="Larger means thresholds vary more">클수록 사람마다 문턱이 제각각</span></div>
 <div class="ctl"><label for="radicals" data-en="Share of instigators &lt;output id=&quot;o-radicals&quot;&gt;&lt;/output&gt;">선동가 비율 <output id="o-radicals"></output></label>
         <input type="range" id="radicals" min="0" max="5" step="0.5" value="1">
         <span class="hint" data-en="People who step forward first (threshold 0)">처음부터 나서는 사람 (문턱 0)</span></div>
 <div class="ctl"><label for="mode" data-en="Threshold distribution &lt;output id=&quot;o-mode&quot;&gt;&lt;/output&gt;">문턱 분포 <output id="o-mode"></output></label>
-        <select id="mode" class="sel"><option value="normal" selected data-en="Normal distribution (default)">정규분포 (기본)</option><option value="classic" data-en="Classic example: thresholds 0%, 1%, 2%, … (100 people)">고전 예시: 문턱이 0%, 1%, 2%, … (100명)</option><option value="missing" data-en="Classic example with just one person changed">고전 예시에서 한 명만 바꾸면</option></select>
+        <select id="mode" class="sel"><option value="normal" selected data-en="Bell-shaped (default)">종 모양 분포 (기본)</option><option value="classic" data-en="Classic example: thresholds 0%, 1%, 2%, … (100 people)">고전 예시: 문턱이 0%, 1%, 2%, … (100명)</option><option value="missing" data-en="Classic example with just one person changed">고전 예시에서 한 명만 바꾸면</option></select>
         <span class="hint" data-en="The sliders above are ignored for the classic examples">고전 예시를 고르면 위 슬라이더는 쓰지 않아요</span></div>
     </div>
     <div class="btns">
@@ -83,7 +83,6 @@
       <h3 data-en="④ When the Mean Threshold Changes">④ 평균 문턱을 바꾸면</h3>
     <p data-en="The horizontal axis is the mean threshold, the vertical axis is the share in the square at the end. Dots are 6 runs, and the gray line is the case with no instigators at all.">가로는 평균 문턱, 세로는 끝난 뒤 광장에 나온 사람의 비율입니다. 점은 6번의 실행이고, 회색 선은 선동가가 한 명도 없을 때예요.</p>
     <canvas id="c-sweep" class="" aria-label="④ When the Mean Threshold Changes"></canvas>
-      <div class="legend"><span id="note-sweep" data-en="Calculating…">계산 중…</span></div>
     </section>
   </div>
 

@@ -91,10 +91,10 @@
 
   // ---------- 로그 눈금 틀 ----------
   const XA = 0.0005, XB = 1;
-  function logChart(id, y0, y1, yTicks, yFmt, aspect) {
+  function logChart(id, y0, y1, yTicks, yFmt, aspect, yLabel) {
     const c = L.chart($(id), aspect, { l: 50, b: 44, r: 16 }), { m, pw, ph } = c;
     const X = (p) => m.l + ((Math.log10(p) - Math.log10(XA)) / (Math.log10(XB) - Math.log10(XA))) * pw, Y = (v) => m.t + ph - ((v - y0) / (y1 - y0)) * ph;
-    L.axes(c, { X, Y, yTicks, yFmt, xTicks: [0.001, 0.01, 0.1, 1], xFmt: (v) => pctText(v), xLabel: '약한 연결의 비율 p (가로 눈금은 로그)' });
+    L.axes(c, { X, Y, yTicks, yFmt, xTicks: [0.001, 0.01, 0.1, 1], xFmt: (v) => pctText(v), xLabel: '약한 연결의 비율 p (%, 로그 눈금)', yLabel });
     const p = sim.params.p;
     if (p > 0) L.vline(c, X(p), css('--rich'), '지금 설정', Math.log10(p) > -1.5 ? 'right' : 'left');
     else { c.ctx.fillStyle = css('--rich'); c.ctx.textAlign = 'left'; L.label(c.ctx, '지금 설정: 약한 연결 0 (왼쪽 바깥)', c.m.l + 6, c.m.t + 12, 'left'); }
@@ -104,35 +104,33 @@
   // ---------- ② 작은 세상 그래프 ----------
   function drawSmall() {
     if (!sw) return;
-    const { c, X, Y } = logChart('c-small', 0, 1, [0, 0.25, 0.5, 0.75, 1], (v) => Math.round(v * 100) + '%', 0.62), { ctx } = c;
+    const { c, X, Y } = logChart('c-small', 0, 1, [0, 0.25, 0.5, 0.75, 1], (v) => Math.round(v * 100) + '%', 0.62, '없을 때를 100%로 한 값 (%)'), { ctx } = c;
     const Lp = sw.pts.map((d) => [X(d.x), Y(d.Lr)]), Cp = sw.pts.map((d) => [X(d.x), Y(d.Cr)]);
     L.line(ctx, Lp, css('--accent'), 2.8); L.line(ctx, Cp, RICH, 2.8);
     sw.pts.forEach((d) => { ctx.fillStyle = css('--accent'); ctx.beginPath(); ctx.arc(X(d.x), Y(d.Lr), 3.2, 0, 7); ctx.fill(); ctx.fillStyle = RICH; ctx.beginPath(); ctx.arc(X(d.x), Y(d.Cr), 3.2, 0, 7); ctx.fill(); });
-    ctx.textAlign = 'left'; ctx.font = '600 12px ' + FONT;
-    ctx.fillStyle = css('--accent'); L.label(ctx, '평균 거리 (낮을수록 서로 가까움)', X(0.0016), Y(0.12), 'left');
-    ctx.fillStyle = '#9a6f00'; L.label(ctx, '친구 무리의 촘촘함', X(0.0016), Y(1) + 18, 'left');
-    ctx.font = '12px ' + FONT;
+    L.legend(c, [{ kind: 'line', color: css('--accent'), label: '평균 거리' }, { kind: 'line', color: RICH, label: '친구 무리의 촘촘함' }], 'bl');
   }
 
   // ---------- ③ 소식이 퍼지는 속도 ----------
   function drawSpread() {
     if (!curves) return;
     const len = curveLen, xt = []; const stepx = len > 120 ? 40 : len > 60 ? 20 : 10; for (let v = 0; v <= len; v += stepx) xt.push(v);
-    const c = L.chart($('c-spread'), 0.62, { l: 50, b: 44, r: 16 }), { ctx, m, pw, ph } = c;
+    const c = L.chart($('c-spread'), ($('c-spread').clientWidth || 700) < 560 ? 0.95 : 0.62, { l: 50, b: 44, r: 16 }), { ctx, m, pw, ph } = c;
     const X = (t) => m.l + (t / len) * pw, Y = (v) => m.t + ph - v * ph;
-    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: (v) => Math.round(v * 100) + '%', xTicks: xt, xFmt: String, xLabel: '턴 (소식이 한 번씩 전해지는 차례)' });
+    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: (v) => Math.round(v * 100) + '%', xTicks: xt, xFmt: String, xLabel: '턴 (회)', yLabel: '소식을 아는 사람 (%)' });
     ctx.strokeStyle = css('--line'); ctx.setLineDash([4, 3]); ctx.beginPath(); ctx.moveTo(m.l, Y(0.9)); ctx.lineTo(m.l + pw, Y(0.9)); ctx.stroke(); ctx.setLineDash([]);
     ctx.fillStyle = css('--muted'); ctx.textAlign = 'right'; L.label(ctx, '90%', m.l + pw - 4, Y(0.9) - 4, 'right');
     const draw = (arr, color, wd) => L.line(ctx, arr.slice(0, len + 1).map((v, i) => [X(i), Y(v)]), color, wd);
     curves.fixed.forEach((arr, i) => draw(arr, CURVE_COLORS[i], 2.2));
     draw(curves.cur, css('--text'), 3.4);
+    L.legend(c, [0, 1, 2, 3, 4].map((i) => ({ kind: 'line', color: CURVE_COLORS[i], label: '약한 연결 ' + ['0%', '0.5%', '2%', '10%', '100%'][i] })).concat([{ kind: 'line', color: css('--text'), label: '지금 설정' }]), 'br');
   }
 
   // ---------- ④ 90%에 닿는 시간 ----------
   function drawT90() {
     if (!sw) return;
     const z = sw.zero.T, top = Math.ceil((z * 1.08) / 10) * 10, yt = []; for (let v = 0; v <= top; v += top > 60 ? 20 : 10) yt.push(v);
-    const { c, X, Y } = logChart('c-t90', 0, top, yt, (v) => v + '턴', 0.5), { ctx, m, pw } = c;
+    const { c, X, Y } = logChart('c-t90', 0, top, yt, (v) => v + '턴', 0.5, '90%에 닿는 시간 (턴)'), { ctx, m, pw } = c;
     ctx.setLineDash([5, 3]); ctx.strokeStyle = GRAY; ctx.beginPath(); ctx.moveTo(m.l, Y(z)); ctx.lineTo(m.l + pw, Y(z)); ctx.stroke(); ctx.setLineDash([]);
     ctx.fillStyle = css('--muted'); ctx.textAlign = 'right'; L.label(ctx, `약한 연결이 없으면 ${f1(z)}턴`, m.l + pw - 4, Y(z) - 5, 'right');
     const pts = sw.pts.filter((d) => isFinite(d.T));

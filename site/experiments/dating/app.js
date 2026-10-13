@@ -15,10 +15,20 @@
     return `rgb(${st[k].map((v, i) => Math.round(v + (st[k + 1][i] - v) * u)).join(',')})`;
   }
 
+  // 범례를 놓을 구석 고르기: 점들 [x, y]이 가장 적게 겹치는 곳
+  function pickPos(c, pts, n) {
+    const bw = 190, bh = n * 16 + 9, m = c.m; let best = 'tr', bc = 1e9;
+    ['tr', 'tl', 'br', 'bl'].forEach((p) => {
+      const x0 = p[1] === 'l' ? m.l + 6 : m.l + c.pw - bw - 6, y0 = p[0] === 'b' ? m.t + c.ph - bh - 6 : m.t + 6;
+      const cnt = pts.filter(([x, y]) => x >= x0 - 4 && x <= x0 + bw + 4 && y >= y0 - 4 && y <= y0 + bh + 4).length;
+      if (cnt < bc) { bc = cnt; best = p; }
+    });
+    return best;
+  }
   // 같은 높이(매력)의 점이 겹치지 않도록 사람마다 정해진 가로 흔들림을 준다
   const jit = (i, side) => (((i * 0.6180339 + side * 0.37) % 1) - 0.5);
   function drawMarket() {
-    const c = L.chart($('c-market'), THUMB ? 1 : 0.72, { l: 10, r: 10, t: 34, b: 24 });
+    const cw = $('c-market').clientWidth || 600, c = L.chart($('c-market'), THUMB ? 1 : cw < 560 ? 1.05 : 0.72, THUMB ? { l: 10, r: 10, t: 34, b: 24 } : { l: 10, r: 10, t: 50, b: 84 });
     const { ctx, w, h, m, ph } = c, n = sim.n, R = sim.params.rounds;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
     const band = Math.min(110, w * 0.13), xl = w * 0.2, xr = w * 0.8, Y = (a) => m.t + (1 - a) * ph;
@@ -29,7 +39,7 @@
     [0, 0.25, 0.5, 0.75, 1].forEach((v) => { ctx.setLineDash([2, 4]); ctx.beginPath(); ctx.moveTo(xl + band / 2 + 10, Y(v)); ctx.lineTo(xr - band / 2 - 10, Y(v)); ctx.stroke(); ctx.setLineDash([]); if (!THUMB) ctx.fillText(pct(v), w / 2, Y(v) - 3); });
     ctx.font = '600 13px -apple-system, "Apple SD Gothic Neo", sans-serif';
     ctx.fillText('A 집단', xl, 20); ctx.fillText('B 집단', xr, 20);
-    ctx.font = '12px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillText('↑ 매력 높음 · 낮음 ↓ (세로 위치)', w / 2, h - 6);
+    if (!THUMB) L.axisNames(c, '', '매력 (%, 위쪽일수록 높음)');
     ctx.lineWidth = THUMB ? 2.4 : 1.1;
     for (let i = 0; i < n; i++) if (sim.mA[i] >= 0) {
       ctx.strokeStyle = tcolor(sim.wA[i], R); ctx.globalAlpha = THUMB ? 0.5 : 0.42; ctx.beginPath(); ctx.moveTo(XA(i), Y(sim.a[i])); ctx.lineTo(XB(sim.mA[i]), Y(sim.b[sim.mA[i]])); ctx.stroke();
@@ -45,6 +55,9 @@
       dot(XB(i), Y(sim.b[i]), sim.mB[i] >= 0 ? tcolor(sim.wB[i], R) : null);
     }
     ctx.lineWidth = 1;
+    if (!THUMB) L.legend(Object.assign({}, c, { m: Object.assign({}, m, { t: h - 84 }), ph: 84 }), [
+      { kind: 'dot', color: tcolor(1, R), label: '일찍 짝을 찾음' }, { kind: 'dot', color: tcolor((R + 1) / 2, R), label: '중간에 짝을 찾음' },
+      { kind: 'dot', color: tcolor(R, R), label: '늦게 짝을 찾음' }, { kind: 'dot', color: '#8f99ad', label: '아직 혼자 (속이 빈 점)' }], 'tl');
     const s = sim.stats();
     $('when').textContent = `${sim.round}/${R} 라운드 · 짝 ${pct(s.matched)}`;
   }
@@ -53,30 +66,36 @@
     const c = L.chart($('c-couples'), 0.85, { l: 40, b: 40 });
     const { ctx, m, pw, ph } = c, n = sim.n, R = sim.params.rounds;
     const X = (v) => m.l + v * pw, Y = (v) => m.t + ph - v * ph, tk = [0, 0.25, 0.5, 0.75, 1];
-    L.axes(c, { X, Y, yTicks: tk, yFmt: pct, xTicks: tk, xFmt: pct, xLabel: 'A의 매력 (가로) vs 짝이 된 B의 매력 (세로)' });
+    L.axes(c, { X, Y, yTicks: tk, yFmt: (v) => String(Math.round(v * 100)), xTicks: tk, xFmt: (v) => String(Math.round(v * 100)), xLabel: 'A의 매력 (%)', yLabel: '짝이 된 B의 매력 (%)' });
     ctx.setLineDash([4, 3]); ctx.strokeStyle = css('--muted'); ctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(1), Y(1)); ctx.stroke(); ctx.setLineDash([]);
     for (let i = 0; i < n; i++) {
       if (sim.mA[i] >= 0) { ctx.fillStyle = mix('#2f6fed', 0.0) && tcolor(sim.wA[i], R); ctx.globalAlpha = 0.75; ctx.beginPath(); ctx.arc(X(sim.a[i]), Y(sim.b[sim.mA[i]]), 3.2, 0, 7); ctx.fill(); ctx.globalAlpha = 1; }
       else { ctx.strokeStyle = '#9aa3b5'; ctx.beginPath(); ctx.moveTo(X(sim.a[i]), Y(0) + 2); ctx.lineTo(X(sim.a[i]), Y(0) + 8); ctx.stroke(); }
       if (sim.mB[i] < 0) { ctx.strokeStyle = '#9aa3b5'; ctx.beginPath(); ctx.moveTo(m.l - 2, Y(sim.b[i])); ctx.lineTo(m.l - 8, Y(sim.b[i])); ctx.stroke(); }
     }
+    const pts = [], dots = []; for (let q = 0; q <= 1; q += 0.1) pts.push([X(q), Y(q)]);
+    for (let i = 0; i < n; i++) if (sim.mA[i] >= 0) pts.push([X(sim.a[i]), Y(sim.b[sim.mA[i]])]);
+    L.legend(c, [{ kind: 'dash', color: css('--muted'), label: '대각선: 서로 매력이 같음' }, { kind: 'dot', color: tcolor(1, R), label: '일찍 맺어진 커플' }, { kind: 'dot', color: tcolor(R, R), label: '늦게 맺어진 커플' }], pickPos(c, pts, 3));
   }
 
   function drawTime() {
     const c = L.chart($('c-time'), 0.7), { ctx, m, pw, ph } = c, H = sim.history, T = sim.params.rounds;
     const X = (t) => m.l + (t / T) * pw, Y = (v) => m.t + ph - v * ph, xt = []; for (let t = 0; t <= T; t += T / 5) xt.push(t);
-    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: pct, xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '라운드' });
+    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: (v) => String(Math.round(v * 100)), xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '라운드 (번)', yLabel: '짝을 찾은 사람 (%)' });
     L.line(ctx, H.map((v, t) => [X(t), Y(v)]), css('--accent'), 2.5);
     const last = H.length - 1; ctx.fillStyle = css('--accent'); ctx.beginPath(); ctx.arc(X(last), Y(H[last]), 4.5, 0, 7); ctx.fill();
   }
 
   function drawSweep() {
-    L.dots($('c-sweep'), {
+    const c = L.dots($('c-sweep'), {
       data: sweep.map((d) => ({ x: d.x, runs: d.matched, mean: L.mean(d.matched) })),
       series: [{ data: sweep.map((d) => ({ x: d.x, runs: d.wait, mean: L.mean(d.wait) })), color: css('--rich') }],
       x0: -0.3, x1: 0.4, xTicks: [-0.3, -0.2, -0.1, 0, 0.1, 0.2, 0.3, 0.4], xFmt: (v) => (v > 0 ? '+' : '') + Math.round(v * 100), xLabel: '눈높이 (내 매력 대비 %p)',
-      marker: { x: sim.params.eye },
+      marker: { x: sim.params.eye }, yFmt: (v) => String(Math.round(v * 100)), yLabel: '비율 (%)',
     });
+    const lc = Object.assign({}, c, { m: Object.assign({}, c.m, { t: c.m.t + 20 }), ph: c.ph - 20 }), pts = [];
+    sweep.forEach((d) => { const x = c.m.l + ((d.x + 0.3) / 0.7) * c.pw; pts.push([x, c.m.t + c.ph - L.mean(d.matched) * c.ph], [x, c.m.t + c.ph - L.mean(d.wait) * c.ph]); });
+    L.legend(lc, [{ kind: 'line', color: css('--accent'), label: '짝을 찾은 사람의 비율' }, { kind: 'line', color: css('--rich'), label: '짝 찾기까지 걸린 시간 (전체 기간 대비)' }], pickPos(lc, pts, 2));
   }
 
   function renderStats() {
@@ -93,14 +112,12 @@
   function draw() { renderStats(); drawMarket(); drawCouples(); drawTime(); }
 
   function after() {
-    const P = params(); sweep = []; drawSweep(); $('note-sweep').textContent = '계산 중…';
+    const P = params(); sweep = []; drawSweep();
     const xs = []; for (let e = -30; e <= 40; e += 5) xs.push(e / 100);
     L.jobs(xs.map((e) => () => {
       const r = DT.measure({ eye: e, drift: P.drift, rounds: P.rounds }, 5);
       sweep.push({ x: e, matched: r.map((s) => s.matched), wait: r.map((s) => s.meanWait / P.rounds) });
-    }), drawSweep, () => {
-      $('note-sweep').textContent = '파랑: 짝을 찾은 비율, 금색: 짝을 찾기까지 걸린 시간(전체 기간 대비)';
-    });
+    }), drawSweep);
   }
 
   const h = L.harness({

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title data-en="Rumor Spread in Group Chats · Simulatio Lab">단톡방 소문 확산 · 시뮬라티오 랩</title>
-<meta name="description" content="단톡방에서 소문은 얼마나 빨리, 누구를 거쳐 퍼질까? 정정이 늦으면 어떻게 될까? 직접 돌려보세요." data-en-content="How fast does a rumor spread in group chats, and how late can a correction come and still matter? Try it yourself.">
+<title data-en="How Does a Rumor Spread in Group Chats? · Simulatio Lab">단톡방 소문은 어떻게 퍼질까 · 시뮬라티오 랩</title>
+<meta name="description" content="단톡방에서 소문은 얼마나 빨리, 누구를 거쳐 퍼질까요? 바로잡는 글이 늦으면 어떻게 될까요? 직접 돌려보세요." data-en-content="How fast does a rumor spread in group chats, and how late can a correction come and still matter? Try it yourself.">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="manifest" href="../../manifest.webmanifest">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -18,7 +18,7 @@
 </div></nav>
 
 <main class="wrap">
-  <h1 data-en="Rumor Spread in Group Chats">단톡방 소문 확산</h1>
+  <h1 data-en="How Does a Rumor Spread in Group Chats?">단톡방 소문은 어떻게 퍼질까</h1>
   <p class="lead" data-en="A single rumor posted in a group chat becomes common knowledge within hours. Which paths does a rumor take, and how late can a correction come and still matter?">누군가 단톡방에 올린 소문 하나가 몇 시간 만에 모두가 아는 이야기가 됩니다. 소문은 어떤 길로 퍼지고, 정정 글은 언제까지 올려야 소용이 있을까요?</p>
 
   <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
@@ -69,13 +69,6 @@
       <select id="speed" aria-label="속도"><option value="1.5" data-en="Slow">느리게</option><option value="4" selected data-en="Normal">보통</option><option value="10" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
-    <div class="legend">
-      <span data-en="&lt;i style=&quot;background:#b6bfd3&quot;&gt;&lt;/i&gt;Hasn&#x27;t heard yet"><i style="background:#b6bfd3"></i>아직 모름</span>
-      <span data-en="&lt;i style=&quot;background:var(--unlucky)&quot;&gt;&lt;/i&gt;Spreading the rumor"><i style="background:var(--unlucky)"></i>소문 퍼뜨리는 중</span>
-      <span data-en="&lt;i style=&quot;background:#f2a3a6&quot;&gt;&lt;/i&gt;Knows the rumor, stopped"><i style="background:#f2a3a6"></i>소문을 알지만 멈춤</span>
-      <span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Spreading the correction"><i style="background:var(--accent)"></i>정정을 퍼뜨리는 중</span>
-      <span data-en="&lt;i style=&quot;background:#9ec1ff&quot;&gt;&lt;/i&gt;Saw the correction"><i style="background:#9ec1ff"></i>정정을 본 사람</span>
-    </div>
   </section>
 
   <div class="charts">
@@ -83,12 +76,6 @@
       <h3 data-en="② Change Over Time">② 시간에 따른 변화</h3>
       <p data-en="Stacked view of how people&#x27;s states change at each step.">한 차례마다 사람들의 상태가 어떻게 바뀌는지 쌓아서 보여줍니다.</p>
       <canvas id="c-area" aria-label="차례별 상태 변화"></canvas>
-      <div class="legend">
-        <span data-en="&lt;i style=&quot;background:#cfd5e3&quot;&gt;&lt;/i&gt;Unaware"><i style="background:#cfd5e3"></i>모름</span>
-        <span data-en="&lt;i style=&quot;background:#9ec1ff&quot;&gt;&lt;/i&gt;Not fooled thanks to the correction"><i style="background:#9ec1ff"></i>정정 덕에 안 속음</span>
-        <span data-en="&lt;i style=&quot;background:var(--unlucky)&quot;&gt;&lt;/i&gt;Spreading"><i style="background:var(--unlucky)"></i>퍼뜨리는 중</span>
-        <span data-en="&lt;i style=&quot;background:#f2a3a6&quot;&gt;&lt;/i&gt;Knows, stopped"><i style="background:#f2a3a6"></i>알고 멈춤</span>
-      </div>
     </section>
     <section class="panel chart">
       <h3 data-en="③ The Threshold of Temptation">③ 솔깃할 확률의 문턱</h3>

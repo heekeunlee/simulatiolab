@@ -11,17 +11,17 @@
   const THUMB = /[?&]thumb=1/.test(location.search);   // 메인 페이지 썸네일용: 10만 단어를 다 쓴 순위-빈도 그래프로 바로 간다
 
   function drawStream() {
-    const c = L.chart($('c-stream'), 0.5, { l: 14, r: 14, t: 12, b: 12 });
+    const cw0 = $('c-stream').clientWidth || 600, c = L.chart($('c-stream'), cw0 < 560 ? 0.8 : 0.5, { l: 14, r: 14, t: 12, b: 12 });
     const { ctx, w, h } = c;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
     const rank = new Map(); S.ranked.slice(0, 10).forEach((x, i) => rank.set(x.id, i));
-    const K = Math.min(sim.n, Math.round((w / 62) * Math.floor((h - 24) / 28)));
+    const legH = THUMB ? 0 : 64, K = Math.min(sim.n, Math.round((w / 62) * Math.floor((h - 24 - legH) / 28)));
     ctx.font = '600 15px Menlo, "SF Mono", Consolas, monospace'; ctx.textBaseline = 'middle';
     let x = 14, y = 26;
     for (let i = 0; i < K; i++) {
       const pos = sim.n - K + i, id = sim.tokens[pos], name = ZP.wordName(id);
       const wd = ctx.measureText(name).width + 12;
-      if (x + wd > w - 14) { x = 14; y += 28; if (y > h - 10) break; }
+      if (x + wd > w - 14) { x = 14; y += 28; if (y > h - 10 - legH) break; }
       if (sim.newAt[id] === pos) { ctx.fillStyle = mix(css('--accent'), 0.18); L.roundRect(ctx, x - 3, y - 12, wd - 4, 24, 6); ctx.fill(); ctx.fillStyle = css('--accent'); }
       else if (rank.has(id)) ctx.fillStyle = css('--text');
       else ctx.fillStyle = css('--muted');
@@ -29,6 +29,7 @@
       x += wd;
     }
     ctx.textBaseline = 'alphabetic';
+    if (!THUMB) L.legend({ ctx, w, m: { l: 14, t: 0, r: 14, b: 0 }, pw: w - 28, ph: h - 4 }, [{ kind: 'box', color: mix(css('--accent'), 0.4), label: '새 단어' }, { kind: 'box', color: css('--text'), label: '상위 10개 단어' }, { kind: 'box', color: css('--muted'), label: '그 밖의 단어' }], 'bl');
     $('when').textContent = `${fmtN(sim.n)}번째 단어 · 어휘 ${fmtN(S.vocab)}개`;
   }
 
@@ -40,8 +41,7 @@
     const xt = [], yt = []; for (let k = 0; k <= xmax; k++) xt.push(pow10(k)); for (let k = 0; k <= ymax; k++) yt.push(pow10(k));
     if (THUMB) { ctx.strokeStyle = css('--line'); yt.forEach((v) => { ctx.beginPath(); ctx.moveTo(m.l, Y(v)); ctx.lineTo(m.l + pw, Y(v)); ctx.stroke(); }); xt.forEach((v) => { ctx.beginPath(); ctx.moveTo(X(v), m.t); ctx.lineTo(X(v), m.t + ph); ctx.stroke(); }); }
     else {
-      L.axes(c, { X, Y, yTicks: yt, yFmt: fmtN, xTicks: xt, xFmt: fmtN, xLabel: '단어 순위 (로그 눈금)' });
-      ctx.fillStyle = css('--muted'); ctx.textAlign = 'left'; ctx.fillText('쓰인 횟수 (로그 눈금) ↑', m.l + 4, m.t + 12);
+      L.axes(c, { X, Y, yTicks: yt, yFmt: fmtN, xTicks: xt, xFmt: fmtN, xLabel: '단어 순위 (위, 로그 눈금)', yLabel: '쓰인 횟수 (번, 로그 눈금)' });
     }
     // 점: 순위를 로그 간격으로 솎아서
     // 기울기 -1 기준선: 적합 구간의 시작점(순위 fitFrom)을 지나게 그려 기울기를 바로 비교할 수 있게 한다
@@ -59,9 +59,8 @@
       ctx.strokeStyle = css('--unlucky'); ctx.lineWidth = THUMB ? 3.5 : 2.4; ctx.beginPath();
       const yy = (r) => Math.pow(10, S.icpt + S.slope * Math.log10(r));
       ctx.moveTo(X(S.fitFrom), Y(yy(S.fitFrom))); ctx.lineTo(X(S.fitTo), Y(yy(S.fitTo))); ctx.stroke(); ctx.lineWidth = 1;
-      if (!THUMB) { ctx.fillStyle = css('--unlucky'); ctx.textAlign = 'right'; ctx.fillText('관측 기울기 ' + S.slope.toFixed(2), m.l + pw - 6, m.t + 28); }
     }
-    if (!THUMB) { ctx.fillStyle = css('--rich'); ctx.textAlign = 'right'; ctx.fillText('기울기 -1 (지프의 법칙)', m.l + pw - 6, m.t + 12); }
+    if (!THUMB) L.legend(c, [{ kind: 'dot', color: mix(css('--accent'), 0.6), label: '단어 하나' }, { kind: 'dash', color: css('--rich'), label: '기울기 -1 (지프의 법칙)' }].concat(!isNaN(S.slope) ? [{ kind: 'line', color: css('--unlucky'), label: '관측 기울기 ' + S.slope.toFixed(2) }] : []), 'bl');
   }
 
   function drawTop() {
@@ -74,6 +73,7 @@
       ctx.font = '12px Menlo, "SF Mono", Consolas, monospace'; ctx.fillStyle = css('--text'); ctx.textAlign = 'right'; ctx.fillText(ZP.wordName(x.id), m.l - 8, y + rowH * 0.68);
       ctx.font = '11px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillStyle = css('--muted'); ctx.textAlign = 'left'; ctx.fillText((x.count / n * 100).toFixed(1) + '%', m.l + bw + 5, y + rowH * 0.68);
     });
+    L.legend(c, [{ kind: 'box', color: css('--accent'), label: '1~10위' }, { kind: 'box', color: mix(css('--accent'), 0.45), label: '11~20위' }], 'br');
   }
 
   function drawSweep() {
@@ -81,7 +81,7 @@
     L.dots($('c-sweep'), {
       data: mk(sweepCopy), series: [{ data: mk(sweepUni), color: '#8a93a6', dots: true }],
       x0: 0.005, x1: 0.1, y0: 0, y1: 1.4, xTicks: [0.005, 0.02, 0.04, 0.06, 0.08, 0.1], xFmt: (v) => (v * 100).toFixed(v < 0.01 ? 1 : 0) + '%', yFmt: (v) => v.toFixed(1),
-      xLabel: '새 단어가 나올 확률', refs: [{ y: 1, label: '기울기 -1 (지프의 법칙)', color: css('--rich') }], marker: { x: sim.params.novelty },
+      xLabel: '새 단어 확률 (%)', yLabel: '기울기 크기 (절댓값)', legend: [{ kind: 'line', color: css('--accent'), label: '복사 모드' }, { kind: 'line', color: '#8a93a6', label: '균등 선택' }], legendPos: 'br', refs: [{ y: 1, label: '기울기 -1 (지프의 법칙)', color: css('--rich') }], marker: { x: sim.params.novelty },
     });
   }
 

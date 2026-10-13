@@ -27,10 +27,13 @@
     spriteKey = key; return sprites;
   }
   function drawGrid() {
-    const { ctx, w } = L.setup($('c-grid'), 1), dpr = window.devicePixelRatio || 1;
-    ctx.fillStyle = '#f1f4fa'; ctx.fillRect(0, 0, w, w);
+    const cw = $('c-grid').clientWidth || 400, strip = THUMB ? 0 : 66; // 아래 띠: 범례 자리
+    const { ctx, w, h } = L.setup($('c-grid'), 1 + strip / cw), dpr = window.devicePixelRatio || 1;
+    ctx.fillStyle = '#f1f4fa'; ctx.fillRect(0, 0, w, h);
     const S = sim.size, c = w / S, sp = cellSprites(c, dpr);
     for (let i = 0; i < S * S; i++) ctx.drawImage(sp[sim.grid[i]], (i % S) * c, Math.floor(i / S) * c, c, c);
+    if (!THUMB) L.legend({ ctx, w, h, m: { l: 0, r: 0, t: w, b: 0 }, pw: w, ph: strip }, [
+      { kind: 'box', color: COL[0], label: '질서 (가만히 줄 서는 사람)' }, { kind: 'box', color: COL[1], label: '새치기' }, { kind: 'box', color: COL[2], label: '눈총 (새치기를 응징하는 사람)' }], 'tl');
     const s = sim.shares();
     $('when').textContent = `${sim.round}/${sim.params.rounds} 라운드 · 새치기 ${pct(s[1])}`;
   }
@@ -38,7 +41,7 @@
   function drawArea() {
     const c = L.chart($('c-area'), 0.7), { ctx, m, pw, ph } = c, H = sim.history, T = sim.params.rounds;
     const X = (t) => m.l + (t / T) * pw, Y = (v) => m.t + ph - v * ph, xt = []; for (let t = 0; t <= T; t += T / 5) xt.push(t);
-    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: pct, xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '라운드' });
+    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: (v) => String(Math.round(v * 100)), xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '라운드 (번)', yLabel: '비율 (%)' });
     const acc = H.map(() => 0);
     [0, 2, 1].forEach((k) => {
       ctx.fillStyle = COL[k]; ctx.beginPath();
@@ -46,10 +49,11 @@
       for (let t = H.length - 1; t >= 0; t--) ctx.lineTo(X(t), Y(acc[t]));
       ctx.closePath(); ctx.fill(); H.forEach((s, t) => { acc[t] += s[k]; });
     });
+    L.legend(c, [{ kind: 'box', color: COL[0], label: '질서' }, { kind: 'box', color: COL[2], label: '눈총' }, { kind: 'box', color: COL[1], label: '새치기' }], 'tr');
   }
 
   const sweepOpts = (key, label, xs, xFmt, cur) => ({
-    x0: xs[0], x1: xs[xs.length - 1], xTicks: xs.filter((_, i) => i % Math.ceil(xs.length / 7) === 0), xFmt, xLabel: label, marker: { x: cur },
+    x0: xs[0], x1: xs[xs.length - 1], xTicks: xs.filter((_, i) => i % Math.ceil(xs.length / 7) === 0), xFmt, xLabel: label, yLabel: '100라운드 뒤 새치기 (%)', yFmt: (v) => String(Math.round(v * 100)), marker: { x: cur },
   });
   function drawP() {
     const xs = []; for (let v = 0; v <= 200; v += 20) xs.push(v / 100);
@@ -57,7 +61,7 @@
   }
   function drawI() {
     const xs = []; for (let v = 0; v <= 40; v += 5) xs.push(v / 100);
-    L.dots($('c-i'), Object.assign({ data: iRows.map((d) => ({ x: d.x, runs: d.runs, mean: L.mean(d.runs) })) }, sweepOpts('i', '처음에 눈총형이던 사람의 비율', xs, pct, sim.params.punishers)));
+    L.dots($('c-i'), Object.assign({ data: iRows.map((d) => ({ x: d.x, runs: d.runs, mean: L.mean(d.runs) })) }, sweepOpts('i', '처음 눈총형의 비율 (%)', xs, (v) => String(Math.round(v * 100)), sim.params.punishers)));
   }
 
   function renderStats() {

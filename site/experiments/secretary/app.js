@@ -59,7 +59,8 @@
   function drawRun() {
     const cw = $('c-run').clientWidth || 600, mobile = cw < 560, asp = THUMB ? 1 : mobile ? 1.05 : 0.6;
     const top = THUMB ? 12 : mobile ? 76 : 50;
-    const c = L.chart($('c-run'), asp, { l: 10, r: 10, t: top, b: 12 }), { ctx, w, h, m, pw, ph } = c;
+    const LEG = THUMB ? 0 : 66;   // 아래쪽 범례 자리
+    const c = L.chart($('c-run'), asp + LEG / cw, { l: 10, r: 10, t: top, b: 12 + LEG }), { ctx, w, h, m, pw, ph } = c;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
     const s = sim, n = s.n;
     if (!THUMB) {
@@ -97,14 +98,15 @@
       if (isBest) { ctx.strokeStyle = GOLD; ctx.lineWidth = Math.max(3, sz * 0.08); L.roundRect(ctx, x - 1, y - 1, sz + 2, sz + 2, Math.max(3, sz * 0.14)); ctx.stroke(); ctx.fillStyle = GOLD; ctx.font = `${Math.max(11, sz * 0.3)}px ${FONT}`; ctx.fillText('★', x + sz - sz * 0.22, y + sz * 0.3); }
       ctx.lineWidth = 1;
     }
+    if (!THUMB) L.legend({ ctx, w, m: { l: m.l, t: m.t + ph, r: m.r, b: 0 }, pw, ph: LEG }, [{ kind: 'box', color: AMBER, label: '관찰 구간 (거절만)' }, { kind: 'box', color: css('--accent'), label: '선택 구간 / 고른 후보' }, { kind: 'box', color: GOLD, label: '★ 지금까지의 최고 · 진짜 최고' }], 'tl');
   }
 
   // 공통: 가로가 컷오프(%)인 차트의 좌표
-  function cutChart(id, y1, yt, yfmt) {
+  function cutChart(id, y1, yt, yfmt, yLabel) {
     const mobile = ($(id).clientWidth || 600) < 560;
-    const c = L.chart($(id), mobile ? 0.85 : 0.6, { l: 44, r: 16, t: 14, b: 42 }), { m, pw, ph } = c;
+    const c = L.chart($(id), mobile ? 1.0 : 0.6, { l: 44, r: 16, t: 24, b: 42 }), { m, pw, ph } = c;
     const X = (v) => m.l + (v / 100) * pw, Y = (v) => m.t + ph - (v / y1) * ph;
-    L.axes(c, { X, Y, yTicks: yt, yFmt: yfmt, xTicks: [0, 20, 40, 60, 80, 100], xFmt: (v) => v + '%', xLabel: '처음에 거절만 하며 지켜보는 비율 (관찰 구간)' });
+    L.axes(c, { X, Y, yTicks: yt, yFmt: yfmt, xTicks: [0, 20, 40, 60, 80, 100], xFmt: (v) => v + '%', xLabel: '관찰 구간 (%)', yLabel });
     return { c, X, Y };
   }
   const ticks = (y1, st) => { const a = []; for (let v = 0; v <= y1 + 1e-9; v += st) a.push(v); return a; };
@@ -112,7 +114,7 @@
 
   function drawProb() {
     const ex = cache.exact, goal = sim.goal, mx = Math.max(...ex.map((d) => d.p), ...cache.dots.map((d) => d.p));
-    const y1 = Math.min(1, Math.ceil((mx + 0.04) * 10) / 10), { c, X, Y } = cutChart('c-prob', y1, ticks(y1, y1 > 0.5 ? 0.2 : 0.1), (v) => Math.round(v * 100) + '%');
+    const y1 = Math.min(1, Math.ceil((mx + 0.04) * 10) / 10), { c, X, Y } = cutChart('c-prob', y1, ticks(y1, y1 > 0.5 ? 0.2 : 0.1), (v) => Math.round(v * 100) + '%', '성공 확률 (%)');
     const { ctx, m, pw } = c;
     if (goal === 1) {
       const y = Y(1 / Math.E); ctx.setLineDash([5, 3]); ctx.strokeStyle = GRAY; ctx.beginPath(); ctx.moveTo(m.l, y); ctx.lineTo(m.l + pw, y); ctx.stroke(); ctx.setLineDash([]);
@@ -122,10 +124,11 @@
     L.line(ctx, ex.map((d) => [X(d.x), Y(d.p)]), css('--accent'), 2.6);
     const o = cache.opt; ctx.fillStyle = GOLD; ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(X(o.x), Y(o.p), 6, 0, 7); ctx.fill(); ctx.stroke(); ctx.lineWidth = 1;
     nowLine(c, X);
+    L.legend(c, [{ kind: 'line', color: css('--accent'), label: '정확한 값' }, { kind: 'dot', color: mix(css('--accent'), 0.5), label: '시뮬레이션 (600번씩)' }, { kind: 'dot', color: GOLD, label: '가장 높은 곳' }], 'tl');
   }
 
   function drawFail() {
-    const ex = cache.exact1, { c, X, Y } = cutChart('c-fail', 1, [0, 0.25, 0.5, 0.75, 1], (v) => Math.round(v * 100) + '%');
+    const ex = cache.exact1, { c, X, Y } = cutChart('c-fail', 1, [0, 0.25, 0.5, 0.75, 1], (v) => Math.round(v * 100) + '%', '비율 (%)');
     const { ctx } = c, E = ex;
     const layers = [[GREEN, (d) => d.best], [AMBER, (d) => d.settled], [RED, (d) => d.passed]]; // 아래부터 쌓는다
     for (let k = 2; k >= 0; k--) {
@@ -136,6 +139,7 @@
       ctx.closePath(); ctx.fill();
     }
     nowLine(c, X);
+    L.legend(c, [{ kind: 'box', color: GREEN, label: '최고를 골랐다' }, { kind: 'box', color: AMBER, label: '최고가 오기 전에 먼저 멈췄다' }, { kind: 'box', color: RED, label: '최고를 이미 지나쳐 보냈다' }], 'tr');
   }
 
   function binsOf(n) {
@@ -147,9 +151,9 @@
     const n = sim.n, bins = binsOf(n), sum = (arr, a, b) => { let t = 0; for (let k = a; k <= b; k++) t += arr[k - 1]; return t; };
     const ex = bins.map((b) => sum(cache.rank, b.a, b.b)), sm = bins.map((b) => sum(cache.rankDots, b.a, b.b)), rnd = bins.map((b) => (b.b - b.a + 1) / n);
     const mx = Math.max(...ex, ...sm, ...rnd), y1 = Math.min(1, Math.ceil((mx + 0.05) * 10) / 10), mobile = ($('c-rank').clientWidth || 600) < 560;
-    const c = L.chart($('c-rank'), mobile ? 0.85 : 0.6, { l: 44, r: 12, t: 24, b: 38 }), { ctx, m, pw, ph, h } = c;
+    const c = L.chart($('c-rank'), mobile ? 1.1 : 0.6, { l: 44, r: 12, t: 24, b: 38 }), { ctx, m, pw, ph, h } = c;
     const Y = (v) => m.t + ph - (v / y1) * ph, bw = pw / bins.length;
-    L.axes(c, { X: (v) => v, Y, yTicks: ticks(y1, y1 > 0.5 ? 0.2 : 0.1), yFmt: (v) => Math.round(v * 100) + '%' });
+    L.axes(c, { X: (v) => v, Y, yTicks: ticks(y1, y1 > 0.5 ? 0.2 : 0.1), yFmt: (v) => Math.round(v * 100) + '%', xLabel: '고른 후보의 순위', yLabel: '비율 (%)' });
     ctx.textAlign = 'center'; ctx.fillStyle = css('--muted'); ctx.font = '11px ' + FONT;
     bins.forEach((b, i) => {
       const x0 = m.l + i * bw, good = b.b <= sim.goal;
@@ -159,6 +163,7 @@
       ctx.fillStyle = css('--text'); ctx.font = '600 11px ' + FONT; ctx.fillText(pc(ex[i], 0) + '%', x0 + bw / 2, Y(Math.max(ex[i], sm[i], rnd[i])) - 7);
       ctx.fillStyle = css('--muted'); ctx.font = '11px ' + FONT; ctx.fillText(b.label, x0 + bw / 2, h - m.b + 16);
     });
+    L.legend(c, [{ kind: 'box', color: mix(GREEN, 0.85), label: '성공으로 치는 순위' }, { kind: 'box', color: mix(GRAY, 0.55), label: '그 밖의 순위' }, { kind: 'dot', color: '#2b3347', label: '시뮬레이션 (4,000번)' }, { kind: 'line', color: '#2b3347', label: '아무렇게나 골랐을 때' }], mobile ? 'tr' : 'tl');
   }
 
   function renderStats() {

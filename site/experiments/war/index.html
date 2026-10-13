@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-en="How Does War Start and Spread? · Simulatio Lab">전쟁은 어떻게 일어나고 번질까 · 시뮬라티오 랩</title>
-<meta name="description" content="전쟁은 비싸서 양쪽 모두 합의가 낫다는데도 왜 일어날까요? 협상 실패, 군비 경쟁, 이웃으로의 번짐을 이름 없는 추상 국가들의 시뮬레이션으로 직접 돌려보세요." data-en-content="War is costly, so a deal should beat it for both sides. Why does it still happen? Run failed bargaining, arms races and spreading among nameless abstract states.">
+<meta name="description" content="전쟁은 양쪽 모두 손해라서 합의하는 편이 낫습니다. 그런데도 왜 일어날까요? 협상이 깨지는 일, 서로 군비를 늘리는 일, 이웃으로 번지는 일을 이름 없는 가상의 나라들로 직접 돌려 보세요." data-en-content="War costs both sides, so a deal should be better. Why does it still happen? Run it yourself with nameless, made-up states: talks that break down, arms races, and war spreading to neighbors.">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="manifest" href="../../manifest.webmanifest">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -18,7 +18,7 @@
 </div></nav>
 
 <main class="wrap">
-  <h1 data-en="Nobody Wants It, Yet War Happens: Failed Bargains, Arms Races, and Spreading">아무도 원하지 않는데 전쟁이 난다: 협상 실패와 군비 경쟁, 그리고 번짐</h1>
+  <h1 data-en="Nobody Wants It, So Why Does War Happen?">아무도 원하지 않는데 왜 전쟁이 날까?</h1>
   <p class="lead" data-en="It is easy to think war happens because someone wants it. But war is costly for both sides, so a deal that beats fighting always exists. In this simple model, even with such a deal clearly available, about 40% of disputes become war just because one side cannot tell how strong the other really is. Play with that structure using nameless, abstract states.">전쟁은 늘 누군가가 원해서 일어난다고 생각하기 쉽습니다. 그런데 전쟁은 양쪽 모두에게 비싸서, 싸우지 않고 나누는 편이 둘 다에게 낫다는 합의가 언제나 존재합니다. 이 단순한 모델에서는 합의 범위가 분명히 있는데도, 상대 힘을 정확히 모른다는 이유만으로 분쟁의 약 40%가 전쟁이 됩니다. 이름 없는 추상 국가들로 돌려 보며 이 구조를 만져 보세요.</p>
 
   <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
@@ -31,16 +31,16 @@
   <h2 data-en="Try it yourself">직접 돌려보기</h2>
   <div class="panel">
     <div class="controls">
-      <div class="ctl"><label for="u" data-en="Uncertainty about the other&#x27;s strength &lt;output id=&quot;o-u&quot;&gt;&lt;/output&gt;">상대 힘에 대한 불확실성 <output id="o-u"></output></label>
+      <div class="ctl"><label for="u" data-en="How unsure we are of the other&#x27;s strength &lt;output id=&quot;o-u&quot;&gt;&lt;/output&gt;">상대 힘을 잘 모르는 정도 <output id="o-u"></output></label>
         <input type="range" id="u" min="0" max="0.5" step="0.01" value="0.25">
         <span class="hint" data-en="Half-width of A&#x27;s guess about the other&#x27;s strength. At 0 everyone knows everything (① bargaining)">A가 짐작하는 B의 힘 범위의 절반 폭. 0이면 서로 다 압니다 (① 협상)</span></div>
 <div class="ctl"><label for="c" data-en="Cost of war &lt;output id=&quot;o-c&quot;&gt;&lt;/output&gt;">전쟁의 비용 <output id="o-c"></output></label>
         <input type="range" id="c" min="0.02" max="0.3" step="0.01" value="0.15">
         <span class="hint" data-en="The cost each side pays in war (relative to the pie). Larger means more room for a deal, but the information problem stays (① bargaining)">전쟁이 나면 양쪽 모두 치르는 비용(파이 대비). 클수록 합의 여지가 넓지만 정보 문제는 그대로입니다 (① 협상)</span></div>
-<div class="ctl"><label for="k" data-en="Reaction to the other&#x27;s arms &lt;output id=&quot;o-k&quot;&gt;&lt;/output&gt;">상대 군비에 대한 반응 <output id="o-k"></output></label>
+<div class="ctl"><label for="k" data-en="How much we build up in response to the other&#x27;s arms &lt;output id=&quot;o-k&quot;&gt;&lt;/output&gt;">상대 군비를 따라 늘리는 정도 <output id="o-k"></output></label>
         <input type="range" id="k" min="0.1" max="1" step="0.05" value="0.6">
         <span class="hint" data-en="How much I build up per unit of the other&#x27;s arms (② arms race)">상대 군비 1이 늘 때 내 군비를 늘리는 정도 (② 군비 경쟁)</span></div>
-<div class="ctl"><label for="a" data-en="Fatigue of own burden &lt;output id=&quot;o-a&quot;&gt;&lt;/output&gt;">자기 부담의 피로 <output id="o-a"></output></label>
+<div class="ctl"><label for="a" data-en="How much we want to cut our own arms burden &lt;output id=&quot;o-a&quot;&gt;&lt;/output&gt;">내 군비 부담을 줄이려는 정도 <output id="o-a"></output></label>
         <input type="range" id="a" min="0.1" max="1" step="0.05" value="0.45">
         <span class="hint" data-en="How much I cut back the larger my own arms are (② arms race)">내 군비가 클수록 스스로 줄이려는 정도 (② 군비 경쟁)</span></div>
 <div class="ctl"><label for="q" data-en="Chance of pulling in a neighbor &lt;output id=&quot;o-q&quot;&gt;&lt;/output&gt;">이웃을 끌어들일 확률 <output id="o-q"></output></label>
@@ -75,13 +75,11 @@
       <h3 data-en="② More Uncertainty, More War">② 불확실성이 커질수록 전쟁이 늘어난다</h3>
     <p data-en="The horizontal axis is uncertainty and the vertical axis the share of disputes that become war. The red line is the model&#x27;s theory (1−c/u) and the green dots are simulations. Below the cost of war there is no war at all, and above it war grows.">가로는 불확실성, 세로는 전쟁이 되는 분쟁의 비율입니다. 빨간 선은 이 모델의 이론값(1−c/u), 초록 점은 시뮬레이션입니다. 불확실성이 전쟁 비용보다 작으면 전쟁이 한 건도 없다가, 그것을 넘으면서 늘어납니다.</p>
     <canvas id="c-u" class="" aria-label="② More Uncertainty, More War"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Theory"><i style="background:#e5484d"></i>이론값</span><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Simulation"><i style="background:#1fa463"></i>시뮬레이션</span></div>
     </section>
     <section class="panel chart">
       <h3 data-en="③ Arms Race: Will It Settle or Run Away?">③ 군비 경쟁: 멈출까, 폭주할까</h3>
     <p data-en="Blue and purple are the two states&#x27; arms levels. When reaction (k) is below fatigue (a) both lines settle at one level (green dotted), and when above they pull each other past the red heat line. Try moving k and a close together with the sliders.">파랑과 보라는 두 나라의 군비 수준입니다. 반응(k)이 피로(a)보다 작으면 두 선이 한 수준에서 멈추고(초록 점선), 크면 서로를 끌어올려 빨간 과열선을 넘습니다. 슬라이더로 k와 a를 가까이 붙여 보세요.</p>
     <canvas id="c-arms" class="" aria-label="③ Arms Race: Will It Settle or Run Away?"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;State A"><i style="background:var(--accent)"></i>한 나라</span><span data-en="&lt;i style=&quot;background:#7c5cff&quot;&gt;&lt;/i&gt;State B"><i style="background:#7c5cff"></i>다른 나라</span></div>
     </section>
     <section class="panel chart">
       <h3 data-en="④ How One War Spreads to Neighbors">④ 한 나라의 전쟁이 이웃으로 번지는 모습</h3>
@@ -89,10 +87,9 @@
     <canvas id="c-grid" class="" aria-label="④ How One War Spreads to Neighbors"></canvas>
     </section>
     <section class="panel chart">
-      <h3 data-en="⑤ When the Spreading Chance Passes the Tipping Point">⑤ 번짐 확률이 임계점을 넘으면</h3>
+      <h3 data-en="⑤ When the Spreading Chance Passes a Tipping Line">⑤ 번질 확률이 어느 선을 넘으면</h3>
     <p data-en="The horizontal axis is the chance of pulling in a neighbor, the blue line the average share of states joining, and the red line the share of wars that spread to 25% or more of all states (300 simulations per value). On a square grid, big spreads suddenly become possible near 50%.">가로는 이웃을 끌어들일 확률, 파란 선은 평균 참전국 비율, 빨간 선은 전체의 25% 이상으로 번진 전쟁의 비율입니다(확률마다 300번씩 시뮬레이션). 정사각 격자에서는 이 확률이 50% 근처에서 갑자기 큰 번짐이 가능해집니다.</p>
-    <canvas id="c-q" class="" aria-label="⑤ When the Spreading Chance Passes the Tipping Point"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Average share of states joining"><i style="background:var(--accent)"></i>평균 참전국 비율</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Wars spreading to 25% or more"><i style="background:#e5484d"></i>25% 이상으로 번진 전쟁</span></div>
+    <canvas id="c-q" class="" aria-label="⑤ When the Spreading Chance Passes a Tipping Line"></canvas>
     </section>
   </div>
 

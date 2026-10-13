@@ -62,6 +62,7 @@
         ctx.textAlign = 'center'; ctx.fillText('새로 생긴 모티프', m.l + gw + 14 + newW / 2, h - 10);
       }
       ctx.strokeStyle = css('--line'); ctx.beginPath(); ctx.moveTo(m.l + gw + 7, m.t); ctx.lineTo(m.l + gw + 7, m.t + ph); ctx.stroke();
+      L.legend(c, [{ kind: 'box', color: mcolor(1), label: '기억에 잘 남는 모티프' }, { kind: 'box', color: mcolor(0.1), label: '기억에 덜 남는 모티프' }], 'tr');
     } else {
       // 썸네일: 원래 모티프마다 남아 있는 사슬 수를 막대로
       const by = h - 10;
@@ -77,10 +78,11 @@
   function drawSurv() {
     const c = L.chart($('c-surv'), 0.7), { ctx, m, pw, ph } = c, H = sim.history, T = sim.params.gens;
     const X = (g) => m.l + (g / T) * pw, Y = (v) => m.t + ph - v * ph, xt = []; for (let g = 0; g <= T; g += T / 4) xt.push(Math.round(g));
-    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: pct, xTicks: xt, xFmt: (g) => String(g), xLabel: '전달 횟수' });
+    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: pct, xTicks: xt, xFmt: (g) => String(g), xLabel: '전달 횟수 (번)', yLabel: '남은 원래 모티프 (%)' });
     for (let k = 0; k < sim.chains.length; k++) L.line(ctx, H.map((s, g) => [X(g), Y(s.surv[k])]), mix(css('--accent'), 0.22), 1.2);
     L.line(ctx, H.map((s, g) => [X(g), Y(s.survMean)]), css('--accent'), 3);
     const last = H.length - 1; ctx.fillStyle = css('--accent'); ctx.beginPath(); ctx.arc(X(last), Y(H[last].survMean), 4.5, 0, 7); ctx.fill();
+    L.legend(c, [{ kind: 'line', color: css('--accent'), label: '12개 사슬의 평균' }, { kind: 'line', color: mix(css('--accent'), 0.35), label: '사슬 하나하나' }], 'tr');
   }
 
   function drawMem() {
@@ -89,18 +91,18 @@
     const lo = Math.floor((Math.min(...vals) - 0.03) * 20) / 20, hi = Math.ceil((Math.max(...vals) + 0.03) * 20) / 20;
     const X = (g) => m.l + (g / T) * pw, Y = (v) => m.t + ph - ((v - lo) / (hi - lo)) * ph, xt = []; for (let g = 0; g <= T; g += T / 4) xt.push(Math.round(g));
     const yt = []; for (let v = lo; v <= hi + 1e-9; v += (hi - lo) / 4) yt.push(v);
-    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => v.toFixed(2), xTicks: xt, xFmt: (g) => String(g), xLabel: '전달 횟수' });
+    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => v.toFixed(2), xTicks: xt, xFmt: (g) => String(g), xLabel: '전달 횟수 (번)', yLabel: '평균 기억용이성' });
     ctx.setLineDash([5, 4]); ctx.strokeStyle = css('--muted'); ctx.beginPath(); ctx.moveTo(m.l, Y(sim.origMem)); ctx.lineTo(m.l + pw, Y(sim.origMem)); ctx.stroke(); ctx.setLineDash([]);
-    ctx.fillStyle = css('--muted'); ctx.textAlign = 'left'; ctx.fillText('원래 이야기의 평균', m.l + 6, Y(sim.origMem) - 6);
     L.line(ctx, H.map((s, g) => [X(g), Y(s.memMean)]), css('--unlucky'), 3);
     const last = H.length - 1; ctx.fillStyle = css('--unlucky'); ctx.beginPath(); ctx.arc(X(last), Y(H[last].memMean), 4.5, 0, 7); ctx.fill();
+    L.legend(c, [{ kind: 'line', color: css('--unlucky'), label: '남은 이야기의 평균' }, { kind: 'dash', color: css('--muted'), label: '원래 이야기의 평균' }], 'br');
   }
 
   function drawSweep() {
     const mk = (key) => sweep.map((d) => ({ x: d.x, runs: d[key], mean: L.mean(d[key]) }));
     L.dots($('c-sweep'), {
       data: mk('surv'), series: [{ data: mk('jac'), color: css('--rich'), dots: true }, { data: sweep.map((d) => ({ x: d.x, runs: [], mean: L.mean(d.chance) })), color: '#8a93a6' }],
-      x0: 0.7, x1: 1, y0: 0, y1: 1, xTicks: [0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1], xFmt: (v) => Math.round(v * 100) + '%', xLabel: '기억력', marker: { x: sim.params.memory },
+      x0: 0.7, x1: 1, y0: 0, y1: 1, xTicks: [0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1], xFmt: (v) => Math.round(v * 100) + '%', xLabel: '기억력 (%)', yLabel: '비율 (%)', legendPos: 'tl', legend: [{ kind: 'line', color: css('--accent'), label: '남은 원래 모티프' }, { kind: 'line', color: css('--rich'), label: '사슬 사이 겹침' }, { kind: 'line', color: '#8a93a6', label: '우연일 때 기대되는 겹침' }], marker: { x: sim.params.memory },
     });
   }
 

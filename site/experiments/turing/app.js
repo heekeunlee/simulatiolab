@@ -54,9 +54,10 @@
   function drawTime() {
     const c = L.chart($('c-time'), 0.7), { ctx, m, pw, ph } = c, H = sim.history;
     const X = (it) => m.l + (it / MAX_ITER) * pw, Y = (val) => m.t + ph - (val / 0.6) * ph, xt = [0, 10000, 20000, 30000];
-    L.axes(c, { X, Y, yTicks: [0, 0.2, 0.4, 0.6], yFmt: (v) => v.toFixed(1), xTicks: xt, xFmt: (t) => (t ? (t / 1000) + '천' : '0'), xLabel: '진행한 횟수' });
+    L.axes(c, { X, Y, yTicks: [0, 0.2, 0.4, 0.6], yFmt: (v) => v.toFixed(1), xTicks: xt, xFmt: (t) => (t ? (t / 1000) + '천' : '0'), xLabel: '진행한 횟수 (번)', yLabel: '무늬 면적 · 평균 v (값)' });
     L.line(ctx, H.map((s, i) => [X(i * PER_STEP), Y(s.area)]), css('--accent'), 2.5);
     L.line(ctx, H.map((s, i) => [X(i * PER_STEP), Y(s.vMean)]), css('--rich'), 2.5);
+    L.legend(c, [{ kind: 'line', color: css('--accent'), label: '무늬 면적 (비율)' }, { kind: 'line', color: css('--rich'), label: '평균 농도 v' }], 'br');
   }
 
   const PRESET_LABELS = { spots: [15, 4, 'left'], stripes: [8, 4, 'left'], mitosis: [-8, -6, 'right'], coral: [8, 4, 'left'] };
@@ -64,8 +65,7 @@
     const c = L.chart($('c-map'), 0.8, { l: 54, b: 40, r: 26 }), { ctx, m, pw, ph } = c;
     const k0 = 0.05, k1 = 0.07, f0 = 0.02, f1 = 0.06;
     const X = (k) => m.l + ((k - k0) / (k1 - k0)) * pw, Y = (F) => m.t + ph - ((F - f0) / (f1 - f0)) * ph;
-    L.axes(c, { X, Y, yTicks: [0.02, 0.03, 0.04, 0.05, 0.06], yFmt: (v) => v.toFixed(2), xTicks: [0.05, 0.055, 0.06, 0.065, 0.07], xFmt: (v) => v.toFixed(3), xLabel: 'k (제거 속도)' });
-    ctx.save(); ctx.translate(12, m.t + ph / 2); ctx.rotate(-Math.PI / 2); ctx.fillStyle = css('--muted'); ctx.textAlign = 'center'; ctx.fillText('F (공급 속도)', 0, 0); ctx.restore();
+    L.axes(c, { X, Y, yTicks: [0.02, 0.03, 0.04, 0.05, 0.06], yFmt: (v) => v.toFixed(2), xTicks: [0.05, 0.055, 0.06, 0.065, 0.07], xFmt: (v) => v.toFixed(3), xLabel: 'k (제거 속도)', yLabel: 'F (공급 속도)' });
     ctx.font = '600 12px -apple-system, "Apple SD Gothic Neo", sans-serif';
     Object.keys(TU.PRESETS).forEach((name) => {
       const pr = TU.PRESETS[name], x = X(pr.k), y = Y(pr.F), lab = PRESET_LABELS[name];
@@ -74,8 +74,7 @@
     });
     const P = sim.params, cx = X(P.k), cy = Y(P.F);
     ctx.strokeStyle = css('--unlucky'); ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(cx, cy, 10, 0, 7); ctx.stroke(); ctx.lineWidth = 1;
-    // '지금 설정' 글자는 원 아래에 둔다 (세포 분열·점무늬 이름과 겹치지 않게)
-    ctx.fillStyle = css('--unlucky'); ctx.textAlign = 'center'; ctx.fillText('지금 설정', cx, cy + (cy > m.t + ph - 30 ? -16 : 26));
+    L.legend(c, [{ kind: 'dot', color: mix(css('--talent'), 0.85), label: '무늬 종류' }, { kind: 'dot', color: css('--unlucky'), label: '지금 설정 (붉은 원)' }], 'bl');
   }
 
   function nearestPreset() {

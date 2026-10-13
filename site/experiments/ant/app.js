@@ -139,18 +139,20 @@
     const X = (t) => m.l + (t / tmax) * pw, Y = (v) => m.t + ph - (v / ymax) * ph;
     const yt = []; for (let v = 0; v <= ymax + 1e-9; v += st) yt.push(v);
     const xs = niceStep(tmax, 5), xt = []; for (let v = 0; v <= tmax; v += xs) xt.push(v);
-    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => fmt(v), xTicks: xt, xFmt: (v) => fmt(v), xLabel: '걸음 수' });
+    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => fmt(v), xTicks: xt, xFmt: (v) => fmt(v), xLabel: '걸음 수 (걸음)', yLabel });
     if (sim.onset !== null) L.vline(c, X(sim.onset), '#1fa463', `고속도로 시작 ${fmt(sim.onset)}걸음`, sim.onset > tmax * 0.55 ? 'right' : 'left');
     if (sim.params.ants === 1 && !sim.params.noise) { // 대칭 구간
       ctx.fillStyle = L.mix('#2f6fed', 0.12); ctx.fillRect(m.l, m.t, X(ORDER_END) - m.l, ph);
     }
+    const leg = [];
+    if (sim.params.ants === 1 && !sim.params.noise) leg.push({ kind: 'box', color: L.mix('#2f6fed', 0.3), label: '질서 구간 (대칭 무늬)' });
     const pts = H.t.map((t, i) => [X(t), Y(ys[i])]);
     L.line(ctx, pts, color, 2.6);
     if (pts.length) { ctx.fillStyle = color; ctx.beginPath(); ctx.arc(pts[pts.length - 1][0], pts[pts.length - 1][1], 4, 0, 7); ctx.fill(); }
-    ctx.save(); ctx.translate(12, m.t + ph / 2); ctx.rotate(-Math.PI / 2); ctx.textAlign = 'center'; ctx.fillStyle = css('--muted'); ctx.fillText(yLabel, 0, 0); ctx.restore();
+    L.legend(c, leg, 'tl'); // 질서 구간이 있을 때만
     return c;
   }
-  function drawBlack() { timeChart('c-black', sim.hist.black, css('--accent'), '검은 칸 수'); }
+  function drawBlack() { timeChart('c-black', sim.hist.black, css('--accent'), '검은 칸 수 (칸)'); }
   function drawDist() { timeChart('c-dist', sim.hist.dist, '#e5484d', sim.params.ants > 1 ? '원점에서 거리 (칸, 개미 평균)' : '원점에서 거리 (칸)'); }
 
   // ---------- ④ 무작위 시작 훑어 보기 ----------
@@ -163,7 +165,7 @@
     }).filter(Boolean);
     const refs = sim.params.ants === 1 ? [{ y: 9976, label: '빈 판: 9,976걸음', color: '#1fa463' }] : [];
     L.dots($('c-sweep'), { aspect: 0.62, data, x0: 0, x1: 50, y0: 0, y1: 60000, yFmt: (v) => fmt(v), xTicks: [0, 10, 20, 30, 40, 50], xFmt: (v) => v + '%',
-      xLabel: '처음에 흩뿌린 검은 칸의 비율 (0%는 빈 판)', color: '#e5484d', refs, marker: sim.params.noise ? { x: sim.params.dens * 100, label: '지금 설정' } : null });
+      xLabel: '처음 검은 칸 비율 (%)', yLabel: '고속도로 시작 (걸음)', legend: [{ kind: 'dot', color: '#e5484d', label: '무작위 판 하나' }, { kind: 'line', color: '#e5484d', label: '중앙값' }], legendPos: 'br', color: '#e5484d', refs, marker: sim.params.noise ? { x: sim.params.dens * 100, label: '지금 설정' } : null });
     let done = 0, ok = 0; SWEEP_D.forEach((d) => (sweep.res[d] || []).forEach((r) => { done++; if (r !== null) ok++; }));
     $('note-s').textContent = `개미 수 ${sweep.ants} · 설정마다 무작위로 ${SEEDS}번씩 돌림 · 고속도로가 생긴 횟수 ${ok}/${done}`;
   }

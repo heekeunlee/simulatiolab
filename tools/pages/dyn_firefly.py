@@ -21,4 +21,11 @@ DYN = {
 '결합 1%일 때 r={#0}, 3%일 때 r={#1}': 'At coupling 1%, r={0}; at 3%, r={1}',
 '볼 수 있는 범위가 20%일 때 r={#0}, 50%일 때 r={#1}': 'With a visible range of 20%, r={0}; at 50%, r={1}',
 '숲 번호': 'Forest',
+'지난 시간 (주기)': 'Time elapsed (cycles)',
+'동기화 정도 (r)': 'Synchrony (r)',
+'서로 앞당겨 주는 정도 (%)': 'Nudge strength (%)',
+'볼 수 있는 범위 (%)': 'Visible range (%)',
+'30주기 뒤 동기화 (r)': 'Synchrony after 30 cycles (r)',
+'숲 하나': 'One forest',
+'평균': 'Average',
 }

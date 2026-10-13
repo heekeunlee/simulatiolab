@@ -1,4 +1,13 @@
 DYN = {
+'올해 성적 (점)': 'This season (points)',
+'내년 성적 (점)': 'Next season (points)',
+'1회 점수 (점)': 'Trial 1 score',
+'2회 점수 (점)': 'Trial 2 score',
+'다음에도 같은 점수': 'Same score next time',
+'회귀선 (기울기 {#0})': 'Regression line (slope {0})',
+'표지의 진짜 효과': 'True effect of the cover',
+'말의 진짜 효과': 'True effect of the words',
+'운이 차지하는 몫 (%)': 'Share of luck (%)',
 '표지를 장식한 쪽': 'The cover group',
 '최악의 시즌을 보낸 쪽': 'The worst-season group',
 '올해 성적': 'This season',

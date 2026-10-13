@@ -28,7 +28,7 @@ page(dict(
            'The white dot is the particle wandering now and its tail is its recent path. The faint dashed circle is where particles are released. The view widens by itself as the cluster grows.'),
        id='c-grow', rounded=True, anim=True, thumb=True,
        speeds=[('40', T('느리게', 'Slow')), ('100', T('보통', 'Normal')), ('300', T('빠르게', 'Fast'))], speed_default='100'),
-  dict(title=T('② 프랙탈 차원: 질량 대 반지름', '② Fractal Dimension: Mass versus Radius'),
+  dict(title=T('② 가지가 얼마나 성긴지 재기', '② Measuring How Sparse the Branches Are'),
        p=T('가로는 반지름, 세로는 그 안의 입자 수(둘 다 로그 눈금)입니다. 빨간 선의 기울기가 프랙탈 차원 D이고, 회색 점선(기울기 2)은 빈틈없이 꽉 찬 면일 때입니다. 점 씨앗은 중심에서, 선·고리 씨앗은 붙은 입자 150개 둘레에서 잰 평균이라 더 낮게 나오는 경향이 있어요.',
            'The horizontal axis is radius and the vertical axis the number of particles inside it (both log scales). The slope of the red line is the fractal dimension D, and the gray dashed line (slope 2) is what a solid area would give. A point seed is measured from its center; for line and ring seeds, it is the average around 150 sampled particles, which tends to read lower.'),
        id='c-mr'),

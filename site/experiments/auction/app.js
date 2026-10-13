@@ -8,6 +8,16 @@
   let seedGetter = () => 1;
   const THUMB = /[?&]thumb=1/.test(location.search); // 썸네일 촬영: 손익 분포를 정사각형으로 그린다
   const params = () => ({ seed: seedGetter(), n: Number($('n').value), sigma: Number($('sigma').value) / 100, shade: Number($('shade').value), rule: $('rule').value });
+  // 범례를 놓을 구석 고르기: 점들 [x, y]이 가장 적게 겹치는 곳. fill=true면 점 아래가 칠해진 막대로 본다
+  function pickPos(c, pts, n, fill) {
+    const bw = 190, bh = n * 16 + 9, m = c.m; let best = 'tr', bc = 1e9;
+    ['tr', 'tl', 'br', 'bl'].forEach((p) => {
+      const x0 = p[1] === 'l' ? m.l + 6 : m.l + c.pw - bw - 6, y0 = p[0] === 'b' ? m.t + c.ph - bh - 6 : m.t + 6;
+      const cnt = pts.filter(([x, y]) => x >= x0 - 4 && x <= x0 + bw + 4 && (fill ? y <= y0 + bh + 4 : y >= y0 - 4 && y <= y0 + bh + 4)).length;
+      if (cnt < bc) { bc = cnt; best = p; }
+    });
+    return best;
+  }
   const f1 = (v) => (v >= 0 ? '+' : '−') + Math.abs(v).toFixed(1);
 
   // ---------- ① 경매 한 번 ----------
@@ -16,7 +26,7 @@
   const FONT = '-apple-system, "Apple SD Gothic Neo", sans-serif';
   function drawAuction() {
     const cw = $('c-auction').clientWidth || 600;
-    const c = L.chart($('c-auction'), cw < 560 ? 0.95 : 0.62, { l: 14, r: 14, t: 38, b: 78 }), { ctx, w, h, m, pw, ph } = c;
+    const c = L.chart($('c-auction'), cw < 560 ? 0.95 : 0.62, { l: 14, r: 14, t: 38, b: 134 }), { ctx, w, h, m, pw, ph } = c;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
     const a = sim.last;
     ctx.textAlign = 'left'; ctx.fillStyle = css('--text'); ctx.font = '600 13px ' + FONT;
@@ -57,14 +67,18 @@
       ctx.textAlign = 'left'; ctx.font = '600 13px ' + FONT;
       ctx.fillStyle = loss ? css('--unlucky') : css('--lucky');
       ctx.fillText(`낙찰 가격 ${a.price.toFixed(0)} · 낙찰자 손익 ${f1(a.profit)}`, m.l, h - 52);
-      ctx.fillStyle = css('--muted'); ctx.font = '12px ' + FONT;
-      ctx.fillText('파란 점: 각자의 추정치, 동그라미: 입찰가, 붉은 동그라미: 낙찰', m.l, h - 34);
       // 지금까지의 평균 손익 (작은 추이선, 0 기준선)
       const H = sim.history, sx = m.l + Math.min(150, pw * 0.36), sw = m.l + pw - sx, yz = h - 14, sc = 9 / Math.max(10, ...H.map((v) => Math.abs(v)));
       const X2 = (i) => sx + (i / Math.max(40, H.length - 1)) * sw; // 지금까지의 경매 수에 맞춰 늘려 그린다
       ctx.fillStyle = css('--muted'); ctx.fillText('평균 손익 추이', m.l, yz + 4);
       ctx.strokeStyle = css('--line'); ctx.beginPath(); ctx.moveTo(sx, yz); ctx.lineTo(sx + sw, yz); ctx.stroke();
       L.line(ctx, H.map((v, i) => [X2(i), yz - v * sc]), css('--unlucky'), 2);
+      // 범례 (행 위쪽 띠 아래의 빈 자리)
+      L.legend(Object.assign({}, c, { m: Object.assign({}, m, { t: h - 130 }), ph: 64 }), [
+        { kind: 'dot', color: css('--accent'), label: '각자의 추정치' },
+        { kind: 'dot', color: css('--muted'), label: '입찰가 (동그라미)' },
+        { kind: 'dot', color: css('--unlucky'), label: '낙찰자' },
+      ], 'tl');
     }
     $('when').textContent = `${sim.round}/${sim.params.rounds}번 · 평균 손익 ${f1(sim.mean())}`;
   }
@@ -77,7 +91,7 @@
     const nb = 40, counts = new Array(nb).fill(0); hist.forEach((v) => { counts[Math.min(nb - 1, Math.floor(((v - lo) / (hi - lo)) * nb))]++; });
     const cmax = Math.max(...counts), X = (v) => m.l + ((v - lo) / (hi - lo)) * pw, Y = (v) => m.t + ph - (v / cmax) * ph;
     const step = (hi - lo) > 120 ? 40 : (hi - lo) > 60 ? 20 : 10, xt = []; for (let t = Math.ceil(lo / step) * step; t <= hi; t += step) xt.push(t);
-    L.axes(c, { X, Y, yTicks: [0, 0.5, 1].map((q) => q * cmax), yFmt: (v) => String(Math.round(v)), xTicks: xt, xFmt: (v) => String(v), xLabel: '낙찰자 손익 (진짜 가치 평균 100 기준)' });
+    L.axes(c, { X, Y, yTicks: [0, 0.5, 1].map((q) => q * cmax), yFmt: (v) => String(Math.round(v)), xTicks: xt, xFmt: (v) => String(v), xLabel: '낙찰자 손익 (가치 100 기준)', yLabel: '경매 횟수 (번)' });
     const bw = pw / nb;
     counts.forEach((v, i) => { const mid = lo + ((i + 0.5) / nb) * (hi - lo); ctx.fillStyle = mid < 0 ? mix(css('--unlucky'), 0.8) : mix(css('--lucky'), 0.8); ctx.fillRect(m.l + i * bw + 0.5, Y(v), Math.max(1, bw - 1), m.t + ph - Y(v)); });
     L.vline(c, X(0), css('--text'), '손익 0', 'right');
@@ -87,18 +101,28 @@
     ctx.textAlign = mean > (lo + hi) / 2 ? 'right' : 'left'; ctx.font = '600 12px -apple-system, "Apple SD Gothic Neo", sans-serif';
     ctx.lineWidth = 4; ctx.lineJoin = 'round'; ctx.strokeStyle = 'rgba(255,255,255,.95)'; ctx.strokeText(ml, mx, m.t + 30); ctx.lineWidth = 1;
     ctx.fillStyle = '#b07a00'; ctx.fillText(ml, mx, m.t + 30);
+    const lc = Object.assign({}, c, { m: Object.assign({}, m, { t: m.t + 40 }), ph: ph - 40 });
+    const bars = counts.map((v, i) => [m.l + (i + 0.5) * bw, Y(v)]).filter((q, i) => counts[i] > 0);
+    for (let dx = -60; dx <= 60; dx += 10) bars.push([X(mean) + dx, m.t + 24]);
+    L.legend(lc, [{ kind: 'box', color: mix(css('--unlucky'), 0.8), label: '손해 본 경매' }, { kind: 'box', color: mix(css('--lucky'), 0.8), label: '이익 본 경매' }], pickPos(lc, bars, 2, true));
   }
 
   const yLimit = (rows) => { let mx = 20; rows.forEach((s) => s.forEach((d) => d.runs.forEach((v) => { mx = Math.max(mx, Math.abs(v)); }))); return Math.ceil(mx / 10) * 10; };
   // ---------- ③ 입찰자 수에 따라 ----------
   function drawN() {
     const lim = yLimit(nRows.map((r) => r.pts));
-    L.dots($('c-n'), {
+    const c = L.dots($('c-n'), {
       data: nRows[0] ? nRows[0].pts : [], y0: -lim, y1: lim, yFmt: (v) => String(Math.round(v)),
       series: nRows.slice(1).map((r) => ({ data: r.pts, color: r.color })),
-      x0: 2, x1: 30, xTicks: [2, 5, 10, 15, 20, 25, 30], xFmt: (v) => v + '명', xLabel: '입찰자 수',
+      x0: 2, x1: 30, xTicks: [2, 5, 10, 15, 20, 25, 30], xFmt: (v) => String(v), xLabel: '입찰자 수 (명)', yLabel: '낙찰자 평균 손익 (점)',
       refs: [{ y: 0, label: '손익 0', color: '#8a93a6' }], marker: { x: sim.params.n, label: '지금 설정' },
     });
+    const items = [{ kind: 'line', color: css('--accent'), label: '입찰 그대로 · 첫째값' }];
+    if (sim.params.shade > 0) items.push({ kind: 'line', color: '#1fa463', label: '지금 낮춤 · 첫째값' });
+    items.push({ kind: 'line', color: '#e0a100', label: '입찰 그대로 · 둘째값' });
+    const lc = Object.assign({}, c, { m: Object.assign({}, c.m, { t: c.m.t + 20 }), ph: c.ph - 20 }), pts = [[c.m.l + 24, c.m.t + c.ph / 2 - 6]];
+    nRows.forEach((r) => r.pts.forEach((d) => pts.push([c.m.l + ((d.x - 2) / 28) * c.pw, c.m.t + c.ph - ((d.mean + lim) / (2 * lim)) * c.ph])));
+    L.legend(lc, items, pickPos(lc, pts, items.length, false));
   }
   // ---------- ④ 입찰가를 낮추면 ----------
   function drawS() {
@@ -106,7 +130,7 @@
     const c = L.dots($('c-s'), {
       data: sRows[0] ? sRows[0].pts : [], y0: -lim, y1: lim, yFmt: (v) => String(Math.round(v)),
       series: sRows.slice(1).map((r) => ({ data: r.pts, color: r.color })),
-      x0: 0, x1: 3, xTicks: [0, 0.5, 1, 1.5, 2, 2.5, 3], xFmt: (v) => v + 'σ', xLabel: '모두가 입찰가를 낮추는 정도 (추정 오차의 표준편차 σ 단위)',
+      x0: 0, x1: 3, xTicks: [0, 0.5, 1, 1.5, 2, 2.5, 3], xFmt: (v) => String(v), xLabel: '입찰가 낮추는 정도 (σ)', yLabel: '낙찰자 평균 손익 (점)',
       refs: [{ y: 0, label: '손익 0', color: '#8a93a6' }], marker: { x: sim.params.shade, label: '지금 설정' },
     });
     // 선마다 입찰자 수를 적는다 (범례가 없어 어느 선이 몇 명인지 알 수 없었다)
@@ -144,9 +168,8 @@
       { color: '#1fa463', opts: { rule: 'first', shade: P.shade } },
       { color: '#e0a100', opts: { rule: 'second', shade: 0 } },
     ];
-    // 낮춤이 0이면 초록(지금 낮춤) 선이 파랑과 똑같아 파랑을 덮어 버린다 → 그때는 초록 선과 범례를 뺀다
+    // 낮춤이 0이면 초록(지금 낮춤) 선이 파랑과 똑같아 파랑을 덮어 버린다 → 그때는 초록 선을 뺀다
     if (!(P.shade > 0)) cfgN.splice(1, 1);
-    const lg = $('c-n').closest('section').querySelector('.legend i[style*="1fa463"]'); if (lg) lg.parentElement.style.display = P.shade > 0 ? '' : 'none';
     cfgN.forEach((cf) => { cf.pts = []; nRows.push(cf); });
     const jobs = [];
     NS.forEach((n) => jobs.push(() => cfgN.forEach((cf) => {

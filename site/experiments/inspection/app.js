@@ -42,14 +42,14 @@
       ctx.textAlign = 'left'; ctx.fillStyle = css('--muted');
       ctx.fillText('세로선: 버스 · 빨간 점: 이 승객 · 파란 점: 먼저 도착한 승객들', m.l, y + 78);
       // 지금까지의 평균 대기 (눈금이 있는 작은 그래프)
-      const H = sim.history, th = sim.theory, gl = m.l + 30, top = 222, bot = h - 34, gw = pw - 30;
+      const H = sim.history, th = sim.theory, gl = m.l + 30, top = 232, bot = h - 34, gw = pw - 30;
       const ymax = Math.ceil(Math.max(th.wait * 1.7, th.naive * 2.4) / 4) * 4, Y = (v) => bot - (Math.min(v, ymax) / ymax) * (bot - top), Xi = (i) => gl + (i / Math.max(1, P.n - 1)) * gw;
       ctx.fillStyle = css('--text'); ctx.font = FONT_B;
-      ctx.fillText(`지금까지 평균 대기 ${f1(sim.sumWait / sim.round)}분`, m.l, top - 18); ctx.font = FONT; ctx.fillStyle = css('--muted'); ctx.textAlign = 'right'; ctx.fillText('세로: 분', m.l + pw, top - 18); ctx.textAlign = 'left';
+      ctx.fillText(`지금까지 평균 대기 ${f1(sim.sumWait / sim.round)}분`, m.l, top - 30); ctx.font = '600 11.5px ' + FONT.replace(/^[^ ]+ /, ''); ctx.fillStyle = css('--text'); ctx.textAlign = 'left'; ctx.fillText('평균 대기 (분)', 4, top - 10); ctx.textAlign = 'left';
       ctx.font = FONT; ctx.strokeStyle = css('--line'); ctx.fillStyle = css('--muted'); ctx.textAlign = 'right';
       [0, ymax / 4, ymax / 2, (3 * ymax) / 4, ymax].forEach((v) => { ctx.beginPath(); ctx.moveTo(gl, Y(v)); ctx.lineTo(gl + gw, Y(v)); ctx.stroke(); ctx.fillText(String(v), gl - 6, Y(v) + 4); });
-      [0, 0.5, 1].forEach((f) => { ctx.textAlign = f === 0 ? 'left' : f === 1 ? 'right' : 'center'; ctx.fillText(f ? `${Math.round(f * P.n)}명` : '1명', gl + f * gw, bot + 16); }); ctx.textAlign = 'center';
-      ctx.fillText('도착한 승객 수', gl + gw / 2, bot + 30);
+      [0, 0.5, 1].forEach((f) => { ctx.textAlign = f === 0 ? 'left' : f === 1 ? 'right' : 'center'; ctx.fillText(f ? `${Math.round(f * P.n)}명` : '1명', gl + f * gw, bot + 16); }); ctx.font = '600 11.5px ' + FONT.replace(/^[^ ]+ /, ''); ctx.fillStyle = css('--text'); ctx.textAlign = 'right';
+      ctx.fillText('도착한 승객 수 (명)', w - m.r, h - 4); ctx.font = FONT;
       ctx.lineWidth = 1.5; ctx.strokeStyle = '#8a93a6'; ctx.setLineDash([5, 4]); ctx.beginPath(); ctx.moveTo(gl, Y(th.naive)); ctx.lineTo(gl + gw, Y(th.naive)); ctx.stroke();
       ctx.strokeStyle = GOLD; ctx.beginPath(); ctx.moveTo(gl, Y(th.wait)); ctx.lineTo(gl + gw, Y(th.wait)); ctx.stroke(); ctx.setLineDash([]); ctx.lineWidth = 1;
       L.line(ctx, H.map((v, i) => [Xi(i), Y(v)]), css('--unlucky'), 2.2);
@@ -70,7 +70,7 @@
     const da = ca.map((v) => v / A.length / bw), db = cb.map((v) => v / B.length / bw), ymax = Math.max(...da, ...db) * 1.08 || 1;
     const X = (v) => m.l + (v / xmax) * pw, Y = (v) => m.t + ph - (v / ymax) * ph;
     const step = xmax > 120 ? 40 : xmax > 60 ? 20 : xmax > 25 ? 10 : xmax > 12 ? 5 : 2, xt = []; for (let t = 0; t <= xmax; t += step) xt.push(t);
-    L.axes(c, { X, Y, yTicks: [], xTicks: xt, xFmt: (v) => String(v), xLabel: o.xLabel });
+    L.axes(c, { X, Y, yTicks: [], xTicks: xt, xFmt: (v) => String(v), xLabel: o.xLabel, yLabel: '빈도 (상대)' });
     const px = pw / nb;
     ctx.beginPath(); ctx.moveTo(m.l, Y(0));
     db.forEach((v, i) => { const x0 = m.l + i * px; ctx.lineTo(x0, Y(v)); ctx.lineTo(x0 + px, Y(v)); }); ctx.lineTo(m.l + nb * px, Y(0)); ctx.closePath();
@@ -86,6 +86,7 @@
     };
     vl(ma, css('--accent'), o.labelA(ma), 1); vl(mb, GOLD, o.labelB(mb), 2);
     ctx.font = FONT;
+    L.legend(c, o.legend, 'br');
   }
 
   // ---------- ② 간격 분포: 버스 vs 승객 ----------
@@ -93,6 +94,7 @@
     const c = L.chart($('c-hist'), THUMB ? 1 : 0.7, THUMB ? { b: 34, l: 10, r: 10, t: 44 } : { b: 40, l: 14 });
     overlay(c, Array.from(sim.heads), sim.seen(), {
       bins: 30, minMax: sim.params.mean * 2, xLabel: '버스 간격 (분)',
+      legend: THUMB ? [] : [{ kind: 'box', color: mix(css('--accent'), 0.5), label: '버스 간격 (하나씩 센 값)' }, { kind: 'line', color: '#e0a100', label: '승객이 본 간격' }],
       labelA: (v) => `버스를 센 평균 ${f1(v)}분`, labelB: (v) => `승객이 본 평균 ${f1(v)}분`,
     });
   }
@@ -101,13 +103,12 @@
   function drawCv() {
     const P = sim.params, th = (cv) => IN.theory(P.mean, cv).wait, ymax = Math.max(4, Math.ceil((th(2) * 1.04) / 4) * 4);
     const c = L.dots($('c-cv'), {
-      data: rows[0] ? rows[0].pts : [], y0: 0, y1: ymax, yFmt: (v) => String(Math.round(v)),
+      data: rows[0] ? rows[0].pts : [], y0: 0, y1: ymax, yFmt: (v) => String(Math.round(v)), yLabel: '평균 대기 시간 (분)',
+      legend: [{ kind: 'dot', color: css('--accent'), label: '실측' }, { kind: 'line', color: GOLD, label: '이론' }, { kind: 'dash', color: '#8a93a6', label: '단순 계산 (간격의 절반)' }], legendPos: 'tl',
       series: [{ data: CVS.map((cv) => ({ x: cv, mean: th(cv) })), color: GOLD }],
       x0: 0, x1: 2, xTicks: [0, 0.5, 1, 1.5, 2], xFmt: (v) => String(v), xLabel: '버스가 얼마나 들쭉날쭉한가 (변동계수)',
       refs: [{ y: P.mean / 2, label: '', color: '#8a93a6' }], marker: { x: P.cv, label: '지금 설정' },
     });
-    const { ctx, m, pw, ph } = c; ctx.font = FONT; ctx.textAlign = 'right'; ctx.fillStyle = '#8a93a6';
-    ctx.fillText('단순 계산 (평균 간격의 절반)', m.l + pw - 4, m.t + ph - ((P.mean / 2) / ymax) * ph + 16);
   }
 
   // ---------- ④ 학급 인원 ----------
@@ -116,6 +117,7 @@
     const stu = []; cls.sizes.forEach((s) => { for (let i = 0; i < s; i++) stu.push(s); });
     overlay(c, cls.sizes, stu, {
       bins: 30, minMax: 40, xLabel: '학급 인원 (명)',
+      legend: [{ kind: 'box', color: mix(css('--accent'), 0.5), label: '학급 인원 (하나씩 센 값)' }, { kind: 'line', color: '#e0a100', label: '학생이 말한 자기 반 인원' }],
       labelA: (v) => `학급을 센 평균 ${f1(v)}명`, labelB: (v) => `학생이 말한 평균 ${f1(v)}명`,
     });
     $('note-c').innerHTML = `들쭉날쭉한 정도(변동계수)가 ${P_cv().toFixed(1)}이면 학급 평균 ${f1(cls.perClass)}명이 학생이 겪는 평균 ${f1(cls.perStudent)}명이 됩니다 (이론 ${f1(cls.theoryPerStudent)}명). 현실적인 편차(변동계수 0.3)라면 ${f1(cls3.perClass)}명이 ${f1(cls3.perStudent)}명입니다.`;

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-en="Why Does Winning an Auction Cost You? · Simulatio Lab">경매에서 이기면 왜 손해일까 · 시뮬라티오 랩</title>
-<meta name="description" content="그림 경매에서 가장 높은 값을 부른 사람이 평균적으로 손해를 보는 이유, 승자의 저주를 직접 돌려보세요." data-en-content="Run the winner&#x27;s curse yourself and see why the highest bidder in a painting auction loses money on average.">
+<meta name="description" content="그림 경매에서 가장 높은 값을 부른 사람은 왜 평균적으로 손해를 볼까요? 이기고도 지는 &quot;승자의 저주&quot;를 직접 돌려보세요." data-en-content="Why does the highest bidder in a painting auction lose money on average? Run the &quot;winner&#x27;s curse&quot; yourself: winning and still losing.">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="manifest" href="../../manifest.webmanifest">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -19,7 +19,7 @@
 
 <main class="wrap">
   <h1 data-en="Why Does Winning an Auction Cost You?">경매에서 이기면 왜 손해일까</h1>
-  <p class="lead" data-en="Nobody knows a painting&#x27;s true value, and each bidder holds a slightly wrong estimate. The highest bidder wins the auction, but is that really good news? Change the number of bidders, the estimation error and how much people shade their bids.">그림 한 점의 진짜 가치는 아무도 모르고, 입찰자들은 저마다 조금씩 틀린 추정치를 갖고 있습니다. 가장 높은 값을 부른 사람이 경매에서 이기는데, 그게 정말 좋은 일일까요? 입찰자 수와 추정 오차, 입찰가를 낮추는 정도를 바꿔 봅니다.</p>
+  <p class="lead" data-en="Nobody knows a painting&#x27;s true value, and each bidder guesses a little wrong. The highest bidder wins, but is that really good news? Change the number of bidders, how far off the guesses are, and how much people lower their bids.">그림 한 점의 진짜 가치는 아무도 모르고, 사람마다 조금씩 틀리게 짐작합니다. 가장 높은 값을 부른 사람이 이기는데, 그게 정말 좋은 일일까요? 입찰자 수, 짐작이 틀리는 정도, 입찰가를 깎는 정도를 바꿔 보세요.</p>
 
   <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
   <ul>
@@ -34,13 +34,13 @@
     <div class="controls">
       <div class="ctl"><label for="n" data-en="Number of bidders &lt;output id=&quot;o-n&quot;&gt;&lt;/output&gt;">입찰자 수 <output id="o-n"></output></label>
         <input type="range" id="n" min="2" max="30" step="1" value="10">
-        <span class="hint" data-en="With more bidders, someone is more likely to overestimate badly">많을수록 누군가 크게 과대평가할 가능성이 커져요</span></div>
-<div class="ctl"><label for="sigma" data-en="Estimation error &lt;output id=&quot;o-sigma&quot;&gt;&lt;/output&gt;">추정 오차 <output id="o-sigma"></output></label>
+        <span class="hint" data-en="With more bidders, someone is more likely to guess far too high">많을수록 누군가 값을 크게 높게 짐작할 가능성이 커져요</span></div>
+<div class="ctl"><label for="sigma" data-en="How far off the guesses are &lt;output id=&quot;o-sigma&quot;&gt;&lt;/output&gt;">짐작이 틀리는 정도 <output id="o-sigma"></output></label>
         <input type="range" id="sigma" min="5" max="40" step="5" value="20">
         <span class="hint" data-en="In % of the value. Larger means less accurate estimates">가치 대비 %. 클수록 추정이 부정확해요</span></div>
-<div class="ctl"><label for="shade" data-en="Bid shading &lt;output id=&quot;o-shade&quot;&gt;&lt;/output&gt;">입찰가 낮추기 <output id="o-shade"></output></label>
+<div class="ctl"><label for="shade" data-en="Lowering the bid &lt;output id=&quot;o-shade&quot;&gt;&lt;/output&gt;">입찰가 깎기 <output id="o-shade"></output></label>
         <input type="range" id="shade" min="0" max="3" step="0.1" value="0">
-        <span class="hint" data-en="How many error sizes (σ) below the estimate people bid. 0 means bidding the estimate">오차 크기(σ)의 몇 배만큼 낮춰 부르는지. 0이면 추정치 그대로</span></div>
+        <span class="hint" data-en="How many error sizes (σ) below their guess people bid. 0 means bidding the guess">틀리는 폭(σ)의 몇 배만큼 깎아 부르는지. 0이면 짐작한 값 그대로</span></div>
 <div class="ctl"><label for="rule" data-en="Auction rule &lt;output id=&quot;o-rule&quot;&gt;&lt;/output&gt;">경매 방식 <output id="o-rule"></output></label>
         <select id="rule" class="sel"><option value="first" selected data-en="First-price (pay your own bid)">첫째값 (내가 부른 값을 낸다)</option><option value="second" data-en="Second-price (pay the second-highest bid)">둘째값 (두 번째로 높은 값을 낸다)</option></select>
         <span class="hint" data-en="How the price is set">낙찰 가격을 어떻게 정하는지</span></div>
@@ -70,21 +70,20 @@
 
   <div class="charts">
     <section class="panel chart">
-      <h3 data-en="② Distribution of the Winner&#x27;s Profit">② 낙찰자의 손익 분포</h3>
-    <p data-en="The distribution of the winner&#x27;s profit when 3,000 auctions are run with the same settings. Red is a loss, green is a gain.">같은 설정으로 경매를 3,000번 열었을 때 낙찰자 손익의 분포입니다. 빨강은 손해, 초록은 이익입니다.</p>
-    <canvas id="c-hist" class="" data-thumb aria-label="② Distribution of the Winner&#x27;s Profit"></canvas>
+      <h3 data-en="② How Much Does the Winner Gain or Lose?">② 이긴 사람은 얼마나 벌고 잃을까</h3>
+    <p data-en="How the winner&#x27;s profit is spread out when 3,000 auctions are run with the same settings. Red is a loss, green is a gain.">같은 설정으로 경매를 3,000번 열었을 때 낙찰자 손익이 어떻게 흩어지는지 보여 줍니다. 빨강은 손해, 초록은 이익입니다.</p>
+    <canvas id="c-hist" class="" data-thumb aria-label="② How Much Does the Winner Gain or Lose?"></canvas>
     </section>
     <section class="panel chart">
-      <h3 data-en="③ As Bidders Increase">③ 입찰자가 많아지면</h3>
+      <h3 data-en="③ What Happens as Bidders Increase?">③ 입찰자가 많아지면 어떻게 될까</h3>
     <p data-en="The horizontal axis is the number of bidders, the vertical axis is the winner&#x27;s average profit. Below the dashed line (0), winners lose money on average.">가로는 입찰자 수, 세로는 낙찰자의 평균 손익입니다. 점선(0) 아래면 이긴 쪽이 평균적으로 손해를 봅니다.</p>
-    <canvas id="c-n" class="" aria-label="③ As Bidders Increase"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Bid the estimate · first-price"><i style="background:var(--accent)"></i>입찰 그대로 · 첫째값</span><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Current shading · first-price"><i style="background:#1fa463"></i>지금 낮춤 · 첫째값</span><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;Bid the estimate · second-price"><i style="background:#e0a100"></i>입찰 그대로 · 둘째값</span></div>
+    <canvas id="c-n" class="" aria-label="③ What Happens as Bidders Increase?"></canvas>
       <div class="legend"><span id="note-n" data-en="Calculating…">계산 중…</span></div>
     </section>
     <section class="panel chart">
-      <h3 data-en="④ When Bids Are Shaded">④ 입찰가를 낮추면</h3>
-    <p data-en="The horizontal axis is how much everyone shades their bid, the vertical axis is the winner&#x27;s average profit. Each line has a different number of bidders, and where it crosses 0 is the break-even.">가로는 모두가 입찰가를 낮추는 정도, 세로는 낙찰자의 평균 손익입니다. 선마다 입찰자 수가 다르고, 0을 넘는 지점이 손익분기예요.</p>
-    <canvas id="c-s" class="" aria-label="④ When Bids Are Shaded"></canvas>
+      <h3 data-en="④ When Bids Are Lowered">④ 입찰가를 깎으면</h3>
+    <p data-en="The horizontal axis is how much everyone lowers their bid (σ is how far off the guesses are), the vertical axis is the winner&#x27;s average profit. Each line has a different number of bidders, and where it crosses 0 is the break-even.">가로는 모두가 입찰가를 깎는 정도(σ는 짐작이 틀리는 폭), 세로는 낙찰자의 평균 손익입니다. 선마다 입찰자 수가 다르고, 0을 넘는 지점이 손익분기예요.</p>
+    <canvas id="c-s" class="" aria-label="④ When Bids Are Lowered"></canvas>
       <div class="legend"><span id="note-s" data-en="Calculating…">계산 중…</span></div>
     </section>
   </div>

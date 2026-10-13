@@ -58,17 +58,18 @@
       ctx.fillStyle = 'rgba(255,255,255,.92)'; L.roundRect(ctx, Math.max(2, Math.min(w - tw - 2, x - tw / 2)), ty - 12, tw, 17, 5); ctx.fill();
       ctx.fillStyle = '#1b1f2a'; ctx.fillText(txt, Math.max(2 + tw / 2, Math.min(w - tw / 2 - 2, x)), ty); };
     tag('첫 공격', ax, ay); tag('공격받음', dx, dy);
+    L.legend(c, [{ kind: 'dot', color: NEUTRAL, label: '중립국' }, { kind: 'dot', color: RED, label: '붉은 편' }, { kind: 'dot', color: BLUE, label: '푸른 편' }, { kind: 'dash', color: '#d97706', label: '양쪽에 걸친 동맹(점선)' }], 'bl');
   }
 
   function drawTime() {
     const c = L.chart($('c-time'), 0.7), { ctx, m, pw, ph } = c, H = sim.history, T = Math.max(H.length - 1, 6), n = sim.n;
     const X = (t) => m.l + (t / T) * pw, Y = (v) => m.t + ph - (v / n) * ph, xt = []; for (let t = 0; t <= T; t += Math.max(1, Math.ceil(T / 6))) xt.push(t);
-    L.axes(c, { X, Y, yTicks: [0, 6, 12, 18, 24].map((v) => (v / 24) * n), yFmt: (v) => Math.round(v), xTicks: xt, xFmt: (t) => String(t), xLabel: '라운드' });
+    L.axes(c, { X, Y, yTicks: [0, 6, 12, 18, 24].map((v) => (v / 24) * n), yFmt: (v) => Math.round(v), xTicks: xt, xFmt: (t) => String(t), xLabel: '시간 (라운드)', yLabel: '전쟁에 들어간 나라 (개국)' });
     ctx.setLineDash([4, 3]); ctx.strokeStyle = css('--muted'); ctx.beginPath(); ctx.moveTo(m.l, Y(n / 2)); ctx.lineTo(m.l + pw, Y(n / 2)); ctx.stroke(); ctx.setLineDash([]);
-    ctx.fillStyle = css('--muted'); ctx.textAlign = 'left'; ctx.fillText('절반', m.l + 6, Y(n / 2) - 6);
-    L.line(ctx, H.map((v, t) => [X(t), Y(v.a + v.b)]), '#1b1f2a', 2.5);
+        L.line(ctx, H.map((v, t) => [X(t), Y(v.a + v.b)]), '#1b1f2a', 2.5);
     L.line(ctx, H.map((v, t) => [X(t), Y(v.a)]), RED, 2);
     L.line(ctx, H.map((v, t) => [X(t), Y(v.b)]), BLUE, 2);
+    L.legend(c, [{ kind: 'line', color: '#1b1f2a', label: '전쟁에 들어간 나라 전체' }, { kind: 'line', color: RED, label: '붉은 편' }, { kind: 'line', color: BLUE, label: '푸른 편' }, { kind: 'dash', color: css('--muted'), label: '전체의 절반' }], 'tl');
   }
 
   function drawHist() {
@@ -76,7 +77,7 @@
     const counts = new Array(n + 1).fill(0); (hist || []).forEach((s) => { counts[s]++; });
     const total = (hist || []).length || 1, cmax = Math.max(1, ...counts), top = niceMax(cmax / total);
     const X = (s) => m.l + ((s - 2) / (n - 1)) * pw, Y = (v) => m.t + ph - (v / top) * ph;
-    L.axes(c, { X, Y, yTicks: [0, 1, 2, 3, 4].map((i) => (top * i) / 4), yFmt: pct, xTicks: [2, 6, 12, 18, 24].filter((t) => t <= n), xFmt: (t) => String(t), xLabel: '전쟁에 들어간 나라 수' });
+    L.axes(c, { X, Y, yTicks: [0, 1, 2, 3, 4].map((i) => (top * i) / 4), yFmt: pct, xTicks: [2, 6, 12, 18, 24].filter((t) => t <= n), xFmt: (t) => String(t), xLabel: '전쟁에 들어간 나라 (개국)', yLabel: '비율 (%)' });
     const bw = pw / (n - 1) * 0.8;
     for (let s = 2; s <= n; s++) {
       const v = counts[s] / total; if (!v) continue;
@@ -84,21 +85,23 @@
       ctx.fillRect(X(s) - bw / 2, Y(v), bw, m.t + ph - Y(v));
     }
     ctx.setLineDash([4, 3]); ctx.strokeStyle = css('--muted'); ctx.beginPath(); ctx.moveTo(X(n / 2 - 0.5), m.t); ctx.lineTo(X(n / 2 - 0.5), m.t + ph); ctx.stroke(); ctx.setLineDash([]);
+    L.legend(c, [{ kind: 'box', color: '#9aa8c7', label: '작게 끝남 (4개국 이하)' }, { kind: 'box', color: '#f59e42', label: '그 사이' }, { kind: 'box', color: RED, label: '세계대전급 (절반 이상)' }], 'tr');
   }
   function niceMax(v) { const p = Math.pow(10, Math.floor(Math.log10(Math.max(v, 0.01)))); const r = v / p; return Math.min(1, (r <= 1 ? 1 : r <= 2 ? 2 : r <= 5 ? 5 : 10) * p); }
 
+  const swl = () => [{ kind: 'line', color: css('--accent'), label: '전쟁에 들어간 나라의 평균 비율' }, { kind: 'line', color: RED, label: '세계대전급이 된 비율' }];
   function drawSweepA() {
     L.dots($('c-allies'), {
       data: swA.map((d) => ({ x: d.x, runs: d.size, mean: L.mean(d.size) })),
       series: [{ data: swA.map((d) => ({ x: d.x, runs: d.world, mean: L.mean(d.world) })), color: RED, dots: true }],
-      x0: 0, x1: 8, xTicks: [0, 1, 2, 3, 4, 5, 6, 7, 8], xFmt: (v) => v + '', xLabel: '나라마다 평균 동맹국 수 (무작위 동맹일 때)', marker: { x: sim.params.allies, label: '지금 설정' },
+      x0: 0, x1: 8, xTicks: [0, 1, 2, 3, 4, 5, 6, 7, 8], xFmt: (v) => v + '', xLabel: '평균 동맹국 수 (개, 무작위 동맹)', yLabel: '비율 (%)', legend: swl(), legendPos: 'br', marker: { x: sim.params.allies, label: '지금 설정' },
     });
   }
   function drawSweepC() {
     L.dots($('c-commit'), {
       data: swC.map((d) => ({ x: d.x, runs: d.size, mean: L.mean(d.size) })),
       series: [{ data: swC.map((d) => ({ x: d.x, runs: d.world, mean: L.mean(d.world) })), color: RED, dots: true }],
-      x0: 0.1, x1: 1, xTicks: [0.1, 0.2, 0.4, 0.6, 0.8, 1], xFmt: pct, xLabel: '조약을 지킬 확률', marker: { x: sim.params.commit, label: '지금 설정' },
+      x0: 0.1, x1: 1, xTicks: [0.1, 0.2, 0.4, 0.6, 0.8, 1], xFmt: pct, xLabel: '조약을 지킬 확률 (%)', yLabel: '비율 (%)', legend: swl(), legendPos: 'br', marker: { x: sim.params.commit, label: '지금 설정' },
     });
   }
   const sweeps = () => { drawHist(); drawSweepA(); drawSweepC(); };
@@ -126,8 +129,8 @@
     L.jobs(jobs, sweeps, () => {
       const w = hist.filter((s) => s >= sim.n / 2).length / hist.length, sm = hist.filter((s) => s <= 4).length / hist.length;
       $('note-hist').textContent = `같은 설정의 세계 300개에서 세계대전급(절반 이상)은 ${pct(w)}, 작게 끝난 것(4개국 이하)은 ${pct(sm)}`;
-      $('note-allies').textContent = '파랑: 전쟁에 들어간 나라의 평균 비율, 빨강: 세계대전급이 된 비율 (점은 6묶음의 결과)';
-      $('note-commit').textContent = '파랑: 전쟁에 들어간 나라의 평균 비율, 빨강: 세계대전급이 된 비율 (점은 6묶음의 결과)';
+      $('note-allies').textContent = '점은 6묶음의 결과';
+      $('note-commit').textContent = '점은 6묶음의 결과';
     });
   }
 

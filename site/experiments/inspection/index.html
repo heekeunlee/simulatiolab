@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-en="Why Does the Bus Always Make You Wait Longer? · Simulatio Lab">버스는 왜 늘 더 오래 기다릴까 · 시뮬라티오 랩</title>
-<meta name="description" content="평균 10분마다 온다는 버스를 기다리면 왜 평균 10분을 기다리게 될까요? 대기 시간의 역설(검사 역설)과, 내 반이 늘 평균보다 붐비는 이유를 직접 돌려보세요." data-en-content="If a bus comes every 10 minutes on average, why can you end up waiting 10 minutes on average? Run the waiting-time paradox (inspection paradox) and see why your class always feels more crowded than average.">
+<meta name="description" content="평균 10분마다 온다는 버스를 기다리면 왜 평균 10분을 기다리게 될까요? 버스 대기 시간의 역설과, 내 반이 늘 평균보다 붐비는 이유를 직접 돌려보세요." data-en-content="If a bus comes every 10 minutes on average, why can you end up waiting 10 minutes on average? Run the waiting-time paradox and see why your class always feels more crowded than average.">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="manifest" href="../../manifest.webmanifest">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -23,7 +23,7 @@
 
   <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
   <ul>
-    <li data-en="Buses come every &lt;b&gt;average gap&lt;/b&gt; minutes, but the real gaps vary according to a gamma distribution. An &lt;b&gt;irregularity&lt;/b&gt; (coefficient of variation = standard deviation of the gap ÷ mean) of 0 means a strict timetable, 1 means random arrivals, and larger values mean buses arrive in bunches.">버스는 <b>평균 간격</b>(분)마다 한 대꼴로 오지만, 실제 간격은 감마분포로 들쭉날쭉합니다. <b>불규칙한 정도</b>(변동계수 = 간격의 표준편차 ÷ 평균)가 0이면 시간표대로 정확히 오고, 1이면 무작위로 도착하고, 그보다 크면 버스가 몰려서 옵니다.</li>
+    <li data-en="Buses come every &lt;b&gt;average gap&lt;/b&gt; minutes, but the real gaps vary (a statistical shape called the gamma distribution is used). An &lt;b&gt;irregularity&lt;/b&gt; (coefficient of variation = standard deviation of the gap ÷ mean) of 0 means a strict timetable, 1 means random arrivals, and larger values mean buses arrive in bunches.">버스는 <b>평균 간격</b>(분)마다 한 대꼴로 오지만, 실제 간격은 들쭉날쭉합니다(통계의 감마분포를 씁니다). <b>불규칙한 정도</b>(변동계수 = 간격의 표준편차 ÷ 평균)가 0이면 시간표대로 정확히 오고, 1이면 무작위로 도착하고, 그보다 크면 버스가 몰려서 옵니다.</li>
     <li data-en="Passengers do not know the timetable and arrive at any moment. The time until the next bus is the &lt;b&gt;wait&lt;/b&gt;, and the bus gap they happened to land in is the &lt;b&gt;gap the passenger saw&lt;/b&gt;.">승객은 버스 시간표를 모르고 아무 때나 도착합니다. 도착한 순간부터 다음 버스까지가 <b>대기 시간</b>, 도착했을 때 걸쳐 있던 버스 간격이 <b>승객이 본 간격</b>입니다.</li>
     <li data-en="A long gap takes up more room on the time axis, so the chance of a passenger landing in it is proportional to its length. That makes the average gap passengers see larger than the average gap you get by counting buses. The theory: average wait = average gap ÷ 2 × (1 + CV²).">긴 간격은 시간축에서 자리를 더 많이 차지하므로 승객이 그 안에 떨어질 확률이 간격 길이에 비례합니다. 그래서 승객이 본 간격의 평균은 버스를 하나씩 센 평균보다 큽니다. 이론값은 평균 대기 = 평균 간격 ÷ 2 × (1 + 변동계수²)입니다.</li>
     <li data-en="The last panel applies the same calculation to class sizes. Counting classes one by one gives an average of 25, but if you ask students &quot;how many are in your class?&quot;, students from big classes answer more often, so the average grows.">아래쪽 패널은 같은 계산을 학급 인원에 적용합니다. 학급을 하나씩 세면 평균 25명이지만, 학생에게 "너희 반은 몇 명이야?"라고 물으면 큰 반의 학생이 더 많이 대답하므로 평균이 더 커집니다.</li>
@@ -70,20 +70,17 @@
       <h3 data-en="② Gaps Counted by Bus vs Gaps Seen by Passengers">② 버스를 센 간격과 승객이 본 간격</h3>
     <p data-en="The blue bars are the distribution of gaps when you count buses one by one, and the orange line is the distribution of the gaps passengers actually landed in. The orange one leans toward long gaps, which pushes its mean to the right.">파란 막대는 버스 간격을 하나씩 센 분포이고, 주황 선은 승객이 실제로 걸린 간격의 분포입니다. 주황은 긴 간격 쪽으로 쏠려 있어서 평균이 오른쪽으로 밀립니다.</p>
     <canvas id="c-hist" class="" data-thumb aria-label="② Gaps Counted by Bus vs Gaps Seen by Passengers"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Bus gaps (counted one by one)"><i style="background:var(--accent)"></i>버스 간격 (하나씩 센 값)</span><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;Gaps seen by passengers"><i style="background:#e0a100"></i>승객이 본 간격</span></div>
     </section>
     <section class="panel chart">
       <h3 data-en="③ The More Uneven, the Longer the Wait">③ 들쭉날쭉할수록 오래 기다린다</h3>
     <p data-en="The horizontal axis is how uneven the buses are and the vertical axis is the average wait. Blue is measured, the gold line is the theory (average gap ÷ 2 × (1 + CV²)), and the gray dashed line is the naive &quot;half the gap&quot; estimate. They match only at the far left, where buses run on a strict timetable.">가로는 버스가 얼마나 들쭉날쭉한지, 세로는 평균 대기 시간입니다. 파랑이 실측, 금색 선이 이론(평균 간격 ÷ 2 × (1 + 변동계수²)), 회색 점선이 "간격의 절반" 단순 계산입니다. 시간표대로 오는 왼쪽 끝에서만 단순 계산과 같습니다.</p>
     <canvas id="c-cv" class="" aria-label="③ The More Uneven, the Longer the Wait"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Measured"><i style="background:var(--accent)"></i>실측</span><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;Theory"><i style="background:#e0a100"></i>이론</span><span data-en="&lt;i style=&quot;background:#8a93a6&quot;&gt;&lt;/i&gt;Naive (half the gap)"><i style="background:#8a93a6"></i>단순 계산 (간격의 절반)</span></div>
       <div class="legend"><span id="note-cv" data-en="Calculating…">계산 중…</span></div>
     </section>
     <section class="panel chart">
       <h3 data-en="④ The Same Illusion: Why Is My Class Always Crowded?">④ 같은 착시: 내 반은 왜 늘 붐빌까</h3>
     <p data-en="We create 1,000 classes with an average of 25 students (the unevenness is set by the slider above) and compare the average counted class by class with the average you get by asking each student the size of their own class. Big classes hold more students, so &quot;big class&quot; answers pile up.">평균 25명인 학급 1,000개를 만들고(인원이 들쭉날쭉한 정도는 위의 슬라이더 값), 학급을 하나씩 센 평균과 학생 한 명 한 명에게 자기 반 인원을 물은 평균을 비교합니다. 큰 반에는 학생이 많아서 "큰 반 학생"의 대답이 더 많이 모입니다.</p>
     <canvas id="c-class" class="" aria-label="④ The Same Illusion: Why Is My Class Always Crowded?"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Class sizes (counted class by class)"><i style="background:var(--accent)"></i>학급 인원 (학급을 하나씩 센 값)</span><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;Own class size reported by students"><i style="background:#e0a100"></i>학생이 말한 자기 반 인원</span></div>
       <div class="legend"><span id="note-c" data-en="Calculating…">계산 중…</span></div>
     </section>
   </div>

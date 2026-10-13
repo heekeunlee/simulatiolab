@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title data-en="What If Korea&#x27;s Birth Rate Stays This Low Until 2070? · Simulatio Lab">저출산이 계속되면 2070년 인구 구조는? · 시뮬라티오 랩</title>
-<meta name="description" content="합계출산율, 이민, 기대수명을 바꿔 한국의 2070년 인구 피라미드를 직접 그려 보세요. 공식 추계가 아닌 단순 모델입니다." data-en-content="Change the fertility rate, migration and life expectancy and watch Korea&#x27;s population pyramid evolve to 2070. A simple model, not an official forecast.">
+<title data-en="If Korea&#x27;s Births Stay This Low, What Will 2070 Look Like? · Simulatio Lab">저출산이 계속되면 2070년 우리나라는? · 시뮬라티오 랩</title>
+<meta name="description" content="아이 낳는 수, 이민, 오래 사는 정도를 바꿔 2070년 한국의 나이별 인구를 직접 그려 보세요. 공식 전망이 아닌 단순한 모델입니다." data-en-content="Change births, migration and how long people live, and draw Korea&#x27;s population by age up to 2070. A simple model, not an official forecast.">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="manifest" href="../../manifest.webmanifest">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -18,8 +18,8 @@
 </div></nav>
 
 <main class="wrap">
-  <h1 data-en="What If Korea&#x27;s Birth Rate Stays This Low Until 2070?">저출산이 계속되면 2070년 인구 구조는?</h1>
-  <p class="lead" data-en="If the fertility rate stays around 0.7, what shape does Korea&#x27;s population pyramid take over time? Change fertility, migration and life expectancy and watch it year by year from 2024 to 2070.">합계출산율이 0.7 안팎에 머무는 채로 시간이 흐르면 한국의 인구 피라미드는 어떤 모양이 될까요? 출산율, 이민, 기대수명을 바꿔 가며 2024년부터 2070년까지 한 해씩 지켜봅니다.</p>
+  <h1 data-en="If Korea&#x27;s Births Stay This Low, What Will 2070 Look Like?">저출산이 계속되면 2070년 우리나라는?</h1>
+  <p class="lead" data-en="If the fertility rate stays around 0.7, what shape does Korea&#x27;s population pyramid (people stacked by age) take over time? Change fertility, migration and how long people live and watch it year by year from 2024 to 2070.">합계출산율이 0.7 안팎에 머무는 채로 시간이 흐르면 한국의 인구 피라미드(나이별 인구를 쌓은 그림)는 어떤 모양이 될까요? 출산율, 이민, 오래 사는 정도를 바꿔 가며 2024년부터 2070년까지 한 해씩 지켜봅니다.</p>
 
   <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
   <ul>
@@ -33,13 +33,13 @@
   <h2 data-en="Try it yourself">직접 돌려보기</h2>
   <div class="panel">
     <div class="controls">
-      <div class="ctl"><label for="tfr" data-en="Total fertility rate &lt;output id=&quot;o-tfr&quot;&gt;&lt;/output&gt;">합계출산율 <output id="o-tfr"></output></label>
+      <div class="ctl"><label for="tfr" data-en="Births per woman (total fertility rate) &lt;output id=&quot;o-tfr&quot;&gt;&lt;/output&gt;">합계출산율(여성 1명이 평생 낳는 아이 수) <output id="o-tfr"></output></label>
         <input type="range" id="tfr" min="0.5" max="2.1" step="0.02" value="0.72">
         <span class="hint" data-en="Korea was about 0.72 in 2023; the default holds that value constant (replacement level is about 2.1)">2023년 한국은 약 0.72였고, 이 값이 계속된다고 가정한 것이 기본값입니다 (인구 유지 수준은 약 2.1)</span></div>
-<div class="ctl"><label for="migration" data-en="Net migration &lt;output id=&quot;o-migration&quot;&gt;&lt;/output&gt;">순이민 <output id="o-migration"></output></label>
+<div class="ctl"><label for="migration" data-en="People moving in minus out (net migration) &lt;output id=&quot;o-migration&quot;&gt;&lt;/output&gt;">들어오는 사람 − 나가는 사람(순이민) <output id="o-migration"></output></label>
         <input type="range" id="migration" min="-50" max="300" step="25" value="0">
-        <span class="hint" data-en="People added or removed per year (thousands). 0 means no migration">해마다 늘거나 줄어드는 인원(천 명). 0은 이민이 없다는 가정</span></div>
-<div class="ctl"><label for="lifeGain" data-en="Life expectancy gain &lt;output id=&quot;o-lifeGain&quot;&gt;&lt;/output&gt;">기대수명 증가 <output id="o-lifeGain"></output></label>
+        <span class="hint" data-en="People added or removed per year (thousands). 0 means no migration">해마다 늘거나 줄어드는 인원(천 명). 0은 오가는 사람이 없다는 가정</span></div>
+<div class="ctl"><label for="lifeGain" data-en="Gain in how long people live &lt;output id=&quot;o-lifeGain&quot;&gt;&lt;/output&gt;">오래 사는 정도(기대수명) 증가 <output id="o-lifeGain"></output></label>
         <input type="range" id="lifeGain" min="0" max="4" step="0.5" value="1">
         <span class="hint" data-en="Years added to life expectancy per decade. It starts at 83.5 in 2024">10년마다 늘어나는 기대수명(년). 2024년 기대수명은 83.5세로 시작</span></div>
     </div>
@@ -64,7 +64,6 @@
       <select id="speed" aria-label="speed"><option value="3" data-en="Slow">느리게</option><option value="6" selected data-en="Normal">보통</option><option value="15" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Ages 0–14"><i style="background:#1fa463"></i>0~14세</span><span data-en="&lt;i style=&quot;background:#2f6fed&quot;&gt;&lt;/i&gt;Ages 15–64"><i style="background:#2f6fed"></i>15~64세</span><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;Ages 65+"><i style="background:#e0a100"></i>65세 이상</span></div>
   </section>
 
   <div class="charts">
@@ -72,19 +71,16 @@
       <h3 data-en="② Total Population Over Time">② 총인구의 변화</h3>
     <p data-en="The blue line is your current setting; dashed lines show the same migration and life expectancy with a fertility rate of 0.7 (gray) and 1.5 (green).">파란 선이 지금 설정, 점선은 같은 이민·기대수명에서 합계출산율이 0.7일 때(회색)와 1.5일 때(초록)입니다.</p>
     <canvas id="c-total" class="" aria-label="② Total Population Over Time"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#2f6fed&quot;&gt;&lt;/i&gt;Your setting"><i style="background:#2f6fed"></i>지금 설정</span><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Fertility rate 1.5"><i style="background:#1fa463"></i>합계출산율 1.5</span><span data-en="&lt;i style=&quot;background:#8a93a6&quot;&gt;&lt;/i&gt;Fertility rate 0.7"><i style="background:#8a93a6"></i>합계출산율 0.7</span></div>
     </section>
     <section class="panel chart">
-      <h3 data-en="③ How Aging Progresses">③ 고령화의 진행</h3>
-    <p data-en="The old-age dependency ratio is the 65+ population divided by the 15–64 population. At 100%, each working-age person &quot;supports&quot; one older person.">노년부양비는 65세 이상 인구를 15~64세 인구로 나눈 값입니다. 100%면 일하는 나이 한 명이 노인 한 명을 "떠받치는" 셈이에요.</p>
-    <canvas id="c-aging" class="" aria-label="③ How Aging Progresses"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Old-age dependency ratio"><i style="background:#e5484d"></i>노년부양비</span><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;Share aged 65+"><i style="background:#e0a100"></i>65세 이상 비중</span><span data-en="&lt;i style=&quot;background:#2f6fed&quot;&gt;&lt;/i&gt;Share aged 15–64"><i style="background:#2f6fed"></i>15~64세 비중</span></div>
+      <h3 data-en="③ How Fast Society Gets Older">③ 나이 든 사람이 얼마나 늘까</h3>
+    <p data-en="The old-age dependency ratio is the 65+ population divided by the 15–64 population. At 100%, each working-age person &quot;supports&quot; one older person.">노년부양비는 65세 이상 인구를 15~64세 인구로 나눈 값이에요. 100%면 일할 나이 한 명이 노인 한 명을 "떠받치는" 셈입니다.</p>
+    <canvas id="c-aging" class="" aria-label="③ How Fast Society Gets Older"></canvas>
     </section>
     <section class="panel chart">
-      <h3 data-en="④ How 2070 Changes With Fertility">④ 출산율이 달라지면 2070년은</h3>
+      <h3 data-en="④ How 2070 Changes With Births">④ 출산율이 달라지면 2070년은 어떻게 될까</h3>
     <p data-en="The horizontal axis is the fertility rate; the vertical axis shows 2070 values. The blue line is the 2070 population relative to 2024, and the gold line is the 2070 share aged 65+.">가로는 합계출산율, 세로는 2070년의 값입니다. 파란 선은 2024년 인구 대비 2070년 인구, 금색 선은 2070년 65세 이상 비중이에요.</p>
-    <canvas id="c-sweep" class="" aria-label="④ How 2070 Changes With Fertility"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#2f6fed&quot;&gt;&lt;/i&gt;2070 population (2024 = 100%)"><i style="background:#2f6fed"></i>2070년 인구 (2024년=100%)</span><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;2070 share aged 65+"><i style="background:#e0a100"></i>2070년 65세 이상 비중</span></div>
+    <canvas id="c-sweep" class="" aria-label="④ How 2070 Changes With Births"></canvas>
       <div class="legend"><span id="note-sweep" data-en="Calculating…">계산 중…</span></div>
     </section>
   </div>

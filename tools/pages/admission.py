@@ -3,18 +3,15 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from mk2 import *
 
 FOCUS = '\n    <div id="focus" class="small" style="margin-top:8px"></div>'
-BUCKETS = [leg('background:#1fa463', '1지망', '1st choice'), leg('background:#a3c93a', '2~3지망', '2nd-3rd choice'), leg('background:#e0a100', '4~5지망', '4th-5th choice'),
-           leg('background:#e5484d', '6지망 이하', '6th choice or lower'), leg('background:#8a93a6', '배정 못 받음', 'Not assigned')]
-
 page(dict(
  slug='admission',
- title=T('솔직하게 적으면 손해일까: 입소 배정 방식 네 가지', 'Does Honesty Pay? Four Ways to Assign Children to Daycares'),
- title_tag=T('입소 배정 방식 비교 · 시뮬라티오 랩', 'Four Ways to Assign Seats · Simulatio Lab'),
- desc=T('어린이집 같은 기관에 아이를 나누는 선착순, 추첨 순번, 보스턴, 지연 수락 방식을 비교하고, 지망 순위를 바꿔 적으면 이득을 보는지 직접 돌려보세요.',
-        'Compare first-come-first-served, lottery order, the Boston mechanism and deferred acceptance for assigning children to places, and see who gains by changing the ranking they submit.'),
+ title=T('솔직하게 적으면 손해일까: 어린이집 배정 방식 네 가지', 'Does Honesty Pay? Four Ways to Assign Children to Daycares'),
+ title_tag=T('어린이집 배정 방식 비교 · 시뮬라티오 랩', 'Four Ways to Assign Seats · Simulatio Lab'),
+ desc=T('아이들을 어린이집에 나누는 네 가지 방법을 비교해요. 원하는 순서를 일부러 바꿔 적으면 정말 이득일까요? 직접 돌려보세요.',
+        'Compare four ways to place children in daycares. Does it pay to write your wishes in a different order than you really want? Run it and see.'),
  lead=T('아이를 기관에 나누는 일이라면, 원하는 순서를 있는 그대로 적어 내는 것이 가장 좋을 것 같습니다. 그런데 어떤 방식에서는 "될 만한 곳"을 앞에 적는 쪽이 이득이어서, 목록이 마음의 순서가 아니라 눈치 싸움이 됩니다. 같은 아이 200명을 네 가지 방식으로 나눠 보면, 보스턴 방식에서는 순위를 바꿔 적어 더 나은 곳에 가는 아이가 43%였고 지연 수락 방식에서는 0%였습니다. 누가 나쁜 것이 아니라 방식의 구조가 만드는 차이입니다.',
         'When children are assigned to places, writing down your true order of preference seems like the best thing to do. In some systems, though, putting a "realistic" place first pays off, and the list becomes a guessing game rather than a statement of what you want. Assigning the same 200 children four different ways, 43% could do better by changing their ranking under the Boston method and 0% under deferred acceptance. Nobody is to blame: it is the structure of the method that makes the difference.'),
- model=[T('아이 200명과 기관 8곳(A~H)이 있고, 기관마다 정원이 있습니다. 모든 아이는 8곳 모두에 지망 순위를 매깁니다. 기관에는 모두가 느끼는 "인기"가 있고 아이마다 취향도 다릅니다. <b>취향이 비슷한 정도</b>가 이 둘의 비중입니다. 높을수록 모두가 같은 곳을 원해 경쟁이 몰립니다.',
+ model=[T('아이 200명과 기관 8곳(A~H)이 있고, 기관마다 정원이 있습니다. 모든 아이는 8곳 모두에 지망 순위를 매깁니다. 기관에는 모두가 느끼는 "인기"가 있고 아이마다 취향도 다릅니다. <b>취향이 비슷한 정도</b>는 이 둘의 비중입니다. 높을수록 모두가 같은 곳을 원해 경쟁이 몰립니다.',
           'There are 200 children and 8 places (labeled A to H), each with a limited capacity. Every child ranks all 8 places. Places have a "popularity" everyone feels, and children also have their own tastes. <b>How similar tastes are</b> sets the balance: the higher it is, the more everyone wants the same places and the more competition piles up.'),
         T('기관은 아이들에게 우선순위를 매깁니다. 추첨 번호는 모든 기관이 같이 쓰고, 기관마다 따로 정한 순번을 얼마나 섞느냐가 <b>기관마다 순번이 다른 정도</b>입니다. 0%이면 모든 기관이 같은 추첨 번호로 줄을 세웁니다.',
           'Each place ranks the children by priority. A lottery number is shared by all places, and <b>how much places differ in their own order</b> sets how much a place-specific random order is mixed in. At 0% every place lines children up by the same lottery number.'),
@@ -34,12 +31,11 @@ page(dict(
        p=T('왼쪽은 아직 자리를 못 받은 아이들입니다(파란 점은 일찍 접수할 수 있는 집). 오른쪽은 인기 순서대로 A~H 기관의 자리이고, 색은 아이가 받은 지망입니다. 검은 동그라미는 아래에서 시험해 보는 아이입니다. 위에서 배정 방식을 바꿔 같은 아이들을 다른 방식으로 나눠 보세요.',
            'On the left are children who have no place yet (blue dots are families who can apply early). On the right are the places A to H in order of popularity, and each color shows the choice number the child received. The black circle marks the child tested below. Change the method above to assign the same children another way.'),
        id='c-anim', rounded=True, anim=True, extra=FOCUS, thumb=True, step=False,
-       speeds=[('4', T('느리게', 'Slow')), ('8', T('보통', 'Normal')), ('20', T('빠르게', 'Fast'))], speed_default='8',
-       legend=BUCKETS + [leg('background:#3b6fd8', '일찍 접수할 수 있는 집(대기 중)', 'Can apply early (waiting)'), leg('background:transparent;border:2px solid #111;box-sizing:border-box', '시험해 보는 아이', 'Child being tested')]),
+       speeds=[('4', T('느리게', 'Slow')), ('8', T('보통', 'Normal')), ('20', T('빠르게', 'Fast'))], speed_default='8'),
   dict(title=T('② 네 방식, 아이들은 어디로 갔나', '② Four Methods: Where Did the Children Go?'),
        p=T('같은 아이들, 같은 솔직한 목록으로 네 방식을 돌린 결과를 받은 지망별로 쌓았습니다. 굵은 이름은 지금 고른 방식입니다. 이 수치는 모두가 솔직하게 적었을 때의 것입니다.',
            'The same children with the same honest lists, run through all four methods, stacked by the choice number received. The bold name is the method selected now. These figures assume everybody wrote honestly.'),
-       id='c-dist', legend=BUCKETS),
+       id='c-dist'),
   dict(title=T('③ 순위를 바꿔 적으면 이득을 볼까', '③ Does Changing Your Ranking Pay?'),
        p=T('아이 60명을 한 명씩 골라, 그 아이만 지망 순서를 바꿔 쓰는 56가지를 모두 시험했습니다. 막대는 그중 솔직할 때보다 더 원하는 곳에 가는 방법이 하나라도 있었던 아이의 비율입니다.',
            'For each of 60 children, only that child changed their order, in all 56 ways. The bar is the share of children for whom some change landed them in a place they prefer to the one they get by writing honestly.'),

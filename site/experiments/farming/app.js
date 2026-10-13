@@ -109,9 +109,9 @@
   // ---------- ② 전선의 위치 ----------
   function drawFront() {
     const P = sim.params, X1 = xmaxYears(), hs = sim.hist, YM = 1000;
-    const c = L.chart($('c-front'), 0.62, { l: 52, b: 40, r: 16 }), { ctx, m, pw, ph } = c;
+    const c = L.chart($('c-front'), 0.62, { l: 52, b: 40, r: 16, t: 24 }), { ctx, m, pw, ph } = c;
     const X = (v) => m.l + (v / X1) * pw, Y = (v) => m.t + ph - (v / YM) * ph, xt = []; for (let v = 0; v <= X1; v += X1 > 1400 ? 500 : 200) xt.push(v);
-    L.axes(c, { X, Y, yTicks: [0, 250, 500, 750, 1000], yFmt: (v) => v + ' km', xTicks: xt, xFmt: (v) => String(v), xLabel: '기원지를 떠난 뒤 지난 햇수 (년)' });
+    L.axes(c, { X, Y, yTicks: [0, 250, 500, 750, 1000], yFmt: (v) => String(v), xTicks: xt, xFmt: (v) => String(v), xLabel: '지난 햇수 (년)', yLabel: '기원지에서 전선까지 거리 (km)' });
     if (P.barrier !== 'none') { // 장벽이 놓인 거리
       const d0 = (P.barrier === 'sea' ? W.BAR.x0 : W.BAR.mx0) * sim.dx - sim.ox, d1 = (P.barrier === 'sea' ? W.BAR.x1 : W.BAR.mx1) * sim.dx - sim.ox;
       ctx.fillStyle = P.barrier === 'sea' ? 'rgba(120,170,220,0.28)' : 'rgba(130,110,95,0.25)'; ctx.fillRect(m.l, Y(d1), pw, Y(d0) - Y(d1));
@@ -120,21 +120,20 @@
     ctx.font = '12px ' + FONT;
     const cB = W.speedBase(P), cE = W.speedEff(P), oR = P.originR;
     const th = (cc, col) => { ctx.setLineDash([6, 4]); L.line(ctx, [[X(0), Y(oR)], [X(Math.min(X1, (YM - oR) / cc)), Y(Math.min(YM, oR + cc * X1))]], col, 2); ctx.setLineDash([]); };
-    let ly = m.t + 14; ctx.textAlign = 'left';
-    const key = (col, lab) => { ctx.fillStyle = col; L.label(ctx, lab, m.l + 8, ly, 'left'); ly += 18; };
-    if (P.mix > 0.04) { th(cE, RED); key(RED, `이론, 토착민 흡수 반영 ${f2(cE)} km/년`); }
-    th(cB, GREEN); key(GREEN, `이론 2√(rD) = ${f2(cB)} km/년`);
+    const lg = [{ kind: 'line', color: css('--accent'), label: '시뮬레이션에서 잰 전선' }];
+    if (P.mix > 0.04) { th(cE, RED); lg.push({ kind: 'dash', color: RED, label: `이론, 토착민 흡수 반영 ${f2(cE)} km/년` }); }
+    th(cB, GREEN); lg.push({ kind: 'dash', color: GREEN, label: `이론 2√(rD) = ${f2(cB)} km/년` });
     L.line(ctx, hs.t.map((t, i) => [X(t), Y(hs.R[i])]), css('--accent'), 3);
     if (hs.t.length) { ctx.fillStyle = css('--accent'); ctx.beginPath(); ctx.arc(X(sim.t), Y(sim.Rmax), 4, 0, 7); ctx.fill(); }
+    L.legend(c, lg, 'tl');
   }
 
   // ---------- ③ 칸마다 도착 시각 ----------
   function drawArrive() {
     const P = sim.params, X1 = xmaxYears(), YM = 1000;
-    const c = L.chart($('c-arrive'), 0.62, { l: 52, b: 40, r: 16 }), { ctx, m, pw, ph } = c;
+    const c = L.chart($('c-arrive'), 0.62, { l: 52, b: 40, r: 16, t: 24 }), { ctx, m, pw, ph } = c;
     const Xd = (v) => m.l + (v / YM) * pw, Yt = (v) => m.t + ph - (v / X1) * ph, yt = []; for (let v = 0; v <= X1; v += X1 > 1400 ? 500 : 200) yt.push(v);
-    L.axes(c, { X: Xd, Y: Yt, yTicks: yt, yFmt: (v) => String(v), xTicks: [0, 250, 500, 750, 1000], xFmt: (v) => v + ' km', xLabel: '기원지에서의 거리' });
-    ctx.fillStyle = css('--muted'); ctx.textAlign = 'left'; ctx.font = '12px ' + FONT; ctx.fillText('도착 시각 (년)', m.l + 4, m.t + 12);
+    L.axes(c, { X: Xd, Y: Yt, yTicks: yt, yFmt: (v) => String(v), xTicks: [0, 250, 500, 750, 1000], xFmt: (v) => String(v), xLabel: '기원지에서의 거리 (km)', yLabel: '도착 시각 (년)' });
     ctx.fillStyle = mix(css('--accent'), 0.45);
     for (let j = 0; j < sim.ny; j += 1) for (let i = 0; i < sim.nx; i += 1) {
       const k = j * sim.nx + i, t = sim.T[k]; if (!(t < Infinity) || ((i + j * 3) % 2)) continue;
@@ -142,26 +141,25 @@
     }
     const cB = W.speedBase(P), oR = P.originR;
     ctx.setLineDash([6, 4]); L.line(ctx, [[Xd(oR), Yt(0)], [Xd(Math.min(YM, oR + cB * X1)), Yt(Math.min(X1, (YM - oR) / cB))]], GREEN, 2); ctx.setLineDash([]);
-    ctx.fillStyle = GREEN; ctx.textAlign = 'right'; L.label(ctx, '이론의 직선 (기울기 = 1 ÷ 2√(rD))', m.l + pw - 6, m.t + ph - 8, 'right');
+    L.legend(c, [{ kind: 'dot', color: mix(css('--accent'), 0.45), label: '지도의 칸 하나' }, { kind: 'dash', color: GREEN, label: '이론의 직선 (기울기 = 1 ÷ 2√(rD))' }], 'tl');
   }
 
   // ---------- ④ 성장률을 바꾸면 ----------
   function drawSweep() {
-    const P = sim.params, R0 = 10, R1 = 40, c = L.chart($('c-sweep'), 0.62, { l: 52, b: 40, r: 16 }), { ctx, m, pw, ph } = c;
-    const mxv = Math.max(2.6, ...sweep.map((d) => d.v || 0)), YM = Math.ceil(mxv * 2) / 2;
+    const P = sim.params, R0 = 10, R1 = 40, c = L.chart($('c-sweep'), 0.62, { l: 52, b: 40, r: 16, t: 24 }), { ctx, m, pw, ph } = c;
+    const mxv = Math.max(4.0, ...sweep.map((d) => d.v || 0)), YM = Math.ceil(mxv * 2) / 2;
     const X = (v) => m.l + ((v - R0) / (R1 - R0)) * pw, Y = (v) => m.t + ph - (v / YM) * ph, yt = []; for (let v = 0; v <= YM + 1e-9; v += 0.5) yt.push(v);
-    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => v.toFixed(1), xTicks: [10, 15, 20, 25, 30, 35, 40], xFmt: (v) => (v / 10).toFixed(1) + '%', xLabel: '인구 증가율 r (연)' });
-    ctx.fillStyle = css('--muted'); ctx.textAlign = 'left'; ctx.font = '12px ' + FONT; ctx.fillText('전선 속도 (km/년)', m.l + 4, m.t + 12);
+    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => v.toFixed(1), xTicks: [10, 15, 20, 25, 30, 35, 40], xFmt: (v) => (v / 10).toFixed(1), xLabel: '인구 증가율 r (% / 년)', yLabel: '전선 속도 (km/년)' });
     const curve = (fn, col, dash) => { const pts = []; for (let v = R0; v <= R1; v += 1) pts.push([X(v), Y(fn(v / 1000))]); ctx.setLineDash(dash ? [6, 4] : []); L.line(ctx, pts, col, 2); ctx.setLineDash([]); };
     if (P.mix > 0.04) curve((r) => W.speedEff({ r, D: P.D, mix: P.mix, kappa: P.kappa, h0: P.h0 }), RED, false);
     curve((r) => 2 * Math.sqrt(r * P.D), GREEN, P.mix > 0.04);
     ctx.fillStyle = css('--accent');
     sweep.forEach((d) => { if (d.v == null) return; ctx.beginPath(); ctx.arc(X(d.r * 1000), Y(d.v), 4.5, 0, 7); ctx.fill(); });
-    L.vline(c, X(P.r * 1000), css('--rich'), '지금 설정', P.r * 1000 > 25 ? 'right' : 'left');
-    ctx.textAlign = 'left'; ctx.font = '12px ' + FONT; let ly = m.t + 30;
-    const key = (col, txt) => { ctx.fillStyle = col; ctx.beginPath(); ctx.arc(m.l + 10, ly - 4, 4, 0, 7); ctx.fill(); ctx.fillStyle = css('--text'); ctx.fillText(txt, m.l + 20, ly); ly += 16; };
-    key(css('--accent'), '시뮬레이션에서 잰 값 (한 줄로 펼친 평면 파동)');
-    key(GREEN, '이론 2√(rD)'); if (P.mix > 0.04) key(RED, '토착민 흡수를 반영한 이론');
+    L.vline(c, X(P.r * 1000), css('--rich'), '', 'left');
+    const lg = [{ kind: 'dot', color: css('--accent'), label: '시뮬레이션에서 잰 값' }, { kind: P.mix > 0.04 ? 'dash' : 'line', color: GREEN, label: '이론 2√(rD)' }];
+    if (P.mix > 0.04) lg.push({ kind: 'line', color: RED, label: '토착민 흡수를 반영한 이론' });
+    lg.push({ kind: 'dash', color: css('--rich'), label: '지금 설정' });
+    L.legend(c, lg, 'tr');
   }
 
   function renderStats() {

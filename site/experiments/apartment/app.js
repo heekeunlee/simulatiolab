@@ -50,28 +50,31 @@
     const c = L.chart($('c-price'), 0.7), { ctx, m, pw, ph } = c, T = sim.params.steps, H = sim.history;
     const hi = Math.max(250, ...H.map((d) => Math.max(d.mean, d.ceil))) * 1.05, X = (t) => m.l + (t / T) * pw, Y = (v) => m.t + ph - (v / hi) * ph;
     const xt = []; for (let t = 0; t <= T; t += T / 4) xt.push(t);
-    L.axes(c, { X, Y, yTicks: [0, 100, 200, 300, 400].filter((v) => v <= hi), yFmt: (v) => String(v), xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '분기' });
+    L.axes(c, { X, Y, yTicks: [0, 100, 200, 300, 400].filter((v) => v <= hi), yFmt: (v) => String(v), xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '시간 (분기)', yLabel: '가격지수' });
     ctx.setLineDash([5, 3]); L.line(ctx, H.map((d, t) => [X(t), Y(d.income)]), '#8a93a6', 2);
     L.line(ctx, H.map((d, t) => [X(t), Y(d.ceil)]), css('--rich'), 2); ctx.setLineDash([]);
     L.line(ctx, H.map((d, t) => [X(t), Y(d.mean)]), css('--accent'), 3);
     const last = H.length - 1; ctx.fillStyle = css('--accent'); ctx.beginPath(); ctx.arc(X(last), Y(H[last].mean), 4.5, 0, 7); ctx.fill();
     if (sim.params.rateStep > 0) L.vline(c, X(sim.params.rateStep), css('--unlucky'), '금리 충격', sim.params.rateStep > T * 0.6 ? 'right' : 'left');
+    L.legend(c, [{ kind: 'line', color: css('--accent'), label: '평균 가격지수' }, { kind: 'dash', color: '#8a93a6', label: '소득 기준선' }, { kind: 'dash', color: css('--rich'), label: '감당 상한' }], 'tl');
   }
 
   function drawHot() {
     const c = L.chart($('c-hot'), 0.7), { ctx, m, pw, ph } = c, T = sim.params.steps, H = sim.history;
     const X = (t) => m.l + (t / T) * pw, Y = (v) => m.t + ph - v * ph, xt = []; for (let t = 0; t <= T; t += T / 4) xt.push(t);
-    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: pct, xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '분기' });
+    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: pct, xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '시간 (분기)', yLabel: '비율 (%)' });
     L.line(ctx, H.map((d, t) => [X(t), Y(d.cv)]), '#8a93a6', 2.5);
     L.line(ctx, H.map((d, t) => [X(t), Y(d.hot)]), css('--unlucky'), 2.5);
     if (sim.params.rateStep > 0) L.vline(c, X(sim.params.rateStep), css('--unlucky'), '금리 충격', sim.params.rateStep > T * 0.6 ? 'right' : 'left');
+    L.legend(c, [{ kind: 'line', color: css('--unlucky'), label: '고평가 동네 비율' }, { kind: 'line', color: '#8a93a6', label: '동네 간 가격 격차' }], 'tl');
   }
 
   function drawSweep() {
     L.dots($('c-sweep'), {
       data: sweepRows.map((d) => ({ x: d.x, runs: d.cur, mean: L.mean(d.cur) })),
       series: [{ data: sweepRows.map((d) => ({ x: d.x, runs: d.strict, mean: L.mean(d.strict) })), color: css('--lucky'), dots: true }],
-      x0: 0, x1: 1, xTicks: [0, 0.2, 0.4, 0.6, 0.8, 1], xFmt: (v) => v.toFixed(1), xLabel: '가격 전염의 세기', marker: { x: sim.params.contagion },
+      x0: 0, x1: 1, xTicks: [0, 0.2, 0.4, 0.6, 0.8, 1], xFmt: (v) => v.toFixed(1), xLabel: '가격 전염의 세기', yLabel: '최대 고평가 비율 (%)', marker: { x: sim.params.contagion },
+      legend: [{ kind: 'dot', color: css('--accent'), label: '지금 설정의 대출 한도' }, { kind: 'dot', color: css('--lucky'), label: '대출 한도 40%' }], legendPos: 'tl',
     });
   }
 
@@ -97,7 +100,7 @@
       const cur = AP.summarize(base, 5).map((r) => r.peakHot), strict = AP.summarize(Object.assign({}, base, { ltv: 0.4 }), 5).map((r) => r.peakHot);
       sweepRows.push({ x: c / 10, cur, strict });
     });
-    L.jobs(jobs, drawSweep, () => { $('note-sweep').textContent = '금리 충격 없이 계산한 결과입니다. 초록: 대출 한도 40%, 파랑: 지금 설정의 대출 한도'; });
+    L.jobs(jobs, drawSweep, () => { $('note-sweep').textContent = '금리 충격 없이 계산한 결과입니다.'; });
   }
 
   const h = L.harness({

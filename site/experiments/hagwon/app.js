@@ -21,13 +21,12 @@
   // ---------- ① 학원 경쟁 ----------
   function drawRace() {
     const P = sim.params, cw = $('c-race').clientWidth || 600, asp = THUMB ? 1 : cw < 560 ? 0.95 : 0.62;
-    const c = L.chart($('c-race'), asp, { l: 46, r: 14, t: THUMB ? 12 : cw < 560 ? 46 : 30, b: THUMB ? 14 : 44 }), { ctx, w, h, m, pw, ph } = c;
+    const c = L.chart($('c-race'), asp, { l: 46, r: 14, t: THUMB ? 12 : cw < 560 ? 60 : 40, b: THUMB ? 14 : 44 }), { ctx, w, h, m, pw, ph } = c;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
     const x0 = -3.6, x1 = 3.6, y0 = -3.6, y1 = 3.6 + P.beta * K;
     const X = (v) => m.l + ((v - x0) / (x1 - x0)) * pw, Y = (v) => m.t + ph - ((v - y0) / (y1 - y0)) * ph;
     if (!THUMB) {
-      L.axes(c, { X, Y, yTicks: [-2, 0, 2, 4].filter((v) => v < y1), yFmt: (v) => String(v), xTicks: [-3, -2, -1, 0, 1, 2, 3], xFmt: (v) => String(v), xLabel: cw < 560 ? '학원 없이 얻을 점수' : '학원 없이 얻을 점수 (실력과 운이 좋을수록 오른쪽)' });
-      ctx.save(); ctx.translate(12, m.t + ph / 2); ctx.rotate(-Math.PI / 2); ctx.textAlign = 'center'; ctx.fillStyle = css('--muted'); ctx.fillText('지금 점수', 0, 0); ctx.restore();
+      L.axes(c, { X, Y, yTicks: [-2, 0, 2, 4].filter((v) => v < y1), yFmt: (v) => String(v), xTicks: [-3, -2, -1, 0, 1, 2, 3], xFmt: (v) => String(v), xLabel: '학원 없이 얻을 점수 (점)', yLabel: '지금 점수 (점)' });
     }
     // 학원이 없을 때의 점수(대각선)
     ctx.setLineDash([4, 4]); ctx.strokeStyle = GRAY; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(X(x0), Y(x0)); ctx.lineTo(X(x1), Y(x1)); ctx.stroke(); ctx.setLineDash([]);
@@ -43,9 +42,7 @@
       ctx.beginPath(); ctx.arc(X(bx), Y(sy), r, 0, 7); ctx.fill(); ctx.stroke();
     }
     if (THUMB) return;
-    ctx.font = '12px ' + FONT; ctx.textAlign = 'right'; ctx.fillStyle = rel ? RED : GREEN;
-    L.label(ctx, rel ? `위쪽 절반 선 (점수 ${ln.toFixed(1)})` : `합격선 (고정) ${ln.toFixed(1)}`, m.l + pw - 4, Y(ln) - 6, 'right');
-    ctx.textAlign = 'left'; ctx.fillStyle = css('--muted'); L.label(ctx, '학원 없을 때', X(1.7) - 20, Y(1.7) + 28, 'left');
+    L.legend(c, [{ kind: 'dash', color: GRAY, label: '학원 없을 때' }, { kind: 'line', color: rel ? RED : GREEN, label: rel ? `위쪽 절반 선 (점수 ${ln.toFixed(1)})` : `합격선 (고정) ${ln.toFixed(1)}` }], 'br');
     ctx.font = '600 13px ' + FONT; ctx.fillStyle = css('--text'); ctx.textAlign = 'left';
     ctx.fillText(`${sim.round}라운드 · 평균 학원 ${f1(mean(sim.e))}개`, m.l, 18);
     // 색 설명
@@ -58,18 +55,19 @@
   function mean(a) { let s = 0; for (let i = 0; i < a.length; i++) s += a[i]; return s / a.length; }
 
   // ---------- 공통: 라운드 축 ----------
-  function roundChart(id, y0, y1, yTicks, yFmt) {
-    const c = L.chart($(id), 0.58, { l: 46, b: 40, r: 14 }), { m, pw, ph } = c, R = sim.params.rounds;
+  function roundChart(id, y0, y1, yTicks, yFmt, yLabel) {
+    const c = L.chart($(id), $(id).clientWidth < 560 ? 0.85 : 0.58, { l: 46, b: 40, r: 14 }), { m, pw, ph } = c, R = sim.params.rounds;
     const X = (r) => m.l + (r / R) * pw, Y = (v) => m.t + ph - ((v - y0) / (y1 - y0)) * ph;
     const xt = []; for (let r = 0; r <= R; r += 20) xt.push(r);
-    L.axes(c, { X, Y, yTicks, yFmt, xTicks: xt, xFmt: (v) => String(v), xLabel: $(id).clientWidth < 560 ? '라운드' : '라운드 (가구들이 학원 수를 다시 정하는 차례)' });
+    L.axes(c, { X, Y, yTicks, yFmt, xTicks: xt, xFmt: (v) => String(v), xLabel: '라운드 (학원 수를 정하는 차례)', yLabel });
     return { c, X, Y };
   }
 
   // ---------- ② 시간에 따른 결과와 학원비 ----------
+  const rel0 = () => sim.params.mode === 'rel';
   function drawTime() {
     const P = sim.params, c0 = P.cost;
-    const { c, X, Y } = roundChart('c-time', 0, 1, [0, 0.25, 0.5, 0.75, 1], (v) => Math.round(v * 100) + '%');
+    const { c, X, Y } = roundChart('c-time', 0, 1, [0, 0.25, 0.5, 0.75, 1], (v) => Math.round(v * 100) + '%', rel0() ? '순위·이득 (%)' : '합격 가능성·이득 (%)');
     const { ctx, m, pw } = c, O = sim.outcome, N = sim.net, C = sim.meanE.map((v) => v * c0);
     const rel = P.mode === 'rel', last = O.length - 1;
     L.line(ctx, O.map((v, i) => [X(i), Y(v)]), GRAY, 2.4);
@@ -77,16 +75,12 @@
     L.line(ctx, N.map((v, i) => [X(i), Y(v)]), css('--accent'), 3);
     const dot = (v, col) => { ctx.fillStyle = col; ctx.beginPath(); ctx.arc(X(last), Y(v), 4, 0, 7); ctx.fill(); };
     dot(O[last], GRAY); dot(C[last], RED); dot(N[last], css('--accent'));
-    ctx.font = '12px ' + FONT; ctx.textAlign = 'right';
-    const xr = m.l + pw - 4;
-    ctx.fillStyle = '#6b7488'; L.label(ctx, rel ? `평균 순위 ${pc(O[last])}%` : `평균 합격 가능성 ${pc(O[last])}%`, xr, Y(O[last]) - 9, 'right');
-    ctx.fillStyle = RED; L.label(ctx, `학원비 ${pc(C[last])}%`, xr, Y(C[last]) + 18, 'right');
-    ctx.fillStyle = css('--accent'); L.label(ctx, `순이득 ${pc(N[last])}%`, xr, Y(N[last]) - 9, 'right');
+    L.legend(c, [{ kind: 'line', color: GRAY, label: rel ? `평균 순위 ${pc(O[last])}%` : `평균 합격 가능성 ${pc(O[last])}%` }, { kind: 'line', color: RED, label: `학원비 ${pc(C[last])}%` }, { kind: 'line', color: css('--accent'), label: `순이득 ${pc(N[last])}%` }], 'tl');
   }
 
   // ---------- ③ 학원 수별 가구 비율 ----------
   function drawShares() {
-    const { c, X, Y } = roundChart('c-shares', 0, 1, [0, 0.25, 0.5, 0.75, 1], (v) => Math.round(v * 100) + '%');
+    const { c, X, Y } = roundChart('c-shares', 0, 1, [0, 0.25, 0.5, 0.75, 1], (v) => Math.round(v * 100) + '%', '가구 비율 (%)');
     const { ctx } = c, sh = sim.shares;
     for (let k = K; k >= 0; k--) {
       ctx.fillStyle = LVLS[k]; ctx.beginPath();
@@ -95,19 +89,21 @@
       for (let i = sh.length - 1; i >= 0; i--) ctx.lineTo(X(i), Y(0));
       ctx.closePath(); ctx.fill();
     }
+    L.legend(c, LVLS.map((col, k) => ({ kind: 'box', color: col, label: `학원 ${k}개` })), 'tl');
   }
 
   // ---------- ④, ⑤ 모두가 같은 수준을 쓸 때 (이론값) ----------
   const grid = []; for (let e = 0; e <= K + 1e-9; e += 0.1) grid.push(+e.toFixed(1));
-  function sweepChart(id, y1, yTicks, yFmt, series, fills, extra) {
-    const c = L.chart($(id), 0.62, { l: 46, b: 40, r: 18 }), { ctx, m, pw, ph } = c;
+  function sweepChart(id, y1, yTicks, yFmt, series, fills, extra, yLabel, legendItems, legendPos) {
+    const c = L.chart($(id), $(id).clientWidth < 560 ? 0.85 : 0.62, { l: 46, b: 40, r: 18 }), { ctx, m, pw, ph } = c;
     const X = (v) => m.l + (v / K) * pw, Y = (v) => m.t + ph - (v / y1) * ph;
-    L.axes(c, { X, Y, yTicks, yFmt, xTicks: [0, 1, 2, 3, 4, 5], xFmt: (v) => v + '개', xLabel: '모든 집이 보내는 학원 수 (개)' });
+    L.axes(c, { X, Y, yTicks, yFmt, xTicks: [0, 1, 2, 3, 4, 5], xFmt: (v) => v + '개', xLabel: '모든 집이 보내는 학원 수 (개)', yLabel });
     if (fills) fills(ctx, X, Y);
     series.forEach(([pts, col, wd, dash]) => { ctx.setLineDash(dash || []); L.line(ctx, pts.map(([x, y]) => [X(x), Y(y)]), col, wd); ctx.setLineDash([]); });
     if (extra) extra(c, X, Y);
     const ce = mean(sim.e);
     L.vline(c, X(ce), css('--rich'), '지금 평균', ce > K / 2 ? 'right' : 'left');
+    if (legendItems) L.legend(c, legendItems, legendPos);
     return c;
   }
   function drawGain() {
@@ -120,13 +116,13 @@
         ctx.fillStyle = mix(good ? GREEN : RED, 0.16); ctx.beginPath();
         ctx.moveTo(X(a[0]), Y(a[1])); ctx.lineTo(X(b[0]), Y(b[1])); ctx.lineTo(X(b[0]), Y(cost)); ctx.lineTo(X(a[0]), Y(cost)); ctx.closePath(); ctx.fill();
       }
-    });
+    }, null, '이득 (%p)', [{ kind: 'line', color: BLUE, label: '혼자 한 개 더 보냈을 때의 이득' }, { kind: 'dash', color: RED, label: '학원 한 개 비용' }], 'br');
   }
   function drawNet() {
     const P = sim.params, mk = (mode) => grid.map((e) => [e, H.symmetric(Object.assign({}, P, { mode }), e).net]);
     const c = sweepChart('c-net', 1, [0, 0.25, 0.5, 0.75, 1], (v) => Math.round(v * 100) + '%', [[mk('rel'), RED, P.mode === 'rel' ? 3.4 : 2], [mk('abs'), GREEN, P.mode === 'abs' ? 3.4 : 2]], null, (c2, X) => {
       if (P.cap < K) L.vline(c2, X(P.cap), css('--unlucky'), '합의 상한', P.cap > K / 2 ? 'right' : 'left');
-    });
+    }, '순이득 (%)', [{ kind: 'line', color: RED, label: '상대평가' }, { kind: 'line', color: GREEN, label: '절대평가' }], 'tr');
   }
 
   // ---------- 숫자 카드 ----------

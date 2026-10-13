@@ -54,7 +54,7 @@
     const c = L.chart($(id), 0.58, { l: 46, b: 40 }), { m, pw, ph } = c, W = Math.ceil(sim.params.days / 7);
     const X = (w) => m.l + (w / W) * pw, Y = (v) => m.t + ph - ((v - y0) / (y1 - y0)) * ph;
     const xt = []; for (let w = 0; w <= W; w += 8) xt.push(w);
-    L.axes(c, { X, Y, yTicks, yFmt, xTicks: xt, xFmt: (v) => String(v), xLabel: '학기 시작 후 몇 주째 (3월 시작을 가정)' });
+    L.axes(c, { X, Y, yTicks, yFmt, xTicks: xt, xFmt: (v) => String(v), xLabel: '학기 시작 후 주 (주)', yLabel: '아픈 아이 비율 (%)' });
     return { c, X, Y, W };
   }
 
@@ -73,11 +73,7 @@
       L.line(ctx, wk.sick.map((v, i) => [X(i + 0.5), Y(v)]), COL.I, 2.6);
       L.line(ctx, wk.home.map((v, i) => [X(i + 0.5), Y(v)]), COL.HOME, 2);
     }
-    ctx.font = '12px ' + FONT; ctx.textAlign = 'right';
-    const xr = m.l + pw - 4;
-    ctx.fillStyle = COL.I; L.label(ctx, '이번에 돌린 결과: 아픈 아이', xr, m.t + 14, 'right');
-    ctx.fillStyle = COL.HOME; L.label(ctx, '그 중 집에서 쉰 아이', xr, m.t + 32, 'right');
-    ctx.fillStyle = COL.GRAY; L.label(ctx, '비교: 아프면 쉬는 아이가 없을 때 (평균)', xr, m.t + 50, 'right');
+    L.legend(c, [{ kind: 'line', color: COL.I, label: '이번에 돌린 결과: 아픈 아이' }, { kind: 'line', color: COL.HOME, label: '그 중 집에서 쉰 아이' }, { kind: 'line', color: COL.GRAY, label: '비교: 아무도 안 쉴 때 (평균)' }], 'tr');
   }
 
   // ---------- ③ 걸린 횟수 분포 ----------
@@ -85,23 +81,23 @@
     const KM = 10, d = sim.dist(KM), mx = Math.max(0.1, ...d), y1 = Math.ceil(mx * 10 + 0.5) / 10, yt = []; for (let v = 0; v <= y1 + 1e-9; v += 0.1) yt.push(+v.toFixed(1));
     const c = L.chart($('c-dist'), 0.58, { l: 46, b: 40 }), { ctx, m, pw, ph } = c;
     const X = (k) => m.l + ((k + 0.5) / (KM + 1)) * pw, Y = (v) => m.t + ph - (v / y1) * ph;
-    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => Math.round(v * 100) + '%', xTicks: d.map((_, i) => i), xFmt: (v) => (v === KM ? KM + '회 이상' : String(v)), xLabel: '한 해 동안 걸린 횟수 (아이 한 명 기준)' });
+    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => Math.round(v * 100) + '%', xTicks: d.map((_, i) => i), xFmt: (v) => (v === KM ? KM + '회 이상' : String(v)), xLabel: '한 해 걸린 횟수 (회)', yLabel: '걸린 횟수별 아이 비율 (%)' });
     const bw = pw / (KM + 1) * 0.7;
     d.forEach((v, k) => { ctx.fillStyle = mix(k === 0 ? COL.R : COL.I, 0.8); ctx.fillRect(X(k) - bw / 2, Y(v), bw, Y(0) - Y(v)); });
     const mean = sim.meanInf(); // 평균 위치
     const mxp = m.l + ((mean + 0.5) / (KM + 1)) * pw;
     ctx.strokeStyle = css('--text'); ctx.setLineDash([4, 3]); ctx.beginPath(); ctx.moveTo(mxp, m.t); ctx.lineTo(mxp, m.t + ph); ctx.stroke(); ctx.setLineDash([]);
-    ctx.fillStyle = css('--text'); ctx.textAlign = mean > KM / 2 ? 'right' : 'left'; L.label(ctx, `평균 ${f1(mean)}회`, mxp + (mean > KM / 2 ? -5 : 5), m.t + 12, mean > KM / 2 ? 'right' : 'left');
+    L.legend(c, [{ kind: 'box', color: mix(COL.R, 0.8), label: '한 번도 안 걸린 아이' }, { kind: 'box', color: mix(COL.I, 0.8), label: '걸린 아이' }, { kind: 'dash', color: css('--text'), label: `평균 ${f1(mean)}회` }], mean > KM / 2 ? 'tl' : 'tr');
   }
 
   // ---------- ④, ⑤ 훑어 보기 ----------
   function sweepDraw(id, data, x0, x1, xt, xfmt, xlabel, cur, curLabel) {
     const hi = Math.max(1, ...data.map((d) => Math.max(...d.runs))), y1 = Math.ceil((hi + 0.3) / 4) * 4;
-    L.dots($(id), { aspect: 0.6, data, x0, x1, y0: 0, y1, xTicks: xt, xFmt: xfmt, yFmt: (v) => (Number.isInteger(v) ? v + '회' : f1(v) + '회'), xLabel: xlabel, color: COL.I, marker: cur == null ? null : { x: cur, label: curLabel } });
+    L.dots($(id), { aspect: 0.6, data, x0, x1, y0: 0, y1, xTicks: xt, xFmt: xfmt, yFmt: (v) => (Number.isInteger(v) ? v + '회' : f1(v) + '회'), xLabel: xlabel, yLabel: '걸린 횟수 (회)', color: COL.I, marker: cur == null ? null : { x: cur, label: curLabel } });
   }
   const SPOINTS = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100], ZPOINTS = [8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30];
-  function drawStay() { sweepDraw('c-stay', sweepStay, 0, 100, [0, 20, 40, 60, 80, 100], (v) => v + '%', '아프면 쉬는 아이의 비율', Number($('stay').value), '지금 설정'); }
-  function drawSize() { sweepDraw('c-size', sweepSize, 8, 30, [8, 12, 16, 20, 24, 28], (v) => v + '명', '반 크기 (한 반의 아이 수)', Number($('size').value), '지금 설정'); }
+  function drawStay() { sweepDraw('c-stay', sweepStay, 0, 100, [0, 20, 40, 60, 80, 100], (v) => v + '%', '아프면 쉬는 비율 (%)', Number($('stay').value), '지금 설정'); }
+  function drawSize() { sweepDraw('c-size', sweepSize, 8, 30, [8, 12, 16, 20, 24, 28], (v) => v + '명', '반 크기 (명)', Number($('size').value), '지금 설정'); }
 
   function renderStats() {
     const P = sim.params, c = sim.counts(), mxc = (() => { let n = 0; for (let i = 0; i < sim.N; i++) if (sim.cnt[i] > n) n = sim.cnt[i]; return n; })();

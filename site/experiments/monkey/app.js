@@ -73,18 +73,19 @@
 
   // ---------- ② 일치한 글자 수 vs 시도 횟수 (가로축 로그) ----------
   function drawRace() {
-    const c = L.chart($('c-race'), 0.7, { l: 44, b: 40 }), { ctx, m, pw, ph } = c, n = sim.L;
+    const c = L.chart($('c-race'), 0.7, { l: 44, b: 40, t: 24 }), { ctx, m, pw, ph } = c, n = sim.L;
     const xmax = Math.ceil(Math.log10(sim.params.maxSteps * sim.params.chancePerStep));
     const X = (v) => m.l + (v / xmax) * pw, Y = (v) => m.t + ph - (v / n) * ph;
     const yt = []; for (let v = 0; v <= n; v += Math.ceil(n / 5)) yt.push(v);
     const xt = []; for (let k = 0; k <= xmax; k++) xt.push(k);
-    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => String(v), xTicks: xt, xFmt: (k) => (k < 4 ? Math.pow(10, k).toLocaleString('ko-KR') : '10^' + k), xLabel: '시도 횟수 (로그 눈금)' });
+    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => String(v), xTicks: xt, xFmt: (k) => (k < 4 ? Math.pow(10, k).toLocaleString('ko-KR') : '10^' + k), xLabel: '시도 횟수 (번, 로그 눈금)', yLabel: '맞은 글자 수 (개)' });
     const pts = (hist) => { const o = []; hist.forEach(([a, mt], i) => { const x = X(Math.log10(Math.max(1, a))); if (i) o.push([x, o[o.length - 1][1]]); o.push([x, Y(mt)]); }); return o; };
     L.line(ctx, pts(sim.chanceHist), css('--unlucky'), 2.5);
     L.line(ctx, pts(sim.selHist), css('--lucky'), 2.5);
     ctx.setLineDash([4, 3]); ctx.strokeStyle = css('--muted'); ctx.beginPath(); ctx.moveTo(m.l, Y(n)); ctx.lineTo(m.l + pw, Y(n)); ctx.stroke(); ctx.setLineDash([]);
     ctx.fillStyle = css('--muted'); ctx.textAlign = 'left'; ctx.fillText('완성', m.l + 6, Y(n) + 14);
     if (sim.selDoneGen > 0) { ctx.fillStyle = css('--lucky'); ctx.beginPath(); ctx.arc(X(Math.log10(sim.selAttempts)), Y(n), 5, 0, 7); ctx.fill(); }
+    L.legend(c, [{ kind: 'line', color: css('--unlucky'), label: '순수한 우연' }, { kind: 'line', color: css('--lucky'), label: '누적 선택' }], 'br');
   }
 
   // ---------- ③ 기대 시도 횟수: 우연 27^L vs 선택 (세로축 로그) ----------
@@ -95,7 +96,8 @@
       data: selRows.map((d) => ({ x: d.x, runs: d.runs.map((a) => Math.log10(a)), mean: L.mean(d.runs.map((a) => Math.log10(a))) })),
       series: [{ data: Array.from({ length: n }, (_, i) => ({ x: i + 1, runs: [], mean: MK.log10Chance(i + 1) })), color: css('--unlucky') }],
       x0: 1, x1: n, y0: 0, y1, xTicks: xs, xFmt: (v) => String(v), yFmt: (v) => (Math.round(v) === 0 ? '1' : '10^' + Math.round(v)),
-      xLabel: '문장 길이 (앞에서부터 L글자)',
+      xLabel: '문장 길이 (글자 수)', yLabel: '필요한 시도 횟수 (번)',
+      legend: [{ kind: 'line', color: css('--accent'), label: '누적 선택 (시뮬레이션 평균)' }, { kind: 'line', color: css('--unlucky'), label: '순수한 우연 (기댓값 27^L)' }], legendPos: 'tl',
     });
   }
 
@@ -104,8 +106,9 @@
     const mx = Math.max(10, ...mutRows.flatMap((d) => d.runs)), y1 = Math.ceil(mx / 50) * 50;
     L.dots($('c-mut'), {
       data: mutRows.map((d) => ({ x: d.x, runs: d.runs, mean: L.mean(d.runs) })),
-      x0: 0, x1: 15, y0: 0, y1, xTicks: [0, 2, 5, 10, 15], xFmt: (v) => v + '%', yFmt: (v) => String(Math.round(v)),
-      xLabel: '글자마다 바뀔 확률 (돌연변이율)', marker: { x: sim.params.mutation * 100 },
+      x0: 0, x1: 15, y0: 0, y1, xTicks: [0, 2, 5, 10, 15], xFmt: (v) => String(v), yFmt: (v) => String(Math.round(v)),
+      xLabel: '글자가 바뀔 확률 (%)', yLabel: '완성까지 걸린 세대 수 (세대)', marker: { x: sim.params.mutation * 100 },
+      legend: [{ kind: 'dot', color: css('--accent'), label: '실행 1번' }, { kind: 'line', color: css('--accent'), label: '평균' }], legendPos: 'tr',
     });
   }
 

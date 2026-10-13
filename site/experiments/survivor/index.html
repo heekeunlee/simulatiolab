@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title data-en="Survivorship Bias: Bullet Holes on Returning Planes · Simulatio Lab">생존자 편향: 돌아온 비행기의 총탄 자국 · 시뮬라티오 랩</title>
-<meta name="description" content="돌아온 비행기에는 날개와 동체에 구멍이 가장 많습니다. 그곳에 철판을 덧대면 될까요? 생존자 편향을 직접 돌려 보세요." data-en-content="Returning planes have the most holes in the wings and fuselage. Should the armor go there? Run survivorship bias yourself.">
+<title data-en="Bullet Holes on Returning Planes · Simulatio Lab">돌아온 비행기의 총탄 자국 · 시뮬라티오 랩</title>
+<meta name="description" content="돌아온 비행기에는 날개와 동체에 구멍이 가장 많습니다. 그곳에 철판을 덧대면 될까요? 살아남은 것만 보면 왜 속게 되는지(생존자 편향) 직접 돌려 보세요." data-en-content="Returning planes have the most holes in the wings and fuselage. Should the armor go there? Run it yourself to see why looking only at survivors fools us (survivorship bias).">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="manifest" href="../../manifest.webmanifest">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -33,9 +33,9 @@
   <h2 data-en="Try it yourself">직접 돌려보기</h2>
   <div class="panel">
     <div class="controls">
-      <div class="ctl"><label for="eng" data-en="Engine lethality &lt;output id=&quot;o-eng&quot;&gt;&lt;/output&gt;">엔진의 치명률 <output id="o-eng"></output></label>
+      <div class="ctl"><label for="eng" data-en="Crash chance if the engine is hit &lt;output id=&quot;o-eng&quot;&gt;&lt;/output&gt;">엔진 피격 시 추락 확률 <output id="o-eng"></output></label>
         <input type="range" id="eng" min="0" max="90" step="10" value="50">
-        <span class="hint" data-en="Chance that one bullet in the engine brings the plane down">엔진에 맞은 총탄 한 발이 비행기를 추락시킬 확률</span></div>
+        <span class="hint" data-en="Chance that the plane goes down when one bullet hits the engine (engine lethality)">엔진에 총탄 한 발이 맞았을 때 비행기가 추락할 확률(엔진의 치명률)</span></div>
 <div class="ctl"><label for="n" data-en="Number of sorties &lt;output id=&quot;o-n&quot;&gt;&lt;/output&gt;">출격 횟수 <output id="o-n"></output></label>
         <input type="range" id="n" min="100" max="5000" step="100" value="2000">
         <span class="hint" data-en="With few sorties the hole pattern is noisy and the reading wobbles">적으면 구멍 분포가 들쭉날쭉해서 해석이 흔들려요</span></div>
@@ -82,10 +82,9 @@
       <div class="legend"><span id="note-s" data-en="Calculating…">계산 중…</span></div>
     </section>
     <section class="panel chart">
-      <h3 data-en="④ The Deadlier the Engine">④ 엔진이 치명적일수록</h3>
-    <p data-en="The horizontal axis is the engine lethality, the vertical axis is the survival rate. The three lines are no armor, armor where the holes are, and armor where they are missing (sortie count and armor budget as currently set).">가로는 엔진의 치명률, 세로는 생존율입니다. 선 세 개는 보강 없음, 구멍 많은 곳 보강, 빈 곳 보강입니다(출격 횟수와 보강 곳수는 지금 설정).</p>
-    <canvas id="c-sweep" class="" aria-label="④ The Deadlier the Engine"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#8a93a6&quot;&gt;&lt;/i&gt;No armor"><i style="background:#8a93a6"></i>보강 없음</span><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;Armor where the holes are"><i style="background:#e0a100"></i>구멍 많은 곳 보강</span><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Armor where holes are missing"><i style="background:var(--accent)"></i>빈 곳 보강</span></div>
+      <h3 data-en="④ The More Likely an Engine Hit Is Fatal">④ 엔진을 맞으면 더 잘 추락할수록</h3>
+    <p data-en="The horizontal axis is the engine lethality, the vertical axis is the survival rate. The three lines are no armor, armor where the holes are, and armor where they are missing (sortie count and armor budget as currently set).">가로는 엔진 피격 시 추락 확률(엔진의 치명률), 세로는 생존율입니다. 선 세 개는 보강 없음, 구멍 많은 곳 보강, 빈 곳 보강입니다(출격 횟수와 보강 곳수는 지금 설정).</p>
+    <canvas id="c-sweep" class="" aria-label="④ The More Likely an Engine Hit Is Fatal"></canvas>
       <div class="legend"><span id="note-n" data-en="Calculating…">계산 중…</span></div>
     </section>
   </div>

@@ -84,11 +84,10 @@
   function drawSizes() {
     const t = sim.t, xmax = Math.max(t, Math.round(sim.burnAt * 1.3), 10), S = sim.sizes;
     let mx = 10; for (let i = 0; i < t; i++) if (S[i] > mx) mx = S[i];
-    const ymax = niceMax(mx * 1.1), c = L.chart($('c-size'), 0.62, { l: 52, r: 14, t: 18, b: 40 }), { ctx, m, pw, ph } = c; c.xmax = xmax;
+    const ymax = niceMax(mx * 1.1), c = L.chart($('c-size'), 0.62, { l: 52, r: 14, t: 24, b: 40 }), { ctx, m, pw, ph } = c; c.xmax = xmax;
     const X = (v) => m.l + (v / xmax) * pw, Y = (v) => m.t + ph - (v / ymax) * ph;
-    L.axes(c, { X, Y, yTicks: [0, ymax / 2, ymax], yFmt: (v) => String(Math.round(v)), xTicks: xAxisTicks(xmax), xFmt: (v) => String(Math.round(v)), xLabel: '떨어뜨린 알 수' });
+    L.axes(c, { X, Y, yTicks: [0, ymax / 2, ymax], yFmt: (v) => String(Math.round(v)), xTicks: xAxisTicks(xmax), xFmt: (v) => String(Math.round(v)), xLabel: '떨어뜨린 알 수 (개)', yLabel: '눈사태 크기 (무너진 횟수)' });
     burnShade(ctx, X, c);
-    ctx.fillStyle = css('--accent'); ctx.textAlign = 'left'; ctx.fillText('눈사태 크기 (무너진 횟수)', m.l + 6, m.t + 10);
     // 화면 한 칸(픽셀)에 들어가는 알들 중 가장 큰 눈사태를 세운다
     const cols = Math.max(1, Math.floor(pw)), best = new Float32Array(cols);
     for (let i = 0; i < t; i++) { const k = Math.min(cols - 1, Math.floor((i / xmax) * cols)); if (S[i] > best[k]) best[k] = S[i]; }
@@ -101,18 +100,17 @@
 
   // ---------- ③ 눈사태 크기 분포 (로그-로그) ----------
   function drawDist() {
-    const c = L.chart($('c-dist'), 0.62, { l: 56, r: 16, t: 18, b: 40 }), { ctx, m, pw, ph } = c, D = sim.dist();
+    const c = L.chart($('c-dist'), 0.62, { l: 56, r: 16, t: 24, b: 40 }), { ctx, m, pw, ph } = c, D = sim.dist();
     if (!D.pts.length) {
       const x0 = 0, x1 = 3, X = (v) => m.l + ((v - x0) / (x1 - x0)) * pw, Y = (v) => m.t + ph + (v / 4) * ph;
-      L.axes(c, { X, Y, yTicks: [0, -1, -2, -3, -4], yFmt: (v) => pow10(v), xTicks: [0, 1, 2, 3], xFmt: (v) => pow10(v), xLabel: '눈사태 크기 (무너진 횟수, 로그 눈금)' });
+      L.axes(c, { X, Y, yTicks: [0, -1, -2, -3, -4], yFmt: (v) => pow10(v), xTicks: [0, 1, 2, 3], xFmt: (v) => pow10(v), xLabel: '눈사태 크기 (무너진 횟수, 로그 눈금)', yLabel: '비율 (크기 한 단위당)' });
       ctx.fillStyle = css('--muted'); ctx.textAlign = 'center'; ctx.fillText('더미가 안정기에 들어서면 분포가 그려져요', m.l + pw / 2, m.t + ph / 2);
       return;
     }
     const x1 = Math.max(2, Math.ceil(Math.log10(sim.maxSize * 1.2))), minY = Math.min(...D.pts.map((q) => Math.log10(q.y))), y0 = Math.min(-2, Math.floor(minY));
     const X = (v) => m.l + (v / x1) * pw, Y = (v) => m.t + ((0.1 - v) / (0.1 - y0)) * ph; // v = log10
     const yt = [], xt = []; for (let k = y0; k <= 0; k++) yt.push(k); for (let k = 0; k <= x1; k++) xt.push(k);
-    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => pow10(v), xTicks: xt, xFmt: (v) => pow10(v), xLabel: '눈사태 크기 (무너진 횟수, 로그 눈금)' });
-    ctx.fillStyle = css('--accent'); ctx.textAlign = 'left'; ctx.fillText('비율 (크기 한 단위당)', m.l + 6, m.t + 10);
+    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => pow10(v), xTicks: xt, xFmt: (v) => pow10(v), xLabel: '눈사태 크기 (무너진 횟수, 로그 눈금)', yLabel: '비율 (크기 한 단위당)' });
     D.pts.forEach((q) => {
       ctx.fillStyle = q.n >= 10 ? mix(css('--accent'), 0.9) : mix('#8a93a6', 0.6);
       ctx.beginPath(); ctx.arc(X(Math.log10(q.x)), Y(Math.log10(q.y)), q.n >= 10 ? 4 : 3, 0, 7); ctx.fill();
@@ -120,29 +118,31 @@
     if (D.slope != null) {
       const a = Math.log10(D.used[0]), b = Math.log10(D.used[1]), col = '#e5484d';
       ctx.setLineDash([6, 4]); L.line(ctx, [[X(a), Y(D.icpt + D.slope * a)], [X(b), Y(D.icpt + D.slope * b)]], col, 2.4); ctx.setLineDash([]);
-      ctx.fillStyle = col; ctx.textAlign = 'right'; ctx.font = '600 13px ' + FONT;
-      L.label(ctx, `기울기 ${f2(D.slope)} (측정)`, m.l + pw - 6, m.t + 26, 'right'); ctx.font = '12px ' + FONT;
     }
+    const lg = [{ kind: 'dot', color: mix(css('--accent'), 0.9), label: '표본 10개 이상인 점' }, { kind: 'dot', color: mix('#8a93a6', 0.6), label: '표본이 적은 점' }];
+    if (D.slope != null) lg.push({ kind: 'dash', color: '#e5484d', label: `기울기 ${f2(D.slope)} (측정)` });
+    L.legend(c, lg, 'tr');
   }
 
   // ---------- ④ 평균 높이 ----------
   function drawHeight() {
     const t = sim.t, xmax = Math.max(t, Math.round(sim.burnAt * 1.3), 10), M = sim.means;
-    const c = L.chart($('c-height'), 0.62, { l: 52, r: 14, t: 18, b: 40 }), { ctx, m, pw, ph } = c; c.xmax = xmax;
+    const c = L.chart($('c-height'), 0.62, { l: 52, r: 14, t: 24, b: 40 }), { ctx, m, pw, ph } = c; c.xmax = xmax;
     const X = (v) => m.l + (v / xmax) * pw, Y = (v) => m.t + ph - (v / 3) * ph;
-    L.axes(c, { X, Y, yTicks: [0, 1, 2, 3], yFmt: (v) => String(v), xTicks: xAxisTicks(xmax), xFmt: (v) => String(Math.round(v)), xLabel: '떨어뜨린 알 수' });
+    L.axes(c, { X, Y, yTicks: [0, 1, 2, 3], yFmt: (v) => String(v), xTicks: xAxisTicks(xmax), xFmt: (v) => String(Math.round(v)), xLabel: '떨어뜨린 알 수 (개)', yLabel: '칸당 평균 모래알 수 (개)' });
     burnShade(ctx, X, c);
-    ctx.fillStyle = css('--accent'); ctx.textAlign = 'left'; ctx.fillText('칸당 평균 모래알 수', m.l + 6, m.t + 10);
+    const lg = [{ kind: 'line', color: css('--accent'), label: '칸당 평균 높이' }];
     if (t > sim.burnAt + 50) {
       let s = 0; for (let i = sim.burnAt; i < t; i++) s += M[i];
       const pl = s / (t - sim.burnAt);
       ctx.setLineDash([5, 3]); ctx.strokeStyle = '#e5484d'; ctx.beginPath(); ctx.moveTo(m.l, Y(pl)); ctx.lineTo(m.l + pw, Y(pl)); ctx.stroke(); ctx.setLineDash([]);
-      ctx.fillStyle = '#e5484d'; ctx.textAlign = 'right'; L.label(ctx, `안정기 평균 ${f2(pl)}`, m.l + pw - 6, Y(pl) + 16, 'right');
+      lg.push({ kind: 'dash', color: '#e5484d', label: `안정기 평균 ${f2(pl)}` });
     }
     const step = Math.max(1, Math.floor(t / pw)), pts = [];
     for (let i = 0; i < t; i += step) pts.push([X(i), Y(M[i])]);
     if (t) pts.push([X(t - 1), Y(M[t - 1])]);
     L.line(ctx, pts, css('--accent'), 2.6);
+    L.legend(c, lg, 'br');
   }
 
   // ---------- 숫자 카드 ----------

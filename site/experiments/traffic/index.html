@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-en="Phantom Traffic Jams: Why Does Traffic Stop Without an Accident? · Simulatio Lab">유령 정체: 사고도 공사도 없는데 왜 막힐까 · 시뮬라티오 랩</title>
-<meta name="description" content="사고도 공사도 없는데 도로가 막히는 이유를 나겔-슈레켄베르크 교통 모델로 직접 돌려보세요." data-en-content="Why does traffic jam with no accident or roadwork? Run the Nagel–Schreckenberg traffic model yourself.">
+<meta name="description" content="사고도 공사도 없는데 도로가 막히는 이유를, 차들이 규칙대로만 달리는 고리 도로에서 직접 돌려보세요." data-en-content="Why does traffic jam with no accident or roadwork? Run a ring road where every car follows the rules, and see for yourself.">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="manifest" href="../../manifest.webmanifest">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -63,15 +63,14 @@
 
   <div class="charts">
     <section class="panel chart" style="grid-column:1/-1">
-      <h3 data-en="② The Road Over Time (Space–Time Diagram)">② 시간에 따른 도로 (시공간 도표)</h3>
+      <h3 data-en="② The Road Changing Over Time (Time–Position Diagram)">② 시간에 따라 변하는 도로 (시간-위치 그림)</h3>
     <p data-en="The horizontal axis is position on the road, the vertical axis is time (flowing downward). Red bands are jams; a band slanting down to the left means the jam moves against the direction of travel. The black line is the outlined car, slanting the other way, down to the right.">가로는 도로 위치, 세로는 시간(아래로 흐름)입니다. 붉은 띠가 정체이고, 띠가 왼쪽 아래로 기울어 있으면 정체가 차들의 진행 방향과 반대로 움직인다는 뜻이에요. 검은 선은 테두리 친 그 차로, 반대로 오른쪽 아래로 나아갑니다.</p>
-    <canvas id="c-space" class="" aria-label="② 시간에 따른 도로 (시공간 도표)"></canvas>
+    <canvas id="c-space" class="" aria-label="② 시간에 따라 변하는 도로 (시간-위치 그림)"></canvas>
     </section>
     <section class="panel chart">
       <h3 data-en="③ What Happens to Throughput as the Road Fills">③ 도로가 차면 통과 대수는 어떻게 될까</h3>
     <p data-en="Vehicles per hour passing a point, by density. The gray line is perfect driving with no braking at all.">밀도에 따라 한 지점을 지나가는 시간당 차량 수입니다. 회색 선은 브레이크를 전혀 안 밟는 완벽한 운전이에요.</p>
     <canvas id="c-fd" class="" aria-label="③ 도로가 차면 통과 대수는 어떻게 될까"></canvas>
-      <div class="legend"><span id="note-fd" data-en="Calculating…">계산 중…</span></div>
     </section>
     <section class="panel chart">
       <h3 data-en="④ The Big Effect of Small Braking">④ 작은 브레이크의 큰 효과</h3>

@@ -23,10 +23,10 @@
 
   <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
   <ul>
-    <li data-en="&lt;b&gt;N people&lt;/b&gt; gather in a room. Everyone has &lt;b&gt;k features&lt;/b&gt;: the first is a birthday (365 values, leap days ignored) and the others are things like hometown, hobby or school, each with a fixed number of possible values. All are drawn independently with equal chances.">방에 <b>N명</b>이 모입니다. 사람마다 <b>특징 k가지</b>를 갖는데, 첫째는 생일(365가지, 윤일은 무시)이고 나머지는 고향·취미·같은 학교처럼 정해진 가짓수 중 하나입니다. 모두 같은 확률로 독립적으로 정해집니다.</li>
+    <li data-en="&lt;b&gt;N people&lt;/b&gt; gather in a room. Everyone has &lt;b&gt;k features&lt;/b&gt;: the first is a birthday (365 values, leap days ignored) and the others are things like hometown, hobby or school, each with a fixed number of possible values. All are drawn with equal chances, independently of each other.">방에 <b>N명</b>이 모입니다. 사람마다 <b>특징 k가지</b>를 갖는데, 첫째는 생일(365가지, 윤일은 무시)이고 나머지는 고향·취미·같은 학교처럼 정해진 가짓수 중 하나입니다. 모두 같은 확률로, 서로 영향 없이 정해집니다.</li>
     <li data-en="Two people who share at least one feature form a &lt;b&gt;matching pair&lt;/b&gt;. N people make N(N−1)/2 possible pairs: when the headcount grows N-fold, the pairs grow roughly N²-fold.">두 사람이 특징 하나라도 같으면 <b>일치한 쌍</b>입니다. N명이면 가능한 짝은 N(N−1)/2쌍인데, 사람은 N배로 늘 때 짝은 거의 N²배로 늘어납니다.</li>
-    <li data-en="Person 0 is &lt;b&gt;me&lt;/b&gt;. The model counts separately &quot;a match somewhere in the room&quot; and &quot;someone matches me&quot;. Lines are calculated values (theory) and dots are results of actually running many gatherings.">0번 사람이 <b>나</b>입니다. "방 안 어딘가에서 일치가 있을 확률"과 "나와 일치하는 사람이 있을 확률"을 따로 셉니다. 선은 계산값(이론), 점은 모임을 직접 여러 번 연 결과입니다.</li>
-    <li data-en="The model assumes every feature is uniform and independent. Real birthdays are not perfectly even through the year, and people from the same hometown may share hobbies, so reality is more complicated.">이 모델은 모든 특징이 균등하고 서로 독립이라고 가정합니다. 실제 생일은 달마다 조금 고르지 않고, 같은 고향 사람이 같은 취미를 가질 가능성도 있어서 현실은 이보다 복잡합니다.</li>
+    <li data-en="Person 0 is &lt;b&gt;me&lt;/b&gt;. The model counts separately &quot;a match somewhere in the room&quot; and &quot;someone matches me&quot;. Lines are calculated values and dots are results of actually running many gatherings.">0번 사람이 <b>나</b>입니다. "방 안 어딘가에서 일치가 있을 확률"과 "나와 일치하는 사람이 있을 확률"을 따로 셉니다. 선은 계산한 값, 점은 모임을 직접 여러 번 연 결과입니다.</li>
+    <li data-en="The model assumes every value of a feature is equally likely and features do not affect each other. Real birthdays are not perfectly even through the year, and people from the same hometown may share hobbies, so reality is more complicated.">이 모델은 모든 특징의 값이 똑같은 확률로 나오고 서로 영향을 주지 않는다고 가정합니다. 실제 생일은 달마다 조금 고르지 않고, 같은 고향 사람이 같은 취미를 가질 가능성도 있어서 현실은 이보다 복잡합니다.</li>
   </ul>
 
   <h2 data-en="Try it yourself">직접 돌려보기</h2>
@@ -70,21 +70,18 @@
       <h3 data-en="② Chance of a Match Somewhere">② 어딘가에서 일치할 확률</h3>
     <p data-en="The horizontal axis is the headcount, the vertical axis is the chance that some pair in the room matches. The blue line and dots are the current settings and the dashed line is the calculation for birthdays only. Where the dashed line passes 50% is the famous 23 people.">가로는 모인 사람 수, 세로는 방 안 어딘가에 일치한 쌍이 있을 확률입니다. 파란 선과 점은 지금 설정, 점선은 생일만 볼 때의 계산값입니다. 점선의 50%를 넘는 지점이 유명한 23명입니다.</p>
     <canvas id="c-a" class="" aria-label="② Chance of a Match Somewhere"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Current settings (line: calculation, dots: simulation)"><i style="background:var(--accent)"></i>지금 설정 (선: 계산, 점: 직접 돌림)</span><span data-en="&lt;i style=&quot;background:var(--muted)&quot;&gt;&lt;/i&gt;Birthday only (calculation)"><i style="background:var(--muted)"></i>생일만 (계산)</span></div>
       <div class="legend"><span id="note-a" data-en="Calculating…">계산 중…</span></div>
     </section>
     <section class="panel chart">
       <h3 data-en="③ &quot;Somewhere&quot; versus &quot;With Me&quot;">③ "어딘가에서"와 "나와"</h3>
     <p data-en="The same current settings, with the headcount extended to 365. The blue line is &quot;someone matches somewhere&quot; and the red line is &quot;someone matches me&quot;. The dashed red line is the chance of matching me when birthday is the only feature, and it needs 253 people besides me to pass 50%.">같은 지금 설정으로 인원을 365명까지 늘렸습니다. 파란 선은 "누군가 어딘가에서 일치", 붉은 선은 "나와 일치"입니다. 붉은 점선은 특징이 생일뿐일 때 나와 일치할 확률로, 50%를 넘으려면 나 말고 253명이 필요합니다.</p>
     <canvas id="c-b" class="" aria-label="③ &quot;Somewhere&quot; versus &quot;With Me&quot;"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;A match somewhere"><i style="background:var(--accent)"></i>어딘가에서 일치</span><span data-en="&lt;i style=&quot;background:var(--unlucky)&quot;&gt;&lt;/i&gt;A match with me"><i style="background:var(--unlucky)"></i>나와 일치</span><span data-en="&lt;i style=&quot;background:#e8a29a&quot;&gt;&lt;/i&gt;A match with me, birthday only (calculation)"><i style="background:#e8a29a"></i>나와 일치, 생일만 (계산)</span></div>
       <div class="legend"><span id="note-b" data-en="Calculating…">계산 중…</span></div>
     </section>
     <section class="panel chart">
       <h3 data-en="④ N People, N(N−1)/2 Pairs">④ 사람은 N명, 짝은 N(N−1)/2쌍</h3>
-    <p data-en="Gray is the number of people, blue is the number of possible pairs and the red line is the expected number of matching pairs under the current settings. A small rise in headcount multiplies the chances of a match much faster.">회색은 사람 수, 파랑은 가능한 짝의 수, 붉은 선은 지금 설정에서 일치한 쌍의 기댓값입니다. 인원이 조금만 늘어도 일치할 기회가 훨씬 빠르게 늘어납니다.</p>
+    <p data-en="Gray is the number of people, blue is the number of possible pairs and the red line is the average expected number of matching pairs under the current settings. A small rise in headcount multiplies the chances of a match much faster.">회색은 사람 수, 파랑은 가능한 짝의 수, 붉은 선은 지금 설정에서 일치한 쌍의 평균 예상 수입니다. 인원이 조금만 늘어도 일치할 기회가 훨씬 빠르게 늘어납니다.</p>
     <canvas id="c-c" class="" aria-label="④ N People, N(N−1)/2 Pairs"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--muted)&quot;&gt;&lt;/i&gt;People"><i style="background:var(--muted)"></i>사람</span><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Possible pairs"><i style="background:var(--accent)"></i>가능한 짝</span><span data-en="&lt;i style=&quot;background:var(--unlucky)&quot;&gt;&lt;/i&gt;Expected matching pairs"><i style="background:var(--unlucky)"></i>일치한 쌍의 기댓값</span></div>
     </section>
   </div>
 

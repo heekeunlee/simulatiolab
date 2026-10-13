@@ -3,6 +3,7 @@
   const TL = window.TalentLuck;
   const $ = (id) => document.getElementById(id);
   const { css, setup, mix, roundRect } = window.Lab;
+  const Lab = window.Lab;
   const DEFAULTS = { events: 500, pLucky: 50, years: 40, sdT: 0.1 };
   const THUMB = /[?&]thumb=1/.test(location.search); // 메인 페이지 썸네일용: 40년 뒤 장면으로 바로 간다
   const SPEED = 0.7; // 2026-10-12: 전체 애니메이션을 30% 느리게
@@ -45,6 +46,7 @@
     const gstep = (r0 <= 1 ? 1 : r0 <= 2 ? 2 : r0 <= 5 ? 5 : 10) * mag;
     const cmax = Math.ceil(rawMax / gstep) * gstep;
     const m = { l: 40, r: 8, t: 34, b: 36 };
+    const cc = { ctx, w, h, m, pw: w - 40 - 8, ph: h - 34 - 36 };
     const pw = w - m.l - m.r, ph = h - m.t - m.b;
     const bw = pw / counts.length;
     const text = css('--muted'), line = css('--line');
@@ -69,8 +71,7 @@
       ctx.fillStyle = k === 0 ? css('--text') : text;
       ctx.fillText(fmtCap(c0 * Math.pow(2, k)), m.l + i * bw + bw / 2, h - m.b + 16);
     });
-    ctx.fillStyle = text;
-    ctx.fillText('최종 자본 (시작값 ' + c0 + ')', m.l + pw / 2, h - 4);
+    Lab.axisNames(cc, '최종 자본 (시작값 ' + c0 + ')', '사람 수 (명)');
 
     // 최고 부자가 있는 막대 위에 금색 표시
     const kr = Math.round(Math.log2(sim.capital[st.richest] / c0)) - kmin;
@@ -83,8 +84,9 @@
     const up = Array.from(sim.capital).filter((c) => c > c0 * 1.0001).length;
     ctx.font = '600 13px -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif';
     ctx.textAlign = 'left'; ctx.fillStyle = css('--accent');
-    ctx.fillText(`시작보다 늘어난 사람 ${Math.round(up / sim.n * 100)}% (파랑)`, m.l, 16);
+    ctx.fillText(`시작보다 늘어난 사람 ${Math.round(up / sim.n * 100)}% (파랑)`, m.l, 14);
     ctx.font = '12px -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif';
+    Lab.legend(cc, [{ kind: 'box', color: css('--accent'), label: '시작보다 늘어남' }, { kind: 'box', color: css('--muted'), label: '시작과 같음' }, { kind: 'box', color: mix(css('--muted'), 0.55), label: '시작보다 줄어듦' }], 'tr');
   }
 
   // ---------- ③ 산점도 ----------
@@ -94,8 +96,8 @@
     const ks = Array.from(sim.capital, (c) => Math.log2(c / c0));
     const kmin = Math.min(...ks) - 0.8, kmax = Math.max(...ks) + 0.8;
     const tmin = Math.min(...sim.talent) - 0.02, tmax = Math.max(...sim.talent) + 0.02;
-    const m = { l: 48, r: 10, t: 10, b: 36 };
-    const pw = w - m.l - m.r, ph = h - m.t - m.b;
+    const m = { l: 48, r: 10, t: 24, b: 36 };
+    const pw = w - m.l - m.r, ph = h - m.t - m.b, cc = { ctx, w, h, m, pw, ph };
     const X = (t) => m.l + ((t - tmin) / (tmax - tmin)) * pw;
     const Y = (k) => m.t + ph - ((k - kmin) / (kmax - kmin)) * ph;
     const text = css('--muted'), line = css('--line');
@@ -107,7 +109,7 @@
     });
     ctx.textAlign = 'center';
     for (let t = Math.ceil(tmin * 10) / 10; t <= tmax; t += 0.1) ctx.fillText(t.toFixed(1), X(t), h - m.b + 16);
-    ctx.fillText('재능', m.l + pw / 2, h - 4);
+    Lab.axisNames(cc, '재능', '최종 자본');
     // 시작 자본선
     ctx.setLineDash([5, 3]); ctx.strokeStyle = css('--muted'); ctx.beginPath();
     ctx.moveTo(m.l, Y(0)); ctx.lineTo(w - m.r, Y(0)); ctx.stroke(); ctx.setLineDash([]);
@@ -126,6 +128,7 @@
     };
     mark(st.richest, css('--rich'), '최고 부자 ' + fmtCap(sim.capital[st.richest]), x(st.richest) > m.l + pw * 0.6 ? -10 : 10);
     mark(st.mostTalented, css('--talent'), '최고 재능자 ' + fmtCap(sim.capital[st.mostTalented]), -10);
+    Lab.legend(cc, [{ kind: 'dot', color: mix(css('--accent'), 0.6), label: '보통 사람' }, { kind: 'dot', color: css('--rich'), label: '최고 부자' }, { kind: 'dot', color: css('--talent'), label: '최고 재능자' }], 'tl');
     function x(i) { return X(sim.talent[i]); }
   }
 
@@ -139,8 +142,8 @@
     let kmin = 0, kmax = 0;
     series.forEach((i) => { for (let t = 0; t <= T; t++) { const v = k(t, i); kmin = Math.min(kmin, v); kmax = Math.max(kmax, v); } });
     kmin -= 0.8; kmax += 0.8;
-    const m = { l: 48, r: 10, t: 10, b: 36 };
-    const pw = w - m.l - m.r, ph = h - m.t - m.b;
+    const m = { l: 48, r: 10, t: 24, b: 36 };
+    const pw = w - m.l - m.r, ph = h - m.t - m.b, cc = { ctx, w, h, m, pw, ph };
     const X = (t) => m.l + (t / T) * pw;
     const Y = (v) => m.t + ph - ((v - kmin) / (kmax - kmin)) * ph;
     const text = css('--muted'), line = css('--line');
@@ -153,7 +156,7 @@
     ctx.textAlign = 'center';
     const yearStep = sim.params.years > 30 ? 10 : 5;
     for (let y = 0; y <= sim.params.years; y += yearStep) ctx.fillText(y + '년', X(y * 2), h - m.b + 16);
-    ctx.fillText('경과 시간', m.l + pw / 2, h - 4);
+    Lab.axisNames(cc, '경과 시간 (년)', '자본');
 
     const path = (i, color, width) => {
       ctx.strokeStyle = color; ctx.lineWidth = width; ctx.beginPath(); ctx.moveTo(X(0), Y(k(0, i)));
@@ -172,6 +175,7 @@
       else if (code === TL.UNLUCKY) { ctx.fillStyle = css('--unlucky'); ctx.fill(); }
       else { ctx.strokeStyle = css('--lucky'); ctx.lineWidth = 1.5; ctx.stroke(); ctx.lineWidth = 1; }
     }
+    Lab.legend(cc, [{ kind: 'line', color: css('--rich'), label: '최고 부자' }, { kind: 'line', color: css('--talent'), label: '최고 재능자' }, { kind: 'dot', color: css('--lucky'), label: '행운을 잡음' }, { kind: 'dot', color: css('--unlucky'), label: '불운' }], 'tl');
   }
 
   // ---------- ① 애니메이션 ----------
@@ -376,7 +380,7 @@
     const counts = new Array(nb).fill(0);
     rt.forEach((t) => { counts[Math.min(nb - 1, Math.max(0, Math.floor((t - lo) / bin)))]++; });
     const cmax = Math.max(...counts);
-    const m = { l: 36, r: 10, t: 22, b: 34 };
+    const m = { l: 36, r: 10, t: 24, b: 34 };
     const pw = w - m.l - m.r, ph = h - m.t - m.b, bw = pw / nb;
     const X = (t) => m.l + ((t - lo) / (hi - lo)) * pw;
     ctx.fillStyle = css('--rich');
@@ -386,7 +390,8 @@
     });
     ctx.fillStyle = css('--muted'); ctx.textAlign = 'center';
     for (let t = 0.3; t <= 1.0001; t += 0.1) ctx.fillText(t.toFixed(1), X(t), h - m.b + 16);
-    ctx.fillText('최고 부자의 재능', m.l + pw / 2, h - 4);
+    Lab.axisNames({ ctx, w, h, m, pw, ph }, '최고 부자의 재능', '반복 횟수 (번)');
+    ctx.fillStyle = css('--muted');
     ctx.textAlign = 'right'; ctx.fillText(String(cmax), m.l - 6, m.t + 8); ctx.fillText('0', m.l - 6, m.t + ph);
 
     const vline = (t, color, label, align) => {

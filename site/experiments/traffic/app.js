@@ -5,6 +5,7 @@
   const $ = (id) => document.getElementById(id);
   let sim = null, fd = [], fdIdeal = [], psweep = [];
   let seedGetter = () => 1;
+  const FONT = '-apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif';
   const params = () => ({ seed: seedGetter(), density: Number($('density').value) / 100, p: Number($('p').value) / 100 });
 
   // 속도 0(빨강) ~ 최고(초록)
@@ -12,6 +13,19 @@
     const t = Math.min(1, v / vmax);
     const a = t < 0.5 ? [229, 72, 77] : [245, 196, 81], b = t < 0.5 ? [245, 196, 81] : [31, 164, 99], u = t < 0.5 ? t * 2 : (t - 0.5) * 2;
     return `rgb(${a.map((x, i) => Math.round(x + (b[i] - x) * u)).join(',')})`;
+  }
+
+  // 그래프 안 범례(한 줄): 멈춤 [빨강→초록] 최고 속도 | 따라가 볼 차 표시. sample = 'car'(검은 테두리 차) | 'line'(검은 선)
+  function speedLegend(ctx, x, y, sample) {
+    ctx.save(); ctx.font = '11.5px ' + FONT; ctx.textAlign = 'left'; ctx.fillStyle = css('--text');
+    const vm = sim.params.vmax; let cx = x;
+    ctx.fillText('멈춤', cx, y + 4); cx += ctx.measureText('멈춤').width + 5;
+    const gw = 48; for (let i = 0; i < gw; i++) { ctx.fillStyle = vcolor((i / (gw - 1)) * vm, vm); ctx.fillRect(cx + i, y - 5, 1.5, 10); }
+    cx += gw + 5; ctx.fillStyle = css('--text'); ctx.fillText('최고 속도', cx, y + 4); cx += ctx.measureText('최고 속도').width + 14;
+    if (sample === 'car') { ctx.strokeStyle = '#1b2233'; ctx.lineWidth = 2; ctx.strokeRect(cx, y - 4, 12, 8); cx += 17; }
+    else { ctx.strokeStyle = '#1b2233'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(cx, y); ctx.lineTo(cx + 16, y); ctx.stroke(); cx += 21; }
+    ctx.fillStyle = css('--text'); ctx.fillText('따라가 볼 차', cx, y + 4);
+    ctx.restore();
   }
 
   // ---- ① 고리 도로: 단계 사이를 부드럽게 이어 그린다 ----
@@ -31,11 +45,11 @@
   }
   function drawRing(f) {
     const cv = $('c-ring');
-    if (!ringC || ringW !== cv.clientWidth) { ringC = L.chart(cv, 1, { l: 0, r: 0, t: 0, b: 0 }); ringW = cv.clientWidth; }
-    const { ctx, w, h } = ringC, cx = w / 2, cy = h / 2, R = Math.min(w, h) * 0.38;
+    if (!ringC || ringW !== cv.clientWidth) { ringC = L.chart(cv, THUMB ? 1 : 1 + 30 / (cv.clientWidth || 400), { l: 0, r: 0, t: 0, b: 0 }); ringW = cv.clientWidth; }
+    const { ctx, w, h: hAll } = ringC, legH = THUMB ? 0 : 30, h = hAll - legH, cx = w / 2, cy = h / 2, R = Math.min(w, h) * 0.38;
     if (f == null) f = frac();
-    ctx.clearRect(0, 0, w, h);
-    ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
+    ctx.clearRect(0, 0, w, hAll);
+    ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, hAll);
     const lw = Math.max(14, R * 0.09);
     ctx.strokeStyle = '#e1e6f0'; ctx.lineWidth = lw; ctx.beginPath(); ctx.arc(cx, cy, R, 0, 7); ctx.stroke();
     const vmax = sim.params.vmax, L2 = sim.L, ang = (x) => (x / L2) * Math.PI * 2 - Math.PI / 2;
@@ -69,6 +83,7 @@
     ctx.fillText(Math.round(s.kmh) + ' km/h', cx, cy + 6);
     ctx.font = '13px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillStyle = css('--muted');
     ctx.fillText('평균 속도', cx, cy + 28); ctx.fillText(`멈춰 있는 차 ${pct(s.stopped)}`, cx, cy + 48);
+    if (!THUMB) speedLegend(ctx, 12, hAll - 16, 'car');
     $('when').textContent = `${sim.step}초 경과`;
   }
 
@@ -77,7 +92,7 @@
   const vrgb = (v, vmax) => vrgbCache[v * 10 + vmax] || (vrgbCache[v * 10 + vmax] = vcolor(v, vmax).match(/\d+/g).map(Number));
   function drawSpace() {
     const wide = ($('c-space').clientWidth || 400) > 640;
-    const c = L.chart($('c-space'), wide ? 0.42 : 0.8, THUMB ? { l: 0, r: 0, t: 0, b: 0 } : { l: 14, r: 14, t: 10, b: 30 });
+    const c = L.chart($('c-space'), wide ? 0.42 : 0.8, THUMB ? { l: 0, r: 0, t: 0, b: 0 } : { l: 14, r: 14, t: 24, b: 48 });
     const { ctx, w, h, m, pw, ph } = c, rows = sim.rows, vmax = sim.params.vmax;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(m.l, m.t, pw, ph);
     const cw = pw / sim.L, rh = ph / 160;
@@ -98,25 +113,25 @@
     ctx.imageSmoothingEnabled = false;
     ctx.drawImage(spaceBuf, 0, 0, sim.L, rows.length, m.l, m.t, pw, rows.length * rh);
     if (THUMB) return;
-    ctx.font = '12px -apple-system, "Apple SD Gothic Neo", sans-serif';
-    ctx.fillStyle = css('--muted'); ctx.textAlign = 'center';
-    ctx.fillText('도로 위치 →', m.l + pw / 2, h - 12); ctx.textAlign = 'left'; ctx.fillText('시간 ↓ (최근 160초)', m.l, h - 1);
-    ctx.textAlign = 'right'; ctx.fillStyle = '#1b2233'; ctx.fillText('검은 선 = 이 차', m.l + pw, h - 1);
+    L.axisNames(c, '도로 위치 (칸)', '시간 ↓ (최근 160초)');
+    speedLegend(ctx, m.l, h - 24, 'line');
   }
 
   function drawFD() {
     L.dots($('c-fd'), {
       data: fd.map((d) => ({ x: d.x, runs: [d.flow], mean: d.flow })),
       series: [{ data: fdIdeal.map((d) => ({ x: d.x, runs: [], mean: d.flow })), color: '#8a93a6' }],
-      x0: 0.05, x1: 0.6, y0: 0, y1: 3000, xTicks: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6], xFmt: pct, yFmt: (v) => v.toLocaleString('ko-KR'),
-      xLabel: '도로가 찬 정도(밀도)', marker: { x: sim.params.density },
+      x0: 0.05, x1: 0.6, y0: 0, y1: 3000, xTicks: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6], xFmt: (v) => String(Math.round(v * 100)), yFmt: (v) => v.toLocaleString('ko-KR'),
+      xLabel: '도로가 찬 정도 (밀도, %)', yLabel: '시간당 통과 대수 (대)', marker: { x: sim.params.density },
+      legend: [{ kind: 'line', color: css('--accent'), label: '지금 설정' }, { kind: 'line', color: '#8a93a6', label: '브레이크를 안 밟는 완벽한 운전' }], legendPos: 'br',
     });
   }
   function drawP() {
     L.dots($('c-p'), {
       data: psweep.map((d) => ({ x: d.x, runs: d.runs, mean: L.mean(d.runs) })),
-      x0: 0, x1: 0.5, y0: 0, y1: 135, xTicks: [0, 0.1, 0.2, 0.3, 0.4, 0.5], xFmt: pct, yFmt: (v) => Math.round(v) + '',
-      xLabel: '잠깐 브레이크를 밟는 확률', marker: { x: sim.params.p },
+      x0: 0, x1: 0.5, y0: 0, y1: 135, xTicks: [0, 0.1, 0.2, 0.3, 0.4, 0.5], xFmt: (v) => String(Math.round(v * 100)), yFmt: (v) => Math.round(v) + '',
+      xLabel: '브레이크를 밟는 확률 (%)', yLabel: '평균 속도 (km/h)', marker: { x: sim.params.p },
+      legend: [{ kind: 'dot', color: css('--accent'), label: '도로 1개의 결과' }, { kind: 'line', color: css('--accent'), label: '3개의 평균' }], legendPos: 'bl',
     });
   }
 
@@ -137,7 +152,7 @@
 
   function after() {
     const P = params(); fd = []; fdIdeal = []; psweep = []; drawFD(); drawP();
-    $('note-fd').textContent = '계산 중…'; $('note-p').textContent = '계산 중…';
+    $('note-p').textContent = '계산 중…';
     const jobs = [];
     // 작은 작업을 몇 개씩 묶어 실행 (하나씩 하면 애니메이션 프레임 사이에 끼어 너무 오래 걸렸다)
     for (let d0 = 5; d0 <= 60; d0 += 20) jobs.push(() => {
@@ -153,7 +168,6 @@
       }
     });
     L.jobs(jobs, () => { drawFD(); drawP(); }, () => {
-      $('note-fd').textContent = '파랑: 지금 설정, 회색: 브레이크를 전혀 안 밟는 완벽한 운전';
       const a = psweep[0], b = psweep.find((d) => d.x === 0.25) || psweep[5];
       $('note-p').textContent = `브레이크 0%일 때 ${Math.round(L.mean(a.runs))} km/h, 25%일 때 ${Math.round(L.mean(b.runs))} km/h`;
     });

@@ -1,5 +1,9 @@
 DYN = {
 '황금각': 'Golden angle',
+'다른 각도': 'Other angles',
+'씨앗 사이의 각도 (°)': 'Angle between seeds (°)',
+'빈틈 평균 (이상 간격 = 1)': 'Average gap (ideal spacing = 1)',
+'씨앗 수 (개)': 'Number of seeds',
 '{0}/{1}번째 씨앗 · 각도 {2}°': 'Seed {0}/{1} · angle {2}°',
 '씨앗 사이의 각도': 'Angle between seeds',
 '황금각 137.5°': 'Golden angle 137.5°',

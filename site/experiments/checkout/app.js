@@ -164,13 +164,13 @@
     const raw = max / 4, mag = Math.pow(10, Math.floor(Math.log10(raw))), st = [1, 2, 2.5, 5, 10].map((m) => m * mag).find((v) => v >= raw) || raw;
     const t = []; for (let v = 0; v <= max + st * 0.01; v += st) t.push(+v.toFixed(6)); return { st, ticks: t, top: t[t.length - 1] };
   }
-  function sweepChart(id, key, theory) {
+  function sweepChart(id, key, theory, yName) {
     const P = params(), cv = $(id);
-    const c = L.chart(cv, window.innerWidth < 560 ? 0.9 : 0.62, { l: 46, r: 16, t: 14, b: 42 }), { ctx, m, pw, ph } = c;
+    const c = L.chart(cv, window.innerWidth < 560 ? 0.9 : 0.62, { l: 46, r: 16, t: 24, b: 42 }), { ctx, m, pw, ph } = c;
     const done = sweep.filter(Boolean);
     let hi = 1; done.forEach((d) => ['one', 'short', 'items'].forEach((s) => { hi = Math.max(hi, d[s][key]); }));
     const nt = niceTicks(hi * 1.25), X = (v) => m.l + ((v - 0.5) / 0.46) * pw, Y = (v) => m.t + ph - (v / nt.top) * ph;
-    L.axes(c, { X, Y, yTicks: nt.ticks, yFmt: (v) => v + '분', xTicks: [0.5, 0.6, 0.7, 0.8, 0.9], xFmt: (v) => Math.round(v * 100) + '%', xLabel: '계산대가 바쁜 정도 (붐빔)' });
+    L.axes(c, { X, Y, yTicks: nt.ticks, yFmt: (v) => String(v), xTicks: [0.5, 0.6, 0.7, 0.8, 0.9], xFmt: (v) => String(Math.round(v * 100)), xLabel: '붐빔 정도 (%)', yLabel: yName });
     ctx.save(); ctx.beginPath(); ctx.rect(m.l, m.t - 4, pw + 6, ph + 4); ctx.clip();
     ['random', 'items', 'short', 'one'].forEach((s) => {
       const pts = done.map((d) => [X(d.rho), Y(d[s][key])]);
@@ -187,30 +187,31 @@
     }
     L.vline(c, X(P.rho), css('--rich'), '지금 설정', P.rho > 0.78 ? 'right' : 'left');
     if (!done.length) { ctx.fillStyle = css('--muted'); ctx.textAlign = 'center'; ctx.fillText('계산 중…', m.l + pw / 2, m.t + ph / 2); }
+    const lg = [['one', 'A'], ['short', 'B'], ['items', 'D'], ['random', 'C']].map(([s]) => ({ kind: 'line', color: COLORS[s], label: SHORT[s] }));
+    if (theory) lg.push({ kind: 'dash', color: '#6b7280', label: '점선: 이론값' });
+    L.legend(c, lg, 'tl');
   }
   const thMean = (s, k, r, cv) => (s === 'one' ? K.theoryOne(k, r, cv).mean : K.theoryRandom(k, r, cv).mean);
   const thP90 = (s, k, r) => (s === 'one' ? K.theoryOne(k, r, 1).p90 : K.theoryRandom(k, r, 1).p90);
-  function drawMean() { sweepChart('c-mean', 'mean', thMean); }
-  function drawP90() { sweepChart('c-p90', 'p90', Math.abs(params().cv - 1) < 0.05 ? thP90 : null); }
+  function drawMean() { sweepChart('c-mean', 'mean', thMean, '평균 대기시간 (분)'); }
+  function drawP90() { sweepChart('c-p90', 'p90', Math.abs(params().cv - 1) < 0.05 ? thP90 : null, '90% 대기시간 (분)'); }
 
   function drawHist() {
     if (!LR) return;
-    const cv = $('c-hist'), c = L.chart(cv, window.innerWidth < 560 ? 0.9 : 0.62, { l: 46, r: 16, t: 14, b: 42 }), { ctx, m, pw, ph } = c;
+    const cv = $('c-hist'), c = L.chart(cv, window.innerWidth < 560 ? 0.9 : 0.62, { l: 46, r: 16, t: 24, b: 42 }), { ctx, m, pw, ph } = c;
     const A = LR.a.waits, B = LR.b.waits, all = A.concat(B).sort((x, y) => x - y);
     const cap = Math.max(10, Math.ceil(all[Math.floor(all.length * 0.97)] / 5) * 5), nb = cap;
     const hist = (arr) => { const h = new Array(nb).fill(0); arr.forEach((v) => { h[Math.min(nb - 1, Math.floor(v))]++; }); return h.map((v) => (v / arr.length) * 100); };
     const hA = hist(A), hB = hist(B), top = niceTicks(Math.max.apply(null, hA.concat(hB)) * 1.1);
     const X = (v) => m.l + (v / nb) * pw, Y = (v) => m.t + ph - (v / top.top) * ph;
     const xt = []; for (let v = 0; v <= nb; v += cap > 30 ? 10 : 5) xt.push(v);
-    L.axes(c, { X, Y, yTicks: top.ticks, yFmt: (v) => v + '%', xTicks: xt, xFmt: (v) => v + '분', xLabel: '기다린 시간 (마지막 칸은 그 이상)' });
+    L.axes(c, { X, Y, yTicks: top.ticks, yFmt: (v) => String(v), xTicks: xt, xFmt: (v) => String(v), xLabel: '기다린 시간 (분, 끝 칸은 그 이상)', yLabel: '손님 비율 (%)' });
     const bw = pw / nb;
     ctx.fillStyle = mix(COLORS.one, 0.55); hA.forEach((v, i) => ctx.fillRect(X(i) + 1, Y(v), Math.max(1, bw - 2), Y(0) - Y(v)));
     const col = COLORS[LR.s]; ctx.strokeStyle = col; ctx.lineWidth = 2.4; ctx.beginPath();
     hB.forEach((v, i) => { const x0 = X(i), x1 = X(i + 1); i ? ctx.lineTo(x0, Y(v)) : ctx.moveTo(x0, Y(v)); ctx.lineTo(x1, Y(v)); });
     ctx.stroke(); ctx.lineWidth = 1;
-    ctx.fillStyle = css('--muted'); ctx.textAlign = 'right'; ctx.font = '12px ' + FONT;
-    L.label(ctx, `한 줄: 바로 계산 ${Math.round(LR.a.zero * 100)}%`, m.l + pw - 4, m.t + 14, 'right');
-    ctx.fillStyle = col; L.label(ctx, `${SHORT[LR.s]}: 바로 계산 ${Math.round(LR.b.zero * 100)}%`, m.l + pw - 4, m.t + 32, 'right');
+    L.legend(c, [{ kind: 'box', color: mix(COLORS.one, 0.55), label: `${SHORT.one}: 바로 계산 ${Math.round(LR.a.zero * 100)}%` }, { kind: 'line', color: col, label: `${SHORT[LR.s]}: 바로 계산 ${Math.round(LR.b.zero * 100)}%` }], 'tr');
   }
   function notes() {
     $('note-mean').innerHTML = `<span>${Math.abs(params().cv - 1) < 0.05 ? '점선은 이론값 (얼랑 C 공식과 줄마다 M/M/1). 시뮬레이션과 거의 겹칩니다' : '점선은 이론 근사 (계산 시간이 지수분포가 아니라 한 줄은 근사, 무작위 줄은 폴라체크-힌친 공식)'}</span>`;

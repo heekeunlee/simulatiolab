@@ -26,9 +26,10 @@
   // ① 후보 사회 5개를 나란히, 고른 사회 강조, 베일 뒤 추첨
   function drawSocieties() {
     const narrow = ($('c-soc').clientWidth || 400) < 560;
-    const c = L.chart($('c-soc'), THUMB ? 1 : narrow ? 0.95 : 0.66, { l: 8, r: 8, t: 8, b: 8 });
-    const { ctx, w, h } = c;
-    ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
+    const LEG = THUMB ? 0 : 68, cw0 = $('c-soc').clientWidth || 600;   // 아래쪽 범례 자리
+    const c = L.chart($('c-soc'), (THUMB ? 1 : narrow ? 0.95 : 0.66) + LEG / cw0, { l: 8, r: 8, t: 8, b: 8 });
+    const { ctx, w, h: H0 } = c, h = H0 - LEG;
+    ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, H0);
     // 아래쪽 28px은 "당신의 자리" 문구 자리 (고른 사회 테두리와 겹치지 않게)
     const colW = (w - 16) / 5, top = THUMB ? 20 : narrow ? 78 : 66, bot = h - (THUMB ? 20 : 78), bh = bot - top, boxB = h - (THUMB ? 8 : 34);
     const hits = [0, 0, 0, 0, 0]; sim.positions.forEach((q) => { hits[q]++; });
@@ -68,25 +69,27 @@
     const pos = sim.lastPos();
     ctx.fillStyle = css('--text'); ctx.font = '600 12.5px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.textAlign = 'center';
     ctx.fillText(pos < 0 ? '아직 자리를 뽑지 않았어요' : `당신의 자리: ${pos + 1}분위 → 소득 ${sim.incomes[sim.step - 1]}`, w / 2, h - 12);
+    L.legend({ ctx, w, m: { l: 8, t: h, r: 8, b: 0 }, pw: w - 16, ph: LEG }, [{ kind: 'box', color: '#e0a100', label: '이번에 뽑힌 자리' }, { kind: 'dash', color: '#b07d00', label: '점선: 지금까지 뽑힌 내 소득의 평균' }, { kind: 'box', color: css('--muted'), label: '×숫자: 그 자리가 뽑힌 횟수' }], 'tl');
   }
 
   // ② 확실성 등가 소득 vs γ
   function drawCE() {
-    const c = L.chart($('c-ce'), 0.7), { ctx, m, pw, ph } = c;
+    const c = L.chart($('c-ce'), ($('c-ce').clientWidth || 600) < 560 ? 1 : 0.7), { ctx, m, pw, ph } = c;   // 휴대폰에서는 범례(5줄)가 선을 덜 가리게 더 높게
     const X = (g) => m.l + (g / GMAX) * pw, Y = (v) => m.t + ph - (v / 120) * ph;
-    L.axes(c, { X, Y, yTicks: [0, 30, 60, 90, 120], yFmt: (v) => String(v), xTicks: [0, 2, 4, 6, 8], xFmt: (g) => String(g), xLabel: '위험 회피 정도 γ' });
+    L.axes(c, { X, Y, yTicks: [0, 30, 60, 90, 120], yFmt: (v) => String(v), xTicks: [0, 2, 4, 6, 8], xFmt: (g) => String(g), xLabel: '위험 회피 정도 γ', yLabel: '확실성 등가 소득' });
     VL.SOCIETIES.forEach((s, i) => {
       const pts = []; for (let g = 0; g <= GMAX + 1e-9; g += 0.1) pts.push([X(g), Y(VL.ce(s.inc, g))]);
       L.line(ctx, pts, COL[i], i === sim.chosen ? 3.2 : 1.8);
     });
     if (sim.params.rule === 'eu') L.vline(c, X(sim.params.gamma), css('--rich'), '지금 설정', sim.params.gamma > GMAX * 0.6 ? 'right' : 'left');
+    L.legend(c, SHORT.map((label, i) => ({ kind: 'line', color: COL[i], label })), 'tr');
   }
 
   // ③ 1,000명의 선택
   function drawPop() {
-    const c = L.chart($('c-pop'), 0.7, { b: 52, t: 18 }), { ctx, m, pw, ph } = c, N = 1000;
+    const c = L.chart($('c-pop'), 0.7, { b: 52, t: 24 }), { ctx, m, pw, ph } = c, N = 1000;
     const Y = (v) => m.t + ph - (v / N) * ph;
-    L.axes(c, { X: () => 0, Y, yTicks: [0, 250, 500, 750, 1000], yFmt: (v) => String(v) });
+    L.axes(c, { X: () => 0, Y, yTicks: [0, 250, 500, 750, 1000], yFmt: (v) => String(v), yLabel: '사람 수 (명)' });
     const gw = pw / 5, bw = Math.min(46, gw * 0.6);
     ctx.textAlign = 'center';
     popCounts.forEach((v, i) => {
@@ -102,11 +105,12 @@
   function drawSweep() {
     const c = L.chart($('c-sweep'), 0.7), { ctx, m, pw, ph } = c;
     const X = (g) => m.l + (g / GMAX) * pw, Y = (v) => m.t + ph - (v / 120) * ph;
-    L.axes(c, { X, Y, yTicks: [0, 30, 60, 90, 120], yFmt: (v) => String(v), xTicks: [0, 2, 4, 6, 8], xFmt: (g) => String(g), xLabel: '위험 회피 정도 γ' });
+    L.axes(c, { X, Y, yTicks: [0, 30, 60, 90, 120], yFmt: (v) => String(v), xTicks: [0, 2, 4, 6, 8], xFmt: (g) => String(g), xLabel: '위험 회피 정도 γ', yLabel: '소득' });
     const avg = [], mn = [];
     for (let g = 0; g <= GMAX + 1e-9; g += 0.05) { const s = VL.SOCIETIES[VL.choice('eu', g)]; avg.push([X(g), Y(VL.mean(s.inc))]); mn.push([X(g), Y(VL.minOf(s.inc))]); }
     L.line(ctx, avg, '#e0a100', 2.8); L.line(ctx, mn, css('--accent'), 2.8);
     if (sim.params.rule === 'eu') L.vline(c, X(sim.params.gamma), css('--rich'), '지금 설정', sim.params.gamma > GMAX * 0.6 ? 'right' : 'left');
+    L.legend(c, [{ kind: 'line', color: '#e0a100', label: '고른 사회의 평균 소득' }, { kind: 'line', color: css('--accent'), label: '가장 가난한 자리의 소득' }], 'br');
   }
 
   function renderStats() {

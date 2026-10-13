@@ -71,6 +71,7 @@
       }
     }
     if (THUMB) return;
+    L.legend(c, [{ kind: 'dot', color: DEAD, label: '쓰러진 병사' }, { kind: 'dot', color: mix(BLUE, 0.4), label: '아직 도착하지 않은 무리' }], 'br');
     // 글자
     ctx.font = '700 15px ' + FONT; ctx.textAlign = 'left'; ctx.fillStyle = BLUE; ctx.fillText(`파랑 ${cnt[0]}명`, m.l, 24);
     ctx.textAlign = 'right'; ctx.fillStyle = RED; ctx.fillText(`빨강 ${cnt[1]}명`, w - m.r, 24);
@@ -90,17 +91,17 @@
   }
 
   // ---------- 차트 공통 ----------
-  function stepChart(id, ymax, yTicks, yFmt) {
-    const c = L.chart($(id), 0.58, { l: 50, b: 40, r: 14 }), { m, pw, ph } = c, X0 = Math.max(30, Math.ceil(ghost.step / 10) * 10);
+  function stepChart(id, ymax, yTicks, yFmt, yLabel) {
+    const c = L.chart($(id), 0.58, { l: 50, b: 40, r: 14, t: 24 }), { m, pw, ph } = c, X0 = Math.max(30, Math.ceil(ghost.step / 10) * 10);
     const X = (v) => m.l + (v / X0) * pw, Y = (v) => m.t + ph - (v / ymax) * ph, xt = [];
     const stepv = X0 <= 60 ? 10 : X0 <= 150 ? 25 : 50; for (let t = 0; t <= X0; t += stepv) xt.push(t);
-    L.axes(c, { X, Y, yTicks, yFmt, xTicks: xt, xFmt: String, xLabel: '전투 시간 (단계)' });
+    L.axes(c, { X, Y, yTicks, yFmt, xTicks: xt, xFmt: String, xLabel: '시간 (단계)', yLabel });
     return { c, X, Y };
   }
   // ---------- ② 남은 병력 ----------
   function drawCount() {
     const P = sim.params, ymax = Math.max(P.a, P.b);
-    const { c, X, Y } = stepChart('c-count', ymax, [0, 0.25, 0.5, 0.75, 1].map((v) => v * ymax), (v) => String(Math.round(v)));
+    const { c, X, Y } = stepChart('c-count', ymax, [0, 0.25, 0.5, 0.75, 1].map((v) => v * ymax), (v) => String(Math.round(v)), '남은 병사 (명)');
     const { ctx } = c, H = sim.hist;
     if (P.split === 'none') { // 평균 곡선 (점선)
       const mf = LC.meanField(P, ghost.step + 10);
@@ -110,17 +111,19 @@
     L.line(ctx, H.map((d, i) => [X(i), Y(d.b)]), RED, 2.8);
     const e = H[H.length - 1], i = H.length - 1;
     [[e.a, BLUE], [e.b, RED]].forEach(([v, col]) => { ctx.fillStyle = col; ctx.beginPath(); ctx.arc(X(i), Y(v), 4, 0, 7); ctx.fill(); });
+    L.legend(c, [{ kind: 'line', color: BLUE, label: '파랑' }, { kind: 'line', color: RED, label: '빨강' }].concat(P.split === 'none' ? [{ kind: 'dash', color: GRAY, label: '점선: 기대 곡선' }] : []), 'bl');
   }
   // ---------- ③ 전투력 ----------
   function drawPower() {
     const P = sim.params, al = Math.sqrt(P.q), be = 1 / Math.sqrt(P.q), norm = Math.max(LC.strength(P.law, P.a, al), LC.strength(P.law, P.b, be));
     const ev = (n, q) => (100 * LC.strength(P.law, n, q)) / norm;
-    const { c, X, Y } = stepChart('c-power', 100, [0, 25, 50, 75, 100], (v) => v + '%');
+    const { c, X, Y } = stepChart('c-power', 100, [0, 25, 50, 75, 100], (v) => String(v), '전투력 (%)');
     const { ctx } = c, H = sim.hist;
     L.line(ctx, H.map((d, i) => [X(i), Y(ev(d.ea, al))]), BLUE, 2.8);
     L.line(ctx, H.map((d, i) => [X(i), Y(ev(d.eb, be))]), RED, 2.8);
     const i = H.length - 1, e = H[i];
     [[ev(e.ea, al), BLUE], [ev(e.eb, be), RED]].forEach(([v, col]) => { ctx.fillStyle = col; ctx.beginPath(); ctx.arc(X(i), Y(v), 4, 0, 7); ctx.fill(); });
+    L.legend(c, [{ kind: 'line', color: BLUE, label: '파랑' }, { kind: 'line', color: RED, label: '빨강' }], 'tr');
   }
   // ---------- ④ 나뉘면 어떻게 되나 (이론값 비교) ----------
   function drawCompare() {
@@ -149,7 +152,7 @@
   // ---------- ⑤ 누가 이기나: 병력 비율 × 질 비율 ----------
   const XR = 3, YR = 2; // 2의 거듭제곱: 병력 1/8~8배, 질 1/4~4배
   function drawPhase() {
-    const P = sim.params, c = L.chart($('c-phase'), $('c-phase').clientWidth < 560 ? 0.9 : 0.62, { l: 52, b: 46, r: 14, t: 14 }), { ctx, m, pw, ph } = c;
+    const P = sim.params, c = L.chart($('c-phase'), $('c-phase').clientWidth < 560 ? 0.9 : 0.62, { l: 52, b: 46, r: 14, t: 24 }), { ctx, m, pw, ph } = c;
     const X = (e) => m.l + ((e + XR) / (2 * XR)) * pw, Y = (e) => m.t + ph - ((e + YR) / (2 * YR)) * ph;
     const NX = 72, NY = 48;
     for (let i = 0; i < NX; i++) for (let j = 0; j < NY; j++) {
@@ -165,9 +168,8 @@
     const ticks = [-3, -2, -1, 0, 1, 2, 3], tl = (e) => (e === 0 ? '1:1' : e > 0 ? `${Math.pow(2, e)}:1` : `1:${Math.pow(2, -e)}`);
     ctx.fillStyle = css('--muted'); ctx.font = '12px ' + FONT; ctx.textAlign = 'center';
     ticks.forEach((e) => ctx.fillText(tl(e), X(e), m.t + ph + 16));
-    ctx.fillText('병력 비율 (파랑 : 빨강)', m.l + pw / 2, m.t + ph + 36);
     ctx.textAlign = 'right'; [-2, -1, 0, 1, 2].forEach((e) => ctx.fillText(tl(e), m.l - 6, Y(e) + 4));
-    ctx.save(); ctx.translate(12, m.t + ph / 2); ctx.rotate(-Math.PI / 2); ctx.textAlign = 'center'; ctx.fillText('질 비율 (파랑 : 빨강)', 0, 0); ctx.restore();
+    L.axisNames(c, '병력 비율 (파랑 : 빨강)', '질 비율 (파랑 : 빨강)');
     ctx.strokeStyle = css('--line'); ctx.strokeRect(m.l + 0.5, m.t + 0.5, pw - 1, ph - 1);
     // 균형선: 사각 법칙 qr²=1 (실선), 선형 법칙 qr=1 (점선)
     const curve = (k, dash, col) => {
@@ -176,14 +178,13 @@
       ctx.stroke(); ctx.setLineDash([]); ctx.lineWidth = 1;
     };
     curve(2, [], css('--text')); curve(1, [6, 4], css('--text'));
-    ctx.font = '600 12px ' + FONT; ctx.fillStyle = css('--text'); ctx.textAlign = 'left';
-    L.label(ctx, '사각 법칙 균형선', X(-0.95), Y(1.9) + 4, 'left'); ctx.textAlign = 'left'; ctx.textAlign = 'right'; L.label(ctx, '선형 법칙 균형선', X(2.9), Y(-0.75), 'right');
     ctx.font = '700 13px ' + FONT; ctx.fillStyle = BLUE; ctx.textAlign = 'right'; L.label(ctx, '파랑 우세', m.l + pw - 8, m.t + 22, 'right'); ctx.fillStyle = RED; ctx.textAlign = 'left'; L.label(ctx, '빨강 우세', m.l + 8, m.t + ph - 10, 'left');
     // 지금 설정
     const ex = Math.max(-XR, Math.min(XR, Math.log2(P.a / P.b))), ey = Math.max(-YR, Math.min(YR, Math.log2(P.q)));
     ctx.fillStyle = '#fff'; ctx.strokeStyle = css('--text'); ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(X(ex), Y(ey), 7, 0, 7); ctx.fill(); ctx.stroke(); ctx.lineWidth = 1;
     ctx.font = '600 12px ' + FONT; ctx.fillStyle = css('--text');
     ctx.textAlign = ex > 0 ? 'right' : 'left'; L.label(ctx, '지금 설정', X(ex) + (ex > 0 ? -12 : 12), Y(ey) + (ey > 0 ? 20 : -12), ex > 0 ? 'right' : 'left');
+    L.legend(c, [{ kind: 'line', color: css('--text'), label: '사각 법칙 균형선' }, { kind: 'dash', color: css('--text'), label: '선형 법칙 균형선' }], 'br');
     const r = P.a / P.b;
     $('note-p').innerHTML = `<span>파랑 병력이 빨강의 ${f2(r)}배일 때 막상막하가 되려면 빨강의 질이 파랑의</span> <span>사각 법칙</span> <b>${f2(r * r)}배</b> · <span>선형 법칙</span> <b>${f2(r)}배</b>`;
   }

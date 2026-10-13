@@ -52,30 +52,31 @@
   }
 
   function drawWeeks() {
-    const c = L.chart($('c-weeks'), 0.7), { ctx, m, pw, ph } = c, n = sim.n, cap = sim.params.cap;
+    const c = L.chart($('c-weeks'), $('c-weeks').clientWidth < 560 ? 0.9 : 0.7), { ctx, m, pw, ph } = c, n = sim.n, cap = sim.params.cap;
     const win = 80, data = sim.hist.slice(-win), X = (i) => m.l + (i / win) * pw, Y = (v) => m.t + ph - (v / n) * ph;
-    L.axes(c, { X, Y, yTicks: [0, 25, 50, 75, 100].map((v) => (v / 100) * n), yFmt: (v) => Math.round(v), xTicks: [], xLabel: `최근 ${win}주 (오른쪽이 최근)` });
+    L.axes(c, { X, Y, yTicks: [0, 25, 50, 75, 100].map((v) => (v / 100) * n), yFmt: (v) => Math.round(v), xTicks: [], xLabel: `최근 ${win}주 (오른쪽이 최근)`, yLabel: '손님 수 (명)' });
     const bw = pw / win;
     data.forEach((v, i) => { ctx.fillStyle = v > cap ? mix('#e5484d', 0.75) : mix('#2f6fed', 0.75); ctx.fillRect(X(i + win - data.length) + 0.5, Y(v), Math.max(1, bw - 1), m.t + ph - Y(v)); });
     ctx.setLineDash([5, 3]); ctx.strokeStyle = css('--text'); ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(m.l, Y(cap)); ctx.lineTo(m.l + pw, Y(cap)); ctx.stroke(); ctx.setLineDash([]); ctx.lineWidth = 1;
-    ctx.fillStyle = css('--text'); ctx.textAlign = 'left'; ctx.fillText('정원 ' + cap + '명', m.l + 6, Y(cap) - 6);
+    L.legend(c, [{ kind: 'box', color: mix('#e5484d', 0.75), label: '붐빈 주' }, { kind: 'box', color: mix('#2f6fed', 0.75), label: '여유로운 주' }, { kind: 'dash', color: css('--text'), label: '정원 ' + cap + '명' }], 'tl');
   }
 
   function drawCap() {
     L.dots($('c-cap'), {
       data: capRows.map((d) => ({ x: d.x, runs: d.runs, mean: L.mean(d.runs) })),
       x0: 20, x1: 90, y0: 0, y1: 100, xTicks: [20, 30, 40, 50, 60, 70, 80, 90], xFmt: (v) => v + '', yFmt: (v) => Math.round(v) + '',
-      xLabel: '정원 (명)', refs: [], marker: { x: sim.params.cap },
+      xLabel: '정원 (명)', yLabel: '평균 손님 수 (명)', refs: [], marker: { x: sim.params.cap },
+      legend: [{ kind: 'line', color: '#8a93a6', label: '손님 수 = 정원' }, { kind: 'dot', color: css('--accent'), label: '평균 손님 수' }], legendPos: 'br',
       series: [{ data: [{ x: 20, mean: 20, runs: [] }, { x: 90, mean: 90, runs: [] }], color: '#8a93a6' }],
     });
   }
   function drawStrat() {
-    const refs = [{ y: 0.5, label: '동전 던지기 (50%)', color: '#8a93a6' }];
-    if (sameRegret != null) refs.push({ y: sameRegret, label: '모두 같은 예측 ' + pct(sameRegret), color: css('--unlucky') });
+    const refs = [{ y: 0.5, label: '', color: '#8a93a6' }], lg = [{ kind: 'line', color: css('--accent'), label: '평균 (점은 각 실행)' }, { kind: 'dash', color: '#8a93a6', label: '동전 던지기 (50%)' }];
+    if (sameRegret != null) { refs.push({ y: sameRegret, label: '', color: css('--unlucky') }); lg.push({ kind: 'dash', color: css('--unlucky'), label: '모두 같은 예측 ' + pct(sameRegret) }); }
     L.dots($('c-strat'), {
       data: stratRows.map((d) => ({ x: d.x, runs: d.runs, mean: L.mean(d.runs) })),
-      x0: 1, x1: 12, y0: 0, y1: 1, xTicks: [1, 2, 4, 6, 8, 10, 12], xFmt: (v) => v + '개', xLabel: '한 사람이 가진 예측법 수',
-      refs, marker: { x: sim.params.strategies },
+      x0: 1, x1: 12, y0: 0, y1: 1, xTicks: [1, 2, 4, 6, 8, 10, 12], xFmt: (v) => v + '개', xLabel: '예측법 수 (개)', yLabel: '틀린 사람 (%)',
+      refs, legend: lg, legendPos: 'br', aspect: $('c-strat').clientWidth < 560 ? 0.95 : 0.7, marker: { x: sim.params.strategies },
     });
   }
 

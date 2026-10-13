@@ -82,20 +82,19 @@
 
   // ---------- ② 질량-반지름 (로그-로그) ----------
   function drawMR() {
-    const c = L.chart($('c-mr'), 0.72, { l: 52, r: 14, t: 16, b: 44 }), { ctx, m, pw, ph } = c;
+    const c = L.chart($('c-mr'), 0.72, { l: 52, r: 14, t: 24, b: 44 }), { ctx, m, pw, ph } = c;
     const d = dim;
     if (!d || !d.pts.length) { ctx.fillStyle = css('--muted'); ctx.textAlign = 'center'; ctx.fillText('입자가 더 모이면 그려집니다', c.w / 2, c.h / 2); return; }
     const rMax = Math.max(100, d.pts[d.pts.length - 1][0] * 1.1), mMax = Math.max(1000, d.pts[d.pts.length - 1][1] * 1.4);
     const lx0 = Math.log10(2.5), lx1 = Math.log10(rMax), ly0 = 0.5, ly1 = Math.log10(mMax);
     const X = (r) => m.l + ((Math.log10(r) - lx0) / (lx1 - lx0)) * pw, Y = (v) => m.t + ph - ((Math.log10(v) - ly0) / (ly1 - ly0)) * ph;
     const xt = [3, 10, 30, 100, 300].filter((v) => v <= rMax), yt = [10, 100, 1000, 10000, 100000].filter((v) => v <= mMax * 1.2);
-    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => v.toLocaleString('en-US'), xTicks: xt, xFmt: String, xLabel: d.local ? '둘레 반지름 r (칸)' : '중심에서의 반지름 r (칸)' });
+    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => v.toLocaleString('en-US'), xTicks: xt, xFmt: String, xLabel: d.local ? '둘레 반지름 r (칸)' : '중심에서의 반지름 r (칸)', yLabel: '안쪽 입자 수 (개)' });
     // 기준선: 기울기 2 (꽉 찬 면), 기울기 1.71 (고전값)
     const [ra, ma] = d.pts[0];
     ctx.setLineDash([5, 4]); ctx.lineWidth = 1.5;
     ctx.strokeStyle = '#8a93a6'; ctx.beginPath(); ctx.moveTo(X(ra), Y(ma)); ctx.lineTo(X(rMax), Y(ma * Math.pow(rMax / ra, 2))); ctx.stroke();
     ctx.setLineDash([]); ctx.lineWidth = 1;
-    ctx.fillStyle = '#8a93a6'; ctx.textAlign = 'left'; L.label(ctx, '기울기 2: 빈틈없이 꽉 찬 면', m.l + 8, m.t + 14, 'left');
     // 적합선
     const f = (r) => Math.pow(10, d.icpt + d.D * Math.log10(r));
     ctx.strokeStyle = '#e5484d'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(X(d.lo), Y(f(d.lo))); ctx.lineTo(X(d.hi), Y(f(d.hi))); ctx.stroke(); ctx.lineWidth = 1;
@@ -103,15 +102,16 @@
     d.pts.forEach(([r, mm]) => { ctx.beginPath(); ctx.arc(X(r), Y(mm), 3.2, 0, 7); ctx.fill(); });
     ctx.fillStyle = '#e5484d'; ctx.textAlign = 'right';
     L.label(ctx, `잰 기울기 D = ${f2(d.D)}`, m.l + pw - 6, m.t + ph - 12, 'right');
+    L.legend(c, [{ kind: 'dot', color: '#4c7cf0', label: '잰 값' }, { kind: 'line', color: '#e5484d', label: '잰 기울기' }, { kind: 'dash', color: '#8a93a6', label: '기울기 2: 빈틈없이 꽉 찬 면' }], 'tl');
   }
 
   // ---------- ③ 어디에 붙었나 ----------
   function drawLand() {
-    const c = L.chart($('c-land'), 0.62, { l: 44, r: 12, t: 16, b: 44 }), { ctx, m, pw, ph } = c;
+    const c = L.chart($('c-land'), 0.62, { l: 44, r: 12, t: 24, b: 44 }), { ctx, m, pw, ph } = c;
     const lan = sim.landing(300), mx = Math.max(0.2, ...lan.bins.map((v) => v / Math.max(1, lan.total))) * 1.1;
     const X = (v) => m.l + v * pw, Y = (v) => m.t + ph - (v / mx) * ph;
     const yt = []; for (let i = 0; i <= 4; i++) yt.push((mx * i) / 4);
-    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => Math.round(v * 100) + '%', xTicks: [0, 0.25, 0.5, 0.75, 1], xFmt: (v) => Math.round(v * 100) + '%', xLabel: '중심에서 거리 ÷ 가장 먼 끝까지 거리' });
+    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => Math.round(v * 100) + '%', xTicks: [0, 0.25, 0.5, 0.75, 1], xFmt: (v) => Math.round(v * 100) + '%', xLabel: '중심에서의 거리 (가장 먼 끝 = 100%)', yLabel: '새 입자 비율 (%)' });
     const bw = pw / 20;
     lan.bins.forEach((v, i) => {
       const hh = (v / Math.max(1, lan.total)) / mx * ph, outer = i >= 14;
@@ -128,7 +128,7 @@
   function drawSweep() {
     if (!sweep.length) { const c = L.chart($('c-sweep'), 0.62, {}); c.ctx.fillStyle = css('--muted'); c.ctx.textAlign = 'center'; c.ctx.fillText('계산 중…', c.w / 2, c.h / 2); return; }
     const data = sweep.map((d) => ({ x: d.x, runs: d.runs, mean: L.mean(d.runs) }));
-    L.dots($('c-sweep'), { aspect: 0.62, data, x0: 0, x1: 1, y0: 0, y1: 0.5, xTicks: [0, 0.25, 0.5, 0.75, 1], xFmt: (v) => Math.round(v * 100) + '%', yFmt: (v) => Math.round(v * 100) + '%', xLabel: '붙는 확률', marker: { x: sim.params.stick, label: '지금 설정' }, color: '#e5484d' });
+    L.dots($('c-sweep'), { aspect: 0.62, data, x0: 0, x1: 1, y0: 0, y1: 0.5, xTicks: [0, 0.25, 0.5, 0.75, 1], xFmt: (v) => Math.round(v * 100) + '%', yFmt: (v) => Math.round(v * 100) + '%', xLabel: '붙는 확률 (%)', yLabel: '채운 비율 (%)', legend: [{ kind: 'dot', color: '#e5484d', label: '실행 한 번' }, { kind: 'line', color: '#e5484d', label: '두 번의 평균' }], legendPos: 'tl', marker: { x: sim.params.stick, label: '지금 설정' }, color: '#e5484d' });
   }
   const SWEEP_P = [0.05, 0.1, 0.2, 0.4, 0.7, 1], SWEEP_N = 1200;
   function runSweep() {
@@ -143,7 +143,7 @@
   function renderStats() {
     const P = sim.params, d = dim;
     const cards = [
-      ['프랙탈 차원 D (질량 ∝ 반지름^D)', d && isFinite(d.D) ? f2(d.D) : '–', '2에 가까울수록 꽉 찬 면, 1에 가까울수록 가는 선. 고전 값은 약 1.71'],
+      ['얼마나 성긴가: 프랙탈 차원 D', d && isFinite(d.D) ? f2(d.D) : '–', '2에 가까울수록 꽉 찬 면, 1에 가까울수록 가는 선. 고전 값은 약 1.71'],
       ['붙은 입자', `${sim.n.toLocaleString('en-US')} / ${P.count.toLocaleString('en-US')}개`, `가장 먼 끝까지 반지름 ${Math.round(sim.rmax())}칸`],
       ['가장 먼 끝까지의 원 중 채운 비율', `${(sim.fill() * 100).toFixed(0)}%`, '나머지는 빈틈. 크게 자랄수록 더 성겨집니다'],
       ['입자 하나가 붙기까지 평균', `${Math.round(sim.steps / Math.max(1, sim.n)).toLocaleString('en-US')}걸음`, '붙는 확률이 낮으면 닿고도 더 떠돌다 붙습니다'],

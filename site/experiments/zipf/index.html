@@ -60,7 +60,6 @@
       <select id="speed" aria-label="speed"><option value="4" data-en="Slow">느리게</option><option value="10" selected data-en="Normal">보통</option><option value="30" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#d6e4ff&quot;&gt;&lt;/i&gt;New word"><i style="background:#d6e4ff"></i>새 단어</span><span data-en="&lt;i style=&quot;background:var(--text)&quot;&gt;&lt;/i&gt;Top-10 word"><i style="background:var(--text)"></i>상위 10개 단어</span><span data-en="&lt;i style=&quot;background:var(--muted)&quot;&gt;&lt;/i&gt;Other words"><i style="background:var(--muted)"></i>그 밖의 단어</span></div>
   </section>
 
   <div class="charts">
@@ -68,7 +67,6 @@
       <h3 data-en="② Rank and Number of Uses (log–log)">② 순위와 쓰인 횟수 (로그-로그)</h3>
     <p data-en="Each dot is one word. The gold dashed line is slope -1 (Zipf&#x27;s law) drawn through the rank-3 dot, and the red line is the actual slope fitted over ranks 3 to 200. When the two lines run parallel and the dots hug them, the text is close to Zipf&#x27;s law. The top-ranked word sits far above the line on its own, because it appeared first and has been copied the longest (which is why the slope is measured from rank 3).">점 하나가 단어 하나입니다. 금색 점선은 기울기 -1(지프의 법칙)을 순위 3의 점에 맞춰 그린 것이고, 붉은 선은 순위 3~200 구간에서 구한 실제 기울기예요. 두 선이 나란하고 점이 선 위에 모여 있으면 지프의 법칙에 가깝습니다. 1위 단어는 맨 처음 생겨 가장 오래 베껴진 탓에 선보다 훨씬 위에 따로 떨어져 있어요(그래서 기울기는 3위부터 잽니다).</p>
     <canvas id="c-loglog" class="" data-thumb aria-label="② Rank and Number of Uses (log–log)"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Words (rank, number of uses)"><i style="background:var(--accent)"></i>단어 (순위, 쓰인 횟수)</span><span data-en="&lt;i style=&quot;background:var(--rich)&quot;&gt;&lt;/i&gt;Slope -1"><i style="background:var(--rich)"></i>기울기 -1</span><span data-en="&lt;i style=&quot;background:var(--unlucky)&quot;&gt;&lt;/i&gt;Fitted line"><i style="background:var(--unlucky)"></i>관측한 적합선</span></div>
     </section>
     <section class="panel chart">
       <h3 data-en="③ The 20 Most-Used Words">③ 가장 자주 쓰인 20개 단어</h3>
@@ -79,7 +77,6 @@
       <h3 data-en="④ When the New-Word Probability Changes">④ 새 단어 확률을 바꾸면</h3>
     <p data-en="The horizontal axis is the new-word probability, the vertical axis is the size (absolute value) of the rank–frequency slope. Blue is copy mode, gray is uniform choice, and dots are 4 different texts.">가로는 새 단어 확률, 세로는 순위-빈도 기울기의 크기(절댓값)입니다. 파란 점과 선은 복사 모드, 회색은 균등 선택이고 점은 서로 다른 글 4편의 결과예요.</p>
     <canvas id="c-sweep" class="" aria-label="④ When the New-Word Probability Changes"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Copy mode"><i style="background:var(--accent)"></i>복사 모드</span><span data-en="&lt;i style=&quot;background:#8a93a6&quot;&gt;&lt;/i&gt;Uniform choice"><i style="background:#8a93a6"></i>균등 선택</span></div>
       <div class="legend"><span id="note-sweep" data-en="Calculating…">계산 중…</span></div>
     </section>
   </div>

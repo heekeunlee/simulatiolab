@@ -104,11 +104,11 @@
   }
 
   function drawVisible() {
-    const c = L.chart($('c-vis'), 0.5, { l: 54, r: 46, t: 14, b: 36 }), { ctx, m, pw, ph, w, h } = c;
+    const c = L.chart($('c-vis'), ($('c-vis').clientWidth || 600) < 480 ? 0.8 : 0.55, { l: 54, r: ($('c-vis').clientWidth || 600) < 480 ? 24 : 46, t: 28, b: 36 }), { ctx, m, pw, ph, w, h } = c;
     const X = (v) => m.l + v * pw, row = ph / 5;
     ctx.strokeStyle = css('--line'); ctx.fillStyle = css('--muted'); ctx.textAlign = 'center';
     [0, 0.25, 0.5, 0.75, 1].forEach((v) => { ctx.beginPath(); ctx.moveTo(X(v), m.t); ctx.lineTo(X(v), m.t + ph); ctx.stroke(); ctx.fillText(Math.round(v * 100) + '%', X(v), h - m.b + 16); });
-    ctx.fillText('맞은 총탄 중 돌아온 비행기에서 보이는 비율', m.l + pw / 2, h - 4);
+    L.axisNames(c, '보이는 비율 (%)', '비행기 부위');
     NAMES.forEach((nm, s) => {
       const y = m.t + s * row + row / 2, v = sim.holesAll[s] ? sim.holesRet[s] / sim.holesAll[s] : 0;
       ctx.textAlign = 'right'; ctx.fillStyle = css('--text'); ctx.fillText(nm, m.l - 8, y + 4);
@@ -119,6 +119,7 @@
       }
     });
     if (!sim.round) { ctx.textAlign = 'center'; ctx.fillStyle = css('--muted'); ctx.fillText('재생을 누르면 채워져요', m.l + pw / 2, m.t + ph / 2); }
+    else L.legend(c, [{ kind: 'box', color: mix(css('--unlucky'), 0.85), label: '절반 미만' }, { kind: 'box', color: mix(css('--accent'), 0.75), label: '절반 이상 보임' }], 'tr');
   }
 
   function strategyRows() {
@@ -132,11 +133,11 @@
     return rows;
   }
   function drawBars() {
-    const rows = strategyRows(), c = L.chart($('c-bar'), 0.1 + rows.length * 0.1, { l: 112, r: 50, t: 12, b: 36 }), { ctx, m, pw, ph, w, h } = c;
+    const rows = strategyRows(), cw = $('c-bar').clientWidth || 600, c = L.chart($('c-bar'), 0.2 + rows.length * (cw < 480 ? 0.2 : 0.1), { l: 112, r: 50, t: 28, b: 36 }), { ctx, m, pw, ph, w, h } = c;
     const X = (v) => m.l + v * pw, row = ph / rows.length;
     ctx.strokeStyle = css('--line'); ctx.fillStyle = css('--muted'); ctx.textAlign = 'center';
     [0, 0.25, 0.5, 0.75, 1].forEach((v) => { ctx.beginPath(); ctx.moveTo(X(v), m.t); ctx.lineTo(X(v), m.t + ph); ctx.stroke(); ctx.fillText(Math.round(v * 100) + '%', X(v), h - m.b + 16); });
-    ctx.fillText('출격한 비행기가 돌아오는 비율 (생존율)', m.l + pw / 2, h - 4);
+    L.axisNames(c, '생존율 (%)', '보강 방법');
     rows.forEach((r, i) => {
       const y = m.t + i * row + row / 2;
       ctx.textAlign = 'right'; ctx.fillStyle = css('--text'); ctx.font = `600 12px ${FONT}`; ctx.fillText(r.k, m.l - 8, y - 1);
@@ -148,10 +149,11 @@
   }
 
   function drawSweep() {
-    if (!sweep.length) { L.dots($('c-sweep'), { data: [], x0: 0, x1: 0.9, y0: 0.4, y1: 1, xTicks: [0, 0.3, 0.6, 0.9], xFmt: L.pct, xLabel: '엔진에 맞은 총탄이 추락시키는 확률' }); return; }
+    if (!sweep.length) { L.dots($('c-sweep'), { data: [], x0: 0, x1: 0.9, y0: 0.4, y1: 1, xTicks: [0, 0.3, 0.6, 0.9], xFmt: L.pct, xLabel: '엔진 치명률 (%)', yLabel: '생존율 (%)' }); return; }
     L.dots($('c-sweep'), {
       data: sweep[0].pts, y0: 0.4, y1: 1, series: sweep.slice(1).map((r) => ({ data: r.pts, color: r.color })),
-      x0: 0, x1: 0.9, xTicks: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9], xFmt: (v) => Math.round(v * 100) + '%', xLabel: '엔진에 맞은 총탄이 추락시키는 확률',
+      x0: 0, x1: 0.9, xTicks: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9], xFmt: (v) => Math.round(v * 100) + '%', xLabel: '엔진 치명률 (%)', yLabel: '생존율 (%)',
+      legend: [{ kind: 'line', color: '#8a93a6', label: '보강 없음' }, { kind: 'line', color: '#e0a100', label: '구멍 많은 곳 보강' }, { kind: 'line', color: css('--accent'), label: '빈 곳 보강' }], legendPos: 'bl',
       marker: { x: sim.params.eng, label: '지금 설정' },
     });
   }

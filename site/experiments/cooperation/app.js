@@ -6,6 +6,8 @@
   const COL = ['#3b82f6', '#e5484d', '#1fa463', '#f5a524', '#8b5cf6'];   // 너그러운 맞받아치기는 초록과 헷갈리지 않게 주황
   let sim = null, sweep = [];
   let seedGetter = () => 1;
+  const NM = ['항상 협력', '항상 배신', '맞받아치기', '너그러운 맞받아치기', '파블로프'];
+  const stratLegend = () => COL.map((color, i) => ({ kind: 'dot', color, label: NM[i] }));
   const THUMB = /[?&]thumb=1/.test(location.search);   // 메인 썸네일용: 150세대를 끝까지 돌린 전략 비율 그림
   const params = () => ({
     seed: seedGetter(), defectors: Number($('defectors').value) / 100, noise: Number($('noise').value) / 100,
@@ -13,14 +15,16 @@
   });
 
   function drawPop() {
-    const { ctx, w, h } = L.setup($('c-pop'), 0.62);
-    ctx.fillStyle = '#f1f4fa'; ctx.fillRect(0, 0, w, h);
+    const cw0 = $('c-pop').clientWidth || 600, LEG = 104;   // 아래쪽 범례 자리
+    const { ctx, w, h: H0 } = L.setup($('c-pop'), 0.62 + LEG / cw0), h = w * 0.62;
+    ctx.fillStyle = '#f1f4fa'; ctx.fillRect(0, 0, w, H0);
     const n = sim.n, cols = 24, rows = Math.ceil(n / cols), cw = (w - 20) / cols, chh = (h - 20) / rows, r = Math.min(cw, chh) * 0.38;
     const st = sim.strat;
     for (let i = 0; i < n; i++) {
       const x = 10 + (i % cols) * cw + cw / 2, y = 10 + Math.floor(i / cols) * chh + chh / 2;
       ctx.fillStyle = COL[st[i]]; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill();
     }
+    L.legend({ ctx, w, m: { l: 0, t: h, r: 0, b: 0 }, pw: w, ph: H0 - h }, stratLegend(), 'tl');
     const has = sim.coopHistory.length > 0;
     $('when').textContent = `${sim.gen}/${sim.params.generations}세대 · 협력률 ${has ? pct(sim.coopHistory[sim.coopHistory.length - 1]) : '-'}`;
   }
@@ -28,7 +32,7 @@
   function drawArea() {
     const c = L.chart($('c-area'), THUMB ? 1 : 0.7, THUMB ? { l: 0, r: 0, t: 0, b: 0 } : {}), { ctx, m, pw, ph } = c, H = THUMB ? sim.history.slice(0, 71) : sim.history, T = THUMB ? 70 : sim.params.generations;   // 썸네일은 배신자가 무너지는 앞부분 70세대
     const X = (t) => m.l + (t / T) * pw, Y = (v) => m.t + ph - v * ph, xt = []; for (let t = 0; t <= T; t += T / 5) xt.push(t);
-    if (!THUMB) L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: pct, xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '세대' });
+    if (!THUMB) L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: pct, xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '시간 (세대)', yLabel: '전략 비율 (%)' });
     const acc = H.map(() => 0);
     [1, 0, 2, 3, 4].forEach((k) => {
       ctx.fillStyle = COL[k]; ctx.beginPath();
@@ -36,12 +40,13 @@
       for (let t = H.length - 1; t >= 0; t--) ctx.lineTo(X(t), Y(acc[t]));
       ctx.closePath(); ctx.fill(); H.forEach((s, t) => { acc[t] += s[k]; });
     });
+    if (!THUMB) L.legend(c, stratLegend().map((it) => Object.assign(it, { kind: 'box' })), 'tr');
   }
 
   function drawCoop() {
     const c = L.chart($('c-coop'), 0.7), { ctx, m, pw, ph } = c, H = sim.coopHistory, T = sim.params.generations;
     const X = (t) => m.l + (t / T) * pw, Y = (v) => m.t + ph - v * ph, xt = []; for (let t = 0; t <= T; t += T / 5) xt.push(t);
-    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: pct, xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '세대' });
+    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: pct, xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '시간 (세대)', yLabel: '협력률 (%)' });
     L.line(ctx, H.map((v, t) => [X(t + 1), Y(v)]), css('--accent'), 2.5);
     if (H.length) { ctx.fillStyle = css('--accent'); ctx.beginPath(); ctx.arc(X(H.length), Y(H[H.length - 1]), 4.5, 0, 7); ctx.fill(); }
   }
@@ -49,7 +54,7 @@
   function drawSweep() {
     L.dots($('c-sweep'), {
       data: sweep.map((d) => ({ x: d.x, runs: d.runs, mean: L.mean(d.runs) })),
-      x0: 0, x1: 0.1, xTicks: [0, 0.02, 0.04, 0.06, 0.08, 0.1], xFmt: pct, xLabel: '실수할 확률 (낸 수가 반대로 바뀜)',
+      x0: 0, x1: 0.1, xTicks: [0, 0.02, 0.04, 0.06, 0.08, 0.1], xFmt: pct, xLabel: '실수할 확률 (%)', yLabel: '평균 협력률 (%)',
       marker: { x: sim.params.noise },
     });
   }

@@ -21,5 +21,12 @@ DYN = {
  '선택이 바뀌는 지점: γ = {0}': 'The choice changes at γ = {0}',
  '위험 회피 평균 {0}, 퍼짐 {1}인 1,000명이 각자 고른 결과': 'Choices of 1,000 people with average risk aversion {0} and spread {1}',
  '추첨': 'Draw',
+ '확실성 등가 소득': 'Certainty-equivalent income',
+ '사람 수 (명)': 'People',
+ '소득': 'Income',
+ '이번에 뽑힌 자리': 'Position drawn this time',
+ '점선: 지금까지 뽑힌 내 소득의 평균': 'Dashed line: average of my incomes drawn so far',
+ '×숫자: 그 자리가 뽑힌 횟수': '×number: how often that position was drawn',
+ '고른 사회의 평균 소득': 'Average income of the chosen society',
  '내 평균': 'My average',
 }

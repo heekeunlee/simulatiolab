@@ -4,10 +4,10 @@ from mk2 import *
 
 page(dict(
  slug='ant',
- title=T('규칙 두 줄짜리 개미가 만 걸음 뒤 갑자기 길을 낸다: 랭턴의 개미', 'A Two-Rule Ant Suddenly Builds a Road After 10,000 Steps: Langton\'s Ant'),
+ title=T('규칙 두 줄짜리 개미가 만 걸음 뒤 갑자기 길을 낸다', 'A Two-Rule Ant Suddenly Builds a Road After 10,000 Steps'),
  title_tag=T('랭턴의 개미 · 시뮬라티오 랩', 'Langton\'s Ant · Simulatio Lab'),
- desc=T('규칙이 두 줄뿐인 개미가 처음엔 대칭 무늬를, 다음엔 혼돈을 만들다가 약 만 걸음 뒤 갑자기 대각선 고속도로를 내는 랭턴의 개미를 직접 돌려보세요.',
-        'Run Langton\'s ant yourself: an ant with two rules draws symmetric patterns, then chaos, and after about 10,000 steps suddenly builds a diagonal highway.'),
+ desc=T('규칙이 딱 두 줄인 개미가 처음엔 예쁜 무늬를, 다음엔 어지러운 낙서를 그리다가 약 만 걸음 뒤 갑자기 곧은 길을 냅니다. 직접 돌려보세요.',
+        'An ant with just two rules first draws neat patterns, then a messy scribble, and after about 10,000 steps suddenly builds a straight road. Run it yourself.'),
  lead=T('계획이 없는 것은 어지럽게만 움직일 거라고 생각하기 쉽습니다. 규칙이 두 줄뿐인 개미라면 더 그렇겠죠. 그런데 빈 판에서 출발한 이 개미는 한동안 질서와 혼돈을 오간 끝에 9,976걸음째부터 104걸음마다 똑같은 동작을 되풀이하며 곧은 대각선 길을 내기 시작합니다. 아무도 길을 설계하지 않았는데도요.',
         'It is easy to assume that something with no plan will just wander randomly, and an ant with only two rules even more so. Yet this ant, started on a blank grid, drifts between order and chaos and then, from step 9,976, repeats the same 104-step routine and starts building a straight diagonal road. Nobody designed that road.'),
  model=[T('판은 흰 칸과 검은 칸으로 된 격자이고, 개미는 한 칸 위에 서서 위·아래·좌·우 중 한 방향을 봅니다. 규칙은 두 줄입니다. <b>흰 칸이면</b> 오른쪽으로 90도 돌고, 칸을 검게 바꾸고, 한 칸 앞으로 갑니다. <b>검은 칸이면</b> 왼쪽으로 90도 돌고, 칸을 희게 바꾸고, 한 칸 앞으로 갑니다.',

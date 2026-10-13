@@ -11,14 +11,34 @@
   const LETTERS = 'ABCDEFGH';
   let sim = null, S = null, cmp = null, ftest = null, lies = {}, sweep = [], focus = 0, label = [], seedGetter = () => 1;
   const params = () => ({ seed: seedGetter(), n: Number($('n').value), c: Number($('c').value) / 100, rho: Number($('rho').value) / 100, ratio: Number($('ratio').value) / 100, early: Number($('early').value) / 100, mech: $('mech').value });
+  const LEG5 = ['1지망', '2~3지망', '4~5지망', '6지망 이하', '배정 못 받음'].map((label, b) => ({ color: BUCKET[b], label }));
+  // 가로로 늘어놓는 그래프 안 범례(색 막대용). draw=false이면 높이만 잰다
+  function hLegend(ctx, items, x0, y0, maxW, draw) {
+    ctx.save(); ctx.font = '11.5px ' + FONT; let x = x0, y = y0, rows = 1;
+    items.forEach((it) => {
+      const tw = ctx.measureText(it.label).width, iw = 16 + tw + 12;
+      if (x > x0 && x + iw > x0 + maxW) { x = x0; y += 16; rows++; }
+      if (draw) {
+        ctx.fillStyle = it.color; ctx.strokeStyle = it.color; ctx.lineWidth = 2;
+        if (it.ring) { ctx.strokeStyle = '#111'; ctx.beginPath(); ctx.arc(x + 6, y + 6, 5, 0, 7); ctx.stroke(); }
+        else if (it.dot) { ctx.beginPath(); ctx.arc(x + 6, y + 6, 4, 0, 7); ctx.fill(); }
+        else ctx.fillRect(x, y + 1, 12, 10);
+        ctx.lineWidth = 1; ctx.fillStyle = css('--text'); ctx.textAlign = 'left'; ctx.fillText(it.label, x + 16, y + 10.5);
+      }
+      x += iw;
+    });
+    ctx.restore(); return rows * 16;
+  }
   const f1 = (v) => v.toFixed(1), pc = (v) => Math.round(v * 100) + '%';
 
   // ---------- ① 배정 과정 ----------
   function drawAnim() {
     const cv = $('c-anim'), cw = cv.clientWidth || 600, mobile = cw < 560;
     const asp = THUMB ? 1 : mobile ? 1.5 : 0.62;
-    const c = L.chart(cv, asp, { l: 10, r: 10, t: 10, b: 10 }), { ctx, w, h } = c, N = S.N, M = S.M;
-    ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
+    const c = L.chart(cv, asp, { l: 10, r: 10, t: 10, b: 10 }), { ctx, w, h: hFull } = c, N = S.N, M = S.M;
+    ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, hFull);
+    const ANIM_LEG = LEG5.concat([{ color: '#3b6fd8', dot: true, label: '일찍 접수할 수 있는 집(대기 중)' }, { color: '#111', ring: true, label: '시험해 보는 아이' }]);
+    const legH = THUMB ? 0 : hLegend(ctx, ANIM_LEG, 10, 0, w - 20, false) + 8, h = hFull - legH;
     const fr = sim.current(), a = fr.a;
     let waiting = 0; for (let i = 0; i < N; i++) if (a[i] < 0) waiting++;
     // 영역 나누기
@@ -66,6 +86,7 @@
     if (focusPos && !THUMB) {
       ctx.strokeStyle = '#111'; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(focusPos[0], focusPos[1], Math.max(6, focusPos[2] * 0.8), 0, 7); ctx.stroke(); ctx.lineWidth = 1;
     }
+    if (!THUMB) hLegend(ctx, ANIM_LEG, 10, hFull - legH + 2, w - 20, true);
     // 단계 설명
     const m = sim.mech, last = sim.done();
     let t;
@@ -96,7 +117,8 @@
   // ---------- ② 어디로 갔나 ----------
   function drawDist() {
     const cv = $('c-dist'), cw = cv.clientWidth || 600, mobile = cw < 560;
-    const c = L.chart(cv, mobile ? 0.8 : 0.42, { l: mobile ? 66 : 84, r: 12, t: 10, b: 28 }), { ctx, m, pw, ph } = c, N = S.N, M = S.M;
+    const tmp = L.chart(cv, 1, {}); const lh = hLegend(tmp.ctx, LEG5, 0, 0, tmp.w - 16, false);
+    const c = L.chart(cv, mobile ? 0.8 : 0.42, { l: mobile ? 92 : 84, r: 12, t: 24, b: 40 + lh + 4 }), { ctx, m, pw, ph } = c, N = S.N, M = S.M;
     const rowH = ph / 4, bh = rowH * 0.62;
     A.MECHS.forEach((mech, k) => {
       const dist = cmp[mech].dist, y = m.t + k * rowH + (rowH - bh) / 2, sel = mech === sim.mech;
@@ -112,17 +134,19 @@
       if (sel) { ctx.strokeStyle = css('--text'); ctx.lineWidth = 1.5; ctx.strokeRect(m.l - 0.5, y - 0.5, pw + 1, bh + 1); ctx.lineWidth = 1; }
     });
     ctx.fillStyle = css('--muted'); ctx.textAlign = 'center'; ctx.font = '12px ' + FONT;
-    [0, 0.25, 0.5, 0.75, 1].forEach((v) => ctx.fillText(pc(v), m.l + v * pw, c.h - 8));
+    [0, 0.25, 0.5, 0.75, 1].forEach((v) => ctx.fillText(pc(v), m.l + v * pw, m.t + ph + 16));
+    L.axisNames(c, '아이 비율 (%)', '배정 방식');
+    hLegend(ctx, LEG5, 8, m.t + ph + 26, c.w - 16, true);
   }
 
   // ---------- ③ 바꿔 적으면 이득? ----------
   function drawLie() {
     const cv = $('c-lie'), cw = cv.clientWidth || 600, mobile = cw < 560;
-    const c = L.chart(cv, mobile ? 0.8 : 0.42, { l: mobile ? 66 : 84, r: 12, t: 10, b: 28 }), { ctx, m, pw, ph } = c;
+    const c = L.chart(cv, mobile ? 0.8 : 0.42, { l: mobile ? 92 : 84, r: 12, t: 24, b: 40 }), { ctx, m, pw, ph } = c;
     const rowH = ph / 4, bh = rowH * 0.62, x1 = 1;
     const X = (v) => m.l + (v / x1) * pw;
     ctx.strokeStyle = css('--line'); ctx.fillStyle = css('--muted'); ctx.font = '12px ' + FONT; ctx.textAlign = 'center';
-    [0, 0.25, 0.5, 0.75, 1].forEach((v) => { ctx.beginPath(); ctx.moveTo(X(v), m.t); ctx.lineTo(X(v), m.t + ph); ctx.stroke(); ctx.fillText(pc(v), X(v), c.h - 8); });
+    [0, 0.25, 0.5, 0.75, 1].forEach((v) => { ctx.beginPath(); ctx.moveTo(X(v), m.t); ctx.lineTo(X(v), m.t + ph); ctx.stroke(); ctx.fillText(pc(v), X(v), m.t + ph + 16); });
     A.MECHS.forEach((mech, k) => {
       const y = m.t + k * rowH + (rowH - bh) / 2, sel = mech === sim.mech, r = lies[mech];
       ctx.textAlign = 'right'; ctx.fillStyle = css('--text'); ctx.font = (sel ? '700 ' : '') + '12px ' + FONT; ctx.fillText(MN[mech], m.l - 8, y + bh / 2 + 4);
@@ -134,27 +158,26 @@
       ctx.textAlign = r.share > 0.62 ? 'right' : 'left'; ctx.fillStyle = r.share > 0.62 ? '#fff' : css('--text'); ctx.font = '600 12px ' + FONT;
       ctx.fillText(`${pc(r.share)} (${r.gain}/${r.tested}명)`, tx, y + bh / 2 + 4);
     });
+    L.axisNames(c, '이득 보는 아이 (%)', '배정 방식');
   }
 
   // ---------- ④ 언제 솔직함이 손해가 될까 ----------
   const CX = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1];
   function drawSweep() {
     const cv = $('c-sweep'), cw = cv.clientWidth || 600, mobile = cw < 560;
-    const c = L.chart(cv, mobile ? 0.8 : 0.5, { l: 46, r: 16, t: 14, b: 40 }), { ctx, m, pw, ph } = c;
+    const c = L.chart(cv, mobile ? 0.8 : 0.5, { l: 46, r: 16, t: 24, b: 40 }), { ctx, m, pw, ph } = c;
     const mx = Math.max(0.4, ...sweep.map((d) => d.share)), y1 = Math.min(1, Math.ceil((mx + 0.05) * 5) / 5);
     const X = (v) => m.l + v * pw, Y = (v) => m.t + ph - (v / y1) * ph, yt = []; for (let v = 0; v <= y1 + 1e-9; v += 0.2) yt.push(v);
-    L.axes(c, { X, Y, yTicks: yt, yFmt: pc, xTicks: [0, 0.25, 0.5, 0.75, 1], xFmt: pc, xLabel: '아이들의 취향이 비슷한 정도 (높을수록 같은 곳을 원함)' });
+    L.axes(c, { X, Y, yTicks: yt, yFmt: pc, xTicks: [0, 0.25, 0.5, 0.75, 1], xFmt: pc, xLabel: '취향이 비슷한 정도 (%)', yLabel: '이득 보는 아이 (%)' });
     ctx.setLineDash([5, 3]); ctx.strokeStyle = '#1fa463'; ctx.lineWidth = 2.4; ctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(1), Y(0)); ctx.stroke(); ctx.setLineDash([]); ctx.lineWidth = 1;
-    ctx.fillStyle = '#1fa463'; ctx.textAlign = 'right'; ctx.font = '12px ' + FONT; L.label(ctx, '지연 수락·추첨 순번·선착순: 0%', X(1) - 4, Y(0) - 8, 'right');
     if (sweep.length) {
       L.line(ctx, sweep.map((d) => [X(d.x), Y(d.share)]), '#e5484d', 2.8);
       ctx.fillStyle = '#e5484d'; sweep.forEach((d) => { ctx.beginPath(); ctx.arc(X(d.x), Y(d.share), 3.4, 0, 7); ctx.fill(); });
-      const e = sweep[Math.min(sweep.length - 1, 6)]; ctx.textAlign = 'left'; ctx.font = '600 12px ' + FONT; ctx.fillStyle = '#e5484d';
-      if (sweep.length > 6) L.label(ctx, '보스턴', X(e.x) - 2, Y(e.share) - 10, 'left');
     }
     const cur = sim.params.c;
     L.vline(c, X(cur), css('--rich'), '지금 설정', cur > 0.6 ? 'right' : 'left');
-    if (sweep.length < CX.length) { ctx.fillStyle = css('--muted'); ctx.textAlign = 'right'; ctx.font = '12px ' + FONT; ctx.fillText('계산 중…', c.w - m.r, m.t + 12); }
+    if (sweep.length < CX.length) { ctx.fillStyle = css('--muted'); ctx.textAlign = 'right'; ctx.font = '12px ' + FONT; ctx.fillText('계산 중…', c.w - m.r, m.t + ph - 6); }
+    L.legend(c, [{ kind: 'line', color: '#e5484d', label: '보스턴 방식' }, { kind: 'dash', color: '#1fa463', label: '나머지 세 방식 (0%)' }], 'tl');
   }
 
   function renderStats() {

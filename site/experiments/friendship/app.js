@@ -17,7 +17,8 @@
 
   // ---------- ① 친구 관계망 ----------
   function drawNet() {
-    const c = L.chart($('c-net'), 0.74, { l: 14, r: 14, t: 12, b: 58 }), { ctx, w, h, m, pw, ph } = c;
+    const LEG = 80, cw0 = $('c-net').clientWidth || 600;   // 아래쪽 범례 자리
+    const c = L.chart($('c-net'), 0.74 + LEG / cw0, { l: 14, r: 14, t: 12, b: 58 + LEG }), { ctx, w, h, m, pw, ph } = c;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
     const { adj, lay, M } = sim, n = M.n;
     pos = []; for (let i = 0; i < n; i++) pos.push([m.l + lay.x[i] * pw, m.t + lay.y[i] * ph]);
@@ -50,6 +51,9 @@
       ctx.beginPath(); ctx.arc(pos[sim.lastFriend][0], pos[sim.lastFriend][1], rad(sim.lastFriend) + 3.5, 0, 7); ctx.stroke();
       ctx.setLineDash([]); ctx.lineWidth = 1;
     }
+    L.legend({ ctx, w, m: { l: 8, t: h - 58 - LEG, r: 0, b: 0 }, pw: w - 8, ph: LEG }, [
+      { kind: 'dot', color: '#e0a100', label: '선택한 사람의 친구' }, { kind: 'dot', color: css('--unlucky'), label: '선택한 사람' },
+      { kind: 'line', color: css('--text'), label: '표본: 무작위 사람' }, { kind: 'dash', color: '#a06b00', label: '표본: 그 사람이 말한 친구' }], 'tl');
     ctx.textAlign = 'left';
     if (sel >= 0) {
       ctx.font = FONTB; ctx.fillStyle = M.fr[sel] > M.deg[sel] ? css('--unlucky') : css('--lucky');
@@ -69,7 +73,7 @@
     d.forEach((v) => { counts[Math.max(0, Math.min(nb - 1, Math.floor((v - lo) / bw)))]++; });
     const cmax = Math.max(...counts), X = (v) => m.l + ((v - lo) / (hi - lo)) * pw, Y = (v) => m.t + ph - (v / cmax) * ph;
     const step = (hi - lo) > 80 ? 20 : (hi - lo) > 40 ? 10 : 5, xt = []; for (let t = Math.ceil(lo / step) * step; t <= hi; t += step) xt.push(t);
-    L.axes(c, { X, Y, yTicks: [0, 0.5, 1].map((q) => q * cmax), yFmt: (v) => String(Math.round(v)), xTicks: xt, xFmt: (v) => (v > 0 ? '+' : '') + v, xLabel: '친구들의 평균 친구 수 − 내 친구 수 (명)' });
+    L.axes(c, { X, Y, yTicks: [0, 0.5, 1].map((q) => q * cmax), yFmt: (v) => String(Math.round(v)), xTicks: xt, xFmt: (v) => (v > 0 ? '+' : '') + v, xLabel: '친구들의 평균 − 내 친구 수 (명)', yLabel: '사람 수 (명)' });
     counts.forEach((v, i) => {
       const mid = lo + (i + 0.5) * bw;
       ctx.fillStyle = mid > 0 ? mix(css('--unlucky'), 0.8) : mix(css('--lucky'), 0.8);
@@ -88,9 +92,8 @@
     let mx = 10; for (let i = 0; i < n; i++) mx = Math.max(mx, M.deg[i], M.fr[i]);
     const top = Math.log(mx * 1.15), X = (v) => m.l + (Math.log(v) / top) * pw, Y = (v) => m.t + ph - (Math.log(v) / top) * ph;
     const tk = [1, 2, 5, 10, 20, 50, 100, 200].filter((v) => v <= mx * 1.1);
-    L.axes(c, { X, Y, yTicks: tk, yFmt: String, xTicks: tk, xFmt: String, xLabel: '내 친구 수 (명, 로그 눈금)' });
+    L.axes(c, { X, Y, yTicks: tk, yFmt: String, xTicks: tk, xFmt: String, xLabel: '내 친구 수 (명)', yLabel: '친구들의 평균 친구 수 (명)' });
     ctx.strokeStyle = css('--text'); ctx.setLineDash([5, 4]); ctx.beginPath(); ctx.moveTo(X(1), Y(1)); ctx.lineTo(X(Math.exp(top)), Y(Math.exp(top))); ctx.stroke(); ctx.setLineDash([]);
-    ctx.save(); ctx.fillStyle = css('--text'); ctx.textAlign = 'right'; ctx.fillText('친구 수가 같은 선', X(Math.exp(top * 0.97)) - 4, Y(Math.exp(top * 0.97)) + 16); ctx.restore();
     const jit = FR.mulberry32(5);
     for (let i = 0; i < n; i++) {
       const up = M.fr[i] > M.deg[i], x = X(M.deg[i]) + (jit() - 0.5) * 7;
@@ -98,9 +101,7 @@
       ctx.beginPath(); ctx.arc(x, Y(Math.max(1, M.fr[i])), 3, 0, 7); ctx.fill();
     }
     if (sel >= 0) { ctx.lineWidth = 2.4; ctx.strokeStyle = css('--text'); ctx.beginPath(); ctx.arc(X(M.deg[sel]), Y(M.fr[sel]), 7, 0, 7); ctx.stroke(); ctx.lineWidth = 1; }
-    ctx.textAlign = 'left'; ctx.fillStyle = css('--unlucky'); ctx.fillText('위: 친구들이 더 많음', m.l + 6, m.t + 14);
-    ctx.fillStyle = css('--lucky'); ctx.fillText('아래: 내가 더 많음', m.l + pw - 118, m.t + ph - 8);
-    ctx.save(); ctx.translate(12, m.t + ph / 2); ctx.rotate(-Math.PI / 2); ctx.textAlign = 'center'; ctx.fillStyle = css('--muted'); ctx.fillText('친구들의 평균 친구 수 (명)', 0, 0); ctx.restore();
+    L.legend(c, [{ kind: 'dot', color: css('--unlucky'), label: '위: 친구들이 더 많음' }, { kind: 'dot', color: css('--lucky'), label: '아래: 내가 더 많음' }, { kind: 'dash', color: css('--text'), label: '친구 수가 같은 선' }], 'br');
   }
 
   // ---------- ④ 허브가 많을수록 ----------
@@ -108,7 +109,8 @@
     L.dots($('c-sweep'), {
       data: rows[0] ? rows[0].pts : [], y0: 0.4, y1: 1, yFmt: (v) => Math.round(v * 100) + '%',
       series: rows.slice(1).map((r) => ({ data: r.pts, color: r.color })),
-      x0: 0, x1: 1, xTicks: [0, 0.25, 0.5, 0.75, 1], xFmt: (v) => Math.round(v * 100) + '%', xLabel: '허브 쏠림 (친구 많은 사람에게 몰리는 정도)',
+      x0: 0, x1: 1, xTicks: [0, 0.25, 0.5, 0.75, 1], xFmt: (v) => Math.round(v * 100) + '%', xLabel: '인기인 쏠림 (%)', yLabel: '친구들이 더 많은 사람 (%)',
+      legend: [{ kind: 'line', color: css('--accent'), label: '평균 친구 4명' }, { kind: 'line', color: '#1fa463', label: '평균 친구 8명' }, { kind: 'line', color: '#7c5cff', label: '평균 친구 12명' }], legendPos: 'br',
       refs: [{ y: 0.5, label: '절반', color: '#8a93a6' }], marker: { x: sim.params.hub, label: '지금 설정' },
     });
   }
@@ -138,7 +140,7 @@
     })));
     L.jobs(jobs, drawSweep, () => {
       const a = rows[0].pts[0].mean, b = rows[0].pts[rows[0].pts.length - 1].mean;
-      $('note-s').textContent = `허브 쏠림이 0%이면 ${pc(a)}, 100%이면 ${pc(b)}입니다 (파랑 선, 평균 친구 4명)`;
+      $('note-s').textContent = `인기인 쏠림이 0%이면 ${pc(a)}, 100%이면 ${pc(b)}입니다 (파랑 선, 평균 친구 4명)`;
     });
   }
 

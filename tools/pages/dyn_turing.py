@@ -17,4 +17,9 @@ DYN = {
 '한 단계에 {#0}번씩 계산': '{0} calculations per step',
 '가장 가까운 무늬 설정': 'Closest pattern setting',
 '씨앗 배치': 'Seed layout',
+'진행한 횟수 (번)': 'Iterations',
+'무늬 면적 · 평균 v (값)': 'Pattern area · mean v',
+'무늬 면적 (비율)': 'Pattern area (share)',
+'무늬 종류': 'Pattern type',
+'지금 설정 (붉은 원)': 'Current setting (ring)',
 }

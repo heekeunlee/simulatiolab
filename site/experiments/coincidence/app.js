@@ -22,7 +22,7 @@
     const cv = $('c-room'), cw = cv.clientWidth || 600, cols = 50, cell = Math.min(14, (cw - 28) / cols);
     const wh = THUMB ? 0 : Math.ceil(sim.params.rounds / cols) * cell + 30; // 아래: 지금까지 모임 기록 (칸 하나 = 모임 하나)
     const ringH = THUMB ? cw : Math.min(cw * 0.78, 560);
-    const c = L.chart(cv, (ringH + wh + (THUMB ? 0 : 100)) / cw, { l: 14, r: 14, t: THUMB ? 8 : 34, b: THUMB ? 8 : wh + 66 }), { ctx, w, h, m, pw, ph } = c;
+    const c = L.chart(cv, (ringH + wh + (THUMB ? 0 : 82)) / cw, { l: 14, r: 14, t: THUMB ? 8 : 34, b: THUMB ? 8 : wh + 48 }), { ctx, w, h, m, pw, ph } = c;
     const P = sim.params, a = sim.last;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
     ctx.textAlign = 'left'; ctx.fillStyle = css('--text'); ctx.font = '600 13px ' + FONT;
@@ -69,9 +69,8 @@
         ctx.fillStyle = css('--muted'); ctx.font = '12px ' + FONT;
         const ex = a.pairs.find((q) => q.a === 0) || a.pairs[0];
         ctx.fillText(!ex ? '이번 모임에는 일치하는 쌍이 없어요' : ex.a === 0 ? `예: 나 ↔ ${ex.b}번 · 같은 ${ATTRS[ex.attrs[0]]}` : `예: ${ex.a}번 ↔ ${ex.b}번 · 같은 ${ATTRS[ex.attrs[0]]}`, m.l, ty + 18);
-        ctx.fillText(w < 440 ? '실: 가능한 짝 · 파랑: 일치 · 빨강: 나와 일치' : '옅은 실: 가능한 모든 짝 · 파란 선: 일치한 쌍 · 붉은 선: 나와 일치', m.l, ty + 36);
         // 지금까지 모임 기록: 칸 하나가 모임 하나 (파랑 = 어딘가에서 일치, 빨강 테두리 = 나와 일치)
-        const wy = ty + 58;
+        const wy = ty + 40;
         ctx.font = '600 12px ' + FONT; ctx.fillStyle = css('--text');
         ctx.fillText(`지금까지 ${sim.round}번 중 ${sim.anyN}번 일치 (${pc(sim.anyShare())}) · 계산값 ${pc(CO.theoryAny(n, P.k, P.pool))}`, m.l, wy);
         for (let k = 0; k < P.rounds; k++) {
@@ -82,14 +81,15 @@
         }
       }
     }
+    if (!THUMB && a) L.legend(c, [{ kind: 'line', color: '#b3b9c7', label: '가능한 모든 짝 (옅은 실)' }, { kind: 'line', color: css('--accent'), label: '일치한 쌍' }, { kind: 'line', color: css('--unlucky'), label: '나와 일치' }, { kind: 'box', color: css('--accent'), label: '일치가 있던 모임 (아래 칸)' }, { kind: 'box', color: '#c3cad6', label: '일치가 없던 모임 (아래 칸)' }].slice(0, w < 440 ? 3 : 5), 'bl');
     $('when').textContent = `${sim.round}/${P.rounds}번 · 일치가 있던 모임 ${pc(sim.anyShare())}`;
   }
 
   // ---------- 공통: 확률-인원 그래프 틀 ----------
   function frame(canvas, x1, xticks, aspect) {
-    const c = L.chart(canvas, aspect || 0.62, { b: 40, r: 14, t: 14 }), { ctx, m, pw, ph } = c;
+    const c = L.chart(canvas, aspect || 0.62, { b: 40, r: 14 }), { ctx, m, pw, ph } = c;
     const X = (v) => m.l + ((v - 2) / (x1 - 2)) * pw, Y = (v) => m.t + ph - v * ph;
-    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: L.pct, xTicks: xticks, xFmt: (v) => v + '명', xLabel: '모인 사람 수' });
+    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: L.pct, xTicks: xticks, xFmt: (v) => v + '명', xLabel: '모인 사람 수 (명)', yLabel: '확률 (%)' });
     ctx.setLineDash([5, 3]); ctx.strokeStyle = '#8a93a6'; ctx.beginPath(); ctx.moveTo(m.l, Y(0.5)); ctx.lineTo(m.l + pw, Y(0.5)); ctx.stroke(); ctx.setLineDash([]);
     return { c, X, Y };
   }
@@ -108,6 +108,7 @@
     curve((n) => CO.theoryAny(n, P.k, P.pool), NMAX, X, Y, ctx, css('--accent'), 2.6);
     simDots(rowsA, 'any', X, Y, ctx, css('--accent'));
     L.vline(c, X(P.n), css('--rich'), '지금 설정', P.n > 50 ? 'right' : 'left');
+    L.legend(c, [{ kind: 'line', color: css('--accent'), label: '지금 설정 (선: 계산, 점: 직접 돌림)' }, { kind: 'dash', color: css('--muted'), label: '생일만 (계산)' }], 'br');
   }
   // ---------- ③ 어딘가 vs 나와 ----------
   function drawB() {
@@ -117,20 +118,19 @@
     curve((n) => CO.theoryMe(n, 1, P.pool), X1, X, Y, ctx, css('--unlucky'), 1.8, [6, 4]);
     simDots(rowsB, 'any', X, Y, ctx, css('--accent')); simDots(rowsB, 'me', X, Y, ctx, css('--unlucky'));
     L.vline(c, X(P.n), css('--rich'), '지금 설정', P.n > X1 / 2 ? 'right' : 'left');
+    L.legend(c, [{ kind: 'line', color: css('--accent'), label: '어딘가에서 일치' }, { kind: 'line', color: css('--unlucky'), label: '나와 일치' }, { kind: 'dash', color: css('--unlucky'), label: '나와 일치, 생일만 (계산)' }], 'br');
   }
   // ---------- ④ 짝의 수 ----------
   function drawC() {
-    const P = sim.params, c = L.chart($('c-c'), 0.62, { b: 40, r: 14, t: 14 }), { ctx, m, pw, ph } = c;
+    const P = sim.params, c = L.chart($('c-c'), 0.62, { b: 40, r: 14 }), { ctx, m, pw, ph } = c;
     const ymax = 5000, X = (v) => m.l + ((v - 2) / (NMAX - 2)) * pw, Y = (v) => m.t + ph - (v / ymax) * ph;
-    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1].map((q) => q * ymax), yFmt: (v) => String(Math.round(v)), xTicks: [2, 23, 40, 60, 80, 100], xFmt: (v) => v + '명', xLabel: '모인 사람 수' });
+    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1].map((q) => q * ymax), yFmt: (v) => String(Math.round(v)), xTicks: [2, 23, 40, 60, 80, 100], xFmt: (v) => v + '명', xLabel: '모인 사람 수 (명)', yLabel: '개수 (명·쌍)' });
     const pts = (f) => { const a = []; for (let n = 2; n <= NMAX; n++) a.push([X(n), Y(f(n))]); return a; };
     L.line(ctx, pts((n) => n), css('--muted'), 2);
     L.line(ctx, pts((n) => CO.pairsOf(n)), css('--accent'), 2.6);
     L.line(ctx, pts((n) => CO.expectedPairs(n, P.k, P.pool)), css('--unlucky'), 2.6);
-    ctx.font = '12px ' + FONT; ctx.textAlign = 'right';
-    ctx.fillStyle = css('--accent'); ctx.fillText('가능한 짝', X(80) - 8, Y(CO.pairsOf(80)) - 4);
-    ctx.fillStyle = css('--muted'); ctx.fillText('사람', X(NMAX) - 6, Y(NMAX) - 6);
     L.vline(c, X(P.n), css('--rich'), '지금 설정', P.n > 50 ? 'right' : 'left');
+    L.legend(c, [{ kind: 'line', color: css('--muted'), label: '사람' }, { kind: 'line', color: css('--accent'), label: '가능한 짝' }, { kind: 'line', color: css('--unlucky'), label: '일치한 쌍의 평균 예상 수' }], 'tl');
   }
 
   function renderStats() {
@@ -139,7 +139,7 @@
       ['가능한 짝의 수', String(CO.pairsOf(P.n)), `${P.n}명이면 N(N−1)/2 쌍 · 나와의 짝은 ${P.n - 1}쌍`],
       ['어딘가에서 일치할 확률', pc(CO.theoryAny(P.n, k, P.pool)), sim.round ? `계산값 · 직접 돌린 ${sim.round}번 중 ${pc(sim.anyShare())}` : '계산값'],
       ['나와 일치할 확률', pc(CO.theoryMe(P.n, k, P.pool)), sim.round ? `계산값 · 직접 돌린 ${sim.round}번 중 ${pc(sim.meShare())}` : '계산값'],
-      ['일치한 쌍의 기댓값', CO.expectedPairs(P.n, k, P.pool).toFixed(2) + '쌍', `특징 ${k}가지 · 짝 하나가 일치할 확률 ${(CO.pairMatch(k, P.pool) * 100).toFixed(2)}%`],
+      ['일치한 쌍의 평균 예상 수', CO.expectedPairs(P.n, k, P.pool).toFixed(2) + '쌍', `특징 ${k}가지 · 짝 하나가 일치할 확률 ${(CO.pairMatch(k, P.pool) * 100).toFixed(2)}%`],
     ];
     $('stats').innerHTML = cards.map(([a, v, s]) => `<div class="stat"><div class="k">${a}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join('');
   }

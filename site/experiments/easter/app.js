@@ -48,27 +48,28 @@
     ctx.fillText(`${sim.year()}년`, 16, 40);
     ctx.font = '12.5px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillStyle = css('--muted');
     ctx.fillText(`인구 ${fmt(cur.P)}명 · 숲 ${pct(cur.R)}`, 16, 60);
-    ctx.textAlign = 'right'; ctx.fillText(`점 하나 ≈ ${fmt(scale)}명`, w - 14, h - 12);
+    L.legend(c, [{ kind: 'dot', color: '#23793f', label: '서 있는 나무' }, { kind: 'dot', color: 'rgba(122,80,42,.8)', label: '베어진 자리' }, { kind: 'dot', color: '#1e2a78', label: `사람 (점 하나 ≈ ${fmt(scale)}명)` }], 'br');
   }
 
   function drawTime() {
     const c = L.chart($('c-time'), 0.7, { r: 44 }), { ctx, m, pw, ph } = c, T = sim.years;
     const pmax = niceMax(Math.max(...sim.P, sim.Pstar * 1.1)), X = (t) => m.l + (t / T) * pw, Y = (v) => m.t + ph - (v / pmax) * ph, YR = (v) => m.t + ph - v * ph;
     const xt = []; for (let t = 0; t <= T; t += T / 6) xt.push(t);
-    L.axes(c, { X, Y, yTicks: ticks(pmax), yFmt: (v) => fmt(v), xTicks: xt, xFmt: (t) => Math.round(t) + '년', xLabel: '경과 시간' });
+    L.axes(c, { X, Y, yTicks: ticks(pmax), yFmt: (v) => fmt(v), xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '시간 (년)', yLabel: '인구 (명)' });
+    ctx.save(); ctx.fillStyle = '#2f8f4e'; ctx.textAlign = 'right'; ctx.font = '600 11.5px -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif'; ctx.fillText('남은 숲 (%)', c.w - 4, Math.max(12, m.t - 7)); ctx.restore();
     ctx.fillStyle = '#2f8f4e'; ctx.textAlign = 'left'; [0, 0.5, 1].forEach((v) => ctx.fillText(pct(v), m.l + pw + 6, YR(v) + 4));
     const step = sim.params.yearsPerStep;
     L.line(ctx, sim.R.map((v, i) => [X(i * step), YR(v)]), '#2f8f4e', 2.5);
     L.line(ctx, sim.P.map((v, i) => [X(i * step), Y(v)]), css('--accent'), 2.5);
     ctx.setLineDash([4, 3]); ctx.strokeStyle = css('--muted'); ctx.beginPath(); ctx.moveTo(m.l, Y(sim.Pstar)); ctx.lineTo(m.l + pw, Y(sim.Pstar)); ctx.stroke(); ctx.setLineDash([]);
-    ctx.fillStyle = css('--muted'); ctx.textAlign = 'left'; ctx.fillText('균형 인구', m.l + 6, Y(sim.Pstar) - 6);
     const pk = sim.peakP; if (pk > sim.params.p0 * 1.5) { ctx.fillStyle = css('--accent'); ctx.beginPath(); ctx.arc(X(sim.peakYear), Y(pk), 4.5, 0, 7); ctx.fill(); ctx.textAlign = 'center'; ctx.fillText('최고점', X(sim.peakYear), Y(pk) - 9); }
+    L.legend(c, [{ kind: 'line', color: css('--accent'), label: '인구' }, { kind: 'line', color: '#2f8f4e', label: '남은 숲' }, { kind: 'dash', color: css('--muted'), label: '균형 인구' }], 'tr');
   }
 
   function drawPhase() {
     const c = L.chart($('c-phase'), 0.85, { l: 56, b: 40 }), { ctx, m, pw, ph } = c, p = sim.params;
     const pmax = niceMax(Math.max(...sim.P, sim.Pstar * 1.2)), X = (v) => m.l + v * pw, Y = (v) => m.t + ph - (Math.min(v, pmax) / pmax) * ph;
-    L.axes(c, { X, Y, yTicks: ticks(pmax), yFmt: (v) => fmt(v), xTicks: [0, 0.25, 0.5, 0.75, 1], xFmt: pct, xLabel: '남은 숲의 비율' });
+    L.axes(c, { X, Y, yTicks: ticks(pmax), yFmt: (v) => fmt(v), xTicks: [0, 0.25, 0.5, 0.75, 1], xFmt: pct, xLabel: '남은 숲 (%)', yLabel: '인구 (명)' });
     ctx.setLineDash([5, 3]); ctx.lineWidth = 1.4;
     ctx.strokeStyle = css('--accent'); ctx.beginPath(); ctx.moveTo(X(sim.Rstar), m.t); ctx.lineTo(X(sim.Rstar), m.t + ph); ctx.stroke();
     ctx.strokeStyle = '#2f8f4e'; ctx.beginPath();
@@ -82,6 +83,7 @@
     ctx.fillStyle = '#1fa463'; ctx.beginPath(); ctx.arc(X(1), Y(sim.P[0]), 4.5, 0, 7); ctx.fill();
     ctx.fillStyle = css('--unlucky'); ctx.beginPath(); ctx.arc(X(sim.R[n - 1]), Y(sim.P[n - 1]), 5, 0, 7); ctx.fill();
     ctx.fillStyle = css('--text'); ctx.textAlign = 'center'; ctx.fillText('✕', X(sim.Rstar), Y(sim.Pstar) + 4);
+    L.legend(c, [{ kind: 'dot', color: '#1fa463', label: '출발' }, { kind: 'dot', color: css('--unlucky'), label: '지금' }], 'tl');
   }
 
   const noMark = (x) => ({ x, label: '지금 설정' });
@@ -89,14 +91,14 @@
     L.dots($('c-growth'), {
       data: sw.growth.map((d) => ({ x: d.x, runs: [], mean: d.ratio })),
       series: [{ data: sw.growth.map((d) => ({ x: d.x, runs: [], mean: d.minR })), color: '#2f8f4e' }],
-      x0: 0.035, x1: 0.1, xTicks: [0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1], xFmt: pct, xLabel: '인구가 늘어나는 속도 (숲이 온전할 때, 1년당)', marker: noMark(sim.params.growth),
+      x0: 0.035, x1: 0.1, xTicks: [0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1], xFmt: pct, xLabel: '증가 속도 (%/년)', yLabel: '비율 (%)', legendPos: 'tr', legend: [{ kind: 'line', color: css('--accent'), label: '마지막 인구 ÷ 최고 인구' }, { kind: 'line', color: '#2f8f4e', label: '숲이 가장 줄었을 때 남은 비율' }], marker: noMark(sim.params.growth),
     });
   }
   function drawSweepB() {
     L.dots($('c-regrow'), {
       data: sw.regrowth.map((d) => ({ x: d.x, runs: [], mean: d.ratio })),
       series: [{ data: sw.regrowth.map((d) => ({ x: d.x, runs: [], mean: d.minR })), color: '#2f8f4e' }],
-      x0: 0.005, x1: 0.08, xTicks: [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08], xFmt: pct, xLabel: '숲이 다시 자라는 속도 (1년당)', marker: noMark(sim.params.regrowth),
+      x0: 0.005, x1: 0.08, xTicks: [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08], xFmt: pct, xLabel: '회복 속도 (%/년)', yLabel: '비율 (%)', legendPos: 'br', legend: [{ kind: 'line', color: css('--accent'), label: '마지막 인구 ÷ 최고 인구' }, { kind: 'line', color: '#2f8f4e', label: '숲이 가장 줄었을 때 남은 비율' }], marker: noMark(sim.params.regrowth),
     });
   }
   function drawSweepC() {
@@ -104,7 +106,7 @@
     L.dots($('c-cons'), {
       data: sw.cons.map((d) => ({ x: d.x, runs: [], mean: d.peak })),
       series: [{ data: sw.cons.map((d) => ({ x: d.x, runs: [], mean: d.final })), color: '#e0a100' }],
-      x0: 0, x1: 0.8, y0: 0, y1: mx, yFmt: (v) => fmt(v), xTicks: [0, 0.2, 0.4, 0.6, 0.8], xFmt: pct, xLabel: '벌채를 줄인 비율 (보존)', marker: noMark(sim.params.conservation),
+      x0: 0, x1: 0.8, y0: 0, y1: mx, yFmt: (v) => fmt(v), xTicks: [0, 0.2, 0.4, 0.6, 0.8], xFmt: pct, xLabel: '보존 (%)', yLabel: '인구 (명)', legendPos: 'tr', legend: [{ kind: 'line', color: css('--accent'), label: '최고 인구' }, { kind: 'line', color: '#e0a100', label: '600년째 인구' }], marker: noMark(sim.params.conservation),
     });
   }
   const sweeps = () => { drawSweepA(); drawSweepB(); drawSweepC(); };
@@ -132,9 +134,7 @@
     [5, 10, 15, 20, 30, 40, 50, 60, 70, 80].forEach((r) => jobs.push(() => { const s = ES.outcomeOf(Object.assign({}, P, { regrowth: r / 1000 })); sw.regrowth.push({ x: r / 1000, ratio: s.ratio, minR: s.minR }); }));
     for (let c = 0; c <= 80; c += 10) jobs.push(() => { const s = ES.outcomeOf(Object.assign({}, P, { conservation: c / 100 })); sw.cons.push({ x: c / 100, peak: s.peak, final: s.final }); });
     L.jobs(jobs, sweeps, () => {
-      $('note-growth').textContent = '파랑: 마지막 인구 ÷ 최고 인구 (1이면 줄지 않음), 초록: 숲이 가장 줄었을 때 남은 비율';
-      $('note-regrow').textContent = '파랑: 마지막 인구 ÷ 최고 인구, 초록: 숲이 가장 줄었을 때 남은 비율';
-      $('note-cons').textContent = '파랑: 최고 인구(명), 금색: 600년째 인구(명)';
+      ['note-growth', 'note-regrow', 'note-cons'].forEach((id) => { $(id).textContent = ''; });
     });
   }
 

@@ -24,7 +24,7 @@
     const cv = $('c-pyramid'), W = cv.clientWidth || 400, labW = W < 520 ? 52 : 74;
     const rowsOf = (lv) => Math.ceil(lv.length / PER_ROW);
     const nRows = sim.levels.reduce((t, lv) => t + rowsOf(lv), 0), gaps = sim.levels.length - 1;
-    const cell = Math.min(THUMB ? 40 : 30, (W - labW - 16) / PER_ROW), lg = cell * 0.55, need = nRows * cell + gaps * lg + 24;
+    const cell = Math.min(THUMB ? 40 : 30, (W - labW - 16) / PER_ROW), lg = cell * 0.55, legH = THUMB ? 0 : 64, need = nRows * cell + gaps * lg + 24 + legH;
     const c = L.chart(cv, THUMB ? 1 : need / W, { l: 0, r: 0, t: 0, b: 0 });
     const { ctx, w, h } = c;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
@@ -43,6 +43,7 @@
       });
       y += nr * cell + lg;
     });
+    if (!THUMB) L.legend({ ctx, w, m: { l: 8, t: 0, r: 8, b: 0 }, pw: w - 16, ph: h - 4 }, [{ kind: 'dot', color: color(9.5), label: '능력 높음' }, { kind: 'dot', color: color(7), label: '처음 평균 (7)' }, { kind: 'dot', color: color(3.5), label: '능력 낮음' }], 'br');
     const e = sim.efficiency();
     $('when').textContent = `${sim.year}년째 · 조직 효율 ${e.toFixed(2)}`;
   }
@@ -54,15 +55,15 @@
     const X = (t) => m.l + (t / T) * pw, Y = (v) => m.t + ph - ((v - lo) / (hi - lo)) * ph;
     const yt = []; for (let v = lo; v <= hi; v++) yt.push(v);
     const xt = []; for (let t = 0; t <= T; t += T / 5) xt.push(t);
-    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => v.toFixed(0), xTicks: xt, xFmt: (t) => Math.round(t) + '년', xLabel: '경과 시간' });
+    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => v.toFixed(0), xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '경과 시간 (년)', yLabel: '조직 효율' });
     ctx.setLineDash([5, 3]); ctx.strokeStyle = css('--muted'); ctx.beginPath(); ctx.moveTo(m.l, Y(H[0])); ctx.lineTo(m.l + pw, Y(H[0])); ctx.stroke(); ctx.setLineDash([]);
-    ctx.fillStyle = css('--muted'); ctx.textAlign = 'left'; ctx.fillText('처음 수준', m.l + 6, Y(H[0]) - 6);
-    L.line(ctx, H.map((v, t) => [X(t), Y(v)]), css('--accent'), 2.5);
+        L.line(ctx, H.map((v, t) => [X(t), Y(v)]), css('--accent'), 2.5);
     const last = H.length - 1; ctx.fillStyle = css('--accent'); ctx.beginPath(); ctx.arc(X(last), Y(H[last]), 4.5, 0, 7); ctx.fill();
+    L.legend(c, [{ kind: 'line', color: css('--accent'), label: '조직 효율' }, { kind: 'dash', color: css('--muted'), label: '처음 수준' }], H[last] > H[0] ? 'br' : 'tr');
   }
 
   function drawLevels() {
-    const c = L.chart($('c-levels'), 0.62, { l: 64, r: 16, t: 12, b: 30 });
+    const c = L.chart($('c-levels'), 0.62, { l: 64, r: 30, t: 24, b: 36 });
     const { ctx, w, m, pw, ph } = c, means = sim.levelMeans(), n = means.length;
     const X = (v) => m.l + (v / 10) * pw, rowH = ph / n;
     ctx.strokeStyle = css('--line'); ctx.fillStyle = css('--muted'); ctx.textAlign = 'center';
@@ -74,13 +75,15 @@
       ctx.textAlign = 'left'; ctx.fillStyle = css('--text'); ctx.fillText(v.toFixed(1), X(v) + 6, y + hh / 2 + 4);
     });
     ctx.setLineDash([4, 3]); ctx.strokeStyle = css('--text'); ctx.beginPath(); ctx.moveTo(X(7), m.t); ctx.lineTo(X(7), m.t + ph); ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle = css('--text'); ctx.textAlign = 'center'; ctx.fillText('처음 평균 7', X(7), m.t - 7);
+    L.axisNames(c, '평균 능력', null);
   }
 
   function drawCmp() {
     const c = L.chart($('c-cmp'), 0.7, { b: 52, t: 16 });
     const { ctx, m, pw, ph } = c;
-    const lo = 3, hi = 10, Y = (v) => m.t + ph - ((v - lo) / (hi - lo)) * ph;
-    L.axes(c, { X: () => 0, Y, yTicks: [3, 5, 7, 9], yFmt: (v) => v.toFixed(0) });
+    const lo = 3, hi = 13, Y = (v) => m.t + ph - ((v - lo) / (hi - lo)) * ph;
+    L.axes(c, { X: () => 0, Y, yTicks: [3, 5, 7, 9, 11], yFmt: (v) => v.toFixed(0), yLabel: '조직 효율' });
     const gw = pw / ORDER.length, bw = Math.min(34, gw * 0.3);
     ORDER.forEach((k, i) => {
       const cx = m.l + gw * i + gw / 2;
@@ -94,6 +97,7 @@
     });
     ctx.setLineDash([4, 3]); ctx.strokeStyle = css('--muted'); ctx.beginPath(); ctx.moveTo(m.l, Y(7)); ctx.lineTo(m.l + pw, Y(7)); ctx.stroke(); ctx.setLineDash([]);
     ctx.fillStyle = css('--muted'); ctx.textAlign = 'center'; ctx.font = '11px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillText('처음 7.0', m.l + gw * 2, Y(7) + 13); // 막대 사이 빈 곳, 선 아래에
+    L.legend(c, [{ kind: 'box', color: '#2f6fed', label: '상식 가설 (이어질 확률 100%)' }, { kind: 'box', color: '#e5484d', label: '피터 가설 (이어질 확률 0%)' }], 'tr');
   }
 
   function renderStats() {

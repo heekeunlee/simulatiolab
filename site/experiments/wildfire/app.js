@@ -12,6 +12,18 @@
   const BIG = 0.1; // 큰 불: 숲 칸의 10% 이상
   const pct0 = (v) => Math.round(v * 100) + '%';
   const off = document.createElement('canvas');
+  // 가로로 늘어놓는 그래프 안 범례(색 칸 설명용). draw=false이면 높이만 잰다
+  function hLegend(ctx, items, x0, y0, maxW, draw) {
+    ctx.save(); ctx.font = '11.5px ' + FONT; let x = x0, y = y0, rows = 1;
+    items.forEach((it) => {
+      const tw = ctx.measureText(it.label).width, iw = 16 + tw + 12;
+      if (x > x0 && x + iw > x0 + maxW) { x = x0; y += 16; rows++; }
+      if (draw) { ctx.fillStyle = it.color; ctx.fillRect(x, y + 1, 12, 10); ctx.fillStyle = css('--text'); ctx.textAlign = 'left'; ctx.fillText(it.label, x + 16, y + 10.5); }
+      x += iw;
+    });
+    ctx.restore(); return rows * 16;
+  }
+  const FOREST_LEG = [{ color: 'rgb(150,214,120)', label: '어린 나무' }, { color: 'rgb(20,108,50)', label: '오래된 나무' }, { color: '#ffa028', label: '번지는 불꽃' }, { color: '#2e2a24', label: '탄 자리·빈 땅' }];
 
   // ---------- 격자 그림 ----------
   function paint(sim, ctx, x, y, size) {
@@ -34,7 +46,7 @@
 
   function drawForest() {
     const cv = $('c-forest'), cw = cv.clientWidth || 600, gap = 12, side = Math.min(330, Math.floor((cw - gap) / 2)), ox = Math.floor((cw - 2 * side - gap) / 2);
-    const head = 40, foot = 40, c = L.chart(cv, (side + head + foot) / cw, { l: 0, r: 0, t: 0, b: 0 }), { ctx, w } = c;
+    const head = 40, tmp = L.chart(cv, 1, {}), lh = THUMB ? 0 : hLegend(tmp.ctx, FOREST_LEG, 0, 0, cw - 20, false), foot = THUMB ? 40 : 46 + lh + 4, c = L.chart(cv, (side + head + foot) / cw, { l: 0, r: 0, t: 0, b: 0 }), { ctx, w } = c;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, c.h);
     const P = B.P, sims = [[A, 0, '그냥 두기', C_FREE], [B, 1, `작은 불 끄기 ${pct0(P.s)}`, C_SUP]];
     sims.forEach(([sim, k, title, col]) => {
@@ -52,47 +64,48 @@
         ctx.fillStyle = css('--muted'); ctx.fillText(k ? `끈 불 ${sim.suppressed}번` : (lf ? `방금 ${lf.size}그루 탐` : '방금 불: 없음'), x + 2, head + side + 33);
       }
     });
+    if (!THUMB) hLegend(ctx, FOREST_LEG, 10, head + side + 44, w - 20, true);
   }
 
   // ---------- 차트 공통 ----------
-  function stepChart(id, y0, y1, yt, yfmt) {
-    const n = Math.max(A.dens.length, 60), c = L.chart($(id), 0.5, { l: 46, r: 14, t: 16, b: 38 }), { m, pw, ph } = c;
+  function stepChart(id, y0, y1, yt, yfmt, yName) {
+    const n = Math.max(A.dens.length, 60), c = L.chart($(id), 0.72, { l: 46, r: 14, t: 24, b: 38 }), { m, pw, ph } = c;
     const X = (v) => m.l + (v / n) * pw, Y = (v) => m.t + ph - ((v - y0) / (y1 - y0)) * ph;
     const xt = []; const stp = n > 600 ? 200 : n > 240 ? 100 : 50; for (let v = 0; v <= n; v += stp) xt.push(v);
-    L.axes(c, { X, Y, yTicks: yt, yFmt: yfmt, xTicks: xt, xFmt: (v) => v, xLabel: '단계 (시간)' });
+    L.axes(c, { X, Y, yTicks: yt, yFmt: yfmt, xTicks: xt, xFmt: (v) => v, xLabel: '시간 (단계)', yLabel: yName });
     return { c, X, Y };
   }
 
   function drawDens() {
-    const { c, X, Y } = stepChart('c-dens', 0, 0.8, [0, 0.2, 0.4, 0.6, 0.8], (v) => Math.round(v * 100) + '%'), { ctx, m, pw } = c;
+    const { c, X, Y } = stepChart('c-dens', 0, 0.8, [0, 0.2, 0.4, 0.6, 0.8], (v) => String(Math.round(v * 100)), '나무 밀도 (%)'), { ctx, m, pw } = c;
     ctx.setLineDash([5, 3]); ctx.strokeStyle = C_GRAY; ctx.beginPath(); ctx.moveTo(m.l, Y(0.5927)); ctx.lineTo(m.l + pw, Y(0.5927)); ctx.stroke(); ctx.setLineDash([]);
-    ctx.fillStyle = C_GRAY; ctx.textAlign = 'right'; L.label(ctx, '이 밀도를 넘으면 불이 숲 전체로 번질 수 있음 (약 59%)', m.l + pw - 4, Y(0.5927) - 5, 'right');
     const ln = (sim, col) => L.line(ctx, sim.dens.map((v, i) => [X(i + 1), Y(v)]), col, 2);
     ln(A, C_FREE); ln(B, C_SUP);
+    L.legend(c, [{ kind: 'line', color: C_FREE, label: '그냥 두기' }, { kind: 'line', color: C_SUP, label: '작은 불 끄기' }, { kind: 'dash', color: C_GRAY, label: '숲 전체로 번지는 밀도 (약 59%)' }], 'br');
   }
 
   function drawSize() {
     const cv = $('c-size');
     if (!pre) { const c = L.chart(cv, 0.6, {}); c.ctx.fillStyle = css('--muted'); c.ctx.textAlign = 'center'; c.ctx.fillText('계산 중…', c.w / 2, c.h / 2); return; }
-    const c = L.chart(cv, 0.62, { l: 52, r: 14, t: 16, b: 40 }), { ctx, m, pw, ph } = c, N = pre.N;
+    const c = L.chart(cv, 0.62, { l: 52, r: 14, t: 24, b: 40 }), { ctx, m, pw, ph } = c, N = pre.N;
     const x0 = 0, x1 = Math.log10(N), ymin = -1, ymax = Math.ceil(Math.log10(Math.max(1, pre.ymax)));
     const X = (v) => m.l + ((Math.log10(Math.max(1, v)) - x0) / (x1 - x0)) * pw, Y = (v) => m.t + ph - ((Math.log10(Math.max(v, 0.1)) - ymin) / (ymax - ymin)) * ph;
     const yt = []; for (let e = ymin; e <= ymax; e++) yt.push(Math.pow(10, e));
     const xt = [1, 10, 100, 1000, N].filter((v) => v <= N);
-    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => (v >= 1 ? String(Math.round(v)) : '0.1'), xTicks: xt, xFmt: (v) => (v === N ? '전부' : v >= 1000 ? v / 1000 + '천' : v), xLabel: '불이 태운 나무 수 (로그 눈금)' });
+    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => (v >= 1 ? String(Math.round(v)) : '0.1'), xTicks: xt, xFmt: (v) => (v === N ? '전부' : v >= 1000 ? v / 1000 + '천' : v), xLabel: '불이 태운 나무 수 (그루, 로그 눈금)', yLabel: '불 횟수 (1,000단계당)' });
     const bx = X(BIG * N), sx = X(pre.smallMax);
     ctx.fillStyle = 'rgba(229,72,77,0.07)'; ctx.fillRect(bx, m.t, m.l + pw - bx, ph);
     ctx.setLineDash([3, 3]); ctx.strokeStyle = C_GRAY; ctx.beginPath(); ctx.moveTo(sx, m.t); ctx.lineTo(sx, m.t + ph); ctx.stroke(); ctx.setLineDash([]);
-    ctx.fillStyle = C_GRAY; ctx.textAlign = 'left'; ctx.fillText('소방이 끌 수 있는 크기', Math.min(sx + 4, m.l + pw - 120), m.t + ph - 6);
-    ctx.fillStyle = C_FREE; ctx.textAlign = 'right'; ctx.fillText('큰 불', m.l + pw - 4, m.t + 12);
     const draw = (arr, col) => { const pts = []; pre.xs.forEach((x, i) => { if (arr[i] > 0) pts.push([X(x), Y(arr[i])]); }); L.line(ctx, pts, col, 2.6); };
     draw(pre.cA, C_FREE); draw(pre.cB, C_SUP);
+    L.legend(c, [{ kind: 'line', color: C_FREE, label: '그냥 두기' }, { kind: 'line', color: C_SUP, label: '작은 불 끄기' }, { kind: 'dash', color: C_GRAY, label: '소방이 끌 수 있는 크기' }, { kind: 'box', color: 'rgba(229,72,77,0.25)', label: '큰 불 (붉은 영역)' }], 'bl');
   }
 
   function drawArea() {
     const cv = $('c-area');
     if (!pre) { const c = L.chart(cv, 0.4, {}); c.ctx.fillStyle = css('--muted'); c.ctx.textAlign = 'center'; c.ctx.fillText('계산 중…', c.w / 2, c.h / 2); return; }
-    const c = L.chart(cv, 0.7, { l: 12, r: 12, t: 12, b: 16 }), { ctx, m, pw, ph } = c;
+    const tmp = L.chart(cv, 1, {}), lh = hLegend(tmp.ctx, [{ label: '작은 불 (숲의 1% 미만)' }, { label: '중간 불' }, { label: '큰 불 (숲의 10% 이상)' }], 0, 0, cv.clientWidth - 24, false);
+    const c = L.chart(cv, 0.7, { l: 12, r: 12, t: 12, b: 16 + lh + 8 }), { ctx, m, pw, ph } = c;
     const cols = ['#9bd3ae', '#f2b24c', C_FREE], names = ['작은 불 (숲의 1% 미만)', '중간 불', '큰 불 (숲의 10% 이상)'];
     const mx = Math.max(pre.sA.burnPerStep, pre.sB.burnPerStep) * 1.08, rows = [[pre.sA, '그냥 두기', C_FREE], [pre.sB, `작은 불 끄기 ${pct0(pre.s)}`, C_SUP]];
     const bh = Math.min(54, ph / 2 - 36);
@@ -107,6 +120,7 @@
       });
       ctx.fillStyle = css('--text'); ctx.textAlign = 'left'; ctx.fillText(`매 단계 숲의 ${(st.burnPerStep * 100).toFixed(2)}% 탐`, m.l, y + bh + 15);
     });
+    hLegend(ctx, names.map((label, k) => ({ label, color: cols[k] })), m.l, m.t + ph + 8, c.w - 24, true);
   }
 
   // ---------- 통계 카드 ----------

@@ -31,7 +31,7 @@
   // ---------- ① 단기금리 경로 부채꼴 ----------
   function drawFan() {
     const cw = $('c-fan').clientWidth || 600, asp = THUMB ? 1 : cw < 560 ? 0.85 : 0.56;
-    const c = L.chart($('c-fan'), asp, { l: 44, r: 14, t: 16, b: THUMB ? 12 : 40 }), { ctx, w, h, m, pw, ph } = c;
+    const c = L.chart($('c-fan'), asp, { l: 44, r: 14, t: THUMB ? 16 : 24, b: THUMB ? 12 : 40 }), { ctx, w, h, m, pw, ph } = c;
     const q = sim.q, M = sim.months(), sr = series();
     // 세로 범위: 이론상 넓게 펼쳐질 범위(평균 ± 2.7 표준편차)와 지금까지 그려진 값을 모두 담는다
     let lo = Infinity, hi = -Infinity;
@@ -45,7 +45,7 @@
     if (!THUMB) {
       const yt = []; for (let v = Math.ceil(y0 / step) * step; v <= y1; v += step) yt.push(v);
       const xt = []; for (let yr = 0; yr * 12 <= M; yr += 2) xt.push(yr);
-      L.axes(c, { X: (yr) => X(yr * 12), Y: (v) => Y(v / 100), yTicks: yt, yFmt: (v) => v + '%', xTicks: xt, xFmt: (v) => v + '년', xLabel: '시간 (년)' });
+      L.axes(c, { X: (yr) => X(yr * 12), Y: (v) => Y(v / 100), yTicks: yt, yFmt: (v) => v + '%', xTicks: xt, xFmt: (v) => v + '년', xLabel: '시간 (년)', yLabel: '금리 (%)' });
       if (y0 < 0) { ctx.strokeStyle = css('--muted'); ctx.beginPath(); ctx.moveTo(m.l, Y(0)); ctx.lineTo(m.l + pw, Y(0)); ctx.stroke(); }
     }
     const band = (a, b, alpha) => {
@@ -65,7 +65,6 @@
     // 장기 평균
     if (!THUMB) {
       ctx.setLineDash([2, 4]); ctx.strokeStyle = GRAY; ctx.beginPath(); ctx.moveTo(m.l, Y(q.b)); ctx.lineTo(m.l + pw, Y(q.b)); ctx.stroke(); ctx.setLineDash([]);
-      ctx.font = '12px ' + FONT; ctx.fillStyle = GRAY; ctx.textAlign = 'right'; L.label(ctx, `장기 평균 ${f1(q.b * 100)}%`, m.l + pw - 4, Y(q.b) - 5, 'right');
     }
     // 충격 표시
     if (!THUMB) sim.shocks.forEach((s) => L.vline(c, X(s.month), css('--unlucky'), `충격 +${f1(s.dr * 100)}%p`, s.month > M / 2 ? 'right' : 'left'));
@@ -74,24 +73,20 @@
     const e = sr.mean.length - 1;
     ctx.fillStyle = css('--accent'); ctx.beginPath(); ctx.arc(X(e), Y(sr.mean[e]), 4, 0, 7); ctx.fill();
     ctx.fillStyle = RED; ctx.beginPath(); ctx.arc(X(e), Y(sr.y10[e]), 4, 0, 7); ctx.fill();
-    if (!THUMB) {
-      ctx.font = '12px ' + FONT; ctx.textAlign = 'left';
-      ctx.fillStyle = css('--accent'); L.label(ctx, `단기금리 평균 ${f2(sr.mean[e] * 100)}%`, m.l + 6, m.t + 12, 'left');
-      ctx.fillStyle = RED; L.label(ctx, `10년 금리 평균 ${f2(sr.y10[e] * 100)}%`, m.l + 6, m.t + 30, 'left');
-    }
+    if (!THUMB) L.legend(c, [{ kind: 'line', color: css('--accent'), label: `단기금리 평균 ${f2(sr.mean[e] * 100)}%` }, { kind: 'line', color: RED, label: `10년 금리 평균 ${f2(sr.y10[e] * 100)}%` }, { kind: 'dash', color: GRAY, label: `장기 평균 ${f1(q.b * 100)}%` }], 'tl');
     $('when').textContent = `${sim.month}/${M}개월`;
     return sr;
   }
 
   // ---------- ② 금리 ↔ 채권 가격 곡선 ----------
   function drawCurve(sr) {
-    const c = L.chart($('c-curve'), 0.66, { l: 46, r: 16, t: 14, b: 40 }), { ctx, m, pw, ph } = c;
+    const c = L.chart($('c-curve'), 0.66, { l: 46, r: 16, t: 24, b: 40 }), { ctx, m, pw, ph } = c;
     const y0 = S.y0, cp = S.c, md = S.mod, x0 = 0, x1 = 10;
     const P = (y) => T.bondPrice(cp, y / 100), tan = (y) => 100 * (1 - md * (y / 100 - y0));
     const lo = Math.floor(P(x1) / 10) * 10 - 10, hi = Math.ceil(P(x0) / 10) * 10 + 10;
     const X = (v) => m.l + ((v - x0) / (x1 - x0)) * pw, Y = (v) => m.t + ph - ((v - lo) / (hi - lo)) * ph;
     const yt = []; for (let v = lo; v <= hi; v += 20) yt.push(v);
-    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => String(v), xTicks: [0, 2, 4, 6, 8, 10], xFmt: (v) => v + '%', xLabel: '10년 금리' });
+    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => String(v), xTicks: [0, 2, 4, 6, 8, 10], xFmt: (v) => v + '%', xLabel: '10년 금리 (%)', yLabel: '채권 가격 (액면 100)' });
     const xs = []; for (let v = x0; v <= x1 + 1e-9; v += 0.1) xs.push(v);
     // 직선(듀레이션 어림)과 실제 곡선 사이: 볼록성
     ctx.fillStyle = mix(GREEN, 0.18); ctx.beginPath();
@@ -111,20 +106,20 @@
     dot(Math.max(0, yb - 1), GREEN, `-1%p: +${f1(P(yb - 1) - 100)}`, -10, -8, 'right');
     const e = sr.y10.length - 1, yn = sr.y10[e] * 100;
     if (Math.abs(yn - yb) > 0.05 && yn >= x0 && yn <= x1) dot(yn, css('--rich'), `지금 ${f1(yn)}%`, 10, -30, 'left');
-    ctx.fillStyle = css('--muted'); ctx.textAlign = 'left'; ctx.font = '12px ' + FONT; ctx.fillText('채권 가격 (액면 100)', m.l + 4, m.t + 10);
+    L.legend(c, [{ kind: 'line', color: css('--accent'), label: '실제 가격 곡선' }, { kind: 'line', color: GRAY, label: '듀레이션 직선' }, { kind: 'box', color: mix(GREEN, 0.5), label: '볼록성(곡선과 직선의 틈)' }], 'tr');
   }
 
   // ---------- ③ 가격 변화 분포 ----------
   const HB = 2, HLO = -24, HN = 24; // 2% 칸, -24%~+24%
   function drawHist() {
-    const c = L.chart($('c-hist'), 0.6, { l: 46, r: 14, t: 14, b: 40 }), { ctx, m, pw, ph } = c;
+    const c = L.chart($('c-hist'), 0.6, { l: 46, r: 14, t: 24, b: 40 }), { ctx, m, pw, ph } = c;
     const v = sim.priceChangeAt(sim.month).map((x) => x * 100), N = v.length;
     const cnt = new Array(HN).fill(0);
     v.forEach((x) => { cnt[Math.max(0, Math.min(HN - 1, Math.floor((x - HLO) / HB)))]++; });
     const mx = Math.max(...cnt) / N, ymax = Math.max(0.1, Math.ceil(mx * 10 + 0.3) / 10);
     const X = (x) => m.l + ((x - HLO) / (HB * HN)) * pw, Y = (s) => m.t + ph - (s / ymax) * ph;
     const yt = []; for (let s = 0; s <= ymax + 1e-9; s += ymax > 0.5 ? 0.2 : 0.1) yt.push(+s.toFixed(2));
-    L.axes(c, { X, Y, yTicks: yt, yFmt: (s) => Math.round(s * 100) + '%', xTicks: [-20, -10, 0, 10, 20], xFmt: (t) => (t > 0 ? '+' : '') + t + '%', xLabel: '채권 가격 변화 (시작 가격 100 대비, 이자 제외)' });
+    L.axes(c, { X, Y, yTicks: yt, yFmt: (s) => Math.round(s * 100) + '%', xTicks: [-20, -10, 0, 10, 20], xFmt: (t) => (t > 0 ? '+' : '') + t + '%', xLabel: '채권 가격 변화 (%, 이자 제외)', yLabel: '경로 비율 (%)' });
     cnt.forEach((k, i) => {
       const x = HLO + i * HB, mid = x + HB / 2;
       ctx.fillStyle = mix(mid < 0 ? RED : GREEN, 0.75);
@@ -135,6 +130,7 @@
     const mean = v.reduce((a, b) => a + b, 0) / N;
     ctx.font = '12px ' + FONT; ctx.fillStyle = css('--muted'); ctx.textAlign = 'left';
     ctx.fillText(`${sim.month}개월 뒤`, m.l + 6, m.t + 12);
+    L.legend(c, [{ kind: 'box', color: mix(RED, 0.75), label: '값이 떨어진 경로' }, { kind: 'box', color: mix(GREEN, 0.75), label: '값이 오른 경로' }], 'tr');
     const sg = (x) => (x >= 0 ? '+' : '-') + Math.abs(x).toFixed(1);
     $('note-3').innerHTML = `<span>평균:</span> <b>${sg(mean)}%</b> · <span>하위 5%:</span> <b>${sg(g(0.05))}%</b> · <span>상위 5%:</span> <b>${sg(g(0.95))}%</b>`;
   }

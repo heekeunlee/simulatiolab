@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-en="The Fire Suppression Paradox · Simulatio Lab">산불 억제의 역설 · 시뮬라티오 랩</title>
-<meta name="description" content="나무가 자라고 번개가 치는 숲 격자에서 작은 불을 끄면 연료가 쌓여 큰 불이 늘어나는 과정을, 두 숲을 나란히 돌려 직접 확인해 보세요." data-en-content="Run two forests side by side on a grid where trees grow and lightning strikes, and watch how putting out small fires lets fuel build up and makes big fires more frequent.">
+<meta name="description" content="나무가 자라고 번개가 치는 숲에서 작은 불을 다 끄면 마른 나무가 쌓여 큰 불이 늘어납니다. 두 숲을 나란히 돌려 확인해 보세요." data-en-content="In a forest where trees grow and lightning strikes, putting out every small fire lets fuel pile up and big fires get more frequent. Run two forests side by side and see.">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="manifest" href="../../manifest.webmanifest">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -73,13 +73,11 @@
       <h3 data-en="② How Full Does the Forest Get?">② 숲에 나무가 얼마나 찰까</h3>
     <p data-en="The tree density (share of cells holding a tree) of both forests over time. The dotted line is the density (about 59%) above which randomly placed trees can form a connected clump spanning the whole forest. The forest that puts out small fires climbs toward the line and then crashes in a big fire.">두 숲의 나무 밀도(칸 중 나무가 있는 비율)가 시간에 따라 변하는 모습입니다. 점선은 칸에 나무가 무작위로 이 정도 있으면 이어진 덩어리가 숲 전체로 커질 수 있는 밀도(약 59%)입니다. 작은 불을 끄는 숲은 점선 가까이까지 올라갔다가 큰 불로 떨어집니다.</p>
     <canvas id="c-dens" class="" aria-label="② How Full Does the Forest Get?"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Let it burn"><i style="background:#e5484d"></i>그냥 두기</span><span data-en="&lt;i style=&quot;background:#1f7a45&quot;&gt;&lt;/i&gt;Put out small fires"><i style="background:#1f7a45"></i>작은 불 끄기</span></div>
     </section>
     <section class="panel chart">
       <h3 data-en="③ How Big Are the Fires?">③ 불의 크기 분포</h3>
     <p data-en="After running both forests separately for a long time, this shows how many fires of at least a given size occurred per 1,000 steps (both axes logarithmic). Putting out small fires removes the small fires at upper left, while the big fires on the right actually become more frequent. The red zone marks big fires.">두 숲을 따로 오래 돌렸을 때, 어떤 크기 이상의 불이 1,000단계에 몇 번 났는지입니다(양쪽 로그 눈금). 작은 불을 끄면 왼쪽 위의 작은 불이 사라지고, 오른쪽의 큰 불은 오히려 늘어납니다. 붉은 영역이 큰 불입니다.</p>
     <canvas id="c-size" class="" aria-label="③ How Big Are the Fires?"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Let it burn"><i style="background:#e5484d"></i>그냥 두기</span><span data-en="&lt;i style=&quot;background:#1f7a45&quot;&gt;&lt;/i&gt;Put out small fires"><i style="background:#1f7a45"></i>작은 불 끄기</span></div>
     </section>
     <section class="panel chart">
       <h3 data-en="④ Which Fires Burned the Area?">④ 탄 면적은 어떤 불이 태웠나</h3>

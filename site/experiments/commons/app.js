@@ -14,7 +14,7 @@
 
   // ① 호수(저량 수위)와 이용자 점들
   function drawLake() {
-    const c = L.chart($('c-lake'), THUMB ? 1 : 0.62, { l: 8, r: 8, t: 8, b: 8 }), { ctx, w, h } = c, K = sim.params.K;
+    const c = L.chart($('c-lake'), THUMB ? 1 : $('c-lake').clientWidth < 560 ? 0.95 : 0.62, { l: 8, r: 8, t: 8, b: 8 }), { ctx, w, h } = c, K = sim.params.K;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
     const tw = THUMB ? w * 0.34 : Math.min(190, w * 0.3), tx = 18, ty = 22, th = h - 56;
     ctx.fillStyle = '#e8edf6'; roundRect(ctx, tx, ty, tw, th, 10); ctx.fill();
@@ -29,7 +29,7 @@
     ctx.fillText(pct(lvl), tx + tw / 2, inside ? ty + th - wh + 30 : ty + th - wh - 10);   // 수면 바로 아래(안) 또는 바로 위
     ctx.fillStyle = css('--muted'); ctx.font = '12px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillText('저량 (수용력 대비)', tx + tw / 2, ty + th + 18);
     // 이용자 점
-    const n = sim.n, gx = tx + tw + 28, gw = w - gx - 14, gh = h - 44, cols = Math.ceil(Math.sqrt(n * gw / gh)), rows = Math.ceil(n / cols), cw = gw / cols, ch = gh / rows, r = Math.min(cw, ch) * 0.34;
+    const n = sim.n, gx = tx + tw + 28, gw = w - gx - 14, gh = h - (THUMB ? 44 : 112), cols = Math.ceil(Math.sqrt(n * gw / gh)), rows = Math.ceil(n / cols), cw = gw / cols, ch = gh / rows, r = Math.min(cw, ch) * 0.34;
     for (let i = 0; i < n; i++) {
       const x = gx + (i % cols) * cw + cw / 2, y = 14 + Math.floor(i / cols) * ch + ch / 2;
       if (sim.round > 0 && sim.act[i]) { ctx.fillStyle = mix('#e5484d', 0.18); ctx.beginPath(); ctx.arc(x, y, r * 1.45, 0, 7); ctx.fill(); }
@@ -37,6 +37,7 @@
       if (sim.caught[i]) { ctx.strokeStyle = '#1b1f2a'; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(x, y, r * 1.3, 0, 7); ctx.stroke(); ctx.lineWidth = 1; }
     }
     ctx.fillStyle = css('--muted'); ctx.textAlign = 'left'; ctx.font = '11.5px -apple-system, "Apple SD Gothic Neo", sans-serif';
+    if (!THUMB) L.legend({ ctx, w, m: { l: gx, t: 0, r: 0, b: 0 }, pw: gw, ph: h - (w >= 560 ? 24 : 6) }, [{ kind: 'dot', color: COL[0], label: '탐욕' }, { kind: 'dot', color: COL[2], label: '조건부 협력' }, { kind: 'dot', color: COL[1], label: '절제' }], 'bl');
     if (!THUMB && w >= 560) ctx.fillText('붉은 후광: 이번 라운드에 많이 잡음 · 검은 테두리: 적발되어 벌금', gx, h - 8);
     $('when').textContent = `${sim.round}/${sim.params.rounds}라운드 · 저량 ${pct(lvl)}`;
   }
@@ -45,18 +46,19 @@
   function drawStock() {
     const c = L.chart($('c-stock'), 0.7), { ctx, m, pw, ph } = c, T = sim.params.rounds, K = sim.params.K, MSY = sim.params.r * K / 4;
     const X = (t) => m.l + (t / T) * pw, Y = (v) => m.t + ph - v * ph, xt = []; for (let t = 0; t <= T; t += T / 5) xt.push(t);
-    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: pct, xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '라운드' });
+    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: pct, xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '라운드 (회)', yLabel: '저량·수확 (%)' });
     ctx.setLineDash([5, 3]); ctx.strokeStyle = css('--muted'); ctx.beginPath(); ctx.moveTo(m.l, Y(0.5)); ctx.lineTo(m.l + pw, Y(0.5)); ctx.stroke(); ctx.setLineDash([]);
     ctx.fillStyle = css('--muted'); ctx.textAlign = 'right'; ctx.fillText('최대 지속 수확 수준 50%', m.l + pw - 4, Y(0.5) - 6);
     L.line(ctx, sim.harvestHist.map((v, t) => [X(t + 1), Y(Math.min(1, v / MSY))]), '#e0a100', 2);
     L.line(ctx, sim.stockHist.map((v, t) => [X(t), Y(Math.min(1, v / K))]), css('--accent'), 2.6);
+    L.legend(c, [{ kind: 'line', color: css('--accent'), label: '저량 (수용력 대비)' }, { kind: 'line', color: '#e0a100', label: '수확 (최대치 대비)' }], 'tr');
   }
 
   // ③ 전략 비율
   function drawShares() {
     const c = L.chart($('c-share'), 0.7), { ctx, m, pw, ph } = c, H = sim.shareHist, T = sim.params.rounds;
     const X = (t) => m.l + (t / T) * pw, Y = (v) => m.t + ph - v * ph, xt = []; for (let t = 0; t <= T; t += T / 5) xt.push(t);
-    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: pct, xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '라운드' });
+    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: pct, xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '라운드 (회)', yLabel: '전략 비율 (%)' });
     const acc = H.map(() => 0);
     [0, 2, 1].forEach((k) => {
       ctx.fillStyle = COL[k]; ctx.beginPath();
@@ -64,13 +66,14 @@
       for (let t = H.length - 1; t >= 0; t--) ctx.lineTo(X(t), Y(acc[t]));
       ctx.closePath(); ctx.fill(); H.forEach((s, t) => { acc[t] += s[k]; });
     });
+    L.legend(c, [{ kind: 'box', color: COL[0], label: '탐욕' }, { kind: 'box', color: COL[2], label: '조건부 협력' }, { kind: 'box', color: COL[1], label: '절제' }], 'tr');
   }
 
   // ④ 감시 확률 vs 최종 저량
   function drawSweep() {
     L.dots($('c-sweep'), {
       data: sweep.map((d) => ({ x: d.x, runs: d.runs, mean: L.mean(d.runs) })),
-      x0: 0, x1: 1, xTicks: [0, 0.2, 0.4, 0.6, 0.8, 1], xFmt: pct, xLabel: '감시에 적발될 확률',
+      x0: 0, x1: 1, xTicks: [0, 0.2, 0.4, 0.6, 0.8, 1], xFmt: pct, xLabel: '적발 확률 (%)', yLabel: '마지막 저량 (%)', legend: [{ kind: 'dot', color: L.mix(css('--accent'), 0.5), label: '실행 1번' }, { kind: 'line', color: css('--accent'), label: '평균' }], legendPos: 'tr',
       refs: [{ y: 0.5, label: '최대 지속 수확 수준 50%', color: '#8a93a6' }], marker: { x: sim.params.monitor },
     });
   }

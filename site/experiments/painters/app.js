@@ -53,25 +53,23 @@
   function drawTime() {
     const c = L.chart($('c-time'), 0.7), { ctx, m, pw, ph } = c, H = sim.history, T = sim.params.rounds;
     const X = (t) => m.l + (t / T) * pw, Y = (v) => m.t + ph - v * ph, xt = []; for (let t = 0; t <= T; t += T / 5) xt.push(t);
-    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: (v) => v.toFixed(2), xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '라운드' });
+    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: (v) => v.toFixed(2), xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '시간 (라운드)', yLabel: '정도 (0~1)' });
     L.line(ctx, H.map((v, t) => [X(t), Y(v.concentration)]), css('--rich'), 2.5);
     L.line(ctx, H.map((v, t) => [X(t), Y(v.diversity)]), css('--accent'), 2.5);
+    L.legend(c, [{ kind: 'line', color: css('--accent'), label: '다양성' }, { kind: 'line', color: css('--rich'), label: '화풍 쏠림' }], 'tl');
   }
 
   function drawMap() {
     const c = L.chart($('c-map'), 0.85, { l: 40, b: 40 }), { ctx, m, pw, ph } = c;
     const X = (v) => m.l + v * pw, Y = (v) => m.t + ph - v * ph, tk = [0, 0.25, 0.5, 0.75, 1];
-    L.axes(c, { X, Y, yTicks: tk, yFmt: pct, xTicks: [0, 0.25, 0.5, 0.75, 1], xFmt: (v) => Math.round(v * 360) + '°', xLabel: '색조 (가로) · 복잡도 (세로)' });
+    L.axes(c, { X, Y, yTicks: tk, yFmt: pct, xTicks: [0, 0.25, 0.5, 0.75, 1], xFmt: (v) => Math.round(v * 360) + '°', xLabel: '색조 (도)', yLabel: '복잡도 (%)' });
     const mt = sim.metrics();
     for (let i = 0; i < sim.n; i++) {
       const st = sim.style[i], r = 3.5 + Math.min(6, sim.pop[i] * 0.6);
       ctx.fillStyle = hsl(st[0], 0.7, 0.5, 0.55); ctx.beginPath(); ctx.arc(X(st[0]), Y(st[2]), r, 0, 7); ctx.fill();
     }
     const t = sim.style[mt.top]; ctx.strokeStyle = '#d19200'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(X(t[0]), Y(t[2]), 12, 0, 7); ctx.stroke(); ctx.lineWidth = 1;
-    ctx.textAlign = t[0] > 0.6 ? 'right' : 'left'; ctx.font = '600 12px -apple-system, "Apple SD Gothic Neo", sans-serif';
-    const lx = X(t[0]) + (t[0] > 0.6 ? -16 : 16), ly = Y(t[2]) + (t[2] > 0.85 ? 26 : -14); // 점들 위에서도 읽히게 흰 테두리
-    ctx.lineWidth = 4; ctx.strokeStyle = 'rgba(255,255,255,.92)'; ctx.lineJoin = 'round'; ctx.strokeText('가장 인기 있는 화풍', lx, ly); ctx.lineWidth = 1;
-    ctx.fillStyle = '#b07a00'; ctx.fillText('가장 인기 있는 화풍', lx, ly);
+    L.legend(c, [{ kind: 'dot', color: '#8a93a6', label: '화가 한 명 (클수록 인기)' }, { kind: 'dot', color: '#d19200', label: '가장 인기 있는 화풍(금색 원)' }], 'tr');
   }
 
   function drawSweep() {
@@ -79,7 +77,7 @@
     L.dots($('c-sweep'), {
       data: mk('diversity', 'cur'),
       series: [{ data: mk('concentration', 'cur'), color: css('--rich'), dots: true }, { data: mk('diversity', 'nob'), color: '#8a93a6' }],
-      x0: 0, x1: 1, y0: 0, y1: 1, xTicks: [0, 0.2, 0.4, 0.6, 0.8, 1], xFmt: pct, yFmt: (v) => v.toFixed(2), xLabel: '따라 그리는 비율', marker: { x: sim.params.copy },
+      x0: 0, x1: 1, y0: 0, y1: 1, xTicks: [0, 0.2, 0.4, 0.6, 0.8, 1], xFmt: pct, yFmt: (v) => v.toFixed(2), xLabel: '따라 그리는 비율 (%)', yLabel: '정도 (0~1)', marker: { x: sim.params.copy }, legend: [{ kind: 'line', color: css('--accent'), label: '다양성' }, { kind: 'line', color: css('--rich'), label: '화풍 쏠림' }, { kind: 'line', color: '#8a93a6', label: '인기 편향이 없을 때의 다양성' }], legendPos: 'tl',
     });
   }
 
@@ -98,13 +96,13 @@
   function draw() { renderStats(); drawGallery(); drawTime(); drawMap(); }
 
   function after() {
-    const P = params(); rows = []; drawSweep(); $('note-sweep').textContent = '계산 중…';
+    const P = params(); rows = []; drawSweep();
     const jobs = [];
     for (let c = 0; c <= 10; c++) jobs.push(() => {
       const o = Object.assign({}, P, { copy: c / 10, rounds: 80 });
       rows.push({ x: c / 10, cur: PA.final(o, 4), nob: PA.final(Object.assign({}, o, { bias: 0 }), 4) });
     });
-    L.jobs(jobs, drawSweep, () => { $('note-sweep').textContent = '파랑: 다양성, 금색: 화풍 쏠림, 회색: 인기 편향이 없을 때의 다양성'; });
+    L.jobs(jobs, drawSweep);
   }
 
   const h = L.harness({

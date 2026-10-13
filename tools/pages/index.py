@@ -132,6 +132,16 @@ ADDED = {s: '2026-10-12' for s in ['braess', 'regression', 'survivor', 'friendsh
 ADDED.update({s: '2026-10-13' for s in ['secretary', 'weakties', 'checkout', 'bunching', 'seating', 'dla', 'sandpile', 'wildfire', 'ant', 'farming', 'lanchester', 'treasury', 'fxrate', 'war', 'hagwon', 'daycare', 'admission']})
 
 # slug -> (기호, 짧은 이름 T, 미니 애니메이션 종류)
+# 쉬운 말로 다듬은 칸 제목·설명(tools/pages/simple/<slug>.json)이 있으면 그것을 쓴다
+import json as _json
+for _cat in CATS:
+    _items = _cat[5]
+    for _k, (_slug, _m, _t, _d) in enumerate(list(_items)):
+        _f = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'simple', _slug + '.json')
+        if os.path.exists(_f):
+            _j = _json.load(open(_f, encoding='utf-8'))
+            _items[_k] = (_slug, _m, T(_j['title_ko'], _j['title_en']) if 'title_ko' in _j else _t, T(_j['desc_ko'], _j['desc_en']) if 'desc_ko' in _j else _d)
+
 META = {
  'talent-vs-luck': ('Tl', T('재능 vs 운', 'Talent vs Luck'), 'bars'),
  'wealth': ('Ws', T('부의 쏠림', 'Wealth'), 'stairs'),

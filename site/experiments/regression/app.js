@@ -11,20 +11,19 @@
   const f1 = (v) => (v >= 0 ? '+' : '−') + Math.abs(v).toFixed(1);
   const sports = () => sim.params.view === 'sports';
   const W = () => sports()
-    ? { top: '표지를 장식한 쪽', bot: '최악의 시즌을 보낸 쪽', x: '올해 성적', y: '내년 성적' }
-    : { top: '칭찬받은 쪽', bot: '혼난 쪽', x: '1회 점수', y: '2회 점수' };
+    ? { top: '표지를 장식한 쪽', bot: '최악의 시즌을 보낸 쪽', x: '올해 성적 (점)', y: '내년 성적 (점)' }
+    : { top: '칭찬받은 쪽', bot: '혼난 쪽', x: '1회 점수 (점)', y: '2회 점수 (점)' };
 
   // ---------- ① 1회 점수 대 2회 점수 ----------
   function drawScatter() {
     const c = L.chart($('c-scatter'), 0.85, { l: 40, r: 14, t: 30, b: 44 }), { ctx, w, h, m, pw, ph } = c;
     const lo = 10, hi = 90, X = (v) => m.l + ((v - lo) / (hi - lo)) * pw, Y = (v) => m.t + ph - ((v - lo) / (hi - lo)) * ph;
     const tk = [10, 30, 50, 70, 90], wd = W(), S = sim.summary(), d = sim.data;
-    L.axes(c, { X, Y, yTicks: tk, xTicks: tk, xLabel: wd.x });
-    ctx.save(); ctx.translate(12, m.t + ph / 2); ctx.rotate(-Math.PI / 2); ctx.textAlign = 'center'; ctx.fillStyle = css('--muted'); ctx.fillText(wd.y, 0, 0); ctx.restore();
+    L.axes(c, { X, Y, yTicks: tk, xTicks: tk, xLabel: wd.x, yLabel: wd.y });
     // 대각선 = 다음에도 똑같은 점수를 받는 선
     ctx.setLineDash([5, 4]); ctx.strokeStyle = css('--muted'); ctx.beginPath(); ctx.moveTo(X(lo), Y(lo)); ctx.lineTo(X(hi), Y(hi)); ctx.stroke(); ctx.setLineDash([]);
-    ctx.textAlign = 'left'; ctx.font = FONTB; ctx.fillStyle = css('--text');
-    if (!THUMB) ctx.fillText(sim.shown ? (w < 560 ? `${sim.shown}명 · 점선: 같은 점수 · 화살표: 평균 이동` : `${sim.shown}명 · 점선: 다음에도 같은 점수 · 화살표: 집단 평균의 이동`) : '재생을 누르면 한 명씩 나타나요', m.l, 18);
+    ctx.textAlign = 'center'; ctx.font = FONTB; ctx.fillStyle = css('--text');
+    if (!THUMB && !sim.shown) ctx.fillText('재생을 누르면 한 명씩 나타나요', m.l + pw / 2, m.t + ph / 2);
     ctx.font = FONT;
     const col = { 1: css('--lucky'), '-1': css('--unlucky'), 0: '#8a93a6' };
     for (let pass = 0; pass < 2; pass++) for (let i = 0; i < sim.shown; i++) {
@@ -50,10 +49,8 @@
     if (sim.shown > 5) {
       const a = S.intercept, b = S.slope, clip = (x) => Math.max(lo, Math.min(hi, a + b * x));
       L.line(ctx, [[X(lo), Y(clip(lo))], [X(hi), Y(clip(hi))]], css('--accent'), 2.5);
-      ctx.fillStyle = css('--accent'); ctx.textAlign = 'left'; ctx.font = FONTB;
-      if (!THUMB) ctx.fillText(`회귀선 기울기 ${S.slope.toFixed(2)}`, m.l + 8, m.t + 16);
-      ctx.font = FONT;
     }
+    if (!THUMB) L.legend(c, [{ kind: 'dot', color: col[1], label: wd.top }, { kind: 'dot', color: col[-1], label: wd.bot }, { kind: 'dash', color: css('--muted'), label: '다음에도 같은 점수' }].concat(sim.shown > 5 ? [{ kind: 'line', color: css('--accent'), label: `회귀선 (기울기 ${S.slope.toFixed(2)})` }] : []), 'br');
     $('when').textContent = `${sim.shown}/${sim.params.n}`;
   }
 
@@ -64,10 +61,9 @@
     const vals = [S.top, S.bot], real = [P.eff, sports() ? 0 : -P.eff];
     let mx = 10; vals.concat(real).forEach((v) => { mx = Math.max(mx, Math.abs(v)); }); mx = Math.ceil(mx / 5) * 5;
     const Y = (v) => m.t + ph / 2 - (v / mx) * (ph / 2), X0 = m.l;
-    L.axes(c, { X: (v) => v, Y, yTicks: [-mx, -mx / 2, 0, mx / 2, mx], yFmt: (v) => (v > 0 ? '+' : '') + Math.round(v) });
+    L.axes(c, { X: (v) => v, Y, yTicks: [-mx, -mx / 2, 0, mx / 2, mx], yFmt: (v) => (v > 0 ? '+' : '') + Math.round(v), yLabel: '다음 점수의 평균 변화 (점)' });
     ctx.strokeStyle = css('--text'); ctx.beginPath(); ctx.moveTo(m.l, Y(0)); ctx.lineTo(m.l + pw, Y(0)); ctx.stroke();
-    ctx.font = FONTB; ctx.fillStyle = css('--text'); ctx.textAlign = 'left';
-    ctx.fillText('다음 점수의 평균 변화 (점)', m.l, 16); ctx.font = FONT;
+    ctx.font = FONT;
     const bw = Math.min(90, pw / 5), cx = [X0 + pw * 0.28, X0 + pw * 0.72], cols = [css('--lucky'), css('--unlucky')], names = [wd.top, wd.bot];
     vals.forEach((v, i) => {
       ctx.fillStyle = mix(cols[i], 0.85); const y0 = Y(0), y1 = Y(sim.shown ? v : 0);
@@ -78,9 +74,9 @@
       // 진짜 효과: 말이 실제로 만든 변화
       const ry = Y(real[i]); ctx.strokeStyle = '#d19200'; ctx.lineWidth = 2.5; ctx.setLineDash([5, 3]); ctx.beginPath(); ctx.moveTo(cx[i] - bw / 2 - 10, ry); ctx.lineTo(cx[i] + bw / 2 + 10, ry); ctx.stroke(); ctx.setLineDash([]); ctx.lineWidth = 1;
     });
-    ctx.fillStyle = '#d19200'; ctx.textAlign = 'right'; ctx.fillText(sports() ? '금색 점선: 표지의 진짜 효과' : '금색 점선: 말의 진짜 효과', m.l + pw, m.t + ph + 40);
     ctx.fillStyle = css('--muted'); ctx.textAlign = 'left';
     ctx.fillText(`이론값 ${f1(T.top)} / ${f1(T.bot)}`, m.l, m.t + ph + 40);
+    L.legend(c, [{ kind: 'dash', color: '#d19200', label: sports() ? '표지의 진짜 효과' : '말의 진짜 효과' }], 'tl');
   }
 
   // ---------- ③ 코치의 믿음 ----------
@@ -110,7 +106,8 @@
     const c = L.dots($('c-luck'), {
       data: [], y0: -lim, y1: lim, yFmt: (v) => (v > 0 ? '+' : '') + Math.round(v),
       series: sweep.map((s) => ({ data: s.pts, color: s.color, dots: true })),
-      x0: 0, x1: 100, xTicks: [0, 20, 40, 60, 80, 100], xFmt: (v) => v + '%', xLabel: '점수의 흩어짐 중 운이 차지하는 몫',
+      x0: 0, x1: 100, xTicks: [0, 20, 40, 60, 80, 100], xFmt: (v) => v + '%', xLabel: '운이 차지하는 몫 (%)', yLabel: '다음 점수의 평균 변화 (점)',
+      legend: [{ kind: 'dot', color: '#1fa463', label: W().top }, { kind: 'dot', color: '#e5484d', label: W().bot }], legendPos: 'tl',
       refs: [{ y: 0, label: '', color: '#8a93a6' }], marker: { x: sim.params.luck * 100, label: '지금 설정' },
     });
     const { ctx, m, pw, ph } = c, y0 = m.t + ph / 2; // 0 선은 가운데

@@ -88,11 +88,11 @@
   }
 
   // 공통: 라운드 축 차트 틀
-  function roundChart(id, y0, y1, yTicks, yFmt) {
+  function roundChart(id, y0, y1, yTicks, yFmt, yLabel) {
     const c = L.chart($(id), 0.62, { l: 46, b: 40 }), { m, pw, ph } = c, R = sim.params.rounds;
     const X = (r) => m.l + (r / R) * pw, Y = (v) => m.t + ph - ((v - y0) / (y1 - y0)) * ph;
     const xt = []; for (let r = 0; r <= R; r += 30) xt.push(r);
-    L.axes(c, { X, Y, yTicks, yFmt, xTicks: xt, xFmt: (v) => String(v), xLabel: '라운드 (운전자들이 길을 다시 고르는 차례)' });
+    L.axes(c, { X, Y, yTicks, yFmt, xTicks: xt, xFmt: (v) => String(v), xLabel: '라운드 (차례)', yLabel });
     return { c, X, Y };
   }
   function changeLines(c, X) {
@@ -104,7 +104,7 @@
     const A = sim.avg, refs = [S.closed, S.open, S.opt];
     const lo = Math.min(...A, ...refs), hi = Math.max(...A, ...refs);
     const y0 = Math.max(0, Math.floor((lo - 8) / 10) * 10), y1 = Math.ceil((hi + 4) / 10) * 10, yt = []; for (let v = y0; v <= y1; v += 10) yt.push(v);
-    const { c, X, Y } = roundChart('c-time', y0, y1, yt, (v) => v + '분');
+    const { c, X, Y } = roundChart('c-time', y0, y1, yt, (v) => String(v), '평균 출근 시간 (분)');
     const { ctx, m, pw } = c, xr = m.l + pw - 6;
     const ref = (v, color, label, dy) => { ctx.setLineDash([5, 3]); ctx.strokeStyle = color; ctx.beginPath(); ctx.moveTo(m.l, Y(v)); ctx.lineTo(m.l + pw, Y(v)); ctx.stroke(); ctx.setLineDash([]); ctx.fillStyle = color; ctx.textAlign = 'right'; ctx.fillText(label, xr, Y(v) + dy); };
     ref(S.closed, GREEN, `지름길 없는 균형 ${f1(S.closed)}분`, -5);
@@ -117,7 +117,7 @@
 
   // ---------- ③ 길 선택 비율 ----------
   function drawShares() {
-    const { c, X, Y } = roundChart('c-shares', 0, 1, [0, 0.25, 0.5, 0.75, 1], (v) => Math.round(v * 100) + '%');
+    const { c, X, Y } = roundChart('c-shares', 0, 1, [0, 0.25, 0.5, 0.75, 1], (v) => Math.round(v * 100) + '%', '선택 비율 (%)');
     const { ctx } = c, sh = sim.shares, cols = ROUTE_COLORS();
     for (let k = 2; k >= 0; k--) { // 아래부터 A, B, 지름길 순으로 쌓는다
       ctx.fillStyle = mix(cols[k], 0.85); ctx.beginPath();
@@ -127,6 +127,7 @@
       ctx.closePath(); ctx.fill();
     }
     changeLines(c, X);
+    L.legend(c, [{ kind: 'box', color: cols[0], label: 'A 길' }, { kind: 'box', color: cols[1], label: 'B 길' }, { kind: 'box', color: cols[2], label: '지름길 경유' }], 'tl');
   }
 
   // ---------- ④, ⑤ 훑어 보기 (이론 균형) ----------
@@ -143,21 +144,22 @@
       ctx.moveTo(X(p.x), Y(p.closed)); ctx.lineTo(X(q.x), Y(q.closed)); ctx.lineTo(X(q.x), Y(q.open)); ctx.lineTo(X(p.x), Y(p.open)); ctx.closePath(); ctx.fill();
     }
   }
-  function sweepChart(id, cv, x0, x1, xt, xfmt, xlabel, cur) {
+  function sweepChart(id, cv, x0, x1, xt, xfmt, xlabel, cur, lpos) {
     let hi = 0, lo = Infinity; cv.forEach((d) => { hi = Math.max(hi, d.open, d.closed); lo = Math.min(lo, d.open, d.closed, d.opt); });
     const y0 = Math.max(0, Math.floor((lo - 5) / 10) * 10), y1 = Math.ceil((hi + 3) / 10) * 10, yt = []; for (let v = y0; v <= y1; v += 10) yt.push(v);
     const c = L.chart($(id), 0.66, { l: 46, b: 40, r: 30 }), { ctx, m, pw, ph } = c; // 오른쪽 끝 눈금(10000명)이 잘리지 않게
     const X = (v) => m.l + ((v - x0) / (x1 - x0)) * pw, Y = (v) => m.t + ph - ((v - y0) / (y1 - y0)) * ph;
-    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => v + '분', xTicks: xt, xFmt: xfmt, xLabel: xlabel });
+    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => String(v), xTicks: xt, xFmt: xfmt, xLabel: xlabel, yLabel: '평균 출근 시간 (분)' });
     band(cv, ctx, X, Y, m, ph);
     L.line(ctx, cv.map((d) => [X(d.x), Y(d.opt)]), GRAY, 2);
     L.line(ctx, cv.map((d) => [X(d.x), Y(d.closed)]), GREEN, 2.8);
     L.line(ctx, cv.map((d) => [X(d.x), Y(d.open)]), RED, 2.8);
     if (cur >= x0 && cur <= x1) L.vline(c, X(cur), css('--rich'), '지금 설정', cur > (x0 + x1) / 2 ? 'right' : 'left');
+    L.legend(c, [{ kind: 'line', color: GREEN, label: '지름길 없음' }, { kind: 'line', color: RED, label: '지름길 있음' }, { kind: 'line', color: GRAY, label: '사회 최적' }], lpos || 'br');
   }
   const NMAX = 10000, CMAX = 60;
-  function drawN() { sweepChart('c-n', curveN, 0, NMAX, [0, 2000, 4000, 6000, 8000, 10000], (v) => v + '명', '출근하는 운전자 수', sim.params.n); }
-  function drawC() { sweepChart('c-c', curveC, 0, CMAX, [0, 10, 20, 30, 40, 50, 60], (v) => v + '분', '지름길을 지나는 데 드는 시간(비용)', sim.params.cost); }
+  function drawN() { sweepChart('c-n', curveN, 0, NMAX, [0, 2000, 4000, 6000, 8000, 10000], (v) => String(v), '운전자 수 (명)', sim.params.n); }
+  function drawC() { sweepChart('c-c', curveC, 0, CMAX, [0, 10, 20, 30, 40, 50, 60], (v) => String(v), '지름길 비용 (분)', sim.params.cost, 'bl'); }
 
   // 구간을 문장으로 (항목마다 따로 번역되도록 요소로 나눈다)
   function rangeText(r, lo, hi, unit, step) {
@@ -178,8 +180,8 @@
     const P = sim.params, cur = sim.open ? S.open : S.closed, opt = sim.open ? S.opt : S.closed, poa = cur / opt; // 닫혀 있으면 지름길을 쓸 수 없으니 최적도 닫힌 도로망 기준
     const cards = [
       ['지금 평균 출근 시간', `${f1(sim.avgNow())}분`, `${sim.round}/${P.rounds}라운드 · ${sim.open ? '지름길 열림' : '지름길 닫힘'}`],
-      ['균형 시간: 지름길 없음 → 있음', `${f1(S.closed)} → ${f1(S.open)}분`, '이론값. 모두가 자기에게 가장 빠른 길만 고를 때'],
-      ['사회 최적 평균 시간', `${f1(opt)}분`, '누군가 길을 나눠 줄 수 있다면 도달할 최선'],
+      ['안정된 상태의 시간: 지름길 없음 → 있음', `${f1(S.closed)} → ${f1(S.open)}분`, '이론값. 모두가 자기에게 가장 빠른 길만 고를 때'],
+      ['가장 좋은 평균 시간 (사회 최적)', `${f1(opt)}분`, '누군가 길을 나눠 줄 수 있다면 도달할 최선'],
       ['이기적 선택의 비용', `×${poa.toFixed(2)}`, '지금 상태의 균형 시간 ÷ 사회 최적 (무정부 가격)'],
     ];
     $('stats').innerHTML = cards.map(([k, v, s]) => `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join('');

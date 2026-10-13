@@ -1,6 +1,13 @@
 DYN = {
 '{#0}걸음': '{0} steps',
 '걸음 수': 'Steps',
+'걸음 수 (걸음)': 'Steps',
+'검은 칸 수 (칸)': 'Black cells',
+'질서 구간 (대칭 무늬)': 'Order phase (symmetric)',
+'처음 검은 칸 비율 (%)': 'Starting black cells (%)',
+'고속도로 시작 (걸음)': 'Highway start (steps)',
+'무작위 판 하나': 'One random grid',
+'중앙값': 'Median',
 '① 질서': '① Order',
 '② 혼돈': '② Chaos',
 '③ 고속도로': '③ Highway',

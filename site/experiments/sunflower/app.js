@@ -8,6 +8,16 @@
   const BARS = [[90, '90°'], [120, '120°'], [137, '137°'], [137.508, '137.5°'], [138, '138°'], [144, '144°'], [150, '150°'], [180, '180°']];
   let sim = null, mt = null, sweepRows = [], sweepN = 0, barRows = [], programmatic = false;
   let seedGetter = () => 1;
+  // 범례를 놓을 구석 고르기: 점들 [x, y]이 가장 적게 겹치는 곳. fill=true면 점 아래가 칠해진 막대로 본다
+  function pickPos(c, pts, n, fill) {
+    const bw = 95, bh = n * 16 + 9, m = c.m; let best = 'tr', bc = 1e9;
+    ['tr', 'tl', 'br', 'bl'].forEach((p) => {
+      const x0 = p[1] === 'l' ? m.l + 6 : m.l + c.pw - bw - 6, y0 = p[0] === 'b' ? m.t + c.ph - bh - 6 : m.t + 6;
+      const cnt = pts.filter(([x, y]) => x >= x0 - 4 && x <= x0 + bw + 4 && (fill ? y <= y0 + bh + 4 : y >= y0 - 4 && y <= y0 + bh + 4)).length;
+      if (cnt < bc) { bc = cnt; best = p; }
+    });
+    return best;
+  }
   const params = () => ({ seed: seedGetter(), angle: Number($('angle').value), n: Number($('n').value) });
 
   // 번호 → 색: 안쪽은 노랑, 바깥은 갈색. 나선 보기를 고르면 번호를 F로 나눈 나머지로 색을 칠한다
@@ -57,7 +67,7 @@
     const c = L.chart($('c-sweep'), 0.7), { ctx, m, pw, ph } = c;
     const lo = Math.log10(0.3), hi = Math.log10(20);
     const X = (a) => m.l + ((a - 90) / 90) * pw, Y = (v) => m.t + ph - ((Math.log10(Math.max(0.3, Math.min(20, v))) - lo) / (hi - lo)) * ph;
-    L.axes(c, { X, Y, yTicks: [0.5, 1, 2, 5, 10], yFmt: (v) => String(v), xTicks: [90, 105, 120, 135, 150, 165, 180], xFmt: (a) => a + '°', xLabel: '씨앗 사이의 각도' });
+    L.axes(c, { X, Y, yTicks: [0.5, 1, 2, 5, 10], yFmt: (v) => String(v), xTicks: [90, 105, 120, 135, 150, 165, 180], xFmt: (a) => a + '°', xLabel: '씨앗 사이의 각도 (°)', yLabel: '빈틈 평균 (이상 간격 = 1)' });
     L.line(ctx, sweepRows.map((r) => [X(r.angle), Y(r.gap)]), css('--accent'), 2);
     // 두 이름이 서로 반대쪽으로 쓰이게 하고, 지금 설정이 황금각과 거의 같으면 선만 긋는다
     const below = sim.params.angle < SF.GOLDEN, near = Math.abs(sim.params.angle - SF.GOLDEN) < 4;
@@ -71,9 +81,9 @@
 
   // ---------- ③ 특별한 각도 비교 ----------
   function drawBars() {
-    const c = L.chart($('c-bars'), 0.7, { b: 44, t: 18 }), { ctx, m, pw, ph } = c;
+    const c = L.chart($('c-bars'), 0.7, { b: 44, t: 24 }), { ctx, m, pw, ph } = c;
     const ymax = 6, Y = (v) => m.t + ph - (Math.min(v, ymax) / ymax) * ph;
-    L.axes(c, { X: () => 0, Y, yTicks: [0, 1, 2, 3, 4, 5, 6], yFmt: (v) => String(v) });
+    L.axes(c, { X: () => 0, Y, yTicks: [0, 1, 2, 3, 4, 5, 6], yFmt: (v) => String(v), xLabel: '씨앗 사이의 각도 (°)', yLabel: '빈틈 평균 (이상 간격 = 1)' });
     const gw = pw / BARS.length, bw = Math.min(30, gw * 0.62);
     BARS.forEach(([a, label], i) => {
       const d = barRows.find((r) => r.a === a); if (!d) return;
@@ -83,6 +93,8 @@
       ctx.fillStyle = gold ? '#d19200' : css('--muted'); ctx.font = (gold ? '700 ' : '') + '12px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillText(label, x + bw / 2, m.t + ph + 17);
       ctx.font = '12px -apple-system, "Apple SD Gothic Neo", sans-serif';
     });
+    const tops = []; BARS.forEach(([a], i) => { const d = barRows.find((r) => r.a === a); if (d) tops.push([m.l + gw * (i + 0.5), Y(d.gap) - 16]); });
+    L.legend(c, [{ kind: 'box', color: '#d19200', label: '황금각' }, { kind: 'box', color: mix(css('--accent'), 0.7), label: '다른 각도' }], pickPos(c, tops, 2, true));
   }
 
   // ---------- ④ 이웃 거리 분포 ----------
@@ -91,7 +103,7 @@
     const nb = 40, hi = 2, counts = new Array(nb).fill(0);
     mt.nn.forEach((d) => { counts[Math.min(nb - 1, Math.floor((d / hi) * nb))]++; });
     const cmax = Math.max(...counts), X = (v) => m.l + (v / hi) * pw, Y = (v) => m.t + ph - (v / cmax) * ph;
-    L.axes(c, { X, Y, yTicks: [0, 0.5, 1].map((q) => q * cmax), yFmt: (v) => String(Math.round(v)), xTicks: [0, 0.5, 1, 1.5, 2], xFmt: (v) => v.toFixed(1), xLabel: '가장 가까운 이웃까지의 거리 (이상 간격 = 1)' });
+    L.axes(c, { X, Y, yTicks: [0, 0.5, 1].map((q) => q * cmax), yFmt: (v) => String(Math.round(v)), xTicks: [0, 0.5, 1, 1.5, 2], xFmt: (v) => v.toFixed(1), xLabel: '가장 가까운 이웃까지의 거리 (이상 간격 = 1)', yLabel: '씨앗 수 (개)' });
     const bw = pw / nb;
     counts.forEach((v, i) => { ctx.fillStyle = mix('#d19200', 0.85); ctx.fillRect(m.l + i * bw + 0.5, Y(v), Math.max(1, bw - 1), m.t + ph - Y(v)); });
     L.vline(c, X(mt.nnMean), css('--text'), `평균 ${mt.nnMean.toFixed(2)}`, mt.nnMean > 1 ? 'right' : 'left');

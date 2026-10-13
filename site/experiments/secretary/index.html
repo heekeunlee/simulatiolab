@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-en="The 37% Rule · Simulatio Lab">37%의 법칙 · 시뮬라티오 랩</title>
-<meta name="description" content="후보를 한 명씩 만나고 되돌아갈 수 없을 때, 몇 명을 지켜본 뒤에 고르면 최고를 만날 확률이 가장 높을까요? 비서 문제(최적 멈춤 문제)를 직접 돌려보세요." data-en-content="When you meet candidates one at a time and cannot go back, how many should you watch before choosing? Run the secretary problem (optimal stopping) yourself.">
+<meta name="description" content="후보를 한 명씩 만나고 되돌아갈 수 없을 때, 몇 명을 지켜본 뒤에 고르면 최고를 만날 확률이 가장 높을까요? &quot;비서 문제&quot;라 불리는 고전 퍼즐을 직접 돌려보세요." data-en-content="When you meet candidates one at a time and cannot go back, how many should you watch before choosing? Run the classic puzzle called the &quot;secretary problem&quot; yourself.">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="manifest" href="../../manifest.webmanifest">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -34,10 +34,10 @@
       <div class="ctl"><label for="n" data-en="Number of candidates &lt;output id=&quot;o-n&quot;&gt;&lt;/output&gt;">후보 수 <output id="o-n"></output></label>
         <input type="range" id="n" min="5" max="100" step="1" value="40">
         <span class="hint" data-en="The more candidates, the closer the best share gets to 37%; with few it differs a little">많을수록 최적 비율이 37%에 가까워지고, 적으면 조금씩 달라집니다</span></div>
-<div class="ctl"><label for="cut" data-en="Observation phase (share you only watch) &lt;output id=&quot;o-cut&quot;&gt;&lt;/output&gt;">관찰 구간 (거절만 하는 비율) <output id="o-cut"></output></label>
+<div class="ctl"><label for="cut" data-en="Share you only watch (observation phase) &lt;output id=&quot;o-cut&quot;&gt;&lt;/output&gt;">지켜보기만 하는 비율 (관찰 구간) <output id="o-cut"></output></label>
         <input type="range" id="cut" min="0" max="100" step="1" value="37">
         <span class="hint" data-en="At 0% you take the first candidate; at 100% you wait and are stuck with the last">0%면 첫 후보를 바로 받고, 100%면 끝까지 기다려 마지막 후보를 받습니다</span></div>
-<div class="ctl"><label for="goal" data-en="What counts as success &lt;output id=&quot;o-goal&quot;&gt;&lt;/output&gt;">성공의 기준 <output id="o-goal"></output></label>
+<div class="ctl"><label for="goal" data-en="What counts as success &lt;output id=&quot;o-goal&quot;&gt;&lt;/output&gt;">어디까지 성공으로 칠까 <output id="o-goal"></output></label>
         <select id="goal" class="sel"><option value="1" selected data-en="Only the very best">최고 한 명만</option><option value="2" data-en="Top 2 are fine">상위 2명까지</option><option value="3" data-en="Top 3 are fine">상위 3명까지</option></select>
         <span class="hint" data-en="With a looser standard the best observation share shrinks">기준이 느슨하면 가장 좋은 관찰 비율이 줄어듭니다</span></div>
     </div>
@@ -63,7 +63,6 @@
       <span class="when" id="when"></span>
     </div>
     <div class="anim-bar"><label class="small"><input type="checkbox" id="loop" checked> <span data-en="Keep going: when a run ends, meet a new set of candidates automatically">한 판이 끝나면 새 후보들로 자동으로 계속하기</span></label></div>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;Observation (reject only)"><i style="background:#e0a100"></i>관찰 구간 (거절만)</span><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Choosing phase / your pick"><i style="background:var(--accent)"></i>선택 구간 / 고른 후보</span><span data-en="&lt;i style=&quot;background:#f2b705&quot;&gt;&lt;/i&gt;★ best so far · the true best"><i style="background:#f2b705"></i>★ 지금까지의 최고 · 진짜 최고</span></div>
   </section>
 
   <div class="charts">
@@ -73,16 +72,14 @@
     <canvas id="c-prob" class="" aria-label="② How Long Should You Watch?"></canvas>
     </section>
     <section class="panel chart">
-      <h3 data-en="③ Two Ways to Fail">③ 실패하는 두 가지 방식</h3>
+      <h3 data-en="③ Two Reasons for Failing">③ 실패하는 두 가지 이유</h3>
     <p data-en="When aiming for the single best, green is success, amber is stopping on a lesser candidate before the best arrives, and red is having already let the best go by during observation. A short observation grows the amber, a long one the red.">최고 한 명을 목표로 할 때, 초록은 성공, 주황은 최고가 오기 전에 평범한 후보에게 먼저 멈춘 경우, 빨강은 최고를 관찰 구간에서 이미 지나쳐 보낸 경우입니다. 관찰이 짧으면 주황이, 길면 빨강이 커집니다.</p>
-    <canvas id="c-fail" class="" aria-label="③ Two Ways to Fail"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Picked the best"><i style="background:#1fa463"></i>최고를 골랐다</span><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;Stopped before the best arrived"><i style="background:#e0a100"></i>최고가 오기 전에 먼저 멈췄다</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Had already passed the best"><i style="background:#e5484d"></i>최고를 이미 지나쳐 보냈다</span></div>
+    <canvas id="c-fail" class="" aria-label="③ Two Reasons for Failing"></canvas>
     </section>
     <section class="panel chart">
       <h3 data-en="④ Whom Do You End Up With?">④ 결국 누구를 고르게 될까</h3>
     <p data-en="The distribution of the rank of the candidate you end up with (rank 1 is the best). Bars are exact values, black dots a simulation of 4,000 runs, and the black horizontal ticks show what picking at random would give. Even when you miss the best, you tend to land near the top.">지금 설정으로 고른 후보의 순위 분포입니다(1위가 가장 좋음). 막대는 정확한 값, 검은 점은 4,000번 돌린 시뮬레이션, 검은 가로선은 아무렇게나 골랐을 때의 비율입니다. 최고는 못 만나도 상위권에 몰립니다.</p>
     <canvas id="c-rank" class="" aria-label="④ Whom Do You End Up With?"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Ranks that count as success"><i style="background:#1fa463"></i>성공으로 치는 순위</span><span data-en="&lt;i style=&quot;background:#8a93a6&quot;&gt;&lt;/i&gt;Other ranks"><i style="background:#8a93a6"></i>그 밖의 순위</span></div>
     </section>
   </div>
 

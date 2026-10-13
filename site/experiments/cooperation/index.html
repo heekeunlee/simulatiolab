@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-en="Do Nice People Survive? · Simulatio Lab">착한 사람은 살아남을까 · 시뮬라티오 랩</title>
-<meta name="description" content="믿고 협력하는 사람은 배신에 당하기만 할까? 반복 죄수의 딜레마(신뢰 게임)에서 협력이 퍼지고 무너지는 조건을 직접 돌려보세요." data-en-content="Do people who trust and cooperate just get betrayed? Run the repeated prisoner&#x27;s dilemma (a trust game) and see when cooperation spreads or collapses.">
+<meta name="description" content="믿고 협력하는 사람은 배신당하기만 할까? 서로 믿어야 이득인 &quot;신뢰 게임&quot;을 되풀이하며, 협력이 퍼지거나 무너지는 때를 직접 돌려보세요." data-en-content="Do people who trust and cooperate just get betrayed? Play a &quot;trust game&quot; again and again, and see when cooperation spreads or collapses.">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="manifest" href="../../manifest.webmanifest">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -19,7 +19,7 @@
 
 <main class="wrap">
   <h1 data-en="Do Nice People Survive?">착한 사람은 살아남을까</h1>
-  <p class="lead" data-en="Do people who trust others and cooperate just get taken advantage of by betrayers? What happens to trust when a society has many liars and cheaters? Watch people repeat a &quot;trust game&quot; (the repeated prisoner&#x27;s dilemma), where cooperating together pays but cheating alone pays even more, while copying each other.">남을 믿고 협력하는 사람은 배신자에게 당하기만 할까요? 사회에 거짓말쟁이와 배신자가 많다면 신뢰는 어떻게 될까요? 서로 협력하면 이득인데 혼자 배신하면 더 큰 이득을 보는 "신뢰 게임"(반복 죄수의 딜레마)을 사람들이 되풀이하며 서로 따라 하는 모습을 지켜봅니다.</p>
+  <p class="lead" data-en="Do people who trust others and cooperate just get taken advantage of by betrayers? What happens to trust when a society has many liars and cheaters? Watch people repeat a &quot;trust game&quot; (the repeated prisoner&#x27;s dilemma), where cooperating together pays but cheating alone pays even more, and people copy each other.">남을 믿고 협력하는 사람은 배신자에게 당하기만 할까요? 사회에 거짓말쟁이와 배신자가 많다면 신뢰는 어떻게 될까요? 함께 협력하면 이득인데 혼자 배신하면 더 큰 이득을 보는 "신뢰 게임"(반복 죄수의 딜레마)을 사람들이 되풀이하며 서로 따라 하는 모습을 지켜봅니다.</p>
 
   <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
   <ul>
@@ -57,7 +57,7 @@
 
   <section class="panel chart" style="margin-top:16px">
     <h3 data-en="① How the Village Changes">① 마을이 바뀌는 모습</h3>
-    <p data-en="Each dot is one person and the color is their strategy. Watch which color spreads as generations pass.">점 하나가 한 사람이고 색이 전략입니다. 세대가 지날수록 어떤 색이 퍼지는지 지켜보세요.</p>
+    <p data-en="Each dot is one person and the color is their strategy. Watch which color spreads as generations pass.">점 하나가 한 사람이고 색은 그 사람의 행동 방식(전략)입니다. 세대가 지날수록 어떤 색이 퍼지는지 지켜보세요.</p>
     <canvas id="c-pop" class="rounded" aria-label="① How the Village Changes"></canvas>
     <div class="anim-bar">
       <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
@@ -66,24 +66,23 @@
       <select id="speed" aria-label="speed"><option value="2.5" data-en="Slow">느리게</option><option value="6" selected data-en="Normal">보통</option><option value="15" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#3b82f6&quot;&gt;&lt;/i&gt;Always cooperate"><i style="background:#3b82f6"></i>항상 협력</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Always defect"><i style="background:#e5484d"></i>항상 배신</span><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Tit-for-Tat"><i style="background:#1fa463"></i>맞받아치기</span><span data-en="&lt;i style=&quot;background:#f5a524&quot;&gt;&lt;/i&gt;Generous Tit-for-Tat"><i style="background:#f5a524"></i>너그러운 맞받아치기</span><span data-en="&lt;i style=&quot;background:#8b5cf6&quot;&gt;&lt;/i&gt;Pavlov"><i style="background:#8b5cf6"></i>파블로프</span></div>
   </section>
 
   <div class="charts">
     <section class="panel chart">
-      <h3 data-en="② Share of Each Strategy Over Time">② 전략 비율의 변화</h3>
-    <p data-en="The stacked area is the whole (100%), with the same colors as ①. See what happens to the defectors (red) who start as half of the population.">쌓인 면적이 전체(100%)이고 색은 ①과 같습니다. 처음 절반을 차지하던 배신자(빨강)가 어떻게 되는지 보세요.</p>
-    <canvas id="c-area" class="" data-thumb aria-label="② Share of Each Strategy Over Time"></canvas>
+      <h3 data-en="② Which Strategies Grow">② 어떤 행동 방식이 늘어날까</h3>
+    <p data-en="The stacked area is the whole (100%), with the same colors as ①. See what happens to the defectors (red) who start as half of the population.">쌓인 면적이 전체(100%)이고 색은 ①과 같아요. 처음 절반을 차지하던 배신자(빨강)가 어떻게 되는지 보세요.</p>
+    <canvas id="c-area" class="" data-thumb aria-label="② Which Strategies Grow"></canvas>
     </section>
     <section class="panel chart">
-      <h3 data-en="③ Cooperation Rate">③ 협력률</h3>
-    <p data-en="The share of moves that were cooperation. It approaches 100% when everyone cooperates and 0% when everyone defects.">낸 수 중 협력의 비율입니다. 모두가 협력하면 100%에 가까워지고, 모두가 배신하면 0%에 가까워져요.</p>
-    <canvas id="c-coop" class="" aria-label="③ Cooperation Rate"></canvas>
+      <h3 data-en="③ How Often People Cooperate">③ 협력하는 비율</h3>
+    <p data-en="The share of moves that were cooperation. It approaches 100% when everyone cooperates and 0% when everyone defects.">사람들이 낸 수 중 협력의 비율이에요. 모두가 협력하면 100%에 가까워지고, 모두가 배신하면 0%에 가까워져요.</p>
+    <canvas id="c-coop" class="" aria-label="③ How Often People Cooperate"></canvas>
     </section>
     <section class="panel chart">
-      <h3 data-en="④ When Mistakes Become More Common">④ 실수가 많아지면</h3>
+      <h3 data-en="④ When Mistakes Get More Common">④ 실수가 잦아지면</h3>
     <p data-en="The horizontal axis is the chance of a mistake, the vertical axis is the average cooperation rate over the last 20 generations. Dots are 4 runs (240 people, 150 generations, in steps of 2 percentage points).">가로는 실수할 확률, 세로는 마지막 20세대의 평균 협력률입니다. 점은 4번의 실행이에요 (사람 240명, 150세대, 2%p 간격).</p>
-    <canvas id="c-sweep" class="" aria-label="④ When Mistakes Become More Common"></canvas>
+    <canvas id="c-sweep" class="" aria-label="④ When Mistakes Get More Common"></canvas>
       <div class="legend"><span id="note-sweep" data-en="Calculating…">계산 중…</span></div>
     </section>
   </div>

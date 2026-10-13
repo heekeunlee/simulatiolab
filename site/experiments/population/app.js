@@ -12,7 +12,8 @@
 
   // ---------- ① 인구 피라미드 ----------
   function drawPyramid() {
-    const c = L.chart($('c-pyr'), 0.95, { l: 10, r: 10, t: 40, b: 30 });
+    const LEG = 84, cw0 = $('c-pyr').clientWidth || 600;   // 아래쪽 범례 자리
+    const c = L.chart($('c-pyr'), 0.95 + LEG / cw0, { l: 10, r: 10, t: 40, b: 30 + LEG });
     const { ctx, w, h, m, pw, ph } = c;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
     const half = 560000, cx = m.l + pw / 2, rowH = ph / PO.AGES, scale = (pw / 2 - 18) / half;
@@ -37,8 +38,9 @@
     ctx.fillStyle = css('--text'); ctx.textAlign = 'left'; ctx.font = '700 22px -apple-system, "Apple SD Gothic Neo", sans-serif';
     ctx.fillText(String(sim.year), m.l + 4, 28);
     ctx.font = '12px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillStyle = css('--muted');
-    ctx.fillText('남녀 50:50 가정', m.l + 76, 26); ctx.textAlign = 'right'; ctx.fillText('회색 선: 2024년', w - m.r - 4, 26);
+    ctx.fillText('남녀 50:50 가정', m.l + 76, 26);
     ctx.textAlign = 'center'; ctx.fillText('나이', cx, h - 8);
+    L.legend({ ctx, w, m: { l: m.l, t: m.t + ph + 2, r: m.r, b: 0 }, pw, ph: LEG }, [{ kind: 'box', color: GC.young, label: '0~14세' }, { kind: 'box', color: GC.work, label: '15~64세' }, { kind: 'box', color: GC.old, label: '65세 이상' }, { kind: 'line', color: 'rgba(99,106,122,.8)', label: '회색 선: 2024년' }], 'tl');
     const s = sim.summary();
     $('when').textContent = `${sim.year}년 · 총인구 ${M(s.total)}백만 명 · 65세 이상 ${pct(s.shareOld)}`;
   }
@@ -48,23 +50,24 @@
     const c = L.chart($('c-total'), 0.7), { ctx, m, pw, ph } = c, p0 = sim.params.startYear, p1 = sim.params.endYear;
     const X = (yr) => m.l + ((yr - p0) / (p1 - p0)) * pw, lo = 0, hi = 70;
     const Y = (v) => m.t + ph - ((v / 1e6 - lo) / (hi - lo)) * ph;
-    L.axes(c, { X, Y: (v) => Y(v * 1e6), yTicks: [0, 10, 20, 30, 40, 50, 60, 70], yFmt: (v) => String(v), xTicks: [2024, 2035, 2045, 2055, 2070], xFmt: (v) => String(v), xLabel: '연도' });
-    ctx.fillStyle = css('--muted'); ctx.textAlign = 'left'; ctx.fillText('단위: 백만 명', m.l + 4, m.t + 12);
+    L.axes(c, { X, Y: (v) => Y(v * 1e6), yTicks: [0, 10, 20, 30, 40, 50, 60, 70], yFmt: (v) => String(v), xTicks: [2024, 2035, 2045, 2055, 2070], xFmt: (v) => String(v), xLabel: '시간 (연도)', yLabel: '총인구 (백만 명)' });
     const series = (h, color, width, dash) => { ctx.setLineDash(dash || []); L.line(ctx, h.map((d) => [X(d.year), Y(d.total)]), color, width); ctx.setLineDash([]); };
     series(refHigh, css('--lucky'), 2, [5, 3]); series(refLow, '#8a93a6', 2, [5, 3]);
     series(sim.history, css('--accent'), 3);
     const last = sim.history[sim.history.length - 1]; ctx.fillStyle = css('--accent'); ctx.beginPath(); ctx.arc(X(last.year), Y(last.total), 4.5, 0, 7); ctx.fill();
+    L.legend(c, [{ kind: 'line', color: css('--accent'), label: '지금 설정' }, { kind: 'dash', color: css('--lucky'), label: '합계출산율 1.5' }, { kind: 'dash', color: '#8a93a6', label: '합계출산율 0.7' }], 'tr');
   }
 
   // ---------- ③ 고령화 ----------
   function drawAging() {
     const c = L.chart($('c-aging'), 0.7), { ctx, m, pw, ph } = c, p0 = sim.params.startYear, p1 = sim.params.endYear;
     const X = (yr) => m.l + ((yr - p0) / (p1 - p0)) * pw, Y = (v) => m.t + ph - (v / 1.6) * ph;
-    L.axes(c, { X, Y, yTicks: [0, 0.4, 0.8, 1.2, 1.6], yFmt: pct, xTicks: [2024, 2035, 2045, 2055, 2070], xFmt: (v) => String(v), xLabel: '연도' });
+    L.axes(c, { X, Y, yTicks: [0, 0.4, 0.8, 1.2, 1.6], yFmt: pct, xTicks: [2024, 2035, 2045, 2055, 2070], xFmt: (v) => String(v), xLabel: '시간 (연도)', yLabel: '비율 (%)' });
     const H = sim.history;
     L.line(ctx, H.map((d) => [X(d.year), Y(d.oldDep)]), css('--unlucky'), 2.5);
     L.line(ctx, H.map((d) => [X(d.year), Y(d.shareOld)]), css('--rich'), 2.5);
     L.line(ctx, H.map((d) => [X(d.year), Y(d.shareWork)]), css('--accent'), 2.5);
+    L.legend(c, [{ kind: 'line', color: css('--unlucky'), label: '노년부양비' }, { kind: 'line', color: css('--rich'), label: '65세 이상 비중' }, { kind: 'line', color: css('--accent'), label: '15~64세 비중' }], 'tl');
   }
 
   // ---------- ④ 출산율 스윕 ----------
@@ -73,8 +76,9 @@
     L.dots($('c-sweep'), {
       data: sweepRows.map((d) => ({ x: d.x, runs: [], mean: d.total / pop0 })),
       series: [{ data: sweepRows.map((d) => ({ x: d.x, runs: [], mean: d.shareOld })), color: css('--rich') }],
-      x0: 0.5, x1: 2.1, y0: 0, y1: 1, xTicks: [0.5, 0.9, 1.3, 1.7, 2.1], xFmt: (v) => v.toFixed(1), xLabel: '합계출산율',
+      x0: 0.5, x1: 2.1, y0: 0, y1: 1, xTicks: [0.5, 0.9, 1.3, 1.7, 2.1], xFmt: (v) => v.toFixed(1), xLabel: '합계출산율 (명)', yLabel: '비율 (%)',
       marker: { x: sim.params.tfr },
+      legend: [{ kind: 'line', color: css('--accent'), label: '2070년 인구 (2024년=100%)' }, { kind: 'line', color: css('--rich'), label: '2070년 65세 이상 비중' }], legendPos: 'br',
     });
   }
 

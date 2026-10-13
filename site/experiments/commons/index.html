@@ -66,7 +66,6 @@
       <select id="speed" aria-label="speed"><option value="3" data-en="Slow">느리게</option><option value="8" selected data-en="Normal">보통</option><option value="20" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Greedy"><i style="background:#e5484d"></i>탐욕</span><span data-en="&lt;i style=&quot;background:#2f6fed&quot;&gt;&lt;/i&gt;Restrained"><i style="background:#2f6fed"></i>절제</span><span data-en="&lt;i style=&quot;background:#0ea5a5&quot;&gt;&lt;/i&gt;Conditional cooperator"><i style="background:#0ea5a5"></i>조건부 협력</span></div>
   </section>
 
   <div class="charts">
@@ -74,13 +73,11 @@
       <h3 data-en="② Stock and Catch Over Time">② 저량과 수확의 변화</h3>
     <p data-en="The blue line is the stock (relative to capacity) and the gold line is the catch (relative to the sustainable maximum of 10). The dashed line is the 50% level. See what happens after the stock falls to the floor.">파란 선은 저량(수용력 대비), 금색 선은 수확(지속 가능한 최대치 10 대비)입니다. 점선은 50% 수준이에요. 저량이 한 번 바닥까지 내려갔다가 어떻게 되는지 보세요.</p>
     <canvas id="c-stock" class="" aria-label="② Stock and Catch Over Time"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Stock (relative to capacity)"><i style="background:var(--accent)"></i>저량 (수용력 대비)</span><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;Catch (relative to the sustainable maximum)"><i style="background:#e0a100"></i>수확 (지속 가능한 최대치 대비)</span></div>
     </section>
     <section class="panel chart">
       <h3 data-en="③ Share of Each Strategy Over Time">③ 전략 비율의 변화</h3>
     <p data-en="The stacked area is the whole (100%). See how the greedy share, large at the start, shrinks or grows back.">쌓인 면적이 전체(100%)입니다. 처음에 많았던 탐욕이 어떻게 줄어들거나 다시 늘어나는지 보세요.</p>
     <canvas id="c-share" class="" aria-label="③ Share of Each Strategy Over Time"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Greedy"><i style="background:#e5484d"></i>탐욕</span><span data-en="&lt;i style=&quot;background:#0ea5a5&quot;&gt;&lt;/i&gt;Conditional cooperator"><i style="background:#0ea5a5"></i>조건부 협력</span><span data-en="&lt;i style=&quot;background:#2f6fed&quot;&gt;&lt;/i&gt;Restrained"><i style="background:#2f6fed"></i>절제</span></div>
     </section>
     <section class="panel chart">
       <h3 data-en="④ As Monitoring Gets Stronger">④ 감시가 강해질수록</h3>

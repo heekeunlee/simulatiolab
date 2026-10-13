@@ -7,6 +7,16 @@
   const THUMB = /[?&]thumb=1/.test(location.search); // 썸네일 촬영: 몇 번의 계단과 급락이 쌓인 장면으로 바로 간다
   let sim = null, full = null, ens = null, sweep = [], P = null;
   const params = (seed) => ({ seed, diff: Number($('diff').value), vol: Number($('vol').value), uip: Number($('uip').value) / 100, imp: Number($('imp').value) / 100, years: Number($('years').value) });
+  // 범례를 놓을 구석 고르기: 점들 [x, y]이 가장 적게 겹치는 곳. fill=true면 점 아래가 칠해진 막대로 본다
+  function pickPos(c, pts, n, fill) {
+    const bw = 190, bh = n * 16 + 9, m = c.m; let best = 'tr', bc = 1e9;
+    ['tr', 'tl', 'br', 'bl'].forEach((p) => {
+      const x0 = p[1] === 'l' ? m.l + 6 : m.l + c.pw - bw - 6, y0 = p[0] === 'b' ? m.t + c.ph - bh - 6 : m.t + 6;
+      const cnt = pts.filter(([x, y]) => x >= x0 - 4 && x <= x0 + bw + 4 && (fill ? y <= y0 + bh + 4 : y >= y0 - 4 && y <= y0 + bh + 4)).length;
+      if (cnt < bc) { bc = cnt; best = p; }
+    });
+    return best;
+  }
   const f1 = (v) => v.toFixed(1), f2 = (v) => v.toFixed(2);
   const tr = (s) => (window.I18N && window.I18N.lang !== 'ko' ? window.I18N.t(s) : s);
 
@@ -20,7 +30,7 @@
   // ---------- ① 환율 경로 + 쏠림 ----------
   function drawFx() {
     const cw = $('c-fx').clientWidth || 600, asp = THUMB ? 1 : cw < 560 ? 0.95 : 0.52;
-    const c = L.chart($('c-fx'), asp, { l: 48, r: 12, t: 16, b: THUMB ? 8 : 36 }), { ctx, w, h, m, pw, ph } = c;
+    const c = L.chart($('c-fx'), asp, { l: 48, r: 12, t: THUMB ? 16 : 24, b: THUMB ? 8 : 36 }), { ctx, w, h, m, pw, ph } = c;
     const gap = 14, hc = Math.round(ph * 0.22), hp = ph - hc - gap, N = sim.N;
     const X = (k) => m.l + (k / N) * pw;
     const ix = full.x.map(idx), lo0 = Math.min(...ix), hi0 = Math.max(...ix);
@@ -51,13 +61,15 @@
     if (!THUMB) {
       ctx.fillStyle = css('--muted'); ctx.textAlign = 'right'; ctx.fillText('100%', m.l - 6, cy0 + 10); ctx.fillText('0%', m.l - 6, cy0 + hc);
       ctx.textAlign = 'left'; ctx.fillStyle = css('--text'); ctx.font = '600 12px -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif';
-      L.label(ctx, '높은 금리 통화의 가치 (시작 = 100)', m.l + 6, m.t + 14, 'left');
       L.label(ctx, '캐리 투자자 쏠림', m.l + 6, cy0 + 14, 'left');
       ctx.font = '12px -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif';
       ctx.fillStyle = css('--muted'); ctx.textAlign = 'center';
-      for (let yr = 0; yr <= sim.params.years; yr += sim.params.years > 25 ? 10 : 5) ctx.fillText(yr + '년', X(yr * 52), h - m.b + 16);
-      ctx.fillText('시간 (년)', m.l + pw / 2, h - 4);
-      if (sim.crashes.length) { ctx.fillStyle = RED; ctx.textAlign = 'right'; L.label(ctx, '붉은 점 = 일제히 청산', w - m.r - 4, m.t + 14, 'right'); }
+      for (let yr = 0; yr <= sim.params.years; yr += sim.params.years > 25 ? 10 : 5) ctx.fillText(String(yr), X(yr * 52), h - m.b + 16);
+      L.axisNames(c, '시간 (년)', '통화 가치 (시작 = 100)');
+      const items = [{ kind: 'line', color: css('--accent'), label: '통화 가치' }, { kind: 'dash', color: GRAY, label: '시작 수준 (100)' }];
+      if (sim.crashes.length) items.push({ kind: 'dot', color: RED, label: '일제히 청산' });
+      const fc = Object.assign({}, c, { ph: hp });
+      L.legend(fc, items, pickPos(fc, full.x.map((v, i) => [X(i), Y(idx(v))]), items.length, false));
     }
     $('when').textContent = `${Math.floor(k / 52)}년째 · 쏠림 ${Math.round(sim.c[k] * 100)}% · 청산 ${sim.crashes.length}번`;
   }
@@ -73,16 +85,21 @@
     const c = L.chart($('c-pnl'), 0.62, { l: 48, b: 40 }), { ctx, m, pw, ph } = c;
     const X = (i) => m.l + (i / N) * pw, Y = (v) => m.t + ph - ((v - y0) / (y1 - y0)) * ph;
     const xt = []; for (let yr = 0; yr <= sim.params.years; yr += sim.params.years > 25 ? 10 : 5) xt.push(yr * 52);
-    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => v + '%p', xTicks: xt, xFmt: (v) => v / 52 + '년', xLabel: '시간 (년)' });
+    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => String(v), xTicks: xt, xFmt: (v) => String(v / 52), xLabel: '시간 (년)', yLabel: '누적 캐리 손익 (%p)' });
     // UIP가 완전히 맞을 때 기준선(0)과 이 설정의 기대 경로
     ctx.setLineDash([5, 3]); ctx.strokeStyle = GRAY; ctx.beginPath(); ctx.moveTo(m.l, Y(0)); ctx.lineTo(m.l + pw, Y(0)); ctx.stroke();
     ctx.strokeStyle = GREEN; ctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(N), Y(refEnd)); ctx.stroke(); ctx.setLineDash([]);
-    ctx.textAlign = 'left'; ctx.fillStyle = GRAY; L.label(ctx, 'UIP가 완전히 맞을 때의 기대: 0', m.l + 6, Y(0) + 15, 'left');
     if (th > 0.2) { ctx.fillStyle = GREEN; ctx.textAlign = 'right'; L.label(ctx, `이 설정의 평균 기대 (연 ${f1(th)}%)`, m.l + pw - 4, Y(refEnd) + (refEnd > 0 ? 16 : -6), 'right'); }
     const d = ddOf(sim.pnl.map((v) => v * 100), k);
     if (d.dd > 0.5) { ctx.fillStyle = mix(RED, 0.15); ctx.fillRect(X(d.from), m.t, Math.max(2, X(d.to) - X(d.from)), ph); }
     sim.crashes.forEach((cr) => { ctx.strokeStyle = mix(RED, 0.4); ctx.beginPath(); ctx.moveTo(X(cr.week), m.t); ctx.lineTo(X(cr.week), m.t + ph); ctx.stroke(); });
     L.line(ctx, sim.pnl.slice(0, k + 1).map((v, i) => [X(i), Y(v * 100)]), css('--accent'), 2.6);
+    // 이름표(최대 낙폭, 평균 기대)가 놓일 자리도 피해서 범례를 놓는다
+    const fd = ddOf(full.pnl.map((v) => v * 100), N), lblPts = [];
+    for (let dx = -130; dx <= 130; dx += 15) lblPts.push([X(fd.from) + dx, m.t + 24]);
+    for (let dx = -180; dx <= 0; dx += 15) lblPts.push([m.l + pw + dx, Y(refEnd) + (refEnd > 0 ? 16 : -6)]);
+    L.legend(c, [{ kind: 'line', color: css('--accent'), label: '누적 캐리 손익' }, { kind: 'dash', color: GREEN, label: '이 설정의 평균 기대' }, { kind: 'dash', color: GRAY, label: 'UIP가 완전할 때 (0)' }],
+      pickPos(c, full.pnl.map((v, i) => [X(i), Y(v * 100)]).concat([[X(0), Y(0)], [X(N), Y(refEnd)], [X(N / 2), Y(0)], [X(N / 2), Y(refEnd / 2)]], lblPts), 3, false));
     if (d.dd > 0.5) { ctx.fillStyle = RED; ctx.textAlign = X(d.from) > m.l + pw / 2 ? 'right' : 'left'; L.label(ctx, `최대 낙폭 ${f1(d.dd)}%p`, X(d.from) + (X(d.from) > m.l + pw / 2 ? -4 : 4), m.t + 24, ctx.textAlign); }
   }
 
@@ -105,13 +122,16 @@
     const mxc = Math.max(...H.cnt, ...H.norm), X = (v) => m.l + ((v - H.b0) / (H.b1 - H.b0)) * pw, Y = (v) => m.t + ph - Math.sqrt(Math.max(0, v) / mxc) * ph;
     const yt = [0]; for (let v = 1; v < mxc; v *= 10) yt.push(v);
     const xt = []; for (let v = Math.ceil(H.b0 / 0.05) * 0.05; v <= H.b1 + 1e-9; v += 0.05) xt.push(+v.toFixed(2));
-    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => String(v), xTicks: xt, xFmt: (v) => Math.round(v * 100) + '%', xLabel: '한 주의 캐리 수익률 (높이는 제곱근 눈금)' });
+    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => String(v), xTicks: xt, xFmt: (v) => String(Math.round(v * 100)), xLabel: '한 주의 캐리 수익률 (%)', yLabel: '주 수 (주, 제곱근 눈금)' });
     H.cnt.forEach((v, i) => { const x0 = X(H.b0 + i * H.W), bw = Math.max(1, X(H.b0 + (i + 1) * H.W) - x0 - 1); ctx.fillStyle = H.b0 + (i + 1) * H.W <= TAIL + 1e-9 ? mix(RED, 0.8) : mix(css('--accent'), 0.65); if (v) ctx.fillRect(x0, Y(v), bw, Y(0) - Y(v)); });
     L.line(ctx, H.norm.map((v, i) => [X(H.b0 + (i + 0.5) * H.W), Y(v)]), GRAY, 2.2);
     ctx.setLineDash([3, 3]); ctx.strokeStyle = RED; ctx.beginPath(); ctx.moveTo(X(TAIL), m.t); ctx.lineTo(X(TAIL), m.t + ph); ctx.stroke(); ctx.setLineDash([]);
-    ctx.textAlign = 'left'; ctx.fillStyle = GRAY; L.label(ctx, '회색 선: 같은 평균·변동성의 종 모양(정규분포)', m.l + 6, m.t + 14, 'left');
     const tn = H.tailNorm < 0.5 ? '0' : String(Math.round(H.tailNorm));
-    ctx.fillStyle = RED; ctx.textAlign = 'left'; L.label(ctx, `-5% 아래 주: 실제 ${H.tail}주 · 종 모양이라면 약 ${tn}주`, m.l + 6, m.t + 32, 'left');
+    ctx.fillStyle = RED; ctx.textAlign = 'left'; L.label(ctx, `-5% 아래 주: 실제 ${H.tail}주 · 종 모양이라면 약 ${tn}주`, m.l + 6, m.t + 14, 'left');
+    const lc = Object.assign({}, c, { m: Object.assign({}, m, { t: m.t + 24 }), ph: ph - 24 }), bars = [];
+    H.cnt.forEach((v, i) => { if (v) bars.push([X(H.b0 + (i + 0.5) * H.W), Y(v)]); });
+    H.norm.forEach((v, i) => bars.push([X(H.b0 + (i + 0.5) * H.W), Y(v)]));
+    L.legend(lc, [{ kind: 'box', color: mix(css('--accent'), 0.65), label: '실제 주 수' }, { kind: 'box', color: mix(RED, 0.8), label: '-5% 아래' }, { kind: 'line', color: GRAY, label: '종 모양 (정규분포)' }], pickPos(lc, bars, 3, true));
     return H;
   }
 
@@ -121,11 +141,14 @@
     const hi = Math.max(...sweep.map((d) => Math.max(d.mean, d.loss)), 10), y1 = Math.ceil((hi + 2) / 10) * 10, yt = []; for (let v = 0; v <= y1; v += 10) yt.push(v);
     const c = L.chart($('c-sweep'), 0.66, { l: 46, b: 40, r: 24 }), { ctx, m, pw, ph } = c;
     const X = (v) => m.l + (v / 10) * pw, Y = (v) => m.t + ph - (v / y1) * ph;
-    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => v + '%p', xTicks: [0, 2, 4, 6, 8, 10], xFmt: (v) => v + '%p', xLabel: '두 나라의 금리 차이 (예시)' });
+    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => String(v), xTicks: [0, 2, 4, 6, 8, 10], xFmt: (v) => String(v), xLabel: '두 나라의 금리 차이 (%p, 예시)', yLabel: '평균 수익·손실 (%p)' });
     L.line(ctx, sweep.map((d) => [X(d.x), Y(d.loss)]), RED, 2.8);
     L.line(ctx, sweep.map((d) => [X(d.x), Y(d.mean)]), GREEN, 2.8);
     sweep.forEach((d) => { ctx.fillStyle = RED; ctx.beginPath(); ctx.arc(X(d.x), Y(d.loss), 3, 0, 7); ctx.fill(); ctx.fillStyle = GREEN; ctx.beginPath(); ctx.arc(X(d.x), Y(d.mean), 3, 0, 7); ctx.fill(); });
     L.vline(c, X(sim.params.diff), css('--rich'), '지금 설정', sim.params.diff > 5 ? 'right' : 'left');
+    const lc = Object.assign({}, c, { m: Object.assign({}, m, { t: m.t + 20 }), ph: ph - 20 });
+    L.legend(lc, [{ kind: 'line', color: GREEN, label: '연 평균 캐리 수익' }, { kind: 'line', color: RED, label: '가장 나쁜 한 주의 평균 손실' }],
+      pickPos(lc, sweep.map((d) => [X(d.x), Y(d.loss)]).concat(sweep.map((d) => [X(d.x), Y(d.mean)])), 2, false));
   }
 
   function renderStats() {

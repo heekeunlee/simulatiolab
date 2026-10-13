@@ -1,7 +1,7 @@
 (function () {
   'use strict';
   const WL = window.Wealth;
-  const { css, setup, mix, roundRect } = window.Lab;
+  const { css, setup, mix, roundRect, axisNames, legend } = window.Lab;
   const $ = (id) => document.getElementById(id);
   const DEFAULTS = { tax: 0, stake: 20, bias: 0, rounds: 300 };
   const TAXES = [0, 0.5, 1, 2, 3, 4, 5, 6, 8];
@@ -25,7 +25,7 @@
     };
   }
 
-  function axes(ctx, m, w, h, pw, ph, X, Y, yTicks, yFmt, xTicks, xFmt, xLabel) {
+  function axes(ctx, m, w, h, pw, ph, X, Y, yTicks, yFmt, xTicks, xFmt, xLabel, yLabel) {
     ctx.strokeStyle = css('--line'); ctx.fillStyle = css('--muted'); ctx.textAlign = 'right';
     yTicks.forEach((v) => {
       ctx.beginPath(); ctx.moveTo(m.l, Y(v)); ctx.lineTo(w - m.r, Y(v)); ctx.stroke();
@@ -33,7 +33,7 @@
     });
     ctx.textAlign = 'center';
     xTicks.forEach((v) => ctx.fillText(xFmt(v), X(v), h - m.b + 16));
-    if (xLabel) ctx.fillText(xLabel, m.l + pw / 2, h - 4);
+    axisNames({ ctx, w, h, m, pw, ph }, xLabel, yLabel);
   }
 
   // ---------- ① 부의 계단 ----------
@@ -42,7 +42,7 @@
     const q = sim.current(), s = q.sorted, n = sim.n, B = 100, per = n / B;
     const bins = [];
     for (let b = 0; b < B; b++) { let t = 0; for (let i = b * per; i < (b + 1) * per; i++) t += s[i]; bins.push(t / per); }
-    const m = { l: 44, r: 10, t: 14, b: 30 };
+    const m = { l: 44, r: 10, t: 24, b: 36 };
     const pw = w - m.l - m.r, ph = h - m.t - m.b;
     const ymax = Math.max(2, ...bins) * 1.08;
     const Y = (v) => m.t + ph - (v / ymax) * ph;
@@ -50,7 +50,7 @@
     const ticks = []; const step = ymax > 40 ? 20 : ymax > 16 ? 8 : ymax > 8 ? 4 : ymax > 4 ? 2 : 1;
     for (let v = 0; v <= ymax; v += step) ticks.push(v);
     ctx.strokeStyle = css('--line'); ctx.fillStyle = css('--muted'); ctx.textAlign = 'right';
-    ticks.forEach((v) => { ctx.beginPath(); ctx.moveTo(m.l, Y(v)); ctx.lineTo(w - m.r, Y(v)); ctx.stroke(); ctx.fillText(v + '배', m.l - 6, Y(v) + 4); });
+    ticks.forEach((v) => { ctx.beginPath(); ctx.moveTo(m.l, Y(v)); ctx.lineTo(w - m.r, Y(v)); ctx.stroke(); ctx.fillText(String(v), m.l - 6, Y(v) + 4); });
     const bw = pw / B;
     bins.forEach((v, b) => {
       ctx.fillStyle = b >= 90 ? css('--rich') : v >= 1 ? css('--accent') : '#b9c3da';
@@ -59,9 +59,8 @@
     });
     ctx.setLineDash([5, 3]); ctx.strokeStyle = css('--text'); ctx.lineWidth = 1.2;
     ctx.beginPath(); ctx.moveTo(m.l, Y(1)); ctx.lineTo(w - m.r, Y(1)); ctx.stroke(); ctx.setLineDash([]); ctx.lineWidth = 1;
-    ctx.fillStyle = css('--text'); ctx.textAlign = 'left'; ctx.fillText('평균 (모두 같았을 때)', m.l + 6, Y(1) - 6);
-    ctx.fillStyle = css('--muted'); ctx.textAlign = 'left'; ctx.fillText('가난 →', m.l, h - 8);
-    ctx.textAlign = 'right'; ctx.fillText('→ 부자', w - m.r, h - 8);
+    axisNames({ ctx, w, h, m, pw, ph }, '재산 순서 (가난 → 부자)', '재산 (평균의 배수)');
+    if (!THUMB) legend({ ctx, w, h, m, pw, ph }, [{ kind: 'box', color: '#b9c3da', label: '평균 이하' }, { kind: 'box', color: css('--accent'), label: '평균 이상' }, { kind: 'box', color: css('--rich'), label: '상위 10%' }, { kind: 'dash', color: css('--text'), label: '평균 (모두 같았을 때)' }], 'tl');
     $('when').textContent = `${sim.round}/${sim.params.rounds} 라운드 · 상위 10%의 몫 ${pct(q.top10)}`;
   }
 
@@ -69,11 +68,11 @@
   function drawLorenz() {
     const { ctx, w, h } = setup($('c-lorenz'), 0.85);
     const q = sim.current(), s = q.sorted, n = sim.n;
-    const m = { l: 44, r: 14, t: 12, b: 36 };
+    const m = { l: 44, r: 14, t: 24, b: 36 };
     const pw = w - m.l - m.r, ph = h - m.t - m.b;
     const X = (v) => m.l + v * pw, Y = (v) => m.t + ph - v * ph;
     const tk = [0, 0.25, 0.5, 0.75, 1];
-    axes(ctx, m, w, h, pw, ph, X, Y, tk, pct, tk, pct, '가난한 사람부터 줄 세운 인구 비율');
+    axes(ctx, m, w, h, pw, ph, X, Y, tk, pct, tk, pct, '인구 (%, 가난한 사람부터)', '재산 누적 (%)');
     const pts = [[0, 0]]; let acc = 0;
     const step = Math.max(1, Math.floor(n / 200));
     for (let i = 0; i < n; i++) { acc += s[i]; if ((i + 1) % step === 0 || i === n - 1) pts.push([(i + 1) / n, acc / q.total]); }
@@ -83,30 +82,31 @@
     ctx.setLineDash([5, 3]); ctx.strokeStyle = css('--muted'); ctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(1), Y(1)); ctx.stroke(); ctx.setLineDash([]);
     ctx.strokeStyle = css('--accent'); ctx.lineWidth = 2.5; ctx.lineJoin = 'round'; ctx.beginPath();
     pts.forEach(([x, y], i) => (i ? ctx.lineTo(X(x), Y(y)) : ctx.moveTo(X(x), Y(y)))); ctx.stroke(); ctx.lineWidth = 1;
-    ctx.fillStyle = css('--muted'); ctx.textAlign = 'left'; ctx.fillText('완전한 평등', X(0.08), Y(0.08) - 14);
     ctx.fillStyle = css('--accent'); ctx.font = '600 13px -apple-system, "Apple SD Gothic Neo", sans-serif';
-    ctx.fillText(`지니계수 ${q.gini.toFixed(2)}`, X(0.05), Y(0.92));
+    ctx.fillText(`지니계수 ${q.gini.toFixed(2)}`, X(0.05), Y(0.66));
     ctx.font = '12px -apple-system, "Apple SD Gothic Neo", sans-serif';
     ctx.fillStyle = css('--accent');
     ctx.beginPath(); ctx.arc(X(0.5), Y(q.bottom50), 4.5, 0, 7); ctx.fill();
     ctx.textAlign = 'right'; ctx.fillText(`하위 50%는 ${pct(q.bottom50)}`, X(0.5) - 8, Y(q.bottom50) - 8);
+    legend({ ctx, w, h, m, pw, ph }, [{ kind: 'dash', color: css('--muted'), label: '완전한 평등' }, { kind: 'line', color: css('--accent'), label: '지금의 사회' }], 'tl');
   }
 
   // ---------- ③ 시간에 따른 지표 ----------
   function drawTime() {
     const { ctx, w, h } = setup($('c-time'), 0.7);
     const st = sim.stats, T = sim.params.rounds;
-    const m = { l: 44, r: 12, t: 12, b: 36 };
+    const m = { l: 44, r: 12, t: 24, b: 36 };
     const pw = w - m.l - m.r, ph = h - m.t - m.b;
     const X = (t) => m.l + (t / T) * pw, Y = (v) => m.t + ph - v * ph;
     const xt = []; for (let t = 0; t <= T; t += T / 5) xt.push(t);
-    axes(ctx, m, w, h, pw, ph, X, Y, [0, 0.25, 0.5, 0.75, 1], pct, xt, (t) => String(Math.round(t)), '라운드');
+    axes(ctx, m, w, h, pw, ph, X, Y, [0, 0.25, 0.5, 0.75, 1], pct, xt, (t) => String(Math.round(t)), '시간 (라운드)', '몫 (%) · 지니계수');
     const line = (key, color) => {
       ctx.strokeStyle = color; ctx.lineWidth = 2.5; ctx.lineJoin = 'round'; ctx.beginPath();
       st.forEach((s, t) => (t ? ctx.lineTo(X(t), Y(s[key])) : ctx.moveTo(X(t), Y(s[key])))); ctx.stroke(); ctx.lineWidth = 1;
       const last = st.length - 1; ctx.fillStyle = color; ctx.beginPath(); ctx.arc(X(last), Y(st[last][key]), 4, 0, 7); ctx.fill();
     };
     line('bottom50', css('--lucky')); line('top10', css('--rich')); line('gini', css('--accent'));
+    legend({ ctx, w, h, m, pw, ph }, [{ kind: 'line', color: css('--accent'), label: '지니계수' }, { kind: 'line', color: css('--rich'), label: '상위 10%의 몫' }, { kind: 'line', color: css('--lucky'), label: '하위 50%의 몫' }], 'tl');
   }
 
   // ---------- ④ 같은 출발선 8명 ----------
@@ -114,12 +114,12 @@
     const { ctx, w, h } = setup($('c-track'), 0.7);
     const T = sim.params.rounds, n = sim.n, H = sim.history;
     const lo = -3, hi = Math.max(1, Math.ceil(Math.log10(Math.max(...sim.wealth)))) ;
-    const m = { l: 48, r: 12, t: 12, b: 36 };
+    const m = { l: 48, r: 12, t: 24, b: 36 };
     const pw = w - m.l - m.r, ph = h - m.t - m.b;
     const X = (t) => m.l + (t / T) * pw, Y = (k) => m.t + ph - ((k - lo) / (hi - lo)) * ph;
     const yt = []; for (let k = lo; k <= hi; k++) yt.push(k);
     const xt = []; for (let t = 0; t <= T; t += T / 5) xt.push(t);
-    axes(ctx, m, w, h, pw, ph, X, Y, yt, (k) => (k === 0 ? '1배' : Math.pow(10, k) + '배'), xt, (t) => String(Math.round(t)), '라운드');
+    axes(ctx, m, w, h, pw, ph, X, Y, yt, (k) => (k === 0 ? '1' : String(Math.pow(10, k))), xt, (t) => String(Math.round(t)), '시간 (라운드)', '재산 (평균의 배수, 로그 눈금)');
     const kv = (v) => Math.max(lo, Math.log10(Math.max(v, 1e-9)));
     const rich = sim.wealth.indexOf(Math.max(...sim.wealth));
     const draw = (i, color, width) => {
@@ -130,15 +130,16 @@
     const palette = ['#7c5cff', '#3b82f6', '#1fa463', '#e5484d', '#f59e42', '#0ea5a5', '#c04bd8', '#636a7a'];
     sim.tracked.forEach((i, k) => draw(i, mix(palette[k % palette.length], 0.65), 1.6));
     if (sim.round > 0) draw(rich, css('--rich'), 3);
+    legend({ ctx, w, h, m, pw, ph }, [{ kind: 'line', color: css('--rich'), label: '지금 가장 부자인 사람' }, { kind: 'line', color: mix('#636a7a', 0.65), label: '처음 같았던 사람들 (색은 사람별)' }], 'tl');
   }
 
   // ---------- ⑤ 재분배율 스윕 ----------
   function drawSweep() {
     const { ctx, w, h } = setup($('c-sweep'), 0.7);
-    const m = { l: 44, r: 14, t: 14, b: 40 };
+    const m = { l: 44, r: 14, t: 24, b: 40 };
     const pw = w - m.l - m.r, ph = h - m.t - m.b;
     const X = (v) => m.l + (v / 8) * pw, Y = (v) => m.t + ph - v * ph;
-    axes(ctx, m, w, h, pw, ph, X, Y, [0, 0.25, 0.5, 0.75, 1], (v) => v.toFixed(2), [0, 2, 4, 6, 8], (v) => v + '%', '라운드마다 걷어서 나누는 비율');
+    axes(ctx, m, w, h, pw, ph, X, Y, [0, 0.25, 0.5, 0.75, 1], (v) => v.toFixed(2), [0, 2, 4, 6, 8], (v) => String(v), '나눠 갖는 비율 (%, 라운드마다)', '지니계수');
     ctx.fillStyle = mix(css('--accent'), 0.22);
     sweepData.forEach((d) => d.runs.forEach((r) => { ctx.beginPath(); ctx.arc(X(d.x), Y(r), 2.6, 0, 7); ctx.fill(); }));
     if (sweepData.length) {
@@ -150,6 +151,7 @@
     const cur = sim.params.tax * 100;
     ctx.strokeStyle = css('--rich'); ctx.setLineDash([2, 3]); ctx.beginPath(); ctx.moveTo(X(cur), m.t); ctx.lineTo(X(cur), m.t + ph); ctx.stroke(); ctx.setLineDash([]);
     ctx.fillStyle = css('--rich'); ctx.textAlign = cur > 4 ? 'right' : 'left'; ctx.fillText('지금 설정', X(cur) + (cur > 4 ? -5 : 5), m.t + 11);
+    legend({ ctx, w, h, m, pw, ph }, [{ kind: 'dot', color: mix(css('--accent'), 0.5), label: '한 번의 실행' }, { kind: 'line', color: css('--accent'), label: '평균' }], 'tr');
   }
 
   function runSweep() {

@@ -51,9 +51,7 @@
     ctx.font = '13px ' + FONT; ctx.fillStyle = css('--muted');
     ctx.fillText(`달리는 덩어리 수: ${groups(g)}`, cx, cy + 6);
     ctx.fillText(`가장 붙은 두 버스 간격 ${f1(mn)}분 (이상적 ${f1(H)}분)`, cx, cy + 26);
-    ctx.font = '12px ' + FONT; ctx.fillStyle = css('--muted'); ctx.textAlign = 'left';
-    ctx.fillText('주황 막대: 정류장에 줄 선 승객', 12, h - 12);
-    ctx.textAlign = 'right'; ctx.fillText('검은 테두리: 승객을 태우는 중', w - 12, h - 12);
+    L.legend(c, [{ kind: 'box', color: mix(AMBER, 0.9), label: '주황 막대: 정류장에 줄 선 승객' }, { kind: 'dot', color: '#111', label: '검은 테두리: 승객을 태우는 중' }], 'bl');
     $('when').textContent = `${Math.round(sim.t)}/${P.minutes}분`;
   }
 
@@ -67,7 +65,7 @@
   }
   function drawHeat() {
     const n = sim.n, cw = $('c-heat').clientWidth || 600, asp = cw < 560 ? 0.8 : Math.max(0.3, Math.min(0.5, 0.18 + n * 0.03));
-    const c = L.chart($('c-heat'), asp, { l: 34, r: 12, t: 10, b: 40 }), { ctx, w, h, m, pw, ph } = c, M = sim.p.minutes;
+    const c = L.chart($('c-heat'), asp, { l: 34, r: 12, t: 24, b: 40 }), { ctx, w, h, m, pw, ph } = c, M = sim.p.minutes;
     const X = (t) => m.l + (t / M) * pw, rh = ph / n;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(m.l, m.t, pw, ph);
     const r = sim.rec, cwid = Math.max(1, pw / M + 0.6);
@@ -76,22 +74,24 @@
     const stepRow = n > 8 ? 2 : 1;
     for (let j = 0; j < n; j += stepRow) ctx.fillText(String(j + 1), m.l - 6, m.t + j * rh + rh / 2 + 4);
     ctx.textAlign = 'center';
-    for (let t = 0; t <= M; t += 60) ctx.fillText(`${t}분`, X(t), h - m.b + 16);
-    ctx.fillText('시간 (가로) · 버스 번호 (세로) · 색 = 앞차와의 간격', m.l + pw / 2, h - 5);
+    for (let t = 0; t <= M; t += 60) ctx.fillText(String(t), X(t), h - m.b + 16);
     ctx.strokeStyle = css('--line'); ctx.strokeRect(m.l + 0.5, m.t + 0.5, pw - 1, ph - 1);
+    L.axisNames(c, '시간 (분)', '버스 번호');
+    L.legend(c, [{ kind: 'box', color: '#e5484d', label: '앞차에 바짝 붙음' }, { kind: 'box', color: '#c3cce0', label: '고른 간격' }, { kind: 'box', color: '#2f6fed', label: '앞차와 크게 벌어짐' }], 'tr');
   }
 
   // ---------- ③ 간격 변동계수 ----------
   function drawCV() {
     const M = sim.p.minutes, cmax = Math.max(1, Math.ceil(Math.sqrt(sim.n - 1) * 5) / 5 + 0.2);
-    const c = L.chart($('c-cv'), 0.62, { l: 40, r: 14, t: 14, b: 40 }), { ctx, m, pw, ph } = c;
+    const c = L.chart($('c-cv'), 0.62, { l: 40, r: 14, t: 24, b: 40 }), { ctx, m, pw, ph } = c;
     const X = (t) => m.l + (t / M) * pw, Y = (v) => m.t + ph - (v / cmax) * ph, yt = []; for (let v = 0; v <= cmax + 1e-9; v += 0.5) yt.push(v);
     const xt = []; for (let t = 0; t <= M; t += 60) xt.push(t);
-    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => v.toFixed(1), xTicks: xt, xFmt: (v) => v + '분', xLabel: '시간' });
+    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => v.toFixed(1), xTicks: xt, xFmt: (v) => String(v), xLabel: '시간 (분)', yLabel: '간격 흐트러짐 (CV)' });
     REM.forEach((k) => { ctx.globalAlpha = k === sim.p.remedy ? 0.45 : 0.9; L.line(ctx, refs[k].rec.cv.map((v, i) => [X(i), Y(v)]), REM_COL[k], 2); ctx.globalAlpha = 1; });
     const cv = sim.rec.cv;
     L.line(ctx, cv.map((v, i) => [X(i), Y(v)]), css('--text'), 3.2);
     if (cv.length) { ctx.fillStyle = css('--text'); ctx.beginPath(); ctx.arc(X(cv.length - 1), Y(cv[cv.length - 1]), 4.5, 0, 7); ctx.fill(); }
+    L.legend(c, [{ kind: 'line', color: RED, label: '처방 없음' }, { kind: 'line', color: GREEN, label: '간격 유지' }, { kind: 'line', color: AMBER, label: '승차 제한' }, { kind: 'line', color: css('--text'), label: '지금 돌리는 중' }], 'tl');
   }
 
   // ---------- ④ 처방별 기다림과 한 바퀴 시간 ----------

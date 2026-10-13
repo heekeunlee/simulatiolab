@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title data-en="Which Society Would You Choose Behind the Veil of Ignorance? · Simulatio Lab">무지의 베일 뒤에서 어떤 사회를 고를까 · 시뮬라티오 랩</title>
-<meta name="description" content="내가 어떤 자리에 태어날지 모른다면 어떤 사회를 고를까? 롤스와 하사니의 사고 실험을 위험 회피 정도를 바꿔 가며 직접 돌려보세요." data-en-content="If you did not know where in society you would be born, which society would you choose? Run the Rawls and Harsanyi thought experiment while changing how risk-averse people are.">
+<title data-en="If You Did Not Know Who You Would Be Born As, Which Society Would You Pick? · Simulatio Lab">내가 누구로 태어날지 모른다면 어떤 사회를 고를까? · 시뮬라티오 랩</title>
+<meta name="description" content="부자로 태어날지 가난하게 태어날지 모른 채 사회를 고른다면? &quot;무지의 베일(내가 누구로 태어날지 모르는 상태)&quot; 실험을, 위험을 싫어하는 정도를 바꿔 가며 직접 돌려보세요." data-en-content="If you had to choose a society without knowing whether you would be born rich or poor, which would you pick? Try the &quot;veil of ignorance&quot; (not knowing who you will be) experiment while changing how much people dislike risk.">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="manifest" href="../../manifest.webmanifest">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -18,8 +18,8 @@
 </div></nav>
 
 <main class="wrap">
-  <h1 data-en="Which Society Would You Choose Behind the Veil of Ignorance?">무지의 베일 뒤에서 어떤 사회를 고를까</h1>
-  <p class="lead" data-en="If you did not know whether you would be born rich or poor, which society would you pick? The philosopher Rawls argued that rules chosen behind such a &quot;veil of ignorance&quot; are fair. But even for the same question, the answer depends on how much you dislike risk. We trace that fork in the road with numbers.">내가 부자로 태어날지 가난하게 태어날지 모른다면, 어떤 사회를 고르시겠어요? 철학자 롤스는 이런 "무지의 베일" 뒤에서 고른 규칙이 공정하다고 보았습니다. 그런데 같은 질문에도 위험을 얼마나 싫어하느냐에 따라 답이 달라집니다. 그 갈림길을 숫자로 따라가 봅니다.</p>
+  <h1 data-en="If You Did Not Know Who You Would Be Born As, Which Society Would You Pick?">내가 누구로 태어날지 모른다면 어떤 사회를 고를까?</h1>
+  <p class="lead" data-en="If you did not know whether you would be born rich or poor, which society would you pick? The philosopher Rawls argued that rules chosen behind such a &quot;veil of ignorance&quot; are fair. But even for the same question, the answer depends on how much you dislike risk. We trace that fork in the road with numbers.">내가 부자로 태어날지 가난하게 태어날지 모른다면, 어떤 사회를 고르시겠어요? 철학자 롤스는 이렇게 "무지의 베일(내가 누구로 태어날지 모르는 상태)"에서 고른 규칙이 공정하다고 보았습니다. 그런데 같은 질문에도 위험을 얼마나 싫어하느냐에 따라 답이 달라집니다. 그 갈림길을 숫자로 따라가 봅니다.</p>
 
   <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
   <ul>
@@ -32,17 +32,17 @@
   <h2 data-en="Try it yourself">직접 돌려보기</h2>
   <div class="panel">
     <div class="controls">
-      <div class="ctl"><label for="gamma" data-en="Risk aversion γ (you) &lt;output id=&quot;o-gamma&quot;&gt;&lt;/output&gt;">위험 회피 정도 γ (나) <output id="o-gamma"></output></label>
+      <div class="ctl"><label for="gamma" data-en="How much I dislike risk, γ (you) &lt;output id=&quot;o-gamma&quot;&gt;&lt;/output&gt;">위험을 싫어하는 정도 γ (나) <output id="o-gamma"></output></label>
         <input type="range" id="gamma" min="0" max="8" step="0.25" value="1.5">
         <span class="hint" data-en="0 looks only at the average; larger worries more about the worst position">0이면 평균만 보고, 클수록 가장 나쁜 자리를 걱정해요</span></div>
-<div class="ctl"><label for="popMean" data-en="Average γ of the group &lt;output id=&quot;o-popMean&quot;&gt;&lt;/output&gt;">집단의 평균 γ <output id="o-popMean"></output></label>
+<div class="ctl"><label for="popMean" data-en="Average γ of the people &lt;output id=&quot;o-popMean&quot;&gt;&lt;/output&gt;">사람들의 평균 γ <output id="o-popMean"></output></label>
         <input type="range" id="popMean" min="0" max="8" step="0.25" value="2">
         <span class="hint" data-en="Average risk aversion of the 1,000 people in graph ③">③번 그래프에서 1,000명의 평균 위험 회피 정도</span></div>
-<div class="ctl"><label for="popSd" data-en="Spread of γ in the group &lt;output id=&quot;o-popSd&quot;&gt;&lt;/output&gt;">집단의 γ 퍼짐 <output id="o-popSd"></output></label>
+<div class="ctl"><label for="popSd" data-en="Differences in γ between people &lt;output id=&quot;o-popSd&quot;&gt;&lt;/output&gt;">사람들 사이 γ 차이 <output id="o-popSd"></output></label>
         <input type="range" id="popSd" min="0" max="3" step="0.25" value="1">
         <span class="hint" data-en="How much people differ in how much they dislike risk">사람마다 위험을 싫어하는 정도가 얼마나 다른지</span></div>
-<div class="ctl"><label for="rule" data-en="Choice rule &lt;output id=&quot;o-rule&quot;&gt;&lt;/output&gt;">선택 규칙 <output id="o-rule"></output></label>
-        <select id="rule" class="sel"><option value="eu" selected data-en="Expected utility (uses γ)">기대효용 (γ 사용)</option><option value="avg" data-en="Maximize the average">평균 극대화</option><option value="maximin" data-en="Maximize the minimum">최소 극대화</option></select>
+<div class="ctl"><label for="rule" data-en="How to choose &lt;output id=&quot;o-rule&quot;&gt;&lt;/output&gt;">고르는 기준 <output id="o-rule"></output></label>
+        <select id="rule" class="sel"><option value="eu" selected data-en="Expected utility (average satisfaction, uses γ)">기대효용 (평균적 만족, γ 사용)</option><option value="avg" data-en="Maximize the average">평균 극대화</option><option value="maximin" data-en="Maximize the minimum">최소 극대화</option></select>
         <span class="hint" data-en="What rule you use to choose">나는 어떤 기준으로 고를지</span></div>
     </div>
     <div class="btns">
@@ -66,15 +66,13 @@
       <select id="speed" aria-label="speed"><option value="1.5" data-en="Slow">느리게</option><option value="4" selected data-en="Normal">보통</option><option value="12" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;Position drawn this time"><i style="background:#e0a100"></i>이번에 뽑힌 자리</span><span data-en="&lt;i style=&quot;background:#b07d00;height:3px&quot;&gt;&lt;/i&gt;Dashed line: average of my incomes drawn so far (×number is how often that position was drawn)"><i style="background:#b07d00;height:3px"></i>점선: 지금까지 뽑힌 내 소득의 평균 (×숫자는 그 자리가 뽑힌 횟수)</span></div>
   </section>
 
   <div class="charts">
     <section class="panel chart">
-      <h3 data-en="② How the Ranking Changes with Risk Aversion">② 위험을 싫어할수록 달라지는 평가</h3>
-    <p data-en="The horizontal axis is risk aversion γ; the vertical axis is the &quot;certainty equivalent income&quot; (the guaranteed income that gives the same utility as that society). The society on the top line has the highest expected utility at that γ.">가로는 위험 회피 정도 γ, 세로는 "확실성 등가 소득"(그 사회에 같은 효용을 주는 확정 소득)입니다. 가장 위에 있는 선의 사회가 그 γ에서 기대효용이 가장 큰 사회예요.</p>
-    <canvas id="c-ce" class="" aria-label="② How the Ranking Changes with Risk Aversion"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#0ea5a5&quot;&gt;&lt;/i&gt;Equal"><i style="background:#0ea5a5"></i>평등</span><span data-en="&lt;i style=&quot;background:#2f6fed&quot;&gt;&lt;/i&gt;Safety net"><i style="background:#2f6fed"></i>안전망</span><span data-en="&lt;i style=&quot;background:#7c5cff&quot;&gt;&lt;/i&gt;Mild gap"><i style="background:#7c5cff"></i>완만한 격차</span><span data-en="&lt;i style=&quot;background:#f59e42&quot;&gt;&lt;/i&gt;Steep pyramid"><i style="background:#f59e42"></i>가파른 피라미드</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Winner-take-all lottery"><i style="background:#e5484d"></i>승자독식 복권</span></div>
+      <h3 data-en="② How Scores Change as Risk Feels Worse">② 위험이 싫을수록 달라지는 점수</h3>
+    <p data-en="The horizontal axis is how much people dislike risk, γ; the vertical axis is the &quot;certainty equivalent income&quot; (the guaranteed income that gives the same utility as that society). The society on the top line has the highest expected utility at that γ.">가로는 위험을 싫어하는 정도 γ, 세로는 "확실성 등가 소득"(그 사회에 같은 효용을 주는 확정 소득)입니다. 가장 위에 있는 선의 사회가 그 γ에서 기대효용이 가장 큰 사회예요.</p>
+    <canvas id="c-ce" class="" aria-label="② How Scores Change as Risk Feels Worse"></canvas>
     </section>
     <section class="panel chart">
       <h3 data-en="③ When 1,000 People Each Choose">③ 1,000명이 각자 고르면</h3>
@@ -86,7 +84,6 @@
       <h3 data-en="④ Average and Poorest Position of the Chosen Society">④ 고른 사회의 평균과 가장 가난한 자리</h3>
     <p data-en="The horizontal axis is risk aversion γ. As γ grows the chosen society changes: the average income (gold) falls while the poorest position&#x27;s income (blue) rises.">가로는 위험 회피 정도 γ입니다. γ가 커질수록 고르는 사회가 바뀌면서 평균 소득(금색)은 내려가고 가장 가난한 자리의 소득(파랑)은 올라가는 모습을 볼 수 있어요.</p>
     <canvas id="c-sweep" class="" aria-label="④ Average and Poorest Position of the Chosen Society"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;Average income of the chosen society"><i style="background:#e0a100"></i>고른 사회의 평균 소득</span><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Income of the poorest position"><i style="background:var(--accent)"></i>가장 가난한 자리의 소득</span></div>
       <div class="legend"><span id="note-sweep" data-en="Calculating…">계산 중…</span></div>
     </section>
   </div>

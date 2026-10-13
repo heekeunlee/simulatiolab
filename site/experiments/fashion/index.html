@@ -19,13 +19,13 @@
 
 <main class="wrap">
   <h1 data-en="Why Does Fashion Go in Cycles?">유행은 왜 돌고 돌까</h1>
-  <p class="lead" data-en="People imitate those who look good, and the people out in front run off to something new to stay different. Can these two forces alone keep a fashion cycle turning? Let&#x27;s check on a color wheel.">사람들은 멋진 사람을 따라 하고, 앞서가는 사람은 남들과 달라 보이려고 또 새로운 것을 찾아 달아납니다. 이 두 힘만으로 유행이 계속 돌고 도는 흐름이 생길까요? 색상환 위에서 확인해 봅니다.</p>
+  <p class="lead" data-en="People imitate those who look good, and the people out in front run off to something new to stay different. Can imitation and standing out, these two forces alone keep a fashion cycle turning? Let&#x27;s check on a color wheel.">사람들은 멋진 사람을 따라 하고, 앞서가는 사람은 남들과 달라 보이려고 또 새로운 것을 찾아 달아납니다. 이 따라 하기와 달라 보이기, 이 두 힘만으로 유행이 계속 돌고 도는 흐름이 생길까요? 색상환 위에서 확인해 봅니다.</p>
 
   <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
   <ul>
     <li data-en="A style is an angle on a color wheel (0 to 360 degrees). Of 200 people, some are &lt;b&gt;trendsetters&lt;/b&gt; and the rest are the &lt;b&gt;crowd&lt;/b&gt;, and at first everyone is clustered around a similar style (one season&#x27;s fashion).">스타일을 색상환 위의 각도(0~360도)로 나타냅니다. 사람 200명 중 일부는 <b>트렌드세터</b>, 나머지는 <b>대중</b>이고, 처음에는 모두 비슷한 스타일(한 시즌의 유행) 주위에 모여 있습니다.</li>
-    <li data-en="Each round, the &lt;b&gt;crowd&lt;/b&gt; moves a little toward the style of the nearest trendsetter (imitation)."><b>대중</b>은 라운드마다 가장 가까운 트렌드세터의 스타일 쪽으로 조금씩 움직입니다(모방).</li>
-    <li data-en="The more the crowd gathers around a &lt;b&gt;trendsetter&lt;/b&gt;, the faster they run away (distinction). Assuming &quot;novelty has a direction,&quot; the direction of flight is fixed to one side of the wheel (clockwise)."><b>트렌드세터</b>는 자기 주변에 대중이 몰려 있을수록 빨리 달아납니다(차별화). "새로움에는 방향이 있다"는 가정으로, 달아나는 방향은 색상환의 한 쪽(시계 방향)으로 고정했습니다.</li>
+    <li data-en="Each round, the &lt;b&gt;crowd&lt;/b&gt; moves a little toward the style of the nearest trendsetter (imitating)."><b>대중</b>은 라운드마다 가장 가까운 트렌드세터의 스타일 쪽으로 조금씩 움직입니다(따라 하기).</li>
+    <li data-en="The more the crowd gathers around a &lt;b&gt;trendsetter&lt;/b&gt;, the faster they run away (standing out). Assuming &quot;novelty has a direction,&quot; the direction of flight is fixed to one side of the wheel (clockwise)."><b>트렌드세터</b>는 자기 주변에 대중이 몰려 있을수록 빨리 달아납니다(남과 달라 보이기). "새로움에는 방향이 있다"는 가정으로, 달아나는 방향은 색상환의 한 쪽(시계 방향)으로 고정했습니다.</li>
     <li data-en="Everyone also gets a small random wobble. Also try setting the flight speed to 0 to see what happens.">모든 사람에게 작은 무작위 흔들림이 있습니다. 달아나는 속도를 0으로 하면 어떻게 되는지도 확인해 보세요.</li>
   </ul>
 
@@ -83,13 +83,11 @@
       <h3 data-en="④ Flight Speed and the Speed of Fashion">④ 달아나는 속도와 유행의 속도</h3>
     <p data-en="The horizontal axis is how fast trendsetters run away, the vertical axis is how fast fashion rotates (turns per 100 rounds). Dots are the results of 2 runs.">가로는 트렌드세터가 달아나는 속도, 세로는 유행이 도는 속도(100라운드당 바퀴 수)입니다. 점은 실행 2번의 결과예요.</p>
     <canvas id="c-beta" class="" aria-label="④ Flight Speed and the Speed of Fashion"></canvas>
-      <div class="legend"><span id="note-beta" data-en="Calculating…">계산 중…</span></div>
     </section>
     <section class="panel chart">
       <h3 data-en="⑤ Imitation Speed and the Speed of Fashion">⑤ 따라 하는 속도와 유행의 속도</h3>
     <p data-en="The horizontal axis is how fast the crowd imitates, the vertical axis is how fast fashion rotates.">가로는 대중이 따라 하는 속도, 세로는 유행이 도는 속도입니다.</p>
     <canvas id="c-alpha" class="" aria-label="⑤ Imitation Speed and the Speed of Fashion"></canvas>
-      <div class="legend"><span id="note-alpha" data-en="Calculating…">계산 중…</span></div>
     </section>
   </div>
 
@@ -98,7 +96,7 @@
     <p class="clabel" data-en="&lt;b&gt;What it shows:&lt;/b&gt;"><b>말하는 것:</b></p>
     <ul class="chead"><li data-en="Trends keep circling the color wheel only when imitation and differentiation both exist.">모방과 차별화가 함께 있을 때만 유행이 색상환을 계속 돌아요.</li><li data-en="In this model the masses chase and trendsetters flee one way, so the pace follows the slower of the two.">이 모델에서는 대중이 쫓고 트렌드세터가 한쪽으로 달아나는 구조라, 도는 속도는 둘 중 느린 쪽을 따라요.</li><li data-en="If a trend stalls, look first at which is weaker: the urge to follow or the urge to flee.">유행이 멈췄다면 따라 하는 힘과 달아나는 힘 중 어느 쪽이 약한지부터 살펴볼 만해요.</li></ul>
     <details class="cmore"><summary data-en="Details">상세 설명</summary>
-      <p class="cfull" data-en="&lt;b&gt;What it shows:&lt;/b&gt; With imitation alone (trendsetters never run away), everyone stays on one style and fashion stops. When those out in front run away to stand out, the crowd chases them and one fashion keeps circling the wheel. In this model the speed of rotation is set by the slower of the &quot;flight speed&quot; and the &quot;imitation speed.&quot; It takes both forces, imitation and distinction, for fashion to keep cycling."><b>말하는 것:</b> 모방만 있으면(트렌드세터가 달아나지 않으면) 모두가 한 스타일에 머물러 유행이 멈춥니다. 앞선 사람이 차별화를 위해 달아나면, 대중이 쫓아가는 흐름이 생겨 하나의 유행이 색상환을 계속 돕니다. 이 모델에서 도는 속도는 "달아나는 속도"와 "따라 하는 속도" 중 느린 쪽으로 정해집니다. 모방과 차별화, 두 힘이 함께 있어야 유행이 돌고 돌아요.</p></details>
+      <p class="cfull" data-en="&lt;b&gt;What it shows:&lt;/b&gt; With imitation only (trendsetters never run away), everyone stays on one style and fashion stops. When those out in front run away to stand out, the crowd chases them and one fashion keeps circling the wheel. In this model the speed of rotation is set by the slower of the &quot;flight speed&quot; and the &quot;imitation speed.&quot; It takes both forces, imitation and standing out, for fashion to keep cycling."><b>말하는 것:</b> 따라 하기만 있으면(트렌드세터가 달아나지 않으면) 모두가 한 스타일에 머물러 유행이 멈춥니다. 앞선 사람이 남과 달라 보이려고 달아나면, 대중이 쫓아가는 흐름이 생겨 하나의 유행이 색상환을 계속 돕니다. 이 모델에서 도는 속도는 "달아나는 속도"와 "따라 하는 속도" 중 느린 쪽으로 정해집니다. 따라 하기와 달라 보이기, 두 힘이 함께 있어야 유행이 돌고 돌아요.</p></details>
   </div>
   <div class="callout cl-not">
     <p class="clabel" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt;"><b>말하지 않는 것:</b></p>

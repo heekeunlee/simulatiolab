@@ -1,6 +1,11 @@
 DYN = {
 '{0}/{1}세대 · 협력률 {2}': 'Generation {0}/{1} · cooperation rate {2}',
 '세대': 'Generation',
+'시간 (세대)': 'Time (generations)',
+'전략 비율 (%)': 'Strategy share (%)',
+'협력률 (%)': 'Cooperation rate (%)',
+'실수할 확률 (%)': 'Chance of a mistake (%)',
+'평균 협력률 (%)': 'Average cooperation (%)',
 '실수할 확률 (낸 수가 반대로 바뀜)': 'Chance of a mistake (a move flips)',
 '협력률': 'Cooperation rate',
 '낸 수 중 협력의 비율': 'Share of moves that were cooperation',

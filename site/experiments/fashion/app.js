@@ -14,8 +14,8 @@
   // ---------- ① 색상환 ----------
   function drawWheel() {
     const narrow = ($('c-wheel').clientWidth || 600) < 560;   // 휴대폰: 바깥 트렌드세터가 잘리지 않게 거의 정사각형으로
-    const c = L.chart($('c-wheel'), narrow ? 1 : 0.72, { l: 0, r: 0, t: 0, b: 0 });
-    const { ctx, w, h } = c, cx = w / 2, cy = h / 2, R = Math.min(w * 0.36, h * 0.37);
+    const c = L.chart($('c-wheel'), narrow ? 1.3 : 0.72, { l: 0, r: 0, t: 0, b: 0 });
+    const { ctx, w, h } = c, cx = w / 2, cy = narrow ? w / 2 : h / 2, R = Math.min(w * 0.36, h * 0.37);
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
     const ang = (deg) => ((deg - 90) * Math.PI) / 180;
     ctx.lineWidth = 16;
@@ -57,10 +57,7 @@
     ctx.fillText(Math.round(hueNow) + '°', cx, cy + 32);
     ctx.font = '12px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillStyle = css('--muted');
     ctx.fillText('지금의 대세 스타일', cx, cy + 50);
-    if (!narrow) {   // 휴대폰에서는 색상환과 겹치므로 생략 (위 설명 문단에 같은 내용)
-      ctx.textAlign = 'left'; ctx.fillText('바깥 큰 점: 트렌드세터', 12, h - 30); ctx.fillText('색상환 위 작은 점: 대중', 12, h - 14);
-      ctx.textAlign = 'right'; ctx.fillText('안쪽 화살표: 최근 80라운드의 흐름', w - 12, h - 14);
-    }
+    L.legend(c, [{ kind: 'dot', color: '#8a93a6', label: '바깥 큰 점: 트렌드세터' }, { kind: 'dot', color: '#c3cad6', label: '색상환 위 작은 점: 대중' }, { kind: 'line', color: '#8a93a6', label: '안쪽 화살표: 최근 80라운드의 흐름' }], 'bl');
     $('when').textContent = `${sim.round}/${sim.params.rounds}라운드 · 다양성 ${sim.diversity().toFixed(2)}`;
   }
 
@@ -78,14 +75,15 @@
       }
     });
     const xt = []; for (let t = 0; t <= T; t += T / 5) xt.push(t);
-    if (!THUMB) L.axes(c, { X, Y, yTicks: [0, 90, 180, 270, 360], yFmt: (v) => v + '°', xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '라운드 (세로는 색상환의 각도)' });
+    if (!THUMB) L.axes(c, { X, Y, yTicks: [0, 90, 180, 270, 360], yFmt: (v) => v + '°', xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '시간 (라운드)', yLabel: '색상환의 각도 (도)' });
+    if (!THUMB) L.legend(c, [{ kind: 'box', color: hsl(210), label: '진할수록 그 스타일의 사람이 많음' }], 'br');
   }
 
   // ---------- ③ 다양성 ----------
   function drawDiv() {
     const c = L.chart($('c-div'), 0.7), { ctx, m, pw, ph } = c, H = sim.history, T = sim.params.rounds;
     const X = (t) => m.l + (t / T) * pw, Y = (v) => m.t + ph - v * ph, xt = []; for (let t = 0; t <= T; t += T / 5) xt.push(t);
-    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: (v) => v.toFixed(2), xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '라운드' });
+    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: (v) => v.toFixed(2), xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '시간 (라운드)', yLabel: '다양성 (0~1)' });
     ctx.setLineDash([5, 3]); ctx.strokeStyle = css('--muted'); ctx.beginPath(); ctx.moveTo(m.l, Y(1)); ctx.lineTo(m.l + pw, Y(1)); ctx.stroke(); ctx.setLineDash([]);
     ctx.fillStyle = css('--muted'); ctx.textAlign = 'right'; ctx.fillText('1 = 제각각 (최대) · 0 = 모두 같은 스타일', m.l + pw - 4, Y(1) + 15);
     L.line(ctx, H.map((v, t) => [X(t), Y(v)]), css('--accent'), 2.5);
@@ -93,13 +91,13 @@
   }
 
   // ---------- ④ ⑤ 스윕 ----------
-  const sweepOpts = (rows, rows2, label, x1, ticks, marker) => ({
+  const sweepOpts = (rows, rows2, label, x1, ticks, marker, other) => ({
     data: rows.map((d) => ({ x: d.x, runs: d.runs, mean: L.mean(d.runs) })),
     series: [{ data: rows2.map((d) => ({ x: d.x, runs: [], mean: L.mean(d.runs) })), color: '#8a93a6' }],
-    x0: 0, x1, y0: 0, y1: Math.max(0.8, Math.ceil(Math.max(0, ...rows.concat(rows2).flatMap((d) => d.runs)) * 5 + 0.25) / 5), xTicks: ticks, xFmt: (v) => v.toFixed(v % 1 ? 1 : 0), yFmt: (v) => v.toFixed(1), xLabel: label, marker: { x: marker },
+    x0: 0, x1, y0: 0, y1: Math.max(0.8, Math.ceil(Math.max(0, ...rows.concat(rows2).flatMap((d) => d.runs)) * 5 + 0.25) / 5), xTicks: ticks, xFmt: (v) => v.toFixed(v % 1 ? 1 : 0), yFmt: (v) => v.toFixed(1), xLabel: label, yLabel: '유행이 도는 속도 (바퀴/100라운드)', marker: { x: marker }, legend: [{ kind: 'line', color: css('--accent'), label: '지금 설정' }, { kind: 'line', color: '#8a93a6', label: other }], legendPos: 'br',
   });
-  function drawBeta() { L.dots($('c-beta'), sweepOpts(betaRows, betaRows2, '트렌드세터가 달아나는 속도 (도/라운드)', 5, [0, 1, 2, 3, 4, 5], sim.params.beta)); }
-  function drawAlpha() { L.dots($('c-alpha'), sweepOpts(alphaRows, alphaRows2, '대중이 따라 하는 속도 (도/라운드)', 5, [0.5, 1, 2, 3, 4, 5], sim.params.alpha)); }
+  function drawBeta() { L.dots($('c-beta'), sweepOpts(betaRows, betaRows2, '트렌드세터가 달아나는 속도 (도/라운드)', 5, [0, 1, 2, 3, 4, 5], sim.params.beta, '따라 하는 속도 5도인 사회')); }
+  function drawAlpha() { L.dots($('c-alpha'), sweepOpts(alphaRows, alphaRows2, '대중이 따라 하는 속도 (도/라운드)', 5, [0.5, 1, 2, 3, 4, 5], sim.params.alpha, '달아나는 속도 5도인 트렌드세터')); }
   let betaRows2 = [], alphaRows2 = [];
 
   function renderStats() {
@@ -118,7 +116,7 @@
 
   function after() {
     const P = params(); betaRows = []; alphaRows = []; betaRows2 = []; alphaRows2 = [];
-    drawBeta(); drawAlpha(); $('note-beta').textContent = '계산 중…'; $('note-alpha').textContent = '계산 중…';
+    drawBeta(); drawAlpha();
     const R = 300, jobs = [];
     for (let b = 0; b <= 5; b += 0.5) jobs.push(() => {
       betaRows.push({ x: b, runs: FA.measure(Object.assign({}, P, { beta: b, rounds: R }), 2).map((r) => r.rotation) });
@@ -128,10 +126,7 @@
       alphaRows.push({ x: a, runs: FA.measure(Object.assign({}, P, { alpha: a, rounds: R }), 2).map((r) => r.rotation) });
       alphaRows2.push({ x: a, runs: FA.measure(Object.assign({}, P, { alpha: a, beta: 5, rounds: R }), 1).map((r) => r.rotation) });
     }));
-    L.jobs(jobs, () => { drawBeta(); drawAlpha(); }, () => {
-      $('note-beta').textContent = `파랑: 지금 설정(따라 하는 속도 ${P.alpha}도), 회색: 따라 하는 속도 5도인 사회`;
-      $('note-alpha').textContent = `파랑: 지금 설정(달아나는 속도 ${P.beta}도), 회색: 달아나는 속도 5도인 트렌드세터`;
-    });
+    L.jobs(jobs, () => { drawBeta(); drawAlpha(); });
   }
 
   const h = L.harness({

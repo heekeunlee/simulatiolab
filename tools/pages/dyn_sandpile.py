@@ -27,4 +27,9 @@ DYN = {
 '눈사태 크기 분포의 기울기 (측정)': 'Slope of the avalanche size distribution (measured)',
 '로그-로그 직선을 맞춘 값 · 눈사태 {#0}개': 'Log-log line fit · {0} avalanches',
 '모래더미 번호': 'Sandpile number',
+'떨어뜨린 알 수 (개)': 'Grains dropped',
+'칸당 평균 모래알 수 (개)': 'Average grains per cell',
+'칸당 평균 높이': 'Average height per cell',
+'표본 10개 이상인 점': 'Backed by 10+ avalanches',
+'표본이 적은 점': 'Fewer than 10 avalanches',
 }

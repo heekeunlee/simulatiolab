@@ -23,7 +23,7 @@
 
   <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
   <ul>
-    <li data-en="1,000 people get talent from a normal distribution (mean 0.6, SD 0.1), and everyone starts with the same capital (10).">1,000명에게 재능을 정규분포(평균 0.6, 표준편차 0.1)로 나눠 주고, 모두 같은 자본(10)으로 시작합니다.</li>
+    <li data-en="1,000 people get a talent score that clusters around the average (bell-shaped, mean 0.6, spread 0.1), and everyone starts with the same capital (10).">1,000명에게 재능 점수를 나눠 줍니다. 대부분 평균(0.6) 근처에 모이고 극단은 드문 종 모양입니다(퍼짐 0.1). 모두 같은 자본(10)으로 시작합니다.</li>
     <li data-en="Across the screen, 500 &lt;b style=&quot;color:var(--lucky)&quot;&gt;lucky&lt;/b&gt; and &lt;b style=&quot;color:var(--unlucky)&quot;&gt;unlucky&lt;/b&gt; points move randomly every 6 months.">화면 위를 <b style="color:var(--lucky)">행운</b>과 <b style="color:var(--unlucky)">불운</b> 점 500개가 6개월마다 무작위로 움직입니다.</li>
     <li data-en="When a lucky point passes, capital doubles &lt;b&gt;with probability equal to talent&lt;/b&gt;. When an unlucky point passes, &lt;b&gt;capital is halved&lt;/b&gt; regardless of talent.">행운 점이 지나가면 <b>재능만큼의 확률로</b> 자본이 2배가 됩니다. 불운 점이 지나가면 재능과 상관없이 <b>자본이 절반</b>이 됩니다.</li>
     <li data-en="After 40 years (80 steps), we see who is richest.">40년(80단계) 뒤 누가 가장 부자인지 봅니다.</li>
@@ -41,7 +41,7 @@
       <div class="ctl"><label for="years" data-en="Duration &lt;output id=&quot;o-years&quot;&gt;&lt;/output&gt;">기간 <output id="o-years"></output></label>
         <input type="range" id="years" min="5" max="60" step="5" value="40">
         <span class="hint" data-en="Runs in 6-month steps">6개월 단위로 진행</span></div>
-      <div class="ctl"><label for="sdT" data-en="Talent spread &lt;output id=&quot;o-sdT&quot;&gt;&lt;/output&gt;">재능 편차 <output id="o-sdT"></output></label>
+      <div class="ctl"><label for="sdT" data-en="Talent differences &lt;output id=&quot;o-sdT&quot;&gt;&lt;/output&gt;">재능 차이의 폭 <output id="o-sdT"></output></label>
         <input type="range" id="sdT" min="0.02" max="0.2" step="0.02" value="0.1">
         <span class="hint" data-en="Larger means bigger differences in talent">클수록 사람들의 재능 차이가 커요</span></div>
     </div>
@@ -80,18 +80,12 @@
       <h3 data-en="③ Talent vs Final Capital">③ 재능 vs 최종 자본</h3>
       <p data-en="Each dot is one person. Higher talent doesn&#x27;t put you higher up. The vertical axis is a log scale.">한 점이 한 사람입니다. 재능이 높다고 위쪽에 있지 않아요. 세로축은 로그 눈금입니다.</p>
       <canvas id="c-scatter" aria-label="재능과 최종 자본 산점도"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--rich)&quot;&gt;&lt;/i&gt;Richest"><i style="background:var(--rich)"></i>최고 부자</span><span data-en="&lt;i style=&quot;background:var(--talent)&quot;&gt;&lt;/i&gt;Most talented"><i style="background:var(--talent)"></i>최고 재능자</span></div>
     </section>
 
     <section class="panel chart">
       <h3 data-en="④ How the Richest Person Got Rich">④ 최고 부자는 어떻게 부자가 됐나</h3>
-      <p data-en="The gold line is the richest person&#x27;s capital over time, the purple line is the most talented person&#x27;s. Dots are the events they experienced.">금색 선이 최고 부자의 자본 변화, 보라색 선은 최고 재능자입니다. 점은 겪은 이벤트예요.</p>
+      <p data-en="The gold line is the richest person&#x27;s capital over time, the purple line is the most talented person&#x27;s. Filled dots are events they experienced; a hollow green ring is a lucky break that came but was missed.">금색 선이 최고 부자의 자본 변화, 보라색 선은 최고 재능자입니다. 색 있는 점은 겪은 이벤트이고, 속이 빈 초록 동그라미는 행운이 왔지만 놓친 순간이에요.</p>
       <canvas id="c-time" aria-label="상위자 자본 타임라인"></canvas>
-      <div class="legend">
-        <span data-en="&lt;i style=&quot;background:var(--lucky)&quot;&gt;&lt;/i&gt;Caught a lucky break"><i style="background:var(--lucky)"></i>행운을 잡음</span>
-        <span data-en="&lt;i style=&quot;background:none;border:1.5px solid var(--lucky)&quot;&gt;&lt;/i&gt;Missed a lucky break"><i style="background:none;border:1.5px solid var(--lucky)"></i>행운이 왔지만 놓침</span>
-        <span data-en="&lt;i style=&quot;background:var(--unlucky)&quot;&gt;&lt;/i&gt;Bad luck"><i style="background:var(--unlucky)"></i>불운</span>
-      </div>
     </section>
   </div>
 

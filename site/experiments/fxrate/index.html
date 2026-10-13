@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title data-en="Carry Trade and Exchange Rates · Simulatio Lab">캐리 트레이드와 환율 · 시뮬라티오 랩</title>
-<meta name="description" content="금리가 높은 나라의 통화를 사서 이자를 챙기는 캐리 트레이드가 왜 오래 조금씩 벌다 한 번에 크게 잃는지, 환율과 투자자 쏠림 시뮬레이션으로 직접 돌려보세요." data-en-content="Run a simulation of exchange rates and investor crowding to see why the carry trade, buying a high-interest currency for its interest, tends to earn a little for years and then lose a lot at once.">
+<title data-en="Buying High-Interest Currency (Carry Trade) and Exchange Rates · Simulatio Lab">이자 높은 돈 사기(캐리 트레이드)와 환율 · 시뮬라티오 랩</title>
+<meta name="description" content="이자가 높은 나라의 돈을 사서 이자를 챙기는 거래(캐리 트레이드)는 왜 오래 조금씩 벌다가 한 번에 크게 잃을까요? 환율과 투자자들이 몰리는 모습을 직접 돌려보세요." data-en-content="Why does buying a high-interest currency for its interest (the carry trade) earn a little for years and then lose a lot at once? Run the exchange rate and the investor crowd yourself.">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="manifest" href="../../manifest.webmanifest">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -18,8 +18,8 @@
 </div></nav>
 
 <main class="wrap">
-  <h1 data-en="Buying the High-Rate Currency: The Carry Trade That Takes the Stairs Up and the Elevator Down">금리 높은 통화를 샀더니: 계단으로 오르고 엘리베이터로 떨어지는 캐리 트레이드</h1>
-  <p class="lead" data-en="Buy the currency of a high-interest country, collect the interest, and as long as the exchange rate stays put it looks like money for nothing. Theory says that currency should fall by about the interest gap, so there is no free lunch, yet in practice it often does not, and people pile into this trade (the carry trade). In this simulation, though, the more people pile in, the more the currency creeps up like a staircase for years, until one week everybody exits at once and years of gains vanish together. On average it pays, but the shape of the pay is dangerous.">금리가 높은 나라의 통화를 사서 이자를 받으면, 환율만 그대로라면 가만히 앉아서 버는 거래처럼 보입니다. 이론은 그 이자만큼 그 통화값이 떨어져서 결국 공짜 점심은 없다고 말하지만, 현실에서는 그렇지 않은 때가 많아 이 거래(캐리 트레이드)에 사람들이 몰립니다. 그런데 이 시뮬레이션에서는 사람들이 몰릴수록 통화값이 몇 해 동안 계단처럼 조용히 오르다가 어느 한 주에 일제히 빠져나가며 몇 년치 이익이 한꺼번에 사라집니다. 평균으로는 벌어도, 번 돈의 모양이 위험한 거래입니다.</p>
+  <h1 data-en="Buying a High-Interest Currency: Up the Stairs, Down the Elevator">이자 높은 나라의 돈을 샀더니: 계단으로 오르다 엘리베이터로 떨어진다</h1>
+  <p class="lead" data-en="Buy the money (currency) of a high-interest country and collect the interest, and as long as the exchange rate stays put it looks like money for nothing (the carry trade). Theory says that currency should fall by about the interest gap, so there is no free lunch, yet in practice it often does not, and people pile in. In this simulation, the more people pile in, the more the currency creeps up like a staircase for years, until one week everybody exits at once and years of gains vanish together. On average it pays, but the shape of the pay is dangerous.">이자가 높은 나라의 돈(통화)을 사서 이자를 받으면, 환율이 그대로인 한 가만히 앉아서 버는 거래처럼 보입니다(캐리 트레이드). 이론은 그 나라 돈값이 이자 차이만큼 떨어져서 공짜 점심은 없다고 말하지만, 현실에서는 그렇지 않은 때가 많아 사람들이 몰립니다. 그런데 이 시뮬레이션에서는 사람들이 몰릴수록 돈값이 몇 해 동안 계단처럼 조용히 오르다가, 어느 한 주에 일제히 빠져나가며 몇 년치 이익이 한꺼번에 사라집니다. 평균으로는 벌어도, 번 돈의 모양이 위험한 거래입니다.</p>
 
   <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
   <ul>
@@ -59,9 +59,9 @@
   <div class="stats" id="stats"></div>
 
   <section class="panel chart" style="margin-top:16px">
-    <h3 data-en="① The Currency and the Crowd of Carry Investors">① 통화값과 캐리 투자자의 쏠림</h3>
+    <h3 data-en="① The Currency and the Investors Piling In">① 돈값과 몰려드는 투자자</h3>
     <p data-en="The blue line on top is the value of the high-rate currency (start = 100). The orange band below shows how crowded the carry trade is. While the crowd builds, the currency climbs like a staircase, and at each red dot everybody unwinds and it drops at once. Watch.">위쪽 파란 선은 높은 금리 통화의 가치입니다(시작 = 100). 아래 주황 띠는 캐리 투자자가 얼마나 몰렸는지입니다. 쏠림이 차오르는 동안 통화값은 계단처럼 오르고, 붉은 점에서 일제히 청산하면 한 번에 떨어집니다. 지켜보세요.</p>
-    <canvas id="c-fx" class="rounded" data-thumb aria-label="① The Currency and the Crowd of Carry Investors"></canvas>
+    <canvas id="c-fx" class="rounded" data-thumb aria-label="① The Currency and the Investors Piling In"></canvas>
     <div class="anim-bar">
       <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
       <button id="stepbtn" data-en="Step">한 단계</button>
@@ -73,22 +73,19 @@
 
   <div class="charts">
     <section class="panel chart">
-      <h3 data-en="② If You Kept Holding the Carry: Running Profit">② 캐리를 계속 들고 있었다면: 누적 손익</h3>
-    <p data-en="This line adds up each week&#x27;s carry profit (per unit borrowed, in percentage points). The gray dashed line is the expectation when UIP holds fully (zero), the green dashed line the average expectation for these settings. Red vertical lines mark unwinding weeks and the red band the deepest fall (maximum drawdown).">매주 캐리 수익을 쌓은 선입니다(빌린 돈 1단위당, %p). 회색 점선은 UIP가 완전히 맞을 때의 기대(0), 초록 점선은 이 설정의 평균 기대입니다. 붉은 세로선은 청산한 주, 붉은 띠는 가장 크게 빠진 구간(최대 낙폭)입니다.</p>
-    <canvas id="c-pnl" class="" aria-label="② If You Kept Holding the Carry: Running Profit"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Running carry profit"><i style="background:var(--accent)"></i>누적 캐리 손익</span><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Average expectation here"><i style="background:#1fa463"></i>이 설정의 평균 기대</span><span data-en="&lt;i style=&quot;background:#8a93a6&quot;&gt;&lt;/i&gt;If UIP held fully (0)"><i style="background:#8a93a6"></i>UIP가 완전할 때(0)</span></div>
+      <h3 data-en="② If You Kept Holding: Profit Added Up">② 계속 들고 있었다면: 쌓인 손익</h3>
+    <p data-en="This line adds up each week&#x27;s carry profit (per unit borrowed, in percentage points). The gray dashed line is the expectation when UIP holds fully (zero), the green dashed line the average expectation for these settings. Red vertical lines mark unwinding weeks and the red band the biggest drop from a peak (maximum drawdown).">매주 캐리 수익을 쌓은 선입니다(빌린 돈 1단위당, %p). 회색 점선은 UIP가 완전히 맞을 때의 기대(0), 초록 점선은 이 설정의 평균 기대입니다. 붉은 세로선은 청산한 주, 붉은 띠는 꼭대기에서 가장 크게 빠진 구간(최대 낙폭)입니다.</p>
+    <canvas id="c-pnl" class="" aria-label="② If You Kept Holding: Profit Added Up"></canvas>
     </section>
     <section class="panel chart">
       <h3 data-en="③ How Weekly Profits Scatter">③ 한 주의 손익은 어떻게 흩어질까</h3>
     <p data-en="This counts weekly carry profits pooled over 40 paths. The gray line is a bell curve (normal distribution) with the same average and volatility. With crowding the left tail (red, below -5% in a week) is far thicker than the bell curve says. Set crowd power to 0 and the tail disappears.">경로 40개를 합쳐 한 주의 캐리 수익을 센 분포입니다. 회색 선은 같은 평균과 변동성을 가진 종 모양(정규분포)입니다. 쏠림이 있으면 왼쪽 꼬리(붉은 부분, 한 주에 -5% 아래)가 종 모양이 말하는 것보다 훨씬 두껍습니다. 쏠림의 힘을 0으로 내리면 꼬리가 사라집니다.</p>
     <canvas id="c-hist" class="" aria-label="③ How Weekly Profits Scatter"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Actual weeks"><i style="background:var(--accent)"></i>실제 주 수</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Below -5%"><i style="background:#e5484d"></i>-5% 아래</span><span data-en="&lt;i style=&quot;background:#8a93a6&quot;&gt;&lt;/i&gt;Bell curve (normal)"><i style="background:#8a93a6"></i>종 모양(정규분포)</span></div>
     </section>
     <section class="panel chart">
       <h3 data-en="④ If the Interest Gap Grows">④ 금리 차이를 키우면</h3>
     <p data-en="The horizontal axis is the interest gap, the vertical axis an average. Green is the average yearly carry profit, red the average loss in the worst single week. A bigger gap earns more interest but also draws the crowd faster, so the worst week gets bigger. Each point averages 24 paths.">가로는 금리 차이, 세로는 평균입니다. 초록은 연 평균 캐리 수익, 빨강은 가장 나쁜 한 주의 평균 손실입니다. 금리 차이가 클수록 이자는 더 벌지만, 사람이 빨리 몰려 한 주의 급락도 커집니다. 경로 24개의 평균입니다.</p>
     <canvas id="c-sweep" class="" aria-label="④ If the Interest Gap Grows"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Average yearly carry profit"><i style="background:#1fa463"></i>연 평균 캐리 수익</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Average loss in the worst week"><i style="background:#e5484d"></i>가장 나쁜 한 주의 평균 손실</span></div>
     </section>
   </div>
 

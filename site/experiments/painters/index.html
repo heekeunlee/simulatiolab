@@ -19,13 +19,13 @@
 
 <main class="wrap">
   <h1 data-en="What If 100 AI Painters Copy Each Other?">AI 화가 100명이 서로 따라 그리면</h1>
-  <p class="lead" data-en="One hundred painters look at each other&#x27;s work and copy the styles they like. How do paintings that start out all different change? Vary how often they copy and how original they are, and look for the point where everything converges on a single style.">화가 100명이 서로의 그림을 보고 마음에 드는 화풍을 따라 그립니다. 처음엔 제각각이던 그림이 어떻게 변할까요? 따라 그리는 비율과 독창성을 바꿔 가며 "하나의 화풍"으로 수렴하는 지점을 찾아봅니다.</p>
+  <p class="lead" data-en="One hundred painters look at each other&#x27;s work and copy the styles they like. How do paintings that start out all different change? Vary how often they copy and how original they are, and look for the point where everything settles on a single style.">화가 100명이 서로의 그림을 보고 마음에 드는 화풍을 따라 그립니다. 처음엔 제각각이던 그림이 어떻게 변할까요? 따라 그리는 비율과 독창성을 바꿔 가며 "하나의 화풍"으로 모이는 지점을 찾아봅니다.</p>
 
   <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
   <ul>
     <li data-en="Each painter has a &lt;b&gt;style&lt;/b&gt; made of four numbers: hue, brush size, complexity and angularity. These numbers generate a small abstract painting for the gallery. Similar styles produce similar-looking paintings.">화가마다 네 가지 숫자로 된 <b>화풍</b>이 있습니다: 색조, 붓 크기, 복잡도, 각진 정도. 이 숫자로 작은 추상화를 그려서 갤러리에 걸어요. 화풍이 비슷하면 그림도 비슷해 보입니다.</li>
     <li data-en="Each round, all painters act at once: with a probability equal to the &lt;b&gt;copy rate&lt;/b&gt;, a painter &lt;b&gt;copies&lt;/b&gt; another painter by moving about halfway toward that painter&#x27;s style. Otherwise they &lt;b&gt;innovate&lt;/b&gt;, randomly changing their own style by the amount of &lt;b&gt;originality&lt;/b&gt;.">라운드마다 모든 화가가 동시에, <b>따라 그리는 비율</b>의 확률로 다른 화가 한 명의 화풍 쪽으로 절반쯤 <b>따라갑니다</b>. 나머지는 <b>혁신</b>이라서 자기 화풍을 <b>독창성</b>만큼 무작위로 바꿔요.</li>
-    <li data-en="Whom to copy is influenced by &lt;b&gt;popularity&lt;/b&gt;. Popularity rises with the number of people who copied a painter (and fades over time), and the larger the &lt;b&gt;popularity bias&lt;/b&gt;, the more often popular painters are chosen.">누구를 따라 할지는 <b>인기</b>가 영향을 줍니다. 따라 그린 사람이 많을수록 인기가 오르고(시간이 지나면 줄어듦), <b>인기 편향</b>이 클수록 인기 높은 화가가 더 자주 뽑힙니다.</li>
+    <li data-en="Whom to copy is influenced by &lt;b&gt;popularity&lt;/b&gt;. Popularity rises with the number of people who copied a painter (and fades over time), and the larger the &lt;b&gt;popularity bias&lt;/b&gt; (leaning toward the popular), the more often popular painters are chosen.">누구를 따라 할지는 <b>인기</b>가 영향을 줍니다. 따라 그린 사람이 많을수록 인기가 오르고(시간이 지나면 줄어듦), <b>인기 편향</b>(인기 있는 쪽으로 쏠리는 정도)이 클수록 인기 높은 화가가 더 자주 뽑힙니다.</li>
     <li data-en="&lt;b&gt;Diversity&lt;/b&gt; is the average style distance between pairs of painters (maximum 1), and &lt;b&gt;concentration&lt;/b&gt; is the share of painters close to the most popular style."><b>다양성</b>은 화가 쌍 사이 화풍 거리의 평균(최대 1), <b>쏠림</b>은 가장 인기 있는 화풍과 비슷한 화가의 비율입니다.</li>
   </ul>
 
@@ -37,7 +37,7 @@
         <span class="hint" data-en="At 100%, everyone copies someone every round">100%면 모두가 매번 누군가를 따라 해요</span></div>
 <div class="ctl"><label for="bias" data-en="Popularity bias &lt;output id=&quot;o-bias&quot;&gt;&lt;/output&gt;">인기 편향 <output id="o-bias"></output></label>
         <input type="range" id="bias" min="0" max="100" step="10" value="50">
-        <span class="hint" data-en="The larger it is, the more often popular painters get copied">클수록 인기 있는 화가가 더 자주 모방 대상이 돼요</span></div>
+        <span class="hint" data-en="The larger it is, the more often popular painters get copied">클수록 인기 있는 화가가 더 자주 따라 그리는 대상이 돼요</span></div>
 <div class="ctl"><label for="originality" data-en="Originality &lt;output id=&quot;o-originality&quot;&gt;&lt;/output&gt;">독창성 <output id="o-originality"></output></label>
         <input type="range" id="originality" min="0" max="100" step="10" value="40">
         <span class="hint" data-en="How much a style changes when painters innovate">혁신할 때 화풍을 얼마나 크게 바꾸는지</span></div>
@@ -70,18 +70,16 @@
       <h3 data-en="② Diversity and Concentration Over Time">② 다양성과 쏠림의 변화</h3>
     <p data-en="The blue line is diversity (how different the styles are) and the gold line is concentration (the share following the popular style).">파란 선은 다양성(화풍이 얼마나 다른가), 금색 선은 쏠림(인기 화풍을 따르는 비율)입니다.</p>
     <canvas id="c-time" class="" aria-label="② Diversity and Concentration Over Time"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Diversity"><i style="background:var(--accent)"></i>다양성</span><span data-en="&lt;i style=&quot;background:var(--rich)&quot;&gt;&lt;/i&gt;Style concentration"><i style="background:var(--rich)"></i>화풍 쏠림</span></div>
     </section>
     <section class="panel chart">
       <h3 data-en="③ Style Map">③ 화풍 지도</h3>
-    <p data-en="The horizontal axis is hue and the vertical axis is complexity; each dot is one painter. When the dots pile into one place, the painters have converged on one style. Larger dots are more popular.">가로는 색조, 세로는 복잡도이고 점 하나가 화가 한 명입니다. 점이 한곳에 모이면 하나의 화풍으로 수렴한 거예요. 큰 점일수록 인기가 높습니다.</p>
+    <p data-en="The horizontal axis is hue and the vertical axis is complexity; each dot is one painter. When the dots pile into one place, the painters have settled on one style. Larger dots are more popular.">가로는 색조, 세로는 복잡도이고 점 하나가 화가 한 명입니다. 점이 한곳에 모이면 하나의 화풍으로 모인 거예요. 큰 점일수록 인기가 높습니다.</p>
     <canvas id="c-map" class="" aria-label="③ Style Map"></canvas>
     </section>
     <section class="panel chart">
       <h3 data-en="④ As the Copy Rate Rises">④ 따라 그리는 비율이 높아지면</h3>
     <p data-en="The horizontal axis is the copy rate and the vertical axis is diversity (blue) and concentration (gold) after 80 rounds. The gray line is diversity with no popularity bias. Dots are 4 runs.">가로는 따라 그리는 비율, 세로는 80라운드 뒤의 다양성(파랑)과 쏠림(금색)입니다. 회색 선은 인기 편향이 없을 때의 다양성이에요. 점은 4번의 실행입니다.</p>
     <canvas id="c-sweep" class="" aria-label="④ As the Copy Rate Rises"></canvas>
-      <div class="legend"><span id="note-sweep" data-en="Calculating…">계산 중…</span></div>
     </section>
   </div>
 

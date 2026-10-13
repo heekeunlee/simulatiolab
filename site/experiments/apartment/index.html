@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-en="How Do Apartment Prices Spread? · Simulatio Lab">아파트 가격은 어떻게 번질까 · 시뮬라티오 랩</title>
-<meta name="description" content="한 동네의 가격 상승이 이웃으로 번지는 과정을 대출 한도와 금리 충격을 바꿔 가며 지켜보세요. 투자 조언이 아닌 장난감 모델입니다." data-en-content="Watch a price rise in one neighborhood spread to its neighbors, and change the loan cap and a rate shock. A toy model, not investment advice.">
+<meta name="description" content="한 동네에서 오른 집값이 이웃 동네로 번지는 모습을 지켜보세요. 대출 한도와 금리 충격도 바꿔 볼 수 있어요. 투자 조언이 아닌 장난감 모델입니다." data-en-content="Watch a price rise in one neighborhood spread to the next ones. You can change the loan cap and a rate shock. A toy model, not investment advice.">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="manifest" href="../../manifest.webmanifest">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -19,7 +19,7 @@
 
 <main class="wrap">
   <h1 data-en="How Do Apartment Prices Spread?">아파트 가격은 어떻게 번질까</h1>
-  <p class="lead" data-en="Does a price rise that starts in one neighborhood spread to its neighbors? Change how strongly people follow recent gains next door (price contagion), the loan cap and a rate shock, and watch 900 neighborhoods on a grid. It is a toy model of the structure, not a picture of any real area.">한 동네에서 시작된 가격 상승은 이웃으로 번질까요? 이웃의 최근 상승에 끌리는 정도(가격 전염), 대출 한도, 금리 충격을 바꿔 가며 격자 위의 동네 900곳을 지켜봅니다. 실제 어느 지역을 그린 것이 아니라 구조를 보는 장난감 모델입니다.</p>
+  <p class="lead" data-en="Does a price rise in one neighborhood spread to the next ones? Change how much a neighborhood copies the rise next door (price contagion), the loan cap and a rate shock, and watch 900 neighborhoods on a grid. It is a toy model of how things work, not a real area.">한 동네에서 오른 집값은 이웃 동네로 번질까요? 이웃이 오르면 따라 오르는 정도(가격 전염), 대출 한도, 금리 충격을 바꿔 가며 바둑판 위 동네 900곳을 지켜봅니다. 실제 지역이 아니라 원리를 보는 장난감 모델입니다.</p>
 
   <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
   <ul>
@@ -32,16 +32,16 @@
   <h2 data-en="Try it yourself">직접 돌려보기</h2>
   <div class="panel">
     <div class="controls">
-      <div class="ctl"><label for="contagion" data-en="Price contagion &lt;output id=&quot;o-contagion&quot;&gt;&lt;/output&gt;">가격 전염의 세기 <output id="o-contagion"></output></label>
+      <div class="ctl"><label for="contagion" data-en="Copying neighbors (price contagion) &lt;output id=&quot;o-contagion&quot;&gt;&lt;/output&gt;">이웃 따라 오르기(가격 전염) <output id="o-contagion"></output></label>
         <input type="range" id="contagion" min="0" max="1" step="0.05" value="0.6">
-        <span class="hint" data-en="How strongly neighbors&#x27; recent gains pull a neighborhood. 0 means independent">이웃의 최근 상승에 얼마나 끌리는지. 0이면 이웃과 무관</span></div>
+        <span class="hint" data-en="How much a neighborhood follows its neighbors&#x27; rise. 0 means independent">이웃이 오르면 얼마나 따라 오르는지. 0이면 이웃과 상관없음</span></div>
 <div class="ctl"><label for="ltv" data-en="Loan cap &lt;output id=&quot;o-ltv&quot;&gt;&lt;/output&gt;">대출 한도 <output id="o-ltv"></output></label>
         <input type="range" id="ltv" min="40" max="80" step="5" value="60">
-        <span class="hint" data-en="Higher means prices can climb further above the income line">클수록 소득 기준선 위로 더 오를 수 있음</span></div>
-<div class="ctl"><label for="optimism" data-en="Optimism about future gains &lt;output id=&quot;o-optimism&quot;&gt;&lt;/output&gt;">앞으로도 오를 거라는 기대 <output id="o-optimism"></output></label>
+        <span class="hint" data-en="Higher means prices can climb further above the income line">클수록 소득 기준선보다 더 높이 오를 수 있음</span></div>
+<div class="ctl"><label for="optimism" data-en="Hope for more gains &lt;output id=&quot;o-optimism&quot;&gt;&lt;/output&gt;">더 오를 거라는 기대 <output id="o-optimism"></output></label>
         <input type="range" id="optimism" min="0" max="100" step="10" value="50">
-        <span class="hint" data-en="At 0 there is no rise driven by expectations">0이면 기대에서 오는 상승이 없음</span></div>
-<div class="ctl"><label for="rateStep" data-en="Rate shock &lt;output id=&quot;o-rateStep&quot;&gt;&lt;/output&gt;">금리 충격 <output id="o-rateStep"></output></label>
+        <span class="hint" data-en="At 0, hope alone pushes nothing up">0이면 기대 때문에 오르는 일이 없음</span></div>
+<div class="ctl"><label for="rateStep" data-en="Rate shock &lt;output id=&quot;o-rateStep&quot;&gt;&lt;/output&gt;">금리 급등 <output id="o-rateStep"></output></label>
         <select id="rateStep" class="sel"><option value="0" data-en="None">없음</option><option value="40" data-en="At quarter 40">40분기째에</option><option value="50" selected data-en="At quarter 50">50분기째에</option><option value="60" data-en="At quarter 60">60분기째에</option></select>
         <span class="hint" data-en="From that quarter lending tightens and expectations sour">그 분기부터 대출 여건이 나빠지고 기대가 꺾임</span></div>
     </div>
@@ -56,8 +56,8 @@
   <div class="stats" id="stats"></div>
 
   <section class="panel chart" style="margin-top:16px">
-    <h3 data-en="① How Prices Spread">① 가격이 번지는 모습</h3>
-    <p data-en="Each cell is a neighborhood, and color shows how expensive it is relative to the income line. Watch whether the rise spreads out from the dashed square in the middle, and whether it cools after the rate shock.">한 칸이 한 동네이고, 색은 소득 기준선에 비해 얼마나 비싼지입니다. 가운데 점선 네모에서 시작해 이웃으로 번지는지, 금리 충격 뒤에 식는지 지켜보세요.</p>
+    <h3 data-en="① How Prices Spread">① 집값이 번지는 모습</h3>
+    <p data-en="Each cell is a neighborhood, and color shows how expensive it is relative to the income line. Watch whether the rise spreads out from the dashed square in the middle, and whether it cools after the rate shock.">한 칸이 한 동네이고, 색은 소득에 비해 집값이 얼마나 비싼지입니다. 가운데 점선 네모에서 시작해 이웃으로 번지는지, 금리 충격 뒤에 식는지 지켜보세요.</p>
     <canvas id="c-map" class="rounded" data-thumb aria-label="① How Prices Spread"></canvas>
     <div class="anim-bar">
       <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
@@ -70,22 +70,19 @@
 
   <div class="charts">
     <section class="panel chart">
-      <h3 data-en="② Average Price and Ceiling">② 평균 가격과 감당 상한</h3>
-    <p data-en="The blue line is the average price index. The gray dashed line is the income line and the gold dashed line is the ceiling allowed by the loan cap. Prices rise toward the ceiling, then fall after the rate shock.">파란 선이 평균 가격지수입니다. 회색 점선은 소득 기준선, 금색 점선은 대출 한도가 허용하는 감당 상한이에요. 가격은 상한 근처까지 오르다가 금리 충격 뒤 내려옵니다.</p>
-    <canvas id="c-price" class="" aria-label="② Average Price and Ceiling"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#2f6fed&quot;&gt;&lt;/i&gt;Average price index"><i style="background:#2f6fed"></i>평균 가격지수</span><span data-en="&lt;i style=&quot;background:#8a93a6&quot;&gt;&lt;/i&gt;Income line"><i style="background:#8a93a6"></i>소득 기준선</span><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;Affordability ceiling"><i style="background:#e0a100"></i>감당 상한</span></div>
+      <h3 data-en="② Average Price and Its Limit">② 평균 집값과 오를 수 있는 한계</h3>
+    <p data-en="The blue line is the average price index. The gray dashed line is the income line and the gold dashed line is the ceiling allowed by the loan cap. Prices rise toward the ceiling, then fall after the rate shock.">파란 선이 평균 집값 지수예요. 회색 점선은 소득 기준선, 금색 점선은 대출 한도가 허락하는 한계선입니다. 집값은 한계선 근처까지 오르다가 금리 충격 뒤 내려옵니다.</p>
+    <canvas id="c-price" class="" aria-label="② Average Price and Its Limit"></canvas>
     </section>
     <section class="panel chart">
-      <h3 data-en="③ How Many Neighborhoods Overheat">③ 얼마나 많은 동네가 과열됐나</h3>
-    <p data-en="An overvalued neighborhood is one priced more than 30% above the income line. The red line is their share, and the gray line is the price gap between neighborhoods (standard deviation divided by the mean).">고평가 동네는 소득 기준선보다 30% 넘게 비싼 동네입니다. 빨간 선은 그 비율, 회색 선은 동네 사이 가격 격차(표준편차를 평균으로 나눈 값)예요.</p>
-    <canvas id="c-hot" class="" aria-label="③ How Many Neighborhoods Overheat"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Share overvalued"><i style="background:#e5484d"></i>고평가 동네 비율</span><span data-en="&lt;i style=&quot;background:#8a93a6&quot;&gt;&lt;/i&gt;Price gap between neighborhoods"><i style="background:#8a93a6"></i>동네 간 가격 격차</span></div>
+      <h3 data-en="③ How Many Neighborhoods Get Too Pricey">③ 얼마나 많은 동네가 너무 비싸졌나</h3>
+    <p data-en="An overvalued neighborhood is one priced more than 30% above the income line. The red line is their share, and the gray line is the price gap between neighborhoods (standard deviation divided by the mean).">너무 비싼 동네는 소득 기준선보다 30% 넘게 비싼 동네예요. 빨간 선은 그 비율, 회색 선은 동네끼리 집값이 벌어진 정도(표준편차를 평균으로 나눈 값)입니다.</p>
+    <canvas id="c-hot" class="" aria-label="③ How Many Neighborhoods Get Too Pricey"></canvas>
     </section>
     <section class="panel chart">
-      <h3 data-en="④ Stronger Contagion, Looser Lending">④ 전염이 강할수록, 대출이 풀릴수록</h3>
-    <p data-en="The horizontal axis is price contagion; the vertical axis is the highest share of overvalued neighborhoods during the run. Compare what changes when only the loan cap is lowered to 40% at the same contagion. Dots are 5 runs.">가로는 가격 전염의 세기, 세로는 기간 중 고평가 동네가 가장 많았을 때의 비율입니다. 같은 전염 세기에서 대출 한도만 40%로 낮추면 어떻게 달라지는지 비교해 보세요. 점은 5번의 실행이에요.</p>
-    <canvas id="c-sweep" class="" aria-label="④ Stronger Contagion, Looser Lending"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#2f6fed&quot;&gt;&lt;/i&gt;Your loan cap"><i style="background:#2f6fed"></i>지금 설정의 대출 한도</span><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Loan cap 40%"><i style="background:#1fa463"></i>대출 한도 40%</span></div>
+      <h3 data-en="④ More Copying, Easier Loans">④ 이웃을 더 따라 할수록, 대출이 쉬울수록</h3>
+    <p data-en="The horizontal axis is price contagion; the vertical axis is the highest share of overvalued neighborhoods during the run. Compare what changes when only the loan cap is lowered to 40% at the same contagion. Dots are 5 runs.">가로는 이웃 따라 오르기의 세기, 세로는 기간 중 너무 비싼 동네가 가장 많았을 때의 비율입니다. 같은 전염 세기에서 대출 한도만 40%로 낮추면 어떻게 달라지는지 비교해 보세요. 점은 5번의 실행이에요.</p>
+    <canvas id="c-sweep" class="" aria-label="④ More Copying, Easier Loans"></canvas>
       <div class="legend"><span id="note-sweep" data-en="Calculating…">계산 중…</span></div>
     </section>
   </div>

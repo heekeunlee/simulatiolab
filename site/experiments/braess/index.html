@@ -23,10 +23,10 @@
 
   <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
   <ul>
-    <li data-en="There are two routes from start to destination: &lt;b&gt;Route A&lt;/b&gt; (start→A→destination) and &lt;b&gt;Route B&lt;/b&gt; (start→B→destination). Start→A and B→destination are &lt;b&gt;congestible roads&lt;/b&gt;: the time grows by the sensitivity for every 1,000 drivers on them (10 minutes by default, so x drivers take x/100 minutes). A→destination and start→B always take 45 minutes, however many cars use them.">출발에서 도착까지 가는 길은 둘입니다. <b>A 길</b>(출발→A→도착)과 <b>B 길</b>(출발→B→도착)이에요. 출발→A와 B→도착은 <b>막히는 길</b>이라, 이 길을 지나는 운전자 1,000명당 걸리는 시간이 민감도만큼(기본 10분, 즉 x명이면 x/100분) 늘어납니다. A→도착과 출발→B는 몇 명이 지나든 늘 45분입니다.</li>
+    <li data-en="There are two routes from start to destination: &lt;b&gt;Route A&lt;/b&gt; (start→A→destination) and &lt;b&gt;Route B&lt;/b&gt; (start→B→destination). Start→A and B→destination are &lt;b&gt;congestible roads&lt;/b&gt;: the time grows by the sensitivity for every 1,000 drivers on them (10 minutes by default, so x drivers take x/100 minutes). A→destination and start→B always take 45 minutes, however many cars use them.">출발에서 도착까지 가는 길은 둘입니다. <b>A 길</b>(출발→A→도착)과 <b>B 길</b>(출발→B→도착)이에요. 출발→A와 B→도착은 <b>막히는 길</b>이라, 이 길을 지나는 운전자 1,000명당 걸리는 시간이 막히는 정도만큼(기본 10분, 즉 x명이면 x/100분) 늘어납니다. A→도착과 출발→B는 몇 명이 지나든 늘 45분입니다.</li>
     <li data-en="Opening the &lt;b&gt;shortcut&lt;/b&gt; adds a third route (start→A→B→destination) that crosses from A to B. Crossing takes a fixed time (0 minutes by default) and never gets congested."><b>지름길</b>을 열면 A에서 B로 건너가는 세 번째 길(출발→A→B→도착)이 생깁니다. 지름길을 지나는 데는 정해진 시간(기본 0분)이 들고 막히지 않습니다.</li>
-    <li data-en="Each round, 8% of drivers reconsider their route. They switch only if the time they would get after switching is clearly shorter, and they move one at a time, so the system ends where nobody can gain by switching alone.">운전자는 매 라운드 8%씩 길을 다시 고릅니다. "내가 옮겨 간다면 걸릴 시간"이 지금보다 확실히 짧을 때만 옮기고, 한 명씩 차례로 옮기므로 결국 아무도 혼자 옮겨서는 이득을 볼 수 없는 균형에 닿습니다.</li>
-    <li data-en="The lowest average time reachable if a planner could assign routes in the same network is the &lt;b&gt;social optimum&lt;/b&gt;. The selfish equilibrium&#x27;s average time divided by the social optimum is the &lt;b&gt;price of anarchy&lt;/b&gt;.">같은 도로망에서 중앙에서 길을 나눠 줄 수 있다면 도달할 수 있는 평균 시간의 최솟값이 <b>사회 최적</b>입니다. 이기적 균형의 평균 시간을 사회 최적으로 나눈 값이 <b>무정부 가격(price of anarchy)</b>입니다.</li>
+    <li data-en="Each round, 8% of drivers reconsider their route. They switch only if the time they would get after switching is clearly shorter, and they move one at a time, so the system ends in a stable state (equilibrium) where nobody can gain by switching alone.">운전자는 매 라운드 8%씩 길을 다시 고릅니다. "내가 옮겨 간다면 걸릴 시간"이 지금보다 확실히 짧을 때만 옮기고, 한 명씩 차례로 옮기므로 결국 아무도 혼자 옮겨서는 이득을 볼 수 없는 안정된 상태(균형)에 닿습니다.</li>
+    <li data-en="The lowest average time reachable if a planner could assign routes in the same network is the &lt;b&gt;social optimum&lt;/b&gt; (the best state for everyone). The average time when everyone picks for themselves, divided by the social optimum, is the &lt;b&gt;price of anarchy&lt;/b&gt; (the cost of everyone choosing alone).">같은 도로망에서 중앙에서 길을 나눠 줄 수 있다면 도달할 수 있는 평균 시간의 최솟값이 <b>사회 최적</b>(모두를 위한 가장 좋은 상태)입니다. 각자 제 길을 골랐을 때의 평균 시간을 사회 최적으로 나눈 값이 <b>무정부 가격(price of anarchy, 제멋대로 골랐을 때 치르는 비용)</b>입니다.</li>
   </ul>
 
   <h2 data-en="Try it yourself">직접 돌려보기</h2>
@@ -34,11 +34,11 @@
     <div class="controls">
       <div class="ctl"><label for="n" data-en="Number of drivers &lt;output id=&quot;o-n&quot;&gt;&lt;/output&gt;">출근하는 운전자 수 <output id="o-n"></output></label>
         <input type="range" id="n" min="500" max="10000" step="100" value="4000">
-        <span class="hint" data-en="More drivers slow the congestible roads faster. The shortcut&#x27;s effect flips depending on this value">많을수록 막히는 길이 빨리 느려져요. 지름길의 효과가 이 값에 따라 뒤집힙니다</span></div>
+        <span class="hint" data-en="More drivers slow the congestible roads faster. The shortcut&#x27;s effect flips depending on this value">많을수록 막히는 길이 빨리 느려져요. 지름길의 효과가 이 값에 따라 달라집니다</span></div>
 <div class="ctl"><label for="cost" data-en="Shortcut cost &lt;output id=&quot;o-cost&quot;&gt;&lt;/output&gt;">지름길 비용 <output id="o-cost"></output></label>
         <input type="range" id="cost" min="0" max="45" step="1" value="0">
         <span class="hint" data-en="Minutes needed to cross the shortcut. If large, nobody uses it">지름길을 지나는 데 드는 시간(분). 크면 아무도 안 타요</span></div>
-<div class="ctl"><label for="sens" data-en="Congestion sensitivity &lt;output id=&quot;o-sens&quot;&gt;&lt;/output&gt;">혼잡 민감도 <output id="o-sens"></output></label>
+<div class="ctl"><label for="sens" data-en="How easily roads jam &lt;output id=&quot;o-sens&quot;&gt;&lt;/output&gt;">길이 막히는 정도 <output id="o-sens"></output></label>
         <input type="range" id="sens" min="4" max="20" step="1" value="10">
         <span class="hint" data-en="Minutes added to a congestible road per 1,000 more drivers. 10 means x/100 minutes">막히는 길에 1,000명이 더 몰릴 때 늘어나는 시간(분). 10이면 x/100분</span></div>
 <div class="ctl"><label for="plan" data-en="Order of the experiment &lt;output id=&quot;o-plan&quot;&gt;&lt;/output&gt;">실험 순서 <output id="o-plan"></output></label>
@@ -79,20 +79,17 @@
       <h3 data-en="③ Which Route Do Drivers Pick?">③ 어느 길을 고르게 될까</h3>
     <p data-en="The share of drivers on each of the three routes in every round, stacked. When the shortcut opens, blue and purple (Routes A and B) shrink and orange (via the shortcut) grows.">라운드마다 세 길을 고른 운전자의 비율을 쌓았습니다. 지름길이 열리면 파랑과 보라(A 길, B 길)가 줄고 주황(지름길 경유)이 늘어납니다.</p>
     <canvas id="c-shares" class="" aria-label="③ Which Route Do Drivers Pick?"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Route A"><i style="background:var(--accent)"></i>A 길</span><span data-en="&lt;i style=&quot;background:#7c5cff&quot;&gt;&lt;/i&gt;Route B"><i style="background:#7c5cff"></i>B 길</span><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;Via the shortcut"><i style="background:#e0a100"></i>지름길 경유</span></div>
     </section>
     <section class="panel chart">
       <h3 data-en="④ When Does the Shortcut Help, and When Does It Hurt?">④ 지름길은 언제 도움이 되고 언제 해로울까</h3>
     <p data-en="The horizontal axis is the number of drivers, the vertical axis the average commute at equilibrium (theory). Where the area between the two lines is green the shortcut helps, where it is red it hurts. It helps when roads are quiet and hurts most at middling traffic.">가로는 운전자 수, 세로는 균형에서의 평균 출근 시간입니다(이론값). 두 선 사이가 초록이면 지름길이 도움이 되고, 빨강이면 해가 됩니다. 한적할 때는 도움이 되고, 어중간하게 붐빌 때 가장 해롭습니다.</p>
     <canvas id="c-n" class="" aria-label="④ When Does the Shortcut Help, and When Does It Hurt?"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;No shortcut"><i style="background:#1fa463"></i>지름길 없음</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;With shortcut"><i style="background:#e5484d"></i>지름길 있음</span><span data-en="&lt;i style=&quot;background:#8a93a6&quot;&gt;&lt;/i&gt;Social optimum"><i style="background:#8a93a6"></i>사회 최적</span></div>
       <div class="legend"><span id="note-n" data-en="Calculating…">계산 중…</span></div>
     </section>
     <section class="panel chart">
       <h3 data-en="⑤ If the Shortcut Gets Costlier">⑤ 지름길 비용을 올리면</h3>
     <p data-en="The horizontal axis is the time needed to cross the shortcut, the vertical axis the average commute at equilibrium. Past a certain cost nobody uses the shortcut and it is as good as closed.">가로는 지름길을 지나는 데 드는 시간, 세로는 균형에서의 평균 출근 시간입니다. 비용이 어느 선을 넘으면 지름길이 있어도 아무도 타지 않아 닫은 것과 같아집니다.</p>
     <canvas id="c-c" class="" aria-label="⑤ If the Shortcut Gets Costlier"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;No shortcut"><i style="background:#1fa463"></i>지름길 없음</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;With shortcut"><i style="background:#e5484d"></i>지름길 있음</span><span data-en="&lt;i style=&quot;background:#8a93a6&quot;&gt;&lt;/i&gt;Social optimum"><i style="background:#8a93a6"></i>사회 최적</span></div>
       <div class="legend"><span id="note-c" data-en="Calculating…">계산 중…</span></div>
     </section>
   </div>

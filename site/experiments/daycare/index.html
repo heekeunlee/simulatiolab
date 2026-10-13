@@ -37,14 +37,14 @@
         <span class="hint" data-en="Children per class. Bigger classes have more pairs, so it spreads faster">한 반의 아이 수. 클수록 만나는 짝이 많아져 퍼지는 속도가 빨라져요</span></div>
 <div class="ctl"><label for="contact" data-en="Contact level &lt;output id=&quot;o-contact&quot;&gt;&lt;/output&gt;">접촉 강도 <output id="o-contact"></output></label>
         <input type="range" id="contact" min="1" max="10" step="1" value="5">
-        <span class="hint" data-en="How closely children play and share toys. Higher means a bigger chance of spreading per encounter">붙어서 놀고 장난감을 같이 쓰는 정도. 높을수록 한 번 만날 때 퍼질 확률이 커요</span></div>
-<div class="ctl"><label for="stay" data-en="Share who stay home when sick &lt;output id=&quot;o-stay&quot;&gt;&lt;/output&gt;">아프면 쉬는 비율 <output id="o-stay"></output></label>
+        <span class="hint" data-en="How closely children play and share toys. Higher means a bigger chance of spreading per encounter">붙어서 놀고 장난감을 같이 쓰는 정도. 높을수록 감기가 더 잘 옮아요</span></div>
+<div class="ctl"><label for="stay" data-en="Share who stay home when sick &lt;output id=&quot;o-stay&quot;&gt;&lt;/output&gt;">아프면 쉬는 아이의 비율 <output id="o-stay"></output></label>
         <input type="range" id="stay" min="0" max="100" step="10" value="30">
         <span class="hint" data-en="Share of children who rest at home from the second sick day. Children at home do not spread it in class">아프기 시작한 둘째 날부터 집에서 쉬는 아이의 비율. 쉬는 아이는 반에 퍼뜨리지 않아요</span></div>
-<div class="ctl"><label for="hyg" data-en="Spread reduced by handwashing and ventilation &lt;output id=&quot;o-hyg&quot;&gt;&lt;/output&gt;">손씻기·환기로 줄인 전파 <output id="o-hyg"></output></label>
+<div class="ctl"><label for="hyg" data-en="Reduction from handwashing and ventilation &lt;output id=&quot;o-hyg&quot;&gt;&lt;/output&gt;">손씻기·환기로 줄이는 정도 <output id="o-hyg"></output></label>
         <input type="range" id="hyg" min="0" max="60" step="10" value="0">
         <span class="hint" data-en="Cuts the chance of spreading per encounter by this much (an assumed value in the model)">한 번 만날 때 퍼질 확률을 이만큼 줄입니다(모델상의 가정값)</span></div>
-<div class="ctl"><label for="imm" data-en="Immunity duration &lt;output id=&quot;o-imm&quot;&gt;&lt;/output&gt;">면역 지속 <output id="o-imm"></output></label>
+<div class="ctl"><label for="imm" data-en="How long immunity lasts &lt;output id=&quot;o-imm&quot;&gt;&lt;/output&gt;">면역이 유지되는 기간 <output id="o-imm"></output></label>
         <input type="range" id="imm" min="10" max="180" step="10" value="30">
         <span class="hint" data-en="Days after recovery during which a child cannot be reinfected. Longer means fewer infections a year">나은 뒤 이 기간(일) 동안은 다시 안 걸려요. 길수록 한 해 걸리는 횟수가 줄어요</span></div>
     </div>
@@ -75,7 +75,7 @@
   <div class="charts">
     <section class="panel chart">
       <h3 data-en="② How Many Children Are Sick Each Week?">② 주마다 아픈 아이는 얼마나 될까</h3>
-    <p data-en="The horizontal axis is the week since the term began and the vertical axis the share of children sick that week. The red line is this run, the dark line the children among them resting at home, and the gray line the average when nobody stays home at the same settings. It spreads widely at first because everyone is susceptible, then falls as immunity builds.">가로는 학기가 시작된 뒤 몇 주째인지, 세로는 그 주에 아팠던 아이의 비율입니다. 빨간 선이 이번에 돌린 결과, 짙은 선은 그 중 집에서 쉰 아이, 회색 선은 같은 설정에서 아무도 쉬지 않을 때의 평균입니다. 처음에는 모두 건강해서 크게 번지고, 면역이 쌓이면서 낮아집니다.</p>
+    <p data-en="The horizontal axis is the week since the term began and the vertical axis the share of children sick that week. The red line is this run, the dark line the children among them resting at home, and the gray line the average when nobody stays home at the same settings. It spreads widely at first because everyone is susceptible, then falls as immunity builds.">가로는 학기가 시작된 뒤 몇 주째인지, 세로는 그 주에 아팠던 아이의 비율입니다. 빨간 선이 이번에 돌린 결과, 짙은 선은 그 중 집에서 쉰 아이, 회색 선은 같은 설정에서 아무도 쉬지 않을 때의 평균입니다. 처음에는 모두 건강해서 크게 퍼지고, 면역이 쌓이면서 줄어듭니다.</p>
     <canvas id="c-week" class="" aria-label="② How Many Children Are Sick Each Week?"></canvas>
     </section>
     <section class="panel chart">

@@ -2,6 +2,15 @@ from itertools import combinations
 _N = ['엔진', '조종석', '동체', '날개', '꼬리']
 _E = ['Engine', 'Cockpit', 'Fuselage', 'Wings', 'Tail']
 DYN = {
+'보이는 비율 (%)': 'Share you can see (%)',
+'비행기 부위': 'Plane section',
+'절반 미만': 'Under half visible',
+'절반 이상 보임': 'Half or more visible',
+'생존율 (%)': 'Survival rate (%)',
+'보강 방법': 'Armor choice',
+'엔진 치명률 (%)': 'Engine lethality (%)',
+'구멍 많은 곳 보강': 'Armor where the holes are',
+'빈 곳 보강': 'Armor where holes are missing',
 '엔진': 'Engine', '조종석': 'Cockpit', '동체': 'Fuselage', '날개': 'Wings', '꼬리': 'Tail',
 '방탄': 'armor',
 '돌아온 비행기에서 보이는 구멍': 'Holes you can see on returned planes',

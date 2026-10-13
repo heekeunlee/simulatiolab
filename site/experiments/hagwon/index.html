@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title data-en="The Cram-School Dilemma · Simulatio Lab">선행학습 딜레마 · 시뮬라티오 랩</title>
-<meta name="description" content="한 집만 학원을 한 개 더 보내면 순위가 오르지만, 모두가 보내면 순위는 그대로이고 비용만 늘어나는 이유를 시뮬레이션으로 직접 돌려보세요." data-en-content="Run it yourself: why sending one more class helps a single family climb the ranking, yet when everyone does it the ranking stays put and only the bills grow.">
+<title data-en="The Class Race · Simulatio Lab">학원 경쟁 · 시뮬라티오 랩</title>
+<meta name="description" content="옆집이 학원을 하나 더 보내면 우리도 보내야 할까요? 한 집만 보낼 때와 모두가 보낼 때 등수가 어떻게 달라지는지 직접 돌려 보세요." data-en-content="If the family next door adds one more class, should we? Run it yourself to see how class rank changes when one family sends more, and when everyone does.">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="manifest" href="../../manifest.webmanifest">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -18,7 +18,7 @@
 </div></nav>
 
 <main class="wrap">
-  <h1 data-en="If Everyone Adds One More Class, Why Does No One Get Ahead? The Cram-School Dilemma">모두 학원을 한 개 더 보내면 왜 아무도 앞서지 못할까: 선행학습 딜레마</h1>
+  <h1 data-en="If Everyone Sends One More Class, Why Does No One Get Ahead?">모두가 학원을 하나 더 보내면 왜 아무도 앞서지 못할까?</h1>
   <p class="lead" data-en="When the family next door adds one more class, it feels like we should too, and that it would lift our child&#x27;s ranking. In this model, if a single family sends one more class, its ranking really does rise, by 7.5 percentage points on average. But if every family does it, no one&#x27;s rank changes at all, and in the default setting only the total bill grows, to about 5 times where it started. No family chose wrongly: a ranking is the kind of value where someone can rise only if someone else falls. With a fixed pass line, by contrast, everyone can rise together.">옆집이 학원을 하나 더 보내면 우리도 보내야 할 것 같고, 보내면 우리 아이 순위가 오를 것 같습니다. 실제로 이 모델에서 한 집만 한 개 더 보내면 순위가 평균 7.5%p 오릅니다. 그런데 모든 집이 그렇게 하면 순위는 한 칸도 바뀌지 않고, 기본 설정에서 학원비 총액만 처음의 약 5배가 됩니다. 어느 집도 잘못 고른 것이 아닙니다. 순위는 누가 오르면 누군가는 내려가야 하는 값이기 때문입니다. 반대로 합격선이 고정된 방식에서는 모두가 함께 오를 수 있습니다.</p>
 
   <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
@@ -26,7 +26,7 @@
     <li data-en="There are 300 households. Each child has a score they would get without classes (&lt;b&gt;basic ability + luck&lt;/b&gt;). A household sends 0 to 5 classes, and each class adds the &lt;b&gt;effect&lt;/b&gt; to the score (0.30 points by default, where the spread of basic ability counts as 1 point). Everyone starts with 0 to 2 classes (about 1 on average).">가구 300개가 있고, 아이마다 학원 없이 얻을 점수(<b>기본 실력 + 운</b>)가 정해져 있습니다. 가구는 학원을 0~5개 보내고, 학원 한 개마다 점수가 <b>효과</b>(기본 0.30점, 기본 실력의 퍼짐을 1점으로 본 값)만큼 오릅니다. 처음에는 0~2개(평균 약 1개)로 시작합니다.</li>
     <li data-en="The result depends on the grading method. With &lt;b&gt;relative grading&lt;/b&gt; the result is the child&#x27;s &lt;b&gt;rank&lt;/b&gt; (the share of children scoring lower), and with &lt;b&gt;absolute grading&lt;/b&gt; it is the chance of clearing a fixed pass line (0.6 points). A household&#x27;s payoff is &lt;code&gt;result − cost × number of classes&lt;/code&gt;, with cost measured as a share of the value of the top rank (4 percentage points by default).">결과는 평가 방식에 따라 다릅니다. <b>상대평가</b>에서는 결과가 <b>순위</b>(나보다 점수가 낮은 아이의 비율)이고, <b>절대평가</b>에서는 고정된 합격선(0.6점)을 넘을 가능성입니다. 가구의 이득은 <code>결과 − 비용 × 학원 수</code>이며, 비용은 1등 순위의 가치를 100%로 본 비율(기본 4%p)입니다.</li>
     <li data-en="Each round 25% of households reconsider. Of those, 40% &lt;b&gt;imitate&lt;/b&gt; (if a neighbor with a better result sends more classes, they go up one step) and 60% &lt;b&gt;experiment&lt;/b&gt; (they try one step up or down and keep it if their payoff improves). All decisions are made together from the previous round&#x27;s state.">매 라운드 가구의 25%가 학원 수를 다시 정합니다. 그중 40%는 <b>따라 하기</b>(나보다 결과가 좋은 이웃이 학원을 더 보내면 한 단계 올림)를, 60%는 <b>시도해 보기</b>(한 단계 바꿔 보고 이득이 늘면 그대로 둠)를 합니다. 모두 직전 라운드의 상태를 보고 동시에 정합니다.</li>
-    <li data-en="The &lt;b&gt;agreed cap&lt;/b&gt; slider assumes every household agreed to send at most that many classes. Whether the agreement holds, and how it would be kept, is outside this model."><b>투입 상한 합의</b> 슬라이더는 모든 집이 "최대 몇 개까지만 보내자"고 정했다고 가정합니다. 합의가 지켜지는지, 어떻게 지키게 하는지는 이 모델 밖의 문제입니다.</li>
+    <li data-en="The &lt;b&gt;agreed limit&lt;/b&gt; slider assumes every household agreed to send at most that many classes. Whether the agreement holds, and how it would be kept, is outside this model."><b>학원 수 제한 합의</b> 슬라이더는 모든 집이 "최대 몇 개까지만 보내자"고 약속했다고 가정합니다. 약속이 지켜지는지, 어떻게 지키게 하는지는 이 모델 밖의 문제입니다.</li>
   </ul>
 
   <h2 data-en="Try it yourself">직접 돌려보기</h2>
@@ -38,11 +38,11 @@
 <div class="ctl"><label for="cost" data-en="Cost of one class &lt;output id=&quot;o-cost&quot;&gt;&lt;/output&gt;">학원 한 개의 비용 <output id="o-cost"></output></label>
         <input type="range" id="cost" min="0.01" max="0.12" step="0.01" value="0.04">
         <span class="hint" data-en="The price of one class as a share of the value of the top rank. When it exceeds the gain, nobody sends">1등 순위의 가치를 100%로 볼 때 학원 한 개의 값. 이득보다 커지면 아무도 안 보내요</span></div>
-<div class="ctl"><label for="cap" data-en="Agreed cap &lt;output id=&quot;o-cap&quot;&gt;&lt;/output&gt;">투입 상한 합의 <output id="o-cap"></output></label>
+<div class="ctl"><label for="cap" data-en="Agreed limit &lt;output id=&quot;o-cap&quot;&gt;&lt;/output&gt;">학원 수 제한 합의 <output id="o-cap"></output></label>
         <input type="range" id="cap" min="0" max="5" step="1" value="5">
-        <span class="hint" data-en="The maximum number of classes every household agreed to. 5 means no agreement">모든 집이 최대 몇 개까지만 보내기로 했는지. 5는 합의 없음</span></div>
+        <span class="hint" data-en="The maximum number of classes every household agreed to. 5 means no agreement">모든 집이 최대 몇 개까지만 보내기로 약속했는지. 5는 약속 없음</span></div>
 <div class="ctl"><label for="mode" data-en="Grading &lt;output id=&quot;o-mode&quot;&gt;&lt;/output&gt;">평가 방식 <output id="o-mode"></output></label>
-        <select id="mode" class="sel"><option value="rel" selected data-en="Relative (rank)">상대평가 (순위)</option><option value="abs" data-en="Absolute (fixed pass line)">절대평가 (합격선 고정)</option></select>
+        <select id="mode" class="sel"><option value="rel" selected data-en="Relative (ranked against others)">상대평가 (등수로 겨루기)</option><option value="abs" data-en="Absolute (fixed pass line)">절대평가 (정해진 합격선)</option></select>
         <span class="hint" data-en="Choose whether the result is a rank or the chance of clearing a fixed pass line">결과를 순위로 볼지, 고정된 합격선을 넘을 가능성으로 볼지 골라요</span></div>
     </div>
     <div class="btns">
@@ -66,7 +66,6 @@
       <select id="speed" aria-label="speed"><option value="3" data-en="Slow">느리게</option><option value="8" selected data-en="Normal">보통</option><option value="18" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Upper-half line (relative)"><i style="background:#e5484d"></i>위쪽 절반 선 (상대평가)</span><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Pass line (absolute, fixed)"><i style="background:#1fa463"></i>합격선 (절대평가, 고정)</span></div>
   </section>
 
   <div class="charts">
@@ -74,25 +73,21 @@
       <h3 data-en="② The Result Stays, the Bill Grows">② 결과는 그대로, 학원비만 오른다</h3>
     <p data-en="Gray is the average result, red the bill per household, and blue their difference, the net payoff. With relative grading the average rank is always 50%, so the net payoff falls by exactly what the bill rises. Switch to absolute grading and the gray line rises too.">회색은 평균 결과, 빨강은 가구당 학원비, 파랑은 둘의 차이인 순이득입니다. 상대평가에서는 평균 순위가 늘 50%라서 학원비가 오른 만큼 순이득이 줄어듭니다. 절대평가로 바꾸면 회색 선이 함께 올라갑니다.</p>
     <canvas id="c-time" class="" aria-label="② The Result Stays, the Bill Grows"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#8a93a6&quot;&gt;&lt;/i&gt;Average result"><i style="background:#8a93a6"></i>평균 결과</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Bill (per household)"><i style="background:#e5484d"></i>학원비 (가구당)</span><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Net payoff"><i style="background:var(--accent)"></i>순이득</span></div>
     </section>
     <section class="panel chart">
       <h3 data-en="③ How Many Classes Does Each Household Send?">③ 몇 개씩 보내는 집이 몇 퍼센트일까</h3>
     <p data-en="The share of households by number of classes in every round, stacked. The mix shifts from the initial 0 to 2 classes toward larger numbers, from light to dark.">라운드마다 학원 수별 가구 비율을 쌓았습니다. 연한 색에서 진한 색으로 바뀌면서 처음의 0~2개가 점점 많은 개수로 옮겨 갑니다.</p>
     <canvas id="c-shares" class="" aria-label="③ How Many Classes Does Each Household Send?"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:rgb(196,211,238)&quot;&gt;&lt;/i&gt;0"><i style="background:rgb(196,211,238)"></i>0개</span><span data-en="&lt;i style=&quot;background:rgb(160,178,213)&quot;&gt;&lt;/i&gt;1"><i style="background:rgb(160,178,213)"></i>1개</span><span data-en="&lt;i style=&quot;background:rgb(124,144,188)&quot;&gt;&lt;/i&gt;2"><i style="background:rgb(124,144,188)"></i>2개</span><span data-en="&lt;i style=&quot;background:rgb(88,111,162)&quot;&gt;&lt;/i&gt;3"><i style="background:rgb(88,111,162)"></i>3개</span><span data-en="&lt;i style=&quot;background:rgb(52,77,137)&quot;&gt;&lt;/i&gt;4"><i style="background:rgb(52,77,137)"></i>4개</span><span data-en="&lt;i style=&quot;background:rgb(16,44,112)&quot;&gt;&lt;/i&gt;5"><i style="background:rgb(16,44,112)"></i>5개</span></div>
     </section>
     <section class="panel chart">
-      <h3 data-en="④ Does One Family Gain by Sending One More?">④ 한 집만 더 보내면 이득일까</h3>
-    <p data-en="The horizontal axis is the number of classes every household sends, and the vertical axis the average rise when just one household sends one more (theory). In the green zone, where the blue line is above the red dashed cost line, sending more alone pays, so everyone makes the same call.">가로는 모든 집이 보내는 학원 수, 세로는 그 상태에서 한 집만 한 개 더 보낼 때 오르는 평균 폭(이론값)입니다. 파란 선이 빨간 점선(비용)보다 위인 초록 구간에서는 혼자 더 보내는 쪽이 이득이라, 모두가 같은 판단을 하게 됩니다.</p>
+      <h3 data-en="④ Does One Family Gain by Sending One More?">④ 우리 집만 하나 더 보내면 이득일까</h3>
+    <p data-en="The horizontal axis is the number of classes every household sends, and the vertical axis the average rise when just one household sends one more (calculated). In the green zone, where the blue line is above the red dashed cost line, sending more alone pays, so everyone makes the same call.">가로는 모든 집이 보내는 학원 수, 세로는 그 상태에서 한 집만 한 개 더 보낼 때 오르는 평균 폭(계산으로 구한 값)입니다. 파란 선이 빨간 점선(비용)보다 위인 초록 구간에서는 혼자 더 보내는 쪽이 이득이라, 모두가 같은 판단을 하게 됩니다.</p>
     <canvas id="c-gain" class="" aria-label="④ Does One Family Gain by Sending One More?"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#2f6fed&quot;&gt;&lt;/i&gt;Gain from sending one more alone"><i style="background:#2f6fed"></i>혼자 한 개 더 보냈을 때의 이득</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Cost of one class"><i style="background:#e5484d"></i>학원 한 개 비용</span></div>
     </section>
     <section class="panel chart">
-      <h3 data-en="⑤ If Everyone Sends the Same Number, What Is the Net Payoff?">⑤ 모두가 같은 수준이면 순이득은</h3>
-    <p data-en="The horizontal axis is the number of classes every household sends, and the vertical axis the net payoff per household (theory). Under relative grading (red) it falls straight with each extra class, while under absolute grading (green) it rises as the chance of passing grows. An agreed cap stops things at the vertical dashed line.">가로는 모든 집이 보내는 학원 수, 세로는 가구당 순이득(이론값)입니다. 상대평가(빨강)는 늘어난 학원 수만큼 곧장 줄어들고, 절대평가(초록)는 합격 가능성이 오르는 동안 함께 오릅니다. 합의 상한을 두면 세로 점선에서 멈춥니다.</p>
-    <canvas id="c-net" class="" aria-label="⑤ If Everyone Sends the Same Number, What Is the Net Payoff?"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Relative grading"><i style="background:#e5484d"></i>상대평가</span><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Absolute grading"><i style="background:#1fa463"></i>절대평가</span></div>
+      <h3 data-en="⑤ If Everyone Sends the Same Number, What Is Left?">⑤ 모두가 같은 수만큼 보내면 남는 이득은</h3>
+    <p data-en="The horizontal axis is the number of classes every household sends, and the vertical axis the net payoff per household (calculated). Under relative grading (red) it falls straight with each extra class, while under absolute grading (green) it rises as the chance of passing grows. An agreed limit stops things at the vertical dashed line.">가로는 모든 집이 보내는 학원 수, 세로는 가구당 순이득(계산으로 구한 값)입니다. 상대평가(빨강)는 늘어난 학원 수만큼 곧장 줄어들고, 절대평가(초록)는 합격 가능성이 오르는 동안 함께 오릅니다. 학원 수 제한 약속을 두면 세로 점선에서 멈춥니다.</p>
+    <canvas id="c-net" class="" aria-label="⑤ If Everyone Sends the Same Number, What Is Left?"></canvas>
     </section>
   </div>
 

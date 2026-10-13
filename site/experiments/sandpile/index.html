@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-en="A Grain of Sand and a Landslide · Simulatio Lab">모래 한 알과 산사태 · 시뮬라티오 랩</title>
-<meta name="description" content="모래를 한 알씩 쌓기만 해도 더미가 스스로 임계 상태에 이르고, 대부분은 아무 일도 없다가 가끔 거대한 눈사태가 나는 모습을 모래더미 시뮬레이션으로 직접 돌려보세요." data-en-content="Pile sand one grain at a time and watch the pile organize itself into a critical state, where most grains do nothing and a few trigger huge avalanches. Run the sandpile simulation yourself.">
+<meta name="description" content="모래를 한 알씩 쌓기만 해도 더미가 스스로 무너지기 직전의 상태가 됩니다. 대부분은 아무 일도 없다가 가끔 거대한 눈사태가 나는 모습을 직접 돌려보세요." data-en-content="Pile sand one grain at a time and the pile ends up on the edge of collapse by itself. Most grains do nothing, a few set off huge avalanches. Run it yourself.">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="manifest" href="../../manifest.webmanifest">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -64,19 +64,19 @@
 
   <div class="charts">
     <section class="panel chart">
-      <h3 data-en="② Avalanche Size Over Time">② 눈사태 크기의 시간 흐름</h3>
+      <h3 data-en="② How Big Were the Avalanches?">② 눈사태는 얼마나 컸을까</h3>
     <p data-en="Each grain&#x27;s avalanche size is drawn as a vertical bar (for grains close together, only the largest is visible). Most hug the floor, and now and then a spike shoots up. The gray zone is the stretch where the pile is still building up.">알을 하나 떨어뜨릴 때마다 눈사태 크기를 세로 막대로 그렸습니다(가까운 알끼리는 가장 큰 것만 보입니다). 대부분은 바닥에 붙어 있고, 가끔 하늘로 솟는 뾰족한 막대가 있습니다. 회색 영역은 아직 더미가 쌓이는 중인 구간입니다.</p>
-    <canvas id="c-size" class="" aria-label="② Avalanche Size Over Time"></canvas>
+    <canvas id="c-size" class="" aria-label="② How Big Were the Avalanches?"></canvas>
     </section>
     <section class="panel chart">
-      <h3 data-en="③ Distribution of Avalanche Sizes">③ 눈사태 크기의 분포</h3>
+      <h3 data-en="③ How Often Do Small and Big Avalanches Happen?">③ 작은 눈사태와 큰 눈사태는 얼마나 자주 날까</h3>
     <p data-en="Avalanches in the steady regime are counted by size and drawn with both axes on a log scale (avalanches of size 0 are left out). If the dots roughly follow a falling straight line, small avalanches are very common and large ones rare but far from absent. The red dashed line is fitted to dots backed by at least 10 avalanches, and its slope is the value actually measured at this board size.">안정기 이후의 눈사태를 크기별로 세어 가로세로 모두 로그 눈금으로 그렸습니다(무너진 적 없는 0은 뺐습니다). 점들이 대체로 내려가는 직선을 이루면 작은 사태는 아주 흔하고 큰 사태는 드물지만 아예 없지는 않다는 뜻입니다. 빨간 점선은 표본 10개 이상인 점들에 맞춘 직선이고, 기울기는 이 판 크기에서 실제로 잰 값입니다.</p>
-    <canvas id="c-dist" class="" aria-label="③ Distribution of Avalanche Sizes"></canvas>
+    <canvas id="c-dist" class="" aria-label="③ How Often Do Small and Big Avalanches Happen?"></canvas>
     </section>
     <section class="panel chart">
-      <h3 data-en="④ Average Height per Cell">④ 칸당 평균 높이</h3>
+      <h3 data-en="④ Does the Height Keep Rising?">④ 쌓을수록 높이는 계속 오를까</h3>
     <p data-en="As grains accumulate the average height rises, then stops rising and only wobbles around a value. Grains added and grains lost over the edge balance out.">모래알이 쌓이면서 평균 높이가 오르다가, 어느 값에서 더는 오르지 않고 오르내리기만 합니다. 더 얹어도 가장자리로 흘러나가는 알과 새로 얹는 알이 균형을 이루기 때문입니다.</p>
-    <canvas id="c-height" class="" aria-label="④ Average Height per Cell"></canvas>
+    <canvas id="c-height" class="" aria-label="④ Does the Height Keep Rising?"></canvas>
     </section>
   </div>
 

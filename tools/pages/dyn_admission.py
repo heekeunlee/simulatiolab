@@ -28,4 +28,13 @@ DYN = {
 '{0}지망': '{0} choices',
 '일찍 접수할 수 있는 집이 나머지보다 평균 몇 지망 더 좋은 곳에 갔는지 (미배정은 {#0}지망으로 계산)': 'How many choices better, on average, the families who can apply early did than the rest (unassigned counts as choice {0})',
 '배정 번호': 'Children set',
+'아이 비율 (%)': 'Children (%)',
+'배정 방식': 'Method',
+'이득 보는 아이 (%)': 'Children who gain (%)',
+'취향이 비슷한 정도 (%)': 'Similar tastes (%)',
+'보스턴 방식': 'Boston method',
+'나머지 세 방식 (0%)': 'Other three methods (0%)',
+'1지망': '1st choice', '2~3지망': '2nd-3rd choice', '4~5지망': '4th-5th choice', '6지망 이하': '6th choice or lower', '배정 못 받음': 'Not assigned',
+'일찍 접수할 수 있는 집(대기 중)': 'Can apply early (waiting)',
+'시험해 보는 아이': 'Child being tested',
 }

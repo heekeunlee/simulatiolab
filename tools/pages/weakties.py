@@ -37,7 +37,7 @@ page(dict(
   dict(title=T('③ 소식이 퍼지는 속도 비교', '③ How Fast the News Spreads'),
        p=T('턴마다 소식을 아는 사람의 비율입니다(8번 평균). 회색은 약한 연결이 없을 때, 나머지는 약한 연결이 늘어난 경우이고, 검은 굵은 선이 지금 설정입니다. 점선은 90%입니다.',
            'The share of people who know the news at each turn (averaged over 8 runs). Gray is no weak ties, the others have more of them, and the thick black line is the current setting. The dotted line marks 90%.'),
-       id='c-spread', legend=[leg('background:#8a93a6', '0%', '0%'), leg('background:#4f7cf0', '0.5%', '0.5%'), leg('background:#1fa463', '2%', '2%'), leg('background:#e0a100', '10%', '10%'), leg('background:#e5484d', '100%', '100%'), leg('background:#1b1f2a', '지금 설정', 'Current setting')]),
+       id='c-spread'),
   dict(title=T('④ 약한 연결이 얼마나 필요할까', '④ How Many Weak Ties Do We Need?'),
        p=T('90%가 알 때까지 걸리는 턴을 약한 연결 비율별로 그렸습니다. 처음 몇 개가 가장 크게 줄여 주고, 그 뒤로는 점점 덜 줄어듭니다.',
            'Turns needed for 90% to know the news, by share of weak ties. The first few ties help most, and each further tie helps less.'),

@@ -1,7 +1,7 @@
 (function () {
   'use strict';
   const SC = window.Schelling;
-  const { css, setup, mix, roundRect } = window.Lab;
+  const { css, setup, mix, roundRect } = window.Lab, Lab = window.Lab;
   const $ = (id) => document.getElementById(id);
   const DEFAULTS = { threshold: 30, empty: 10, shareA: 50 };
   const THUMB = /[?&]thumb=1/.test(location.search); // 메인 페이지 썸네일용: 대표 장면으로 바로 간다
@@ -24,7 +24,8 @@
 
   // ---------- 격자 그리기 ----------
   function drawGrid(canvas, grid, size, unhappySet) {
-    const { ctx, w } = setup(canvas, 1);
+    const strip = THUMB ? 0 : 66;   // 격자 아래 범례 자리
+    const { ctx, w } = setup(canvas, 1 + strip / (canvas.clientWidth || 300));
     ctx.fillStyle = '#f1f4fa'; ctx.fillRect(0, 0, w, w);
     const c = w / size, gap = Math.max(0.6, c * 0.12);
     const ca = css('--ga'), cb = css('--gb');
@@ -38,6 +39,7 @@
         ctx.beginPath(); ctx.arc(x + c / 2, y + c / 2, Math.max(1, c * 0.17), 0, 7); ctx.fill();
       }
     }
+    if (strip && canvas.id === 'c-now') Lab.legend({ ctx, w, m: { l: 0, t: w, r: 0, b: 0 }, pw: w, ph: strip }, [{ kind: 'box', color: ca, label: '파랑 집단' }, { kind: 'box', color: cb, label: '주황 집단' }, { kind: 'dot', color: '#c9d0de', label: '빈 칸' }], 'tl');
   }
 
   function drawBoards() {
@@ -70,7 +72,7 @@
   function drawLine() {
     const { ctx, w, h } = setup($('c-line'), 0.7);
     const hist = sim.history, T = Math.max(hist.length - 1, 5);
-    const m = { l: 44, r: 12, t: 14, b: 36 };
+    const m = { l: 44, r: 12, t: 24, b: 36 };
     const pw = w - m.l - m.r, ph = h - m.t - m.b;
     const lo = 0.4, hi = 1;
     const X = (t) => m.l + (t / T) * pw, Y = (v) => m.t + ph - ((v - lo) / (hi - lo)) * ph;
@@ -82,23 +84,23 @@
     ctx.textAlign = 'center';
     const stepT = Math.max(1, Math.ceil(T / 6));
     for (let t = 0; t <= T; t += stepT) ctx.fillText(String(t), X(t), h - m.b + 16);
-    ctx.fillText('이사 라운드', m.l + pw / 2, h - 4);
+    Lab.axisNames({ ctx, w, h, m }, '시간 (이사 라운드)', '분리도 (%)');
 
     ctx.setLineDash([4, 3]); ctx.strokeStyle = css('--muted'); ctx.beginPath();
     ctx.moveTo(m.l, Y(0.5)); ctx.lineTo(w - m.r, Y(0.5)); ctx.stroke(); ctx.setLineDash([]);
-    ctx.textAlign = 'left'; ctx.fillStyle = css('--muted'); ctx.fillText('섞여 있을 때', m.l + 6, Y(0.5) - 6);
 
     ctx.strokeStyle = css('--accent'); ctx.lineWidth = 2.5; ctx.lineJoin = 'round'; ctx.beginPath();
     hist.forEach((v, t) => (t ? ctx.lineTo(X(t), Y(v)) : ctx.moveTo(X(t), Y(v)))); ctx.stroke();
     ctx.lineWidth = 1;
     const last = hist.length - 1;
     ctx.fillStyle = css('--accent'); ctx.beginPath(); ctx.arc(X(last), Y(hist[last]), 4.5, 0, 7); ctx.fill();
+    Lab.legend({ ctx, w, m, pw, ph }, [{ kind: 'line', color: css('--accent'), label: '분리도' }, { kind: 'dash', color: css('--muted'), label: '섞여 있을 때(약 50%)' }], 'tl');
   }
 
   // ---------- 스윕 그래프 ----------
   function drawSweep() {
     const { ctx, w, h } = setup($('c-sweep'), 0.7);
-    const m = { l: 44, r: 12, t: 14, b: 36 };
+    const m = { l: 44, r: 12, t: 24, b: 36 };
     const pw = w - m.l - m.r, ph = h - m.t - m.b;
     const lo = 0.4, hi = 1, xmax = 0.8;
     const X = (t) => m.l + (t / xmax) * pw, Y = (v) => m.t + ph - ((v - lo) / (hi - lo)) * ph;
@@ -109,12 +111,11 @@
     }
     ctx.textAlign = 'center';
     for (let t = 0; t <= 0.8001; t += 0.2) ctx.fillText(pct(t), X(t), h - m.b + 16);
-    ctx.fillText('사람들이 원하는 같은 이웃 비율', m.l + pw / 2, h - 4);
+    Lab.axisNames({ ctx, w, h, m }, '원하는 같은 이웃 비율 (%)', '결과 분리도 (%)');
 
     // y = x (원한 만큼만 분리된 경우)
     ctx.setLineDash([4, 3]); ctx.strokeStyle = css('--muted'); ctx.beginPath();
     ctx.moveTo(X(0.4), Y(0.4)); ctx.lineTo(X(0.8), Y(0.8)); ctx.stroke(); ctx.setLineDash([]);
-    ctx.textAlign = 'left'; ctx.fillStyle = css('--muted'); ctx.fillText('원한 만큼만', X(0.55) + 4, Y(0.55) + 18);
 
     if (sweepData.length) {
       ctx.strokeStyle = css('--accent'); ctx.lineWidth = 2.5; ctx.lineJoin = 'round'; ctx.beginPath();
@@ -128,6 +129,7 @@
     ctx.moveTo(X(cur), m.t); ctx.lineTo(X(cur), m.t + ph); ctx.stroke(); ctx.setLineDash([]);
     ctx.fillStyle = css('--rich'); ctx.textAlign = cur > 0.6 ? 'right' : 'left';
     ctx.fillText('지금 설정', X(cur) + (cur > 0.6 ? -5 : 5), m.t + 10);
+    Lab.legend({ ctx, w, m, pw, ph }, [{ kind: 'line', color: css('--accent'), label: '결과 분리도' }, { kind: 'dash', color: css('--muted'), label: '원한 만큼만 (y=x)' }], 'tl');
   }
 
   function runSweep() {

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-en="Can Monkeys Write Hamlet? · Simulatio Lab">원숭이가 햄릿을 쓸 수 있을까 · 시뮬라티오 랩</title>
-<meta name="description" content="원숭이가 아무 글자나 쳐서 햄릿의 대사를 쓸 수 있을까? 순수한 우연과 누적 선택을 직접 비교해 보세요." data-en-content="Could monkeys typing random letters write a line of Hamlet? Compare pure chance with cumulative selection yourself.">
+<meta name="description" content="원숭이가 아무 글자나 쳐서 햄릿의 대사를 쓸 수 있을까요? 한 번에 맞히기와 조금씩 쌓기를 직접 겨뤄 보세요." data-en-content="Could monkeys typing random letters write a line of Hamlet? Race hitting it in one go against building it up step by step.">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="manifest" href="../../manifest.webmanifest">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -37,7 +37,7 @@
         <span class="hint" data-en="How many candidates cumulative selection makes at once">누적 선택에서 한 번에 만드는 후보 수</span></div>
 <div class="ctl"><label for="mutation" data-en="Chance each letter changes &lt;output id=&quot;o-mutation&quot;&gt;&lt;/output&gt;">글자마다 바뀔 확률 <output id="o-mutation"></output></label>
         <input type="range" id="mutation" min="0.5" max="10" step="0.5" value="5">
-        <span class="hint" data-en="The mutation rate. Too low is slow; too high shakes the correct letters too">돌연변이율. 너무 낮으면 느리고, 너무 높으면 맞은 글자도 흔들려요</span></div>
+        <span class="hint" data-en="Also called the mutation rate. Too low is slow; too high shakes the correct letters too">돌연변이율이라고도 해요. 너무 낮으면 느리고, 너무 높으면 맞은 글자도 흔들려요</span></div>
 <div class="ctl"><label for="target" data-en="Target sentence &lt;output id=&quot;o-target&quot;&gt;&lt;/output&gt;">목표 문장 <output id="o-target"></output></label>
         <select id="target" class="sel"><option value="tobe" selected data-en="TO BE OR NOT TO BE (18 letters)">TO BE OR NOT TO BE (18글자)</option><option value="weasel" data-en="METHINKS IT IS LIKE A WEASEL (28 letters)">METHINKS IT IS LIKE A WEASEL (28글자)</option></select>
         <span class="hint" data-en="Both are lines from Hamlet">둘 다 햄릿의 대사예요</span></div>
@@ -70,18 +70,16 @@
       <h3 data-en="② Attempts and Letters Matched">② 시도 횟수와 맞은 글자 수</h3>
     <p data-en="The horizontal axis is the number of attempts (log scale), the vertical axis is letters matched. Selection finishes in a few thousand attempts, while chance falls far short even after a million.">가로는 시도 횟수(로그 눈금), 세로는 맞은 글자 수입니다. 선택은 몇천 번 만에 끝나는데 우연은 100만 번을 찍어도 한참 모자랍니다.</p>
     <canvas id="c-race" class="" aria-label="② Attempts and Letters Matched"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--unlucky)&quot;&gt;&lt;/i&gt;Pure chance"><i style="background:var(--unlucky)"></i>순수한 우연</span><span data-en="&lt;i style=&quot;background:var(--lucky)&quot;&gt;&lt;/i&gt;Cumulative selection"><i style="background:var(--lucky)"></i>누적 선택</span></div>
     </section>
     <section class="panel chart">
       <h3 data-en="③ As the Sentence Gets Longer">③ 문장이 길어지면</h3>
     <p data-en="The horizontal axis is sentence length, the vertical axis is the number of attempts needed (log scale). The red line is chance&#x27;s expected value (27&lt;sup&gt;L&lt;/sup&gt;), and the blue dots are 6 runs of selection each.">가로는 문장 길이, 세로는 성공에 필요한 시도 횟수(로그 눈금)입니다. 붉은 선은 우연의 기댓값(27<sup>L</sup>), 파란 점은 선택을 6번씩 돌린 결과예요.</p>
     <canvas id="c-expect" class="" aria-label="③ As the Sentence Gets Longer"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Cumulative selection (simulation average)"><i style="background:var(--accent)"></i>누적 선택 (시뮬레이션 평균)</span><span data-en="&lt;i style=&quot;background:var(--unlucky)&quot;&gt;&lt;/i&gt;Pure chance (expected value 27^L)"><i style="background:var(--unlucky)"></i>순수한 우연 (기댓값 27^L)</span></div>
       <div class="legend"><span id="note-expect" data-en="Calculating…">계산 중…</span></div>
     </section>
     <section class="panel chart">
       <h3 data-en="④ When the Mutation Rate Changes">④ 돌연변이율을 바꾸면</h3>
-    <p data-en="The horizontal axis is the mutation rate, the vertical axis is the number of generations until completion. Dots are 6 runs.">가로는 돌연변이율, 세로는 완성에 걸린 세대 수입니다. 점은 6번의 실행이에요.</p>
+    <p data-en="The horizontal axis is the chance a letter changes (the mutation rate), the vertical axis is the number of generations until completion. Dots are 6 runs.">가로는 글자가 바뀔 확률(돌연변이율), 세로는 완성에 걸린 세대 수입니다. 점은 6번의 실행이에요.</p>
     <canvas id="c-mut" class="" aria-label="④ When the Mutation Rate Changes"></canvas>
       <div class="legend"><span id="note-mut" data-en="Calculating…">계산 중…</span></div>
     </section>

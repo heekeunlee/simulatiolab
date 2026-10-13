@@ -1,7 +1,7 @@
 (function () {
   'use strict';
   const RM = window.Rumor;
-  const { css, setup, mix, roundRect } = window.Lab;
+  const { css, setup, mix, roundRect, axisNames, legend } = window.Lab;
   const $ = (id) => document.getElementById(id);
   const DEFAULTS = { p: 1.5, correctionDelay: 3, rooms: 50, perPerson: 3, seeds: 3 };
   const THUMB = /[?&]thumb=1/.test(location.search); // 메인 페이지 썸네일용: 대표 장면으로 바로 간다
@@ -138,6 +138,7 @@
       });
     });
 
+    if (!THUMB) legend({ ctx, w, h, m: { l: 0, r: 0, t: 0, b: 0 }, pw: w, ph: h }, [{ kind: 'dot', color: COL.unknown, label: '소문을 아직 모름' }, { kind: 'dot', color: COL.spread, label: '소문 퍼뜨리는 중' }, { kind: 'dot', color: COL.done, label: '알지만 멈춤' }, { kind: 'dot', color: COL.cspread, label: '정정 퍼뜨리는 중' }, { kind: 'dot', color: COL.cdone, label: '정정을 본 사람' }], 'bl');
     const c = sim.history[sim.history.length - 1];
     const tag = sim.params.correctionDelay > 0 && !sim.correctionStarted ? ` · 정정은 ${sim.params.correctionDelay + 1}차례째에 시작` : sim.correctionStarted ? ' · 정정 퍼지는 중' : '';
     $('when').textContent = `${sim.round}차례 · 소문을 아는 사람 ${pct(c.heard / sim.n)}${tag}`;
@@ -147,7 +148,7 @@
   function drawArea() {
     const { ctx, w, h } = setup($('c-area'), 0.7);
     const H = sim.history, T = Math.max(H.length - 1, 8), n = sim.n;
-    const m = { l: 44, r: 12, t: 12, b: 36 };
+    const m = { l: 44, r: 12, t: 24, b: 36 };
     const pw = w - m.l - m.r, ph = h - m.t - m.b;
     const X = (t) => m.l + (t / T) * pw, Y = (v) => m.t + ph - (v / n) * ph;
     const layers = [
@@ -164,7 +165,7 @@
     ctx.textAlign = 'center';
     const stepT = Math.max(1, Math.ceil(T / 8));
     for (let t = 0; t <= T; t += stepT) ctx.fillText(String(t), X(t), h - m.b + 16);
-    ctx.fillText('차례', m.l + pw / 2, h - 4);
+    axisNames({ ctx, w, h, m, pw, ph }, '시간 (차례)', '사람 비율 (%)');
 
     const acc = H.map(() => 0);
     layers.forEach(([col, fn]) => {
@@ -180,12 +181,13 @@
       ctx.beginPath(); ctx.moveTo(X(t), m.t); ctx.lineTo(X(t), m.t + ph); ctx.stroke(); ctx.setLineDash([]);
       ctx.fillStyle = css('--accent'); ctx.textAlign = 'left'; ctx.fillText('정정 시작', X(t) + 4, m.t + 12);
     }
+    legend({ ctx, w, h, m, pw, ph }, [{ kind: 'box', color: '#cfd5e3', label: '모름' }, { kind: 'box', color: '#9ec1ff', label: '정정 덕에 안 속음' }, { kind: 'box', color: '#e5484d', label: '퍼뜨리는 중' }, { kind: 'box', color: '#f2a3a6', label: '알고 멈춤' }], 'tr');
   }
 
   // ---------- ③④ 점 그래프 ----------
   function drawDots(canvasId, data, xs, xLabel, xFmt, opts) {
     const { ctx, w, h } = setup($(canvasId), 0.7);
-    const m = { l: 44, r: 14, t: 14, b: 40 };
+    const m = { l: 44, r: 14, t: 24, b: 40 };
     const pw = w - m.l - m.r, ph = h - m.t - m.b;
     const x0 = xs[0], x1 = xs[xs.length - 1];
     const X = (v) => m.l + ((v - x0) / (x1 - x0 || 1)) * pw, Y = (v) => m.t + ph - v * ph;
@@ -197,7 +199,7 @@
     ctx.textAlign = 'center';
     const every = Math.max(1, Math.ceil(xs.length / 7));
     xs.forEach((v, i) => { if (i % every === 0) ctx.fillText(xFmt(v), X(v), h - m.b + 16); });
-    ctx.fillText(xLabel, m.l + pw / 2, h - 4);
+    axisNames({ ctx, w, h, m, pw, ph }, xLabel, '소문이 닿은 사람 (%)');
 
     if (opts.baseline != null) {
       ctx.setLineDash([5, 3]); ctx.strokeStyle = css('--unlucky'); ctx.beginPath();
@@ -219,6 +221,7 @@
       ctx.fillStyle = css('--rich'); ctx.textAlign = opts.current > (x0 + x1) / 2 ? 'right' : 'left';
       ctx.fillText('지금 설정', X(opts.current) + (opts.current > (x0 + x1) / 2 ? -5 : 5), m.t + 11);
     }
+    legend({ ctx, w, h, m, pw, ph }, [{ kind: 'dot', color: mix(css('--accent'), 0.5), label: '한 번의 실행' }, { kind: 'line', color: css('--accent'), label: '평균' }], 'br');
   }
 
   const mean = (a) => a.reduce((x, y) => x + y, 0) / a.length;
@@ -226,8 +229,8 @@
   for (let v = 0.5; v <= 5.0001; v += 0.5) PS.push(v / 100);
 
   function renderSweeps() {
-    drawDots('c-p', pData, PS, '솔깃할 확률', (v) => (v * 100).toFixed(1) + '%', { current: sim.params.p });
-    drawDots('c-corr', cData, DS, '정정이 시작되는 시점 (차례)', (v) => v + '차례', { baseline: base, current: sim.params.correctionDelay || null });
+    drawDots('c-p', pData, PS, '솔깃할 확률 (%)', (v) => (v * 100).toFixed(1), { current: sim.params.p });
+    drawDots('c-corr', cData, DS, '정정 시작 시점 (차례)', (v) => String(v), { baseline: base, current: sim.params.correctionDelay || null });
   }
 
   function runSweeps() {

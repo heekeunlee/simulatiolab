@@ -76,7 +76,7 @@
   function drawTime() {
     const c = L.chart($('c-time'), 0.7), { ctx, m, pw, ph } = c, H = sim.history, T = sim.params.cycles, dtc = 5 * sim.params.dt;
     const X = (t) => m.l + (t / T) * pw, Y = (v) => m.t + ph - v * ph, xt = []; for (let t = 0; t <= T; t += T / 6) xt.push(t);
-    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: (v) => v.toFixed(2), xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '지난 주기' });
+    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: (v) => v.toFixed(2), xTicks: xt, xFmt: (t) => String(Math.round(t)), xLabel: '지난 시간 (주기)', yLabel: '동기화 정도 (r)' });
     ctx.setLineDash([5, 3]); ctx.strokeStyle = css('--muted'); ctx.beginPath(); ctx.moveTo(m.l, Y(0.9)); ctx.lineTo(m.l + pw, Y(0.9)); ctx.stroke(); ctx.setLineDash([]);
     ctx.fillStyle = css('--muted'); ctx.textAlign = 'left'; ctx.fillText('거의 동시 (0.9)', m.l + 6, Y(0.9) - 6);
     L.line(ctx, H.map((v, i) => [X((i + 1) * dtc), Y(v)]), css('--accent'), 2.5);
@@ -88,14 +88,14 @@
     L.dots($('c-coupling'), {
       data: couplingRows.map((d) => ({ x: d.x, runs: d.runs, mean: L.mean(d.runs) })),
       x0: 0, x1: 0.08, xTicks: [0, 0.02, 0.04, 0.06, 0.08], xFmt: (v) => (v * 100).toFixed(0) + '%', yFmt: (v) => v.toFixed(2),
-      xLabel: '서로 앞당겨 주는 정도 (결합 세기)', marker: { x: sim.params.coupling },
+      xLabel: '서로 앞당겨 주는 정도 (%)', yLabel: '30주기 뒤 동기화 (r)', legend: [{ kind: 'dot', color: mix(css('--accent'), 0.5), label: '숲 하나' }, { kind: 'line', color: css('--accent'), label: '평균' }], legendPos: 'br', marker: { x: sim.params.coupling },
     });
   }
   function drawRadiusSweep() {
     L.dots($('c-radius'), {
       data: radiusRows.map((d) => ({ x: d.x, runs: d.runs, mean: L.mean(d.runs) })),
       x0: 0.1, x1: 1, xTicks: [0.1, 0.3, 0.5, 0.7, 0.9], xFmt: pct, yFmt: (v) => v.toFixed(2),
-      xLabel: '볼 수 있는 범위 (화면 너비 대비)', marker: { x: sim.params.radius },
+      xLabel: '볼 수 있는 범위 (%)', yLabel: '30주기 뒤 동기화 (r)', legend: [{ kind: 'dot', color: mix(css('--accent'), 0.5), label: '숲 하나' }, { kind: 'line', color: css('--accent'), label: '평균' }], legendPos: 'br', marker: { x: sim.params.radius },
     });
   }
 

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title data-en="Wealth Concentration · Simulatio Lab">부의 쏠림 · 시뮬라티오 랩</title>
-<meta name="description" content="모든 거래가 동전 던지기처럼 공정해도 부는 소수에게 쏠릴까? 재분배율을 바꿔 직접 돌려보세요." data-en-content="If every trade is as fair as a coin flip, does wealth still concentrate? Change the redistribution rate and run it yourself.">
+<title data-en="Why Does Money Pile Up Even in Fair Bets? · Simulatio Lab">공정한 내기에도 돈은 왜 몰릴까 · 시뮬라티오 랩</title>
+<meta name="description" content="모두 똑같이 시작해서 동전 던지기처럼 공정하게 내기만 해도, 돈은 소수에게 몰릴까요? 나눠 갖는 비율을 바꿔 직접 돌려보세요." data-en-content="Everyone starts equal and only makes fair coin-flip bets. Does money still pile up in a few hands? Change how much is shared and run it yourself.">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="manifest" href="../../manifest.webmanifest">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -18,7 +18,7 @@
 </div></nav>
 
 <main class="wrap">
-  <h1 data-en="Wealth Concentration">부의 쏠림</h1>
+  <h1 data-en="Why Does Money Pile Up Even in Fair Bets?">공정한 내기에도 돈은 왜 몰릴까</h1>
   <p class="lead" data-en="Everyone starts equal, and every trade is exactly fair, like a coin flip. Does wealth still concentrate in a few hands over time? If so, how much must be shared to prevent it?">모든 사람이 똑같이 시작하고, 모든 거래가 동전 던지기처럼 정확히 공정합니다. 그런데도 시간이 지나면 부는 소수에게 쏠릴까요? 쏠린다면, 얼마나 나눠야 막을 수 있을까요?</p>
 
   <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
@@ -32,7 +32,7 @@
   <h2 data-en="Try it yourself">직접 돌려보기</h2>
   <div class="panel">
     <div class="controls">
-      <div class="ctl"><label for="tax" data-en="Redistribution rate &lt;output id=&quot;o-tax&quot;&gt;&lt;/output&gt;">재분배율 <output id="o-tax"></output></label>
+      <div class="ctl"><label for="tax" data-en="Share-out rate &lt;output id=&quot;o-tax&quot;&gt;&lt;/output&gt;">나눠 갖는 비율 <output id="o-tax"></output></label>
         <input type="range" id="tax" min="0" max="8" step="0.5" value="0">
         <span class="hint" data-en="Collected from everyone&#x27;s wealth each round and split equally">라운드마다 재산에서 걷어 모두에게 똑같이 나눔</span></div>
       <div class="ctl"><label for="stake" data-en="Stake fraction &lt;output id=&quot;o-stake&quot;&gt;&lt;/output&gt;">판돈 비율 <output id="o-stake"></output></label>
@@ -65,11 +65,6 @@
       <select id="speed" aria-label="속도"><option value="8" data-en="Slow">느리게</option><option value="20" selected data-en="Normal">보통</option><option value="60" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
-    <div class="legend">
-      <span data-en="&lt;i style=&quot;background:#b9c3da&quot;&gt;&lt;/i&gt;Below average"><i style="background:#b9c3da"></i>평균 이하</span>
-      <span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Above average"><i style="background:var(--accent)"></i>평균 이상</span>
-      <span data-en="&lt;i style=&quot;background:var(--rich)&quot;&gt;&lt;/i&gt;Top 10%"><i style="background:var(--rich)"></i>상위 10%</span>
-    </div>
   </section>
 
   <div class="charts">
@@ -82,11 +77,6 @@
       <h3 data-en="③ Inequality Over Time">③ 시간에 따른 불평등</h3>
       <p data-en="A Gini coefficient of 0 is perfect equality; 1 means one person holds everything.">지니계수는 0이면 완전 평등, 1이면 한 사람이 전부 가진 상태입니다.</p>
       <canvas id="c-time" aria-label="불평등 지표 변화"></canvas>
-      <div class="legend">
-        <span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Gini coefficient"><i style="background:var(--accent)"></i>지니계수</span>
-        <span data-en="&lt;i style=&quot;background:var(--rich)&quot;&gt;&lt;/i&gt;Top 10% share"><i style="background:var(--rich)"></i>상위 10%의 몫</span>
-        <span data-en="&lt;i style=&quot;background:var(--lucky)&quot;&gt;&lt;/i&gt;Bottom 50% share"><i style="background:var(--lucky)"></i>하위 50%의 몫</span>
-      </div>
     </section>
     <section class="panel chart">
       <h3 data-en="④ Eight People From the Same Starting Line">④ 같은 출발선의 8명</h3>
@@ -94,9 +84,9 @@
       <canvas id="c-track" aria-label="처음에 같았던 사람들의 재산 변화"></canvas>
     </section>
     <section class="panel chart">
-      <h3 data-en="⑤ How Much Sharing Prevents It?">⑤ 얼마나 나누면 막을 수 있을까</h3>
-      <p data-en="The horizontal axis is the redistribution rate, the vertical axis is the Gini coefficient at the end. Each dot is one run.">가로는 재분배율, 세로는 끝난 뒤의 지니계수입니다. 점 하나가 한 번의 실행이에요.</p>
-      <canvas id="c-sweep" aria-label="재분배율별 지니계수"></canvas>
+      <h3 data-en="⑤ How Much Sharing Prevents It?">⑤ 얼마나 나눠 가지면 막을 수 있을까</h3>
+      <p data-en="The horizontal axis is the share-out rate, the vertical axis is the Gini coefficient (how lopsided the wealth is) at the end. Each dot is one run.">가로는 나눠 갖는 비율, 세로는 끝난 뒤의 지니계수(재산이 한쪽으로 쏠린 정도)입니다. 점 하나가 한 번의 실행이에요.</p>
+      <canvas id="c-sweep" aria-label="나눠 갖는 비율별 지니계수"></canvas>
       <div class="legend"><span id="note-sweep" data-en="Calculating…">계산 중…</span></div>
     </section>
   </div>

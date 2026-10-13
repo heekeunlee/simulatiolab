@@ -12,10 +12,21 @@
   let seedGetter = () => 1;
   const params = () => ({ seed: seedGetter(), k: Number($('k').value), polar: Number($('polar').value) / 100 });
 
+  // 범례를 놓을 구석 고르기: 점들 [x, y]이 가장 적게 겹치는 곳
+  function pickPos(c, pts, n) {
+    const bw = 190, bh = n * 16 + 9, m = c.m; let best = 'tr', bc = 1e9;
+    ['tr', 'tl', 'br', 'bl'].forEach((p) => {
+      const x0 = p[1] === 'l' ? m.l + 6 : m.l + c.pw - bw - 6, y0 = p[0] === 'b' ? m.t + c.ph - bh - 6 : m.t + 6;
+      const cnt = pts.filter(([x, y]) => x >= x0 - 4 && x <= x0 + bw + 4 && y >= y0 - 4 && y <= y0 + bh + 4).length;
+      if (cnt < bc) { bc = cnt; best = p; }
+    });
+    return best;
+  }
   function drawMap() {
-    const c = L.chart($('c-map'), THUMB ? 1 : 0.62, { l: 8, r: 8, t: 8, b: 8 });
-    const { ctx, w, h } = c;
-    ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
+    const strip = THUMB ? 0 : 66, cw = $('c-map').clientWidth || 600; // 아래 띠: 범례 자리
+    const c = L.chart($('c-map'), THUMB ? 1 : (cw < 560 ? 0.9 : 0.62) + strip / cw, { l: 8, r: 8, t: 8, b: 8 });
+    const { ctx, w } = c, h = c.h - strip;
+    ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, c.h);
     const K = el.params.k, N = el.voters.length;
     // 유권자가 퍼진 범위에 맞춰 확대한다 (가로·세로 같은 비율, 바깥 2%는 잘려도 됨)
     const ex = el.voters.map((p) => Math.max(Math.abs(p.x) / (w / 2 - 16), Math.abs(p.y) / (h / 2 - 16))).sort((a, b) => a - b);
@@ -40,6 +51,9 @@
     });
     // 후보 옆에 그 후보를 당선시킨 방식을 적는다 (같은 표인데 방식마다 당선자가 다른 것을 지도에서 바로 보이게)
     if (THUMB) return;
+    ctx.save(); ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, h, w, strip); ctx.strokeStyle = css('--line'); ctx.beginPath(); ctx.moveTo(0, h + 0.5); ctx.lineTo(w, h + 0.5); ctx.stroke(); ctx.restore();
+    L.legend({ ctx, w, h: c.h, m: { l: 0, r: 0, t: h, b: 0 }, pw: w, ph: strip }, [
+      { kind: 'dot', color: COL[0], label: '유권자 (색 = 1순위로 고른 후보)' }, { kind: 'dot', color: '#4b5563', label: '후보 (큰 원)' }, { kind: 'dot', color: '#d19200', label: '중도 후보 (금색 테두리)' }], 'tl');
     ctx.font = '600 11px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.lineJoin = 'round';
     el.cands.forEach((cd, k) => {
       const rules = VT.RULES.filter((r) => el.winners[r] === k); if (!rules.length) return;
@@ -78,9 +92,9 @@
   }
 
   function drawAgg() {
-    const c = L.chart($('c-agg'), 0.7, { b: 44, t: 18 }), { ctx, m, pw, ph } = c;
+    const c = L.chart($('c-agg'), 0.7, { b: 44, t: 24 }), { ctx, m, pw, ph } = c;
     const Y = (v) => m.t + ph - v * ph;
-    L.axes(c, { X: () => 0, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: pct });
+    L.axes(c, { X: () => 0, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: (v) => String(Math.round(v * 100)), xLabel: '개표 방식', yLabel: '중도 후보를 뽑은 비율 (%)' });
     const rows = VT.RULES, gw = pw / rows.length, bw = Math.min(46, gw * 0.55);
     rows.forEach((r, i) => {
       const v = agg ? agg.hit[r] / Math.max(1, agg.withCondorcet) : 0, x = m.l + gw * i + (gw - bw) / 2;
@@ -93,10 +107,13 @@
     const mk = (r, dots) => ({ data: sweep.map((d) => ({ x: d.x, runs: [], mean: d.hit[r] })), color: RCOL[r], dots: false });
     // L.dots는 첫 번째 데이터를 늘 파란색(--accent)으로 그리므로, 파란색인 선호투표를 첫 번째로 두고 나머지(단순다수는 빨강)를 series로
     const first = 'irv', rest = VT.RULES.filter((r) => r !== first).map((r) => mk(r));
-    L.dots($('c-sweep'), {
+    const c = L.dots($('c-sweep'), {
       data: mk(first).data, series: rest,
-      x0: 2, x1: 6, y0: 0, y1: 1, xTicks: [2, 3, 4, 5, 6], xFmt: (v) => v + '명\u200b', xLabel: '후보 수', marker: { x: el.params.k },
+      x0: 2, x1: 6, y0: 0, y1: 1, xTicks: [2, 3, 4, 5, 6], xFmt: (v) => String(v), xLabel: '후보 수 (명)', yLabel: '중도 후보 당선 비율 (%)', yFmt: (v) => String(Math.round(v * 100)), marker: { x: el.params.k },
     });
+    const lc = Object.assign({}, c, { m: Object.assign({}, c.m, { t: c.m.t + 20 }), ph: c.ph - 20 }), pts = [];
+    sweep.forEach((d) => VT.RULES.forEach((r) => pts.push([c.m.l + ((d.x - 2) / 4) * c.pw, c.m.t + c.ph - d.hit[r] * c.ph])));
+    L.legend(lc, ['plurality', 'runoff', 'irv', 'borda'].map((r) => ({ kind: 'line', color: RCOL[r], label: RNAME[r] })), pickPos(lc, pts, 4));
   }
 
   function renderStats() {

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-en="Bus Bunching · Simulatio Lab">버스 뭉침 · 시뮬라티오 랩</title>
-<meta name="description" content="같은 간격으로 출발한 버스가 왜 몇 대씩 뭉쳐 다니게 되는지, 승객이 많을수록 늦어지는 되먹임 모델로 직접 돌려보고 해결책도 시험해 보세요." data-en-content="Run a feedback model to see why evenly spaced buses end up travelling in bunches, and test remedies that restore the spacing.">
+<meta name="description" content="처음엔 간격이 고른 버스가 왜 어느새 몇 대씩 붙어 다닐까요? 승객이 많을수록 버스가 늦어지는 규칙으로 직접 돌려보고, 해결책도 시험해 보세요." data-en-content="Why do evenly spaced buses end up travelling in bunches? Run a simple rule where more passengers means a longer stop, and try some fixes.">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="manifest" href="../../manifest.webmanifest">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -25,7 +25,7 @@
   <ul>
     <li data-en="A ring-shaped route has 24 evenly spaced stops, and several buses circle in the same direction. A bus covers the gap between stops in 1 minute. At every stop passengers arrive at random with a constant average rate and queue up (the passenger demand slider).">고리 모양 노선에 정류장 24곳이 같은 간격으로 있고, 버스 여러 대가 같은 방향으로 돕니다. 버스는 정류장 사이를 1분에 달립니다. 정류장마다 승객이 일정한 평균 속도로 무작위로 도착해 줄을 섭니다(슬라이더의 승객 수요).</li>
     <li data-en="At a stop the bus loads the waiting passengers one by one (3 seconds each). It stays until the queue is empty, taking anyone who arrives meanwhile. So the &lt;b&gt;time it stands is proportional to the number waiting&lt;/b&gt;. A bus with a larger gap ahead finds more people waiting, stands longer, and falls even further behind.">버스는 정류장에 서서 줄 선 승객을 한 명씩 태웁니다(1명에 3초). 줄이 빌 때까지 서 있고, 서 있는 동안 새로 온 승객도 태웁니다. 그래서 <b>서 있는 시간은 줄 선 승객 수에 비례</b>합니다. 앞차와 간격이 벌어진 버스는 승객이 더 많이 쌓여 있어 더 오래 서고, 그래서 더 늦어집니다.</li>
-    <li data-en="The bus behind finds short queues because the one ahead has already taken the passengers, so it leaves quickly and catches up. The one ahead gets slower, the one behind faster: this &lt;b&gt;positive feedback&lt;/b&gt; amplifies tiny differences until several buses run as one clump.">반대로 뒤차는 앞차가 이미 승객을 태워 간 뒤라 줄이 짧아 금방 출발하고, 앞차를 따라잡습니다. 앞차는 더 늦어지고 뒤차는 더 빨라지는 <b>양의 되먹임</b>이 작은 어긋남을 점점 키워, 결국 몇 대가 한 덩어리로 달립니다.</li>
+    <li data-en="The bus behind finds short queues because the one ahead has already taken the passengers, so it leaves quickly and catches up. The one ahead gets slower, the one behind faster: this &lt;b&gt;self-reinforcing loop&lt;/b&gt; amplifies tiny differences until several buses run as one clump.">반대로 뒤차는 앞차가 이미 승객을 태워 간 뒤라 줄이 짧아 금방 출발하고, 앞차를 따라잡습니다. 앞차는 더 늦어지고 뒤차는 더 빨라지는 <b>서로 영향을 주고받는 고리</b>가 작은 어긋남을 점점 키워, 결국 몇 대가 한 덩어리로 달립니다.</li>
     <li data-en="You can pick a &lt;b&gt;remedy&lt;/b&gt;. Holding keeps a bus at the stop until 1.15 times the ideal spacing has passed since the bus ahead left, and limited boarding caps how long a bus may stand, leaving the remaining passengers to the next bus."><b>처방</b>을 고를 수 있습니다. 간격 유지는 앞차가 이 정류장을 떠난 뒤 이상적 간격의 1.15배가 지나야 출발하게 하고, 승차 제한은 한 정류장에서 서는 시간에 상한을 둬서 남은 승객은 다음 버스에 맡깁니다.</li>
   </ul>
 
@@ -73,13 +73,11 @@
       <h3 data-en="② How the Gaps Drift">② 간격이 흐트러지는 모습</h3>
     <p data-en="Time runs left to right and buses top to bottom; color shows the gap between that bus and the one ahead. Pale gray is even spacing, red is bunched tightly, blue is a large gap. When the stripes split into red and blue the buses have bunched.">가로는 시간, 세로는 버스 번호이고 색은 그 버스와 앞차 사이의 간격입니다. 옅은 회색은 고른 간격, 빨강은 바짝 붙음, 파랑은 크게 벌어짐입니다. 줄무늬가 빨강과 파랑으로 갈라지면 뭉친 것입니다.</p>
     <canvas id="c-heat" class="" aria-label="② How the Gaps Drift"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Tight behind the bus ahead"><i style="background:#e5484d"></i>앞차에 바짝 붙음</span><span data-en="&lt;i style=&quot;background:#eef1f7;border:1px solid #c3cce0&quot;&gt;&lt;/i&gt;Even gap"><i style="background:#eef1f7;border:1px solid #c3cce0"></i>고른 간격</span><span data-en="&lt;i style=&quot;background:#2f6fed&quot;&gt;&lt;/i&gt;Large gap to the bus ahead"><i style="background:#2f6fed"></i>앞차와 크게 벌어짐</span></div>
     </section>
     <section class="panel chart">
-      <h3 data-en="③ How the Variation of Gaps Grows">③ 간격 변동계수(CV)의 변화</h3>
-    <p data-en="This measures how uneven the gaps are (standard deviation divided by the mean). 0 means perfectly even, and it is close to its maximum when all buses form one clump. The thick black line is the run you are watching, and the colored lines are all three remedies run to the end under the same conditions.">버스 간격이 얼마나 들쭉날쭉한지를 나타내는 값입니다(표준편차 ÷ 평균). 0이면 완전히 고르고, 버스가 모두 한 덩어리가 되면 최댓값에 가깝습니다. 굵은 검은 선이 지금 돌리는 실험이고, 색 선은 세 처방을 같은 조건으로 끝까지 돌린 결과입니다.</p>
-    <canvas id="c-cv" class="" aria-label="③ How the Variation of Gaps Grows"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;No remedy"><i style="background:#e5484d"></i>처방 없음</span><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Holding"><i style="background:#1fa463"></i>간격 유지</span><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;Limited boarding"><i style="background:#e0a100"></i>승차 제한</span><span data-en="&lt;i style=&quot;background:#111&quot;&gt;&lt;/i&gt;Running now"><i style="background:#111"></i>지금 돌리는 중</span></div>
+      <h3 data-en="③ How Uneven the Gaps Get">③ 간격이 들쭉날쭉해지는 정도</h3>
+    <p data-en="This measures how uneven the gaps are (called CV). 0 means perfectly even, and it is close to its maximum when all buses form one clump. The thick black line is the run you are watching, and the colored lines are all three remedies run to the end under the same conditions.">버스 간격이 얼마나 들쭉날쭉한지를 나타내는 값(CV)입니다. 0이면 완전히 고르고, 버스가 모두 한 덩어리가 되면 최댓값에 가깝습니다. 굵은 검은 선이 지금 돌리는 실험이고, 색 선은 세 처방을 같은 조건으로 끝까지 돌린 결과입니다.</p>
+    <canvas id="c-cv" class="" aria-label="③ How Uneven the Gaps Get"></canvas>
     </section>
     <section class="panel chart">
       <h3 data-en="④ What the Remedies Gain and Cost">④ 처방의 효과와 대가</h3>

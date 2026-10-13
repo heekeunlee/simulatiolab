@@ -63,7 +63,6 @@
       <select id="speed" aria-label="speed"><option value="1.5" data-en="Slow">느리게</option><option value="3" selected data-en="Normal">보통</option><option value="8" data-en="Fast">빠르게</option></select>
       <span class="when" id="when"></span>
     </div>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:#e4e8f1&quot;&gt;&lt;/i&gt;Less memorable motif"><i style="background:#e4e8f1"></i>기억에 덜 남는 모티프</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Highly memorable motif"><i style="background:#e5484d"></i>기억에 잘 남는 모티프</span><span data-en="&lt;i style=&quot;background:#fff;border:2px solid #1b1f2a&quot;&gt;&lt;/i&gt;Motif from the original story"><i style="background:#fff;border:2px solid #1b1f2a"></i>원래 이야기에 있던 모티프</span><span data-en="&lt;i style=&quot;background:#fff;border:1.5px dashed #d5dbe7&quot;&gt;&lt;/i&gt;Original motif forgotten or changed (empty box)"><i style="background:#fff;border:1.5px dashed #d5dbe7"></i>잊혔거나 바뀐 원래 모티프 (빈 칸)</span><span data-en="&lt;i style=&quot;background:#fff;border:1.5px dashed #9aa3b5&quot;&gt;&lt;/i&gt;Motif invented along the way"><i style="background:#fff;border:1.5px dashed #9aa3b5"></i>중간에 새로 생긴 모티프</span></div>
   </section>
 
   <div class="charts">
@@ -71,7 +70,6 @@
       <h3 data-en="② How Much of the Original Survives">② 원래 모티프는 얼마나 남을까</h3>
     <p data-en="The horizontal axis is the number of retellings, and the vertical axis is the share of the 30 original motifs still in the story. The bold blue line is the average of the 12 chains and the faint lines are the individual chains.">가로는 전달 횟수, 세로는 원본의 모티프 30개 중 아직 이야기에 남아 있는 비율입니다. 파란 굵은 선은 12개 사슬의 평균이고 옅은 선은 사슬 하나하나예요.</p>
     <canvas id="c-surv" class="" aria-label="② How Much of the Original Survives"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Average of the 12 chains"><i style="background:var(--accent)"></i>12개 사슬의 평균</span><span data-en="&lt;i style=&quot;background:#b9ccf5&quot;&gt;&lt;/i&gt;Each individual chain"><i style="background:#b9ccf5"></i>사슬 하나하나</span></div>
     </section>
     <section class="panel chart">
       <h3 data-en="③ The Remaining Story Becomes More Memorable">③ 남은 이야기는 더 기억에 남는 쪽으로</h3>
@@ -80,9 +78,8 @@
     </section>
     <section class="panel chart">
       <h3 data-en="④ When Memory Changes">④ 기억력을 바꾸면</h3>
-    <p data-en="The horizontal axis is memory. Blue is the share of original motifs that remain, gold is how much the original motifs left in two different chains overlap (Jaccard similarity), and gray is an approximation of the overlap you would expect if the survivors were chosen by chance. Dots are 3 runs.">가로는 기억력입니다. 파랑은 원래 모티프가 남은 비율, 금색은 서로 다른 두 사슬에 남은 원래 모티프가 겹치는 정도(자카드 유사도), 회색은 남은 모티프가 우연히 정해졌다면 기대되는 겹침의 근삿값이에요. 점은 3번의 실행입니다.</p>
+    <p data-en="The horizontal axis is memory. Blue is the share of original motifs that remain, gold is how much the original motifs left in two different chains overlap, and gray is an approximation of the overlap you would expect if the survivors were chosen by chance. Dots are 3 runs.">가로는 기억력입니다. 파랑은 원래 모티프가 남은 비율, 금색은 서로 다른 두 사슬에 남은 원래 모티프가 겹치는 정도, 회색은 남은 모티프가 우연히 정해졌다면 기대되는 겹침의 근삿값이에요. 점은 3번의 실행입니다.</p>
     <canvas id="c-sweep" class="" aria-label="④ When Memory Changes"></canvas>
-      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Original motifs remaining"><i style="background:var(--accent)"></i>남은 원래 모티프</span><span data-en="&lt;i style=&quot;background:var(--rich)&quot;&gt;&lt;/i&gt;Overlap between chains"><i style="background:var(--rich)"></i>사슬 사이 겹침</span><span data-en="&lt;i style=&quot;background:#8a93a6&quot;&gt;&lt;/i&gt;Overlap expected by chance"><i style="background:#8a93a6"></i>우연일 때 기대되는 겹침</span></div>
       <div class="legend"><span id="note-sweep" data-en="Calculating…">계산 중…</span></div>
     </section>
   </div>

@@ -47,7 +47,7 @@
   function drawRows() {
     const cw = $('c-rows').clientWidth || 600, P = sim.params, n = P.n, pad = 10;
     const pw = cw - pad * 2, sw = pw / n, rh = Math.max(20, Math.min(46, sw * 1.35)), lh = 24, gap = 12;
-    const H = pad + 4 * (lh + rh + gap);
+    const legH = THUMB ? 0 : 64, H = pad + 4 * (lh + rh + gap) + legH;
     const c = L.chart($('c-rows'), H / cw, { l: pad, r: pad, t: 0, b: 0 }), { ctx } = c;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, c.w, c.h);
     const cols = RULE_COLORS();
@@ -60,6 +60,7 @@
       }
       bench(ctx, pad, y0 + lh, pw, rh, r.occ, n, P.g, cols[k], r.last);
     });
+    if (!THUMB) L.legend({ ctx, w: c.w, m: { l: pad, t: 0, r: pad, b: 0 }, pw, ph: c.h - 6 }, [{ kind: 'box', color: css('--accent'), label: '앉은 사람' }, { kind: 'box', color: mix(RED, 0.5), label: '앉을 수 없는 빈 자리 (×)' }, { kind: 'box', color: '#cfd6e4', label: '앉을 수 있는 빈 자리' }], 'bl');
     $('when').textContent = `${sim.t}/${P.arrivals}번째 도착`;
   }
 
@@ -133,13 +134,13 @@
     curve = { ex, theta: S.theta(P.g), pts: NGRID.map((n) => ({ n, v: S.meanFill('random', n, P.g, 150, 21 + n).mean / n })) };
   }
   function drawN() {
-    const P = sim.params, g = P.g, c = L.chart($('c-n'), 0.62, { l: 50, b: 40, r: 16, t: 14 }), { ctx, m, pw, ph } = c;
+    const P = sim.params, g = P.g, c = L.chart($('c-n'), 0.62, { l: 50, b: 40, r: 16, t: 24 }), { ctx, m, pw, ph } = c;
     const x0 = 4, x1 = NMAX, th = curve.theta;
     let ymax = 0; for (let n = x0; n <= x1; n++) ymax = Math.max(ymax, S.cap(n, g) / n);
     const y0 = Math.max(0, Math.floor((th - 0.08) * 20) / 20), y1 = Math.min(1, Math.ceil((ymax + 0.02) * 20) / 20);
     const X = (v) => m.l + ((v - x0) / (x1 - x0)) * pw, Y = (v) => m.t + ph - ((v - y0) / (y1 - y0)) * ph, yt = [];
     for (let v = y0; v <= y1 + 1e-9; v += y1 - y0 > 0.5 ? 0.1 : 0.05) yt.push(v);
-    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => Math.round(v * 100) + '%', xTicks: [0, 50, 100, 150, 200].filter((v) => v >= x0 || v === 0), xFmt: (v) => String(v), xLabel: '벤치의 자리 수' });
+    L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => Math.round(v * 100) + '%', xTicks: [0, 50, 100, 150, 200].filter((v) => v >= x0 || v === 0), xFmt: (v) => String(v), xLabel: '자리 수 (석)', yLabel: '앉은 비율 (%)' });
     const line = (fn, color, w) => { const pts = []; for (let n = x0; n <= x1; n++) pts.push([X(n), Y(fn(n))]); L.line(ctx, pts, color, w); };
     line((n) => S.cap(n, g) / n, GRAY, 1.8);
     ctx.setLineDash([5, 3]); ctx.strokeStyle = RED; ctx.beginPath(); ctx.moveTo(m.l, Y(th)); ctx.lineTo(m.l + pw, Y(th)); ctx.stroke(); ctx.setLineDash([]);
@@ -147,12 +148,13 @@
     line((n) => curve.ex[n] / n, GREEN, 2.4);
     curve.pts.forEach((d) => { ctx.fillStyle = css('--accent'); ctx.beginPath(); ctx.arc(X(d.n), Y(d.v), 4, 0, 7); ctx.fill(); });
     if (P.n >= x0) L.vline(c, X(P.n), css('--rich'), '지금 설정', P.n > (x0 + x1) / 2 ? 'right' : 'left');
+    L.legend(c, [{ kind: 'dot', color: css('--accent'), label: '시뮬레이션 평균' }, { kind: 'line', color: GREEN, label: '정확한 기댓값' }, { kind: 'dash', color: RED, label: '긴 벤치 이론값' }, { kind: 'line', color: GRAY, label: '정돈했을 때 최대' }], 'tr');
   }
   function drawRules() {
     const P = sim.params, c = L.chart($('c-rules'), 0.62, { l: 46, b: 52, r: 16, t: 20 }), { ctx, m, pw, ph } = c, cols = RULE_COLORS();
-    const top = Math.ceil(sim.cap * 1.2), step = top > 12 ? 4 : top > 6 ? 2 : 1;
+    const top = Math.ceil(sim.cap * 1.4), step = top > 12 ? 4 : top > 6 ? 2 : 1;
     const Y = (v) => m.t + ph - (v / top) * ph, yt = []; for (let v = 0; v <= top; v += step) yt.push(v);
-    L.axes(c, { X: () => 0, Y, yTicks: yt, yFmt: (v) => v + '명' });
+    L.axes(c, { X: () => 0, Y, yTicks: yt, yFmt: (v) => String(v), yLabel: '앉은 사람 (명)' });
     const bw = pw / 4;
     stats.mean.forEach((v, k) => {
       const x = m.l + k * bw + bw * 0.18, w = bw * 0.64;
@@ -162,19 +164,21 @@
       ctx.fillText(`(정돈의 ${Math.round((100 * v) / sim.cap)}%)`, x + w / 2, c.h - m.b + 31);
     });
     ctx.setLineDash([5, 3]); ctx.strokeStyle = GREEN; ctx.beginPath(); ctx.moveTo(m.l, Y(sim.cap)); ctx.lineTo(m.l + pw, Y(sim.cap)); ctx.stroke(); ctx.setLineDash([]);
+    L.legend(c, [{ kind: 'dash', color: GREEN, label: '정돈했을 때 최대' }], 'tl');
   }
   function drawG() {
-    const P = sim.params, c = L.chart($('c-g'), 0.55, { l: 50, b: 40, r: 20, t: 14 }), { ctx, m, pw, ph } = c;
+    const P = sim.params, c = L.chart($('c-g'), 0.55, { l: 50, b: 40, r: 20, t: 24 }), { ctx, m, pw, ph } = c;
     const gs = [0, 1, 2, 3, 4, 5], ex = gs.map((g) => S.exact(P.n, g)[P.n] / S.cap(P.n, g)), th = gs.map((g) => S.theta(g) * (g + 1));
     const y0 = 0.7, y1 = 1.02;
     const X = (v) => m.l + (v / 5) * pw, Y = (v) => m.t + ph - ((v - y0) / (y1 - y0)) * ph;
-    L.axes(c, { X, Y, yTicks: [0.7, 0.8, 0.9, 1.0], yFmt: (v) => Math.round(v * 100) + '%', xTicks: gs, xFmt: (v) => String(v), xLabel: '사이에 비워 두는 자리 수(g)' });
+    L.axes(c, { X, Y, yTicks: [0.7, 0.8, 0.9, 1.0], yFmt: (v) => Math.round(v * 100) + '%', xTicks: gs, xFmt: (v) => String(v), xLabel: '비워 두는 칸 (칸)', yLabel: '정돈 대비 앉은 비율 (%)' });
     L.line(ctx, gs.map((g, i) => [X(g), Y(th[i])]), RED, 2);
     L.line(ctx, gs.map((g, i) => [X(g), Y(ex[i])]), GREEN, 2.6);
     gs.forEach((g, i) => { ctx.fillStyle = GREEN; ctx.beginPath(); ctx.arc(X(g), Y(ex[i]), 4, 0, 7); ctx.fill(); });
     ctx.fillStyle = css('--text'); ctx.textAlign = 'center';
     gs.forEach((g, i) => { if (g > 0) L.label(ctx, `${Math.round(ex[i] * 100)}%`, X(g), Y(ex[i]) + 20, 'center'); });
     L.vline(c, X(P.g), css('--rich'), '지금 설정', P.g > 2.5 ? 'right' : 'left');
+    L.legend(c, [{ kind: 'line', color: GREEN, label: '지금 벤치 길이' }, { kind: 'line', color: RED, label: '아주 긴 벤치' }], 'br');
   }
 
   function renderStats() {

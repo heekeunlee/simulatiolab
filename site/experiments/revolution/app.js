@@ -50,23 +50,22 @@
     const c = L.chart($('c-cdf'), 0.85, { l: 46, b: 40 });
     const { ctx, m, pw, ph } = c;
     const X = (v) => m.l + v * pw, Y = (v) => m.t + ph - v * ph, tk = [0, 0.25, 0.5, 0.75, 1];
-    L.axes(c, { X, Y, yTicks: tk, yFmt: pct, xTicks: tk, xFmt: pct, xLabel: '지금 광장에 나와 있는 사람의 비율' });
+    L.axes(c, { X, Y, yTicks: tk, yFmt: pct, xTicks: tk, xFmt: pct, xLabel: '지금 광장에 나온 사람 (%)', yLabel: '다음에 나설 사람 (%)' });
     ctx.setLineDash([5, 3]); ctx.strokeStyle = css('--muted'); ctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(1), Y(1)); ctx.stroke(); ctx.setLineDash([]);
-    ctx.fillStyle = css('--muted'); ctx.textAlign = 'left'; ctx.fillText('y = x (더 늘지 않는 선)', X(0.55), Y(0.55) + 22);
     const pts = []; for (let i = 0; i <= 200; i++) { const x = i / 200; pts.push([X(x), Y(sim.cdf(x))]); }
     L.line(ctx, pts, css('--accent'), 2.5);
-    ctx.fillStyle = css('--accent'); ctx.textAlign = 'left'; ctx.fillText('다음에 나설 사람의 비율', X(0.04), Y(0.93));
     // 계단 경로: (s,s) → (s, F(s)) → (F(s), F(s))
     const H = sim.history; ctx.strokeStyle = css('--unlucky'); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(X(0), Y(0));
     for (let k = 0; k + 1 < H.length; k++) { ctx.lineTo(X(H[k]), Y(H[k + 1])); ctx.lineTo(X(H[k + 1]), Y(H[k + 1])); }
     ctx.stroke(); ctx.lineWidth = 1;
     const s = H[H.length - 1]; ctx.fillStyle = css('--unlucky'); ctx.beginPath(); ctx.arc(X(s), Y(s), 5, 0, 7); ctx.fill();
+    L.legend(c, [{ kind: 'line', color: css('--accent'), label: '다음에 나설 사람의 비율' }, { kind: 'dash', color: css('--muted'), label: 'y = x (더 늘지 않는 선)' }, { kind: 'line', color: css('--unlucky'), label: '실제 진행 경로' }], 'br');
   }
 
   function drawTime() {
     const c = L.chart($('c-time'), 0.7), { ctx, m, pw, ph } = c, H = sim.history, T = Math.max(H.length - 1, 8);
     const X = (t) => m.l + (t / T) * pw, Y = (v) => m.t + ph - v * ph, xt = []; for (let t = 0; t <= T; t += Math.max(1, Math.ceil(T / 6))) xt.push(t);
-    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: pct, xTicks: xt, xFmt: (t) => String(t), xLabel: '라운드' });
+    L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: pct, xTicks: xt, xFmt: (t) => String(t), xLabel: '라운드 (회)', yLabel: '광장에 나온 사람 (%)' });
     L.line(ctx, H.map((v, t) => [X(t), Y(v)]), css('--unlucky'), 2.5);
     const last = H.length - 1; ctx.fillStyle = css('--unlucky'); ctx.beginPath(); ctx.arc(X(last), Y(H[last]), 4.5, 0, 7); ctx.fill();
   }
@@ -75,7 +74,8 @@
     L.dots($('c-sweep'), {
       data: sweep.map((d) => ({ x: d.x, runs: d.runs, mean: L.mean(d.runs) })),
       series: [{ data: sweep.map((d) => ({ x: d.x, runs: [], mean: 0 })), color: '#8a93a6' }],
-      x0: 0.05, x1: 0.6, xTicks: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6], xFmt: pct, xLabel: '평균 문턱 (얼마나 나서기 어려운 사회인가)',
+      x0: 0.05, x1: 0.6, xTicks: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6], xFmt: pct, xLabel: '평균 문턱 (%)', yLabel: '끝난 뒤 나온 사람 (%)',
+      legend: [{ kind: 'line', color: css('--accent'), label: '지금 설정' }, { kind: 'line', color: '#8a93a6', label: '선동가가 없을 때' }], legendPos: 'tr',
       marker: { x: sim.params.mean },
     });
   }
@@ -96,13 +96,10 @@
 
   function after() {
     const P = params(); sweep = []; drawSweep();
-    $('note-sweep').textContent = '계산 중…';
     const xs = []; for (let m = 5; m <= 60; m += 5) xs.push(m / 100);
     L.jobs(xs.map((m) => () => {
       sweep.push({ x: m, runs: RV.finalShare({ mode: 'normal', mean: m, spread: P.spread, radicals: P.radicals }, 6) });
-    }), drawSweep, () => {
-      $('note-sweep').textContent = '파랑: 지금 설정의 선동가, 회색: 선동가가 한 명도 없을 때 (항상 0%)';
-    });
+    }), drawSweep, drawSweep);
   }
 
   const h = L.harness({

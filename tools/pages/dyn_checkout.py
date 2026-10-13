@@ -41,4 +41,10 @@ DYN = {
 '90% 이론식은 계산 시간이 지수분포(들쭉날쭉함 1.0)일 때만 정확해서, 지금은 그리지 않았습니다': 'The 90th-percentile formula is exact only for exponential checkout times (variability 1.0), so it is not drawn now',
 '{#0}대': '{0} cashiers',
 '손님 번호': 'Customers',
+'붐빔 정도 (%)': 'Busyness (%)',
+'평균 대기시간 (분)': 'Average wait (min)',
+'90% 대기시간 (분)': '90% wait (min)',
+'점선: 이론값': 'Dashed: theory',
+'기다린 시간 (분, 끝 칸은 그 이상)': 'Time waited (min; last bar = and more)',
+'손님 비율 (%)': 'Customers (%)',
 }
