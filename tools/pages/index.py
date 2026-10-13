@@ -239,7 +239,7 @@ def build(only_existing=True):
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=1280">
 <title data-en="Simulatio Lab">시뮬라티오 랩</title>
 <meta name="description" content="{esc(desc[0])}" data-en-content="{esc(desc[1])}">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
