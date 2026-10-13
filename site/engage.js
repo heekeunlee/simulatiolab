@@ -308,7 +308,8 @@
     function buildDaily(D) {
       const row = document.createElement('section'); row.className = 'dailyrow';
       row.innerHTML = '<div class="dcard" id="daily"></div><div class="dcard" id="topic"></div>';
-      (document.querySelector('main') || document.body).prepend(row);
+      // 첫 화면에는 주기율표가 보이도록, 오늘의 만약에·투표는 주기율표와 실험 노트 아래에 둔다
+      const nbEl = document.getElementById('nb'); if (nbEl) nbEl.after(row); else (document.querySelector('main') || document.body).prepend(row);
       // ---- 오늘의 만약에: 방문할 때마다 다른 질문이 나오고, 몇 초마다 다음 질문으로 바뀐다 ----
       const box = $('daily'), ROTATE_MS = 9000;
       const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -361,7 +362,7 @@
     // 새 실험 알림 신청 (시트가 v4일 때만 이메일 칸을 보여준다. 아니면 RSS·유튜브 링크만)
     const nb = document.getElementById('nb');
     if (nb) {
-      const sec = document.createElement('section'); sec.className = 'notify'; sec.id = 'notify'; nb.after(sec);
+      const sec = document.createElement('section'); sec.className = 'notify'; sec.id = 'notify'; nb.parentNode.appendChild(sec);
       const rss = BASE + (LANG === 'ko' ? 'feed.xml' : 'feed-en.xml');
       const links = `<p class="nlinks"><a href="${rss}">${esc(tt('RSS로 받기'))}</a> · <a href="https://www.youtube.com/@simulatiolab?sub_confirmation=1" target="_blank" rel="noopener">${esc(tt('유튜브 구독'))}</a></p>`;
       const paint = (form) => {
