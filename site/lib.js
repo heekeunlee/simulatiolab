@@ -74,11 +74,22 @@ window.Lab = (function () {
   function legend(c, items, pos) {
     const list = (items || []).filter((it) => it && it.label); if (!list.length) return;
     const { ctx, w, m, pw, ph } = c; pos = pos || 'tr';
-    ctx.save(); ctx.font = '11.5px -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif';
-    const rowH = 16, padX = 8, padY = 6, sw = 20;
+    const narrow = w < 560;   // 휴대폰: 글자·줄 간격을 줄이고, 데이터가 가장 적은 구석을 자동으로 고른다
+    ctx.save(); ctx.font = (narrow ? '10.5px' : '11.5px') + ' -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif';
+    const rowH = narrow ? 14 : 16, padX = narrow ? 6 : 8, padY = narrow ? 4 : 6, sw = narrow ? 16 : 20;
     const tw = Math.max.apply(null, list.map((it) => ctx.measureText(it.label).width));
     const bw = Math.min(tw + sw + padX * 2 + 6, pw - 8), bh = list.length * rowH + padY * 2 - 3;
-    const x0 = pos.indexOf('l') >= 0 ? m.l + 6 : m.l + pw - bw - 6, y0 = pos.indexOf('b') >= 0 ? m.t + ph - bh - 6 : m.t + 6;
+    const spot = (p) => ({ x: p.indexOf('l') >= 0 ? m.l + 6 : m.l + pw - bw - 6, y: p.indexOf('b') >= 0 ? m.t + ph - bh - 6 : m.t + 6 });
+    if (narrow) {
+      // 네 구석 중 선·점·막대(밝지 않은 색 픽셀)가 가장 적은 곳. 같으면 요청한 구석을 우선한다.
+      try {
+        const dpr = ctx.canvas.width / w, ink = (r) => { const d = ctx.getImageData(Math.max(0, Math.round(r.x * dpr)), Math.max(0, Math.round(r.y * dpr)), Math.max(1, Math.round(bw * dpr)), Math.max(1, Math.round(bh * dpr))).data; let n = 0; for (let i = 0; i < d.length; i += 4) if (d[i + 3] > 60 && d[i] + d[i + 1] + d[i + 2] < 690) n++; return n; };
+        let best = pos, bestInk = ink(spot(pos));
+        ['tr', 'tl', 'br', 'bl'].forEach((q) => { if (q === pos) return; const k = ink(spot(q)); if (k < bestInk * 0.7) { best = q; bestInk = k; } });
+        pos = best;
+      } catch (e) { /* getImageData를 못 쓰면 요청한 구석 그대로 */ }
+    }
+    const x0 = spot(pos).x, y0 = spot(pos).y;
     ctx.fillStyle = 'rgba(255,255,255,0.9)'; ctx.strokeStyle = css('--line'); ctx.lineWidth = 1;
     roundRect(ctx, x0, y0, bw, bh, 6); ctx.fill(); ctx.stroke();
     list.forEach((it, i) => {
