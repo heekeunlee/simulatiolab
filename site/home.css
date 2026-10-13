@@ -29,7 +29,9 @@ main.wide { max-width: 1320px; }
 .col { display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; gap: 8px; }
 .fh { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--muted); padding: 0 2px 4px; border-bottom: 2px solid var(--c); min-height: 34px; }
 .fh .ic { font-size: 16px; }
-.fh { flex-wrap: wrap; row-gap: 2px; align-items: flex-end; }
+.fh { flex-wrap: wrap; row-gap: 2px; align-items: center; align-content: flex-start; box-sizing: border-box; height: 64px; min-height: 0; overflow: hidden; }  /* 열마다 머리 높이를 같게 해서 타일의 가로줄을 맞춘다 */
+.fh .fcomp { order: 1; }
+.fh .ic, .fh i { order: 0; }
 .fh b { order: 3; flex: 1 0 100%; min-width: 0; color: var(--text); line-height: 1.15; font-size: 12px; word-break: keep-all; overflow-wrap: break-word; }
 .fh i { font-style: normal; margin-left: auto; font-size: 11px; font-weight: 700; color: var(--c); }
 .el { position: relative; display: block; aspect-ratio: 1 / 1.08; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); text-decoration: none; color: var(--text); overflow: hidden; transition: transform .18s, box-shadow .18s, border-color .18s; }
