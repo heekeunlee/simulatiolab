@@ -17,7 +17,7 @@
   // ---------- ① 히어로 점 떼 ----------
   const hero = document.getElementById('swarm');
   if (hero && fields.length) {
-    const N = 360, dots = [];
+    const N = (window.matchMedia && window.matchMedia('(max-width: 760px)').matches) ? 150 : 360, dots = [];
     const rng = mulberry32(11);
     for (let i = 0; i < N; i++) {
       const f = fields[Math.floor(rng() * fields.length)];
@@ -145,3 +145,27 @@
 
 // 넓은 화면에서는 제목의 줄바꿈(<br>)을 CSS로 없애 한 줄로 보이게 한다. 이때 낱말이 붙지 않도록 <br> 뒤에 공백을 넣어 둔다.
 (function () { const fix = () => document.querySelectorAll('.mega br').forEach((b) => { if (!(b.nextSibling && b.nextSibling.nodeType === 3 && /^\s/.test(b.nextSibling.nodeValue))) b.after(document.createTextNode(' ')); }); fix(); window.addEventListener('load', fix); })();
+
+// ---------- 휴대폰: 분야 탭(옆으로 밀기) + 고른 분야의 큰 카드 ----------
+(function () {
+  const table = document.querySelector('.ptable'); if (!table) return;
+  const cols = Array.from(table.querySelectorAll('.col')); if (!cols.length) return;
+  const U = (ko, e) => (window.I18N ? window.I18N.u(ko, e) : ko);
+  const nav = document.createElement('nav'); nav.className = 'ftabs'; nav.setAttribute('aria-label', 'fields');
+  const mk = (key, icon, label, color) => { const b = document.createElement('button'); b.type = 'button'; b.dataset.key = key; b.style.setProperty('--c', color); b.innerHTML = (icon ? '<span class="ti">' + icon + '</span>' : '') + '<span class="tl"></span>'; b.querySelector('.tl').textContent = label; return b; };
+  nav.appendChild(mk('all', '', U('전체', 'All'), '#2f6fed'));
+  cols.forEach((c) => nav.appendChild(mk(c.dataset.field, c.dataset.icon, (c.querySelector('.fh b') || {}).textContent || c.dataset.field, c.dataset.color)));
+  table.before(nav);
+  let cur = 'all';
+  const apply = (key, scroll) => {
+    cur = key;
+    nav.querySelectorAll('button').forEach((b) => { const on = b.dataset.key === key; b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on)); if (on) { const l = b.offsetLeft - (nav.clientWidth - b.offsetWidth) / 2; nav.scrollTo({ left: Math.max(0, l), behavior: 'smooth' }); } });
+    cols.forEach((c) => c.classList.toggle('off', key !== 'all' && c.dataset.field !== key));
+    table.classList.toggle('single', key !== 'all');
+    if (scroll) { const top = nav.getBoundingClientRect().top + window.scrollY - 4; window.scrollTo({ top, behavior: 'smooth' }); }
+    try { sessionStorage.setItem('lab-ftab', key); } catch (e) {}
+  };
+  nav.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) apply(b.dataset.key, true); });
+  let saved = 'all'; try { saved = sessionStorage.getItem('lab-ftab') || 'all'; } catch (e) {}
+  apply(cols.some((c) => c.dataset.field === saved) ? saved : 'all', false);
+})();
