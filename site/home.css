@@ -215,3 +215,19 @@ html:not([lang="ko"]) .el .new-pill, html:not([lang="ko"]) .el .done-mark { bott
   .el .done-mark, html:not([lang="ko"]) .el .done-mark { right: 10px; bottom: 54px; width: 24px; height: 24px; font-size: 14px; }
   .notebook { display: none; }   /* 손가락에는 올려 보기(hover)가 없어 실험 노트 상자는 숨긴다 */
 }
+
+/* 오늘의 만약에: 결과 화면을 투표 화면과 비슷한 높이로 촘촘하게 */
+#daily .pbar { margin: 2px 0; gap: 8px; grid-template-columns: minmax(90px, 200px) minmax(0, 1fr) 40px; font-size: 12.5px; }
+#daily .poth-s { margin: 4px 0 0; font-size: 12px; }
+#daily .dlink { margin-top: 8px; }
+#daily .dfoot { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 2px 14px; margin-top: 6px; }
+#daily .dfoot .poth-s { margin: 0; }
+#daily .dfoot .dlink { margin-top: 0; }
+#daily .pbar { margin: 1px 0; }
+#daily .sbar { display: flex; height: 12px; border-radius: 99px; overflow: hidden; background: #e4e8f2; margin: 4px 0 6px; }
+#daily .sbar i { display: block; height: 100%; }
+#daily .slegend { display: flex; flex-wrap: wrap; gap: 3px 12px; font-size: 12.5px; line-height: 1.35; }
+#daily .slegend .sl { display: inline-flex; align-items: baseline; gap: 4px; }
+#daily .slegend .sl b { flex: none; width: 9px; height: 9px; border-radius: 50%; transform: translateY(1px); }
+#daily .slegend .sl em { font-style: normal; font-weight: 800; font-variant-numeric: tabular-nums; }
+#daily .slegend .sl.right { font-weight: 700; }

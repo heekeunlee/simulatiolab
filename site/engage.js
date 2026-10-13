@@ -288,6 +288,13 @@
       const n = c.reduce((a, b) => a + b, 0), pct = (v) => Math.round((100 * v) / n);
       return opts.map((o, i) => `<div class="pbar${mark === i ? ' right' : ''}"><span class="pl">${esc(tt(o))}${mark === i ? ' ◀' : ''}</span><span class="pb"><i style="width:${pct(c[i])}%"></i></span><span class="pv">${pct(c[i])}%</span></div>`).join('');
     }
+    // 오늘의 만약에용 결과: 한 줄짜리 가로 막대 + 범례 (투표 화면과 비슷한 높이를 유지)
+    function sbar(opts, c, mark) {
+      const n = c.reduce((a, b) => a + b, 0), pct = (v) => Math.round((100 * v) / n), col = ['#7f8de0', '#b3bce9', '#d3d9f1'];
+      const seg = opts.map((o, i) => `<i style="width:${(100 * c[i]) / n}%;background:${mark === i ? '#1fa463' : col[i % 3]}"></i>`).join('');
+      const leg = opts.map((o, i) => `<span class="sl${mark === i ? ' right' : ''}"><b style="background:${mark === i ? '#1fa463' : col[i % 3]}"></b>${esc(tt(o))}${mark === i ? ' ◀' : ''} <em>${pct(c[i])}%</em></span>`).join('');
+      return `<div class="sbar">${seg}</div><div class="slegend">${leg}</div>`;
+    }
     function pollCard(box, id, q, opts, extra) {
       const render = (c) => {
         const mine = S.polls[id];
@@ -339,14 +346,22 @@
       let pos = 0, timer = null, paused = false, stopped = false;
       const rotating = () => !reduce && !stopped;
       function schedule() { clearTimeout(timer); if (!rotating() || paused) return; timer = setTimeout(() => { if (document.hidden) { schedule(); return; } go(1); }, ROTATE_MS); }
-      function render(c) {
-        const Q = order[pos], id = idOf(Q), mine = S.polls[id], e = byId[Q.s];
+      // 카드 안쪽 HTML (표시용과 높이 재기용이 같은 것을 쓴다)
+      function build(Q, mine, c) {
+        const e = byId[Q.s];
         let h = `<h3>${esc(tt('🌤 오늘의 만약에'))}<span class="dnav"><button type="button" class="dprev" aria-label="${esc(tt('이전 질문'))}" title="${esc(tt('이전 질문'))}">‹</button><button type="button" class="dnext" aria-label="${esc(tt('다음 질문'))}" title="${esc(tt('다음 질문'))}">›</button></span></h3>`;
         h += `<div class="dprog${rotating() && !paused ? ' run' : ''}"><i></i></div><div class="dbody"><p class="pq">${esc(tt(Q.q))}</p>`;
         if (mine == null) h += `<div class="popts">${Q.o.map((o, i) => `<button type="button" class="popt" data-i="${i}">${esc(tt(o))}</button>`).join('')}</div>`;
-        else { const n = c ? c.reduce((a, b) => a + b, 0) : 0; h += n >= 5 ? bars(Q.o, c, mine) + `<p class="poth-s">${esc(tt('지금까지 ' + n + '명이 투표했어요'))}</p>` : `<p class="pmine">${esc(tt('투표해 주셔서 고마워요! 더 많이 모이면 결과가 보여요.'))}</p>`; }
-        if (e) h += `<a class="dlink" href="${BASE}experiments/${e.s}/">${esc(tt('이 질문, 실험해 볼까요? →'))}</a>`;
-        box.innerHTML = h + '</div>';
+        let cap = '';
+        const link = e ? `<a class="dlink" href="${BASE}experiments/${e.s}/">${esc(tt('이 질문, 실험해 볼까요? →'))}</a>` : '';
+        if (mine != null) { const n = c ? c.reduce((a, b) => a + b, 0) : 0; if (n >= 5) { h += sbar(Q.o, c, mine); cap = `<p class="poth-s">${esc(tt('지금까지 ' + n + '명이 투표했어요'))}</p>`; } else h += `<p class="pmine">${esc(tt('투표해 주셔서 고마워요! 더 많이 모이면 결과가 보여요.'))}</p>`; }
+        h += cap ? `<div class="dfoot">${cap}${link}</div>` : link;
+        return h + '</div>';
+      }
+      function render(c) {
+        const Q = order[pos], id = idOf(Q), mine = S.polls[id];
+        const h0 = build(Q, mine, c);
+        box.innerHTML = h0;
         box.querySelector('.dprev').addEventListener('click', () => go(-1, true));
         box.querySelector('.dnext').addEventListener('click', () => go(1, true));
         box.querySelectorAll('.popt[data-i]').forEach((b) => b.addEventListener('click', () => {
@@ -367,6 +382,21 @@
       box.addEventListener('mouseleave', () => { paused = false; const pr = box.querySelector('.dprog'); if (pr && rotating()) { void pr.offsetWidth; pr.classList.add('run'); } schedule(); });
       box.addEventListener('focusin', () => { paused = true; clearTimeout(timer); const pr = box.querySelector('.dprog'); if (pr) pr.classList.remove('run'); });
       box.addEventListener('focusout', () => { paused = false; const pr = box.querySelector('.dprog'); if (pr && rotating()) { void pr.offsetWidth; pr.classList.add('run'); } schedule(); });
+      // 카드 크기 고정: 모든 질문(투표 전·결과 화면)을 숨은 상자에 그려 가장 큰 높이로 맞춘다 → 질문이 바뀌어도 상자 크기가 변하지 않는다
+      function lockHeight() {
+        if (!box.clientWidth) return;
+        const probe = box.cloneNode(false); probe.removeAttribute('id'); probe.className = box.className;
+        probe.style.cssText = 'position:absolute;left:-9999px;top:0;visibility:hidden;pointer-events:none;width:' + box.getBoundingClientRect().width + 'px;min-height:0;height:auto';
+        const prof = getComputedStyle(box); probe.style.background = 'none';
+        box.parentNode.appendChild(probe);
+        let max = 0;
+        D.daily.forEach((Q) => { [[null, null], [0, [3, 2, 1]]].forEach(([mine, c]) => { probe.innerHTML = build(Q, mine, c); max = Math.max(max, probe.getBoundingClientRect().height); }); });
+        probe.remove();
+        box.style.minHeight = Math.ceil(max) + 'px';
+      }
+      let lockT = null; const relock = () => { clearTimeout(lockT); lockT = setTimeout(lockHeight, 150); };
+      window.addEventListener('resize', relock); if (document.fonts && document.fonts.ready) document.fonts.ready.then(relock);
+      lockHeight();
       render(null);
       // 다음 실험 주제 투표
       pollCard($('topic'), D.topic.id, D.topic.q, D.topic.o, { head: `<h3>${esc(tt('🗳 다음 실험 투표'))}</h3>` });
