@@ -281,9 +281,9 @@
     const counts = (id, n) => { const url = window.LAB_LOG_URL; if (!url || !real) return Promise.resolve(null); return fetch(url + '?a=pred&slug=' + encodeURIComponent(id) + '&n=' + n).then((r) => r.json()).then((j) => (j && j.counts && j.counts.length === n ? j.counts : null)).catch(() => null); };
     const kstDay = (offset) => { const d = new Date(Date.now() + (offset || 0) * 864e5); try { return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Seoul' }).format(d).replace(/-/g, ''); } catch (e) { return d.toISOString().slice(0, 10).replace(/-/g, ''); } };
     const dayIndex = (ymd) => Math.floor(Date.parse(ymd.slice(0, 4) + '-' + ymd.slice(4, 6) + '-' + ymd.slice(6, 8) + 'T00:00:00+09:00') / 864e5);
-    const ds = document.createElement('script'); ds.src = BASE + 'daily.js';
-    ds.onload = () => { if (window.LAB_DAILY) buildDaily(window.LAB_DAILY); };
-    document.head.appendChild(ds);
+    // daily.js는 메인 페이지 HTML에서 engage.js보다 먼저 불러오므로 바로 카드를 만든다 (없을 때만 따로 불러온다)
+    if (window.LAB_DAILY) setTimeout(() => buildDaily(window.LAB_DAILY), 0);
+    else { const ds = document.createElement('script'); ds.src = BASE + 'daily.js'; ds.onload = () => { if (window.LAB_DAILY) buildDaily(window.LAB_DAILY); }; document.head.appendChild(ds); }
     function bars(opts, c, mark) {
       const n = c.reduce((a, b) => a + b, 0), pct = (v) => Math.round((100 * v) / n);
       return opts.map((o, i) => `<div class="pbar${mark === i ? ' right' : ''}"><span class="pl">${esc(tt(o))}${mark === i ? ' ◀' : ''}</span><span class="pb"><i style="width:${pct(c[i])}%"></i></span><span class="pv">${pct(c[i])}%</span></div>`).join('');
@@ -325,6 +325,7 @@
           if (mq.matches) { heroIn.appendChild(dcard); dcard.classList.add('hero-daily'); dcard.classList.remove('mob-daily'); }
           else { row.prepend(dcard); dcard.classList.remove('hero-daily', 'mob-daily'); }
           row.classList.toggle('solo', mq.matches || mqs.matches);
+          const sk = document.getElementById('daily-sk'); if (sk) sk.remove();
         };
         place(); [mq, mqs].forEach((q) => (q.addEventListener ? q.addEventListener('change', place) : q.addListener(place)));
       }

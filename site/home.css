@@ -92,7 +92,7 @@ main.wide { max-width: 1320px; }
 /* ---------- 오늘의 만약에 · 주제 투표 · 알림 신청 (engage.js) ---------- */
 .dailyrow { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 14px; margin: 18px 0 0; }
 .dcard { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 16px 20px 18px; box-shadow: var(--shadow); min-width: 0; }
-#daily { background: linear-gradient(135deg, #fffbea, #fff4e0); border-color: #f0d58a; }
+#daily { background: linear-gradient(135deg, #dbe8ff, #cfe0fb); border-color: #aac6f0; }   /* 소개 영역 배경(연한 하늘색)보다 한 단계 진한 하늘색 */
 #topic { background: linear-gradient(135deg, #f1f4ff, #f7f1ff); border-color: #cfd8ff; }
 .dcard h3 { margin: 0 0 6px; font-size: 16px; }
 .dcard h3 small { font-weight: 500; font-size: 12px; color: var(--muted); margin-left: 6px; }
@@ -121,10 +121,10 @@ main.wide { max-width: 1320px; }
 /* 오늘의 만약에: 자동으로 바뀌는 질문 */
 .dcard h3 { display: flex; align-items: center; gap: 8px; }
 .dnav { margin-left: auto; display: inline-flex; gap: 6px; }
-.dnav button { width: 28px; height: 28px; border-radius: 50%; border: 1px solid #e0cf9c; background: #fff; color: #8a5a00; font: inherit; font-size: 18px; line-height: 1; cursor: pointer; padding: 0 0 2px; }
-.dnav button:hover { background: #fff4d6; }
-.dprog { height: 3px; background: #f0e3b8; border-radius: 3px; overflow: hidden; margin: 0 0 12px; }
-.dprog i { display: block; height: 100%; width: 0; background: #e0a100; }
+.dnav button { width: 28px; height: 28px; border-radius: 50%; border: 1px solid #a9c3ec; background: #fff; color: #1f4fae; font: inherit; font-size: 18px; line-height: 1; cursor: pointer; padding: 0 0 2px; }
+.dnav button:hover { background: #eaf2ff; }
+.dprog { height: 3px; background: #b4cdf0; border-radius: 3px; overflow: hidden; margin: 0 0 12px; }
+.dprog i { display: block; height: 100%; width: 0; background: #2f6fed; }
 .dprog.run i { animation: dprog var(--dur, 7000ms) linear forwards; }
 @keyframes dprog { from { width: 0; } to { width: 100%; } }
 .dbody { transition: opacity .22s ease, transform .22s ease; min-height: 150px; }
@@ -158,7 +158,7 @@ html:not([lang="ko"]) .fh b { font-size: 12px; letter-spacing: -0.02em; overflow
 @media (min-width: 1060px) {
   .hero-in { display: grid; grid-template-columns: minmax(0, 1fr) 450px; column-gap: 36px; align-items: start; }
   .hero-in > :not(.hero-daily) { grid-column: 1; }
-  .hero-in .hero-daily { grid-column: 2; grid-row: 1 / span 6; align-self: start; width: auto; max-width: none; margin: 0; padding: 10px 14px 11px; border-radius: 16px; pointer-events: auto; background: rgba(255, 251, 240, .95); border-color: #f0dfae; box-shadow: 0 6px 20px rgba(20,30,60,.10); }
+  .hero-in .hero-daily { grid-column: 2; grid-row: 1 / span 6; align-self: start; width: auto; max-width: none; margin: 0; padding: 10px 14px 11px; border-radius: 16px; pointer-events: auto; background: linear-gradient(135deg, #dbe8ff, #cfe0fb); border-color: #aac6f0; box-shadow: 0 6px 20px rgba(47,111,237,.14); }
   .mega br { display: none; }
   .hero .lead { display: block; font-size: 13.5px; line-height: 1.6; max-width: 470px; margin: 0 0 14px; color: var(--muted); }
   .hero-daily .dbody { min-height: 0; }
@@ -191,7 +191,7 @@ html:not([lang="ko"]) .el .new-pill, html:not([lang="ko"]) .el .done-mark { bott
   .mega { font-size: 34px; }
   .cta .btn.big { flex: 1 1 100%; justify-content: center; padding: 13px 16px; font-size: 16px; }
   .cta .btn { flex: 1 1 calc(50% - 5px); justify-content: center; }
-  main > .mob-daily { margin: 14px 0 0; padding: 12px 14px; border-radius: 16px; background: #fffbf0; border-color: #f0dfae; }
+  main > .mob-daily { margin: 14px 0 0; padding: 12px 14px; border-radius: 16px; }
   .table-sec { margin-top: 22px; }
   .table-sec > p { display: none; }
   .ftabs { display: flex; gap: 8px; overflow-x: auto; position: sticky; top: 0; z-index: 30; margin: 10px -16px 14px; padding: 8px 16px; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); scrollbar-width: none; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity; }
@@ -231,3 +231,12 @@ html:not([lang="ko"]) .el .new-pill, html:not([lang="ko"]) .el .done-mark { bott
 #daily .slegend .sl b { flex: none; width: 9px; height: 9px; border-radius: 50%; transform: translateY(1px); }
 #daily .slegend .sl em { font-style: normal; font-weight: 800; font-variant-numeric: tabular-nums; }
 #daily .slegend .sl.right { font-weight: 700; }
+
+/* 오늘의 만약에 카드 자리 미리 잡기: 스크립트가 카드를 채우기 전에도 같은 크기의 상자가 보이게 */
+.dsk { display: none; }
+@media (min-width: 1060px) {
+  .hero-in .dsk { display: block; grid-column: 2; grid-row: 1 / span 6; align-self: start; min-height: 240px; padding: 14px 16px; border-radius: 16px; background: linear-gradient(135deg, #dbe8ff, #cfe0fb); border: 1px solid #aac6f0; box-shadow: 0 6px 20px rgba(47,111,237,.14); }
+}
+.dsk i { display: block; height: 14px; border-radius: 8px; margin: 0 0 14px; background: linear-gradient(90deg, rgba(255,255,255,.35), rgba(255,255,255,.8), rgba(255,255,255,.35)); background-size: 200% 100%; animation: dsk 1.4s ease-in-out infinite; }
+.dsk i:nth-child(1) { width: 38%; } .dsk i:nth-child(2) { width: 92%; height: 22px; } .dsk i:nth-child(3) { width: 100%; height: 38px; }
+@keyframes dsk { from { background-position: 200% 0; } to { background-position: -200% 0; } }

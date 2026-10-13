@@ -262,6 +262,7 @@ def build(only_existing=True):
     <p class="lead"{da(lead)}>{lead[0]}</p>
     <div class="cta"><a class="btn big" href="#table"{da(cta1)}>{cta1[0]}</a><button type="button" class="btn ghost" id="rand"{da(cta2)}>{cta2[0]}</button><a class="btn ghost yt" href="https://www.youtube.com/@simulatiolab?sub_confirmation=1" target="_blank" rel="noopener"{da(cta3)}>{cta3[0]}</a></div>
     <p class="hint"{da(hint)}>{hint[0]}</p>
+    <div class="dsk" id="daily-sk" aria-hidden="true"><i></i><i></i><i></i></div>
   </div>
 </header>
 
@@ -291,6 +292,7 @@ def build(only_existing=True):
 <script src="exps.js"></script>
 <script src="home.js"></script>
 <script src="counter.js"></script>
+<script src="daily.js"></script>
 <script src="engage.js"></script>
 </body>
 </html>

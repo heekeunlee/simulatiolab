@@ -142,6 +142,9 @@ def page(sp):
 </html>
 '''
     out = out.replace('class="memo"', '').replace('<li >', '<li>')
+    try:
+        from headlines_apply import apply as _hl; out = _hl(out, sp['slug'])   # 결과 해석 상자: 한 줄 헤드라인 + 접이식 상세 설명
+    except ImportError: pass
     d = EXP + sp['slug']; os.makedirs(d, exist_ok=True)
     open(d + '/index.html', 'w', encoding='utf-8').write(out)
     return d + '/index.html'

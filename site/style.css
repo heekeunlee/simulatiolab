@@ -348,3 +348,17 @@ span.popt { cursor: default; }
   body.has-animbar .wb-fab { bottom: 86px; }
   body.has-animbar { padding-bottom: 150px; }
 }
+
+/* ---- 결과 해석 상자: 한 줄 헤드라인 + "상세 설명"(접힘) ---- */
+.callout .chead { margin: 0; font-size: 17px; font-weight: 700; line-height: 1.5; color: var(--text); }
+.callout .chead > b:first-child { display: block; margin: 0 0 3px; font-size: 12.5px; font-weight: 800; letter-spacing: .02em; color: var(--accent); }
+.callout.cl-not .chead > b:first-child { color: var(--muted); }
+.callout .cmore { margin: 10px 0 0; }
+.callout .cmore > summary { display: inline-flex; align-items: center; gap: 6px; list-style: none; cursor: pointer; padding: 5px 12px; border-radius: 99px; border: 1.5px solid color-mix(in srgb, var(--accent) 45%, var(--line)); background: var(--surface); color: var(--accent); font-size: 13.5px; font-weight: 700; user-select: none; }
+.callout .cmore > summary::-webkit-details-marker { display: none; }
+.callout .cmore > summary::after { content: "▾"; font-size: 12px; transition: transform .18s; }
+.callout .cmore[open] > summary::after { transform: rotate(180deg); }
+.callout .cmore > summary:hover { background: color-mix(in srgb, var(--accent) 8%, var(--surface)); }
+.callout .cmore > summary:focus-visible { outline: 3px solid color-mix(in srgb, var(--accent) 45%, transparent); outline-offset: 2px; }
+.callout .cfull { margin: 10px 0 0; font-size: 14.5px; line-height: 1.75; color: color-mix(in srgb, var(--text) 85%, #fff); }
+.callout .cfull > b:first-child { display: none; }
