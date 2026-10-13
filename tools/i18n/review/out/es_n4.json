@@ -1,0 +1,130 @@
+{
+ "s1490": {
+  "tr": "Si la competencia no se mantiene tras el ascenso, ascender solo a quien mejor rinde da resultados por debajo del promedio.",
+  "why": "'최고 능력자'를 'mejor desempeño'로 쓴 어색함 수정, 능력 용어를 competencia로 통일"
+ },
+ "s1491": {
+  "tr": "En este modelo la competencia se vuelve a sortear en el nuevo puesto, así que el rendimiento actual no garantiza el encaje en el nuevo rol.",
+  "why": "용어 통일(능력=competencia)"
+ },
+ "s1492": {
+  "tr": "Conviene comprobar primero si el ascenso se basa en el rendimiento actual o en el encaje con el nuevo rol, y cuánta competencia se mantiene tras el ascenso.",
+  "why": "용어 통일, 'se transfiere'보다 자연스럽게"
+ },
+ "s1495": {
+  "tr": "Habría que comparar el rendimiento antes y después del ascenso en cada puesto para medir cuánta competencia se mantiene, y añadir factores como la formación y el trabajo en equipo.",
+  "why": "원문의 '~해야 합니다' 어조 반영(부정사 나열 수정), 용어 통일"
+ },
+ "s1537": {
+  "tr": "Si la fecundidad se mantiene en 0,72, este modelo da unos 29,4 millones de personas en 2070, con un 54% de 65 años o más.",
+  "why": "사이트 전체 % 표기 통일(공백 없음)"
+ },
+ "s1539": {
+  "tr": "La estructura por edades muestra qué conviene mirar cuando se consideran juntos el tamaño de las cohortes, la esperanza de vida y la fecundidad, y no solo esta última.",
+  "why": "문장이 어색하고 구조가 꼬임"
+ },
+ "s1581": {
+  "tr": "Colarse se extiende al principio, pero vuelve a desaparecer si hay suficientes personas que lo castigan.",
+  "why": "새치기를 'hacer trampa'로 오역 (colarse가 맞음)"
+ },
+ "s1582": {
+  "tr": "Para frenar a quien se cuela cuando le sale a cuenta, alguien tiene que pagar el coste de la desaprobación, así que el orden se mantiene cuanta más gente comparte ese coste.",
+  "why": "원문 의미(누군가 눈총 비용을 치러야 함)가 뒤틀려 있었음"
+ },
+ "s1583": {
+  "tr": "Si una cola se desordena, conviene comprobar primero si quienes frenan a los que se cuelan asumen el coste en solitario.",
+  "why": "'막는 사람'을 '새치기를 그만두는 사람'으로 오역"
+ },
+ "s1589": {
+  "tr": "<b>Supuestos clave y fórmulas:</b> En una cuadrícula de 50×50, cada persona se encuentra una vez con sus 8 vecinos y copia la estrategia del vecino con mayor puntuación. Quien se cuela y se encuentra con una persona ordenada gana +<i>g</i> (la persona ordenada obtiene −<i>g</i>); quien se cuela y se encuentra con un castigador queda con un neto de <i>g</i>−<i>f</i> (efecto del castigo <i>f</i>), y el castigador paga un coste <i>c</i> cada vez que ve a alguien colarse. Así, a grandes rasgos, <i>f</i> debe superar a <i>g</i> para que colarse sea una pérdida junto a los castigadores. Los controles deslizantes son <i>g</i>, <i>f</i> y <i>c</i>.",
+  "why": "문법/어색한 표현"
+ },
+ "s1591": {
+  "tr": "<b>Teoría frente a simulación:</b> Este modelo no tiene una forma cerrada conocida, así que no hay un valor teórico con el que comparar; se comprobó con la simulación la condición aproximada <i>f</i>&gt;<i>g</i>. Con <i>g</i>=0,5, un efecto del castigo de 0,3 deja un 100% de personas que se cuelan, 0,6 solo las frena en parte (80%), y 1,0 deja un 0% de personas que se cuelan y un 87% de castigadores. Sin castigadores, quienes se cuelan llegan al 100%. Un coste del castigo de hasta 0,2 mantiene el 87%, pero a partir de 0,5 el orden se derrumba hasta el 100% de personas que se cuelan, y con una ganancia de 0,2 o 1,5 dominan quienes se cuelan, con un 86 a 87%, lo que la condición simple por sí sola no explica (medias de 5 ejecuciones, <code>node tools/validate-more.js queue</code>).",
+  "why": "1인칭 단수를 무인칭으로 통일(원문 중립)"
+ },
+ "s1633": {
+  "tr": "Los efectos reales requieren experimentos con un grupo de comparación, y hay que incluir también que la habilidad cambia.",
+  "why": "어색한 주어 불일치 수정"
+ },
+ "s1669": {
+  "tr": "Cambiar el umbral de una sola persona al 1% hizo que una plaza donde salían 100 personas se detuviera en solo 1.",
+  "why": "광장을 'cuadrado'(정사각형)로 오역"
+ },
+ "s1679": {
+  "tr": "<b>Teoría frente a simulación:</b> El ejemplo clásico da participación total de los 100 (101 rondas), y cambiar el umbral de una persona lo detiene en 1. Con umbrales normales, calcular directamente el punto fijo de <code>F(x) = x</code> da participación total con media 25% y 1% de instigadores, aproximadamente 1,7% con media 30% y aproximadamente 1,1% con 40%, frente a 2% y 1% simulados. Justo en la zona de bifurcación (media 25%), el azar entre 1.000 personas hizo que las ejecuciones se repartieran entre el 2% y el 100%.",
+  "why": "갈림길=bifurcación (inflexión은 수학적으로 다른 개념)"
+ },
+ "s1724": {
+  "tr": "No significa que los rumores reales en los chats se propaguen según estas cifras; que la corrección sea un 70% de atractiva es un supuesto.",
+  "why": "% 표기 통일"
+ },
+ "s1728": {
+  "tr": "<b>Supuestos clave y fórmulas:</b> Cuando un difusor publica en una sala, cada miembro que no sabe nada se deja tentar con probabilidad <i>p</i> y lo difunde desde la ronda siguiente; un difusor pierde el interés en cada ronda con probabilidad <i>q</i> (70%). El tiempo medio de difusión es 1/<i>q</i> rondas, así que <i>R</i><sub>0</sub> ≈ <i>p</i>·<i>k</i>/<i>q</i> (<i>k</i>: número de miembros de la sala que ven las publicaciones de una persona), y un gran brote necesita que ese valor supere 1. El control deslizante de <i>p</i> y los ajustes de la sala mueven <i>R</i><sub>0</sub>.",
+  "why": "솔깃하다 용어 통일(dejarse tentar)"
+ },
+ "s1750": {
+  "tr": "Detiene el montón y deja caer un solo grano. Púlsalo una y otra vez: el mismo grano unas veces no hace nada y otras desencadena un desprendimiento.",
+  "why": "'Pausa'가 명령형으로 읽힘, '같은 한 알' 반영"
+ },
+ "s1754": {
+  "tr": "Las avalanchas del régimen estacionario se cuentan por tamaño y se dibujan con ambos ejes en escala logarítmica (se excluyen las avalanchas de tamaño 0). Si los puntos siguen aproximadamente una recta descendente, las avalanchas pequeñas son muy comunes y las grandes son raras pero no inexistentes. La línea roja discontinua se ajusta a los puntos respaldados por al menos 10 avalanchas, y su pendiente es el valor realmente medido con este tamaño de tablero.",
+  "why": "어색한 표현"
+ },
+ "s1758": {
+  "tr": "Como un grano se reparte entre cuatro vecinos y provoca una reacción en cadena, un mismo grano produjo desde ningún desmoronamiento hasta miles.",
+  "why": "용어 통일(desmoronamiento), 어색한 'encadena'"
+ },
+ "s1761": {
+  "tr": "No explica los montones de arena, los terremotos, los incendios ni los desplomes reales; la pendiente se mide en estas cuadrículas.",
+  "why": "용어 통일(montón de arena)"
+ },
+ "s1808": {
+  "tr": "<b>Teoría frente a simulación:</b> No existe un resultado en forma cerrada, así que se comprobó solo mediante simulación. La proporción inicial de vecinos iguales fue del 50%; termina en 51% para una proporción deseada del 10%, 75% para el 30%, 83% para el 40%, 87% para el 50% y 98% para el 60% (promedios de 5 ejecuciones). Hasta el 70% la población se separa casi por completo, pero tarda más de 100 rondas en estabilizarse, y con el 80% ninguna disposición satisface a todos, por lo que se queda en 51% tras 300 rondas (<code>node tools/validate-schelling.js</code>).",
+  "why": "% 표기 통일"
+ },
+ "s1809": {
+  "tr": "<b>Lecturas adicionales:</b> Thomas C. Schelling (1971), \"Dynamic Models of Segregation\", <i>Journal of Mathematical Sociology</i> 1(2). Thomas C. Schelling (1978), <i>Micromotives and Macrobehavior</i>, W. W. Norton.",
+  "why": "제목어(Lecturas adicionales)와 따옴표를 페이지 내 일관되게"
+ },
+ "s1829": {
+  "tr": "<i style=\"background:rgba(229,72,77,0.35)\"></i>Asiento vacío que nadie puede ocupar",
+  "why": "style 속성의 rgba 쉼표가 마침표로 깨짐"
+ },
+ "s1824": {
+  "tr": "Si llegan más personas de las que caben, más se van",
+  "why": "어색한 문장 구조"
+ },
+ "s1845": {
+  "tr": "El eje horizontal es el hueco que se deja entre personas y el vertical la proporción del máximo ordenado que alcanza la ocupación al azar. El verde es el valor exacto para la longitud actual del banco y el rojo para un banco muy largo. Con cualquier hueco, siempre se sientan menos personas que en la disposición ordenada.",
+  "why": "의미가 불명확"
+ },
+ "s1849": {
+  "tr": "En este modelo, quien ya se ha sentado no cambia de sitio y los desconocidos se sientan por turnos sin coordinarse, así que los huecos incómodos quedan sin usar.",
+  "why": "'앉은 자리가 움직이지 않고'는 asientos가 아니라 앉은 사람 (영어판 'seats never move'도 부정확)"
+ },
+ "s1850": {
+  "tr": "Si los asientos parecen desaprovechados, conviene comprobar si el orden en que se sientan y las indicaciones crean los huecos, y no las actitudes.",
+  "why": "'orden de asiento'가 어색함"
+ },
+ "s1851": {
+  "tr": "<b>Qué muestra:</b> Con un asiento de hueco, las personas que se sientan al azar en un banco muy largo ocupan el 43,2% de los asientos (teoría (1−e<sup>−2</sup>)/2), por debajo del 50% de la ocupación ordenada (simulación 43,3%). Con un hueco de dos asientos es 27,5% (ordenada 33,3%) y con tres, 20,1% (ordenada 25,0%). Con 30 asientos y un hueco de dos, la ocupación ordenada admite 10 personas, pero la aleatoria promedió 8,6 (valor esperado exacto 8,61); el asiento más lejano promedió 8,9 y el de primero el extremo 8,9. Nadie rompió la regla, y aun así se perdió entre el 14 y el 20% de la capacidad ordenada (huecos de 1 a 3 asientos, banco largo).",
+  "why": "% 표기 통일, 'primero el extremo' 문장 오류, 용어 통일"
+ },
+ "s1856": {
+  "tr": "<b>Supuestos clave y fórmulas:</b> Una persona sentada bloquea g asientos a cada lado, de modo que cada persona equivale a colocar una barra de longitud g+1. En un banco largo la proporción ocupada es <code>∫<sub>0</sub><sup>∞</sup> exp(−u − 2·Σ<sub>j=1..g</sub> (1−e<sup>−ju</sup>)/j) du</code>, que vale 1 para g=0 y (1−e<sup>−2</sup>)/2 ≈ 0,432 para g=1. Para un banco de n asientos, el valor esperado cumple <code>f(n) = 1 + (1/n)·Σ<sub>i</sub> [f(i−1−g) + f(n−i−g)]</code>. Los controles deslizantes n y g son las n y g de estas fórmulas.",
+  "why": "용어 통일(valor esperado)"
+ },
+ "s1858": {
+  "tr": "<b>Teoría frente a simulación:</b> Con <code>node tools/validate-seating.js</code>, la teoría frente a la simulación en un banco largo (2000 asientos, 200 ejecuciones) fue 0,4323 frente a 0,4327 con hueco 1, 0,2746 frente a 0,2749 con hueco 2 y 0,2010 frente a 0,2009 con hueco 3. El valor esperado exacto de un banco finito también coincidió con la simulación (5000 ejecuciones): 24 asientos, hueco 1: 10,673 frente a 10,679 personas; 30 asientos, hueco 2: 8,609 frente a 8,600. Hubo 0 infracciones del hueco.",
+  "why": "용어 통일(valor esperado)"
+ },
+ "s1859": {
+  "tr": "<b>Lecturas adicionales:</b> Rényi, A. (1958), «On a one-dimensional problem concerning random space-filling», <i>Publ. Math. Inst. Hungarian Acad. Sci.</i>; Flory, P. J. (1939), <i>J. Am. Chem. Soc.</i> 61, 1518; Evans, J. W. (1993), «Random and cooperative sequential adsorption», <i>Reviews of Modern Physics</i> 65, 1281 (revisión).",
+  "why": "제목어 통일"
+ },
+ "s1863": {
+  "tr": "La regla del 37% · Simulatio Lab",
+  "why": "% 표기 통일"
+ }
+}

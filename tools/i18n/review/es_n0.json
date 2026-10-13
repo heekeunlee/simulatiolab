@@ -971,5 +971,607 @@
 "ko": "<b>모델의 뿌리:</b> 동맹을 따라 충돌이 번지는 구조는 네트워크 위의 \"연쇄(cascade)\" 모델에서 발상을 얻었습니다. Watts(2002)는 무작위 네트워크에서 작은 충격이 전체로 번지는 조건을 다뤘고, Kempe, Kleinberg, Tardos(2003)의 독립 연쇄(independent cascade) 모델은 \"연결마다 일정 확률로 전파된다\"는 점에서 이 페이지와 가장 닮았습니다. 무작위 동맹은 Erdős와 Rényi의 무작위 그래프와 같은 방식입니다.",
 "en": "<b>Where the model comes from:</b> The way a clash spreads along alliances draws on \"cascade\" models on networks. Watts (2002) studied when a small shock spreads across a whole random network, and the independent cascade model of Kempe, Kleinberg and Tardos (2003), where each link transmits with some probability, is the closest to this page. Random alliances work like the random graphs of Erdős and Rényi.",
 "tr": "<b>De dónde viene el modelo:</b> La manera en que un conflicto se propaga a través de las alianzas se basa en modelos de «cascada» en redes. Watts (2002) estudió cuándo un pequeño impacto se extiende por toda una red aleatoria, y el modelo de cascada independiente de Kempe, Kleinberg y Tardos (2003), donde cada enlace transmite con cierta probabilidad, es el más cercano a esta página. Las alianzas aleatorias funcionan como los grafos aleatorios de Erdős y Rényi."
+},
+{
+"id": "s0346",
+"page": "alliance",
+"ko": "<b>핵심 가정과 수식:</b> 무작위 동맹에서는 어떤 두 나라든 같은 확률 <code>p = d/(N−1)</code>로 동맹이 됩니다(d가 \"나라마다 평균 동맹국 수\" 슬라이더, N=24). 이런 그래프는 평균 연결 수가 1을 넘을 즈음 큰 연결 덩어리가 생기고, 여기에 전파 확률 q(\"조약을 지킬 확률\")를 곱한 <code>q·d</code>가 1을 넘을 때 크게 번진다는 것이 대략적인 어림입니다.",
+"en": "<b>Key assumptions and formulas:</b> In random alliances any two countries are allied with the same probability <code>p = d/(N−1)</code> (d is the \"average allies per country\" slider, N=24). Such graphs grow a giant connected cluster around an average degree of 1, and a rough rule of thumb is that the spread becomes large when <code>q·d</code> exceeds 1, where q is the \"chance an ally honors the pact\".",
+"tr": "<b>Supuestos clave y fórmulas:</b> En las alianzas aleatorias, dos países cualesquiera están aliados con la misma probabilidad <code>p = d/(N−1)</code> (d es el control deslizante «aliados medios por país», N=24). Estos grafos desarrollan un gran grupo conectado cuando el grado medio ronda 1, y una regla práctica aproximada es que la propagación se hace grande cuando <code>q·d</code> supera 1, donde q es la «probabilidad de que un aliado cumpla el pacto»."
+},
+{
+"id": "s0347",
+"page": "alliance",
+"ko": "<b>이 프로젝트의 단순화:</b> 나라는 모두 같고 동맹은 대칭적인 단순 연결이며, 조약 이행은 라운드마다 다시 판정하는 확률 하나로만 정합니다(연결마다 한 번만 시도하는 표준 독립 연쇄 모델과 다릅니다). 양쪽에서 요청받을 때의 다수결 규칙, 나라 수 24, 평균 동맹 수와 이행 확률의 값, \"세계대전급\"의 기준(12개국)은 모두 이 프로젝트가 정했습니다.",
+"en": "<b>What this project simplifies:</b> All countries are identical, alliances are plain symmetric links, and honoring a pact is a single probability re-drawn each round (unlike the standard independent cascade, which tries each link once). The majority rule for conflicting calls, the 24 countries, the values of average allies and honor probability, and the \"world-war scale\" cutoff (12 countries) are all set by this project.",
+"tr": "<b>Qué simplifica este proyecto:</b> Todos los países son idénticos, las alianzas son simples enlaces simétricos y cumplir un pacto es una única probabilidad que se vuelve a sortear cada ronda (a diferencia de la cascada independiente estándar, que prueba cada enlace una sola vez). La regla de la mayoría para llamadas contradictorias, los 24 países, los valores de aliados medios y de probabilidad de cumplimiento, y el umbral de «escala de guerra mundial» (12 países) los fija este proyecto."
+},
+{
+"id": "s0348",
+"page": "alliance",
+"ko": "<b>이론값과 시뮬레이션:</b> 이 설정에는 정확한 닫힌 해가 없고, 위 어림은 방향을 가늠하는 용도라서 이론값과 숫자로 대조하지는 않았습니다. 시뮬레이션에서는 조약 70%일 때 평균 동맹 0, 1, 1.5, 2, 3개에서 평균 2.0, 6.3, 12.1, 17.4, 22.4개국이 전쟁에 들어갔고(세계대전급 0, 15, 56, 85, 99%), 어림한 문턱 근처인 1~2개에서 가파르게 올랐습니다. 나라가 24개뿐이라 문턱이 날카롭지 않고 완만하게 오릅니다.",
+"en": "<b>Theory versus simulation:</b> This setup has no exact closed form and the rule of thumb above is only a guide to direction, so I did not compare it numerically. In the simulation at a 70% honor chance, average allies of 0, 1, 1.5, 2 and 3 gave 2.0, 6.3, 12.1, 17.4 and 22.4 countries at war (world-war scale 0, 15, 56, 85 and 99%), rising steeply around 1–2 allies near the rough threshold. With only 24 countries the threshold is smooth rather than sharp.",
+"tr": "<b>Teoría frente a simulación:</b> Este planteamiento no tiene una forma cerrada exacta y la regla práctica anterior solo orienta sobre la dirección, así que no la comparé numéricamente. En la simulación, con un 70% de probabilidad de cumplir, una media de 0, 1, 1,5, 2 y 3 aliados dio 2,0, 6,3, 12,1, 17,4 y 22,4 países en guerra (escala de guerra mundial 0, 15, 56, 85 y 99%), con una subida pronunciada entre 1 y 2 aliados, cerca del umbral aproximado. Con solo 24 países, el umbral es gradual y no abrupto."
+},
+{
+"id": "s0349",
+"page": "alliance",
+"ko": "<b>더 읽을거리:</b> Watts, D. J. (2002), 「A simple model of global cascades on random networks」, <i>Proceedings of the National Academy of Sciences</i> 99. Newman, M. E. J. (2010), <i>Networks: An Introduction</i>, Oxford University Press.",
+"en": "<b>Further reading:</b> Watts, D. J. (2002), \"A simple model of global cascades on random networks\", <i>Proceedings of the National Academy of Sciences</i> 99. Newman, M. E. J. (2010), <i>Networks: An Introduction</i>, Oxford University Press.",
+"tr": "<b>Lecturas adicionales:</b> Watts, D. J. (2002), «A simple model of global cascades on random networks», <i>Proceedings of the National Academy of Sciences</i> 99. Newman, M. E. J. (2010), <i>Networks: An Introduction</i>, Oxford University Press."
+},
+{
+"id": "s0350",
+"page": "alliance",
+"ko": "나라는 A~X의 익명의 나라이고 실제 나라, 지도자, 날짜는 쓰지 않았습니다. 역사 연구가 아니고 어떤 논문의 모델이나 값을 재현한 것도 아닙니다.",
+"en": "The countries are anonymous A–X, with no real countries, leaders or dates. This is not historical research and does not reproduce the model or values of any paper.",
+"tr": "Los países son anónimos, de la A a la X, sin países, líderes ni fechas reales. Esto no es investigación histórica y no reproduce el modelo ni los valores de ningún artículo."
+},
+{
+"id": "s0354",
+"page": "ant",
+"ko": "랭턴의 개미 · 시뮬라티오 랩",
+"en": "Langton's Ant · Simulatio Lab",
+"tr": "La hormiga de Langton · Simulatio Lab"
+},
+{
+"id": "s0355",
+"page": "ant",
+"ko": "규칙이 두 줄뿐인 개미가 처음엔 대칭 무늬를, 다음엔 혼돈을 만들다가 약 만 걸음 뒤 갑자기 대각선 고속도로를 내는 랭턴의 개미를 직접 돌려보세요.",
+"en": "Run Langton's ant yourself: an ant with two rules draws symmetric patterns, then chaos, and after about 10,000 steps suddenly builds a diagonal highway.",
+"tr": "Ejecuta tú mismo la hormiga de Langton: una hormiga con dos reglas dibuja patrones simétricos, luego caos y, tras unos 10.000 pasos, construye de repente una autopista diagonal."
+},
+{
+"id": "s0356",
+"page": "ant",
+"ko": "계획이 없는 것은 어지럽게만 움직일 거라고 생각하기 쉽습니다. 규칙이 두 줄뿐인 개미라면 더 그렇겠죠. 그런데 빈 판에서 출발한 이 개미는 한동안 질서와 혼돈을 오간 끝에 9,976걸음째부터 104걸음마다 똑같은 동작을 되풀이하며 곧은 대각선 길을 내기 시작합니다. 아무도 길을 설계하지 않았는데도요.",
+"en": "It is easy to assume that something with no plan will just wander randomly, and an ant with only two rules even more so. Yet this ant, started on a blank grid, drifts between order and chaos and then, from step 9,976, repeats the same 104-step routine and starts building a straight diagonal road. Nobody designed that road.",
+"tr": "Es fácil suponer que algo sin plan se limitará a vagar al azar, y más aún una hormiga con solo dos reglas. Sin embargo, esta hormiga, que empieza en una cuadrícula en blanco, oscila entre el orden y el caos y luego, desde el paso 9.976, repite la misma rutina de 104 pasos y empieza a construir un camino diagonal recto. Nadie diseñó ese camino."
+},
+{
+"id": "s0357",
+"page": "ant",
+"ko": "판은 흰 칸과 검은 칸으로 된 격자이고, 개미는 한 칸 위에 서서 위·아래·좌·우 중 한 방향을 봅니다. 규칙은 두 줄입니다. <b>흰 칸이면</b> 오른쪽으로 90도 돌고, 칸을 검게 바꾸고, 한 칸 앞으로 갑니다. <b>검은 칸이면</b> 왼쪽으로 90도 돌고, 칸을 희게 바꾸고, 한 칸 앞으로 갑니다.",
+"en": "The world is a grid of white and black cells, and the ant stands on one cell facing up, down, left or right. There are two rules. <b>On a white cell</b> it turns 90 degrees right, flips the cell to black and steps forward. <b>On a black cell</b> it turns 90 degrees left, flips the cell to white and steps forward.",
+"tr": "El mundo es una cuadrícula de celdas blancas y negras, y la hormiga está en una celda mirando hacia arriba, abajo, izquierda o derecha. Hay dos reglas. <b>En una celda blanca</b> gira 90 grados a la derecha, cambia la celda a negra y avanza. <b>En una celda negra</b> gira 90 grados a la izquierda, cambia la celda a blanca y avanza."
+},
+{
+"id": "s0358",
+"page": "ant",
+"ko": "빈 판에서 출발하면 처음 약 500걸음은 대칭 무늬가 되풀이되어 <b>질서</b>로 보이고, 이어 한참 어지러운 <b>혼돈</b>이 계속되다가, 끝내 104걸음짜리 동작이 되풀이되며 대각선으로 뻗는 <b>고속도로</b>가 됩니다. 고속도로가 시작된 걸음은 개미의 자리와 방향이 104걸음마다 (2,2)칸씩 옮겨 가며 세 번 이어서 되풀이되는 것으로 판정합니다.",
+"en": "From a blank grid, the first 500 steps or so repeatedly form symmetric shapes, which look like <b>order</b>. A long stretch of <b>chaos</b> follows, and finally a 104-step routine repeats and carries the ant diagonally: the <b>highway</b>. The highway start is detected when the ant's position and heading repeat every 104 steps, shifted by (2,2) cells, three times in a row.",
+"tr": "Desde una cuadrícula en blanco, los primeros 500 pasos aproximadamente forman una y otra vez figuras simétricas, que parecen <b>orden</b>. Sigue un largo tramo de <b>caos</b> y, al final, una rutina de 104 pasos se repite y lleva a la hormiga en diagonal: la <b>autopista</b>. El inicio de la autopista se detecta cuando la posición y la dirección de la hormiga se repiten cada 104 pasos, desplazadas (2.2) celdas, tres veces seguidas."
+},
+{
+"id": "s0359",
+"page": "ant",
+"ko": "<b>속도</b>는 1초에 몇 걸음을 돌릴지입니다. 고속도로를 보려면 초당 수천 걸음 이상으로 올려 보세요. <b>개미 수</b>를 2~4마리로 늘리면 개미들이 서로의 흔적을 밟고, <b>무작위 점으로 시작</b>하면 가운데 21×21칸 안에 검은 칸을 흩뿌려 놓고 출발합니다.",
+"en": "<b>Speed</b> is how many steps run per second; raise it to thousands per second to reach the highway. With 2 to 4 <b>ants</b> they walk on each other's trails, and a <b>random-dot start</b> scatters black cells in the central 21×21 cells before the ant starts.",
+"tr": "La <b>velocidad</b> es cuántos pasos se ejecutan por segundo; súbela a miles por segundo para llegar a la autopista. Con 2 a 4 <b>hormigas</b>, estas caminan sobre los rastros de las otras, y un <b>inicio con puntos aleatorios</b> reparte celdas negras en las 21×21 celdas centrales antes de que empiece la hormiga."
+},
+{
+"id": "s0360",
+"page": "ant",
+"ko": "개미 수 <output id=\"o-ants\"></output>",
+"en": "Number of ants <output id=\"o-ants\"></output>",
+"tr": "Número de hormigas <output id=\"o-ants\"></output>"
+},
+{
+"id": "s0361",
+"page": "ant",
+"ko": "여러 마리면 한 걸음마다 개미들이 차례로 한 번씩 움직이고, 서로의 흔적을 밟습니다",
+"en": "With several ants, each ant moves once per step in turn, and they walk on each other's trails",
+"tr": "Con varias hormigas, cada una se mueve una vez por paso por turnos, y caminan sobre los rastros de las otras"
+},
+{
+"id": "s0362",
+"page": "ant",
+"ko": "무작위 점의 비율 <output id=\"o-dens\"></output>",
+"en": "Random dot share <output id=\"o-dens\"></output>",
+"tr": "Proporción de puntos aleatorios <output id=\"o-dens\"></output>"
+},
+{
+"id": "s0363",
+"page": "ant",
+"ko": "\"무작위 점으로 시작\"일 때만 쓰입니다. 가운데 21×21칸 중 처음부터 검은 칸의 비율",
+"en": "Used only for \"random dots\". The share of the central 21×21 cells that start black",
+"tr": "Se usa solo para «puntos aleatorios». Proporción de las 21×21 celdas centrales que empiezan en negro"
+},
+{
+"id": "s0364",
+"page": "ant",
+"ko": "시작하는 판 <output id=\"o-start\"></output>",
+"en": "Starting grid <output id=\"o-start\"></output>",
+"tr": "Cuadrícula inicial <output id=\"o-start\"></output>"
+},
+{
+"id": "s0365",
+"page": "ant",
+"ko": "빈 판",
+"en": "Blank grid",
+"tr": "Cuadrícula en blanco"
+},
+{
+"id": "s0366",
+"page": "ant",
+"ko": "무작위 점으로 시작",
+"en": "Random dots",
+"tr": "Puntos aleatorios"
+},
+{
+"id": "s0367",
+"page": "ant",
+"ko": "빈 판은 고전적인 실험입니다. 무작위 점으로 시작하면 번호를 바꿔 가며 매번 다른 판을 볼 수 있어요",
+"en": "The blank grid is the classic experiment. With random dots, change the seed to see a different grid each time",
+"tr": "La cuadrícula en blanco es el experimento clásico. Con puntos aleatorios, cambia la semilla para ver una cuadrícula distinta cada vez"
+},
+{
+"id": "s0368",
+"page": "ant",
+"ko": "같은 설정, 다른 무작위 판",
+"en": "Same settings, different random grid",
+"tr": "Mismos ajustes, distinta cuadrícula aleatoria"
+},
+{
+"id": "s0369",
+"page": "ant",
+"ko": "① 개미가 길을 내는 모습",
+"en": "① Watching the Ant Build a Road",
+"tr": "① Ver cómo la hormiga construye una carretera"
+},
+{
+"id": "s0370",
+"page": "ant",
+"ko": "검은 칸은 짙은 남색, 개미가 지나갔다가 희게 돌아온 칸은 연한 파랑, 개미는 색 점입니다. 판은 지나간 곳이 모두 보이도록 저절로 넓어집니다. 속도를 올리면 초당 수십만 걸음까지 돌릴 수 있어요.",
+"en": "Black cells are dark navy, cells the ant crossed and left white are pale blue, and the ants are the coloured dots. The view widens by itself to show everywhere the ant has been. Raise the speed to run up to hundreds of thousands of steps per second.",
+"tr": "Las celdas negras son azul marino oscuro, las celdas que la hormiga cruzó y dejó blancas son azul pálido, y las hormigas son los puntos de colores. La vista se amplía sola para mostrar todos los lugares por donde ha pasado la hormiga. Sube la velocidad para ejecutar hasta cientos de miles de pasos por segundo."
+},
+{
+"id": "s0371",
+"page": "ant",
+"ko": "초당 100걸음",
+"en": "100 steps/s",
+"tr": "100 pasos/s"
+},
+{
+"id": "s0372",
+"page": "ant",
+"ko": "초당 1천걸음",
+"en": "1,000 steps/s",
+"tr": "1.000 pasos/s"
+},
+{
+"id": "s0373",
+"page": "ant",
+"ko": "초당 5천걸음",
+"en": "5,000 steps/s",
+"tr": "5.000 pasos/s"
+},
+{
+"id": "s0374",
+"page": "ant",
+"ko": "초당 3만걸음",
+"en": "30,000 steps/s",
+"tr": "30.000 pasos/s"
+},
+{
+"id": "s0375",
+"page": "ant",
+"ko": "초당 30만걸음",
+"en": "300,000 steps/s",
+"tr": "300.000 pasos/s"
+},
+{
+"id": "s0376",
+"page": "ant",
+"ko": "② 검은 칸의 수",
+"en": "② Number of Black Cells",
+"tr": "② Número de celdas negras"
+},
+{
+"id": "s0377",
+"page": "ant",
+"ko": "파란 바탕은 질서 있던 처음 약 500걸음(빈 판, 개미 1마리일 때)입니다. 혼돈 동안 불규칙하게 늘다가 고속도로가 시작되면 104걸음마다 12칸씩 일정하게 늘어납니다.",
+"en": "The blue band is the first ~500 ordered steps (blank grid, one ant). Black cells grow irregularly during the chaos, then by a steady 12 cells every 104 steps once the highway starts.",
+"tr": "La banda azul son los primeros ~500 pasos ordenados (cuadrícula en blanco, una hormiga). Las celdas negras crecen de forma irregular durante el caos y, una vez empieza la autopista, de forma constante: 12 celdas cada 104 pasos."
+},
+{
+"id": "s0378",
+"page": "ant",
+"ko": "③ 원점에서 개미까지의 거리",
+"en": "③ Distance of the Ant from the Start",
+"tr": "③ Distancia de la hormiga al punto de partida"
+},
+{
+"id": "s0379",
+"page": "ant",
+"ko": "혼돈 동안은 출발점 근처를 맴돌아 거의 평평하다가, 고속도로가 시작되면 곧은 직선으로 멀어집니다. 걸음당 약 0.027칸(104걸음에 2√2칸)씩입니다.",
+"en": "During the chaos the ant stays near its starting point and the curve is nearly flat, then it grows as a straight line once the highway begins: about 0.027 cells per step (2√2 cells per 104 steps).",
+"tr": "Durante el caos la hormiga se queda cerca de su punto de partida y la curva es casi plana; luego crece en línea recta cuando empieza la autopista: unas 0,027 celdas por paso (2√2 celdas cada 104 pasos)."
+},
+{
+"id": "s0380",
+"page": "ant",
+"ko": "④ 무작위 점으로 시작하면 고속도로는 언제 생길까",
+"en": "④ When Does the Highway Appear from Random Dots?",
+"tr": "④ ¿Cuándo aparece la autopista a partir de puntos aleatorios?"
+},
+{
+"id": "s0381",
+"page": "ant",
+"ko": "가로는 처음에 흩뿌린 검은 칸의 비율, 세로는 고속도로가 시작된 걸음입니다. 점은 무작위 판 10개 각각의 결과이고 선은 그 중앙값입니다. 이 화면에서 돌린 판에서는 모두 고속도로가 생겼습니다.",
+"en": "The horizontal axis is the share of black cells scattered at the start, the vertical axis the step where the highway began. Each dot is one of 10 random grids and the line is their median. Every grid run here produced a highway.",
+"tr": "El eje horizontal es la proporción de celdas negras repartidas al inicio, el vertical el paso en que empezó la autopista. Cada punto es una de 10 cuadrículas aleatorias y la línea es su mediana. Todas las cuadrículas ejecutadas aquí produjeron una autopista."
+},
+{
+"id": "s0382",
+"page": "ant",
+"ko": "빈 판의 개미는 9,976걸음째부터 104걸음 동작을 되풀이하며 대각선 고속도로를 만들었습니다.",
+"en": "Starting blank, the ant began a 104-step diagonal highway cycle at step 9,976.",
+"tr": "Partiendo en blanco, la hormiga comenzó un ciclo de autopista diagonal de 104 pasos en el paso 9.976."
+},
+{
+"id": "s0383",
+"page": "ant",
+"ko": "두 줄 규칙이 흔적을 남기고 그 흔적을 다시 밟기 때문에, 혼돈 끝에 질서가 나타났을 수 있습니다.",
+"en": "The two-line rule leaves marks that the ant steps on again, so order may emerge after chaos.",
+"tr": "La regla de dos líneas deja marcas que la hormiga vuelve a pisar, así que el orden puede surgir tras el caos."
+},
+{
+"id": "s0384",
+"page": "ant",
+"ko": "왜 하필 고속도로인지는 아직 증명되지 않아, 규칙을 바꾸거나 시작 판을 달리해 보는 것이 열쇠일 수 있습니다.",
+"en": "Why a highway forms is unproven, so changing the rule or the starting grid may be the key.",
+"tr": "Por qué se forma una autopista no está demostrado, así que cambiar la regla o la cuadrícula inicial puede ser la clave."
+},
+{
+"id": "s0385",
+"page": "ant",
+"ko": "<b>말하는 것:</b> 빈 판에서 출발한 개미 1마리는 9,976걸음째부터 104걸음마다 (2,2)칸씩 대각선으로 옮겨 가는 동작을 끝없이 되풀이했습니다(40,000걸음까지 확인). 그 뒤로는 104걸음마다 검은 칸이 12칸씩 늘고 걸음당 약 0.027칸씩 멀어집니다. 처음 약 500걸음은 대칭 모양이 되풀이되었고(마지막 대칭 모양은 473걸음), 그 뒤는 고속도로까지 혼돈이었습니다. 한 변 21칸 안에 5%에서 50%까지 검은 칸을 흩뿌려 시작한 판은 7가지 비율 각각 60판 모두, 개미를 2~4마리로 늘려도 비율 15%에서 60판 모두 60,000걸음 안에 고속도로가 생겼습니다. 시작 걸음은 200~50,000걸음으로 크게 달랐습니다. 사소한 규칙에서 설계 없이 질서 있는 구조가 나타나는 창발을 보여 줍니다.",
+"en": "<b>What it shows:</b> A single ant on a blank grid began, at step 9,976, a routine that moves it (2,2) cells diagonally every 104 steps and repeated it without end (checked to 40,000 steps). From then on black cells grow by 12 every 104 steps and the ant moves away at about 0.027 cells per step. The first ~500 steps kept returning to symmetric shapes (the last symmetric shape was at step 473), and the rest was chaos until the highway. Grids started with 5% to 50% black cells scattered in a 21-cell square all produced a highway within 60,000 steps in every one of 60 runs at each of the 7 shares, and so did 2 to 4 ants at 15%. The start step varied a great deal, from about 200 to 50,000. It shows emergence: orderly structure from trivial rules with no design.",
+"tr": "<b>Qué muestra:</b> Una sola hormiga en una cuadrícula en blanco comenzó, en el paso 9.976, una rutina que la desplaza (2.2) celdas en diagonal cada 104 pasos y la repitió sin fin (comprobado hasta 40.000 pasos). Desde entonces las celdas negras aumentan en 12 cada 104 pasos y la hormiga se aleja a unas 0,027 celdas por paso. Los primeros ~500 pasos volvían una y otra vez a formas simétricas (la última forma simétrica fue en el paso 473) y el resto fue caos hasta la autopista. Las cuadrículas que empezaron con entre un 5% y un 50% de celdas negras repartidas en un cuadrado de 21 celdas produjeron todas una autopista en menos de 60.000 pasos, en cada una de las 60 ejecuciones de cada una de las 7 proporciones, y lo mismo ocurrió con 2 a 4 hormigas al 15%. El paso de inicio varió mucho, de unos 200 a 50.000. Muestra emergencia: estructura ordenada a partir de reglas triviales, sin diseño."
+},
+{
+"id": "s0386",
+"page": "ant",
+"ko": "고속도로가 늘 생긴다는 것은 증명되지 않았고, 시작 걸음이 언제인지 미리 구하는 식도 없습니다.",
+"en": "It is unproven that a highway always forms, and no formula predicts its start step.",
+"tr": "No está demostrado que siempre se forme una autopista, y ninguna fórmula predice el paso en que empieza."
+},
+{
+"id": "s0387",
+"page": "ant",
+"ko": "실제 개미나 길 만들기에 쓰려면 규칙이 다른 모델과 비교하고, 어떤 단순한 규칙이 비슷한 질서를 만드는지 따로 확인해야 합니다.",
+"en": "Applying it to real ants or paths would need comparison with other rules and separate checks of which simple rules give similar order.",
+"tr": "Aplicarlo a hormigas o caminos reales exigiría compararlo con otras reglas y comprobar por separado qué reglas simples dan un orden parecido."
+},
+{
+"id": "s0388",
+"page": "ant",
+"ko": "<b>말하지 않는 것:</b> 개미가 어떤 판에서든 반드시 고속도로를 낸다는 것은 증명되지 않았습니다. 이는 열린 문제(추측)이고, 여기서는 돌려 본 판에서 모두 생겼다는 것만 확인했습니다. 개미의 경로가 한정된 영역에 갇히지 않는다는 것은 증명되어 있습니다. 또 이 개미는 생물을 본뜬 것이 아니라 세포 자동자라는 수학적 장난감이므로, 현실의 길 만들기나 개미 행동을 설명하지 않습니다. 고속도로 판정은 이 프로젝트의 기준(104걸음 되풀이 세 번)이고, 개미 여러 마리일 때 질서 단계는 따로 구분하지 않습니다.",
+"en": "<b>What it doesn't show:</b> It has not been proved that the ant always builds a highway from every starting grid; that is an open problem (a conjecture), and all this page shows is that it happened in every grid we ran. It is proved that the ant's path is not confined to a bounded region. The ant is a mathematical toy (a cellular automaton), not a model of real ants or of how real roads form. The highway test is this project's criterion (three consecutive 104-step repeats), and with several ants the order phase is not distinguished.",
+"tr": "<b>Qué no muestra:</b> No se ha demostrado que la hormiga construya siempre una autopista desde cualquier cuadrícula inicial; es un problema abierto (una conjetura), y esta página solo muestra que ocurrió en todas las cuadrículas que ejecutamos. Sí está demostrado que el camino de la hormiga no queda confinado a una región acotada. La hormiga es un juguete matemático (un autómata celular), no un modelo de hormigas reales ni de cómo se forman las carreteras reales. La prueba de la autopista es un criterio de este proyecto (tres repeticiones consecutivas de 104 pasos) y con varias hormigas no se distingue la fase de orden."
+},
+{
+"id": "s0389",
+"page": "ant",
+"ko": "<b>모델의 뿌리:</b> 랭턴의 개미는 Christopher Langton이 인공 생명 연구를 위해 소개한 세포 자동자(Langton 1986, \"Studying artificial life with cellular automata\", <i>Physica D</i> 22)로 알려져 있습니다. 칸마다 상태가 있고 이웃 규칙으로 갱신되는 세포 자동자의 한 갈래로, 아주 단순한 국소 규칙에서 복잡한 전체 무늬가 나온다는 점으로 유명합니다.",
+"en": "<b>Where the model comes from:</b> Langton's ant is known from Christopher Langton's work on artificial life (Langton 1986, \"Studying artificial life with cellular automata\", <i>Physica D</i> 22). It is a type of cellular automaton, a grid of cells with states updated by local rules, famous for producing complex global patterns from very simple local rules.",
+"tr": "<b>De dónde viene el modelo:</b> La hormiga de Langton se conoce por el trabajo de Christopher Langton sobre vida artificial (Langton 1986, «Studying artificial life with cellular automata», <i>Physica D</i> 22). Es un tipo de autómata celular, una cuadrícula de celdas con estados que se actualizan mediante reglas locales, famoso por producir patrones globales complejos a partir de reglas locales muy simples."
+},
+{
+"id": "s0390",
+"page": "ant",
+"ko": "<b>핵심 가정과 수식:</b> 상태는 칸의 색(흰/검)과 개미의 자리·방향뿐이고, 갱신은 결정적입니다. 흰 칸이면 우회전·반전·전진, 검은 칸이면 좌회전·반전·전진이며 슬라이더는 개미 수와 시작 판만 바꿉니다. 고속도로는 104걸음 되풀이로, 그동안 개미는 대각선으로 (2,2)칸 옮겨 갑니다.",
+"en": "<b>Key assumptions and formulas:</b> The state is only the colour of each cell (white/black) and the ant's position and heading, and the update is deterministic: on white turn right, flip, step; on black turn left, flip, step. The sliders change only the number of ants and the starting grid. The highway is a 104-step cycle during which the ant shifts (2,2) cells diagonally.",
+"tr": "<b>Supuestos clave y fórmulas:</b> El estado es solo el color de cada celda (blanco/negro) y la posición y dirección de la hormiga, y la actualización es determinista: en blanco, gira a la derecha, cambia el color y avanza; en negro, gira a la izquierda, cambia el color y avanza. Los controles deslizantes solo cambian el número de hormigas y la cuadrícula inicial. La autopista es un ciclo de 104 pasos durante el cual la hormiga se desplaza (2.2) celdas en diagonal."
+},
+{
+"id": "s0391",
+"page": "ant",
+"ko": "<b>이 프로젝트의 단순화:</b> 원래 모델은 개미 1마리와 빈 판입니다. 개미 여러 마리, 무작위 점 시작, 21×21칸이라는 크기, 개미들의 시작 자리, 60,000걸음 상한, 2,048×2,048칸 판은 이 프로젝트가 정한 값입니다. 개미가 여럿일 때 같은 걸음에 개미들이 차례대로 움직이는 방식도 이 프로젝트의 선택입니다.",
+"en": "<b>What this project simplifies:</b> The original model is one ant on a blank grid. Several ants, random-dot starts, the 21×21 size, the ants' starting positions, the 60,000-step limit and the 2,048×2,048 grid are this project's choices, as is moving the ants one after another within each step.",
+"tr": "<b>Qué simplifica este proyecto:</b> El modelo original es una hormiga en una cuadrícula en blanco. Varias hormigas, los inicios con puntos aleatorios, el tamaño de 21×21, las posiciones iniciales de las hormigas, el límite de 60.000 pasos y la cuadrícula de 2.048×2.048 son decisiones de este proyecto, igual que mover las hormigas una tras otra dentro de cada paso."
+},
+{
+"id": "s0392",
+"page": "ant",
+"ko": "<b>이론값과 시뮬레이션:</b> 이론으로 고속도로가 시작되는 걸음을 미리 구하는 식은 없어 시뮬레이션으로만 확인했습니다. 빈 판에서 두 가지 방법(실시간 판정과 끝까지 돌린 뒤 되짚기)이 모두 9,976걸음으로 같았고, 104걸음당 이동은 (2,2) 크기, 30,000~40,000걸음의 검은 칸 증가는 걸음당 0.1156(=12/104)이었습니다. 개미가 항상 고속도로를 낸다는 것은 증명되지 않은 추측으로, 여기서는 돌려 본 무작위 판 420개와 여러 마리 180개 모두에서 생겼습니다.",
+"en": "<b>Theory versus simulation:</b> There is no formula that predicts the highway start in advance, so it was checked by simulation only. On a blank grid both methods (live detection and tracing back after a long run) gave step 9,976, the displacement per 104 steps had size (2,2), and black cells grew by 0.1156 per step (=12/104) between steps 30,000 and 40,000. That the ant always builds a highway is an unproved conjecture; here it happened in all 420 random grids and all 180 multi-ant grids we ran.",
+"tr": "<b>Teoría frente a simulación:</b> No existe una fórmula que prediga de antemano el inicio de la autopista, así que solo se comprobó por simulación. En una cuadrícula en blanco ambos métodos (detección en vivo y rastreo hacia atrás tras una ejecución larga) dieron el paso 9.976, el desplazamiento por cada 104 pasos fue de (2.2) y las celdas negras crecieron 0,1156 por paso (=12/104) entre los pasos 30.000 y 40.000. Que la hormiga construya siempre una autopista es una conjetura sin demostrar; aquí ocurrió en las 420 cuadrículas aleatorias y las 180 cuadrículas con varias hormigas que ejecutamos."
+},
+{
+"id": "s0393",
+"page": "ant",
+"ko": "<b>더 읽을거리:</b> Langton (1986), \"Studying artificial life with cellular automata\", <i>Physica D</i> 22. Gajardo, Moreira, Goles (2002), \"Complexity of Langton's ant\", <i>Discrete Applied Mathematics</i> 117.",
+"en": "<b>Further reading:</b> Langton (1986), \"Studying artificial life with cellular automata\", <i>Physica D</i> 22. Gajardo, Moreira and Goles (2002), \"Complexity of Langton's ant\", <i>Discrete Applied Mathematics</i> 117.",
+"tr": "<b>Lecturas adicionales:</b> Langton (1986), «Studying artificial life with cellular automata», <i>Physica D</i> 22. Gajardo, Moreira y Goles (2002), «Complexity of Langton's ant», <i>Discrete Applied Mathematics</i> 117."
+},
+{
+"id": "s0394",
+"page": "ant",
+"ko": "시뮬레이션은 2,048×2,048칸 판 위에서 돌고 시드 난수(mulberry32)는 무작위 점 시작에만 쓰입니다. 개미 1마리의 빈 판은 난수가 없어 항상 같은 결과입니다. 검증은 <code>node tools/validate-ant.js</code>로 할 수 있습니다.",
+"en": "The simulation runs on a 2,048×2,048 grid and the seeded random generator (mulberry32) is used only for random-dot starts. A single ant on a blank grid involves no randomness and always gives the same result. You can verify with <code>node tools/validate-ant.js</code>.",
+"tr": "La simulación se ejecuta en una cuadrícula de 2.048×2.048 y el generador aleatorio con semilla (mulberry32) se usa solo para los inicios con puntos aleatorios. Una sola hormiga en una cuadrícula en blanco no implica aleatoriedad y siempre da el mismo resultado. Puedes verificarlo con <code>node tools/validate-ant.js</code>."
+},
+{
+"id": "s0395",
+"page": "ant",
+"ko": "고속도로는 개미의 자리·방향이 104걸음마다 (±2,±2)칸씩 옮겨 가며 세 번 이어서 되풀이될 때 판정하고, 시작 걸음은 되풀이가 처음 성립한 곳에서 두 주기를 되짚어 구합니다.",
+"en": "The highway is detected when the ant's position and heading repeat every 104 steps shifted by (±2,±2) cells three times in a row, and the start step is found by tracing two periods back from where the repetition first holds.",
+"tr": "La autopista se detecta cuando la posición y la dirección de la hormiga se repiten cada 104 pasos desplazadas (±2,±2) celdas tres veces seguidas, y el paso de inicio se halla retrocediendo dos períodos desde donde la repetición se cumple por primera vez."
+},
+{
+"id": "s0396",
+"page": "ant",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/ant\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/ant\">GitHub</a>.",
+"tr": "El código está disponible en <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/ant\">GitHub</a>."
+},
+{
+"id": "s0432",
+"page": "apartment",
+"ko": "이 모델에서 전염 세기가 0.4면 거의 안 번지다 0.5에서 약 90%, 0.6 이상이면 모든 동네로 번져요.",
+"en": "In this model, spread is minimal at contagion 0.4, about 90% of areas are overvalued at 0.5, and all areas from 0.6.",
+"tr": "En este modelo, el contagio es mínimo con 0,4; con 0,5 cerca del 90 % de las zonas está sobrevalorado, y desde 0,6 todas."
+},
+{
+"id": "s0433",
+"page": "apartment",
+"ko": "이웃의 상승을 따라가는 되먹임이 일정 세기를 넘으면 동네 사정과 상관없이 번질 수 있고, 대출 한도가 오를 높이의 상한을 정해요.",
+"en": "Once following neighbors' rises is strong enough, it can spread regardless of local conditions, and the loan limit caps how high prices climb.",
+"tr": "Cuando seguir las subidas de los vecinos es lo bastante fuerte, puede propagarse sin importar las condiciones locales, y el límite del préstamo fija hasta dónde suben los precios."
+},
+{
+"id": "s0434",
+"page": "apartment",
+"ko": "번짐을 볼 때는 한 동네의 가격보다 서로 따라가는 정도와 대출 여건이 어디서 달라지는지 살펴볼 만해요.",
+"en": "To read a spread, it may help to look at how strongly areas follow one another and where lending conditions differ, not just one area's price.",
+"tr": "Para leer una propagación, puede ayudar fijarse en cuánto se siguen unas zonas a otras y en dónde difieren las condiciones de crédito, no solo en el precio de una zona."
+},
+{
+"id": "s0436",
+"page": "apartment",
+"ko": "실제 지역의 가격 전망이나 부동산 투자·거래 조언이 아니에요.",
+"en": "This is not a price forecast for any real area, nor investing or property advice.",
+"tr": "No es una previsión de precios de ninguna zona real, ni un consejo de inversión o inmobiliario."
+},
+{
+"id": "s0437",
+"page": "apartment",
+"ko": "공급, 인구, 세금, 정책이 없고 계수는 임의로 정한 값이라, 실제 시장의 자료로 따로 확인해야 해요.",
+"en": "Supply, population, taxes and policy are absent and the coefficients are arbitrary, so real market data would be needed to check anything.",
+"tr": "Faltan la oferta, la población, los impuestos y las políticas, y los coeficientes son arbitrarios, así que se necesitarían datos reales del mercado para comprobar algo."
+},
+{
+"id": "s0439",
+"page": "apartment",
+"ko": "<b>모델의 뿌리:</b> 가격이 오르는 모습을 보고 더 사려는 마음이 가격을 다시 올리는 되먹임은 Shiller(2000)의 『Irrational Exuberance』가 자산시장의 한 설명으로 널리 알렸고, Case와 Shiller(1989)는 단독주택 가격 변화에 관성이 있다는 것을 다뤘습니다. 대출 한도가 가격 상한을 정한다는 발상은 Geanakoplos의 \"레버리지 순환(leverage cycle)\" 논의에서 가져왔습니다. 이 페이지는 그 논문들의 모델이 아니라 이 프로젝트의 장난감 모델입니다.",
+"en": "<b>Where the model comes from:</b> The feedback in which seeing prices rise makes people buy more and push prices up was popularized as an account of asset markets by Shiller (2000) in <i>Irrational Exuberance</i>, and Case and Shiller (1989) examined momentum in single-family home prices. The idea that lending limits set a ceiling on prices comes from Geanakoplos's \"leverage cycle\" discussion. This page is this project's own toy model, not a model from those works.",
+"tr": "<b>De dónde viene el modelo:</b> La retroalimentación en la que ver subir los precios hace que la gente compre más y los empuje al alza se popularizó como explicación de los mercados de activos con Shiller (2000) en <i>Irrational Exuberance</i>, y Case y Shiller (1989) examinaron la inercia en los precios de las viviendas unifamiliares. La idea de que los límites de crédito fijan un techo a los precios procede del debate de Geanakoplos sobre el «ciclo del apalancamiento». Esta página es un modelo de juguete propio de este proyecto, no un modelo de esas obras."
+},
+{
+"id": "s0440",
+"page": "apartment",
+"ko": "<b>핵심 가정과 수식:</b> 분기 상승률 <code>g = 0.30×(내 직전 g) + 전염×(8 이웃 평균 g) + 0.004×기대 + 무작위 충격 + 상한 보정</code>입니다. 자기 상승과 이웃 상승이 다시 상승을 낳는 되먹임이라서 전염 슬라이더가 클수록 상승이 번지기 쉽고, 감당 상한 <code>소득선×(대출 한도÷0.4)<sup>1.5</sup></code>이 가격이 소득 기준선에서 얼마나 멀어질 수 있는지를 정합니다.",
+"en": "<b>Key assumptions and formulas:</b> The quarterly growth is <code>g = 0.30×(own previous g) + contagion×(average g of 8 neighbors) + 0.004×optimism + random shock + ceiling correction</code>. Own gains and neighbors' gains feed back into new gains, so a larger contagion slider makes a rise spread more easily, and the ceiling <code>income line×(loan cap÷0.4)<sup>1.5</sup></code> sets how far prices can drift from the income line.",
+"tr": "<b>Supuestos clave y fórmulas:</b> El crecimiento trimestral es <code>g = 0.30×(propio g anterior) + contagio×(g medio de los 8 vecinos) + 0.004×optimismo + perturbación aleatoria + corrección por techo</code>. Las ganancias propias y las de los vecinos retroalimentan las nuevas ganancias, de modo que un control deslizante de contagio mayor hace que una subida se propague con más facilidad, y el techo <code>línea de ingresos×(límite del préstamo÷0.4)<sup>1.5</sup></code> fija hasta dónde pueden alejarse los precios de la línea de ingresos."
+},
+{
+"id": "s0441",
+"page": "apartment",
+"ko": "<b>이 프로젝트의 단순화:</b> 계수(0.30, 0.004, 지수 1.5, 상한 보정 25%, 금리 충격 때의 30% 하락 등)와 소득 증가율(분기 0.5%)은 모두 이 프로젝트가 구조를 보여 주려고 임의로 정한 값이고 실제 시장에서 추정한 것이 아닙니다. 모든 동네의 소득이 같고, 이웃은 격자의 8칸일 뿐 실제 인접 관계가 아니며, 공급·인구·세금·정책은 없습니다.",
+"en": "<b>What this project simplifies:</b> The coefficients (0.30, 0.004, the exponent 1.5, the 25% ceiling correction, the 30% ceiling cut at a rate shock and so on) and the income growth (0.5% per quarter) were all chosen arbitrarily by this project to show structure, not estimated from real markets. Every neighborhood has the same income, neighbors are just the 8 grid cells rather than real adjacency, and there is no supply, population, tax or policy.",
+"tr": "<b>Qué simplifica este proyecto:</b> Los coeficientes (0,30, 0,004, el exponente 1,5, la corrección del 25% por el techo, el recorte del 30% del techo ante una perturbación de tipos, etc.) y el crecimiento de los ingresos (0,5% por trimestre) los eligió arbitrariamente este proyecto para mostrar la estructura, no se estimaron a partir de mercados reales. Todos los barrios tienen los mismos ingresos, los vecinos son simplemente las 8 celdas de la cuadrícula y no una contigüidad real, y no hay oferta, población, impuestos ni política."
+},
+{
+"id": "s0442",
+"page": "apartment",
+"ko": "<b>이론값과 시뮬레이션:</b> 이론적 기준값이 없어 시뮬레이션만으로 확인했습니다. 금리 충격이 없을 때 고평가 동네의 최대 비율은 전염 0.4에서 9%, 0.5에서 92%, 0.6에서 100%였고, 전염 0.6에서 대출 한도 40%는 0%, 50%는 99%였습니다. 기본 설정은 평균 가격이 정점 230에서 끝 174로 24% 내려왔습니다.",
+"en": "<b>Theory versus simulation:</b> There is no theoretical benchmark, so this was checked by simulation alone. Without a rate shock, the peak share of overvalued neighborhoods was 9% at contagion 0.4, 92% at 0.5 and 100% at 0.6, and at contagion 0.6 a 40% loan cap gave 0% while 50% gave 99%. The default settings took the average price from a peak of 230 to 174 at the end, down 24%.",
+"tr": "<b>Teoría frente a simulación:</b> No hay un referente teórico, así que se comprobó solo por simulación. Sin perturbación de tipos, la proporción máxima de barrios sobrevalorados fue del 9% con contagio 0,4, del 92% con 0,5 y del 100% con 0,6, y con contagio 0,6 un límite de préstamo del 40% dio 0% mientras que el 50% dio 99%. Con los ajustes predeterminados, el precio medio pasó de un máximo de 230 a 174 al final, una caída del 24%."
+},
+{
+"id": "s0443",
+"page": "apartment",
+"ko": "<b>더 읽을거리:</b> Shiller, R. J. (2000), <i>Irrational Exuberance</i>, Princeton University Press. Case, K. E. & Shiller, R. J. (1989), 「The Efficiency of the Market for Single-Family Homes」, <i>American Economic Review</i>. Geanakoplos, J. (2010), 「The Leverage Cycle」, <i>NBER Macroeconomics Annual 2009</i>.",
+"en": "<b>Further reading:</b> Shiller, R. J. (2000), <i>Irrational Exuberance</i>, Princeton University Press. Case, K. E. & Shiller, R. J. (1989), \"The Efficiency of the Market for Single-Family Homes\", <i>American Economic Review</i>. Geanakoplos, J. (2010), \"The Leverage Cycle\", <i>NBER Macroeconomics Annual 2009</i>.",
+"tr": "<b>Lecturas adicionales:</b> Shiller, R. J. (2000), <i>Irrational Exuberance</i>, Princeton University Press. Case, K. E. y Shiller, R. J. (1989), «The Efficiency of the Market for Single-Family Homes», <i>American Economic Review</i>. Geanakoplos, J. (2010), «The Leverage Cycle», <i>NBER Macroeconomics Annual 2009</i>."
+},
+{
+"id": "s0477",
+"page": "auction",
+"ko": "입찰자 10명이 추정치대로 부르면 낙찰자는 평균 30.9(가치 100 기준) 손해를 봤어요.",
+"en": "With 10 bidders bidding their estimates, winners lost 30.9 on average on a value of 100.",
+"tr": "Con 10 postores que ofertan su estimación, los ganadores perdieron en promedio 30,9 sobre un valor de 100."
+},
+{
+"id": "s0478",
+"page": "auction",
+"ko": "이 모델에서는 이긴 사람이 가장 높게 틀린 추정을 한 사람이라, 입찰자가 많을수록 손해가 커져요.",
+"en": "In this model the winner is whoever overshot most, so more bidders means bigger losses.",
+"tr": "En este modelo gana quien más se pasó, así que más postores significan mayores pérdidas."
+},
+{
+"id": "s0479",
+"page": "auction",
+"ko": "경쟁자 수와 추정의 부정확함, 가격 정하는 방식이 손익을 가르는 곳이라 살펴볼 만해요.",
+"en": "Number of rivals, how noisy estimates are, and the pricing rule are the places worth examining.",
+"tr": "El número de rivales, el ruido de las estimaciones y la regla de precios son los puntos que vale la pena examinar."
+},
+{
+"id": "s0481",
+"page": "auction",
+"ko": "실제 경매 낙찰자가 늘 손해를 본다는 뜻도, 누군가에게 입찰 방법을 알려 주는 것도 아니에요.",
+"en": "It does not mean real winners always lose, nor does it advise anyone how to bid.",
+"tr": "No significa que los ganadores reales siempre pierdan, ni aconseja a nadie cómo pujar."
+},
+{
+"id": "s0482",
+"page": "auction",
+"ko": "입찰자의 경험과 취향이 섞인 가치는 이 모델에 없어서, 실제 경매 자료로 따로 확인해야 해요.",
+"en": "Bidder experience and taste-based value are absent here, so real auction data is needed to check.",
+"tr": "Aquí faltan la experiencia de los postores y el valor basado en gustos, así que se necesitan datos reales de subastas para comprobarlo."
+},
+{
+"id": "s0484",
+"page": "auction",
+"ko": "<b>모델의 뿌리:</b> \"승자의 저주\"는 Capen, Clapp, Campbell(1971)이 석유 광구 입찰에서 낙찰자가 기대한 만큼의 수익을 얻지 못한다고 지적한 이후 널리 알려졌고(실제 사례의 해석은 갈립니다), Thaler(1988)가 경제학 잡지에서 쉽게 소개했습니다. 첫째값·둘째값 경매의 구분은 Vickrey(1961)에서, 모두가 같은 진짜 가치를 두고 각자 추정치를 가지는 \"공통 가치 경매\"의 이론은 Milgrom과 Weber(1982)에서 왔습니다.",
+"en": "<b>Where the model comes from:</b> The \"winner's curse\" became well known after Capen, Clapp and Campbell (1971) argued that winning bidders in oil-lease auctions did not earn the returns they expected (how to read the real cases is debated), and Thaler (1988) introduced it accessibly in an economics journal. The first-price versus second-price distinction goes back to Vickrey (1961), and the theory of \"common-value auctions\", where everyone values the same thing but holds their own estimate, comes from Milgrom and Weber (1982).",
+"tr": "<b>De dónde viene el modelo:</b> La «maldición del ganador» se hizo conocida después de que Capen, Clapp y Campbell (1971) sostuvieran que los licitadores ganadores en las subastas de concesiones petroleras no obtenían los rendimientos que esperaban (cómo interpretar los casos reales es objeto de debate), y Thaler (1988) la presentó de forma accesible en una revista de economía. La distinción entre subasta de primer precio y de segundo precio se remonta a Vickrey (1961), y la teoría de las «subastas de valor común», en las que todos valoran lo mismo pero tienen su propia estimación, procede de Milgrom y Weber (1982)."
+},
+{
+"id": "s0485",
+"page": "auction",
+"ko": "<b>핵심 가정과 수식:</b> 입찰가는 <code>b<sub>i</sub> = V + e<sub>i</sub> − s·σ</code>이고 오차 <code>e<sub>i</sub></code>는 평균 0, 표준편차 σ인 독립 정규분포입니다(σ가 \"추정 오차\", s가 \"입찰가 낮추기\"). 추정치를 그대로 부르는 첫째값 경매에서 낙찰자의 손익은 <code>V − 최고 입찰가 = −max e<sub>i</sub></code>라서 평균이 <code>−σ·E[표준정규 n개의 최댓값]</code>이고, 둘째값 경매에서는 최댓값 대신 둘째로 큰 값을 씁니다.",
+"en": "<b>Key assumptions and formulas:</b> The bid is <code>b<sub>i</sub> = V + e<sub>i</sub> − s·σ</code>, where the errors <code>e<sub>i</sub></code> are independent normals with mean 0 and standard deviation σ (σ is \"estimation error\", s is \"bid shading\"). In a first-price auction where people bid their estimates, the winner's profit is <code>V − highest bid = −max e<sub>i</sub></code>, whose mean is <code>−σ·E[maximum of n standard normals]</code>; in a second-price auction the second-largest value replaces the maximum.",
+"tr": "<b>Supuestos clave y fórmulas:</b> La puja es <code>b<sub>i</sub> = V + e<sub>i</sub> − s·σ</code>, donde los errores <code>e<sub>i</sub></code> son normales independientes con media 0 y desviación estándar σ (σ es el «error de estimación», s es el «recorte de la puja»). En una subasta de primer precio en la que la gente puja su estimación, la ganancia del ganador es <code>V − puja más alta = −max e<sub>i</sub></code>, cuya media es <code>−σ·E[máximo de n normales estándar]</code>; en una subasta de segundo precio, el segundo valor más grande sustituye al máximo."
+},
+{
+"id": "s0486",
+"page": "auction",
+"ko": "<b>이 프로젝트의 단순화:</b> 입찰자는 \"이겼다는 것 자체가 내 추정이 높게 틀렸다는 뜻\"을 따지지 않는 순진한 입찰자이고, 경제 이론이 말하는 균형 입찰가를 계산한 것이 아닙니다. 오차는 모두 같은 정규분포로 독립이라고 가정했고, 진짜 가치는 70~130 사이 무작위, 추정 오차는 가치 100의 몇 %로 정했으며, 개인 취향이나 경험으로 배우는 효과는 없습니다. 이 값들은 이 프로젝트가 정했습니다.",
+"en": "<b>What this project simplifies:</b> Bidders are naive: they do not reason that \"winning itself means my estimate was too high\", and the model does not compute the equilibrium bids of auction theory. Errors are assumed to be independent with the same normal distribution, the true value is random between 70 and 130, the estimation error is a percentage of the value 100, and there is no private taste or learning from experience. These choices are this project's.",
+"tr": "<b>Qué simplifica este proyecto:</b> Los licitadores son ingenuos: no razonan que «ganar ya significa que mi estimación fue demasiado alta», y el modelo no calcula las pujas de equilibrio de la teoría de subastas. Se supone que los errores son independientes y con la misma distribución normal, el valor verdadero es aleatorio entre 70 y 130, el error de estimación es un porcentaje del valor 100, y no hay gusto privado ni aprendizaje por experiencia. Estas decisiones son de este proyecto."
+},
+{
+"id": "s0487",
+"page": "auction",
+"ko": "<b>이론값과 시뮬레이션:</b> 위 식은 계산해 볼 수 있고, 표준정규 n개의 최댓값 기댓값은 n=2, 5, 10, 30에서 약 0.564, 1.163, 1.539, 2.043입니다. 오차 20%이면 첫째값 낙찰자 손익은 이론 −11.3, −23.3, −30.8, −40.9이고 시뮬레이션은 −11.4, −23.5, −30.9, −40.9였습니다. 손익분기 낮춤은 첫째값 이론 1.539σ, 시뮬레이션 1.54σ이고, 둘째값 이론 1.001σ, 시뮬레이션 1.00σ였습니다.",
+"en": "<b>Theory versus simulation:</b> The formula can be computed: the expected maximum of n standard normals is about 0.564, 1.163, 1.539 and 2.043 for n = 2, 5, 10 and 30. With a 20% error, the first-price winner's profit is −11.3, −23.3, −30.8 and −40.9 in theory against −11.4, −23.5, −30.9 and −40.9 simulated. The break-even shading is 1.539σ in theory and 1.54σ simulated for first-price, and 1.001σ in theory and 1.00σ simulated for second-price.",
+"tr": "<b>Teoría frente a simulación:</b> La fórmula se puede calcular: el máximo esperado de n normales estándar es de aproximadamente 0,564, 1,163, 1,539 y 2,043 para n = 2, 5, 10 y 30. Con un error del 20%, la ganancia del ganador en primer precio es −11,3, −23,3, −30,8 y −40,9 en teoría frente a −11,4, −23,5, −30,9 y −40,9 simulados. El recorte de equilibrio es 1,539σ en teoría y 1,54σ simulado para el primer precio, y 1,001σ en teoría y 1,00σ simulado para el segundo precio."
+},
+{
+"id": "s0488",
+"page": "auction",
+"ko": "<b>더 읽을거리:</b> Thaler, R. H. (1988), 「Anomalies: The Winner's Curse」, <i>Journal of Economic Perspectives</i> 2(1). Capen, E. C., Clapp, R. V. & Campbell, W. M. (1971), 「Competitive Bidding in High-Risk Situations」, <i>Journal of Petroleum Technology</i> 23. Milgrom, P. & Weber, R. (1982), 「A Theory of Auctions and Competitive Bidding」, <i>Econometrica</i>.",
+"en": "<b>Further reading:</b> Thaler, R. H. (1988), \"Anomalies: The Winner's Curse\", <i>Journal of Economic Perspectives</i> 2(1). Capen, E. C., Clapp, R. V. & Campbell, W. M. (1971), \"Competitive Bidding in High-Risk Situations\", <i>Journal of Petroleum Technology</i> 23. Milgrom, P. & Weber, R. (1982), \"A Theory of Auctions and Competitive Bidding\", <i>Econometrica</i>.",
+"tr": "<b>Lecturas adicionales:</b> Thaler, R. H. (1988), «Anomalies: The Winner's Curse», <i>Journal of Economic Perspectives</i> 2(1). Capen, E. C., Clapp, R. V. y Campbell, W. M. (1971), «Competitive Bidding in High-Risk Situations», <i>Journal of Petroleum Technology</i> 23. Milgrom, P. y Weber, R. (1982), «A Theory of Auctions and Competitive Bidding», <i>Econometrica</i>."
+},
+{
+"id": "s0515",
+"page": "bar",
+"ko": "예측이 제각각이면 손님 수가 정원 근처로 맞춰지고, 같은 예측이면 틀려요.",
+"en": "When predictions differ, attendance settles near capacity; when all agree, it misses.",
+"tr": "Cuando las predicciones difieren, la asistencia se estabiliza cerca del aforo; cuando todos coinciden, falla."
+},
+{
+"id": "s0516",
+"page": "bar",
+"ko": "이 모델에서는 모두가 같은 예측을 따르면 그 예측 때문에 행동이 쏠려 빗나가요.",
+"en": "In this model, if everyone follows one prediction, that very prediction herds them and fails.",
+"tr": "En este modelo, si todos siguen una misma predicción, esa misma predicción los agolpa y falla."
+},
+{
+"id": "s0517",
+"page": "bar",
+"ko": "좋은 예측법 하나보다 사람들의 예측이 얼마나 다양한지부터 살펴볼 만해요.",
+"en": "How varied people's predictions are may matter more than finding one better prediction.",
+"tr": "La variedad de las predicciones de la gente puede importar más que encontrar una predicción mejor."
+},
+{
+"id": "s0519",
+"page": "bar",
+"ko": "실제 사람들이 이런 계산식으로 고른다는 뜻은 아니고, 예측법과 인원은 정해 둔 설정이에요.",
+"en": "It doesn't mean people choose by such formulas; the rules and head count are preset.",
+"tr": "No significa que la gente decida con esas fórmulas; las reglas y el número de personas están predefinidos."
+},
+{
+"id": "s0520",
+"page": "bar",
+"ko": "실제 식당에서 사람들이 정보를 얼마나 나누고 비슷하게 판단하는지 관찰해 봐야 확인돼요.",
+"en": "Observing how much real diners share information and judge alike would be needed to check.",
+"tr": "Para comprobarlo habría que observar cuánta información comparten realmente los clientes y cuánto coinciden en sus juicios."
+},
+{
+"id": "s0522",
+"page": "bar",
+"ko": "<b>모델의 뿌리:</b> 아서(W. Brian Arthur)가 1994년 <i>American Economic Review</i> 84(2)에 쓴 \"Inductive reasoning and bounded rationality\"의 엘 파롤 바 문제입니다. 정답을 계산할 수 없는 상황에서 사람들이 가설(예측법)을 세우고 잘 맞는 것을 골라 쓰면 어떻게 되는지를 다룹니다.",
+"en": "<b>Where the model comes from:</b> This is the El Farol Bar problem from W. Brian Arthur, \"Inductive reasoning and bounded rationality\", <i>American Economic Review</i> 84(2) (1994). It asks what happens when people with no computable right answer form hypotheses (predictors) and use whichever has worked best.",
+"tr": "<b>De dónde viene el modelo:</b> Este es el problema del bar El Farol de W. Brian Arthur, «Inductive reasoning and bounded rationality», <i>American Economic Review</i> 84(2) (1994). Plantea qué ocurre cuando personas sin una respuesta correcta calculable formulan hipótesis (predictores) y usan la que mejor les ha funcionado."
+},
+{
+"id": "s0523",
+"page": "bar",
+"ko": "<b>핵심 가정과 수식:</b> 사람 <i>n</i>=100명이 매주 손님 수를 예측해 예측이 정원 60명보다 적으면 가고, 실제 손님이 정원을 넘으면 붐벼서 불만족입니다. 모두 같은 예측을 하면 모두 가거나 모두 안 가서 반드시 틀리므로 같은 예측을 하는 \"합리적 기대\"는 성립하지 않습니다. 슬라이더는 정원과 사람당 예측법 개수예요.",
+"en": "<b>Key assumptions and formulas:</b> Each week <i>n</i>=100 people predict attendance and go if the forecast is below the capacity of 60; if actual attendance exceeds capacity the bar is crowded and unpleasant. If everyone used the same forecast, everyone would go or no one would, so it would always be wrong, which means a shared \"rational expectation\" cannot hold. The sliders are the capacity and the number of predictors per person.",
+"tr": "<b>Supuestos clave y fórmulas:</b> Cada semana <i>n</i>=100 personas predicen la asistencia y van si el pronóstico está por debajo del aforo de 60; si la asistencia real supera el aforo, el bar está lleno y resulta desagradable. Si todos usaran el mismo pronóstico, todos irían o nadie iría, así que siempre se equivocarían, lo que significa que no puede sostenerse una «expectativa racional» compartida. Los controles deslizantes son el aforo y el número de predictores por persona."
+},
+{
+"id": "s0524",
+"page": "bar",
+"ko": "<b>이 프로젝트의 단순화:</b> 원 논문은 \"지난주와 같다\", \"50을 기준으로 뒤집은 값\", \"최근 4주 평균\" 같은 정해진 예측법 목록에서 사람마다 몇 개를 뽑습니다. 이 구현은 지난 8주 기록에 사람마다 다른 무작위 비중을 곱해 더하는 예측법을 만들었고, 가장 최근에 잘 맞힌 것(과거 오차를 0.9씩 줄여 가며 합산)을 씁니다. 그래서 논문의 그래프와 똑같은 모양이 아닙니다.",
+"en": "<b>What this project simplifies:</b> The original draws each person's predictors from a fixed list such as \"same as last week\", \"mirror image around 50\", and \"average of the last 4 weeks\". This implementation instead builds each predictor as a random weighted sum of the last 8 weeks and uses the one with the best recent record (past errors discounted by 0.9 per week). The graphs therefore do not look exactly like the paper's.",
+"tr": "<b>Qué simplifica este proyecto:</b> El original saca los predictores de cada persona de una lista fija como «igual que la semana pasada», «imagen especular alrededor de 50» y «media de las últimas 4 semanas». Esta implementación, en cambio, construye cada predictor como una suma ponderada aleatoria de las últimas 8 semanas y usa el que tiene mejor historial reciente (los errores pasados se descuentan en 0,9 por semana). Por eso los gráficos no se parecen exactamente a los del artículo."
+},
+{
+"id": "s0525",
+"page": "bar",
+"ko": "<b>이론값과 시뮬레이션:</b> 논문에 나온 값을 숫자로 대조한 것이 아니라 이 구현의 결과입니다. 모두 같은 예측이면 평균 50.0, 표준편차 50.0으로 0명과 100명을 오갑니다. 예측법이 다양하면 평균 손님이 58~60명으로 정원 근처에 모이고(예측법 5개: 58.3), 정원을 30, 50, 70으로 바꾸면 33.7, 50.2, 66.0이 됩니다. 비교 기준으로 \"각자 확률 0.6으로 간다\"면 표준편차가 <code>√(100·0.6·0.4)≈4.9</code>인데, 시뮬레이션은 0.6~4.0으로 더 작습니다 (<code>node tools/validate-more.js bar</code>). 정원 90에서는 평균이 79.9로 정원에 못 미칩니다.",
+"en": "<b>Theory versus simulation:</b> These are this implementation's results, not a numerical match to values in the paper. With one shared forecast, attendance averages 50.0 with standard deviation 50.0, swinging between 0 and 100. With diverse predictors, mean attendance settles at 58 to 60, near capacity (5 predictors: 58.3), and capacities 30, 50 and 70 give 33.7, 50.2 and 66.0. As a rough benchmark, if everyone simply went with probability 0.6 the standard deviation would be <code>√(100·0.6·0.4)≈4.9</code>; the simulation gives 0.6 to 4.0, which is smaller (<code>node tools/validate-more.js bar</code>). At capacity 90 the mean is 79.9, falling short of capacity.",
+"tr": "<b>Teoría frente a simulación:</b> Estos son resultados de esta implementación, no una coincidencia numérica con valores del artículo. Con un único pronóstico compartido, la asistencia media es 50,0 con desviación estándar 50,0, oscilando entre 0 y 100. Con predictores diversos, la asistencia media se estabiliza entre 58 y 60, cerca del aforo (5 predictores: 58,3), y los aforos 30, 50 y 70 dan 33,7, 50,2 y 66,0. Como referencia aproximada, si todos fueran simplemente con probabilidad 0,6, la desviación estándar sería <code>√(100·0.6·0.4)≈4.9</code>; la simulación da de 0,6 a 4,0, que es menor (<code>node tools/validate-more.js bar</code>). Con un aforo de 90 la media es 79,9, por debajo del aforo."
+},
+{
+"id": "s0526",
+"page": "bar",
+"ko": "<b>더 읽을거리:</b> Arthur (1994), \"Inductive reasoning and bounded rationality\", <i>American Economic Review</i> 84(2). / Challet, Zhang (1997), \"Emergence of cooperation and organization in an evolutionary game\", <i>Physica A</i> 246 (소수 게임, 이 문제를 단순화한 후속 모델).",
+"en": "<b>Further reading:</b> Arthur (1994), \"Inductive reasoning and bounded rationality\", <i>American Economic Review</i> 84(2). / Challet, Zhang (1997), \"Emergence of cooperation and organization in an evolutionary game\", <i>Physica A</i> 246 (the Minority Game, a simplified follow-up model).",
+"tr": "<b>Lecturas adicionales:</b> Arthur (1994), «Inductive reasoning and bounded rationality», <i>American Economic Review</i> 84(2). / Challet, Zhang (1997), «Emergence of cooperation and organization in an evolutionary game», <i>Physica A</i> 246 (el Juego de la Minoría, un modelo posterior más simple)."
+},
+{
+"id": "s0566",
+"page": "braess",
+"ko": "운전자 4,000명일 때 지름길을 열자 평균이 65.0분에서 80.0분으로 늘었어요.",
+"en": "With 4,000 drivers, opening the shortcut raised the average from 65.0 to 80.0 minutes.",
+"tr": "Con 4.000 conductores, abrir el atajo subió el promedio de 65,0 a 80,0 minutos."
+},
+{
+"id": "s0567",
+"page": "braess",
+"ko": "각자 더 빠른 길로 옮기다 모두 지름길로 몰려, 혼자 바꿔도 이득 없는 상태에서 오히려 느려졌어요.",
+"en": "Each driver kept switching to a faster route until all piled onto the shortcut, ending slower though no one gains by switching.",
+"tr": "Cada conductor siguió cambiando a una ruta más rápida hasta que todos se amontonaron en el atajo, acabando más lentos aunque nadie gana cambiando."
+},
+{
+"id": "s0568",
+"page": "braess",
+"ko": "새 길의 효과는 이용자 수와 혼잡 정도에 달려 있어서, 길 하나보다 전체 교통량부터 살펴볼 만해요.",
+"en": "A new road's effect depends on traffic volume and congestion, so total demand may be worth examining first.",
+"tr": "El efecto de una vía nueva depende del volumen de tráfico y de la congestión, por lo que puede valer la pena examinar primero la demanda total."
+},
+{
+"id": "s0570",
+"page": "braess",
+"ko": "실제 도시 도로망이 아니라 작고 대칭인 도로망이고, 새 길이 늘 해롭다는 뜻도 아니에요.",
+"en": "This is a small symmetric network, not a real city, and it does not mean new roads are always harmful.",
+"tr": "Es una red pequeña y simétrica, no una ciudad real, y no significa que las vías nuevas siempre sean perjudiciales."
+},
+{
+"id": "s0571",
+"page": "braess",
+"ko": "대중교통, 출발 시각 조정, 새로 생기는 수요를 넣고 실제 도로의 교통량 변화를 관찰해야 확인돼요.",
+"en": "Transit, departure-time shifts and induced demand would need adding, and real traffic changes observing.",
+"tr": "Habría que añadir el transporte público, los cambios de hora de salida y la demanda inducida, y observar los cambios reales del tráfico."
+},
+{
+"id": "s0573",
+"page": "braess",
+"ko": "<b>모델의 뿌리:</b> Dietrich Braess가 1968년 논문 「Über ein Paradoxon aus der Verkehrsplanung」(<i>Unternehmensforschung</i>)에서 보인 역설입니다. 모두가 자기에게 가장 빠른 길을 고르는 균형에서는 길을 하나 더해도 모두의 이동 시간이 늘어날 수 있다는 내용입니다. 이 페이지의 운전자 4,000명, 막히는 길 x/100분, 고정 45분 도로망은 Easley와 Kleinberg의 교과서에 실린 널리 알려진 예시를 따랐습니다.",
+"en": "<b>Where the model comes from:</b> A paradox shown by Dietrich Braess in his 1968 paper &quot;Über ein Paradoxon aus der Verkehrsplanung&quot; (<i>Unternehmensforschung</i>): in an equilibrium where everyone picks their own fastest route, adding a road can make everyone's travel time longer. The 4,000 drivers, x/100-minute congestible roads and fixed 45 minutes on this page follow the widely used example in Easley and Kleinberg's textbook.",
+"tr": "<b>De dónde viene el modelo:</b> Una paradoja mostrada por Dietrich Braess en su artículo de 1968 &quot;Über ein Paradoxon aus der Verkehrsplanung&quot; (<i>Unternehmensforschung</i>): en un equilibrio en el que cada uno elige su ruta más rápida, añadir una carretera puede hacer que el viaje de todos sea más largo. Los 4.000 conductores, las carreteras con congestión de x/100 minutos y los 45 minutos fijos de esta página siguen el ejemplo muy usado del libro de texto de Easley y Kleinberg."
+},
+{
+"id": "s0574",
+"page": "braess",
+"ko": "<b>핵심 가정과 수식:</b> 운전자는 자기 시간만 줄이려 하고, 아무도 혼자 길을 바꿔서는 이득을 못 보는 상태(내시 균형)에 닿습니다. 막히는 길의 시간은 <code>a × 이용자 수</code>(a = 민감도/1000), 고정 길은 45분입니다. 지름길이 없으면 두 길에 반씩 나뉘어 <code>a·n/2 + 45</code>이고, 지름길 비용이 c일 때 <code>a·n + c ≤ 45</code>이면 모두 지름길을 타서 평균이 <code>2a·n + c</code>가 됩니다. 슬라이더는 n(운전자 수), c(지름길 비용), a(민감도)입니다.",
+"en": "<b>Key assumptions and formulas:</b> Drivers only try to cut their own time and settle where nobody can gain by switching alone (a Nash equilibrium). A congestible road takes <code>a × its users</code> (a = sensitivity/1000) and the fixed road 45 minutes. Without the shortcut drivers split evenly, giving <code>a·n/2 + 45</code>; with a shortcut costing c, if <code>a·n + c ≤ 45</code> everyone takes it and the average becomes <code>2a·n + c</code>. The sliders are n (drivers), c (shortcut cost) and a (sensitivity).",
+"tr": "<b>Supuestos clave y fórmulas:</b> Los conductores solo intentan reducir su propio tiempo y se estabilizan donde nadie gana cambiando por sí solo (un equilibrio de Nash). Una carretera con congestión tarda <code>a × sus usuarios</code> (a = sensibilidad/1000) y la carretera fija 45 minutos. Sin el atajo, los conductores se reparten por igual, lo que da <code>a·n/2 + 45</code>; con un atajo que cuesta c, si <code>a·n + c ≤ 45</code> todos lo toman y la media pasa a ser <code>2a·n + c</code>. Los controles deslizantes son n (conductores), c (coste del atajo) y a (sensibilidad)."
+},
+{
+"id": "s0575",
+"page": "braess",
+"ko": "<b>이 프로젝트의 단순화:</b> 도로망은 길 네 개짜리 대칭 도로망 하나, 출발지와 목적지도 하나이며 운전자는 시간만 따집니다. 운전자의 재선택 규칙(매 라운드 8%가 확실히 더 빠를 때만 이동)과 기본값(민감도 10, 지름길 비용 0분)은 이 프로젝트가 정한 것이고, 실제 도시의 교통량이나 수요 변화는 없습니다.",
+"en": "<b>What this project simplifies:</b> The network is one symmetric four-road network with a single origin and destination, and drivers care only about time. The re-choosing rule (each round 8% of drivers move, and only if clearly faster) and the defaults (sensitivity 10, shortcut cost 0 minutes) are this project's own choices; there is no real city traffic or demand change.",
+"tr": "<b>Qué simplifica este proyecto:</b> La red es una red simétrica de cuatro carreteras con un único origen y destino, y los conductores solo se preocupan por el tiempo. La regla de reelección (en cada ronda cambia el 8% de los conductores, y solo si es claramente más rápido) y los valores predeterminados (sensibilidad 10, coste del atajo 0 minutos) son decisiones de este proyecto; no hay tráfico urbano real ni cambios en la demanda."
 }
 ]

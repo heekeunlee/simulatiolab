@@ -1,0 +1,94 @@
+{
+ "s1866": {
+  "tr": "<b>n candidats</b> se présentent un par un dans un ordre aléatoire. Chacun a un score, mais vous ne pouvez le comparer qu'à <b>ceux que vous avez déjà vus</b> (plus haut, c'est mieux), et vous ne pouvez pas revenir vers quelqu'un que vous avez laissé passer. Les candidats peuvent être des personnes, des emplois ou des appartements.",
+  "why": "\"Un total de\" 직역투 제거"
+ },
+ "s1870": {
+  "tr": "Plus il y a de candidats, plus la part optimale se rapproche de 37 % ; avec peu de candidats, elle diffère un peu",
+  "why": "\"meilleure part\" 어색"
+ },
+ "s1877": {
+  "tr": "Avec un critère plus souple, la part d'observation optimale diminue",
+  "why": "용어 일관"
+ },
+ "s1899": {
+  "tr": "<b>Ce que cela montre :</b> Avec 40 candidats et une phase d'observation de 37 % (15 candidats), la chance de choisir le tout meilleur était exactement de 37,6 %, celle d'arriver dans les 2 premiers de 52,1 % et dans les 3 premiers de 59,0 %. Un choix au hasard donnerait 2,5 % pour le meilleur. Le rang moyen obtenu était de 9,0, bien meilleur que les 20,5 d'un choix au hasard. Observer moins faisait baisser la chance : 0 candidat donnait 2,5 %, 4 (10 %) donnaient 24,2 % et 8 (20 %) donnaient 33,2 % ; observer davantage la faisait aussi baisser : 24 (60 %) donnaient 31,2 %, 32 (80 %) donnaient 18,1 % et 39 redonnaient 2,5 %. Sur les 62,4 % d'échecs avec 15 observés, 37,5 % correspondaient au cas où le meilleur se trouvait dans la phase d'observation et 24,9 % à un arrêt avant l'arrivée du meilleur. La meilleure part variait un peu avec le nombre de candidats : 5 candidats culminaient à 2 (40 %) avec 43,3 %, 10 à 3 (30 %) avec 39,9 %, 20 à 7 (35 %) avec 38,4 %, 40 à 15 (38 %) avec 37,6 %, 100 à 37 (37 %) avec 37,1 % et 1 000 à 368 (36,8 %) avec 36,8 %, atteignant 1/e. Si les 2 premiers comptent comme un succès, avec 100 candidats la meilleure phase était de 30 (30 %) à 52,0 %, et pour les 3 premiers de 26 (26 %) à 60,6 %.",
+  "why": "어색한 동사"
+ },
+ "s1902": {
+  "tr": "<b>Ce que cela ne montre pas :</b> Rencontrer des gens, ou chercher un emploi ou un logement, ne fonctionne pas comme ce modèle. Il suppose le cadre idéalisé du problème de la secrétaire : vous connaissez d'avance le nombre de candidats, vous les rencontrez un par un dans un ordre aléatoire, vous ne connaissez que le rang relatif par rapport à ceux déjà vus et vous ne pouvez jamais revenir vers quelqu'un que vous avez refusé. Dans la vraie vie, vous ne savez pas combien de personnes vous rencontrerez, vous pouvez parfois revenir en arrière, l'autre personne vous choisit aussi et on ne peut pas classer les gens selon un seul score. Ce n'est donc pas un conseil de rencontrer des gens jusqu'à 37 % puis de se contenter ; c'est un modèle jouet qui montre à quoi ressemblent les mathématiques de l'arrêt sous des règles fixes. Il faut aussi se souvenir que, même avec beaucoup de candidats, la chance d'avoir le tout meilleur reste d'environ 36,8 %.",
+  "why": "\"상대\" = 상대방(사람)"
+ },
+ "s1903": {
+  "tr": "<b>D'où vient le modèle :</b> C'est le problème classique de la secrétaire (aussi appelé problème d'arrêt optimal ou du mariage). Il s'est fait connaître grâce à la rubrique « Mathematical Games » de Martin Gardner dans <i>Scientific American</i> en 1960, et Gilbert &amp; Mosteller (1966), « Recognizing the Maximum of a Sequence », <i>Journal of the American Statistical Association</i>, est une référence standard pour son analyse mathématique. Savoir qui l'a résolu le premier est une histoire embrouillée, comme le raconte Ferguson (1989).",
+  "why": "어색한 문장"
+ },
+ "s1908": {
+  "tr": "La simulation utilise un générateur aléatoire à graine (mulberry32) : la même graine donne donc le même résultat. Le score est simplement le rang global converti sur une échelle de 100 points ; seul l'ordre intervient dans les décisions. Le seuil r est le nombre de candidats × la part, arrondi et maintenu entre 1 et n − 1.",
+  "why": "원문 ko는 1 이상 n-1 이하 (en은 0으로 잘못됨)"
+ },
+ "s1966": {
+  "tr": "Cela ne prouve pas que les vrais tournesols se forment ainsi, et l'angle d'or n'est pas le seul à bien remplir l'espace.",
+  "why": "\"agenceur\" 부자연"
+ },
+ "s2019": {
+  "tr": "Ce n'est ni le rapport réel de Wald ni une règle toujours valable ; la létalité par section et l'effet du blindage sont des valeurs fixées par ce modèle.",
+  "why": "용어 일관(section)"
+ },
+ "s2020": {
+  "tr": "La létalité réelle par section est inconnue ; il faut donc des méthodes et des données pour l'estimer, y compris les cas qui ne sont jamais revenus.",
+  "why": "용어 일관(section)"
+ },
+ "s2023": {
+  "tr": "<b>Hypothèses clés et formules :</b> Le nombre d'impacts suit une loi de Poisson de moyenne 3, et chaque balle touche la section s avec une part de surface a<sub>s</sub> et abat l'avion avec une létalité l<sub>s</sub>. Le blindage arrête 70 % des balles, la létalité est donc multipliée par 0,3. En ne gardant du comptage de Poisson que les balles qui abattent l'avion (amincissement), on obtient la chance de survie par sortie <code>exp(−3 Σ a<sub>s</sub>·l<sub>s</sub>·m<sub>s</sub>)</code> (m = 0,3 si blindée, sinon 1). Plus une section est mortelle, moins de trous apparaissent sur les avions revenus. Les curseurs sont la létalité du moteur, le nombre de sections blindées et le nombre de sorties.",
+  "why": "thinning 용어/자연스러움"
+ },
+ "s2026": {
+  "tr": "<b>Pour aller plus loin :</b> Mangel &amp; Samaniego (1984), Abraham Wald's work on aircraft survivability, <i>Journal of the American Statistical Association</i> / Wald, A., A method of estimating plane vulnerability based on damage of survivors (rapport du Statistical Research Group, réimprimé par le Center for Naval Analyses en 1980) / Ellenberg (2014), <i>How Not to Be Wrong</i>, Penguin.",
+  "why": "참고문헌 표기 원문과 일치"
+ },
+ "s2072": {
+  "tr": "<b>Pour aller plus loin :</b> Pluchino, Biondo et Rapisarda (2018), l'article ci-dessus (<a href=\"https://arxiv.org/abs/1802.07068\">arXiv:1802.07068</a>). Robert H. Frank (2016), <i>Success and Luck</i>, Princeton University Press. Robert K. Merton (1968), « The Matthew Effect in Science », <i>Science</i> 159.",
+  "why": "쉼표 오류로 식별자 훼손"
+ },
+ "s2114": {
+  "tr": "<b>Hypothèses clés et formules :</b> La probabilité qu'un motif survive à un récit est <code>p = 1 − (1 − memory) × (1.5 × (1 − memorability) + 0.1)</code>. Le curseur de mémoire est la première partie de cette formule, et les motifs banals de faible mémorabilité ont un p plus bas et disparaissent en premier. La chance qu'un détail étrange soit remplacé par un motif familier est la conventionnalisation, et la chance qu'un nouveau motif soit ajouté est l'enjolivement.",
+  "why": "관습화 = conventionnalisation(Bartlett 용어)"
+ },
+ "s2115": {
+  "tr": "<b>Ce que ce projet simplifie :</b> Les vraies histoires ne sont pas des listes de motifs, mais sont tenues ensemble par le sens et le contexte. Ce projet a fixé arbitrairement les 30 motifs, la distribution de mémorabilité, la part de 25 % de détails étranges et la formule de probabilité ci-dessus, et il ne reproduit les résultats d'aucune expérience. C'est un modèle jouet montrant qu'un tel mécanisme peut produire de tels résultats, et non une étude de la vraie mémoire humaine.",
+  "why": "어색한 표현(임의로 정함)"
+ },
+ "s2162": {
+  "tr": "Quand les taux montent, les obligations nouvellement émises paient plus d'intérêts, ce qui semble une bonne nouvelle. Pourtant, une obligation que vous détenez déjà perd de la valeur. Dans ce réglage d'exemple, quand le rendement à 10 ans monte de 1 point de pourcentage, une obligation à 10 ans baisse d'environ 8 %. Plus curieux encore, la force qui fixe le rendement à 10 ans : ce n'est pas le taux court d'aujourd'hui, mais l'anticipation de « là où se situeront en moyenne les taux courts durant les 10 prochaines années ». Ainsi, même si le taux court bondit de 1 point de pourcentage, le rendement à 10 ans ne bouge que d'un peu plus de 0,3. (Tous les chiffres sont des exemples, pas des affirmations sur les taux réels.)",
+  "why": "문장 불완전"
+ },
+ "s2180": {
+  "tr": "Appuyez à tout moment : le taux court de chaque trajectoire bondit de 1 point de pourcentage, et voyez combien le rendement à 10 ans bouge peu.",
+  "why": "어색한 구문"
+ },
+ "s2190": {
+  "tr": "Une hausse de 1 pp du taux court ne relève le taux à 10 ans que de 0,33 pp, un effet qui dépend fortement de la vitesse de retour à la moyenne.",
+  "why": "비문법적 \"selon fortement\""
+ },
+ "s2193": {
+  "tr": "<b>Ce que cela montre :</b> Avec un taux court initial de 2,5 %, une moyenne de long terme de 3,5 %, une vitesse de retour de 0,3, une volatilité de 1 point de pourcentage et une prime de terme de 0,5 (tous des chiffres d'exemple), le rendement à 10 ans du modèle était de 3,72 %. Il se situe au-dessus du taux court moyen attendu sur les 10 prochaines années (3,18 %) à cause de la prime de terme. Une obligation à 10 ans achetée à ce rendement avait une duration modifiée de 8,22 : si le rendement à 10 ans montait de 1 point de pourcentage, le prix baissait de 7,83 %, et s'il baissait de 1 point, le prix montait de 8,65 % (une estimation linéaire donne 8,22 % dans les deux cas). Quand le taux court a bondi de 1 point de pourcentage, le rendement à 10 ans n'a monté que de 0,33 point. Cela dépend fortement de la vitesse de retour : 0,81 point à 0,05, 0,33 à 0,3 et 0,09 à 1,2. Avec des primes de terme de 0, 0,5 et 1,5 point, le rendement à 10 ans était de 3,20 %, 3,72 % et 4,76 %. Les obligations à coupon plus élevé avaient des durations plus courtes (8,98 avec un coupon de 2 %, 6,71 avec 8 %) et étaient moins sensibles au rendement. La variation de prix de l'obligation achetée au départ s'est répartie autour d'une moyenne de -0,7 % après 1 an, avec -4,5 % pour les 5 % du bas et +3,2 % pour les 5 % du haut (20 000 trajectoires, intérêts exclus).",
+  "why": "\"étalée jusqu'à\" 오역/어색"
+ },
+ "s2196": {
+  "tr": "<b>Ce que cela ne montre pas :</b> Ce modèle ne peut prédire ni les taux d'intérêt ni les taux de change et ne doit pas servir à des décisions d'investissement. Toutes les valeurs par défaut sont des chiffres d'exemple choisis par ce projet, pas des niveaux de taux réels ni une prévision. Les rendements réels à long terme réagissent aussi aux anticipations d'inflation, à la politique monétaire, à l'offre et à la demande d'obligations, aux perspectives économiques et à l'attitude face au risque, dont aucun ne figure dans ce modèle, et la prime de terme elle-même varie dans le temps. Le modèle montre seulement comment les oscillations du taux court se transmettent au rendement à 10 ans et aux prix des obligations (moyenne des anticipations, duration et convexité).",
+  "why": "문법"
+ },
+ "s2198": {
+  "tr": "<b>Hypothèses clés et formules :</b> Le taux court suit <code>dr = a(b − r)dt + σdW</code>, où a est la vitesse de retour, b la moyenne de long terme et σ la volatilité. Le prix d'une obligation zéro-coupon d'échéance τ années est <code>exp(A − B·r)</code> avec <code>B = (1 − e<sup>−aτ</sup>)/a</code> et <code>A = (b − σ²/2a²)(B − τ) − σ²B²/4a</code>, et le rendement est <code>(B·r − A)/τ</code>. Cette page ajoute la prime de terme à ce rendement pour obtenir le rendement à 10 ans. Quand le taux court bouge de 1, le rendement à 10 ans bouge d'environ B/10.",
+  "why": "제목 일관"
+ },
+ "s2200": {
+  "tr": "<b>Théorie et simulation :</b> La simulation de 20 000 trajectoires a coïncidé avec la forme fermée. Le prix de l'obligation zéro-coupon à 10 ans était de 0,7290 en simulation (erreur standard 0,0004) contre 0,7295 en forme fermée, et les rendements étaient de 3,161 % et 3,154 %. La moyenne et l'écart type du taux court après 5 ans étaient de 3,284 % et 1,260 point (théorie 3,277 % et 1,258). La formule de la duration modifiée, 8,2246, égalait la dérivée numérique, et la variation du rendement à 10 ans dans une simulation avec choc était de 0,329 point, identique à la formule (0,329). Un léger biais de l'intégration trapézoïdale mensuelle explique que le prix simulé soit un peu plus bas.",
+  "why": "제목 일관"
+ },
+ "s2234": {
+  "tr": "Avec les mêmes règles, changer seulement F et k a fait apparaître spontanément des taches, des rayures, des labyrinthes et des motifs de corail.",
+  "why": "일치 오류"
+ }
+}

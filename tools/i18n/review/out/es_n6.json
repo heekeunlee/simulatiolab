@@ -1,0 +1,102 @@
+{
+ "s2325": {
+  "tr": "Aquí la mayoría simple cuenta solo las primeras opciones, así que los candidatos parecidos que dividen los votos pueden dejar fuera con facilidad al centrista.",
+  "why": "같은 페이지에서 단순다수를 \"mayoría simple\"로 통일"
+ },
+ "s2326": {
+  "tr": "Cuando los resultados difieren, conviene examinar cómo se reparten los votos y qué parte del orden de preferencias usa cada método.",
+  "why": "순위(선호 순서) 용어 정정"
+ },
+ "s2328": {
+  "tr": "No afirma que un método sea mejor que otro ni que haya que cambiar las reglas electorales; el voto estratégico y los partidos no existen en este modelo.",
+  "why": "\"ningún método sea mejor\"는 \"어느 방식도 더 낫지 않다\"로 읽혀 원문과 다름"
+ },
+ "s2335": {
+  "tr": "<b>Lecturas complementarias:</b> Arrow, K. J. (1951), <i>Social Choice and Individual Values</i>, Wiley. / Downs, A. (1957), <i>An Economic Theory of Democracy</i>, Harper &amp; Row. / Black, D. (1948), «On the Rationale of Group Decision-making», <i>Journal of Political Economy</i>.",
+  "why": "원문 &amp; 유지"
+ },
+ "s2342": {
+  "tr": "<b>① Fracaso de la negociación.</b> Dos Estados (A, B) se reparten un pastel de tamaño 1. En la guerra, A obtiene una parte p (su probabilidad de ganar) y ambos pagan un costo c (la parte de A en la guerra es p−c; la de B, 1−p−c). Así, cualquier acuerdo que dé a A entre p−c y p+c es mejor que la guerra para ambos. Pero solo B conoce p con exactitud; A solo supone que está dentro de 50% ± (incertidumbre). A hace una exigencia que maximiza su parte esperada, y B la rechaza si la guerra le conviene más; entonces estalla la guerra.",
+  "why": "어색한 직역; 어색한 표현"
+ },
+ "s2346": {
+  "tr": "Mitad del ancho del rango en que A estima la fuerza de B. Con 0, ambos lo saben todo (① negociación)",
+  "why": "\"todos lo saben todo\"는 두 나라가 아니라 모두로 읽힘"
+ },
+ "s2359": {
+  "tr": "El eje horizontal es la incertidumbre y el vertical la proporción de disputas que acaban en guerra. La línea roja es la teoría del modelo (1−c/u) y los puntos verdes son simulaciones. Si la incertidumbre es menor que el costo de la guerra, no hay ninguna guerra; al superarlo, aumentan.",
+  "why": "무엇이 비용보다 작은지 불명확"
+ },
+ "s2372": {
+  "tr": "Con un costo de guerra del 15% y una incertidumbre de ±25%, el 40,0% de las disputas acaban en guerra aunque siempre existe un acuerdo que ambos prefieren.",
+  "why": "coste→costo(페이지 통일), +/-→±, 공백 있는 % 통일"
+ },
+ "s2373": {
+  "tr": "Si A no conoce la fuerza de B y hace una sola exigencia, cuanto menor es el costo, más amplio es el rango que se rechaza, de modo que puede haber guerra aunque exista un acuerdo posible.",
+  "why": "용어 통일(costo), \"no puede ver\"는 오역, 비용이 작을수록의 비교 구조 명확화"
+ },
+ "s2374": {
+  "tr": "Estructuralmente, lo importante puede ser en qué punto la incertidumbre de la información y la intensidad de las reacciones cruzan un umbral.",
+  "why": "\"정보의 불확실성\"을 \"brechas de información\"으로 옮긴 오역"
+ },
+ "s2383": {
+  "tr": "<b>Lecturas complementarias:</b> Fearon (1995), &quot;Rationalist Explanations for War&quot;, <i>International Organization</i> / Richardson (1960), <i>Arms and Insecurity</i>, Boxwood Press / Richardson (1960), <i>Statistics of Deadly Quarrels</i>, Boxwood Press.",
+  "why": "\"더 읽을거리\" 표기 통일"
+ },
+ "s2387": {
+  "tr": "Ejecuta tú mismo una red de mundo pequeño: añade apenas unos pocos conocidos a círculos de amigos muy unidos y observa cómo la noticia se propaga varias veces más rápido.",
+  "why": "\"모두에게 도달\"은 과장"
+ },
+ "s2390": {
+  "tr": "Cada vínculo tiene una probabilidad p de que uno de sus extremos se <b>mueva a una persona lejana al azar</b>. Esos son los conocidos de vista, es decir, los vínculos débiles (líneas moradas). Con p = 0 no hay ninguno, y con p = 1 todos los vínculos son aleatorios.",
+  "why": "\"얼굴만 아는 사이\" 뉘앙스"
+ },
+ "s2391": {
+  "tr": "La noticia empieza con una persona. En cada turno, todos los que la conocen se la cuentan a cada vecino que no la sabe, con la probabilidad de transmisión (50% por defecto). Se miden los turnos hasta que el 90% la conoce y se promedian muchas ejecuciones.",
+  "why": "1인칭 \"Mido\"는 어색, 비인칭으로"
+ },
+ "s2392": {
+  "tr": "La <b>distancia promedio</b> es el número medio de pasos del camino más corto entre dos personas, y la <b>cohesión de los círculos de amigos</b> (coeficiente de agrupamiento) es la probabilidad media de que dos amigos de una persona también sean amigos entre sí.",
+  "why": "\"mis\"는 원문의 일반적 \"내 친구\"를 화자로 오해하게 함"
+ },
+ "s2416": {
+  "tr": "Solo un 2% de vínculos débiles redujo el tiempo para que la noticia llegara al 90% de las personas de 58,1 a 16,2 turnos.",
+  "why": "용어 통일(vínculos)"
+ },
+ "s2420": {
+  "tr": "No prueba que los vínculos débiles sean mejores para encontrar empleo; se supone que todos los vínculos tienen la misma fuerza.",
+  "why": "용어 통일"
+ },
+ "s2421": {
+  "tr": "Los vínculos débiles reales pueden inspirar menos confianza y transmitirse menos, así que hay que estudiar la transmisión real en redes reales.",
+  "why": "용어 통일"
+ },
+ "s2478": {
+  "tr": "El bosque es una cuadrícula de celdas, cada una vacía o con un árbol. En cada paso, <b>en una celda vacía crece un árbol con probabilidad p.</b> Además, cae un <b>rayo</b> en cada celda con probabilidad f (por defecto 2 rayos por cada 10.000 celdas por paso). Si un rayo cae sobre un árbol, este se incendia.",
+  "why": "빈 칸이 나무를 자라게 한다는 주체 오류; 자연스러운 표현"
+ },
+ "s2483": {
+  "tr": "En cuántas de cada 100 celdas vacías crece un árbol en cada paso. Cuanto más alto, más rápido se puebla el bosque.",
+  "why": "빈 칸이 나무를 자라게 한다는 주체 오류 및 어색한 문장"
+ },
+ "s2485": {
+  "tr": "Rayos por cada 10.000 celdas por paso. Con rayos frecuentes los incendios arden cuando aún son pequeños y es raro que haya incendios grandes.",
+  "why": "원문: 번개가 잦으면 불이 작을 때 번져 큰 불이 안 남. \"bosques se queman\"은 뜻이 어긋남"
+ },
+ "s2487": {
+  "tr": "Con 0% el bosque de la derecha también se deja arder. Los incendios grandes no se pueden apagar",
+  "why": "\"그냥 두기\"=dejar arder 용어 통일"
+ },
+ "s2510": {
+  "tr": "<b>Qué simplifica este proyecto:</b> El modelo original muestra un rango de tamaños de incendio en ley de potencias en el límite en que f/p tiende a cero. Los valores por defecto de esta página (p/f de 50 por celda) están lejos de ese límite y la cuadrícula es pequeña, así que no se afirma ninguna ley de potencias. La lucha contra incendios (apagar solo los incendios pequeños con probabilidad s) es una regla adicional de este proyecto, y el 5% y el 10% son valores elegidos por este proyecto. Los bordes son muros: no se conectan con el lado opuesto.",
+  "why": "주어 누락; \"이어지지 않는 벽\" 뜻 명확화"
+ },
+ "s2514": {
+  "tr": "El crecimiento planta árboles al azar a partir de una lista de celdas vacías (una aproximación de Poisson escalada al número de celdas vacías), y los rayos caen sobre un número de celdas aleatorias dado por una distribución de Poisson. El grupo de un incendio se determina con una búsqueda en profundidad y se quema de una vez. Las tarjetas de estadísticas provienen de ejecuciones largas independientes, no de los dos bosques en pantalla.",
+  "why": "어색한 동사"
+ },
+ "s2536": {
+  "tr": "Los canales con más suscriptores se recomiendan más, así que la suerte temprana puede acumularse y fijar la clasificación.",
+  "why": "\"endurecer\"는 직역투"
+ }
+}

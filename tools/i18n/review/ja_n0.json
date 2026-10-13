@@ -1223,5 +1223,733 @@
 "ko": "왜 하필 고속도로인지는 아직 증명되지 않아, 규칙을 바꾸거나 시작 판을 달리해 보는 것이 열쇠일 수 있습니다.",
 "en": "Why a highway forms is unproven, so changing the rule or the starting grid may be the key.",
 "tr": "ハイウェイがなぜできるのかは証明されていないため、ルールや初期の盤面を変えてみることが鍵かもしれません。"
+},
+{
+"id": "s0385",
+"page": "ant",
+"ko": "<b>말하는 것:</b> 빈 판에서 출발한 개미 1마리는 9,976걸음째부터 104걸음마다 (2,2)칸씩 대각선으로 옮겨 가는 동작을 끝없이 되풀이했습니다(40,000걸음까지 확인). 그 뒤로는 104걸음마다 검은 칸이 12칸씩 늘고 걸음당 약 0.027칸씩 멀어집니다. 처음 약 500걸음은 대칭 모양이 되풀이되었고(마지막 대칭 모양은 473걸음), 그 뒤는 고속도로까지 혼돈이었습니다. 한 변 21칸 안에 5%에서 50%까지 검은 칸을 흩뿌려 시작한 판은 7가지 비율 각각 60판 모두, 개미를 2~4마리로 늘려도 비율 15%에서 60판 모두 60,000걸음 안에 고속도로가 생겼습니다. 시작 걸음은 200~50,000걸음으로 크게 달랐습니다. 사소한 규칙에서 설계 없이 질서 있는 구조가 나타나는 창발을 보여 줍니다.",
+"en": "<b>What it shows:</b> A single ant on a blank grid began, at step 9,976, a routine that moves it (2,2) cells diagonally every 104 steps and repeated it without end (checked to 40,000 steps). From then on black cells grow by 12 every 104 steps and the ant moves away at about 0.027 cells per step. The first ~500 steps kept returning to symmetric shapes (the last symmetric shape was at step 473), and the rest was chaos until the highway. Grids started with 5% to 50% black cells scattered in a 21-cell square all produced a highway within 60,000 steps in every one of 60 runs at each of the 7 shares, and so did 2 to 4 ants at 15%. The start step varied a great deal, from about 200 to 50,000. It shows emergence: orderly structure from trivial rules with no design.",
+"tr": "<b>言えること：</b> 何もない盤面の1匹のアリは、9,976ステップ目から、104ステップごとに斜めに(2,2)マス移動する動きを始め、それを延々と繰り返しました(40,000ステップまで確認)。それ以降、黒いマスは104ステップごとに12ずつ増え、アリは1ステップあたり約0.027マスの速さで遠ざかります。最初の約500ステップは対称な形に何度も戻り(最後の対称な形は473ステップ目)、残りはハイウェイまでカオスでした。21マス四方に5%〜50%の黒いマスをまいて始めた盤面は、7つの割合それぞれ60回の実行すべてで60,000ステップ以内にハイウェイができ、15%でアリを2〜4匹にした場合も同様でした。開始ステップは約200から50,000まで大きくばらつきました。これは創発、つまり設計なしに単純なルールから秩序ある構造が生まれることを示しています。"
+},
+{
+"id": "s0386",
+"page": "ant",
+"ko": "고속도로가 늘 생긴다는 것은 증명되지 않았고, 시작 걸음이 언제인지 미리 구하는 식도 없습니다.",
+"en": "It is unproven that a highway always forms, and no formula predicts its start step.",
+"tr": "ハイウェイが必ずできることは証明されておらず、その開始ステップを予測する式もありません。"
+},
+{
+"id": "s0387",
+"page": "ant",
+"ko": "실제 개미나 길 만들기에 쓰려면 규칙이 다른 모델과 비교하고, 어떤 단순한 규칙이 비슷한 질서를 만드는지 따로 확인해야 합니다.",
+"en": "Applying it to real ants or paths would need comparison with other rules and separate checks of which simple rules give similar order.",
+"tr": "実際のアリや道に当てはめるには、他のルールとの比較や、どんな単純なルールが似た秩序を生むかの別途の確認が必要です。"
+},
+{
+"id": "s0388",
+"page": "ant",
+"ko": "<b>말하지 않는 것:</b> 개미가 어떤 판에서든 반드시 고속도로를 낸다는 것은 증명되지 않았습니다. 이는 열린 문제(추측)이고, 여기서는 돌려 본 판에서 모두 생겼다는 것만 확인했습니다. 개미의 경로가 한정된 영역에 갇히지 않는다는 것은 증명되어 있습니다. 또 이 개미는 생물을 본뜬 것이 아니라 세포 자동자라는 수학적 장난감이므로, 현실의 길 만들기나 개미 행동을 설명하지 않습니다. 고속도로 판정은 이 프로젝트의 기준(104걸음 되풀이 세 번)이고, 개미 여러 마리일 때 질서 단계는 따로 구분하지 않습니다.",
+"en": "<b>What it doesn't show:</b> It has not been proved that the ant always builds a highway from every starting grid; that is an open problem (a conjecture), and all this page shows is that it happened in every grid we ran. It is proved that the ant's path is not confined to a bounded region. The ant is a mathematical toy (a cellular automaton), not a model of real ants or of how real roads form. The highway test is this project's criterion (three consecutive 104-step repeats), and with several ants the order phase is not distinguished.",
+"tr": "<b>言えないこと：</b> アリがどんな開始盤面からでも必ずハイウェイをつくることは証明されていません。これは未解決問題(予想)であり、このページが示すのは、私たちが実行したすべての盤面でそうなった、ということだけです。アリの軌跡が有限の領域に収まらないことは証明されています。アリは数学のおもちゃ(セルオートマトン)であり、本物のアリや実際の道ができる仕組みのモデルではありません。ハイウェイの判定はこのプロジェクトの基準(104ステップの繰り返しが3回連続)で、アリが複数のときは秩序の期間を区別していません。"
+},
+{
+"id": "s0389",
+"page": "ant",
+"ko": "<b>모델의 뿌리:</b> 랭턴의 개미는 Christopher Langton이 인공 생명 연구를 위해 소개한 세포 자동자(Langton 1986, \"Studying artificial life with cellular automata\", <i>Physica D</i> 22)로 알려져 있습니다. 칸마다 상태가 있고 이웃 규칙으로 갱신되는 세포 자동자의 한 갈래로, 아주 단순한 국소 규칙에서 복잡한 전체 무늬가 나온다는 점으로 유명합니다.",
+"en": "<b>Where the model comes from:</b> Langton's ant is known from Christopher Langton's work on artificial life (Langton 1986, \"Studying artificial life with cellular automata\", <i>Physica D</i> 22). It is a type of cellular automaton, a grid of cells with states updated by local rules, famous for producing complex global patterns from very simple local rules.",
+"tr": "<b>モデルの出どころ:</b> ラングトンのアリは、クリストファー・ラングトンの人工生命の研究で知られています(Langton 1986, \"Studying artificial life with cellular automata\", <i>Physica D</i> 22)。これはセルオートマトンの一種で、状態をもつマス目を局所的なルールで更新するものです。ごく単純な局所ルールから複雑な全体のパターンが生まれることで有名です。"
+},
+{
+"id": "s0390",
+"page": "ant",
+"ko": "<b>핵심 가정과 수식:</b> 상태는 칸의 색(흰/검)과 개미의 자리·방향뿐이고, 갱신은 결정적입니다. 흰 칸이면 우회전·반전·전진, 검은 칸이면 좌회전·반전·전진이며 슬라이더는 개미 수와 시작 판만 바꿉니다. 고속도로는 104걸음 되풀이로, 그동안 개미는 대각선으로 (2,2)칸 옮겨 갑니다.",
+"en": "<b>Key assumptions and formulas:</b> The state is only the colour of each cell (white/black) and the ant's position and heading, and the update is deterministic: on white turn right, flip, step; on black turn left, flip, step. The sliders change only the number of ants and the starting grid. The highway is a 104-step cycle during which the ant shifts (2,2) cells diagonally.",
+"tr": "<b>主な前提と式:</b> 状態は各マスの色(白/黒)とアリの位置・向きだけで、更新は決定論的です。白では右に回って色を反転し1歩進み、黒では左に回って色を反転し1歩進みます。スライダーで変えられるのは、アリの数と開始時の盤面だけです。ハイウェイは104ステップの周期で、その間にアリは斜めに(2,2)マス進みます。"
+},
+{
+"id": "s0391",
+"page": "ant",
+"ko": "<b>이 프로젝트의 단순화:</b> 원래 모델은 개미 1마리와 빈 판입니다. 개미 여러 마리, 무작위 점 시작, 21×21칸이라는 크기, 개미들의 시작 자리, 60,000걸음 상한, 2,048×2,048칸 판은 이 프로젝트가 정한 값입니다. 개미가 여럿일 때 같은 걸음에 개미들이 차례대로 움직이는 방식도 이 프로젝트의 선택입니다.",
+"en": "<b>What this project simplifies:</b> The original model is one ant on a blank grid. Several ants, random-dot starts, the 21×21 size, the ants' starting positions, the 60,000-step limit and the 2,048×2,048 grid are this project's choices, as is moving the ants one after another within each step.",
+"tr": "<b>このプロジェクトが単純化している点:</b> 元のモデルは、何もない盤面にアリが1匹いるものです。複数のアリ、ランダムな点での開始、21×21という大きさ、アリの開始位置、60,000ステップの上限、2,048×2,048の盤面は、このプロジェクトの選択です。各ステップの中でアリを順番に動かすことも同様です。"
+},
+{
+"id": "s0392",
+"page": "ant",
+"ko": "<b>이론값과 시뮬레이션:</b> 이론으로 고속도로가 시작되는 걸음을 미리 구하는 식은 없어 시뮬레이션으로만 확인했습니다. 빈 판에서 두 가지 방법(실시간 판정과 끝까지 돌린 뒤 되짚기)이 모두 9,976걸음으로 같았고, 104걸음당 이동은 (2,2) 크기, 30,000~40,000걸음의 검은 칸 증가는 걸음당 0.1156(=12/104)이었습니다. 개미가 항상 고속도로를 낸다는 것은 증명되지 않은 추측으로, 여기서는 돌려 본 무작위 판 420개와 여러 마리 180개 모두에서 생겼습니다.",
+"en": "<b>Theory versus simulation:</b> There is no formula that predicts the highway start in advance, so it was checked by simulation only. On a blank grid both methods (live detection and tracing back after a long run) gave step 9,976, the displacement per 104 steps had size (2,2), and black cells grew by 0.1156 per step (=12/104) between steps 30,000 and 40,000. That the ant always builds a highway is an unproved conjecture; here it happened in all 420 random grids and all 180 multi-ant grids we ran.",
+"tr": "<b>理論とシミュレーションの比較:</b> ハイウェイの開始を事前に予測する式はないため、シミュレーションだけで確かめました。何もない盤面では、2つの方法(実行中の検出と、長く実行した後のさかのぼり)がどちらも9,976ステップ目を示し、104ステップあたりの変位は(2,2)で、黒いマスは30,000〜40,000ステップの間に1ステップあたり0.1156(=12/104)ずつ増えました。アリが必ずハイウェイをつくるというのは未証明の予想ですが、ここでは実行したランダムな盤面420個と複数アリの盤面180個のすべてでそうなりました。"
+},
+{
+"id": "s0393",
+"page": "ant",
+"ko": "<b>더 읽을거리:</b> Langton (1986), \"Studying artificial life with cellular automata\", <i>Physica D</i> 22. Gajardo, Moreira, Goles (2002), \"Complexity of Langton's ant\", <i>Discrete Applied Mathematics</i> 117.",
+"en": "<b>Further reading:</b> Langton (1986), \"Studying artificial life with cellular automata\", <i>Physica D</i> 22. Gajardo, Moreira and Goles (2002), \"Complexity of Langton's ant\", <i>Discrete Applied Mathematics</i> 117.",
+"tr": "<b>参考文献:</b> Langton (1986), \"Studying artificial life with cellular automata\", <i>Physica D</i> 22. Gajardo, Moreira and Goles (2002), \"Complexity of Langton's ant\", <i>Discrete Applied Mathematics</i> 117."
+},
+{
+"id": "s0394",
+"page": "ant",
+"ko": "시뮬레이션은 2,048×2,048칸 판 위에서 돌고 시드 난수(mulberry32)는 무작위 점 시작에만 쓰입니다. 개미 1마리의 빈 판은 난수가 없어 항상 같은 결과입니다. 검증은 <code>node tools/validate-ant.js</code>로 할 수 있습니다.",
+"en": "The simulation runs on a 2,048×2,048 grid and the seeded random generator (mulberry32) is used only for random-dot starts. A single ant on a blank grid involves no randomness and always gives the same result. You can verify with <code>node tools/validate-ant.js</code>.",
+"tr": "シミュレーションは2,048×2,048の盤面で動き、シード付きの乱数生成器(mulberry32)はランダムな点で開始するときにだけ使います。何もない盤面のアリ1匹には乱数が関わらず、いつも同じ結果になります。<code>node tools/validate-ant.js</code> で確認できます。"
+},
+{
+"id": "s0395",
+"page": "ant",
+"ko": "고속도로는 개미의 자리·방향이 104걸음마다 (±2,±2)칸씩 옮겨 가며 세 번 이어서 되풀이될 때 판정하고, 시작 걸음은 되풀이가 처음 성립한 곳에서 두 주기를 되짚어 구합니다.",
+"en": "The highway is detected when the ant's position and heading repeat every 104 steps shifted by (±2,±2) cells three times in a row, and the start step is found by tracing two periods back from where the repetition first holds.",
+"tr": "ハイウェイは、アリの位置と向きが104ステップごとに(±2,±2)マスずれて3回続けて繰り返されたときに検出し、開始ステップは、繰り返しが最初に成り立った時点から2周期分さかのぼって求めます。"
+},
+{
+"id": "s0396",
+"page": "ant",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/ant\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/ant\">GitHub</a>.",
+"tr": "コードは <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/ant\">GitHub</a> で公開しています。"
+},
+{
+"id": "s0432",
+"page": "apartment",
+"ko": "이 모델에서 전염 세기가 0.4면 거의 안 번지다 0.5에서 약 90%, 0.6 이상이면 모든 동네로 번져요.",
+"en": "In this model, spread is minimal at contagion 0.4, about 90% of areas are overvalued at 0.5, and all areas from 0.6.",
+"tr": "このモデルでは、伝染度0.4では広がりが最小で、0.5で約90%の地域が割高になり、0.6からはすべての地域がそうなりました。"
+},
+{
+"id": "s0433",
+"page": "apartment",
+"ko": "이웃의 상승을 따라가는 되먹임이 일정 세기를 넘으면 동네 사정과 상관없이 번질 수 있고, 대출 한도가 오를 높이의 상한을 정해요.",
+"en": "Once following neighbors' rises is strong enough, it can spread regardless of local conditions, and the loan limit caps how high prices climb.",
+"tr": "近隣の値上がりに追随する力が十分強いと、地域の条件に関係なく広がることがあり、ローンの上限が価格の上がる高さを抑えます。"
+},
+{
+"id": "s0434",
+"page": "apartment",
+"ko": "번짐을 볼 때는 한 동네의 가격보다 서로 따라가는 정도와 대출 여건이 어디서 달라지는지 살펴볼 만해요.",
+"en": "To read a spread, it may help to look at how strongly areas follow one another and where lending conditions differ, not just one area's price.",
+"tr": "広がりを読み解くには、1つの地域の価格だけでなく、地域どうしがどれだけ追随し合うかや、融資条件がどこで違うかを見るとよいかもしれません。"
+},
+{
+"id": "s0436",
+"page": "apartment",
+"ko": "실제 지역의 가격 전망이나 부동산 투자·거래 조언이 아니에요.",
+"en": "This is not a price forecast for any real area, nor investing or property advice.",
+"tr": "特定の実在の地域の価格予測ではなく、投資や不動産のアドバイスでもありません。"
+},
+{
+"id": "s0437",
+"page": "apartment",
+"ko": "공급, 인구, 세금, 정책이 없고 계수는 임의로 정한 값이라, 실제 시장의 자료로 따로 확인해야 해요.",
+"en": "Supply, population, taxes and policy are absent and the coefficients are arbitrary, so real market data would be needed to check anything.",
+"tr": "供給・人口・税金・政策が含まれず係数も任意なので、何かを確かめるには実際の市場データが必要です。"
+},
+{
+"id": "s0439",
+"page": "apartment",
+"ko": "<b>모델의 뿌리:</b> 가격이 오르는 모습을 보고 더 사려는 마음이 가격을 다시 올리는 되먹임은 Shiller(2000)의 『Irrational Exuberance』가 자산시장의 한 설명으로 널리 알렸고, Case와 Shiller(1989)는 단독주택 가격 변화에 관성이 있다는 것을 다뤘습니다. 대출 한도가 가격 상한을 정한다는 발상은 Geanakoplos의 \"레버리지 순환(leverage cycle)\" 논의에서 가져왔습니다. 이 페이지는 그 논문들의 모델이 아니라 이 프로젝트의 장난감 모델입니다.",
+"en": "<b>Where the model comes from:</b> The feedback in which seeing prices rise makes people buy more and push prices up was popularized as an account of asset markets by Shiller (2000) in <i>Irrational Exuberance</i>, and Case and Shiller (1989) examined momentum in single-family home prices. The idea that lending limits set a ceiling on prices comes from Geanakoplos's \"leverage cycle\" discussion. This page is this project's own toy model, not a model from those works.",
+"tr": "<b>モデルの出どころ:</b> 価格の上昇を見て人々がさらに買い、価格を押し上げるというフィードバックは、Shiller(2000)の<i>Irrational Exuberance</i>で資産市場の説明として広まり、Case と Shiller(1989)は一戸建て住宅価格のモメンタムを調べました。融資の上限が価格の天井を決めるという考え方は、Geanakoplos の「レバレッジ・サイクル」の議論に由来します。このページはこのプロジェクト独自の簡易モデルであり、これらの研究のモデルではありません。"
+},
+{
+"id": "s0440",
+"page": "apartment",
+"ko": "<b>핵심 가정과 수식:</b> 분기 상승률 <code>g = 0.30×(내 직전 g) + 전염×(8 이웃 평균 g) + 0.004×기대 + 무작위 충격 + 상한 보정</code>입니다. 자기 상승과 이웃 상승이 다시 상승을 낳는 되먹임이라서 전염 슬라이더가 클수록 상승이 번지기 쉽고, 감당 상한 <code>소득선×(대출 한도÷0.4)<sup>1.5</sup></code>이 가격이 소득 기준선에서 얼마나 멀어질 수 있는지를 정합니다.",
+"en": "<b>Key assumptions and formulas:</b> The quarterly growth is <code>g = 0.30×(own previous g) + contagion×(average g of 8 neighbors) + 0.004×optimism + random shock + ceiling correction</code>. Own gains and neighbors' gains feed back into new gains, so a larger contagion slider makes a rise spread more easily, and the ceiling <code>income line×(loan cap÷0.4)<sup>1.5</sup></code> sets how far prices can drift from the income line.",
+"tr": "<b>主な前提と式:</b> 四半期の成長率は <code>g = 0.30×(自分の前期のg) + 感染度×(隣接8マスの平均g) + 0.004×楽観度 + ランダムな衝撃 + 天井による補正</code> です。自分の上昇分と隣の上昇分が新しい上昇分にフィードバックするため、感染度のスライダーが大きいほど上昇が広がりやすくなります。天井 <code>所得ライン×(融資上限÷0.4)<sup>1.5</sup></code> は、価格が所得ラインからどこまで離れられるかを決めます。"
+},
+{
+"id": "s0441",
+"page": "apartment",
+"ko": "<b>이 프로젝트의 단순화:</b> 계수(0.30, 0.004, 지수 1.5, 상한 보정 25%, 금리 충격 때의 30% 하락 등)와 소득 증가율(분기 0.5%)은 모두 이 프로젝트가 구조를 보여 주려고 임의로 정한 값이고 실제 시장에서 추정한 것이 아닙니다. 모든 동네의 소득이 같고, 이웃은 격자의 8칸일 뿐 실제 인접 관계가 아니며, 공급·인구·세금·정책은 없습니다.",
+"en": "<b>What this project simplifies:</b> The coefficients (0.30, 0.004, the exponent 1.5, the 25% ceiling correction, the 30% ceiling cut at a rate shock and so on) and the income growth (0.5% per quarter) were all chosen arbitrarily by this project to show structure, not estimated from real markets. Every neighborhood has the same income, neighbors are just the 8 grid cells rather than real adjacency, and there is no supply, population, tax or policy.",
+"tr": "<b>このプロジェクトが単純化している点:</b> 係数(0.30、0.004、指数1.5、天井への25%の補正、金利ショック時の天井30%引き下げなど)と所得の伸び(四半期0.5%)は、仕組みを見せるためにこのプロジェクトが任意に選んだもので、実際の市場から推定したものではありません。どの地区も所得は同じで、隣り合う地区は実際の隣接関係ではなく盤面上の8マスにすぎず、供給、人口、税、政策もありません。"
+},
+{
+"id": "s0442",
+"page": "apartment",
+"ko": "<b>이론값과 시뮬레이션:</b> 이론적 기준값이 없어 시뮬레이션만으로 확인했습니다. 금리 충격이 없을 때 고평가 동네의 최대 비율은 전염 0.4에서 9%, 0.5에서 92%, 0.6에서 100%였고, 전염 0.6에서 대출 한도 40%는 0%, 50%는 99%였습니다. 기본 설정은 평균 가격이 정점 230에서 끝 174로 24% 내려왔습니다.",
+"en": "<b>Theory versus simulation:</b> There is no theoretical benchmark, so this was checked by simulation alone. Without a rate shock, the peak share of overvalued neighborhoods was 9% at contagion 0.4, 92% at 0.5 and 100% at 0.6, and at contagion 0.6 a 40% loan cap gave 0% while 50% gave 99%. The default settings took the average price from a peak of 230 to 174 at the end, down 24%.",
+"tr": "<b>理論とシミュレーションの比較:</b> 理論上の基準はないため、シミュレーションだけで確かめました。金利ショックがない場合、割高な地区の割合のピークは、感染度0.4で9%、0.5で92%、0.6で100%でした。感染度0.6では、融資上限40%なら0%、50%なら99%でした。初期設定では、平均価格はピークの230から最後には174まで、24%下がりました。"
+},
+{
+"id": "s0443",
+"page": "apartment",
+"ko": "<b>더 읽을거리:</b> Shiller, R. J. (2000), <i>Irrational Exuberance</i>, Princeton University Press. Case, K. E. & Shiller, R. J. (1989), 「The Efficiency of the Market for Single-Family Homes」, <i>American Economic Review</i>. Geanakoplos, J. (2010), 「The Leverage Cycle」, <i>NBER Macroeconomics Annual 2009</i>.",
+"en": "<b>Further reading:</b> Shiller, R. J. (2000), <i>Irrational Exuberance</i>, Princeton University Press. Case, K. E. & Shiller, R. J. (1989), \"The Efficiency of the Market for Single-Family Homes\", <i>American Economic Review</i>. Geanakoplos, J. (2010), \"The Leverage Cycle\", <i>NBER Macroeconomics Annual 2009</i>.",
+"tr": "<b>参考文献:</b> Shiller, R. J. (2000), <i>Irrational Exuberance</i>, Princeton University Press. Case, K. E. & Shiller, R. J. (1989), \"The Efficiency of the Market for Single-Family Homes\", <i>American Economic Review</i>. Geanakoplos, J. (2010), \"The Leverage Cycle\", <i>NBER Macroeconomics Annual 2009</i>."
+},
+{
+"id": "s0477",
+"page": "auction",
+"ko": "입찰자 10명이 추정치대로 부르면 낙찰자는 평균 30.9(가치 100 기준) 손해를 봤어요.",
+"en": "With 10 bidders bidding their estimates, winners lost 30.9 on average on a value of 100.",
+"tr": "10人の入札者が自分の見積もりどおりに入札すると、勝者は価値100に対して平均30.9の損をしました。"
+},
+{
+"id": "s0478",
+"page": "auction",
+"ko": "이 모델에서는 이긴 사람이 가장 높게 틀린 추정을 한 사람이라, 입찰자가 많을수록 손해가 커져요.",
+"en": "In this model the winner is whoever overshot most, so more bidders means bigger losses.",
+"tr": "このモデルでは最も見積もりを上振れした人が勝つので、入札者が増えるほど損は大きくなります。"
+},
+{
+"id": "s0479",
+"page": "auction",
+"ko": "경쟁자 수와 추정의 부정확함, 가격 정하는 방식이 손익을 가르는 곳이라 살펴볼 만해요.",
+"en": "Number of rivals, how noisy estimates are, and the pricing rule are the places worth examining.",
+"tr": "競争相手の数、見積もりのばらつき、価格決定のルールが、調べる価値のある点です。"
+},
+{
+"id": "s0481",
+"page": "auction",
+"ko": "실제 경매 낙찰자가 늘 손해를 본다는 뜻도, 누군가에게 입찰 방법을 알려 주는 것도 아니에요.",
+"en": "It does not mean real winners always lose, nor does it advise anyone how to bid.",
+"tr": "現実の勝者が必ず損をするという意味ではなく、誰かに入札のしかたを勧めるものでもありません。"
+},
+{
+"id": "s0482",
+"page": "auction",
+"ko": "입찰자의 경험과 취향이 섞인 가치는 이 모델에 없어서, 실제 경매 자료로 따로 확인해야 해요.",
+"en": "Bidder experience and taste-based value are absent here, so real auction data is needed to check.",
+"tr": "入札者の経験や好みに基づく価値はここには含まれないため、確認には実際のオークションのデータが必要です。"
+},
+{
+"id": "s0484",
+"page": "auction",
+"ko": "<b>모델의 뿌리:</b> \"승자의 저주\"는 Capen, Clapp, Campbell(1971)이 석유 광구 입찰에서 낙찰자가 기대한 만큼의 수익을 얻지 못한다고 지적한 이후 널리 알려졌고(실제 사례의 해석은 갈립니다), Thaler(1988)가 경제학 잡지에서 쉽게 소개했습니다. 첫째값·둘째값 경매의 구분은 Vickrey(1961)에서, 모두가 같은 진짜 가치를 두고 각자 추정치를 가지는 \"공통 가치 경매\"의 이론은 Milgrom과 Weber(1982)에서 왔습니다.",
+"en": "<b>Where the model comes from:</b> The \"winner's curse\" became well known after Capen, Clapp and Campbell (1971) argued that winning bidders in oil-lease auctions did not earn the returns they expected (how to read the real cases is debated), and Thaler (1988) introduced it accessibly in an economics journal. The first-price versus second-price distinction goes back to Vickrey (1961), and the theory of \"common-value auctions\", where everyone values the same thing but holds their own estimate, comes from Milgrom and Weber (1982).",
+"tr": "<b>モデルの出どころ:</b> 「勝者の呪い」は、Capen、Clapp、Campbell(1971)が、石油採掘権のオークションの落札者が期待した利益を得られていないと論じたことで知られるようになりました(実際の事例の解釈には議論があります)。Thaler(1988)は経済学の学術誌でこれをわかりやすく紹介しました。第一価格オークションと第二価格オークションの区別は Vickrey(1961)にさかのぼり、全員が同じものを評価しながらそれぞれ自分の推定をもつ「共通価値オークション」の理論は Milgrom と Weber(1982)に由来します。"
+},
+{
+"id": "s0485",
+"page": "auction",
+"ko": "<b>핵심 가정과 수식:</b> 입찰가는 <code>b<sub>i</sub> = V + e<sub>i</sub> − s·σ</code>이고 오차 <code>e<sub>i</sub></code>는 평균 0, 표준편차 σ인 독립 정규분포입니다(σ가 \"추정 오차\", s가 \"입찰가 낮추기\"). 추정치를 그대로 부르는 첫째값 경매에서 낙찰자의 손익은 <code>V − 최고 입찰가 = −max e<sub>i</sub></code>라서 평균이 <code>−σ·E[표준정규 n개의 최댓값]</code>이고, 둘째값 경매에서는 최댓값 대신 둘째로 큰 값을 씁니다.",
+"en": "<b>Key assumptions and formulas:</b> The bid is <code>b<sub>i</sub> = V + e<sub>i</sub> − s·σ</code>, where the errors <code>e<sub>i</sub></code> are independent normals with mean 0 and standard deviation σ (σ is \"estimation error\", s is \"bid shading\"). In a first-price auction where people bid their estimates, the winner's profit is <code>V − highest bid = −max e<sub>i</sub></code>, whose mean is <code>−σ·E[maximum of n standard normals]</code>; in a second-price auction the second-largest value replaces the maximum.",
+"tr": "<b>主な前提と式:</b> 入札額は <code>b<sub>i</sub> = V + e<sub>i</sub> − s·σ</code> で、誤差 <code>e<sub>i</sub></code> は平均0、標準偏差σの独立な正規分布に従います(σは「推定誤差」、sは「入札の控えめ度」)。人々が自分の推定値で入札する第一価格オークションでは、落札者の利益は <code>V − 最高入札額 = −max e<sub>i</sub></code> で、その平均は <code>−σ·E[n個の標準正規分布の最大値]</code> です。第二価格オークションでは、最大値の代わりに2番目に大きい値を使います。"
+},
+{
+"id": "s0486",
+"page": "auction",
+"ko": "<b>이 프로젝트의 단순화:</b> 입찰자는 \"이겼다는 것 자체가 내 추정이 높게 틀렸다는 뜻\"을 따지지 않는 순진한 입찰자이고, 경제 이론이 말하는 균형 입찰가를 계산한 것이 아닙니다. 오차는 모두 같은 정규분포로 독립이라고 가정했고, 진짜 가치는 70~130 사이 무작위, 추정 오차는 가치 100의 몇 %로 정했으며, 개인 취향이나 경험으로 배우는 효과는 없습니다. 이 값들은 이 프로젝트가 정했습니다.",
+"en": "<b>What this project simplifies:</b> Bidders are naive: they do not reason that \"winning itself means my estimate was too high\", and the model does not compute the equilibrium bids of auction theory. Errors are assumed to be independent with the same normal distribution, the true value is random between 70 and 130, the estimation error is a percentage of the value 100, and there is no private taste or learning from experience. These choices are this project's.",
+"tr": "<b>このプロジェクトが単純化している点:</b> 入札者は素朴で、「落札したこと自体が、自分の推定が高すぎた証拠だ」とは考えず、モデルもオークション理論の均衡入札額を計算しません。誤差は互いに独立で同じ正規分布に従うと仮定し、真の価値は70から130の間でランダム、推定誤差は価値100に対する割合とし、個人的な好みや経験からの学習はありません。これらの選択はこのプロジェクトのものです。"
+},
+{
+"id": "s0487",
+"page": "auction",
+"ko": "<b>이론값과 시뮬레이션:</b> 위 식은 계산해 볼 수 있고, 표준정규 n개의 최댓값 기댓값은 n=2, 5, 10, 30에서 약 0.564, 1.163, 1.539, 2.043입니다. 오차 20%이면 첫째값 낙찰자 손익은 이론 −11.3, −23.3, −30.8, −40.9이고 시뮬레이션은 −11.4, −23.5, −30.9, −40.9였습니다. 손익분기 낮춤은 첫째값 이론 1.539σ, 시뮬레이션 1.54σ이고, 둘째값 이론 1.001σ, 시뮬레이션 1.00σ였습니다.",
+"en": "<b>Theory versus simulation:</b> The formula can be computed: the expected maximum of n standard normals is about 0.564, 1.163, 1.539 and 2.043 for n = 2, 5, 10 and 30. With a 20% error, the first-price winner's profit is −11.3, −23.3, −30.8 and −40.9 in theory against −11.4, −23.5, −30.9 and −40.9 simulated. The break-even shading is 1.539σ in theory and 1.54σ simulated for first-price, and 1.001σ in theory and 1.00σ simulated for second-price.",
+"tr": "<b>理論とシミュレーションの比較:</b> この式は計算できます。標準正規分布n個の最大値の期待値は、n = 2、5、10、30のとき、およそ0.564、1.163、1.539、2.043です。誤差20%の場合、第一価格オークションの落札者の利益は、理論値が−11.3、−23.3、−30.8、−40.9で、シミュレーションでは−11.4、−23.5、−30.9、−40.9でした。損益分岐となる控えめ度は、第一価格で理論値1.539σ、シミュレーション1.54σ、第二価格で理論値1.001σ、シミュレーション1.00σです。"
+},
+{
+"id": "s0488",
+"page": "auction",
+"ko": "<b>더 읽을거리:</b> Thaler, R. H. (1988), 「Anomalies: The Winner's Curse」, <i>Journal of Economic Perspectives</i> 2(1). Capen, E. C., Clapp, R. V. & Campbell, W. M. (1971), 「Competitive Bidding in High-Risk Situations」, <i>Journal of Petroleum Technology</i> 23. Milgrom, P. & Weber, R. (1982), 「A Theory of Auctions and Competitive Bidding」, <i>Econometrica</i>.",
+"en": "<b>Further reading:</b> Thaler, R. H. (1988), \"Anomalies: The Winner's Curse\", <i>Journal of Economic Perspectives</i> 2(1). Capen, E. C., Clapp, R. V. & Campbell, W. M. (1971), \"Competitive Bidding in High-Risk Situations\", <i>Journal of Petroleum Technology</i> 23. Milgrom, P. & Weber, R. (1982), \"A Theory of Auctions and Competitive Bidding\", <i>Econometrica</i>.",
+"tr": "<b>参考文献:</b> Thaler, R. H. (1988), \"Anomalies: The Winner's Curse\", <i>Journal of Economic Perspectives</i> 2(1). Capen, E. C., Clapp, R. V. & Campbell, W. M. (1971), \"Competitive Bidding in High-Risk Situations\", <i>Journal of Petroleum Technology</i> 23. Milgrom, P. & Weber, R. (1982), \"A Theory of Auctions and Competitive Bidding\", <i>Econometrica</i>."
+},
+{
+"id": "s0515",
+"page": "bar",
+"ko": "예측이 제각각이면 손님 수가 정원 근처로 맞춰지고, 같은 예측이면 틀려요.",
+"en": "When predictions differ, attendance settles near capacity; when all agree, it misses.",
+"tr": "予測がばらけると来場者数は定員付近に落ち着き、全員が同じ予測だと外れます。"
+},
+{
+"id": "s0516",
+"page": "bar",
+"ko": "이 모델에서는 모두가 같은 예측을 따르면 그 예측 때문에 행동이 쏠려 빗나가요.",
+"en": "In this model, if everyone follows one prediction, that very prediction herds them and fails.",
+"tr": "このモデルでは、全員が1つの予測に従うと、その予測自体が人々を同じ行動に向かわせて外れます。"
+},
+{
+"id": "s0517",
+"page": "bar",
+"ko": "좋은 예측법 하나보다 사람들의 예측이 얼마나 다양한지부터 살펴볼 만해요.",
+"en": "How varied people's predictions are may matter more than finding one better prediction.",
+"tr": "人々の予測がどれだけ多様かは、より良い予測を1つ見つけることよりも重要かもしれません。"
+},
+{
+"id": "s0519",
+"page": "bar",
+"ko": "실제 사람들이 이런 계산식으로 고른다는 뜻은 아니고, 예측법과 인원은 정해 둔 설정이에요.",
+"en": "It doesn't mean people choose by such formulas; the rules and head count are preset.",
+"tr": "人々がこのような式で選ぶという意味ではありません。ルールと人数はあらかじめ決められています。"
+},
+{
+"id": "s0520",
+"page": "bar",
+"ko": "실제 식당에서 사람들이 정보를 얼마나 나누고 비슷하게 판단하는지 관찰해 봐야 확인돼요.",
+"en": "Observing how much real diners share information and judge alike would be needed to check.",
+"tr": "確認するには、実際の客がどれだけ情報を共有し、同じように判断するかを観察する必要があります。"
+},
+{
+"id": "s0522",
+"page": "bar",
+"ko": "<b>모델의 뿌리:</b> 아서(W. Brian Arthur)가 1994년 <i>American Economic Review</i> 84(2)에 쓴 \"Inductive reasoning and bounded rationality\"의 엘 파롤 바 문제입니다. 정답을 계산할 수 없는 상황에서 사람들이 가설(예측법)을 세우고 잘 맞는 것을 골라 쓰면 어떻게 되는지를 다룹니다.",
+"en": "<b>Where the model comes from:</b> This is the El Farol Bar problem from W. Brian Arthur, \"Inductive reasoning and bounded rationality\", <i>American Economic Review</i> 84(2) (1994). It asks what happens when people with no computable right answer form hypotheses (predictors) and use whichever has worked best.",
+"tr": "<b>モデルの出どころ:</b> これは W. Brian Arthur の「エル・ファロル・バー問題」です(\"Inductive reasoning and bounded rationality\", <i>American Economic Review</i> 84(2), 1994)。計算で決まる正解がない状況で、人々が仮説(予測器)を立て、いちばんうまくいった仮説を使うと何が起きるかを問います。"
+},
+{
+"id": "s0523",
+"page": "bar",
+"ko": "<b>핵심 가정과 수식:</b> 사람 <i>n</i>=100명이 매주 손님 수를 예측해 예측이 정원 60명보다 적으면 가고, 실제 손님이 정원을 넘으면 붐벼서 불만족입니다. 모두 같은 예측을 하면 모두 가거나 모두 안 가서 반드시 틀리므로 같은 예측을 하는 \"합리적 기대\"는 성립하지 않습니다. 슬라이더는 정원과 사람당 예측법 개수예요.",
+"en": "<b>Key assumptions and formulas:</b> Each week <i>n</i>=100 people predict attendance and go if the forecast is below the capacity of 60; if actual attendance exceeds capacity the bar is crowded and unpleasant. If everyone used the same forecast, everyone would go or no one would, so it would always be wrong, which means a shared \"rational expectation\" cannot hold. The sliders are the capacity and the number of predictors per person.",
+"tr": "<b>主な前提と式:</b> 毎週<i>n</i>=100人が来店者数を予測し、予測が定員60を下回れば店に行きます。実際の来店者数が定員を超えると、店は混んで不快になります。全員が同じ予測を使うと、全員が行くか誰も行かないかになり、いつも外れてしまうので、全員で共有する「合理的期待」は成り立ちません。スライダーは定員と、1人あたりの予測器の数です。"
+},
+{
+"id": "s0524",
+"page": "bar",
+"ko": "<b>이 프로젝트의 단순화:</b> 원 논문은 \"지난주와 같다\", \"50을 기준으로 뒤집은 값\", \"최근 4주 평균\" 같은 정해진 예측법 목록에서 사람마다 몇 개를 뽑습니다. 이 구현은 지난 8주 기록에 사람마다 다른 무작위 비중을 곱해 더하는 예측법을 만들었고, 가장 최근에 잘 맞힌 것(과거 오차를 0.9씩 줄여 가며 합산)을 씁니다. 그래서 논문의 그래프와 똑같은 모양이 아닙니다.",
+"en": "<b>What this project simplifies:</b> The original draws each person's predictors from a fixed list such as \"same as last week\", \"mirror image around 50\", and \"average of the last 4 weeks\". This implementation instead builds each predictor as a random weighted sum of the last 8 weeks and uses the one with the best recent record (past errors discounted by 0.9 per week). The graphs therefore do not look exactly like the paper's.",
+"tr": "<b>このプロジェクトが単純化している点:</b> 原論文では、各人の予測器を「先週と同じ」「50を中心にした鏡像」「直近4週間の平均」といった固定のリストから選びます。この実装では代わりに、各予測器を直近8週間のランダムな重み付き和として作り、最近の成績が最もよいもの(過去の誤差は週ごとに0.9倍で割り引く)を使います。そのため、グラフは論文のものと完全には同じになりません。"
+},
+{
+"id": "s0525",
+"page": "bar",
+"ko": "<b>이론값과 시뮬레이션:</b> 논문에 나온 값을 숫자로 대조한 것이 아니라 이 구현의 결과입니다. 모두 같은 예측이면 평균 50.0, 표준편차 50.0으로 0명과 100명을 오갑니다. 예측법이 다양하면 평균 손님이 58~60명으로 정원 근처에 모이고(예측법 5개: 58.3), 정원을 30, 50, 70으로 바꾸면 33.7, 50.2, 66.0이 됩니다. 비교 기준으로 \"각자 확률 0.6으로 간다\"면 표준편차가 <code>√(100·0.6·0.4)≈4.9</code>인데, 시뮬레이션은 0.6~4.0으로 더 작습니다 (<code>node tools/validate-more.js bar</code>). 정원 90에서는 평균이 79.9로 정원에 못 미칩니다.",
+"en": "<b>Theory versus simulation:</b> These are this implementation's results, not a numerical match to values in the paper. With one shared forecast, attendance averages 50.0 with standard deviation 50.0, swinging between 0 and 100. With diverse predictors, mean attendance settles at 58 to 60, near capacity (5 predictors: 58.3), and capacities 30, 50 and 70 give 33.7, 50.2 and 66.0. As a rough benchmark, if everyone simply went with probability 0.6 the standard deviation would be <code>√(100·0.6·0.4)≈4.9</code>; the simulation gives 0.6 to 4.0, which is smaller (<code>node tools/validate-more.js bar</code>). At capacity 90 the mean is 79.9, falling short of capacity.",
+"tr": "<b>理論とシミュレーションの比較:</b> これはこの実装の結果であり、論文の値と数値的に一致させたものではありません。全員が同じ予測を使うと、来店者数の平均は50.0、標準偏差は50.0で、0から100の間を大きく揺れ動きます。予測器が多様な場合、平均来店者数は58〜60に落ち着いて定員に近くなり(予測器5個: 58.3)、定員30、50、70ではそれぞれ33.7、50.2、66.0になります。おおまかな目安として、全員が単に確率0.6で行くなら標準偏差は <code>√(100·0.6·0.4)≈4.9</code> ですが、シミュレーションでは0.6〜4.0とそれより小さくなります(<code>node tools/validate-more.js bar</code>)。定員90のときの平均は79.9で、定員には届きません。"
+},
+{
+"id": "s0526",
+"page": "bar",
+"ko": "<b>더 읽을거리:</b> Arthur (1994), \"Inductive reasoning and bounded rationality\", <i>American Economic Review</i> 84(2). / Challet, Zhang (1997), \"Emergence of cooperation and organization in an evolutionary game\", <i>Physica A</i> 246 (소수 게임, 이 문제를 단순화한 후속 모델).",
+"en": "<b>Further reading:</b> Arthur (1994), \"Inductive reasoning and bounded rationality\", <i>American Economic Review</i> 84(2). / Challet, Zhang (1997), \"Emergence of cooperation and organization in an evolutionary game\", <i>Physica A</i> 246 (the Minority Game, a simplified follow-up model).",
+"tr": "<b>参考文献:</b> Arthur (1994), \"Inductive reasoning and bounded rationality\", <i>American Economic Review</i> 84(2). / Challet, Zhang (1997), \"Emergence of cooperation and organization in an evolutionary game\", <i>Physica A</i> 246 (マイノリティ・ゲーム。その後に作られた簡略化モデル)。"
+},
+{
+"id": "s0566",
+"page": "braess",
+"ko": "운전자 4,000명일 때 지름길을 열자 평균이 65.0분에서 80.0분으로 늘었어요.",
+"en": "With 4,000 drivers, opening the shortcut raised the average from 65.0 to 80.0 minutes.",
+"tr": "運転者4,000人のとき、近道を開通させると平均が65.0分から80.0分に増えました。"
+},
+{
+"id": "s0567",
+"page": "braess",
+"ko": "각자 더 빠른 길로 옮기다 모두 지름길로 몰려, 혼자 바꿔도 이득 없는 상태에서 오히려 느려졌어요.",
+"en": "Each driver kept switching to a faster route until all piled onto the shortcut, ending slower though no one gains by switching.",
+"tr": "各運転者がより速い経路へ乗り換え続けた結果、全員が近道に集中して遅くなりましたが、乗り換えて得をする人はもういません。"
+},
+{
+"id": "s0568",
+"page": "braess",
+"ko": "새 길의 효과는 이용자 수와 혼잡 정도에 달려 있어서, 길 하나보다 전체 교통량부터 살펴볼 만해요.",
+"en": "A new road's effect depends on traffic volume and congestion, so total demand may be worth examining first.",
+"tr": "新しい道路の効果は交通量と混雑の度合いに左右されるため、まず総需要を調べるとよいかもしれません。"
+},
+{
+"id": "s0570",
+"page": "braess",
+"ko": "실제 도시 도로망이 아니라 작고 대칭인 도로망이고, 새 길이 늘 해롭다는 뜻도 아니에요.",
+"en": "This is a small symmetric network, not a real city, and it does not mean new roads are always harmful.",
+"tr": "これは小さな対称ネットワークで実在の都市ではなく、新しい道路が常に有害だという意味でもありません。"
+},
+{
+"id": "s0571",
+"page": "braess",
+"ko": "대중교통, 출발 시각 조정, 새로 생기는 수요를 넣고 실제 도로의 교통량 변화를 관찰해야 확인돼요.",
+"en": "Transit, departure-time shifts and induced demand would need adding, and real traffic changes observing.",
+"tr": "公共交通、出発時刻のずらし、誘発需要を加え、実際の交通の変化を観察する必要があります。"
+},
+{
+"id": "s0573",
+"page": "braess",
+"ko": "<b>모델의 뿌리:</b> Dietrich Braess가 1968년 논문 「Über ein Paradoxon aus der Verkehrsplanung」(<i>Unternehmensforschung</i>)에서 보인 역설입니다. 모두가 자기에게 가장 빠른 길을 고르는 균형에서는 길을 하나 더해도 모두의 이동 시간이 늘어날 수 있다는 내용입니다. 이 페이지의 운전자 4,000명, 막히는 길 x/100분, 고정 45분 도로망은 Easley와 Kleinberg의 교과서에 실린 널리 알려진 예시를 따랐습니다.",
+"en": "<b>Where the model comes from:</b> A paradox shown by Dietrich Braess in his 1968 paper &quot;Über ein Paradoxon aus der Verkehrsplanung&quot; (<i>Unternehmensforschung</i>): in an equilibrium where everyone picks their own fastest route, adding a road can make everyone's travel time longer. The 4,000 drivers, x/100-minute congestible roads and fixed 45 minutes on this page follow the widely used example in Easley and Kleinberg's textbook.",
+"tr": "<b>モデルの出どころ:</b> ディートリッヒ・ブラエスが1968年の論文 &quot;Über ein Paradoxon aus der Verkehrsplanung&quot;(<i>Unternehmensforschung</i>)で示したパラドックスです。全員が自分にとって最速の経路を選ぶ均衡では、道路を1本加えることで、全員の所要時間が長くなることがあります。このページの4,000人のドライバー、x/100分の混雑する道路、固定の45分は、イーズリーとクラインバーグの教科書でよく使われる例にならっています。"
+},
+{
+"id": "s0574",
+"page": "braess",
+"ko": "<b>핵심 가정과 수식:</b> 운전자는 자기 시간만 줄이려 하고, 아무도 혼자 길을 바꿔서는 이득을 못 보는 상태(내시 균형)에 닿습니다. 막히는 길의 시간은 <code>a × 이용자 수</code>(a = 민감도/1000), 고정 길은 45분입니다. 지름길이 없으면 두 길에 반씩 나뉘어 <code>a·n/2 + 45</code>이고, 지름길 비용이 c일 때 <code>a·n + c ≤ 45</code>이면 모두 지름길을 타서 평균이 <code>2a·n + c</code>가 됩니다. 슬라이더는 n(운전자 수), c(지름길 비용), a(민감도)입니다.",
+"en": "<b>Key assumptions and formulas:</b> Drivers only try to cut their own time and settle where nobody can gain by switching alone (a Nash equilibrium). A congestible road takes <code>a × its users</code> (a = sensitivity/1000) and the fixed road 45 minutes. Without the shortcut drivers split evenly, giving <code>a·n/2 + 45</code>; with a shortcut costing c, if <code>a·n + c ≤ 45</code> everyone takes it and the average becomes <code>2a·n + c</code>. The sliders are n (drivers), c (shortcut cost) and a (sensitivity).",
+"tr": "<b>主な前提と式:</b> ドライバーは自分の所要時間を減らすことだけを考え、誰も1人だけ経路を変えても得をしない状態(ナッシュ均衡)に落ち着きます。混雑する道路にかかる時間は <code>a × 利用者数</code>(a = 感度/1000)、固定の道路は45分です。近道がないと、ドライバーは半々に分かれ、<code>a·n/2 + 45</code> になります。コストcの近道がある場合、<code>a·n + c ≤ 45</code> なら全員がそれを使い、平均は <code>2a·n + c</code> になります。スライダーは n(ドライバー数)、c(近道のコスト)、a(感度)です。"
+},
+{
+"id": "s0575",
+"page": "braess",
+"ko": "<b>이 프로젝트의 단순화:</b> 도로망은 길 네 개짜리 대칭 도로망 하나, 출발지와 목적지도 하나이며 운전자는 시간만 따집니다. 운전자의 재선택 규칙(매 라운드 8%가 확실히 더 빠를 때만 이동)과 기본값(민감도 10, 지름길 비용 0분)은 이 프로젝트가 정한 것이고, 실제 도시의 교통량이나 수요 변화는 없습니다.",
+"en": "<b>What this project simplifies:</b> The network is one symmetric four-road network with a single origin and destination, and drivers care only about time. The re-choosing rule (each round 8% of drivers move, and only if clearly faster) and the defaults (sensitivity 10, shortcut cost 0 minutes) are this project's own choices; there is no real city traffic or demand change.",
+"tr": "<b>このプロジェクトが単純化している点:</b> 道路網は、出発地と目的地が1つずつの対称な4本の道路でできており、ドライバーは所要時間だけを気にします。選び直しのルール(各ラウンドでドライバーの8%が移動し、しかも明らかに速くなる場合だけ)と初期値(感度10、近道のコスト0分)は、このプロジェクト独自の選択です。実際の都市の交通や需要の変化はありません。"
+},
+{
+"id": "s0576",
+"page": "braess",
+"ko": "<b>이론값과 시뮬레이션:</b> 4,000명, 비용 0분에서 이론값은 닫힘 65.0분, 열림 80.0분, 사회 최적 64.7분이고 시뮬레이션도 65.0분과 80.0분(180라운드)이었습니다. 운전자 수, 지름길 비용, 민감도를 바꾼 여러 설정에서 시뮬레이션의 끝 평균이 이론값과 맞았고, 끝 상태에서 혼자 옮겨 얻는 이득은 0분이었습니다. 무정부 가격(균형÷최적)은 4,000명에서 1.24, 4,500명에서 최대 1.33(=4/3)으로, 선형 지연 시간의 알려진 상한 4/3과 같았습니다.",
+"en": "<b>Theory versus simulation:</b> At 4,000 drivers and cost 0 the theory gives 65.0 minutes closed, 80.0 open and 64.7 at the social optimum, and the simulation reached 65.0 and 80.0 (round 180). Across settings varying drivers, shortcut cost and sensitivity, the simulated end averages matched the theory, and the gain from switching alone at the end state was 0 minutes. The price of anarchy (equilibrium ÷ optimum) was 1.24 at 4,000 drivers and peaked at 1.33 (= 4/3) at 4,500, equal to the known bound of 4/3 for linear delays.",
+"tr": "<b>理論とシミュレーションの比較:</b> ドライバー4,000人、コスト0の場合、理論値は近道を閉じたときが65.0分、開いたときが80.0分、社会的最適が64.7分で、シミュレーションでは65.0分と80.0分に達しました(ラウンド180)。ドライバー数、近道のコスト、感度を変えたどの設定でも、シミュレーションの最終的な平均は理論と一致し、最終状態で1人だけ経路を変えたときの得は0分でした。無秩序の代償(均衡÷最適)は、ドライバー4,000人で1.24、4,500人でピークの1.33(= 4/3)になり、線形の遅れで知られている上限4/3に等しくなりました。"
+},
+{
+"id": "s0577",
+"page": "braess",
+"ko": "<b>더 읽을거리:</b> Braess (1968), Unternehmensforschung(영어 번역: Braess, Nagurney &amp; Wakolbinger, 2005, &quot;On a paradox of traffic planning&quot;, <i>Transportation Science</i>) / Roughgarden &amp; Tardos (2002), &quot;How bad is selfish routing?&quot;, <i>Journal of the ACM</i> / Easley &amp; Kleinberg (2010), <i>Networks, Crowds, and Markets</i>, Cambridge University Press.",
+"en": "<b>Further reading:</b> Braess (1968), Unternehmensforschung (English translation: Braess, Nagurney &amp; Wakolbinger, 2005, &quot;On a paradox of traffic planning&quot;, <i>Transportation Science</i>) / Roughgarden &amp; Tardos (2002), &quot;How bad is selfish routing?&quot;, <i>Journal of the ACM</i> / Easley &amp; Kleinberg (2010), <i>Networks, Crowds, and Markets</i>, Cambridge University Press.",
+"tr": "<b>参考文献:</b> Braess (1968), Unternehmensforschung (英訳: Braess, Nagurney &amp; Wakolbinger, 2005, &quot;On a paradox of traffic planning&quot;, <i>Transportation Science</i>) / Roughgarden &amp; Tardos (2002), &quot;How bad is selfish routing?&quot;, <i>Journal of the ACM</i> / Easley &amp; Kleinberg (2010), <i>Networks, Crowds, and Markets</i>, Cambridge University Press."
+},
+{
+"id": "s0581",
+"page": "bunching",
+"ko": "버스 뭉침 · 시뮬라티오 랩",
+"en": "Bus Bunching · Simulatio Lab",
+"tr": "バスの団子運転 · Simulatio Lab"
+},
+{
+"id": "s0582",
+"page": "bunching",
+"ko": "같은 간격으로 출발한 버스가 왜 몇 대씩 뭉쳐 다니게 되는지, 승객이 많을수록 늦어지는 되먹임 모델로 직접 돌려보고 해결책도 시험해 보세요.",
+"en": "Run a feedback model to see why evenly spaced buses end up travelling in bunches, and test remedies that restore the spacing.",
+"tr": "フィードバックのモデルを実行して、等間隔だったバスがなぜ団子になって走るのかを確かめ、間隔を取り戻す対策も試してみましょう。"
+},
+{
+"id": "s0583",
+"page": "bunching",
+"ko": "버스를 기다리다 보면 한참 안 오다가 두세 대가 줄줄이 오곤 합니다. 운이 나빴거나 기사님들이 제멋대로여서라고 생각하기 쉽습니다. 그런데 이 모델의 버스는 모두 똑같은 속도와 똑같은 규칙으로 달리고, 처음에는 간격도 거의 고릅니다. 그런데도 시간이 지나면 어김없이 뭉칩니다. 뭉침은 불운이 아니라, 노선이라는 시스템에 처음부터 들어 있는 구조입니다.",
+"en": "While waiting for a bus you often wait ages, then two or three arrive in a row. It is easy to blame bad luck or careless drivers. Yet every bus in this model runs at the same speed under the same rule, and at the start they are almost perfectly spaced. They bunch up anyway. It is not bad luck: it is built into the system of a bus route.",
+"tr": "バスを待っていると、延々と待たされたあげく、2台、3台と続けて来ることがよくあります。運が悪いとか、運転手が不注意だと考えがちです。ですが、このモデルのバスはどれも同じルールで同じ速さで走り、最初はほぼ完全に等間隔です。それでも団子になります。運が悪いのではなく、バス路線という仕組みにもともと組み込まれているのです。"
+},
+{
+"id": "s0584",
+"page": "bunching",
+"ko": "고리 모양 노선에 정류장 24곳이 같은 간격으로 있고, 버스 여러 대가 같은 방향으로 돕니다. 버스는 정류장 사이를 1분에 달립니다. 정류장마다 승객이 일정한 평균 속도로 무작위로 도착해 줄을 섭니다(슬라이더의 승객 수요).",
+"en": "A ring-shaped route has 24 evenly spaced stops, and several buses circle in the same direction. A bus covers the gap between stops in 1 minute. At every stop passengers arrive at random with a constant average rate and queue up (the passenger demand slider).",
+"tr": "環状の路線に24の停留所が等間隔にあり、複数のバスが同じ向きに周回します。バスは停留所の間を1分で走ります。各停留所には、乗客が一定の平均的な頻度でランダムに到着して列をつくります(乗客の需要のスライダー)。"
+},
+{
+"id": "s0585",
+"page": "bunching",
+"ko": "버스는 정류장에 서서 줄 선 승객을 한 명씩 태웁니다(1명에 3초). 줄이 빌 때까지 서 있고, 서 있는 동안 새로 온 승객도 태웁니다. 그래서 <b>서 있는 시간은 줄 선 승객 수에 비례</b>합니다. 앞차와 간격이 벌어진 버스는 승객이 더 많이 쌓여 있어 더 오래 서고, 그래서 더 늦어집니다.",
+"en": "At a stop the bus loads the waiting passengers one by one (3 seconds each). It stays until the queue is empty, taking anyone who arrives meanwhile. So the <b>time it stands is proportional to the number waiting</b>. A bus with a larger gap ahead finds more people waiting, stands longer, and falls even further behind.",
+"tr": "停留所では、バスは待っている乗客を1人ずつ乗せます(1人3秒)。列がなくなるまで停まり、その間に来た人も乗せます。つまり、<b>停まっている時間は待っている人数に比例します</b>。前との間隔が広いバスは、待っている人が多く、長く停まり、さらに遅れます。"
+},
+{
+"id": "s0586",
+"page": "bunching",
+"ko": "반대로 뒤차는 앞차가 이미 승객을 태워 간 뒤라 줄이 짧아 금방 출발하고, 앞차를 따라잡습니다. 앞차는 더 늦어지고 뒤차는 더 빨라지는 <b>양의 되먹임</b>이 작은 어긋남을 점점 키워, 결국 몇 대가 한 덩어리로 달립니다.",
+"en": "The bus behind finds short queues because the one ahead has already taken the passengers, so it leaves quickly and catches up. The one ahead gets slower, the one behind faster: this <b>positive feedback</b> amplifies tiny differences until several buses run as one clump.",
+"tr": "後ろのバスは、前のバスがすでに乗客を乗せているため、列が短く、すぐに出発して追いつきます。前のバスは遅くなり、後ろのバスは速くなります。この<b>正のフィードバック</b>がわずかな差を増幅し、やがて複数のバスが1つの団子になって走ります。"
+},
+{
+"id": "s0587",
+"page": "bunching",
+"ko": "<b>처방</b>을 고를 수 있습니다. 간격 유지는 앞차가 이 정류장을 떠난 뒤 이상적 간격의 1.15배가 지나야 출발하게 하고, 승차 제한은 한 정류장에서 서는 시간에 상한을 둬서 남은 승객은 다음 버스에 맡깁니다.",
+"en": "You can pick a <b>remedy</b>. Holding keeps a bus at the stop until 1.15 times the ideal spacing has passed since the bus ahead left, and limited boarding caps how long a bus may stand, leaving the remaining passengers to the next bus.",
+"tr": "<b>対策</b>を選べます。ホールディングは、前のバスが出発してから理想の間隔の1.15倍が経つまでバスを停留所に留めます。乗車制限はバスが停まれる時間に上限を設け、残った乗客は次のバスに任せます。"
+},
+{
+"id": "s0588",
+"page": "bunching",
+"ko": "버스 수 <output id=\"o-n\"></output>",
+"en": "Number of buses <output id=\"o-n\"></output>",
+"tr": "バスの台数 <output id=\"o-n\"></output>"
+},
+{
+"id": "s0589",
+"page": "bunching",
+"ko": "많을수록 이상적 간격이 짧아져요",
+"en": "More buses mean a shorter ideal gap",
+"tr": "バスが多いほど理想の間隔は短くなります"
+},
+{
+"id": "s0590",
+"page": "bunching",
+"ko": "승객 수요 <output id=\"o-demand\"></output>",
+"en": "Passenger demand <output id=\"o-demand\"></output>",
+"tr": "乗客の需要 <output id=\"o-demand\"></output>"
+},
+{
+"id": "s0591",
+"page": "bunching",
+"ko": "정류장 한 곳에 시간당 도착하는 평균 승객 수. 클수록 되먹임이 세져요",
+"en": "Average passengers arriving per hour at each stop. The higher it is, the stronger the feedback",
+"tr": "各停留所に1時間あたりに到着する乗客の平均数です。多いほどフィードバックが強くなります"
+},
+{
+"id": "s0592",
+"page": "bunching",
+"ko": "처음 어긋남 <output id=\"o-eps\"></output>",
+"en": "Initial disturbance <output id=\"o-eps\"></output>",
+"tr": "初期のずれ <output id=\"o-eps\"></output>"
+},
+{
+"id": "s0593",
+"page": "bunching",
+"ko": "처음 출발 위치를 이상적 간격의 몇 %만큼 무작위로 흩뜨릴지",
+"en": "How far, in percent of the ideal gap, the starting positions are randomly shifted",
+"tr": "初期位置を理想の間隔の何%だけランダムにずらすかです"
+},
+{
+"id": "s0594",
+"page": "bunching",
+"ko": "처방 <output id=\"o-remedy\"></output>",
+"en": "Remedy <output id=\"o-remedy\"></output>",
+"tr": "対策 <output id=\"o-remedy\"></output>"
+},
+{
+"id": "s0595",
+"page": "bunching",
+"ko": "처방 없음",
+"en": "No remedy",
+"tr": "対策なし"
+},
+{
+"id": "s0596",
+"page": "bunching",
+"ko": "간격 유지: 앞차가 떠난 뒤 일정 시간이 지나야 출발",
+"en": "Holding: wait until enough time has passed since the bus ahead left",
+"tr": "ホールディング：前のバスが出てから十分な時間が経つまで待つ"
+},
+{
+"id": "s0597",
+"page": "bunching",
+"ko": "승차 제한: 서는 시간에 상한",
+"en": "Limited boarding: cap the standing time",
+"tr": "乗車制限：停車時間に上限を設ける"
+},
+{
+"id": "s0598",
+"page": "bunching",
+"ko": "처방을 바꾸면 처음부터 다시 돌립니다. 아래 차트는 세 처방을 같은 조건으로 비교해요",
+"en": "Changing it restarts the run. The charts below compare all three remedies under the same conditions",
+"tr": "変更すると実行がやり直しになります。下のグラフは3つの対策を同じ条件で比べたものです"
+},
+{
+"id": "s0599",
+"page": "bunching",
+"ko": "같은 설정, 다른 승객 도착",
+"en": "Same settings, different arrivals",
+"tr": "同じ設定、異なる到着"
+},
+{
+"id": "s0600",
+"page": "bunching",
+"ko": "① 순환 노선 지켜보기",
+"en": "① Watching the Ring Route",
+"tr": "① 環状路線を観察する"
+},
+{
+"id": "s0601",
+"page": "bunching",
+"ko": "동그라미가 버스, 번호가 버스 번호입니다. 정류장에서 바깥으로 뻗은 주황 막대는 줄 선 승객이고, 검은 테두리 버스는 승객을 태우는 중입니다. 처음엔 고르게 돌다가 점점 서로 붙는 것을 지켜보세요.",
+"en": "Circles are buses and the numbers are bus numbers. Orange bars sticking out from the stops are queues of waiting passengers, and a bus with a black outline is loading. Watch evenly spaced buses gradually stick together.",
+"tr": "円はバスで、数字はバスの番号です。停留所から出ているオレンジ色の棒は待っている乗客の列で、黒い縁取りのバスは乗車中です。等間隔だったバスが少しずつくっついていく様子を見てください。"
+},
+{
+"id": "s0602",
+"page": "bunching",
+"ko": "② 간격이 흐트러지는 모습",
+"en": "② How the Gaps Drift",
+"tr": "② 間隔がどうずれていくか"
+},
+{
+"id": "s0603",
+"page": "bunching",
+"ko": "가로는 시간, 세로는 버스 번호이고 색은 그 버스와 앞차 사이의 간격입니다. 옅은 회색은 고른 간격, 빨강은 바짝 붙음, 파랑은 크게 벌어짐입니다. 줄무늬가 빨강과 파랑으로 갈라지면 뭉친 것입니다.",
+"en": "Time runs left to right and buses top to bottom; color shows the gap between that bus and the one ahead. Pale gray is even spacing, red is bunched tightly, blue is a large gap. When the stripes split into red and blue the buses have bunched.",
+"tr": "時間は左から右へ、バスは上から下へ並び、色はそのバスと前のバスとの間隔を表します。薄いグレーは等間隔、赤は詰まっている状態、青は間隔が大きい状態です。縞が赤と青に分かれたら、バスが団子になったということです。"
+},
+{
+"id": "s0604",
+"page": "bunching",
+"ko": "<i style=\"background:#e5484d\"></i>앞차에 바짝 붙음",
+"en": "<i style=\"background:#e5484d\"></i>Tight behind the bus ahead",
+"tr": "<i style=\"background:#e5484d\"></i>前のバスにぴったり"
+},
+{
+"id": "s0605",
+"page": "bunching",
+"ko": "<i style=\"background:#eef1f7;border:1px solid #c3cce0\"></i>고른 간격",
+"en": "<i style=\"background:#eef1f7;border:1px solid #c3cce0\"></i>Even gap",
+"tr": "<i style=\"background:#eef1f7;border:1px solid #c3cce0\"></i>等間隔"
+},
+{
+"id": "s0606",
+"page": "bunching",
+"ko": "<i style=\"background:#2f6fed\"></i>앞차와 크게 벌어짐",
+"en": "<i style=\"background:#2f6fed\"></i>Large gap to the bus ahead",
+"tr": "<i style=\"background:#2f6fed\"></i>前のバスとの間隔が大きい"
+},
+{
+"id": "s0607",
+"page": "bunching",
+"ko": "③ 간격 변동계수(CV)의 변화",
+"en": "③ How the Variation of Gaps Grows",
+"tr": "③ 間隔のばらつきがどう大きくなるか"
+},
+{
+"id": "s0608",
+"page": "bunching",
+"ko": "버스 간격이 얼마나 들쭉날쭉한지를 나타내는 값입니다(표준편차 ÷ 평균). 0이면 완전히 고르고, 버스가 모두 한 덩어리가 되면 최댓값에 가깝습니다. 굵은 검은 선이 지금 돌리는 실험이고, 색 선은 세 처방을 같은 조건으로 끝까지 돌린 결과입니다.",
+"en": "This measures how uneven the gaps are (standard deviation divided by the mean). 0 means perfectly even, and it is close to its maximum when all buses form one clump. The thick black line is the run you are watching, and the colored lines are all three remedies run to the end under the same conditions.",
+"tr": "間隔がどれだけ不揃いかを表します（標準偏差を平均で割った値）。0は完全な等間隔で、すべてのバスが1つの団子になると最大値に近づきます。太い黒線は今見ている実行で、色つきの線は同じ条件で最後まで実行した3つの対策です。"
+},
+{
+"id": "s0609",
+"page": "bunching",
+"ko": "<i style=\"background:#e5484d\"></i>처방 없음",
+"en": "<i style=\"background:#e5484d\"></i>No remedy",
+"tr": "<i style=\"background:#e5484d\"></i>対策なし"
+},
+{
+"id": "s0610",
+"page": "bunching",
+"ko": "<i style=\"background:#1fa463\"></i>간격 유지",
+"en": "<i style=\"background:#1fa463\"></i>Holding",
+"tr": "<i style=\"background:#1fa463\"></i>ホールディング"
+},
+{
+"id": "s0611",
+"page": "bunching",
+"ko": "<i style=\"background:#e0a100\"></i>승차 제한",
+"en": "<i style=\"background:#e0a100\"></i>Limited boarding",
+"tr": "<i style=\"background:#e0a100\"></i>乗車制限"
+},
+{
+"id": "s0612",
+"page": "bunching",
+"ko": "<i style=\"background:#111\"></i>지금 돌리는 중",
+"en": "<i style=\"background:#111\"></i>Running now",
+"tr": "<i style=\"background:#111\"></i>実行中"
+},
+{
+"id": "s0613",
+"page": "bunching",
+"ko": "④ 처방의 효과와 대가",
+"en": "④ What the Remedies Gain and Cost",
+"tr": "④ 対策で得るものと失うもの"
+},
+{
+"id": "s0614",
+"page": "bunching",
+"ko": "왼쪽은 승객이 버스를 기다리는 평균 시간, 오른쪽은 버스가 한 바퀴 도는 데 걸리는 시간입니다. 간격을 지키게 하면 기다림은 크게 줄지만 버스가 정류장에서 쉬는 만큼 한 바퀴가 길어집니다. 점선은 기준값입니다.",
+"en": "Left is the average time passengers wait for a bus, right the time a bus needs for one lap. Keeping the spacing cuts the wait a lot, but the lap gets longer because buses rest at stops. Dashed lines are reference values.",
+"tr": "左は乗客がバスを待つ平均時間、右はバスが1周するのにかかる時間です。間隔を保つと待ち時間は大きく減りますが、バスが停留所で休むため1周は長くなります。破線は基準値です。"
+},
+{
+"id": "s0615",
+"page": "bunching",
+"ko": "처방이 없으면 이 가상 노선에서 버스가 뭉치고 평균 기다림이 약 3.8배로 길어졌어요.",
+"en": "With no remedy, buses on this virtual line bunched up and the average wait grew about 3.8 times.",
+"tr": "対策がないと、この仮想路線のバスは団子状になり、平均待ち時間は約3.8倍に増えました。"
+},
+{
+"id": "s0616",
+"page": "bunching",
+"ko": "앞차는 승객이 쌓여 더 늦어지고 뒤차는 따라잡는 되먹임 때문에, 작은 어긋남이 스스로 커질 수 있어요.",
+"en": "A late bus piles up passengers and gets later while the next one catches up, so a small gap can feed on itself.",
+"tr": "遅れたバスは乗客がたまってさらに遅れ、そこへ次のバスが追いつくため、小さな間隔の乱れが自己増幅することがあります。"
+},
+{
+"id": "s0617",
+"page": "bunching",
+"ko": "기사 개인보다 정차 시간이 간격에 비례하는 구조와, 간격 유지의 대가로 한 바퀴가 길어지는 점을 살펴볼 만해요.",
+"en": "The structure, where stop time grows with the gap, and the longer loop that spacing control costs are worth a look before blaming drivers.",
+"tr": "運転手を責める前に、間隔が開くほど停車時間が延びるという構造と、間隔調整が招くより長い周回を見る価値があります。"
+},
+{
+"id": "s0618",
+"page": "bunching",
+"ko": "<b>말하는 것:</b> 버스 6대, 정류장 24곳, 정류장당 시간당 승객 40명, 처음 어긋남 5%에서 이상적 간격은 4.6분(한 바퀴 27.8분)이었습니다. 처방이 없으면 간격의 변동계수가 0분에 0.04였던 것이 60분에 0.54, 120분에 1.00, 240분에 1.51, 360분에 2.10으로 커졌습니다(시드 20개 평균, 6대가 모두 한 덩어리가 되면 최댓값 2.24). 평균 기다림은 뒤쪽 절반 시간에 8.7분으로, 간격이 고를 때의 2.3분의 약 3.8배였습니다. 기다림은 (이상적 간격÷2)×(1+CV²)로 거의 설명되어 식의 9.0분과 가까웠습니다. 처음 어긋남이 0%여도 승객 도착의 무작위성만으로 CV가 0.5를 넘는 데 63분이 걸렸고, 5%에서도 63분, 25%에서는 35분이었습니다. 간격 유지 처방은 CV를 0.04로 눌러 기다림을 2.5분으로 줄였지만 한 바퀴는 27.1분에서 32.4분으로 약 19% 길어졌습니다. 승차 제한은 기다림을 3.4분(한 바퀴 25.9분)으로 줄였으나 CV는 120분 즈음까지 0.13 안팎에 머물다가 360분에 0.66으로 올라, 뭉침을 늦출 뿐 막지는 못했습니다. 수요가 시간당 10명이면 기다림이 거의 늘지 않아(약 1.0배) 뭉침이 없었고, 20명에서 약 1.2배, 60명에서 약 5.7배였습니다.",
+"en": "<b>What it shows:</b> With 6 buses, 24 stops, 40 passengers per hour at each stop and a 5% initial disturbance, the ideal gap was 4.6 minutes (a lap of 27.8 minutes). With no remedy, the coefficient of variation of the gaps grew from 0.04 at minute 0 to 0.54 at minute 60, 1.00 at 120, 1.51 at 240 and 2.10 at 360 (mean of 20 seeds; the maximum when all 6 buses form one clump is 2.24). The average wait in the second half was 8.7 minutes, about 3.8 times the 2.3 minutes of even spacing. The wait was mostly explained by (ideal gap ÷ 2) × (1 + CV²), giving 9.0 minutes, close to the measured value. Even with 0% initial disturbance, the randomness of passenger arrivals alone took CV above 0.5 after 63 minutes; with 5% it was 63 minutes and with 25% it was 35. Holding pushed CV down to 0.04 and the wait to 2.5 minutes, but the lap grew about 19%, from 27.1 to 32.4 minutes. Limited boarding cut the wait to 3.4 minutes (lap 25.9 minutes), but CV stayed around 0.13 until about minute 120 and then rose to 0.66 by minute 360, so it delayed the bunching rather than preventing it. At 10 passengers per hour the wait barely grew (about 1.0 times) and the buses did not bunch; at 20 it was about 1.2 times and at 60 about 5.7 times.",
+"tr": "<b>言えること：</b>バス6台、停留所24か所、各停留所で1時間あたり乗客40人、初期のずれ5%の場合、理想の間隔は4.6分（1周27.8分）でした。対策なしでは、間隔の変動係数は0分で0.04だったものが、60分で0.54、120分で1.00、240分で1.51、360分で2.10に増えました（シード20回の平均。6台すべてが1つの団子になったときの最大値は2.24）。後半の平均待ち時間は8.7分で、等間隔のときの2.3分の約3.8倍でした。待ち時間は（理想の間隔÷2）×（1＋CV²）でほぼ説明でき、9.0分と測定値に近い値になりました。初期のずれが0%でも、乗客の到着のランダムさだけでCVは63分後に0.5を超え、5%では63分、25%では35分でした。ホールディングはCVを0.04、待ち時間を2.5分まで下げましたが、1周は27.1分から32.4分へ約19%長くなりました。乗車制限は待ち時間を3.4分（1周25.9分）に減らしましたが、CVは120分ごろまで0.13前後にとどまり、360分には0.66に上がったので、団子化を防ぐのではなく遅らせただけでした。1時間あたり10人では待ち時間はほとんど増えず（約1.0倍）、バスも団子になりませんでした。20人では約1.2倍、60人では約5.7倍でした。"
+},
+{
+"id": "s0619",
+"page": "bunching",
+"ko": "실제 노선을 재현한 것이 아니고 숫자는 이 가상 노선에서만 맞아요. 신호, 정체, 환승은 빠져 있어요.",
+"en": "It does not reproduce a real route and the numbers hold only for this virtual line; signals, traffic and transfers are missing.",
+"tr": "実在の路線を再現するものではなく、数値はこの仮想路線にのみ当てはまります。信号・交通・乗り換えは含まれていません。"
+},
+{
+"id": "s0620",
+"page": "bunching",
+"ko": "실제 노선의 뭉침은 운행 기록과 승객 수요를 모아 보고, 처방이 실제로 통하는지 시험해 봐야 알 수 있어요.",
+"en": "Bunching on a real route needs trip logs and passenger demand, and any remedy would have to be tested there.",
+"tr": "実際の路線でのバンチングを調べるには運行記録と乗客需要が必要で、対策もそこで検証しなければなりません。"
+},
+{
+"id": "s0621",
+"page": "bunching",
+"ko": "<b>말하지 않는 것:</b> 실제 버스 노선을 재현한 것이 아닙니다. 이 모델은 신호등, 교통 정체, 승객 하차, 승객이 정류장마다 다른 수요, 환승, 버스 크기·정원, 앞지르기 금지 같은 현실의 요소를 모두 뺀 이 프로젝트의 단순화된 모델입니다. 정차 시간은 줄 선 승객 수로 정해지는 단순한 규칙이고, 기사님들의 행동 차이도 없습니다. 그래서 \"버스가 몇 대로 뭉치는지\"나 \"처방이 몇 %를 줄이는지\" 같은 숫자는 이 가상 노선에서만 맞는 값입니다. 다만 늦은 버스가 더 늦어지고 뒤차가 따라잡는 되먹임이 작은 어긋남을 키울 수 있다는 메커니즘은 교통 연구에서 오래 다뤄 온 것입니다. 처방도 이 모델의 단순한 규칙일 뿐, 실제 운영에서 쓰는 방법과 효과를 그대로 나타내지 않습니다.",
+"en": "<b>What it doesn't show:</b> This does not reproduce any real bus route. It is this project's simplified model with no traffic lights, congestion, alighting passengers, stop-by-stop differences in demand, transfers, bus capacity or overtaking rules. Standing time follows a plain rule based on the queue, and drivers do not differ in behavior. So numbers such as how many buses clump or how much a remedy helps are valid only for this imaginary route. The mechanism itself, where a late bus gets later while the one behind catches up and small differences grow, has long been studied in transport research. The remedies are also simple rules in this model, not a faithful picture of how real operators work or how well it would work.",
+"tr": "<b>言えないこと：</b>実在のバス路線を再現したものではありません。信号、渋滞、降車する乗客、停留所ごとの需要の違い、乗り換え、バスの定員、追い越しのルールがない、このプロジェクトの簡略化したモデルです。停車時間は待ち行列に基づく単純なルールで決まり、運転手による振る舞いの違いもありません。そのため、何台が団子になるか、対策がどれだけ効くかといった数字は、この架空の路線でしか成り立ちません。遅れたバスがさらに遅れ、後ろのバスが追いついて小さな差が広がっていくという仕組み自体は、交通研究で古くから調べられています。対策もこのモデルの単純なルールであり、実際の事業者の運用や効果を忠実に表したものではありません。"
+},
+{
+"id": "s0622",
+"page": "bunching",
+"ko": "<b>모델의 뿌리:</b> 버스 뭉침의 되먹임은 Newell과 Potts가 1964년 논문 \"Maintaining a bus schedule\"(호주 도로연구위원회 학술대회 논문집)에서 일찍이 분석한 고전적 결과로 알려져 있습니다. 같은 간격으로 달리는 버스는 불안정해서 작은 어긋남이 커진다는 것이 요지입니다.",
+"en": "<b>Where the model comes from:</b> The feedback behind bus bunching was analyzed early by Newell and Potts (1964) in \"Maintaining a bus schedule\" (Australian Road Research Board conference proceedings), a classic result. In short, evenly spaced buses are unstable and small disturbances grow.",
+"tr": "<b>モデルの出典：</b>バスの団子運転の背景にあるフィードバックは、Newell と Potts（1964）の「Maintaining a bus schedule」（Australian Road Research Board 会議録）で早くから分析されており、古典的な結果です。要するに、等間隔のバスは不安定で、小さな乱れが大きくなります。"
+},
+{
+"id": "s0623",
+"page": "bunching",
+"ko": "<b>핵심 가정과 수식:</b> 정류장에 도착하는 승객은 평균 속도 λ의 무작위 과정이라, 간격 h인 버스 앞에는 평균 λh명이 기다립니다. 1명을 태우는 데 β분이 걸리고 서 있는 동안 도착하는 승객도 태우면 정차 시간은 <code>T = β·λh / (1 − βλ)</code>로 h에 비례합니다. 간격이 벌어지면 정차가 길어지고 그만큼 더 늦어지는 양의 되먹임입니다. 슬라이더의 수요가 λ입니다. 도착이 무작위일 때 평균 기다림은 간격 h<sub>i</sub>에 대해 <code>Σh<sub>i</sub>² / (2Σh<sub>i</sub>) = (H/2)(1 + CV²)</code>입니다.",
+"en": "<b>Key assumptions and formulas:</b> Passengers reach a stop at random with average rate λ, so a bus with gap h ahead finds about λh people waiting. If loading takes β minutes each and people who arrive meanwhile also board, the standing time is <code>T = β·λh / (1 − βλ)</code>, proportional to h. A larger gap means a longer stop and so even more delay: positive feedback. The demand slider is λ. With random arrivals, the mean wait for gaps h<sub>i</sub> is <code>Σh<sub>i</sub>² / (2Σh<sub>i</sub>) = (H/2)(1 + CV²)</code>.",
+"tr": "<b>主な仮定と式：</b>乗客は平均到着率λでランダムに停留所に来るので、前のバスとの間隔がhのバスは約λh人の待ち客に出会います。乗車に1人あたりβ分かかり、その間に来た人も乗るとすると、停車時間は <code>T = β·λh / (1 − βλ)</code> で、hに比例します。間隔が大きいほど停車が長くなり、さらに遅れが増えます。これが正のフィードバックです。需要スライダーがλです。到着がランダムな場合、間隔h<sub>i</sub>に対する平均待ち時間は <code>Σh<sub>i</sub>² / (2Σh<sub>i</sub>) = (H/2)(1 + CV²)</code> です。"
+},
+{
+"id": "s0624",
+"page": "bunching",
+"ko": "<b>이 프로젝트의 단순화:</b> 이 프로젝트의 단순화: 정류장 24곳과 버스 사이 이동 1분, 승객 1명 탑승 3초, 최소 정차 0.1분, 간격 유지 1.15배, 승차 제한 상한(이상적 정차 시간)은 모두 이 프로젝트가 정한 값입니다. 하차, 신호, 정체, 앞지르기, 시간표는 없고, 모델의 간격은 버스 사이 거리를 이상적 간격으로 나눈 값입니다.",
+"en": "<b>What this project simplifies:</b> What this project simplifies: 24 stops, 1 minute between stops, 3 seconds per boarding passenger, a 0.1 minute minimum stop, the 1.15 holding factor and the boarding cap (the ideal standing time) are all values chosen by this project. There is no alighting, no signals, no congestion, no overtaking and no timetable, and the gap in the model is the distance between buses divided by the ideal gap.",
+"tr": "<b>このプロジェクトが単純化していること：</b>停留所24か所、停留所間1分、乗車1人あたり3秒、最短停車0.1分、ホールディングの係数1.15、乗車の上限（理想の停車時間）は、いずれもこのプロジェクトが選んだ値です。降車、信号、渋滞、追い越し、時刻表はなく、モデル内の間隔はバス同士の距離を理想の間隔で割ったものです。"
+},
+{
+"id": "s0625",
+"page": "bunching",
+"ko": "<b>이론값과 시뮬레이션:</b> 시뮬레이션의 평균 기다림은 식 (H/2)(1+CV²)의 값과 처방 없음에서 8.7분 대 9.0분, 간격 유지에서 2.5분 대 2.7분으로 가까웠습니다. 승차 제한에서는 남겨진 승객이 있어 3.4분 대 2.4분으로 식과 맞지 않았습니다. 뭉침 속도에 대한 이론값은 없어 시뮬레이션으로만 확인했습니다(<code>node tools/validate-bunching.js</code>, 시드 20개).",
+"en": "<b>Theory versus simulation:</b> The simulated mean wait was close to the formula (H/2)(1+CV²): 8.7 vs 9.0 minutes with no remedy and 2.5 vs 2.7 with holding. With limited boarding, left-behind passengers make the formula fail (3.4 vs 2.4 minutes). There is no theoretical value for the speed of bunching, so that part was checked by simulation alone (<code>node tools/validate-bunching.js</code>, 20 seeds).",
+"tr": "<b>理論とシミュレーションの比較：</b>シミュレーションの平均待ち時間は式 (H/2)(1+CV²) に近い値でした。対策なしで8.7分に対し9.0分、ホールディングで2.5分に対し2.7分です。乗車制限では、乗れずに残された乗客がいるため式が合いません（3.4分に対し2.4分）。団子化の速さには理論値がないので、この部分はシミュレーションだけで確かめました（<code>node tools/validate-bunching.js</code>、シード20回）。"
+},
+{
+"id": "s0626",
+"page": "bunching",
+"ko": "<b>더 읽을거리:</b> Newell &amp; Potts (1964), \"Maintaining a bus schedule\", Australian Road Research Board 학술대회 논문집. Gershenson &amp; Pineda (2009), \"Why does public transport not arrive on time? The pervasiveness of equal headway instability\", <i>PLoS ONE</i>. Daganzo (2009), \"A headway-based approach to eliminate bus bunching\", <i>Transportation Research Part B</i>.",
+"en": "<b>Further reading:</b> Newell &amp; Potts (1964), \"Maintaining a bus schedule\", Australian Road Research Board conference proceedings. Gershenson &amp; Pineda (2009), \"Why does public transport not arrive on time? The pervasiveness of equal headway instability\", <i>PLoS ONE</i>. Daganzo (2009), \"A headway-based approach to eliminate bus bunching\", <i>Transportation Research Part B</i>.",
+"tr": "<b>参考文献：</b>Newell &amp; Potts (1964), 「Maintaining a bus schedule」, Australian Road Research Board 会議録。Gershenson &amp; Pineda (2009), 「Why does public transport not arrive on time? The pervasiveness of equal headway instability」, <i>PLoS ONE</i>。Daganzo (2009), 「A headway-based approach to eliminate bus bunching」, <i>Transportation Research Part B</i>。"
+},
+{
+"id": "s0627",
+"page": "bunching",
+"ko": "검증은 <code>node tools/validate-bunching.js</code>로 할 수 있습니다. 시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 시간은 0.1분 단위로 흐르고, 평균 기다림은 줄 선 사람의 대기 시간을 모두 더해 도착한 사람 수로 나눈 값(리틀의 법칙)입니다.",
+"en": "You can verify with <code>node tools/validate-bunching.js</code>. The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. Time advances in 0.1 minute steps, and the mean wait is the total queueing time of everyone waiting divided by the number of arrivals (Little's law).",
+"tr": "<code>node tools/validate-bunching.js</code> で確かめられます。シミュレーションにはシード付きの乱数生成器（mulberry32）を使っているので、同じシードなら同じ結果になります。時間は0.1分刻みで進み、平均待ち時間は待った全員の待ち時間の合計を到着数で割ったものです（リトルの法則）。"
+},
+{
+"id": "s0628",
+"page": "bunching",
+"ko": "④번 차트의 막대는 같은 설정을 시드 6개로 돌려 뒤쪽 절반 시간만 평균한 값이라, 위에서 돌고 있는 한 번의 실험과는 숫자가 다를 수 있습니다.",
+"en": "The bars in chart ④ average six seeds over the second half of the run, so they can differ from the single run playing above.",
+"tr": "グラフ④の棒は、実行の後半についてシード6回を平均したものなので、上で再生している1回の実行とは異なることがあります。"
+},
+{
+"id": "s0629",
+"page": "bunching",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/bunching\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/bunching\">GitHub</a>.",
+"tr": "コードは <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/bunching\">GitHub</a> で公開しています。"
+},
+{
+"id": "s0630",
+"page": "checkout",
+"ko": "마트 계산대 줄 서기 · 시뮬라티오 랩",
+"en": "Checkout Lines · Simulatio Lab",
+"tr": "レジの行列 · Simulatio Lab"
+},
+{
+"id": "s0631",
+"page": "checkout",
+"ko": "같은 계산대, 같은 손님인데 줄을 하나로 세우느냐 따로 세우느냐에 따라 대기시간과 공정함이 달라지는 이유를, 두 가게를 나란히 돌려 직접 확인해 보세요.",
+"en": "Same cashiers, same customers, yet one shared line and separate lines give different waits and fairness. Run two stores side by side and see why.",
+"tr": "同じレジ係、同じ客でも、1本の共通の列と別々の列では、待ち時間も公平さも変わります。2つの店を並べて動かして、その理由を見てみましょう。"
+},
+{
+"id": "s0632",
+"page": "checkout",
+"ko": "가장 짧은 줄을 골라 섰는데 옆줄이 먼저 줄어든 적이 있나요? 줄은 짧을수록 빨리 빠질 것 같지만, 그건 운이 나빴던 것만이 아닐 수 있습니다. 그런데 계산대와 손님이 모두 똑같은 두 가게에서 한쪽은 줄을 하나로 세우고 다른 쪽은 계산대마다 따로 세우면, 같은 손님이 두 곳에서 전혀 다른 시간을 기다리게 됩니다. 왼쪽 가게와 오른쪽 가게에 똑같은 손님을 보내 보세요.",
+"en": "Ever picked the shortest line, only to watch the one beside you clear first? That may not be just bad luck. Take two stores with identical cashiers and identical customers, one with a single shared line and one with a separate line per cashier, and the same customer can end up waiting very different times in each. Send the exact same shoppers to the left store and the right store and watch.",
+"tr": "いちばん短い列を選んだのに、隣の列のほうが先に進んだ経験はありませんか。それは単なる運の悪さではないかもしれません。レジ係も客もまったく同じで、1本の共通の列の店と、レジごとに別々の列がある店を用意すると、同じ客でも待ち時間が大きく変わることがあります。まったく同じ客を左の店と右の店に送り込んで、見てみましょう。"
 }
 ]

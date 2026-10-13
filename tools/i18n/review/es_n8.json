@@ -1,429 +1,1703 @@
 [
 {
-"id": "s1366",
-"page": "lanchester",
-"ko": "<b>말하는 것:</b> 파랑 200명 대 빨강 100명, 질이 같을 때 사각 법칙의 이론값은 파랑 승, 처음 병력의 87%(약 173명)가 남는 것이었고, 시뮬레이션 300회 평균은 약 172명(86%)이며 모두 파랑이 이겼습니다. 같은 조건을 선형 법칙으로 돌리면 이론도 시뮬레이션도 약 100명(50%)이 남았습니다. 그래서 병력이 2배일 때 전투력은 사각 법칙에서 4배, 선형 법칙에서 2배입니다. 질이 같고 130 대 100일 때 파랑이 모여 싸우면 평균 82명(64%)이 남았지만, 파랑이 반씩 나뉘어 차례로 도착하면 300회 중 84%에서 빨강이 이겼고 이긴 빨강에 약 40명이 남았습니다. 선형 법칙에서는 나뉘어도 파랑이 약 30명을 남기고 이겨 결과가 같았습니다. 병력 2배를 질로 맞서려면 사각 법칙에서는 상대 질이 4배여야 하고(선형은 2배), 이때 300회 중 파랑 53%, 빨강 47%로 팽팽했습니다.",
-"en": "<b>What it shows:</b> With 200 blue against 100 red and equal quality, the square law's theory says blue wins with 87% of its force (about 173 soldiers) left; over 300 simulated fights the average was about 172 (86%), and blue won every time. Under the linear law the same setting leaves about 100 (50%) in both theory and simulation. So with twice the soldiers, strength is 4 times as large under the square law and 2 times under the linear law. With equal quality and 130 against 100, blue fighting together kept 82 soldiers on average (64%), but when blue arrived in two halves red won 84% of 300 fights, with about 40 soldiers left. Under the linear law splitting changed nothing: blue still won with about 30 left. To offset double the soldiers with quality, the opponent's quality must be 4 times as high under the square law (2 times under the linear law); at that balance blue won 53% and red 47% of 300 fights.",
-"tr": "<b>Qué muestra:</b> Con 200 azules contra 100 rojos y la misma calidad, la teoría de la ley cuadrática dice que gana el azul y le queda el 87% de su fuerza (unos 173 soldados); en 300 combates simulados el promedio fue de unos 172 (86%), y el azul ganó siempre. Con la ley lineal, la misma situación deja unos 100 (50%) tanto en la teoría como en la simulación. Es decir, con el doble de soldados la fuerza es 4 veces mayor con la ley cuadrática y 2 veces mayor con la lineal. Con la misma calidad y 130 contra 100, el azul que luchó unido conservó 82 soldados de media (64%), pero cuando el azul llegó en dos mitades, el rojo ganó el 84% de 300 combates, con unos 40 soldados restantes. Con la ley lineal dividirse no cambió nada: el azul siguió ganando con unos 30 restantes. Para compensar el doble de soldados con calidad, la calidad del oponente debe ser 4 veces mayor con la ley cuadrática (2 veces con la lineal); en ese equilibrio el azul ganó el 53% y el rojo el 47% de 300 combates."
+"id": "d1249",
+"page": "(실행 중 문구) predict",
+"ko": "전선 속도는 2√(rD)로, 성장률 r과 확산 D만으로 정해집니다. 기본값에서 이론 1.00km/년, 시뮬레이션에서 잰 값 1.03km/년(토착민 흡수를 반영한 이론은 1.12)이었습니다.",
+"en": "The front speed is 2√(rD), set by growth rate r and dispersal D alone. With the defaults the theory gives 1.00 km/year and the simulation measured 1.03 km/year (1.12 for the theory with assimilation).",
+"tr": "La velocidad del frente es 2√(rD), fijada solo por la tasa de crecimiento r y la dispersión D. Con los valores por defecto la teoría da 1,00 km/año y la simulación midió 1,03 km/año (1,12 para la teoría con asimilación)."
 },
 {
-"id": "s1367",
-"page": "lanchester",
-"ko": "실제 전투를 재현하거나 승패를 예측한 것은 아니고, 파랑과 빨강은 어떤 실제 집단도 가리키지 않아요.",
-"en": "It neither recreates real battles nor predicts outcomes; blue and red are no real groups.",
-"tr": "No recrea batallas reales ni predice resultados; azul y rojo no son grupos reales."
+"id": "d1250",
+"page": "(실행 중 문구) predict",
+"ko": "사람이 걷는 속도",
+"en": "How fast people walk",
+"tr": "Qué tan rápido camina la gente"
 },
 {
-"id": "s1368",
-"page": "lanchester",
-"ko": "지형·사기·보급 같은 빠진 요소와 역사 사례는 자료를 따로 대조해야 확인할 수 있어요.",
-"en": "Missing factors like terrain, morale and supply, and historical cases, need separate sources.",
-"tr": "Los factores ausentes como el terreno, la moral y el abastecimiento, y los casos históricos, requieren fuentes aparte."
+"id": "d1251",
+"page": "(실행 중 문구) predict",
+"ko": "인구가 느는 속도와 이웃으로 흩어지는 정도",
+"en": "How fast the population grows and how far it scatters",
+"tr": "Qué tan rápido crece la población y hasta dónde se dispersa"
 },
 {
-"id": "s1369",
-"page": "lanchester",
-"ko": "<b>말하지 않는 것:</b> 실제 전투를 재현하거나 예측한 것이 아닙니다. 이 모델은 지형, 사기, 보급, 지휘, 전술, 무기의 종류, 병사 한 명 한 명의 차이를 모두 빼고 병력 수와 병사의 명중률만 남긴 이 프로젝트의 단순화된 수학 모델입니다. 파랑과 빨강은 어떤 실제 나라나 집단도 가리키지 않습니다. 이 법칙은 해전 등 역사 사례를 설명하는 데 흔히 인용되지만 역사가들은 그 해석을 단순화로 보며 논쟁합니다. 이 모델이 말하는 것은 어떤 가정 아래서 병력의 효과가 제곱으로 커질 수 있다는 수학적 구조이지, 실제로 어느 쪽이 옳았거나 이길 것이라는 주장이 아닙니다.",
-"en": "<b>What it doesn't show:</b> This does not reproduce or predict any real battle. It is this project's simplified mathematical model: terrain, morale, supply, command, tactics, weapon types and differences between individual soldiers are all left out, leaving only head counts and each soldier's hit chance. Blue and red stand for no real country or group. The law is often cited to explain historical cases such as naval battles, but historians dispute those readings as oversimplified. What the model shows is the mathematical structure: under certain assumptions the effect of numbers can grow with the square. It is no claim about who was right or who would win in reality.",
-"tr": "<b>Qué no muestra:</b> No reproduce ni predice ninguna batalla real. Es el modelo matemático simplificado de este proyecto: el terreno, la moral, el abastecimiento, el mando, la táctica, los tipos de armas y las diferencias entre soldados quedan fuera, y solo se conservan el número de efectivos y la probabilidad de acierto de cada soldado. Azul y rojo no representan a ningún país ni grupo real. La ley se cita a menudo para explicar casos históricos como las batallas navales, pero los historiadores discuten esas lecturas por simplistas. Lo que muestra el modelo es la estructura matemática: bajo ciertos supuestos, el efecto del número puede crecer con el cuadrado. No afirma quién tenía razón ni quién ganaría en la realidad."
+"id": "d1252",
+"page": "(실행 중 문구) predict",
+"ko": "처음 농부가 몇 명이었는지",
+"en": "How many farmers there were at the start",
+"tr": "Cuántos agricultores había al principio"
 },
 {
-"id": "s1370",
-"page": "lanchester",
-"ko": "<b>모델의 뿌리:</b> 프레더릭 란체스터(F. W. Lanchester)가 『Aircraft in Warfare』(1916)에서 소개한 전투 모델입니다. 군대의 병력이 서로의 손실률에 비례해 줄어든다는 미분방정식으로, 겨누어 쏘는 싸움에는 \"제곱 법칙\"을, 일대일 싸움에는 \"선형 법칙\"을 보였습니다.",
-"en": "<b>Where the model comes from:</b> A combat model introduced by Frederick W. Lanchester in <i>Aircraft in Warfare</i> (1916). It is a pair of differential equations in which each army's strength falls at a rate set by the other, giving a \"square law\" for aimed fire and a \"linear law\" for one-to-one fights.",
-"tr": "<b>De dónde viene el modelo:</b> Un modelo de combate presentado por Frederick W. Lanchester en <i>Aircraft in Warfare</i> (1916). Es un par de ecuaciones diferenciales en las que la fuerza de cada ejército disminuye a un ritmo fijado por el otro, lo que da una \"ley cuadrática\" para el fuego dirigido y una \"ley lineal\" para los combates uno contra uno."
+"id": "d1253",
+"page": "(실행 중 문구) predict",
+"ko": "질이 같은 두 군대가 서로 겨누어 쏘며 싸웁니다. 파랑이 200명, 빨강이 100명이면 이긴 파랑에는 처음 병력의 얼마쯤이 남을까요?",
+"en": "Two armies of equal quality aim and fire at each other. With 200 blue and 100 red soldiers, about what share of its starting force does the winning blue army keep?",
+"tr": "Dos ejércitos de igual calidad se apuntan y disparan entre sí. Con 200 soldados azules y 100 rojos, ¿qué parte de sus fuerzas iniciales conserva aproximadamente el ejército azul ganador?"
 },
 {
-"id": "s1371",
-"page": "lanchester",
-"ko": "<b>핵심 가정과 수식:</b> 겨누어 쏘기: <code>dA/dt = −β·B</code>, <code>dB/dt = −α·A</code> 이고 두 식을 나누어 적분하면 <code>α·A² − β·B²</code>가 변하지 않습니다(전투력 = 질 × 병력²). 이긴 쪽에 남는 병력은 <code>√(A₀² − (β/α)·B₀²)</code>입니다. 일대일 맞붙기는 <code>α·A − β·B</code>가 보존되고 남는 병력은 <code>A₀ − (β/α)·B₀</code>입니다. 슬라이더의 병력이 A₀, B₀이고 질 비율이 α/β입니다.",
-"en": "<b>Key assumptions and formulas:</b> Aimed fire: <code>dA/dt = −β·B</code>, <code>dB/dt = −α·A</code>. Dividing the two and integrating shows that <code>α·A² − β·B²</code> is conserved (strength = quality × numbers²), and the winner is left with <code>√(A₀² − (β/α)·B₀²)</code>. For one-to-one fights <code>α·A − β·B</code> is conserved and the winner keeps <code>A₀ − (β/α)·B₀</code>. The sliders set A₀, B₀ and the ratio α/β.",
-"tr": "<b>Supuestos clave y fórmulas:</b> Fuego dirigido: <code>dA/dt = −β·B</code>, <code>dB/dt = −α·A</code>. Al dividir ambas e integrar se ve que <code>α·A² − β·B²</code> se conserva (fuerza = calidad × número²), y el ganador queda con <code>√(A₀² − (β/α)·B₀²)</code>. En los combates uno contra uno se conserva <code>α·A − β·B</code> y el ganador conserva <code>A₀ − (β/α)·B₀</code>. Los controles deslizantes fijan A₀, B₀ y la razón α/β."
+"id": "d1254",
+"page": "(실행 중 문구) predict",
+"ko": "사각 법칙에서는 α·A²−β·B²가 보존되어 남는 병력이 √(200²−100²)≈173명, 즉 87%입니다. 시뮬레이션 300회 평균은 약 172명(86%)이었습니다. 일대일로 맞붙는 선형 법칙이면 50%만 남습니다.",
+"en": "Under the square law, α·A²−β·B² is conserved, so the survivors number √(200²−100²)≈173, or 87%. The average of 300 simulated fights was about 172 (86%). Under the one-to-one linear law only 50% would be left.",
+"tr": "Bajo la ley cuadrática se conserva α·A²−β·B², así que los supervivientes son √(200²−100²)≈173, es decir, el 87 %. La media de 300 combates simulados fue de unos 172 (86 %). Con la ley lineal de uno contra uno quedaría solo el 50 %."
 },
 {
-"id": "s1372",
-"page": "lanchester",
-"ko": "<b>이 프로젝트의 단순화:</b> 원 모델은 연속적인 병력 수의 평균 변화를 다루지만 여기서는 병사 하나하나가 확률로 쓰러지는 이산 시뮬레이션입니다. 선형 법칙은 마주한 쌍마다 싸우는 모양으로 구현했고 싸움을 빨리 끝내려고 쌍당 명중률을 5배로 두었습니다. 나뉘어 싸우기(두 번째 반은 첫 반이 쓰러진 뒤 합류)와 명중률 수치는 이 프로젝트가 정한 설정입니다. 보충병, 후퇴, 지형은 없습니다.",
-"en": "<b>What this project simplifies:</b> The original model tracks continuous average strengths, while here each soldier falls by chance in a discrete simulation. The linear law is implemented as facing pairs fighting, with a 5 times higher hit chance per pair only to finish the fight sooner. The split rule (the second half joins after the first has fallen) and the hit-chance values are this project's own settings. There are no reinforcements, retreats or terrain.",
-"tr": "<b>Qué simplifica este proyecto:</b> El modelo original sigue fuerzas medias continuas, mientras que aquí cada soldado cae por azar en una simulación discreta. La ley lineal se implementa como parejas enfrentadas que luchan, con una probabilidad de acierto 5 veces mayor por pareja solo para acabar el combate antes. La regla de división (la segunda mitad se une cuando la primera ha caído) y los valores de la probabilidad de acierto son ajustes propios de este proyecto. No hay refuerzos, retiradas ni terreno."
+"id": "d1255",
+"page": "(실행 중 문구) predict",
+"ko": "약 87%",
+"en": "About 87%",
+"tr": "Aproximadamente el 87 %"
 },
 {
-"id": "s1373",
-"page": "lanchester",
-"ko": "<b>이론값과 시뮬레이션:</b> <code>node tools/validate-lanchester.js</code>로 300회씩 돌려 닫힌 해와 비교했습니다. 200 대 100(질 같음)에서 사각 법칙 이론 173.2명(87%) 대 시뮬 평균 171.9명, 선형 법칙 이론 100명 대 시뮬 100.7명입니다. 병력 50~400명에서도 병력 2배일 때 남는 비율은 86~87%로 같아, 규모와 무관함을 확인했습니다. 130 대 100에서 파랑이 나뉘면 이론은 빨강 승, 39.4명 남음, 시뮬은 빨강 84% 승, 평균 40.0명 남음입니다. 시뮬레이션이 약간 낮은 것은 우연과 한 단계씩 끊어 계산한 영향입니다.",
-"en": "<b>Theory versus simulation:</b> I compared 300 runs each with the closed-form results using <code>node tools/validate-lanchester.js</code>. At 200 against 100 with equal quality, the square-law theory gives 173.2 left versus a simulated mean of 171.9, and the linear-law theory gives 100 versus 100.7. With 50 to 400 soldiers the share left at a 2-to-1 ratio stays at 86-87%, so it does not depend on scale. At 130 against 100 with blue split, theory says red wins with 39.4 left, and the simulation had red winning 84% of fights with 40.0 left on average. The slightly lower simulated values come from chance and from stepping time in discrete steps.",
-"tr": "<b>Teoría frente a simulación:</b> Comparé 300 ejecuciones cada una con los resultados de forma cerrada mediante <code>node tools/validate-lanchester.js</code>. Con 200 contra 100 y la misma calidad, la teoría de la ley cuadrática da 173,2 restantes frente a una media simulada de 171,9, y la teoría de la ley lineal da 100 frente a 100,7. Con entre 50 y 400 soldados, la proporción restante con una razón de 2 a 1 se mantiene en el 86-87%, de modo que no depende de la escala. Con 130 contra 100 y el azul dividido, la teoría dice que gana el rojo con 39,4 restantes, y en la simulación el rojo ganó el 84% de los combates con 40,0 restantes de media. Los valores simulados algo más bajos se deben al azar y a avanzar el tiempo en pasos discretos."
+"id": "d1256",
+"page": "(실행 중 문구) predict",
+"ko": "단기금리가 1%p 뛰면, 이 모델에서 10년 금리는 얼마나 오를까요?",
+"en": "If the short rate jumps 1 percentage point, how much does the 10-year yield rise in this model?",
+"tr": "Si el tipo a corto plazo sube 1 punto porcentual, ¿cuánto sube la rentabilidad a 10 años en este modelo?"
 },
 {
-"id": "s1374",
-"page": "lanchester",
-"ko": "<b>더 읽을거리:</b> F. W. Lanchester, 『Aircraft in Warfare: The Dawn of the Fourth Arm』(1916, Constable). 개설로는 위키백과의 \"Lanchester's laws\" 항목이 읽기 쉽습니다.",
-"en": "<b>Further reading:</b> F. W. Lanchester, <i>Aircraft in Warfare: The Dawn of the Fourth Arm</i> (1916, Constable). For an overview, the Wikipedia article \"Lanchester's laws\" is an easy start.",
-"tr": "<b>Lecturas adicionales:</b> F. W. Lanchester, <i>Aircraft in Warfare: The Dawn of the Fourth Arm</i> (1916, Constable). Como visión general, el artículo de Wikipedia \"Leyes de Lanchester\" es un buen punto de partida."
+"id": "d1257",
+"page": "(실행 중 문구) predict",
+"ko": "회귀 속도 0.3일 때 닫힌 해와 시뮬레이션 모두 0.33%p였습니다. 10년 금리는 앞으로 10년 단기금리 예상 평균이라 단기금리 충격이 평균으로 돌아오면서 희석됩니다. 회귀 속도 0.05면 0.81%p, 1.2면 0.09%p입니다.",
+"en": "Both the closed form and the simulation gave 0.33 points at reversion speed 0.3. The 10-year yield is the expected average short rate, so a short-rate shock fades as it reverts. It is 0.81 points at speed 0.05 and 0.09 at 1.2.",
+"tr": "Tanto la solución cerrada como la simulación dieron 0.33 puntos con una velocidad de reversión de 0.3. La rentabilidad a 10 años es el promedio esperado del tipo a corto plazo, así que el choque se diluye al volver a la media. Con velocidad 0.05 es 0.81 puntos y con 1.2 es 0.09."
 },
 {
-"id": "s1375",
-"page": "lanchester",
-"ko": "검증은 <code>node tools/validate-lanchester.js</code>로 할 수 있습니다. 시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 가운데 점선 곡선은 같은 규칙을 평균값으로 풀어 그린 것입니다.",
-"en": "You can verify with <code>node tools/validate-lanchester.js</code>. The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. The dashed curves are the same rules solved with averages instead of chance.",
-"tr": "Puedes comprobarlo con <code>node tools/validate-lanchester.js</code>. La simulación usa un generador aleatorio con semilla (mulberry32), así que la misma semilla da el mismo resultado. Las curvas discontinuas son las mismas reglas resueltas con promedios en lugar de azar."
+"id": "d1258",
+"page": "(실행 중 문구) predict",
+"ko": "거의 1%p",
+"en": "Nearly 1 point",
+"tr": "Casi 1 punto"
 },
 {
-"id": "s1376",
-"page": "lanchester",
-"ko": "④, ⑤번 그래프는 시뮬레이션이 아니라 위의 식으로 계산한 이론값입니다. 나뉜 군대가 있는 경우는 싸움을 첫 무리, 둘째 무리 차례로 이어서 계산합니다.",
-"en": "Charts 4 and 5 are theory computed from the formulas above, not simulations. When an army is split, the fights are chained one after another, first half then second half.",
-"tr": "Los gráficos 4 y 5 son teoría calculada con las fórmulas anteriores, no simulaciones. Cuando un ejército se divide, los combates se encadenan uno tras otro: primero la primera mitad y luego la segunda."
+"id": "d1259",
+"page": "(실행 중 문구) predict",
+"ko": "약 0.33%p",
+"en": "About 0.33 points",
+"tr": "Unos 0.33 puntos"
 },
 {
-"id": "s1377",
-"page": "lanchester",
-"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/lanchester\">GitHub</a>에서 볼 수 있습니다.",
-"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/lanchester\">GitHub</a>.",
-"tr": "El código está disponible en <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/lanchester\">GitHub</a>."
+"id": "d1260",
+"page": "(실행 중 문구) predict",
+"ko": "거의 오르지 않는다(0.01%p 이하)",
+"en": "Hardly at all (0.01 points or less)",
+"tr": "Casi nada (0.01 puntos o menos)"
 },
 {
-"id": "s1406",
-"page": "monkey",
-"ko": "우연만으로 18글자를 맞히려면 약 5.8×10^25번이 필요하지만, 누적 선택은 평균 46세대였어요.",
-"en": "Pure chance needs about 5.8×10^25 tries for 18 letters, while cumulative selection took 46 generations on average.",
-"tr": "El azar puro necesita unos 5,8×10^25 intentos para 18 letras, mientras que la selección acumulativa tardó 46 generaciones en promedio."
+"id": "d1261",
+"page": "(실행 중 문구) predict",
+"ko": "금리 차이가 크면 이자를 더 벌지만, 캐리 거래에서 가장 나쁜 한 주의 손실은 어떻게 될까요?",
+"en": "A bigger interest gap earns more interest. What happens to the loss in the carry trade's worst week?",
+"tr": "Una mayor diferencia de tipos rinde más interés, pero ¿qué pasa con la pérdida de la peor semana del carry trade?"
 },
 {
-"id": "s1407",
-"page": "monkey",
-"ko": "우연은 매번 처음부터 다시 맞히지만, 누적 선택은 맞은 글자를 남겨 두고 조금씩 바꾸기 때문이에요.",
-"en": "Chance restarts from scratch each try, while cumulative selection keeps matched letters and changes the rest bit by bit.",
-"tr": "El azar reinicia desde cero en cada intento, mientras que la selección acumulativa conserva las letras acertadas y cambia el resto poco a poco."
+"id": "d1262",
+"page": "(실행 중 문구) predict",
+"ko": "금리 차이 0, 4, 10%p에서 연 평균 캐리는 0.20%, 3.06%, 7.70%로 늘었고 가장 나쁜 한 주의 평균 손실도 3.6%, 10.1%, 10.5%로 커졌습니다. 캐리가 매력적일수록 사람이 빨리 몰려 급락이 커지기 때문입니다.",
+"en": "With gaps of 0, 4 and 10 points the average yearly carry rose to 0.20%, 3.06% and 7.70%, and the average loss in the worst week also grew to 3.6%, 10.1% and 10.5%. The more attractive the carry, the faster the crowd piles in and the bigger the crash.",
+"tr": "Con diferenciales de 0, 4 y 10 puntos, el carry anual medio subió a 0.20 %, 3.06 % y 7.70 %, y la pérdida media de la peor semana también creció a 3.6 %, 10.1 % y 10.5 %. Cuanto más atractivo es el carry, más rápido llega la multitud y mayor es la caída."
 },
 {
-"id": "s1408",
-"page": "monkey",
-"ko": "어려운 일도 한 번에 맞히려 할지, 작은 개선을 걸러 쌓을 수 있는지로 달라 보인다는 점을 살펴볼 만해요.",
-"en": "Whether a hard goal is hit all at once or built from filtered small gains is worth examining.",
-"tr": "Vale la pena examinar si una meta difícil se alcanza de golpe o se construye con pequeñas ganancias filtradas."
+"id": "d1263",
+"page": "(실행 중 문구) predict",
+"ko": "거의 그대로이거나 오히려 줄어든다",
+"en": "It stays about the same or even shrinks",
+"tr": "Se queda casi igual o incluso se reduce"
 },
 {
-"id": "s1410",
-"page": "monkey",
-"ko": "미리 정한 목표 문장이 있어서 실제 진화의 모델이 아니고, 도킨스 자신도 이를 밝혔어요.",
-"en": "It has a preset target, so it is not a model of real evolution, as Dawkins himself noted.",
-"tr": "Tiene un objetivo prefijado, así que no es un modelo de la evolución real, como señaló el propio Dawkins."
+"id": "d1264",
+"page": "(실행 중 문구) predict",
+"ko": "이자가 늘어난 만큼 함께 커진다(약 3.6% → 10.5%)",
+"en": "It grows along with the interest (about 3.6% to 10.5%)",
+"tr": "Crece junto con el interés (de un 3.6 % a un 10.5 %)"
 },
 {
-"id": "s1411",
-"page": "monkey",
-"ko": "실제 진화에서 무엇이 걸러지는지는 이 모델로 알 수 없고, 실제 생물 자료로 따로 확인해야 해요.",
-"en": "What gets filtered in real evolution cannot be learned here and needs real biological evidence.",
-"tr": "Qué se filtra en la evolución real no puede saberse aquí y requiere evidencia biológica real."
+"id": "d1265",
+"page": "(실행 중 문구) predict",
+"ko": "금리 차이와 상관없이 늘 3.5% 안팎이다",
+"en": "It is always around 3.5% whatever the gap",
+"tr": "Siempre ronda el 3.5 % sea cual sea la diferencia"
 },
 {
-"id": "s1413",
-"page": "monkey",
-"ko": "<b>모델의 뿌리:</b> 타자기를 치는 원숭이 비유는 Émile Borel (1913)까지 거슬러 올라간다고 흔히 인용됩니다. 한편 Richard Dawkins (1986)는 『The Blind Watchmaker』에서 \"위즐 프로그램\"으로, 우연은 아득히 오래 걸리지만 작은 개선을 쌓아 가는 누적 선택은 훨씬 빠르다는 점을 보였습니다.",
-"en": "<b>Where the model comes from:</b> The typing-monkey metaphor is commonly traced back to Émile Borel (1913). Richard Dawkins (1986), in <i>The Blind Watchmaker</i>, used his \"weasel program\" to show that chance takes unimaginably long, while cumulative selection that keeps small improvements is far faster.",
-"tr": "<b>De dónde viene el modelo:</b> La metáfora del mono que teclea suele atribuirse a Émile Borel (1913). Richard Dawkins (1986), en <i>El relojero ciego</i>, usó su \"programa weasel\" para mostrar que el azar tarda un tiempo inimaginable, mientras que la selección acumulativa, que conserva pequeñas mejoras, es mucho más rápida."
+"id": "d1266",
+"page": "(실행 중 문구) predict",
+"ko": "전쟁이 양쪽 모두에게 비싸서 싸우지 않고 나누는 합의가 늘 있습니다. 그런데 상대 힘을 정확히 모르는 한쪽(불확실성 ±25%, 전쟁 비용 15%)이 가장 유리한 요구를 하면 분쟁의 몇 %가 전쟁이 될까요?",
+"en": "War is costly for both sides, so a deal that beats fighting always exists. If one side that cannot tell the other's strength exactly (uncertainty ±25%, war cost 15%) makes its best demand, what share of disputes become war?",
+"tr": "La guerra es costosa para ambas partes, así que siempre existe un acuerdo mejor que combatir. Si una parte que no conoce con exactitud la fuerza de la otra (incertidumbre ±25 %, costo de la guerra 15 %) hace su mejor exigencia, ¿qué porcentaje de las disputas acaba en guerra?"
 },
 {
-"id": "s1414",
-"page": "monkey",
-"ko": "<b>핵심 가정과 수식:</b> 글자 27가지에서 무작위로 L글자를 치면 한 번에 정확히 맞힐 확률은 <code>27<sup>-L</sup></code>이라 기대 시도 횟수는 대략 <code>27<sup>L</sup></code>입니다. 누적 선택은 복사본 여러 개를 만들고 글자마다 일정 확률로 바꾼 뒤 가장 많이 맞은 복사본만 남깁니다. 복사본 수와 돌연변이율이 슬라이더이고, 글자 수가 늘어도 필요한 시도는 27의 거듭제곱이 아니라 훨씬 완만하게 늘어납니다.",
-"en": "<b>Key assumptions and formulas:</b> Typing L random symbols from 27 gets it exactly right with probability <code>27<sup>-L</sup></code>, so the expected number of attempts is roughly <code>27<sup>L</sup></code>. Cumulative selection makes several copies, changes each letter with some probability, and keeps only the copy with the most matches. The number of copies and the mutation rate are the sliders, and as the sentence grows the attempts needed grow far more gently than a power of 27.",
-"tr": "<b>Supuestos clave y fórmulas:</b> Teclear L símbolos aleatorios de 27 lo acierta exactamente con probabilidad <code>27<sup>-L</sup></code>, por lo que el número esperado de intentos es aproximadamente <code>27<sup>L</sup></code>. La selección acumulativa hace varias copias, cambia cada letra con cierta probabilidad y conserva solo la copia con más coincidencias. El número de copias y la tasa de mutación son los controles deslizantes, y al crecer la frase los intentos necesarios crecen mucho más suavemente que una potencia de 27."
+"id": "d1267",
+"page": "(실행 중 문구) predict",
+"ko": "이론 40.0%(시뮬레이션 39.8%). 합의 범위가 있어도 A가 기대 몫을 키우려 욕심 낸 요구가 힘센 상대에게 거절되기 때문입니다. 정보가 정확하면 0%였습니다.",
+"en": "Theory gives 40.0% (39.8% in simulation). Even with a deal range, A's greedy demand to raise its expected share gets rejected by stronger opponents. With accurate information it was 0%.",
+"tr": "Teoría 40.0 % (39.8 % en la simulación). Aunque haya un margen de acuerdo, la exigencia codiciosa de A para aumentar su parte esperada es rechazada por oponentes más fuertes. Con información exacta fue 0 %."
 },
 {
-"id": "s1415",
-"page": "monkey",
-"ko": "<b>이 프로젝트의 단순화:</b> Dawkins 본인이 밝혔듯 위즐 프로그램은 미리 정한 목표가 있어서 실제 진화(목표가 없음)의 모형이 아니고 누적 선택이 위력적이라는 점만 보여 주는 비유입니다. 책의 프로그램과 세부 설정이 다르며, 복사본 100개, 돌연변이 5%, 대문자와 띄어쓰기만 쓴 것, 초당 10억 번 시도는 이 프로젝트가 정한 값입니다.",
-"en": "<b>What this project simplifies:</b> As Dawkins himself noted, the weasel program has a fixed target, so it is not a model of real evolution (which has no target) and only illustrates how powerful cumulative selection is. Its details differ from the book's program, and 100 copies, 5% mutation, capital letters and space only, and one billion attempts per second are values this project chose.",
-"tr": "<b>Qué simplifica este proyecto:</b> Como señaló el propio Dawkins, el programa weasel tiene un objetivo fijo, así que no es un modelo de la evolución real (que no tiene objetivo) y solo ilustra lo poderosa que es la selección acumulativa. Sus detalles difieren del programa del libro, y 100 copias, 5% de mutación, solo mayúsculas y espacio, y mil millones de intentos por segundo son valores elegidos por este proyecto."
+"id": "d1268",
+"page": "(실행 중 문구) predict",
+"ko": "0% (합의가 있으니 전쟁은 없다)",
+"en": "0% (a deal exists, so no war)",
+"tr": "0 % (hay acuerdo, así que no hay guerra)"
 },
 {
-"id": "s1416",
-"page": "monkey",
-"ko": "<b>이론값과 시뮬레이션:</b> 우연의 기대 횟수는 닫힌 식이라 계산이 맞습니다. 18글자 27<sup>18</sup> ≈ 5.8×10<sup>25</sup>번은 초당 10억 번이면 약 18억 년(우주 나이 138억 년의 0.13배), 28글자 27<sup>28</sup> ≈ 1.2×10<sup>40</sup>번은 약 3.8×10<sup>23</sup>년이고 validate 출력과 같습니다. 누적 선택은 닫힌 해가 없어 시뮬레이션만으로 확인했고, 기본 설정에서 18글자는 평균 46세대, 28글자는 평균 77세대(20회)였고, 선택 쪽 시도 횟수는 3글자 약 1,000번에서 18글자 약 5,000번으로만 늘었습니다.",
-"en": "<b>Theory versus simulation:</b> The expected count for chance is a closed form and the calculation holds. For 18 letters 27<sup>18</sup> ≈ 5.8×10<sup>25</sup> attempts at a billion per second take about 1.8 billion years (0.13 of the universe's 13.8 billion), and for 28 letters 27<sup>28</sup> ≈ 1.2×10<sup>40</sup> attempts take about 3.8×10<sup>23</sup> years, matching the validate output. Cumulative selection has no closed form and was checked by simulation only: with defaults, 18 letters took 46 generations and 28 letters 77 on average (20 runs), and the attempts under selection rose only from about 1,000 at 3 letters to about 5,000 at 18.",
-"tr": "<b>Teoría frente a simulación:</b> El recuento esperado para el azar es una forma cerrada y el cálculo se cumple. Con 18 letras, 27<sup>18</sup> ≈ 5,8×10<sup>25</sup> intentos a mil millones por segundo tardan unos 1.800 millones de años (0,13 de los 13.800 millones del universo), y con 28 letras, 27<sup>28</sup> ≈ 1,2×10<sup>40</sup> intentos tardan unos 3,8×10<sup>23</sup> años, en coincidencia con la salida de validate. La selección acumulativa no tiene forma cerrada y se comprobó solo por simulación: con los valores por defecto, 18 letras necesitaron 46 generaciones y 28 letras 77 de media (20 ejecuciones), y los intentos bajo selección solo subieron de unos 1.000 con 3 letras a unos 5.000 con 18."
+"id": "d1269",
+"page": "(실행 중 문구) predict",
+"ko": "모든 집이 학원을 한 개씩 더 보내면, 상대평가에서 평균 순위는 어떻게 될까?",
+"en": "If every family sends one more class, what happens to the average rank under relative grading?",
+"tr": "Si todas las familias envían una clase más, ¿qué ocurre con la posición media bajo evaluación relativa?"
 },
 {
-"id": "s1417",
-"page": "monkey",
-"ko": "<b>더 읽을거리:</b> Dawkins (1986), 『The Blind Watchmaker』, Longman(3장). 무한 원숭이 정리는 확률론 교재의 Borel–Cantelli 보조정리 부분에서 다룹니다.",
-"en": "<b>Further reading:</b> Dawkins (1986), <i>The Blind Watchmaker</i>, Longman (chapter 3). The infinite monkey theorem is covered in probability textbooks under the Borel–Cantelli lemmas.",
-"tr": "<b>Lecturas adicionales:</b> Dawkins (1986), <i>The Blind Watchmaker</i>, Longman (capítulo 3). El teorema del mono infinito se trata en los manuales de probabilidad dentro de los lemas de Borel–Cantelli."
+"id": "d1270",
+"page": "(실행 중 문구) predict",
+"ko": "모두가 같은 수준이면 모든 점수가 같은 만큼 올라 순위 변화는 최대 0입니다. 한 집만 보내면 +7.5%p이고, 기본 설정에서 학원비는 처음의 5.0배가 되었지만 평균 순위는 50% 그대로였습니다.",
+"en": "When everyone sends the same number, all scores shift equally, so the largest rank change is 0. One family alone gains 7.5 points, while in the default run the bill grew to 5.0 times the start and the average rank stayed at 50%.",
+"tr": "Cuando todos envían el mismo número, todas las puntuaciones suben por igual, así que el mayor cambio de posición es 0. Una sola familia gana 7.5 puntos, mientras que en la ejecución por defecto el coste creció hasta 5.0 veces el inicial y la posición media siguió en 50%."
 },
 {
-"id": "s1418",
-"page": "monkey",
-"ko": "이 프로젝트가 직접 짠 구현이며 책의 프로그램을 그대로 옮긴 것은 아닙니다.",
-"en": "This is this project's own implementation, not a literal port of the program in the book.",
-"tr": "Esta es una implementación propia de este proyecto, no una traslación literal del programa del libro."
+"id": "d1271",
+"page": "(실행 중 문구) predict",
+"ko": "모두 올라간다",
+"en": "Everyone rises",
+"tr": "Todos suben"
 },
 {
-"id": "s1448",
-"page": "painters",
-"ko": "따라 그리는 비율이 높아질수록 화풍의 다양성이 줄고 하나의 대표 화풍으로 쏠렸어요.",
-"en": "As the copying rate rose, style diversity fell and painters converged on one dominant style.",
-"tr": "A medida que subió la tasa de copia, la diversidad de estilos cayó y los pintores convergieron en un estilo dominante."
+"id": "d1272",
+"page": "(실행 중 문구) predict",
+"ko": "그대로이고 학원비만 는다",
+"en": "It stays the same and only the bill grows",
+"tr": "Se queda igual y solo crece el coste"
 },
 {
-"id": "s1449",
-"page": "painters",
-"ko": "따라 그리면 서로 화풍이 가까워지고 혁신은 독창성만큼만 흩뜨려서, 인기 편향이나 낮은 독창성이 쏠림을 굳혀요.",
-"en": "Copying pulls styles together while innovation scatters them only as much as originality allows, so popularity bias and low originality lock in the convergence.",
-"tr": "Copiar acerca los estilos mientras la innovación los dispersa solo en la medida en que lo permite la originalidad, así que el sesgo de popularidad y la poca originalidad fijan la convergencia."
+"id": "d1273",
+"page": "(실행 중 문구) predict",
+"ko": "모두 내려간다",
+"en": "Everyone falls",
+"tr": "Todos bajan"
 },
 {
-"id": "s1450",
-"page": "painters",
-"ko": "다양성을 살펴볼 때는 개인의 취향보다 얼마나 따라 하는지, 인기를 얼마나 좇는지, 새 시도가 얼마나 나오는지가 열쇠일 수 있어요.",
-"en": "To look at diversity, how much people copy, how much they chase popularity and how many new attempts appear may matter more than individual taste.",
-"tr": "Para mirar la diversidad, cuánto se copia, cuánto se persigue la popularidad y cuántos intentos nuevos aparecen puede importar más que el gusto individual."
+"id": "d1274",
+"page": "(실행 중 문구) predict",
+"ko": "어린이집에서 아프면 쉬는 아이의 비율을 0%에서 70%로 올리면 한 해 걸린 횟수는 어떻게 될까요? (반 20명, 예시 설정)",
+"en": "If the share of children staying home when sick rises from 0% to 70%, what happens to infections per year? (class of 20, example settings)",
+"tr": "Si la proporción de niños que se quedan en casa al enfermar sube de 0% a 70%, ¿qué ocurre con los contagios por año? (clase de 20, configuración de ejemplo)"
 },
 {
-"id": "s1452",
-"page": "painters",
-"ko": "실제 화가나 이미지 생성 AI를 재현한 것도, 모방이 나쁘다는 뜻도 아니에요. 그림의 좋고 나쁨은 모델에 없어요.",
-"en": "It does not reproduce real painters or image-generating AI, and it does not say copying is bad; quality is absent from the model.",
-"tr": "No reproduce a pintores reales ni a la IA que genera imágenes, y no dice que copiar sea malo; la calidad no está en el modelo."
+"id": "d1275",
+"page": "(실행 중 문구) predict",
+"ko": "시드 20개 평균으로 5.0회에서 3.5회였습니다. 100%가 쉬어도 2.5회로 절반쯤만 줄어듭니다. 증상이 나타나기 전 하루 동안 이미 퍼뜨리고 반 밖에서도 감염이 들어오기 때문입니다.",
+"en": "Averaged over 20 seeds it went from 5.0 to 3.5. Even at 100% staying home it was 2.5, about half, because children spread it the day before symptoms and infection also arrives from outside the class.",
+"tr": "Promediando 20 semillas, pasó de 5.0 a 3.5. Incluso con 100% en casa fue 2.5, cerca de la mitad, porque los niños contagian el día antes de los síntomas y además llegan contagios desde fuera de la clase."
 },
 {
-"id": "s1453",
-"page": "painters",
-"ko": "모방이 실제로 다양성을 얼마나 줄이는지는 실제 작품 데이터로 확인해야 하고, 모방이 기술을 퍼뜨리는 효과도 함께 봐야 해요.",
-"en": "How much copying really reduces diversity needs real artwork data, alongside the way copying also spreads skills.",
-"tr": "Cuánto reduce realmente la diversidad el copiar requiere datos reales de obras, junto con el hecho de que copiar también difunde habilidades."
+"id": "d1276",
+"page": "(실행 중 문구) predict",
+"ko": "거의 0회가 된다",
+"en": "Falls to almost zero",
+"tr": "Baja casi a cero"
 },
 {
-"id": "s1455",
-"page": "painters",
-"ko": "<b>모델의 뿌리:</b> 두 가지 뿌리가 있습니다. 하나는 문화 진화 이론의 \"편향된 전달\"(Boyd, Richerson, 1985, 『Culture and the Evolutionary Process』)로, 사람들이 인기 있는 쪽을 골라 따라 한다는 생각입니다. 다른 하나는 이웃의 값 쪽으로 조금씩 다가가는 평균 모델(DeGroot, 1974, \"Reaching a consensus\", <i>Journal of the American Statistical Association</i>)입니다. 인기와 사회적 영향이 결과를 바꾼다는 Salganik, Dodds, Watts (2006, <i>Science</i>)의 음악 시장 실험에서도 발상을 얻었지만, 그 실험을 재현한 것은 아닙니다.",
-"en": "<b>Where the model comes from:</b> There are two roots. One is the \"biased transmission\" of cultural evolution theory (Boyd and Richerson, 1985, <i>Culture and the Evolutionary Process</i>): people choose whom to copy, often favoring the popular. The other is the averaging model in which agents move part of the way toward others' values (DeGroot, 1974, \"Reaching a consensus\", <i>Journal of the American Statistical Association</i>). The design was also inspired by the music-market experiment of Salganik, Dodds and Watts (2006, <i>Science</i>) on popularity and social influence, but it does not reproduce that experiment.",
-"tr": "<b>De dónde viene el modelo:</b> Hay dos raíces. Una es la \"transmisión sesgada\" de la teoría de la evolución cultural (Boyd y Richerson, 1985, <i>Culture and the Evolutionary Process</i>): las personas eligen a quién copiar, a menudo favoreciendo lo popular. La otra es el modelo de promediado en el que los agentes se acercan parcialmente a los valores de otros (DeGroot, 1974, \"Reaching a consensus\", <i>Journal of the American Statistical Association</i>). El diseño también se inspiró en el experimento de mercado musical de Salganik, Dodds y Watts (2006, <i>Science</i>) sobre popularidad e influencia social, pero no reproduce ese experimento."
+"id": "d1277",
+"page": "(실행 중 문구) predict",
+"ko": "절반 아래로 줄어든다",
+"en": "Falls by more than half",
+"tr": "Baja a menos de la mitad"
 },
 {
-"id": "s1456",
-"page": "painters",
-"ko": "<b>핵심 가정과 수식:</b> 화풍은 네 숫자의 벡터 <code>s</code>입니다. 라운드마다 확률 <b>복사율</b>로 화가 <i>i</i>는 화가 <i>j</i>를 골라 <code>s<sub>i</sub> ← s<sub>i</sub> + 0.5(s<sub>j</sub> − s<sub>i</sub>)</code>로 절반쯤 다가가고, 아니면 <b>독창성</b> 크기의 무작위 변화를 더합니다. <i>j</i>가 뽑힐 가중치는 <code>(1−b) + b(p<sub>j</sub>/평균 p)<sup>2</sup></code>이며 <b>b</b>가 인기 편향 슬라이더입니다.",
-"en": "<b>Key assumptions and formulas:</b> A style is a vector <code>s</code> of four numbers. Each round, with probability <b>copy rate</b> painter <i>i</i> picks painter <i>j</i> and moves halfway: <code>s<sub>i</sub> ← s<sub>i</sub> + 0.5(s<sub>j</sub> − s<sub>i</sub>)</code>; otherwise a random change of size <b>originality</b> is added. The weight for picking <i>j</i> is <code>(1−b) + b(p<sub>j</sub>/mean p)<sup>2</sup></code>, where <b>b</b> is the popularity-bias slider.",
-"tr": "<b>Supuestos clave y fórmulas:</b> Un estilo es un vector <code>s</code> de cuatro números. En cada ronda, con probabilidad <b>tasa de copia</b>, el pintor <i>i</i> elige al pintor <i>j</i> y avanza la mitad del camino: <code>s<sub>i</sub> ← s<sub>i</sub> + 0.5(s<sub>j</sub> − s<sub>i</sub>)</code>; si no, se añade un cambio aleatorio de tamaño <b>originalidad</b>. El peso para elegir a <i>j</i> es <code>(1−b) + b(p<sub>j</sub>/mean p)<sup>2</sup></code>, donde <b>b</b> es el control deslizante del sesgo de popularidad."
+"id": "d1278",
+"page": "(실행 중 문구) predict",
+"ko": "5.0회에서 3.5회로 약 30% 준다",
+"en": "Falls about 30%, from 5.0 to 3.5",
+"tr": "Baja cerca de un 30%, de 5.0 a 3.5"
 },
 {
-"id": "s1457",
-"page": "painters",
-"ko": "<b>이 프로젝트의 단순화:</b> 화풍을 네 숫자로 줄였고, 반쯤 다가가는 정도(0.5)와 인기 가중치를 제곱으로 둔 것, 인기가 시간이 지나면 줄어드는 방식은 모두 이 프로젝트가 정한 값입니다. 모든 화가가 서로를 볼 수 있고 한 번에 한 명만 따라 하며, 그림의 좋고 나쁨(품질)은 없습니다.",
-"en": "<b>What this project simplifies:</b> Style is reduced to four numbers. The halfway step (0.5), the squared popularity weight and the way popularity fades over time are values chosen by this project. Everyone can see everyone, each painter copies only one other at a time, and there is no notion of quality.",
-"tr": "<b>Qué simplifica este proyecto:</b> El estilo se reduce a cuatro números. El paso a mitad de camino (0,5), el peso de popularidad al cuadrado y la forma en que la popularidad se desvanece con el tiempo son valores elegidos por este proyecto. Todos ven a todos, cada pintor copia solo a otro a la vez y no existe la noción de calidad."
+"id": "d1279",
+"page": "(실행 중 문구) predict",
+"ko": "아이들이 지망 순위를 솔직하게 적었을 때, 다른 집은 그대로 두고 한 아이만 순서를 바꿔 적어 더 나은 곳에 갈 수 있는 아이는 보스턴 방식과 지연 수락 방식에서 각각 얼마나 될까?",
+"en": "If one child alone reorders their ranking while everyone else is honest, how many can do better under the Boston method and under deferred acceptance?",
+"tr": "Si un solo niño reordena su lista mientras todos los demás son sinceros, ¿cuántos pueden salir mejor con el método Boston y con la aceptación diferida?"
 },
 {
-"id": "s1458",
-"page": "painters",
-"ko": "<b>이론값과 시뮬레이션:</b> 이 모델에는 비교할 닫힌 해나 논문 값이 없어 시뮬레이션만으로 확인했습니다. 확인한 것은 방향과 양끝입니다. 복사율 0%에서는 다양성 0.47·쏠림 2%, 100%에서는 다양성 0.02·쏠림 100%, 기본값(복사 60%)에서는 0.18·55%였고, 인기 편향을 0으로 하면 복사율 60%에서 쏠림이 25%로 줄었습니다.",
-"en": "<b>Theory versus simulation:</b> There is no closed-form result or published number to compare with, so it was checked by simulation only. What was confirmed is the direction and the two ends: at a copy rate of 0%, diversity is 0.47 and concentration 2%; at 100%, 0.02 and 100%; at the default (60%), 0.18 and 55%. With zero popularity bias, concentration at a 60% copy rate falls to 25%.",
-"tr": "<b>Teoría frente a simulación:</b> No hay un resultado de forma cerrada ni un número publicado con el que comparar, así que se comprobó solo por simulación. Lo que se confirmó es la dirección y los dos extremos: con una tasa de copia del 0%, la diversidad es 0,47 y la concentración 2%; con el 100%, 0,02 y 100%; con el valor por defecto (60%), 0,18 y 55%. Con sesgo de popularidad cero, la concentración con una tasa de copia del 60% baja al 25%."
+"id": "d1280",
+"page": "(실행 중 문구) predict",
+"ko": "아이 60명 표본에서 보스턴은 43%(26명)가 이득을 봤고 지연 수락은 0%였습니다(시드 1~12 평균 보스턴 34.3%). 지연 수락은 솔직하게 적는 것이 최선인 구조입니다.",
+"en": "In a sample of 60 children, 43% (26) gained under Boston and 0% under deferred acceptance (Boston averaged 34.3% over seeds 1 to 12). Deferred acceptance makes honesty the best policy.",
+"tr": "En una muestra de 60 niños, 43% (26) salió ganando con Boston y 0% con aceptación diferida (Boston promedió 34.3% en las semillas 1 a 12). La aceptación diferida es un diseño en el que lo mejor es ser sincero."
 },
 {
-"id": "s1459",
-"page": "painters",
-"ko": "<b>더 읽을거리:</b> Salganik, Dodds, Watts (2006), \"Experimental Study of Inequality and Unpredictability in an Artificial Cultural Market\", <i>Science</i> 311. Boyd, Richerson (1985), 『Culture and the Evolutionary Process』, University of Chicago Press. DeGroot (1974), \"Reaching a consensus\", <i>Journal of the American Statistical Association</i>.",
-"en": "<b>Further reading:</b> Salganik, Dodds, Watts (2006), \"Experimental Study of Inequality and Unpredictability in an Artificial Cultural Market\", <i>Science</i> 311. Boyd, Richerson (1985), <i>Culture and the Evolutionary Process</i>, University of Chicago Press. DeGroot (1974), \"Reaching a consensus\", <i>Journal of the American Statistical Association</i>.",
-"tr": "<b>Lecturas adicionales:</b> Salganik, Dodds, Watts (2006), \"Experimental Study of Inequality and Unpredictability in an Artificial Cultural Market\", <i>Science</i> 311. Boyd, Richerson (1985), <i>Culture and the Evolutionary Process</i>, University of Chicago Press. DeGroot (1974), \"Reaching a consensus\", <i>Journal of the American Statistical Association</i>."
+"id": "d1281",
+"page": "(실행 중 문구) predict",
+"ko": "둘 다 비슷하게 40% 안팎",
+"en": "About 40% under both",
+"tr": "Parecido en ambos, alrededor de 40%"
 },
 {
-"id": "s1490",
-"page": "peter",
-"ko": "승진 뒤 능력이 이어지지 않으면 최고 능력자만 올리는 방식은 평균 이하의 결과를 냅니다.",
-"en": "If ability does not carry over after promotion, promoting only the top performer gives below-average results.",
-"tr": "Si la habilidad no se mantiene tras el ascenso, ascender solo al mejor desempeño da resultados por debajo del promedio."
+"id": "d1282",
+"page": "(실행 중 문구) predict",
+"ko": "보스턴 43%, 지연 수락 0%",
+"en": "Boston 43%, deferred acceptance 0%",
+"tr": "Boston 43%, aceptación diferida 0%"
 },
 {
-"id": "s1491",
-"page": "peter",
-"ko": "이 모델에서는 승진하면 새 직무 능력이 다시 정해져, 현재 성과가 새 일의 적합성을 보장하지 않기 때문입니다.",
-"en": "In this model ability is redrawn in the new job, so current performance does not guarantee fit for the new role.",
-"tr": "En este modelo la capacidad se vuelve a sortear en el nuevo puesto, así que el rendimiento actual no garantiza el encaje en el nuevo rol."
+"id": "d1283",
+"page": "(실행 중 문구) predict",
+"ko": "보스턴 0%, 지연 수락 43%",
+"en": "Boston 0%, deferred acceptance 43%",
+"tr": "Boston 0%, aceptación diferida 43%"
 },
 {
-"id": "s1492",
-"page": "peter",
-"ko": "승진 기준이 현재 성과인지 새 일의 적합성인지, 능력이 얼마나 이어지는지부터 살펴볼 만합니다.",
-"en": "Whether promotion rests on current performance or new-role fit, and how much ability carries over, is worth checking first.",
-"tr": "Conviene comprobar primero si el ascenso se basa en el rendimiento actual o en el encaje con el nuevo rol, y cuánta capacidad se transfiere."
+"id": "d1284",
+"page": "(실행 중 문구) predict",
+"ko": "🔮 먼저 예상해 보세요",
+"en": "🔮 Make a prediction first",
+"tr": "🔮 Haz primero tu predicción"
 },
 {
-"id": "s1494",
-"page": "peter",
-"ko": "피터의 원리가 현실의 모든 조직에 해당한다는 뜻은 아닙니다. 논문과 달리 최저 능력자 승진이 가장 높게 나온 원인도 확인하지 못했습니다.",
-"en": "It does not mean the Peter principle holds in every organization, and why promoting the weakest scored highest, unlike the paper, is unconfirmed.",
-"tr": "No significa que el principio de Peter se cumpla en todas las organizaciones, y no está confirmado por qué ascender al más débil obtuvo la puntuación más alta, a diferencia del artículo."
+"id": "d1285",
+"page": "(실행 중 문구) predict",
+"ko": "내 예상: {0}",
+"en": "My prediction: {0}",
+"tr": "Mi predicción: {0}"
 },
 {
-"id": "s1495",
-"page": "peter",
-"ko": "직무별로 승진 전후의 성과를 비교해 능력이 이어지는 정도를 재고, 교육과 팀워크 같은 요소를 넣어 봐야 합니다.",
-"en": "Compare performance before and after promotion by role to measure carry-over, and add factors like training and teamwork.",
-"tr": "Comparar el rendimiento antes y después del ascenso por rol para medir la transferencia, y añadir factores como la formación y el trabajo en equipo."
+"id": "d1286",
+"page": "(실행 중 문구) predict",
+"ko": "이제 아래 실험을 돌려 보세요. 결과를 본 뒤 정답을 확인할 수 있어요.",
+"en": "Now run the experiment below. After you see the result, check the answer.",
+"tr": "Ahora ejecuta el experimento de abajo. Cuando veas el resultado, comprueba la respuesta."
 },
 {
-"id": "s1497",
-"page": "peter",
-"ko": "<b>모델의 뿌리:</b> Laurence Peter와 Raymond Hull(1969, 『The Peter Principle』)이 &quot;사람은 무능해지는 자리까지 승진한다&quot;고 풍자한 것을, Pluchino, Rapisarda, Garofalo(2010, 「The Peter principle revisited: a computational study」, <i>Physica A</i> 389)가 에이전트 시뮬레이션으로 검증했습니다. 이 논문은 같은 해 이그노벨상(경영학)을 받았습니다.",
-"en": "<b>Where the model comes from:</b> Laurence Peter and Raymond Hull (1969, <i>The Peter Principle</i>) satirized the idea that people rise to the level of their incompetence; Pluchino, Rapisarda and Garofalo (2010, \"The Peter principle revisited: a computational study\", <i>Physica A</i> 389) tested it with an agent-based simulation. The paper received an Ig Nobel Prize (management) that year.",
-"tr": "<b>De dónde viene el modelo:</b> Laurence Peter y Raymond Hull (1969, <i>El principio de Peter</i>) satirizaron la idea de que las personas ascienden hasta su nivel de incompetencia; Pluchino, Rapisarda y Garofalo (2010, \"The Peter principle revisited: a computational study\", <i>Physica A</i> 389) lo pusieron a prueba con una simulación basada en agentes. Ese artículo recibió ese año un premio Ig Nobel (gestión)."
+"id": "d1287",
+"page": "(실행 중 문구) predict",
+"ko": "정답 보기",
+"en": "Show the answer",
+"tr": "Ver la respuesta"
 },
 {
-"id": "s1498",
-"page": "peter",
-"ko": "<b>핵심 가정과 수식:</b> 6단계 피라미드(위에서부터 1, 5, 11, 21, 41, 81명)에서 60세 은퇴로 생긴 빈자리를 아래 단계에서 승진시켜 채웁니다. 승진하면 확률 continuity로 예전 능력을 유지하고 아니면 능력이 새로 뽑힙니다(continuity 0%가 피터 가설). 조직 효율은 단계별 평균 능력의 가중 평균(가중치 6, 5, 4, 3, 2, 1)입니다.",
-"en": "<b>Key assumptions and formulas:</b> In a six-level pyramid (1, 5, 11, 21, 41 and 81 people from the top), vacancies from retirement at age 60 are filled by promotion from the level below. A promoted person keeps the old competence with probability continuity, otherwise competence is redrawn (continuity 0% is the Peter hypothesis). Organizational efficiency is the weighted mean of level-average competence (weights 6, 5, 4, 3, 2, 1).",
-"tr": "<b>Supuestos clave y fórmulas:</b> En una pirámide de seis niveles (1, 5, 11, 21, 41 y 81 personas desde la cima), las vacantes por jubilación a los 60 años se cubren con ascensos desde el nivel inferior. Una persona ascendida conserva su competencia anterior con probabilidad de continuidad; si no, la competencia se vuelve a sortear (continuidad 0% es la hipótesis de Peter). La eficiencia de la organización es la media ponderada de la competencia media de cada nivel (pesos 6, 5, 4, 3, 2, 1)."
+"id": "d1288",
+"page": "(실행 중 문구) predict",
+"ko": "건너뛰고 바로 보기",
+"en": "Skip and see it now",
+"tr": "Saltar y verlo ya"
 },
 {
-"id": "s1499",
-"page": "peter",
-"ko": "<b>이 프로젝트의 단순화:</b> 능력의 분포(평균 7, 표준편차 2를 0~10으로 자름), 효율 가중치, 나이 분포, 4가지 승진 방식의 정의는 이 프로젝트의 단순화이며 논문 설정을 그대로 옮긴 것이 아닙니다. 논문에서는 무작위·번갈아 승진이 가장 좋았는데 이 구현에서는 최저 능력자 승진이 가장 높게 나옵니다. 세부 설정 차이로 보이지만 원인은 확인하지 못했습니다.",
-"en": "<b>What this project simplifies:</b> The competence distribution (mean 7, SD 2, clipped to 0 to 10), the efficiency weights, the age distribution and the definitions of the four promotion rules are this project&#x27;s simplifications, not a copy of the paper&#x27;s setup. In the paper, random or alternating promotion did best, while in this implementation promoting the worst performer scores highest. This looks like a difference in details, but the cause has not been confirmed.",
-"tr": "<b>Qué simplifica este proyecto:</b> La distribución de la competencia (media 7, DE 2, recortada a 0–10), los pesos de eficiencia, la distribución de edades y las definiciones de las cuatro reglas de ascenso son simplificaciones de este proyecto, no una copia del planteamiento del artículo. En el artículo, el ascenso aleatorio o alterno fue el mejor, mientras que en esta implementación promover al peor obtiene la mayor puntuación. Parece una diferencia de detalles, pero la causa no se ha confirmado."
+"id": "d1289",
+"page": "(실행 중 문구) predict",
+"ko": "예상을 고르면 실험 결과가 열려요.",
+"en": "Pick an answer to unlock the results.",
+"tr": "Elige una respuesta para ver los resultados."
 },
 {
-"id": "s1500",
-"page": "peter",
-"ko": "<b>이론값과 시뮬레이션:</b> 닫힌 해는 없지만 무작위 승진·continuity 0%는 손으로 확인됩니다. 모두의 능력이 매번 새로 뽑힌 값이라 효율은 잘린 정규분포의 평균 7−2[φ(1.5)−1.5(1−Φ(1.5))]≈6.94에 가야 하고, 시뮬레이션은 6.96입니다. continuity 0%에서 최고 능력자 승진 6.46, 번갈아 7.04, 최저 승진 7.41이고, 100%에서는 최고 승진 9.31, 최저 승진 3.94입니다(60년 뒤, 30회 평균, 처음 약 7.0. <code>node tools/validate-more.js peter</code>).",
-"en": "<b>Theory versus simulation:</b> There is no closed form, but random promotion with continuity 0% can be checked by hand. Everyone&#x27;s competence is a fresh draw, so efficiency should approach the mean of the clipped normal, 7 − 2[φ(1.5) − 1.5(1 − Φ(1.5))] ≈ 6.94; the simulation gives 6.96. At continuity 0%, promoting the best gives 6.46, alternating 7.04 and promoting the worst 7.41; at 100%, promoting the best gives 9.31 and the worst 3.94 (after 60 years, 30-run average, starting near 7.0; <code>node tools/validate-more.js peter</code>).",
-"tr": "<b>Teoría frente a simulación:</b> No hay forma cerrada, pero el ascenso aleatorio con continuidad 0% puede comprobarse a mano. La competencia de todos es un sorteo nuevo, así que la eficiencia debería acercarse a la media de la normal recortada, 7 − 2[φ(1,5) − 1,5(1 − Φ(1,5))] ≈ 6,94; la simulación da 6,96. Con continuidad 0%, promover al mejor da 6,46, alternar 7,04 y promover al peor 7,41; con 100%, promover al mejor da 9,31 y al peor 3,94 (tras 60 años, promedio de 30 ejecuciones, partiendo cerca de 7,0; <code>node tools/validate-more.js peter</code>)."
+"id": "d1290",
+"page": "(실행 중 문구) predict",
+"ko": "건너뛰었어요. 지금 골라도 돼요.",
+"en": "You skipped ahead. You can still pick now.",
+"tr": "Te has adelantado. Aun así, puedes elegir ahora."
 },
 {
-"id": "s1501",
-"page": "peter",
-"ko": "<b>더 읽을거리:</b> Peter, L. J. &amp; Hull, R. (1969), 『The Peter Principle』, William Morrow. / Pluchino, A., Rapisarda, A. &amp; Garofalo, C. (2010), 「The Peter principle revisited: a computational study」, <i>Physica A</i> 389.",
-"en": "<b>Further reading:</b> Peter, L. J. and Hull, R. (1969), <i>The Peter Principle</i>, William Morrow. / Pluchino, A., Rapisarda, A. and Garofalo, C. (2010), \"The Peter principle revisited: a computational study\", <i>Physica A</i> 389.",
-"tr": "<b>Lecturas adicionales:</b> Peter, L. J. y Hull, R. (1969), <i>The Peter Principle</i>, William Morrow. / Pluchino, A., Rapisarda, A. y Garofalo, C. (2010), \"The Peter principle revisited: a computational study\", <i>Physica A</i> 389."
+"id": "d1291",
+"page": "(실행 중 문구) predict",
+"ko": "정답: {0}",
+"en": "Answer: {0}",
+"tr": "Respuesta: {0}"
 },
 {
-"id": "s1537",
-"page": "population",
-"ko": "출산율 0.72가 유지되면 이 모델에서 2070년 인구는 약 2,940만 명, 65세 이상이 54%예요.",
-"en": "If fertility stays at 0.72, this model gives about 29.4 million people in 2070, with 54% aged 65 or older.",
-"tr": "Si la fecundidad se mantiene en 0,72, este modelo da unos 29,4 millones de personas en 2070, con un 54 % de 65 años o más."
+"id": "d1292",
+"page": "(실행 중 문구) predict",
+"ko": "🎯 맞혔어요!",
+"en": "🎯 You got it!",
+"tr": "🎯 ¡Acertaste!"
 },
 {
-"id": "s1538",
-"page": "population",
-"ko": "출산율을 1.5로 올려도 줄어드는 건 이미 태어난 세대가 작아서 앞으로 부모가 될 사람이 적기 때문일 수 있어요.",
-"en": "Even at 1.5 it still shrinks, possibly because the generations already born are small, leaving fewer future parents.",
-"tr": "Incluso con 1,5 sigue reduciéndose, posiblemente porque las generaciones ya nacidas son pequeñas y habrá menos futuros padres."
+"id": "d1293",
+"page": "(실행 중 문구) predict",
+"ko": "🤔 틀렸어도 괜찮아요. 이 반전이 바로 이 실험이에요.",
+"en": "🤔 Not quite, and that is the point. This twist is what the experiment is about.",
+"tr": "🤔 No pasa nada por fallar: este giro es justo de lo que trata el experimento."
 },
 {
-"id": "s1539",
-"page": "population",
-"ko": "인구 구조는 출산율만이 아니라 세대의 크기와 기대수명을 함께 볼 때 어디가 중요한지 보여요.",
-"en": "The age structure shows where to look when cohort sizes and life expectancy are viewed together with fertility, not fertility alone.",
-"tr": "La estructura por edades indica dónde mirar cuando se ven juntos el tamaño de las cohortes y la esperanza de vida con la fecundidad, y no solo la fecundidad."
+"id": "d1294",
+"page": "(실행 중 문구) predict",
+"ko": "다른 방문자 {#0}명의 예상",
+"en": "What {0} other visitors predicted",
+"tr": "Lo que predijeron otros {0} visitantes"
 },
 {
-"id": "s1541",
-"page": "population",
-"ko": "통계청의 공식 추계도 미래 예측도 아니고, 어떤 정책이 옳은지도 말하지 않아요.",
-"en": "It is neither an official projection nor a forecast, and it does not say which policy is right.",
-"tr": "No es una proyección oficial ni un pronóstico, y no dice qué política es la correcta."
+"id": "d1295",
+"page": "(실행 중 문구) predict",
+"ko": "정답을 맞힌 사람: {%0}",
+"en": "Got it right: {0}",
+"tr": "Acertaron: {0}"
 },
 {
-"id": "s1542",
-"page": "population",
-"ko": "출산율을 고정했고 이민·정책 효과는 평가하지 않아서, 공식 추계와 비교하며 가정을 따로 확인해야 해요.",
-"en": "Fertility is held fixed and immigration and policy effects are not assessed, so the assumptions should be checked against official projections.",
-"tr": "La fecundidad se mantiene fija y no se evalúan los efectos de la inmigración ni de las políticas, así que conviene contrastar los supuestos con las proyecciones oficiales."
+"id": "d1296",
+"page": "(실행 중 문구) predict",
+"ko": "예상 적중 {#0}/{#1}",
+"en": "Predictions right: {0}/{1}",
+"tr": "Aciertos: {0}/{1}"
 },
 {
-"id": "s1544",
-"page": "population",
-"ko": "<b>모델의 뿌리:</b> 인구 추계의 표준 방법인 <b>코호트 요인법</b>입니다. 같은 해에 태어난 집단(코호트)을 해마다 한 살씩 옮기며 출생·사망·이동을 더하는 방식으로, Whelpton (1936)이 정리했다고 알려져 있습니다. 나이별 인구를 행렬 곱으로 다루는 수학은 Leslie (1945, <i>Biometrika</i>)의 연구가 대표적이고, 나이가 들수록 사망 확률이 지수적으로 커진다는 생각은 Gompertz (1825)로 거슬러 올라갑니다.",
-"en": "<b>Where the model comes from:</b> This is the <b>cohort-component method</b>, the standard way to project populations: each birth cohort is moved forward one year at a time while births, deaths and migration are added. It is usually credited to Whelpton (1936). The matrix form of age-structured populations is classically due to Leslie (1945, <i>Biometrika</i>), and the idea that mortality rises exponentially with age goes back to Gompertz (1825).",
-"tr": "<b>De dónde viene el modelo:</b> Es el <b>método de componentes por cohortes</b>, la forma estándar de proyectar poblaciones: cada cohorte de nacimiento avanza un año cada vez mientras se suman nacimientos, muertes y migración. Suele atribuirse a Whelpton (1936). La forma matricial de las poblaciones estructuradas por edad se debe clásicamente a Leslie (1945, <i>Biometrika</i>), y la idea de que la mortalidad crece exponencialmente con la edad se remonta a Gompertz (1825)."
+"id": "d1363",
+"page": "(실행 중 문구) sandpile",
+"ko": "방금 떨어뜨린 알의 결과",
+"en": "Result of the grain just dropped",
+"tr": "Resultado del último grano caído"
 },
 {
-"id": "s1545",
-"page": "population",
-"ko": "<b>핵심 가정과 수식:</b> <code>P(a+1, t+1) = P(a, t)·S(a, t) + M(a)</code>, 출생은 <code>B(t) = TFR × Σ f(a)·(여성 수 P(a, t)/2)</code>입니다. <code>S</code>는 생존율, <code>M</code>은 이민, <code>f(a)</code>는 15~49세 출산 연령 분포(합이 1)입니다. 슬라이더는 TFR, <code>M</code>의 크기, 해마다 기대수명이 늘어나는 정도를 정합니다.",
-"en": "<b>Key assumptions and formulas:</b> <code>P(a+1, t+1) = P(a, t)·S(a, t) + M(a)</code>, and births are <code>B(t) = TFR × Σ f(a)·(women P(a, t)/2)</code>. <code>S</code> is survival, <code>M</code> is migration and <code>f(a)</code> is the age pattern of childbearing at 15–49 (summing to 1). The sliders set TFR, the size of <code>M</code>, and how fast life expectancy rises.",
-"tr": "<b>Supuestos clave y fórmulas:</b> <code>P(a+1, t+1) = P(a, t)·S(a, t) + M(a)</code>, y los nacimientos son <code>B(t) = TFR × Σ f(a)·(mujeres P(a, t)/2)</code>. <code>S</code> es la supervivencia, <code>M</code> la migración y <code>f(a)</code> el patrón de edad de la maternidad entre los 15 y 49 años (suma 1). Los controles deslizantes fijan la TFR, el tamaño de <code>M</code> y la rapidez con que sube la esperanza de vida."
+"id": "d1364",
+"page": "(실행 중 문구) sandpile",
+"ko": "아직 떨어뜨리지 않았어요",
+"en": "No grain dropped yet",
+"tr": "Aún no ha caído ningún grano"
 },
 {
-"id": "s1546",
-"page": "population",
-"ko": "<b>이 프로젝트의 단순화:</b> 남녀를 합쳐 절반을 여성으로 가정하고, 출산 연령 곡선(평균 32.5세, 표준편차 4.5)과 사망 곡선의 모양, 이민이 20~39세로만 들어오는 것은 이 프로젝트가 정한 값입니다. 2024년 한 살 단위 인구는 공식 자료가 아니라 공표된 세 연령대 비중에 맞춘 근사이고, 출산율은 2070년까지 고정입니다.",
-"en": "<b>What this project simplifies:</b> Sexes are combined with half assumed female. The childbearing age curve (mean 32.5, SD 4.5), the shape of the mortality curve and the rule that migrants arrive at ages 20–39 are this project's own choices. The 2024 single-age population is an approximation scaled to published three-group shares, and fertility is held fixed to 2070.",
-"tr": "<b>Qué simplifica este proyecto:</b> Los sexos se combinan suponiendo que la mitad son mujeres. La curva de edad de la maternidad (media 32,5, DE 4,5), la forma de la curva de mortalidad y la regla de que los migrantes llegan entre los 20 y 39 años son elecciones propias de este proyecto. La población de 2024 por edad simple es una aproximación escalada a las proporciones publicadas de tres grupos, y la fecundidad se mantiene fija hasta 2070."
+"id": "d1365",
+"page": "(실행 중 문구) sandpile",
+"ko": "아무 일 없었음",
+"en": "Nothing happened",
+"tr": "No pasó nada"
 },
 {
-"id": "s1547",
-"page": "population",
-"ko": "<b>이론값과 시뮬레이션:</b> 이 모델의 숫자는 검증 스크립트 출력입니다. 합계출산율 2.1이어도 2070년 인구는 4,720만 명으로 2024년(약 5,170만 명)의 91%인데, 이미 태어난 세대가 작아 출산율을 회복해도 한동안 줄기 때문입니다. 비교 대상으로 통계청 2023년 12월 장래인구추계(중위, 보도 기준)는 2072년 약 3,600만 명, 65세 이상 47.7%이고 출산율이 0.65에서 1.08로 회복한다고 가정합니다. 이 모델은 0.72 고정으로 2,820만 명, 54.6%로, 출산율 가정이 다른 만큼 차이가 납니다.",
-"en": "<b>Theory versus simulation:</b> These are outputs of the validation script. Even at a fertility rate of 2.1, the 2070 population is 47.2 million, 91% of 2024 (about 51.7 million), because the generations already born are small, so the population keeps shrinking for a while even if fertility recovers. For comparison, the medium scenario of Statistics Korea's December 2023 projections (as reported in the press) gives about 36 million and 47.7% aged 65+ in 2072, assuming fertility recovers from 0.65 to 1.08. This model, with fertility fixed at 0.72, gives 28.2 million and 54.6%; the gap reflects the different fertility assumption.",
-"tr": "<b>Teoría frente a simulación:</b> Estos son resultados del script de validación. Incluso con una tasa de fecundidad de 2,1, la población de 2070 es de 47,2 millones, el 91% de la de 2024 (unos 51,7 millones), porque las generaciones ya nacidas son pequeñas, así que la población sigue reduciéndose durante un tiempo aunque la fecundidad se recupere. A modo de comparación, el escenario medio de las proyecciones de Statistics Korea de diciembre de 2023 (según la prensa) da unos 36 millones y un 47,7% de personas de 65 años o más en 2072, suponiendo que la fecundidad se recupera de 0,65 a 1,08. Este modelo, con la fecundidad fija en 0,72, da 28,2 millones y 54,6%; la diferencia refleja el distinto supuesto de fecundidad."
+"id": "d1366",
+"page": "(실행 중 문구) sandpile",
+"ko": "{#0}번 무너짐",
+"en": "{0} topplings",
+"tr": "{0} derrumbes"
 },
 {
-"id": "s1548",
-"page": "population",
-"ko": "<b>더 읽을거리:</b> Preston, Heuveline, Guillot (2001), 『Demography: Measuring and Modeling Population Processes』, Blackwell. Leslie (1945), \"On the use of matrices in certain population mathematics\", <i>Biometrika</i>. 한국의 공식 수치는 통계청(KOSTAT)의 장래인구추계 원자료를 직접 확인하세요.",
-"en": "<b>Further reading:</b> Preston, Heuveline, Guillot (2001), <i>Demography: Measuring and Modeling Population Processes</i>, Blackwell. Leslie (1945), \"On the use of matrices in certain population mathematics\", <i>Biometrika</i>. For official Korean figures, consult the original Statistics Korea (KOSTAT) projection tables directly.",
-"tr": "<b>Lecturas adicionales:</b> Preston, Heuveline, Guillot (2001), <i>Demography: Measuring and Modeling Population Processes</i>, Blackwell. Leslie (1945), \"On the use of matrices in certain population mathematics\", <i>Biometrika</i>. Para las cifras oficiales de Corea, consulta directamente las tablas originales de proyección de Statistics Korea (KOSTAT)."
+"id": "d1367",
+"page": "(실행 중 문구) sandpile",
+"ko": "지금까지 떨어뜨린 알 {#0}개",
+"en": "Grains dropped so far: {0}",
+"tr": "Granos caídos hasta ahora: {0}"
 },
 {
-"id": "s1581",
-"page": "queue",
-"ko": "새치기는 처음엔 퍼지지만, 응징하는 사람이 충분하면 다시 사라져요.",
-"en": "Cutting spreads at first, but it dies out again if enough people punish it.",
-"tr": "Hacer trampa se extiende al principio, pero vuelve a apagarse si suficientes personas lo castigan."
+"id": "d1368",
+"page": "(실행 중 문구) sandpile",
+"ko": "높이별 칸 비율",
+"en": "Share of cells by height",
+"tr": "Proporción de celdas por altura"
 },
 {
-"id": "s1582",
-"page": "queue",
-"ko": "이득이 큰 새치기를 막으려면 누군가 눈총의 비용을 치러야 해서, 그 비용을 나눠 지는 사람이 많을수록 질서가 버텨요.",
-"en": "Stopping profitable cutting costs someone the price of disapproval, so order holds when many share that cost.",
-"tr": "Dejar de colarse tiene un coste, el precio de la desaprobación, para alguien, así que el orden se mantiene cuando muchos comparten ese coste."
+"id": "d1369",
+"page": "(실행 중 문구) sandpile",
+"ko": "높이 {#0}",
+"en": "Height {0}",
+"tr": "Altura {0}"
 },
 {
-"id": "s1583",
-"page": "queue",
-"ko": "줄이 무너진다면 사람 탓보다, 막는 사람이 혼자 비용을 지는 구조인지부터 살펴볼 만해요.",
-"en": "If a queue breaks down, it is worth first checking whether those who stop cutting bear the cost alone.",
-"tr": "Si una cola se desordena, conviene comprobar primero si quienes dejan de colarse asumen el coste en solitario."
+"id": "d1370",
+"page": "(실행 중 문구) sandpile",
+"ko": "높이 4가 되면 무너집니다",
+"en": "A cell topples at height 4",
+"tr": "Una celda se derrumba al llegar a altura 4"
 },
 {
-"id": "s1585",
-"page": "queue",
-"ko": "현실의 줄 서기가 이렇게 단순하다는 뜻은 아니에요. 눈총의 비용과 효과는 이 모델이 정한 값이에요.",
-"en": "Real queueing is not this simple; the cost and effect of disapproval are values set by this model.",
-"tr": "Las colas reales no son tan simples; el coste y el efecto de la desaprobación son valores fijados por este modelo."
+"id": "d1371",
+"page": "(실행 중 문구) sandpile",
+"ko": "쌓는 중",
+"en": "Building up",
+"tr": "Acumulando"
 },
 {
-"id": "s1586",
-"page": "queue",
-"ko": "실제 줄에서 누가 얼마나 나서는지, 안내 직원이나 표지판이 어떤 차이를 만드는지 관찰해야 알 수 있어요.",
-"en": "Who steps up in real queues, and what staff or signs change, has to be observed to know.",
-"tr": "Quién da un paso adelante en las colas reales, y qué cambia el personal o la señalización, hay que observarlo para saberlo."
+"id": "d1372",
+"page": "(실행 중 문구) sandpile",
+"ko": "떨어뜨린 알 수",
+"en": "Grains dropped",
+"tr": "Granos caídos"
 },
 {
-"id": "s1588",
-"page": "queue",
-"ko": "<b>모델의 뿌리:</b> 격자 위에서 이웃과 게임을 하고 가장 성공한 이웃의 전략을 따라 하는 공간 진화 게임으로, Nowak과 May가 1992년 <i>Nature</i> 359에 낸 \"Evolutionary games and spatial chaos\"의 방식입니다. 응징하는 사람이 비용을 치르며 규범을 지키는 아이디어는 Axelrod (1986)의 규범 모델과 Fehr, Gächter (2002)의 실험에서 왔습니다.",
-"en": "<b>Where the model comes from:</b> This is a spatial evolutionary game in which people play their neighbors and copy the most successful neighbor, in the style of Nowak and May, \"Evolutionary games and spatial chaos\", <i>Nature</i> 359 (1992). The idea of punishers paying a cost to uphold a norm comes from Axelrod's (1986) norms model and the experiments of Fehr and Gächter (2002).",
-"tr": "<b>De dónde viene el modelo:</b> Es un juego evolutivo espacial en el que las personas juegan con sus vecinos y copian al vecino de más éxito, al estilo de Nowak y May, \"Evolutionary games and spatial chaos\", <i>Nature</i> 359 (1992). La idea de que los castigadores paguen un coste para sostener una norma proviene del modelo de normas de Axelrod (1986) y de los experimentos de Fehr y Gächter (2002)."
+"id": "d1373",
+"page": "(실행 중 문구) sandpile",
+"ko": "눈사태 크기 (무너진 횟수)",
+"en": "Avalanche size (number of topplings)",
+"tr": "Tamaño del alud (número de derrumbes)"
 },
 {
-"id": "s1589",
-"page": "queue",
-"ko": "<b>핵심 가정과 수식:</b> 50×50 격자에서 모두가 이웃 8명과 한 번씩 만나 점수를 모으고 이웃 중 최고 점수의 전략을 따릅니다. 새치기는 질서를 만나면 +<i>g</i>(이득), 질서는 −<i>g</i>를 받고, 새치기가 눈총형을 만나면 이득이 <i>g</i>−<i>f</i>로(눈총의 효과 <i>f</i>), 눈총형은 새치기를 볼 때마다 비용 <i>c</i>를 치릅니다. 따라서 대략 <i>f</i>가 <i>g</i>보다 커야 새치기가 눈총형 이웃 곁에서 손해를 봅니다. 슬라이더가 <i>g</i>, <i>f</i>, <i>c</i>입니다.",
-"en": "<b>Key assumptions and formulas:</b> On a 50×50 grid everyone meets their 8 neighbors once and copies the strategy of the highest-scoring neighbor. A cutter meeting an orderly person gains +<i>g</i> (the orderly person gets −<i>g</i>); a cutter meeting a punisher nets <i>g</i>−<i>f</i> (punishment effect <i>f</i>), and a punisher pays cost <i>c</i> each time it sees a cutter. So roughly, <i>f</i> must exceed <i>g</i> for cutting to be a loss next to punishers. The sliders are <i>g</i>, <i>f</i>, and <i>c</i>.",
-"tr": "<b>Supuestos clave y fórmulas:</b> En una cuadrícula de 50×50, cada persona se encuentra una vez con sus 8 vecinos y copia la estrategia del vecino con mayor puntuación. Quien se cuela y se encuentra con una persona ordenada gana +<i>g</i> (la persona ordenada obtiene −<i>g</i>); quien se cuela y se encuentra con un castigador obtiene neto <i>g</i>−<i>f</i> (efecto del castigo <i>f</i>), y el castigador paga un coste <i>c</i> cada vez que ve a alguien colarse. Así, a grandes rasgos, <i>f</i> debe superar a <i>g</i> para que colarse sea una pérdida junto a los castigadores. Los controles deslizantes son <i>g</i>, <i>f</i> y <i>c</i>."
+"id": "d1374",
+"page": "(실행 중 문구) sandpile",
+"ko": "최대 {#0}번",
+"en": "Max {0}",
+"tr": "Máx. {0}"
 },
 {
-"id": "s1590",
-"page": "queue",
-"ko": "<b>이 프로젝트의 단순화:</b> \"응징하는 협력자\"를 넣고 점수표를 정한 것은 이 프로젝트의 설계이며 원 논문의 모델이나 수치의 재현이 아닙니다. 눈총형은 처음에 있던 사람뿐이고 새로 생기지 않으며, 아주 작은 확률로 질서나 새치기가 새로 들어옵니다. 점수와 비용의 숫자는 비교를 위한 상대적인 값입니다.",
-"en": "<b>What this project simplifies:</b> Adding the \"punishing cooperator\" and choosing the payoff table is this project's own design, not the paper's model or a reproduction of its numbers. Punishers exist only among the initial population and never newly appear, while with a very small probability new orderly people or cutters enter. The payoff and cost numbers are relative values for comparison.",
-"tr": "<b>Qué simplifica este proyecto:</b> Añadir al \"cooperador castigador\" y elegir la tabla de pagos es un diseño propio de este proyecto, no el modelo del artículo ni una reproducción de sus números. Los castigadores existen solo en la población inicial y nunca aparecen de nuevo, mientras que con una probabilidad muy pequeña entran nuevas personas ordenadas o que se cuelan. Los números de pago y de coste son valores relativos para comparar."
+"id": "d1375",
+"page": "(실행 중 문구) sandpile",
+"ko": "눈사태 크기 (무너진 횟수, 로그 눈금)",
+"en": "Avalanche size (number of topplings, log scale)",
+"tr": "Tamaño del alud (número de derrumbes, escala logarítmica)"
+},
+{
+"id": "d1376",
+"page": "(실행 중 문구) sandpile",
+"ko": "더미가 안정기에 들어서면 분포가 그려져요",
+"en": "The distribution is drawn once the pile reaches its steady regime",
+"tr": "La distribución se dibuja cuando el montón llega a su régimen estable"
+},
+{
+"id": "d1377",
+"page": "(실행 중 문구) sandpile",
+"ko": "비율 (크기 한 단위당)",
+"en": "Share (per unit of size)",
+"tr": "Proporción (por unidad de tamaño)"
+},
+{
+"id": "d1378",
+"page": "(실행 중 문구) sandpile",
+"ko": "기울기 {#0} (측정)",
+"en": "Slope {0} (measured)",
+"tr": "Pendiente {0} (medida)"
+},
+{
+"id": "d1379",
+"page": "(실행 중 문구) sandpile",
+"ko": "칸당 평균 모래알 수",
+"en": "Average grains per cell",
+"tr": "Granos medios por celda"
+},
+{
+"id": "d1380",
+"page": "(실행 중 문구) sandpile",
+"ko": "안정기 평균 {#0}",
+"en": "Steady-regime average {0}",
+"tr": "Media en régimen estable {0}"
+},
+{
+"id": "d1381",
+"page": "(실행 중 문구) sandpile",
+"ko": "가장 큰 눈사태 ÷ 보통 눈사태",
+"en": "Largest avalanche ÷ typical avalanche",
+"tr": "Alud mayor ÷ alud típico"
+},
+{
+"id": "d1382",
+"page": "(실행 중 문구) sandpile",
+"ko": "최대 {#0}번 무너짐 · 보통(중앙값) {#1}번",
+"en": "Largest: {0} topplings · typical (median): {1}",
+"tr": "Mayor: {0} derrumbes · típico (mediana): {1}"
+},
+{
+"id": "d1383",
+"page": "(실행 중 문구) sandpile",
+"ko": "안정기에 들어서면 계산돼요",
+"en": "Calculated once the pile is steady",
+"tr": "Se calcula cuando el montón es estable"
+},
+{
+"id": "d1384",
+"page": "(실행 중 문구) sandpile",
+"ko": "칸당 평균 높이",
+"en": "Average height per cell",
+"tr": "Altura media por celda"
+},
+{
+"id": "d1385",
+"page": "(실행 중 문구) sandpile",
+"ko": "올라가다가 어느 값에서 멈춰요",
+"en": "Rises, then stops at some value",
+"tr": "Sube y luego se detiene en algún valor"
+},
+{
+"id": "d1386",
+"page": "(실행 중 문구) sandpile",
+"ko": "알을 떨어뜨렸는데 아무 일 없던 비율",
+"en": "Share of grains that caused nothing",
+"tr": "Proporción de granos que no causaron nada"
+},
+{
+"id": "d1387",
+"page": "(실행 중 문구) sandpile",
+"ko": "안정기 이후 떨어뜨린 알 {#0}개 중",
+"en": "Out of {0} grains dropped after the pile settled",
+"tr": "De {0} granos caídos después de que el montón se asentara"
+},
+{
+"id": "d1388",
+"page": "(실행 중 문구) sandpile",
+"ko": "눈사태 크기 분포의 기울기 (측정)",
+"en": "Slope of the avalanche size distribution (measured)",
+"tr": "Pendiente de la distribución del tamaño de los aludes (medida)"
+},
+{
+"id": "d1389",
+"page": "(실행 중 문구) sandpile",
+"ko": "로그-로그 직선을 맞춘 값 · 눈사태 {#0}개",
+"en": "Log-log line fit · {0} avalanches",
+"tr": "Ajuste de recta log-log · {0} aludes"
+},
+{
+"id": "d1390",
+"page": "(실행 중 문구) sandpile",
+"ko": "모래더미 번호",
+"en": "Sandpile number",
+"tr": "N.º de montón de arena"
+},
+{
+"id": "d1391",
+"page": "(실행 중 문구) seating",
+"ko": "무작위로 앉기",
+"en": "Random seating",
+"tr": "Colocación al azar"
+},
+{
+"id": "d1392",
+"page": "(실행 중 문구) seating",
+"ko": "가장 먼 자리로",
+"en": "Farthest seat",
+"tr": "Asiento más lejano"
+},
+{
+"id": "d1393",
+"page": "(실행 중 문구) seating",
+"ko": "끝자리 먼저",
+"en": "Edge first",
+"tr": "Primero el extremo"
+},
+{
+"id": "d1394",
+"page": "(실행 중 문구) seating",
+"ko": "정돈해서 앉기",
+"en": "Orderly seating",
+"tr": "Colocación ordenada"
+},
+{
+"id": "d1395",
+"page": "(실행 중 문구) seating",
+"ko": "가장 먼 자리",
+"en": "Farthest seat",
+"tr": "Asiento más lejano"
+},
+{
+"id": "d1396",
+"page": "(실행 중 문구) seating",
+"ko": "정돈",
+"en": "Orderly",
+"tr": "Ordenada"
+},
+{
+"id": "d1397",
+"page": "(실행 중 문구) seating",
+"ko": "앉은 {#0}명 · 돌려보냄 {#1}명",
+"en": "{0} seated · {1} turned away",
+"tr": "{0} sentados · {1} rechazados"
+},
+{
+"id": "d1398",
+"page": "(실행 중 문구) seating",
+"ko": "{#0}/{#1}번째 도착",
+"en": "Arrival {0}/{1}",
+"tr": "Llegada {0}/{1}"
+},
+{
+"id": "d1399",
+"page": "(실행 중 문구) seating",
+"ko": "도착 순서 번호",
+"en": "Arrival order #",
+"tr": "N.º de orden de llegada"
+},
+{
+"id": "d1400",
+"page": "(실행 중 문구) seating",
+"ko": "{#0}석",
+"en": "{0} seats",
+"tr": "{0} asientos"
+},
+{
+"id": "d1401",
+"page": "(실행 중 문구) seating",
+"ko": "{#0}칸",
+"en": "{0}",
+"tr": "{0}"
+},
+{
+"id": "d1402",
+"page": "(실행 중 문구) seating",
+"ko": "끝! 모두 {#0}명이 앉았고 {#1}명은 돌아갔습니다. 정돈했다면 {#2}명, 무작위로만 앉으면 평균 {#3}명이었습니다.",
+"en": "Done! {0} people sat and {1} went home. Orderly seating would have fit {2}; purely random seating averaged {3}.",
+"tr": "¡Listo! {0} personas se sentaron y {1} se fueron a casa. Una colocación ordenada habría acomodado a {2}; la colocación puramente al azar promedió {3}."
+},
+{
+"id": "d1403",
+"page": "(실행 중 문구) seating",
+"ko": "나머지 {#0}명이 무작위로 들어오는 중…",
+"en": "The remaining {0} are arriving at random…",
+"tr": "Los {0} restantes llegan al azar…"
+},
+{
+"id": "d1404",
+"page": "(실행 중 문구) seating",
+"ko": "직접 앉힌 {#0}명, 앞으로 도착할 사람 {#1}명. 자리를 눌러 앉혀 보세요 (칸을 비울 필요는 없습니다).",
+"en": "You seated {0}; {1} still to arrive. Click a seat to place someone (no gap needed).",
+"tr": "Has sentado a {0}; faltan {1} por llegar. Haz clic en un asiento para colocar a alguien (no hace falta dejar hueco)."
+},
+{
+"id": "d1405",
+"page": "(실행 중 문구) seating",
+"ko": "직접 앉힌 {#0}명, 앞으로 도착할 사람 {#1}명. 자리를 눌러 앉혀 보세요 (앉은 사람 양옆 {#2}칸은 비워 둡니다).",
+"en": "You seated {0}; {1} still to arrive. Click a seat to place someone (keep {2} empty seats on each side of a seated person).",
+"tr": "Has sentado a {0}; faltan {1} por llegar. Haz clic en un asiento para colocar a alguien (deja {2} asientos vacíos a cada lado de quien está sentado)."
+},
+{
+"id": "d1406",
+"page": "(실행 중 문구) seating",
+"ko": "이미 누가 앉은 자리입니다.",
+"en": "Someone is already sitting there.",
+"tr": "Ya hay alguien sentado ahí."
+},
+{
+"id": "d1407",
+"page": "(실행 중 문구) seating",
+"ko": "그 자리는 앉은 사람과 너무 가깝습니다 (양옆 {#0}칸은 비워 둬야 해요).",
+"en": "That seat is too close to someone (keep {0} empty seats on each side).",
+"tr": "Ese asiento está demasiado cerca de alguien (deja {0} asientos vacíos a cada lado)."
+},
+{
+"id": "d1408",
+"page": "(실행 중 문구) seating",
+"ko": "(정돈의 {#0}%)",
+"en": "({0}% of orderly)",
+"tr": "({0}% del orden)"
+},
+{
+"id": "d1409",
+"page": "(실행 중 문구) seating",
+"ko": "긴 벤치 이론값 {#0}%",
+"en": "Long-bench theory {0}%",
+"tr": "Teoría del banco largo {0}%"
+},
+{
+"id": "d1410",
+"page": "(실행 중 문구) seating",
+"ko": "긴 벤치 이론값 {0}",
+"en": "Long-bench theory {0}",
+"tr": "Teoría del banco largo {0}"
+},
+{
+"id": "d1411",
+"page": "(실행 중 문구) seating",
+"ko": "벤치의 자리 수",
+"en": "Seats on the bench",
+"tr": "Asientos del banco"
+},
+{
+"id": "d1412",
+"page": "(실행 중 문구) seating",
+"ko": "사이에 비워 두는 자리 수(g)",
+"en": "Empty seats kept between people (g)",
+"tr": "Asientos vacíos entre personas (g)"
+},
+{
+"id": "d1413",
+"page": "(실행 중 문구) seating",
+"ko": "정돈했다면 앉았을 사람 중 놓친 비율",
+"en": "Share of the orderly capacity that is lost",
+"tr": "Proporción de la capacidad ordenada que se pierde"
+},
+{
+"id": "d1414",
+"page": "(실행 중 문구) seating",
+"ko": "이번 판 (무작위 줄)",
+"en": "This run (random row)",
+"tr": "Esta ronda (fila aleatoria)"
+},
+{
+"id": "d1415",
+"page": "(실행 중 문구) seating",
+"ko": "돌려보낸 사람",
+"en": "People turned away",
+"tr": "Personas rechazadas"
+},
+{
+"id": "d1416",
+"page": "(실행 중 문구) seating",
+"ko": "긴 벤치 이론값",
+"en": "Long-bench theory value",
+"tr": "Valor teórico del banco largo"
+},
+{
+"id": "d1417",
+"page": "(실행 중 문구) seating",
+"ko": "{#0} / {#1}명",
+"en": "{0} / {1}",
+"tr": "{0} / {1}"
+},
+{
+"id": "d1418",
+"page": "(실행 중 문구) seating",
+"ko": "무작위 평균 {#0}명 · 정돈하면 {#1}명 (자리 {#2}개, 비우는 칸 {#3}개)",
+"en": "Random average {0} · orderly fits {1} ({2} seats, gap {3})",
+"tr": "Promedio aleatorio {0} · ordenado caben {1} ({2} asientos, hueco {3})"
+},
+{
+"id": "d1419",
+"page": "(실행 중 문구) seating",
+"ko": "앉은 사람 / 정돈했을 때 최대 · 앉을 수 없는 빈 자리 {#0}개",
+"en": "Seated / orderly maximum · empty seats nobody may take: {0}",
+"tr": "Sentados / máximo ordenado · asientos vacíos que nadie puede ocupar: {0}"
+},
+{
+"id": "d1420",
+"page": "(실행 중 문구) seating",
+"ko": "도착한 {#0}명 중 앉을 곳이 없어 돌아간 사람 (무작위 줄)",
+"en": "Of the {0} who arrived, those who left for lack of a seat (random row)",
+"tr": "De las {0} personas que llegaron, las que se fueron por falta de asiento (fila aleatoria)"
+},
+{
+"id": "d1421",
+"page": "(실행 중 문구) seating",
+"ko": "시뮬레이션 평균 {#0}% (이 벤치 길이), 정돈 {#1}%",
+"en": "Simulation average {0}% (this bench length), orderly {1}%",
+"tr": "Promedio de la simulación {0}% (esta longitud de banco), ordenado {1}%"
+},
+{
+"id": "d1422",
+"page": "(실행 중 문구) secretary",
+"ko": "성공! 진짜 최고를 골랐습니다",
+"en": "Success! You picked the true best",
+"tr": "¡Éxito! Elegiste al mejor de verdad"
+},
+{
+"id": "d1423",
+"page": "(실행 중 문구) secretary",
+"ko": "성공으로 칩니다: {#0}위를 골랐습니다 (기준: 상위 {#1}명)",
+"en": "Counts as success: you picked rank {0} (standard: top {1})",
+"tr": "Cuenta como éxito: elegiste el puesto {0} (criterio: los {1} mejores)"
+},
+{
+"id": "d1424",
+"page": "(실행 중 문구) secretary",
+"ko": "놓쳤습니다: 최고는 {#0}번째로 관찰 구간에서 이미 지나갔고, 기준을 넘는 사람이 없어 마지막 후보({#1}위)를 받았습니다",
+"en": "Missed: the best was candidate {0}, already passed in the observation phase, and nobody beat the standard, so you were stuck with the last candidate (rank {1})",
+"tr": "Fallaste: el mejor era el candidato {0}, que ya había pasado en la fase de observación, y como nadie superó el criterio, te quedaste con el último candidato (puesto {1})"
+},
+{
+"id": "d1425",
+"page": "(실행 중 문구) secretary",
+"ko": "놓쳤습니다: 최고는 {#0}번째로 관찰 구간에서 이미 지나갔습니다 ({#1}위를 골랐습니다)",
+"en": "Missed: the best was candidate {0}, already passed in the observation phase (you picked rank {1})",
+"tr": "Fallaste: el mejor era el candidato {0}, que ya había pasado en la fase de observación (elegiste el puesto {1})"
+},
+{
+"id": "d1426",
+"page": "(실행 중 문구) secretary",
+"ko": "놓쳤습니다: 더 좋은 후보가 {#0}번째에 있었는데 {#1}번째에서 먼저 멈췄습니다 ({#2}위)",
+"en": "Missed: a better candidate was number {0}, but you stopped earlier at number {1} (rank {2})",
+"tr": "Fallaste: un candidato mejor era el número {0}, pero te detuviste antes, en el número {1} (puesto {2})"
+},
+{
+"id": "d1427",
+"page": "(실행 중 문구) secretary",
+"ko": "{#0}번째에서 멈췄습니다: 지금까지 본 누구보다 좋아요",
+"en": "Stopped at candidate {0}: better than everyone seen so far",
+"tr": "Te detuviste en el candidato {0}: mejor que todos los vistos hasta ahora"
+},
+{
+"id": "d1428",
+"page": "(실행 중 문구) secretary",
+"ko": "후보 {#0}명을 한 명씩 만납니다. 처음 {#1}명은 기준만 잡고 모두 거절합니다",
+"en": "You meet {0} candidates one by one. The first {1} only set the standard and are all rejected",
+"tr": "Conoces a {0} candidatos uno por uno. Los primeros {1} solo fijan el criterio y se rechazan todos"
+},
+{
+"id": "d1429",
+"page": "(실행 중 문구) secretary",
+"ko": "후보 {#0}명을 한 명씩 만납니다. 관찰 없이 첫 사람을 바로 받습니다",
+"en": "You meet {0} candidates one by one. With no observation, you take the first one right away",
+"tr": "Conoces a {0} candidatos uno por uno. Sin observación, aceptas al primero de inmediato"
+},
+{
+"id": "d1430",
+"page": "(실행 중 문구) secretary",
+"ko": "관찰 중 {#0}/{#1}: 점수를 기억만 하고 모두 거절합니다",
+"en": "Observing {0}/{1}: just remember the scores and reject everyone",
+"tr": "Observando {0}/{1}: solo recuerda las puntuaciones y rechaza a todos"
+},
+{
+"id": "d1431",
+"page": "(실행 중 문구) secretary",
+"ko": "이제부터: 지금까지 본 누구보다 점수가 높으면 바로 선택합니다",
+"en": "From now on: take the first one who scores higher than everyone seen so far",
+"tr": "A partir de ahora: elige al primero que supere en puntuación a todos los vistos hasta ahora"
+},
+{
+"id": "d1432",
+"page": "(실행 중 문구) secretary",
+"ko": "지금까지 본 최고 점수: {0} · 본 후보 {#1}/{#2}명",
+"en": "Best score so far: {0} · candidates seen {1}/{2}",
+"tr": "Mejor puntuación hasta ahora: {0} · candidatos vistos {1}/{2}"
+},
+{
+"id": "d1433",
+"page": "(실행 중 문구) secretary",
+"ko": "처음에 거절만 하며 지켜보는 비율 (관찰 구간)",
+"en": "Share you only watch at first (observation phase)",
+"tr": "Proporción que solo se observa al principio (fase de observación)"
+},
+{
+"id": "d1434",
+"page": "(실행 중 문구) secretary",
+"ko": "후보가 많을 때의 한계 36.8%",
+"en": "Limit with many candidates: 36.8%",
+"tr": "Límite con muchos candidatos: 36.8%"
+},
+{
+"id": "d1435",
+"page": "(실행 중 문구) secretary",
+"ko": "{#0}위 이하",
+"en": "Rank {0} or lower",
+"tr": "Puesto {0} o inferior"
+},
+{
+"id": "d1436",
+"page": "(실행 중 문구) secretary",
+"ko": "{#0}~{#1}위",
+"en": "Ranks {0} to {1}",
+"tr": "Puestos {0} a {1}"
+},
+{
+"id": "d1437",
+"page": "(실행 중 문구) secretary",
+"ko": "최고 한 명을 고를 확률",
+"en": "Chance of picking the very best",
+"tr": "Probabilidad de elegir al mejor de todos"
+},
+{
+"id": "d1438",
+"page": "(실행 중 문구) secretary",
+"ko": "상위 {#0}명 안에 들 확률",
+"en": "Chance of landing in the top {0}",
+"tr": "Probabilidad de quedar entre los {0} mejores"
+},
+{
+"id": "d1439",
+"page": "(실행 중 문구) secretary",
+"ko": "가장 좋은 관찰 비율",
+"en": "Best observation share",
+"tr": "Mejor proporción de observación"
+},
+{
+"id": "d1440",
+"page": "(실행 중 문구) secretary",
+"ko": "가장 좋은 관찰 비율 (상위 {#0}명 기준)",
+"en": "Best observation share (top {0} counts)",
+"tr": "Mejor proporción de observación (cuentan los {0} mejores)"
+},
+{
+"id": "d1441",
+"page": "(실행 중 문구) secretary",
+"ko": "{#0}명을 지켜본 뒤 선택 · 이때 {#1}%",
+"en": "Watch {0}, then choose · success {1}%",
+"tr": "Observa {0} y luego elige · éxito {1}%"
+},
+{
+"id": "d1442",
+"page": "(실행 중 문구) secretary",
+"ko": "지금 설정({#0}%, {#1}명 관찰) · 시뮬레이션 평균 {#2}%",
+"en": "Current setting ({0}%, watching {1}) · simulation average {2}%",
+"tr": "Ajuste actual ({0}%, observando {1}) · promedio de la simulación {2}%"
+},
+{
+"id": "d1443",
+"page": "(실행 중 문구) secretary",
+"ko": "아무렇게나 고르면",
+"en": "Picking at random",
+"tr": "Elegir al azar"
+},
+{
+"id": "d1444",
+"page": "(실행 중 문구) secretary",
+"ko": "제비뽑기처럼 한 명을 고를 때",
+"en": "Like drawing lots",
+"tr": "Como sacar a uno a suertes"
+},
+{
+"id": "d1445",
+"page": "(실행 중 문구) secretary",
+"ko": "직접 돌려 본 기록",
+"en": "Your runs so far",
+"tr": "Tus ejecuciones hasta ahora"
+},
+{
+"id": "d1446",
+"page": "(실행 중 문구) secretary",
+"ko": "자동 반복으로 쌓인 성공 횟수 (설정을 바꾸면 처음부터)",
+"en": "Successes counted over automatic repeats (restarts when settings change)",
+"tr": "Éxitos acumulados con las repeticiones automáticas (se reinicia al cambiar los ajustes)"
+},
+{
+"id": "d1447",
+"page": "(실행 중 문구) secretary",
+"ko": "이번 판 번호",
+"en": "Round",
+"tr": "Ronda"
+},
+{
+"id": "d1538",
+"page": "(실행 중 문구) treasury",
+"ko": "{#0}/{#1}개월",
+"en": "{0}/{1} months",
+"tr": "{0}/{1} meses"
+},
+{
+"id": "d1539",
+"page": "(실행 중 문구) treasury",
+"ko": "{#0}개월 뒤",
+"en": "After {0} months",
+"tr": "Tras {0} meses"
+},
+{
+"id": "d1540",
+"page": "(실행 중 문구) treasury",
+"ko": "장기 평균 {#0}%",
+"en": "Long-run average {0}%",
+"tr": "Promedio a largo plazo {0} %"
+},
+{
+"id": "d1541",
+"page": "(실행 중 문구) treasury",
+"ko": "충격 +{#0}%p",
+"en": "Shock +{0} pts",
+"tr": "Choque +{0} pp"
+},
+{
+"id": "d1542",
+"page": "(실행 중 문구) treasury",
+"ko": "단기금리 평균 {#0}%",
+"en": "Average short rate {0}%",
+"tr": "Tipo a corto plazo medio {0} %"
+},
+{
+"id": "d1543",
+"page": "(실행 중 문구) treasury",
+"ko": "10년 금리 평균 {#0}%",
+"en": "Average 10-year yield {0}%",
+"tr": "Rentabilidad media a 10 años {0} %"
+},
+{
+"id": "d1544",
+"page": "(실행 중 문구) treasury",
+"ko": "10년 금리",
+"en": "10-year yield",
+"tr": "Rentabilidad a 10 años"
+},
+{
+"id": "d1545",
+"page": "(실행 중 문구) treasury",
+"ko": "채권 가격 (액면 100)",
+"en": "Bond price (face value 100)",
+"tr": "Precio del bono (valor nominal 100)"
+},
+{
+"id": "d1546",
+"page": "(실행 중 문구) treasury",
+"ko": "시작 {#0}% · 가격 100",
+"en": "Start {0}% · price 100",
+"tr": "Inicio {0} % · precio 100"
+},
+{
+"id": "d1547",
+"page": "(실행 중 문구) treasury",
+"ko": "지금 {#0}%",
+"en": "Now {0}%",
+"tr": "Ahora {0} %"
+},
+{
+"id": "d1548",
+"page": "(실행 중 문구) treasury",
+"ko": "채권 가격 변화 (시작 가격 100 대비, 이자 제외)",
+"en": "Bond price change (vs. starting price 100, interest excluded)",
+"tr": "Variación del precio del bono (frente al precio inicial 100, sin intereses)"
+},
+{
+"id": "d1549",
+"page": "(실행 중 문구) treasury",
+"ko": "평균:",
+"en": "Average:",
+"tr": "Promedio:"
+},
+{
+"id": "d1550",
+"page": "(실행 중 문구) treasury",
+"ko": "하위 5%:",
+"en": "Bottom 5%:",
+"tr": "5 % inferior:"
+},
+{
+"id": "d1551",
+"page": "(실행 중 문구) treasury",
+"ko": "상위 5%:",
+"en": "Top 5%:",
+"tr": "5 % superior:"
+},
+{
+"id": "d1552",
+"page": "(실행 중 문구) treasury",
+"ko": "10년 금리가 1%p 오르면 채권값은",
+"en": "If the 10-year yield rises 1 point, the bond falls by",
+"tr": "Si la rentabilidad a 10 años sube 1 punto, el bono cae un"
+},
+{
+"id": "d1553",
+"page": "(실행 중 문구) treasury",
+"ko": "-{#0}%",
+"en": "-{0}%",
+"tr": "-{0} %"
+},
+{
+"id": "d1554",
+"page": "(실행 중 문구) treasury",
+"ko": "+{#0}%",
+"en": "+{0}%",
+"tr": "+{0} %"
+},
+{
+"id": "d1555",
+"page": "(실행 중 문구) treasury",
+"ko": "반대로 1%p 내리면 +{#0}%. 내릴 때 이득이 오를 때 손해보다 큽니다(볼록성)",
+"en": "If it falls 1 point instead, +{0}%. The gain on a fall exceeds the loss on a rise (convexity)",
+"tr": "Si baja 1 punto, en cambio, +{0} %. La ganancia al bajar supera la pérdida al subir (convexidad)"
+},
+{
+"id": "d1556",
+"page": "(실행 중 문구) treasury",
+"ko": "모델이 정한 10년 금리 (예시 숫자)",
+"en": "The model's 10-year yield (example number)",
+"tr": "Rentabilidad a 10 años del modelo (número de ejemplo)"
+},
+{
+"id": "d1557",
+"page": "(실행 중 문구) treasury",
+"ko": "앞으로의 단기금리 예상 평균에 기간 프리미엄을 더한 값",
+"en": "Expected average short rate plus the term premium",
+"tr": "Promedio esperado del tipo a corto plazo más la prima por plazo"
+},
+{
+"id": "d1558",
+"page": "(실행 중 문구) treasury",
+"ko": "단기금리 +1%p일 때 10년 금리",
+"en": "10-year yield when the short rate rises 1 point",
+"tr": "Rentabilidad a 10 años si el tipo a corto sube 1 punto"
+},
+{
+"id": "d1559",
+"page": "(실행 중 문구) treasury",
+"ko": "+{#0}%p",
+"en": "+{0} pts",
+"tr": "+{0} pp"
+},
+{
+"id": "d1560",
+"page": "(실행 중 문구) treasury",
+"ko": "회귀가 빠를수록 장기 금리는 덜 움직입니다",
+"en": "The faster the reversion, the less the long yield moves",
+"tr": "Cuanto más rápida la reversión, menos se mueve la rentabilidad a largo plazo"
+},
+{
+"id": "d1561",
+"page": "(실행 중 문구) treasury",
+"ko": "듀레이션(금리 민감도)",
+"en": "Duration (rate sensitivity)",
+"tr": "Duración (sensibilidad a los tipos)"
+},
+{
+"id": "d1562",
+"page": "(실행 중 문구) treasury",
+"ko": "금리 1%p당 가격이 약 {#0}% 움직이는 정도",
+"en": "Price moves about {0}% per 1 point of yield",
+"tr": "El precio se mueve alrededor de un {0} % por cada punto de rentabilidad"
+},
+{
+"id": "d1563",
+"page": "(실행 중 문구) treasury",
+"ko": "금리 경로 번호",
+"en": "Rate path",
+"tr": "Trayectoria de tipos"
+},
+{
+"id": "d1613",
+"page": "(실행 중 문구) war",
+"ko": "분쟁 {#0}건 · 그중 전쟁 {#1}%",
+"en": "Disputes: {0} · war in {1}%",
+"tr": "Disputas: {0} · guerra en {1} %"
+},
+{
+"id": "d1614",
+"page": "(실행 중 문구) war",
+"ko": "A가 실제로 이길 가능성 (B는 정확히 알고, A는 범위만 짐작)",
+"en": "A's true chance of winning (B knows it exactly, A only guesses a range)",
+"tr": "Probabilidad real de victoria de A (B la conoce con exactitud, A solo supone un rango)"
+},
+{
+"id": "d1615",
+"page": "(실행 중 문구) war",
+"ko": "거절 → 전쟁",
+"en": "Rejected → war",
+"tr": "Rechazo → guerra"
+},
+{
+"id": "d1616",
+"page": "(실행 중 문구) war",
+"ko": "수락 → 합의",
+"en": "Accepted → deal",
+"tr": "Aceptación → acuerdo"
+},
+{
+"id": "d1617",
+"page": "(실행 중 문구) war",
+"ko": "가장 최근 분쟁: A가 가져갈 파이의 몫 (초록 띠 = 양쪽이 전쟁보다 나은 합의 범위, 막대 = A의 요구)",
+"en": "Latest dispute: A's share of the pie (green band = deals both prefer to war, bar = A's demand)",
+"tr": "Última disputa: parte del pastel para A (banda verde = acuerdos que ambos prefieren a la guerra, barra = exigencia de A)"
+},
+{
+"id": "d1618",
+"page": "(실행 중 문구) war",
+"ko": "합의 범위 {#0}~{#1}% 가 있었지만 요구 {#2}%는 그 밖이라 거절 → 전쟁",
+"en": "A deal range of {0}-{1}% existed, but the demand of {2}% was outside it, so it was rejected → war",
+"tr": "Había un rango de acuerdo de {0}-{1} %, pero la exigencia de {2} % quedó fuera, así que fue rechazada → guerra"
+},
+{
+"id": "d1619",
+"page": "(실행 중 문구) war",
+"ko": "요구 {#0}%가 합의 범위 {#1}~{#2}% 안이라 수락 → 합의",
+"en": "The demand of {0}% was inside the deal range of {1}-{2}%, so it was accepted → deal",
+"tr": "La exigencia de {0} % estaba dentro del rango de acuerdo de {1}-{2} %, así que fue aceptada → acuerdo"
+},
+{
+"id": "d1620",
+"page": "(실행 중 문구) war",
+"ko": "{#0}/{#1}라운드",
+"en": "Round {0}/{1}",
+"tr": "Ronda {0}/{1}"
+},
+{
+"id": "d1621",
+"page": "(실행 중 문구) war",
+"ko": "불확실성 (A가 짐작하는 B의 힘 범위의 절반 폭)",
+"en": "Uncertainty (half-width of A's guess about B's strength)",
+"tr": "Incertidumbre (mitad del ancho del rango que A supone para la fuerza de B)"
+},
+{
+"id": "d1622",
+"page": "(실행 중 문구) war",
+"ko": "전쟁 비용 이하에서는 0%",
+"en": "0% when below the war cost",
+"tr": "0 % por debajo del costo de la guerra"
+},
+{
+"id": "d1623",
+"page": "(실행 중 문구) war",
+"ko": "라운드 (두 나라가 서로 군비를 다시 정하는 차례)",
+"en": "Round (turns in which the two states reset their arms)",
+"tr": "Ronda (turnos en que los dos Estados vuelven a fijar su armamento)"
+},
+{
+"id": "d1624",
+"page": "(실행 중 문구) war",
+"ko": "과열선 (이 프로젝트가 정한 기준)",
+"en": "Heat line (a threshold set by this project)",
+"tr": "Línea de sobrecalentamiento (criterio fijado por este proyecto)"
+},
+{
+"id": "d1625",
+"page": "(실행 중 문구) war",
+"ko": "이론상 안정 수준 {#0}",
+"en": "Theoretical settled level {0}",
+"tr": "Nivel estable teórico {0}"
+},
+{
+"id": "d1626",
+"page": "(실행 중 문구) war",
+"ko": "{#0}라운드에 과열선 도달",
+"en": "Crossed the heat line at round {0}",
+"tr": "Cruzó la línea de sobrecalentamiento en la ronda {0}"
+},
+{
+"id": "d1627",
+"page": "(실행 중 문구) war",
+"ko": "지금 번지는 중: 참전 {#0}개국",
+"en": "Spreading now: {0} states in the war",
+"tr": "Extendiéndose ahora: {0} Estados en guerra"
+},
+{
+"id": "d1628",
+"page": "(실행 중 문구) war",
+"ko": "이번 전쟁은 끝: 참전 {#0}개국",
+"en": "This war is over: {0} states took part",
+"tr": "Esta guerra terminó: participaron {0} Estados"
+},
+{
+"id": "d1629",
+"page": "(실행 중 문구) war",
+"ko": "끝난 전쟁의 참전국 수 (전체 {#0}개국, 최근 순)",
+"en": "States in each finished war (of {0} total, latest first)",
+"tr": "Estados en cada guerra terminada (de {0} en total, más recientes primero)"
+},
+{
+"id": "d1630",
+"page": "(실행 중 문구) war",
+"ko": "첫 전쟁이 끝나면 여기에 쌓입니다",
+"en": "Finished wars pile up here",
+"tr": "Las guerras terminadas se acumularán aquí"
+},
+{
+"id": "d1631",
+"page": "(실행 중 문구) war",
+"ko": "전쟁 중인 나라가 이웃 한 곳을 끌어들일 확률",
+"en": "Chance that a state at war pulls in one neighbor",
+"tr": "Probabilidad de que un Estado en guerra arrastre a un vecino"
+},
+{
+"id": "d1632",
+"page": "(실행 중 문구) war",
+"ko": "이론상 임계점 50%",
+"en": "Theoretical tipping point 50%",
+"tr": "Punto crítico teórico 50 %"
+},
+{
+"id": "d1633",
+"page": "(실행 중 문구) war",
+"ko": "안정 {#0}",
+"en": "Settled {0}",
+"tr": "Estable {0}"
+},
+{
+"id": "d1634",
+"page": "(실행 중 문구) war",
+"ko": "군비가 이 수준에서 멈춥니다 (반응 < 피로)",
+"en": "Arms stop at this level (reaction < fatigue)",
+"tr": "El armamento se detiene en este nivel (reacción < fatiga)"
+},
+{
+"id": "d1635",
+"page": "(실행 중 문구) war",
+"ko": "과열 중",
+"en": "Overheating",
+"tr": "Sobrecalentándose"
+},
+{
+"id": "d1636",
+"page": "(실행 중 문구) war",
+"ko": "반응이 피로보다 커서 과열선을 넘습니다",
+"en": "Reaction exceeds fatigue, so arms cross the heat line",
+"tr": "La reacción supera la fatiga, así que el armamento cruza la línea de sobrecalentamiento"
+},
+{
+"id": "d1637",
+"page": "(실행 중 문구) war",
+"ko": "협상 가능했는데도 전쟁이 난 분쟁",
+"en": "Disputes that became war although a deal existed",
+"tr": "Disputas que acabaron en guerra aunque existía un acuerdo"
+},
+{
+"id": "d1638",
+"page": "(실행 중 문구) war",
+"ko": "이론값 {#0}% · 정보가 정확하면 0%",
+"en": "Theory {0}% · 0% if information is accurate",
+"tr": "Valor teórico {0} % · 0 % si la información es exacta"
+},
+{
+"id": "d1639",
+"page": "(실행 중 문구) war",
+"ko": "양쪽이 나눠 가질 수 있었던 몫",
+"en": "Surplus both sides could have shared",
+"tr": "Excedente que ambas partes podrían haber compartido"
+},
+{
+"id": "d1640",
+"page": "(실행 중 문구) war",
+"ko": "전쟁 때 둘 다 잃는 비용의 합. 이만큼은 항상 합의 여지",
+"en": "The sum of costs both pay in war. This much room for a deal always exists",
+"tr": "Suma de los costos que ambas pagan en la guerra. Siempre hay este margen para un acuerdo"
+},
+{
+"id": "d1641",
+"page": "(실행 중 문구) war",
+"ko": "군비 경쟁",
+"en": "Arms race",
+"tr": "Carrera armamentista"
+},
+{
+"id": "d1642",
+"page": "(실행 중 문구) war",
+"ko": "한 전쟁에 끌려드는 평균 나라",
+"en": "Average states pulled into one war",
+"tr": "Promedio de Estados arrastrados a una guerra"
+},
+{
+"id": "d1643",
+"page": "(실행 중 문구) war",
+"ko": "{#0}개국",
+"en": "{0} states",
+"tr": "{0} Estados"
+},
+{
+"id": "d1644",
+"page": "(실행 중 문구) war",
+"ko": "전체 {#0}개국 중 · 이웃 확률 {#1}%",
+"en": "Out of {0} states · neighbor chance {1}%",
+"tr": "De {0} Estados · probabilidad de vecino {1} %"
+},
+{
+"id": "d1645",
+"page": "(실행 중 문구) war",
+"ko": "분쟁 번호",
+"en": "Dispute",
+"tr": "Disputa"
+},
+{
+"id": "d1646",
+"page": "(실행 중 문구) war",
+"ko": "±{#0}%",
+"en": "±{0}%",
+"tr": "±{0} %"
+},
+{
+"id": "d1647",
+"page": "(실행 중 문구) weakties",
+"ko": "{#0}턴째 · 소식을 아는 사람 {#1}%",
+"en": "Turn {0} · people who know the news: {1}%",
+"tr": "Turno {0} · personas que conocen la noticia: {1}%"
+},
+{
+"id": "d1648",
+"page": "(실행 중 문구) weakties",
+"ko": "90% 도달: {#0}턴",
+"en": "90% reached: turn {0}",
+"tr": "90% alcanzado: turno {0}"
+},
+{
+"id": "d1649",
+"page": "(실행 중 문구) weakties",
+"ko": "아직 모름",
+"en": "Not yet told",
+"tr": "Aún no lo sabe"
+},
+{
+"id": "d1650",
+"page": "(실행 중 문구) weakties",
+"ko": "소식을 안 사람 (진할수록 일찍)",
+"en": "Knows the news (darker = earlier)",
+"tr": "Conoce la noticia (más oscuro = antes)"
+},
+{
+"id": "d1651",
+"page": "(실행 중 문구) weakties",
+"ko": "방금 전해 들은 사람",
+"en": "Just heard it",
+"tr": "Acaba de enterarse"
+},
+{
+"id": "d1652",
+"page": "(실행 중 문구) weakties",
+"ko": "약한 연결 (먼 사람과 이은 선)",
+"en": "Weak tie (line to a far-away person)",
+"tr": "Lazo débil (línea hacia alguien lejano)"
+},
+{
+"id": "d1653",
+"page": "(실행 중 문구) weakties",
+"ko": "처음 아는 사람",
+"en": "First to know",
+"tr": "Primero en saberlo"
+},
+{
+"id": "d1654",
+"page": "(실행 중 문구) weakties",
+"ko": "약한 연결의 비율 p (가로 눈금은 로그)",
+"en": "Share of weak ties p (log scale)",
+"tr": "Proporción de lazos débiles p (escala logarítmica)"
+},
+{
+"id": "d1655",
+"page": "(실행 중 문구) weakties",
+"ko": "지금 설정: 약한 연결 0 (왼쪽 바깥)",
+"en": "Current setting: no weak ties (off the left edge)",
+"tr": "Ajuste actual: sin lazos débiles (fuera del borde izquierdo)"
+},
+{
+"id": "d1656",
+"page": "(실행 중 문구) weakties",
+"ko": "평균 거리 (낮을수록 서로 가까움)",
+"en": "Average distance (lower = closer to each other)",
+"tr": "Distancia media (menor = más cerca entre sí)"
+},
+{
+"id": "d1657",
+"page": "(실행 중 문구) weakties",
+"ko": "친구 무리의 촘촘함",
+"en": "Tightness of friend circles",
+"tr": "Cohesión de los círculos de amigos"
+},
+{
+"id": "d1658",
+"page": "(실행 중 문구) weakties",
+"ko": "턴 (소식이 한 번씩 전해지는 차례)",
+"en": "Turn (each round of passing the news)",
+"tr": "Turno (cada ronda de transmisión de la noticia)"
+},
+{
+"id": "d1659",
+"page": "(실행 중 문구) weakties",
+"ko": "{#0}턴",
+"en": "{0} turns",
+"tr": "{0} turnos"
+},
+{
+"id": "d1660",
+"page": "(실행 중 문구) weakties",
+"ko": "약한 연결이 없으면 {#0}턴",
+"en": "Without weak ties: {0} turns",
+"tr": "Sin lazos débiles: {0} turnos"
+},
+{
+"id": "d1661",
+"page": "(실행 중 문구) weakties",
+"ko": "소식이 90%에 퍼지는 속도",
+"en": "Speed of reaching 90% of people",
+"tr": "Velocidad para llegar al 90% de las personas"
+},
+{
+"id": "d1662",
+"page": "(실행 중 문구) weakties",
+"ko": "평균 {#0}턴 · 약한 연결이 없으면 {#1}턴",
+"en": "Average {0} turns · without weak ties {1} turns",
+"tr": "Promedio {0} turnos · sin lazos débiles {1} turnos"
+},
+{
+"id": "d1663",
+"page": "(실행 중 문구) weakties",
+"ko": "지금 소식을 아는 사람",
+"en": "People who know the news now",
+"tr": "Personas que conocen la noticia ahora"
+},
+{
+"id": "d1664",
+"page": "(실행 중 문구) weakties",
+"ko": "{#0}턴째 · {#1}/{#2}명",
+"en": "Turn {0} · {1}/{2} people",
+"tr": "Turno {0} · {1}/{2} personas"
+},
+{
+"id": "d1665",
+"page": "(실행 중 문구) weakties",
+"ko": "이번에 90%에 닿기까지",
+"en": "Time to reach 90% this run",
+"tr": "Tiempo hasta llegar al 90% esta vez"
+},
+{
+"id": "d1666",
+"page": "(실행 중 문구) weakties",
+"ko": "이 실행에서 걸린 시간",
+"en": "Time taken in this run",
+"tr": "Tiempo empleado en esta ejecución"
+},
+{
+"id": "d1667",
+"page": "(실행 중 문구) weakties",
+"ko": "아직 퍼지는 중",
+"en": "Still spreading",
+"tr": "Aún se está extendiendo"
+},
+{
+"id": "d1668",
+"page": "(실행 중 문구) weakties",
+"ko": "약한 연결",
+"en": "Weak ties",
+"tr": "Lazos débiles"
+},
+{
+"id": "d1669",
+"page": "(실행 중 문구) weakties",
+"ko": "전체 연결 {#0}개 중 {#1}%",
+"en": "{1}% of all {0} ties",
+"tr": "{1}% de los {0} lazos totales"
+},
+{
+"id": "d1670",
+"page": "(실행 중 문구) weakties",
+"ko": "소문 번호",
+"en": "Rumor",
+"tr": "Rumor"
+},
+{
+"id": "d1671",
+"page": "(실행 중 문구) wildfire",
+"ko": "그냥 두기",
+"en": "Let it burn",
+"tr": "Dejar que arda"
+},
+{
+"id": "d1672",
+"page": "(실행 중 문구) wildfire",
+"ko": "작은 불 끄기 {%0}",
+"en": "Put out small fires {0}",
+"tr": "Apagar los fuegos pequeños {0}"
+},
+{
+"id": "d1673",
+"page": "(실행 중 문구) wildfire",
+"ko": "나무 {%0} · {#1}단계",
+"en": "Trees {0} · step {1}",
+"tr": "Árboles {0} · paso {1}"
+},
+{
+"id": "d1674",
+"page": "(실행 중 문구) wildfire",
+"ko": "불 {#0}번 · 큰 불 {#1}번",
+"en": "{0} fires · {1} big",
+"tr": "{0} incendios · {1} grandes"
+},
+{
+"id": "d1675",
+"page": "(실행 중 문구) wildfire",
+"ko": "끈 불 {#0}번",
+"en": "{0} fires put out",
+"tr": "{0} incendios apagados"
+},
+{
+"id": "d1676",
+"page": "(실행 중 문구) wildfire",
+"ko": "방금 {#0}그루 탐",
+"en": "Just now {0} trees burned",
+"tr": "Hace un momento ardieron {0} árboles"
+},
+{
+"id": "d1677",
+"page": "(실행 중 문구) wildfire",
+"ko": "방금 불: 없음",
+"en": "Latest fire: none",
+"tr": "Último incendio: ninguno"
+},
+{
+"id": "d1678",
+"page": "(실행 중 문구) wildfire",
+"ko": "단계 (시간)",
+"en": "Step (time)",
+"tr": "Paso (tiempo)"
+},
+{
+"id": "d1679",
+"page": "(실행 중 문구) wildfire",
+"ko": "이 밀도를 넘으면 불이 숲 전체로 번질 수 있음 (약 59%)",
+"en": "Above this density fire can spread across the whole forest (about 59%)",
+"tr": "Por encima de esta densidad el fuego puede extenderse por todo el bosque (aprox. 59%)"
+},
+{
+"id": "d1680",
+"page": "(실행 중 문구) wildfire",
+"ko": "불이 태운 나무 수 (로그 눈금)",
+"en": "Trees burned by a fire (log scale)",
+"tr": "Árboles quemados por un incendio (escala logarítmica)"
+},
+{
+"id": "d1681",
+"page": "(실행 중 문구) wildfire",
+"ko": "소방이 끌 수 있는 크기",
+"en": "Largest fire firefighters can put out",
+"tr": "Tamaño que los bomberos pueden apagar"
+},
+{
+"id": "d1682",
+"page": "(실행 중 문구) wildfire",
+"ko": "큰 불",
+"en": "Big fires",
+"tr": "Incendios grandes"
+},
+{
+"id": "d1683",
+"page": "(실행 중 문구) wildfire",
+"ko": "작은 불 (숲의 1% 미만)",
+"en": "Small fires (under 1% of the forest)",
+"tr": "Incendios pequeños (menos del 1% del bosque)"
+},
+{
+"id": "d1684",
+"page": "(실행 중 문구) wildfire",
+"ko": "중간 불",
+"en": "Medium fires",
+"tr": "Incendios medianos"
+},
+{
+"id": "d1685",
+"page": "(실행 중 문구) wildfire",
+"ko": "큰 불 (숲의 10% 이상)",
+"en": "Big fires (10% or more of the forest)",
+"tr": "Incendios grandes (10% o más del bosque)"
+},
+{
+"id": "d1686",
+"page": "(실행 중 문구) wildfire",
+"ko": "매 단계 숲의 {#0}% 탐",
+"en": "{0}% of the forest burns per step",
+"tr": "Arde el {0}% del bosque en cada paso"
+},
+{
+"id": "d1687",
+"page": "(실행 중 문구) wildfire",
+"ko": "큰 불이 태운 면적의 비중",
+"en": "Share of burned area from big fires",
+"tr": "Peso de los incendios grandes en el área quemada"
+},
+{
+"id": "d1688",
+"page": "(실행 중 문구) wildfire",
+"ko": "숲의 10% 이상을 태운 불 · 그냥 두기 → 작은 불 끄기",
+"en": "Fires burning 10% or more of the forest · let it burn → put out small fires",
+"tr": "Incendios que queman el 10% o más del bosque · dejar arder → apagar los fuegos pequeños"
+},
+{
+"id": "d1689",
+"page": "(실행 중 문구) wildfire",
+"ko": "큰 불 횟수 (1만 단계당)",
+"en": "Big fires (per 10,000 steps)",
+"tr": "Número de incendios grandes (por cada 10,000 pasos)"
+},
+{
+"id": "d1690",
+"page": "(실행 중 문구) wildfire",
+"ko": "{#0}단계를 돌려 센 값",
+"en": "Counted over {0} steps",
+"tr": "Contado en {0} pasos"
+},
+{
+"id": "d1691",
+"page": "(실행 중 문구) wildfire",
+"ko": "평균 나무 밀도",
+"en": "Mean tree density",
+"tr": "Densidad media de árboles"
+},
+{
+"id": "d1692",
+"page": "(실행 중 문구) wildfire",
+"ko": "불을 끄면 연료(나무)가 더 쌓인다",
+"en": "Putting out fires lets more fuel (trees) build up",
+"tr": "Apagar los fuegos deja que se acumule más combustible (árboles)"
+},
+{
+"id": "d1693",
+"page": "(실행 중 문구) wildfire",
+"ko": "타는 면적(매 단계)",
+"en": "Area burned (per step)",
+"tr": "Área quemada (por paso)"
+},
+{
+"id": "d1694",
+"page": "(실행 중 문구) wildfire",
+"ko": "총량은 비슷하고, 나눠 타는 방식이 달라진다",
+"en": "The total is similar; how it is split up changes",
+"tr": "El total es parecido; cambia la manera en que se reparte"
+},
+{
+"id": "d1695",
+"page": "(실행 중 문구) wildfire",
+"ko": "1만 칸당 {#0}번",
+"en": "{0} per 10,000 cells",
+"tr": "{0} por cada 10,000 celdas"
+},
+{
+"id": "d1696",
+"page": "(실행 중 문구) wildfire",
+"ko": "{#0}×{#1}칸",
+"en": "{0}×{1} cells",
+"tr": "{0}×{1} celdas"
 }
 ]

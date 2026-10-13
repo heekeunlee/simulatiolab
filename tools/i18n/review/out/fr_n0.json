@@ -1,0 +1,142 @@
+{
+ "s0241": {
+  "tr": "Il y a 200 enfants et 8 établissements (de A à H), chacun avec un nombre de places limité. Chaque enfant classe les 8 établissements. Les établissements ont une « popularité » ressentie par tous, et les enfants ont aussi leurs goûts propres. <b>Le degré de similitude des goûts</b> règle l'équilibre : plus il est élevé, plus tout le monde veut les mêmes établissements et plus la concurrence s'intensifie.",
+  "why": "기관을 'place'(자리)로 옮겨 혼동 -> établissement로 통일"
+ },
+ "s0242": {
+  "tr": "Chaque établissement classe les enfants par priorité. Un numéro de tirage est commun à tous les établissements, et <b>l'écart d'ordre entre établissements</b> règle la part d'un ordre aléatoire propre à chaque établissement qui s'y mêle. À 0 %, tous les établissements alignent les enfants selon le même numéro de tirage.",
+  "why": "기관을 'place'(자리)로 옮겨 혼동 -> établissement로 통일"
+ },
+ "s0243": {
+  "tr": "<b>① Premier arrivé, premier servi</b> : dans l'ordre d'arrivée, chaque enfant prend la place qu'il préfère parmi celles qui restent (les familles qui peuvent arriver tôt passent en premier). <b>② Ordre du tirage</b> : pareil, mais dans l'ordre du numéro de tirage. <b>③ Boston</b> : tout le monde postule à son 1er choix ; quand un établissement est complet, ses places sont définitivement attribuées, et les enfants laissés de côté postulent à leur 2e choix, et ainsi de suite. <b>④ Acceptation différée</b> : chaque établissement ne garde que provisoirement les enfants les plus prioritaires et les évince dès qu'arrive un enfant plus prioritaire ; les enfants évincés passent au choix suivant, et tout n'est définitif que lorsque plus personne ne bouge.",
+  "why": "기관을 'place'(자리)로 옮겨 혼동 -> établissement로 통일"
+ },
+ "s0244": {
+  "tr": "<b>Le test de changement de classement</b> : supposons qu'un enfant change l'ordre qu'il soumet alors que tous les autres écrivent honnêtement. Les 56 façons de déplacer un choix vers une autre position sont essayées, et si l'une d'elles l'envoie dans un établissement qu'il préfère vraiment, cet enfant « gagne ». Cela suppose de connaître toutes les autres listes et le résultat du tirage, ce qui dépasse de loin ce qu'une vraie famille pourrait savoir.",
+  "why": "문법/용어"
+ },
+ "s0247": {
+  "tr": "Les 8 établissements se partagent les places",
+  "why": "기관을 'place'(자리)로 옮겨 혼동 -> établissement로 통일"
+ },
+ "s0250": {
+  "tr": "Écart d'ordre entre les établissements <output id=\"o-rho\"></output>",
+  "why": "기관을 'place'(자리)로 옮겨 혼동 -> établissement로 통일"
+ },
+ "s0251": {
+  "tr": "À 0 %, tous les établissements utilisent le même numéro de tirage",
+  "why": "기관을 'place'(자리)로 옮겨 혼동 -> établissement로 통일"
+ },
+ "s0266": {
+  "tr": "À gauche, les enfants qui n'ont pas encore de place (les points bleus sont les familles qui peuvent candidater tôt). À droite, les places des établissements de A à H, par ordre de popularité, et chaque couleur indique le numéro de choix obtenu par l'enfant. Le cercle noir marque l'enfant testé ci-dessous. Changez la méthode ci-dessus pour affecter les mêmes enfants autrement.",
+  "why": "기관을 'place'(자리)로 옮겨 혼동 -> établissement로 통일"
+ },
+ "s0282": {
+  "tr": "Sur 60 enfants pris un à un, seul l'enfant en question a changé son ordre de choix, de toutes les 56 façons possibles. La barre est la part des enfants pour lesquels au moins un changement menait à un établissement préféré à celui obtenu en écrivant honnêtement.",
+  "why": "'Pour chacun de 60' 오류, place->établissement"
+ },
+ "s0284": {
+  "tr": "L'axe horizontal est la similitude des goûts (autres réglages comme actuellement) et l'axe vertical la part des enfants qui gagnent en changeant leur classement avec Boston. Chaque point est la moyenne de trois jeux d'enfants différents. Plus tout le monde veut les mêmes places, plus on a de raisons de calculer son coup. La ligne verte en pointillés est le 0 % des trois autres méthodes.",
+  "why": "눈치 -> 어색한 직역 수정"
+ },
+ "s0287": {
+  "tr": "Boston a donné le plus de premiers choix (43 %) quand tout le monde était honnête.",
+  "why": "용어 통일(honnête), 퍼센트 공백"
+ },
+ "s0288": {
+  "tr": "Boston verrouille les places dès le 1er choix : c'est seulement avec Boston que des enfants ont gagné en modifiant leur classement.",
+  "why": "순위를 바꿔 적기 의미 복원"
+ },
+ "s0289": {
+  "tr": "En comparant les méthodes, savoir si l'on ne perd rien à écrire honnêtement peut être aussi décisif que les chiffres des résultats.",
+  "why": "용어 통일, 자연스러운 표현"
+ },
+ "s0291": {
+  "tr": "<b>Ce que cela montre :</b> Avec 200 enfants, 8 établissements de 25 places, une similitude des goûts de 60 %, un écart d'ordre entre établissements de 50 %, 25 % de candidats précoces et la graine 1, quand tout le monde a écrit honnêtement, la part ayant obtenu son 1er choix était de 28 % pour le premier arrivé, 29 % pour l'ordre du tirage, 43 % pour Boston et 23 % pour l'acceptation différée, avec des numéros de choix moyens de 3,02, 3,06, 2,83 et 3,28. La part d'enfants « lésés », ceux qui préféreraient un établissement où est entré un enfant moins prioritaire, était de 72 %, 65 %, 35 % et 0 % (zéro pour l'acceptation différée par définition). Parmi les 60 enfants de l'échantillon, 43 % (26 enfants) ont gagné en changeant leur classement avec Boston et 0 % avec les trois autres. En moyenne sur les graines 1 à 12, le chiffre de Boston était de 34,3 %, et ceux qui ont gagné ont remonté de 3,0 choix en moyenne. Avec une similitude des goûts de 0 %, il était de 6 %, à 30 % de 16 %, à 60 % de 36 % et à 90 % de 70 % (graines 1 à 3). Avec des places à 80 % du nombre d'enfants, il était de 46 % et à 120 % de 27 %. Les familles pouvant candidater tôt ont fait 2,6 choix de mieux que les autres avec le premier arrivé (moyenne des graines 1 à 12) et environ 0,1 choix dans les autres méthodes. Boston a donné la plus forte part de 1er choix quand tout le monde était honnête, mais ce chiffre ne vaut que sous l'hypothèse que tout le monde l'est.",
+  "why": "기관을 'place'(자리)로 옮겨 혼동 -> établissement로 통일"
+ },
+ "s0298": {
+  "tr": "<b>Hypothèses et formules clés :</b> La préférence d'un enfant est l'ordre de <code>U<sub>ij</sub> = c·q<sub>j</sub> + (1−c)·e<sub>ij</sub></code> (q<sub>j</sub> est la popularité ressentie par tous, e<sub>ij</sub> le goût propre de l'enfant, tous deux normaux centrés réduits). Le score de priorité d'un établissement est <code>s<sub>ij</sub> = (1−ρ)·u<sub>i</sub> + ρ·v<sub>ij</sub></code> (u<sub>i</sub> est un numéro de tirage commun à tous les établissements, v<sub>ij</sub> est l'aléa propre à chaque établissement) et le score le plus élevé passe en premier. Le curseur c est la similitude des goûts et ρ l'écart d'ordre entre les établissements.",
+  "why": "기관을 'place'(자리)로 옮겨 혼동 -> établissement로 통일"
+ },
+ "s0299": {
+  "tr": "<b>Ce que ce projet simplifie :</b> Chaque enfant classe les 8 établissements, et la priorité n'est que le numéro de tirage (sans points de bonification, fratries ni résidence). La distribution des goûts, les capacités, le nombre d'enfants et la part de candidats précoces sont des choix propres à ce projet. Le test de changement de classement n'essaie que les 56 déplacements d'un seul choix, donc une autre façon de modifier la liste pourrait faire mieux.",
+  "why": "기관을 'place'(자리)로 옮겨 혼동 -> établissement로 통일"
+ },
+ "s0300": {
+  "tr": "<b>Théorie et simulation :</b> Avec des goûts identiques (c=100 %) et autant de sièges que d'enfants, la forme fermée donne à chaque méthode 1/8 des enfants par choix, soit une moyenne de 4,50 et 12,5 % de premiers choix ; les quatre méthodes ont donné exactement 4,50 et 12,5 %. Avec des ordres identiques entre établissements (ρ=0), l'acceptation différée et l'ordre du tirage devraient donner le même résultat, et les 30 graines sur 30 concordaient. L'acceptation différée a eu zéro enfant lésé sur les 12 graines, et la part de ceux qui ont gagné en changeant leur liste était de 0 % pour le premier arrivé, l'ordre du tirage et l'acceptation différée, et de 34,3 % pour Boston (moyenne des graines 1 à 12). La dernière scène de l'animation était identique à l'affectation réelle dans les 40 comparaisons.",
+  "why": "기관을 'place'(자리)로 옮겨 혼동 -> établissement로 통일"
+ },
+ "s0303": {
+  "tr": "Un enfant lésé est un enfant pour qui un établissement préféré a encore une place libre, ou dont un enfant admis a un score de priorité plus faible dans cet établissement. Le test de changement de classement échantillonne les 60 premiers enfants ; leur numérotation est aléatoire, donc l'échantillon n'est pas biaisé. Les enfants non affectés sont exclus de la moyenne du numéro de choix, et comptés comme choix 9 pour mesurer l'avantage des candidats précoces.",
+  "why": "기관을 'place'(자리)로 옮겨 혼동 -> établissement로 통일"
+ },
+ "s0342": {
+  "tr": "Il ne dit rien des guerres réelles, de 1914 ni de la responsabilité d'un pays ; c'est un modèle-jouet où tous les pays sont identiques.",
+  "why": "toy model 의미"
+ },
+ "s0348": {
+  "tr": "<b>Théorie et simulation :</b> Ce montage n'a pas de forme fermée exacte et la règle empirique ci-dessus ne donne qu'une indication de direction, je ne l'ai donc pas comparée numériquement. Dans la simulation, avec 70 % de chances d'honorer, une moyenne de 0, 1, 1,5, 2 et 3 alliés a donné 2,0, 6,3, 12,1, 17,4 et 22,4 pays en guerre (échelle de guerre mondiale 0, 15, 56, 85 et 99 %), avec une forte hausse entre 1 et 2 alliés, près du seuil approximatif. Avec seulement 24 pays, le seuil est progressif plutôt que net.",
+  "why": "퍼센트 공백"
+ },
+ "s0358": {
+  "tr": "À partir d'une grille vierge, les 500 premières étapes environ forment à répétition des figures symétriques, qui ressemblent à de l'<b>ordre</b>. Une longue période de <b>chaos</b> suit, puis une routine de 104 étapes se répète et emmène la fourmi en diagonale : l'<b>autoroute</b>. Le début de l'autoroute est détecté lorsque la position et l'orientation de la fourmi se répètent toutes les 104 étapes, décalées de (2, 2) cases, trois fois de suite.",
+  "why": "소수점 오류: (2,2)는 좌표"
+ },
+ "s0382": {
+  "tr": "En partant d'une grille vierge, la fourmi a commencé à l'étape 9 976 à répéter un cycle de 104 étapes qui trace une autoroute diagonale.",
+  "why": "pas/étapes 용어 통일, 어순"
+ },
+ "s0383": {
+  "tr": "La règle en deux lignes laisse des marques que la fourmi repasse, si bien que l'ordre peut émerger après le chaos.",
+  "why": "문법: que 누락"
+ },
+ "s0384": {
+  "tr": "On n'a pas encore démontré pourquoi c'est une autoroute qui se forme ; modifier la règle ou la grille de départ pourrait donc être la clé.",
+  "why": "문법/자연스러움"
+ },
+ "s0385": {
+  "tr": "<b>Ce que cela montre :</b> Une seule fourmi sur une grille vierge a commencé, à l'étape 9 976, une routine qui la déplace de (2, 2) cases en diagonale toutes les 104 étapes, et l'a répétée sans fin (vérifié jusqu'à 40 000 étapes). Dès lors, les cases noires augmentent de 12 toutes les 104 étapes et la fourmi s'éloigne d'environ 0,027 case par étape. Les ~500 premières étapes revenaient sans cesse à des formes symétriques (la dernière forme symétrique date de l'étape 473), et le reste fut du chaos jusqu'à l'autoroute. Les grilles de départ avec 5 % à 50 % de cases noires semées dans un carré de 21 cases de côté ont toutes produit une autoroute en moins de 60 000 étapes, dans chacune des 60 exécutions pour chacune des 7 proportions, et il en a été de même avec 2 à 4 fourmis à 15 %. L'étape de départ a beaucoup varié, d'environ 200 à 50 000. Cela illustre l'émergence : une structure ordonnée issue de règles triviales, sans conception.",
+  "why": "소수점 오류, 퍼센트 공백, 21칸 한 변"
+ },
+ "s0390": {
+  "tr": "<b>Hypothèses clés et formules :</b> L'état se limite à la couleur de chaque case (blanc/noir) et à la position et l'orientation de la fourmi, et la mise à jour est déterministe : sur blanc, tourner à droite, inverser, avancer ; sur noir, tourner à gauche, inverser, avancer. Les curseurs ne changent que le nombre de fourmis et la grille de départ. L'autoroute est un cycle de 104 étapes pendant lequel la fourmi se décale de (2, 2) cases en diagonale.",
+  "why": "소수점 오류"
+ },
+ "s0392": {
+  "tr": "<b>Théorie et simulation :</b> Aucune formule ne prédit à l'avance le début de l'autoroute, elle n'a donc été vérifiée que par simulation. Sur une grille vierge, les deux méthodes (détection en direct et retour en arrière après une longue exécution) ont donné l'étape 9 976, le déplacement par période de 104 étapes était de (2, 2), et les cases noires ont augmenté de 0,1156 par étape (=12/104) entre les étapes 30 000 et 40 000. Que la fourmi construise toujours une autoroute est une conjecture non prouvée ; ici, cela s'est produit dans les 420 grilles aléatoires et les 180 grilles à plusieurs fourmis que nous avons lancées.",
+  "why": "소수점 오류"
+ },
+ "s0432": {
+  "tr": "Dans ce modèle, la propagation est minimale à une contagion de 0,4, environ 90 % des quartiers sont surévalués à 0,5, et tous à partir de 0,6.",
+  "why": "동네=quartier 통일"
+ },
+ "s0434": {
+  "tr": "Pour lire une propagation, il peut être utile de regarder à quel point les quartiers se suivent et où les conditions de prêt diffèrent, et pas seulement le prix d'un quartier.",
+  "why": "동네=quartier 통일"
+ },
+ "s0441": {
+  "tr": "<b>Ce que ce projet simplifie :</b> Les coefficients (0,30, 0,004, l'exposant 1,5, la correction de plafond de 25 %, la baisse de 30 % du plafond lors d'un choc de taux, etc.) et la croissance des revenus (0,5 % par trimestre) ont tous été choisis arbitrairement par ce projet pour montrer la structure, et non estimés à partir de marchés réels. Tous les quartiers ont le même revenu, les voisins sont simplement les 8 cases de la grille et non une véritable contiguïté, et il n'y a ni offre, ni population, ni impôts, ni politique.",
+  "why": "퍼센트 공백"
+ },
+ "s0442": {
+  "tr": "<b>Théorie et simulation :</b> Il n'existe pas de référence théorique, cela n'a donc été vérifié que par simulation. Sans choc de taux, la part maximale de quartiers surévalués était de 9 % avec une contagion de 0,4, de 92 % avec 0,5 et de 100 % avec 0,6, et avec une contagion de 0,6, un plafond de prêt de 40 % donnait 0 % tandis que 50 % donnait 99 %. Avec les réglages par défaut, le prix moyen est passé d'un pic de 230 à 174 à la fin, soit une baisse de 24 %.",
+  "why": "퍼센트 공백"
+ },
+ "s0487": {
+  "tr": "<b>Théorie et simulation :</b> La formule peut être calculée : le maximum espéré de n lois normales centrées réduites vaut environ 0,564, 1,163, 1,539 et 2,043 pour n = 2, 5, 10 et 30. Avec une erreur de 20 %, le gain du gagnant au premier prix est de −11,3, −23,3, −30,8 et −40,9 en théorie contre −11,4, −23,5, −30,9 et −40,9 en simulation. La réduction de l'offre au seuil de rentabilité est de 1,539σ en théorie et de 1,54σ en simulation pour le premier prix, et de 1,001σ en théorie et de 1,00σ en simulation pour le second prix.",
+  "why": "손익분기 낮춤 오역, 퍼센트 공백"
+ },
+ "s0526": {
+  "tr": "<b>Pour aller plus loin :</b> Arthur (1994), « Inductive reasoning and bounded rationality », <i>American Economic Review</i> 84(2). / Challet, Zhang (1997), « Emergence of cooperation and organization in an evolutionary game », <i>Physica A</i> 246 (le jeu de la minorité, un modèle ultérieur simplifié).",
+  "why": "어색한 표현"
+ },
+ "s0156": {
+  "tr": "Pourquoi la foudre, le corail et les flocons de neige se ressemblent-ils ?",
+  "why": "눈송이 오역(givre)"
+ },
+ "s0157": {
+  "tr": "Une règle aussi simple que « coller au contact » fait croître des formes ramifiées comme la foudre et le corail. Changez la probabilité d'adhésion et faites pousser la vôtre.",
+  "why": "붙는 확률"
+ }
+}

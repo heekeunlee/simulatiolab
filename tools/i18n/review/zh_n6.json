@@ -1,604 +1,1423 @@
 [
 {
-"id": "s1372",
-"page": "lanchester",
-"ko": "<b>이 프로젝트의 단순화:</b> 원 모델은 연속적인 병력 수의 평균 변화를 다루지만 여기서는 병사 하나하나가 확률로 쓰러지는 이산 시뮬레이션입니다. 선형 법칙은 마주한 쌍마다 싸우는 모양으로 구현했고 싸움을 빨리 끝내려고 쌍당 명중률을 5배로 두었습니다. 나뉘어 싸우기(두 번째 반은 첫 반이 쓰러진 뒤 합류)와 명중률 수치는 이 프로젝트가 정한 설정입니다. 보충병, 후퇴, 지형은 없습니다.",
-"en": "<b>What this project simplifies:</b> The original model tracks continuous average strengths, while here each soldier falls by chance in a discrete simulation. The linear law is implemented as facing pairs fighting, with a 5 times higher hit chance per pair only to finish the fight sooner. The split rule (the second half joins after the first has fallen) and the hit-chance values are this project's own settings. There are no reinforcements, retreats or terrain.",
-"tr": "<b>本项目做了哪些简化：</b>原模型追踪的是连续的平均战力，而这里是离散模拟，每名士兵随机倒下。线性律的实现方式是相对的两人一组进行战斗，每组的命中概率提高到5倍，仅仅是为了让战斗更快结束。分兵规则（前一半倒下后后一半才加入）和命中概率的数值是本项目自己的设定。没有增援、撤退和地形。"
+"id": "d1289",
+"page": "(실행 중 문구) predict",
+"ko": "예상을 고르면 실험 결과가 열려요.",
+"en": "Pick an answer to unlock the results.",
+"tr": "选好答案，就能看到实验结果。"
 },
 {
-"id": "s1373",
-"page": "lanchester",
-"ko": "<b>이론값과 시뮬레이션:</b> <code>node tools/validate-lanchester.js</code>로 300회씩 돌려 닫힌 해와 비교했습니다. 200 대 100(질 같음)에서 사각 법칙 이론 173.2명(87%) 대 시뮬 평균 171.9명, 선형 법칙 이론 100명 대 시뮬 100.7명입니다. 병력 50~400명에서도 병력 2배일 때 남는 비율은 86~87%로 같아, 규모와 무관함을 확인했습니다. 130 대 100에서 파랑이 나뉘면 이론은 빨강 승, 39.4명 남음, 시뮬은 빨강 84% 승, 평균 40.0명 남음입니다. 시뮬레이션이 약간 낮은 것은 우연과 한 단계씩 끊어 계산한 영향입니다.",
-"en": "<b>Theory versus simulation:</b> I compared 300 runs each with the closed-form results using <code>node tools/validate-lanchester.js</code>. At 200 against 100 with equal quality, the square-law theory gives 173.2 left versus a simulated mean of 171.9, and the linear-law theory gives 100 versus 100.7. With 50 to 400 soldiers the share left at a 2-to-1 ratio stays at 86-87%, so it does not depend on scale. At 130 against 100 with blue split, theory says red wins with 39.4 left, and the simulation had red winning 84% of fights with 40.0 left on average. The slightly lower simulated values come from chance and from stepping time in discrete steps.",
-"tr": "<b>理论与模拟的对比：</b>我用<code>node tools/validate-lanchester.js</code>将各300次运行的结果与闭式解作了比较。质量相同、200人对100人时，平方律理论给出剩余173.2人，模拟平均为171.9人；线性律理论为100人，模拟为100.7人。在50至400人的范围内，2比1时的剩余比例保持在86-87%，因此与规模无关。130人对100人且蓝方分兵时，理论认为红方获胜并剩余39.4人，模拟中红方赢了84%的战斗，平均剩余40.0人。模拟值略低是由于随机性以及时间按离散步长推进。"
+"id": "d1290",
+"page": "(실행 중 문구) predict",
+"ko": "건너뛰었어요. 지금 골라도 돼요.",
+"en": "You skipped ahead. You can still pick now.",
+"tr": "你已跳过，现在选也可以。"
 },
 {
-"id": "s1374",
-"page": "lanchester",
-"ko": "<b>더 읽을거리:</b> F. W. Lanchester, 『Aircraft in Warfare: The Dawn of the Fourth Arm』(1916, Constable). 개설로는 위키백과의 \"Lanchester's laws\" 항목이 읽기 쉽습니다.",
-"en": "<b>Further reading:</b> F. W. Lanchester, <i>Aircraft in Warfare: The Dawn of the Fourth Arm</i> (1916, Constable). For an overview, the Wikipedia article \"Lanchester's laws\" is an easy start.",
-"tr": "<b>延伸阅读：</b>F. W. Lanchester，<i>Aircraft in Warfare: The Dawn of the Fourth Arm</i>（1916年，Constable）。想了解概况，可以从维基百科的“兰彻斯特定律”条目入手。"
+"id": "d1291",
+"page": "(실행 중 문구) predict",
+"ko": "정답: {0}",
+"en": "Answer: {0}",
+"tr": "答案：{0}"
 },
 {
-"id": "s1375",
-"page": "lanchester",
-"ko": "검증은 <code>node tools/validate-lanchester.js</code>로 할 수 있습니다. 시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 가운데 점선 곡선은 같은 규칙을 평균값으로 풀어 그린 것입니다.",
-"en": "You can verify with <code>node tools/validate-lanchester.js</code>. The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. The dashed curves are the same rules solved with averages instead of chance.",
-"tr": "可以用<code>node tools/validate-lanchester.js</code>来验证。模拟使用带随机种子的随机数生成器（mulberry32），因此相同的种子会得到相同的结果。虚线曲线是用平均值而非随机性求解的同一套规则。"
+"id": "d1292",
+"page": "(실행 중 문구) predict",
+"ko": "🎯 맞혔어요!",
+"en": "🎯 You got it!",
+"tr": "🎯 猜对了！"
 },
 {
-"id": "s1376",
-"page": "lanchester",
-"ko": "④, ⑤번 그래프는 시뮬레이션이 아니라 위의 식으로 계산한 이론값입니다. 나뉜 군대가 있는 경우는 싸움을 첫 무리, 둘째 무리 차례로 이어서 계산합니다.",
-"en": "Charts 4 and 5 are theory computed from the formulas above, not simulations. When an army is split, the fights are chained one after another, first half then second half.",
-"tr": "图4和图5是按上述公式计算的理论值，不是模拟。当一支军队被分开时，战斗依次进行：先是前一半，然后是后一半。"
+"id": "d1293",
+"page": "(실행 중 문구) predict",
+"ko": "🤔 틀렸어도 괜찮아요. 이 반전이 바로 이 실험이에요.",
+"en": "🤔 Not quite, and that is the point. This twist is what the experiment is about.",
+"tr": "🤔 猜错也没关系，这个反转正是这个实验想说明的。"
 },
 {
-"id": "s1377",
-"page": "lanchester",
-"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/lanchester\">GitHub</a>에서 볼 수 있습니다.",
-"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/lanchester\">GitHub</a>.",
-"tr": "代码可在<a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/lanchester\">GitHub</a>上获取。"
+"id": "d1294",
+"page": "(실행 중 문구) predict",
+"ko": "다른 방문자 {#0}명의 예상",
+"en": "What {0} other visitors predicted",
+"tr": "其他{0}位访客的预测"
 },
 {
-"id": "s1406",
-"page": "monkey",
-"ko": "우연만으로 18글자를 맞히려면 약 5.8×10^25번이 필요하지만, 누적 선택은 평균 46세대였어요.",
-"en": "Pure chance needs about 5.8×10^25 tries for 18 letters, while cumulative selection took 46 generations on average.",
-"tr": "纯靠运气，凑出18个字母大约需要5.8×10^25次尝试，而累积选择平均只用了46代。"
+"id": "d1295",
+"page": "(실행 중 문구) predict",
+"ko": "정답을 맞힌 사람: {%0}",
+"en": "Got it right: {0}",
+"tr": "答对的人：{0}"
 },
 {
-"id": "s1407",
-"page": "monkey",
-"ko": "우연은 매번 처음부터 다시 맞히지만, 누적 선택은 맞은 글자를 남겨 두고 조금씩 바꾸기 때문이에요.",
-"en": "Chance restarts from scratch each try, while cumulative selection keeps matched letters and changes the rest bit by bit.",
-"tr": "纯靠运气每次尝试都从头开始，而累积选择会保留已匹配的字母，只一点点地改变其余部分。"
+"id": "d1296",
+"page": "(실행 중 문구) predict",
+"ko": "예상 적중 {#0}/{#1}",
+"en": "Predictions right: {0}/{1}",
+"tr": "预测命中 {0}/{1}"
 },
 {
-"id": "s1408",
-"page": "monkey",
-"ko": "어려운 일도 한 번에 맞히려 할지, 작은 개선을 걸러 쌓을 수 있는지로 달라 보인다는 점을 살펴볼 만해요.",
-"en": "Whether a hard goal is hit all at once or built from filtered small gains is worth examining.",
-"tr": "一个困难的目标是一步到位达成的，还是由经过筛选的小进步累积而成的，值得考察。"
+"id": "d1363",
+"page": "(실행 중 문구) sandpile",
+"ko": "방금 떨어뜨린 알의 결과",
+"en": "Result of the grain just dropped",
+"tr": "刚落下的沙粒的结果"
 },
 {
-"id": "s1410",
-"page": "monkey",
-"ko": "미리 정한 목표 문장이 있어서 실제 진화의 모델이 아니고, 도킨스 자신도 이를 밝혔어요.",
-"en": "It has a preset target, so it is not a model of real evolution, as Dawkins himself noted.",
-"tr": "它的目标是预先设定的，因此不是真实进化的模型，道金斯本人也这样指出过。"
+"id": "d1364",
+"page": "(실행 중 문구) sandpile",
+"ko": "아직 떨어뜨리지 않았어요",
+"en": "No grain dropped yet",
+"tr": "还没有沙粒落下"
 },
 {
-"id": "s1411",
-"page": "monkey",
-"ko": "실제 진화에서 무엇이 걸러지는지는 이 모델로 알 수 없고, 실제 생물 자료로 따로 확인해야 해요.",
-"en": "What gets filtered in real evolution cannot be learned here and needs real biological evidence.",
-"tr": "真实进化中究竟筛选了什么，从这里无法得知，需要真实的生物学证据。"
+"id": "d1365",
+"page": "(실행 중 문구) sandpile",
+"ko": "아무 일 없었음",
+"en": "Nothing happened",
+"tr": "什么也没发生"
 },
 {
-"id": "s1413",
-"page": "monkey",
-"ko": "<b>모델의 뿌리:</b> 타자기를 치는 원숭이 비유는 Émile Borel (1913)까지 거슬러 올라간다고 흔히 인용됩니다. 한편 Richard Dawkins (1986)는 『The Blind Watchmaker』에서 \"위즐 프로그램\"으로, 우연은 아득히 오래 걸리지만 작은 개선을 쌓아 가는 누적 선택은 훨씬 빠르다는 점을 보였습니다.",
-"en": "<b>Where the model comes from:</b> The typing-monkey metaphor is commonly traced back to Émile Borel (1913). Richard Dawkins (1986), in <i>The Blind Watchmaker</i>, used his \"weasel program\" to show that chance takes unimaginably long, while cumulative selection that keeps small improvements is far faster.",
-"tr": "<b>模型的来源：</b>猴子打字的比喻通常追溯到埃米尔·博雷尔（1913年）。理查德·道金斯（1986年）在<i>盲眼钟表匠</i>中用他的“weasel程序”说明，靠运气需要难以想象的漫长时间，而保留微小改进的累积选择则快得多。"
+"id": "d1366",
+"page": "(실행 중 문구) sandpile",
+"ko": "{#0}번 무너짐",
+"en": "{0} topplings",
+"tr": "{0}次倒塌"
 },
 {
-"id": "s1414",
-"page": "monkey",
-"ko": "<b>핵심 가정과 수식:</b> 글자 27가지에서 무작위로 L글자를 치면 한 번에 정확히 맞힐 확률은 <code>27<sup>-L</sup></code>이라 기대 시도 횟수는 대략 <code>27<sup>L</sup></code>입니다. 누적 선택은 복사본 여러 개를 만들고 글자마다 일정 확률로 바꾼 뒤 가장 많이 맞은 복사본만 남깁니다. 복사본 수와 돌연변이율이 슬라이더이고, 글자 수가 늘어도 필요한 시도는 27의 거듭제곱이 아니라 훨씬 완만하게 늘어납니다.",
-"en": "<b>Key assumptions and formulas:</b> Typing L random symbols from 27 gets it exactly right with probability <code>27<sup>-L</sup></code>, so the expected number of attempts is roughly <code>27<sup>L</sup></code>. Cumulative selection makes several copies, changes each letter with some probability, and keeps only the copy with the most matches. The number of copies and the mutation rate are the sliders, and as the sentence grows the attempts needed grow far more gently than a power of 27.",
-"tr": "<b>主要假设与公式：</b>从27个符号中随机敲出L个符号，完全正确的概率是<code>27<sup>-L</sup></code>，所以期望尝试次数约为<code>27<sup>L</sup></code>。累积选择会生成若干副本，以一定概率改变每个字母，只保留匹配最多的副本。副本数和突变率是滑块，随着句子变长，所需尝试次数的增长远比27的幂平缓。"
+"id": "d1367",
+"page": "(실행 중 문구) sandpile",
+"ko": "지금까지 떨어뜨린 알 {#0}개",
+"en": "Grains dropped so far: {0}",
+"tr": "目前已落下沙粒：{0}"
 },
 {
-"id": "s1415",
-"page": "monkey",
-"ko": "<b>이 프로젝트의 단순화:</b> Dawkins 본인이 밝혔듯 위즐 프로그램은 미리 정한 목표가 있어서 실제 진화(목표가 없음)의 모형이 아니고 누적 선택이 위력적이라는 점만 보여 주는 비유입니다. 책의 프로그램과 세부 설정이 다르며, 복사본 100개, 돌연변이 5%, 대문자와 띄어쓰기만 쓴 것, 초당 10억 번 시도는 이 프로젝트가 정한 값입니다.",
-"en": "<b>What this project simplifies:</b> As Dawkins himself noted, the weasel program has a fixed target, so it is not a model of real evolution (which has no target) and only illustrates how powerful cumulative selection is. Its details differ from the book's program, and 100 copies, 5% mutation, capital letters and space only, and one billion attempts per second are values this project chose.",
-"tr": "<b>本项目做了哪些简化：</b>正如道金斯本人所指出的，weasel程序有一个固定的目标，所以它不是真实进化（没有目标）的模型，只是用来说明累积选择的威力。它的细节与书中的程序不同，100个副本、5%的突变率、只用大写字母和空格、每秒十亿次尝试，都是本项目选定的数值。"
+"id": "d1368",
+"page": "(실행 중 문구) sandpile",
+"ko": "높이별 칸 비율",
+"en": "Share of cells by height",
+"tr": "各高度格子的比例"
 },
 {
-"id": "s1416",
-"page": "monkey",
-"ko": "<b>이론값과 시뮬레이션:</b> 우연의 기대 횟수는 닫힌 식이라 계산이 맞습니다. 18글자 27<sup>18</sup> ≈ 5.8×10<sup>25</sup>번은 초당 10억 번이면 약 18억 년(우주 나이 138억 년의 0.13배), 28글자 27<sup>28</sup> ≈ 1.2×10<sup>40</sup>번은 약 3.8×10<sup>23</sup>년이고 validate 출력과 같습니다. 누적 선택은 닫힌 해가 없어 시뮬레이션만으로 확인했고, 기본 설정에서 18글자는 평균 46세대, 28글자는 평균 77세대(20회)였고, 선택 쪽 시도 횟수는 3글자 약 1,000번에서 18글자 약 5,000번으로만 늘었습니다.",
-"en": "<b>Theory versus simulation:</b> The expected count for chance is a closed form and the calculation holds. For 18 letters 27<sup>18</sup> ≈ 5.8×10<sup>25</sup> attempts at a billion per second take about 1.8 billion years (0.13 of the universe's 13.8 billion), and for 28 letters 27<sup>28</sup> ≈ 1.2×10<sup>40</sup> attempts take about 3.8×10<sup>23</sup> years, matching the validate output. Cumulative selection has no closed form and was checked by simulation only: with defaults, 18 letters took 46 generations and 28 letters 77 on average (20 runs), and the attempts under selection rose only from about 1,000 at 3 letters to about 5,000 at 18.",
-"tr": "<b>理论与模拟的对比：</b>纯靠运气的期望次数有闭式解，计算成立。18个字母时，27<sup>18</sup> ≈ 5.8×10<sup>25</sup>次尝试，按每秒十亿次约需18亿年（宇宙138亿年的0.13）；28个字母时，27<sup>28</sup> ≈ 1.2×10<sup>40</sup>次尝试，约需3.8×10<sup>23</sup>年，与validate的输出一致。累积选择没有闭式解，只通过模拟检验：在默认设置下，18个字母平均需要46代，28个字母需要77代（20次运行），选择下的尝试次数仅从3个字母时的约1,000次增加到18个字母时的约5,000次。"
+"id": "d1369",
+"page": "(실행 중 문구) sandpile",
+"ko": "높이 {#0}",
+"en": "Height {0}",
+"tr": "高度 {0}"
 },
 {
-"id": "s1417",
-"page": "monkey",
-"ko": "<b>더 읽을거리:</b> Dawkins (1986), 『The Blind Watchmaker』, Longman(3장). 무한 원숭이 정리는 확률론 교재의 Borel–Cantelli 보조정리 부분에서 다룹니다.",
-"en": "<b>Further reading:</b> Dawkins (1986), <i>The Blind Watchmaker</i>, Longman (chapter 3). The infinite monkey theorem is covered in probability textbooks under the Borel–Cantelli lemmas.",
-"tr": "<b>延伸阅读：</b>Dawkins (1986), <i>The Blind Watchmaker</i>, Longman（第3章）。无限猴子定理在概率论教材中属于博雷尔–坎泰利引理的内容。"
+"id": "d1370",
+"page": "(실행 중 문구) sandpile",
+"ko": "높이 4가 되면 무너집니다",
+"en": "A cell topples at height 4",
+"tr": "格子在高度达到4时倒塌"
 },
 {
-"id": "s1418",
-"page": "monkey",
-"ko": "이 프로젝트가 직접 짠 구현이며 책의 프로그램을 그대로 옮긴 것은 아닙니다.",
-"en": "This is this project's own implementation, not a literal port of the program in the book.",
-"tr": "这是本项目自己的实现，并非书中程序的逐字移植。"
+"id": "d1371",
+"page": "(실행 중 문구) sandpile",
+"ko": "쌓는 중",
+"en": "Building up",
+"tr": "堆积中"
 },
 {
-"id": "s1448",
-"page": "painters",
-"ko": "따라 그리는 비율이 높아질수록 화풍의 다양성이 줄고 하나의 대표 화풍으로 쏠렸어요.",
-"en": "As the copying rate rose, style diversity fell and painters converged on one dominant style.",
-"tr": "随着模仿率上升，风格多样性下降，画家们趋同于一种主导风格。"
+"id": "d1372",
+"page": "(실행 중 문구) sandpile",
+"ko": "떨어뜨린 알 수",
+"en": "Grains dropped",
+"tr": "落下的沙粒"
 },
 {
-"id": "s1449",
-"page": "painters",
-"ko": "따라 그리면 서로 화풍이 가까워지고 혁신은 독창성만큼만 흩뜨려서, 인기 편향이나 낮은 독창성이 쏠림을 굳혀요.",
-"en": "Copying pulls styles together while innovation scatters them only as much as originality allows, so popularity bias and low originality lock in the convergence.",
-"tr": "模仿使风格趋于接近，而创新只能在原创性允许的范围内使其分散，所以从众偏好和较低的原创性会把趋同固定下来。"
+"id": "d1373",
+"page": "(실행 중 문구) sandpile",
+"ko": "눈사태 크기 (무너진 횟수)",
+"en": "Avalanche size (number of topplings)",
+"tr": "雪崩规模（倒塌次数）"
 },
 {
-"id": "s1450",
-"page": "painters",
-"ko": "다양성을 살펴볼 때는 개인의 취향보다 얼마나 따라 하는지, 인기를 얼마나 좇는지, 새 시도가 얼마나 나오는지가 열쇠일 수 있어요.",
-"en": "To look at diversity, how much people copy, how much they chase popularity and how many new attempts appear may matter more than individual taste.",
-"tr": "要考察多样性，模仿的程度、对流行的追逐程度以及新尝试出现的多少，可能比个人口味更重要。"
+"id": "d1374",
+"page": "(실행 중 문구) sandpile",
+"ko": "최대 {#0}번",
+"en": "Max {0}",
+"tr": "最大 {0}"
 },
 {
-"id": "s1452",
-"page": "painters",
-"ko": "실제 화가나 이미지 생성 AI를 재현한 것도, 모방이 나쁘다는 뜻도 아니에요. 그림의 좋고 나쁨은 모델에 없어요.",
-"en": "It does not reproduce real painters or image-generating AI, and it does not say copying is bad; quality is absent from the model.",
-"tr": "它并不复现真实的画家或图像生成AI，也不说模仿是坏事；作品质量不在模型之内。"
+"id": "d1375",
+"page": "(실행 중 문구) sandpile",
+"ko": "눈사태 크기 (무너진 횟수, 로그 눈금)",
+"en": "Avalanche size (number of topplings, log scale)",
+"tr": "雪崩规模（倒塌次数，对数刻度）"
 },
 {
-"id": "s1453",
-"page": "painters",
-"ko": "모방이 실제로 다양성을 얼마나 줄이는지는 실제 작품 데이터로 확인해야 하고, 모방이 기술을 퍼뜨리는 효과도 함께 봐야 해요.",
-"en": "How much copying really reduces diversity needs real artwork data, alongside the way copying also spreads skills.",
-"tr": "模仿究竟在多大程度上降低了多样性，需要真实的作品数据来检验，同时还要考虑模仿也会传播技艺。"
+"id": "d1376",
+"page": "(실행 중 문구) sandpile",
+"ko": "더미가 안정기에 들어서면 분포가 그려져요",
+"en": "The distribution is drawn once the pile reaches its steady regime",
+"tr": "沙堆进入稳定状态后才会绘制分布"
 },
 {
-"id": "s1455",
-"page": "painters",
-"ko": "<b>모델의 뿌리:</b> 두 가지 뿌리가 있습니다. 하나는 문화 진화 이론의 \"편향된 전달\"(Boyd, Richerson, 1985, 『Culture and the Evolutionary Process』)로, 사람들이 인기 있는 쪽을 골라 따라 한다는 생각입니다. 다른 하나는 이웃의 값 쪽으로 조금씩 다가가는 평균 모델(DeGroot, 1974, \"Reaching a consensus\", <i>Journal of the American Statistical Association</i>)입니다. 인기와 사회적 영향이 결과를 바꾼다는 Salganik, Dodds, Watts (2006, <i>Science</i>)의 음악 시장 실험에서도 발상을 얻었지만, 그 실험을 재현한 것은 아닙니다.",
-"en": "<b>Where the model comes from:</b> There are two roots. One is the \"biased transmission\" of cultural evolution theory (Boyd and Richerson, 1985, <i>Culture and the Evolutionary Process</i>): people choose whom to copy, often favoring the popular. The other is the averaging model in which agents move part of the way toward others' values (DeGroot, 1974, \"Reaching a consensus\", <i>Journal of the American Statistical Association</i>). The design was also inspired by the music-market experiment of Salganik, Dodds and Watts (2006, <i>Science</i>) on popularity and social influence, but it does not reproduce that experiment.",
-"tr": "<b>模型的来源：</b>它有两个根源。一是文化演化理论中的“偏向性传递”（Boyd 和 Richerson，1985，<i>Culture and the Evolutionary Process</i>）：人们选择模仿谁，往往偏向受欢迎的对象。二是主体向他人的取值靠拢一部分的平均模型（DeGroot，1974，“Reaching a consensus”，<i>Journal of the American Statistical Association</i>）。设计还受到 Salganik、Dodds 和 Watts 关于受欢迎程度与社会影响的音乐市场实验（2006，<i>Science</i>）的启发，但并未重现该实验。"
+"id": "d1377",
+"page": "(실행 중 문구) sandpile",
+"ko": "비율 (크기 한 단위당)",
+"en": "Share (per unit of size)",
+"tr": "比例（每单位规模）"
 },
 {
-"id": "s1456",
-"page": "painters",
-"ko": "<b>핵심 가정과 수식:</b> 화풍은 네 숫자의 벡터 <code>s</code>입니다. 라운드마다 확률 <b>복사율</b>로 화가 <i>i</i>는 화가 <i>j</i>를 골라 <code>s<sub>i</sub> ← s<sub>i</sub> + 0.5(s<sub>j</sub> − s<sub>i</sub>)</code>로 절반쯤 다가가고, 아니면 <b>독창성</b> 크기의 무작위 변화를 더합니다. <i>j</i>가 뽑힐 가중치는 <code>(1−b) + b(p<sub>j</sub>/평균 p)<sup>2</sup></code>이며 <b>b</b>가 인기 편향 슬라이더입니다.",
-"en": "<b>Key assumptions and formulas:</b> A style is a vector <code>s</code> of four numbers. Each round, with probability <b>copy rate</b> painter <i>i</i> picks painter <i>j</i> and moves halfway: <code>s<sub>i</sub> ← s<sub>i</sub> + 0.5(s<sub>j</sub> − s<sub>i</sub>)</code>; otherwise a random change of size <b>originality</b> is added. The weight for picking <i>j</i> is <code>(1−b) + b(p<sub>j</sub>/mean p)<sup>2</sup></code>, where <b>b</b> is the popularity-bias slider.",
-"tr": "<b>主要假设与公式：</b>风格是由四个数字组成的向量<code>s</code>。每一轮中，画家<i>i</i>以<b>模仿率</b>的概率选择画家<i>j</i>并向其靠拢一半：<code>s<sub>i</sub> ← s<sub>i</sub> + 0.5(s<sub>j</sub> − s<sub>i</sub>)</code>；否则加入大小为<b>原创性</b>的随机变化。选中<i>j</i>的权重是<code>(1−b) + b(p<sub>j</sub>/mean p)<sup>2</sup></code>，其中<b>b</b>是人气偏好滑块。"
+"id": "d1378",
+"page": "(실행 중 문구) sandpile",
+"ko": "기울기 {#0} (측정)",
+"en": "Slope {0} (measured)",
+"tr": "斜率 {0}（实测）"
 },
 {
-"id": "s1457",
-"page": "painters",
-"ko": "<b>이 프로젝트의 단순화:</b> 화풍을 네 숫자로 줄였고, 반쯤 다가가는 정도(0.5)와 인기 가중치를 제곱으로 둔 것, 인기가 시간이 지나면 줄어드는 방식은 모두 이 프로젝트가 정한 값입니다. 모든 화가가 서로를 볼 수 있고 한 번에 한 명만 따라 하며, 그림의 좋고 나쁨(품질)은 없습니다.",
-"en": "<b>What this project simplifies:</b> Style is reduced to four numbers. The halfway step (0.5), the squared popularity weight and the way popularity fades over time are values chosen by this project. Everyone can see everyone, each painter copies only one other at a time, and there is no notion of quality.",
-"tr": "<b>本项目做了哪些简化：</b>风格被简化为四个数字。走一半路程的步长（0.5）、人气权重取平方，以及人气随时间衰减的方式，都是本项目选定的数值。每个人都能看到所有人，每位画家一次只模仿另一个人，也没有质量的概念。"
+"id": "d1379",
+"page": "(실행 중 문구) sandpile",
+"ko": "칸당 평균 모래알 수",
+"en": "Average grains per cell",
+"tr": "每格平均沙粒数"
 },
 {
-"id": "s1458",
-"page": "painters",
-"ko": "<b>이론값과 시뮬레이션:</b> 이 모델에는 비교할 닫힌 해나 논문 값이 없어 시뮬레이션만으로 확인했습니다. 확인한 것은 방향과 양끝입니다. 복사율 0%에서는 다양성 0.47·쏠림 2%, 100%에서는 다양성 0.02·쏠림 100%, 기본값(복사 60%)에서는 0.18·55%였고, 인기 편향을 0으로 하면 복사율 60%에서 쏠림이 25%로 줄었습니다.",
-"en": "<b>Theory versus simulation:</b> There is no closed-form result or published number to compare with, so it was checked by simulation only. What was confirmed is the direction and the two ends: at a copy rate of 0%, diversity is 0.47 and concentration 2%; at 100%, 0.02 and 100%; at the default (60%), 0.18 and 55%. With zero popularity bias, concentration at a 60% copy rate falls to 25%.",
-"tr": "<b>理论与模拟的对比：</b>没有可供比较的闭式结果或已发表的数值，因此只通过模拟检验。确认的是变化方向和两个端点：模仿率为0%时，多样性为0.47，集中度为2%；100%时分别为0.02和100%；默认值（60%）时为0.18和55%。人气偏好为零时，60%模仿率下的集中度降至25%。"
+"id": "d1380",
+"page": "(실행 중 문구) sandpile",
+"ko": "안정기 평균 {#0}",
+"en": "Steady-regime average {0}",
+"tr": "稳定状态平均值 {0}"
 },
 {
-"id": "s1459",
-"page": "painters",
-"ko": "<b>더 읽을거리:</b> Salganik, Dodds, Watts (2006), \"Experimental Study of Inequality and Unpredictability in an Artificial Cultural Market\", <i>Science</i> 311. Boyd, Richerson (1985), 『Culture and the Evolutionary Process』, University of Chicago Press. DeGroot (1974), \"Reaching a consensus\", <i>Journal of the American Statistical Association</i>.",
-"en": "<b>Further reading:</b> Salganik, Dodds, Watts (2006), \"Experimental Study of Inequality and Unpredictability in an Artificial Cultural Market\", <i>Science</i> 311. Boyd, Richerson (1985), <i>Culture and the Evolutionary Process</i>, University of Chicago Press. DeGroot (1974), \"Reaching a consensus\", <i>Journal of the American Statistical Association</i>.",
-"tr": "<b>延伸阅读：</b>Salganik, Dodds, Watts (2006), \"Experimental Study of Inequality and Unpredictability in an Artificial Cultural Market\", <i>Science</i> 311. Boyd, Richerson (1985), <i>Culture and the Evolutionary Process</i>, University of Chicago Press. DeGroot (1974), \"Reaching a consensus\", <i>Journal of the American Statistical Association</i>."
+"id": "d1381",
+"page": "(실행 중 문구) sandpile",
+"ko": "가장 큰 눈사태 ÷ 보통 눈사태",
+"en": "Largest avalanche ÷ typical avalanche",
+"tr": "最大雪崩 ÷ 典型雪崩"
 },
 {
-"id": "s1490",
-"page": "peter",
-"ko": "승진 뒤 능력이 이어지지 않으면 최고 능력자만 올리는 방식은 평균 이하의 결과를 냅니다.",
-"en": "If ability does not carry over after promotion, promoting only the top performer gives below-average results.",
-"tr": "如果晋升后能力不会延续，只提拔表现最好的人，结果会低于平均水平。"
+"id": "d1382",
+"page": "(실행 중 문구) sandpile",
+"ko": "최대 {#0}번 무너짐 · 보통(중앙값) {#1}번",
+"en": "Largest: {0} topplings · typical (median): {1}",
+"tr": "最大：{0}次倒塌 · 典型（中位数）：{1}"
 },
 {
-"id": "s1491",
-"page": "peter",
-"ko": "이 모델에서는 승진하면 새 직무 능력이 다시 정해져, 현재 성과가 새 일의 적합성을 보장하지 않기 때문입니다.",
-"en": "In this model ability is redrawn in the new job, so current performance does not guarantee fit for the new role.",
-"tr": "在这个模型中，换到新岗位后能力会被重新抽取，所以目前的业绩并不能保证适合新角色。"
+"id": "d1383",
+"page": "(실행 중 문구) sandpile",
+"ko": "안정기에 들어서면 계산돼요",
+"en": "Calculated once the pile is steady",
+"tr": "沙堆稳定后才会计算"
 },
 {
-"id": "s1492",
-"page": "peter",
-"ko": "승진 기준이 현재 성과인지 새 일의 적합성인지, 능력이 얼마나 이어지는지부터 살펴볼 만합니다.",
-"en": "Whether promotion rests on current performance or new-role fit, and how much ability carries over, is worth checking first.",
-"tr": "值得先查清：晋升依据的是当前业绩还是新角色的适配度，以及能力能延续多少。"
+"id": "d1384",
+"page": "(실행 중 문구) sandpile",
+"ko": "칸당 평균 높이",
+"en": "Average height per cell",
+"tr": "每格平均高度"
 },
 {
-"id": "s1494",
-"page": "peter",
-"ko": "피터의 원리가 현실의 모든 조직에 해당한다는 뜻은 아닙니다. 논문과 달리 최저 능력자 승진이 가장 높게 나온 원인도 확인하지 못했습니다.",
-"en": "It does not mean the Peter principle holds in every organization, and why promoting the weakest scored highest, unlike the paper, is unconfirmed.",
-"tr": "这并不意味着彼得原理在所有组织中都成立，而且与论文不同，为什么提拔最弱者得分最高，目前也没有得到证实。"
+"id": "d1385",
+"page": "(실행 중 문구) sandpile",
+"ko": "올라가다가 어느 값에서 멈춰요",
+"en": "Rises, then stops at some value",
+"tr": "先上升，然后停在某个值"
 },
 {
-"id": "s1495",
-"page": "peter",
-"ko": "직무별로 승진 전후의 성과를 비교해 능력이 이어지는 정도를 재고, 교육과 팀워크 같은 요소를 넣어 봐야 합니다.",
-"en": "Compare performance before and after promotion by role to measure carry-over, and add factors like training and teamwork.",
-"tr": "按岗位比较晋升前后的业绩来衡量能力的延续，并加入培训、团队协作等因素。"
+"id": "d1386",
+"page": "(실행 중 문구) sandpile",
+"ko": "알을 떨어뜨렸는데 아무 일 없던 비율",
+"en": "Share of grains that caused nothing",
+"tr": "没有引起任何变化的沙粒比例"
 },
 {
-"id": "s1497",
-"page": "peter",
-"ko": "<b>모델의 뿌리:</b> Laurence Peter와 Raymond Hull(1969, 『The Peter Principle』)이 &quot;사람은 무능해지는 자리까지 승진한다&quot;고 풍자한 것을, Pluchino, Rapisarda, Garofalo(2010, 「The Peter principle revisited: a computational study」, <i>Physica A</i> 389)가 에이전트 시뮬레이션으로 검증했습니다. 이 논문은 같은 해 이그노벨상(경영학)을 받았습니다.",
-"en": "<b>Where the model comes from:</b> Laurence Peter and Raymond Hull (1969, <i>The Peter Principle</i>) satirized the idea that people rise to the level of their incompetence; Pluchino, Rapisarda and Garofalo (2010, \"The Peter principle revisited: a computational study\", <i>Physica A</i> 389) tested it with an agent-based simulation. The paper received an Ig Nobel Prize (management) that year.",
-"tr": "<b>模型的来源：</b>劳伦斯·彼得和雷蒙德·赫尔（1969，<i>彼得原理</i>）讽刺了人会晋升到自己无能的层级这一观点；Pluchino、Rapisarda 和 Garofalo（2010，“The Peter principle revisited: a computational study”，<i>Physica A</i> 389）用基于主体的模拟对其进行了检验。这篇论文当年获得了搞笑诺贝尔奖（管理学奖）。"
+"id": "d1387",
+"page": "(실행 중 문구) sandpile",
+"ko": "안정기 이후 떨어뜨린 알 {#0}개 중",
+"en": "Out of {0} grains dropped after the pile settled",
+"tr": "在沙堆稳定后落下的{0}粒沙中"
 },
 {
-"id": "s1498",
-"page": "peter",
-"ko": "<b>핵심 가정과 수식:</b> 6단계 피라미드(위에서부터 1, 5, 11, 21, 41, 81명)에서 60세 은퇴로 생긴 빈자리를 아래 단계에서 승진시켜 채웁니다. 승진하면 확률 continuity로 예전 능력을 유지하고 아니면 능력이 새로 뽑힙니다(continuity 0%가 피터 가설). 조직 효율은 단계별 평균 능력의 가중 평균(가중치 6, 5, 4, 3, 2, 1)입니다.",
-"en": "<b>Key assumptions and formulas:</b> In a six-level pyramid (1, 5, 11, 21, 41 and 81 people from the top), vacancies from retirement at age 60 are filled by promotion from the level below. A promoted person keeps the old competence with probability continuity, otherwise competence is redrawn (continuity 0% is the Peter hypothesis). Organizational efficiency is the weighted mean of level-average competence (weights 6, 5, 4, 3, 2, 1).",
-"tr": "<b>主要假设与公式：</b>在六层金字塔（从顶部起为1、5、11、21、41和81人）中，60岁退休留下的空缺由下一层的人晋升填补。晋升者以连续性的概率保持原来的能力，否则能力重新抽取（连续性0%即彼得假说）。组织效率是各层平均能力的加权平均（权重为6、5、4、3、2、1）。"
+"id": "d1388",
+"page": "(실행 중 문구) sandpile",
+"ko": "눈사태 크기 분포의 기울기 (측정)",
+"en": "Slope of the avalanche size distribution (measured)",
+"tr": "雪崩规模分布的斜率（实测）"
 },
 {
-"id": "s1499",
-"page": "peter",
-"ko": "<b>이 프로젝트의 단순화:</b> 능력의 분포(평균 7, 표준편차 2를 0~10으로 자름), 효율 가중치, 나이 분포, 4가지 승진 방식의 정의는 이 프로젝트의 단순화이며 논문 설정을 그대로 옮긴 것이 아닙니다. 논문에서는 무작위·번갈아 승진이 가장 좋았는데 이 구현에서는 최저 능력자 승진이 가장 높게 나옵니다. 세부 설정 차이로 보이지만 원인은 확인하지 못했습니다.",
-"en": "<b>What this project simplifies:</b> The competence distribution (mean 7, SD 2, clipped to 0 to 10), the efficiency weights, the age distribution and the definitions of the four promotion rules are this project&#x27;s simplifications, not a copy of the paper&#x27;s setup. In the paper, random or alternating promotion did best, while in this implementation promoting the worst performer scores highest. This looks like a difference in details, but the cause has not been confirmed.",
-"tr": "<b>本项目做了哪些简化：</b>能力分布（均值7、标准差2、截断在0到10之间）、效率权重、年龄分布以及四种晋升规则的定义，都是本项目的简化，并非照搬论文的设置。论文中随机晋升或轮换晋升的效果最好，而在本实现中，晋升表现最差的人得分最高。这看起来像是细节上的差异，但原因尚未确认。"
+"id": "d1389",
+"page": "(실행 중 문구) sandpile",
+"ko": "로그-로그 직선을 맞춘 값 · 눈사태 {#0}개",
+"en": "Log-log line fit · {0} avalanches",
+"tr": "双对数直线拟合 · {0}次雪崩"
 },
 {
-"id": "s1500",
-"page": "peter",
-"ko": "<b>이론값과 시뮬레이션:</b> 닫힌 해는 없지만 무작위 승진·continuity 0%는 손으로 확인됩니다. 모두의 능력이 매번 새로 뽑힌 값이라 효율은 잘린 정규분포의 평균 7−2[φ(1.5)−1.5(1−Φ(1.5))]≈6.94에 가야 하고, 시뮬레이션은 6.96입니다. continuity 0%에서 최고 능력자 승진 6.46, 번갈아 7.04, 최저 승진 7.41이고, 100%에서는 최고 승진 9.31, 최저 승진 3.94입니다(60년 뒤, 30회 평균, 처음 약 7.0. <code>node tools/validate-more.js peter</code>).",
-"en": "<b>Theory versus simulation:</b> There is no closed form, but random promotion with continuity 0% can be checked by hand. Everyone&#x27;s competence is a fresh draw, so efficiency should approach the mean of the clipped normal, 7 − 2[φ(1.5) − 1.5(1 − Φ(1.5))] ≈ 6.94; the simulation gives 6.96. At continuity 0%, promoting the best gives 6.46, alternating 7.04 and promoting the worst 7.41; at 100%, promoting the best gives 9.31 and the worst 3.94 (after 60 years, 30-run average, starting near 7.0; <code>node tools/validate-more.js peter</code>).",
-"tr": "<b>理论与模拟的对比：</b>没有闭式解，但连续性0%的随机晋升可以手算验证。每个人的能力都是重新抽取，因此效率应接近截断正态分布的均值，7 − 2[φ(1.5) − 1.5(1 − Φ(1.5))] ≈ 6.94；模拟结果是6.96。连续性为0%时，晋升最优者得6.46，轮换得7.04，晋升最差者得7.41；连续性为100%时，晋升最优者得9.31，最差者得3.94（60年后，30次运行的平均值，起点接近7.0；<code>node tools/validate-more.js peter</code>）。"
+"id": "d1390",
+"page": "(실행 중 문구) sandpile",
+"ko": "모래더미 번호",
+"en": "Sandpile number",
+"tr": "沙堆编号"
 },
 {
-"id": "s1501",
-"page": "peter",
-"ko": "<b>더 읽을거리:</b> Peter, L. J. &amp; Hull, R. (1969), 『The Peter Principle』, William Morrow. / Pluchino, A., Rapisarda, A. &amp; Garofalo, C. (2010), 「The Peter principle revisited: a computational study」, <i>Physica A</i> 389.",
-"en": "<b>Further reading:</b> Peter, L. J. and Hull, R. (1969), <i>The Peter Principle</i>, William Morrow. / Pluchino, A., Rapisarda, A. and Garofalo, C. (2010), \"The Peter principle revisited: a computational study\", <i>Physica A</i> 389.",
-"tr": "<b>延伸阅读：</b>Peter, L. J. and Hull, R. (1969), <i>The Peter Principle</i>, William Morrow. / Pluchino, A., Rapisarda, A. and Garofalo, C. (2010), \"The Peter principle revisited: a computational study\", <i>Physica A</i> 389."
+"id": "d1391",
+"page": "(실행 중 문구) seating",
+"ko": "무작위로 앉기",
+"en": "Random seating",
+"tr": "随机就座"
 },
 {
-"id": "s1537",
-"page": "population",
-"ko": "출산율 0.72가 유지되면 이 모델에서 2070년 인구는 약 2,940만 명, 65세 이상이 54%예요.",
-"en": "If fertility stays at 0.72, this model gives about 29.4 million people in 2070, with 54% aged 65 or older.",
-"tr": "如果生育率保持在0.72，这个模型显示2070年人口约为2940万，其中54%在65岁及以上。"
+"id": "d1392",
+"page": "(실행 중 문구) seating",
+"ko": "가장 먼 자리로",
+"en": "Farthest seat",
+"tr": "最远的座位"
 },
 {
-"id": "s1538",
-"page": "population",
-"ko": "출산율을 1.5로 올려도 줄어드는 건 이미 태어난 세대가 작아서 앞으로 부모가 될 사람이 적기 때문일 수 있어요.",
-"en": "Even at 1.5 it still shrinks, possibly because the generations already born are small, leaving fewer future parents.",
-"tr": "即使达到1.5，人口仍会减少，可能是因为已经出生的几代人规模较小，将来的父母也就更少。"
+"id": "d1393",
+"page": "(실행 중 문구) seating",
+"ko": "끝자리 먼저",
+"en": "Edge first",
+"tr": "先坐两端"
 },
 {
-"id": "s1539",
-"page": "population",
-"ko": "인구 구조는 출산율만이 아니라 세대의 크기와 기대수명을 함께 볼 때 어디가 중요한지 보여요.",
-"en": "The age structure shows where to look when cohort sizes and life expectancy are viewed together with fertility, not fertility alone.",
-"tr": "年龄结构提示了该看哪里：要把各代人口规模和预期寿命与生育率放在一起看，而不是只看生育率。"
+"id": "d1394",
+"page": "(실행 중 문구) seating",
+"ko": "정돈해서 앉기",
+"en": "Orderly seating",
+"tr": "有序就座"
 },
 {
-"id": "s1541",
-"page": "population",
-"ko": "통계청의 공식 추계도 미래 예측도 아니고, 어떤 정책이 옳은지도 말하지 않아요.",
-"en": "It is neither an official projection nor a forecast, and it does not say which policy is right.",
-"tr": "这既不是官方预测，也不是预言，更没有说明哪种政策是正确的。"
+"id": "d1395",
+"page": "(실행 중 문구) seating",
+"ko": "가장 먼 자리",
+"en": "Farthest seat",
+"tr": "最远的座位"
 },
 {
-"id": "s1542",
-"page": "population",
-"ko": "출산율을 고정했고 이민·정책 효과는 평가하지 않아서, 공식 추계와 비교하며 가정을 따로 확인해야 해요.",
-"en": "Fertility is held fixed and immigration and policy effects are not assessed, so the assumptions should be checked against official projections.",
-"tr": "生育率被设为固定，移民和政策的影响也没有评估，所以这些假设需要与官方预测对照检验。"
+"id": "d1396",
+"page": "(실행 중 문구) seating",
+"ko": "정돈",
+"en": "Orderly",
+"tr": "有序"
 },
 {
-"id": "s1544",
-"page": "population",
-"ko": "<b>모델의 뿌리:</b> 인구 추계의 표준 방법인 <b>코호트 요인법</b>입니다. 같은 해에 태어난 집단(코호트)을 해마다 한 살씩 옮기며 출생·사망·이동을 더하는 방식으로, Whelpton (1936)이 정리했다고 알려져 있습니다. 나이별 인구를 행렬 곱으로 다루는 수학은 Leslie (1945, <i>Biometrika</i>)의 연구가 대표적이고, 나이가 들수록 사망 확률이 지수적으로 커진다는 생각은 Gompertz (1825)로 거슬러 올라갑니다.",
-"en": "<b>Where the model comes from:</b> This is the <b>cohort-component method</b>, the standard way to project populations: each birth cohort is moved forward one year at a time while births, deaths and migration are added. It is usually credited to Whelpton (1936). The matrix form of age-structured populations is classically due to Leslie (1945, <i>Biometrika</i>), and the idea that mortality rises exponentially with age goes back to Gompertz (1825).",
-"tr": "<b>模型的来源：</b>这是人口预测的标准方法——<b>队列要素法</b>：每个出生队列逐年向前推进，同时加入出生、死亡和迁移。一般认为它归功于 Whelpton（1936）。年龄结构人口的矩阵形式经典上归功于 Leslie（1945，<i>Biometrika</i>），而死亡率随年龄呈指数上升的想法可追溯到 Gompertz（1825）。"
+"id": "d1397",
+"page": "(실행 중 문구) seating",
+"ko": "앉은 {#0}명 · 돌려보냄 {#1}명",
+"en": "{0} seated · {1} turned away",
+"tr": "已就座{0}人 · 被拒{1}人"
 },
 {
-"id": "s1545",
-"page": "population",
-"ko": "<b>핵심 가정과 수식:</b> <code>P(a+1, t+1) = P(a, t)·S(a, t) + M(a)</code>, 출생은 <code>B(t) = TFR × Σ f(a)·(여성 수 P(a, t)/2)</code>입니다. <code>S</code>는 생존율, <code>M</code>은 이민, <code>f(a)</code>는 15~49세 출산 연령 분포(합이 1)입니다. 슬라이더는 TFR, <code>M</code>의 크기, 해마다 기대수명이 늘어나는 정도를 정합니다.",
-"en": "<b>Key assumptions and formulas:</b> <code>P(a+1, t+1) = P(a, t)·S(a, t) + M(a)</code>, and births are <code>B(t) = TFR × Σ f(a)·(women P(a, t)/2)</code>. <code>S</code> is survival, <code>M</code> is migration and <code>f(a)</code> is the age pattern of childbearing at 15–49 (summing to 1). The sliders set TFR, the size of <code>M</code>, and how fast life expectancy rises.",
-"tr": "<b>主要假设与公式：</b><code>P(a+1, t+1) = P(a, t)·S(a, t) + M(a)</code>，出生数为<code>B(t) = TFR × Σ f(a)·(女性 P(a, t)/2)</code>。<code>S</code>是存活率，<code>M</code>是迁移，<code>f(a)</code>是15–49岁的生育年龄模式（总和为1）。滑块用来设定总和生育率（TFR）、<code>M</code>的大小以及预期寿命上升的速度。"
+"id": "d1398",
+"page": "(실행 중 문구) seating",
+"ko": "{#0}/{#1}번째 도착",
+"en": "Arrival {0}/{1}",
+"tr": "到达 {0}/{1}"
 },
 {
-"id": "s1546",
-"page": "population",
-"ko": "<b>이 프로젝트의 단순화:</b> 남녀를 합쳐 절반을 여성으로 가정하고, 출산 연령 곡선(평균 32.5세, 표준편차 4.5)과 사망 곡선의 모양, 이민이 20~39세로만 들어오는 것은 이 프로젝트가 정한 값입니다. 2024년 한 살 단위 인구는 공식 자료가 아니라 공표된 세 연령대 비중에 맞춘 근사이고, 출산율은 2070년까지 고정입니다.",
-"en": "<b>What this project simplifies:</b> Sexes are combined with half assumed female. The childbearing age curve (mean 32.5, SD 4.5), the shape of the mortality curve and the rule that migrants arrive at ages 20–39 are this project's own choices. The 2024 single-age population is an approximation scaled to published three-group shares, and fertility is held fixed to 2070.",
-"tr": "<b>本项目做了哪些简化：</b>男女合并计算，假定一半为女性。生育年龄曲线（均值32.5，标准差4.5）、死亡率曲线的形状，以及移民在20–39岁到达的规则，都是本项目自己的选择。2024年的分单岁人口是按已公布的三个年龄组占比缩放得到的近似值，生育率到2070年保持不变。"
+"id": "d1399",
+"page": "(실행 중 문구) seating",
+"ko": "도착 순서 번호",
+"en": "Arrival order #",
+"tr": "到达顺序编号"
 },
 {
-"id": "s1547",
-"page": "population",
-"ko": "<b>이론값과 시뮬레이션:</b> 이 모델의 숫자는 검증 스크립트 출력입니다. 합계출산율 2.1이어도 2070년 인구는 4,720만 명으로 2024년(약 5,170만 명)의 91%인데, 이미 태어난 세대가 작아 출산율을 회복해도 한동안 줄기 때문입니다. 비교 대상으로 통계청 2023년 12월 장래인구추계(중위, 보도 기준)는 2072년 약 3,600만 명, 65세 이상 47.7%이고 출산율이 0.65에서 1.08로 회복한다고 가정합니다. 이 모델은 0.72 고정으로 2,820만 명, 54.6%로, 출산율 가정이 다른 만큼 차이가 납니다.",
-"en": "<b>Theory versus simulation:</b> These are outputs of the validation script. Even at a fertility rate of 2.1, the 2070 population is 47.2 million, 91% of 2024 (about 51.7 million), because the generations already born are small, so the population keeps shrinking for a while even if fertility recovers. For comparison, the medium scenario of Statistics Korea's December 2023 projections (as reported in the press) gives about 36 million and 47.7% aged 65+ in 2072, assuming fertility recovers from 0.65 to 1.08. This model, with fertility fixed at 0.72, gives 28.2 million and 54.6%; the gap reflects the different fertility assumption.",
-"tr": "<b>理论与模拟的对比：</b>以下是验证脚本的输出。即使总和生育率为2.1，2070年的人口也是4,720万，为2024年（约5,170万）的91%，因为已出生的几代人规模较小，所以即使生育率回升，人口仍会持续一段时间的减少。作为对照，韩国统计厅2023年12月预测的中位方案（据媒体报道）假设生育率从0.65回升到1.08，2072年人口约3,600万，65岁及以上占47.7%。本模型将生育率固定为0.72，得到2,820万和54.6%；差异反映了生育率假设的不同。"
+"id": "d1400",
+"page": "(실행 중 문구) seating",
+"ko": "{#0}석",
+"en": "{0} seats",
+"tr": "{0}个座位"
 },
 {
-"id": "s1548",
-"page": "population",
-"ko": "<b>더 읽을거리:</b> Preston, Heuveline, Guillot (2001), 『Demography: Measuring and Modeling Population Processes』, Blackwell. Leslie (1945), \"On the use of matrices in certain population mathematics\", <i>Biometrika</i>. 한국의 공식 수치는 통계청(KOSTAT)의 장래인구추계 원자료를 직접 확인하세요.",
-"en": "<b>Further reading:</b> Preston, Heuveline, Guillot (2001), <i>Demography: Measuring and Modeling Population Processes</i>, Blackwell. Leslie (1945), \"On the use of matrices in certain population mathematics\", <i>Biometrika</i>. For official Korean figures, consult the original Statistics Korea (KOSTAT) projection tables directly.",
-"tr": "<b>延伸阅读：</b>Preston, Heuveline, Guillot (2001), <i>Demography: Measuring and Modeling Population Processes</i>, Blackwell. Leslie (1945), \"On the use of matrices in certain population mathematics\", <i>Biometrika</i>. 韩国的官方数据，请直接查阅韩国统计厅（KOSTAT）预测表的原始文件。"
+"id": "d1401",
+"page": "(실행 중 문구) seating",
+"ko": "{#0}칸",
+"en": "{0}",
+"tr": "{0}"
 },
 {
-"id": "s1581",
-"page": "queue",
-"ko": "새치기는 처음엔 퍼지지만, 응징하는 사람이 충분하면 다시 사라져요.",
-"en": "Cutting spreads at first, but it dies out again if enough people punish it.",
-"tr": "插队一开始会蔓延，但如果有足够多的人加以惩罚，它又会消退。"
+"id": "d1402",
+"page": "(실행 중 문구) seating",
+"ko": "끝! 모두 {#0}명이 앉았고 {#1}명은 돌아갔습니다. 정돈했다면 {#2}명, 무작위로만 앉으면 평균 {#3}명이었습니다.",
+"en": "Done! {0} people sat and {1} went home. Orderly seating would have fit {2}; purely random seating averaged {3}.",
+"tr": "完成！{0}人坐下，{1}人回家了。有序就座可以坐下{2}人；纯随机就座平均为{3}人。"
 },
 {
-"id": "s1582",
-"page": "queue",
-"ko": "이득이 큰 새치기를 막으려면 누군가 눈총의 비용을 치러야 해서, 그 비용을 나눠 지는 사람이 많을수록 질서가 버텨요.",
-"en": "Stopping profitable cutting costs someone the price of disapproval, so order holds when many share that cost.",
-"tr": "制止插队需要有人付出被人不满的代价，所以当很多人分担这一代价时，秩序才能维持。"
+"id": "d1403",
+"page": "(실행 중 문구) seating",
+"ko": "나머지 {#0}명이 무작위로 들어오는 중…",
+"en": "The remaining {0} are arriving at random…",
+"tr": "其余{0}人随机到达中…"
 },
 {
-"id": "s1583",
-"page": "queue",
-"ko": "줄이 무너진다면 사람 탓보다, 막는 사람이 혼자 비용을 지는 구조인지부터 살펴볼 만해요.",
-"en": "If a queue breaks down, it is worth first checking whether those who stop cutting bear the cost alone.",
-"tr": "如果队伍乱了，值得先查看：那些制止插队的人是不是在独自承担代价。"
+"id": "d1404",
+"page": "(실행 중 문구) seating",
+"ko": "직접 앉힌 {#0}명, 앞으로 도착할 사람 {#1}명. 자리를 눌러 앉혀 보세요 (칸을 비울 필요는 없습니다).",
+"en": "You seated {0}; {1} still to arrive. Click a seat to place someone (no gap needed).",
+"tr": "你已安排{0}人就座，还有{1}人未到。点击座位来安排一个人（不需要留空位）。"
 },
 {
-"id": "s1585",
-"page": "queue",
-"ko": "현실의 줄 서기가 이렇게 단순하다는 뜻은 아니에요. 눈총의 비용과 효과는 이 모델이 정한 값이에요.",
-"en": "Real queueing is not this simple; the cost and effect of disapproval are values set by this model.",
-"tr": "现实中的排队没有这么简单；不满的代价和效果都是这个模型设定的数值。"
+"id": "d1405",
+"page": "(실행 중 문구) seating",
+"ko": "직접 앉힌 {#0}명, 앞으로 도착할 사람 {#1}명. 자리를 눌러 앉혀 보세요 (앉은 사람 양옆 {#2}칸은 비워 둡니다).",
+"en": "You seated {0}; {1} still to arrive. Click a seat to place someone (keep {2} empty seats on each side of a seated person).",
+"tr": "你已安排{0}人就座，还有{1}人未到。点击座位来安排一个人（已就座者的两侧各留{2}个空位）。"
 },
 {
-"id": "s1586",
-"page": "queue",
-"ko": "실제 줄에서 누가 얼마나 나서는지, 안내 직원이나 표지판이 어떤 차이를 만드는지 관찰해야 알 수 있어요.",
-"en": "Who steps up in real queues, and what staff or signs change, has to be observed to know.",
-"tr": "现实排队中谁会站出来、工作人员或标识会带来什么变化，必须通过观察才能知道。"
+"id": "d1406",
+"page": "(실행 중 문구) seating",
+"ko": "이미 누가 앉은 자리입니다.",
+"en": "Someone is already sitting there.",
+"tr": "那里已经有人坐了。"
 },
 {
-"id": "s1588",
-"page": "queue",
-"ko": "<b>모델의 뿌리:</b> 격자 위에서 이웃과 게임을 하고 가장 성공한 이웃의 전략을 따라 하는 공간 진화 게임으로, Nowak과 May가 1992년 <i>Nature</i> 359에 낸 \"Evolutionary games and spatial chaos\"의 방식입니다. 응징하는 사람이 비용을 치르며 규범을 지키는 아이디어는 Axelrod (1986)의 규범 모델과 Fehr, Gächter (2002)의 실험에서 왔습니다.",
-"en": "<b>Where the model comes from:</b> This is a spatial evolutionary game in which people play their neighbors and copy the most successful neighbor, in the style of Nowak and May, \"Evolutionary games and spatial chaos\", <i>Nature</i> 359 (1992). The idea of punishers paying a cost to uphold a norm comes from Axelrod's (1986) norms model and the experiments of Fehr and Gächter (2002).",
-"tr": "<b>模型的来源：</b>这是一种空间演化博弈：人们与邻居博弈并模仿最成功的邻居，沿袭了 Nowak 和 May 的“Evolutionary games and spatial chaos”（<i>Nature</i> 359，1992）的思路。惩罚者付出代价来维护规范的想法，来自 Axelrod（1986）的规范模型以及 Fehr 和 Gächter（2002）的实验。"
+"id": "d1407",
+"page": "(실행 중 문구) seating",
+"ko": "그 자리는 앉은 사람과 너무 가깝습니다 (양옆 {#0}칸은 비워 둬야 해요).",
+"en": "That seat is too close to someone (keep {0} empty seats on each side).",
+"tr": "这个座位离别人太近了（两侧各要空出{0}个座位）。"
 },
 {
-"id": "s1589",
-"page": "queue",
-"ko": "<b>핵심 가정과 수식:</b> 50×50 격자에서 모두가 이웃 8명과 한 번씩 만나 점수를 모으고 이웃 중 최고 점수의 전략을 따릅니다. 새치기는 질서를 만나면 +<i>g</i>(이득), 질서는 −<i>g</i>를 받고, 새치기가 눈총형을 만나면 이득이 <i>g</i>−<i>f</i>로(눈총의 효과 <i>f</i>), 눈총형은 새치기를 볼 때마다 비용 <i>c</i>를 치릅니다. 따라서 대략 <i>f</i>가 <i>g</i>보다 커야 새치기가 눈총형 이웃 곁에서 손해를 봅니다. 슬라이더가 <i>g</i>, <i>f</i>, <i>c</i>입니다.",
-"en": "<b>Key assumptions and formulas:</b> On a 50×50 grid everyone meets their 8 neighbors once and copies the strategy of the highest-scoring neighbor. A cutter meeting an orderly person gains +<i>g</i> (the orderly person gets −<i>g</i>); a cutter meeting a punisher nets <i>g</i>−<i>f</i> (punishment effect <i>f</i>), and a punisher pays cost <i>c</i> each time it sees a cutter. So roughly, <i>f</i> must exceed <i>g</i> for cutting to be a loss next to punishers. The sliders are <i>g</i>, <i>f</i>, and <i>c</i>.",
-"tr": "<b>主要假设与公式：</b>在50×50的网格上，每个人与8个邻居各交手一次，并模仿得分最高的邻居的策略。插队者遇到守序者获得+<i>g</i>（守序者得−<i>g</i>）；插队者遇到惩罚者，净得<i>g</i>−<i>f</i>（惩罚效果为<i>f</i>），惩罚者每次看到插队者都要付出成本<i>c</i>。因此大致来说，<i>f</i>必须大于<i>g</i>，插队在惩罚者身边才会吃亏。滑块是<i>g</i>、<i>f</i>和<i>c</i>。"
+"id": "d1408",
+"page": "(실행 중 문구) seating",
+"ko": "(정돈의 {#0}%)",
+"en": "({0}% of orderly)",
+"tr": "（有序排列的{0}%）"
 },
 {
-"id": "s1590",
-"page": "queue",
-"ko": "<b>이 프로젝트의 단순화:</b> \"응징하는 협력자\"를 넣고 점수표를 정한 것은 이 프로젝트의 설계이며 원 논문의 모델이나 수치의 재현이 아닙니다. 눈총형은 처음에 있던 사람뿐이고 새로 생기지 않으며, 아주 작은 확률로 질서나 새치기가 새로 들어옵니다. 점수와 비용의 숫자는 비교를 위한 상대적인 값입니다.",
-"en": "<b>What this project simplifies:</b> Adding the \"punishing cooperator\" and choosing the payoff table is this project's own design, not the paper's model or a reproduction of its numbers. Punishers exist only among the initial population and never newly appear, while with a very small probability new orderly people or cutters enter. The payoff and cost numbers are relative values for comparison.",
-"tr": "<b>本项目做了哪些简化：</b>加入“惩罚型合作者”并选定收益表，是本项目自己的设计，既不是论文中的模型，也不是对其数值的重现。惩罚者只存在于初始人群中，不会重新出现，而新的守序者或插队者则以极小的概率加入。收益和成本的数值是用于比较的相对值。"
+"id": "d1409",
+"page": "(실행 중 문구) seating",
+"ko": "긴 벤치 이론값 {#0}%",
+"en": "Long-bench theory {0}%",
+"tr": "长凳理论值 {0}%"
 },
 {
-"id": "s1591",
-"page": "queue",
-"ko": "<b>이론값과 시뮬레이션:</b> 이 모델에는 알려진 닫힌 해가 없어 이론값과 비교하지 못했고, 위의 대략적인 조건 <i>f</i>&gt;<i>g</i>과 시뮬레이션이 맞는지 확인했습니다. <i>g</i>=0.5에서 눈총의 효과 0.3이면 새치기가 100%이고, 0.6이면 80%로 일부만 막히며, 1.0이면 새치기가 0%, 눈총형 87%입니다. 눈총형이 없으면 새치기가 100%입니다. 눈총의 비용은 0.2까지는 87%지만 0.5부터는 100%로 무너지고, 이득이 0.2나 1.5이면 새치기가 86~87%로 우세해 단순한 조건만으로는 설명되지 않습니다 (5회 평균, <code>node tools/validate-more.js queue</code>).",
-"en": "<b>Theory versus simulation:</b> This model has no known closed form, so there is no theoretical value to compare; I checked the rough condition <i>f</i>&gt;<i>g</i> against the simulation. With <i>g</i>=0.5, a punishment effect of 0.3 leaves 100% cutters, 0.6 only partly stops them (80%), and 1.0 leaves 0% cutters and 87% punishers. Without punishers cutters reach 100%. A punishment cost of up to 0.2 keeps 87%, but from 0.5 order collapses to 100% cutters, and with a gain of 0.2 or 1.5 cutters dominate at 86 to 87%, which the simple condition alone does not explain (5-run means, <code>node tools/validate-more.js queue</code>).",
-"tr": "<b>理论与模拟的对比：</b>该模型没有已知的闭式解，所以没有可比较的理论值；我用模拟检验了近似条件<i>f</i>&gt;<i>g</i>。<i>g</i>=0.5时，惩罚效果为0.3，插队者仍是100%；0.6只能部分遏制（80%）；1.0时插队者为0%，惩罚者为87%。没有惩罚者时，插队者会达到100%。惩罚成本不超过0.2时可维持87%，但从0.5起秩序崩溃，插队者升至100%；收益为0.2或1.5时，插队者以86%到87%占优，仅凭简单条件无法解释这一点（5次运行的平均值，<code>node tools/validate-more.js queue</code>）。"
+"id": "d1410",
+"page": "(실행 중 문구) seating",
+"ko": "긴 벤치 이론값 {0}",
+"en": "Long-bench theory {0}",
+"tr": "长凳理论值 {0}"
 },
 {
-"id": "s1592",
-"page": "queue",
-"ko": "<b>더 읽을거리:</b> Nowak, May (1992), \"Evolutionary games and spatial chaos\", <i>Nature</i> 359. / Axelrod (1986), \"An evolutionary approach to norms\", <i>American Political Science Review</i> 80. / Fehr, Gächter (2002), \"Altruistic punishment in humans\", <i>Nature</i> 415.",
-"en": "<b>Further reading:</b> Nowak, May (1992), \"Evolutionary games and spatial chaos\", <i>Nature</i> 359. / Axelrod (1986), \"An evolutionary approach to norms\", <i>American Political Science Review</i> 80. / Fehr, Gächter (2002), \"Altruistic punishment in humans\", <i>Nature</i> 415.",
-"tr": "<b>延伸阅读：</b>Nowak, May (1992), \"Evolutionary games and spatial chaos\", <i>Nature</i> 359. / Axelrod (1986), \"An evolutionary approach to norms\", <i>American Political Science Review</i> 80. / Fehr, Gächter (2002), \"Altruistic punishment in humans\", <i>Nature</i> 415."
+"id": "d1411",
+"page": "(실행 중 문구) seating",
+"ko": "벤치의 자리 수",
+"en": "Seats on the bench",
+"tr": "长凳座位数"
 },
 {
-"id": "s1628",
-"page": "regression",
-"ko": "진짜 효과가 0이어도 칭찬받은 쪽은 -7.0점, 혼난 쪽은 +7.1점 변했어요.",
-"en": "With zero true effect, praised people still dropped 7.0 points and scolded ones rose 7.1.",
-"tr": "即使真实效果为零，受表扬的人仍然下降了7.0分，被批评的人反而上升了7.1分。"
+"id": "d1412",
+"page": "(실행 중 문구) seating",
+"ko": "사이에 비워 두는 자리 수(g)",
+"en": "Empty seats kept between people (g)",
+"tr": "人与人之间空出的座位数（g）"
 },
 {
-"id": "s1629",
-"page": "regression",
-"ko": "이 모델에서는 점수에 운이 섞여 있어, 극단에 오른 사람은 다음엔 운이 빠지며 평균 쪽으로 돌아와요.",
-"en": "In this model scores include luck, so those at an extreme drift back toward the average next time.",
-"tr": "在这个模型中，分数里包含运气，所以处在极端位置的人下一次会向平均值回归。"
+"id": "d1413",
+"page": "(실행 중 문구) seating",
+"ko": "정돈했다면 앉았을 사람 중 놓친 비율",
+"en": "Share of the orderly capacity that is lost",
+"tr": "相对有序排列容量而损失的比例"
 },
 {
-"id": "s1630",
-"page": "regression",
-"ko": "변화를 볼 때는 말의 효과를 따지기 전에 점수에 운이 얼마나 섞여 있는지부터 살펴볼 만해요.",
-"en": "Before judging what words did, check first how much luck is mixed into the scores.",
-"tr": "在判断话语起了什么作用之前，先看看分数里混入了多少运气。"
+"id": "d1414",
+"page": "(실행 중 문구) seating",
+"ko": "이번 판 (무작위 줄)",
+"en": "This run (random row)",
+"tr": "本轮（随机排列）"
 },
 {
-"id": "s1632",
-"page": "regression",
-"ko": "칭찬이 소용없거나 꾸중이 낫다는 뜻은 아니고, 이 모델은 진짜 효과를 0으로 맞춘 것이에요.",
-"en": "It doesn't mean praise is useless or scolding better; the true effect was set to zero.",
-"tr": "这并不是说表扬没用或批评更好；真实效果被设定为零。"
+"id": "d1415",
+"page": "(실행 중 문구) seating",
+"ko": "돌려보낸 사람",
+"en": "People turned away",
+"tr": "被拒之门外的人"
 },
 {
-"id": "s1633",
-"page": "regression",
-"ko": "실제 효과는 비교 집단을 둔 실험으로, 그리고 실력이 변하는 점까지 넣어 확인해야 해요.",
-"en": "Real effects need experiments with a comparison group, and must allow skill to change.",
-"tr": "要了解真实效果，需要设置对照组做实验，并且必须允许能力发生变化。"
+"id": "d1416",
+"page": "(실행 중 문구) seating",
+"ko": "긴 벤치 이론값",
+"en": "Long-bench theory value",
+"tr": "长凳理论值"
 },
 {
-"id": "s1635",
-"page": "regression",
-"ko": "<b>모델의 뿌리:</b> 평균으로의 회귀는 Francis Galton이 1886년 「Regression towards mediocrity in hereditary stature」(<i>Journal of the Anthropological Institute</i>)에서 부모와 자녀의 키를 비교하며 보인 현상입니다. 두 측정이 완전히 일치하지 않으면, 첫 측정에서 극단이었던 쪽은 다음에 평균 쪽으로 돌아옵니다. 비행 교관 일화는 Kahneman의 『Thinking, Fast and Slow』(2011)에 소개되어 있습니다.",
-"en": "<b>Where the model comes from:</b> Regression to the mean was shown by Francis Galton in &quot;Regression towards mediocrity in hereditary stature&quot; (1886, <i>Journal of the Anthropological Institute</i>) by comparing the heights of parents and children. When two measurements do not agree perfectly, those who were extreme the first time move back toward the average the next time. The flight-instructor anecdote appears in Kahneman's <i>Thinking, Fast and Slow</i> (2011).",
-"tr": "<b>模型的来源：</b>均值回归由弗朗西斯·高尔顿在&quot;Regression towards mediocrity in hereditary stature&quot;（1886，<i>Journal of the Anthropological Institute</i>）中通过比较父母和子女的身高而提出。当两次测量不完全一致时，第一次表现极端的人，下一次会向平均水平回落。飞行教官的轶事见于卡尼曼的<i>思考，快与慢</i>（2011）。"
+"id": "d1417",
+"page": "(실행 중 문구) seating",
+"ko": "{#0} / {#1}명",
+"en": "{0} / {1}",
+"tr": "{0} / {1}"
 },
 {
-"id": "s1636",
-"page": "regression",
-"ko": "<b>핵심 가정과 수식:</b> 점수는 <code>50 + 10 × (√(1−L)·실력 + √L·운)</code>이고 실력과 운은 표준정규분포입니다(L = 운의 몫 슬라이더). 그러면 1회와 2회 점수의 상관은 ρ = 1−L이고, 1회 점수를 알 때 2회 점수의 기댓값은 <code>50 + ρ(1회 − 50)</code>입니다. 상위 20% 집단은 1회에 50보다 평균 10·φ(z)/0.2 ≈ 14점 높으므로(z ≈ 0.84) 기대 변화는 −L × 14점입니다. 슬라이더 중 &quot;칭찬·꾸중 대상&quot;이 꼬리의 크기, &quot;말의 진짜 효과&quot;가 ±e입니다.",
-"en": "<b>Key assumptions and formulas:</b> Scores are <code>50 + 10 × (√(1−L)·skill + √L·luck)</code> with standard normal skill and luck (L = the luck-share slider). The correlation between trials 1 and 2 is then ρ = 1−L, and the expected trial 2 score given trial 1 is <code>50 + ρ(trial 1 − 50)</code>. The top 20% scored on average 10·φ(z)/0.2 ≈ 14 points above 50 in trial 1 (z ≈ 0.84), so the expected change is −L × 14 points. The &quot;share praised / scolded&quot; slider sets the tail size and the &quot;true effect&quot; slider is ±e.",
-"tr": "<b>主要假设与公式：</b>得分为<code>50 + 10 × (√(1−L)·skill + √L·luck)</code>，其中技能和运气服从标准正态分布（L＝运气占比滑块）。于是第1次与第2次的相关系数为ρ = 1−L，已知第1次成绩时第2次的期望得分为<code>50 + ρ(第1次 − 50)</code>。前20%的人在第1次中平均比50高10·φ(z)/0.2 ≈ 14分（z ≈ 0.84），所以期望变化为−L × 14分。“被表扬／被批评的比例”滑块设定尾部的大小，“真实效果”滑块为±e。"
+"id": "d1418",
+"page": "(실행 중 문구) seating",
+"ko": "무작위 평균 {#0}명 · 정돈하면 {#1}명 (자리 {#2}개, 비우는 칸 {#3}개)",
+"en": "Random average {0} · orderly fits {1} ({2} seats, gap {3})",
+"tr": "随机平均 {0} · 有序可坐 {1}（{2}个座位，间隔{3}）"
 },
 {
-"id": "s1637",
-"page": "regression",
-"ko": "<b>이 프로젝트의 단순화:</b> 실력은 변하지 않고 운은 시도마다 독립이며 점수는 정규분포라고 가정했습니다(현실의 연습, 피로, 사기는 없음). 칭찬과 꾸중의 효과는 대칭인 ±e로 단순화했습니다. 사람 수 400, 운의 몫 50%, 상위·하위 20%는 이 프로젝트가 정한 기본값이며 실제 교관이나 스포츠 자료가 아닙니다.",
-"en": "<b>What this project simplifies:</b> Skill never changes, luck is independent on each trial and scores are normal (no real practice, fatigue or morale). The effects of praise and scolding are simplified to a symmetric ±e. The defaults of 400 people, 50% luck and top/bottom 20% are this project's own choices, and no real instructor or sports data is used.",
-"tr": "<b>本项目做了哪些简化：</b>技能永远不变，运气在每次试验中相互独立，得分服从正态分布（没有真实的练习、疲劳和士气）。表扬和批评的效果被简化为对称的±e。默认的400人、50%运气以及前后20%是本项目自己的选择，没有使用真实的教官或体育数据。"
+"id": "d1419",
+"page": "(실행 중 문구) seating",
+"ko": "앉은 사람 / 정돈했을 때 최대 · 앉을 수 없는 빈 자리 {#0}개",
+"en": "Seated / orderly maximum · empty seats nobody may take: {0}",
+"tr": "已坐 / 有序最大值 · 无人能坐的空位：{0}"
 },
 {
-"id": "s1638",
-"page": "regression",
-"ko": "<b>이론값과 시뮬레이션:</b> 운 50%, 상위·하위 20%, 진짜 효과 0에서 400번 반복 평균은 칭찬받은 쪽 −7.0, 혼난 쪽 +7.1점으로 이론값 ∓7.0과 맞았고, 회귀선 기울기는 0.50(이론 1−L = 0.50)이었습니다. 대상을 5%로 줄이면 약 ∓10.4(이론 ∓10.3), 50%로 늘리면 약 ∓4.0(이론 ∓4.0)이었습니다. 진짜 효과 e = 7이면 코치가 보는 차이가 0이 되어(이론 7.0) 시뮬레이션과 일치했습니다.",
-"en": "<b>Theory versus simulation:</b> With 50% luck, top/bottom 20% and a true effect of 0, the average of 400 repeats was −7.0 for the praised and +7.1 for the scolded, matching the theory of ∓7.0, and the regression slope was 0.50 (theory 1−L = 0.50). Narrowing the groups to 5% gave about ∓10.4 (theory ∓10.3) and widening to 50% about ∓4.0 (theory ∓4.0). With a true effect of e = 7 the difference the coach sees fell to 0 (theory 7.0), as the simulation showed.",
-"tr": "<b>理论与模拟的对比：</b>运气占50%、前后各20%、真实效果为0时，400次重复的平均值为：被表扬者−7.0，被批评者+7.1，与理论值∓7.0吻合，回归斜率为0.50（理论值1−L = 0.50）。将分组缩小到5%时约为∓10.4（理论值∓10.3），扩大到50%时约为∓4.0（理论值∓4.0）。真实效果为e = 7时，教练看到的差异降为0（理论值7.0），模拟结果也是如此。"
+"id": "d1420",
+"page": "(실행 중 문구) seating",
+"ko": "도착한 {#0}명 중 앉을 곳이 없어 돌아간 사람 (무작위 줄)",
+"en": "Of the {0} who arrived, those who left for lack of a seat (random row)",
+"tr": "到达的{0}人中，因没有座位而离开的人（随机排列）"
 },
 {
-"id": "s1639",
-"page": "regression",
-"ko": "<b>더 읽을거리:</b> Galton (1886), Regression towards mediocrity in hereditary stature, <i>Journal of the Anthropological Institute</i> / Kahneman &amp; Tversky (1973), On the psychology of prediction, <i>Psychological Review</i> / Kahneman (2011), <i>Thinking, Fast and Slow</i>, Farrar, Straus and Giroux.",
-"en": "<b>Further reading:</b> Galton (1886), Regression towards mediocrity in hereditary stature, <i>Journal of the Anthropological Institute</i> / Kahneman &amp; Tversky (1973), On the psychology of prediction, <i>Psychological Review</i> / Kahneman (2011), <i>Thinking, Fast and Slow</i>, Farrar, Straus and Giroux.",
-"tr": "<b>延伸阅读：</b>Galton (1886), Regression towards mediocrity in hereditary stature, <i>Journal of the Anthropological Institute</i> / Kahneman &amp; Tversky (1973), On the psychology of prediction, <i>Psychological Review</i> / Kahneman (2011), <i>Thinking, Fast and Slow</i>, Farrar, Straus and Giroux."
+"id": "d1421",
+"page": "(실행 중 문구) seating",
+"ko": "시뮬레이션 평균 {#0}% (이 벤치 길이), 정돈 {#1}%",
+"en": "Simulation average {0}% (this bench length), orderly {1}%",
+"tr": "模拟平均 {0}%（此长凳长度），有序 {1}%"
 },
 {
-"id": "s1669",
-"page": "revolution",
-"ko": "문턱이 1%인 사람 한 명이 바뀌었을 뿐인데 100명이 나서던 광장이 1명에서 멈췄어요.",
-"en": "Changing one person's threshold to 1% turned a square of 100 into a stop at just 1 person.",
-"tr": "只把一个人的阈值改成1%，100人的方阵就在只有1个人的时候停住了。"
+"id": "d1422",
+"page": "(실행 중 문구) secretary",
+"ko": "성공! 진짜 최고를 골랐습니다",
+"en": "Success! You picked the true best",
+"tr": "成功！你选中了真正的最佳人选"
 },
 {
-"id": "s1670",
-"page": "revolution",
-"ko": "이 모델에서는 문턱이 촘촘히 이어져야 한 명이 나서 다음 사람을 끌어내는 연쇄가 끊기지 않기 때문일 수 있어요.",
-"en": "In this model, thresholds must be closely spaced for each person to pull out the next, so one gap can break the chain.",
-"tr": "在这个模型中，各人的阈值必须排得很紧密，才能让每个人带动下一个人，所以一个空档就可能使连锁中断。"
+"id": "d1423",
+"page": "(실행 중 문구) secretary",
+"ko": "성공으로 칩니다: {#0}위를 골랐습니다 (기준: 상위 {#1}명)",
+"en": "Counts as success: you picked rank {0} (standard: top {1})",
+"tr": "算作成功：你选中了第{0}名（标准：前{1}名）"
 },
 {
-"id": "s1671",
-"page": "revolution",
-"ko": "결과가 갈릴 때는 평균 분위기보다 불씨가 있는지, 문턱 사이에 빈틈이 없는지부터 살펴볼 만해요.",
-"en": "When outcomes split, whether a spark exists and whether thresholds have gaps may matter more than the average mood.",
-"tr": "当结果出现分化时，是否存在导火索、阈值有没有空档，可能比平均情绪更重要。"
+"id": "d1424",
+"page": "(실행 중 문구) secretary",
+"ko": "놓쳤습니다: 최고는 {#0}번째로 관찰 구간에서 이미 지나갔고, 기준을 넘는 사람이 없어 마지막 후보({#1}위)를 받았습니다",
+"en": "Missed: the best was candidate {0}, already passed in the observation phase, and nobody beat the standard, so you were stuck with the last candidate (rank {1})",
+"tr": "失败：最佳人选是第{0}位，已在观察阶段过去，而且没有人超过标准，所以只能选最后一位候选人（第{1}名）"
 },
 {
-"id": "s1673",
-"page": "revolution",
-"ko": "실제 시위가 이 숫자대로 일어난다는 뜻도, 어느 편을 들거나 예측하는 것도 아니에요.",
-"en": "It does not mean real protests follow these numbers, nor does it take sides or predict.",
-"tr": "这并不意味着现实中的抗议会遵循这些数字，也不站队，更不做预测。"
+"id": "d1425",
+"page": "(실행 중 문구) secretary",
+"ko": "놓쳤습니다: 최고는 {#0}번째로 관찰 구간에서 이미 지나갔습니다 ({#1}위를 골랐습니다)",
+"en": "Missed: the best was candidate {0}, already passed in the observation phase (you picked rank {1})",
+"tr": "失败：最佳人选是第{0}位，已在观察阶段过去（你选中了第{1}名）"
 },
 {
-"id": "s1674",
-"page": "revolution",
-"ko": "문턱은 눈에 보이지 않으니, 정보와 두려움, 연결망 같은 모델에 없는 것을 실제로 관찰해야 해요.",
-"en": "Thresholds are invisible, so information, fear and networks, absent here, would need real observation.",
-"tr": "阈值是看不见的，因此这里没有的信息、恐惧和人际网络，需要靠真实观察来了解。"
+"id": "d1426",
+"page": "(실행 중 문구) secretary",
+"ko": "놓쳤습니다: 더 좋은 후보가 {#0}번째에 있었는데 {#1}번째에서 먼저 멈췄습니다 ({#2}위)",
+"en": "Missed: a better candidate was number {0}, but you stopped earlier at number {1} (rank {2})",
+"tr": "失败：更好的候选人是第{0}位，但你在第{1}位就提前停下了（第{2}名）"
 },
 {
-"id": "s1676",
-"page": "revolution",
-"ko": "<b>모델의 뿌리:</b> Granovetter (1978), \"Threshold Models of Collective Behavior\", <i>American Journal of Sociology</i> 83(6)의 <b>문턱 모델</b>입니다. 사람마다 \"몇 명이 이미 나서면 나도 나선다\"는 문턱이 다르면, 같은 평균이어도 한 명의 차이로 집단행동이 번지거나 멈출 수 있다는 것이 요지입니다. Schelling의 이진 선택 모델을 사회운동 설명으로 넓힌 것으로 알려져 있습니다.",
-"en": "<b>Where the model comes from:</b> This is the <b>threshold model</b> of Granovetter (1978), \"Threshold Models of Collective Behavior\", <i>American Journal of Sociology</i> 83(6). Its point is that when people differ in how many others must already have joined before they do, collective action can spread or stall because of a difference of a single person, even with the same average. It is generally described as extending Schelling's binary-choice models.",
-"tr": "<b>模型的来源：</b>这是 Granovetter（1978）的<b>阈值模型</b>，“Threshold Models of Collective Behavior”，<i>American Journal of Sociology</i> 83(6)。其要点是：当人们对“需要有多少人先加入自己才加入”的要求各不相同时，即使平均水平相同，集体行动也可能因一个人的差别而扩散或停滞。它通常被认为是对谢林二元选择模型的扩展。"
+"id": "d1427",
+"page": "(실행 중 문구) secretary",
+"ko": "{#0}번째에서 멈췄습니다: 지금까지 본 누구보다 좋아요",
+"en": "Stopped at candidate {0}: better than everyone seen so far",
+"tr": "在第{0}位停下：比目前见过的所有人都好"
 },
 {
-"id": "s1677",
-"page": "revolution",
-"ko": "<b>핵심 가정과 수식:</b> 문턱의 누적분포를 <code>F(x)</code>라 하면 참여 비율은 <code>r<sub>t+1</sub> = F(r<sub>t</sub>)</code>로 갱신되고, <code>F(x) = x</code>가 처음 만나는 곳(균형)에서 멈춥니다. 슬라이더의 평균과 퍼짐은 <code>F</code>의 모양을, 선동가 비율은 <code>F(0)</code>(문턱 0인 사람)의 크기를 정합니다.",
-"en": "<b>Key assumptions and formulas:</b> If <code>F(x)</code> is the cumulative distribution of thresholds, the share participating updates as <code>r<sub>t+1</sub> = F(r<sub>t</sub>)</code> and stops where <code>F(x) = x</code> is first met (the equilibrium). The mean and spread sliders shape <code>F</code>, and the instigator share sets <code>F(0)</code>, the people with threshold 0.",
-"tr": "<b>主要假设与公式：</b>设<code>F(x)</code>为阈值的累积分布，参与者占比按<code>r<sub>t+1</sub> = F(r<sub>t</sub>)</code>更新，并在<code>F(x) = x</code>首次成立处停止（均衡）。均值和离散度滑块决定<code>F</code>的形状，发起者占比则决定<code>F(0)</code>，即阈值为0的人。"
+"id": "d1428",
+"page": "(실행 중 문구) secretary",
+"ko": "후보 {#0}명을 한 명씩 만납니다. 처음 {#1}명은 기준만 잡고 모두 거절합니다",
+"en": "You meet {0} candidates one by one. The first {1} only set the standard and are all rejected",
+"tr": "你将逐一见到{0}位候选人。前{1}位只用来确定标准，全部拒绝"
 },
 {
-"id": "s1678",
-"page": "revolution",
-"ko": "<b>이 프로젝트의 단순화:</b> 모두가 전체 참여 비율을 정확히 알고(연결망 없음), 문턱은 0~1로 자른 정규분포이며 평균 20%·퍼짐 15%·선동가 1%는 이 프로젝트가 정한 값입니다. 두려움, 조직, 정부 대응, 속마음을 숨기는 행동은 없습니다. 고전 예시는 Granovetter의 100명 예(문턱 0, 1, …, 99)를 따랐습니다.",
-"en": "<b>What this project simplifies:</b> Everyone knows the exact overall participation share (no network), thresholds are a normal distribution truncated to 0–1, and the mean 20%, spread 15% and 1% instigators are this project's values. Fear, organization, government response and hiding one's true preferences are absent. The classic example follows Granovetter's 100-person case (thresholds 0, 1, …, 99).",
-"tr": "<b>本项目做了哪些简化：</b>每个人都准确知道总体参与比例（没有网络），阈值服从截断在0–1之间的正态分布，均值20%、离散度15%和1%的发起者是本项目的取值。恐惧、组织、政府的反应以及隐藏真实偏好都没有考虑。经典示例遵循 Granovetter 的100人案例（阈值为0、1、…、99）。"
+"id": "d1429",
+"page": "(실행 중 문구) secretary",
+"ko": "후보 {#0}명을 한 명씩 만납니다. 관찰 없이 첫 사람을 바로 받습니다",
+"en": "You meet {0} candidates one by one. With no observation, you take the first one right away",
+"tr": "你将逐一见到{0}位候选人。不做观察，直接选第一位"
 },
 {
-"id": "s1679",
-"page": "revolution",
-"ko": "<b>이론값과 시뮬레이션:</b> 고전 예시는 100명이 모두 나서고(101라운드), 한 명의 문턱만 바꾸면 1명에서 멈춥니다. 정규 문턱에서 <code>F(x) = x</code>의 고정점을 직접 계산하면 평균 25%·선동가 1%는 전원 참여, 평균 30%는 약 1.7%, 40%는 약 1.1%이고 시뮬레이션은 2%, 1%였습니다. 갈림길 근처(평균 25%)에서는 1,000명의 우연 때문에 실행마다 2~100%로 갈렸습니다.",
-"en": "<b>Theory versus simulation:</b> The classic example gives full participation of all 100 (101 rounds), and changing one person's threshold stops it at 1. For normal thresholds, computing the fixed point of <code>F(x) = x</code> directly gives full participation at mean 25% with 1% instigators, about 1.7% at mean 30% and about 1.1% at 40%, against simulated 2% and 1%. Right at the tipping zone (mean 25%), chance among 1,000 people split runs anywhere from 2% to 100%.",
-"tr": "<b>理论与模拟的对比：</b>经典示例中100人全部参与（101轮），只改变一个人的阈值，参与就会停在1人。对于正态分布的阈值，直接计算<code>F(x) = x</code>的不动点，在1%发起者的条件下，均值25%时全员参与，均值30%时约为1.7%，40%时约为1.1%，而模拟结果为2%和1%。正好处于临界区（均值25%）时，1,000人中的随机性使各次运行的结果分布在2%到100%之间。"
+"id": "d1430",
+"page": "(실행 중 문구) secretary",
+"ko": "관찰 중 {#0}/{#1}: 점수를 기억만 하고 모두 거절합니다",
+"en": "Observing {0}/{1}: just remember the scores and reject everyone",
+"tr": "观察中 {0}/{1}：只记住分数，全部拒绝"
 },
 {
-"id": "s1680",
-"page": "revolution",
-"ko": "<b>더 읽을거리:</b> Granovetter (1978), \"Threshold Models of Collective Behavior\", <i>American Journal of Sociology</i> 83(6). Schelling (1978), 『Micromotives and Macrobehavior』, W. W. Norton. Kuran (1989), \"Sparks and Prairie Fires: A Theory of Unanticipated Political Revolution\", <i>Public Choice</i> 61.",
-"en": "<b>Further reading:</b> Granovetter (1978), \"Threshold Models of Collective Behavior\", <i>American Journal of Sociology</i> 83(6). Schelling (1978), <i>Micromotives and Macrobehavior</i>, W. W. Norton. Kuran (1989), \"Sparks and Prairie Fires: A Theory of Unanticipated Political Revolution\", <i>Public Choice</i> 61.",
-"tr": "<b>延伸阅读：</b>Granovetter (1978), \"Threshold Models of Collective Behavior\", <i>American Journal of Sociology</i> 83(6). Schelling (1978), <i>Micromotives and Macrobehavior</i>, W. W. Norton. Kuran (1989), \"Sparks and Prairie Fires: A Theory of Unanticipated Political Revolution\", <i>Public Choice</i> 61."
+"id": "d1431",
+"page": "(실행 중 문구) secretary",
+"ko": "이제부터: 지금까지 본 누구보다 점수가 높으면 바로 선택합니다",
+"en": "From now on: take the first one who scores higher than everyone seen so far",
+"tr": "从现在起：选第一个分数高于此前所有人的候选人"
 },
 {
-"id": "s1681",
-"page": "revolution",
-"ko": "고전 예시(문턱이 0, 1, 2, …, 99)와 그중 한 명을 바꾼 경우는 <code>node tools/validate-revolution.js</code>로 확인할 수 있습니다.",
-"en": "The classic example (thresholds 0, 1, 2, …, 99) and the case with one person changed can be verified with <code>node tools/validate-revolution.js</code>.",
-"tr": "经典示例（阈值为0、1、2、…、99）以及改变一个人的情形，都可以用<code>node tools/validate-revolution.js</code>来验证。"
+"id": "d1432",
+"page": "(실행 중 문구) secretary",
+"ko": "지금까지 본 최고 점수: {0} · 본 후보 {#1}/{#2}명",
+"en": "Best score so far: {0} · candidates seen {1}/{2}",
+"tr": "目前最高分：{0} · 已见候选人 {1}/{2}位"
 },
 {
-"id": "s1720",
-"page": "rumor",
-"ko": "솔깃할 확률이 어느 문턱을 넘으면 소문이 갑자기 거의 모두에게 퍼져요.",
-"en": "Once the chance of being tempted crosses a threshold, a rumor suddenly reaches almost everyone.",
-"tr": "一旦被吸引的概率越过某个阈值，谣言就会突然传到几乎所有人。"
+"id": "d1433",
+"page": "(실행 중 문구) secretary",
+"ko": "처음에 거절만 하며 지켜보는 비율 (관찰 구간)",
+"en": "Share you only watch at first (observation phase)",
+"tr": "开始时只观察的比例（观察阶段）"
 },
 {
-"id": "s1721",
-"page": "rumor",
-"ko": "퍼뜨리는 사람 한 명이 평균 한 명 넘게 옮기는 선을 넘으면 연쇄가 커지고, 여러 방에 걸친 사람이 방들을 이어 줘요.",
-"en": "Past the line where each spreader passes it on to more than one person the chain explodes, and people in several rooms link the rooms together.",
-"tr": "一旦越过每个传播者把消息传给不止一个人的临界线，传播链就会爆发，而同时在多个群里的人会把各个群连接起来。"
+"id": "d1434",
+"page": "(실행 중 문구) secretary",
+"ko": "후보가 많을 때의 한계 36.8%",
+"en": "Limit with many candidates: 36.8%",
+"tr": "候选人很多时的极限：36.8%"
 },
 {
-"id": "s1722",
-"page": "rumor",
-"ko": "소문이 퍼지는 모양을 볼 때는 문턱 앞에서의 대응 시점과, 방 사이를 잇는 사람이 누구인지부터 살펴볼 만해요.",
-"en": "To understand a rumor's spread, the timing of a response before the threshold and who bridges the rooms are good places to look.",
-"tr": "要理解谣言如何扩散，可以重点看临界点之前做出回应的时机，以及谁在群与群之间搭桥。"
+"id": "d1435",
+"page": "(실행 중 문구) secretary",
+"ko": "{#0}위 이하",
+"en": "Rank {0} or lower",
+"tr": "第{0}名及以后"
 },
 {
-"id": "s1724",
-"page": "rumor",
-"ko": "실제 단톡방의 소문이 이 숫자대로 퍼진다는 뜻은 아니에요. 정정이 소문의 70%만큼 솔깃하다는 값도 가정이에요.",
-"en": "It does not mean real chat-room rumors spread by these numbers; the correction being 70% as tempting is an assumption.",
-"tr": "这并不意味着现实聊天群里的谣言会按这些数字传播；辟谣只有70%的吸引力是一个假设。"
+"id": "d1436",
+"page": "(실행 중 문구) secretary",
+"ko": "{#0}~{#1}위",
+"en": "Ranks {0} to {1}",
+"tr": "第{0}至{1}名"
 },
 {
-"id": "s1725",
-"page": "rumor",
-"ko": "소문의 내용, 보낸 사람에 대한 신뢰, 방 분위기가 빠져 있어, 실제 문턱은 현실의 퍼짐 기록을 관찰해 봐야 알 수 있어요.",
-"en": "Content, trust in the sender and room mood are missing, so real thresholds would need observation of how rumors actually spread.",
-"tr": "模型缺少内容、对发送者的信任和群里的氛围，所以真实的阈值需要观察谣言实际如何传播才能得知。"
+"id": "d1437",
+"page": "(실행 중 문구) secretary",
+"ko": "최고 한 명을 고를 확률",
+"en": "Chance of picking the very best",
+"tr": "选中最佳一人的概率"
 },
 {
-"id": "s1727",
-"page": "rumor",
-"ko": "<b>모델의 뿌리:</b> 소문 확산의 고전 모델은 Daley와 Kendall(1964, 「Epidemics and rumours」, <i>Nature</i>)과 Maki와 Thompson(1973)의 모름–퍼뜨림–멈춤(ignorant–spreader–stifler) 모델입니다. 전염병의 SIR 모델(Kermack–McKendrick, 1927)에서 구조를 빌려 왔습니다.",
-"en": "<b>Where the model comes from:</b> The classic rumor models are those of Daley and Kendall (1964, \"Epidemics and rumours\", <i>Nature</i>) and Maki and Thompson (1973): ignorant, spreader and stifler. Their structure is borrowed from the epidemic SIR model (Kermack and McKendrick, 1927).",
-"tr": "<b>模型的来源：</b>经典的谣言模型是 Daley 和 Kendall（1964，“Epidemics and rumours”，<i>Nature</i>）以及 Maki 和 Thompson（1973）的模型：不知情者、传播者和抑制者。其结构借自传染病的SIR模型（Kermack 和 McKendrick，1927）。"
+"id": "d1438",
+"page": "(실행 중 문구) secretary",
+"ko": "상위 {#0}명 안에 들 확률",
+"en": "Chance of landing in the top {0}",
+"tr": "进入前{0}名的概率"
 },
 {
-"id": "s1728",
-"page": "rumor",
-"ko": "<b>핵심 가정과 수식:</b> 퍼뜨리는 사람이 방에 글을 올리면 그 방의 모르는 사람이 확률 <i>p</i>로 솔깃해 다음 라운드부터 퍼뜨리고, 퍼뜨리던 사람은 라운드마다 확률 <i>q</i>(70%)로 관심을 잃습니다. 평균 퍼뜨리는 기간이 1/<i>q</i> 라운드이므로 <i>R</i><sub>0</sub> ≈ <i>p</i>·<i>k</i>/<i>q</i> (<i>k</i>: 한 사람이 글을 올릴 때 보게 되는 방 사람 수)이고, 이 값이 1을 넘어야 크게 퍼집니다. 슬라이더 <i>p</i>와 방 설정이 <i>R</i><sub>0</sub>를 움직입니다.",
-"en": "<b>Key assumptions and formulas:</b> When a spreader posts in a room, each unaware member is taken in with probability <i>p</i> and spreads from the next round; a spreader loses interest each round with probability <i>q</i> (70%). The mean spreading time is 1/<i>q</i> rounds, so <i>R</i><sub>0</sub> ≈ <i>p</i>·<i>k</i>/<i>q</i> (<i>k</i>: number of room members who see a person&#x27;s posts), and a large outbreak needs it above 1. The <i>p</i> slider and the room settings move <i>R</i><sub>0</sub>.",
-"tr": "<b>主要假设与公式：</b>当传播者在群里发帖时，每个不知情的成员以概率<i>p</i>信以为真，并从下一轮开始传播；传播者每轮以概率<i>q</i>（70%）失去兴趣。平均传播时间为1/<i>q</i>轮，因此<i>R</i><sub>0</sub> ≈ <i>p</i>·<i>k</i>/<i>q</i>（<i>k</i>：能看到某人发帖的群成员数），要形成大规模扩散，这个值需要大于1。<i>p</i>滑块和群设置会改变<i>R</i><sub>0</sub>。"
+"id": "d1439",
+"page": "(실행 중 문구) secretary",
+"ko": "가장 좋은 관찰 비율",
+"en": "Best observation share",
+"tr": "最佳观察比例"
 },
 {
-"id": "s1729",
-"page": "rumor",
-"ko": "<b>이 프로젝트의 단순화:</b> 이 페이지는 원래 &quot;SIR&quot;이라 불렀지만 정확히는 Daley–Kendall/Maki–Thompson 계열의 변형입니다. 그 모델에서는 퍼뜨리는 사람이 이미 아는 사람과 만나야 멈추는데, 여기서는 만남과 상관없이 확률 <i>q</i>로 멈춰서 SIR의 회복에 가깝습니다. 정정 글을 두 번째 전파로 넣은 것, 방 구조, 모든 확률 값은 이 프로젝트가 정한 것입니다.",
-"en": "<b>What this project simplifies:</b> This page used to call the model &quot;SIR&quot;, but it is more precisely a variant of the Daley–Kendall / Maki–Thompson family. In those models a spreader stops after meeting someone who already knows; here spreaders stop with probability <i>q</i> regardless of contact, which is closer to SIR recovery. The correction as a second spread, the room structure and all probability values are this project&#x27;s own choices.",
-"tr": "<b>本项目做了哪些简化：</b>本页面以前把这个模型称为“SIR”，但更准确地说，它是 Daley–Kendall / Maki–Thompson 一类模型的变体。在那些模型中，传播者遇到已经知情的人后会停下；而这里的传播者无论接触情况如何，都以概率<i>q</i>停下，更接近SIR中的康复。把更正当作第二次传播、群的结构以及所有概率数值，都是本项目自己的选择。"
+"id": "d1440",
+"page": "(실행 중 문구) secretary",
+"ko": "가장 좋은 관찰 비율 (상위 {#0}명 기준)",
+"en": "Best observation share (top {0} counts)",
+"tr": "最佳观察比例（以前{0}名为准）"
+},
+{
+"id": "d1441",
+"page": "(실행 중 문구) secretary",
+"ko": "{#0}명을 지켜본 뒤 선택 · 이때 {#1}%",
+"en": "Watch {0}, then choose · success {1}%",
+"tr": "先观察{0}位再选择 · 成功率 {1}%"
+},
+{
+"id": "d1442",
+"page": "(실행 중 문구) secretary",
+"ko": "지금 설정({#0}%, {#1}명 관찰) · 시뮬레이션 평균 {#2}%",
+"en": "Current setting ({0}%, watching {1}) · simulation average {2}%",
+"tr": "当前设置（{0}%，观察{1}位）· 模拟平均 {2}%"
+},
+{
+"id": "d1443",
+"page": "(실행 중 문구) secretary",
+"ko": "아무렇게나 고르면",
+"en": "Picking at random",
+"tr": "随便选"
+},
+{
+"id": "d1444",
+"page": "(실행 중 문구) secretary",
+"ko": "제비뽑기처럼 한 명을 고를 때",
+"en": "Like drawing lots",
+"tr": "就像抽签选一个人"
+},
+{
+"id": "d1445",
+"page": "(실행 중 문구) secretary",
+"ko": "직접 돌려 본 기록",
+"en": "Your runs so far",
+"tr": "你已运行的记录"
+},
+{
+"id": "d1446",
+"page": "(실행 중 문구) secretary",
+"ko": "자동 반복으로 쌓인 성공 횟수 (설정을 바꾸면 처음부터)",
+"en": "Successes counted over automatic repeats (restarts when settings change)",
+"tr": "自动重复累计的成功次数（更改设置后重新开始）"
+},
+{
+"id": "d1447",
+"page": "(실행 중 문구) secretary",
+"ko": "이번 판 번호",
+"en": "Round",
+"tr": "轮次"
+},
+{
+"id": "d1538",
+"page": "(실행 중 문구) treasury",
+"ko": "{#0}/{#1}개월",
+"en": "{0}/{1} months",
+"tr": "{0}/{1}个月"
+},
+{
+"id": "d1539",
+"page": "(실행 중 문구) treasury",
+"ko": "{#0}개월 뒤",
+"en": "After {0} months",
+"tr": "{0}个月后"
+},
+{
+"id": "d1540",
+"page": "(실행 중 문구) treasury",
+"ko": "장기 평균 {#0}%",
+"en": "Long-run average {0}%",
+"tr": "长期平均 {0}%"
+},
+{
+"id": "d1541",
+"page": "(실행 중 문구) treasury",
+"ko": "충격 +{#0}%p",
+"en": "Shock +{0} pts",
+"tr": "冲击 +{0}个百分点"
+},
+{
+"id": "d1542",
+"page": "(실행 중 문구) treasury",
+"ko": "단기금리 평균 {#0}%",
+"en": "Average short rate {0}%",
+"tr": "短期利率平均 {0}%"
+},
+{
+"id": "d1543",
+"page": "(실행 중 문구) treasury",
+"ko": "10년 금리 평균 {#0}%",
+"en": "Average 10-year yield {0}%",
+"tr": "10年期收益率平均 {0}%"
+},
+{
+"id": "d1544",
+"page": "(실행 중 문구) treasury",
+"ko": "10년 금리",
+"en": "10-year yield",
+"tr": "10年期收益率"
+},
+{
+"id": "d1545",
+"page": "(실행 중 문구) treasury",
+"ko": "채권 가격 (액면 100)",
+"en": "Bond price (face value 100)",
+"tr": "债券价格（面值100）"
+},
+{
+"id": "d1546",
+"page": "(실행 중 문구) treasury",
+"ko": "시작 {#0}% · 가격 100",
+"en": "Start {0}% · price 100",
+"tr": "起点 {0}% · 价格 100"
+},
+{
+"id": "d1547",
+"page": "(실행 중 문구) treasury",
+"ko": "지금 {#0}%",
+"en": "Now {0}%",
+"tr": "现在 {0}%"
+},
+{
+"id": "d1548",
+"page": "(실행 중 문구) treasury",
+"ko": "채권 가격 변화 (시작 가격 100 대비, 이자 제외)",
+"en": "Bond price change (vs. starting price 100, interest excluded)",
+"tr": "债券价格变化（相对起始价格100，不含利息）"
+},
+{
+"id": "d1549",
+"page": "(실행 중 문구) treasury",
+"ko": "평균:",
+"en": "Average:",
+"tr": "平均："
+},
+{
+"id": "d1550",
+"page": "(실행 중 문구) treasury",
+"ko": "하위 5%:",
+"en": "Bottom 5%:",
+"tr": "最低5%："
+},
+{
+"id": "d1551",
+"page": "(실행 중 문구) treasury",
+"ko": "상위 5%:",
+"en": "Top 5%:",
+"tr": "最高5%："
+},
+{
+"id": "d1552",
+"page": "(실행 중 문구) treasury",
+"ko": "10년 금리가 1%p 오르면 채권값은",
+"en": "If the 10-year yield rises 1 point, the bond falls by",
+"tr": "10年期收益率上升1个百分点，债券价格将下跌"
+},
+{
+"id": "d1553",
+"page": "(실행 중 문구) treasury",
+"ko": "-{#0}%",
+"en": "-{0}%",
+"tr": "-{0}%"
+},
+{
+"id": "d1554",
+"page": "(실행 중 문구) treasury",
+"ko": "+{#0}%",
+"en": "+{0}%",
+"tr": "+{0}%"
+},
+{
+"id": "d1555",
+"page": "(실행 중 문구) treasury",
+"ko": "반대로 1%p 내리면 +{#0}%. 내릴 때 이득이 오를 때 손해보다 큽니다(볼록성)",
+"en": "If it falls 1 point instead, +{0}%. The gain on a fall exceeds the loss on a rise (convexity)",
+"tr": "反之下降1个百分点则为+{0}%。下降时的收益大于上升时的损失（凸性）"
+},
+{
+"id": "d1556",
+"page": "(실행 중 문구) treasury",
+"ko": "모델이 정한 10년 금리 (예시 숫자)",
+"en": "The model's 10-year yield (example number)",
+"tr": "模型给出的10年期收益率（示例数字）"
+},
+{
+"id": "d1557",
+"page": "(실행 중 문구) treasury",
+"ko": "앞으로의 단기금리 예상 평균에 기간 프리미엄을 더한 값",
+"en": "Expected average short rate plus the term premium",
+"tr": "未来短期利率的预期平均值加上期限溢价"
+},
+{
+"id": "d1558",
+"page": "(실행 중 문구) treasury",
+"ko": "단기금리 +1%p일 때 10년 금리",
+"en": "10-year yield when the short rate rises 1 point",
+"tr": "短期利率上升1个百分点时的10年期收益率"
+},
+{
+"id": "d1559",
+"page": "(실행 중 문구) treasury",
+"ko": "+{#0}%p",
+"en": "+{0} pts",
+"tr": "+{0}个百分点"
+},
+{
+"id": "d1560",
+"page": "(실행 중 문구) treasury",
+"ko": "회귀가 빠를수록 장기 금리는 덜 움직입니다",
+"en": "The faster the reversion, the less the long yield moves",
+"tr": "回归越快，长期收益率变动越小"
+},
+{
+"id": "d1561",
+"page": "(실행 중 문구) treasury",
+"ko": "듀레이션(금리 민감도)",
+"en": "Duration (rate sensitivity)",
+"tr": "久期（利率敏感度）"
+},
+{
+"id": "d1562",
+"page": "(실행 중 문구) treasury",
+"ko": "금리 1%p당 가격이 약 {#0}% 움직이는 정도",
+"en": "Price moves about {0}% per 1 point of yield",
+"tr": "收益率每变动1个百分点，价格约变动{0}%"
+},
+{
+"id": "d1563",
+"page": "(실행 중 문구) treasury",
+"ko": "금리 경로 번호",
+"en": "Rate path",
+"tr": "利率路径"
+},
+{
+"id": "d1613",
+"page": "(실행 중 문구) war",
+"ko": "분쟁 {#0}건 · 그중 전쟁 {#1}%",
+"en": "Disputes: {0} · war in {1}%",
+"tr": "争端 {0} 起 · 其中战争 {1}%"
+},
+{
+"id": "d1614",
+"page": "(실행 중 문구) war",
+"ko": "A가 실제로 이길 가능성 (B는 정확히 알고, A는 범위만 짐작)",
+"en": "A's true chance of winning (B knows it exactly, A only guesses a range)",
+"tr": "A实际获胜的可能性（B确切知道，A只能猜一个范围）"
+},
+{
+"id": "d1615",
+"page": "(실행 중 문구) war",
+"ko": "거절 → 전쟁",
+"en": "Rejected → war",
+"tr": "拒绝 → 战争"
+},
+{
+"id": "d1616",
+"page": "(실행 중 문구) war",
+"ko": "수락 → 합의",
+"en": "Accepted → deal",
+"tr": "接受 → 协议"
+},
+{
+"id": "d1617",
+"page": "(실행 중 문구) war",
+"ko": "가장 최근 분쟁: A가 가져갈 파이의 몫 (초록 띠 = 양쪽이 전쟁보다 나은 합의 범위, 막대 = A의 요구)",
+"en": "Latest dispute: A's share of the pie (green band = deals both prefer to war, bar = A's demand)",
+"tr": "最近一次争端：A分得的蛋糕份额（绿色带＝双方都认为优于战争的协议区间，条形＝A的要求）"
+},
+{
+"id": "d1618",
+"page": "(실행 중 문구) war",
+"ko": "합의 범위 {#0}~{#1}% 가 있었지만 요구 {#2}%는 그 밖이라 거절 → 전쟁",
+"en": "A deal range of {0}-{1}% existed, but the demand of {2}% was outside it, so it was rejected → war",
+"tr": "存在{0}~{1}%的协议区间，但要求的{2}%在区间之外，被拒绝 → 战争"
+},
+{
+"id": "d1619",
+"page": "(실행 중 문구) war",
+"ko": "요구 {#0}%가 합의 범위 {#1}~{#2}% 안이라 수락 → 합의",
+"en": "The demand of {0}% was inside the deal range of {1}-{2}%, so it was accepted → deal",
+"tr": "要求的{0}%在{1}~{2}%的协议区间之内，被接受 → 协议"
+},
+{
+"id": "d1620",
+"page": "(실행 중 문구) war",
+"ko": "{#0}/{#1}라운드",
+"en": "Round {0}/{1}",
+"tr": "第 {0}/{1} 轮"
+},
+{
+"id": "d1621",
+"page": "(실행 중 문구) war",
+"ko": "불확실성 (A가 짐작하는 B의 힘 범위의 절반 폭)",
+"en": "Uncertainty (half-width of A's guess about B's strength)",
+"tr": "不确定性（A对B实力估计范围的一半宽度）"
+},
+{
+"id": "d1622",
+"page": "(실행 중 문구) war",
+"ko": "전쟁 비용 이하에서는 0%",
+"en": "0% when below the war cost",
+"tr": "低于战争成本时为0%"
+},
+{
+"id": "d1623",
+"page": "(실행 중 문구) war",
+"ko": "라운드 (두 나라가 서로 군비를 다시 정하는 차례)",
+"en": "Round (turns in which the two states reset their arms)",
+"tr": "轮次（两国重新确定军备的回合）"
+},
+{
+"id": "d1624",
+"page": "(실행 중 문구) war",
+"ko": "과열선 (이 프로젝트가 정한 기준)",
+"en": "Heat line (a threshold set by this project)",
+"tr": "过热线（本项目设定的标准）"
+},
+{
+"id": "d1625",
+"page": "(실행 중 문구) war",
+"ko": "이론상 안정 수준 {#0}",
+"en": "Theoretical settled level {0}",
+"tr": "理论稳定水平 {0}"
+},
+{
+"id": "d1626",
+"page": "(실행 중 문구) war",
+"ko": "{#0}라운드에 과열선 도달",
+"en": "Crossed the heat line at round {0}",
+"tr": "第 {0} 轮越过过热线"
+},
+{
+"id": "d1627",
+"page": "(실행 중 문구) war",
+"ko": "지금 번지는 중: 참전 {#0}개국",
+"en": "Spreading now: {0} states in the war",
+"tr": "正在蔓延：{0} 国参战"
+},
+{
+"id": "d1628",
+"page": "(실행 중 문구) war",
+"ko": "이번 전쟁은 끝: 참전 {#0}개국",
+"en": "This war is over: {0} states took part",
+"tr": "这场战争结束：{0} 国参战"
+},
+{
+"id": "d1629",
+"page": "(실행 중 문구) war",
+"ko": "끝난 전쟁의 참전국 수 (전체 {#0}개국, 최근 순)",
+"en": "States in each finished war (of {0} total, latest first)",
+"tr": "每场已结束战争的参战国数（共 {0} 国，最近的在前）"
+},
+{
+"id": "d1630",
+"page": "(실행 중 문구) war",
+"ko": "첫 전쟁이 끝나면 여기에 쌓입니다",
+"en": "Finished wars pile up here",
+"tr": "第一场战争结束后会累积在这里"
+},
+{
+"id": "d1631",
+"page": "(실행 중 문구) war",
+"ko": "전쟁 중인 나라가 이웃 한 곳을 끌어들일 확률",
+"en": "Chance that a state at war pulls in one neighbor",
+"tr": "处于战争中的国家拉入一个邻国的概率"
+},
+{
+"id": "d1632",
+"page": "(실행 중 문구) war",
+"ko": "이론상 임계점 50%",
+"en": "Theoretical tipping point 50%",
+"tr": "理论临界点 50%"
+},
+{
+"id": "d1633",
+"page": "(실행 중 문구) war",
+"ko": "안정 {#0}",
+"en": "Settled {0}",
+"tr": "稳定 {0}"
+},
+{
+"id": "d1634",
+"page": "(실행 중 문구) war",
+"ko": "군비가 이 수준에서 멈춥니다 (반응 < 피로)",
+"en": "Arms stop at this level (reaction < fatigue)",
+"tr": "军备停在这个水平（反应 < 疲劳）"
+},
+{
+"id": "d1635",
+"page": "(실행 중 문구) war",
+"ko": "과열 중",
+"en": "Overheating",
+"tr": "过热中"
+},
+{
+"id": "d1636",
+"page": "(실행 중 문구) war",
+"ko": "반응이 피로보다 커서 과열선을 넘습니다",
+"en": "Reaction exceeds fatigue, so arms cross the heat line",
+"tr": "反应大于疲劳，所以军备越过过热线"
+},
+{
+"id": "d1637",
+"page": "(실행 중 문구) war",
+"ko": "협상 가능했는데도 전쟁이 난 분쟁",
+"en": "Disputes that became war although a deal existed",
+"tr": "明明可以谈成却发生战争的争端"
+},
+{
+"id": "d1638",
+"page": "(실행 중 문구) war",
+"ko": "이론값 {#0}% · 정보가 정확하면 0%",
+"en": "Theory {0}% · 0% if information is accurate",
+"tr": "理论值 {0}% · 信息准确时为0%"
+},
+{
+"id": "d1639",
+"page": "(실행 중 문구) war",
+"ko": "양쪽이 나눠 가질 수 있었던 몫",
+"en": "Surplus both sides could have shared",
+"tr": "双方本可以分享的份额"
+},
+{
+"id": "d1640",
+"page": "(실행 중 문구) war",
+"ko": "전쟁 때 둘 다 잃는 비용의 합. 이만큼은 항상 합의 여지",
+"en": "The sum of costs both pay in war. This much room for a deal always exists",
+"tr": "战争中双方损失的成本之和。至少这么大的空间总是可以达成协议"
+},
+{
+"id": "d1641",
+"page": "(실행 중 문구) war",
+"ko": "군비 경쟁",
+"en": "Arms race",
+"tr": "军备竞赛"
+},
+{
+"id": "d1642",
+"page": "(실행 중 문구) war",
+"ko": "한 전쟁에 끌려드는 평균 나라",
+"en": "Average states pulled into one war",
+"tr": "一场战争平均卷入的国家数"
+},
+{
+"id": "d1643",
+"page": "(실행 중 문구) war",
+"ko": "{#0}개국",
+"en": "{0} states",
+"tr": "{0} 国"
+},
+{
+"id": "d1644",
+"page": "(실행 중 문구) war",
+"ko": "전체 {#0}개국 중 · 이웃 확률 {#1}%",
+"en": "Out of {0} states · neighbor chance {1}%",
+"tr": "共 {0} 国 · 邻国概率 {1}%"
+},
+{
+"id": "d1645",
+"page": "(실행 중 문구) war",
+"ko": "분쟁 번호",
+"en": "Dispute",
+"tr": "争端"
+},
+{
+"id": "d1646",
+"page": "(실행 중 문구) war",
+"ko": "±{#0}%",
+"en": "±{0}%",
+"tr": "±{0}%"
+},
+{
+"id": "d1647",
+"page": "(실행 중 문구) weakties",
+"ko": "{#0}턴째 · 소식을 아는 사람 {#1}%",
+"en": "Turn {0} · people who know the news: {1}%",
+"tr": "第{0}回合 · 知道消息的人 {1}%"
+},
+{
+"id": "d1648",
+"page": "(실행 중 문구) weakties",
+"ko": "90% 도달: {#0}턴",
+"en": "90% reached: turn {0}",
+"tr": "达到90%：第{0}回合"
+},
+{
+"id": "d1649",
+"page": "(실행 중 문구) weakties",
+"ko": "아직 모름",
+"en": "Not yet told",
+"tr": "尚不知道"
+},
+{
+"id": "d1650",
+"page": "(실행 중 문구) weakties",
+"ko": "소식을 안 사람 (진할수록 일찍)",
+"en": "Knows the news (darker = earlier)",
+"tr": "已知道消息（颜色越深越早）"
+},
+{
+"id": "d1651",
+"page": "(실행 중 문구) weakties",
+"ko": "방금 전해 들은 사람",
+"en": "Just heard it",
+"tr": "刚刚听说"
+},
+{
+"id": "d1652",
+"page": "(실행 중 문구) weakties",
+"ko": "약한 연결 (먼 사람과 이은 선)",
+"en": "Weak tie (line to a far-away person)",
+"tr": "弱关系（连向远处的人的线）"
+},
+{
+"id": "d1653",
+"page": "(실행 중 문구) weakties",
+"ko": "처음 아는 사람",
+"en": "First to know",
+"tr": "最先知道的人"
+},
+{
+"id": "d1654",
+"page": "(실행 중 문구) weakties",
+"ko": "약한 연결의 비율 p (가로 눈금은 로그)",
+"en": "Share of weak ties p (log scale)",
+"tr": "弱关系比例 p（对数刻度）"
+},
+{
+"id": "d1655",
+"page": "(실행 중 문구) weakties",
+"ko": "지금 설정: 약한 연결 0 (왼쪽 바깥)",
+"en": "Current setting: no weak ties (off the left edge)",
+"tr": "当前设置：没有弱关系（在最左边之外）"
+},
+{
+"id": "d1656",
+"page": "(실행 중 문구) weakties",
+"ko": "평균 거리 (낮을수록 서로 가까움)",
+"en": "Average distance (lower = closer to each other)",
+"tr": "平均距离（越低彼此越近）"
+},
+{
+"id": "d1657",
+"page": "(실행 중 문구) weakties",
+"ko": "친구 무리의 촘촘함",
+"en": "Tightness of friend circles",
+"tr": "朋友圈的紧密程度"
+},
+{
+"id": "d1658",
+"page": "(실행 중 문구) weakties",
+"ko": "턴 (소식이 한 번씩 전해지는 차례)",
+"en": "Turn (each round of passing the news)",
+"tr": "回合（消息每传递一轮）"
+},
+{
+"id": "d1659",
+"page": "(실행 중 문구) weakties",
+"ko": "{#0}턴",
+"en": "{0} turns",
+"tr": "{0}回合"
+},
+{
+"id": "d1660",
+"page": "(실행 중 문구) weakties",
+"ko": "약한 연결이 없으면 {#0}턴",
+"en": "Without weak ties: {0} turns",
+"tr": "没有弱关系：{0}回合"
+},
+{
+"id": "d1661",
+"page": "(실행 중 문구) weakties",
+"ko": "소식이 90%에 퍼지는 속도",
+"en": "Speed of reaching 90% of people",
+"tr": "消息传到90%人群的速度"
+},
+{
+"id": "d1662",
+"page": "(실행 중 문구) weakties",
+"ko": "평균 {#0}턴 · 약한 연결이 없으면 {#1}턴",
+"en": "Average {0} turns · without weak ties {1} turns",
+"tr": "平均 {0}回合 · 没有弱关系 {1}回合"
+},
+{
+"id": "d1663",
+"page": "(실행 중 문구) weakties",
+"ko": "지금 소식을 아는 사람",
+"en": "People who know the news now",
+"tr": "目前知道消息的人"
+},
+{
+"id": "d1664",
+"page": "(실행 중 문구) weakties",
+"ko": "{#0}턴째 · {#1}/{#2}명",
+"en": "Turn {0} · {1}/{2} people",
+"tr": "第{0}回合 · {1}/{2}人"
+},
+{
+"id": "d1665",
+"page": "(실행 중 문구) weakties",
+"ko": "이번에 90%에 닿기까지",
+"en": "Time to reach 90% this run",
+"tr": "本次达到90%所需时间"
+},
+{
+"id": "d1666",
+"page": "(실행 중 문구) weakties",
+"ko": "이 실행에서 걸린 시간",
+"en": "Time taken in this run",
+"tr": "本次运行所用时间"
+},
+{
+"id": "d1667",
+"page": "(실행 중 문구) weakties",
+"ko": "아직 퍼지는 중",
+"en": "Still spreading",
+"tr": "仍在扩散中"
+},
+{
+"id": "d1668",
+"page": "(실행 중 문구) weakties",
+"ko": "약한 연결",
+"en": "Weak ties",
+"tr": "弱关系"
+},
+{
+"id": "d1669",
+"page": "(실행 중 문구) weakties",
+"ko": "전체 연결 {#0}개 중 {#1}%",
+"en": "{1}% of all {0} ties",
+"tr": "占全部{0}条关系的{1}%"
+},
+{
+"id": "d1670",
+"page": "(실행 중 문구) weakties",
+"ko": "소문 번호",
+"en": "Rumor",
+"tr": "传言编号"
+},
+{
+"id": "d1671",
+"page": "(실행 중 문구) wildfire",
+"ko": "그냥 두기",
+"en": "Let it burn",
+"tr": "任其燃烧"
+},
+{
+"id": "d1672",
+"page": "(실행 중 문구) wildfire",
+"ko": "작은 불 끄기 {%0}",
+"en": "Put out small fires {0}",
+"tr": "扑灭小火 {0}"
+},
+{
+"id": "d1673",
+"page": "(실행 중 문구) wildfire",
+"ko": "나무 {%0} · {#1}단계",
+"en": "Trees {0} · step {1}",
+"tr": "树木 {0} · 第{1}步"
+},
+{
+"id": "d1674",
+"page": "(실행 중 문구) wildfire",
+"ko": "불 {#0}번 · 큰 불 {#1}번",
+"en": "{0} fires · {1} big",
+"tr": "{0}次火灾 · {1}次大火"
+},
+{
+"id": "d1675",
+"page": "(실행 중 문구) wildfire",
+"ko": "끈 불 {#0}번",
+"en": "{0} fires put out",
+"tr": "已扑灭{0}次火灾"
+},
+{
+"id": "d1676",
+"page": "(실행 중 문구) wildfire",
+"ko": "방금 {#0}그루 탐",
+"en": "Just now {0} trees burned",
+"tr": "刚刚烧毁了{0}棵树"
+},
+{
+"id": "d1677",
+"page": "(실행 중 문구) wildfire",
+"ko": "방금 불: 없음",
+"en": "Latest fire: none",
+"tr": "最近一次火灾：无"
+},
+{
+"id": "d1678",
+"page": "(실행 중 문구) wildfire",
+"ko": "단계 (시간)",
+"en": "Step (time)",
+"tr": "步数（时间）"
+},
+{
+"id": "d1679",
+"page": "(실행 중 문구) wildfire",
+"ko": "이 밀도를 넘으면 불이 숲 전체로 번질 수 있음 (약 59%)",
+"en": "Above this density fire can spread across the whole forest (about 59%)",
+"tr": "超过这个密度，火可能蔓延到整片森林（约59%）"
+},
+{
+"id": "d1680",
+"page": "(실행 중 문구) wildfire",
+"ko": "불이 태운 나무 수 (로그 눈금)",
+"en": "Trees burned by a fire (log scale)",
+"tr": "一次火灾烧毁的树木数（对数刻度）"
+},
+{
+"id": "d1681",
+"page": "(실행 중 문구) wildfire",
+"ko": "소방이 끌 수 있는 크기",
+"en": "Largest fire firefighters can put out",
+"tr": "消防能扑灭的规模"
+},
+{
+"id": "d1682",
+"page": "(실행 중 문구) wildfire",
+"ko": "큰 불",
+"en": "Big fires",
+"tr": "大火"
+},
+{
+"id": "d1683",
+"page": "(실행 중 문구) wildfire",
+"ko": "작은 불 (숲의 1% 미만)",
+"en": "Small fires (under 1% of the forest)",
+"tr": "小火（不到森林的1%）"
+},
+{
+"id": "d1684",
+"page": "(실행 중 문구) wildfire",
+"ko": "중간 불",
+"en": "Medium fires",
+"tr": "中等火灾"
+},
+{
+"id": "d1685",
+"page": "(실행 중 문구) wildfire",
+"ko": "큰 불 (숲의 10% 이상)",
+"en": "Big fires (10% or more of the forest)",
+"tr": "大火（占森林的10%以上）"
+},
+{
+"id": "d1686",
+"page": "(실행 중 문구) wildfire",
+"ko": "매 단계 숲의 {#0}% 탐",
+"en": "{0}% of the forest burns per step",
+"tr": "每一步烧毁森林的{0}%"
+},
+{
+"id": "d1687",
+"page": "(실행 중 문구) wildfire",
+"ko": "큰 불이 태운 면적의 비중",
+"en": "Share of burned area from big fires",
+"tr": "大火烧毁面积所占的比重"
+},
+{
+"id": "d1688",
+"page": "(실행 중 문구) wildfire",
+"ko": "숲의 10% 이상을 태운 불 · 그냥 두기 → 작은 불 끄기",
+"en": "Fires burning 10% or more of the forest · let it burn → put out small fires",
+"tr": "烧毁森林10%以上的火灾 · 任其燃烧 → 扑灭小火"
+},
+{
+"id": "d1689",
+"page": "(실행 중 문구) wildfire",
+"ko": "큰 불 횟수 (1만 단계당)",
+"en": "Big fires (per 10,000 steps)",
+"tr": "大火次数（每1万步）"
+},
+{
+"id": "d1690",
+"page": "(실행 중 문구) wildfire",
+"ko": "{#0}단계를 돌려 센 값",
+"en": "Counted over {0} steps",
+"tr": "在{0}步中统计"
+},
+{
+"id": "d1691",
+"page": "(실행 중 문구) wildfire",
+"ko": "평균 나무 밀도",
+"en": "Mean tree density",
+"tr": "树木平均密度"
+},
+{
+"id": "d1692",
+"page": "(실행 중 문구) wildfire",
+"ko": "불을 끄면 연료(나무)가 더 쌓인다",
+"en": "Putting out fires lets more fuel (trees) build up",
+"tr": "扑灭火灾会让更多燃料（树木）积累起来"
+},
+{
+"id": "d1693",
+"page": "(실행 중 문구) wildfire",
+"ko": "타는 면적(매 단계)",
+"en": "Area burned (per step)",
+"tr": "燃烧面积（每步）"
+},
+{
+"id": "d1694",
+"page": "(실행 중 문구) wildfire",
+"ko": "총량은 비슷하고, 나눠 타는 방식이 달라진다",
+"en": "The total is similar; how it is split up changes",
+"tr": "总量相近，只是分散燃烧的方式不同"
+},
+{
+"id": "d1695",
+"page": "(실행 중 문구) wildfire",
+"ko": "1만 칸당 {#0}번",
+"en": "{0} per 10,000 cells",
+"tr": "每1万格{0}次"
+},
+{
+"id": "d1696",
+"page": "(실행 중 문구) wildfire",
+"ko": "{#0}×{#1}칸",
+"en": "{0}×{1} cells",
+"tr": "{0}×{1}格"
 }
 ]

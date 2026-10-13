@@ -1,0 +1,154 @@
+{
+ "s2510": {
+  "tr": "<b>Ce que ce projet simplifie :</b> Le modèle original présente une plage de tailles d'incendie en loi de puissance dans la limite où f/p tend vers zéro. Les valeurs par défaut de cette page (p/f de 50 par cellule) sont très éloignées de cette limite et la grille est petite ; aucune loi de puissance n'est donc revendiquée. La lutte contre le feu (n'éteindre que les petits feux avec la probabilité s) est une règle supplémentaire ajoutée par ce projet, et les 5 % et 10 % sont des valeurs qu'il a choisies. Les bords sont des murs qui ne se referment pas sur eux-mêmes.",
+  "why": "프랑스어 % 앞 공백"
+ },
+ "s2511": {
+  "tr": "<b>Théorie et simulation :</b> Avec un code réécrit indépendamment pour planter des arbres au hasard sur une grille de 100×100, la part occupée par le plus grand amas était de 2 % à la densité 0,5, 27 % à 0,59 et 50 % à 0,62, croissant brutalement autour de la densité critique d'environ 0,593 (moyenne de 20 exécutions). Le nombre d'arbres brûlés et plantés concordait aussi sur le long terme (1 883 823 contre 1 883 740 en 30 000 pas). La quantité de combustible accumulée à cause de la lutte contre le feu est donnée par les mesures de « Ce que cela montre » ci-dessus. Cet effet n'a pas été comparé à une solution analytique ; il n'a été vérifié que par simulation.",
+  "why": "프랑스어 % 앞 공백"
+ },
+ "s2544": {
+  "tr": "<b>Ce que ce projet simplifie :</b> Il ne reproduit pas les chiffres d'un article ; c'est une conception propre à ce projet. La distribution de qualité (σ=0,5) avec une graine fixe, la règle de recommandation du « plus grand de 2 candidats » et les 200 chaînes avec 100 spectateurs par tour sont des choix arbitraires. Ne tirer qu'un seul candidat donne une faible concentration (part des 10 % supérieurs d'environ 23–33 %) ; nous avons donc supposé que l'algorithme penche davantage vers la popularité. Il diffère aussi de l'attachement préférentiel pur, qui possède une forme analytique en loi de puissance.",
+  "why": "프랑스어 % 앞 공백"
+ },
+ "s2545": {
+  "tr": "<b>Théorie et simulation :</b> Il n'existe pas de valeur théorique à comparer ; la vérification s'est donc faite uniquement par simulation. En moyenne sur 12 univers parallèles : à <code>social</code> 0 %, la corrélation de rang entre qualité et abonnés est de 0,97, la part des 10 % supérieurs de 23 %, et la première chaîne est classée 1re en qualité. À 50 %, ces valeurs sont 0,85, 41 % et 3e ; à 70 % (par défaut) 0,71, 60 % et 80e ; à 100 % 0,01, 97 % et 114e. Le fait qu'une influence sociale plus forte entraîne plus de concentration et un lien plus faible avec la qualité correspond à la conclusion qualitative de Salganik et al. (<code>node tools/validate-more.js youtube</code>).",
+  "why": "프랑스어 % 앞 공백"
+ },
+ "s2588": {
+  "tr": "<b>Ce que ce projet simplifie :</b> Les mots sont des mots inventés, dénués de sens, sans grammaire, signification ni thème, et garder α constant tout au long du texte est une simplification propre à ce projet. Il ne reproduit ni les figures ni les valeurs de l'article. Plusieurs explications concurrentes existent pour expliquer pourquoi la langue réelle suit la loi de Zipf ; ce modèle montre donc seulement ce qu'une telle règle peut produire.",
+  "why": "그림이나 수치: chiffres/nombres 중복 오역"
+ },
+ "d0265": {
+  "tr": "Boston · demande du choix {0} (affectation définitive dès que la capacité est atteinte)",
+  "why": "정원이 차면 바로 확정의 뜻이 어긋남"
+ },
+ "d0280": {
+  "tr": "Un choix préféré avait encore des places libres, ou a admis un enfant moins prioritaire",
+  "why": "place/sièges 혼동, 의미 정리"
+ },
+ "d0281": {
+  "tr": "Avantage des familles qui ont postulé tôt ({0})",
+  "why": "candidater는 구어체"
+ },
+ "d0283": {
+  "tr": "De combien de choix, en moyenne, les familles qui peuvent postuler tôt ont fait mieux que les autres (non affecté = choix {0})",
+  "why": "candidater는 구어체"
+ },
+ "d0284": {
+  "tr": "N° d'affectation",
+  "why": "'배정 번호' 오역(Jeu d'enfants)"
+ },
+ "d0312": {
+  "tr": "Soudain, un cycle de 104 pas se répète et trace une route bien droite en diagonale. Personne ne l'avait prévu.",
+  "why": "동작 되풀이는 cycle이 자연스러움"
+ },
+ "d0443": {
+  "tr": "Moyenne de 6 graines aléatoires avec les mêmes réglages (seconde moitié du temps)",
+  "why": "시드 용어 일관(graine)"
+ },
+ "d0454": {
+  "tr": "{0} pers./h",
+  "why": "명/시간에서 명 누락"
+ },
+ "d0467": {
+  "tr": "Vous : pas encore arrivé",
+  "why": "Toi/Cliquez 존칭 불일치, vous로 통일"
+ },
+ "d0468": {
+  "tr": "Vous : {0} min · {1} personnes arrivées après vous sont passées avant",
+  "why": "Toi/Cliquez 존칭 불일치, vous로 통일"
+ },
+ "d0469": {
+  "tr": "Vous : en attente depuis {0} min · {1} personnes arrivées après sont passées avant",
+  "why": "Toi/Cliquez 존칭 불일치, vous로 통일"
+ },
+ "d0470": {
+  "tr": "Vous : en attente depuis {0} min",
+  "why": "Toi/Cliquez 존칭 불일치, vous로 통일"
+ },
+ "d0471": {
+  "tr": "Vous : {0} min d'attente, puis passage en caisse",
+  "why": "'계산 시작' 오역"
+ },
+ "d0472": {
+  "tr": "Vous : {0} min en file unique, {1} min en files séparées ({2} min de plus)",
+  "why": "Toi/Cliquez 존칭 불일치, vous로 통일"
+ },
+ "d0473": {
+  "tr": "Vous : {0} min en file unique, {1} min en files séparées ({2} min de moins)",
+  "why": "Toi/Cliquez 존칭 불일치, vous로 통일"
+ },
+ "d0474": {
+  "tr": "Vous : {0} min en file unique, {1} min en files séparées (aucune différence)",
+  "why": "Toi/Cliquez 존칭 불일치, vous로 통일"
+ },
+ "d0491": {
+  "tr": "La formule du 90e centile n'est exacte que pour des temps d'encaissement exponentiels (variabilité 1,0), elle n'est donc pas tracée maintenant",
+  "why": "소수점 쉼표"
+ },
+ "d0492": {
+  "tr": "N° de client",
+  "why": "'손님 번호'"
+ },
+ "d0653": {
+  "tr": "Si la fécondité reste à son niveau actuel, quelle part de la population aura 65 ans ou plus en 2070 ?",
+  "why": "출산율=taux de fécondité"
+ },
+ "d0680": {
+  "tr": "Après les avoir tous vus",
+  "why": "끝까지 다 보고: presque 덧붙음"
+ },
+ "d0711": {
+  "tr": "Si une population installée en terre inconnue ne progressait que d'un kilomètre par an, jusqu'où irait-elle en mille ans ?",
+  "why": "peuplement 부자연, 원문 의미"
+ },
+ "d0744": {
+  "tr": "Le sophisme du joueur : après cinq « face » de suite, « pile » est-il attendu ?",
+  "why": "앞면=face, 뒷면=pile 뒤바뀜"
+ },
+ "d0758": {
+  "tr": "C'est enregistré ! Nous vous préviendrons des nouvelles expériences.",
+  "why": "성별 일치(inscrit) 회피"
+ },
+ "d0773": {
+  "tr": "Dont enfants restés à la maison",
+  "why": "어색한 구문"
+ },
+ "d0807": {
+  "tr": "Près de 2, c'est une surface pleine ; près de 1, une ligne fine. La valeur classique est d'environ 1,71",
+  "why": "소수점 쉼표"
+ },
+ "d0959": {
+  "tr": "Concentration d'investisseurs carry",
+  "why": "쏠림=crowding, afflux 아님"
+ },
+ "d0961": {
+  "tr": "Point rouge = débouclage général simultané",
+  "why": "청산=débouclage(캐리 트레이드 용어)"
+ },
+ "d0962": {
+  "tr": "Année {0} · concentration {1} % · {2} débouclages",
+  "why": "용어 통일(쏠림, 청산)"
+ },
+ "d0981": {
+  "tr": "Asymétrie de la distribution des gains (skewness, 40 trajectoires)",
+  "why": "왜도=asymétrie, inclinaison 부적절"
+ },
+ "d0337": {
+  "tr": "N° de départ",
+  "why": "'시작 번호'"
+ },
+ "d0881": {
+  "tr": "N° de terrain",
+  "why": "'땅의 번호'"
+ },
+ "d1016": {
+  "tr": "N° de foyers",
+  "why": "'가구 번호'"
+ },
+ "d1093": {
+  "tr": "N° de combat",
+  "why": "'전투 번호'(Combattre 오역)"
+ }
+}

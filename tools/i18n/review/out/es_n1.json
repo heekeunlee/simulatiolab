@@ -1,0 +1,154 @@
+{
+"s0631": {
+"tr": "Las mismas cajas y los mismos clientes, pero con una fila única o con una fila por caja cambian la espera y la equidad. Pon dos tiendas lado a lado y mira por qué.",
+"why": "공정함=equidad(justicia 아님), 계산대=caja"
+},
+"s0632": {
+"tr": "¿Alguna vez elegiste la fila más corta y viste cómo la de al lado avanzaba antes? Puede que no sea solo mala suerte. Toma dos tiendas con cajas idénticas y clientes idénticos, una con una sola fila compartida y otra con una fila por caja, y el mismo cliente puede acabar esperando tiempos muy distintos en cada una. Envía exactamente los mismos compradores a la tienda de la izquierda y a la de la derecha y míralo.",
+"why": "용어 통일: 계산대는 사람(cajero)이 아니라 caja"
+},
+"s0633": {
+"tr": "<b>La tienda de la izquierda (A)</b> tiene una sola fila: la persona del frente va al primera caja libre. <b>La tienda de la derecha</b> tiene una fila por caja, y los clientes que llegan eligen una fila y nunca cambian. La regla de elección es B (menos personas), C (cualquier fila) o D (menos artículos).",
+"why": "용어 통일: 계산대는 사람(cajero)이 아니라 caja"
+},
+"s0635": {
+"tr": "Cada punto es un cliente y su tamaño muestra el número de artículos. Una caja se pone roja cuando está libre mientras alguien espera en otra fila. El anillo dorado eres «tú»; haz clic en un punto para que otro cliente sea «tú».",
+"why": "용어 통일: 계산대는 사람(cajero)이 아니라 caja"
+},
+"s0637": {
+"tr": "Número de cajas <output id=\"o-k\"></output>",
+"why": "용어 통일: 계산대는 사람(cajero)이 아니라 caja"
+},
+"s0638": {
+"tr": "Con más cajas crecen tanto la ventaja de la fila única como el desperdicio de las filas separadas",
+"why": "어색한 문장 구조 정리, 계산대=caja"
+},
+"s0640": {
+"tr": "La proporción media de tiempo en que una caja está trabajando. Cerca de 95 las filas se alargan drásticamente",
+"why": "용어 통일: 계산대는 사람(cajero)이 아니라 caja"
+},
+"s0650": {
+"tr": "Las cajas están arriba y las filas abajo. La tienda azul de la izquierda tiene una fila; la de la derecha tiene una fila por caja. Los mismos clientes llegan en los mismos momentos. El «tú» con anillo dorado está en ambas tiendas, y la línea de abajo compara tus esperas.",
+"why": "용어 통일: 계산대는 사람(cajero)이 아니라 caja"
+},
+"s0652": {
+"tr": "El eje horizontal es lo ocupadas que están las cajas y el vertical la espera media. Las líneas continuas son la simulación y las discontinuas la teoría. Con la elección de fila al azar (rojo), la espera se dispara fuera del gráfico a medida que aumenta la ocupación, mientras que la fila más corta (naranja) y los menos artículos (verde) se quedan mucho más cerca de la fila única (azul).",
+"why": "용어 통일: 계산대는 사람(cajero)이 아니라 caja"
+},
+"s0664": {
+"tr": "<b>Qué muestra:</b> Promedios de cinco ejecuciones de 100.000 clientes con 4 cajas, 90% de ocupación y tiempos de cobro habituales (variabilidad 1,0): la fila única tuvo una media de 6,1 minutos, y el 90% de los clientes empezó a pagar en 16,0 minutos. Unirse a la fila con menos personas (B) dio una media de 6,9 minutos (1,13 veces la fila única), el 90% dentro de 18,3 minutos, y el 44% de los clientes fue adelantado por alguien que llegó después. Comparado con la fila única para los mismos clientes, el 34% esperó más de un minuto más y el 26% esperó más de un minuto menos. Elegir cualquier fila (C) dio una media de 29,9 minutos (4,9 veces), y unirse a la fila con menos artículos (D) dio una media de 6,5 minutos (1,06 veces). La proporción de tiempo en que una caja estuvo libre mientras alguien esperaba en otra fila fue del 11% para B, 35% para C y 5% para D, y 0% para la fila única. Cuánto más rápida fue la fila única dependió de los ajustes. La diferencia relativa fue mayor cuando había menos ocupación (60% de ocupación: B fue 1,61 veces), con más cajas (2 cajas 1,05 veces, 8 cajas 1,28 veces) y con tiempos de cobro más variables (1,18 veces con 1,5). Con 95% de ocupación se redujo a 1,06 veces, porque todos esperan mucho con cualquier método.",
+"why": "용어 통일: 계산대는 사람(cajero)이 아니라 caja"
+},
+"s0667": {
+"tr": "<b>Qué no muestra:</b> No es una reproducción de una tienda real. En este modelo los clientes eligen una fila una sola vez y nunca cambian (el cambio de fila, o jockeying, no está modelado, así que el cambio de fila en el mundo real suavizaría parte de la desventaja de las filas separadas). Las tiendas reales también tienen cajas rápidas, autocobro, cajas que abren y cierran, comprobaciones de precio y los hábitos e ilusiones que hacen que una fila parezca corta; nada de eso está modelado. Las llegadas son aleatorias con una tasa constante durante todo el día y la distribución del tiempo de cobro es un supuesto de este proyecto, no datos de supermercados coreanos. Por tanto, esto no dice que una fila única sea siempre mejor; muestra lo que hace unir las filas en estas condiciones simples. Una fila única no siempre es mejor para los clientes (espacio, clientes que desisten ante una fila larga), y una tienda pondera muchos factores que este modelo omite.",
+"why": "용어 통일: 계산대는 사람(cajero)이 아니라 caja"
+},
+"s0668": {
+"tr": "<b>De dónde viene el modelo:</b> Es teoría de colas. La fórmula Erlang C, desarrollada por el ingeniero danés A. K. Erlang para las llamadas en espera en las centrales telefónicas, es el resultado básico para una fila única compartida que alimenta a varias cajas (M/M/c), y las filas separadas se comportan como varias colas independientes de una sola caja (M/M/1).",
+"why": "용어 통일: 계산대는 사람(cajero)이 아니라 caja"
+},
+"s0669": {
+"tr": "<b>Supuestos y fórmulas clave:</b> Utilización ρ = tasa de llegada × tiempo medio de cobro ÷ número de cajas (el control deslizante «Nivel de ocupación»). Con c cajas y a = ρc, la fórmula Erlang C da C(c, a), la probabilidad de que un cliente que llega tenga que esperar; la espera media es <code>Wq = C(c, a) × S / (c(1−ρ))</code> con S el tiempo medio de cobro (3 minutos), y la probabilidad de esperar más de t es <code>C × e<sup>−c(1−ρ)t/S</sup></code>. Con filas separadas y elección al azar, cada caja es una cola M/M/1, <code>Wq = ρS / (1−ρ)</code>.",
+"why": "용어 통일: 계산대는 사람(cajero)이 아니라 caja"
+},
+"s0671": {
+"tr": "<b>Teoría frente a simulación:</b> De <code>node tools/validate-checkout.js</code> (promedio de 5 semillas × 100.000 clientes, variabilidad 1,0). Con 4 cajas y 60% de ocupación, la espera media de la fila única fue 0,54 minutos en la simulación y 0,54 en la teoría; con 80% fue 2,25 frente a 2,24 y con 90% 6,11 frente a 5,91. El percentil 90 con 90% de ocupación fue 16,0 frente a 15,5 minutos. Con 2 cajas y 70% fue 2,88 frente a 2,88. Para filas al azar, la simulación dio 4,55 frente a 4,50 con 60% de ocupación, 12,46 frente a 12,00 con 80% y 29,9 frente a 27,0 con 90%, de modo que la simulación quedó por encima de la teoría a medida que aumentaba la ocupación (probablemente por el número finito de clientes). Con variabilidad 1,5 y 90% de ocupación, la aproximación de la fila única dio 9,60 minutos, un 7% por encima de los 9,03 simulados.",
+"why": "용어 통일: 계산대는 사람(cajero)이 아니라 caja"
+},
+"s0674": {
+"tr": "Un cliente adelantado es aquel para quien alguien que llegó después empezó a pagar antes. La proporción de tiempo con una caja libre mientras alguien espera se obtuvo recorriendo en orden las horas de inicio y fin, y se excluyó de las estadísticas el primer 10% de los clientes, de cuando la tienda aún estaba vacía.",
+"why": "용어 통일: 계산대는 사람(cajero)이 아니라 caja"
+},
+"s0661": {
+"tr": "Con 4 cajas al 90% de carga, una sola fila promedió 6,1 minutos; con filas separadas se esperó hasta 4,9 veces más.",
+"why": "한 페이지 안에서 % 표기 통일(공백 없음)"
+},
+"s0707": {
+"tr": "Con 23 personas, la probabilidad de que algún par comparta cumpleaños es del 50,7%, pero la de que alguien comparta el mío es del 5,9%.",
+"why": "한 페이지 안에서 % 표기 통일(공백 없음)"
+},
+"s0751": {
+"tr": "En esta configuración, sin vigilancia la reserva cayó al 1-2% de la capacidad y luego se estabilizó en torno al 26%.",
+"why": "한 페이지 안에서 % 표기 통일(공백 없음)"
+},
+"s0794": {
+"tr": "La cooperación se extendió entre socios que se repiten, pero con un 10% de error se derrumbó en 10 de 12 ejecuciones.",
+"why": "한 페이지 안에서 % 표기 통일(공백 없음)"
+},
+"s0879": {
+"tr": "En este modelo, cuando el 100% de los niños enfermos se queda en casa, las infecciones anuales bajaron de 5,0 a 2,5, la mitad.",
+"why": "한 페이지 안에서 % 표기 통일(공백 없음)"
+},
+"s0607": {
+"tr": "③ Evolución del coeficiente de variación (CV) de los intervalos",
+"why": "원문의 변동계수(CV) 누락, 제목 의미 복원"
+},
+"s0617": {
+"tr": "Antes de culpar a los conductores conviene mirar la estructura, donde el tiempo de parada crece con el intervalo, y la vuelta más larga que cuesta el control del espaciado.",
+"why": "용어 통일: 한 바퀴=vuelta"
+},
+"s0712": {
+"tr": "Supone que los cumpleaños y las aficiones son uniformes e independientes, así que juzgar un hecho real exige datos de las distribuciones reales.",
+"why": "취미=aficiones, 페이지 용어 통일"
+},
+"s0717": {
+"tr": "<b>Teoría frente a simulación:</b> Estas fórmulas son formas cerradas exactas, así que se comparan directamente con la simulación. Solo para el cumpleaños, «una coincidencia en alguna parte» fue 50,7% en teoría y 50,4% simulado con 23 personas, y 99,0% y 99,0% con 57; «una coincidencia conmigo» fue 5,9% y 5,9% con 23. El menor número de personas para que la probabilidad de coincidir conmigo supere el 50% es 254 (253 además de mí). Con 2 características (30 valores) y 23 personas, la coincidencia conmigo fue 55,3% en teoría y 55,7% simulado.",
+"why": "어색한 문장"
+},
+"s0753": {
+"tr": "Hicieron falta tanto la probabilidad de detección como el tamaño de la multa, por lo que la firmeza con que se aplican las reglas puede ser la clave.",
+"why": "적발 확률=probabilidad, 다른 문구와 통일"
+},
+"s0758": {
+"tr": "<b>De dónde viene el modelo:</b> «La tragedia de los comunes» es conocida sobre todo por el artículo de Hardin (1968) en <i>Science</i>, que sostiene que los individuos que persiguen su propio interés arruinan un recurso compartido. En respuesta, Ostrom (1990), en <i>Governing the Commons</i>, analizó casos en que las comunidades protegieron recursos con sus propias reglas, vigilancia y sanciones. El lado del recurso simplifica la economía pesquera de Gordon (1954), en la que un recurso común se pesca hasta que el beneficio desaparece, junto con una regeneración logística.",
+"why": "재생=regeneración, 용어 통일"
+},
+"s0759": {
+"tr": "<b>Supuestos y fórmulas clave:</b> La reserva S crece como <code>S ← S + r·S·(1 − S/K) − captura</code> (r=0,4, K=100), y en S = K/2 la captura máxima sostenible es <code>rK/4 = 10</code>. La ganancia es la captura menos el costo del esfuerzo; el control de vigilancia es la probabilidad de que un usuario codicioso sea descubierto y la multa es el múltiplo de la captura de esa ronda que se paga como sanción. Las estrategias se difunden mediante una regla de copia (una función logística de la diferencia de ganancias, la regla de Fermi).",
+"why": "어색한 문장"
+},
+"s0760": {
+"tr": "<b>Qué simplifica este proyecto:</b> El costo del esfuerzo (25), la tasa de regeneración (0,4), la fuerza de la codicia (3 veces la cuota sostenible), la probabilidad de copia (25%), la mutación (1%) y el 10% inicial de moderados los fija este proyecto. Los usuarios siguen una de tres estrategias, y no existen la propiedad, la entrada de foráneos, la confianza ni el papel del Estado. Las condiciones de éxito que identificó Ostrom, como límites claros y reglas adaptadas a lo local, tampoco están en el modelo.",
+"why": "재생 속도 용어 통일"
+},
+"s0795": {
+"tr": "En este modelo, los encuentros repetidos reducen la ganancia de traicionar, y los errores frecuentes atrapan a Tit for Tat en una cadena de represalias.",
+"why": "맞받아치기=Tit for Tat 페이지 용어 통일, 보복의 연쇄"
+},
+"s0832": {
+"tr": "Para formar pareja, cada uno debe superar el estándar del otro; si ambos quieren a alguien mejor que ellos, no puede haber ninguna pareja hasta que bajen sus estándares.",
+"why": "용어 통일(estándar), 자연스러운 문장"
+},
+"s0838": {
+"tr": "<b>De dónde viene el modelo:</b> La idea de que ambas partes deben estar de acuerdo viene del problema del matrimonio estable de Gale y Shapley (1962, «College Admissions and the Stability of Marriages», <i>American Mathematical Monthly</i>); el estándar que baja proviene de la teoría de búsqueda del salario de reserva de McCall (1970). Los modelos de búsqueda del mercado matrimonial fueron desarrollados por Burdett y Coles (1997).",
+"why": "영어 소유격 잔재 제거"
+},
+"s0840": {
+"tr": "<b>Qué simplifica este proyecto:</b> Gale–Shapley es un algoritmo que parte de las clasificaciones completas de preferencias de todos; aquí las personas sin pareja simplemente se encuentran al azar de dos en dos en cada ronda. La suposición de que todos valoran el atractivo por igual (los gustos reales difieren), la distribución uniforme del atractivo y los valores de eye y drift son elecciones propias de este proyecto.",
+"why": "한 쌍씩 만남(pareja는 연인으로 오독)"
+},
+"s0848": {
+"tr": "Se dice que los niños se resfrían constantemente cuando empiezan la guardería. Es fácil culpar a niños débiles, pero en este modelo sencillo los niños sin ninguna debilidad especial se pasan una infección por una clase de 20 más de cuatro veces al año. E incluso si todos se quedan en casa al enfermar, la cifra baja solo en torno a la mitad, porque cada niño ya contagia a la clase el día previo a que aparezcan los síntomas. Nadie tiene la culpa: es el resultado de una estructura en la que los niños pasan el tiempo muy juntos en una misma sala.",
+"why": "증상 전 하루 퍼뜨림 의미 정확화, 어색한 문장"
+},
+"s0850": {
+"tr": "Si un niño enfermo asiste ese día, un compañero sano lo contrae con probabilidad <b>nivel de contacto × 1%</b> por día (menor con lavado de manos y ventilación). Con varios niños enfermos las probabilidades se suman. Así que <b>cuanto mayor es la clase</b>, más pares de niños se encuentran y más rápido se propaga.",
+"why": "짝=pares(pareja는 연인으로 오독)"
+},
+"s0854": {
+"tr": "Niños por clase. Las clases más grandes tienen más pares de niños en contacto, así que se propaga más rápido",
+"why": "짝=pares"
+},
+"s0878": {
+"tr": "El eje horizontal es el tamaño de la clase y el vertical las veces que un niño se contagió en un año. Las clases más pequeñas implican menos pares de niños en contacto, así que la cifra baja, pero nunca llega a cero por la infección que llega desde fuera de la clase.",
+"why": "짝=pares"
+},
+"s0872": {
+"tr": "El eje horizontal es la semana desde el inicio del curso y el vertical la proporción de niños enfermos esa semana. La línea roja es esta ejecución, la oscura la parte de ellos que descansa en casa, y la gris la media cuando nadie se queda en casa con la misma configuración. Al principio se propaga mucho porque todos son susceptibles y luego baja al acumularse la inmunidad.",
+"why": "어색한 표현"
+},
+"s0880": {
+"tr": "El contagio depende de cuántos niños enfermos haya dentro de cada clase, así que el tamaño de la clase y la duración de la inmunidad cambiaron el resultado tanto como quedarse en casa.",
+"why": "원문 의미 복원(casi 삭제)"
+}
+}

@@ -1,723 +1,1605 @@
 [
 {
-"id": "s0629",
-"page": "bunching",
-"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/bunching\">GitHub</a>에서 볼 수 있습니다.",
-"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/bunching\">GitHub</a>.",
-"tr": "代码可在 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/bunching\">GitHub</a> 上获取。"
+"id": "s1063",
+"page": "fashion",
+"ko": "<b>모델의 뿌리:</b> Georg Simmel의 「유행」(1904)은 윗사람은 남과 달라 보이려 하고 아랫사람은 따라 하다가, 모방이 퍼지면 윗사람이 다시 새 유행으로 옮겨 간다고 설명했습니다. 이 발상은 Veblen의 『유한계급론』(1899)에 닿아 있고, Blumer (1969)는 유행이 계층에서 아래로 흐르기만 하지 않는다고 비판했습니다.",
+"en": "<b>Where the model comes from:</b> Georg Simmel's \"Fashion\" (1904) argued that those on top try to look different while those below imitate them, and once imitation spreads those on top move on to a new fashion. The idea is related to Veblen's <i>The Theory of the Leisure Class</i> (1899), and Blumer (1969) criticized it, arguing that fashion does not simply trickle down from class to class.",
+"tr": "<b>模型的来源：</b>格奥尔格·齐美尔的《时尚》（1904）认为，处于上层的人试图显得与众不同，下层的人则模仿他们，一旦模仿蔓延开来，上层就转向新的时尚。这一思想与凡勃伦的<i>有闲阶级论</i>（1899）相关，布鲁默（1969）对其提出批评，认为时尚并不是简单地从一个阶层向下渗透到另一个阶层。"
 },
 {
-"id": "s0630",
-"page": "checkout",
-"ko": "마트 계산대 줄 서기 · 시뮬라티오 랩",
-"en": "Checkout Lines · Simulatio Lab",
-"tr": "收银台排队 · Simulatio Lab"
+"id": "s1064",
+"page": "fashion",
+"ko": "<b>핵심 가정과 수식:</b> 스타일을 원 위의 각도 θ로 두고 두 규칙을 씁니다. 대중은 가장 가까운 트렌드세터 쪽으로 한 걸음에 α도 다가가고(모방), 트렌드세터는 주변 대중의 밀도에 따라 최대 β도까지 한 방향으로 달아납니다(차별화). 모방 속도 α, 도망 속도 β, 흔들림, 트렌드세터 비율이 슬라이더입니다.",
+"en": "<b>Key assumptions and formulas:</b> A style is an angle θ on a circle and two rules apply. The crowd steps α degrees toward the nearest trendsetter (imitation), and trendsetters run in one direction at up to β degrees depending on the density of the crowd near them (distinction). The imitation speed α, flight speed β, wobble and share of trendsetters are the sliders.",
+"tr": "<b>主要假设和公式：</b>风格是圆上的一个角度 θ，适用两条规则。大众朝最近的引领者迈出 α 度（模仿），引领者则根据身边大众的密度，朝同一方向最多逃离 β 度（求异）。模仿速度 α、逃离速度 β、扰动和引领者比例就是各个滑块。"
 },
 {
-"id": "s0631",
-"page": "checkout",
-"ko": "같은 계산대, 같은 손님인데 줄을 하나로 세우느냐 따로 세우느냐에 따라 대기시간과 공정함이 달라지는 이유를, 두 가게를 나란히 돌려 직접 확인해 보세요.",
-"en": "Same cashiers, same customers, yet one shared line and separate lines give different waits and fairness. Run two stores side by side and see why.",
-"tr": "收银员相同、顾客相同，但一条共用队伍和各自排队，等待时间和公平性却不同。让两家店并排运行，看看原因。"
+"id": "s1065",
+"page": "fashion",
+"ko": "<b>이 프로젝트의 단순화:</b> Simmel은 계층 간 이동과 사회적 신호를 다뤘지만 여기서는 계층, 가격, 매체를 모두 빼고 한 줄의 원만 둡니다. \"트렌드세터는 한 방향으로만 달아난다\", \"모두가 한 시즌의 유행 주위에서 시작한다\", 3배 밀도 기준, ±30도 범위는 순환이 보이도록 이 프로젝트가 정한 가정입니다. 방향을 고정하지 않으면 하나의 순환이 생기지 않았습니다.",
+"en": "<b>What this project simplifies:</b> Simmel dealt with movement between classes and social signals, but here class, price and media are all left out and there is only a single circle. \"Trendsetters flee in one direction only,\" \"everyone starts around one season's fashion,\" the 3x density threshold and the ±30° window are assumptions this project chose so that a cycle can appear. Without a fixed direction no single cycle formed.",
+"tr": "<b>本项目简化了什么：</b>齐美尔讨论的是阶层之间的流动和社会信号，而这里阶层、价格和媒体都被略去，只有一个圆。“引领者只朝一个方向逃离”“所有人都从某一季的时尚附近出发”、3 倍的密度阈值以及 ±30° 的窗口，都是本项目为了让周期出现而选定的假设。没有固定方向时，不会形成单一的周期。"
 },
 {
-"id": "s0632",
-"page": "checkout",
-"ko": "가장 짧은 줄을 골라 섰는데 옆줄이 먼저 줄어든 적이 있나요? 줄은 짧을수록 빨리 빠질 것 같지만, 그건 운이 나빴던 것만이 아닐 수 있습니다. 그런데 계산대와 손님이 모두 똑같은 두 가게에서 한쪽은 줄을 하나로 세우고 다른 쪽은 계산대마다 따로 세우면, 같은 손님이 두 곳에서 전혀 다른 시간을 기다리게 됩니다. 왼쪽 가게와 오른쪽 가게에 똑같은 손님을 보내 보세요.",
-"en": "Ever picked the shortest line, only to watch the one beside you clear first? That may not be just bad luck. Take two stores with identical cashiers and identical customers, one with a single shared line and one with a separate line per cashier, and the same customer can end up waiting very different times in each. Send the exact same shoppers to the left store and the right store and watch.",
-"tr": "你有没有选了最短的队伍，却眼看旁边那队先结完账？这也许不只是运气不好。取两家收银员和顾客完全相同的商店，一家只有一条共用队伍，另一家每个收银员各有一条队伍，同一位顾客在两家店里的等待时间可能大不相同。把完全相同的顾客分别送进左边和右边的店，看看会发生什么。"
+"id": "s1066",
+"page": "fashion",
+"ko": "<b>이론값과 시뮬레이션:</b> 닫힌 해는 없지만 간단한 추론이 있습니다. 흐름 전체는 느린 쪽 속도로 돕니다. 한 라운드에 도는 각도는 약 min(α, β)이므로 α=β=2도면 100라운드에 0.55바퀴(200도/100라운드)쯤이라는 예상에 실측 0.53바퀴가 맞고, α=0.5/1이면 0.13/0.27바퀴(예상 0.14/0.28), β=1이면 0.26바퀴(예상 0.28)입니다. β=0이면 6,000라운드까지 회전 0.00입니다.",
+"en": "<b>Theory versus simulation:</b> There is no closed-form solution, but a simple argument exists: the whole flow turns at the slower of the two speeds. The angle per round is about min(α, β), so with α=β=2° one expects around 0.55 turns per 100 rounds and the measured value is 0.53; α=0.5/1 gives 0.13/0.27 turns (expected 0.14/0.28), and β=1 gives 0.26 (expected 0.28). With β=0 there is zero rotation up to 6,000 rounds.",
+"tr": "<b>理论与模拟对比：</b>没有闭式解，但有一个简单的论证：整个流动以两种速度中较慢的那个旋转。每轮转过的角度约为 min(α, β)，所以当 α=β=2° 时，预计每 100 轮约转 0.55 圈，测得为 0.53；α=0.5/1 时为 0.13/0.27 圈（预期 0.14/0.28），β=1 时为 0.26（预期 0.28）。β=0 时，直到 6,000 轮都没有旋转。"
 },
 {
-"id": "s0633",
-"page": "checkout",
-"ko": "<b>왼쪽 가게(A)</b>는 줄이 하나입니다. 맨 앞 손님은 가장 먼저 빈 계산대로 갑니다. <b>오른쪽 가게</b>는 계산대마다 줄이 따로 있고, 도착한 손님이 한 번 줄을 고르면 바꾸지 않습니다. 고르는 방식은 B(사람 수가 가장 적은 줄), C(아무 줄이나), D(물건이 가장 적은 줄) 중에서 고릅니다.",
-"en": "<b>The left store (A)</b> has a single line: the person at the front goes to the first free cashier. <b>The right store</b> has a separate line per cashier, and arriving customers pick one line and never switch. The choice rule is B (fewest people), C (any line) or D (fewest items).",
-"tr": "<b>左边的店（A）</b>只有一条队伍：排在最前面的人去第一个空闲的收银台。<b>右边的店</b>每个收银员各有一条队伍，到来的顾客选定一条队后就不再换队。选择规则有 B（人最少）、C（任意一队）或 D（商品最少）。"
+"id": "s1067",
+"page": "fashion",
+"ko": "<b>더 읽을거리:</b> Simmel (1904), 「Fashion」, International Quarterly 10. Veblen (1899), 『The Theory of the Leisure Class』. Blumer (1969), 「Fashion: From Class Differentiation to Collective Selection」, The Sociological Quarterly 10(3). Acerbi, Ghirlanda & Enquist (2012), 「The Logic of Fashion Cycles」, PLoS ONE 7(3).",
+"en": "<b>Further reading:</b> Simmel (1904), \"Fashion\", <i>International Quarterly</i> 10. Veblen (1899), <i>The Theory of the Leisure Class</i>. Blumer (1969), \"Fashion: From Class Differentiation to Collective Selection\", <i>The Sociological Quarterly</i> 10(3). Acerbi, Ghirlanda & Enquist (2012), \"The Logic of Fashion Cycles\", <i>PLoS ONE</i> 7(3).",
+"tr": "<b>延伸阅读：</b>Simmel (1904), \"Fashion\", <i>International Quarterly</i> 10。Veblen (1899), <i>The Theory of the Leisure Class</i>。Blumer (1969), \"Fashion: From Class Differentiation to Collective Selection\", <i>The Sociological Quarterly</i> 10(3)。Acerbi, Ghirlanda &amp; Enquist (2012), \"The Logic of Fashion Cycles\", <i>PLoS ONE</i> 7(3)。"
 },
 {
-"id": "s0634",
-"page": "checkout",
-"ko": "손님은 무작위로 도착하고(평균 간격은 붐빔 정도로 정해짐), 계산 시간은 평균 3분에 물건 수에 비례합니다. 두 가게에는 <b>똑같은 손님 목록</b>(도착 시각, 물건 수)이 들어가므로, 차이는 오직 줄 서는 방식에서 나옵니다.",
-"en": "Customers arrive at random (the average gap follows from how busy the store is) and checkout takes 3 minutes on average, in proportion to the number of items. Both stores get <b>exactly the same customer list</b> (arrival times, items), so any difference comes only from how the lines are organized.",
-"tr": "顾客随机到达（平均间隔取决于店里的繁忙程度），结账平均需要3分钟，与商品数量成正比。两家店得到<b>完全相同的顾客名单</b>（到达时间、商品数），所以任何差异都只来自队伍的组织方式。"
+"id": "s1068",
+"page": "fashion",
+"ko": "이 프로젝트가 직접 설계한 단순화 모델이며 특정 논문의 재현이 아닙니다.",
+"en": "A stylized model of this project's own design, not a reproduction of a paper.",
+"tr": "本项目自行设计的风格化模型，并非对某篇论文的复现。"
 },
 {
-"id": "s0635",
-"page": "checkout",
-"ko": "화면의 점 하나가 손님, 점 크기가 물건 수입니다. 계산대가 놀고 있는데 다른 줄에는 손님이 기다리는 순간은 계산대가 빨갛게 표시됩니다. 금빛 고리가 '나'이고, 점을 누르면 다른 손님이 '나'가 됩니다.",
-"en": "Each dot is a customer and its size shows the number of items. A cashier turns red when it is idle while somebody waits in another line. The gold ring is 'you'; click a dot to make a different customer 'you'.",
-"tr": "每个点是一位顾客，大小表示商品数量。当某个收银员空闲而别的队伍里有人在等时，该收银台会变红。金色圆环是“你”；点击某个点，可以让另一位顾客成为“你”。"
+"id": "s1105",
+"page": "firefly",
+"ko": "서로 앞당기는 세기와 볼 수 있는 범위가 충분하면 중앙 지휘 없이 거의 한 박자로 맞춰졌어요.",
+"en": "With enough mutual nudging and viewing range, the fireflies synced up with no central leader.",
+"tr": "只要相互推动和可视范围足够，萤火虫就能在没有中心领导者的情况下同步闪烁。"
 },
 {
-"id": "s0636",
-"page": "checkout",
-"ko": "결과 숫자는 손님 15만 명을 돌린 긴 시간 평균이고, 화면 속 가게는 문을 연 지 2시간 뒤부터 2시간 동안의 한 장면입니다.",
-"en": "The numbers on the cards are long-run averages over 150,000 customers; the store on screen is a 2-hour slice of one run, starting 2 hours after opening.",
-"tr": "卡片上的数字是150,000名顾客的长期平均值；屏幕上的商店是一次运行中的2小时片段，从开店后2小时开始。"
+"id": "s1106",
+"page": "firefly",
+"ko": "반짝임을 본 이웃이 시계를 앞당기면 박자 차이가 줄어들지만, 개체마다 속도가 다르면 완전히 맞지는 않아요.",
+"en": "Neighbors that see a flash advance their clocks, shrinking timing gaps, but differing speeds keep sync from being perfect.",
+"tr": "看到闪光的邻居会把自己的时钟拨快，时间差因此缩小，但各自速度不同，使同步无法完美。"
 },
 {
-"id": "s0637",
-"page": "checkout",
-"ko": "계산대 수 <output id=\"o-k\"></output>",
-"en": "Number of cashiers <output id=\"o-k\"></output>",
-"tr": "收银员数量 <output id=\"o-k\"></output>"
+"id": "s1107",
+"page": "firefly",
+"ko": "동기화를 이해하려면 서로 얼마나 영향을 주는지와 개체 차이의 균형부터 살펴볼 만해요.",
+"en": "To understand synchrony, the balance between mutual influence and individual differences is a good place to start.",
+"tr": "要理解同步现象，相互影响与个体差异之间的平衡是个不错的切入点。"
 },
 {
-"id": "s0638",
-"page": "checkout",
-"ko": "많을수록 한 줄로 합치는 이득도, 줄 따로의 낭비도 커져요",
-"en": "More cashiers make both the gain from merging lines and the waste from separate lines larger",
-"tr": "收银员越多，合并队伍的好处和分开排队的浪费都越大"
+"id": "s1109",
+"page": "firefly",
+"ko": "실제 반딧불이가 이렇게 박자를 맞춘다는 증명은 아니고, 빛의 세기나 학습 같은 요소도 빠져 있어요.",
+"en": "It does not prove real fireflies sync this way, and factors like light intensity and learning are missing.",
+"tr": "它并不能证明真实的萤火虫就是这样同步的，而且没有包含光照强度和学习等因素。"
 },
 {
-"id": "s0639",
-"page": "checkout",
-"ko": "붐비는 정도 <output id=\"o-rho\"></output>",
-"en": "How busy <output id=\"o-rho\"></output>",
-"tr": "繁忙程度 <output id=\"o-rho\"></output>"
+"id": "s1110",
+"page": "firefly",
+"ko": "실제 종의 깜빡임 간격과 서로 보는 거리를 관찰해 모델의 가정과 맞는지 확인해야 해요.",
+"en": "Observing real species' flash timing and viewing distances would show whether the assumptions hold.",
+"tr": "观察真实物种的闪光时机和可视距离，就能知道这些假设是否成立。"
 },
 {
-"id": "s0640",
-"page": "checkout",
-"ko": "계산대가 평균 몇 %의 시간 동안 일하는가. 95에 가까우면 줄이 급격히 길어져요",
-"en": "The average share of time a cashier is working. Near 95 the lines get dramatically longer",
-"tr": "收银员处于工作状态的平均时间占比。接近95时，队伍会急剧变长"
+"id": "s1112",
+"page": "firefly",
+"ko": "<b>모델의 뿌리:</b> Peskin (1975)이 심장 박동 세포를 모델로 처음 다룬 \"펄스 결합 진동자\"를 Mirollo & Strogatz (1990)가 수학적으로 분석했습니다. 서로 모두 연결되고 똑같은 진동자들이 신호 때 서로를 조금씩 앞당기면, 거의 모든 시작 상태에서 한꺼번에 반짝이게 된다는 정리입니다. 반딧불이의 동시 점멸은 Buck & Buck (1968) 등이 관찰·설명했습니다.",
+"en": "<b>Where the model comes from:</b> Mirollo & Strogatz (1990) analyzed mathematically the \"pulse-coupled oscillators\" that Peskin (1975) first considered as a model of heart pacemaker cells: if identical oscillators, all connected to each other, nudge one another ahead whenever one fires, they end up firing together from almost any starting state. Synchronous flashing of fireflies was described by Buck & Buck (1968) and others.",
+"tr": "<b>模型的来源：</b>Mirollo 和 Strogatz（1990）对“脉冲耦合振子”做了数学分析，这类振子最早由 Peskin（1975）作为心脏起搏细胞的模型提出：如果彼此全部相连的相同振子在其中一个发放时都相互向前推一把，那么几乎从任何初始状态出发，它们最终都会同时发放。萤火虫的同步闪烁由 Buck 和 Buck（1968）等人描述过。"
 },
 {
-"id": "s0641",
-"page": "checkout",
-"ko": "계산 시간의 들쭉날쭉함 <output id=\"o-cv\"></output>",
-"en": "Variability of checkout time <output id=\"o-cv\"></output>",
-"tr": "结账时间的波动 <output id=\"o-cv\"></output>"
+"id": "s1113",
+"page": "firefly",
+"ko": "<b>핵심 가정과 수식:</b> 개체마다 위상이 1주기에 걸쳐 한 바퀴를 돌고, 1에 닿으면 반짝이며 범위 안의 이웃 위상을 결합 세기만큼 앞당깁니다. 동기화 정도는 위상을 원 위의 점으로 놓고 평균 화살표의 길이 <code>r = |평균 e<sup>iθ</sup>|</code>(Kuramoto의 질서 변수)로 잽니다. 결합 세기, 이웃 범위, 속도 차이가 슬라이더입니다.",
+"en": "<b>Key assumptions and formulas:</b> Each firefly's phase runs once around a cycle, and on reaching 1 it flashes and advances the phase of neighbors in range by the coupling strength. Synchrony is measured by putting the phases as points on a circle and taking the length of the mean arrow, <code>r = |mean e<sup>iθ</sup>|</code> (Kuramoto's order parameter). Coupling strength, neighbor range and speed spread are the sliders.",
+"tr": "<b>主要假设和公式：</b>每只萤火虫的相位绕一个周期运行一圈，到达 1 时闪光，并按耦合强度把范围内邻居的相位向前推进。同步程度的测量方法是把各相位作为点放在圆上，取平均箭头的长度，<code>r = |mean e<sup>iθ</sup>|</code>（Kuramoto 序参量）。耦合强度、邻居范围和速度差异就是各个滑块。"
 },
 {
-"id": "s0642",
-"page": "checkout",
-"ko": "0.3은 모두 비슷한 시간, 1.0은 보통, 2.0은 어떤 손님은 아주 오래 걸려요",
-"en": "0.3 means everyone takes about the same time, 1.0 is typical, 2.0 means some customers take very long",
-"tr": "0.3表示大家用时差不多，1.0是典型情况，2.0表示有些顾客用时很长"
+"id": "s1114",
+"page": "firefly",
+"ko": "<b>이 프로젝트의 단순화:</b> Mirollo–Strogatz 정리는 위상 곡선이 위로 오목하고 모두가 서로 보며 속도가 같다는 조건이 필요하지만, 여기서는 위상을 선형으로 밀고 이웃이 제한되며 속도도 개체마다 다릅니다. 그래서 정리를 그대로 적용하지 않고 시뮬레이션으로 확인합니다. 한 번 반짝임으로 전달되는 크기, 0.02씩 자라는 위상, 150마리는 이 프로젝트가 정한 값입니다.",
+"en": "<b>What this project simplifies:</b> The Mirollo–Strogatz theorem requires a concave-down phase curve, everyone seeing everyone, and equal speeds. Here the phase nudge is linear, neighbors are limited and speeds differ per firefly, so the theorem does not apply as is and the result is checked by simulation. The size of a flash's nudge, the 0.02 phase growth per step and 150 fireflies are this project's own values.",
+"tr": "<b>本项目简化了什么：</b>Mirollo–Strogatz 定理要求相位曲线向下凹、每个个体都能看到所有个体，并且速度相同。这里相位的推动是线性的，邻居有限，每只萤火虫的速度也不同，所以该定理不能直接适用，结果通过模拟来检验。一次闪光的推动幅度、每步 0.02 的相位增长以及 150 只萤火虫，都是本项目自己的取值。"
 },
 {
-"id": "s0643",
-"page": "checkout",
-"ko": "오른쪽 가게의 줄 고르는 방식 <output id=\"o-strat\"></output>",
-"en": "Line choice in the right store <output id=\"o-strat\"></output>",
-"tr": "右边店的选队方式 <output id=\"o-strat\"></output>"
+"id": "s1115",
+"page": "firefly",
+"ko": "<b>이론값과 시뮬레이션:</b> 이론이 확실히 말하는 극단은 시뮬레이션과 맞습니다. 속도 차이가 0이면 최종 r은 1.00이고, 결합이 0이면 r은 0.06으로 무작위 위상의 기대 크기(1/√150, 약 0.07~0.08)와 같습니다. 기본 설정의 최종 r은 6회 평균 0.87이고, 결합 3% 이상에서 0.95 근처, 이웃 범위 40% 이상에서 0.96입니다(<code>node tools/validate-firefly.js</code>). 조건이 달라 임계 결합 세기의 이론값은 없습니다.",
+"en": "<b>Theory versus simulation:</b> The extremes that theory is sure about match the simulation. With zero speed spread the final r is 1.00, and with zero coupling r is 0.06, about the expected size for random phases (about 0.07 to 0.08, from 1/√150). The default final r is 0.87 averaged over 6 runs, about 0.95 at coupling of 3% or more and 0.96 at neighbor range of 40% or more (<code>node tools/validate-firefly.js</code>). Because the conditions differ there is no theoretical value for the critical coupling.",
+"tr": "<b>理论与模拟对比：</b>理论有把握的两个极端情形与模拟吻合。速度差异为零时最终 r 为 1.00，耦合为零时 r 为 0.06，与随机相位的预期大小（由 1/√150 得约 0.07 到 0.08）相当。默认设置下最终 r 为 6 次运行的平均 0.87，耦合达到 3% 以上时约为 0.95，邻居范围达到 40% 以上时为 0.96（<code>node tools/validate-firefly.js</code>）。由于条件不同，临界耦合没有理论值。"
 },
 {
-"id": "s0644",
-"page": "checkout",
-"ko": "B 사람이 가장 적은 줄",
-"en": "B Fewest people",
-"tr": "B 人最少"
+"id": "s1116",
+"page": "firefly",
+"ko": "<b>더 읽을거리:</b> Mirollo & Strogatz (1990), 「Synchronization of pulse-coupled biological oscillators」, SIAM Journal on Applied Mathematics 50(6). Strogatz (2003), 『Sync』, Hyperion(교양서). Buck & Buck (1968), 「Mechanism of rhythmic synchronous flashing of fireflies」, Science 159.",
+"en": "<b>Further reading:</b> Mirollo & Strogatz (1990), \"Synchronization of pulse-coupled biological oscillators\", <i>SIAM Journal on Applied Mathematics</i> 50(6). Strogatz (2003), <i>Sync</i>, Hyperion (popular account). Buck & Buck (1968), \"Mechanism of rhythmic synchronous flashing of fireflies\", <i>Science</i> 159.",
+"tr": "<b>延伸阅读：</b>Mirollo &amp; Strogatz (1990), \"Synchronization of pulse-coupled biological oscillators\", <i>SIAM Journal on Applied Mathematics</i> 50(6)。Strogatz (2003), <i>Sync</i>, Hyperion（通俗读物）。Buck &amp; Buck (1968), \"Mechanism of rhythmic synchronous flashing of fireflies\", <i>Science</i> 159。"
 },
 {
-"id": "s0645",
-"page": "checkout",
-"ko": "C 아무 줄이나",
-"en": "C Any line",
-"tr": "C 任意一队"
+"id": "s1117",
+"page": "firefly",
+"ko": "이 프로젝트가 직접 설계한 단순화 구현이며 논문 수치를 재현한 것은 아닙니다.",
+"en": "A simplified implementation of this project's own design; it does not reproduce any paper's numbers.",
+"tr": "本项目自行设计的简化实现，不复现任何论文中的数字。"
 },
 {
-"id": "s0646",
-"page": "checkout",
-"ko": "D 물건이 가장 적은 줄",
-"en": "D Fewest items",
-"tr": "D 商品最少"
+"id": "s1119",
+"page": "firefly",
+"ko": "기본 설정(결합 2.5%, 범위 30%, 속도 차이 10%)으로 시드 10개를 돌리면 모두 동기화(r>0.9)에 닿고, 걸린 주기는 2~31주기(10개 중 7개는 2~6주기)입니다. 결합이 1% 이하면 r이 0.2 아래, 3% 이상이면 0.95 근처입니다 (<code>node tools/validate-firefly.js</code>로 확인).",
+"en": "With the default settings (coupling 2.5%, range 30%, speed spread 10%), 10 seeds all reach synchrony (r>0.9), taking 2 to 31 cycles (7 of the 10 within 2 to 6). At coupling of 1% or less r stays below 0.2, and at 3% or more it is near 0.95 (verify with <code>node tools/validate-firefly.js</code>).",
+"tr": "在默认设置下（耦合 2.5%，范围 30%，速度差异 10%），10 个随机种子全都达到同步（r>0.9），用时 2 到 31 个周期（10 个中有 7 个在 2 到 6 个周期内）。耦合为 1% 或更低时 r 保持在 0.2 以下，达到 3% 或更高时接近 0.95（可用 <code>node tools/validate-firefly.js</code> 验证）。"
 },
 {
-"id": "s0647",
-"page": "checkout",
-"ko": "왼쪽 가게는 언제나 한 줄(A)입니다",
-"en": "The left store is always a single line (A)",
-"tr": "左边的店始终是一条队伍（A）"
+"id": "s1157",
+"page": "friendship",
+"ko": "이 관계망에서는 사람 82.6%가 자기 친구들이 평균적으로 자기보다 친구가 더 많았어요.",
+"en": "In this network, 82.6% of people had friends who, on average, had more friends than they did.",
+"tr": "在这个网络中，82.6%的人的朋友平均拥有比自己更多的朋友。"
 },
 {
-"id": "s0648",
-"page": "checkout",
-"ko": "같은 설정, 다른 손님들",
-"en": "Same settings, different customers",
-"tr": "相同设置，不同的顾客"
+"id": "s1158",
+"page": "friendship",
+"ko": "친구 목록을 훑으면 친구가 많은 사람이 그만큼 더 자주 나오기 때문에, 친구 수가 다르기만 해도 이렇게 돼요.",
+"en": "Scanning friend lists, people with many friends show up more often, so merely having uneven friend counts produces this.",
+"tr": "翻看好友名单时，朋友多的人出现得更频繁，所以只要朋友数量不均，就会出现这种现象。"
 },
 {
-"id": "s0649",
-"page": "checkout",
-"ko": "① 두 가게를 나란히 보기",
-"en": "① Two Stores, Side by Side",
-"tr": "① 两家店并排对比"
+"id": "s1159",
+"page": "friendship",
+"ko": "내 친구가 더 많아 보일 때는 내 처지보다, 목록에 허브가 자주 등장하는 구조 탓은 아닌지 살펴볼 만해요.",
+"en": "When friends seem to have more friends, it may be worth checking whether hubs simply appear in many lists before blaming yourself.",
+"tr": "当朋友看起来比自己朋友更多时，在责怪自己之前，也许可以先看看是不是那些“枢纽”人物只是出现在很多人的名单里。"
 },
 {
-"id": "s0650",
-"page": "checkout",
-"ko": "위쪽 계산대, 아래쪽 줄입니다. 파란 왼쪽은 줄 하나, 오른쪽은 계산대마다 줄 하나입니다. 같은 손님이 같은 시각에 도착합니다. 금빛 고리의 '나'는 두 가게 모두에 있고, 아래 문장에서 내 기다림을 비교합니다.",
-"en": "Cashiers are on top and the lines below. The blue left store has one line, the right store has one line per cashier. The same customers arrive at the same moments. The gold-ringed 'you' is in both stores, and the line at the bottom compares your waits.",
-"tr": "收银员在上方，队伍在下方。蓝色的左边店只有一条队伍，右边店每个收银员各有一条队伍。相同的顾客在相同的时刻到达。带金色圆环的“你”在两家店里都有，底部的线条比较你的等待时间。"
+"id": "s1161",
+"page": "friendship",
+"ko": "내가 인기가 없다거나 친구 많은 사람이 더 행복하다는 뜻은 아니에요. 82.6%도 이 모델의 실험 결과예요.",
+"en": "It does not mean you are unpopular or that people with more friends are happier; the 82.6% is this model's experimental result.",
+"tr": "这并不意味着你不受欢迎，也不意味着朋友多的人更幸福；82.6%是这个模型的实验结果。"
 },
 {
-"id": "s0651",
-"page": "checkout",
-"ko": "② 붐비는 정도에 따른 평균 대기",
-"en": "② Average Wait vs. Busyness",
-"tr": "② 平均等待时间与繁忙程度"
+"id": "s1162",
+"page": "friendship",
+"ko": "모임·동네 같은 묶음 구조와 외톨이가 빠져 있어, 실제 친구 수와 관계망은 따로 조사해야 확인할 수 있어요.",
+"en": "Groups, neighborhoods and loners are missing, so real friend counts and networks need to be surveyed separately.",
+"tr": "模型中没有小团体、邻里和独行者，因此真实的朋友数量和人际网络需要另行调查。"
 },
 {
-"id": "s0652",
-"page": "checkout",
-"ko": "가로는 계산대가 바쁜 정도, 세로는 평균 대기시간입니다. 실선은 시뮬레이션, 점선은 이론입니다. 무작위로 줄을 서면(빨강) 붐빌수록 그래프 밖으로 치솟고, 짧은 줄(주황)이나 물건 적은 줄(초록)은 한 줄(파랑)에 훨씬 가깝습니다.",
-"en": "The horizontal axis is how busy the cashiers are and the vertical axis the average wait. Solid lines are simulation, dashed lines are theory. With random line choice (red) the wait shoots off the chart as it gets busier, while the shortest line (orange) and fewest items (green) stay much closer to the single line (blue).",
-"tr": "横轴是收银员的繁忙程度，纵轴是平均等待时间。实线是模拟结果，虚线是理论值。随机选队（红色）时，越忙等待时间越会冲出图外，而选最短队（橙色）和商品最少队（绿色）则与单队（蓝色）接近得多。"
+"id": "s1164",
+"page": "friendship",
+"ko": "<b>모델의 뿌리:</b> Scott L. Feld가 1991년 「Why your friends have more friends than you do」(<i>American Journal of Sociology</i>)에서 정리한 &quot;친구의 역설&quot;입니다. 친구 목록을 훑으면 친구가 많은 사람이 그만큼 더 자주 나오기 때문에, 친구들의 친구 수는 평균적으로 전체 평균 이상이 됩니다. 이 페이지의 관계망 규칙에는 선호 연결(Barabási와 Albert, 1999)의 아이디어를 썼습니다.",
+"en": "<b>Where the model comes from:</b> The &quot;friendship paradox&quot; laid out by Scott L. Feld in &quot;Why your friends have more friends than you do&quot; (1991, <i>American Journal of Sociology</i>). Scanning friend lists, people with many friends show up more often, so on average friends have at least as many friends as the overall average. The network rule here borrows the idea of preferential attachment (Barabási and Albert, 1999).",
+"tr": "<b>模型的来源：</b>Scott L. Feld 在《Why your friends have more friends than you do》（1991，<i>American Journal of Sociology</i>）中阐述的“友谊悖论”。翻看好友名单时，朋友多的人出现得更频繁，所以平均而言，朋友拥有的朋友数至少不低于总体平均。这里的网络规则借用了优先连接的思想（Barabási 和 Albert，1999）。"
 },
 {
-"id": "s0653",
-"page": "checkout",
-"ko": "<i style=\"background:#2f6fed\"></i>A 한 줄",
-"en": "<i style=\"background:#2f6fed\"></i>A Single line",
-"tr": "<i style=\"background:#2f6fed\"></i>A 单队"
+"id": "s1165",
+"page": "friendship",
+"ko": "<b>핵심 가정과 수식:</b> 친구 목록 칸 하나를 무작위로 골랐을 때 그 사람의 친구 수 평균은 <code>⟨k²⟩/⟨k⟩ = ⟨k⟩ + Var(k)/⟨k⟩</code>이라서, 친구 수가 모두 같지 않으면 평균 ⟨k⟩보다 큽니다. 허브 쏠림 슬라이더가 클수록 Var(k)가 커집니다. 사람별 &quot;친구들의 평균&quot;을 다시 평균 낸 값도 친구 관계 하나마다 (이웃의 친구 수 ÷ 내 친구 수) + (내 친구 수 ÷ 이웃의 친구 수) ≥ 2이므로 항상 ⟨k⟩ 이상입니다.",
+"en": "<b>Key assumptions and formulas:</b> Picking one slot in the friend lists at random, the average number of friends of that person is <code>⟨k²⟩/⟨k⟩ = ⟨k⟩ + Var(k)/⟨k⟩</code>, which exceeds the mean ⟨k⟩ unless everyone has the same number. A larger hub-concentration slider raises Var(k). The average of each person's &quot;friends' average&quot; is also always at least ⟨k⟩, because each friendship contributes (neighbor's friends ÷ my friends) + (my friends ÷ neighbor's friends) ≥ 2.",
+"tr": "<b>主要假设和公式：</b>在好友名单中随机选一个位置，那个人的平均朋友数是 <code>⟨k²⟩/⟨k⟩ = ⟨k⟩ + Var(k)/⟨k⟩</code>，除非所有人的朋友数都相同，否则它高于平均值 ⟨k⟩。“枢纽集中度”滑块调大会提高 Var(k)。每个人的“朋友的平均朋友数”再取平均，也总是至少为 ⟨k⟩，因为每段友谊贡献（邻居的朋友数 ÷ 我的朋友数）+（我的朋友数 ÷ 邻居的朋友数）≥ 2。"
 },
 {
-"id": "s0654",
-"page": "checkout",
-"ko": "<i style=\"background:#e0a100\"></i>B 짧은 줄",
-"en": "<i style=\"background:#e0a100\"></i>B Shortest line",
-"tr": "<i style=\"background:#e0a100\"></i>B 最短队"
+"id": "s1166",
+"page": "friendship",
+"ko": "<b>이 프로젝트의 단순화:</b> 실제 사회 조사 자료가 아니라 이 프로젝트가 만든 가상 관계망입니다. 새로 온 사람이 기존 사람 중 균등하게, 또는 친구 수에 비례해 친구를 고르는 규칙이며, 외톨이도 모임·동네 같은 묶음 구조도 없습니다. 허브 쏠림 0%도 완전 무작위가 아니라 먼저 온 사람이 유리한 규칙입니다. 사람 수 150, 허브 80%, 평균 친구 6은 이 프로젝트가 정한 기본값입니다.",
+"en": "<b>What this project simplifies:</b> This is a synthetic network built by this project, not survey data. Each newcomer picks existing people uniformly or in proportion to their friend count; there are no loners and no clusters such as clubs or neighborhoods. Hub concentration of 0% is not fully random either, since early arrivals have an advantage. The defaults of 150 people, 80% hubs and 6 friends on average are this project's own choices.",
+"tr": "<b>本项目简化了什么：</b>这是本项目构建的合成网络，不是调查数据。每个新加入者按均匀方式或按现有人的朋友数比例来选择已有的人；没有孤立者，也没有俱乐部或街区之类的小团体。枢纽集中度为 0% 也并非完全随机，因为早到者占有优势。默认的 150 人、80% 枢纽和平均 6 个朋友，是本项目自己的选择。"
 },
 {
-"id": "s0655",
-"page": "checkout",
-"ko": "<i style=\"background:#e5484d\"></i>C 무작위",
-"en": "<i style=\"background:#e5484d\"></i>C Random",
-"tr": "<i style=\"background:#e5484d\"></i>C 随机"
+"id": "s1167",
+"page": "friendship",
+"ko": "<b>이론값과 시뮬레이션:</b> 기본값 관계망 300개 평균에서 평균 친구 수는 5.92, ⟨k²⟩/⟨k⟩는 9.70, 사람별 친구들 평균의 평균은 10.17로 둘 다 5.92보다 컸고, 300개 모두에서 (친구들 평균 − 평균 친구 수)의 최솟값이 2.81(≥ 0)이었습니다. 관계망 하나에서 친구 목록 전체의 평균은 식값 ⟨k²⟩/⟨k⟩와 같았습니다(10.0856). 친구들이 더 많은 사람의 비율은 허브 0%에서 71.3%, 100%에서 85.4%였고, 이 비율은 법칙이 아니라 이 모델의 실험 결과입니다.",
+"en": "<b>Theory versus simulation:</b> Over 300 default networks the average number of friends was 5.92, ⟨k²⟩/⟨k⟩ was 9.70 and the average of per-person friends' averages was 10.17, both above 5.92, and in all 300 the minimum of (friends' average − average friend count) was 2.81 (≥ 0). In one network the average over all friend-list slots equaled the formula ⟨k²⟩/⟨k⟩ (10.0856). The share of people whose friends have more friends was 71.3% at 0% hubs and 85.4% at 100%; that share is a result of this model, not a law.",
+"tr": "<b>理论与模拟对比：</b>在 300 个默认网络中，平均朋友数为 5.92，⟨k²⟩/⟨k⟩ 为 9.70，每个人“朋友的平均朋友数”的平均值为 10.17，两者都高于 5.92，并且在全部 300 个网络中（朋友的平均 − 平均朋友数）的最小值为 2.81（≥ 0）。在一个网络中，所有好友名单位置上的平均值等于公式 ⟨k²⟩/⟨k⟩（10.0856）。朋友的朋友数更多的人所占比例，在枢纽 0% 时为 71.3%，在 100% 时为 85.4%；这个比例是本模型的结果，而不是定律。"
 },
 {
-"id": "s0656",
-"page": "checkout",
-"ko": "<i style=\"background:#1fa463\"></i>D 물건 적은 줄",
-"en": "<i style=\"background:#1fa463\"></i>D Fewest items",
-"tr": "<i style=\"background:#1fa463\"></i>D 商品最少"
+"id": "s1168",
+"page": "friendship",
+"ko": "<b>더 읽을거리:</b> Feld (1991), Why your friends have more friends than you do, <i>American Journal of Sociology</i> / Barabási &amp; Albert (1999), Emergence of scaling in random networks, <i>Science</i> / Christakis &amp; Fowler (2010), Social network sensors for early detection of contagious outbreaks, <i>PLoS ONE</i> (이 성질을 감염병 조기 감지에 쓰자는 제안).",
+"en": "<b>Further reading:</b> Feld (1991), Why your friends have more friends than you do, <i>American Journal of Sociology</i> / Barabási &amp; Albert (1999), Emergence of scaling in random networks, <i>Science</i> / Christakis &amp; Fowler (2010), Social network sensors for early detection of contagious outbreaks, <i>PLoS ONE</i> (a proposal to use this property for early outbreak detection).",
+"tr": "<b>延伸阅读：</b>Feld (1991), Why your friends have more friends than you do, <i>American Journal of Sociology</i> / Barabási &amp; Albert (1999), Emergence of scaling in random networks, <i>Science</i> / Christakis &amp; Fowler (2010), Social network sensors for early detection of contagious outbreaks, <i>PLoS ONE</i>（提出利用这一性质进行疫情早期发现）。"
 },
 {
-"id": "s0657",
-"page": "checkout",
-"ko": "③ 90% 손님이 기다리는 시간",
-"en": "③ The Wait 90% of Customers Stay Under",
-"tr": "③ 90%的顾客等待不超过的时间"
+"id": "s1169",
+"page": "friendship",
+"ko": "재생의 표본 추출은 \"무작위로 고른 사람이 말해 준 친구\"를 뽑는 방식이라 사람별 친구들 평균의 평균(10.17명)에 수렴합니다.",
+"en": "The sampling in the animation draws \"a friend named by a randomly chosen person\", so it converges to the average of per-person friend averages (10.17).",
+"tr": "动画中的抽样抽取的是“随机选中的一个人所说出的朋友”，因此会收敛到每个人“朋友的平均”的平均值（10.17）。"
 },
 {
-"id": "s0658",
-"page": "checkout",
-"ko": "손님 10명 중 9명이 이 시간 안에 계산을 시작합니다. 평균보다 '운이 나쁜 손님'이 얼마나 오래 기다리는지를 보여 줍니다.",
-"en": "Nine out of ten customers start checking out within this time. It shows how long the unlucky customers wait, which the average hides.",
-"tr": "十位顾客中有九位会在这个时间内开始结账。它显示了运气不好的顾客要等多久，而这一点被平均值掩盖了。"
+"id": "s1172",
+"page": "fxrate",
+"ko": "캐리 트레이드와 환율 · 시뮬라티오 랩",
+"en": "Carry Trade and Exchange Rates · Simulatio Lab",
+"tr": "套息交易与汇率 · Simulatio Lab"
 },
 {
-"id": "s0659",
-"page": "checkout",
-"ko": "④ 기다림의 분포",
-"en": "④ Distribution of Waits",
-"tr": "④ 等待时间的分布"
+"id": "s1173",
+"page": "fxrate",
+"ko": "금리가 높은 나라의 통화를 사서 이자를 챙기는 캐리 트레이드가 왜 오래 조금씩 벌다 한 번에 크게 잃는지, 환율과 투자자 쏠림 시뮬레이션으로 직접 돌려보세요.",
+"en": "Run a simulation of exchange rates and investor crowding to see why the carry trade, buying a high-interest currency for its interest, tends to earn a little for years and then lose a lot at once.",
+"tr": "运行一次汇率与投资者拥挤的模拟，看看为什么套息交易（为了利息而买入高利率货币）往往多年小赚，随后一次性大亏。"
 },
 {
-"id": "s0660",
-"page": "checkout",
-"ko": "파란 막대는 한 줄, 선은 오른쪽 가게의 방식입니다. 바로 계산하는 손님의 비율과, 오래 기다리는 꼬리가 어떻게 달라지는지 보세요.",
-"en": "Blue bars are the single line, the outline is the right store's method. Look at the share who start immediately and at how the long tail of waiting differs.",
-"tr": "蓝色柱子是单队，轮廓线是右边店的方式。请留意立即开始结账的比例，以及等待时间的长尾有何不同。"
+"id": "s1174",
+"page": "fxrate",
+"ko": "금리가 높은 나라의 통화를 사서 이자를 받으면, 환율만 그대로라면 가만히 앉아서 버는 거래처럼 보입니다. 이론은 그 이자만큼 그 통화값이 떨어져서 결국 공짜 점심은 없다고 말하지만, 현실에서는 그렇지 않은 때가 많아 이 거래(캐리 트레이드)에 사람들이 몰립니다. 그런데 이 시뮬레이션에서는 사람들이 몰릴수록 통화값이 몇 해 동안 계단처럼 조용히 오르다가 어느 한 주에 일제히 빠져나가며 몇 년치 이익이 한꺼번에 사라집니다. 평균으로는 벌어도, 번 돈의 모양이 위험한 거래입니다.",
+"en": "Buy the currency of a high-interest country, collect the interest, and as long as the exchange rate stays put it looks like money for nothing. Theory says that currency should fall by about the interest gap, so there is no free lunch, yet in practice it often does not, and people pile into this trade (the carry trade). In this simulation, though, the more people pile in, the more the currency creeps up like a staircase for years, until one week everybody exits at once and years of gains vanish together. On average it pays, but the shape of the pay is dangerous.",
+"tr": "买入高利率国家的货币，收取利息，只要汇率不动，看上去就像白赚的钱。理论上，这种货币应该下跌大约相当于利差的幅度，因此没有免费的午餐；但现实中往往并非如此，于是人们蜂拥进入这种交易（套息交易）。在这个模拟中，涌入的人越多，货币就像爬楼梯一样一步步上涨多年，直到某一周所有人同时退出，多年的收益一起消失。平均来看它是赚钱的，但赚钱的形态很危险。"
 },
 {
-"id": "s0661",
-"page": "checkout",
-"ko": "계산대 4개, 붐빔 90%에서 한 줄은 평균 6.1분, 줄 따로 서기는 최대 4.9배 기다렸습니다.",
-"en": "With 4 counters at 90% load, one line averaged 6.1 minutes; separate lines waited up to 4.9 times longer.",
-"tr": "4个收银台、负荷90%时，单一队列平均等待6.1分钟；分开排队则最多要多等4.9倍。"
+"id": "s1175",
+"page": "fxrate",
+"ko": "두 나라가 있습니다. 한 나라는 금리가 낮아 돈을 빌리기 좋고(자금 조달 통화), 다른 나라는 금리가 높습니다(<b>높은 금리 통화</b>, 원화 같은 신흥국 통화를 떠올려 보세요). 캐리 트레이드는 낮은 금리로 빌려 높은 금리 통화를 사서 이자 차이를 받는 거래입니다. 금리 차이(기본 4%p)는 <b>예시 숫자</b>이고 어느 시점의 실제 금리가 아닙니다.",
+"en": "There are two countries. One has low interest rates and is a cheap place to borrow (the funding currency); the other has high rates (the <b>high-rate currency</b>; think of an emerging-market currency such as the won). The carry trade borrows cheaply, buys the high-rate currency and pockets the interest gap. The gap (4 percentage points by default) is an <b>example number</b>, not any real rate at any date.",
+"tr": "有两个国家。一个利率低，是借钱的低成本地（融资货币）；另一个利率高（<b>高利率货币</b>，可以想成韩元这样的新兴市场货币）。套息交易就是低成本借入、买入高利率货币、赚取利差。利差（默认4个百分点）是<b>示例数字</b>，并非任何日期的真实利率。"
 },
 {
-"id": "s0662",
-"page": "checkout",
-"ko": "줄을 나누면 한쪽 계산대가 놀아도 다른 줄 손님은 옮기지 못해, 일하는 능력이 낭비되기 때문일 수 있습니다.",
-"en": "Splitting lines lets a counter sit idle while others queue and customers cannot move, which can waste capacity.",
-"tr": "分开排队会出现某个收银台闲着、其他台却排着队而顾客又无法换队的情况，可能浪费服务能力。"
+"id": "s1176",
+"page": "fxrate",
+"ko": "이론(<b>비커버드 이자율 평가, UIP</b>)이 완전히 맞다면 높은 금리 통화는 평균적으로 금리 차이만큼 약해져서 캐리의 기대 수익은 0입니다. 슬라이더 <b>UIP가 맞는 정도</b>는 그 상쇄가 실제로 일어나는 비율입니다. 100%면 이론 그대로이고 0%면 환율이 그냥 제멋대로(임의보행) 움직입니다. 기본은 30%입니다. 현실에서는 상쇄가 이론에 못 미치는 경우가 많다고 알려져 있지만 이 값은 이 프로젝트가 정한 예시입니다.",
+"en": "If theory (<b>uncovered interest parity, UIP</b>) held fully, the high-rate currency would on average weaken by the interest gap, so the carry trade's expected profit would be zero. The slider <b>How much UIP holds</b> sets the share of that offsetting that actually happens: at 100% theory holds exactly, at 0% the exchange rate just wanders (a random walk). The default is 30%. The offset is often found to fall short of theory in real data, but this value is just this project's example.",
+"tr": "如果理论（<b>非抛补利率平价，UIP</b>）完全成立，高利率货币平均会贬值相当于利差的幅度，套息交易的预期利润就为零。滑块<b>UIP成立的程度</b>设定这种抵消实际发生的比例：100%时理论完全成立，0%时汇率只是随机游走。默认值为30%。在真实数据中常发现抵消幅度小于理论值，但这个数值只是本项目的示例。"
 },
 {
-"id": "s0663",
-"page": "checkout",
-"ko": "기다림이 길다면 계산대 수보다 줄이 어떻게 나뉘고 어떻게 배정되는지부터 살펴볼 만합니다.",
-"en": "If waits run long, how lines are split and assigned may be worth checking before adding counters.",
-"tr": "如果等待时间很长，在增加收银台之前，也许应先检查队伍是如何划分和分配的。"
+"id": "s1177",
+"page": "fxrate",
+"ko": "환율은 매주 무작위로 흔들립니다(<b>변동성</b>). 여기에 <b>쏠림</b>이 더해집니다. 캐리가 매력적일수록(금리 차이가 크고 변동성이 작을수록) 캐리 투자자가 천천히 늘고, 늘 때마다 높은 금리 통화를 사 들여 가격을 조금씩 밀어 올립니다(계단). 쏠림이 커질수록 한 주에 일제히 청산할 확률도 커지고, 청산하면 쏠림이 한꺼번에 줄며 그만큼 통화값이 떨어집니다(엘리베이터). <b>쏠림의 힘</b>은 투자자 전체가 움직일 때 통화값이 밀리는 크기입니다.",
+"en": "The exchange rate shakes randomly every week (<b>volatility</b>). On top of that comes <b>crowding</b>. The more attractive the carry (a bigger gap and lower volatility), the more carry investors slowly join, and each time they buy the high-rate currency and nudge its price up (the stairs). The bigger the crowd, the higher the chance that everyone unwinds in a single week, and when they do the crowd shrinks at once and the currency falls by the same amount (the elevator). <b>Crowd power</b> is how far the currency is pushed when the whole crowd moves.",
+"tr": "汇率每周都会随机波动（<b>波动率</b>）。在此之上还有<b>拥挤</b>。套息越有吸引力（利差越大、波动率越低），就有越多套息投资者慢慢加入，每次买入高利率货币都会把它的价格推高一点（楼梯）。人群越大，所有人在同一周集体平仓的概率就越高；一旦发生，人群骤然缩小，货币也同样幅度下跌（电梯）。<b>人群力度</b>是整个人群行动时货币被推动的幅度。"
 },
 {
-"id": "s0664",
-"page": "checkout",
-"ko": "<b>말하는 것:</b> 계산대 4개, 붐빔 90%, 계산 시간 보통(들쭉날쭉함 1.0)에서 손님 10만 명을 5번 돌린 평균은 이렇습니다. 한 줄은 평균 6.1분, 90% 손님이 16.0분 안에 계산을 시작했습니다. 사람이 가장 적은 줄을 고르는 방식(B)은 평균 6.9분(한 줄의 1.13배), 90%는 18.3분이었고 손님의 44%가 뒤에 온 사람에게 추월당했습니다. 같은 손님을 한 줄과 비교하면 34%는 1분 넘게 더 기다리고 26%는 1분 넘게 덜 기다렸습니다. 아무 줄이나 서는 방식(C)은 평균 29.9분(4.9배)이었고, 물건이 가장 적은 줄을 고르는 방식(D)은 평균 6.5분(1.06배)이었습니다. 계산대가 놀고 있는데 다른 줄에 손님이 있는 시간은 B 11%, C 35%, D 5%였고, 한 줄은 0%입니다. 한 줄이 더 빠른 정도는 설정에 따라 달랐습니다. 덜 붐빌 때 상대적으로 더 컸고(붐빔 60%: B가 1.61배), 계산대가 많을수록 컸으며(2대 1.05배, 8대 1.28배), 계산 시간이 들쭉날쭉할수록 컸습니다(1.5에서 1.18배). 붐빔 95%에서는 1.06배로 줄었는데, 그때는 어느 방식이든 모두 크게 기다리기 때문입니다.",
-"en": "<b>What it shows:</b> Averages over five runs of 100,000 customers with 4 cashiers, 90% busy and typical checkout times (variability 1.0): the single line averaged 6.1 minutes, and 90% of customers started checking out within 16.0 minutes. Joining the line with the fewest people (B) averaged 6.9 minutes (1.13 times the single line), 90% within 18.3 minutes, and 44% of customers were overtaken by someone who arrived later. Compared with the single line for the same customers, 34% waited more than a minute longer and 26% waited more than a minute less. Choosing any line (C) averaged 29.9 minutes (4.9 times), and joining the line with the fewest items (D) averaged 6.5 minutes (1.06 times). The share of time a cashier was idle while someone waited in another line was 11% for B, 35% for C and 5% for D, and 0% for the single line. How much faster the single line was depended on the settings. The relative gap was larger when it was less busy (60% busy: B was 1.61 times), with more cashiers (2 cashiers 1.05 times, 8 cashiers 1.28 times) and with more variable checkout times (1.18 times at 1.5). At 95% busy it shrank to 1.06 times, because everyone waits a lot with any method.",
-"tr": "<b>它说明了什么：</b>以下是在4名收银员、90%繁忙程度、典型结账时间（波动1.0）的条件下，5次各100,000名顾客运行的平均值：单队平均等待6.1分钟，90%的顾客在16.0分钟内开始结账。选人数最少的队伍（B）平均为6.9分钟（单队的1.13倍），90%在18.3分钟内，44%的顾客被后到的人超过。与同样顾客排单队相比，34%的人多等了一分钟以上，26%的人少等了一分钟以上。任选一队（C）平均为29.9分钟（4.9倍），选商品最少的队伍（D）平均为6.5分钟（1.06倍）。收银员空闲而别的队伍里有人在等的时间占比，B为11%，C为35%，D为5%，单队为0%。单队快多少取决于设置。相对差距在不那么忙时更大（60%繁忙时B为1.61倍），收银员越多越大（2名为1.05倍，8名为1.28倍），结账时间波动越大也越大（1.5时为1.18倍）。在95%繁忙时缩小到1.06倍，因为无论哪种方式大家都要等很久。"
+"id": "s1178",
+"page": "fxrate",
+"ko": "한 주의 <b>캐리 수익</b>은 이자 차이의 주간 몫에 그 주의 환율 변화를 더한 값입니다(빌린 돈 1단위당, 레버리지 없음). 아래 차트는 이 수익을 쌓은 누적 손익, 한 주 수익의 분포, 금리 차이에 따른 변화입니다. 같은 설정에서 시장 번호만 바꿔 다른 운의 시장을 볼 수 있습니다.",
+"en": "A week's <b>carry profit</b> is the weekly share of the interest gap plus that week's exchange-rate change (per unit borrowed, no leverage). The charts below show the running total, the distribution of weekly profits, and how things change with the interest gap. Keep the settings and change only the market number to see a market with different luck.",
+"tr": "一周的<b>套息收益</b>是利差按周分摊的部分，加上该周的汇率变动（以每借入一单位计，无杠杆）。下方图表显示累计总额、每周收益的分布，以及随利差变化的情况。保持设置不变，只改变市场编号，就能看到运气不同的市场。"
 },
 {
-"id": "s0665",
-"page": "checkout",
-"ko": "줄을 하나로 세우면 반드시 이득이라는 뜻은 아닙니다. 줄 바꾸기와 전용 계산대는 이 모델에 없습니다.",
-"en": "It does not mean one line always wins; lane switching and express counters are not in this model.",
-"tr": "这并不意味着单一队列总是更优；换队和快速通道在这个模型中都没有。"
+"id": "s1179",
+"page": "fxrate",
+"ko": "두 나라의 금리 차이 (예시) <output id=\"o-diff\"></output>",
+"en": "Interest gap between the two countries (example) <output id=\"o-diff\"></output>",
+"tr": "两国利差（示例） <output id=\"o-diff\"></output>"
 },
 {
-"id": "s0666",
-"page": "checkout",
-"ko": "실제 가게에서는 손님이 기다린 시간과 빈 계산대가 생기는 순간을 재어 보고, 전용 계산대의 효과를 따로 비교해야 합니다.",
-"en": "A real store would need measured waits and idle-counter moments, and a separate comparison of express counters.",
-"tr": "真实的商店需要测量等待时间和收银台空闲的时刻，并单独比较快速通道。"
+"id": "s1180",
+"page": "fxrate",
+"ko": "클수록 이자 수입이 크고 캐리가 매력적이라 사람이 빨리 몰려요",
+"en": "The bigger it is, the more interest you collect and the faster people pile in",
+"tr": "越大，收到的利息越多，人们涌入也越快"
 },
 {
-"id": "s0667",
-"page": "checkout",
-"ko": "<b>말하지 않는 것:</b> 실제 마트를 재현한 것이 아닙니다. 이 모델에서 손님은 한 번 줄을 고르면 바꾸지 않습니다(옆줄로 옮기는 행동은 넣지 않았으므로, 현실의 줄 바꾸기는 줄 따로의 불리함을 일부 줄여 줄 것입니다). 현실의 계산대에는 물건 적은 손님 전용 계산대, 셀프 계산대, 계산대가 닫히거나 열리는 일, 가격표를 확인하러 가는 일, 줄이 짧아 보이는 착시와 습관이 있지만 모두 넣지 않았습니다. 도착은 하루 내내 같은 속도의 무작위이고 계산 시간 분포는 이 프로젝트가 가정한 것으로 한국 마트의 실제 자료가 아닙니다. 따라서 '줄을 하나로 세우면 반드시 이득'이라는 뜻이 아니라, 이런 단순한 조건에서 줄을 합치는 것이 어떤 효과를 내는지 보여 주는 것입니다. 한 줄이 손님에게 늘 더 낫다고는 할 수 없으며(공간, 줄이 길어 보여 포기하는 손님 등) 매장이 줄 구조를 고르는 데는 이 모델에 없는 요인이 많습니다.",
-"en": "<b>What it doesn't show:</b> This is not a reproduction of a real store. In this model customers pick a line once and never switch (lane switching, or jockeying, is not modeled, so real-world line switching would soften some of the disadvantage of separate lines). Real stores also have express lanes, self-checkouts, cashiers opening and closing, price checks, and the habits and illusions that make a line look short, none of which are modeled. Arrivals are random at a constant rate all day and the checkout-time distribution is this project's assumption, not data from Korean supermarkets. So this does not say a single line is always better; it shows what merging lines does under these simple conditions. A single line is not always better for customers (space, customers who balk at a long line), and a store weighs many factors this model leaves out.",
-"tr": "<b>它没有说明什么：</b>这并不是对真实商店的还原。在这个模型中，顾客只选一次队伍，之后不再换队（换队，即jockeying，没有建模，所以现实中的换队会在一定程度上缓解分开排队的劣势）。真实的商店还有快速通道、自助结账、收银台的开关、核对价格，以及让某条队看上去更短的习惯和错觉，这些都没有建模。到达是全天恒定速率的随机到达，结账时间的分布是本项目的假设，并非韩国超市的数据。因此，这并不是说单队一定更好，而是展示在这些简单条件下合并队伍会产生什么效果。单队对顾客也不一定总是更好（空间、看到长队就放弃的顾客），而商店还要权衡许多此模型没有包含的因素。"
+"id": "s1181",
+"page": "fxrate",
+"ko": "UIP가 맞는 정도 <output id=\"o-uip\"></output>",
+"en": "How much UIP holds <output id=\"o-uip\"></output>",
+"tr": "UIP成立的程度 <output id=\"o-uip\"></output>"
 },
 {
-"id": "s0668",
-"page": "checkout",
-"ko": "<b>모델의 뿌리:</b> 대기행렬 이론입니다. 덴마크의 A. K. Erlang이 전화 교환기에서 통화를 기다리는 문제를 풀며 만든 계산식(얼랑 C)이 계산대 여러 개에 한 줄로 서는 가게(M/M/c)의 기본 이론이고, 줄 따로는 계산대마다 따로 계산하는 줄(M/M/1)이 여러 개 있는 경우와 같습니다.",
-"en": "<b>Where the model comes from:</b> This is queueing theory. The Erlang C formula, worked out by the Danish engineer A. K. Erlang for calls waiting in telephone exchanges, is the basic result for a single shared line feeding several cashiers (M/M/c), and separate lines behave like several independent single-cashier queues (M/M/1).",
-"tr": "<b>模型的来源：</b>这是排队论。丹麦工程师 A. K. Erlang 为电话交换机中等待的呼叫推导出的 Erlang C 公式，是一条共用队伍对应多个收银员（M/M/c）的基本结果；而分开的队伍则相当于多个相互独立的单收银员队列（M/M/1）。"
+"id": "s1182",
+"page": "fxrate",
+"ko": "100%면 높은 금리 통화가 금리 차이만큼 약해져 기대 수익이 0이에요",
+"en": "At 100% the high-rate currency weakens by the gap and expected profit is zero",
+"tr": "100%时高利率货币贬值相当于利差的幅度，预期利润为零"
 },
 {
-"id": "s0669",
-"page": "checkout",
-"ko": "<b>핵심 가정과 수식:</b> 붐빔 ρ = 도착률 × 평균 계산 시간 ÷ 계산대 수 (슬라이더 '붐비는 정도'). 계산대 c개, a = ρc일 때 손님이 도착해 기다려야 할 확률 C(c, a)를 얼랑 C 식으로 구하고, 평균 대기는 <code>Wq = C(c, a) × S / (c(1−ρ))</code> (S는 평균 계산 시간 3분), 기다림이 t를 넘을 확률은 <code>C × e<sup>−c(1−ρ)t/S</sup></code>입니다. 줄 따로이고 아무 줄이나 서면 계산대마다 M/M/1이 되어 <code>Wq = ρS / (1−ρ)</code>입니다.",
-"en": "<b>Key assumptions and formulas:</b> Utilization ρ = arrival rate × mean checkout time ÷ number of cashiers (the 'How busy' slider). With c cashiers and a = ρc, the Erlang C formula gives C(c, a), the probability that an arriving customer has to wait; the mean wait is <code>Wq = C(c, a) × S / (c(1−ρ))</code> with S the mean checkout time (3 minutes), and the chance of waiting longer than t is <code>C × e<sup>−c(1−ρ)t/S</sup></code>. With separate lines and random choice each cashier is an M/M/1 queue, <code>Wq = ρS / (1−ρ)</code>.",
-"tr": "<b>关键假设与公式：</b>利用率 ρ = 到达率 × 平均结账时间 ÷ 收银员数量（即“繁忙程度”滑块）。有c名收银员、a = ρc时，Erlang C 公式给出C(c, a)，即到达的顾客需要等待的概率；平均等待时间为 <code>Wq = C(c, a) × S / (c(1−ρ))</code>，其中S为平均结账时间（3分钟），等待超过t的概率为 <code>C × e<sup>−c(1−ρ)t/S</sup></code>。分开排队且随机选队时，每个收银员是一个M/M/1队列，<code>Wq = ρS / (1−ρ)</code>。"
+"id": "s1183",
+"page": "fxrate",
+"ko": "쏠림의 힘 <output id=\"o-imp\"></output>",
+"en": "Crowd power <output id=\"o-imp\"></output>",
+"tr": "人群力度 <output id=\"o-imp\"></output>"
 },
 {
-"id": "s0670",
-"page": "checkout",
-"ko": "<b>이 프로젝트의 단순화:</b> 계산 시간을 평균 3분의 감마분포(슬라이더로 들쭉날쭉함 조절)로, 물건 수는 평균 10개로 두고 계산 시간에 비례하게 정한 것은 이 프로젝트의 설정입니다. 들쭉날쭉함이 1.0이 아닐 때의 한 줄 이론선은 평균 대기에 (1+cv²)/2를 곱하는 흔한 근사이고, 무작위 줄은 폴라체크-힌친 평균 대기 공식입니다. 줄 바꾸기, 포기하는 손님, 전용 계산대는 넣지 않았습니다.",
-"en": "<b>What this project simplifies:</b> Checkout time is a gamma distribution with a mean of 3 minutes (the variability slider), and items average 10 and are proportional to checkout time; these are this project's choices. When variability is not 1.0, the single-line theory line uses the common approximation of multiplying the mean wait by (1+cv²)/2, and the random-line one is the Pollaczek-Khinchine mean wait formula. Line switching, balking and express lanes are not modeled.",
-"tr": "<b>本项目简化了什么：</b>结账时间服从平均3分钟的伽马分布（即波动滑块），商品数平均为10件并与结账时间成正比，这些都是本项目的选择。当波动不为1.0时，单队的理论线采用常见的近似，即把平均等待时间乘以(1+cv²)/2；随机选队的理论线则是 Pollaczek-Khinchine 平均等待时间公式。换队、顾客因队长而放弃以及快速通道都没有建模。"
+"id": "s1184",
+"page": "fxrate",
+"ko": "0이면 쏠림이 없는 순수한 임의보행. 크면 급락도 커요",
+"en": "0 means no crowding, a pure random walk. Higher means bigger crashes",
+"tr": "0表示没有拥挤，即纯粹的随机游走。数值越高，暴跌越大"
 },
 {
-"id": "s0671",
-"page": "checkout",
-"ko": "<b>이론값과 시뮬레이션:</b> <code>node tools/validate-checkout.js</code>의 결과(시드 5개 × 손님 10만 명 평균, 들쭉날쭉함 1.0)입니다. 계산대 4개 붐빔 60%에서 한 줄 평균 대기는 시뮬레이션 0.54분, 이론 0.54분이고, 붐빔 80%는 2.25분 대 2.24분, 90%는 6.11분 대 5.91분이었습니다. 90% 손님 기준은 붐빔 90%에서 16.0분 대 15.5분입니다. 계산대 2개 붐빔 70%는 2.88분 대 2.88분이었습니다. 무작위 줄은 붐빔 60%에서 4.55분 대 4.50분, 80%에서 12.46분 대 12.00분, 90%에서 29.9분 대 27.0분으로 붐빌수록 시뮬레이션이 이론보다 높게 나왔습니다(유한한 손님 수 때문으로 보임). 들쭉날쭉함 1.5, 붐빔 90%에서 한 줄 근사는 9.60분으로 시뮬레이션 9.03분보다 약 7% 높았습니다.",
-"en": "<b>Theory versus simulation:</b> From <code>node tools/validate-checkout.js</code> (average of 5 seeds × 100,000 customers, variability 1.0). With 4 cashiers at 60% busy the single line mean wait was 0.54 minutes in simulation and 0.54 in theory; at 80% it was 2.25 vs 2.24 and at 90% 6.11 vs 5.91. The 90th percentile at 90% busy was 16.0 vs 15.5 minutes. With 2 cashiers at 70% it was 2.88 vs 2.88. For random lines the simulation gave 4.55 vs 4.50 at 60% busy, 12.46 vs 12.00 at 80% and 29.9 vs 27.0 at 90%, so the simulation ran higher than theory as it got busier (likely due to the finite number of customers). With variability 1.5 and 90% busy the single-line approximation gave 9.60 minutes, about 7% above the simulated 9.03.",
-"tr": "<b>理论与模拟的对比：</b>来自 <code>node tools/validate-checkout.js</code>（5个随机种子 × 100,000名顾客的平均值，波动1.0）。4名收银员、60%繁忙时，单队平均等待时间在模拟中为0.54分钟，理论为0.54；80%时为2.25对2.24，90%时为6.11对5.91。90%繁忙时的第90百分位为16.0对15.5分钟。2名收银员、70%时为2.88对2.88。随机选队时，模拟结果在60%繁忙时为4.55对4.50，80%时为12.46对12.00，90%时为29.9对27.0，可见越忙模拟值越高于理论值（可能是由于顾客数量有限）。波动为1.5、90%繁忙时，单队近似值为9.60分钟，比模拟的9.03分钟高约7%。"
+"id": "s1185",
+"page": "fxrate",
+"ko": "환율 변동성 (연) <output id=\"o-vol\"></output>",
+"en": "Exchange-rate volatility (yearly) <output id=\"o-vol\"></output>",
+"tr": "汇率波动率（年化） <output id=\"o-vol\"></output>"
 },
 {
-"id": "s0672",
-"page": "checkout",
-"ko": "<b>더 읽을거리:</b> Leonard Kleinrock, 『Queueing Systems, Volume 1: Theory』(Wiley, 1975). Donald Gross와 Carl M. Harris, 『Fundamentals of Queueing Theory』(Wiley). 줄을 합치는 것이 항상 이로운 것은 아니라는 점은 Rothkopf &amp; Rech (1987), \"Perspectives on queues: combining queues is not always beneficial\", <i>Operations Research</i>에서 다룹니다.",
-"en": "<b>Further reading:</b> Leonard Kleinrock, <i>Queueing Systems, Volume 1: Theory</i> (Wiley, 1975). Donald Gross and Carl M. Harris, <i>Fundamentals of Queueing Theory</i> (Wiley). That combining queues is not always beneficial is discussed in Rothkopf &amp; Rech (1987), \"Perspectives on queues: combining queues is not always beneficial\", <i>Operations Research</i>.",
-"tr": "<b>延伸阅读：</b>Leonard Kleinrock，<i>Queueing Systems, Volume 1: Theory</i>（Wiley，1975）。Donald Gross 和 Carl M. Harris，<i>Fundamentals of Queueing Theory</i>（Wiley）。关于合并队伍并不总是有利，可参见 Rothkopf &amp; Rech (1987)，“Perspectives on queues: combining queues is not always beneficial”，<i>Operations Research</i>。"
+"id": "s1186",
+"page": "fxrate",
+"ko": "클수록 환율이 요동쳐요. 캐리의 매력은 금리 차이÷변동성이에요",
+"en": "Higher means a wilder exchange rate. A carry's appeal is the gap divided by volatility",
+"tr": "越高，汇率越剧烈。套息的吸引力是利差除以波动率"
 },
 {
-"id": "s0673",
-"page": "checkout",
-"ko": "시뮬레이션은 손님 목록(도착 시각, 계산 시간, 물건 수, 무작위 줄 선택용 난수)을 한 번 만들어 모든 방식에 똑같이 넣는 공통 난수 방식입니다. 시드 난수(mulberry32)를 쓰므로 같은 시드면 같은 결과가 나옵니다. 화면의 가게는 두 방식의 시작·끝 시각을 미리 계산해 두고 시간에 따라 위치만 그립니다.",
-"en": "The simulation builds one customer list (arrival times, checkout times, items, and random numbers for the random choice) and feeds it identically to every method, a common random numbers design. It uses a seeded generator (mulberry32), so the same seed gives the same result. The store on screen precomputes each method's start and end times and just draws positions as time advances.",
-"tr": "模拟只生成一份顾客名单（到达时间、结账时间、商品数，以及用于随机选队的随机数），并把它原样提供给每一种方式，这是一种公共随机数设计。它使用带种子的生成器（mulberry32），所以相同的种子会得到相同的结果。屏幕上的商店预先计算好每种方式的开始和结束时间，随着时间推进只负责绘制位置。"
+"id": "s1187",
+"page": "fxrate",
+"ko": "기간 <output id=\"o-years\"></output>",
+"en": "Period <output id=\"o-years\"></output>",
+"tr": "期间 <output id=\"o-years\"></output>"
 },
 {
-"id": "s0674",
-"page": "checkout",
-"ko": "추월당한 손님은 자기보다 늦게 도착한 사람이 더 먼저 계산을 시작한 손님입니다. 계산대가 놀면서 기다리는 사람이 있는 시간 비율은 시작과 끝 시각을 시간순으로 훑어 구했고, 처음 10% 손님은 가게가 비어 있던 시기라 통계에서 뺐습니다.",
-"en": "An overtaken customer is one for whom someone who arrived later started checkout earlier. The share of time with an idle cashier while someone waits was found by sweeping start and end times in order, and the first 10% of customers, from when the store was still empty, were left out of the statistics.",
-"tr": "被超过的顾客，是指有后到的人比他更早开始结账的顾客。收银员空闲而有人在等的时间占比，是按顺序扫描开始和结束时间得出的，统计时排除了最先到达的10%的顾客，因为那时店里还是空的。"
+"id": "s1188",
+"page": "fxrate",
+"ko": "길수록 쏠림과 청산이 여러 번 돌아요",
+"en": "Longer lets crowding and unwinding cycle several times",
+"tr": "越长，拥挤与平仓就能循环多次"
 },
 {
-"id": "s0675",
-"page": "checkout",
-"ko": "카드 숫자는 손님 15만 명을 한 번 돌린 값이라 페이지 설명(10만 명 × 5번 평균)과 조금 다를 수 있습니다. 검증은 <code>node tools/validate-checkout.js</code>로 할 수 있습니다.",
-"en": "The numbers on the cards come from a single run of 150,000 customers, so they can differ slightly from the page text (an average of 5 runs of 100,000). You can verify with <code>node tools/validate-checkout.js</code>.",
-"tr": "卡片上的数字来自一次150,000名顾客的运行，因此可能与页面文字（5次100,000名顾客运行的平均值）略有不同。你可以用 <code>node tools/validate-checkout.js</code> 来验证。"
+"id": "s1189",
+"page": "fxrate",
+"ko": "같은 설정, 다른 운의 시장",
+"en": "Same settings, a market with different luck",
+"tr": "相同设置，运气不同的市场"
 },
 {
-"id": "s0676",
-"page": "checkout",
-"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/checkout\">GitHub</a>에서 볼 수 있습니다.",
-"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/checkout\">GitHub</a>.",
-"tr": "代码可在 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/checkout\">GitHub</a> 上获取。"
+"id": "s1190",
+"page": "fxrate",
+"ko": "① 통화값과 캐리 투자자의 쏠림",
+"en": "① The Currency and the Crowd of Carry Investors",
+"tr": "① 货币与套息投资者人群"
 },
 {
-"id": "s0707",
-"page": "coincidence",
-"ko": "23명이면 방 안 어딘가에서 생일이 같을 확률은 50.7%지만, 나와 같을 확률은 5.9%예요.",
-"en": "With 23 people, the chance that some pair shares a birthday is 50.7%, but the chance that someone shares mine is 5.9%.",
-"tr": "23个人中，某一对人生日相同的概率是50.7%，而有人和我生日相同的概率只有5.9%。"
+"id": "s1191",
+"page": "fxrate",
+"ko": "위쪽 파란 선은 높은 금리 통화의 가치입니다(시작 = 100). 아래 주황 띠는 캐리 투자자가 얼마나 몰렸는지입니다. 쏠림이 차오르는 동안 통화값은 계단처럼 오르고, 붉은 점에서 일제히 청산하면 한 번에 떨어집니다. 지켜보세요.",
+"en": "The blue line on top is the value of the high-rate currency (start = 100). The orange band below shows how crowded the carry trade is. While the crowd builds, the currency climbs like a staircase, and at each red dot everybody unwinds and it drops at once. Watch.",
+"tr": "上方的蓝线是高利率货币的价值（起点 = 100）。下方的橙色带显示套息交易的拥挤程度。人群增加时，货币像爬楼梯一样上涨；在每个红点，所有人同时平仓，货币一下子跌落。请看。"
 },
 {
-"id": "s0708",
-"page": "coincidence",
-"ko": "사람이 늘면 가능한 짝이 거의 제곱으로 늘어서, '어딘가의 일치'는 빨리 흔해지고 '나와의 일치'는 천천히 늘어요.",
-"en": "As people grow, possible pairs grow almost as the square, so a match somewhere becomes common fast while a match with me grows slowly.",
-"tr": "人数增加时，可能的配对数几乎按平方增长，所以“某处出现一次巧合”很快就变得常见，而“和我巧合”则增长得很慢。"
+"id": "s1192",
+"page": "fxrate",
+"ko": "② 캐리를 계속 들고 있었다면: 누적 손익",
+"en": "② If You Kept Holding the Carry: Running Profit",
+"tr": "② 如果一直持有套息：累计收益"
 },
 {
-"id": "s0709",
-"page": "coincidence",
-"ko": "신기한 일치를 만나면 '내 경우'인지 '아무 경우나'인지, 몇 쌍을 비교했는지부터 따져 볼 만해요.",
-"en": "When you meet a striking match, it may help to ask whether it was about me or about anyone, and how many pairs were being compared.",
-"tr": "遇到惊人的巧合时，也许可以想一想：这是关于我，还是关于任何人？当时到底在比较多少对？"
+"id": "s1193",
+"page": "fxrate",
+"ko": "매주 캐리 수익을 쌓은 선입니다(빌린 돈 1단위당, %p). 회색 점선은 UIP가 완전히 맞을 때의 기대(0), 초록 점선은 이 설정의 평균 기대입니다. 붉은 세로선은 청산한 주, 붉은 띠는 가장 크게 빠진 구간(최대 낙폭)입니다.",
+"en": "This line adds up each week's carry profit (per unit borrowed, in percentage points). The gray dashed line is the expectation when UIP holds fully (zero), the green dashed line the average expectation for these settings. Red vertical lines mark unwinding weeks and the red band the deepest fall (maximum drawdown).",
+"tr": "这条线累加每周的套息收益（以每借入一单位计，单位为百分点）。灰色虚线是UIP完全成立时的预期（零），绿色虚线是这组设置下的平均预期。红色竖线标出平仓的那几周，红色色带标出最深的下跌（最大回撤）。"
 },
 {
-"id": "s0711",
-"page": "coincidence",
-"ko": "모든 소름 돋는 우연이 그냥 우연이라는 뜻은 아니에요.",
-"en": "It does not mean every eerie coincidence is just chance.",
-"tr": "这并不意味着每一个诡异的巧合都只是偶然。"
+"id": "s1194",
+"page": "fxrate",
+"ko": "<i style=\"background:var(--accent)\"></i>누적 캐리 손익",
+"en": "<i style=\"background:var(--accent)\"></i>Running carry profit",
+"tr": "<i style=\"background:var(--accent)\"></i>累计套息收益"
 },
 {
-"id": "s0712",
-"page": "coincidence",
-"ko": "생일과 취미가 고르고 독립이라는 가정이라, 실제 사건은 실제 분포와 비교하는 자료가 더 있어야 알 수 있어요.",
-"en": "It assumes birthdays and traits are even and independent, so judging a real event needs data on the real distributions.",
-"tr": "它假定生日和特征是均匀且相互独立的，因此要判断真实事件，需要真实分布的数据。"
+"id": "s1195",
+"page": "fxrate",
+"ko": "<i style=\"background:#1fa463\"></i>이 설정의 평균 기대",
+"en": "<i style=\"background:#1fa463\"></i>Average expectation here",
+"tr": "<i style=\"background:#1fa463\"></i>此设置的平均预期"
 },
 {
-"id": "s0714",
-"page": "coincidence",
-"ko": "<b>모델의 뿌리:</b> 생일 문제(birthday problem)는 방 안 사람들 중 생일이 같은 쌍이 있을 확률을 묻는 확률론의 고전 문제로, Feller의 확률론 교과서 같은 입문서에도 실려 있습니다. \"소름 돋는 우연도 어딘가에서는 일어난다\"는 생각은 Diaconis와 Mosteller(1989)가 \"아주 큰 수의 법칙(law of truly large numbers)\", 곧 표본이 충분히 크면 아무리 드문 일도 일어날 법하다는 원리로 정리했습니다.",
-"en": "<b>Where the model comes from:</b> The birthday problem is a classic of probability that asks how likely it is that some pair in a room shares a birthday, and it is treated in introductory texts such as Feller's. The idea that \"even spooky coincidences happen somewhere\" was framed by Diaconis and Mosteller (1989) as the \"law of truly large numbers\": with a large enough sample, even very rare events are likely to occur.",
-"tr": "<b>模型的来源：</b>生日问题是概率论中的经典问题，问的是一个房间里某一对人生日相同的可能性有多大，Feller 等入门教材中都有讲到。“即使是令人毛骨悚然的巧合，也总会在某处发生”这一想法，被 Diaconis 和 Mosteller（1989）表述为“真正大数定律”：样本足够大时，即使非常罕见的事件也很可能出现。"
+"id": "s1196",
+"page": "fxrate",
+"ko": "<i style=\"background:#8a93a6\"></i>UIP가 완전할 때(0)",
+"en": "<i style=\"background:#8a93a6\"></i>If UIP held fully (0)",
+"tr": "<i style=\"background:#8a93a6\"></i>UIP完全成立时（0）"
 },
 {
-"id": "s0715",
-"page": "coincidence",
-"ko": "<b>핵심 가정과 수식:</b> 한 특징이 c가지 값을 같은 확률로 가지면 N명이 모두 다를 확률은 <code>(1−1/c)(1−2/c)…(1−(N−1)/c)</code>이고, 특징들이 독립이면 특징별 확률을 곱한 값이 \"일치한 쌍이 하나도 없을 확률\"입니다. 나와 일치할 확률은 <code>1 − Π(1−1/c)<sup>N−1</sup></code>이고, 인원 슬라이더가 N, 특징 슬라이더가 k(생일은 c=365), 다른 특징의 값 개수가 c입니다.",
-"en": "<b>Key assumptions and formulas:</b> If a feature takes c values with equal chance, the probability that N people all differ is <code>(1−1/c)(1−2/c)…(1−(N−1)/c)</code>, and with independent features the product over features is the \"chance of no matching pair\". The chance of matching me is <code>1 − Π(1−1/c)<sup>N−1</sup></code>. The headcount slider is N, the feature slider is k (birthday has c=365) and the values slider sets c for the other features.",
-"tr": "<b>关键假设与公式：</b>如果某个特征有c个等概率取值，那么N个人全都不同的概率是 <code>(1−1/c)(1−2/c)…(1−(N−1)/c)</code>；特征相互独立时，各特征的乘积就是“没有任何一对相同的概率”。与我相同的概率是 <code>1 − Π(1−1/c)<sup>N−1</sup></code>。人数滑块是N，特征滑块是k（生日的c=365），取值滑块设定其他特征的c。"
+"id": "s1197",
+"page": "fxrate",
+"ko": "③ 한 주의 손익은 어떻게 흩어질까",
+"en": "③ How Weekly Profits Scatter",
+"tr": "③ 每周收益的分布情况"
 },
 {
-"id": "s0716",
-"page": "coincidence",
-"ko": "<b>이 프로젝트의 단순화:</b> 모든 특징이 균등하고 서로 독립이라고 가정하고 윤일은 무시했습니다. 실제 생일은 연중 완전히 고르지 않고 고향·취미도 서로 얽혀 있습니다. 특징 개수와 \"다른 특징의 값 개수\"(기본 30)는 이 프로젝트가 정한 값이며 실제 분포를 반영하지 않습니다.",
-"en": "<b>What this project simplifies:</b> All features are assumed uniform and independent, and leap days are ignored. Real birthdays are not perfectly even through the year, and hometown and hobbies are tangled together. The number of features and the \"values per other feature\" (default 30) are set by this project and do not reflect real distributions.",
-"tr": "<b>本项目简化了什么：</b>假设所有特征都是均匀且相互独立的，并忽略闰日。真实的生日在一年中并不是完全均匀分布的，家乡和爱好也相互关联。特征的数量和“其他特征的取值数”（默认30）由本项目设定，并不反映真实分布。"
+"id": "s1198",
+"page": "fxrate",
+"ko": "경로 40개를 합쳐 한 주의 캐리 수익을 센 분포입니다. 회색 선은 같은 평균과 변동성을 가진 종 모양(정규분포)입니다. 쏠림이 있으면 왼쪽 꼬리(붉은 부분, 한 주에 -5% 아래)가 종 모양이 말하는 것보다 훨씬 두껍습니다. 쏠림의 힘을 0으로 내리면 꼬리가 사라집니다.",
+"en": "This counts weekly carry profits pooled over 40 paths. The gray line is a bell curve (normal distribution) with the same average and volatility. With crowding the left tail (red, below -5% in a week) is far thicker than the bell curve says. Set crowd power to 0 and the tail disappears.",
+"tr": "这里统计的是汇总40条路径的每周套息收益。灰线是均值和波动率相同的钟形曲线（正态分布）。存在拥挤时，左侧尾部（红色，一周内低于-5%）比钟形曲线所显示的要厚得多。把人群力度设为0，尾部就消失了。"
 },
 {
-"id": "s0717",
-"page": "coincidence",
-"ko": "<b>이론값과 시뮬레이션:</b> 이 식은 정확한 닫힌 해라서 시뮬레이션과 바로 비교됩니다. 생일만 볼 때 \"어딘가 일치\"는 23명에서 이론 50.7%, 시뮬레이션 50.4%, 57명에서 99.0%와 99.0%였고, \"나와 일치\"는 23명에서 5.9%와 5.9%였습니다. 나와 일치할 확률이 50%를 넘는 최소 인원은 254명(나 말고 253명)입니다. 특징 2가지(값 30개), 23명에서는 나와 일치가 이론 55.3%, 시뮬레이션 55.7%였습니다.",
-"en": "<b>Theory versus simulation:</b> These formulas are exact closed forms, so they compare directly with the simulation. For birthday only, \"a match somewhere\" was 50.7% in theory and 50.4% simulated with 23 people, and 99.0% and 99.0% with 57; \"a match with me\" was 5.9% and 5.9% with 23. The smallest headcount where a match with me passes 50% is 254 (253 besides me). With 2 features (30 values) and 23 people, a match with me was 55.3% in theory and 55.7% simulated.",
-"tr": "<b>理论与模拟的对比：</b>这些公式是精确的封闭形式，因此可以直接与模拟比较。仅看生日，“某处有一对相同”在23人时理论为50.7%、模拟为50.4%，57人时分别为99.0%和99.0%；“与我相同”在23人时分别为5.9%和5.9%。与我相同的概率超过50%所需的最小人数是254（除我之外253人）。有2个特征（各30个取值）、23人时，与我相同的概率理论为55.3%，模拟为55.7%。"
+"id": "s1199",
+"page": "fxrate",
+"ko": "<i style=\"background:var(--accent)\"></i>실제 주 수",
+"en": "<i style=\"background:var(--accent)\"></i>Actual weeks",
+"tr": "<i style=\"background:var(--accent)\"></i>实际周数"
 },
 {
-"id": "s0718",
-"page": "coincidence",
-"ko": "<b>더 읽을거리:</b> Diaconis, P. & Mosteller, F. (1989), 「Methods for Studying Coincidences」, <i>Journal of the American Statistical Association</i> 84. Feller, W. (1968), <i>An Introduction to Probability Theory and Its Applications</i>, Vol. 1 (3rd ed.), Wiley.",
-"en": "<b>Further reading:</b> Diaconis, P. & Mosteller, F. (1989), \"Methods for Studying Coincidences\", <i>Journal of the American Statistical Association</i> 84. Feller, W. (1968), <i>An Introduction to Probability Theory and Its Applications</i>, Vol. 1 (3rd ed.), Wiley.",
-"tr": "<b>延伸阅读：</b>Diaconis, P. & Mosteller, F. (1989)，“Methods for Studying Coincidences”，<i>Journal of the American Statistical Association</i> 84。Feller, W. (1968)，<i>An Introduction to Probability Theory and Its Applications</i>，第1卷（第3版），Wiley。"
+"id": "s1200",
+"page": "fxrate",
+"ko": "<i style=\"background:#e5484d\"></i>-5% 아래",
+"en": "<i style=\"background:#e5484d\"></i>Below -5%",
+"tr": "<i style=\"background:#e5484d\"></i>低于-5%"
 },
 {
-"id": "s0751",
-"page": "commons",
-"ko": "이 설정에서는 감시가 없으면 저량이 수용력의 1~2%까지 무너졌다가 평균 약 26%에 머물렀어요.",
-"en": "In this setup, without monitoring the stock fell to 1 to 2% of capacity, then settled around 26%.",
-"tr": "在这个设定下，没有监督时资源存量降到容量的1%至2%，随后稳定在26%左右。"
+"id": "s1201",
+"page": "fxrate",
+"ko": "<i style=\"background:#8a93a6\"></i>종 모양(정규분포)",
+"en": "<i style=\"background:#8a93a6\"></i>Bell curve (normal)",
+"tr": "<i style=\"background:#8a93a6\"></i>钟形曲线（正态）"
 },
 {
-"id": "s0752",
-"page": "commons",
-"ko": "이 모델에서는 탐욕이 이득이 커 보여 퍼지는데, 감시와 벌금이 그 이득을 깎아야 절제가 버텨요.",
-"en": "In this model greed spreads because it pays more, and monitoring plus fines must cut that gain for restraint to hold.",
-"tr": "在这个模型中，贪婪因为收益更高而扩散，要让节制得以维持，监督和罚款必须削减这种收益。"
+"id": "s1202",
+"page": "fxrate",
+"ko": "④ 금리 차이를 키우면",
+"en": "④ If the Interest Gap Grows",
+"tr": "④ 如果利差扩大"
 },
 {
-"id": "s0753",
-"page": "commons",
-"ko": "적발 확률과 벌금의 크기가 함께 있어야 했으니, 규칙의 실제 집행력이 열쇠일 수 있어요.",
-"en": "Both catch rate and fine size were needed, so how firmly rules are enforced may be the key.",
-"tr": "抓获率和罚款额度两者都不可或缺，因此规则执行得有多严格，可能才是关键。"
+"id": "s1203",
+"page": "fxrate",
+"ko": "가로는 금리 차이, 세로는 평균입니다. 초록은 연 평균 캐리 수익, 빨강은 가장 나쁜 한 주의 평균 손실입니다. 금리 차이가 클수록 이자는 더 벌지만, 사람이 빨리 몰려 한 주의 급락도 커집니다. 경로 24개의 평균입니다.",
+"en": "The horizontal axis is the interest gap, the vertical axis an average. Green is the average yearly carry profit, red the average loss in the worst single week. A bigger gap earns more interest but also draws the crowd faster, so the worst week gets bigger. Each point averages 24 paths.",
+"tr": "横轴是利差，纵轴是平均值。绿色是年均套息收益，红色是最差单周的平均亏损。利差越大，利息越多，但人群也涌入得更快，所以最差的一周会更糟。每个点是24条路径的平均值。"
 },
 {
-"id": "s0755",
-"page": "commons",
-"ko": "하딘이나 오스트롬이 옳다는 증명은 아니에요. 비용·재생 속도는 이 모델이 정한 값이에요.",
-"en": "It does not prove Hardin or Ostrom right; cost and regrowth are values this model chose.",
-"tr": "它并不能证明哈丁或奥斯特罗姆是对的；成本和再生速度都是这个模型选定的数值。"
+"id": "s1204",
+"page": "fxrate",
+"ko": "<i style=\"background:#1fa463\"></i>연 평균 캐리 수익",
+"en": "<i style=\"background:#1fa463\"></i>Average yearly carry profit",
+"tr": "<i style=\"background:#1fa463\"></i>年均套息收益"
 },
 {
-"id": "s0756",
-"page": "commons",
-"ko": "소유권·신뢰·경계 같은 모델에 없는 조건이 실제 공동체에서 어떻게 작동하는지 사례로 확인해야 해요.",
-"en": "How ownership, trust and boundaries, all missing here, work in real communities needs case studies.",
-"tr": "这里缺少的所有权、信任和边界在真实社区中如何运作，需要通过案例研究来了解。"
+"id": "s1205",
+"page": "fxrate",
+"ko": "<i style=\"background:#e5484d\"></i>가장 나쁜 한 주의 평균 손실",
+"en": "<i style=\"background:#e5484d\"></i>Average loss in the worst week",
+"tr": "<i style=\"background:#e5484d\"></i>最差一周的平均亏损"
 },
 {
-"id": "s0758",
-"page": "commons",
-"ko": "<b>모델의 뿌리:</b> \"공유지의 비극\"은 Hardin(1968)이 『Science』에 실은 논문으로 널리 알려졌고, 각자의 이익을 좇으면 공유 자원이 망한다는 주장입니다. 이에 맞서 Ostrom(1990)은 『Governing the Commons』에서 공동체가 스스로 규칙과 감시·제재로 자원을 지켜 온 사례들을 분석했습니다. 자원 쪽은 Gordon(1954)의 어업 경제 모형(공유 자원은 이윤이 사라질 때까지 남획된다)과 로지스틱 재생 모형의 아이디어를 단순화했습니다.",
-"en": "<b>Where the model comes from:</b> \"The tragedy of the commons\" is best known from Hardin's (1968) paper in <i>Science</i>, which argues that individuals pursuing their own interest ruin a shared resource. In response, Ostrom (1990), in <i>Governing the Commons</i>, analyzed cases in which communities protected resources through their own rules, monitoring and sanctions. The resource side simplifies the fishery economics of Gordon (1954), in which a commons is fished until profit vanishes, together with logistic regrowth.",
-"tr": "<b>模型的来源：</b>“公地悲剧”最广为人知的出处是 Hardin（1968）发表在 <i>Science</i> 上的论文，该文认为追求各自利益的个体会毁掉共享资源。作为回应，Ostrom（1990）在 <i>Governing the Commons</i> 中分析了社区通过自己的规则、监督和惩罚来保护资源的案例。资源部分简化了 Gordon（1954）的渔业经济学（公共资源被捕捞直到利润消失），并结合了逻辑斯蒂再生。"
+"id": "s1206",
+"page": "fxrate",
+"ko": "캐리 거래는 연 3.1%를 벌었지만, 최악의 한 주는 평균 -10.0%였습니다.",
+"en": "Carry earned 3.1% a year, but the worst week averaged -10.0%.",
+"tr": "套息交易每年赚取3.1%，但最糟糕的一周平均为-10.0%。"
 },
 {
-"id": "s0759",
-"page": "commons",
-"ko": "<b>핵심 가정과 수식:</b> 저량 S는 <code>S ← S + r·S·(1 − S/K) − 수확</code>으로 자라고(r=0.4, K=100), 저량이 K/2일 때 지속 가능한 최대 수확 <code>rK/4 = 10</code>이 나옵니다. 이득은 수확에서 노력 비용을 뺀 값이고, 감시 슬라이더는 욕심낸 사람이 적발될 확률, 벌금은 그 라운드 수확의 몇 배를 내는지입니다. 전략은 모방 규칙(점수 차이의 로지스틱, 페르미 규칙)으로 퍼집니다.",
-"en": "<b>Key assumptions and formulas:</b> The stock S grows as <code>S ← S + r·S·(1 − S/K) − harvest</code> (r=0.4, K=100), and at S = K/2 the maximum sustainable harvest is <code>rK/4 = 10</code>. Payoff is the harvest minus the cost of effort; the monitoring slider is the chance a greedy user is caught and the fine is how many times that round's catch they pay. Strategies spread by a copying rule (a logistic function of the payoff difference, the Fermi rule).",
-"tr": "<b>关键假设与公式：</b>资源存量S按 <code>S ← S + r·S·(1 − S/K) − 捕捞量</code> 增长（r=0.4，K=100），在S = K/2时最大可持续捕捞量为 <code>rK/4 = 10</code>。收益是捕捞量减去投入努力的成本；监督滑块是贪婪使用者被抓到的概率，罚款则是需要支付该轮捕捞量的多少倍。策略通过模仿规则传播（收益差的逻辑斯蒂函数，即费米规则）。"
+"id": "s1207",
+"page": "fxrate",
+"ko": "이 모델에서는 쏠림이 천천히 쌓이다 한 주에 일제히 풀리며 통화값이 밀려, 왼쪽 꼬리가 길어졌습니다.",
+"en": "In this model crowding builds slowly and unwinds in one week, pushing the currency down and making a long left tail.",
+"tr": "在这个模型中，拥挤度缓慢累积，却在一周内瓦解，使货币下跌，形成一条很长的左尾。"
 },
 {
-"id": "s0760",
-"page": "commons",
-"ko": "<b>이 프로젝트의 단순화:</b> 노력 비용(25), 재생 속도(0.4), 탐욕의 크기(지속 가능한 몫의 3배), 모방 확률(25%), 돌연변이(1%), 처음 절제 10%는 모두 이 프로젝트가 정한 값입니다. 이용자는 세 가지 전략 중 하나만 따르고, 소유권·외부인 진입·신뢰·국가의 역할은 없습니다. Ostrom이 정리한 성공 조건(명확한 경계, 지역에 맞는 규칙 등)도 모델에 들어 있지 않습니다.",
-"en": "<b>What this project simplifies:</b> The cost of effort (25), regrowth rate (0.4), strength of greed (3 times the sustainable share), copying probability (25%), mutation (1%) and the initial 10% restrained are all set by this project. Users follow one of three strategies, and ownership, outsiders' entry, trust and the role of the state are absent. The success conditions Ostrom identified, such as clear boundaries and locally suited rules, are not in the model either.",
-"tr": "<b>本项目简化了什么：</b>努力成本（25）、再生率（0.4）、贪婪程度（可持续份额的3倍）、模仿概率（25%）、突变（1%）以及初始10%的克制者，都是本项目设定的。使用者遵循三种策略之一，模型中没有所有权、外来者进入、信任以及国家的作用。Ostrom 总结出的成功条件，例如清晰的边界和适合当地的规则，也不在模型之内。"
+"id": "s1208",
+"page": "fxrate",
+"ko": "평균 수익만이 아니라 쏠림이 얼마나 쌓였는지와 급락의 모양까지 살펴볼 만합니다.",
+"en": "Beyond average returns, how much crowding has built up and the shape of the drops are worth examining.",
+"tr": "除了平均收益，还值得考察拥挤度累积了多少，以及下跌的形态。"
 },
 {
-"id": "s0761",
-"page": "commons",
-"ko": "<b>이론값과 시뮬레이션:</b> 지속 가능한 최대 수확 10은 식과 시뮬레이션이 같은 값입니다. 감시 100%에서 평균 수확은 10.0이고 저량은 수용력의 약 48%로, 최대 수확을 주는 이론상 수준(50%)에 가깝습니다. 감시가 없으면 저량은 마지막 구간에서 평균 26%, 수확 7.0이었습니다. Gordon의 이윤 소멸 수준과는 숫자로 대조하지 않았고, 모방으로 퍼지는 전략 비율에도 닫힌 해가 없어 시뮬레이션만으로 확인했습니다.",
-"en": "<b>Theory versus simulation:</b> The maximum sustainable harvest of 10 is the same in the formula and the simulation. At 100% monitoring the average harvest was 10.0 and the stock about 48% of capacity, close to the theoretical level (50%) that gives the maximum harvest. With no monitoring the stock averaged 26% over the final stretch with a harvest of 7.0. I did not compare numerically with Gordon's zero-profit level, and the strategy shares spread by copying have no closed form, so those were checked by simulation alone.",
-"tr": "<b>理论与模拟的对比：</b>最大可持续捕捞量10在公式和模拟中是一致的。监督为100%时，平均捕捞量为10.0，存量约为容量的48%，接近给出最大捕捞量的理论水平（50%）。没有监督时，最后阶段的存量平均为26%，捕捞量为7.0。我没有与 Gordon 的零利润水平做数值比较，通过模仿传播的策略比例也没有封闭形式，所以这些只通过模拟验证。"
+"id": "s1209",
+"page": "fxrate",
+"ko": "<b>말하는 것:</b> 기본 설정(금리 차이 4%p, 변동성 연 8%, UIP 30%, 쏠림의 힘 12%, 20년)에서 시장 번호 1은 청산이 4번 있었고 연 평균 6.9%를 벌었지만, 최악의 한 주는 -11.5%로 평소 한 주 평균 이익의 87주치(약 1.7년치)를 날렸습니다. 같은 설정의 다른 시장은 운이 달라서 번호 3은 연 평균 -1.1%에 최대 낙폭 66.0%p였습니다. 200개 시장을 평균하면 연 3.1%를 벌었고 이는 이론값(쏠림이 없을 때 2.8%에 쏠림이 만드는 가격 밀림 0.3%를 더한 3.12%)과 맞았습니다. 하지만 최악의 한 주는 평균 -10.0%, 그 한 주가 지운 이익은 중앙값으로 155주치(약 3.0년치)였고 수익이 난 주는 53.7%뿐이었습니다. 쏠림이 없으면(힘 0) 같은 조건에서 최악의 주가 -3.5%이고 분포가 좌우 대칭(왜도 0.00)이었지만, 쏠림이 있으면 왜도가 -1.50으로 왼쪽 꼬리가 길어졌습니다. 쏠림의 힘을 5%, 20%, 25%로 바꾸면 왜도가 -0.16, -4.03, -5.53이고 최악의 주는 -4.8%, -16.2%, -20.1%였습니다. UIP가 100% 맞아도(평균 캐리 약 0) 쏠림이 있으면 왜도는 여전히 -1.50이었습니다. 즉 평균 이익이 없어도, 있어도 급락의 모양은 남았습니다. 경로 40개를 합친 41,600주 중 -5% 아래인 주는 249주(0.60%)였는데, 같은 평균과 변동성의 종 모양이라면 약 1.3주만 나올 정도입니다. 금리 차이를 0, 4, 10%p로 올리면 연 평균 캐리 수익이 0.20%, 3.06%, 7.70%로 늘었고, 가장 나쁜 한 주의 평균 손실도 3.6%, 10.1%, 10.5%로 커졌습니다.",
+"en": "<b>What it shows:</b> With the default settings (interest gap 4 points, volatility 8% a year, UIP 30%, crowd power 12%, 20 years), market number 1 had 4 unwinds and earned 6.9% a year on average, yet its worst week was -11.5%, wiping out 87 weeks (about 1.7 years) of the usual average weekly gain. Other markets with the same settings had different luck: number 3 averaged -1.1% a year with a maximum drawdown of 66.0 points. Averaged over 200 markets the trade earned 3.1% a year, matching the theory value (2.8% without crowding plus the 0.3% price push from the crowd, 3.12%). But the worst week averaged -10.0%, the profit that week erased was a median of 155 weeks (about 3.0 years), and only 53.7% of weeks made money. With no crowding (power 0) under the same conditions the worst week was -3.5% and the distribution was symmetric (skewness 0.00), whereas with crowding skewness was -1.50, a long left tail. With crowd power at 5%, 20% and 25%, skewness was -0.16, -4.03 and -5.53 and the worst week -4.8%, -16.2% and -20.1%. Even when UIP held 100% (average carry about zero) the skewness with crowding was still -1.50: with or without average profit, the shape of the crash remained. Among 41,600 weeks pooled from 40 paths, 249 (0.60%) fell below -5%, where a bell curve with the same average and volatility would give only about 1.3. Raising the interest gap to 0, 4 and 10 points lifted the average yearly carry profit to 0.20%, 3.06% and 7.70%, and also raised the average loss in the worst week to 3.6%, 10.1% and 10.5%.",
+"tr": "<b>它说明了什么：</b>在默认设置下（利差4个百分点，波动率每年8%，UIP 30%，人群力度12%，20年），1号市场发生了4次平仓，年均收益6.9%，但最差一周为-11.5%，抹去了87周（约1.7年）平常的每周平均收益。相同设置下的其他市场运气不同：3号市场年均-1.1%，最大回撤66.0个百分点。对200个市场取平均，这笔交易年均赚3.1%，与理论值相符（无拥挤时的2.8%加上人群推动的0.3%价格上涨，即3.12%）。但最差一周平均为-10.0%，那一周抹去的收益中位数为155周（约3.0年），只有53.7%的周份是赚钱的。同样条件下无拥挤（力度0）时，最差一周为-3.5%，分布是对称的（偏度0.00），而有拥挤时偏度为-1.50，左侧尾部很长。人群力度为5%、20%和25%时，偏度分别为-0.16、-4.03和-5.53，最差一周分别为-4.8%、-16.2%和-20.1%。即使UIP完全成立（平均套息收益约为零），有拥挤时偏度仍为-1.50：无论平均是否有利润，暴跌的形态依然存在。在汇总40条路径的41,600周中，有249周（0.60%）低于-5%，而均值和波动率相同的钟形曲线只会给出约1.3周。把利差提高到0、4和10个百分点，年均套息收益升至0.20%、3.06%和7.70%，最差一周的平均亏损也增至3.6%、10.1%和10.5%。"
 },
 {
-"id": "s0762",
-"page": "commons",
-"ko": "<b>더 읽을거리:</b> Hardin, G. (1968), 「The Tragedy of the Commons」, <i>Science</i> 162. Ostrom, E. (1990), <i>Governing the Commons: The Evolution of Institutions for Collective Action</i>, Cambridge University Press. Gordon, H. S. (1954), 「The Economic Theory of a Common-Property Resource: The Fishery」, <i>Journal of Political Economy</i> 62.",
-"en": "<b>Further reading:</b> Hardin, G. (1968), \"The Tragedy of the Commons\", <i>Science</i> 162. Ostrom, E. (1990), <i>Governing the Commons: The Evolution of Institutions for Collective Action</i>, Cambridge University Press. Gordon, H. S. (1954), \"The Economic Theory of a Common-Property Resource: The Fishery\", <i>Journal of Political Economy</i> 62.",
-"tr": "<b>延伸阅读：</b>Hardin, G. (1968)，“The Tragedy of the Commons”，<i>Science</i> 162。Ostrom, E. (1990)，<i>Governing the Commons: The Evolution of Institutions for Collective Action</i>，Cambridge University Press。Gordon, H. S. (1954)，“The Economic Theory of a Common-Property Resource: The Fishery”，<i>Journal of Political Economy</i> 62。"
+"id": "s1210",
+"page": "fxrate",
+"ko": "환율이나 이익을 맞히는 모델이 아닙니다. 투자 판단에 쓰지 마세요. 금리 차이와 쏠림 규칙은 예시 값입니다.",
+"en": "It does not predict exchange rates or profits and is not for investment decisions; the rate gap and crowding rules are examples.",
+"tr": "它不预测汇率或利润，也不能用于投资决策；利差和拥挤规则只是示例。"
 },
 {
-"id": "s0794",
-"page": "cooperation",
-"ko": "다시 만나는 관계에서 협력은 퍼졌지만, 실수 10%에서는 12번 중 10번 무너졌어요.",
-"en": "Cooperation spread among repeat partners, but at 10% error it collapsed in 10 of 12 runs.",
-"tr": "合作在反复相遇的伙伴之间扩散开来，但在10%的出错率下，12次运行中有10次崩溃了。"
+"id": "s1211",
+"page": "fxrate",
+"ko": "실제 급락에 쏠림이 얼마나 작용했는지는 이 모델로 알 수 없어, 실제 자료로 따로 확인해야 합니다.",
+"en": "How much crowding drove real crashes cannot be told from this model and must be checked against real data.",
+"tr": "拥挤在多大程度上引发了真实的暴跌，从这个模型中无法得知，必须对照真实数据来核实。"
 },
 {
-"id": "s0795",
-"page": "cooperation",
-"ko": "이 모델에서는 다시 만날 가능성이 배신의 이득을 깎고, 실수가 잦으면 맞받아치기가 보복의 연쇄에 빠져요.",
-"en": "In this model, repeat meetings cut the payoff of betrayal, and frequent errors trap tit-for-tat in retaliation.",
-"tr": "在这个模型中，反复相遇会降低背叛的收益，而频繁的失误会让“以牙还牙”陷入相互报复。"
+"id": "s1212",
+"page": "fxrate",
+"ko": "<b>말하지 않는 것:</b> 이 모델로 금리나 환율을 맞힐 수 없고, 어떤 거래가 이익일지 알려 주지도 않습니다. 투자 판단에 쓰지 마세요. 모든 숫자(금리 차이, 변동성, 쏠림의 힘, UIP가 맞는 정도, 쏠림이 늘고 청산하는 규칙)는 이 프로젝트가 정한 예시이고, 원화를 비롯한 특정 통화나 어느 시기의 실제 환율·금리를 나타내지 않습니다. 현실의 환율에는 경제 지표, 정책, 국제 자금의 이동, 위험 회피 같은 훨씬 많은 요인이 있고, 이 모델은 \"쏠림과 일제 청산이 이런 계단과 급락의 모양을 만들 수 있다\"는 메커니즘 하나만 보여 줄 뿐 실제 급락의 원인이 이것이라고 증명하지 않습니다. 거래 비용, 레버리지, 세금, 여러 통화의 조합도 빠져 있습니다.",
+"en": "<b>What it doesn't show:</b> This model cannot predict interest rates or exchange rates, and does not tell you which trade will make money. Do not use it for investment decisions. Every number (the interest gap, volatility, crowd power, how much UIP holds, and the rules for the crowd to grow and unwind) is an example chosen by this project and stands for no particular currency, including the won, and for no real exchange rate or interest rate at any date. Real exchange rates have many more drivers, such as economic data, policy, international capital flows and risk aversion, and this model shows only one mechanism, that crowding and a joint exit can create this staircase-and-crash shape, without proving that this is what causes real crashes. Trading costs, leverage, taxes and portfolios of several currencies are also left out.",
+"tr": "<b>它没有说明什么：</b>这个模型无法预测利率或汇率，也不能告诉你哪笔交易会赚钱。请勿用于投资决策。所有数字（利差、波动率、人群力度、UIP成立的程度，以及人群增长和平仓的规则）都是本项目选定的示例，并不代表任何特定货币（包括韩元），也不代表任何日期的真实汇率或利率。真实汇率还受经济数据、政策、国际资本流动和风险厌恶等更多因素影响；本模型只展示一种机制，即拥挤和集体退出可能造成这种“爬楼梯式上涨再暴跌”的形态，并不证明现实中的暴跌就是由此引起的。交易成本、杠杆、税收以及多种货币的组合也都没有考虑。"
 },
 {
-"id": "s0796",
-"page": "cooperation",
-"ko": "협력이 무너진다면 사람 탓보다 만남이 이어지는지, 실수를 넘길 여지가 있는지부터 살펴볼 만해요.",
-"en": "If cooperation breaks down, check whether meetings repeat and whether mistakes can be forgiven.",
-"tr": "如果合作瓦解，可以检查相遇是否会重复，以及失误是否可以被原谅。"
+"id": "s1213",
+"page": "fxrate",
+"ko": "<b>모델의 뿌리:</b> 서로 다른 두 통화의 금리 차이와 환율의 관계를 말하는 <b>이자율 평가</b>가 뿌리입니다. 차익거래로 성립하는 <i>커버드</i> 이자율 평가와 달리, 환율을 미리 고정하지 않은 <i>비커버드</i>(UIP)는 기대되는 환율 변화가 금리 차이와 같다는 가설입니다. Fama(1984)는 「Forward and spot exchange rates」(<i>Journal of Monetary Economics</i>)에서 실제 자료가 이에 맞지 않는 점을 보였고(UIP 퍼즐), Meese와 Rogoff(1983)는 환율 모형이 임의보행보다 표본 밖에서 더 잘 맞히지 못한다고 보고했습니다. 쏠림과 급락은 Brunnermeier, Nagel, Pedersen(2009)의 「Carry Trades and Currency Crashes」가 다룬 주제입니다.",
+"en": "<b>Where the model comes from:</b> The root is <b>interest rate parity</b>, linking the interest gap between two currencies to the exchange rate. Unlike <i>covered</i> parity, which holds by arbitrage, <i>uncovered</i> parity (UIP) is the hypothesis that the expected change in the exchange rate equals the interest gap. Fama (1984), in &quot;Forward and spot exchange rates&quot; (<i>Journal of Monetary Economics</i>), showed real data do not fit it (the UIP puzzle), and Meese and Rogoff (1983) reported that exchange-rate models forecast out of sample no better than a random walk. Crowding and crashes are the theme of Brunnermeier, Nagel and Pedersen (2009), &quot;Carry Trades and Currency Crashes&quot;.",
+"tr": "<b>模型的来源：</b>根源是<b>利率平价</b>，它把两种货币的利差与汇率联系起来。与靠套利成立的<i>抛补</i>平价不同，<i>非抛补</i>平价（UIP）是一个假说，认为汇率的预期变动等于利差。Fama（1984）在&quot;Forward and spot exchange rates&quot;（<i>Journal of Monetary Economics</i>）中指出真实数据并不符合它（UIP之谜），Meese和Rogoff（1983）则报告，汇率模型的样本外预测并不比随机游走更好。拥挤与暴跌是Brunnermeier、Nagel和Pedersen（2009）&quot;Carry Trades and Currency Crashes&quot;的主题。"
 },
 {
-"id": "s0798",
-"page": "cooperation",
-"ko": "착한 사람이 이긴다는 뜻은 아니고, 점수표와 모방 규칙은 이 모델이 정한 값이에요.",
-"en": "It doesn't mean nice people win; the payoffs and imitation rule are set by this model.",
-"tr": "这并不意味着好人会赢；收益和模仿规则都是这个模型设定的。"
+"id": "s1214",
+"page": "fxrate",
+"ko": "<b>핵심 가정과 수식:</b> 환율 x(높은 금리 통화 가치의 로그)는 주마다 <code>x ← x − u·d/52 + k·(c' − c) + (σ/√52)·ε</code>로 바뀝니다(d 금리 차이, u UIP가 맞는 정도, c 쏠림, k 쏠림의 힘, σ 연 변동성). 캐리 수익은 <code>d/52 + Δx</code>라서 쏠림이 없으면 기대치가 <code>(1−u)·d</code>이고 u=1이면 0입니다. 쏠림은 <code>c ← c + r·c(1−c)</code>(r = 0.06×d/σ에 약간의 무작위)로 늘고, 주마다 <code>0.0004 + 0.02·c³</code>의 확률로 일제히 청산해 c가 50~90% 줄어듭니다.",
+"en": "<b>Key assumptions and formulas:</b> The exchange rate x (log of the high-rate currency's value) changes each week as <code>x ← x − u·d/52 + k·(c' − c) + (σ/√52)·ε</code> (d interest gap, u how much UIP holds, c crowding, k crowd power, σ yearly volatility). The carry profit is <code>d/52 + Δx</code>, so without crowding its expectation is <code>(1−u)·d</code>, and zero when u=1. Crowding grows as <code>c ← c + r·c(1−c)</code> (r = 0.06×d/σ with some randomness), and each week with probability <code>0.0004 + 0.02·c³</code> everyone unwinds and c shrinks by 50 to 90%.",
+"tr": "<b>主要假设与公式：</b>汇率x（高利率货币价值的对数）每周按<code>x ← x − u·d/52 + k·(c' − c) + (σ/√52)·ε</code>变化（d为利差，u为UIP成立的程度，c为拥挤度，k为人群力度，σ为年化波动率）。套息收益为<code>d/52 + Δx</code>，所以无拥挤时其期望是<code>(1−u)·d</code>，u=1时为零。拥挤度按<code>c ← c + r·c(1−c)</code>增长（r = 0.06×d/σ，并带有一定随机性），每周以<code>0.0004 + 0.02·c³</code>的概率所有人同时平仓，c缩小50%到90%。"
 },
 {
-"id": "s0799",
-"page": "cooperation",
-"ko": "현실의 평판·소문·제도가 협력을 얼마나 지키는지는 실제 사례를 관찰해 따로 확인해야 해요.",
-"en": "How much reputation, gossip and institutions sustain cooperation needs separate real-world checks.",
-"tr": "声誉、流言和制度在多大程度上维系合作，需要另外在现实世界中核实。"
+"id": "s1215",
+"page": "fxrate",
+"ko": "<b>이 프로젝트의 단순화:</b> 쏠림이 늘고 청산하는 규칙과 그 상수(0.06, 0.0004, 0.02, 청산 때 50~90% 감소), 시작 쏠림 10%, 변동성이 일정한 점, 이자 차이가 일정한 점은 이 프로젝트가 정한 값입니다. 실제 시장의 위험 회피, 유동성, 레버리지, 중앙은행 개입, 거래 비용은 없습니다. Fama의 퍼즐과 Brunnermeier 등의 분석을 재현한 것이 아니라 그 직관을 보여 주는 장난감 모델입니다.",
+"en": "<b>What this project simplifies:</b> The rules for the crowd to grow and unwind and their constants (0.06, 0.0004, 0.02, a 50 to 90% drop at an unwind), the 10% starting crowd, the constant volatility and the constant interest gap are this project's own choices. Real-market risk aversion, liquidity, leverage, central-bank intervention and trading costs are absent. It does not reproduce Fama's puzzle or the analysis of Brunnermeier et al.; it is a toy model that shows their intuition.",
+"tr": "<b>本项目做了哪些简化：</b>人群增长和平仓的规则及其常数（0.06、0.0004、0.02，平仓时下降50%到90%）、10%的初始人群、恒定的波动率和恒定的利差，都是本项目自己的选择。真实市场中的风险厌恶、流动性、杠杆、央行干预和交易成本均不在其中。它并不重现Fama之谜或Brunnermeier等人的分析，只是一个展示其直觉的玩具模型。"
 },
 {
-"id": "s0801",
-"page": "cooperation",
-"ko": "<b>모델의 뿌리:</b> \"죄수의 딜레마\"는 1950년경 RAND의 Flood와 Dresher가 만든 게임이고, 되풀이하면 협력이 가능한지는 Axelrod & Hamilton (1981)과 Axelrod (1984)가 대회와 진화 시뮬레이션으로 보였습니다. 이때 Anatol Rapoport가 낸 가장 단순한 전략 맞받아치기(Tit for Tat)가 우승했습니다.",
-"en": "<b>Where the model comes from:</b> The prisoner's dilemma is a game devised around 1950 by Flood and Dresher at RAND. Whether repetition allows cooperation was shown by Axelrod & Hamilton (1981) and Axelrod (1984) with tournaments and evolutionary simulation, where the simplest entry, Anatol Rapoport's Tit for Tat, won.",
-"tr": "<b>模型的来源：</b>囚徒困境是 Flood 和 Dresher 约在1950年于兰德公司（RAND）设计的博弈。重复博弈能否带来合作，由 Axelrod 和 Hamilton（1981）以及 Axelrod（1984）通过循环赛和演化模拟加以展示，其中最简单的参赛策略，即 Anatol Rapoport 的“以牙还牙”（Tit for Tat）获胜。"
+"id": "s1216",
+"page": "fxrate",
+"ko": "<b>이론값과 시뮬레이션:</b> 쏠림이 없을 때 평균 연 캐리 수익의 이론값 <code>(1−u)·d</code>는 UIP 30%에서 2.80%, 100%에서 0이고, 3,000개 시장×20년 시뮬레이션은 2.84%와 0.04%였습니다(표준오차 약 0.03). 쏠림이 있으면 환율 밀림의 합이 k×(끝 쏠림−처음 쏠림)이라 이론 2.80%에 0.32%를 더한 3.12%이고 시뮬레이션도 3.12%였습니다. 쏠림이 없을 때 주간 변동성은 이론 1.109%에 시뮬레이션 1.108%, 1주 자기상관은 -0.001이었습니다. 52주 뒤 환율 변화를 맞히는 오차(제곱평균제곱근)는 쏠림이 없을 때 변화 없음 예측이 7.82%p, 금리 차이만큼 약해진다는 UIP 예측이 8.36%p로, 이 모델은 UIP가 30%만 맞도록 만들어서 Meese–Rogoff식 결과가 나오게 되어 있으므로 실제 증거가 아닙니다.",
+"en": "<b>Theory versus simulation:</b> Without crowding, the theoretical average yearly carry profit <code>(1−u)·d</code> is 2.80% at UIP 30% and 0 at 100%, and the simulation of 3,000 markets × 20 years gave 2.84% and 0.04% (standard error about 0.03). With crowding the total price push is k×(final crowd − starting crowd), so theory is 2.80% plus 0.32% = 3.12%, and the simulation also gave 3.12%. Without crowding, weekly volatility was 1.108% in the simulation against a theoretical 1.109%, and one-week autocorrelation was -0.001. For guessing the exchange-rate change 52 weeks ahead, the root-mean-square error without crowding was 7.82 points for a no-change forecast and 8.36 points for the UIP forecast (the currency weakens by the gap); since this model makes UIP hold only 30%, a Meese–Rogoff-style result is built in and is not real evidence.",
+"tr": "<b>理论与模拟对照：</b>无拥挤时，理论上的年均套息收益<code>(1−u)·d</code>在UIP为30%时是2.80%，在100%时是0，3,000个市场×20年的模拟得到2.84%和0.04%（标准误约0.03）。有拥挤时，价格被推动的总幅度是k×（最终人群 − 初始人群），所以理论值是2.80%加0.32%，即3.12%，模拟结果同样是3.12%。无拥挤时，每周波动率在模拟中为1.108%，理论值为1.109%，一周自相关为-0.001。在预测52周后的汇率变动时，无拥挤情形下，“不变”预测的均方根误差为7.82个百分点，UIP预测（货币按利差贬值）为8.36个百分点；由于本模型只让UIP成立30%，类似Meese–Rogoff的结果是内置的，并不是真实的证据。"
 },
 {
-"id": "s0802",
-"page": "cooperation",
-"ko": "<b>핵심 가정과 수식:</b> 한 판의 점수는 배신 유혹 T &gt; 협력 R &gt; 서로 배신 P &gt; 당함 S이고, 되풀이에서 서로 번갈아 속이는 것보다 계속 협력하는 편이 낫도록 <code>2R &gt; T+S</code>를 둡니다(여기서는 3, 1, 0, T=5라 6 &gt; 5). 한 번뿐이면 배신이 늘 유리하지만, 만남이 이어질 확률이 충분히 크면 맞받아치기 같은 전략이 안정해집니다(Axelrod의 조건은 <code>w ≥ max((T−R)/(T−P), (T−R)/(R−S))</code>, 이 점수표에서는 w ≥ 2/3, 곧 평균 3판 정도). 슬라이더는 T, 판 수, 실수 확률, 처음 배신자 비율에 해당합니다.",
-"en": "<b>Key assumptions and formulas:</b> A single round pays temptation T &gt; reward R &gt; punishment P &gt; sucker S, and in repetition steady cooperation should beat taking turns exploiting each other, <code>2R &gt; T+S</code> (here 3, 1, 0 and T=5, so 6 &gt; 5). Defection always wins a one-shot game, but if the chance of meeting again is large enough, strategies like Tit for Tat become stable (Axelrod's condition is <code>w ≥ max((T−R)/(T−P), (T−R)/(R−S))</code>, which is w ≥ 2/3 for this payoff table, about 3 rounds on average). The sliders are T, the number of rounds, the mistake rate and the initial share of defectors.",
-"tr": "<b>关键假设与公式：</b>单轮博弈的收益满足 诱惑T &gt; 奖励R &gt; 惩罚P &gt; 受骗者S，而在重复博弈中，持续合作应优于轮流互相剥削，即 <code>2R &gt; T+S</code>（这里R=3、P=1、S=0、T=5，所以6 &gt; 5）。在一次性博弈中背叛总是获胜，但如果再次相遇的概率足够大，像“以牙还牙”这样的策略就会变得稳定（Axelrod 的条件是 <code>w ≥ max((T−R)/(T−P), (T−R)/(R−S))</code>，在这个收益表下为 w ≥ 2/3，平均约3轮）。滑块分别是T、轮数、失误率和背叛者的初始占比。"
+"id": "s1217",
+"page": "fxrate",
+"ko": "<b>더 읽을거리:</b> Fama (1984), 「Forward and spot exchange rates」, <i>Journal of Monetary Economics</i> / Meese &amp; Rogoff (1983), 「Empirical exchange rate models of the seventies: Do they fit out of sample?」, <i>Journal of International Economics</i> / Brunnermeier, Nagel &amp; Pedersen (2009), 「Carry Trades and Currency Crashes」, <i>NBER Macroeconomics Annual</i>.",
+"en": "<b>Further reading:</b> Fama (1984), &quot;Forward and spot exchange rates&quot;, <i>Journal of Monetary Economics</i> / Meese &amp; Rogoff (1983), &quot;Empirical exchange rate models of the seventies: Do they fit out of sample?&quot;, <i>Journal of International Economics</i> / Brunnermeier, Nagel &amp; Pedersen (2009), &quot;Carry Trades and Currency Crashes&quot;, <i>NBER Macroeconomics Annual</i>.",
+"tr": "<b>延伸阅读：</b>Fama (1984), &quot;Forward and spot exchange rates&quot;, <i>Journal of Monetary Economics</i> / Meese &amp; Rogoff (1983), &quot;Empirical exchange rate models of the seventies: Do they fit out of sample?&quot;, <i>Journal of International Economics</i> / Brunnermeier, Nagel &amp; Pedersen (2009), &quot;Carry Trades and Currency Crashes&quot;, <i>NBER Macroeconomics Annual</i>."
 },
 {
-"id": "s0803",
-"page": "cooperation",
-"ko": "<b>이 프로젝트의 단순화:</b> Axelrod의 대회는 사람들이 낸 전략이 모두와 한 번씩 겨루는 리그전이었고 진화 쪽은 점수에 비례해 늘어나게 했지만, 이 프로젝트는 전략 5개만 두고 무작위 상대 6명과 겨룬 뒤 페르미 규칙(Szabó & Tőke 1998)으로 모방하게 했습니다. 판 수는 확률이 아니라 고정된 횟수이고, 모방 온도 0.4와 돌연변이 1%는 이 프로젝트가 정한 값입니다.",
-"en": "<b>What this project simplifies:</b> Axelrod ran a round-robin of entries submitted by people and let strategies grow in proportion to their scores. This project has only five strategies, plays 6 random opponents, and copies with a Fermi rule (Szabó & Tőke 1998). The number of rounds is fixed rather than probabilistic, and the imitation temperature 0.4 and 1% mutation are values this project chose.",
-"tr": "<b>本项目简化了什么：</b>Axelrod 让人们提交参赛策略并进行循环赛，策略按得分的比例增长。本项目只有五种策略，与6个随机对手对战，并按费米规则（Szabó & Tőke 1998）进行模仿。回合数是固定的而非概率性的，模仿温度0.4和1%的突变是本项目选定的数值。"
+"id": "s1218",
+"page": "fxrate",
+"ko": "검증은 <code>node tools/validate-fxrate.js</code>로 할 수 있습니다. 시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시장 번호면 같은 결과가 나옵니다. 위 통계 카드의 왜도는 같은 설정으로 40개 경로를 따로 돌린 평균이고, ④의 점은 경로 24개 평균입니다.",
+"en": "You can verify with <code>node tools/validate-fxrate.js</code>. The simulation uses a seeded random generator (mulberry32), so the same market number gives the same result. The skewness in the statistics cards is the average over 40 separate paths with the same settings, and each point in chart ④ averages 24 paths.",
+"tr": "可以用<code>node tools/validate-fxrate.js</code>来验证。模拟使用带随机种子的随机数生成器（mulberry32），所以相同的市场编号会得到相同的结果。统计卡片中的偏度是相同设置下40条独立路径的平均值，图④中的每个点是24条路径的平均值。"
 },
 {
-"id": "s0804",
-"page": "cooperation",
-"ko": "<b>이론값과 시뮬레이션:</b> 닫힌 해는 없어서 방향만 비교했습니다. 한 판·두 판일 때 협력률이 3%(거의 모두 배신)이고 5판부터 90%로 올라, 만남이 이어져야 협력이 선다는 이론과 같은 방향입니다. 실수가 없으면 99%, 10%이면 11%로 무너져, 잡음이 크면 맞받아치기가 보복을 되풀이한다는 알려진 이야기와 맞습니다. 다만 Axelrod 계열의 \"맞받아치기가 최고\"는 재현되지 않았고, 실수가 있으면 파블로프와 너그러운 맞받아치기가 앞서는 Nowak & Sigmund (1993) 쪽과 가깝습니다(<code>node tools/validate-cooperation.js</code>).",
-"en": "<b>Theory versus simulation:</b> There is no closed-form answer, so only the direction was compared. With 1 or 2 rounds cooperation is 3% (nearly all defect) and from 5 rounds it rises to 90%, in line with the theory that cooperation needs repeated meetings. With no mistakes it is 99% and at 10% mistakes it collapses to 11%, matching the known story that noise makes Tit for Tat trade endless retaliation. \"Tit for Tat is best\" was not reproduced; with mistakes Pavlov and Generous Tit for Tat lead, closer to Nowak & Sigmund (1993) (<code>node tools/validate-cooperation.js</code>).",
-"tr": "<b>理论与模拟的对比：</b>这里没有封闭形式的答案，所以只比较了趋势。只有1轮或2轮时，合作率为3%（几乎所有人都背叛），从5轮起升至90%，与合作需要重复相遇的理论一致。没有失误时为99%，失误率10%时骤降至11%，符合噪声会让“以牙还牙”陷入无休止报复这一已知说法。“以牙还牙最好”这一结论并未重现；有失误时，Pavlov 和宽容的“以牙还牙”领先，更接近 Nowak & Sigmund（1993）的结果（<code>node tools/validate-cooperation.js</code>）。"
+"id": "s1219",
+"page": "fxrate",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/fxrate\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/fxrate\">GitHub</a>.",
+"tr": "代码可在<a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/fxrate\">GitHub</a>上获取。"
 },
 {
-"id": "s0805",
-"page": "cooperation",
-"ko": "<b>더 읽을거리:</b> Axelrod (1984), 『The Evolution of Cooperation』, Basic Books. Axelrod & Hamilton (1981), 「The Evolution of Cooperation」, Science 211. Nowak & Sigmund (1993), 「A strategy of win-stay, lose-shift that outperforms tit-for-tat in the Prisoner's Dilemma game」, Nature 364.",
-"en": "<b>Further reading:</b> Axelrod (1984), <i>The Evolution of Cooperation</i>, Basic Books. Axelrod & Hamilton (1981), \"The Evolution of Cooperation\", <i>Science</i> 211. Nowak & Sigmund (1993), \"A strategy of win-stay, lose-shift that outperforms tit-for-tat in the Prisoner's Dilemma game\", <i>Nature</i> 364.",
-"tr": "<b>延伸阅读：</b>Axelrod (1984)，<i>The Evolution of Cooperation</i>，Basic Books。Axelrod & Hamilton (1981)，“The Evolution of Cooperation”，<i>Science</i> 211。Nowak & Sigmund (1993)，“A strategy of win-stay, lose-shift that outperforms tit-for-tat in the Prisoner's Dilemma game”，<i>Nature</i> 364。"
+"id": "s1220",
+"page": "hagwon",
+"ko": "선행학습 딜레마 · 시뮬라티오 랩",
+"en": "The Cram-School Dilemma · Simulatio Lab",
+"tr": "课外班的困境 · Simulatio Lab"
 },
 {
-"id": "s0806",
-"page": "cooperation",
-"ko": "이 프로젝트가 직접 짠 구현이며 논문의 수치를 재현한 것은 아닙니다. 출처는 위 \"이론적 근거\"를 보세요.",
-"en": "This is this project's own implementation and does not reproduce any paper's numbers. See the theory notes above for sources.",
-"tr": "这是本项目自己的实现，并不重现任何论文中的数字。来源请参见上方的理论说明。"
+"id": "s1221",
+"page": "hagwon",
+"ko": "한 집만 학원을 한 개 더 보내면 순위가 오르지만, 모두가 보내면 순위는 그대로이고 비용만 늘어나는 이유를 시뮬레이션으로 직접 돌려보세요.",
+"en": "Run it yourself: why sending one more class helps a single family climb the ranking, yet when everyone does it the ranking stays put and only the bills grow.",
+"tr": "亲自运行一下：为什么多报一个班能让单个家庭的排名上升，而大家都这样做时排名不变，只有费用增加。"
 },
 {
-"id": "s0831",
-"page": "dating",
-"ko": "눈높이가 +10%p만 올라가도 짝을 찾는 평균 대기가 21.0라운드로 늘었어요.",
-"en": "Raising standards by just 10 points stretched the average wait to 21.0 rounds.",
-"tr": "仅仅把标准提高10分，平均等待时间就延长到21.0轮。"
+"id": "s1222",
+"page": "hagwon",
+"ko": "모두 학원을 한 개 더 보내면 왜 아무도 앞서지 못할까: 선행학습 딜레마",
+"en": "If Everyone Adds One More Class, Why Does No One Get Ahead? The Cram-School Dilemma",
+"tr": "大家都多报一个班，为什么没有人领先？课外班的困境"
 },
 {
-"id": "s0832",
-"page": "dating",
-"ko": "서로 상대가 자기 기준 이상이어야 맺어지는데, 둘 다 나보다 나은 사람을 원하면 기준이 내려오기 전엔 성립할 수 없어요.",
-"en": "A match needs both sides to clear each other's bar, so if both want someone better, no pair is possible until bars drop.",
-"tr": "配对需要双方都达到对方的标准，所以如果双方都想要更好的人，在标准降低之前就不可能成对。"
+"id": "s1223",
+"page": "hagwon",
+"ko": "옆집이 학원을 하나 더 보내면 우리도 보내야 할 것 같고, 보내면 우리 아이 순위가 오를 것 같습니다. 실제로 이 모델에서 한 집만 한 개 더 보내면 순위가 평균 7.5%p 오릅니다. 그런데 모든 집이 그렇게 하면 순위는 한 칸도 바뀌지 않고, 기본 설정에서 학원비 총액만 처음의 약 5배가 됩니다. 어느 집도 잘못 고른 것이 아닙니다. 순위는 누가 오르면 누군가는 내려가야 하는 값이기 때문입니다. 반대로 합격선이 고정된 방식에서는 모두가 함께 오를 수 있습니다.",
+"en": "When the family next door adds one more class, it feels like we should too, and that it would lift our child's ranking. In this model, if a single family sends one more class, its ranking really does rise, by 7.5 percentage points on average. But if every family does it, no one's rank changes at all, and in the default setting only the total bill grows, to about 5 times where it started. No family chose wrongly: a ranking is the kind of value where someone can rise only if someone else falls. With a fixed pass line, by contrast, everyone can rise together.",
+"tr": "邻居家多报了一个班，我们也觉得该跟着报，好让孩子的排名上升。在这个模型中，如果只有一个家庭多报一个班，它的排名确实会上升，平均提高 7.5 个百分点。但如果所有家庭都这样做，没有人的排名会改变，而在默认设置下只有总费用增加，涨到起点的约 5 倍。没有哪个家庭选错了：排名这种价值的特点是，只有别人下降，才可能有人上升。相反，如果合格线是固定的，大家就可以一起上升。"
 },
 {
-"id": "s0833",
-"page": "dating",
-"ko": "기다림이 길다면 눈높이 자체보다 기준이 얼마나 빨리 바뀌는지부터 살펴볼 만해요.",
-"en": "If waits are long, how fast standards adjust may be worth examining before the standards themselves.",
-"tr": "如果等待很久，在审视标准本身之前，也许应先考察标准调整得有多快。"
+"id": "s1224",
+"page": "hagwon",
+"ko": "가구 300개가 있고, 아이마다 학원 없이 얻을 점수(<b>기본 실력 + 운</b>)가 정해져 있습니다. 가구는 학원을 0~5개 보내고, 학원 한 개마다 점수가 <b>효과</b>(기본 0.30점, 기본 실력의 퍼짐을 1점으로 본 값)만큼 오릅니다. 처음에는 0~2개(평균 약 1개)로 시작합니다.",
+"en": "There are 300 households. Each child has a score they would get without classes (<b>basic ability + luck</b>). A household sends 0 to 5 classes, and each class adds the <b>effect</b> to the score (0.30 points by default, where the spread of basic ability counts as 1 point). Everyone starts with 0 to 2 classes (about 1 on average).",
+"tr": "共有 300 个家庭。每个孩子有一个不上课外班时能得到的分数（<b>基础能力 + 运气</b>）。每个家庭报 0 到 5 个班，每个班会在分数上加上<b>效果</b>（默认 0.30 分，其中基础能力的离散程度记为 1 分）。大家一开始都报 0 到 2 个班（平均约为 1 个）。"
 },
 {
-"id": "s0835",
-"page": "dating",
-"ko": "사랑이나 결혼이 이런 계산으로 이루어진다는 뜻이 아니고, 어떤 눈높이가 옳다는 판단도 아니에요.",
-"en": "It does not mean love or marriage works by such calculation, nor that any standard is right.",
-"tr": "这并不意味着恋爱或婚姻是按这种计算运转的，也不意味着哪种标准才是对的。"
+"id": "s1225",
+"page": "hagwon",
+"ko": "결과는 평가 방식에 따라 다릅니다. <b>상대평가</b>에서는 결과가 <b>순위</b>(나보다 점수가 낮은 아이의 비율)이고, <b>절대평가</b>에서는 고정된 합격선(0.6점)을 넘을 가능성입니다. 가구의 이득은 <code>결과 − 비용 × 학원 수</code>이며, 비용은 1등 순위의 가치를 100%로 본 비율(기본 4%p)입니다.",
+"en": "The result depends on how work is graded. With <b>relative grading</b> the result is the child's <b>rank</b> (the share of children scoring lower), and with <b>absolute grading</b> it is the chance of clearing a fixed pass line (0.6 points). A household's payoff is <code>result − cost × number of classes</code>, with cost measured as a share of the value of the top rank (4 percentage points by default).",
+"tr": "结果取决于评分方式。在<b>相对评价</b>下，结果是孩子的<b>排名</b>（得分比他低的孩子所占的比例）；在<b>绝对评价</b>下，结果是越过固定合格线（0.6 分）的可能性。家庭的收益为 <code>结果 − 费用 × 班数</code>，费用以最高排名价值的比例来衡量（默认 4 个百分点）。"
 },
 {
-"id": "s0836",
-"page": "dating",
-"ko": "성격, 거리, 타이밍처럼 모델에 없는 요소와 사람마다 다른 취향을 실제 관찰로 확인해야 해요.",
-"en": "Personality, distance, timing and differing tastes are missing and would need real observation.",
-"tr": "性格、距离、时机和不同的喜好都没有包含在内，需要真实的观察。"
+"id": "s1226",
+"page": "hagwon",
+"ko": "매 라운드 가구의 25%가 학원 수를 다시 정합니다. 그중 40%는 <b>따라 하기</b>(나보다 결과가 좋은 이웃이 학원을 더 보내면 한 단계 올림)를, 60%는 <b>시도해 보기</b>(한 단계 바꿔 보고 이득이 늘면 그대로 둠)를 합니다. 모두 직전 라운드의 상태를 보고 동시에 정합니다.",
+"en": "Each round 25% of households reconsider. Of those, 40% <b>imitate</b> (if a neighbor with a better result sends more classes, they go up one step) and 60% <b>experiment</b> (they try one step up or down and keep it if their payoff improves). All decisions are made together from the previous round's state.",
+"tr": "每一轮有 25% 的家庭重新考虑。其中 40% 是<b>模仿</b>（如果某个结果更好的邻居报的班更多，就向上加一步），60% 是<b>试探</b>（尝试向上或向下调整一步，收益改善就保留）。所有决定都根据上一轮的状态同时作出。"
 },
 {
-"id": "s0838",
-"page": "dating",
-"ko": "<b>모델의 뿌리:</b> 양쪽이 모두 동의해야 맺어지는 시장은 Gale와 Shapley(1962, 「College Admissions and the Stability of Marriages」, <i>American Mathematical Monthly</i>)의 안정 결혼 문제에서, 기준이 시간에 따라 내려가는 탐색은 McCall(1970)의 유보 임금(reservation wage) 탐색 이론에서 왔습니다. 짝짓기 시장의 탐색 모델은 Burdett와 Coles(1997)가 발전시켰습니다.",
-"en": "<b>Where the model comes from:</b> The idea that both sides must agree comes from the stable marriage problem of Gale and Shapley (1962, \"College Admissions and the Stability of Marriages\", <i>American Mathematical Monthly</i>); the falling standard comes from McCall&#x27;s (1970) reservation-wage search theory. Search models of the marriage market were developed by Burdett and Coles (1997).",
-"tr": "<b>模型的来源：</b>“双方都必须同意”这一想法来自 Gale 和 Shapley 的稳定婚姻问题（1962，“College Admissions and the Stability of Marriages”，<i>American Mathematical Monthly</i>）；标准逐渐降低则来自 McCall&#x27;s（1970）的保留工资搜寻理论。婚姻市场的搜寻模型由 Burdett 和 Coles（1997）发展。"
+"id": "s1227",
+"page": "hagwon",
+"ko": "<b>투입 상한 합의</b> 슬라이더는 모든 집이 \"최대 몇 개까지만 보내자\"고 정했다고 가정합니다. 합의가 지켜지는지, 어떻게 지키게 하는지는 이 모델 밖의 문제입니다.",
+"en": "The <b>agreed cap</b> slider assumes every household agreed to send at most that many classes. Whether the agreement holds, and how it would be kept, is outside this model.",
+"tr": "<b>约定上限</b>滑块假设所有家庭都约定最多报这么多个班。这个约定能否遵守、如何遵守，不在本模型的范围之内。"
 },
 {
-"id": "s0839",
-"page": "dating",
-"ko": "<b>핵심 가정과 수식:</b> 모든 사람의 매력 <i>a</i>는 0~1이고 모두가 같게 평가합니다. 내 기준은 <i>a</i> + eye이고, 만난 두 사람 <i>i</i>, <i>j</i>는 <i>a</i><sub><i>j</i></sub> ≥ <i>a</i><sub><i>i</i></sub> + eye 그리고 <i>a</i><sub><i>i</i></sub> ≥ <i>a</i><sub><i>j</i></sub> + eye일 때만 맺어지며, 짝이 없는 사람은 라운드마다 기준을 drift만큼 낮춥니다.",
-"en": "<b>Key assumptions and formulas:</b> Each person has an attractiveness <i>a</i> in 0 to 1, rated the same by everyone. My standard is <i>a</i> + eye, and two people <i>i</i> and <i>j</i> who meet pair up only if <i>a</i><sub><i>j</i></sub> ≥ <i>a</i><sub><i>i</i></sub> + eye and <i>a</i><sub><i>i</i></sub> ≥ <i>a</i><sub><i>j</i></sub> + eye; unpaired people lower their standard by drift each round.",
-"tr": "<b>关键假设与公式：</b>每个人都有一个0到1之间的吸引力<i>a</i>，所有人对它的评价一致。我的标准是<i>a</i> + eye，相遇的两人<i>i</i>和<i>j</i>只有在 <i>a</i><sub><i>j</i></sub> ≥ <i>a</i><sub><i>i</i></sub> + eye 且 <i>a</i><sub><i>i</i></sub> ≥ <i>a</i><sub><i>j</i></sub> + eye 时才会配成一对；没有配对的人每轮会把标准降低drift。"
+"id": "s1228",
+"page": "hagwon",
+"ko": "학원 한 개의 효과 <output id=\"o-beta\"></output>",
+"en": "Effect of one class <output id=\"o-beta\"></output>",
+"tr": "一个班的效果 <output id=\"o-beta\"></output>"
 },
 {
-"id": "s0840",
-"page": "dating",
-"ko": "<b>이 프로젝트의 단순화:</b> Gale–Shapley는 모두의 선호 순위를 알고 계산하는 알고리즘이고, 여기서는 아직 짝이 없는 사람끼리 무작위로 한 쌍씩 만납니다. 매력을 모두가 같게 평가한다는 가정(실제로는 취향이 갈립니다), 매력의 균등분포, 눈높이와 기준 하향의 값은 이 프로젝트가 정한 것입니다.",
-"en": "<b>What this project simplifies:</b> Gale–Shapley is an algorithm that works from everyone&#x27;s full preference rankings; here unpaired people simply meet one random partner per round. The assumption that everyone rates attractiveness alike (real tastes differ), the uniform distribution of attractiveness, and the values of eye and drift are this project&#x27;s own choices.",
-"tr": "<b>本项目简化了什么：</b>Gale–Shapley 是依据每个人完整偏好排序运行的算法；而这里没有配对的人每轮只是随机遇到一个对象。所有人对吸引力评价一致的假设（现实中口味各异）、吸引力的均匀分布，以及eye和drift的取值，都是本项目自己的选择。"
+"id": "s1229",
+"page": "hagwon",
+"ko": "학원 한 개가 점수를 올리는 크기(점). 클수록 한 집만 보냈을 때의 이득이 커져요",
+"en": "How much one class raises the score (points). The larger it is, the bigger the gain for a single family",
+"tr": "一个班能提高多少分数（分）。越大，单个家庭的收益越大"
 },
 {
-"id": "s0841",
-"page": "dating",
-"ko": "<b>이론값과 시뮬레이션:</b> 닫힌 해는 없지만 한 가지는 손으로 확인됩니다. eye &gt; 0이면 두 부등식을 더해 0 ≥ 2·eye가 되어 기준을 낮추기 전에는 아무도 맺어질 수 없고, 기준이 eye 이상 내려가야(눈높이 ÷ 하향 속도 라운드 이상) 첫 커플이 가능합니다. 시뮬레이션에서 eye +0.1, 하향 1%일 때 첫 커플은 12라운드, eye +0.3은 32라운드에 나오고, 하향 0%이면 짝 0%입니다. 평균 대기는 눈높이 −0.3에서 2.7, +0.1에서 21.0, +0.3에서 40.7 라운드입니다(<code>node tools/validate-more.js dating</code>).",
-"en": "<b>Theory versus simulation:</b> There is no closed form, but one thing can be checked by hand. If eye &gt; 0, adding the two inequalities gives 0 ≥ 2·eye, so nobody can pair before standards fall; the first couple needs the standard to fall by at least eye (eye ÷ drift rounds). In the simulation with eye +0.1 and drift 1%, the first couple appears at round 12, and with eye +0.3 at round 32; with drift 0% nobody pairs. The mean wait is 2.7 rounds at eye −0.3, 21.0 at +0.1 and 40.7 at +0.3 (<code>node tools/validate-more.js dating</code>).",
-"tr": "<b>理论与模拟的对比：</b>这里没有封闭形式，但有一点可以手算验证。如果eye &gt; 0，把两个不等式相加得到 0 ≥ 2·eye，所以在标准降低之前没有人能配成对；第一对需要标准至少降低eye（eye ÷ drift 轮）。在模拟中，eye为+0.1、drift为1%时，第一对出现在第12轮，eye为+0.3时出现在第32轮；drift为0%时没有人配对。平均等待轮数在eye为−0.3时是2.7轮，+0.1时是21.0轮，+0.3时是40.7轮（<code>node tools/validate-more.js dating</code>）。"
+"id": "s1230",
+"page": "hagwon",
+"ko": "학원 한 개의 비용 <output id=\"o-cost\"></output>",
+"en": "Cost of one class <output id=\"o-cost\"></output>",
+"tr": "一个班的费用 <output id=\"o-cost\"></output>"
 },
 {
-"id": "s0842",
-"page": "dating",
-"ko": "<b>더 읽을거리:</b> Gale, D. &amp; Shapley, L. S. (1962), 「College Admissions and the Stability of Marriages」, <i>American Mathematical Monthly</i>. / Becker, G. S. (1973), 「A Theory of Marriage: Part I」, <i>Journal of Political Economy</i>. / Roth, A. E. &amp; Sotomayor, M. (1990), 『Two-Sided Matching』, Cambridge University Press.",
-"en": "<b>Further reading:</b> Gale, D. and Shapley, L. S. (1962), \"College Admissions and the Stability of Marriages\", <i>American Mathematical Monthly</i>. / Becker, G. S. (1973), \"A Theory of Marriage: Part I\", <i>Journal of Political Economy</i>. / Roth, A. E. and Sotomayor, M. (1990), <i>Two-Sided Matching</i>, Cambridge University Press.",
-"tr": "<b>延伸阅读：</b>Gale, D. 和 Shapley, L. S. (1962)，“College Admissions and the Stability of Marriages”，<i>American Mathematical Monthly</i>。/ Becker, G. S. (1973)，“A Theory of Marriage: Part I”，<i>Journal of Political Economy</i>。/ Roth, A. E. 和 Sotomayor, M. (1990)，<i>Two-Sided Matching</i>，Cambridge University Press。"
+"id": "s1231",
+"page": "hagwon",
+"ko": "1등 순위의 가치를 100%로 볼 때 학원 한 개의 값. 이득보다 커지면 아무도 안 보내요",
+"en": "The price of one class as a share of the value of the top rank. When it exceeds the gain, nobody sends",
+"tr": "一个班的价格占最高排名价值的比例。超过收益时，就没有人去报班"
 },
 {
-"id": "s0846",
-"page": "daycare",
-"ko": "어린이집 감기 · 시뮬라티오 랩",
-"en": "Daycare Colds · Simulatio Lab",
-"tr": "托儿所里的感冒 · Simulatio Lab"
+"id": "s1232",
+"page": "hagwon",
+"ko": "투입 상한 합의 <output id=\"o-cap\"></output>",
+"en": "Agreed cap <output id=\"o-cap\"></output>",
+"tr": "约定上限 <output id=\"o-cap\"></output>"
 },
 {
-"id": "s0847",
-"page": "daycare",
-"ko": "같은 반 아이 20명이 모여 있으면 감기 같은 감염은 한 해에 몇 번이나 돌까요? 반 크기, 접촉, 아프면 쉬기, 면역이 결과를 어떻게 바꾸는지 시뮬레이션으로 직접 돌려보세요.",
-"en": "In a class of 20 children, how often does a cold-like infection go around in a year? Run a simulation to see how class size, contact, staying home when sick and immunity change the result.",
-"tr": "在一个 20 个孩子的班里，一年中类似感冒的感染会传播多少次？运行模拟，看看班级规模、接触程度、生病在家休息和免疫力如何改变结果。"
+"id": "s1233",
+"page": "hagwon",
+"ko": "모든 집이 최대 몇 개까지만 보내기로 했는지. 5는 합의 없음",
+"en": "The maximum number of classes every household agreed to. 5 means no agreement",
+"tr": "所有家庭约定的最大班数。5 表示没有约定"
 },
 {
-"id": "s0848",
-"page": "daycare",
-"ko": "어린이집에 다니기 시작하면 감기를 달고 산다고들 합니다. 아이가 약해서 그렇다고 생각하기 쉽지만, 이 단순한 모델에서는 아이가 특별히 약하지 않아도 같은 반 아이 20명 사이에서 한 해에 네 번 넘게 감염이 돕니다. 그리고 \"아프면 쉬기\"를 모두가 지켜도 횟수는 절반쯤만 줄어듭니다. 증상이 나타나기 전 하루 동안 이미 반에 퍼뜨리기 때문이에요. 누구의 잘못도 아니고, 아이들이 한 교실에서 가까이 지내는 구조가 만드는 일입니다.",
-"en": "People say children catch colds constantly once they start daycare. It is easy to blame weak children, but in this simple model, children with no special weakness still pass an infection around a class of 20 more than four times a year. And even if everyone stays home when sick, the count falls by only about half, because each child has already spread it to the class during the day before symptoms show. Nobody is at fault: this comes from the structure of children spending time close together in one room.",
-"tr": "人们常说孩子一上托儿所就总是感冒。很容易把原因归于孩子体弱，但在这个简单模型中，没有任何特别弱点的孩子，在 20 人的班里一年也会传递感染四次以上。而且即使所有人生病都在家休息，次数也只减少一半左右，因为每个孩子在症状出现前一天就已经把病传给了全班。没有人有错：这源于孩子们在同一间屋子里近距离相处的结构。"
+"id": "s1234",
+"page": "hagwon",
+"ko": "평가 방식 <output id=\"o-mode\"></output>",
+"en": "Grading <output id=\"o-mode\"></output>",
+"tr": "评价方式 <output id=\"o-mode\"></output>"
 },
 {
-"id": "s0849",
-"page": "daycare",
-"ko": "아이들은 <b>반</b>(교실)마다 모여 있고, 평일(월~금)에는 같은 반 아이끼리만 만납니다. 주말에는 반 안의 접촉이 없고, 반과 반 사이의 접촉도 없습니다. 아이는 <b>건강</b> → <b>잠복</b>(걸렸지만 아직 퍼뜨리지 않음, 평균 2일) → <b>아픔</b>(평균 5일 동안 퍼뜨림) → <b>회복 후 면역</b>(정해진 기간 동안 안 걸림) → 다시 건강으로 돌아갑니다.",
-"en": "Children sit in <b>classes</b> (rooms) and on weekdays (Monday to Friday) meet only classmates. There is no contact inside a class on weekends and none between classes. A child goes <b>healthy</b> → <b>incubating</b> (infected but not yet spreading, 2 days on average) → <b>sick</b> (spreading, 5 days on average) → <b>immune after recovery</b> (cannot be infected for a set time) → healthy again.",
-"tr": "孩子们分在各个<b>班级</b>（房间）里，工作日（周一至周五）只和同班同学接触。周末班内没有接触，班与班之间也没有接触。孩子的状态依次为：<b>健康</b> → <b>潜伏期</b>（已感染但尚不传染，平均 2 天）→ <b>患病</b>（具有传染性，平均 5 天）→ <b>康复后免疫</b>（一段时间内不会被感染）→ 再次回到健康。"
+"id": "s1235",
+"page": "hagwon",
+"ko": "상대평가 (순위)",
+"en": "Relative (rank)",
+"tr": "相对评价（排名）"
 },
 {
-"id": "s0850",
-"page": "daycare",
-"ko": "그날 등원한 아픈 아이가 한 명이면, 같은 반의 건강한 아이 한 명이 걸릴 확률은 하루 <b>접촉 강도 × 1%</b>(손씻기·환기를 하면 그만큼 줄어듦)입니다. 아픈 아이가 여럿이면 확률이 쌓입니다. 그래서 <b>반이 클수록</b> 만나는 짝이 많아져 퍼지는 속도가 빨라집니다.",
-"en": "If one sick child attends that day, a healthy classmate catches it with probability <b>contact level × 1%</b> per day (lower with handwashing and ventilation). With several sick children the chances add up. So <b>the bigger the class</b>, the more pairs there are, and the faster it spreads.",
-"tr": "如果有一个患病的孩子当天来上学，健康的同学每天被传染的概率是<b>接触程度 × 1%</b>（勤洗手和通风会使之降低）。有多个患病的孩子时，概率会叠加。因此<b>班级越大</b>，配对越多，传播得就越快。"
+"id": "s1236",
+"page": "hagwon",
+"ko": "절대평가 (합격선 고정)",
+"en": "Absolute (fixed pass line)",
+"tr": "绝对评价（固定合格线）"
 },
 {
-"id": "s0851",
-"page": "daycare",
-"ko": "<b>아프면 쉬기</b>: 아프기 시작한 첫날은 증상이 아직 없어 모두 등원합니다. 둘째 날부터는 정한 비율의 아이가 집에서 쉬고, 나머지는 계속 등원합니다. 쉬는 아이는 반을 감염시키지 못하지만, 그만큼 결석 일수가 늘어납니다.",
-"en": "<b>Staying home when sick</b>: on the first sick day there are no symptoms yet, so everyone attends. From the second day a set share of children rest at home and the rest keep attending. Children at home cannot infect the class, but absence days go up.",
-"tr": "<b>生病在家休息</b>：患病第一天还没有症状，所以大家都来上学。从第二天起，一定比例的孩子在家休息，其余的继续上学。在家的孩子不会传染给班里，但缺勤天数会增加。"
+"id": "s1237",
+"page": "hagwon",
+"ko": "결과를 순위로 볼지, 고정된 합격선을 넘을 가능성으로 볼지 골라요",
+"en": "Choose whether the result is a rank or the chance of clearing a fixed pass line",
+"tr": "选择结果是排名，还是越过固定合格线的可能性"
 },
 {
-"id": "s0852",
-"page": "daycare",
-"ko": "반 밖(집·동네)에서 들어오는 감염은 아주 단순한 항 하나로만 넣었습니다(하루 0.15%에, 아픈 아이가 많을수록 조금 더). 나은 뒤에는 면역 지속 기간 동안 안 걸리고, 그 뒤에도 걸릴 때마다 면역이 쌓여 걸릴 확률이 낮아집니다(걸린 횟수가 1번이면 약 77%, 3번이면 약 53%). 한 해(365일)를 돌려 아이 한 명이 걸린 평균 횟수를 셉니다.",
-"en": "Infection arriving from outside the class (home, neighborhood) is included as one very simple term (0.15% a day, a little more when many children are sick). After recovery a child cannot be infected for the immunity period, and after that each infection builds more immunity, lowering the chance of catching it again (about 77% after 1 infection, 53% after 3). One year (365 days) is simulated and the average number of times a child caught it is counted.",
-"tr": "来自班外（家庭、社区）的感染被作为一个非常简单的项纳入（每天 0.15%，患病孩子多时略高）。康复后，孩子在免疫期内不会被感染，此后每次感染都会累积更多免疫力，降低再次得病的概率（感染 1 次后约为 77%，3 次后约为 53%）。模拟一年（365 天），并统计每个孩子平均得病的次数。"
+"id": "s1238",
+"page": "hagwon",
+"ko": "같은 설정, 다른 가구들",
+"en": "Same settings, different households",
+"tr": "相同设置，换一批家庭"
 },
 {
-"id": "s0853",
-"page": "daycare",
-"ko": "반 크기 <output id=\"o-size\"></output>",
-"en": "Class size <output id=\"o-size\"></output>",
-"tr": "班级规模 <output id=\"o-size\"></output>"
+"id": "s1239",
+"page": "hagwon",
+"ko": "① 학원 경쟁 지켜보기",
+"en": "① Watching the Class Race",
+"tr": "① 观察报班竞赛"
 },
 {
-"id": "s0854",
-"page": "daycare",
-"ko": "한 반의 아이 수. 클수록 만나는 짝이 많아져 퍼지는 속도가 빨라져요",
-"en": "Children per class. Bigger classes have more pairs, so it spreads faster",
-"tr": "每班孩子数。班级越大，配对越多，传播越快"
+"id": "s1240",
+"page": "hagwon",
+"ko": "점 하나가 가구 하나입니다. 가로는 학원 없이 얻을 점수, 세로는 지금 점수이고, 진할수록 학원을 많이 보냅니다. 점들이 점선(학원 없을 때)보다 위로 올라가는데, 상대평가에서는 위쪽 절반 선도 함께 올라가서 그 선 위에 있는 집의 비율은 그대로입니다. 절대평가의 합격선은 제자리에 있습니다.",
+"en": "Each dot is one household. The horizontal axis is the score without classes and the vertical axis the score now; darker dots send more classes. Dots rise above the dashed line (no classes). With relative grading the upper-half line rises with them, so the share above it never changes; the pass line of absolute grading stays where it is.",
+"tr": "每个点代表一个家庭。横轴是不上课外班的得分，纵轴是当前得分；颜色越深，报的班越多。这些点会升到虚线（不报班）之上。在相对评价下，前一半的分界线会随之上升，所以位于其上的比例永远不变；绝对评价的合格线则保持原位。"
 },
 {
-"id": "s0855",
-"page": "daycare",
-"ko": "접촉 강도 <output id=\"o-contact\"></output>",
-"en": "Contact level <output id=\"o-contact\"></output>",
-"tr": "接触程度 <output id=\"o-contact\"></output>"
+"id": "s1241",
+"page": "hagwon",
+"ko": "<i style=\"background:#e5484d\"></i>위쪽 절반 선 (상대평가)",
+"en": "<i style=\"background:#e5484d\"></i>Upper-half line (relative)",
+"tr": "<i style=\"background:#e5484d\"></i>前一半分界线（相对）"
 },
 {
-"id": "s0856",
-"page": "daycare",
-"ko": "붙어서 놀고 장난감을 같이 쓰는 정도. 높을수록 한 번 만날 때 퍼질 확률이 커요",
-"en": "How closely children play and share toys. Higher means a bigger chance of spreading per encounter",
-"tr": "孩子们玩耍和共用玩具时靠得多近。数值越高，每次接触传染的概率越大"
+"id": "s1242",
+"page": "hagwon",
+"ko": "<i style=\"background:#1fa463\"></i>합격선 (절대평가, 고정)",
+"en": "<i style=\"background:#1fa463\"></i>Pass line (absolute, fixed)",
+"tr": "<i style=\"background:#1fa463\"></i>合格线（绝对，固定）"
 },
 {
-"id": "s0857",
-"page": "daycare",
-"ko": "아프면 쉬는 비율 <output id=\"o-stay\"></output>",
-"en": "Share who stay home when sick <output id=\"o-stay\"></output>",
-"tr": "生病时在家休息的比例 <output id=\"o-stay\"></output>"
+"id": "s1243",
+"page": "hagwon",
+"ko": "② 결과는 그대로, 학원비만 오른다",
+"en": "② The Result Stays, the Bill Grows",
+"tr": "② 结果不变，费用增加"
 },
 {
-"id": "s0858",
-"page": "daycare",
-"ko": "아프기 시작한 둘째 날부터 집에서 쉬는 아이의 비율. 쉬는 아이는 반에 퍼뜨리지 않아요",
-"en": "Share of children who rest at home from the second sick day. Children at home do not spread it in class",
-"tr": "从患病第二天起在家休息的孩子比例。在家的孩子不会在班里传染"
+"id": "s1244",
+"page": "hagwon",
+"ko": "회색은 평균 결과, 빨강은 가구당 학원비, 파랑은 둘의 차이인 순이득입니다. 상대평가에서는 평균 순위가 늘 50%라서 학원비가 오른 만큼 순이득이 줄어듭니다. 절대평가로 바꾸면 회색 선이 함께 올라갑니다.",
+"en": "Gray is the average result, red the bill per household, and blue their difference, the net payoff. With relative grading the average rank is always 50%, so the net payoff falls by exactly what the bill rises. Switch to absolute grading and the gray line rises too.",
+"tr": "灰线是平均结果，红线是每个家庭的费用，蓝线是它们的差值，即净收益。在相对评价下，平均排名始终是 50%，所以净收益下降的幅度恰好等于费用上升的幅度。切换到绝对评价，灰线也会上升。"
 },
 {
-"id": "s0859",
-"page": "daycare",
-"ko": "손씻기·환기로 줄인 전파 <output id=\"o-hyg\"></output>",
-"en": "Spread reduced by handwashing and ventilation <output id=\"o-hyg\"></output>",
-"tr": "勤洗手和通风降低的传播 <output id=\"o-hyg\"></output>"
+"id": "s1245",
+"page": "hagwon",
+"ko": "<i style=\"background:#8a93a6\"></i>평균 결과",
+"en": "<i style=\"background:#8a93a6\"></i>Average result",
+"tr": "<i style=\"background:#8a93a6\"></i>平均结果"
+},
+{
+"id": "s1246",
+"page": "hagwon",
+"ko": "<i style=\"background:#e5484d\"></i>학원비 (가구당)",
+"en": "<i style=\"background:#e5484d\"></i>Bill (per household)",
+"tr": "<i style=\"background:#e5484d\"></i>费用（每个家庭）"
+},
+{
+"id": "s1247",
+"page": "hagwon",
+"ko": "<i style=\"background:var(--accent)\"></i>순이득",
+"en": "<i style=\"background:var(--accent)\"></i>Net payoff",
+"tr": "<i style=\"background:var(--accent)\"></i>净收益"
+},
+{
+"id": "s1248",
+"page": "hagwon",
+"ko": "③ 몇 개씩 보내는 집이 몇 퍼센트일까",
+"en": "③ How Many Classes Does Each Household Send?",
+"tr": "③ 每个家庭报几个班？"
+},
+{
+"id": "s1249",
+"page": "hagwon",
+"ko": "라운드마다 학원 수별 가구 비율을 쌓았습니다. 연한 색에서 진한 색으로 바뀌면서 처음의 0~2개가 점점 많은 개수로 옮겨 갑니다.",
+"en": "The share of households by number of classes in every round, stacked. The mix shifts from the initial 0 to 2 classes toward larger numbers, from light to dark.",
+"tr": "各轮中按班数划分的家庭比例，叠加显示。构成从最初的 0 到 2 个班，逐步移向更大的数目，颜色由浅到深。"
+},
+{
+"id": "s1250",
+"page": "hagwon",
+"ko": "<i style=\"background:rgb(196,211,238)\"></i>0개",
+"en": "<i style=\"background:rgb(196,211,238)\"></i>0",
+"tr": "<i style=\"background:rgb(196,211,238)\"></i>0"
+},
+{
+"id": "s1251",
+"page": "hagwon",
+"ko": "<i style=\"background:rgb(160,178,213)\"></i>1개",
+"en": "<i style=\"background:rgb(160,178,213)\"></i>1",
+"tr": "<i style=\"background:rgb(160,178,213)\"></i>1"
+},
+{
+"id": "s1252",
+"page": "hagwon",
+"ko": "<i style=\"background:rgb(124,144,188)\"></i>2개",
+"en": "<i style=\"background:rgb(124,144,188)\"></i>2",
+"tr": "<i style=\"background:rgb(124,144,188)\"></i>2"
+},
+{
+"id": "s1253",
+"page": "hagwon",
+"ko": "<i style=\"background:rgb(88,111,162)\"></i>3개",
+"en": "<i style=\"background:rgb(88,111,162)\"></i>3",
+"tr": "<i style=\"background:rgb(88,111,162)\"></i>3"
+},
+{
+"id": "s1254",
+"page": "hagwon",
+"ko": "<i style=\"background:rgb(52,77,137)\"></i>4개",
+"en": "<i style=\"background:rgb(52,77,137)\"></i>4",
+"tr": "<i style=\"background:rgb(52,77,137)\"></i>4"
+},
+{
+"id": "s1255",
+"page": "hagwon",
+"ko": "<i style=\"background:rgb(16,44,112)\"></i>5개",
+"en": "<i style=\"background:rgb(16,44,112)\"></i>5",
+"tr": "<i style=\"background:rgb(16,44,112)\"></i>5"
+},
+{
+"id": "s1256",
+"page": "hagwon",
+"ko": "④ 한 집만 더 보내면 이득일까",
+"en": "④ Does One Family Gain by Sending One More?",
+"tr": "④ 一个家庭多报一个班会受益吗？"
+},
+{
+"id": "s1257",
+"page": "hagwon",
+"ko": "가로는 모든 집이 보내는 학원 수, 세로는 그 상태에서 한 집만 한 개 더 보낼 때 오르는 평균 폭(이론값)입니다. 파란 선이 빨간 점선(비용)보다 위인 초록 구간에서는 혼자 더 보내는 쪽이 이득이라, 모두가 같은 판단을 하게 됩니다.",
+"en": "The horizontal axis is the number of classes every household sends, and the vertical axis the average rise when just one household sends one more (theory). In the green zone, where the blue line is above the red dashed cost line, sending more alone pays, so everyone makes the same call.",
+"tr": "横轴是每个家庭所报的班数，纵轴是只有一个家庭多报一个班时的平均提升幅度（理论值）。在绿色区域，蓝线高于红色虚线的费用线，单独多报是划算的，所以大家会作出同样的决定。"
+},
+{
+"id": "s1258",
+"page": "hagwon",
+"ko": "<i style=\"background:#2f6fed\"></i>혼자 한 개 더 보냈을 때의 이득",
+"en": "<i style=\"background:#2f6fed\"></i>Gain from sending one more alone",
+"tr": "<i style=\"background:#2f6fed\"></i>单独多报一个班的收益"
+},
+{
+"id": "s1259",
+"page": "hagwon",
+"ko": "<i style=\"background:#e5484d\"></i>학원 한 개 비용",
+"en": "<i style=\"background:#e5484d\"></i>Cost of one class",
+"tr": "<i style=\"background:#e5484d\"></i>一个班的费用"
+},
+{
+"id": "s1260",
+"page": "hagwon",
+"ko": "⑤ 모두가 같은 수준이면 순이득은",
+"en": "⑤ If Everyone Sends the Same Number, What Is the Net Payoff?",
+"tr": "⑤ 如果所有人报的班数相同，净收益是多少？"
+},
+{
+"id": "s1261",
+"page": "hagwon",
+"ko": "가로는 모든 집이 보내는 학원 수, 세로는 가구당 순이득(이론값)입니다. 상대평가(빨강)는 늘어난 학원 수만큼 곧장 줄어들고, 절대평가(초록)는 합격 가능성이 오르는 동안 함께 오릅니다. 합의 상한을 두면 세로 점선에서 멈춥니다.",
+"en": "The horizontal axis is the number of classes every household sends, and the vertical axis the net payoff per household (theory). Under relative grading (red) it falls straight with each extra class, while under absolute grading (green) it rises as the chance of passing grows. An agreed cap stops things at the vertical dashed line.",
+"tr": "横轴是每个家庭所报的班数，纵轴是每个家庭的净收益（理论值）。在相对评价（红色）下，每多一个班就沿直线下降；在绝对评价（绿色）下，随着合格可能性增加而上升。约定上限会使过程停在垂直的虚线处。"
+},
+{
+"id": "s1262",
+"page": "hagwon",
+"ko": "<i style=\"background:#e5484d\"></i>상대평가",
+"en": "<i style=\"background:#e5484d\"></i>Relative grading",
+"tr": "<i style=\"background:#e5484d\"></i>相对评价"
+},
+{
+"id": "s1263",
+"page": "hagwon",
+"ko": "<i style=\"background:#1fa463\"></i>절대평가",
+"en": "<i style=\"background:#1fa463\"></i>Absolute grading",
+"tr": "<i style=\"background:#1fa463\"></i>绝对评价"
+},
+{
+"id": "s1264",
+"page": "hagwon",
+"ko": "모든 집이 학원을 늘리면 비용은 5배가 되는데, 상대평가에서는 평균 순위가 그대로예요.",
+"en": "If every household adds classes, cost rises fivefold but the average rank stays the same under relative grading.",
+"tr": "如果每个家庭都增加课程，费用会涨到五倍，但在相对评分下平均名次不变。"
+},
+{
+"id": "s1265",
+"page": "hagwon",
+"ko": "상대평가는 모두가 같이 오르면 순위가 안 변하니, 한 집에게 이득인 선택이 모이면 비용만 남는 구조일 수 있어요.",
+"en": "Under relative grading ranks do not change when everyone rises together, so choices that help one household can add up to cost alone.",
+"tr": "在相对评分下，大家一起进步时名次不会改变，所以对单个家庭有利的选择叠加起来，可能只剩下成本。"
+},
+{
+"id": "s1266",
+"page": "hagwon",
+"ko": "절대평가에서는 함께 오를 수 있었으니, 개별 선택보다 평가 방식이 열쇠일 수 있어요.",
+"en": "Under absolute grading everyone could rise together, so the grading method, rather than individual choices, may be the key.",
+"tr": "在绝对评分下，大家可以一起进步，所以关键也许是评分方式，而不是个人的选择。"
+},
+{
+"id": "s1267",
+"page": "hagwon",
+"ko": "<b>말하는 것:</b> 기본 설정(가구 300개, 효과 0.30점, 비용 4%p, 상대평가)에서 평균 학원 수는 0.87개로 시작해 15라운드에 2개, 30라운드에 3개, 55라운드에 4개를 넘었고 100라운드에는 4.39개가 되었습니다(74%의 집이 5개). 학원비 총액은 처음의 5.0배가 되었지만 평균 순위는 그대로 50%였고, 가구당 순이득은 47%에서 32%로 줄었습니다. 처음보다 순위가 오른 집은 40%, 내린 집은 47%로 서로 맞바꾼 셈입니다. 이론으로는 모든 집이 같은 수준일 때 한 집만 한 개 더 보내면 평균 7.5%p 오르고(시뮬레이션 7.6%p) 비용 4%p보다 커서 늘 이득입니다. 그런데 모든 집이 같은 수준이면 순위 변화는 최대 0이었고, 모두 0개일 때 순이득 50%가 모두 5개일 때 30%로 내려갑니다. 비용이 7.5%p보다 크면 이론상 아무도 안 보내는 쪽이 균형이었고(8%p부터), 시뮬레이션에서도 비용 10%p일 때 평균이 0.70개로 내려갔습니다. 점수가 중간쯤인 아이의 집이 평균 5.0개로 가장 많이 보냈고 맨 아래 10%는 2.9개, 맨 위 10%는 3.9개였습니다. 합의 상한을 2개로 두면 평균 1.81개, 학원비 총액은 처음의 2.1배, 순이득은 43%였고, 0개로 두면 순위는 그대로 순이득 50%였습니다. 절대평가로 바꾸면 평균 합격 가능성이 43%에서 73%로 올랐고(평균 3.48개), 오른 집 78%, 내린 집 7%, 순이득은 39%에서 59%로 늘었습니다.",
+"en": "<b>What it shows:</b> In the default setting (300 households, effect 0.30, cost 4 points, relative grading) the average number of classes started at 0.87, passed 2 by round 15, 3 by round 30 and 4 by round 55, and reached 4.39 by round 100 (74% of households sending 5). The total bill grew to 5.0 times the start, yet the average rank stayed at 50%, and the net payoff per household fell from 47% to 32%. 40% of households ended with a better rank than at the start and 47% with a worse one: ranks were simply swapped. In theory, when everyone sends the same number, one household sending one more gains 7.5 percentage points on average (7.6 in the simulation), more than the 4-point cost, so it always pays. Yet when every household sent the same number, the largest rank change was 0, and the net payoff drops from 50% with everyone at 0 classes to 30% with everyone at 5. When the cost was above 7.5 points, theory said that nobody sending was the equilibrium (from 8 points), and in the simulation the average fell to 0.70 at a cost of 10 points. Households of middling children sent the most, 5.0 on average, versus 2.9 for the bottom 10% and 3.9 for the top 10%. With an agreed cap of 2, the average was 1.81 classes, the total bill 2.1 times the start and the net payoff 43%; with a cap of 0 the ranks were the same and the net payoff was 50%. Under absolute grading the average chance of passing rose from 43% to 73% (3.48 classes on average), with 78% of households better off and 7% worse off, and the net payoff went from 39% to 59%.",
+"tr": "<b>它说明了什么：</b>在默认设置（300 个家庭、效果 0.30、费用 4 分、相对评价）下，平均班数从 0.87 开始，第 15 轮超过 2，第 30 轮超过 3，第 55 轮超过 4，到第 100 轮达到 4.39（74% 的家庭报 5 个班）。总费用涨到起点的 5.0 倍，但平均排名仍是 50%，每个家庭的净收益从 47% 降到 32%。40% 的家庭最终排名比起点更好，47% 更差：排名只是互相交换了位置。理论上，当所有人报的班数相同，单个家庭多报一个班平均提升 7.5 个百分点（模拟中为 7.6），高于 4 分的费用，因此总是划算的。然而，当所有家庭报的班数相同时，排名变化最大为 0，净收益从所有人 0 个班时的 50% 降到所有人 5 个班时的 30%。当费用高于 7.5 分时，理论上没有人报班就是均衡（从 8 分起），模拟中费用为 10 分时平均降到 0.70。中等水平孩子的家庭报得最多，平均 5.0 个，而后 10% 为 2.9 个，前 10% 为 3.9 个。约定上限为 2 时，平均为 1.81 个班，总费用是起点的 2.1 倍，净收益为 43%；上限为 0 时排名相同，净收益为 50%。在绝对评价下，平均合格可能性从 43% 升到 73%（平均 3.48 个班），78% 的家庭变好，7% 变差，净收益从 39% 升到 59%。"
+},
+{
+"id": "s1268",
+"page": "hagwon",
+"ko": "학원이 좋다거나 나쁘다는 뜻도, 어느 집의 선택이 잘못됐다는 뜻도 아니에요.",
+"en": "It does not say tutoring is good or bad, or that any household chose wrongly.",
+"tr": "它并不说补习是好是坏，也不说哪个家庭做错了选择。"
+},
+{
+"id": "s1269",
+"page": "hagwon",
+"ko": "흥미·돌봄·친구 같은 가치는 모델에 없어서, 실제 가정이 무엇을 얻는지는 따로 살펴봐야 해요.",
+"en": "Interest, care and friendships are absent from the model, so what real families gain would have to be looked at separately.",
+"tr": "模型中没有兴趣、关爱和友谊，因此真实家庭从中得到什么，需要另行考察。"
+},
+{
+"id": "s1270",
+"page": "hagwon",
+"ko": "<b>말하지 않는 것:</b> 실제 한국의 사교육비나 학원의 효과를 재현한 것이 아니며, 모든 숫자는 이 프로젝트가 정한 예시입니다. 학원을 보내는 것이 좋다거나 나쁘다는 뜻도, 어느 집의 선택이 잘못됐다는 뜻도 아닙니다. 모델은 구조만 보여 줍니다. 실제 학원에는 점수 말고도 흥미, 돌봄, 친구 같은 가치가 있을 수 있는데 이 모델은 순위(또는 합격 가능성)만 봅니다. 상대평가가 나쁘고 절대평가가 좋다는 뜻도 아닙니다. 합격선이 고정되면 모두가 오를 수 있다는 점을 보여 줄 뿐, 합격선을 어떻게 정하는지나 다른 부작용은 모델에 없습니다. 특정 제도나 정책을 지지하거나 비판하지 않습니다. 이것은 참고용 모델이며 실제 판단은 소아과 의사·교사 등 전문가와 함께 하세요.",
+"en": "<b>What it doesn't show:</b> This does not reproduce real private-tutoring spending or the effect of any class, and every number is an example chosen by this project. It does not say that sending children to classes is good or bad, or that any family chose wrongly: the model only shows a structure. Real classes can offer things beyond scores, such as interest, care and friends, but this model looks only at rank (or the chance of passing). Nor does it say that relative grading is bad and absolute grading good: it only shows that everyone can rise when the pass line is fixed, while how the line is set and any other side effects are not in the model. It neither supports nor criticizes any particular system or policy. This is a reference model; please make real decisions together with experts such as pediatricians and teachers.",
+"tr": "<b>它没有说明什么：</b>这并不还原真实的课外辅导支出，也不反映任何一个班的效果，所有数字都是本项目选取的示例。它并不是说送孩子上课外班是好事或坏事，也不是说哪个家庭选错了：模型只是展示一种结构。真实的课外班可能带来分数之外的东西，比如兴趣、关照和朋友，但本模型只看排名（或合格的可能性）。它也不是说相对评价不好、绝对评价好：它只是说明合格线固定时大家可以一起上升，至于合格线如何设定以及其他可能的副作用，则不在模型之内。它既不支持也不批评任何特定的制度或政策。这是一个参考模型；做真实决定时，请与儿科医生、教师等专家一起商量。"
+},
+{
+"id": "s1271",
+"page": "hagwon",
+"ko": "<b>모델의 뿌리:</b> 순위 자체가 가치인 '순위재(positional goods)' 개념은 Fred Hirsch가 1976년 책 『Social Limits to Growth』(Harvard University Press)에서 다루었고, Robert H. Frank가 『Choosing the Right Pond』(1985, Oxford University Press)에서 지위 경쟁으로 발전시켰습니다. 모두가 같은 선택을 하면 서로의 이득이 상쇄되는 구조는 죄수의 딜레마와 같은 대칭 게임으로, 모두가 선택을 바꿀 이유가 없는 상태를 John Nash(1950)의 내쉬균형이라 부릅니다.",
+"en": "<b>Where the model comes from:</b> Fred Hirsch discussed &quot;positional goods&quot;, where the rank itself is the value, in his 1976 book <i>Social Limits to Growth</i> (Harvard University Press), and Robert H. Frank developed it into a theory of status competition in <i>Choosing the Right Pond</i> (1985, Oxford University Press). A structure in which everyone making the same choice cancels everyone's gain is a symmetric game of the prisoner's-dilemma kind, and a state where nobody has a reason to change is a Nash equilibrium (John Nash, 1950).",
+"tr": "<b>模型的来源：</b>Fred Hirsch 在 1976 年出版的 <i>Social Limits to Growth</i>（Harvard University Press）中讨论了排名本身即价值的「地位物品」，Robert H. Frank 则在 <i>Choosing the Right Pond</i>（1985 年，Oxford University Press）中把它发展为地位竞争理论。每个人都作同样的选择会使所有人的收益相互抵消，这样的结构是囚徒困境类型的对称博弈，而没有人有理由改变的状态就是纳什均衡（John Nash，1950 年）。"
+},
+{
+"id": "s1272",
+"page": "hagwon",
+"ko": "<b>핵심 가정과 수식:</b> 점수는 <code>s = a + β·e</code>(a는 기본 실력과 운, e는 학원 수, β는 효과)입니다. 상대평가의 결과는 순위이고, 모두가 같은 e이면 모든 점수가 같은 만큼 올라 순위가 그대로입니다. 이때 한 집만 한 개 더 보내면 평균 순위 이득은 <code>Φ(β/(σ√2)) − 1/2</code>(σ는 학원 없을 때 점수의 표준편차 √1.25 = 1.118, Φ는 표준정규 분포함수)로, 이 값이 비용 c보다 크면 더 보내는 것이 우월전략입니다. 슬라이더는 β, c, 합의 상한(e의 최댓값), 평가 방식입니다.",
+"en": "<b>Key assumptions and formulas:</b> The score is <code>s = a + β·e</code> (a is basic ability plus luck, e the number of classes, β the effect). Under relative grading the result is the rank, and when everyone has the same e all scores shift by the same amount, so ranks do not change. Then the average rank gain of one household sending one more class is <code>Φ(β/(σ√2)) − 1/2</code> (σ is the standard deviation of the score without classes, √1.25 = 1.118, and Φ the standard normal distribution function); if this exceeds the cost c, sending more is a dominant strategy. The sliders are β, c, the agreed cap (the maximum of e) and the grading method.",
+"tr": "<b>主要假设与公式：</b>得分为 <code>s = a + β·e</code>（a 是基础能力加运气，e 是班数，β 是效果）。在相对评价下，结果是排名，而当所有人的 e 相同时，所有得分平移同样的量，所以排名不变。此时，一个家庭多报一个班的平均排名提升为 <code>Φ(β/(σ√2)) − 1/2</code>（σ 是不报班时得分的标准差，√1.25 = 1.118，Φ 是标准正态分布函数）；如果它超过费用 c，多报就是占优策略。滑块分别是 β、c、约定上限（e 的最大值）和评价方式。"
+},
+{
+"id": "s1273",
+"page": "hagwon",
+"ko": "<b>이 프로젝트의 단순화:</b> 학원의 효과는 점수에 일정하게 더해지고(수확체감 없음) 한 가구는 0~5개만 고를 수 있습니다. 기본 실력의 표준편차 1, 운의 표준편차 0.5, 효과 0.30, 합격선 0.6, 비용 4%p와 합격 가능성의 기울기 0.4는 모두 이 프로젝트가 정한 예시 값입니다. 가구 수는 300개이고, 따라 하기와 시도해 보기 규칙도 이 프로젝트의 단순화이며, 합의 상한은 모두가 지킨다고 가정합니다.",
+"en": "<b>What this project simplifies:</b> A class adds a constant amount to the score (no diminishing returns) and a household can choose only 0 to 5 classes. The standard deviation of basic ability (1), of luck (0.5), the effect (0.30), the pass line (0.6), the 4-point cost and the slope of the chance of passing (0.4) are all example values set by this project. There are 300 households, the imitating and experimenting rules are this project's simplification, and the agreed cap is assumed to be kept by everyone.",
+"tr": "<b>本项目做了哪些简化：</b>一个班给得分加上固定的量（没有边际收益递减），家庭只能选择 0 到 5 个班。基础能力的标准差（1）、运气的标准差（0.5）、效果（0.30）、合格线（0.6）、4 分的费用以及合格可能性的斜率（0.4）都是本项目设定的示例值。共有 300 个家庭，模仿与试探的规则是本项目的简化，并假定所有人都遵守约定上限。"
+},
+{
+"id": "s1274",
+"page": "hagwon",
+"ko": "<b>이론값과 시뮬레이션:</b> 이론 7.52%p에 대해 아이 20,000명의 시뮬레이션은 7.56%p(시드 3개 평균)였고, 효과 0.1, 0.2, 0.4, 0.5점에서도 이론 2.52, 5.03, 9.99, 12.41%p에 시뮬레이션 2.53, 5.05, 10.03, 12.46%p로 맞았습니다. 모두가 같은 수준이면 순위 변화의 최댓값은 0이었습니다. 절대평가에는 닫힌 식이 없어 수치 적분으로 계산했습니다. 학원 수가 늘어나는 동역학의 끝 상태는 이론상 균형(모두 5개)보다 낮은 평균 4.39개로, 순위가 양쪽 끝에 있는 아이의 집이 덜 보내기 때문입니다.",
+"en": "<b>Theory versus simulation:</b> Against the theoretical 7.52 points, a simulation with 20,000 children gave 7.56 (average of 3 seeds), and with effects of 0.1, 0.2, 0.4 and 0.5 points the theory of 2.52, 5.03, 9.99 and 12.41 points matched the simulated 2.53, 5.05, 10.03 and 12.46. When everyone had the same level, the largest rank change was 0. Absolute grading has no closed form, so it was computed by numerical integration. The end state of the dynamics, an average of 4.39 classes, is below the theoretical equilibrium (everyone at 5) because households whose children sit at either end of the ranking send fewer.",
+"tr": "<b>理论与模拟的对照：</b>理论值为 7.52 分，而用 20,000 个孩子的模拟得到 7.56（3 个种子的平均）；效果为 0.1、0.2、0.4 和 0.5 分时，理论值 2.52、5.03、9.99 和 12.41 分与模拟值 2.53、5.05、10.03 和 12.46 相吻合。当所有人水平相同时，排名变化最大为 0。绝对评价没有闭式解，因此用数值积分计算。动态过程的最终状态，即平均 4.39 个班，低于理论均衡（所有人都报 5 个），因为孩子处在排名两端的家庭报得较少。"
+},
+{
+"id": "s1275",
+"page": "hagwon",
+"ko": "<b>더 읽을거리:</b> Hirsch (1976), 『Social Limits to Growth』, Harvard University Press / Frank (1985), 『Choosing the Right Pond: Human Behavior and the Quest for Status』, Oxford University Press / Nash (1950), &quot;Equilibrium points in n-person games&quot;, <i>Proceedings of the National Academy of Sciences</i>.",
+"en": "<b>Further reading:</b> Hirsch (1976), <i>Social Limits to Growth</i>, Harvard University Press / Frank (1985), <i>Choosing the Right Pond: Human Behavior and the Quest for Status</i>, Oxford University Press / Nash (1950), &quot;Equilibrium points in n-person games&quot;, <i>Proceedings of the National Academy of Sciences</i>.",
+"tr": "<b>延伸阅读：</b>Hirsch (1976), <i>Social Limits to Growth</i>, Harvard University Press / Frank (1985), <i>Choosing the Right Pond: Human Behavior and the Quest for Status</i>, Oxford University Press / Nash (1950), &quot;Equilibrium points in n-person games&quot;, <i>Proceedings of the National Academy of Sciences</i>。"
+},
+{
+"id": "s1276",
+"page": "hagwon",
+"ko": "검증은 <code>node tools/validate-hagwon.js</code>로 할 수 있습니다. 시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 모두가 같은 수준일 때의 이론값은 정규분포 구간 합으로, 순위 이득은 오차함수 근사로 계산합니다.",
+"en": "You can verify with <code>node tools/validate-hagwon.js</code>. The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. Theory values for the case where everyone sends the same number are computed by summing over the normal distribution, and the rank gain uses an error-function approximation.",
+"tr": "可以用 <code>node tools/validate-hagwon.js</code> 进行验证。模拟使用带随机种子的随机数生成器（mulberry32），因此相同的种子会得到相同的结果。所有人报的班数相同时的理论值是通过对正态分布求和算出的，排名提升则使用了误差函数的近似。"
+},
+{
+"id": "s1277",
+"page": "hagwon",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/hagwon\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/hagwon\">GitHub</a>.",
+"tr": "代码可在 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/hagwon\">GitHub</a> 上查看。"
+},
+{
+"id": "s1307",
+"page": "inspection",
+"ko": "평균 10분 간격으로 무작위로 오는 버스의 평균 대기는 10.1분으로, 단순 계산 5분의 두 배였어요.",
+"en": "With random buses every 10 minutes on average, the average wait was 10.1 minutes, twice the naive 5.",
+"tr": "公交车平均每10分钟随机来一班时，平均等待时间为10.1分钟，是朴素估计的5分钟的两倍。"
+},
+{
+"id": "s1308",
+"page": "inspection",
+"ko": "긴 간격이 시간축에서 자리를 더 차지해 승객이 그 안에 떨어질 확률이 커서, 겪는 평균이 더 길어져요.",
+"en": "Long gaps take up more of the timeline, so riders land in them more often and the average they experience grows.",
+"tr": "长间隔在时间轴上占据更多的位置，所以乘客更常遇到它们，感受到的平均等待时间就变长了。"
+},
+{
+"id": "s1309",
+"page": "inspection",
+"ko": "체감과 통계가 다르면 누구를 세었는지부터 살펴볼 만해요. 간격이 불규칙할수록 차이가 커져요.",
+"en": "When feel and statistics differ, who was counted is worth checking first; the gap grows with irregularity.",
+"tr": "当体感与统计不一致时，首先值得检查统计的是哪些人；不规则程度越大，差距越大。"
+},
+{
+"id": "s1311",
+"page": "inspection",
+"ko": "실제 버스 대부분이 이렇게 들쭉날쭉하다는 뜻은 아니에요. 불규칙한 정도는 예시 값이에요.",
+"en": "It does not mean most real buses are this irregular; the irregularity is an example value.",
+"tr": "这并不意味着大多数真实的公交车都这么不规律；不规律程度只是一个示例值。"
+},
+{
+"id": "s1312",
+"page": "inspection",
+"ko": "실제 노선의 간격과 시간표를 보고 나오는 승객은 직접 관찰하고 재 봐야 확인할 수 있어요.",
+"en": "Real route gaps and riders who come by timetable need to be observed and measured.",
+"tr": "需要观察并测量真实线路的间隔，以及按时刻表前来的乘客。"
+},
+{
+"id": "s1314",
+"page": "inspection",
+"ko": "<b>모델의 뿌리:</b> 검사 역설(대기 시간의 역설)은 갱신 이론의 고전적인 결과입니다. 아무 때나 도착한 사람은 길이에 비례하는 확률로 간격에 걸리므로, 그 사람이 본 간격은 평균 간격보다 깁니다. 개설은 William Feller의 『An Introduction to Probability Theory and Its Applications』 2권(Wiley)과 Sheldon Ross의 『Introduction to Probability Models』(Academic Press)에 있습니다. 친구의 역설(Feld, 1991)도 같은 표본 편향입니다.",
+"en": "<b>Where the model comes from:</b> The inspection (waiting-time) paradox is a classical result of renewal theory. Someone arriving at a random moment lands in a gap with probability proportional to its length, so the gap they see is longer than the average gap. It is treated in William Feller's <i>An Introduction to Probability Theory and Its Applications</i>, volume 2 (Wiley), and Sheldon Ross's <i>Introduction to Probability Models</i> (Academic Press). The friendship paradox (Feld, 1991) is the same sampling bias.",
+"tr": "<b>模型的来源：</b>检验（等待时间）悖论是更新理论中的经典结果。在随机时刻到达的人，落入某个间隔的概率与该间隔的长度成正比，所以他看到的间隔比平均间隔更长。威廉·费勒的 <i>An Introduction to Probability Theory and Its Applications</i> 第 2 卷（Wiley）和谢尔登·罗斯的 <i>Introduction to Probability Models</i>（Academic Press）都讨论过。友谊悖论（Feld，1991）是同样的抽样偏差。"
+},
+{
+"id": "s1315",
+"page": "inspection",
+"ko": "<b>핵심 가정과 수식:</b> 간격 X의 평균을 μ, 변동계수를 c라 하면, 임의 시각에 도착한 사람이 본 간격의 평균은 <code>E[X²]/E[X] = μ(1 + c²)</code>입니다. 대기 시간은 그 간격 안에서 균등하게 놓이므로 평균 <code>μ(1 + c²)/2</code>입니다. 시간표대로(c = 0)면 μ/2, 무작위 도착(c = 1)이면 μ입니다. 슬라이더는 μ(평균 간격)와 c(불규칙한 정도)이고, 학급은 같은 식으로 학생이 속한 반의 평균 크기가 <code>25(1 + c²)</code>입니다.",
+"en": "<b>Key assumptions and formulas:</b> With gap mean μ and coefficient of variation c, the average gap seen by someone arriving at a random moment is <code>E[X²]/E[X] = μ(1 + c²)</code>. The wait is uniform within that gap, so the average wait is <code>μ(1 + c²)/2</code>: μ/2 on a strict timetable (c = 0) and μ for random arrivals (c = 1). The sliders are μ (average gap) and c (irregularity); for classes the same formula gives a student-experienced class size of <code>25(1 + c²)</code>.",
+"tr": "<b>主要假设和公式：</b>设间隔均值为 μ，变异系数为 c，则在随机时刻到达的人看到的平均间隔是 <code>E[X²]/E[X] = μ(1 + c²)</code>。等待时间在该间隔内均匀分布，所以平均等待时间是 <code>μ(1 + c²)/2</code>：严格按时刻表时（c = 0）为 μ/2，随机到达时（c = 1）为 μ。滑块是 μ（平均间隔）和 c（不规则程度）；对于班级，同一公式给出学生体验到的班级规模 <code>25(1 + c²)</code>。"
+},
+{
+"id": "s1316",
+"page": "inspection",
+"ko": "<b>이 프로젝트의 단순화:</b> 간격은 서로 독립인 감마분포이고(c = 1이면 지수분포, 곧 무작위 도착) 승객은 시간표를 모르고 시간축 전체에서 균일하게 도착한다고 보았습니다. 시간표를 보고 나가는 사람이나 불쾌한 기억이 오래 남는 심리는 다루지 않습니다. 불규칙한 정도 1.0과 학급의 0.3은 실제 노선·학교에서 잰 값이 아니라 예시이며, 학급 인원은 정수로 반올림하고 최소 1명으로 둡니다.",
+"en": "<b>What this project simplifies:</b> Gaps are independent gamma draws (c = 1 is the exponential, i.e. random arrivals) and passengers arrive uniformly over the whole time axis without knowing the timetable. People who go out by the timetable and the psychology of unpleasant memories lasting longer are not modeled. The irregularity of 1.0 and the class value of 0.3 are examples, not measured on real routes or schools, and class sizes are rounded to integers of at least 1.",
+"tr": "<b>本项目简化了什么：</b>间隔是独立的 gamma 分布抽样（c = 1 即指数分布，也就是随机到达），乘客不知道时刻表，在整条时间轴上均匀到达。按时刻表出门的人，以及不愉快的记忆更持久的心理，都没有建模。不规则程度 1.0 和班级的 0.3 只是示例，并非在真实线路或学校中测得，班级规模会取整为至少为 1 的整数。"
+},
+{
+"id": "s1317",
+"page": "inspection",
+"ko": "<b>이론값과 시뮬레이션:</b> 평균 간격 10분, 버스 2만 대 규모에서 불규칙한 정도 0, 0.25, 0.5, 1, 1.5, 2일 때 평균 대기는 측정 5.0, 5.3, 6.3, 10.1, 16.1, 25.0분으로 이론값 5.0, 5.3, 6.3, 10.0, 16.3, 25.0분과 맞았습니다. 학급(평균 25명, 2만 학급)에서 학생이 겪는 평균은 c = 0.3에서 27.3(이론 27.3), 1에서 49.8(이론 50.0)이었고, 1.5에서는 반올림 때문에 82.5로 이론 81.3과 조금 벗어났습니다.",
+"en": "<b>Theory versus simulation:</b> With a 10-minute average gap and about 20,000 buses, irregularities of 0, 0.25, 0.5, 1, 1.5 and 2 gave measured average waits of 5.0, 5.3, 6.3, 10.1, 16.1 and 25.0 minutes against theory values of 5.0, 5.3, 6.3, 10.0, 16.3 and 25.0. For classes (average 25, 20,000 classes), the student-experienced average was 27.3 at c = 0.3 (theory 27.3) and 49.8 at 1 (theory 50.0); at 1.5 it was 82.5 against 81.3 because of rounding.",
+"tr": "<b>理论与模拟对比：</b>平均间隔为 10 分钟、约 20,000 辆公交车时，不规则程度为 0、0.25、0.5、1、1.5 和 2，测得的平均等待时间分别为 5.0、5.3、6.3、10.1、16.1 和 25.0 分钟，理论值为 5.0、5.3、6.3、10.0、16.3 和 25.0。对于班级（平均 25 人，20,000 个班），学生体验到的平均值在 c = 0.3 时为 27.3（理论 27.3），在 1 时为 49.8（理论 50.0）；在 1.5 时由于取整，为 82.5，而理论值为 81.3。"
+},
+{
+"id": "s1318",
+"page": "inspection",
+"ko": "<b>더 읽을거리:</b> Feller (1971), <i>An Introduction to Probability Theory and Its Applications</i>, vol. 2, Wiley / Ross, <i>Introduction to Probability Models</i>, Academic Press (갱신 과정 장) / Feld (1991), Why your friends have more friends than you do, <i>American Journal of Sociology</i>.",
+"en": "<b>Further reading:</b> Feller (1971), <i>An Introduction to Probability Theory and Its Applications</i>, vol. 2, Wiley / Ross, <i>Introduction to Probability Models</i>, Academic Press (the chapter on renewal processes) / Feld (1991), Why your friends have more friends than you do, <i>American Journal of Sociology</i>.",
+"tr": "<b>延伸阅读：</b>Feller (1971), <i>An Introduction to Probability Theory and Its Applications</i>, vol. 2, Wiley / Ross, <i>Introduction to Probability Models</i>, Academic Press（关于更新过程的章节）/ Feld (1991), Why your friends have more friends than you do, <i>American Journal of Sociology</i>。"
+},
+{
+"id": "s1322",
+"page": "lanchester",
+"ko": "란체스터의 제곱 법칙 · 시뮬라티오 랩",
+"en": "Lanchester's Square Law · Simulatio Lab",
+"tr": "兰彻斯特平方律 · Simulatio Lab"
+},
+{
+"id": "s1323",
+"page": "lanchester",
+"ko": "병력이 두 배면 전투력은 네 배가 되는 란체스터의 제곱 법칙을, 파랑과 빨강 두 군대가 서로 병력을 깎아 먹는 시뮬레이션으로 직접 돌려보세요. 병력을 나눠 쓰면 왜 지는지도 확인합니다.",
+"en": "Run Lanchester's square law yourself: two abstract armies wear each other down, and doubling the soldiers makes a force four times as strong. See why splitting your force loses.",
+"tr": "亲自运行兰彻斯特平方律：两支抽象的军队相互消耗，士兵数量翻倍会使战力变为四倍。看看为什么分兵会输。"
+},
+{
+"id": "s1324",
+"page": "lanchester",
+"ko": "병력이 두 배면 두 배 강할 거라고 생각하기 쉽습니다. 그런데 서로 겨누어 쏘는 싸움에서는 병력을 두 배로 늘리면 네 배 강해집니다. 병사가 많을수록 상대를 더 빨리 줄이고, 그만큼 내 쪽 손실도 더 빨리 줄기 때문입니다. 그래서 힘을 둘로 나눠 한쪽씩 차례로 보내면, 합치면 이길 군대도 질 수 있습니다. 이것은 추상적인 파랑과 빨강 두 군대로 보는 수학 모델이며, 어떤 실제 전투나 전쟁을 말하는 것이 아닙니다.",
+"en": "It is easy to assume that twice the soldiers means twice the strength. But when both sides aim and fire at each other, doubling the numbers makes a force four times as strong: more soldiers wear the enemy down faster, and so their own losses shrink faster too. That is why splitting a force in two and sending the halves one after another can make an army lose a fight it would have won together. This is a mathematical model of two abstract armies, blue and red. It is not a claim about any real battle or war.",
+"tr": "人们很容易以为士兵多一倍，战力就多一倍。但当双方都瞄准并向对方开火时，数量翻倍会使战力变为四倍：士兵越多，削弱敌人越快，因此自己的损失也减少得越快。这就是为什么把兵力一分为二、让两半先后上阵，可能让一支军队输掉合在一起本可打赢的战斗。这是一个关于蓝、红两支抽象军队的数学模型，并不是对任何真实战役或战争的论断。"
+},
+{
+"id": "s1325",
+"page": "lanchester",
+"ko": "<b>파랑</b>과 <b>빨강</b> 두 군대의 점들이 서로 병력을 깎아 먹습니다. 한 걸음(단계)마다 병사 한 명이 상대 한 명을 쓰러뜨릴 확률이 그 군대의 <b>질</b>입니다. 질은 숙련도나 무기의 좋음 같은 병사 한 명의 솜씨로 이해하면 됩니다.",
+"en": "Dots of two armies, <b>blue</b> and <b>red</b>, wear each other down. In each step, the chance that one soldier takes out one enemy is the army's <b>quality</b>, which you can read as the skill or equipment of a single soldier.",
+"tr": "<b>蓝</b>、<b>红</b>两支军队的点相互消耗。每一步中，一名士兵击倒一名敌人的概率就是该军队的<b>质量</b>，可以理解为单个士兵的技能或装备。"
+},
+{
+"id": "s1326",
+"page": "lanchester",
+"ko": "<b>사각 법칙</b>(겨누어 쏘기)에서는 병력 전체가 상대 아무에게나 쏩니다. 병사가 많을수록 상대를 더 빨리 줄여, 전투력이 <b>질 × 병력²</b>로 커집니다. <b>선형 법칙</b>(일대일 맞붙기)에서는 서로 마주한 쌍끼리만 싸우므로 전투력이 <b>질 × 병력</b>일 뿐입니다.",
+"en": "Under the <b>square law</b> (aimed fire) every soldier can fire at any enemy, so more soldiers shrink the enemy faster and strength grows as <b>quality × numbers²</b>. Under the <b>linear law</b> (one-to-one fights) only facing pairs fight, so strength is just <b>quality × numbers</b>.",
+"tr": "在<b>平方律</b>（瞄准射击）下，每名士兵都可以向任何敌人开火，所以士兵越多，削弱敌人越快，战力按<b>质量 × 数量²</b>增长。在<b>线性律</b>（一对一格斗）下，只有面对面的成对者交战，所以战力就是<b>质量 × 数量</b>。"
+},
+{
+"id": "s1327",
+"page": "lanchester",
+"ko": "<b>나뉘어 싸우기</b>를 고르면 한쪽 군대가 반씩 둘로 나뉘어 도착합니다. 두 번째 반은 첫 반이 모두 쓰러진 뒤에야 전선에 들어옵니다. 그 사이 상대는 줄어든 채로 계속 싸웁니다.",
+"en": "If you pick <b>split</b>, one army arrives as two halves. The second half only reaches the front once the first half has been wiped out, while the enemy keeps fighting with whatever it has left.",
+"tr": "如果选择<b>分兵</b>，一支军队会分成两半先后到达。第二半要等第一半被消灭后才到达前线，而敌人则一直用剩下的兵力继续作战。"
+},
+{
+"id": "s1328",
+"page": "lanchester",
+"ko": "아래 <b>예시 장면</b> 버튼으로 병력 2배, 나뉘면 지는 경우, 선형 법칙, 질과 병력의 맞바꿈을 바로 볼 수 있습니다.",
+"en": "The <b>scene</b> buttons below jump straight to doubling the soldiers, splitting up and losing, the linear law, and quality against numbers.",
+"tr": "下方的<b>场景</b>按钮可直接跳转到士兵翻倍、分兵而败、线性律，以及质量对数量。"
+},
+{
+"id": "s1329",
+"page": "lanchester",
+"ko": "파랑 병력 수 <output id=\"o-a\"></output>",
+"en": "Blue soldiers <output id=\"o-a\"></output>",
+"tr": "蓝方士兵 <output id=\"o-a\"></output>"
+},
+{
+"id": "s1330",
+"page": "lanchester",
+"ko": "처음 파랑 점의 수",
+"en": "Number of blue dots at the start",
+"tr": "开始时蓝点的数量"
+},
+{
+"id": "s1331",
+"page": "lanchester",
+"ko": "빨강 병력 수 <output id=\"o-b\"></output>",
+"en": "Red soldiers <output id=\"o-b\"></output>",
+"tr": "红方士兵 <output id=\"o-b\"></output>"
+},
+{
+"id": "s1332",
+"page": "lanchester",
+"ko": "처음 빨강 점의 수",
+"en": "Number of red dots at the start",
+"tr": "开始时红点的数量"
+},
+{
+"id": "s1333",
+"page": "lanchester",
+"ko": "질 비율 (파랑 ÷ 빨강) <output id=\"o-q\"></output>",
+"en": "Quality ratio (blue ÷ red) <output id=\"o-q\"></output>",
+"tr": "质量比（蓝 ÷ 红） <output id=\"o-q\"></output>"
+},
+{
+"id": "s1334",
+"page": "lanchester",
+"ko": "1이면 병사 한 명의 솜씨가 같음. 0.25면 빨강 병사가 4배 정확함",
+"en": "1 means equally skilled soldiers. 0.25 means red soldiers are 4 times as accurate",
+"tr": "1 表示士兵技能相同。0.25 表示红方士兵的命中率是 4 倍"
+},
+{
+"id": "s1335",
+"page": "lanchester",
+"ko": "싸움의 방식 <output id=\"o-law\"></output>",
+"en": "Way of fighting <output id=\"o-law\"></output>",
+"tr": "作战方式 <output id=\"o-law\"></output>"
+},
+{
+"id": "s1336",
+"page": "lanchester",
+"ko": "사각 법칙: 겨누어 쏘기",
+"en": "Square law: aimed fire",
+"tr": "平方律：瞄准射击"
+},
+{
+"id": "s1337",
+"page": "lanchester",
+"ko": "선형 법칙: 일대일 맞붙기",
+"en": "Linear law: one-to-one fights",
+"tr": "线性律：一对一格斗"
+},
+{
+"id": "s1338",
+"page": "lanchester",
+"ko": "같은 병력과 질이라도 방식에 따라 결과가 크게 달라집니다",
+"en": "The same numbers and quality give very different outcomes depending on the way of fighting",
+"tr": "数量和质量相同，作战方式不同，结果也大不相同"
+},
+{
+"id": "s1339",
+"page": "lanchester",
+"ko": "모여서 vs 나뉘어 <output id=\"o-split\"></output>",
+"en": "Together vs split <output id=\"o-split\"></output>",
+"tr": "合兵与分兵 <output id=\"o-split\"></output>"
+},
+{
+"id": "s1340",
+"page": "lanchester",
+"ko": "둘 다 모여서 싸움",
+"en": "Both fight together",
+"tr": "双方合兵作战"
+},
+{
+"id": "s1341",
+"page": "lanchester",
+"ko": "파랑이 둘로 나뉘어 차례로",
+"en": "Blue arrives in two halves",
+"tr": "蓝方分两半到达"
+},
+{
+"id": "s1342",
+"page": "lanchester",
+"ko": "빨강이 둘로 나뉘어 차례로",
+"en": "Red arrives in two halves",
+"tr": "红方分两半到达"
+},
+{
+"id": "s1343",
+"page": "lanchester",
+"ko": "나뉜 군대의 두 번째 반은 첫 반이 쓰러진 뒤에 들어옵니다",
+"en": "The second half of the split army joins after the first half has fallen",
+"tr": "分兵的后一半在前一半倒下之后加入"
+},
+{
+"id": "s1344",
+"page": "lanchester",
+"ko": "같은 설정, 다른 우연",
+"en": "Same settings, different chance",
+"tr": "相同设置，不同运气"
+},
+{
+"id": "s1345",
+"page": "lanchester",
+"ko": "① 두 군대의 싸움",
+"en": "① The Two Armies Fight",
+"tr": "① 两支军队交战"
+},
+{
+"id": "s1346",
+"page": "lanchester",
+"ko": "파랑(왼쪽)과 빨강(오른쪽) 점이 서로 겨눕니다. 가는 선은 이번 단계의 사격이고 회색 점은 쓰러진 병사입니다. 연한 점은 아직 도착하지 않은 뒤쪽 무리입니다. 위쪽에 남은 병력이 실시간으로 보입니다.",
+"en": "Blue (left) and red (right) dots aim at each other. Thin lines are this step's shots and gray dots are fallen soldiers. Pale dots are a second half that has not arrived yet. The live counts are shown at the top.",
+"tr": "蓝点（左）和红点（右）互相瞄准。细线是这一步的射击，灰点是倒下的士兵。浅色的点是尚未到达的后一半。实时数量显示在顶部。"
+},
+{
+"id": "s1347",
+"page": "lanchester",
+"ko": "예시 장면:",
+"en": "Try a scene:",
+"tr": "试试一个场景："
+},
+{
+"id": "s1348",
+"page": "lanchester",
+"ko": "병력 2배",
+"en": "Double the soldiers",
+"tr": "士兵翻倍"
+},
+{
+"id": "s1349",
+"page": "lanchester",
+"ko": "나뉘면 진다",
+"en": "Split up and lose",
+"tr": "分兵而败"
+},
+{
+"id": "s1350",
+"page": "lanchester",
+"ko": "선형 법칙으로",
+"en": "Same fight, linear law",
+"tr": "同一场战斗，线性律"
+},
+{
+"id": "s1351",
+"page": "lanchester",
+"ko": "질 vs 병력",
+"en": "Quality vs numbers",
+"tr": "质量对数量"
+},
+{
+"id": "s1352",
+"page": "lanchester",
+"ko": "② 남은 병력의 변화",
+"en": "② Soldiers Left Over Time",
+"tr": "② 随时间剩余的士兵"
+},
+{
+"id": "s1353",
+"page": "lanchester",
+"ko": "굵은 선은 이번 싸움, 점선은 우연을 평균낸 기대 곡선입니다(모여서 싸울 때). 사각 법칙에서는 처음엔 천천히, 힘이 센 쪽이 앞서기 시작하면 갈수록 빠르게 한쪽이 무너집니다.",
+"en": "The thick lines are this fight and the dashed lines the expected curves with chance averaged out (when fighting together). Under the square law the contest starts slowly, then the weaker side collapses ever faster.",
+"tr": "粗线是这场战斗，虚线是把偶然性取平均后的期望曲线（合兵作战时）。在平方律下，较量起初缓慢，之后较弱的一方崩溃得越来越快。"
+},
+{
+"id": "s1354",
+"page": "lanchester",
+"ko": "<i style=\"background:#2f6fed\"></i>파랑",
+"en": "<i style=\"background:#2f6fed\"></i>Blue",
+"tr": "<i style=\"background:#2f6fed\"></i>蓝"
+},
+{
+"id": "s1355",
+"page": "lanchester",
+"ko": "<i style=\"background:#e5484d\"></i>빨강",
+"en": "<i style=\"background:#e5484d\"></i>Red",
+"tr": "<i style=\"background:#e5484d\"></i>红"
+},
+{
+"id": "s1356",
+"page": "lanchester",
+"ko": "<i style=\"background:#8a93a6\"></i>점선: 기대 곡선",
+"en": "<i style=\"background:#8a93a6\"></i>Dashed: expected curve",
+"tr": "<i style=\"background:#8a93a6\"></i>虚线：期望曲线"
+},
+{
+"id": "s1357",
+"page": "lanchester",
+"ko": "③ 전투력 = 질 × 병력²",
+"en": "③ Strength = Quality × Numbers²",
+"tr": "③ 战力 = 质量 × 数量²"
+},
+{
+"id": "s1358",
+"page": "lanchester",
+"ko": "지금 전선에서 싸우는 병력의 전투력입니다(처음 더 센 쪽을 100%로). 사각 법칙에서는 두 선의 차이 <code>α·A² − β·B²</code>가 싸우는 내내 거의 일정해서, 두 선이 나란히 내려갑니다. 나뉘어 도착하면 두 번째 반이 들어올 때 선이 뛰어오릅니다.",
+"en": "The strength of the force now at the front (the stronger side at the start is 100%). Under the square law the gap <code>α·A² − β·B²</code> stays almost constant throughout, so the two lines slide down in parallel. If an army arrives in halves, its line jumps when the second half enters.",
+"tr": "当前在前线的部队的战力（开局较强的一方为 100%）。在平方律下，差值 <code>α·A² − β·B²</code> 始终几乎不变，所以两条线平行下降。如果一支军队分两半到达，后一半加入时它的线会跳升。"
+},
+{
+"id": "s1359",
+"page": "lanchester",
+"ko": "④ 모이면 이기고 나뉘면 지는가",
+"en": "④ Together Wins, Split Loses?",
+"tr": "④ 合兵则胜，分兵则败？"
+},
+{
+"id": "s1360",
+"page": "lanchester",
+"ko": "지금 병력과 질로 다섯 가지 경우를 이론값으로 비교합니다. 막대는 이긴 쪽에 처음 병력의 몇 %가 남는지입니다. 사각 법칙에서는 큰 쪽이 나뉘면 크게 손해를 보지만, 선형 법칙에서는 나뉘어도 결과가 같습니다.",
+"en": "Five cases for the current numbers and quality, compared by theory. A bar is the share of the winner's starting force that is left. Under the square law the larger side loses a lot by splitting; under the linear law splitting changes nothing.",
+"tr": "针对当前的数量和质量，按理论比较五种情形。柱子表示获胜方初始兵力中剩下的比例。在平方律下，较大的一方分兵会损失很多；在线性律下，分兵没有任何影响。"
+},
+{
+"id": "s1361",
+"page": "lanchester",
+"ko": "⑤ 누가 이기나: 병력 비율 × 질 비율",
+"en": "⑤ Who Wins: Size Ratio × Quality Ratio",
+"tr": "⑤ 谁获胜：规模比 × 质量比"
+},
+{
+"id": "s1362",
+"page": "lanchester",
+"ko": "가로는 병력 비율, 세로는 질 비율입니다. 파랑이 이기는 곳은 파란색, 빨강이 이기는 곳은 빨간색이고 진할수록 이긴 쪽에 많이 남습니다. 실선이 사각 법칙의 균형선(질 × 병력² 가 같은 곳), 점선이 선형 법칙의 균형선입니다. 병력이 2배면 질이 4분의 1이어야 균형이 됩니다.",
+"en": "The horizontal axis is the size ratio and the vertical axis the quality ratio. Blue where blue wins, red where red wins, darker where more of the winner is left. The solid curve is the square law's balance line (where quality × numbers² is equal), the dashed curve the linear law's. With twice the soldiers, quality has to be a quarter to break even.",
+"tr": "横轴是规模比，纵轴是质量比。蓝方获胜处为蓝色，红方获胜处为红色，获胜方剩下越多颜色越深。实线是平方律的平衡线（质量 × 数量² 相等之处），虚线是线性律的平衡线。士兵多一倍时，质量必须只有四分之一才能打平。"
+},
+{
+"id": "s1363",
+"page": "lanchester",
+"ko": "겨누어 쏘는 싸움에서는 병력 2배가 전투력 4배가 되고, 나뉘면 130 대 100도 져요.",
+"en": "With aimed fire, double the force is four times the power, and a split force loses even 130 to 100.",
+"tr": "在瞄准射击的情况下，兵力加倍则战斗力是四倍，而兵力分散后即便130对100也会输。"
+},
+{
+"id": "s1364",
+"page": "lanchester",
+"ko": "이 모델에서는 병력 전체가 서로를 쏘기 때문에 수가 제곱으로 작용하고, 나뉜 쪽은 차례로 각개격파돼요.",
+"en": "In this model all units shoot at each other, so numbers act squared and a split force is beaten piece by piece.",
+"tr": "在这个模型中，所有单位都互相射击，所以兵力的作用是平方关系，分散的部队会被逐个击破。"
+},
+{
+"id": "s1365",
+"page": "lanchester",
+"ko": "숫자만 볼 것이 아니라 싸움이 일대일인지 전체가 맞붙는지, 힘이 모이는지 나뉘는지가 열쇠일 수 있어요.",
+"en": "Whether combat is one-on-one or all-against-all, and whether force is massed or split, may be the key.",
+"tr": "战斗是一对一还是全员对全员，兵力是集中还是分散，可能才是关键。"
+},
+{
+"id": "s1366",
+"page": "lanchester",
+"ko": "<b>말하는 것:</b> 파랑 200명 대 빨강 100명, 질이 같을 때 사각 법칙의 이론값은 파랑 승, 처음 병력의 87%(약 173명)가 남는 것이었고, 시뮬레이션 300회 평균은 약 172명(86%)이며 모두 파랑이 이겼습니다. 같은 조건을 선형 법칙으로 돌리면 이론도 시뮬레이션도 약 100명(50%)이 남았습니다. 그래서 병력이 2배일 때 전투력은 사각 법칙에서 4배, 선형 법칙에서 2배입니다. 질이 같고 130 대 100일 때 파랑이 모여 싸우면 평균 82명(64%)이 남았지만, 파랑이 반씩 나뉘어 차례로 도착하면 300회 중 84%에서 빨강이 이겼고 이긴 빨강에 약 40명이 남았습니다. 선형 법칙에서는 나뉘어도 파랑이 약 30명을 남기고 이겨 결과가 같았습니다. 병력 2배를 질로 맞서려면 사각 법칙에서는 상대 질이 4배여야 하고(선형은 2배), 이때 300회 중 파랑 53%, 빨강 47%로 팽팽했습니다.",
+"en": "<b>What it shows:</b> With 200 blue against 100 red and equal quality, the square law's theory says blue wins with 87% of its force (about 173 soldiers) left; over 300 simulated fights the average was about 172 (86%), and blue won every time. Under the linear law the same setting leaves about 100 (50%) in both theory and simulation. So with twice the soldiers, strength is 4 times as large under the square law and 2 times under the linear law. With equal quality and 130 against 100, blue fighting together kept 82 soldiers on average (64%), but when blue arrived in two halves red won 84% of 300 fights, with about 40 soldiers left. Under the linear law splitting changed nothing: blue still won with about 30 left. To offset double the soldiers with quality, the opponent's quality must be 4 times as high under the square law (2 times under the linear law); at that balance blue won 53% and red 47% of 300 fights.",
+"tr": "<b>它说明了什么：</b>蓝方200人对红方100人、质量相同时，平方律理论认为蓝方获胜，并保留87%的战力（约173人）；300次模拟战斗的平均剩余约为172人（86%），蓝方每次都获胜。在线性律下，同样的设置在理论和模拟中都剩下约100人（50%）。也就是说，兵力多一倍，平方律下战力是4倍，线性律下是2倍。质量相同、130人对100人时，集中作战的蓝方平均保留82人（64%），但蓝方分两半先后到达时，300次战斗中红方赢了84%，剩余约40人。在线性律下分兵没有任何影响：蓝方仍然获胜，剩余约30人。要用质量抵消一倍的兵力，对手的质量在平方律下必须是4倍（线性律下是2倍）；在这种平衡下，300次战斗中蓝方赢了53%，红方赢了47%。"
+},
+{
+"id": "s1367",
+"page": "lanchester",
+"ko": "실제 전투를 재현하거나 승패를 예측한 것은 아니고, 파랑과 빨강은 어떤 실제 집단도 가리키지 않아요.",
+"en": "It neither recreates real battles nor predicts outcomes; blue and red are no real groups.",
+"tr": "它既不重现真实战役，也不预测结果；蓝方和红方并不是真实存在的群体。"
+},
+{
+"id": "s1368",
+"page": "lanchester",
+"ko": "지형·사기·보급 같은 빠진 요소와 역사 사례는 자료를 따로 대조해야 확인할 수 있어요.",
+"en": "Missing factors like terrain, morale and supply, and historical cases, need separate sources.",
+"tr": "地形、士气和补给等缺失的因素以及历史案例，需要另行查阅资料。"
+},
+{
+"id": "s1369",
+"page": "lanchester",
+"ko": "<b>말하지 않는 것:</b> 실제 전투를 재현하거나 예측한 것이 아닙니다. 이 모델은 지형, 사기, 보급, 지휘, 전술, 무기의 종류, 병사 한 명 한 명의 차이를 모두 빼고 병력 수와 병사의 명중률만 남긴 이 프로젝트의 단순화된 수학 모델입니다. 파랑과 빨강은 어떤 실제 나라나 집단도 가리키지 않습니다. 이 법칙은 해전 등 역사 사례를 설명하는 데 흔히 인용되지만 역사가들은 그 해석을 단순화로 보며 논쟁합니다. 이 모델이 말하는 것은 어떤 가정 아래서 병력의 효과가 제곱으로 커질 수 있다는 수학적 구조이지, 실제로 어느 쪽이 옳았거나 이길 것이라는 주장이 아닙니다.",
+"en": "<b>What it doesn't show:</b> This does not reproduce or predict any real battle. It is this project's simplified mathematical model: terrain, morale, supply, command, tactics, weapon types and differences between individual soldiers are all left out, leaving only head counts and each soldier's hit chance. Blue and red stand for no real country or group. The law is often cited to explain historical cases such as naval battles, but historians dispute those readings as oversimplified. What the model shows is the mathematical structure: under certain assumptions the effect of numbers can grow with the square. It is no claim about who was right or who would win in reality.",
+"tr": "<b>它没有说明什么：</b>它并不重现或预测任何真实的战斗。这是本项目简化的数学模型：地形、士气、补给、指挥、战术、武器类型以及士兵个体差异都被省略，只保留人数和每名士兵的命中概率。蓝方和红方不代表任何真实的国家或群体。这条定律常被用来解释海战等历史案例，但历史学家认为这些解读过于简化，存在争议。模型展示的是数学结构：在某些假设下，数量的效应可以随平方增长。它并不主张谁是对的，也不说明现实中谁会获胜。"
+},
+{
+"id": "s1370",
+"page": "lanchester",
+"ko": "<b>모델의 뿌리:</b> 프레더릭 란체스터(F. W. Lanchester)가 『Aircraft in Warfare』(1916)에서 소개한 전투 모델입니다. 군대의 병력이 서로의 손실률에 비례해 줄어든다는 미분방정식으로, 겨누어 쏘는 싸움에는 \"제곱 법칙\"을, 일대일 싸움에는 \"선형 법칙\"을 보였습니다.",
+"en": "<b>Where the model comes from:</b> A combat model introduced by Frederick W. Lanchester in <i>Aircraft in Warfare</i> (1916). It is a pair of differential equations in which each army's strength falls at a rate set by the other, giving a \"square law\" for aimed fire and a \"linear law\" for one-to-one fights.",
+"tr": "<b>模型的来源：</b>这是弗雷德里克·W·兰彻斯特在<i>Aircraft in Warfare</i>（1916年）中提出的作战模型。它是一对微分方程，每支军队的战力下降速度由对方决定，由此得到瞄准射击的“平方律”和一对一格斗的“线性律”。"
+},
+{
+"id": "s1371",
+"page": "lanchester",
+"ko": "<b>핵심 가정과 수식:</b> 겨누어 쏘기: <code>dA/dt = −β·B</code>, <code>dB/dt = −α·A</code> 이고 두 식을 나누어 적분하면 <code>α·A² − β·B²</code>가 변하지 않습니다(전투력 = 질 × 병력²). 이긴 쪽에 남는 병력은 <code>√(A₀² − (β/α)·B₀²)</code>입니다. 일대일 맞붙기는 <code>α·A − β·B</code>가 보존되고 남는 병력은 <code>A₀ − (β/α)·B₀</code>입니다. 슬라이더의 병력이 A₀, B₀이고 질 비율이 α/β입니다.",
+"en": "<b>Key assumptions and formulas:</b> Aimed fire: <code>dA/dt = −β·B</code>, <code>dB/dt = −α·A</code>. Dividing the two and integrating shows that <code>α·A² − β·B²</code> is conserved (strength = quality × numbers²), and the winner is left with <code>√(A₀² − (β/α)·B₀²)</code>. For one-to-one fights <code>α·A − β·B</code> is conserved and the winner keeps <code>A₀ − (β/α)·B₀</code>. The sliders set A₀, B₀ and the ratio α/β.",
+"tr": "<b>主要假设与公式：</b>瞄准射击：<code>dA/dt = −β·B</code>，<code>dB/dt = −α·A</code>。两式相除并积分可得，<code>α·A² − β·B²</code>守恒（战力＝质量×人数²），胜者剩余<code>√(A₀² − (β/α)·B₀²)</code>。一对一格斗中<code>α·A − β·B</code>守恒，胜者保留<code>A₀ − (β/α)·B₀</code>。滑块用来设定A₀、B₀和比值α/β。"
+},
+{
+"id": "s1372",
+"page": "lanchester",
+"ko": "<b>이 프로젝트의 단순화:</b> 원 모델은 연속적인 병력 수의 평균 변화를 다루지만 여기서는 병사 하나하나가 확률로 쓰러지는 이산 시뮬레이션입니다. 선형 법칙은 마주한 쌍마다 싸우는 모양으로 구현했고 싸움을 빨리 끝내려고 쌍당 명중률을 5배로 두었습니다. 나뉘어 싸우기(두 번째 반은 첫 반이 쓰러진 뒤 합류)와 명중률 수치는 이 프로젝트가 정한 설정입니다. 보충병, 후퇴, 지형은 없습니다.",
+"en": "<b>What this project simplifies:</b> The original model tracks continuous average strengths, while here each soldier falls by chance in a discrete simulation. The linear law is implemented as facing pairs fighting, with a 5 times higher hit chance per pair only to finish the fight sooner. The split rule (the second half joins after the first has fallen) and the hit-chance values are this project's own settings. There are no reinforcements, retreats or terrain.",
+"tr": "<b>本项目做了哪些简化：</b>原模型追踪的是连续的平均战力，而这里是离散模拟，每名士兵随机倒下。线性律的实现方式是相对的两人一组进行战斗，每组的命中概率提高到5倍，仅仅是为了让战斗更快结束。分兵规则（前一半倒下后后一半才加入）和命中概率的数值是本项目自己的设定。没有增援、撤退和地形。"
+},
+{
+"id": "s1373",
+"page": "lanchester",
+"ko": "<b>이론값과 시뮬레이션:</b> <code>node tools/validate-lanchester.js</code>로 300회씩 돌려 닫힌 해와 비교했습니다. 200 대 100(질 같음)에서 사각 법칙 이론 173.2명(87%) 대 시뮬 평균 171.9명, 선형 법칙 이론 100명 대 시뮬 100.7명입니다. 병력 50~400명에서도 병력 2배일 때 남는 비율은 86~87%로 같아, 규모와 무관함을 확인했습니다. 130 대 100에서 파랑이 나뉘면 이론은 빨강 승, 39.4명 남음, 시뮬은 빨강 84% 승, 평균 40.0명 남음입니다. 시뮬레이션이 약간 낮은 것은 우연과 한 단계씩 끊어 계산한 영향입니다.",
+"en": "<b>Theory versus simulation:</b> I compared 300 runs each with the closed-form results using <code>node tools/validate-lanchester.js</code>. At 200 against 100 with equal quality, the square-law theory gives 173.2 left versus a simulated mean of 171.9, and the linear-law theory gives 100 versus 100.7. With 50 to 400 soldiers the share left at a 2-to-1 ratio stays at 86-87%, so it does not depend on scale. At 130 against 100 with blue split, theory says red wins with 39.4 left, and the simulation had red winning 84% of fights with 40.0 left on average. The slightly lower simulated values come from chance and from stepping time in discrete steps.",
+"tr": "<b>理论与模拟的对比：</b>我用<code>node tools/validate-lanchester.js</code>将各300次运行的结果与闭式解作了比较。质量相同、200人对100人时，平方律理论给出剩余173.2人，模拟平均为171.9人；线性律理论为100人，模拟为100.7人。在50至400人的范围内，2比1时的剩余比例保持在86-87%，因此与规模无关。130人对100人且蓝方分兵时，理论认为红方获胜并剩余39.4人，模拟中红方赢了84%的战斗，平均剩余40.0人。模拟值略低是由于随机性以及时间按离散步长推进。"
+},
+{
+"id": "s1374",
+"page": "lanchester",
+"ko": "<b>더 읽을거리:</b> F. W. Lanchester, 『Aircraft in Warfare: The Dawn of the Fourth Arm』(1916, Constable). 개설로는 위키백과의 \"Lanchester's laws\" 항목이 읽기 쉽습니다.",
+"en": "<b>Further reading:</b> F. W. Lanchester, <i>Aircraft in Warfare: The Dawn of the Fourth Arm</i> (1916, Constable). For an overview, the Wikipedia article \"Lanchester's laws\" is an easy start.",
+"tr": "<b>延伸阅读：</b>F. W. Lanchester，<i>Aircraft in Warfare: The Dawn of the Fourth Arm</i>（1916年，Constable）。想了解概况，可以从维基百科的“兰彻斯特定律”条目入手。"
+},
+{
+"id": "s1375",
+"page": "lanchester",
+"ko": "검증은 <code>node tools/validate-lanchester.js</code>로 할 수 있습니다. 시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 가운데 점선 곡선은 같은 규칙을 평균값으로 풀어 그린 것입니다.",
+"en": "You can verify with <code>node tools/validate-lanchester.js</code>. The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. The dashed curves are the same rules solved with averages instead of chance.",
+"tr": "可以用<code>node tools/validate-lanchester.js</code>来验证。模拟使用带随机种子的随机数生成器（mulberry32），因此相同的种子会得到相同的结果。虚线曲线是用平均值而非随机性求解的同一套规则。"
+},
+{
+"id": "s1376",
+"page": "lanchester",
+"ko": "④, ⑤번 그래프는 시뮬레이션이 아니라 위의 식으로 계산한 이론값입니다. 나뉜 군대가 있는 경우는 싸움을 첫 무리, 둘째 무리 차례로 이어서 계산합니다.",
+"en": "Charts 4 and 5 are theory computed from the formulas above, not simulations. When an army is split, the fights are chained one after another, first half then second half.",
+"tr": "图4和图5是按上述公式计算的理论值，不是模拟。当一支军队被分开时，战斗依次进行：先是前一半，然后是后一半。"
+},
+{
+"id": "s1377",
+"page": "lanchester",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/lanchester\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/lanchester\">GitHub</a>.",
+"tr": "代码可在<a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/lanchester\">GitHub</a>上获取。"
+},
+{
+"id": "s1406",
+"page": "monkey",
+"ko": "우연만으로 18글자를 맞히려면 약 5.8×10^25번이 필요하지만, 누적 선택은 평균 46세대였어요.",
+"en": "Pure chance needs about 5.8×10^25 tries for 18 letters, while cumulative selection took 46 generations on average.",
+"tr": "纯靠运气，凑出18个字母大约需要5.8×10^25次尝试，而累积选择平均只用了46代。"
+},
+{
+"id": "s1407",
+"page": "monkey",
+"ko": "우연은 매번 처음부터 다시 맞히지만, 누적 선택은 맞은 글자를 남겨 두고 조금씩 바꾸기 때문이에요.",
+"en": "Chance restarts from scratch each try, while cumulative selection keeps matched letters and changes the rest bit by bit.",
+"tr": "纯靠运气每次尝试都从头开始，而累积选择会保留已匹配的字母，只一点点地改变其余部分。"
+},
+{
+"id": "s1408",
+"page": "monkey",
+"ko": "어려운 일도 한 번에 맞히려 할지, 작은 개선을 걸러 쌓을 수 있는지로 달라 보인다는 점을 살펴볼 만해요.",
+"en": "Whether a hard goal is hit all at once or built from filtered small gains is worth examining.",
+"tr": "一个困难的目标是一步到位达成的，还是由经过筛选的小进步累积而成的，值得考察。"
+},
+{
+"id": "s1410",
+"page": "monkey",
+"ko": "미리 정한 목표 문장이 있어서 실제 진화의 모델이 아니고, 도킨스 자신도 이를 밝혔어요.",
+"en": "It has a preset target, so it is not a model of real evolution, as Dawkins himself noted.",
+"tr": "它的目标是预先设定的，因此不是真实进化的模型，道金斯本人也这样指出过。"
+},
+{
+"id": "s1411",
+"page": "monkey",
+"ko": "실제 진화에서 무엇이 걸러지는지는 이 모델로 알 수 없고, 실제 생물 자료로 따로 확인해야 해요.",
+"en": "What gets filtered in real evolution cannot be learned here and needs real biological evidence.",
+"tr": "真实进化中究竟筛选了什么，从这里无法得知，需要真实的生物学证据。"
+},
+{
+"id": "s1413",
+"page": "monkey",
+"ko": "<b>모델의 뿌리:</b> 타자기를 치는 원숭이 비유는 Émile Borel (1913)까지 거슬러 올라간다고 흔히 인용됩니다. 한편 Richard Dawkins (1986)는 『The Blind Watchmaker』에서 \"위즐 프로그램\"으로, 우연은 아득히 오래 걸리지만 작은 개선을 쌓아 가는 누적 선택은 훨씬 빠르다는 점을 보였습니다.",
+"en": "<b>Where the model comes from:</b> The typing-monkey metaphor is commonly traced back to Émile Borel (1913). Richard Dawkins (1986), in <i>The Blind Watchmaker</i>, used his \"weasel program\" to show that chance takes unimaginably long, while cumulative selection that keeps small improvements is far faster.",
+"tr": "<b>模型的来源：</b>猴子打字的比喻通常追溯到埃米尔·博雷尔（1913年）。理查德·道金斯（1986年）在<i>盲眼钟表匠</i>中用他的“weasel程序”说明，靠运气需要难以想象的漫长时间，而保留微小改进的累积选择则快得多。"
+},
+{
+"id": "s1414",
+"page": "monkey",
+"ko": "<b>핵심 가정과 수식:</b> 글자 27가지에서 무작위로 L글자를 치면 한 번에 정확히 맞힐 확률은 <code>27<sup>-L</sup></code>이라 기대 시도 횟수는 대략 <code>27<sup>L</sup></code>입니다. 누적 선택은 복사본 여러 개를 만들고 글자마다 일정 확률로 바꾼 뒤 가장 많이 맞은 복사본만 남깁니다. 복사본 수와 돌연변이율이 슬라이더이고, 글자 수가 늘어도 필요한 시도는 27의 거듭제곱이 아니라 훨씬 완만하게 늘어납니다.",
+"en": "<b>Key assumptions and formulas:</b> Typing L random symbols from 27 gets it exactly right with probability <code>27<sup>-L</sup></code>, so the expected number of attempts is roughly <code>27<sup>L</sup></code>. Cumulative selection makes several copies, changes each letter with some probability, and keeps only the copy with the most matches. The number of copies and the mutation rate are the sliders, and as the sentence grows the attempts needed grow far more gently than a power of 27.",
+"tr": "<b>主要假设与公式：</b>从27个符号中随机敲出L个符号，完全正确的概率是<code>27<sup>-L</sup></code>，所以期望尝试次数约为<code>27<sup>L</sup></code>。累积选择会生成若干副本，以一定概率改变每个字母，只保留匹配最多的副本。副本数和突变率是滑块，随着句子变长，所需尝试次数的增长远比27的幂平缓。"
+},
+{
+"id": "s1415",
+"page": "monkey",
+"ko": "<b>이 프로젝트의 단순화:</b> Dawkins 본인이 밝혔듯 위즐 프로그램은 미리 정한 목표가 있어서 실제 진화(목표가 없음)의 모형이 아니고 누적 선택이 위력적이라는 점만 보여 주는 비유입니다. 책의 프로그램과 세부 설정이 다르며, 복사본 100개, 돌연변이 5%, 대문자와 띄어쓰기만 쓴 것, 초당 10억 번 시도는 이 프로젝트가 정한 값입니다.",
+"en": "<b>What this project simplifies:</b> As Dawkins himself noted, the weasel program has a fixed target, so it is not a model of real evolution (which has no target) and only illustrates how powerful cumulative selection is. Its details differ from the book's program, and 100 copies, 5% mutation, capital letters and space only, and one billion attempts per second are values this project chose.",
+"tr": "<b>本项目做了哪些简化：</b>正如道金斯本人所指出的，weasel程序有一个固定的目标，所以它不是真实进化（没有目标）的模型，只是用来说明累积选择的威力。它的细节与书中的程序不同，100个副本、5%的突变率、只用大写字母和空格、每秒十亿次尝试，都是本项目选定的数值。"
+},
+{
+"id": "s1416",
+"page": "monkey",
+"ko": "<b>이론값과 시뮬레이션:</b> 우연의 기대 횟수는 닫힌 식이라 계산이 맞습니다. 18글자 27<sup>18</sup> ≈ 5.8×10<sup>25</sup>번은 초당 10억 번이면 약 18억 년(우주 나이 138억 년의 0.13배), 28글자 27<sup>28</sup> ≈ 1.2×10<sup>40</sup>번은 약 3.8×10<sup>23</sup>년이고 validate 출력과 같습니다. 누적 선택은 닫힌 해가 없어 시뮬레이션만으로 확인했고, 기본 설정에서 18글자는 평균 46세대, 28글자는 평균 77세대(20회)였고, 선택 쪽 시도 횟수는 3글자 약 1,000번에서 18글자 약 5,000번으로만 늘었습니다.",
+"en": "<b>Theory versus simulation:</b> The expected count for chance is a closed form and the calculation holds. For 18 letters 27<sup>18</sup> ≈ 5.8×10<sup>25</sup> attempts at a billion per second take about 1.8 billion years (0.13 of the universe's 13.8 billion), and for 28 letters 27<sup>28</sup> ≈ 1.2×10<sup>40</sup> attempts take about 3.8×10<sup>23</sup> years, matching the validate output. Cumulative selection has no closed form and was checked by simulation only: with defaults, 18 letters took 46 generations and 28 letters 77 on average (20 runs), and the attempts under selection rose only from about 1,000 at 3 letters to about 5,000 at 18.",
+"tr": "<b>理论与模拟的对比：</b>纯靠运气的期望次数有闭式解，计算成立。18个字母时，27<sup>18</sup> ≈ 5.8×10<sup>25</sup>次尝试，按每秒十亿次约需18亿年（宇宙138亿年的0.13）；28个字母时，27<sup>28</sup> ≈ 1.2×10<sup>40</sup>次尝试，约需3.8×10<sup>23</sup>年，与validate的输出一致。累积选择没有闭式解，只通过模拟检验：在默认设置下，18个字母平均需要46代，28个字母需要77代（20次运行），选择下的尝试次数仅从3个字母时的约1,000次增加到18个字母时的约5,000次。"
+},
+{
+"id": "s1417",
+"page": "monkey",
+"ko": "<b>더 읽을거리:</b> Dawkins (1986), 『The Blind Watchmaker』, Longman(3장). 무한 원숭이 정리는 확률론 교재의 Borel–Cantelli 보조정리 부분에서 다룹니다.",
+"en": "<b>Further reading:</b> Dawkins (1986), <i>The Blind Watchmaker</i>, Longman (chapter 3). The infinite monkey theorem is covered in probability textbooks under the Borel–Cantelli lemmas.",
+"tr": "<b>延伸阅读：</b>Dawkins (1986), <i>The Blind Watchmaker</i>, Longman（第3章）。无限猴子定理在概率论教材中属于博雷尔–坎泰利引理的内容。"
+},
+{
+"id": "s1418",
+"page": "monkey",
+"ko": "이 프로젝트가 직접 짠 구현이며 책의 프로그램을 그대로 옮긴 것은 아닙니다.",
+"en": "This is this project's own implementation, not a literal port of the program in the book.",
+"tr": "这是本项目自己的实现，并非书中程序的逐字移植。"
+},
+{
+"id": "s1448",
+"page": "painters",
+"ko": "따라 그리는 비율이 높아질수록 화풍의 다양성이 줄고 하나의 대표 화풍으로 쏠렸어요.",
+"en": "As the copying rate rose, style diversity fell and painters converged on one dominant style.",
+"tr": "随着模仿率上升，风格多样性下降，画家们趋同于一种主导风格。"
+},
+{
+"id": "s1449",
+"page": "painters",
+"ko": "따라 그리면 서로 화풍이 가까워지고 혁신은 독창성만큼만 흩뜨려서, 인기 편향이나 낮은 독창성이 쏠림을 굳혀요.",
+"en": "Copying pulls styles together while innovation scatters them only as much as originality allows, so popularity bias and low originality lock in the convergence.",
+"tr": "模仿使风格趋于接近，而创新只能在原创性允许的范围内使其分散，所以从众偏好和较低的原创性会把趋同固定下来。"
+},
+{
+"id": "s1450",
+"page": "painters",
+"ko": "다양성을 살펴볼 때는 개인의 취향보다 얼마나 따라 하는지, 인기를 얼마나 좇는지, 새 시도가 얼마나 나오는지가 열쇠일 수 있어요.",
+"en": "To look at diversity, how much people copy, how much they chase popularity and how many new attempts appear may matter more than individual taste.",
+"tr": "要考察多样性，模仿的程度、对流行的追逐程度以及新尝试出现的多少，可能比个人口味更重要。"
+},
+{
+"id": "s1452",
+"page": "painters",
+"ko": "실제 화가나 이미지 생성 AI를 재현한 것도, 모방이 나쁘다는 뜻도 아니에요. 그림의 좋고 나쁨은 모델에 없어요.",
+"en": "It does not reproduce real painters or image-generating AI, and it does not say copying is bad; quality is absent from the model.",
+"tr": "它并不复现真实的画家或图像生成AI，也不说模仿是坏事；作品质量不在模型之内。"
+},
+{
+"id": "s1453",
+"page": "painters",
+"ko": "모방이 실제로 다양성을 얼마나 줄이는지는 실제 작품 데이터로 확인해야 하고, 모방이 기술을 퍼뜨리는 효과도 함께 봐야 해요.",
+"en": "How much copying really reduces diversity needs real artwork data, alongside the way copying also spreads skills.",
+"tr": "模仿究竟在多大程度上降低了多样性，需要真实的作品数据来检验，同时还要考虑模仿也会传播技艺。"
+},
+{
+"id": "s1455",
+"page": "painters",
+"ko": "<b>모델의 뿌리:</b> 두 가지 뿌리가 있습니다. 하나는 문화 진화 이론의 \"편향된 전달\"(Boyd, Richerson, 1985, 『Culture and the Evolutionary Process』)로, 사람들이 인기 있는 쪽을 골라 따라 한다는 생각입니다. 다른 하나는 이웃의 값 쪽으로 조금씩 다가가는 평균 모델(DeGroot, 1974, \"Reaching a consensus\", <i>Journal of the American Statistical Association</i>)입니다. 인기와 사회적 영향이 결과를 바꾼다는 Salganik, Dodds, Watts (2006, <i>Science</i>)의 음악 시장 실험에서도 발상을 얻었지만, 그 실험을 재현한 것은 아닙니다.",
+"en": "<b>Where the model comes from:</b> There are two roots. One is the \"biased transmission\" of cultural evolution theory (Boyd and Richerson, 1985, <i>Culture and the Evolutionary Process</i>): people choose whom to copy, often favoring the popular. The other is the averaging model in which agents move part of the way toward others' values (DeGroot, 1974, \"Reaching a consensus\", <i>Journal of the American Statistical Association</i>). The design was also inspired by the music-market experiment of Salganik, Dodds and Watts (2006, <i>Science</i>) on popularity and social influence, but it does not reproduce that experiment.",
+"tr": "<b>模型的来源：</b>它有两个根源。一是文化演化理论中的“偏向性传递”（Boyd 和 Richerson，1985，<i>Culture and the Evolutionary Process</i>）：人们选择模仿谁，往往偏向受欢迎的对象。二是主体向他人的取值靠拢一部分的平均模型（DeGroot，1974，“Reaching a consensus”，<i>Journal of the American Statistical Association</i>）。设计还受到 Salganik、Dodds 和 Watts 关于受欢迎程度与社会影响的音乐市场实验（2006，<i>Science</i>）的启发，但并未重现该实验。"
+},
+{
+"id": "s1456",
+"page": "painters",
+"ko": "<b>핵심 가정과 수식:</b> 화풍은 네 숫자의 벡터 <code>s</code>입니다. 라운드마다 확률 <b>복사율</b>로 화가 <i>i</i>는 화가 <i>j</i>를 골라 <code>s<sub>i</sub> ← s<sub>i</sub> + 0.5(s<sub>j</sub> − s<sub>i</sub>)</code>로 절반쯤 다가가고, 아니면 <b>독창성</b> 크기의 무작위 변화를 더합니다. <i>j</i>가 뽑힐 가중치는 <code>(1−b) + b(p<sub>j</sub>/평균 p)<sup>2</sup></code>이며 <b>b</b>가 인기 편향 슬라이더입니다.",
+"en": "<b>Key assumptions and formulas:</b> A style is a vector <code>s</code> of four numbers. Each round, with probability <b>copy rate</b> painter <i>i</i> picks painter <i>j</i> and moves halfway: <code>s<sub>i</sub> ← s<sub>i</sub> + 0.5(s<sub>j</sub> − s<sub>i</sub>)</code>; otherwise a random change of size <b>originality</b> is added. The weight for picking <i>j</i> is <code>(1−b) + b(p<sub>j</sub>/mean p)<sup>2</sup></code>, where <b>b</b> is the popularity-bias slider.",
+"tr": "<b>主要假设与公式：</b>风格是由四个数字组成的向量<code>s</code>。每一轮中，画家<i>i</i>以<b>模仿率</b>的概率选择画家<i>j</i>并向其靠拢一半：<code>s<sub>i</sub> ← s<sub>i</sub> + 0.5(s<sub>j</sub> − s<sub>i</sub>)</code>；否则加入大小为<b>原创性</b>的随机变化。选中<i>j</i>的权重是<code>(1−b) + b(p<sub>j</sub>/mean p)<sup>2</sup></code>，其中<b>b</b>是人气偏好滑块。"
+},
+{
+"id": "s1457",
+"page": "painters",
+"ko": "<b>이 프로젝트의 단순화:</b> 화풍을 네 숫자로 줄였고, 반쯤 다가가는 정도(0.5)와 인기 가중치를 제곱으로 둔 것, 인기가 시간이 지나면 줄어드는 방식은 모두 이 프로젝트가 정한 값입니다. 모든 화가가 서로를 볼 수 있고 한 번에 한 명만 따라 하며, 그림의 좋고 나쁨(품질)은 없습니다.",
+"en": "<b>What this project simplifies:</b> Style is reduced to four numbers. The halfway step (0.5), the squared popularity weight and the way popularity fades over time are values chosen by this project. Everyone can see everyone, each painter copies only one other at a time, and there is no notion of quality.",
+"tr": "<b>本项目做了哪些简化：</b>风格被简化为四个数字。走一半路程的步长（0.5）、人气权重取平方，以及人气随时间衰减的方式，都是本项目选定的数值。每个人都能看到所有人，每位画家一次只模仿另一个人，也没有质量的概念。"
+},
+{
+"id": "s1458",
+"page": "painters",
+"ko": "<b>이론값과 시뮬레이션:</b> 이 모델에는 비교할 닫힌 해나 논문 값이 없어 시뮬레이션만으로 확인했습니다. 확인한 것은 방향과 양끝입니다. 복사율 0%에서는 다양성 0.47·쏠림 2%, 100%에서는 다양성 0.02·쏠림 100%, 기본값(복사 60%)에서는 0.18·55%였고, 인기 편향을 0으로 하면 복사율 60%에서 쏠림이 25%로 줄었습니다.",
+"en": "<b>Theory versus simulation:</b> There is no closed-form result or published number to compare with, so it was checked by simulation only. What was confirmed is the direction and the two ends: at a copy rate of 0%, diversity is 0.47 and concentration 2%; at 100%, 0.02 and 100%; at the default (60%), 0.18 and 55%. With zero popularity bias, concentration at a 60% copy rate falls to 25%.",
+"tr": "<b>理论与模拟的对比：</b>没有可供比较的闭式结果或已发表的数值，因此只通过模拟检验。确认的是变化方向和两个端点：模仿率为0%时，多样性为0.47，集中度为2%；100%时分别为0.02和100%；默认值（60%）时为0.18和55%。人气偏好为零时，60%模仿率下的集中度降至25%。"
+},
+{
+"id": "s1459",
+"page": "painters",
+"ko": "<b>더 읽을거리:</b> Salganik, Dodds, Watts (2006), \"Experimental Study of Inequality and Unpredictability in an Artificial Cultural Market\", <i>Science</i> 311. Boyd, Richerson (1985), 『Culture and the Evolutionary Process』, University of Chicago Press. DeGroot (1974), \"Reaching a consensus\", <i>Journal of the American Statistical Association</i>.",
+"en": "<b>Further reading:</b> Salganik, Dodds, Watts (2006), \"Experimental Study of Inequality and Unpredictability in an Artificial Cultural Market\", <i>Science</i> 311. Boyd, Richerson (1985), <i>Culture and the Evolutionary Process</i>, University of Chicago Press. DeGroot (1974), \"Reaching a consensus\", <i>Journal of the American Statistical Association</i>.",
+"tr": "<b>延伸阅读：</b>Salganik, Dodds, Watts (2006), \"Experimental Study of Inequality and Unpredictability in an Artificial Cultural Market\", <i>Science</i> 311. Boyd, Richerson (1985), <i>Culture and the Evolutionary Process</i>, University of Chicago Press. DeGroot (1974), \"Reaching a consensus\", <i>Journal of the American Statistical Association</i>."
+},
+{
+"id": "s1490",
+"page": "peter",
+"ko": "승진 뒤 능력이 이어지지 않으면 최고 능력자만 올리는 방식은 평균 이하의 결과를 냅니다.",
+"en": "If ability does not carry over after promotion, promoting only the top performer gives below-average results.",
+"tr": "如果晋升后能力不会延续，只提拔表现最好的人，结果会低于平均水平。"
+},
+{
+"id": "s1491",
+"page": "peter",
+"ko": "이 모델에서는 승진하면 새 직무 능력이 다시 정해져, 현재 성과가 새 일의 적합성을 보장하지 않기 때문입니다.",
+"en": "In this model ability is redrawn in the new job, so current performance does not guarantee fit for the new role.",
+"tr": "在这个模型中，换到新岗位后能力会被重新抽取，所以目前的业绩并不能保证适合新角色。"
+},
+{
+"id": "s1492",
+"page": "peter",
+"ko": "승진 기준이 현재 성과인지 새 일의 적합성인지, 능력이 얼마나 이어지는지부터 살펴볼 만합니다.",
+"en": "Whether promotion rests on current performance or new-role fit, and how much ability carries over, is worth checking first.",
+"tr": "值得先查清：晋升依据的是当前业绩还是新角色的适配度，以及能力能延续多少。"
+},
+{
+"id": "s1494",
+"page": "peter",
+"ko": "피터의 원리가 현실의 모든 조직에 해당한다는 뜻은 아닙니다. 논문과 달리 최저 능력자 승진이 가장 높게 나온 원인도 확인하지 못했습니다.",
+"en": "It does not mean the Peter principle holds in every organization, and why promoting the weakest scored highest, unlike the paper, is unconfirmed.",
+"tr": "这并不意味着彼得原理在所有组织中都成立，而且与论文不同，为什么提拔最弱者得分最高，目前也没有得到证实。"
+},
+{
+"id": "s1495",
+"page": "peter",
+"ko": "직무별로 승진 전후의 성과를 비교해 능력이 이어지는 정도를 재고, 교육과 팀워크 같은 요소를 넣어 봐야 합니다.",
+"en": "Compare performance before and after promotion by role to measure carry-over, and add factors like training and teamwork.",
+"tr": "按岗位比较晋升前后的业绩来衡量能力的延续，并加入培训、团队协作等因素。"
+},
+{
+"id": "s1497",
+"page": "peter",
+"ko": "<b>모델의 뿌리:</b> Laurence Peter와 Raymond Hull(1969, 『The Peter Principle』)이 &quot;사람은 무능해지는 자리까지 승진한다&quot;고 풍자한 것을, Pluchino, Rapisarda, Garofalo(2010, 「The Peter principle revisited: a computational study」, <i>Physica A</i> 389)가 에이전트 시뮬레이션으로 검증했습니다. 이 논문은 같은 해 이그노벨상(경영학)을 받았습니다.",
+"en": "<b>Where the model comes from:</b> Laurence Peter and Raymond Hull (1969, <i>The Peter Principle</i>) satirized the idea that people rise to the level of their incompetence; Pluchino, Rapisarda and Garofalo (2010, \"The Peter principle revisited: a computational study\", <i>Physica A</i> 389) tested it with an agent-based simulation. The paper received an Ig Nobel Prize (management) that year.",
+"tr": "<b>模型的来源：</b>劳伦斯·彼得和雷蒙德·赫尔（1969，<i>彼得原理</i>）讽刺了人会晋升到自己无能的层级这一观点；Pluchino、Rapisarda 和 Garofalo（2010，“The Peter principle revisited: a computational study”，<i>Physica A</i> 389）用基于主体的模拟对其进行了检验。这篇论文当年获得了搞笑诺贝尔奖（管理学奖）。"
+},
+{
+"id": "s1498",
+"page": "peter",
+"ko": "<b>핵심 가정과 수식:</b> 6단계 피라미드(위에서부터 1, 5, 11, 21, 41, 81명)에서 60세 은퇴로 생긴 빈자리를 아래 단계에서 승진시켜 채웁니다. 승진하면 확률 continuity로 예전 능력을 유지하고 아니면 능력이 새로 뽑힙니다(continuity 0%가 피터 가설). 조직 효율은 단계별 평균 능력의 가중 평균(가중치 6, 5, 4, 3, 2, 1)입니다.",
+"en": "<b>Key assumptions and formulas:</b> In a six-level pyramid (1, 5, 11, 21, 41 and 81 people from the top), vacancies from retirement at age 60 are filled by promotion from the level below. A promoted person keeps the old competence with probability continuity, otherwise competence is redrawn (continuity 0% is the Peter hypothesis). Organizational efficiency is the weighted mean of level-average competence (weights 6, 5, 4, 3, 2, 1).",
+"tr": "<b>主要假设与公式：</b>在六层金字塔（从顶部起为1、5、11、21、41和81人）中，60岁退休留下的空缺由下一层的人晋升填补。晋升者以连续性的概率保持原来的能力，否则能力重新抽取（连续性0%即彼得假说）。组织效率是各层平均能力的加权平均（权重为6、5、4、3、2、1）。"
 }
 ]

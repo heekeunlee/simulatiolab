@@ -1279,7 +1279,7 @@ window.I18N && window.I18N.add({
  "거의 0회가 된다": "Falls to almost zero",
  "절반 아래로 줄어든다": "Falls by more than half",
  "5.0회에서 3.5회로 약 30% 준다": "Falls about 30%, from 5.0 to 3.5",
- "아이들이 지망 순위를 솔직하게 적었을 때, 다른 집은 그대로 두고 한 아이만 순서를 바꿔 적어 더 나은 곳에 갈 수 있는 아이는 보스턴 방식과 지연 수락 방식에서 각각 얼마나 될까?": "If one child alone reorders their ranking while everyone else is honest, how many can do better under the Boston method and under deferred acceptance?",
+ "아이들이 지망 순위를 솔직하게 적었을 때, 다른 아이는 그대로 두고 한 아이만 순서를 바꿔 적어 더 나은 곳에 갈 수 있는 아이는 보스턴 방식과 지연 수락 방식에서 각각 얼마나 될까?": "If one child alone reorders their ranking while everyone else is honest, how many can do better under the Boston method and under deferred acceptance?",
  "아이 60명 표본에서 보스턴은 43%(26명)가 이득을 봤고 지연 수락은 0%였습니다(시드 1~12 평균 보스턴 34.3%). 지연 수락은 솔직하게 적는 것이 최선인 구조입니다.": "In a sample of 60 children, 43% (26) gained under Boston and 0% under deferred acceptance (Boston averaged 34.3% over seeds 1 to 12). Deferred acceptance makes honesty the best policy.",
  "둘 다 비슷하게 40% 안팎": "About 40% under both",
  "보스턴 43%, 지연 수락 0%": "Boston 43%, deferred acceptance 0%",

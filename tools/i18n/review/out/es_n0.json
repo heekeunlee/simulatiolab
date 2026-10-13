@@ -1,0 +1,102 @@
+{
+ "s0109": {
+  "tr": "¿Por qué las noticias de un empleo nuevo llegan de conocidos y no de amigos cercanos? La fuerza de los lazos débiles",
+  "why": "'pistas de trabajo'는 부자연스러움; 새 일자리 소식"
+ },
+ "s0140": {
+  "tr": "El crecimiento de la población más un poco de dispersión bastan para que la agricultura cubra el territorio a un ritmo de unos 1.000 m al año. Míralo en un mapa.",
+  "why": "'mil metros por año' 어색"
+ },
+ "s0143": {
+  "tr": "¿Por qué el doble de soldados es cuatro veces más fuerte? Por qué dividir las fuerzas es perder",
+  "why": "의문문 부호 및 반복 표현 정리"
+ },
+ "s0155": {
+  "tr": "Fractal ramificado",
+  "why": "'가지 프랙탈'에서 프랙탈이 빠짐"
+ },
+ "s0156": {
+  "tr": "¿Por qué se parecen el rayo, el coral y el copo de nieve?",
+  "why": "눈송이=copo de nieve (escarcha는 서리)"
+ },
+ "s0164": {
+  "tr": "¿Por qué apagar todos los fuegos pequeños provoca incendios mayores más tarde?",
+  "why": "의문문 부호 및 어순 자연스럽게"
+ },
+ "s0168": {
+  "tr": "Una hormiga con dos reglas abre de pronto una autopista tras 10.000 pasos: la hormiga de Langton",
+  "why": "highway는 autopista로 통일 (이 페이지 후반과 일치)"
+ },
+ "s0169": {
+  "tr": "Una hormiga con solo dos reglas crea simetría, luego caos y, de repente, una autopista diagonal tras unos 10.000 pasos.",
+  "why": "autopista로 통일"
+ },
+ "s0242": {
+  "tr": "Cada lugar ordena a los niños por prioridad. El número de sorteo es común a todos los lugares, y <b>cuánto difieren los lugares en su orden</b> es cuánto se mezcla un orden aleatorio propio de cada lugar. Con 0%, todos los lugares ordenan a los niños por el mismo número de sorteo.",
+  "why": "문장 어색(fija ... fija) 정리"
+ },
+ "s0284": {
+  "tr": "El eje horizontal es cuánto se parecen los gustos (el resto de ajustes como están ahora) y el eje vertical es la proporción de niños que ganan al cambiar su ranking con Boston. Cada punto promedia tres conjuntos distintos de niños. Cuanto más quieren todos los mismos lugares, más razones hay para jugar con estrategia. La línea verde discontinua es el 0% de los otros tres métodos.",
+  "why": "눈치를 볼 이유: dudar는 오역"
+ },
+ "s0303": {
+  "tr": "Un niño perjudicado es aquel para quien un lugar preferido aún tiene una plaza libre, o donde alguien admitido tiene una puntuación de prioridad menor en ese lugar. La prueba de cambio de ranking toma como muestra a los primeros 60 niños; su numeración es aleatoria, así que la muestra no está sesgada. Los niños sin plaza se excluyen de la media del número de opción, y se cuentan como opción 9 al medir la ventaja de los solicitantes tempranos.",
+  "why": "자리=plaza"
+ },
+ "s0342": {
+  "tr": "No dice nada sobre guerras reales, 1914 ni la responsabilidad de ningún país; en este modelo de juguete todos los países son idénticos.",
+  "why": "어색한 표현"
+ },
+ "s0358": {
+  "tr": "Desde una cuadrícula en blanco, los primeros 500 pasos aproximadamente forman una y otra vez figuras simétricas, que parecen <b>orden</b>. Sigue un largo tramo de <b>caos</b> y, al final, una rutina de 104 pasos se repite y lleva a la hormiga en diagonal: la <b>autopista</b>. El inicio de la autopista se detecta cuando la posición y la dirección de la hormiga se repiten cada 104 pasos, desplazadas (2, 2) celdas, tres veces seguidas.",
+  "why": "(2,2)는 좌표인데 소수처럼 읽힘"
+ },
+ "s0369": {
+  "tr": "① Cómo la hormiga abre su camino",
+  "why": "길을 내는 모습; carretera는 autopista와 혼동"
+ },
+ "s0385": {
+  "tr": "<b>Qué muestra:</b> Una sola hormiga en una cuadrícula en blanco comenzó, en el paso 9.976, una rutina que la desplaza (2, 2) celdas en diagonal cada 104 pasos y la repitió sin fin (comprobado hasta 40.000 pasos). Desde entonces las celdas negras aumentan en 12 cada 104 pasos y la hormiga se aleja a unas 0,027 celdas por paso. Los primeros ~500 pasos volvían una y otra vez a formas simétricas (la última forma simétrica fue en el paso 473) y el resto fue caos hasta la autopista. Las cuadrículas que empezaron con entre un 5% y un 50% de celdas negras repartidas en un cuadrado de 21 celdas produjeron todas una autopista en menos de 60.000 pasos, en cada una de las 60 ejecuciones de cada una de las 7 proporciones, y lo mismo ocurrió con 2 a 4 hormigas al 15%. El paso de inicio varió mucho, de unos 200 a 50.000. Muestra emergencia: estructura ordenada a partir de reglas triviales, sin diseño.",
+  "why": "좌표 표기"
+ },
+ "s0390": {
+  "tr": "<b>Supuestos clave y fórmulas:</b> El estado es solo el color de cada celda (blanco/negro) y la posición y dirección de la hormiga, y la actualización es determinista: en blanco, gira a la derecha, cambia el color y avanza; en negro, gira a la izquierda, cambia el color y avanza. Los controles deslizantes solo cambian el número de hormigas y la cuadrícula inicial. La autopista es un ciclo de 104 pasos durante el cual la hormiga se desplaza (2, 2) celdas en diagonal.",
+  "why": "좌표 표기"
+ },
+ "s0392": {
+  "tr": "<b>Teoría frente a simulación:</b> No existe una fórmula que prediga de antemano el inicio de la autopista, así que solo se comprobó por simulación. En una cuadrícula en blanco ambos métodos (detección en vivo y rastreo hacia atrás tras una ejecución larga) dieron el paso 9.976, el desplazamiento por cada 104 pasos fue de (2, 2) y las celdas negras crecieron 0,1156 por paso (=12/104) entre los pasos 30.000 y 40.000. Que la hormiga construya siempre una autopista es una conjetura sin demostrar; aquí ocurrió en las 420 cuadrículas aleatorias y las 180 cuadrículas con varias hormigas que ejecutamos.",
+  "why": "좌표 표기"
+ },
+ "s0432": {
+  "tr": "En este modelo, con un contagio de 0,4 casi no se propaga; con 0,5 llega a cerca del 90 % de los barrios, y desde 0,6 a todos.",
+  "why": "오역: 번진다 -> se propaga (sobrevalorado 아님); 동네=barrios"
+ },
+ "s0434": {
+  "tr": "Para leer una propagación, puede ayudar fijarse en cuánto se siguen unos barrios a otros y en dónde difieren las condiciones de crédito, no solo en el precio de un barrio.",
+  "why": "동네=barrios 통일"
+ },
+ "s0484": {
+  "tr": "<b>De dónde viene el modelo:</b> La «maldición del ganador» se hizo conocida después de que Capen, Clapp y Campbell (1971) sostuvieran que los postores ganadores en las subastas de concesiones petroleras no obtenían los rendimientos que esperaban (cómo interpretar los casos reales es objeto de debate), y Thaler (1988) la presentó de forma accesible en una revista de economía. La distinción entre subasta de primer precio y de segundo precio se remonta a Vickrey (1961), y la teoría de las «subastas de valor común», en las que todos valoran lo mismo pero tienen su propia estimación, procede de Milgrom y Weber (1982).",
+  "why": "postores로 통일(같은 페이지 s0477)"
+ },
+ "s0486": {
+  "tr": "<b>Qué simplifica este proyecto:</b> Los postores son ingenuos: no razonan que «ganar ya significa que mi estimación fue demasiado alta», y el modelo no calcula las pujas de equilibrio de la teoría de subastas. Se supone que los errores son independientes y con la misma distribución normal, el valor verdadero es aleatorio entre 70 y 130, el error de estimación es un porcentaje del valor 100, y no hay gusto privado ni aprendizaje por experiencia. Estas decisiones son de este proyecto.",
+  "why": "postores로 통일"
+ },
+ "s0487": {
+  "tr": "<b>Teoría frente a simulación:</b> La fórmula se puede calcular: el máximo esperado de n normales estándar es de aproximadamente 0,564, 1,163, 1,539 y 2,043 para n = 2, 5, 10 y 30. Con un error del 20%, la ganancia del ganador en primer precio es −11,3, −23,3, −30,8 y −40,9 en teoría frente a −11,4, −23,5, −30,9 y −40,9 simulados. El recorte que deja la ganancia en cero es 1,539σ en teoría y 1,54σ simulado para el primer precio, y 1,001σ en teoría y 1,00σ simulado para el segundo precio.",
+  "why": "손익분기; 'equilibrio'는 내시균형으로 오해"
+ },
+ "s0525": {
+  "tr": "<b>Teoría frente a simulación:</b> Estos son resultados de esta implementación, no una coincidencia numérica con valores del artículo. Con un único pronóstico compartido, la asistencia media es 50,0 con desviación estándar 50,0, oscilando entre 0 y 100. Con predictores diversos, la asistencia media se estabiliza entre 58 y 60, cerca del aforo (5 predictores: 58,3), y los aforos 30, 50 y 70 dan 33,7, 50,2 y 66,0. Como referencia aproximada, si cada persona fuera al bar por su cuenta con probabilidad 0,6, la desviación estándar sería <code>√(100·0.6·0.4)≈4.9</code>; la simulación da de 0,6 a 4,0, que es menor (<code>node tools/validate-more.js bar</code>). Con un aforo de 90 la media es 79,9, por debajo del aforo.",
+  "why": "어색한 문장"
+ },
+ "s0567": {
+  "tr": "Cada conductor siguió cambiando a una ruta más rápida hasta que todos se amontonaron en el atajo: terminaron más lentos, aunque a nadie le conviene cambiar por su cuenta.",
+  "why": "문법/자연스러움"
+ },
+ "s0575": {
+  "tr": "<b>Qué simplifica este proyecto:</b> La red es una red simétrica de cuatro carreteras con un único origen y destino, y los conductores solo se preocupan por el tiempo. La regla de cambio de ruta (en cada ronda cambia el 8% de los conductores, y solo si es claramente más rápido) y los valores predeterminados (sensibilidad 10, coste del atajo 0 minutos) son decisiones de este proyecto; no hay tráfico urbano real ni cambios en la demanda.",
+  "why": "reelección은 정치 용어로 오해"
+ }
+}

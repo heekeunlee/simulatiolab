@@ -4,8 +4,8 @@ from mk2 import *
 
 page(dict(
  slug='dla',
- title=T('번개, 산호, 눈송이는 왜 서로 닮았을까', 'Why Do Lightning, Coral and Frost Look Alike?'),
- title_tag=T('번개·산호·눈송이는 왜 닮았을까 (DLA) · 시뮬라티오 랩', 'Why Lightning, Coral and Frost Look Alike (DLA) · Simulatio Lab'),
+ title=T('번개, 산호, 눈송이는 왜 서로 닮았을까', 'Why Do Lightning, Coral and Snowflakes Look Alike?'),
+ title_tag=T('번개·산호·눈송이는 왜 닮았을까 (DLA) · 시뮬라티오 랩', 'Why Lightning, Coral and Snowflakes Look Alike (DLA) · Simulatio Lab'),
  desc=T('무작위로 떠도는 입자가 닿으면 붙기만 하는 아주 단순한 규칙이 번개·산호·서리를 닮은 가지 모양 프랙탈을 키웁니다. 붙는 확률과 씨앗 모양을 바꿔 직접 키워 보세요.',
         'A very simple rule, particles that wander randomly and stick on contact, grows branching fractals that resemble lightning, coral and frost. Change the stickiness and seed shape and grow one yourself.'),
  lead=T('번개, 산호, 서리, 강 하구의 가지는 재료도 크기도 전혀 다른데 모양은 이상하게 닮았습니다. 그러니 각각 복잡한 사정이 있을 거라고 생각하기 쉽습니다. 그런데 "무작위로 떠돌던 입자가 덩어리에 닿으면 붙는다"는 규칙 하나만 반복해도 이런 가지 모양이 저절로 자랍니다. 아무도 가지를 그리라고 시키지 않았는데, 바깥쪽 끝이 안쪽 틈을 가려 버리는 것만으로요. 아래 장면에서 입자 4,000개를 떨어뜨려 보세요.',

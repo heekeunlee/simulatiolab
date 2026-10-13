@@ -1,0 +1,114 @@
+{
+ "s1456": {
+  "tr": "<b>Hypothèses clés et formules :</b> Un style est un vecteur <code>s</code> de quatre nombres. À chaque tour, avec la probabilité <b>taux de copie</b>, le peintre <i>i</i> choisit le peintre <i>j</i> et fait la moitié du chemin : <code>s<sub>i</sub> ← s<sub>i</sub> + 0.5(s<sub>j</sub> − s<sub>i</sub>)</code> ; sinon, un changement aléatoire de taille <b>originalité</b> est ajouté. Le poids pour choisir <i>j</i> est <code>(1−b) + b(p<sub>j</sub>/p moyen)<sup>2</sup></code>, où <b>b</b> est le curseur de biais de popularité.",
+  "why": "코드 안 \"평균 p\"가 영어로 남음"
+ },
+ "s1491": {
+  "tr": "Dans ce modèle, la compétence est tirée de nouveau au hasard dans le nouveau poste : la performance actuelle ne garantit donc pas l'adéquation au nouveau rôle.",
+  "why": "'retirée au sort'는 '제거'로 읽힘; 능력=compétence 용어 통일"
+ },
+ "s1492": {
+  "tr": "Il vaut la peine de vérifier d'abord si la promotion repose sur la performance actuelle ou sur l'adéquation au nouveau rôle, et quelle part de la compétence se transmet.",
+  "why": "능력 용어 통일(capacité→compétence)"
+ },
+ "s1582": {
+  "tr": "Pour empêcher une resquille profitable, quelqu'un doit payer le prix de la désapprobation ; l'ordre tient donc d'autant mieux que beaucoup de gens se partagent ce coût.",
+  "why": "'새치기를 막으려면'이 '새치기를 그만두면'으로 오역"
+ },
+ "s1583": {
+  "tr": "Si une file se désorganise, il vaut la peine de vérifier d'abord si ceux qui empêchent la resquille en supportent seuls le coût, avant d'en blâmer les gens.",
+  "why": "'막는 사람'이 '새치기를 그만두는 사람'으로 오역; 원문의 '사람 탓보다' 복원"
+ },
+ "s1586": {
+  "tr": "Il faut observer, dans les files réelles, qui intervient et dans quelle mesure, et ce que changent le personnel d'accueil ou la signalisation.",
+  "why": "어색한 도치 문장 정리"
+ },
+ "s1589": {
+  "tr": "<b>Hypothèses clés et formules :</b> Sur une grille de 50×50, chacun rencontre une fois ses 8 voisins et copie la stratégie du voisin ayant le meilleur score. Un resquilleur qui croise une personne ordonnée gagne +<i>g</i> (la personne ordonnée obtient −<i>g</i>) ; un resquilleur qui croise un punisseur obtient seulement <i>g</i>−<i>f</i> (effet de la punition <i>f</i>), et le punisseur paie un coût <i>c</i> chaque fois qu'il voit un resquilleur. En gros, <i>f</i> doit donc dépasser <i>g</i> pour que resquiller soit une perte face aux punisseurs. Les curseurs sont <i>g</i>, <i>f</i> et <i>c</i>.",
+  "why": "'au net' 어색"
+ },
+ "s1591": {
+  "tr": "<b>Théorie contre simulation :</b> Ce modèle n'a pas de forme fermée connue, il n'y a donc pas de valeur théorique à comparer ; on a vérifié si la condition approximative <i>f</i>&gt;<i>g</i> ci-dessus concorde avec la simulation. Avec <i>g</i>=0,5, un effet de punition de 0,3 laisse 100 % de resquilleurs, 0,6 ne les arrête que partiellement (80 %), et 1,0 laisse 0 % de resquilleurs et 87 % de punisseurs. Sans punisseurs, les resquilleurs atteignent 100 %. Jusqu'à un coût de punition de 0,2, les punisseurs restent à 87 %, mais à partir de 0,5 l'ordre s'effondre : 100 % de resquilleurs. Avec un gain de 0,2 ou de 1,5, les resquilleurs dominent à 86-87 %, ce que la condition simple ne suffit pas à expliquer (moyennes de 5 exécutions, <code>node tools/validate-more.js queue</code>).",
+  "why": "1인칭 'j'ai vérifié' 제거, '비용 0.2까지는 87%'의 주어 모호(눈총형 87%) 명확화"
+ },
+ "s1633": {
+  "tr": "Pour connaître les effets réels, il faut des expériences avec un groupe témoin, en tenant compte du fait que le niveau des personnes évolue.",
+  "why": "어색한 문장; 실력 변화 반영 의미 명확화"
+ },
+ "s1635": {
+  "tr": "<b>D'où vient le modèle :</b> La régression vers la moyenne a été mise en évidence par Francis Galton dans « Regression towards mediocrity in hereditary stature » (1886, <i>Journal of the Anthropological Institute</i>) en comparant les tailles des parents et des enfants. Quand deux mesures ne concordent pas parfaitement, ceux qui étaient extrêmes la première fois se rapprochent de la moyenne la fois suivante. L'anecdote de l'instructeur de vol figure dans <i>Système 1, Système 2</i> de Kahneman (2011).",
+  "why": "프랑스어 따옴표 «» 사용"
+ },
+ "s1636": {
+  "tr": "<b>Hypothèses clés et formules :</b> Les scores sont <code>50 + 10 × (√(1−L)·habileté + √L·chance)</code> avec une habileté et une chance suivant des lois normales centrées réduites (L = le curseur de la part de chance). La corrélation entre les essais 1 et 2 est alors ρ = 1−L, et le score attendu à l'essai 2 sachant l'essai 1 est <code>50 + ρ(essai 1 − 50)</code>. Les 20 % du haut ont obtenu en moyenne 10·φ(z)/0,2 ≈ 14 points au-dessus de 50 à l'essai 1 (z ≈ 0,84), donc le changement attendu est −L × 14 points. Le curseur « part félicitée / réprimandée » règle la taille de la queue et le curseur « effet réel » vaut ±e.",
+  "why": "코드 안 영어 skill/luck 미번역"
+ },
+ "s1669": {
+  "tr": "Il a suffi de changer une seule personne, dont le seuil est de 1 %, pour qu'une place où 100 personnes se mobilisaient s'arrête à une seule.",
+  "why": "'광장'을 'carré'로 오역"
+ },
+ "s1671": {
+  "tr": "Quand les résultats divergent, la présence d'une étincelle et l'absence de trous entre les seuils peuvent compter davantage que l'humeur moyenne.",
+  "why": "'빈틈이 없는지'가 '틈의 존재'로 읽혀 뜻이 뒤집힐 수 있음"
+ },
+ "s1679": {
+  "tr": "<b>Théorie contre simulation :</b> Dans l'exemple classique, les 100 personnes participent (101 tours), et changer le seuil d'une seule personne arrête la participation à 1. Pour des seuils normaux, le calcul direct du point fixe de <code>F(x) = x</code> donne une participation totale avec une moyenne de 25 % et 1 % d'instigateurs, environ 1,7 % avec une moyenne de 30 % et environ 1,1 % à 40 %, contre 2 % et 1 % en simulation. Tout près du point de bascule (moyenne 25 %), le hasard parmi 1 000 personnes a réparti les exécutions entre 2 % et 100 %.",
+  "why": "어색한 표현 정리"
+ },
+ "s1721": {
+  "tr": "Au-delà du seuil où chaque propagateur le transmet à plus d'une personne, la chaîne s'amplifie, et les personnes présentes dans plusieurs salons relient ces salons entre eux.",
+  "why": "원문 '커지고'보다 과장"
+ },
+ "s1724": {
+  "tr": "Cela ne signifie pas que les rumeurs réelles des salons de discussion se propagent selon ces chiffres ; supposer que le démenti est 70 % aussi attrayant que la rumeur est aussi une hypothèse.",
+  "why": "'정정이 소문의 70%만큼 솔깃'이 모호하게 번역됨; 용어(salon) 통일"
+ },
+ "s1728": {
+  "tr": "<b>Hypothèses clés et formules :</b> Quand un propagateur publie dans un salon, chaque membre non informé est tenté avec la probabilité <i>p</i> et propage dès le tour suivant ; un propagateur perd tout intérêt à chaque tour avec la probabilité <i>q</i> (70 %). La durée moyenne de propagation est de 1/<i>q</i> tours, donc <i>R</i><sub>0</sub> ≈ <i>p</i>·<i>k</i>/<i>q</i> (<i>k</i> : nombre de membres du salon qui voient les messages d'une personne), et une grande flambée demande qu'il dépasse 1. Le curseur de <i>p</i> et les réglages des salons font varier <i>R</i><sub>0</sub>.",
+  "why": "방=salon 통일, 솔깃=tenté"
+ },
+ "s1729": {
+  "tr": "<b>Ce que ce projet simplifie :</b> Cette page appelait auparavant le modèle « SIR », mais c'est plus précisément une variante de la famille Daley–Kendall / Maki–Thompson. Dans ces modèles, un propagateur s'arrête après avoir rencontré quelqu'un qui sait déjà ; ici, les propagateurs s'arrêtent avec la probabilité <i>q</i> quel que soit le contact, ce qui est plus proche de la guérison du SIR. La correction comme seconde propagation, la structure en salons et toutes les valeurs de probabilité sont des choix propres à ce projet.",
+  "why": "방=salon 통일"
+ },
+ "s1730": {
+  "tr": "<b>Théorie contre simulation :</b> Il n'y a pas de forme fermée, mais l'approximation SIR à mélange homogène (portée finale <i>z</i> = 1 − e<sup>−<i>R</i><sub>0</sub><i>z</i></sup>) donne, avec l'exposition moyenne <i>k</i>≈141 de ce réglage : à <i>p</i>=1 %, <i>R</i><sub>0</sub>≈2,0, approximation 80 % contre simulation 63 % ; à <i>p</i>=1,5 %, 94 % contre 89 %. À <i>p</i>=0,5 %, <i>R</i><sub>0</sub> est proche de 1 et l'approximation donne 2 %, tandis que la simulation donne 12 % à cause des 3 propagateurs initiaux, ce qui montre le même changement brutal près du seuil. La structure en salons rend la propagation un peu plus faible que l'approximation (<code>node tools/validate-rumor.js</code>, moyennes de 20 exécutions).",
+  "why": "방=salon 통일"
+ },
+ "s1750": {
+  "tr": "Met le tas en pause et lâche un seul grain. Appuyez encore et encore : le même grain ne fait rien une fois, puis déclenche un éboulement la fois suivante.",
+  "why": "'같은 한 알'"
+ },
+ "s1767": {
+  "tr": "<b>Théorie contre simulation :</b> Aucune valeur de manuel pour l'exposant de ce modèle n'a été vérifiée directement ici. Les valeurs publiées dépendent de la manière dont on mesure la taille de l'avalanche et de la taille de la grille, donc aucune n'a été retrouvée ; seules les valeurs mesurées sont données. À 40×40, la pente allait de -1,17 à -1,25 (moyenne -1,22), et elle s'aplatissait avec la taille du plateau : -1,35 (20×20), -1,20 (60×60), -1,18 (100×100). La conservation (grains ajoutés = grains restants + grains perdus) et la stabilité (chaque case au plus 3) ont été vérifiées avec <code>node tools/validate-sandpile.js</code>.",
+  "why": "첫 문장 어색한 구문 정리"
+ },
+ "s1808": {
+  "tr": "<b>Théorie contre simulation :</b> Il n'existe pas de résultat sous forme fermée ; la vérification s'est donc faite uniquement par simulation. La part initiale de voisins identiques était de 50 % ; elle finit à 51 % pour une part souhaitée de 10 %, 75 % pour 30 %, 83 % pour 40 %, 87 % pour 50 % et 98 % pour 60 % (moyennes sur 5 exécutions). Jusqu'à 70 %, la population se sépare presque complètement mais met plus de 100 tours à se stabiliser, et à 80 % aucune disposition ne satisfait tout le monde : elle reste à 51 % après 300 tours (<code>node tools/validate-schelling.js</code>).",
+  "why": "제목 용어 통일"
+ },
+ "s1824": {
+  "tr": "Bien plus de monde que de places : davantage de personnes repartent",
+  "why": "어색한 직역 정리"
+ },
+ "s1827": {
+  "tr": "De haut en bas : au hasard, le plus loin, bout d'abord et ordonnée. Les quatre rangées avancent à chaque arrivée. Un × rouge est une place vide que personne ne peut prendre, et un contour épais marque la personne qui vient de s'asseoir.",
+  "why": "성 일치"
+ },
+ "s1829": {
+  "tr": "<i style=\"background:rgba(229,72,77,0.35)\"></i>Place vide que personne ne peut prendre",
+  "why": "CSS 값 쉼표가 마침표로 깨져 스타일 무효"
+ },
+ "s1845": {
+  "tr": "L'axe horizontal indique l'écart laissé entre les personnes, l'axe vertical la part du maximum ordonné atteinte par le placement au hasard. Le vert est la valeur exacte pour la longueur actuelle du banc et le rouge pour un banc très long. Dès qu'il y a un écart, on reste en dessous de la disposition ordonnée.",
+  "why": "어색한 명사화"
+ },
+ "s1849": {
+  "tr": "Dans ce modèle, les personnes déjà assises ne bougent pas et les inconnus s'assoient à tour de rôle sans se concerter ; les petits espaces gênants restent donc inutilisés.",
+  "why": "'앉은 자리'를 sièges로 오역(앉은 사람)"
+ },
+ "s1851": {
+  "tr": "<b>Ce que cela montre :</b> Avec un écart d'une place, des personnes qui s'assoient au hasard sur un très long banc occupent 43,2 % des places (théorie (1−e<sup>−2</sup>)/2), en dessous des 50 % de la disposition ordonnée (simulation 43,3 %). Avec un écart de deux places, on obtient 27,5 % (ordonnée 33,3 %), et avec trois, 20,1 % (ordonnée 25,0 %). Avec 30 places et un écart de deux, la disposition ordonnée accueille 10 personnes, mais le hasard en a placé 8,6 en moyenne (espérance exacte 8,61) ; le placement le plus loin 8,9 et bout d'abord 8,9. Personne n'a enfreint la règle, et pourtant environ 14 à 20 % de la capacité ordonnée ont été perdus (écarts de 1 à 3 places, banc long).",
+  "why": "가장 먼 자리 방식 명칭 정리"
+ }
+}

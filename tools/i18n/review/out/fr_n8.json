@@ -1,0 +1,126 @@
+{
+ "d1408": {
+  "tr": "({0} % de l'ordonné)",
+  "why": "프랑스어 % 앞 공백(다른 문구와 일관)"
+ },
+ "d1409": {
+  "tr": "Valeur théorique pour un long banc {0} %",
+  "why": "'du long banc' 어색, 'pour un long banc' · % 공백"
+ },
+ "d1421": {
+  "tr": "Moyenne de la simulation {0} % (cette longueur de banc), ordonné {1} %",
+  "why": "프랑스어 % 앞 공백(다른 문구와 일관)"
+ },
+ "d1434": {
+  "tr": "Limite avec beaucoup de candidats : 36.8 %",
+  "why": "프랑스어 % 앞 공백(다른 문구와 일관)"
+ },
+ "d1441": {
+  "tr": "Observer {0}, puis choisir · réussite {1} %",
+  "why": "프랑스어 % 앞 공백(다른 문구와 일관)"
+ },
+ "d1442": {
+  "tr": "Réglage actuel ({0} %, observation de {1}) · moyenne de la simulation {2} %",
+  "why": "프랑스어 % 앞 공백(다른 문구와 일관)"
+ },
+ "d1647": {
+  "tr": "Tour {0} · personnes au courant de la nouvelle : {1} %",
+  "why": "프랑스어 % 앞 공백(다른 문구와 일관)"
+ },
+ "d1648": {
+  "tr": "90 % atteints : tour {0}",
+  "why": "프랑스어 % 앞 공백(다른 문구와 일관)"
+ },
+ "d1661": {
+  "tr": "Vitesse pour atteindre 90 % des personnes",
+  "why": "프랑스어 % 앞 공백(다른 문구와 일관)"
+ },
+ "d1665": {
+  "tr": "Temps pour atteindre 90 % cette fois",
+  "why": "프랑스어 % 앞 공백(다른 문구와 일관)"
+ },
+ "d1669": {
+  "tr": "{1} % des {0} liens au total",
+  "why": "프랑스어 % 앞 공백(다른 문구와 일관)"
+ },
+ "d1679": {
+  "tr": "Au-dessus de cette densité, le feu peut se propager à toute la forêt (environ 59 %)",
+  "why": "프랑스어 % 앞 공백(다른 문구와 일관)"
+ },
+ "d1683": {
+  "tr": "Petits feux (moins de 1 % de la forêt)",
+  "why": "프랑스어 % 앞 공백(다른 문구와 일관)"
+ },
+ "d1685": {
+  "tr": "Grands feux (10 % ou plus de la forêt)",
+  "why": "프랑스어 % 앞 공백(다른 문구와 일관)"
+ },
+ "d1686": {
+  "tr": "{0} % de la forêt brûle à chaque étape",
+  "why": "프랑스어 % 앞 공백(다른 문구와 일관)"
+ },
+ "d1688": {
+  "tr": "Feux brûlant 10 % ou plus de la forêt · laisser brûler → éteindre les petits feux",
+  "why": "프랑스어 % 앞 공백(다른 문구와 일관)"
+ },
+ "d1215": {
+  "tr": "Diminue environ de moitié",
+  "why": "자연스러운 표현"
+ },
+ "d1225": {
+  "tr": "Ils forment exactement des paires",
+  "why": "'짝이 된다' 뜻에 맞게"
+ },
+ "d1290": {
+  "tr": "Vous avez sauté l'étape. Vous pouvez encore choisir.",
+  "why": "어색한 직역·곡선 아포스트로피 통일"
+ },
+ "d1366": {
+  "tr": "Éboulements : {0}",
+  "why": "수 일치(0·1개) 문제 회피"
+ },
+ "d1397": {
+  "tr": "Assis : {0} · refusés : {1}",
+  "why": "성·수 일치 문제 회피"
+ },
+ "d1404": {
+  "tr": "Personnes placées par vous : {0} ; encore à arriver : {1}. Cliquez sur une place pour y installer quelqu'un (aucun écart nécessaire).",
+  "why": "{0} 수 일치 안전"
+ },
+ "d1405": {
+  "tr": "Personnes placées par vous : {0} ; encore à arriver : {1}. Cliquez sur une place pour y installer quelqu'un (laissez {2} places vides de chaque côté d'une personne assise).",
+  "why": "{0} 수 일치 안전"
+ },
+ "d1410": {
+  "tr": "Valeur théorique pour un long banc {0}",
+  "why": "'du long banc' 어색, 'pour un long banc'"
+ },
+ "d1416": {
+  "tr": "Valeur théorique pour un long banc",
+  "why": "'du long banc' 어색, 'pour un long banc'"
+ },
+ "d1435": {
+  "tr": "Rang {0} ou pire",
+  "why": "'이하'를 'ou moins'로 쓰면 모호"
+ },
+ "d1557": {
+  "tr": "Moyenne attendue du taux court, majorée de la prime de terme",
+  "why": "'plus' 직역투"
+ },
+ "d1644": {
+  "tr": "Sur {0} États · probabilité d'entraîner un voisin {1} %",
+  "why": "'probabilité de voisin' 의미 불명"
+ },
+ "d1676": {
+  "tr": "Arbres brûlés à l'instant : {0}",
+  "why": "수 일치(1그루) 문제 회피"
+ },
+ "d1689": {
+  "tr": "Nombre de grands feux (par 10 000 étapes)",
+  "why": "프랑스어 천 단위 공백"
+ },
+ "d1695": {
+  "tr": "{0} pour 10 000 cases",
+  "why": "프랑스어 천 단위 공백"
+ }
+}

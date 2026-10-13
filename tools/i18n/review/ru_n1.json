@@ -1,576 +1,1234 @@
 [
 {
-"id": "s0347",
-"page": "alliance",
-"ko": "<b>이 프로젝트의 단순화:</b> 나라는 모두 같고 동맹은 대칭적인 단순 연결이며, 조약 이행은 라운드마다 다시 판정하는 확률 하나로만 정합니다(연결마다 한 번만 시도하는 표준 독립 연쇄 모델과 다릅니다). 양쪽에서 요청받을 때의 다수결 규칙, 나라 수 24, 평균 동맹 수와 이행 확률의 값, \"세계대전급\"의 기준(12개국)은 모두 이 프로젝트가 정했습니다.",
-"en": "<b>What this project simplifies:</b> All countries are identical, alliances are plain symmetric links, and honoring a pact is a single probability re-drawn each round (unlike the standard independent cascade, which tries each link once). The majority rule for conflicting calls, the 24 countries, the values of average allies and honor probability, and the \"world-war scale\" cutoff (12 countries) are all set by this project.",
-"tr": "<b>Что упрощает этот проект:</b> Все страны одинаковы, союзы — простые симметричные связи, а выполнение договора — единая вероятность, заново разыгрываемая каждый раунд (в отличие от стандартного независимого каскада, где каждая связь пробуется один раз). Правило большинства при противоречивых призывах, 24 страны, значения среднего числа союзников и вероятности выполнения, а также порог «масштаба мировой войны» (12 стран) заданы этим проектом."
+"id": "s0582",
+"page": "bunching",
+"ko": "같은 간격으로 출발한 버스가 왜 몇 대씩 뭉쳐 다니게 되는지, 승객이 많을수록 늦어지는 되먹임 모델로 직접 돌려보고 해결책도 시험해 보세요.",
+"en": "Run a feedback model to see why evenly spaced buses end up travelling in bunches, and test remedies that restore the spacing.",
+"tr": "Запустите модель обратной связи, чтобы увидеть, почему равномерно идущие автобусы в итоге едут кучками, и проверьте способы, восстанавливающие интервалы."
 },
 {
-"id": "s0348",
-"page": "alliance",
-"ko": "<b>이론값과 시뮬레이션:</b> 이 설정에는 정확한 닫힌 해가 없고, 위 어림은 방향을 가늠하는 용도라서 이론값과 숫자로 대조하지는 않았습니다. 시뮬레이션에서는 조약 70%일 때 평균 동맹 0, 1, 1.5, 2, 3개에서 평균 2.0, 6.3, 12.1, 17.4, 22.4개국이 전쟁에 들어갔고(세계대전급 0, 15, 56, 85, 99%), 어림한 문턱 근처인 1~2개에서 가파르게 올랐습니다. 나라가 24개뿐이라 문턱이 날카롭지 않고 완만하게 오릅니다.",
-"en": "<b>Theory versus simulation:</b> This setup has no exact closed form and the rule of thumb above is only a guide to direction, so I did not compare it numerically. In the simulation at a 70% honor chance, average allies of 0, 1, 1.5, 2 and 3 gave 2.0, 6.3, 12.1, 17.4 and 22.4 countries at war (world-war scale 0, 15, 56, 85 and 99%), rising steeply around 1–2 allies near the rough threshold. With only 24 countries the threshold is smooth rather than sharp.",
-"tr": "<b>Теория и симуляция:</b> У этой постановки нет точной формулы в замкнутом виде, а приведённое выше правило лишь указывает направление, поэтому численно я его не сравнивал. В симуляции при вероятности выполнения 70% среднее число союзников 0, 1, 1,5, 2 и 3 дало 2,0, 6,3, 12,1, 17,4 и 22,4 страны, находящихся в войне (масштаб мировой войны 0, 15, 56, 85 и 99%), с резким ростом при 1–2 союзниках вблизи приблизительного порога. При всего 24 странах порог получается плавным, а не резким."
+"id": "s0583",
+"page": "bunching",
+"ko": "버스를 기다리다 보면 한참 안 오다가 두세 대가 줄줄이 오곤 합니다. 운이 나빴거나 기사님들이 제멋대로여서라고 생각하기 쉽습니다. 그런데 이 모델의 버스는 모두 똑같은 속도와 똑같은 규칙으로 달리고, 처음에는 간격도 거의 고릅니다. 그런데도 시간이 지나면 어김없이 뭉칩니다. 뭉침은 불운이 아니라, 노선이라는 시스템에 처음부터 들어 있는 구조입니다.",
+"en": "While waiting for a bus you often wait ages, then two or three arrive in a row. It is easy to blame bad luck or careless drivers. Yet every bus in this model runs at the same speed under the same rule, and at the start they are almost perfectly spaced. They bunch up anyway. It is not bad luck: it is built into the system of a bus route.",
+"tr": "Пока ждёшь автобус, часто ждёшь целую вечность, а потом подряд приходят два-три. Легко винить неудачу или небрежных водителей. Но все автобусы в этой модели идут с одной скоростью по одному правилу, а в начале расставлены почти идеально равномерно. И всё равно сбиваются в кучу. Дело не в невезении: это заложено в самой системе автобусного маршрута."
 },
 {
-"id": "s0349",
-"page": "alliance",
-"ko": "<b>더 읽을거리:</b> Watts, D. J. (2002), 「A simple model of global cascades on random networks」, <i>Proceedings of the National Academy of Sciences</i> 99. Newman, M. E. J. (2010), <i>Networks: An Introduction</i>, Oxford University Press.",
-"en": "<b>Further reading:</b> Watts, D. J. (2002), \"A simple model of global cascades on random networks\", <i>Proceedings of the National Academy of Sciences</i> 99. Newman, M. E. J. (2010), <i>Networks: An Introduction</i>, Oxford University Press.",
-"tr": "<b>Дополнительное чтение:</b> Watts, D. J. (2002), «A simple model of global cascades on random networks», <i>Proceedings of the National Academy of Sciences</i> 99. Newman, M. E. J. (2010), <i>Networks: An Introduction</i>, Oxford University Press."
+"id": "s0584",
+"page": "bunching",
+"ko": "고리 모양 노선에 정류장 24곳이 같은 간격으로 있고, 버스 여러 대가 같은 방향으로 돕니다. 버스는 정류장 사이를 1분에 달립니다. 정류장마다 승객이 일정한 평균 속도로 무작위로 도착해 줄을 섭니다(슬라이더의 승객 수요).",
+"en": "A ring-shaped route has 24 evenly spaced stops, and several buses circle in the same direction. A bus covers the gap between stops in 1 minute. At every stop passengers arrive at random with a constant average rate and queue up (the passenger demand slider).",
+"tr": "Кольцевой маршрут имеет 24 равномерно расположенные остановки, и несколько автобусов ходят по кругу в одном направлении. Автобус проезжает расстояние между остановками за 1 минуту. На каждой остановке пассажиры приходят случайно с постоянной средней частотой и выстраиваются в очередь (ползунок спроса пассажиров)."
 },
 {
-"id": "s0350",
-"page": "alliance",
-"ko": "나라는 A~X의 익명의 나라이고 실제 나라, 지도자, 날짜는 쓰지 않았습니다. 역사 연구가 아니고 어떤 논문의 모델이나 값을 재현한 것도 아닙니다.",
-"en": "The countries are anonymous A–X, with no real countries, leaders or dates. This is not historical research and does not reproduce the model or values of any paper.",
-"tr": "Страны анонимны, от A до X, без реальных стран, лидеров и дат. Это не историческое исследование и не воспроизводит модель или значения какой-либо статьи."
+"id": "s0585",
+"page": "bunching",
+"ko": "버스는 정류장에 서서 줄 선 승객을 한 명씩 태웁니다(1명에 3초). 줄이 빌 때까지 서 있고, 서 있는 동안 새로 온 승객도 태웁니다. 그래서 <b>서 있는 시간은 줄 선 승객 수에 비례</b>합니다. 앞차와 간격이 벌어진 버스는 승객이 더 많이 쌓여 있어 더 오래 서고, 그래서 더 늦어집니다.",
+"en": "At a stop the bus loads the waiting passengers one by one (3 seconds each). It stays until the queue is empty, taking anyone who arrives meanwhile. So the <b>time it stands is proportional to the number waiting</b>. A bus with a larger gap ahead finds more people waiting, stands longer, and falls even further behind.",
+"tr": "На остановке автобус по одному берёт ожидающих пассажиров (по 3 секунды на каждого). Он стоит, пока очередь не опустеет, забирая и тех, кто пришёл за это время. Поэтому <b>время стоянки пропорционально числу ожидающих</b>. Автобус с большим разрывом впереди застаёт больше людей, стоит дольше и отстаёт ещё сильнее."
 },
 {
-"id": "s0354",
-"page": "ant",
-"ko": "랭턴의 개미 · 시뮬라티오 랩",
-"en": "Langton's Ant · Simulatio Lab",
-"tr": "Муравей Лэнгтона · Simulatio Lab"
+"id": "s0586",
+"page": "bunching",
+"ko": "반대로 뒤차는 앞차가 이미 승객을 태워 간 뒤라 줄이 짧아 금방 출발하고, 앞차를 따라잡습니다. 앞차는 더 늦어지고 뒤차는 더 빨라지는 <b>양의 되먹임</b>이 작은 어긋남을 점점 키워, 결국 몇 대가 한 덩어리로 달립니다.",
+"en": "The bus behind finds short queues because the one ahead has already taken the passengers, so it leaves quickly and catches up. The one ahead gets slower, the one behind faster: this <b>positive feedback</b> amplifies tiny differences until several buses run as one clump.",
+"tr": "Автобус позади находит короткие очереди, потому что идущий впереди уже забрал пассажиров, поэтому он быстро уезжает и догоняет. Тот, что впереди, замедляется, а тот, что позади, ускоряется: эта <b>положительная обратная связь</b> усиливает крошечные различия, пока несколько автобусов не поедут одной кучей."
 },
 {
-"id": "s0355",
-"page": "ant",
-"ko": "규칙이 두 줄뿐인 개미가 처음엔 대칭 무늬를, 다음엔 혼돈을 만들다가 약 만 걸음 뒤 갑자기 대각선 고속도로를 내는 랭턴의 개미를 직접 돌려보세요.",
-"en": "Run Langton's ant yourself: an ant with two rules draws symmetric patterns, then chaos, and after about 10,000 steps suddenly builds a diagonal highway.",
-"tr": "Запустите муравья Лэнгтона сами: муравей с двумя правилами рисует симметричные узоры, затем хаос, а примерно после 10 000 шагов внезапно строит диагональное шоссе."
+"id": "s0587",
+"page": "bunching",
+"ko": "<b>처방</b>을 고를 수 있습니다. 간격 유지는 앞차가 이 정류장을 떠난 뒤 이상적 간격의 1.15배가 지나야 출발하게 하고, 승차 제한은 한 정류장에서 서는 시간에 상한을 둬서 남은 승객은 다음 버스에 맡깁니다.",
+"en": "You can pick a <b>remedy</b>. Holding keeps a bus at the stop until 1.15 times the ideal spacing has passed since the bus ahead left, and limited boarding caps how long a bus may stand, leaving the remaining passengers to the next bus.",
+"tr": "Можно выбрать <b>меры</b>. Удержание держит автобус на остановке, пока с отправления впереди идущего не пройдёт 1,15 идеального интервала, а ограниченная посадка ограничивает время стоянки автобуса, оставляя остальных пассажиров для следующего автобуса."
 },
 {
-"id": "s0356",
-"page": "ant",
-"ko": "계획이 없는 것은 어지럽게만 움직일 거라고 생각하기 쉽습니다. 규칙이 두 줄뿐인 개미라면 더 그렇겠죠. 그런데 빈 판에서 출발한 이 개미는 한동안 질서와 혼돈을 오간 끝에 9,976걸음째부터 104걸음마다 똑같은 동작을 되풀이하며 곧은 대각선 길을 내기 시작합니다. 아무도 길을 설계하지 않았는데도요.",
-"en": "It is easy to assume that something with no plan will just wander randomly, and an ant with only two rules even more so. Yet this ant, started on a blank grid, drifts between order and chaos and then, from step 9,976, repeats the same 104-step routine and starts building a straight diagonal road. Nobody designed that road.",
-"tr": "Легко предположить, что нечто без плана будет просто бродить случайно, тем более муравей всего с двумя правилами. И всё же этот муравей, начав на пустой сетке, колеблется между порядком и хаосом, а затем, начиная с шага 9 976, повторяет одну и ту же 104-шаговую последовательность и начинает строить прямую диагональную дорогу. Эту дорогу никто не проектировал."
+"id": "s0588",
+"page": "bunching",
+"ko": "버스 수 <output id=\"o-n\"></output>",
+"en": "Number of buses <output id=\"o-n\"></output>",
+"tr": "Число автобусов <output id=\"o-n\"></output>"
 },
 {
-"id": "s0357",
-"page": "ant",
-"ko": "판은 흰 칸과 검은 칸으로 된 격자이고, 개미는 한 칸 위에 서서 위·아래·좌·우 중 한 방향을 봅니다. 규칙은 두 줄입니다. <b>흰 칸이면</b> 오른쪽으로 90도 돌고, 칸을 검게 바꾸고, 한 칸 앞으로 갑니다. <b>검은 칸이면</b> 왼쪽으로 90도 돌고, 칸을 희게 바꾸고, 한 칸 앞으로 갑니다.",
-"en": "The world is a grid of white and black cells, and the ant stands on one cell facing up, down, left or right. There are two rules. <b>On a white cell</b> it turns 90 degrees right, flips the cell to black and steps forward. <b>On a black cell</b> it turns 90 degrees left, flips the cell to white and steps forward.",
-"tr": "Мир — это сетка из белых и чёрных клеток, а муравей стоит на одной клетке лицом вверх, вниз, влево или вправо. Есть два правила. <b>На белой клетке</b> он поворачивает на 90 градусов вправо, перекрашивает клетку в чёрный и делает шаг вперёд. <b>На чёрной клетке</b> он поворачивает на 90 градусов влево, перекрашивает клетку в белый и делает шаг вперёд."
+"id": "s0589",
+"page": "bunching",
+"ko": "많을수록 이상적 간격이 짧아져요",
+"en": "More buses mean a shorter ideal gap",
+"tr": "Чем больше автобусов, тем короче идеальный интервал"
 },
 {
-"id": "s0358",
-"page": "ant",
-"ko": "빈 판에서 출발하면 처음 약 500걸음은 대칭 무늬가 되풀이되어 <b>질서</b>로 보이고, 이어 한참 어지러운 <b>혼돈</b>이 계속되다가, 끝내 104걸음짜리 동작이 되풀이되며 대각선으로 뻗는 <b>고속도로</b>가 됩니다. 고속도로가 시작된 걸음은 개미의 자리와 방향이 104걸음마다 (2,2)칸씩 옮겨 가며 세 번 이어서 되풀이되는 것으로 판정합니다.",
-"en": "From a blank grid, the first 500 steps or so repeatedly form symmetric shapes, which look like <b>order</b>. A long stretch of <b>chaos</b> follows, and finally a 104-step routine repeats and carries the ant diagonally: the <b>highway</b>. The highway start is detected when the ant's position and heading repeat every 104 steps, shifted by (2,2) cells, three times in a row.",
-"tr": "Начиная с пустой сетки, первые примерно 500 шагов раз за разом образуют симметричные фигуры, похожие на <b>порядок</b>. Затем следует долгий период <b>хаоса</b>, и наконец 104-шаговая последовательность начинает повторяться и несёт муравья по диагонали: это <b>шоссе</b>. Начало шоссе определяется, когда положение и направление муравья повторяются каждые 104 шага со сдвигом на (2,2) клетки три раза подряд."
+"id": "s0590",
+"page": "bunching",
+"ko": "승객 수요 <output id=\"o-demand\"></output>",
+"en": "Passenger demand <output id=\"o-demand\"></output>",
+"tr": "Спрос пассажиров <output id=\"o-demand\"></output>"
 },
 {
-"id": "s0359",
-"page": "ant",
-"ko": "<b>속도</b>는 1초에 몇 걸음을 돌릴지입니다. 고속도로를 보려면 초당 수천 걸음 이상으로 올려 보세요. <b>개미 수</b>를 2~4마리로 늘리면 개미들이 서로의 흔적을 밟고, <b>무작위 점으로 시작</b>하면 가운데 21×21칸 안에 검은 칸을 흩뿌려 놓고 출발합니다.",
-"en": "<b>Speed</b> is how many steps run per second; raise it to thousands per second to reach the highway. With 2 to 4 <b>ants</b> they walk on each other's trails, and a <b>random-dot start</b> scatters black cells in the central 21×21 cells before the ant starts.",
-"tr": "<b>Скорость</b> — это число шагов в секунду; чтобы добраться до шоссе, поднимите её до тысяч в секунду. При 2–4 <b>муравьях</b> они идут по следам друг друга, а <b>старт со случайными точками</b> разбрасывает чёрные клетки по центральным 21×21 клеткам до того, как муравей начнёт движение."
+"id": "s0591",
+"page": "bunching",
+"ko": "정류장 한 곳에 시간당 도착하는 평균 승객 수. 클수록 되먹임이 세져요",
+"en": "Average passengers arriving per hour at each stop. The higher it is, the stronger the feedback",
+"tr": "Среднее число пассажиров, приходящих в час на каждую остановку. Чем оно выше, тем сильнее обратная связь"
 },
 {
-"id": "s0360",
-"page": "ant",
-"ko": "개미 수 <output id=\"o-ants\"></output>",
-"en": "Number of ants <output id=\"o-ants\"></output>",
-"tr": "Число муравьёв <output id=\"o-ants\"></output>"
+"id": "s0592",
+"page": "bunching",
+"ko": "처음 어긋남 <output id=\"o-eps\"></output>",
+"en": "Initial disturbance <output id=\"o-eps\"></output>",
+"tr": "Начальное возмущение <output id=\"o-eps\"></output>"
 },
 {
-"id": "s0361",
-"page": "ant",
-"ko": "여러 마리면 한 걸음마다 개미들이 차례로 한 번씩 움직이고, 서로의 흔적을 밟습니다",
-"en": "With several ants, each ant moves once per step in turn, and they walk on each other's trails",
-"tr": "При нескольких муравьях каждый по очереди делает один ход за шаг, и они идут по следам друг друга"
+"id": "s0593",
+"page": "bunching",
+"ko": "처음 출발 위치를 이상적 간격의 몇 %만큼 무작위로 흩뜨릴지",
+"en": "How far, in percent of the ideal gap, the starting positions are randomly shifted",
+"tr": "Насколько, в процентах от идеального интервала, случайно сдвигаются начальные позиции"
 },
 {
-"id": "s0362",
-"page": "ant",
-"ko": "무작위 점의 비율 <output id=\"o-dens\"></output>",
-"en": "Random dot share <output id=\"o-dens\"></output>",
-"tr": "Доля случайных точек <output id=\"o-dens\"></output>"
+"id": "s0594",
+"page": "bunching",
+"ko": "처방 <output id=\"o-remedy\"></output>",
+"en": "Remedy <output id=\"o-remedy\"></output>",
+"tr": "Меры <output id=\"o-remedy\"></output>"
 },
 {
-"id": "s0363",
-"page": "ant",
-"ko": "\"무작위 점으로 시작\"일 때만 쓰입니다. 가운데 21×21칸 중 처음부터 검은 칸의 비율",
-"en": "Used only for \"random dots\". The share of the central 21×21 cells that start black",
-"tr": "Используется только для «случайных точек». Доля центральных 21×21 клеток, которые начинают чёрными"
+"id": "s0595",
+"page": "bunching",
+"ko": "처방 없음",
+"en": "No remedy",
+"tr": "Без мер"
 },
 {
-"id": "s0364",
-"page": "ant",
-"ko": "시작하는 판 <output id=\"o-start\"></output>",
-"en": "Starting grid <output id=\"o-start\"></output>",
-"tr": "Начальная сетка <output id=\"o-start\"></output>"
+"id": "s0596",
+"page": "bunching",
+"ko": "간격 유지: 앞차가 떠난 뒤 일정 시간이 지나야 출발",
+"en": "Holding: wait until enough time has passed since the bus ahead left",
+"tr": "Удержание: ждать, пока с отправления впереди идущего не пройдёт достаточно времени"
 },
 {
-"id": "s0365",
-"page": "ant",
-"ko": "빈 판",
-"en": "Blank grid",
-"tr": "Пустая сетка"
+"id": "s0597",
+"page": "bunching",
+"ko": "승차 제한: 서는 시간에 상한",
+"en": "Limited boarding: cap the standing time",
+"tr": "Ограниченная посадка: ограничить время стоянки"
 },
 {
-"id": "s0366",
-"page": "ant",
-"ko": "무작위 점으로 시작",
-"en": "Random dots",
-"tr": "Случайные точки"
+"id": "s0598",
+"page": "bunching",
+"ko": "처방을 바꾸면 처음부터 다시 돌립니다. 아래 차트는 세 처방을 같은 조건으로 비교해요",
+"en": "Changing it restarts the run. The charts below compare all three remedies under the same conditions",
+"tr": "При изменении запуск начинается заново. Графики ниже сравнивают все три меры в одинаковых условиях"
 },
 {
-"id": "s0367",
-"page": "ant",
-"ko": "빈 판은 고전적인 실험입니다. 무작위 점으로 시작하면 번호를 바꿔 가며 매번 다른 판을 볼 수 있어요",
-"en": "The blank grid is the classic experiment. With random dots, change the seed to see a different grid each time",
-"tr": "Пустая сетка — классический эксперимент. Со случайными точками меняйте зерно (seed), чтобы каждый раз получать другую сетку"
+"id": "s0599",
+"page": "bunching",
+"ko": "같은 설정, 다른 승객 도착",
+"en": "Same settings, different arrivals",
+"tr": "Те же настройки, другие прибытия"
 },
 {
-"id": "s0368",
-"page": "ant",
-"ko": "같은 설정, 다른 무작위 판",
-"en": "Same settings, different random grid",
-"tr": "Те же настройки, другая случайная сетка"
+"id": "s0600",
+"page": "bunching",
+"ko": "① 순환 노선 지켜보기",
+"en": "① Watching the Ring Route",
+"tr": "① Наблюдаем за кольцевым маршрутом"
 },
 {
-"id": "s0369",
-"page": "ant",
-"ko": "① 개미가 길을 내는 모습",
-"en": "① Watching the Ant Build a Road",
-"tr": "① Наблюдаем, как муравей строит дорогу"
+"id": "s0601",
+"page": "bunching",
+"ko": "동그라미가 버스, 번호가 버스 번호입니다. 정류장에서 바깥으로 뻗은 주황 막대는 줄 선 승객이고, 검은 테두리 버스는 승객을 태우는 중입니다. 처음엔 고르게 돌다가 점점 서로 붙는 것을 지켜보세요.",
+"en": "Circles are buses and the numbers are bus numbers. Orange bars sticking out from the stops are queues of waiting passengers, and a bus with a black outline is loading. Watch evenly spaced buses gradually stick together.",
+"tr": "Круги — автобусы, цифры — их номера. Оранжевые полосы у остановок — очереди ожидающих пассажиров, а автобус с чёрным контуром сейчас принимает пассажиров. Посмотрите, как равномерно расставленные автобусы постепенно сбиваются в кучу."
 },
 {
-"id": "s0370",
-"page": "ant",
-"ko": "검은 칸은 짙은 남색, 개미가 지나갔다가 희게 돌아온 칸은 연한 파랑, 개미는 색 점입니다. 판은 지나간 곳이 모두 보이도록 저절로 넓어집니다. 속도를 올리면 초당 수십만 걸음까지 돌릴 수 있어요.",
-"en": "Black cells are dark navy, cells the ant crossed and left white are pale blue, and the ants are the coloured dots. The view widens by itself to show everywhere the ant has been. Raise the speed to run up to hundreds of thousands of steps per second.",
-"tr": "Чёрные клетки — тёмно-синие, клетки, по которым прошёл муравей и которые остались белыми, — бледно-голубые, а муравьи — цветные точки. Вид сам расширяется, чтобы показать все места, где побывал муравей. Увеличьте скорость, чтобы выполнять до сотен тысяч шагов в секунду."
+"id": "s0602",
+"page": "bunching",
+"ko": "② 간격이 흐트러지는 모습",
+"en": "② How the Gaps Drift",
+"tr": "② Как дрейфуют интервалы"
 },
 {
-"id": "s0371",
-"page": "ant",
-"ko": "초당 100걸음",
-"en": "100 steps/s",
-"tr": "100 шагов/с"
+"id": "s0603",
+"page": "bunching",
+"ko": "가로는 시간, 세로는 버스 번호이고 색은 그 버스와 앞차 사이의 간격입니다. 옅은 회색은 고른 간격, 빨강은 바짝 붙음, 파랑은 크게 벌어짐입니다. 줄무늬가 빨강과 파랑으로 갈라지면 뭉친 것입니다.",
+"en": "Time runs left to right and buses top to bottom; color shows the gap between that bus and the one ahead. Pale gray is even spacing, red is bunched tightly, blue is a large gap. When the stripes split into red and blue the buses have bunched.",
+"tr": "Время идёт слева направо, автобусы расположены сверху вниз; цвет показывает интервал между этим автобусом и впереди идущим. Бледно-серый — равномерный интервал, красный — автобусы вплотную, синий — большой разрыв. Когда полосы разделяются на красные и синие, автобусы сбились в кучу."
 },
 {
-"id": "s0372",
-"page": "ant",
-"ko": "초당 1천걸음",
-"en": "1,000 steps/s",
-"tr": "1 000 шагов/с"
+"id": "s0604",
+"page": "bunching",
+"ko": "<i style=\"background:#e5484d\"></i>앞차에 바짝 붙음",
+"en": "<i style=\"background:#e5484d\"></i>Tight behind the bus ahead",
+"tr": "<i style=\"background:#e5484d\"></i>Вплотную к впереди идущему"
 },
 {
-"id": "s0373",
-"page": "ant",
-"ko": "초당 5천걸음",
-"en": "5,000 steps/s",
-"tr": "5 000 шагов/с"
+"id": "s0605",
+"page": "bunching",
+"ko": "<i style=\"background:#eef1f7;border:1px solid #c3cce0\"></i>고른 간격",
+"en": "<i style=\"background:#eef1f7;border:1px solid #c3cce0\"></i>Even gap",
+"tr": "<i style=\"background:#eef1f7;border:1px solid #c3cce0\"></i>Равномерный интервал"
 },
 {
-"id": "s0374",
-"page": "ant",
-"ko": "초당 3만걸음",
-"en": "30,000 steps/s",
-"tr": "30 000 шагов/с"
+"id": "s0606",
+"page": "bunching",
+"ko": "<i style=\"background:#2f6fed\"></i>앞차와 크게 벌어짐",
+"en": "<i style=\"background:#2f6fed\"></i>Large gap to the bus ahead",
+"tr": "<i style=\"background:#2f6fed\"></i>Большой разрыв с впереди идущим"
 },
 {
-"id": "s0375",
-"page": "ant",
-"ko": "초당 30만걸음",
-"en": "300,000 steps/s",
-"tr": "300 000 шагов/с"
+"id": "s0607",
+"page": "bunching",
+"ko": "③ 간격 변동계수(CV)의 변화",
+"en": "③ How the Variation of Gaps Grows",
+"tr": "③ Как растёт разброс интервалов"
 },
 {
-"id": "s0376",
-"page": "ant",
-"ko": "② 검은 칸의 수",
-"en": "② Number of Black Cells",
-"tr": "② Число чёрных клеток"
+"id": "s0608",
+"page": "bunching",
+"ko": "버스 간격이 얼마나 들쭉날쭉한지를 나타내는 값입니다(표준편차 ÷ 평균). 0이면 완전히 고르고, 버스가 모두 한 덩어리가 되면 최댓값에 가깝습니다. 굵은 검은 선이 지금 돌리는 실험이고, 색 선은 세 처방을 같은 조건으로 끝까지 돌린 결과입니다.",
+"en": "This measures how uneven the gaps are (standard deviation divided by the mean). 0 means perfectly even, and it is close to its maximum when all buses form one clump. The thick black line is the run you are watching, and the colored lines are all three remedies run to the end under the same conditions.",
+"tr": "Показывает, насколько неравномерны интервалы (стандартное отклонение, делённое на среднее). 0 означает идеально равномерные, а когда все автобусы собираются в один ком, значение близко к максимуму. Толстая чёрная линия — запуск, который вы смотрите, а цветные линии — все три меры, доведённые до конца в тех же условиях."
 },
 {
-"id": "s0377",
-"page": "ant",
-"ko": "파란 바탕은 질서 있던 처음 약 500걸음(빈 판, 개미 1마리일 때)입니다. 혼돈 동안 불규칙하게 늘다가 고속도로가 시작되면 104걸음마다 12칸씩 일정하게 늘어납니다.",
-"en": "The blue band is the first ~500 ordered steps (blank grid, one ant). Black cells grow irregularly during the chaos, then by a steady 12 cells every 104 steps once the highway starts.",
-"tr": "Синяя полоса — это первые ~500 упорядоченных шагов (пустая сетка, один муравей). Во время хаоса чёрные клетки прибавляются нерегулярно, а после начала шоссе — равномерно, по 12 клеток каждые 104 шага."
+"id": "s0609",
+"page": "bunching",
+"ko": "<i style=\"background:#e5484d\"></i>처방 없음",
+"en": "<i style=\"background:#e5484d\"></i>No remedy",
+"tr": "<i style=\"background:#e5484d\"></i>Без мер"
 },
 {
-"id": "s0378",
-"page": "ant",
-"ko": "③ 원점에서 개미까지의 거리",
-"en": "③ Distance of the Ant from the Start",
-"tr": "③ Расстояние муравья от старта"
+"id": "s0610",
+"page": "bunching",
+"ko": "<i style=\"background:#1fa463\"></i>간격 유지",
+"en": "<i style=\"background:#1fa463\"></i>Holding",
+"tr": "<i style=\"background:#1fa463\"></i>Удержание"
 },
 {
-"id": "s0379",
-"page": "ant",
-"ko": "혼돈 동안은 출발점 근처를 맴돌아 거의 평평하다가, 고속도로가 시작되면 곧은 직선으로 멀어집니다. 걸음당 약 0.027칸(104걸음에 2√2칸)씩입니다.",
-"en": "During the chaos the ant stays near its starting point and the curve is nearly flat, then it grows as a straight line once the highway begins: about 0.027 cells per step (2√2 cells per 104 steps).",
-"tr": "Во время хаоса муравей остаётся рядом со стартом, и кривая почти плоская, а когда начинается шоссе, она растёт по прямой: около 0,027 клетки за шаг (2√2 клетки за 104 шага)."
+"id": "s0611",
+"page": "bunching",
+"ko": "<i style=\"background:#e0a100\"></i>승차 제한",
+"en": "<i style=\"background:#e0a100\"></i>Limited boarding",
+"tr": "<i style=\"background:#e0a100\"></i>Ограниченная посадка"
 },
 {
-"id": "s0380",
-"page": "ant",
-"ko": "④ 무작위 점으로 시작하면 고속도로는 언제 생길까",
-"en": "④ When Does the Highway Appear from Random Dots?",
-"tr": "④ Когда появляется шоссе при старте со случайных точек?"
+"id": "s0612",
+"page": "bunching",
+"ko": "<i style=\"background:#111\"></i>지금 돌리는 중",
+"en": "<i style=\"background:#111\"></i>Running now",
+"tr": "<i style=\"background:#111\"></i>Сейчас идёт"
 },
 {
-"id": "s0381",
-"page": "ant",
-"ko": "가로는 처음에 흩뿌린 검은 칸의 비율, 세로는 고속도로가 시작된 걸음입니다. 점은 무작위 판 10개 각각의 결과이고 선은 그 중앙값입니다. 이 화면에서 돌린 판에서는 모두 고속도로가 생겼습니다.",
-"en": "The horizontal axis is the share of black cells scattered at the start, the vertical axis the step where the highway began. Each dot is one of 10 random grids and the line is their median. Every grid run here produced a highway.",
-"tr": "Горизонтальная ось — доля чёрных клеток, разбросанных в начале, вертикальная — шаг, на котором началось шоссе. Каждая точка — одна из 10 случайных сеток, а линия — их медиана. Каждая запущенная здесь сетка дала шоссе."
+"id": "s0613",
+"page": "bunching",
+"ko": "④ 처방의 효과와 대가",
+"en": "④ What the Remedies Gain and Cost",
+"tr": "④ Что дают и чего стоят меры"
 },
 {
-"id": "s0382",
-"page": "ant",
-"ko": "빈 판의 개미는 9,976걸음째부터 104걸음 동작을 되풀이하며 대각선 고속도로를 만들었습니다.",
-"en": "Starting blank, the ant began a 104-step diagonal highway cycle at step 9,976.",
-"tr": "Начав с пустого поля, муравей на шаге 9 976 вошёл в цикл диагонального «шоссе» длиной 104 шага."
+"id": "s0614",
+"page": "bunching",
+"ko": "왼쪽은 승객이 버스를 기다리는 평균 시간, 오른쪽은 버스가 한 바퀴 도는 데 걸리는 시간입니다. 간격을 지키게 하면 기다림은 크게 줄지만 버스가 정류장에서 쉬는 만큼 한 바퀴가 길어집니다. 점선은 기준값입니다.",
+"en": "Left is the average time passengers wait for a bus, right the time a bus needs for one lap. Keeping the spacing cuts the wait a lot, but the lap gets longer because buses rest at stops. Dashed lines are reference values.",
+"tr": "Слева — среднее время ожидания автобуса пассажирами, справа — время, за которое автобус проходит один круг. Поддержание интервалов сильно сокращает ожидание, но круг становится длиннее, потому что автобусы выжидают на остановках. Пунктирные линии — эталонные значения."
 },
 {
-"id": "s0383",
-"page": "ant",
-"ko": "두 줄 규칙이 흔적을 남기고 그 흔적을 다시 밟기 때문에, 혼돈 끝에 질서가 나타났을 수 있습니다.",
-"en": "The two-line rule leaves marks that the ant steps on again, so order may emerge after chaos.",
-"tr": "Правило из двух строк оставляет следы, на которые муравей снова наступает, поэтому порядок может возникнуть после хаоса."
+"id": "s0615",
+"page": "bunching",
+"ko": "처방이 없으면 이 가상 노선에서 버스가 뭉치고 평균 기다림이 약 3.8배로 길어졌어요.",
+"en": "With no remedy, buses on this virtual line bunched up and the average wait grew about 3.8 times.",
+"tr": "Без каких-либо мер автобусы на этой виртуальной линии сбились в колонны, и среднее ожидание выросло примерно в 3,8 раза."
 },
 {
-"id": "s0384",
-"page": "ant",
-"ko": "왜 하필 고속도로인지는 아직 증명되지 않아, 규칙을 바꾸거나 시작 판을 달리해 보는 것이 열쇠일 수 있습니다.",
-"en": "Why a highway forms is unproven, so changing the rule or the starting grid may be the key.",
-"tr": "Почему образуется шоссе, не доказано, поэтому ключом может быть изменение правила или начальной сетки."
+"id": "s0616",
+"page": "bunching",
+"ko": "앞차는 승객이 쌓여 더 늦어지고 뒤차는 따라잡는 되먹임 때문에, 작은 어긋남이 스스로 커질 수 있어요.",
+"en": "A late bus piles up passengers and gets later while the next one catches up, so a small gap can feed on itself.",
+"tr": "Опоздавший автобус накапливает пассажиров и опаздывает ещё сильнее, пока следующий его догоняет, так что небольшой разрыв может подпитывать сам себя."
 },
 {
-"id": "s0385",
-"page": "ant",
-"ko": "<b>말하는 것:</b> 빈 판에서 출발한 개미 1마리는 9,976걸음째부터 104걸음마다 (2,2)칸씩 대각선으로 옮겨 가는 동작을 끝없이 되풀이했습니다(40,000걸음까지 확인). 그 뒤로는 104걸음마다 검은 칸이 12칸씩 늘고 걸음당 약 0.027칸씩 멀어집니다. 처음 약 500걸음은 대칭 모양이 되풀이되었고(마지막 대칭 모양은 473걸음), 그 뒤는 고속도로까지 혼돈이었습니다. 한 변 21칸 안에 5%에서 50%까지 검은 칸을 흩뿌려 시작한 판은 7가지 비율 각각 60판 모두, 개미를 2~4마리로 늘려도 비율 15%에서 60판 모두 60,000걸음 안에 고속도로가 생겼습니다. 시작 걸음은 200~50,000걸음으로 크게 달랐습니다. 사소한 규칙에서 설계 없이 질서 있는 구조가 나타나는 창발을 보여 줍니다.",
-"en": "<b>What it shows:</b> A single ant on a blank grid began, at step 9,976, a routine that moves it (2,2) cells diagonally every 104 steps and repeated it without end (checked to 40,000 steps). From then on black cells grow by 12 every 104 steps and the ant moves away at about 0.027 cells per step. The first ~500 steps kept returning to symmetric shapes (the last symmetric shape was at step 473), and the rest was chaos until the highway. Grids started with 5% to 50% black cells scattered in a 21-cell square all produced a highway within 60,000 steps in every one of 60 runs at each of the 7 shares, and so did 2 to 4 ants at 15%. The start step varied a great deal, from about 200 to 50,000. It shows emergence: orderly structure from trivial rules with no design.",
-"tr": "<b>Что это показывает:</b> Один муравей на пустой сетке начал на шаге 9 976 последовательность, которая сдвигает его на (2,2) клетки по диагонали каждые 104 шага, и повторял её бесконечно (проверено до 40 000 шагов). С тех пор чёрных клеток становится на 12 больше каждые 104 шага, а муравей удаляется примерно на 0,027 клетки за шаг. Первые ~500 шагов снова и снова возвращались к симметричным фигурам (последняя симметричная фигура была на шаге 473), а остальное было хаосом вплоть до шоссе. Сетки, начатые с 5–50% чёрных клеток, разбросанных в квадрате 21 клетка, во всех 60 запусках для каждой из 7 долей дали шоссе в пределах 60 000 шагов, и так же было с 2–4 муравьями при 15%. Шаг начала сильно различался: от примерно 200 до 50 000. Это показывает эмерджентность: упорядоченную структуру из тривиальных правил без замысла."
+"id": "s0617",
+"page": "bunching",
+"ko": "기사 개인보다 정차 시간이 간격에 비례하는 구조와, 간격 유지의 대가로 한 바퀴가 길어지는 점을 살펴볼 만해요.",
+"en": "The structure, where stop time grows with the gap, and the longer loop that spacing control costs are worth a look before blaming drivers.",
+"tr": "Прежде чем винить водителей, стоит посмотреть на структуру, где время стоянки растёт вместе с разрывом, и на более долгий круг, которым оборачивается регулирование интервалов."
 },
 {
-"id": "s0386",
-"page": "ant",
-"ko": "고속도로가 늘 생긴다는 것은 증명되지 않았고, 시작 걸음이 언제인지 미리 구하는 식도 없습니다.",
-"en": "It is unproven that a highway always forms, and no formula predicts its start step.",
-"tr": "Не доказано, что шоссе образуется всегда, и никакая формула не предсказывает шаг его начала."
+"id": "s0618",
+"page": "bunching",
+"ko": "<b>말하는 것:</b> 버스 6대, 정류장 24곳, 정류장당 시간당 승객 40명, 처음 어긋남 5%에서 이상적 간격은 4.6분(한 바퀴 27.8분)이었습니다. 처방이 없으면 간격의 변동계수가 0분에 0.04였던 것이 60분에 0.54, 120분에 1.00, 240분에 1.51, 360분에 2.10으로 커졌습니다(시드 20개 평균, 6대가 모두 한 덩어리가 되면 최댓값 2.24). 평균 기다림은 뒤쪽 절반 시간에 8.7분으로, 간격이 고를 때의 2.3분의 약 3.8배였습니다. 기다림은 (이상적 간격÷2)×(1+CV²)로 거의 설명되어 식의 9.0분과 가까웠습니다. 처음 어긋남이 0%여도 승객 도착의 무작위성만으로 CV가 0.5를 넘는 데 63분이 걸렸고, 5%에서도 63분, 25%에서는 35분이었습니다. 간격 유지 처방은 CV를 0.04로 눌러 기다림을 2.5분으로 줄였지만 한 바퀴는 27.1분에서 32.4분으로 약 19% 길어졌습니다. 승차 제한은 기다림을 3.4분(한 바퀴 25.9분)으로 줄였으나 CV는 120분 즈음까지 0.13 안팎에 머물다가 360분에 0.66으로 올라, 뭉침을 늦출 뿐 막지는 못했습니다. 수요가 시간당 10명이면 기다림이 거의 늘지 않아(약 1.0배) 뭉침이 없었고, 20명에서 약 1.2배, 60명에서 약 5.7배였습니다.",
+"en": "<b>What it shows:</b> With 6 buses, 24 stops, 40 passengers per hour at each stop and a 5% initial disturbance, the ideal gap was 4.6 minutes (a lap of 27.8 minutes). With no remedy, the coefficient of variation of the gaps grew from 0.04 at minute 0 to 0.54 at minute 60, 1.00 at 120, 1.51 at 240 and 2.10 at 360 (mean of 20 seeds; the maximum when all 6 buses form one clump is 2.24). The average wait in the second half was 8.7 minutes, about 3.8 times the 2.3 minutes of even spacing. The wait was mostly explained by (ideal gap ÷ 2) × (1 + CV²), giving 9.0 minutes, close to the measured value. Even with 0% initial disturbance, the randomness of passenger arrivals alone took CV above 0.5 after 63 minutes; with 5% it was 63 minutes and with 25% it was 35. Holding pushed CV down to 0.04 and the wait to 2.5 minutes, but the lap grew about 19%, from 27.1 to 32.4 minutes. Limited boarding cut the wait to 3.4 minutes (lap 25.9 minutes), but CV stayed around 0.13 until about minute 120 and then rose to 0.66 by minute 360, so it delayed the bunching rather than preventing it. At 10 passengers per hour the wait barely grew (about 1.0 times) and the buses did not bunch; at 20 it was about 1.2 times and at 60 about 5.7 times.",
+"tr": "<b>Что это показывает:</b> При 6 автобусах, 24 остановках, 40 пассажирах в час на каждой остановке и начальном возмущении 5% идеальный интервал составлял 4,6 минуты (круг 27,8 минуты). Без мер коэффициент вариации интервалов вырос с 0,04 на 0-й минуте до 0,54 на 60-й, 1,00 на 120-й, 1,51 на 240-й и 2,10 на 360-й (среднее по 20 зёрнам; максимум, когда все 6 автобусов собираются в один ком, равен 2,24). Среднее ожидание во второй половине составило 8,7 минуты — примерно в 3,8 раза больше, чем 2,3 минуты при равномерных интервалах. Ожидание в основном объяснялось формулой (идеальный интервал ÷ 2) × (1 + CV²), которая даёт 9,0 минуты, близко к измеренному значению. Даже при начальном возмущении 0% одной лишь случайности прихода пассажиров хватило, чтобы CV превысил 0,5 через 63 минуты; при 5% — через 63 минуты, при 25% — через 35. Удержание снизило CV до 0,04, а ожидание до 2,5 минуты, но круг удлинился примерно на 19%, с 27,1 до 32,4 минуты. Ограниченная посадка сократила ожидание до 3,4 минуты (круг 25,9 минуты), но CV держался около 0,13 примерно до 120-й минуты, а затем вырос до 0,66 к 360-й, так что она отсрочила сбивание в кучу, а не предотвратила его. При 10 пассажирах в час ожидание почти не выросло (примерно в 1,0 раза), и автобусы не сбивались; при 20 — примерно в 1,2 раза, при 60 — примерно в 5,7 раза."
 },
 {
-"id": "s0387",
-"page": "ant",
-"ko": "실제 개미나 길 만들기에 쓰려면 규칙이 다른 모델과 비교하고, 어떤 단순한 규칙이 비슷한 질서를 만드는지 따로 확인해야 합니다.",
-"en": "Applying it to real ants or paths would need comparison with other rules and separate checks of which simple rules give similar order.",
-"tr": "Применение к реальным муравьям или тропам потребовало бы сравнения с другими правилами и отдельной проверки того, какие простые правила дают похожий порядок."
+"id": "s0619",
+"page": "bunching",
+"ko": "실제 노선을 재현한 것이 아니고 숫자는 이 가상 노선에서만 맞아요. 신호, 정체, 환승은 빠져 있어요.",
+"en": "It does not reproduce a real route and the numbers hold only for this virtual line; signals, traffic and transfers are missing.",
+"tr": "Он не воспроизводит реальный маршрут, а цифры верны только для этой виртуальной линии; светофоры, трафик и пересадки отсутствуют."
 },
 {
-"id": "s0388",
-"page": "ant",
-"ko": "<b>말하지 않는 것:</b> 개미가 어떤 판에서든 반드시 고속도로를 낸다는 것은 증명되지 않았습니다. 이는 열린 문제(추측)이고, 여기서는 돌려 본 판에서 모두 생겼다는 것만 확인했습니다. 개미의 경로가 한정된 영역에 갇히지 않는다는 것은 증명되어 있습니다. 또 이 개미는 생물을 본뜬 것이 아니라 세포 자동자라는 수학적 장난감이므로, 현실의 길 만들기나 개미 행동을 설명하지 않습니다. 고속도로 판정은 이 프로젝트의 기준(104걸음 되풀이 세 번)이고, 개미 여러 마리일 때 질서 단계는 따로 구분하지 않습니다.",
-"en": "<b>What it doesn't show:</b> It has not been proved that the ant always builds a highway from every starting grid; that is an open problem (a conjecture), and all this page shows is that it happened in every grid we ran. It is proved that the ant's path is not confined to a bounded region. The ant is a mathematical toy (a cellular automaton), not a model of real ants or of how real roads form. The highway test is this project's criterion (three consecutive 104-step repeats), and with several ants the order phase is not distinguished.",
-"tr": "<b>Чего это не показывает:</b> Не доказано, что муравей всегда строит шоссе из любой начальной сетки; это открытая проблема (гипотеза), а эта страница показывает лишь, что так происходило на каждой запущенной нами сетке. Доказано, что путь муравья не ограничен конечной областью. Муравей — математическая игрушка (клеточный автомат), а не модель настоящих муравьёв или того, как образуются реальные дороги. Проверка шоссе — критерий этого проекта (три подряд повтора по 104 шага), а при нескольких муравьях фаза порядка не выделяется."
+"id": "s0620",
+"page": "bunching",
+"ko": "실제 노선의 뭉침은 운행 기록과 승객 수요를 모아 보고, 처방이 실제로 통하는지 시험해 봐야 알 수 있어요.",
+"en": "Bunching on a real route needs trip logs and passenger demand, and any remedy would have to be tested there.",
+"tr": "Для группировки на реальном маршруте нужны журналы рейсов и спрос пассажиров, и любые меры пришлось бы проверять именно там."
 },
 {
-"id": "s0389",
-"page": "ant",
-"ko": "<b>모델의 뿌리:</b> 랭턴의 개미는 Christopher Langton이 인공 생명 연구를 위해 소개한 세포 자동자(Langton 1986, \"Studying artificial life with cellular automata\", <i>Physica D</i> 22)로 알려져 있습니다. 칸마다 상태가 있고 이웃 규칙으로 갱신되는 세포 자동자의 한 갈래로, 아주 단순한 국소 규칙에서 복잡한 전체 무늬가 나온다는 점으로 유명합니다.",
-"en": "<b>Where the model comes from:</b> Langton's ant is known from Christopher Langton's work on artificial life (Langton 1986, \"Studying artificial life with cellular automata\", <i>Physica D</i> 22). It is a type of cellular automaton, a grid of cells with states updated by local rules, famous for producing complex global patterns from very simple local rules.",
-"tr": "<b>Откуда взята модель:</b> Муравей Лэнгтона известен по работам Кристофера Лэнгтона об искусственной жизни (Langton 1986, «Studying artificial life with cellular automata», <i>Physica D</i> 22). Это разновидность клеточного автомата — сетки клеток с состояниями, обновляемыми по локальным правилам, — знаменитая тем, что из очень простых локальных правил рождает сложные глобальные узоры."
+"id": "s0621",
+"page": "bunching",
+"ko": "<b>말하지 않는 것:</b> 실제 버스 노선을 재현한 것이 아닙니다. 이 모델은 신호등, 교통 정체, 승객 하차, 승객이 정류장마다 다른 수요, 환승, 버스 크기·정원, 앞지르기 금지 같은 현실의 요소를 모두 뺀 이 프로젝트의 단순화된 모델입니다. 정차 시간은 줄 선 승객 수로 정해지는 단순한 규칙이고, 기사님들의 행동 차이도 없습니다. 그래서 \"버스가 몇 대로 뭉치는지\"나 \"처방이 몇 %를 줄이는지\" 같은 숫자는 이 가상 노선에서만 맞는 값입니다. 다만 늦은 버스가 더 늦어지고 뒤차가 따라잡는 되먹임이 작은 어긋남을 키울 수 있다는 메커니즘은 교통 연구에서 오래 다뤄 온 것입니다. 처방도 이 모델의 단순한 규칙일 뿐, 실제 운영에서 쓰는 방법과 효과를 그대로 나타내지 않습니다.",
+"en": "<b>What it doesn't show:</b> This does not reproduce any real bus route. It is this project's simplified model with no traffic lights, congestion, alighting passengers, stop-by-stop differences in demand, transfers, bus capacity or overtaking rules. Standing time follows a plain rule based on the queue, and drivers do not differ in behavior. So numbers such as how many buses clump or how much a remedy helps are valid only for this imaginary route. The mechanism itself, where a late bus gets later while the one behind catches up and small differences grow, has long been studied in transport research. The remedies are also simple rules in this model, not a faithful picture of how real operators work or how well it would work.",
+"tr": "<b>Чего это не показывает:</b> Это не воспроизведение какого-либо реального автобусного маршрута. Это упрощённая модель проекта без светофоров, заторов, выходящих пассажиров, различий спроса между остановками, пересадок, вместимости автобуса и правил обгона. Время стоянки подчиняется простому правилу, основанному на очереди, а водители ведут себя одинаково. Поэтому такие числа, как сколько автобусов слипнется или насколько помогает мера, верны только для этого воображаемого маршрута. Сам же механизм, при котором опаздывающий автобус опаздывает ещё больше, пока идущий сзади его нагоняет, и малые различия растут, давно изучается в исследованиях транспорта. Меры в этой модели тоже представляют собой простые правила, а не точную картину работы реальных операторов или того, насколько хорошо это сработало бы."
 },
 {
-"id": "s0390",
-"page": "ant",
-"ko": "<b>핵심 가정과 수식:</b> 상태는 칸의 색(흰/검)과 개미의 자리·방향뿐이고, 갱신은 결정적입니다. 흰 칸이면 우회전·반전·전진, 검은 칸이면 좌회전·반전·전진이며 슬라이더는 개미 수와 시작 판만 바꿉니다. 고속도로는 104걸음 되풀이로, 그동안 개미는 대각선으로 (2,2)칸 옮겨 갑니다.",
-"en": "<b>Key assumptions and formulas:</b> The state is only the colour of each cell (white/black) and the ant's position and heading, and the update is deterministic: on white turn right, flip, step; on black turn left, flip, step. The sliders change only the number of ants and the starting grid. The highway is a 104-step cycle during which the ant shifts (2,2) cells diagonally.",
-"tr": "<b>Основные допущения и формулы:</b> Состояние — это только цвет каждой клетки (белый/чёрный), а также положение и направление муравья, и обновление детерминированное: на белой — повернуть вправо, перекрасить, шагнуть; на чёрной — повернуть влево, перекрасить, шагнуть. Ползунки меняют только число муравьёв и начальную сетку. Шоссе — это цикл из 104 шагов, в течение которого муравей смещается на (2,2) клетки по диагонали."
+"id": "s0622",
+"page": "bunching",
+"ko": "<b>모델의 뿌리:</b> 버스 뭉침의 되먹임은 Newell과 Potts가 1964년 논문 \"Maintaining a bus schedule\"(호주 도로연구위원회 학술대회 논문집)에서 일찍이 분석한 고전적 결과로 알려져 있습니다. 같은 간격으로 달리는 버스는 불안정해서 작은 어긋남이 커진다는 것이 요지입니다.",
+"en": "<b>Where the model comes from:</b> The feedback behind bus bunching was analyzed early by Newell and Potts (1964) in \"Maintaining a bus schedule\" (Australian Road Research Board conference proceedings), a classic result. In short, evenly spaced buses are unstable and small disturbances grow.",
+"tr": "<b>Откуда взялась модель:</b> Обратную связь, стоящую за сбиванием автобусов в кучу, рано проанализировали Ньюэлл и Поттс (1964) в работе «Maintaining a bus schedule» (труды конференции Australian Road Research Board); это классический результат. Коротко говоря, равномерно расставленные автобусы неустойчивы, и малые возмущения нарастают."
 },
 {
-"id": "s0391",
-"page": "ant",
-"ko": "<b>이 프로젝트의 단순화:</b> 원래 모델은 개미 1마리와 빈 판입니다. 개미 여러 마리, 무작위 점 시작, 21×21칸이라는 크기, 개미들의 시작 자리, 60,000걸음 상한, 2,048×2,048칸 판은 이 프로젝트가 정한 값입니다. 개미가 여럿일 때 같은 걸음에 개미들이 차례대로 움직이는 방식도 이 프로젝트의 선택입니다.",
-"en": "<b>What this project simplifies:</b> The original model is one ant on a blank grid. Several ants, random-dot starts, the 21×21 size, the ants' starting positions, the 60,000-step limit and the 2,048×2,048 grid are this project's choices, as is moving the ants one after another within each step.",
-"tr": "<b>Что упрощает этот проект:</b> Исходная модель — один муравей на пустой сетке. Несколько муравьёв, старты со случайными точками, размер 21×21, начальные позиции муравьёв, предел в 60 000 шагов и сетка 2 048×2 048 — это выбор данного проекта, как и то, что муравьи ходят один за другим внутри каждого шага."
+"id": "s0623",
+"page": "bunching",
+"ko": "<b>핵심 가정과 수식:</b> 정류장에 도착하는 승객은 평균 속도 λ의 무작위 과정이라, 간격 h인 버스 앞에는 평균 λh명이 기다립니다. 1명을 태우는 데 β분이 걸리고 서 있는 동안 도착하는 승객도 태우면 정차 시간은 <code>T = β·λh / (1 − βλ)</code>로 h에 비례합니다. 간격이 벌어지면 정차가 길어지고 그만큼 더 늦어지는 양의 되먹임입니다. 슬라이더의 수요가 λ입니다. 도착이 무작위일 때 평균 기다림은 간격 h<sub>i</sub>에 대해 <code>Σh<sub>i</sub>² / (2Σh<sub>i</sub>) = (H/2)(1 + CV²)</code>입니다.",
+"en": "<b>Key assumptions and formulas:</b> Passengers reach a stop at random with average rate λ, so a bus with gap h ahead finds about λh people waiting. If loading takes β minutes each and people who arrive meanwhile also board, the standing time is <code>T = β·λh / (1 − βλ)</code>, proportional to h. A larger gap means a longer stop and so even more delay: positive feedback. The demand slider is λ. With random arrivals, the mean wait for gaps h<sub>i</sub> is <code>Σh<sub>i</sub>² / (2Σh<sub>i</sub>) = (H/2)(1 + CV²)</code>.",
+"tr": "<b>Основные допущения и формулы:</b> Пассажиры приходят на остановку случайно со средней интенсивностью λ, поэтому автобус с интервалом h впереди застаёт примерно λh ожидающих. Если посадка занимает β минут на человека и те, кто пришёл за это время, тоже садятся, то время стоянки равно <code>T = β·λh / (1 − βλ)</code>, то есть пропорционально h. Больший интервал означает более долгую стоянку и ещё большее опоздание: положительная обратная связь. Ползунок спроса — это λ. При случайных приходах среднее ожидание для интервалов h<sub>i</sub> равно <code>Σh<sub>i</sub>² / (2Σh<sub>i</sub>) = (H/2)(1 + CV²)</code>."
 },
 {
-"id": "s0392",
-"page": "ant",
-"ko": "<b>이론값과 시뮬레이션:</b> 이론으로 고속도로가 시작되는 걸음을 미리 구하는 식은 없어 시뮬레이션으로만 확인했습니다. 빈 판에서 두 가지 방법(실시간 판정과 끝까지 돌린 뒤 되짚기)이 모두 9,976걸음으로 같았고, 104걸음당 이동은 (2,2) 크기, 30,000~40,000걸음의 검은 칸 증가는 걸음당 0.1156(=12/104)이었습니다. 개미가 항상 고속도로를 낸다는 것은 증명되지 않은 추측으로, 여기서는 돌려 본 무작위 판 420개와 여러 마리 180개 모두에서 생겼습니다.",
-"en": "<b>Theory versus simulation:</b> There is no formula that predicts the highway start in advance, so it was checked by simulation only. On a blank grid both methods (live detection and tracing back after a long run) gave step 9,976, the displacement per 104 steps had size (2,2), and black cells grew by 0.1156 per step (=12/104) between steps 30,000 and 40,000. That the ant always builds a highway is an unproved conjecture; here it happened in all 420 random grids and all 180 multi-ant grids we ran.",
-"tr": "<b>Теория и симуляция:</b> Формулы, заранее предсказывающей начало шоссе, нет, поэтому проверка велась только симуляцией. На пустой сетке оба метода (обнаружение на ходу и прослеживание назад после долгого прогона) дали шаг 9 976, смещение за 104 шага составило (2,2), а чёрные клетки прибавлялись по 0,1156 за шаг (=12/104) между шагами 30 000 и 40 000. То, что муравей всегда строит шоссе, — недоказанная гипотеза; здесь это произошло на всех 420 запущенных случайных сетках и всех 180 сетках с несколькими муравьями."
+"id": "s0624",
+"page": "bunching",
+"ko": "<b>이 프로젝트의 단순화:</b> 이 프로젝트의 단순화: 정류장 24곳과 버스 사이 이동 1분, 승객 1명 탑승 3초, 최소 정차 0.1분, 간격 유지 1.15배, 승차 제한 상한(이상적 정차 시간)은 모두 이 프로젝트가 정한 값입니다. 하차, 신호, 정체, 앞지르기, 시간표는 없고, 모델의 간격은 버스 사이 거리를 이상적 간격으로 나눈 값입니다.",
+"en": "<b>What this project simplifies:</b> What this project simplifies: 24 stops, 1 minute between stops, 3 seconds per boarding passenger, a 0.1 minute minimum stop, the 1.15 holding factor and the boarding cap (the ideal standing time) are all values chosen by this project. There is no alighting, no signals, no congestion, no overtaking and no timetable, and the gap in the model is the distance between buses divided by the ideal gap.",
+"tr": "<b>Что упрощает этот проект:</b> 24 остановки, 1 минута между остановками, 3 секунды на одного садящегося пассажира, минимальная стоянка 0,1 минуты, коэффициент удержания 1,15 и предел посадки (идеальное время стоянки) — всё это значения, выбранные проектом. Нет выхода пассажиров, светофоров, заторов, обгонов и расписания, а интервал в модели — это расстояние между автобусами, делённое на идеальный интервал."
 },
 {
-"id": "s0393",
-"page": "ant",
-"ko": "<b>더 읽을거리:</b> Langton (1986), \"Studying artificial life with cellular automata\", <i>Physica D</i> 22. Gajardo, Moreira, Goles (2002), \"Complexity of Langton's ant\", <i>Discrete Applied Mathematics</i> 117.",
-"en": "<b>Further reading:</b> Langton (1986), \"Studying artificial life with cellular automata\", <i>Physica D</i> 22. Gajardo, Moreira and Goles (2002), \"Complexity of Langton's ant\", <i>Discrete Applied Mathematics</i> 117.",
-"tr": "<b>Дополнительное чтение:</b> Langton (1986), «Studying artificial life with cellular automata», <i>Physica D</i> 22. Gajardo, Moreira and Goles (2002), «Complexity of Langton's ant», <i>Discrete Applied Mathematics</i> 117."
+"id": "s0625",
+"page": "bunching",
+"ko": "<b>이론값과 시뮬레이션:</b> 시뮬레이션의 평균 기다림은 식 (H/2)(1+CV²)의 값과 처방 없음에서 8.7분 대 9.0분, 간격 유지에서 2.5분 대 2.7분으로 가까웠습니다. 승차 제한에서는 남겨진 승객이 있어 3.4분 대 2.4분으로 식과 맞지 않았습니다. 뭉침 속도에 대한 이론값은 없어 시뮬레이션으로만 확인했습니다(<code>node tools/validate-bunching.js</code>, 시드 20개).",
+"en": "<b>Theory versus simulation:</b> The simulated mean wait was close to the formula (H/2)(1+CV²): 8.7 vs 9.0 minutes with no remedy and 2.5 vs 2.7 with holding. With limited boarding, left-behind passengers make the formula fail (3.4 vs 2.4 minutes). There is no theoretical value for the speed of bunching, so that part was checked by simulation alone (<code>node tools/validate-bunching.js</code>, 20 seeds).",
+"tr": "<b>Теория и симуляция:</b> Среднее ожидание в симуляции оказалось близко к формуле (H/2)(1+CV²): 8,7 против 9,0 минуты без мер и 2,5 против 2,7 при удержании. При ограниченной посадке оставшиеся на остановке пассажиры нарушают формулу (3,4 против 2,4 минуты). Теоретического значения для скорости сбивания в кучу нет, поэтому эта часть проверена только симуляцией (<code>node tools/validate-bunching.js</code>, 20 зёрен)."
 },
 {
-"id": "s0394",
-"page": "ant",
-"ko": "시뮬레이션은 2,048×2,048칸 판 위에서 돌고 시드 난수(mulberry32)는 무작위 점 시작에만 쓰입니다. 개미 1마리의 빈 판은 난수가 없어 항상 같은 결과입니다. 검증은 <code>node tools/validate-ant.js</code>로 할 수 있습니다.",
-"en": "The simulation runs on a 2,048×2,048 grid and the seeded random generator (mulberry32) is used only for random-dot starts. A single ant on a blank grid involves no randomness and always gives the same result. You can verify with <code>node tools/validate-ant.js</code>.",
-"tr": "Симуляция работает на сетке 2 048×2 048, а генератор случайных чисел с зерном (mulberry32) используется только для стартов со случайными точками. Один муравей на пустой сетке не связан со случайностью и всегда даёт один и тот же результат. Проверить можно командой <code>node tools/validate-ant.js</code>."
+"id": "s0626",
+"page": "bunching",
+"ko": "<b>더 읽을거리:</b> Newell &amp; Potts (1964), \"Maintaining a bus schedule\", Australian Road Research Board 학술대회 논문집. Gershenson &amp; Pineda (2009), \"Why does public transport not arrive on time? The pervasiveness of equal headway instability\", <i>PLoS ONE</i>. Daganzo (2009), \"A headway-based approach to eliminate bus bunching\", <i>Transportation Research Part B</i>.",
+"en": "<b>Further reading:</b> Newell &amp; Potts (1964), \"Maintaining a bus schedule\", Australian Road Research Board conference proceedings. Gershenson &amp; Pineda (2009), \"Why does public transport not arrive on time? The pervasiveness of equal headway instability\", <i>PLoS ONE</i>. Daganzo (2009), \"A headway-based approach to eliminate bus bunching\", <i>Transportation Research Part B</i>.",
+"tr": "<b>Дополнительное чтение:</b> Newell &amp; Potts (1964), «Maintaining a bus schedule», труды конференции Australian Road Research Board. Gershenson &amp; Pineda (2009), «Why does public transport not arrive on time? The pervasiveness of equal headway instability», <i>PLoS ONE</i>. Daganzo (2009), «A headway-based approach to eliminate bus bunching», <i>Transportation Research Part B</i>."
 },
 {
-"id": "s0395",
-"page": "ant",
-"ko": "고속도로는 개미의 자리·방향이 104걸음마다 (±2,±2)칸씩 옮겨 가며 세 번 이어서 되풀이될 때 판정하고, 시작 걸음은 되풀이가 처음 성립한 곳에서 두 주기를 되짚어 구합니다.",
-"en": "The highway is detected when the ant's position and heading repeat every 104 steps shifted by (±2,±2) cells three times in a row, and the start step is found by tracing two periods back from where the repetition first holds.",
-"tr": "Шоссе определяется, когда положение и направление муравья повторяются каждые 104 шага со сдвигом на (±2,±2) клетки три раза подряд, а шаг начала находится отсчётом на два периода назад от момента, когда повтор впервые выполняется."
+"id": "s0627",
+"page": "bunching",
+"ko": "검증은 <code>node tools/validate-bunching.js</code>로 할 수 있습니다. 시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 시간은 0.1분 단위로 흐르고, 평균 기다림은 줄 선 사람의 대기 시간을 모두 더해 도착한 사람 수로 나눈 값(리틀의 법칙)입니다.",
+"en": "You can verify with <code>node tools/validate-bunching.js</code>. The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. Time advances in 0.1 minute steps, and the mean wait is the total queueing time of everyone waiting divided by the number of arrivals (Little's law).",
+"tr": "Проверить можно командой <code>node tools/validate-bunching.js</code>. Симуляция использует генератор случайных чисел с зерном (mulberry32), поэтому одно и то же зерно даёт один и тот же результат. Время идёт шагами по 0,1 минуты, а среднее ожидание — это суммарное время в очереди всех ожидающих, делённое на число прибытий (закон Литтла)."
 },
 {
-"id": "s0396",
-"page": "ant",
-"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/ant\">GitHub</a>에서 볼 수 있습니다.",
-"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/ant\">GitHub</a>.",
-"tr": "Код доступен на <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/ant\">GitHub</a>."
+"id": "s0628",
+"page": "bunching",
+"ko": "④번 차트의 막대는 같은 설정을 시드 6개로 돌려 뒤쪽 절반 시간만 평균한 값이라, 위에서 돌고 있는 한 번의 실험과는 숫자가 다를 수 있습니다.",
+"en": "The bars in chart ④ average six seeds over the second half of the run, so they can differ from the single run playing above.",
+"tr": "Столбцы на графике ④ усредняют шесть зёрен за вторую половину запуска, поэтому могут отличаться от одиночного запуска, который идёт выше."
 },
 {
-"id": "s0432",
-"page": "apartment",
-"ko": "이 모델에서 전염 세기가 0.4면 거의 안 번지다 0.5에서 약 90%, 0.6 이상이면 모든 동네로 번져요.",
-"en": "In this model, spread is minimal at contagion 0.4, about 90% of areas are overvalued at 0.5, and all areas from 0.6.",
-"tr": "В этой модели при заразности 0,4 распространение минимально, при 0,5 около 90% районов переоценены, а начиная с 0,6 — все."
+"id": "s0629",
+"page": "bunching",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/bunching\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/bunching\">GitHub</a>.",
+"tr": "Код доступен на <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/bunching\">GitHub</a>."
 },
 {
-"id": "s0433",
-"page": "apartment",
-"ko": "이웃의 상승을 따라가는 되먹임이 일정 세기를 넘으면 동네 사정과 상관없이 번질 수 있고, 대출 한도가 오를 높이의 상한을 정해요.",
-"en": "Once following neighbors' rises is strong enough, it can spread regardless of local conditions, and the loan limit caps how high prices climb.",
-"tr": "Когда следование за ростом цен у соседей достаточно сильно, оно может распространяться независимо от местных условий, а лимит кредита ограничивает, насколько высоко растут цены."
+"id": "s0630",
+"page": "checkout",
+"ko": "마트 계산대 줄 서기 · 시뮬라티오 랩",
+"en": "Checkout Lines · Simulatio Lab",
+"tr": "Очереди в кассу · Simulatio Lab"
 },
 {
-"id": "s0434",
-"page": "apartment",
-"ko": "번짐을 볼 때는 한 동네의 가격보다 서로 따라가는 정도와 대출 여건이 어디서 달라지는지 살펴볼 만해요.",
-"en": "To read a spread, it may help to look at how strongly areas follow one another and where lending conditions differ, not just one area's price.",
-"tr": "Чтобы понять распространение, может помочь взгляд на то, насколько сильно районы следуют друг за другом и где различаются условия кредитования, а не только на цену одного района."
+"id": "s0631",
+"page": "checkout",
+"ko": "같은 계산대, 같은 손님인데 줄을 하나로 세우느냐 따로 세우느냐에 따라 대기시간과 공정함이 달라지는 이유를, 두 가게를 나란히 돌려 직접 확인해 보세요.",
+"en": "Same cashiers, same customers, yet one shared line and separate lines give different waits and fairness. Run two stores side by side and see why.",
+"tr": "Те же кассиры, те же покупатели, но одна общая очередь и раздельные очереди дают разное ожидание и разную справедливость. Запустите два магазина рядом и посмотрите, почему так."
 },
 {
-"id": "s0436",
-"page": "apartment",
-"ko": "실제 지역의 가격 전망이나 부동산 투자·거래 조언이 아니에요.",
-"en": "This is not a price forecast for any real area, nor investing or property advice.",
-"tr": "Это не прогноз цен для какого-либо реального района и не инвестиционный или риелторский совет."
+"id": "s0632",
+"page": "checkout",
+"ko": "가장 짧은 줄을 골라 섰는데 옆줄이 먼저 줄어든 적이 있나요? 줄은 짧을수록 빨리 빠질 것 같지만, 그건 운이 나빴던 것만이 아닐 수 있습니다. 그런데 계산대와 손님이 모두 똑같은 두 가게에서 한쪽은 줄을 하나로 세우고 다른 쪽은 계산대마다 따로 세우면, 같은 손님이 두 곳에서 전혀 다른 시간을 기다리게 됩니다. 왼쪽 가게와 오른쪽 가게에 똑같은 손님을 보내 보세요.",
+"en": "Ever picked the shortest line, only to watch the one beside you clear first? That may not be just bad luck. Take two stores with identical cashiers and identical customers, one with a single shared line and one with a separate line per cashier, and the same customer can end up waiting very different times in each. Send the exact same shoppers to the left store and the right store and watch.",
+"tr": "Случалось ли вам выбрать самую короткую очередь и увидеть, как соседняя продвигается быстрее? Возможно, дело не только в невезении. Возьмём два магазина с одинаковыми кассирами и одинаковыми покупателями: в одном одна общая очередь, в другом — отдельная очередь к каждому кассиру. Один и тот же покупатель может ждать в них совершенно по-разному. Отправьте абсолютно одних и тех же покупателей в левый и правый магазины и посмотрите."
 },
 {
-"id": "s0437",
-"page": "apartment",
-"ko": "공급, 인구, 세금, 정책이 없고 계수는 임의로 정한 값이라, 실제 시장의 자료로 따로 확인해야 해요.",
-"en": "Supply, population, taxes and policy are absent and the coefficients are arbitrary, so real market data would be needed to check anything.",
-"tr": "Предложение, население, налоги и политика отсутствуют, а коэффициенты произвольны, поэтому для проверки чего-либо понадобились бы реальные рыночные данные."
+"id": "s0633",
+"page": "checkout",
+"ko": "<b>왼쪽 가게(A)</b>는 줄이 하나입니다. 맨 앞 손님은 가장 먼저 빈 계산대로 갑니다. <b>오른쪽 가게</b>는 계산대마다 줄이 따로 있고, 도착한 손님이 한 번 줄을 고르면 바꾸지 않습니다. 고르는 방식은 B(사람 수가 가장 적은 줄), C(아무 줄이나), D(물건이 가장 적은 줄) 중에서 고릅니다.",
+"en": "<b>The left store (A)</b> has a single line: the person at the front goes to the first free cashier. <b>The right store</b> has a separate line per cashier, and arriving customers pick one line and never switch. The choice rule is B (fewest people), C (any line) or D (fewest items).",
+"tr": "<b>В левом магазине (A)</b> одна очередь: стоящий первым идёт к первому освободившемуся кассиру. <b>В правом магазине</b> к каждому кассиру своя очередь, и приходящие покупатели выбирают одну очередь и больше не меняют её. Правило выбора — B (меньше всего людей), C (любая очередь) или D (меньше всего товаров)."
 },
 {
-"id": "s0439",
-"page": "apartment",
-"ko": "<b>모델의 뿌리:</b> 가격이 오르는 모습을 보고 더 사려는 마음이 가격을 다시 올리는 되먹임은 Shiller(2000)의 『Irrational Exuberance』가 자산시장의 한 설명으로 널리 알렸고, Case와 Shiller(1989)는 단독주택 가격 변화에 관성이 있다는 것을 다뤘습니다. 대출 한도가 가격 상한을 정한다는 발상은 Geanakoplos의 \"레버리지 순환(leverage cycle)\" 논의에서 가져왔습니다. 이 페이지는 그 논문들의 모델이 아니라 이 프로젝트의 장난감 모델입니다.",
-"en": "<b>Where the model comes from:</b> The feedback in which seeing prices rise makes people buy more and push prices up was popularized as an account of asset markets by Shiller (2000) in <i>Irrational Exuberance</i>, and Case and Shiller (1989) examined momentum in single-family home prices. The idea that lending limits set a ceiling on prices comes from Geanakoplos's \"leverage cycle\" discussion. This page is this project's own toy model, not a model from those works.",
-"tr": "<b>Откуда взята модель:</b> Обратная связь, при которой рост цен заставляет людей покупать больше и подталкивать цены вверх, получила известность как объяснение рынков активов благодаря Шиллеру (2000) в <i>Irrational Exuberance</i>, а Кейс и Шиллер (1989) изучали импульс в ценах на односемейные дома. Идея о том, что кредитные ограничения задают потолок цен, происходит из обсуждения «цикла кредитного плеча» Геанакоплоса. Эта страница — собственная упрощённая модель проекта, а не модель из этих работ."
+"id": "s0634",
+"page": "checkout",
+"ko": "손님은 무작위로 도착하고(평균 간격은 붐빔 정도로 정해짐), 계산 시간은 평균 3분에 물건 수에 비례합니다. 두 가게에는 <b>똑같은 손님 목록</b>(도착 시각, 물건 수)이 들어가므로, 차이는 오직 줄 서는 방식에서 나옵니다.",
+"en": "Customers arrive at random (the average gap follows from how busy the store is) and checkout takes 3 minutes on average, in proportion to the number of items. Both stores get <b>exactly the same customer list</b> (arrival times, items), so any difference comes only from how the lines are organized.",
+"tr": "Покупатели приходят случайно (средний интервал зависит от загруженности магазина), а оплата занимает в среднем 3 минуты пропорционально числу товаров. Оба магазина получают <b>один и тот же список покупателей</b> (время прихода, товары), поэтому любая разница возникает только из-за организации очередей."
 },
 {
-"id": "s0440",
-"page": "apartment",
-"ko": "<b>핵심 가정과 수식:</b> 분기 상승률 <code>g = 0.30×(내 직전 g) + 전염×(8 이웃 평균 g) + 0.004×기대 + 무작위 충격 + 상한 보정</code>입니다. 자기 상승과 이웃 상승이 다시 상승을 낳는 되먹임이라서 전염 슬라이더가 클수록 상승이 번지기 쉽고, 감당 상한 <code>소득선×(대출 한도÷0.4)<sup>1.5</sup></code>이 가격이 소득 기준선에서 얼마나 멀어질 수 있는지를 정합니다.",
-"en": "<b>Key assumptions and formulas:</b> The quarterly growth is <code>g = 0.30×(own previous g) + contagion×(average g of 8 neighbors) + 0.004×optimism + random shock + ceiling correction</code>. Own gains and neighbors' gains feed back into new gains, so a larger contagion slider makes a rise spread more easily, and the ceiling <code>income line×(loan cap÷0.4)<sup>1.5</sup></code> sets how far prices can drift from the income line.",
-"tr": "<b>Основные допущения и формулы:</b> Квартальный рост равен <code>g = 0.30×(собственный прошлый g) + заражение×(средний g 8 соседей) + 0.004×оптимизм + случайный шок + поправка на потолок</code>. Собственный рост и рост соседей влияют на новый рост, поэтому больший ползунок заражения облегчает распространение подъёма, а потолок <code>линия доходов×(предел кредита÷0.4)<sup>1.5</sup></code> задаёт, насколько цены могут отклоняться от линии доходов."
+"id": "s0635",
+"page": "checkout",
+"ko": "화면의 점 하나가 손님, 점 크기가 물건 수입니다. 계산대가 놀고 있는데 다른 줄에는 손님이 기다리는 순간은 계산대가 빨갛게 표시됩니다. 금빛 고리가 '나'이고, 점을 누르면 다른 손님이 '나'가 됩니다.",
+"en": "Each dot is a customer and its size shows the number of items. A cashier turns red when it is idle while somebody waits in another line. The gold ring is 'you'; click a dot to make a different customer 'you'.",
+"tr": "Каждая точка — покупатель, её размер показывает число товаров. Кассир краснеет, когда простаивает, пока кто-то ждёт в другой очереди. Золотое кольцо — «вы»; щёлкните точку, чтобы «вами» стал другой покупатель."
 },
 {
-"id": "s0441",
-"page": "apartment",
-"ko": "<b>이 프로젝트의 단순화:</b> 계수(0.30, 0.004, 지수 1.5, 상한 보정 25%, 금리 충격 때의 30% 하락 등)와 소득 증가율(분기 0.5%)은 모두 이 프로젝트가 구조를 보여 주려고 임의로 정한 값이고 실제 시장에서 추정한 것이 아닙니다. 모든 동네의 소득이 같고, 이웃은 격자의 8칸일 뿐 실제 인접 관계가 아니며, 공급·인구·세금·정책은 없습니다.",
-"en": "<b>What this project simplifies:</b> The coefficients (0.30, 0.004, the exponent 1.5, the 25% ceiling correction, the 30% ceiling cut at a rate shock and so on) and the income growth (0.5% per quarter) were all chosen arbitrarily by this project to show structure, not estimated from real markets. Every neighborhood has the same income, neighbors are just the 8 grid cells rather than real adjacency, and there is no supply, population, tax or policy.",
-"tr": "<b>Что упрощает этот проект:</b> Коэффициенты (0,30, 0,004, показатель 1,5, 25%-ная поправка на потолок, 30%-ное снижение потолка при шоке ставки и т. д.) и рост доходов (0,5% за квартал) выбраны этим проектом произвольно, чтобы показать структуру, а не оценены по реальным рынкам. Во всех районах доходы одинаковы, соседи — это просто 8 клеток сетки, а не реальная смежность, и нет ни предложения, ни населения, ни налогов, ни политики."
+"id": "s0636",
+"page": "checkout",
+"ko": "결과 숫자는 손님 15만 명을 돌린 긴 시간 평균이고, 화면 속 가게는 문을 연 지 2시간 뒤부터 2시간 동안의 한 장면입니다.",
+"en": "The numbers on the cards are long-run averages over 150,000 customers; the store on screen is a 2-hour slice of one run, starting 2 hours after opening.",
+"tr": "Числа на карточках — долгосрочные средние по 150 000 покупателей; магазин на экране — двухчасовой фрагмент одного запуска, начинающийся через 2 часа после открытия."
 },
 {
-"id": "s0442",
-"page": "apartment",
-"ko": "<b>이론값과 시뮬레이션:</b> 이론적 기준값이 없어 시뮬레이션만으로 확인했습니다. 금리 충격이 없을 때 고평가 동네의 최대 비율은 전염 0.4에서 9%, 0.5에서 92%, 0.6에서 100%였고, 전염 0.6에서 대출 한도 40%는 0%, 50%는 99%였습니다. 기본 설정은 평균 가격이 정점 230에서 끝 174로 24% 내려왔습니다.",
-"en": "<b>Theory versus simulation:</b> There is no theoretical benchmark, so this was checked by simulation alone. Without a rate shock, the peak share of overvalued neighborhoods was 9% at contagion 0.4, 92% at 0.5 and 100% at 0.6, and at contagion 0.6 a 40% loan cap gave 0% while 50% gave 99%. The default settings took the average price from a peak of 230 to 174 at the end, down 24%.",
-"tr": "<b>Теория и симуляция:</b> Теоретического эталона нет, поэтому проверка велась только симуляцией. Без шока ставки пиковая доля переоценённых районов составила 9% при заражении 0,4, 92% при 0,5 и 100% при 0,6, а при заражении 0,6 предел кредита 40% дал 0%, тогда как 50% дал 99%. При настройках по умолчанию средняя цена снизилась с пика 230 до 174 к концу, то есть на 24%."
+"id": "s0637",
+"page": "checkout",
+"ko": "계산대 수 <output id=\"o-k\"></output>",
+"en": "Number of cashiers <output id=\"o-k\"></output>",
+"tr": "Число кассиров <output id=\"o-k\"></output>"
 },
 {
-"id": "s0443",
-"page": "apartment",
-"ko": "<b>더 읽을거리:</b> Shiller, R. J. (2000), <i>Irrational Exuberance</i>, Princeton University Press. Case, K. E. & Shiller, R. J. (1989), 「The Efficiency of the Market for Single-Family Homes」, <i>American Economic Review</i>. Geanakoplos, J. (2010), 「The Leverage Cycle」, <i>NBER Macroeconomics Annual 2009</i>.",
-"en": "<b>Further reading:</b> Shiller, R. J. (2000), <i>Irrational Exuberance</i>, Princeton University Press. Case, K. E. & Shiller, R. J. (1989), \"The Efficiency of the Market for Single-Family Homes\", <i>American Economic Review</i>. Geanakoplos, J. (2010), \"The Leverage Cycle\", <i>NBER Macroeconomics Annual 2009</i>.",
-"tr": "<b>Дополнительное чтение:</b> Shiller, R. J. (2000), <i>Irrational Exuberance</i>, Princeton University Press. Case, K. E. & Shiller, R. J. (1989), «The Efficiency of the Market for Single-Family Homes», <i>American Economic Review</i>. Geanakoplos, J. (2010), «The Leverage Cycle», <i>NBER Macroeconomics Annual 2009</i>."
+"id": "s0638",
+"page": "checkout",
+"ko": "많을수록 한 줄로 합치는 이득도, 줄 따로의 낭비도 커져요",
+"en": "More cashiers make both the gain from merging lines and the waste from separate lines larger",
+"tr": "Чем больше кассиров, тем больше и выигрыш от объединения очередей, и потери от раздельных очередей"
 },
 {
-"id": "s0477",
-"page": "auction",
-"ko": "입찰자 10명이 추정치대로 부르면 낙찰자는 평균 30.9(가치 100 기준) 손해를 봤어요.",
-"en": "With 10 bidders bidding their estimates, winners lost 30.9 on average on a value of 100.",
-"tr": "При 10 участниках, ставящих свою оценку, победители в среднем теряли 30,9 при стоимости 100."
+"id": "s0639",
+"page": "checkout",
+"ko": "붐비는 정도 <output id=\"o-rho\"></output>",
+"en": "How busy <output id=\"o-rho\"></output>",
+"tr": "Загруженность <output id=\"o-rho\"></output>"
 },
 {
-"id": "s0478",
-"page": "auction",
-"ko": "이 모델에서는 이긴 사람이 가장 높게 틀린 추정을 한 사람이라, 입찰자가 많을수록 손해가 커져요.",
-"en": "In this model the winner is whoever overshot most, so more bidders means bigger losses.",
-"tr": "В этой модели побеждает тот, кто больше всех завысил оценку, поэтому чем больше участников, тем больше потери."
+"id": "s0640",
+"page": "checkout",
+"ko": "계산대가 평균 몇 %의 시간 동안 일하는가. 95에 가까우면 줄이 급격히 길어져요",
+"en": "The average share of time a cashier is working. Near 95 the lines get dramatically longer",
+"tr": "Средняя доля времени, в течение которого кассир работает. Около 95 очереди резко удлиняются"
 },
 {
-"id": "s0479",
-"page": "auction",
-"ko": "경쟁자 수와 추정의 부정확함, 가격 정하는 방식이 손익을 가르는 곳이라 살펴볼 만해요.",
-"en": "Number of rivals, how noisy estimates are, and the pricing rule are the places worth examining.",
-"tr": "Число соперников, зашумлённость оценок и правило ценообразования — вот что стоит изучить."
+"id": "s0641",
+"page": "checkout",
+"ko": "계산 시간의 들쭉날쭉함 <output id=\"o-cv\"></output>",
+"en": "Variability of checkout time <output id=\"o-cv\"></output>",
+"tr": "Разброс времени оплаты <output id=\"o-cv\"></output>"
 },
 {
-"id": "s0481",
-"page": "auction",
-"ko": "실제 경매 낙찰자가 늘 손해를 본다는 뜻도, 누군가에게 입찰 방법을 알려 주는 것도 아니에요.",
-"en": "It does not mean real winners always lose, nor does it advise anyone how to bid.",
-"tr": "Это не значит, что реальные победители всегда проигрывают, и не является советом, как делать ставки."
+"id": "s0642",
+"page": "checkout",
+"ko": "0.3은 모두 비슷한 시간, 1.0은 보통, 2.0은 어떤 손님은 아주 오래 걸려요",
+"en": "0.3 means everyone takes about the same time, 1.0 is typical, 2.0 means some customers take very long",
+"tr": "0,3 означает, что все тратят примерно одинаково, 1,0 — типичное значение, 2,0 — некоторые покупатели занимают очень много времени"
 },
 {
-"id": "s0482",
-"page": "auction",
-"ko": "입찰자의 경험과 취향이 섞인 가치는 이 모델에 없어서, 실제 경매 자료로 따로 확인해야 해요.",
-"en": "Bidder experience and taste-based value are absent here, so real auction data is needed to check.",
-"tr": "Опыт участников и ценность, основанная на вкусах, здесь отсутствуют, поэтому для проверки нужны данные реальных аукционов."
+"id": "s0643",
+"page": "checkout",
+"ko": "오른쪽 가게의 줄 고르는 방식 <output id=\"o-strat\"></output>",
+"en": "Line choice in the right store <output id=\"o-strat\"></output>",
+"tr": "Выбор очереди в правом магазине <output id=\"o-strat\"></output>"
 },
 {
-"id": "s0484",
-"page": "auction",
-"ko": "<b>모델의 뿌리:</b> \"승자의 저주\"는 Capen, Clapp, Campbell(1971)이 석유 광구 입찰에서 낙찰자가 기대한 만큼의 수익을 얻지 못한다고 지적한 이후 널리 알려졌고(실제 사례의 해석은 갈립니다), Thaler(1988)가 경제학 잡지에서 쉽게 소개했습니다. 첫째값·둘째값 경매의 구분은 Vickrey(1961)에서, 모두가 같은 진짜 가치를 두고 각자 추정치를 가지는 \"공통 가치 경매\"의 이론은 Milgrom과 Weber(1982)에서 왔습니다.",
-"en": "<b>Where the model comes from:</b> The \"winner's curse\" became well known after Capen, Clapp and Campbell (1971) argued that winning bidders in oil-lease auctions did not earn the returns they expected (how to read the real cases is debated), and Thaler (1988) introduced it accessibly in an economics journal. The first-price versus second-price distinction goes back to Vickrey (1961), and the theory of \"common-value auctions\", where everyone values the same thing but holds their own estimate, comes from Milgrom and Weber (1982).",
-"tr": "<b>Откуда взята модель:</b> «Проклятие победителя» получило известность после того, как Кейпен, Клапп и Кэмпбелл (1971) утверждали, что победители аукционов на нефтяные участки не получали ожидаемой прибыли (как толковать реальные случаи, остаётся предметом споров), а Талер (1988) доступно представил его в экономическом журнале. Различие между аукционами первой и второй цены восходит к Викри (1961), а теория «аукционов с общей ценностью», где все оценивают одно и то же, но имеют собственную оценку, происходит от Милгрома и Вебера (1982)."
+"id": "s0644",
+"page": "checkout",
+"ko": "B 사람이 가장 적은 줄",
+"en": "B Fewest people",
+"tr": "B Меньше людей"
 },
 {
-"id": "s0485",
-"page": "auction",
-"ko": "<b>핵심 가정과 수식:</b> 입찰가는 <code>b<sub>i</sub> = V + e<sub>i</sub> − s·σ</code>이고 오차 <code>e<sub>i</sub></code>는 평균 0, 표준편차 σ인 독립 정규분포입니다(σ가 \"추정 오차\", s가 \"입찰가 낮추기\"). 추정치를 그대로 부르는 첫째값 경매에서 낙찰자의 손익은 <code>V − 최고 입찰가 = −max e<sub>i</sub></code>라서 평균이 <code>−σ·E[표준정규 n개의 최댓값]</code>이고, 둘째값 경매에서는 최댓값 대신 둘째로 큰 값을 씁니다.",
-"en": "<b>Key assumptions and formulas:</b> The bid is <code>b<sub>i</sub> = V + e<sub>i</sub> − s·σ</code>, where the errors <code>e<sub>i</sub></code> are independent normals with mean 0 and standard deviation σ (σ is \"estimation error\", s is \"bid shading\"). In a first-price auction where people bid their estimates, the winner's profit is <code>V − highest bid = −max e<sub>i</sub></code>, whose mean is <code>−σ·E[maximum of n standard normals]</code>; in a second-price auction the second-largest value replaces the maximum.",
-"tr": "<b>Основные допущения и формулы:</b> Ставка равна <code>b<sub>i</sub> = V + e<sub>i</sub> − s·σ</code>, где ошибки <code>e<sub>i</sub></code> — независимые нормальные величины со средним 0 и стандартным отклонением σ (σ — «ошибка оценки», s — «занижение ставки»). В аукционе первой цены, где люди ставят свою оценку, прибыль победителя равна <code>V − наибольшая ставка = −max e<sub>i</sub></code>, а её среднее — <code>−σ·E[максимум n стандартных нормальных величин]</code>; в аукционе второй цены вместо максимума берётся второе по величине значение."
+"id": "s0645",
+"page": "checkout",
+"ko": "C 아무 줄이나",
+"en": "C Any line",
+"tr": "C Любая очередь"
 },
 {
-"id": "s0486",
-"page": "auction",
-"ko": "<b>이 프로젝트의 단순화:</b> 입찰자는 \"이겼다는 것 자체가 내 추정이 높게 틀렸다는 뜻\"을 따지지 않는 순진한 입찰자이고, 경제 이론이 말하는 균형 입찰가를 계산한 것이 아닙니다. 오차는 모두 같은 정규분포로 독립이라고 가정했고, 진짜 가치는 70~130 사이 무작위, 추정 오차는 가치 100의 몇 %로 정했으며, 개인 취향이나 경험으로 배우는 효과는 없습니다. 이 값들은 이 프로젝트가 정했습니다.",
-"en": "<b>What this project simplifies:</b> Bidders are naive: they do not reason that \"winning itself means my estimate was too high\", and the model does not compute the equilibrium bids of auction theory. Errors are assumed to be independent with the same normal distribution, the true value is random between 70 and 130, the estimation error is a percentage of the value 100, and there is no private taste or learning from experience. These choices are this project's.",
-"tr": "<b>Что упрощает этот проект:</b> Участники наивны: они не рассуждают, что «сам факт выигрыша означает, что моя оценка была завышена», а модель не вычисляет равновесные ставки теории аукционов. Предполагается, что ошибки независимы и имеют одно и то же нормальное распределение, истинная ценность случайна между 70 и 130, ошибка оценки — процент от значения 100, а личных вкусов и обучения на опыте нет. Эти допущения принадлежат этому проекту."
+"id": "s0646",
+"page": "checkout",
+"ko": "D 물건이 가장 적은 줄",
+"en": "D Fewest items",
+"tr": "D Меньше товаров"
 },
 {
-"id": "s0487",
-"page": "auction",
-"ko": "<b>이론값과 시뮬레이션:</b> 위 식은 계산해 볼 수 있고, 표준정규 n개의 최댓값 기댓값은 n=2, 5, 10, 30에서 약 0.564, 1.163, 1.539, 2.043입니다. 오차 20%이면 첫째값 낙찰자 손익은 이론 −11.3, −23.3, −30.8, −40.9이고 시뮬레이션은 −11.4, −23.5, −30.9, −40.9였습니다. 손익분기 낮춤은 첫째값 이론 1.539σ, 시뮬레이션 1.54σ이고, 둘째값 이론 1.001σ, 시뮬레이션 1.00σ였습니다.",
-"en": "<b>Theory versus simulation:</b> The formula can be computed: the expected maximum of n standard normals is about 0.564, 1.163, 1.539 and 2.043 for n = 2, 5, 10 and 30. With a 20% error, the first-price winner's profit is −11.3, −23.3, −30.8 and −40.9 in theory against −11.4, −23.5, −30.9 and −40.9 simulated. The break-even shading is 1.539σ in theory and 1.54σ simulated for first-price, and 1.001σ in theory and 1.00σ simulated for second-price.",
-"tr": "<b>Теория и симуляция:</b> Формулу можно вычислить: ожидаемый максимум n стандартных нормальных величин составляет примерно 0,564, 1,163, 1,539 и 2,043 при n = 2, 5, 10 и 30. При ошибке 20% прибыль победителя в аукционе первой цены составляет −11,3, −23,3, −30,8 и −40,9 в теории против −11,4, −23,5, −30,9 и −40,9 в симуляции. Безубыточное занижение составляет 1,539σ в теории и 1,54σ в симуляции для первой цены, а для второй цены — 1,001σ в теории и 1,00σ в симуляции."
+"id": "s0647",
+"page": "checkout",
+"ko": "왼쪽 가게는 언제나 한 줄(A)입니다",
+"en": "The left store is always a single line (A)",
+"tr": "Левый магазин всегда с одной очередью (A)"
 },
 {
-"id": "s0488",
-"page": "auction",
-"ko": "<b>더 읽을거리:</b> Thaler, R. H. (1988), 「Anomalies: The Winner's Curse」, <i>Journal of Economic Perspectives</i> 2(1). Capen, E. C., Clapp, R. V. & Campbell, W. M. (1971), 「Competitive Bidding in High-Risk Situations」, <i>Journal of Petroleum Technology</i> 23. Milgrom, P. & Weber, R. (1982), 「A Theory of Auctions and Competitive Bidding」, <i>Econometrica</i>.",
-"en": "<b>Further reading:</b> Thaler, R. H. (1988), \"Anomalies: The Winner's Curse\", <i>Journal of Economic Perspectives</i> 2(1). Capen, E. C., Clapp, R. V. & Campbell, W. M. (1971), \"Competitive Bidding in High-Risk Situations\", <i>Journal of Petroleum Technology</i> 23. Milgrom, P. & Weber, R. (1982), \"A Theory of Auctions and Competitive Bidding\", <i>Econometrica</i>.",
-"tr": "<b>Дополнительное чтение:</b> Thaler, R. H. (1988), «Anomalies: The Winner's Curse», <i>Journal of Economic Perspectives</i> 2(1). Capen, E. C., Clapp, R. V. & Campbell, W. M. (1971), «Competitive Bidding in High-Risk Situations», <i>Journal of Petroleum Technology</i> 23. Milgrom, P. & Weber, R. (1982), «A Theory of Auctions and Competitive Bidding», <i>Econometrica</i>."
+"id": "s0648",
+"page": "checkout",
+"ko": "같은 설정, 다른 손님들",
+"en": "Same settings, different customers",
+"tr": "Те же настройки, другие покупатели"
 },
 {
-"id": "s0515",
-"page": "bar",
-"ko": "예측이 제각각이면 손님 수가 정원 근처로 맞춰지고, 같은 예측이면 틀려요.",
-"en": "When predictions differ, attendance settles near capacity; when all agree, it misses.",
-"tr": "Когда прогнозы различаются, посещаемость устанавливается около вместимости; когда все согласны, она мимо цели."
+"id": "s0649",
+"page": "checkout",
+"ko": "① 두 가게를 나란히 보기",
+"en": "① Two Stores, Side by Side",
+"tr": "① Два магазина рядом"
 },
 {
-"id": "s0516",
-"page": "bar",
-"ko": "이 모델에서는 모두가 같은 예측을 따르면 그 예측 때문에 행동이 쏠려 빗나가요.",
-"en": "In this model, if everyone follows one prediction, that very prediction herds them and fails.",
-"tr": "В этой модели, если все следуют одному прогнозу, именно этот прогноз сбивает всех в толпу и оказывается неверным."
+"id": "s0650",
+"page": "checkout",
+"ko": "위쪽 계산대, 아래쪽 줄입니다. 파란 왼쪽은 줄 하나, 오른쪽은 계산대마다 줄 하나입니다. 같은 손님이 같은 시각에 도착합니다. 금빛 고리의 '나'는 두 가게 모두에 있고, 아래 문장에서 내 기다림을 비교합니다.",
+"en": "Cashiers are on top and the lines below. The blue left store has one line, the right store has one line per cashier. The same customers arrive at the same moments. The gold-ringed 'you' is in both stores, and the line at the bottom compares your waits.",
+"tr": "Кассиры сверху, очереди снизу. В синем левом магазине одна очередь, в правом — по одной очереди на кассира. Одни и те же покупатели приходят в одни и те же моменты. «Вы» с золотым кольцом есть в обоих магазинах, а линия внизу сравнивает ваше ожидание."
 },
 {
-"id": "s0517",
-"page": "bar",
-"ko": "좋은 예측법 하나보다 사람들의 예측이 얼마나 다양한지부터 살펴볼 만해요.",
-"en": "How varied people's predictions are may matter more than finding one better prediction.",
-"tr": "Разнообразие прогнозов людей может быть важнее, чем поиск одного лучшего прогноза."
+"id": "s0651",
+"page": "checkout",
+"ko": "② 붐비는 정도에 따른 평균 대기",
+"en": "② Average Wait vs. Busyness",
+"tr": "② Среднее ожидание и загруженность"
 },
 {
-"id": "s0519",
-"page": "bar",
-"ko": "실제 사람들이 이런 계산식으로 고른다는 뜻은 아니고, 예측법과 인원은 정해 둔 설정이에요.",
-"en": "It doesn't mean people choose by such formulas; the rules and head count are preset.",
-"tr": "Это не значит, что люди выбирают по таким формулам; правила и число людей заданы заранее."
+"id": "s0652",
+"page": "checkout",
+"ko": "가로는 계산대가 바쁜 정도, 세로는 평균 대기시간입니다. 실선은 시뮬레이션, 점선은 이론입니다. 무작위로 줄을 서면(빨강) 붐빌수록 그래프 밖으로 치솟고, 짧은 줄(주황)이나 물건 적은 줄(초록)은 한 줄(파랑)에 훨씬 가깝습니다.",
+"en": "The horizontal axis is how busy the cashiers are and the vertical axis the average wait. Solid lines are simulation, dashed lines are theory. With random line choice (red) the wait shoots off the chart as it gets busier, while the shortest line (orange) and fewest items (green) stay much closer to the single line (blue).",
+"tr": "По горизонтали — загруженность кассиров, по вертикали — среднее ожидание. Сплошные линии — симуляция, пунктирные — теория. При случайном выборе очереди (красный) ожидание улетает за пределы графика по мере роста загруженности, тогда как кратчайшая очередь (оранжевый) и наименьшее число товаров (зелёный) остаются гораздо ближе к одной очереди (синий)."
 },
 {
-"id": "s0520",
-"page": "bar",
-"ko": "실제 식당에서 사람들이 정보를 얼마나 나누고 비슷하게 판단하는지 관찰해 봐야 확인돼요.",
-"en": "Observing how much real diners share information and judge alike would be needed to check.",
-"tr": "Для проверки нужно наблюдать, насколько реальные посетители делятся информацией и судят одинаково."
+"id": "s0653",
+"page": "checkout",
+"ko": "<i style=\"background:#2f6fed\"></i>A 한 줄",
+"en": "<i style=\"background:#2f6fed\"></i>A Single line",
+"tr": "<i style=\"background:#2f6fed\"></i>A Одна очередь"
 },
 {
-"id": "s0522",
-"page": "bar",
-"ko": "<b>모델의 뿌리:</b> 아서(W. Brian Arthur)가 1994년 <i>American Economic Review</i> 84(2)에 쓴 \"Inductive reasoning and bounded rationality\"의 엘 파롤 바 문제입니다. 정답을 계산할 수 없는 상황에서 사람들이 가설(예측법)을 세우고 잘 맞는 것을 골라 쓰면 어떻게 되는지를 다룹니다.",
-"en": "<b>Where the model comes from:</b> This is the El Farol Bar problem from W. Brian Arthur, \"Inductive reasoning and bounded rationality\", <i>American Economic Review</i> 84(2) (1994). It asks what happens when people with no computable right answer form hypotheses (predictors) and use whichever has worked best.",
-"tr": "<b>Откуда взята модель:</b> Это задача о баре «Эль-Фарол» У. Брайана Артура, «Inductive reasoning and bounded rationality», <i>American Economic Review</i> 84(2) (1994). В ней спрашивается, что происходит, когда люди, у которых нет вычислимого верного ответа, выдвигают гипотезы (предикторы) и пользуются той, что сработала лучше всего."
+"id": "s0654",
+"page": "checkout",
+"ko": "<i style=\"background:#e0a100\"></i>B 짧은 줄",
+"en": "<i style=\"background:#e0a100\"></i>B Shortest line",
+"tr": "<i style=\"background:#e0a100\"></i>B Кратчайшая очередь"
 },
 {
-"id": "s0523",
-"page": "bar",
-"ko": "<b>핵심 가정과 수식:</b> 사람 <i>n</i>=100명이 매주 손님 수를 예측해 예측이 정원 60명보다 적으면 가고, 실제 손님이 정원을 넘으면 붐벼서 불만족입니다. 모두 같은 예측을 하면 모두 가거나 모두 안 가서 반드시 틀리므로 같은 예측을 하는 \"합리적 기대\"는 성립하지 않습니다. 슬라이더는 정원과 사람당 예측법 개수예요.",
-"en": "<b>Key assumptions and formulas:</b> Each week <i>n</i>=100 people predict attendance and go if the forecast is below the capacity of 60; if actual attendance exceeds capacity the bar is crowded and unpleasant. If everyone used the same forecast, everyone would go or no one would, so it would always be wrong, which means a shared \"rational expectation\" cannot hold. The sliders are the capacity and the number of predictors per person.",
-"tr": "<b>Основные допущения и формулы:</b> Каждую неделю <i>n</i>=100 человек предсказывают посещаемость и идут в бар, если прогноз ниже вместимости 60; если фактическая посещаемость превышает вместимость, в баре тесно и неприятно. Если бы все пользовались одним прогнозом, все бы пошли или никто бы не пошёл, поэтому он всегда был бы неверным, а значит, общее «рациональное ожидание» не может держаться. Ползунки — вместимость и число предикторов на человека."
+"id": "s0655",
+"page": "checkout",
+"ko": "<i style=\"background:#e5484d\"></i>C 무작위",
+"en": "<i style=\"background:#e5484d\"></i>C Random",
+"tr": "<i style=\"background:#e5484d\"></i>C Случайно"
 },
 {
-"id": "s0524",
-"page": "bar",
-"ko": "<b>이 프로젝트의 단순화:</b> 원 논문은 \"지난주와 같다\", \"50을 기준으로 뒤집은 값\", \"최근 4주 평균\" 같은 정해진 예측법 목록에서 사람마다 몇 개를 뽑습니다. 이 구현은 지난 8주 기록에 사람마다 다른 무작위 비중을 곱해 더하는 예측법을 만들었고, 가장 최근에 잘 맞힌 것(과거 오차를 0.9씩 줄여 가며 합산)을 씁니다. 그래서 논문의 그래프와 똑같은 모양이 아닙니다.",
-"en": "<b>What this project simplifies:</b> The original draws each person's predictors from a fixed list such as \"same as last week\", \"mirror image around 50\", and \"average of the last 4 weeks\". This implementation instead builds each predictor as a random weighted sum of the last 8 weeks and uses the one with the best recent record (past errors discounted by 0.9 per week). The graphs therefore do not look exactly like the paper's.",
-"tr": "<b>Что упрощает этот проект:</b> В оригинале предикторы каждого человека берутся из фиксированного списка вроде «как на прошлой неделе», «зеркальное отражение относительно 50» и «среднее за последние 4 недели». Эта реализация вместо этого строит каждый предиктор как случайную взвешенную сумму последних 8 недель и использует тот, у которого лучший недавний результат (прошлые ошибки обесцениваются на 0,9 в неделю). Поэтому графики выглядят не точно так же, как в статье."
+"id": "s0656",
+"page": "checkout",
+"ko": "<i style=\"background:#1fa463\"></i>D 물건 적은 줄",
+"en": "<i style=\"background:#1fa463\"></i>D Fewest items",
+"tr": "<i style=\"background:#1fa463\"></i>D Меньше товаров"
 },
 {
-"id": "s0525",
-"page": "bar",
-"ko": "<b>이론값과 시뮬레이션:</b> 논문에 나온 값을 숫자로 대조한 것이 아니라 이 구현의 결과입니다. 모두 같은 예측이면 평균 50.0, 표준편차 50.0으로 0명과 100명을 오갑니다. 예측법이 다양하면 평균 손님이 58~60명으로 정원 근처에 모이고(예측법 5개: 58.3), 정원을 30, 50, 70으로 바꾸면 33.7, 50.2, 66.0이 됩니다. 비교 기준으로 \"각자 확률 0.6으로 간다\"면 표준편차가 <code>√(100·0.6·0.4)≈4.9</code>인데, 시뮬레이션은 0.6~4.0으로 더 작습니다 (<code>node tools/validate-more.js bar</code>). 정원 90에서는 평균이 79.9로 정원에 못 미칩니다.",
-"en": "<b>Theory versus simulation:</b> These are this implementation's results, not a numerical match to values in the paper. With one shared forecast, attendance averages 50.0 with standard deviation 50.0, swinging between 0 and 100. With diverse predictors, mean attendance settles at 58 to 60, near capacity (5 predictors: 58.3), and capacities 30, 50 and 70 give 33.7, 50.2 and 66.0. As a rough benchmark, if everyone simply went with probability 0.6 the standard deviation would be <code>√(100·0.6·0.4)≈4.9</code>; the simulation gives 0.6 to 4.0, which is smaller (<code>node tools/validate-more.js bar</code>). At capacity 90 the mean is 79.9, falling short of capacity.",
-"tr": "<b>Теория и симуляция:</b> Это результаты данной реализации, а не численное совпадение со значениями из статьи. При одном общем прогнозе средняя посещаемость равна 50,0 при стандартном отклонении 50,0, колеблясь между 0 и 100. При разнообразных предикторах средняя посещаемость устанавливается на уровне 58–60, вблизи вместимости (5 предикторов: 58,3), а вместимости 30, 50 и 70 дают 33,7, 50,2 и 66,0. В качестве грубого ориентира: если бы все просто шли с вероятностью 0,6, стандартное отклонение было бы <code>√(100·0.6·0.4)≈4.9</code>; симуляция даёт от 0,6 до 4,0, то есть меньше (<code>node tools/validate-more.js bar</code>). При вместимости 90 среднее равно 79,9, что не доходит до вместимости."
+"id": "s0657",
+"page": "checkout",
+"ko": "③ 90% 손님이 기다리는 시간",
+"en": "③ The Wait 90% of Customers Stay Under",
+"tr": "③ Ожидание, которое не превышают 90% покупателей"
 },
 {
-"id": "s0526",
-"page": "bar",
-"ko": "<b>더 읽을거리:</b> Arthur (1994), \"Inductive reasoning and bounded rationality\", <i>American Economic Review</i> 84(2). / Challet, Zhang (1997), \"Emergence of cooperation and organization in an evolutionary game\", <i>Physica A</i> 246 (소수 게임, 이 문제를 단순화한 후속 모델).",
-"en": "<b>Further reading:</b> Arthur (1994), \"Inductive reasoning and bounded rationality\", <i>American Economic Review</i> 84(2). / Challet, Zhang (1997), \"Emergence of cooperation and organization in an evolutionary game\", <i>Physica A</i> 246 (the Minority Game, a simplified follow-up model).",
-"tr": "<b>Дополнительное чтение:</b> Arthur (1994), «Inductive reasoning and bounded rationality», <i>American Economic Review</i> 84(2). / Challet, Zhang (1997), «Emergence of cooperation and organization in an evolutionary game», <i>Physica A</i> 246 (игра меньшинства — упрощённая последующая модель)."
+"id": "s0658",
+"page": "checkout",
+"ko": "손님 10명 중 9명이 이 시간 안에 계산을 시작합니다. 평균보다 '운이 나쁜 손님'이 얼마나 오래 기다리는지를 보여 줍니다.",
+"en": "Nine out of ten customers start checking out within this time. It shows how long the unlucky customers wait, which the average hides.",
+"tr": "Девять из десяти покупателей начинают оплату в пределах этого времени. Это показывает, сколько ждут невезучие покупатели, что скрывает среднее значение."
 },
 {
-"id": "s0566",
-"page": "braess",
-"ko": "운전자 4,000명일 때 지름길을 열자 평균이 65.0분에서 80.0분으로 늘었어요.",
-"en": "With 4,000 drivers, opening the shortcut raised the average from 65.0 to 80.0 minutes.",
-"tr": "При 4 000 водителей открытие короткого пути увеличило среднее время с 65,0 до 80,0 минуты."
+"id": "s0659",
+"page": "checkout",
+"ko": "④ 기다림의 분포",
+"en": "④ Distribution of Waits",
+"tr": "④ Распределение ожиданий"
 },
 {
-"id": "s0567",
-"page": "braess",
-"ko": "각자 더 빠른 길로 옮기다 모두 지름길로 몰려, 혼자 바꿔도 이득 없는 상태에서 오히려 느려졌어요.",
-"en": "Each driver kept switching to a faster route until all piled onto the shortcut, ending slower though no one gains by switching.",
-"tr": "Каждый водитель продолжал переключаться на более быстрый маршрут, пока все не скопились на коротком пути, и в итоге ехали медленнее, хотя никому не выгодно менять маршрут."
+"id": "s0660",
+"page": "checkout",
+"ko": "파란 막대는 한 줄, 선은 오른쪽 가게의 방식입니다. 바로 계산하는 손님의 비율과, 오래 기다리는 꼬리가 어떻게 달라지는지 보세요.",
+"en": "Blue bars are the single line, the outline is the right store's method. Look at the share who start immediately and at how the long tail of waiting differs.",
+"tr": "Синие столбцы — одна очередь, контур — метод правого магазина. Обратите внимание на долю тех, кто начинает сразу, и на то, чем отличается длинный хвост ожиданий."
 },
 {
-"id": "s0568",
-"page": "braess",
-"ko": "새 길의 효과는 이용자 수와 혼잡 정도에 달려 있어서, 길 하나보다 전체 교통량부터 살펴볼 만해요.",
-"en": "A new road's effect depends on traffic volume and congestion, so total demand may be worth examining first.",
-"tr": "Эффект новой дороги зависит от объёма движения и загруженности, поэтому сначала стоит изучить общий спрос."
+"id": "s0661",
+"page": "checkout",
+"ko": "계산대 4개, 붐빔 90%에서 한 줄은 평균 6.1분, 줄 따로 서기는 최대 4.9배 기다렸습니다.",
+"en": "With 4 counters at 90% load, one line averaged 6.1 minutes; separate lines waited up to 4.9 times longer.",
+"tr": "При 4 кассах и загрузке 90% одна общая очередь давала в среднем 6,1 минуты; при раздельных очередях ждали до 4,9 раза дольше."
 },
 {
-"id": "s0570",
-"page": "braess",
-"ko": "실제 도시 도로망이 아니라 작고 대칭인 도로망이고, 새 길이 늘 해롭다는 뜻도 아니에요.",
-"en": "This is a small symmetric network, not a real city, and it does not mean new roads are always harmful.",
-"tr": "Это небольшая симметричная сеть, а не реальный город, и это не значит, что новые дороги всегда вредны."
+"id": "s0662",
+"page": "checkout",
+"ko": "줄을 나누면 한쪽 계산대가 놀아도 다른 줄 손님은 옮기지 못해, 일하는 능력이 낭비되기 때문일 수 있습니다.",
+"en": "Splitting lines lets a counter sit idle while others queue and customers cannot move, which can waste capacity.",
+"tr": "Раздельные очереди оставляют кассу простаивать, пока у других очередь, а клиенты не могут перейти, что может расходовать мощность впустую."
 },
 {
-"id": "s0571",
-"page": "braess",
-"ko": "대중교통, 출발 시각 조정, 새로 생기는 수요를 넣고 실제 도로의 교통량 변화를 관찰해야 확인돼요.",
-"en": "Transit, departure-time shifts and induced demand would need adding, and real traffic changes observing.",
-"tr": "Нужно было бы добавить общественный транспорт, сдвиги времени выезда и индуцированный спрос и наблюдать реальные изменения трафика."
+"id": "s0663",
+"page": "checkout",
+"ko": "기다림이 길다면 계산대 수보다 줄이 어떻게 나뉘고 어떻게 배정되는지부터 살펴볼 만합니다.",
+"en": "If waits run long, how lines are split and assigned may be worth checking before adding counters.",
+"tr": "Если ожидание долгое, прежде чем добавлять кассы, может стоить проверить, как разделены и распределены очереди."
+},
+{
+"id": "s0664",
+"page": "checkout",
+"ko": "<b>말하는 것:</b> 계산대 4개, 붐빔 90%, 계산 시간 보통(들쭉날쭉함 1.0)에서 손님 10만 명을 5번 돌린 평균은 이렇습니다. 한 줄은 평균 6.1분, 90% 손님이 16.0분 안에 계산을 시작했습니다. 사람이 가장 적은 줄을 고르는 방식(B)은 평균 6.9분(한 줄의 1.13배), 90%는 18.3분이었고 손님의 44%가 뒤에 온 사람에게 추월당했습니다. 같은 손님을 한 줄과 비교하면 34%는 1분 넘게 더 기다리고 26%는 1분 넘게 덜 기다렸습니다. 아무 줄이나 서는 방식(C)은 평균 29.9분(4.9배)이었고, 물건이 가장 적은 줄을 고르는 방식(D)은 평균 6.5분(1.06배)이었습니다. 계산대가 놀고 있는데 다른 줄에 손님이 있는 시간은 B 11%, C 35%, D 5%였고, 한 줄은 0%입니다. 한 줄이 더 빠른 정도는 설정에 따라 달랐습니다. 덜 붐빌 때 상대적으로 더 컸고(붐빔 60%: B가 1.61배), 계산대가 많을수록 컸으며(2대 1.05배, 8대 1.28배), 계산 시간이 들쭉날쭉할수록 컸습니다(1.5에서 1.18배). 붐빔 95%에서는 1.06배로 줄었는데, 그때는 어느 방식이든 모두 크게 기다리기 때문입니다.",
+"en": "<b>What it shows:</b> Averages over five runs of 100,000 customers with 4 cashiers, 90% busy and typical checkout times (variability 1.0): the single line averaged 6.1 minutes, and 90% of customers started checking out within 16.0 minutes. Joining the line with the fewest people (B) averaged 6.9 minutes (1.13 times the single line), 90% within 18.3 minutes, and 44% of customers were overtaken by someone who arrived later. Compared with the single line for the same customers, 34% waited more than a minute longer and 26% waited more than a minute less. Choosing any line (C) averaged 29.9 minutes (4.9 times), and joining the line with the fewest items (D) averaged 6.5 minutes (1.06 times). The share of time a cashier was idle while someone waited in another line was 11% for B, 35% for C and 5% for D, and 0% for the single line. How much faster the single line was depended on the settings. The relative gap was larger when it was less busy (60% busy: B was 1.61 times), with more cashiers (2 cashiers 1.05 times, 8 cashiers 1.28 times) and with more variable checkout times (1.18 times at 1.5). At 95% busy it shrank to 1.06 times, because everyone waits a lot with any method.",
+"tr": "<b>Что это показывает:</b> Средние по пяти запускам по 100 000 покупателей при 4 кассирах, загруженности 90% и типичном времени оплаты (разброс 1,0): при одной очереди среднее составило 6,1 минуты, а 90% покупателей начали оплату в пределах 16,0 минуты. Выбор очереди с наименьшим числом людей (B) дал в среднем 6,9 минуты (в 1,13 раза больше, чем при одной очереди), 90% — в пределах 18,3 минуты, а 44% покупателей обогнал тот, кто пришёл позже. По сравнению с одной очередью для тех же покупателей 34% ждали больше чем на минуту дольше, а 26% — больше чем на минуту меньше. Выбор любой очереди (C) дал в среднем 29,9 минуты (в 4,9 раза), а очередь с наименьшим числом товаров (D) — 6,5 минуты (в 1,06 раза). Доля времени, когда кассир простаивал, пока кто-то ждал в другой очереди, составила 11% для B, 35% для C и 5% для D и 0% для одной очереди. Насколько быстрее оказалась одна очередь, зависело от настроек. Относительная разница была больше при меньшей загруженности (при 60%: B — в 1,61 раза), при большем числе кассиров (2 кассира — 1,05 раза, 8 кассиров — 1,28 раза) и при большем разбросе времени оплаты (1,18 раза при 1,5). При загруженности 95% она сократилась до 1,06 раза, потому что при любом методе все долго ждут."
+},
+{
+"id": "s0665",
+"page": "checkout",
+"ko": "줄을 하나로 세우면 반드시 이득이라는 뜻은 아닙니다. 줄 바꾸기와 전용 계산대는 이 모델에 없습니다.",
+"en": "It does not mean one line always wins; lane switching and express counters are not in this model.",
+"tr": "Это не значит, что одна очередь всегда выигрывает; перестроение между очередями и экспресс-кассы в эту модель не входят."
+},
+{
+"id": "s0666",
+"page": "checkout",
+"ko": "실제 가게에서는 손님이 기다린 시간과 빈 계산대가 생기는 순간을 재어 보고, 전용 계산대의 효과를 따로 비교해야 합니다.",
+"en": "A real store would need measured waits and idle-counter moments, and a separate comparison of express counters.",
+"tr": "Для реального магазина нужно было бы измерить время ожидания и моменты простоя касс и отдельно сравнить экспресс-кассы."
+},
+{
+"id": "s0667",
+"page": "checkout",
+"ko": "<b>말하지 않는 것:</b> 실제 마트를 재현한 것이 아닙니다. 이 모델에서 손님은 한 번 줄을 고르면 바꾸지 않습니다(옆줄로 옮기는 행동은 넣지 않았으므로, 현실의 줄 바꾸기는 줄 따로의 불리함을 일부 줄여 줄 것입니다). 현실의 계산대에는 물건 적은 손님 전용 계산대, 셀프 계산대, 계산대가 닫히거나 열리는 일, 가격표를 확인하러 가는 일, 줄이 짧아 보이는 착시와 습관이 있지만 모두 넣지 않았습니다. 도착은 하루 내내 같은 속도의 무작위이고 계산 시간 분포는 이 프로젝트가 가정한 것으로 한국 마트의 실제 자료가 아닙니다. 따라서 '줄을 하나로 세우면 반드시 이득'이라는 뜻이 아니라, 이런 단순한 조건에서 줄을 합치는 것이 어떤 효과를 내는지 보여 주는 것입니다. 한 줄이 손님에게 늘 더 낫다고는 할 수 없으며(공간, 줄이 길어 보여 포기하는 손님 등) 매장이 줄 구조를 고르는 데는 이 모델에 없는 요인이 많습니다.",
+"en": "<b>What it doesn't show:</b> This is not a reproduction of a real store. In this model customers pick a line once and never switch (lane switching, or jockeying, is not modeled, so real-world line switching would soften some of the disadvantage of separate lines). Real stores also have express lanes, self-checkouts, cashiers opening and closing, price checks, and the habits and illusions that make a line look short, none of which are modeled. Arrivals are random at a constant rate all day and the checkout-time distribution is this project's assumption, not data from Korean supermarkets. So this does not say a single line is always better; it shows what merging lines does under these simple conditions. A single line is not always better for customers (space, customers who balk at a long line), and a store weighs many factors this model leaves out.",
+"tr": "<b>Чего это не показывает:</b> Это не воспроизведение реального магазина. В этой модели покупатели выбирают очередь один раз и никогда не меняют её (смена очереди, или джокейинг, не моделируется, поэтому в реальности перебегание из очереди в очередь смягчило бы часть недостатков раздельных очередей). В реальных магазинах также есть экспресс-кассы, кассы самообслуживания, открывающиеся и закрывающиеся кассы, проверка цен, а также привычки и иллюзии, из-за которых очередь кажется короче, — ничего из этого не моделируется. Приходы случайны с постоянной интенсивностью в течение дня, а распределение времени оплаты — допущение проекта, а не данные корейских супермаркетов. Поэтому это не говорит, что одна очередь всегда лучше; это показывает, что даёт объединение очередей в таких простых условиях. Одна очередь не всегда лучше для покупателей (место, покупатели, уходящие при виде длинной очереди), а магазин учитывает много факторов, которые эта модель опускает."
+},
+{
+"id": "s0668",
+"page": "checkout",
+"ko": "<b>모델의 뿌리:</b> 대기행렬 이론입니다. 덴마크의 A. K. Erlang이 전화 교환기에서 통화를 기다리는 문제를 풀며 만든 계산식(얼랑 C)이 계산대 여러 개에 한 줄로 서는 가게(M/M/c)의 기본 이론이고, 줄 따로는 계산대마다 따로 계산하는 줄(M/M/1)이 여러 개 있는 경우와 같습니다.",
+"en": "<b>Where the model comes from:</b> This is queueing theory. The Erlang C formula, worked out by the Danish engineer A. K. Erlang for calls waiting in telephone exchanges, is the basic result for a single shared line feeding several cashiers (M/M/c), and separate lines behave like several independent single-cashier queues (M/M/1).",
+"tr": "<b>Откуда взялась модель:</b> Это теория массового обслуживания. Формула Эрланга C, выведенная датским инженером А. К. Эрлангом для звонков, ожидающих на телефонных станциях, — основной результат для одной общей очереди, обслуживаемой несколькими кассирами (M/M/c), а раздельные очереди ведут себя как несколько независимых очередей с одним кассиром (M/M/1)."
+},
+{
+"id": "s0669",
+"page": "checkout",
+"ko": "<b>핵심 가정과 수식:</b> 붐빔 ρ = 도착률 × 평균 계산 시간 ÷ 계산대 수 (슬라이더 '붐비는 정도'). 계산대 c개, a = ρc일 때 손님이 도착해 기다려야 할 확률 C(c, a)를 얼랑 C 식으로 구하고, 평균 대기는 <code>Wq = C(c, a) × S / (c(1−ρ))</code> (S는 평균 계산 시간 3분), 기다림이 t를 넘을 확률은 <code>C × e<sup>−c(1−ρ)t/S</sup></code>입니다. 줄 따로이고 아무 줄이나 서면 계산대마다 M/M/1이 되어 <code>Wq = ρS / (1−ρ)</code>입니다.",
+"en": "<b>Key assumptions and formulas:</b> Utilization ρ = arrival rate × mean checkout time ÷ number of cashiers (the 'How busy' slider). With c cashiers and a = ρc, the Erlang C formula gives C(c, a), the probability that an arriving customer has to wait; the mean wait is <code>Wq = C(c, a) × S / (c(1−ρ))</code> with S the mean checkout time (3 minutes), and the chance of waiting longer than t is <code>C × e<sup>−c(1−ρ)t/S</sup></code>. With separate lines and random choice each cashier is an M/M/1 queue, <code>Wq = ρS / (1−ρ)</code>.",
+"tr": "<b>Основные допущения и формулы:</b> Загрузка ρ = интенсивность прихода × среднее время оплаты ÷ число кассиров (ползунок «Загруженность»). При c кассирах и a = ρc формула Эрланга C даёт C(c, a) — вероятность того, что пришедшему покупателю придётся ждать; среднее ожидание равно <code>Wq = C(c, a) × S / (c(1−ρ))</code>, где S — среднее время оплаты (3 минуты), а вероятность ждать дольше t равна <code>C × e<sup>−c(1−ρ)t/S</sup></code>. При раздельных очередях и случайном выборе каждый кассир — очередь M/M/1, <code>Wq = ρS / (1−ρ)</code>."
+},
+{
+"id": "s0670",
+"page": "checkout",
+"ko": "<b>이 프로젝트의 단순화:</b> 계산 시간을 평균 3분의 감마분포(슬라이더로 들쭉날쭉함 조절)로, 물건 수는 평균 10개로 두고 계산 시간에 비례하게 정한 것은 이 프로젝트의 설정입니다. 들쭉날쭉함이 1.0이 아닐 때의 한 줄 이론선은 평균 대기에 (1+cv²)/2를 곱하는 흔한 근사이고, 무작위 줄은 폴라체크-힌친 평균 대기 공식입니다. 줄 바꾸기, 포기하는 손님, 전용 계산대는 넣지 않았습니다.",
+"en": "<b>What this project simplifies:</b> Checkout time is a gamma distribution with a mean of 3 minutes (the variability slider), and items average 10 and are proportional to checkout time; these are this project's choices. When variability is not 1.0, the single-line theory line uses the common approximation of multiplying the mean wait by (1+cv²)/2, and the random-line one is the Pollaczek-Khinchine mean wait formula. Line switching, balking and express lanes are not modeled.",
+"tr": "<b>Что упрощает этот проект:</b> Время оплаты подчиняется гамма-распределению со средним 3 минуты (ползунок разброса), а число товаров в среднем равно 10 и пропорционально времени оплаты; это выбор проекта. Когда разброс не равен 1,0, теоретическая линия для одной очереди использует распространённое приближение — умножение среднего ожидания на (1+cv²)/2, а для случайных очередей — формулу среднего ожидания Полячека — Хинчина. Смена очереди, уход из очереди и экспресс-кассы не моделируются."
+},
+{
+"id": "s0671",
+"page": "checkout",
+"ko": "<b>이론값과 시뮬레이션:</b> <code>node tools/validate-checkout.js</code>의 결과(시드 5개 × 손님 10만 명 평균, 들쭉날쭉함 1.0)입니다. 계산대 4개 붐빔 60%에서 한 줄 평균 대기는 시뮬레이션 0.54분, 이론 0.54분이고, 붐빔 80%는 2.25분 대 2.24분, 90%는 6.11분 대 5.91분이었습니다. 90% 손님 기준은 붐빔 90%에서 16.0분 대 15.5분입니다. 계산대 2개 붐빔 70%는 2.88분 대 2.88분이었습니다. 무작위 줄은 붐빔 60%에서 4.55분 대 4.50분, 80%에서 12.46분 대 12.00분, 90%에서 29.9분 대 27.0분으로 붐빌수록 시뮬레이션이 이론보다 높게 나왔습니다(유한한 손님 수 때문으로 보임). 들쭉날쭉함 1.5, 붐빔 90%에서 한 줄 근사는 9.60분으로 시뮬레이션 9.03분보다 약 7% 높았습니다.",
+"en": "<b>Theory versus simulation:</b> From <code>node tools/validate-checkout.js</code> (average of 5 seeds × 100,000 customers, variability 1.0). With 4 cashiers at 60% busy the single line mean wait was 0.54 minutes in simulation and 0.54 in theory; at 80% it was 2.25 vs 2.24 and at 90% 6.11 vs 5.91. The 90th percentile at 90% busy was 16.0 vs 15.5 minutes. With 2 cashiers at 70% it was 2.88 vs 2.88. For random lines the simulation gave 4.55 vs 4.50 at 60% busy, 12.46 vs 12.00 at 80% and 29.9 vs 27.0 at 90%, so the simulation ran higher than theory as it got busier (likely due to the finite number of customers). With variability 1.5 and 90% busy the single-line approximation gave 9.60 minutes, about 7% above the simulated 9.03.",
+"tr": "<b>Теория и симуляция:</b> Данные из <code>node tools/validate-checkout.js</code> (среднее по 5 зёрнам × 100 000 покупателей, разброс 1,0). При 4 кассирах и загруженности 60% среднее ожидание в одной очереди составило 0,54 минуты в симуляции и 0,54 в теории; при 80% — 2,25 против 2,24, при 90% — 6,11 против 5,91. 90-й процентиль при загруженности 90% составил 16,0 против 15,5 минуты. При 2 кассирах и 70% — 2,88 против 2,88. Для случайных очередей симуляция дала 4,55 против 4,50 при 60%, 12,46 против 12,00 при 80% и 29,9 против 27,0 при 90%, то есть при росте загруженности симуляция оказывалась выше теории (вероятно, из-за конечного числа покупателей). При разбросе 1,5 и загруженности 90% приближение для одной очереди дало 9,60 минуты, примерно на 7% выше смоделированных 9,03."
+},
+{
+"id": "s0672",
+"page": "checkout",
+"ko": "<b>더 읽을거리:</b> Leonard Kleinrock, 『Queueing Systems, Volume 1: Theory』(Wiley, 1975). Donald Gross와 Carl M. Harris, 『Fundamentals of Queueing Theory』(Wiley). 줄을 합치는 것이 항상 이로운 것은 아니라는 점은 Rothkopf &amp; Rech (1987), \"Perspectives on queues: combining queues is not always beneficial\", <i>Operations Research</i>에서 다룹니다.",
+"en": "<b>Further reading:</b> Leonard Kleinrock, <i>Queueing Systems, Volume 1: Theory</i> (Wiley, 1975). Donald Gross and Carl M. Harris, <i>Fundamentals of Queueing Theory</i> (Wiley). That combining queues is not always beneficial is discussed in Rothkopf &amp; Rech (1987), \"Perspectives on queues: combining queues is not always beneficial\", <i>Operations Research</i>.",
+"tr": "<b>Дополнительное чтение:</b> Leonard Kleinrock, <i>Queueing Systems, Volume 1: Theory</i> (Wiley, 1975). Donald Gross и Carl M. Harris, <i>Fundamentals of Queueing Theory</i> (Wiley). О том, что объединение очередей не всегда выгодно, говорится в Rothkopf &amp; Rech (1987), «Perspectives on queues: combining queues is not always beneficial», <i>Operations Research</i>."
+},
+{
+"id": "s0673",
+"page": "checkout",
+"ko": "시뮬레이션은 손님 목록(도착 시각, 계산 시간, 물건 수, 무작위 줄 선택용 난수)을 한 번 만들어 모든 방식에 똑같이 넣는 공통 난수 방식입니다. 시드 난수(mulberry32)를 쓰므로 같은 시드면 같은 결과가 나옵니다. 화면의 가게는 두 방식의 시작·끝 시각을 미리 계산해 두고 시간에 따라 위치만 그립니다.",
+"en": "The simulation builds one customer list (arrival times, checkout times, items, and random numbers for the random choice) and feeds it identically to every method, a common random numbers design. It uses a seeded generator (mulberry32), so the same seed gives the same result. The store on screen precomputes each method's start and end times and just draws positions as time advances.",
+"tr": "Симуляция строит один список покупателей (время прихода, время оплаты, товары и случайные числа для случайного выбора) и подаёт его одинаково каждому методу — это схема с общими случайными числами. Используется генератор с зерном (mulberry32), поэтому одно и то же зерно даёт один и тот же результат. Магазин на экране заранее вычисляет моменты начала и конца обслуживания для каждого метода и лишь рисует положения по мере хода времени."
+},
+{
+"id": "s0674",
+"page": "checkout",
+"ko": "추월당한 손님은 자기보다 늦게 도착한 사람이 더 먼저 계산을 시작한 손님입니다. 계산대가 놀면서 기다리는 사람이 있는 시간 비율은 시작과 끝 시각을 시간순으로 훑어 구했고, 처음 10% 손님은 가게가 비어 있던 시기라 통계에서 뺐습니다.",
+"en": "An overtaken customer is one for whom someone who arrived later started checkout earlier. The share of time with an idle cashier while someone waits was found by sweeping start and end times in order, and the first 10% of customers, from when the store was still empty, were left out of the statistics.",
+"tr": "Обогнанный покупатель — это тот, у кого кто-то пришедший позже начал оплату раньше. Доля времени, когда кассир простаивал, пока кто-то ждёт, найдена последовательным просмотром моментов начала и конца, а первые 10% покупателей, пришедших, когда магазин ещё был пуст, исключены из статистики."
+},
+{
+"id": "s0675",
+"page": "checkout",
+"ko": "카드 숫자는 손님 15만 명을 한 번 돌린 값이라 페이지 설명(10만 명 × 5번 평균)과 조금 다를 수 있습니다. 검증은 <code>node tools/validate-checkout.js</code>로 할 수 있습니다.",
+"en": "The numbers on the cards come from a single run of 150,000 customers, so they can differ slightly from the page text (an average of 5 runs of 100,000). You can verify with <code>node tools/validate-checkout.js</code>.",
+"tr": "Числа на карточках получены из одного запуска на 150 000 покупателей, поэтому могут немного отличаться от текста страницы (среднее по 5 запускам по 100 000). Проверить можно командой <code>node tools/validate-checkout.js</code>."
+},
+{
+"id": "s0676",
+"page": "checkout",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/checkout\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/checkout\">GitHub</a>.",
+"tr": "Код доступен на <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/checkout\">GitHub</a>."
+},
+{
+"id": "s0707",
+"page": "coincidence",
+"ko": "23명이면 방 안 어딘가에서 생일이 같을 확률은 50.7%지만, 나와 같을 확률은 5.9%예요.",
+"en": "With 23 people, the chance that some pair shares a birthday is 50.7%, but the chance that someone shares mine is 5.9%.",
+"tr": "Среди 23 человек вероятность, что у какой-то пары совпадёт день рождения, равна 50,7%, а что у кого-то совпадёт с моим — 5,9%."
+},
+{
+"id": "s0708",
+"page": "coincidence",
+"ko": "사람이 늘면 가능한 짝이 거의 제곱으로 늘어서, '어딘가의 일치'는 빨리 흔해지고 '나와의 일치'는 천천히 늘어요.",
+"en": "As people grow, possible pairs grow almost as the square, so a match somewhere becomes common fast while a match with me grows slowly.",
+"tr": "С ростом числа людей число возможных пар растёт почти как квадрат, поэтому совпадение где-нибудь быстро становится обычным, а совпадение со мной растёт медленно."
+},
+{
+"id": "s0709",
+"page": "coincidence",
+"ko": "신기한 일치를 만나면 '내 경우'인지 '아무 경우나'인지, 몇 쌍을 비교했는지부터 따져 볼 만해요.",
+"en": "When you meet a striking match, it may help to ask whether it was about me or about anyone, and how many pairs were being compared.",
+"tr": "Столкнувшись с поразительным совпадением, можно спросить себя, было ли оно именно про меня или про кого угодно и сколько пар сравнивалось."
+},
+{
+"id": "s0711",
+"page": "coincidence",
+"ko": "모든 소름 돋는 우연이 그냥 우연이라는 뜻은 아니에요.",
+"en": "It does not mean every eerie coincidence is just chance.",
+"tr": "Это не значит, что любое жутковатое совпадение — лишь случайность."
+},
+{
+"id": "s0712",
+"page": "coincidence",
+"ko": "생일과 취미가 고르고 독립이라는 가정이라, 실제 사건은 실제 분포와 비교하는 자료가 더 있어야 알 수 있어요.",
+"en": "It assumes birthdays and traits are even and independent, so judging a real event needs data on the real distributions.",
+"tr": "Он предполагает, что дни рождения и признаки распределены равномерно и независимо, поэтому для оценки реального события нужны данные о реальных распределениях."
+},
+{
+"id": "s0714",
+"page": "coincidence",
+"ko": "<b>모델의 뿌리:</b> 생일 문제(birthday problem)는 방 안 사람들 중 생일이 같은 쌍이 있을 확률을 묻는 확률론의 고전 문제로, Feller의 확률론 교과서 같은 입문서에도 실려 있습니다. \"소름 돋는 우연도 어딘가에서는 일어난다\"는 생각은 Diaconis와 Mosteller(1989)가 \"아주 큰 수의 법칙(law of truly large numbers)\", 곧 표본이 충분히 크면 아무리 드문 일도 일어날 법하다는 원리로 정리했습니다.",
+"en": "<b>Where the model comes from:</b> The birthday problem is a classic of probability that asks how likely it is that some pair in a room shares a birthday, and it is treated in introductory texts such as Feller's. The idea that \"even spooky coincidences happen somewhere\" was framed by Diaconis and Mosteller (1989) as the \"law of truly large numbers\": with a large enough sample, even very rare events are likely to occur.",
+"tr": "<b>Откуда взялась модель:</b> Задача о днях рождения — классика теории вероятностей: насколько вероятно, что у какой-нибудь пары людей в комнате совпадёт день рождения; она разбирается во вводных учебниках, например у Феллера. Мысль о том, что «даже жуткие совпадения где-нибудь случаются», сформулировали Диаконис и Мостеллер (1989) как «закон по-настоящему больших чисел»: при достаточно большой выборке вероятно, что произойдут даже очень редкие события."
+},
+{
+"id": "s0715",
+"page": "coincidence",
+"ko": "<b>핵심 가정과 수식:</b> 한 특징이 c가지 값을 같은 확률로 가지면 N명이 모두 다를 확률은 <code>(1−1/c)(1−2/c)…(1−(N−1)/c)</code>이고, 특징들이 독립이면 특징별 확률을 곱한 값이 \"일치한 쌍이 하나도 없을 확률\"입니다. 나와 일치할 확률은 <code>1 − Π(1−1/c)<sup>N−1</sup></code>이고, 인원 슬라이더가 N, 특징 슬라이더가 k(생일은 c=365), 다른 특징의 값 개수가 c입니다.",
+"en": "<b>Key assumptions and formulas:</b> If a feature takes c values with equal chance, the probability that N people all differ is <code>(1−1/c)(1−2/c)…(1−(N−1)/c)</code>, and with independent features the product over features is the \"chance of no matching pair\". The chance of matching me is <code>1 − Π(1−1/c)<sup>N−1</sup></code>. The headcount slider is N, the feature slider is k (birthday has c=365) and the values slider sets c for the other features.",
+"tr": "<b>Основные допущения и формулы:</b> Если признак принимает c значений с равной вероятностью, то вероятность того, что все N человек различны, равна <code>(1−1/c)(1−2/c)…(1−(N−1)/c)</code>, а при независимых признаках произведение по признакам даёт «вероятность отсутствия совпадающей пары». Вероятность совпасть со мной равна <code>1 − Π(1−1/c)<sup>N−1</sup></code>. Ползунок числа людей — это N, ползунок признаков — k (у дня рождения c=365), а ползунок значений задаёт c для остальных признаков."
+},
+{
+"id": "s0716",
+"page": "coincidence",
+"ko": "<b>이 프로젝트의 단순화:</b> 모든 특징이 균등하고 서로 독립이라고 가정하고 윤일은 무시했습니다. 실제 생일은 연중 완전히 고르지 않고 고향·취미도 서로 얽혀 있습니다. 특징 개수와 \"다른 특징의 값 개수\"(기본 30)는 이 프로젝트가 정한 값이며 실제 분포를 반영하지 않습니다.",
+"en": "<b>What this project simplifies:</b> All features are assumed uniform and independent, and leap days are ignored. Real birthdays are not perfectly even through the year, and hometown and hobbies are tangled together. The number of features and the \"values per other feature\" (default 30) are set by this project and do not reflect real distributions.",
+"tr": "<b>Что упрощает этот проект:</b> Все признаки считаются равномерными и независимыми, а високосные дни игнорируются. Реальные дни рождения распределены по году не идеально ровно, а родной город и увлечения связаны между собой. Число признаков и «значений на другой признак» (по умолчанию 30) заданы проектом и не отражают реальных распределений."
+},
+{
+"id": "s0717",
+"page": "coincidence",
+"ko": "<b>이론값과 시뮬레이션:</b> 이 식은 정확한 닫힌 해라서 시뮬레이션과 바로 비교됩니다. 생일만 볼 때 \"어딘가 일치\"는 23명에서 이론 50.7%, 시뮬레이션 50.4%, 57명에서 99.0%와 99.0%였고, \"나와 일치\"는 23명에서 5.9%와 5.9%였습니다. 나와 일치할 확률이 50%를 넘는 최소 인원은 254명(나 말고 253명)입니다. 특징 2가지(값 30개), 23명에서는 나와 일치가 이론 55.3%, 시뮬레이션 55.7%였습니다.",
+"en": "<b>Theory versus simulation:</b> These formulas are exact closed forms, so they compare directly with the simulation. For birthday only, \"a match somewhere\" was 50.7% in theory and 50.4% simulated with 23 people, and 99.0% and 99.0% with 57; \"a match with me\" was 5.9% and 5.9% with 23. The smallest headcount where a match with me passes 50% is 254 (253 besides me). With 2 features (30 values) and 23 people, a match with me was 55.3% in theory and 55.7% simulated.",
+"tr": "<b>Теория и симуляция:</b> Эти формулы — точные замкнутые выражения, поэтому их можно напрямую сравнивать с симуляцией. Только для дня рождения «совпадение где-нибудь» при 23 людях составило 50,7% в теории и 50,4% в симуляции, а при 57 — 99,0% и 99,0%; «совпадение со мной» при 23 — 5,9% и 5,9%. Наименьшее число людей, при котором совпадение со мной превышает 50%, равно 254 (253 помимо меня). При 2 признаках (30 значений) и 23 людях совпадение со мной составило 55,3% в теории и 55,7% в симуляции."
+},
+{
+"id": "s0718",
+"page": "coincidence",
+"ko": "<b>더 읽을거리:</b> Diaconis, P. & Mosteller, F. (1989), 「Methods for Studying Coincidences」, <i>Journal of the American Statistical Association</i> 84. Feller, W. (1968), <i>An Introduction to Probability Theory and Its Applications</i>, Vol. 1 (3rd ed.), Wiley.",
+"en": "<b>Further reading:</b> Diaconis, P. & Mosteller, F. (1989), \"Methods for Studying Coincidences\", <i>Journal of the American Statistical Association</i> 84. Feller, W. (1968), <i>An Introduction to Probability Theory and Its Applications</i>, Vol. 1 (3rd ed.), Wiley.",
+"tr": "<b>Дополнительное чтение:</b> Diaconis, P. & Mosteller, F. (1989), «Methods for Studying Coincidences», <i>Journal of the American Statistical Association</i> 84. Feller, W. (1968), <i>An Introduction to Probability Theory and Its Applications</i>, Vol. 1 (3-е изд.), Wiley."
+},
+{
+"id": "s0751",
+"page": "commons",
+"ko": "이 설정에서는 감시가 없으면 저량이 수용력의 1~2%까지 무너졌다가 평균 약 26%에 머물렀어요.",
+"en": "In this setup, without monitoring the stock fell to 1 to 2% of capacity, then settled around 26%.",
+"tr": "В этой постановке без контроля запас упал до 1–2% от ёмкости, а затем установился около 26%."
+},
+{
+"id": "s0752",
+"page": "commons",
+"ko": "이 모델에서는 탐욕이 이득이 커 보여 퍼지는데, 감시와 벌금이 그 이득을 깎아야 절제가 버텨요.",
+"en": "In this model greed spreads because it pays more, and monitoring plus fines must cut that gain for restraint to hold.",
+"tr": "В этой модели жадность распространяется, потому что приносит больше, и чтобы сдержанность сохранялась, контроль и штрафы должны сократить эту выгоду."
+},
+{
+"id": "s0753",
+"page": "commons",
+"ko": "적발 확률과 벌금의 크기가 함께 있어야 했으니, 규칙의 실제 집행력이 열쇠일 수 있어요.",
+"en": "Both catch rate and fine size were needed, so how firmly rules are enforced may be the key.",
+"tr": "Нужны были и вероятность обнаружения, и размер штрафа, поэтому ключом может быть то, насколько твёрдо соблюдаются правила."
+},
+{
+"id": "s0755",
+"page": "commons",
+"ko": "하딘이나 오스트롬이 옳다는 증명은 아니에요. 비용·재생 속도는 이 모델이 정한 값이에요.",
+"en": "It does not prove Hardin or Ostrom right; cost and regrowth are values this model chose.",
+"tr": "Он не доказывает правоту Хардина или Остром; затраты и восстановление — значения, выбранные этой моделью."
+},
+{
+"id": "s0756",
+"page": "commons",
+"ko": "소유권·신뢰·경계 같은 모델에 없는 조건이 실제 공동체에서 어떻게 작동하는지 사례로 확인해야 해요.",
+"en": "How ownership, trust and boundaries, all missing here, work in real communities needs case studies.",
+"tr": "То, как в реальных сообществах работают собственность, доверие и границы, которых здесь нет, требует изучения конкретных случаев."
+},
+{
+"id": "s0758",
+"page": "commons",
+"ko": "<b>모델의 뿌리:</b> \"공유지의 비극\"은 Hardin(1968)이 『Science』에 실은 논문으로 널리 알려졌고, 각자의 이익을 좇으면 공유 자원이 망한다는 주장입니다. 이에 맞서 Ostrom(1990)은 『Governing the Commons』에서 공동체가 스스로 규칙과 감시·제재로 자원을 지켜 온 사례들을 분석했습니다. 자원 쪽은 Gordon(1954)의 어업 경제 모형(공유 자원은 이윤이 사라질 때까지 남획된다)과 로지스틱 재생 모형의 아이디어를 단순화했습니다.",
+"en": "<b>Where the model comes from:</b> \"The tragedy of the commons\" is best known from Hardin's (1968) paper in <i>Science</i>, which argues that individuals pursuing their own interest ruin a shared resource. In response, Ostrom (1990), in <i>Governing the Commons</i>, analyzed cases in which communities protected resources through their own rules, monitoring and sanctions. The resource side simplifies the fishery economics of Gordon (1954), in which a commons is fished until profit vanishes, together with logistic regrowth.",
+"tr": "<b>Откуда взялась модель:</b> «Трагедия общин» наиболее известна по статье Хардина (1968) в <i>Science</i>, где утверждается, что индивиды, преследующие собственный интерес, губят общий ресурс. В ответ Остром (1990) в книге <i>Governing the Commons</i> проанализировала случаи, когда сообщества защищали ресурсы собственными правилами, контролем и санкциями. Часть модели, связанная с ресурсом, упрощает экономику рыболовства Гордона (1954), где общий ресурс вылавливают, пока прибыль не исчезнет, в сочетании с логистическим восстановлением."
+},
+{
+"id": "s0759",
+"page": "commons",
+"ko": "<b>핵심 가정과 수식:</b> 저량 S는 <code>S ← S + r·S·(1 − S/K) − 수확</code>으로 자라고(r=0.4, K=100), 저량이 K/2일 때 지속 가능한 최대 수확 <code>rK/4 = 10</code>이 나옵니다. 이득은 수확에서 노력 비용을 뺀 값이고, 감시 슬라이더는 욕심낸 사람이 적발될 확률, 벌금은 그 라운드 수확의 몇 배를 내는지입니다. 전략은 모방 규칙(점수 차이의 로지스틱, 페르미 규칙)으로 퍼집니다.",
+"en": "<b>Key assumptions and formulas:</b> The stock S grows as <code>S ← S + r·S·(1 − S/K) − harvest</code> (r=0.4, K=100), and at S = K/2 the maximum sustainable harvest is <code>rK/4 = 10</code>. Payoff is the harvest minus the cost of effort; the monitoring slider is the chance a greedy user is caught and the fine is how many times that round's catch they pay. Strategies spread by a copying rule (a logistic function of the payoff difference, the Fermi rule).",
+"tr": "<b>Основные допущения и формулы:</b> Запас S растёт по формуле <code>S ← S + r·S·(1 − S/K) − вылов</code> (r=0,4, K=100), а при S = K/2 максимальный устойчивый вылов равен <code>rK/4 = 10</code>. Выигрыш — это вылов за вычетом затрат на усилия; ползунок контроля задаёт вероятность поймать жадного пользователя, а штраф — во сколько раз улов этого раунда он выплачивает. Стратегии распространяются по правилу копирования (логистическая функция разности выигрышей, правило Ферми)."
+},
+{
+"id": "s0760",
+"page": "commons",
+"ko": "<b>이 프로젝트의 단순화:</b> 노력 비용(25), 재생 속도(0.4), 탐욕의 크기(지속 가능한 몫의 3배), 모방 확률(25%), 돌연변이(1%), 처음 절제 10%는 모두 이 프로젝트가 정한 값입니다. 이용자는 세 가지 전략 중 하나만 따르고, 소유권·외부인 진입·신뢰·국가의 역할은 없습니다. Ostrom이 정리한 성공 조건(명확한 경계, 지역에 맞는 규칙 등)도 모델에 들어 있지 않습니다.",
+"en": "<b>What this project simplifies:</b> The cost of effort (25), regrowth rate (0.4), strength of greed (3 times the sustainable share), copying probability (25%), mutation (1%) and the initial 10% restrained are all set by this project. Users follow one of three strategies, and ownership, outsiders' entry, trust and the role of the state are absent. The success conditions Ostrom identified, such as clear boundaries and locally suited rules, are not in the model either.",
+"tr": "<b>Что упрощает этот проект:</b> Затраты на усилия (25), скорость восстановления (0,4), сила жадности (3 устойчивые доли), вероятность копирования (25%), мутация (1%) и начальные 10% сдержанных заданы проектом. Пользователи следуют одной из трёх стратегий, а собственность, приход посторонних, доверие и роль государства отсутствуют. Условия успеха, выделенные Остром, такие как чёткие границы и правила, подходящие к местным условиям, в модели тоже отсутствуют."
+},
+{
+"id": "s0761",
+"page": "commons",
+"ko": "<b>이론값과 시뮬레이션:</b> 지속 가능한 최대 수확 10은 식과 시뮬레이션이 같은 값입니다. 감시 100%에서 평균 수확은 10.0이고 저량은 수용력의 약 48%로, 최대 수확을 주는 이론상 수준(50%)에 가깝습니다. 감시가 없으면 저량은 마지막 구간에서 평균 26%, 수확 7.0이었습니다. Gordon의 이윤 소멸 수준과는 숫자로 대조하지 않았고, 모방으로 퍼지는 전략 비율에도 닫힌 해가 없어 시뮬레이션만으로 확인했습니다.",
+"en": "<b>Theory versus simulation:</b> The maximum sustainable harvest of 10 is the same in the formula and the simulation. At 100% monitoring the average harvest was 10.0 and the stock about 48% of capacity, close to the theoretical level (50%) that gives the maximum harvest. With no monitoring the stock averaged 26% over the final stretch with a harvest of 7.0. I did not compare numerically with Gordon's zero-profit level, and the strategy shares spread by copying have no closed form, so those were checked by simulation alone.",
+"tr": "<b>Теория и симуляция:</b> Максимальный устойчивый вылов, равный 10, одинаков в формуле и в симуляции. При контроле 100% средний вылов составил 10,0, а запас — около 48% ёмкости, что близко к теоретическому уровню (50%), дающему максимальный вылов. Без контроля запас в среднем составил 26% на заключительном отрезке при вылове 7,0. Числовое сравнение с уровнем нулевой прибыли по Гордону не проводилось, а доли стратегий, распространяющихся копированием, не имеют замкнутой формы, поэтому они проверены только симуляцией."
+},
+{
+"id": "s0762",
+"page": "commons",
+"ko": "<b>더 읽을거리:</b> Hardin, G. (1968), 「The Tragedy of the Commons」, <i>Science</i> 162. Ostrom, E. (1990), <i>Governing the Commons: The Evolution of Institutions for Collective Action</i>, Cambridge University Press. Gordon, H. S. (1954), 「The Economic Theory of a Common-Property Resource: The Fishery」, <i>Journal of Political Economy</i> 62.",
+"en": "<b>Further reading:</b> Hardin, G. (1968), \"The Tragedy of the Commons\", <i>Science</i> 162. Ostrom, E. (1990), <i>Governing the Commons: The Evolution of Institutions for Collective Action</i>, Cambridge University Press. Gordon, H. S. (1954), \"The Economic Theory of a Common-Property Resource: The Fishery\", <i>Journal of Political Economy</i> 62.",
+"tr": "<b>Дополнительное чтение:</b> Hardin, G. (1968), «The Tragedy of the Commons», <i>Science</i> 162. Ostrom, E. (1990), <i>Governing the Commons: The Evolution of Institutions for Collective Action</i>, Cambridge University Press. Gordon, H. S. (1954), «The Economic Theory of a Common-Property Resource: The Fishery», <i>Journal of Political Economy</i> 62."
+},
+{
+"id": "s0794",
+"page": "cooperation",
+"ko": "다시 만나는 관계에서 협력은 퍼졌지만, 실수 10%에서는 12번 중 10번 무너졌어요.",
+"en": "Cooperation spread among repeat partners, but at 10% error it collapsed in 10 of 12 runs.",
+"tr": "Сотрудничество распространилось среди постоянных партнёров, но при 10% ошибок оно рухнуло в 10 из 12 запусков."
+},
+{
+"id": "s0795",
+"page": "cooperation",
+"ko": "이 모델에서는 다시 만날 가능성이 배신의 이득을 깎고, 실수가 잦으면 맞받아치기가 보복의 연쇄에 빠져요.",
+"en": "In this model, repeat meetings cut the payoff of betrayal, and frequent errors trap tit-for-tat in retaliation.",
+"tr": "В этой модели повторные встречи снижают выгоду от предательства, а частые ошибки загоняют «зуб за зуб» в ловушку возмездия."
+},
+{
+"id": "s0796",
+"page": "cooperation",
+"ko": "협력이 무너진다면 사람 탓보다 만남이 이어지는지, 실수를 넘길 여지가 있는지부터 살펴볼 만해요.",
+"en": "If cooperation breaks down, check whether meetings repeat and whether mistakes can be forgiven.",
+"tr": "Если сотрудничество рушится, стоит проверить, повторяются ли встречи и можно ли прощать ошибки."
+},
+{
+"id": "s0798",
+"page": "cooperation",
+"ko": "착한 사람이 이긴다는 뜻은 아니고, 점수표와 모방 규칙은 이 모델이 정한 값이에요.",
+"en": "It doesn't mean nice people win; the payoffs and imitation rule are set by this model.",
+"tr": "Это не значит, что побеждают добрые; выигрыши и правило подражания задаются этой моделью."
+},
+{
+"id": "s0799",
+"page": "cooperation",
+"ko": "현실의 평판·소문·제도가 협력을 얼마나 지키는지는 실제 사례를 관찰해 따로 확인해야 해요.",
+"en": "How much reputation, gossip and institutions sustain cooperation needs separate real-world checks.",
+"tr": "Насколько репутация, слухи и институты поддерживают сотрудничество, нужно проверять отдельно в реальном мире."
+},
+{
+"id": "s0801",
+"page": "cooperation",
+"ko": "<b>모델의 뿌리:</b> \"죄수의 딜레마\"는 1950년경 RAND의 Flood와 Dresher가 만든 게임이고, 되풀이하면 협력이 가능한지는 Axelrod & Hamilton (1981)과 Axelrod (1984)가 대회와 진화 시뮬레이션으로 보였습니다. 이때 Anatol Rapoport가 낸 가장 단순한 전략 맞받아치기(Tit for Tat)가 우승했습니다.",
+"en": "<b>Where the model comes from:</b> The prisoner's dilemma is a game devised around 1950 by Flood and Dresher at RAND. Whether repetition allows cooperation was shown by Axelrod & Hamilton (1981) and Axelrod (1984) with tournaments and evolutionary simulation, where the simplest entry, Anatol Rapoport's Tit for Tat, won.",
+"tr": "<b>Откуда взялась модель:</b> Дилемма заключённого — игра, придуманная около 1950 года Флудом и Дрешером в RAND. Что повторение делает возможным сотрудничество, показали Аксельрод и Гамильтон (1981) и Аксельрод (1984) с помощью турниров и эволюционной симуляции, где победила самая простая участница — стратегия «Око за око» (Tit for Tat) Анатоля Рапопорта."
+},
+{
+"id": "s0802",
+"page": "cooperation",
+"ko": "<b>핵심 가정과 수식:</b> 한 판의 점수는 배신 유혹 T &gt; 협력 R &gt; 서로 배신 P &gt; 당함 S이고, 되풀이에서 서로 번갈아 속이는 것보다 계속 협력하는 편이 낫도록 <code>2R &gt; T+S</code>를 둡니다(여기서는 3, 1, 0, T=5라 6 &gt; 5). 한 번뿐이면 배신이 늘 유리하지만, 만남이 이어질 확률이 충분히 크면 맞받아치기 같은 전략이 안정해집니다(Axelrod의 조건은 <code>w ≥ max((T−R)/(T−P), (T−R)/(R−S))</code>, 이 점수표에서는 w ≥ 2/3, 곧 평균 3판 정도). 슬라이더는 T, 판 수, 실수 확률, 처음 배신자 비율에 해당합니다.",
+"en": "<b>Key assumptions and formulas:</b> A single round pays temptation T &gt; reward R &gt; punishment P &gt; sucker S, and in repetition steady cooperation should beat taking turns exploiting each other, <code>2R &gt; T+S</code> (here 3, 1, 0 and T=5, so 6 &gt; 5). Defection always wins a one-shot game, but if the chance of meeting again is large enough, strategies like Tit for Tat become stable (Axelrod's condition is <code>w ≥ max((T−R)/(T−P), (T−R)/(R−S))</code>, which is w ≥ 2/3 for this payoff table, about 3 rounds on average). The sliders are T, the number of rounds, the mistake rate and the initial share of defectors.",
+"tr": "<b>Основные допущения и формулы:</b> В единичном раунде выплаты таковы: искушение T &gt; награда R &gt; наказание P &gt; проигрыш простака S, а при повторении устойчивое сотрудничество должно превосходить поочерёдную эксплуатацию друг друга, <code>2R &gt; T+S</code> (здесь 3, 1, 0 и T=5, значит, 6 &gt; 5). В однократной игре всегда выигрывает предательство, но если вероятность новой встречи достаточно велика, стратегии вроде «Око за око» (Tit for Tat) становятся устойчивыми (условие Аксельрода: <code>w ≥ max((T−R)/(T−P), (T−R)/(R−S))</code>, то есть w ≥ 2/3 для этой таблицы выплат, в среднем около 3 раундов). Ползунки — это T, число раундов, доля ошибок и начальная доля предателей."
+},
+{
+"id": "s0803",
+"page": "cooperation",
+"ko": "<b>이 프로젝트의 단순화:</b> Axelrod의 대회는 사람들이 낸 전략이 모두와 한 번씩 겨루는 리그전이었고 진화 쪽은 점수에 비례해 늘어나게 했지만, 이 프로젝트는 전략 5개만 두고 무작위 상대 6명과 겨룬 뒤 페르미 규칙(Szabó & Tőke 1998)으로 모방하게 했습니다. 판 수는 확률이 아니라 고정된 횟수이고, 모방 온도 0.4와 돌연변이 1%는 이 프로젝트가 정한 값입니다.",
+"en": "<b>What this project simplifies:</b> Axelrod ran a round-robin of entries submitted by people and let strategies grow in proportion to their scores. This project has only five strategies, plays 6 random opponents, and copies with a Fermi rule (Szabó & Tőke 1998). The number of rounds is fixed rather than probabilistic, and the imitation temperature 0.4 and 1% mutation are values this project chose.",
+"tr": "<b>Что упрощает этот проект:</b> Аксельрод провёл круговой турнир со стратегиями, присланными людьми, и позволил стратегиям расти пропорционально набранным очкам. В этом проекте всего пять стратегий, игра идёт с 6 случайными соперниками, а копирование выполняется по правилу Ферми (Szabó & Tőke 1998). Число раундов фиксировано, а не вероятностное, а температура имитации 0,4 и мутация 1% — значения, выбранные проектом."
+},
+{
+"id": "s0804",
+"page": "cooperation",
+"ko": "<b>이론값과 시뮬레이션:</b> 닫힌 해는 없어서 방향만 비교했습니다. 한 판·두 판일 때 협력률이 3%(거의 모두 배신)이고 5판부터 90%로 올라, 만남이 이어져야 협력이 선다는 이론과 같은 방향입니다. 실수가 없으면 99%, 10%이면 11%로 무너져, 잡음이 크면 맞받아치기가 보복을 되풀이한다는 알려진 이야기와 맞습니다. 다만 Axelrod 계열의 \"맞받아치기가 최고\"는 재현되지 않았고, 실수가 있으면 파블로프와 너그러운 맞받아치기가 앞서는 Nowak & Sigmund (1993) 쪽과 가깝습니다(<code>node tools/validate-cooperation.js</code>).",
+"en": "<b>Theory versus simulation:</b> There is no closed-form answer, so only the direction was compared. With 1 or 2 rounds cooperation is 3% (nearly all defect) and from 5 rounds it rises to 90%, in line with the theory that cooperation needs repeated meetings. With no mistakes it is 99% and at 10% mistakes it collapses to 11%, matching the known story that noise makes Tit for Tat trade endless retaliation. \"Tit for Tat is best\" was not reproduced; with mistakes Pavlov and Generous Tit for Tat lead, closer to Nowak & Sigmund (1993) (<code>node tools/validate-cooperation.js</code>).",
+"tr": "<b>Теория и симуляция:</b> Ответа в замкнутой форме нет, поэтому сравнивалось только направление. При 1 или 2 раундах сотрудничество составляет 3% (почти все предают), а начиная с 5 раундов оно растёт до 90%, что согласуется с теорией о том, что сотрудничеству нужны повторные встречи. Без ошибок оно равно 99%, а при 10% ошибок падает до 11%, что соответствует известной истории о том, что шум толкает «Око за око» (Tit for Tat) к бесконечным ответным мерам. Утверждение «Tit for Tat — лучшая» не воспроизвелось; при ошибках лидируют «Павлов» и великодушная «Око за око», что ближе к Nowak & Sigmund (1993) (<code>node tools/validate-cooperation.js</code>)."
+},
+{
+"id": "s0805",
+"page": "cooperation",
+"ko": "<b>더 읽을거리:</b> Axelrod (1984), 『The Evolution of Cooperation』, Basic Books. Axelrod & Hamilton (1981), 「The Evolution of Cooperation」, Science 211. Nowak & Sigmund (1993), 「A strategy of win-stay, lose-shift that outperforms tit-for-tat in the Prisoner's Dilemma game」, Nature 364.",
+"en": "<b>Further reading:</b> Axelrod (1984), <i>The Evolution of Cooperation</i>, Basic Books. Axelrod & Hamilton (1981), \"The Evolution of Cooperation\", <i>Science</i> 211. Nowak & Sigmund (1993), \"A strategy of win-stay, lose-shift that outperforms tit-for-tat in the Prisoner's Dilemma game\", <i>Nature</i> 364.",
+"tr": "<b>Дополнительное чтение:</b> Axelrod (1984), <i>The Evolution of Cooperation</i>, Basic Books. Axelrod & Hamilton (1981), «The Evolution of Cooperation», <i>Science</i> 211. Nowak & Sigmund (1993), «A strategy of win-stay, lose-shift that outperforms tit-for-tat in the Prisoner's Dilemma game», <i>Nature</i> 364."
+},
+{
+"id": "s0806",
+"page": "cooperation",
+"ko": "이 프로젝트가 직접 짠 구현이며 논문의 수치를 재현한 것은 아닙니다. 출처는 위 \"이론적 근거\"를 보세요.",
+"en": "This is this project's own implementation and does not reproduce any paper's numbers. See the theory notes above for sources.",
+"tr": "Это собственная реализация проекта, она не воспроизводит числа ни одной статьи. Источники смотрите в теоретических примечаниях выше."
+},
+{
+"id": "s0831",
+"page": "dating",
+"ko": "눈높이가 +10%p만 올라가도 짝을 찾는 평균 대기가 21.0라운드로 늘었어요.",
+"en": "Raising standards by just 10 points stretched the average wait to 21.0 rounds.",
+"tr": "Повышение требований всего на 10 пунктов растянуло среднее ожидание до 21,0 раунда."
+},
+{
+"id": "s0832",
+"page": "dating",
+"ko": "서로 상대가 자기 기준 이상이어야 맺어지는데, 둘 다 나보다 나은 사람을 원하면 기준이 내려오기 전엔 성립할 수 없어요.",
+"en": "A match needs both sides to clear each other's bar, so if both want someone better, no pair is possible until bars drop.",
+"tr": "Для пары нужно, чтобы каждый прошёл планку другого, поэтому если оба хотят кого-то лучше, ни одна пара невозможна, пока планки не снизятся."
+},
+{
+"id": "s0833",
+"page": "dating",
+"ko": "기다림이 길다면 눈높이 자체보다 기준이 얼마나 빨리 바뀌는지부터 살펴볼 만해요.",
+"en": "If waits are long, how fast standards adjust may be worth examining before the standards themselves.",
+"tr": "Если ожидание долгое, прежде чем разбираться с самими требованиями, стоит изучить, как быстро они подстраиваются."
+},
+{
+"id": "s0835",
+"page": "dating",
+"ko": "사랑이나 결혼이 이런 계산으로 이루어진다는 뜻이 아니고, 어떤 눈높이가 옳다는 판단도 아니에요.",
+"en": "It does not mean love or marriage works by such calculation, nor that any standard is right.",
+"tr": "Это не значит, что любовь или брак устроены по такому расчёту и что какая-то планка правильная."
+},
+{
+"id": "s0836",
+"page": "dating",
+"ko": "성격, 거리, 타이밍처럼 모델에 없는 요소와 사람마다 다른 취향을 실제 관찰로 확인해야 해요.",
+"en": "Personality, distance, timing and differing tastes are missing and would need real observation.",
+"tr": "Личность, расстояние, момент времени и различие вкусов отсутствуют и требовали бы реальных наблюдений."
+},
+{
+"id": "s0838",
+"page": "dating",
+"ko": "<b>모델의 뿌리:</b> 양쪽이 모두 동의해야 맺어지는 시장은 Gale와 Shapley(1962, 「College Admissions and the Stability of Marriages」, <i>American Mathematical Monthly</i>)의 안정 결혼 문제에서, 기준이 시간에 따라 내려가는 탐색은 McCall(1970)의 유보 임금(reservation wage) 탐색 이론에서 왔습니다. 짝짓기 시장의 탐색 모델은 Burdett와 Coles(1997)가 발전시켰습니다.",
+"en": "<b>Where the model comes from:</b> The idea that both sides must agree comes from the stable marriage problem of Gale and Shapley (1962, \"College Admissions and the Stability of Marriages\", <i>American Mathematical Monthly</i>); the falling standard comes from McCall&#x27;s (1970) reservation-wage search theory. Search models of the marriage market were developed by Burdett and Coles (1997).",
+"tr": "<b>Откуда взялась модель:</b> Идея о том, что обе стороны должны согласиться, происходит из задачи об устойчивых браках Гейла и Шепли (1962, «College Admissions and the Stability of Marriages», <i>American Mathematical Monthly</i>); снижение планки — из теории поиска с резервной зарплатой McCall&#x27;s (1970). Модели поиска на брачном рынке развили Бёрдетт и Коулз (1997)."
+},
+{
+"id": "s0839",
+"page": "dating",
+"ko": "<b>핵심 가정과 수식:</b> 모든 사람의 매력 <i>a</i>는 0~1이고 모두가 같게 평가합니다. 내 기준은 <i>a</i> + eye이고, 만난 두 사람 <i>i</i>, <i>j</i>는 <i>a</i><sub><i>j</i></sub> ≥ <i>a</i><sub><i>i</i></sub> + eye 그리고 <i>a</i><sub><i>i</i></sub> ≥ <i>a</i><sub><i>j</i></sub> + eye일 때만 맺어지며, 짝이 없는 사람은 라운드마다 기준을 drift만큼 낮춥니다.",
+"en": "<b>Key assumptions and formulas:</b> Each person has an attractiveness <i>a</i> in 0 to 1, rated the same by everyone. My standard is <i>a</i> + eye, and two people <i>i</i> and <i>j</i> who meet pair up only if <i>a</i><sub><i>j</i></sub> ≥ <i>a</i><sub><i>i</i></sub> + eye and <i>a</i><sub><i>i</i></sub> ≥ <i>a</i><sub><i>j</i></sub> + eye; unpaired people lower their standard by drift each round.",
+"tr": "<b>Основные допущения и формулы:</b> У каждого человека есть привлекательность <i>a</i> от 0 до 1, которую все оценивают одинаково. Моя планка — <i>a</i> + eye, и два человека <i>i</i> и <i>j</i>, которые встретились, образуют пару, только если <i>a</i><sub><i>j</i></sub> ≥ <i>a</i><sub><i>i</i></sub> + eye и <i>a</i><sub><i>i</i></sub> ≥ <i>a</i><sub><i>j</i></sub> + eye; люди без пары снижают планку на drift в каждом раунде."
+},
+{
+"id": "s0840",
+"page": "dating",
+"ko": "<b>이 프로젝트의 단순화:</b> Gale–Shapley는 모두의 선호 순위를 알고 계산하는 알고리즘이고, 여기서는 아직 짝이 없는 사람끼리 무작위로 한 쌍씩 만납니다. 매력을 모두가 같게 평가한다는 가정(실제로는 취향이 갈립니다), 매력의 균등분포, 눈높이와 기준 하향의 값은 이 프로젝트가 정한 것입니다.",
+"en": "<b>What this project simplifies:</b> Gale–Shapley is an algorithm that works from everyone&#x27;s full preference rankings; here unpaired people simply meet one random partner per round. The assumption that everyone rates attractiveness alike (real tastes differ), the uniform distribution of attractiveness, and the values of eye and drift are this project&#x27;s own choices.",
+"tr": "<b>Что упрощает этот проект:</b> Алгоритм Гейла — Шепли работает по полным спискам предпочтений каждого; здесь же люди без пары просто встречают по одному случайному партнёру за раунд. Допущение, что все одинаково оценивают привлекательность (реальные вкусы различаются), равномерное распределение привлекательности и значения eye и drift — собственный выбор проекта."
+},
+{
+"id": "s0841",
+"page": "dating",
+"ko": "<b>이론값과 시뮬레이션:</b> 닫힌 해는 없지만 한 가지는 손으로 확인됩니다. eye &gt; 0이면 두 부등식을 더해 0 ≥ 2·eye가 되어 기준을 낮추기 전에는 아무도 맺어질 수 없고, 기준이 eye 이상 내려가야(눈높이 ÷ 하향 속도 라운드 이상) 첫 커플이 가능합니다. 시뮬레이션에서 eye +0.1, 하향 1%일 때 첫 커플은 12라운드, eye +0.3은 32라운드에 나오고, 하향 0%이면 짝 0%입니다. 평균 대기는 눈높이 −0.3에서 2.7, +0.1에서 21.0, +0.3에서 40.7 라운드입니다(<code>node tools/validate-more.js dating</code>).",
+"en": "<b>Theory versus simulation:</b> There is no closed form, but one thing can be checked by hand. If eye &gt; 0, adding the two inequalities gives 0 ≥ 2·eye, so nobody can pair before standards fall; the first couple needs the standard to fall by at least eye (eye ÷ drift rounds). In the simulation with eye +0.1 and drift 1%, the first couple appears at round 12, and with eye +0.3 at round 32; with drift 0% nobody pairs. The mean wait is 2.7 rounds at eye −0.3, 21.0 at +0.1 and 40.7 at +0.3 (<code>node tools/validate-more.js dating</code>).",
+"tr": "<b>Теория и симуляция:</b> Замкнутой формы нет, но одно можно проверить вручную. Если eye &gt; 0, сложение двух неравенств даёт 0 ≥ 2·eye, так что никто не может образовать пару, пока планки не снизятся; для первой пары планка должна упасть как минимум на eye (eye ÷ drift раундов). В симуляции при eye +0,1 и drift 1% первая пара появляется в раунде 12, а при eye +0,3 — в раунде 32; при drift 0% никто пары не образует. Среднее ожидание составляет 2,7 раунда при eye −0,3, 21,0 при +0,1 и 40,7 при +0,3 (<code>node tools/validate-more.js dating</code>)."
+},
+{
+"id": "s0842",
+"page": "dating",
+"ko": "<b>더 읽을거리:</b> Gale, D. &amp; Shapley, L. S. (1962), 「College Admissions and the Stability of Marriages」, <i>American Mathematical Monthly</i>. / Becker, G. S. (1973), 「A Theory of Marriage: Part I」, <i>Journal of Political Economy</i>. / Roth, A. E. &amp; Sotomayor, M. (1990), 『Two-Sided Matching』, Cambridge University Press.",
+"en": "<b>Further reading:</b> Gale, D. and Shapley, L. S. (1962), \"College Admissions and the Stability of Marriages\", <i>American Mathematical Monthly</i>. / Becker, G. S. (1973), \"A Theory of Marriage: Part I\", <i>Journal of Political Economy</i>. / Roth, A. E. and Sotomayor, M. (1990), <i>Two-Sided Matching</i>, Cambridge University Press.",
+"tr": "<b>Дополнительное чтение:</b> Gale, D. и Shapley, L. S. (1962), «College Admissions and the Stability of Marriages», <i>American Mathematical Monthly</i>. / Becker, G. S. (1973), «A Theory of Marriage: Part I», <i>Journal of Political Economy</i>. / Roth, A. E. и Sotomayor, M. (1990), <i>Two-Sided Matching</i>, Cambridge University Press."
+},
+{
+"id": "s0846",
+"page": "daycare",
+"ko": "어린이집 감기 · 시뮬라티오 랩",
+"en": "Daycare Colds · Simulatio Lab",
+"tr": "Простуды в детском саду · Simulatio Lab"
+},
+{
+"id": "s0847",
+"page": "daycare",
+"ko": "같은 반 아이 20명이 모여 있으면 감기 같은 감염은 한 해에 몇 번이나 돌까요? 반 크기, 접촉, 아프면 쉬기, 면역이 결과를 어떻게 바꾸는지 시뮬레이션으로 직접 돌려보세요.",
+"en": "In a class of 20 children, how often does a cold-like infection go around in a year? Run a simulation to see how class size, contact, staying home when sick and immunity change the result.",
+"tr": "Как часто за год по классу из 20 детей проходит простудная инфекция? Запустите симуляцию и посмотрите, как размер класса, контакты, отдых дома при болезни и иммунитет меняют результат."
+},
+{
+"id": "s0848",
+"page": "daycare",
+"ko": "어린이집에 다니기 시작하면 감기를 달고 산다고들 합니다. 아이가 약해서 그렇다고 생각하기 쉽지만, 이 단순한 모델에서는 아이가 특별히 약하지 않아도 같은 반 아이 20명 사이에서 한 해에 네 번 넘게 감염이 돕니다. 그리고 \"아프면 쉬기\"를 모두가 지켜도 횟수는 절반쯤만 줄어듭니다. 증상이 나타나기 전 하루 동안 이미 반에 퍼뜨리기 때문이에요. 누구의 잘못도 아니고, 아이들이 한 교실에서 가까이 지내는 구조가 만드는 일입니다.",
+"en": "People say children catch colds constantly once they start daycare. It is easy to blame weak children, but in this simple model, children with no special weakness still pass an infection around a class of 20 more than four times a year. And even if everyone stays home when sick, the count falls by only about half, because each child has already spread it to the class during the day before symptoms show. Nobody is at fault: this comes from the structure of children spending time close together in one room.",
+"tr": "Говорят, что дети постоянно простужаются, как только начинают ходить в детский сад. Легко обвинить слабых детей, но в этой простой модели дети без какой-либо особой слабости передают инфекцию по классу из 20 человек более четырёх раз в год. И даже если все остаются дома при болезни, число снижается лишь примерно вдвое, потому что каждый ребёнок уже заразил класс за день до появления симптомов. Никто не виноват: это следствие того, что дети проводят время рядом друг с другом в одной комнате."
+},
+{
+"id": "s0849",
+"page": "daycare",
+"ko": "아이들은 <b>반</b>(교실)마다 모여 있고, 평일(월~금)에는 같은 반 아이끼리만 만납니다. 주말에는 반 안의 접촉이 없고, 반과 반 사이의 접촉도 없습니다. 아이는 <b>건강</b> → <b>잠복</b>(걸렸지만 아직 퍼뜨리지 않음, 평균 2일) → <b>아픔</b>(평균 5일 동안 퍼뜨림) → <b>회복 후 면역</b>(정해진 기간 동안 안 걸림) → 다시 건강으로 돌아갑니다.",
+"en": "Children sit in <b>classes</b> (rooms) and on weekdays (Monday to Friday) meet only classmates. There is no contact inside a class on weekends and none between classes. A child goes <b>healthy</b> → <b>incubating</b> (infected but not yet spreading, 2 days on average) → <b>sick</b> (spreading, 5 days on average) → <b>immune after recovery</b> (cannot be infected for a set time) → healthy again.",
+"tr": "Дети распределены по <b>классам</b> (комнатам) и по будням (с понедельника по пятницу) встречаются только с одноклассниками. В выходные контактов внутри класса нет, как и между классами. Ребёнок проходит путь: <b>здоров</b> → <b>инкубация</b> (заражён, но ещё не заразен, в среднем 2 дня) → <b>болен</b> (заразен, в среднем 5 дней) → <b>иммунитет после выздоровления</b> (заразиться нельзя в течение заданного времени) → снова здоров."
+},
+{
+"id": "s0850",
+"page": "daycare",
+"ko": "그날 등원한 아픈 아이가 한 명이면, 같은 반의 건강한 아이 한 명이 걸릴 확률은 하루 <b>접촉 강도 × 1%</b>(손씻기·환기를 하면 그만큼 줄어듦)입니다. 아픈 아이가 여럿이면 확률이 쌓입니다. 그래서 <b>반이 클수록</b> 만나는 짝이 많아져 퍼지는 속도가 빨라집니다.",
+"en": "If one sick child attends that day, a healthy classmate catches it with probability <b>contact level × 1%</b> per day (lower with handwashing and ventilation). With several sick children the chances add up. So <b>the bigger the class</b>, the more pairs there are, and the faster it spreads.",
+"tr": "Если в этот день присутствует один больной ребёнок, здоровый одноклассник заражается с вероятностью <b>уровень контактов × 1%</b> в день (ниже при мытье рук и проветривании). При нескольких больных детях вероятности складываются. Поэтому <b>чем больше класс</b>, тем больше пар и тем быстрее распространение."
+},
+{
+"id": "s0851",
+"page": "daycare",
+"ko": "<b>아프면 쉬기</b>: 아프기 시작한 첫날은 증상이 아직 없어 모두 등원합니다. 둘째 날부터는 정한 비율의 아이가 집에서 쉬고, 나머지는 계속 등원합니다. 쉬는 아이는 반을 감염시키지 못하지만, 그만큼 결석 일수가 늘어납니다.",
+"en": "<b>Staying home when sick</b>: on the first sick day there are no symptoms yet, so everyone attends. From the second day a set share of children rest at home and the rest keep attending. Children at home cannot infect the class, but absence days go up.",
+"tr": "<b>Отдых дома при болезни</b>: в первый день болезни симптомов ещё нет, поэтому все приходят. Со второго дня заданная доля детей отдыхает дома, а остальные продолжают ходить. Дети дома не могут заразить класс, но число пропущенных дней растёт."
+},
+{
+"id": "s0852",
+"page": "daycare",
+"ko": "반 밖(집·동네)에서 들어오는 감염은 아주 단순한 항 하나로만 넣었습니다(하루 0.15%에, 아픈 아이가 많을수록 조금 더). 나은 뒤에는 면역 지속 기간 동안 안 걸리고, 그 뒤에도 걸릴 때마다 면역이 쌓여 걸릴 확률이 낮아집니다(걸린 횟수가 1번이면 약 77%, 3번이면 약 53%). 한 해(365일)를 돌려 아이 한 명이 걸린 평균 횟수를 셉니다.",
+"en": "Infection arriving from outside the class (home, neighborhood) is included as one very simple term (0.15% a day, a little more when many children are sick). After recovery a child cannot be infected for the immunity period, and after that each infection builds more immunity, lowering the chance of catching it again (about 77% after 1 infection, 53% after 3). One year (365 days) is simulated and the average number of times a child caught it is counted.",
+"tr": "Заражение, приходящее извне класса (из дома, из района), учтено одним очень простым слагаемым (0,15% в день, немного больше, когда болеет много детей). После выздоровления ребёнок не может заразиться в течение периода иммунитета, а затем каждая инфекция усиливает иммунитет и снижает шанс заболеть снова (около 77% после 1 инфекции, 53% после 3). Моделируется один год (365 дней) и подсчитывается среднее число заболеваний на ребёнка."
+},
+{
+"id": "s0853",
+"page": "daycare",
+"ko": "반 크기 <output id=\"o-size\"></output>",
+"en": "Class size <output id=\"o-size\"></output>",
+"tr": "Размер класса <output id=\"o-size\"></output>"
+},
+{
+"id": "s0854",
+"page": "daycare",
+"ko": "한 반의 아이 수. 클수록 만나는 짝이 많아져 퍼지는 속도가 빨라져요",
+"en": "Children per class. Bigger classes have more pairs, so it spreads faster",
+"tr": "Детей в классе. В больших классах больше пар, поэтому распространение быстрее"
+},
+{
+"id": "s0855",
+"page": "daycare",
+"ko": "접촉 강도 <output id=\"o-contact\"></output>",
+"en": "Contact level <output id=\"o-contact\"></output>",
+"tr": "Уровень контактов <output id=\"o-contact\"></output>"
+},
+{
+"id": "s0856",
+"page": "daycare",
+"ko": "붙어서 놀고 장난감을 같이 쓰는 정도. 높을수록 한 번 만날 때 퍼질 확률이 커요",
+"en": "How closely children play and share toys. Higher means a bigger chance of spreading per encounter",
+"tr": "Насколько близко дети играют и делятся игрушками. Чем выше, тем больше вероятность передачи при каждой встрече"
+},
+{
+"id": "s0857",
+"page": "daycare",
+"ko": "아프면 쉬는 비율 <output id=\"o-stay\"></output>",
+"en": "Share who stay home when sick <output id=\"o-stay\"></output>",
+"tr": "Доля остающихся дома при болезни <output id=\"o-stay\"></output>"
+},
+{
+"id": "s0858",
+"page": "daycare",
+"ko": "아프기 시작한 둘째 날부터 집에서 쉬는 아이의 비율. 쉬는 아이는 반에 퍼뜨리지 않아요",
+"en": "Share of children who rest at home from the second sick day. Children at home do not spread it in class",
+"tr": "Доля детей, отдыхающих дома со второго дня болезни. Дети дома не заражают других в классе"
+},
+{
+"id": "s0859",
+"page": "daycare",
+"ko": "손씻기·환기로 줄인 전파 <output id=\"o-hyg\"></output>",
+"en": "Spread reduced by handwashing and ventilation <output id=\"o-hyg\"></output>",
+"tr": "Снижение передачи за счёт мытья рук и проветривания <output id=\"o-hyg\"></output>"
+},
+{
+"id": "s0860",
+"page": "daycare",
+"ko": "한 번 만날 때 퍼질 확률을 이만큼 줄입니다(모델상의 가정값)",
+"en": "Cuts the chance of spreading per encounter by this much (an assumed value in the model)",
+"tr": "Снижает вероятность передачи при каждой встрече на эту величину (предполагаемое значение в модели)"
+},
+{
+"id": "s0861",
+"page": "daycare",
+"ko": "면역 지속 <output id=\"o-imm\"></output>",
+"en": "Immunity duration <output id=\"o-imm\"></output>",
+"tr": "Длительность иммунитета <output id=\"o-imm\"></output>"
+},
+{
+"id": "s0862",
+"page": "daycare",
+"ko": "나은 뒤 이 기간(일) 동안은 다시 안 걸려요. 길수록 한 해 걸리는 횟수가 줄어요",
+"en": "Days after recovery during which a child cannot be reinfected. Longer means fewer infections a year",
+"tr": "Дни после выздоровления, когда ребёнок не может заразиться повторно. Чем дольше, тем меньше заражений за год"
+},
+{
+"id": "s0863",
+"page": "daycare",
+"ko": "같은 설정, 다른 반",
+"en": "Same settings, different classes",
+"tr": "Те же настройки, другие классы"
+},
+{
+"id": "s0864",
+"page": "daycare",
+"ko": "① 여덟 반을 지켜보기",
+"en": "① Watching Eight Classes",
+"tr": "① Наблюдаем за восемью классами"
+},
+{
+"id": "s0865",
+"page": "daycare",
+"ko": "점 하나가 아이 한 명입니다. 파랑은 건강, 노랑은 잠복, 빨강 채움은 아파도 등원한 아이, 빨강 고리는 집에서 쉬는 아이, 초록은 막 나아서 면역이 있는 아이입니다. 한 반에서 시작한 감염이 번지고 다시 가라앉는 모습을 보세요. 주말에는 반이 회색으로 바뀝니다.",
+"en": "Each dot is one child. Blue is healthy, yellow incubating, solid red a sick child who still attended, a red ring a child resting at home, and green a recently recovered child with immunity. Watch an infection start in one class, spread, and fade. Classes turn gray on weekends.",
+"tr": "Каждая точка — один ребёнок. Синий — здоров, жёлтый — инкубация, сплошной красный — больной ребёнок, который пришёл, красное кольцо — ребёнок, отдыхающий дома, зелёный — недавно выздоровевший ребёнок с иммунитетом. Посмотрите, как инфекция начинается в одном классе, распространяется и затухает. В выходные классы становятся серыми."
+},
+{
+"id": "s0866",
+"page": "daycare",
+"ko": "<i style=\"background:#8fb3e8\"></i>건강",
+"en": "<i style=\"background:#8fb3e8\"></i>Healthy",
+"tr": "<i style=\"background:#8fb3e8\"></i>Здоров"
+},
+{
+"id": "s0867",
+"page": "daycare",
+"ko": "<i style=\"background:#f0b429\"></i>잠복",
+"en": "<i style=\"background:#f0b429\"></i>Incubating",
+"tr": "<i style=\"background:#f0b429\"></i>Инкубация"
+},
+{
+"id": "s0868",
+"page": "daycare",
+"ko": "<i style=\"background:#e5484d\"></i>아픈데 등원",
+"en": "<i style=\"background:#e5484d\"></i>Sick, attending",
+"tr": "<i style=\"background:#e5484d\"></i>Болен, приходит"
+},
+{
+"id": "s0869",
+"page": "daycare",
+"ko": "<i style=\"background:transparent;border:2px solid #e5484d;box-sizing:border-box\"></i>집에서 쉼",
+"en": "<i style=\"background:transparent;border:2px solid #e5484d;box-sizing:border-box\"></i>Resting at home",
+"tr": "<i style=\"background:transparent;border:2px solid #e5484d;box-sizing:border-box\"></i>Отдыхает дома"
+},
+{
+"id": "s0870",
+"page": "daycare",
+"ko": "<i style=\"background:#1fa463\"></i>면역 있음",
+"en": "<i style=\"background:#1fa463\"></i>Immune",
+"tr": "<i style=\"background:#1fa463\"></i>Иммунитет"
+},
+{
+"id": "s0871",
+"page": "daycare",
+"ko": "② 주마다 아픈 아이는 얼마나 될까",
+"en": "② How Many Children Are Sick Each Week?",
+"tr": "② Сколько детей болеет каждую неделю?"
+},
+{
+"id": "s0872",
+"page": "daycare",
+"ko": "가로는 학기가 시작된 뒤 몇 주째인지, 세로는 그 주에 아팠던 아이의 비율입니다. 빨간 선이 이번에 돌린 결과, 짙은 선은 그 중 집에서 쉰 아이, 회색 선은 같은 설정에서 아무도 쉬지 않을 때의 평균입니다. 처음에는 모두 건강해서 크게 번지고, 면역이 쌓이면서 낮아집니다.",
+"en": "The horizontal axis is the week since the term began and the vertical axis the share of children sick that week. The red line is this run, the dark line the children among them resting at home, and the gray line the average when nobody stays home at the same settings. It spreads widely at first because everyone is susceptible, then falls as immunity builds.",
+"tr": "По горизонтальной оси — неделя с начала семестра, по вертикальной — доля больных детей в эту неделю. Красная линия — этот запуск, тёмная — дети из них, отдыхающие дома, серая — среднее значение, когда никто не остаётся дома при тех же настройках. Сначала инфекция распространяется широко, потому что все восприимчивы, затем спадает по мере накопления иммунитета."
+},
+{
+"id": "s0873",
+"page": "daycare",
+"ko": "③ 한 해 동안 몇 번 걸렸을까",
+"en": "③ How Many Times Did Each Child Catch It?",
+"tr": "③ Сколько раз заболел каждый ребёнок?"
+},
+{
+"id": "s0874",
+"page": "daycare",
+"ko": "아이마다 한 해 동안 걸린 횟수를 세어 비율로 쌓았습니다. 초록 막대는 한 번도 안 걸린 아이입니다. 점선은 평균입니다. 같은 반이라도 아이마다 운에 따라 몇 번씩 차이가 납니다.",
+"en": "Each child's number of infections in the year, shown as shares. The green bar is children who never caught it. The dashed line is the average. Even in the same class, luck makes the counts differ from child to child.",
+"tr": "Число заражений каждого ребёнка за год в виде долей. Зелёный столбец — дети, которые ни разу не заболели. Пунктирная линия — среднее. Даже в одном классе из-за случая цифры у разных детей различаются."
+},
+{
+"id": "s0875",
+"page": "daycare",
+"ko": "④ 아프면 쉬는 아이가 늘어나면",
+"en": "④ If More Sick Children Stay Home",
+"tr": "④ Если больше больных детей остаётся дома"
+},
+{
+"id": "s0876",
+"page": "daycare",
+"ko": "가로는 아프면 쉬는 아이의 비율, 세로는 한 해 아이 한 명이 걸린 횟수입니다(점은 여섯 번 돌린 각각, 선은 평균). 지금 설정에서 비율만 바꿔 훑은 것입니다. 비율이 100%여도 0회가 되지 않는 점을 보세요.",
+"en": "The horizontal axis is the share of children who stay home when sick and the vertical axis the times a child caught it in a year (dots are six separate runs, the line their average). Only this share is varied at your current settings. Notice that even at 100% the count does not reach zero.",
+"tr": "По горизонтальной оси — доля детей, остающихся дома при болезни, по вертикальной — сколько раз ребёнок болел за год (точки — шесть отдельных запусков, линия — их среднее). При ваших текущих настройках меняется только эта доля. Обратите внимание, что даже при 100% число не доходит до нуля."
+},
+{
+"id": "s0877",
+"page": "daycare",
+"ko": "⑤ 반 크기를 바꾸면",
+"en": "⑤ If the Class Size Changes",
+"tr": "⑤ Если меняется размер класса"
+},
+{
+"id": "s0878",
+"page": "daycare",
+"ko": "가로는 반 크기, 세로는 한 해 아이 한 명이 걸린 횟수입니다. 반이 작아지면 만나는 짝이 줄어 횟수도 줄지만, 반이 아주 작아져도 반 밖에서 들어오는 감염 때문에 0이 되지는 않습니다.",
+"en": "The horizontal axis is class size and the vertical axis the times a child caught it in a year. Smaller classes mean fewer pairs, so the count falls, but it never reaches zero because of infection arriving from outside the class.",
+"tr": "По горизонтальной оси — размер класса, по вертикальной — сколько раз ребёнок болел за год. В меньших классах меньше пар, поэтому число снижается, но никогда не достигает нуля из-за инфекции, приходящей извне класса."
+},
+{
+"id": "s0879",
+"page": "daycare",
+"ko": "이 모델에서는 아프면 쉬는 비율이 100%일 때 한 해 감염이 5.0회에서 2.5회로 절반이 됐어요.",
+"en": "In this model, when 100% of sick children stay home, yearly infections fell from 5.0 to 2.5, half as many.",
+"tr": "В этой модели, когда дома остаются 100% заболевших детей, число инфекций в год снизилось с 5,0 до 2,5, то есть вдвое."
+},
+{
+"id": "s0880",
+"page": "daycare",
+"ko": "같은 반 안에서 아픈 아이가 나오는 만큼 퍼지기 때문에, 반 크기와 면역 기간도 쉬기만큼 결과를 바꿨어요.",
+"en": "Spread follows the sick children within a class, so class size and immunity length moved the result about as much as staying home.",
+"tr": "Распространение идёт за больными детьми внутри класса, поэтому размер класса и длительность иммунитета влияли на результат почти так же, как оставление дома."
+},
+{
+"id": "s0881",
+"page": "daycare",
+"ko": "개별 선택보다 반의 크기, 접촉, 면역 같은 구조가 어떻게 겹치는지가 열쇠일 수 있어요.",
+"en": "Rather than individual choices, how class size, contact and immunity combine may be the key to look at.",
+"tr": "Вместо отдельных решений, возможно, стоит смотреть на то, как сочетаются размер класса, контакты и иммунитет."
+},
+{
+"id": "s0882",
+"page": "daycare",
+"ko": "<b>말하는 것:</b> 반 20명, 접촉 5단계, 면역 30일, 손씻기·환기 0%인 설정에서 스무 번 돌린 평균입니다(예시 숫자). 아프면 쉬는 비율이 0%이면 한 해 아이 한 명이 5.0회 걸렸고, 30%이면 4.4회, 70%이면 3.5회(0%보다 30% 적음), 100%이면 2.5회(절반)였습니다. 대신 아파서 집에서 쉰 평일은 0일에서 70%일 때 6.9일, 100%일 때 7.0일로 늘었습니다. 100%여도 0이 되지 않는 이유는 증상 전 첫날의 등원과 반 밖에서 들어오는 감염입니다. 반 크기는 쉬기 30%에서 8명이면 2.5회, 10명이면 2.9회, 20명이면 4.4회, 30명이면 5.5회였고, 쉬기 0%→70%의 효과는 반 10명에서 3.3→2.3회, 20명에서 5.0→3.5회, 30명에서 6.0→4.3회였습니다. 손씻기·환기로 전파를 30% 줄이면 4.4→3.7회, 60%이면 2.9회였습니다. 접촉 강도 2단계는 2.9회, 8단계는 5.2회였고, 면역이 14일이면 6.0회, 90일이면 2.7회, 180일이면 1.8회였습니다. 면역이 쌓이는 효과는 첫 3개월에 아이 1명당 1.6회, 이후 3개월마다 1.0, 1.0, 0.9회로 줄어드는 모습에서 보입니다. 시드 1로 한 번 돌리면(기본 설정) 4.2회, 쉰 날 3.4일, 아픈 아이가 가장 많았던 때는 3주째였습니다. 쉬기 0%, 손씻기·환기 30%, 반 12명을 합치면 3.2회였습니다.",
+"en": "<b>What it shows:</b> These are averages of twenty runs at class size 20, contact level 5, immunity 30 days and 0% handwashing and ventilation (example numbers). With 0% of children staying home when sick, a child caught it 5.0 times a year; at 30% it was 4.4, at 70% 3.5 (30% fewer than at 0%), and at 100% 2.5 (half). In exchange, weekdays resting at home rose from 0 to 6.9 days at 70% and 7.0 at 100%. It does not reach zero even at 100% because of the first day before symptoms, when the child still attends, and infection arriving from outside. Class size at 30% staying home gave 2.5 times for 8 children, 2.9 for 10, 4.4 for 20 and 5.5 for 30, and the effect of going from 0% to 70% staying home was 3.3 → 2.3 at 10 children, 5.0 → 3.5 at 20 and 6.0 → 4.3 at 30. Cutting spread by 30% with handwashing and ventilation took 4.4 to 3.7, and 60% gave 2.9. Contact level 2 gave 2.9 times and level 8 gave 5.2; with immunity of 14 days it was 6.0, at 90 days 2.7 and at 180 days 1.8. Accumulating immunity shows in 1.6 infections per child in the first three months, then 1.0, 1.0 and 0.9 in each following three months. One run with seed 1 at the defaults gave 4.2 times, 3.4 rest days, and the week with the most sick children was week 3. Combining 0% staying home, 30% handwashing and ventilation, and 12 children gave 3.2.",
+"tr": "<b>Что это показывает:</b> Это средние значения по двадцати запускам при размере класса 20, уровне контактов 5, иммунитете 30 дней и 0% мытья рук и проветривания (примерные числа). Если дома при болезни остаётся 0% детей, ребёнок болел 5,0 раза в год; при 30% было 4,4, при 70% — 3,5 (на 30% меньше, чем при 0%), а при 100% — 2,5 (вдвое меньше). Взамен число будних дней отдыха дома выросло с 0 до 6,9 дня при 70% и до 7,0 при 100%. Даже при 100% до нуля не доходит из-за первого дня до появления симптомов, когда ребёнок ещё приходит, и из-за инфекции, приходящей извне. Размер класса при 30% остающихся дома дал 2,5 раза для 8 детей, 2,9 для 10, 4,4 для 20 и 5,5 для 30, а эффект перехода от 0% к 70% остающихся дома составил 3,3 → 2,3 при 10 детях, 5,0 → 3,5 при 20 и 6,0 → 4,3 при 30. Снижение передачи на 30% за счёт мытья рук и проветривания изменило 4,4 на 3,7, а 60% дало 2,9. Уровень контактов 2 дал 2,9 раза, уровень 8 — 5,2; при иммунитете 14 дней было 6,0, при 90 днях 2,7, при 180 днях 1,8. Накопление иммунитета видно по 1,6 заражения на ребёнка в первые три месяца, затем 1,0, 1,0 и 0,9 в каждые следующие три месяца. Один запуск с зерном (seed) 1 и настройками по умолчанию дал 4,2 раза, 3,4 дня отдыха, а неделей с наибольшим числом больных детей была неделя 3. Сочетание 0% остающихся дома, 30% мытья рук и проветривания и 12 детей дало 3,2."
+},
+{
+"id": "s0883",
+"page": "daycare",
+"ko": "실제 어린이집의 감염 횟수를 예측하거나, 아이를 어떻게 돌볼지 권하는 모델이 아니에요. 숫자는 예시예요.",
+"en": "It neither predicts real daycare infections nor advises how to care for a child; the numbers are examples.",
+"tr": "Он не предсказывает реальные инфекции в детских садах и не даёт советов по уходу за ребёнком; цифры — это примеры."
+},
+{
+"id": "s0884",
+"page": "daycare",
+"ko": "실제 판단은 소아과 의사·교사 등 전문가와 하고, 형제자매나 병원균별 차이 같은 빠진 요소는 따로 확인해야 해요.",
+"en": "Real decisions belong with pediatricians and teachers, and missing factors such as siblings or specific germs need separate checking.",
+"tr": "Реальные решения должны принимать педиатры и воспитатели, а отсутствующие факторы, такие как братья и сёстры или конкретные микробы, нужно проверять отдельно."
+},
+{
+"id": "s0885",
+"page": "daycare",
+"ko": "<b>말하지 않는 것:</b> 실제 어린이집의 감염 횟수를 예측하거나 재현한 것이 아닙니다. 병원균을 특정하지 않은 \"감기 같은 호흡기 감염\"을 가정한 이 프로젝트의 단순화된 모델이고, 기본값(접촉 강도, 면역 기간 등)은 예시 숫자입니다. 실제 감염 횟수나 결석 일수를 말해 주는 통계가 아닙니다. 어떻게 아이를 돌볼지, 아플 때 등원할지, 어떤 예방을 할지를 권하거나 판단하지 않으며, 쉬기를 선택하는 가정이든 등원을 선택하는 가정이든 각자 사정이 있습니다. 참고용 모델이며 실제 판단은 소아과 의사·교사 등 전문가와 하시기 바랍니다. 이 모델에는 형제자매와 부모를 거치는 감염, 병원균별 차이, 다른 반과의 접촉, 아이마다 다른 체질, 방학과 개학의 영향, 어린이집의 실제 운영 방식이 없습니다.",
+"en": "<b>What it doesn't show:</b> This does not predict or reproduce the number of infections at any real daycare. It is this project's simplified model of a \"cold-like respiratory infection\" with no specific pathogen, and the defaults (contact level, immunity period and so on) are example numbers, not statistics about real infection counts or absences. It does not recommend or judge how to care for a child, whether to attend when sick, or which precautions to take, and families who keep children home and families who send them each have their reasons. This is a reference model; for real decisions please consult professionals such as a pediatrician or a teacher. The model leaves out infection passing through siblings and parents, differences between pathogens, contact with other classes, differences between children, the effect of vacations, and how real daycares operate.",
+"tr": "<b>Чего это не показывает:</b> Это не предсказывает и не воспроизводит число заражений в каком-либо реальном детском саду. Это упрощённая модель проекта для «респираторной инфекции типа простуды» без конкретного возбудителя, а значения по умолчанию (уровень контактов, период иммунитета и т. д.) — примерные числа, а не статистика реальных заражений или пропусков. Модель не рекомендует и не оценивает, как ухаживать за ребёнком, приходить ли в сад при болезни и какие меры предосторожности принимать, и у семей, которые оставляют детей дома, и у тех, которые отправляют их в сад, есть свои причины. Это справочная модель; для реальных решений обратитесь к специалистам, например к педиатру или педагогу. В модели не учтены передача инфекции через братьев, сестёр и родителей, различия между возбудителями, контакт с другими классами, различия между детьми, влияние каникул и то, как на самом деле работают детские сады."
 }
 ]

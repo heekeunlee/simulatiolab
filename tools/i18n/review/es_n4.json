@@ -1,576 +1,1143 @@
 [
 {
-"id": "s0849",
-"page": "daycare",
-"ko": "아이들은 <b>반</b>(교실)마다 모여 있고, 평일(월~금)에는 같은 반 아이끼리만 만납니다. 주말에는 반 안의 접촉이 없고, 반과 반 사이의 접촉도 없습니다. 아이는 <b>건강</b> → <b>잠복</b>(걸렸지만 아직 퍼뜨리지 않음, 평균 2일) → <b>아픔</b>(평균 5일 동안 퍼뜨림) → <b>회복 후 면역</b>(정해진 기간 동안 안 걸림) → 다시 건강으로 돌아갑니다.",
-"en": "Children sit in <b>classes</b> (rooms) and on weekdays (Monday to Friday) meet only classmates. There is no contact inside a class on weekends and none between classes. A child goes <b>healthy</b> → <b>incubating</b> (infected but not yet spreading, 2 days on average) → <b>sick</b> (spreading, 5 days on average) → <b>immune after recovery</b> (cannot be infected for a set time) → healthy again.",
-"tr": "Los niños están en <b>clases</b> (salas) y los días laborables (de lunes a viernes) solo se encuentran con sus compañeros de clase. No hay contacto dentro de una clase los fines de semana ni entre clases. Un niño pasa de <b>sano</b> → <b>incubando</b> (infectado pero aún sin contagiar, 2 días de media) → <b>enfermo</b> (contagia, 5 días de media) → <b>inmune tras recuperarse</b> (no puede infectarse durante un tiempo determinado) → sano otra vez."
+"id": "s1456",
+"page": "painters",
+"ko": "<b>핵심 가정과 수식:</b> 화풍은 네 숫자의 벡터 <code>s</code>입니다. 라운드마다 확률 <b>복사율</b>로 화가 <i>i</i>는 화가 <i>j</i>를 골라 <code>s<sub>i</sub> ← s<sub>i</sub> + 0.5(s<sub>j</sub> − s<sub>i</sub>)</code>로 절반쯤 다가가고, 아니면 <b>독창성</b> 크기의 무작위 변화를 더합니다. <i>j</i>가 뽑힐 가중치는 <code>(1−b) + b(p<sub>j</sub>/평균 p)<sup>2</sup></code>이며 <b>b</b>가 인기 편향 슬라이더입니다.",
+"en": "<b>Key assumptions and formulas:</b> A style is a vector <code>s</code> of four numbers. Each round, with probability <b>copy rate</b> painter <i>i</i> picks painter <i>j</i> and moves halfway: <code>s<sub>i</sub> ← s<sub>i</sub> + 0.5(s<sub>j</sub> − s<sub>i</sub>)</code>; otherwise a random change of size <b>originality</b> is added. The weight for picking <i>j</i> is <code>(1−b) + b(p<sub>j</sub>/mean p)<sup>2</sup></code>, where <b>b</b> is the popularity-bias slider.",
+"tr": "<b>Supuestos clave y fórmulas:</b> Un estilo es un vector <code>s</code> de cuatro números. En cada ronda, con probabilidad <b>tasa de copia</b>, el pintor <i>i</i> elige al pintor <i>j</i> y avanza la mitad del camino: <code>s<sub>i</sub> ← s<sub>i</sub> + 0.5(s<sub>j</sub> − s<sub>i</sub>)</code>; si no, se añade un cambio aleatorio de tamaño <b>originalidad</b>. El peso para elegir a <i>j</i> es <code>(1−b) + b(p<sub>j</sub>/mean p)<sup>2</sup></code>, donde <b>b</b> es el control deslizante del sesgo de popularidad."
 },
 {
-"id": "s0850",
-"page": "daycare",
-"ko": "그날 등원한 아픈 아이가 한 명이면, 같은 반의 건강한 아이 한 명이 걸릴 확률은 하루 <b>접촉 강도 × 1%</b>(손씻기·환기를 하면 그만큼 줄어듦)입니다. 아픈 아이가 여럿이면 확률이 쌓입니다. 그래서 <b>반이 클수록</b> 만나는 짝이 많아져 퍼지는 속도가 빨라집니다.",
-"en": "If one sick child attends that day, a healthy classmate catches it with probability <b>contact level × 1%</b> per day (lower with handwashing and ventilation). With several sick children the chances add up. So <b>the bigger the class</b>, the more pairs there are, and the faster it spreads.",
-"tr": "Si un niño enfermo asiste ese día, un compañero sano lo contrae con probabilidad <b>nivel de contacto × 1%</b> por día (menor con lavado de manos y ventilación). Con varios niños enfermos las probabilidades se suman. Así que <b>cuanto mayor es la clase</b>, más parejas hay y más rápido se propaga."
+"id": "s1457",
+"page": "painters",
+"ko": "<b>이 프로젝트의 단순화:</b> 화풍을 네 숫자로 줄였고, 반쯤 다가가는 정도(0.5)와 인기 가중치를 제곱으로 둔 것, 인기가 시간이 지나면 줄어드는 방식은 모두 이 프로젝트가 정한 값입니다. 모든 화가가 서로를 볼 수 있고 한 번에 한 명만 따라 하며, 그림의 좋고 나쁨(품질)은 없습니다.",
+"en": "<b>What this project simplifies:</b> Style is reduced to four numbers. The halfway step (0.5), the squared popularity weight and the way popularity fades over time are values chosen by this project. Everyone can see everyone, each painter copies only one other at a time, and there is no notion of quality.",
+"tr": "<b>Qué simplifica este proyecto:</b> El estilo se reduce a cuatro números. El paso a mitad de camino (0,5), el peso de popularidad al cuadrado y la forma en que la popularidad se desvanece con el tiempo son valores elegidos por este proyecto. Todos ven a todos, cada pintor copia solo a otro a la vez y no existe la noción de calidad."
 },
 {
-"id": "s0851",
-"page": "daycare",
-"ko": "<b>아프면 쉬기</b>: 아프기 시작한 첫날은 증상이 아직 없어 모두 등원합니다. 둘째 날부터는 정한 비율의 아이가 집에서 쉬고, 나머지는 계속 등원합니다. 쉬는 아이는 반을 감염시키지 못하지만, 그만큼 결석 일수가 늘어납니다.",
-"en": "<b>Staying home when sick</b>: on the first sick day there are no symptoms yet, so everyone attends. From the second day a set share of children rest at home and the rest keep attending. Children at home cannot infect the class, but absence days go up.",
-"tr": "<b>Quedarse en casa al enfermar</b>: el primer día enfermo aún no hay síntomas, así que todos asisten. A partir del segundo día, una proporción determinada de niños descansa en casa y el resto sigue asistiendo. Los niños en casa no pueden contagiar a la clase, pero aumentan los días de ausencia."
+"id": "s1458",
+"page": "painters",
+"ko": "<b>이론값과 시뮬레이션:</b> 이 모델에는 비교할 닫힌 해나 논문 값이 없어 시뮬레이션만으로 확인했습니다. 확인한 것은 방향과 양끝입니다. 복사율 0%에서는 다양성 0.47·쏠림 2%, 100%에서는 다양성 0.02·쏠림 100%, 기본값(복사 60%)에서는 0.18·55%였고, 인기 편향을 0으로 하면 복사율 60%에서 쏠림이 25%로 줄었습니다.",
+"en": "<b>Theory versus simulation:</b> There is no closed-form result or published number to compare with, so it was checked by simulation only. What was confirmed is the direction and the two ends: at a copy rate of 0%, diversity is 0.47 and concentration 2%; at 100%, 0.02 and 100%; at the default (60%), 0.18 and 55%. With zero popularity bias, concentration at a 60% copy rate falls to 25%.",
+"tr": "<b>Teoría frente a simulación:</b> No hay un resultado de forma cerrada ni un número publicado con el que comparar, así que se comprobó solo por simulación. Lo que se confirmó es la dirección y los dos extremos: con una tasa de copia del 0%, la diversidad es 0,47 y la concentración 2%; con el 100%, 0,02 y 100%; con el valor por defecto (60%), 0,18 y 55%. Con sesgo de popularidad cero, la concentración con una tasa de copia del 60% baja al 25%."
 },
 {
-"id": "s0852",
-"page": "daycare",
-"ko": "반 밖(집·동네)에서 들어오는 감염은 아주 단순한 항 하나로만 넣었습니다(하루 0.15%에, 아픈 아이가 많을수록 조금 더). 나은 뒤에는 면역 지속 기간 동안 안 걸리고, 그 뒤에도 걸릴 때마다 면역이 쌓여 걸릴 확률이 낮아집니다(걸린 횟수가 1번이면 약 77%, 3번이면 약 53%). 한 해(365일)를 돌려 아이 한 명이 걸린 평균 횟수를 셉니다.",
-"en": "Infection arriving from outside the class (home, neighborhood) is included as one very simple term (0.15% a day, a little more when many children are sick). After recovery a child cannot be infected for the immunity period, and after that each infection builds more immunity, lowering the chance of catching it again (about 77% after 1 infection, 53% after 3). One year (365 days) is simulated and the average number of times a child caught it is counted.",
-"tr": "La infección que llega desde fuera de la clase (hogar, vecindario) se incluye como un término muy simple (0,15% al día, algo más cuando hay muchos niños enfermos). Tras recuperarse, un niño no puede infectarse durante el periodo de inmunidad, y después cada infección genera más inmunidad, lo que reduce la probabilidad de contagiarse de nuevo (cerca del 77% tras 1 infección, 53% tras 3). Se simula un año (365 días) y se cuenta el número medio de veces que un niño se contagió."
+"id": "s1459",
+"page": "painters",
+"ko": "<b>더 읽을거리:</b> Salganik, Dodds, Watts (2006), \"Experimental Study of Inequality and Unpredictability in an Artificial Cultural Market\", <i>Science</i> 311. Boyd, Richerson (1985), 『Culture and the Evolutionary Process』, University of Chicago Press. DeGroot (1974), \"Reaching a consensus\", <i>Journal of the American Statistical Association</i>.",
+"en": "<b>Further reading:</b> Salganik, Dodds, Watts (2006), \"Experimental Study of Inequality and Unpredictability in an Artificial Cultural Market\", <i>Science</i> 311. Boyd, Richerson (1985), <i>Culture and the Evolutionary Process</i>, University of Chicago Press. DeGroot (1974), \"Reaching a consensus\", <i>Journal of the American Statistical Association</i>.",
+"tr": "<b>Lecturas adicionales:</b> Salganik, Dodds, Watts (2006), \"Experimental Study of Inequality and Unpredictability in an Artificial Cultural Market\", <i>Science</i> 311. Boyd, Richerson (1985), <i>Culture and the Evolutionary Process</i>, University of Chicago Press. DeGroot (1974), \"Reaching a consensus\", <i>Journal of the American Statistical Association</i>."
 },
 {
-"id": "s0853",
-"page": "daycare",
-"ko": "반 크기 <output id=\"o-size\"></output>",
-"en": "Class size <output id=\"o-size\"></output>",
-"tr": "Tamaño de la clase <output id=\"o-size\"></output>"
+"id": "s1490",
+"page": "peter",
+"ko": "승진 뒤 능력이 이어지지 않으면 최고 능력자만 올리는 방식은 평균 이하의 결과를 냅니다.",
+"en": "If ability does not carry over after promotion, promoting only the top performer gives below-average results.",
+"tr": "Si la habilidad no se mantiene tras el ascenso, ascender solo al mejor desempeño da resultados por debajo del promedio."
 },
 {
-"id": "s0854",
-"page": "daycare",
-"ko": "한 반의 아이 수. 클수록 만나는 짝이 많아져 퍼지는 속도가 빨라져요",
-"en": "Children per class. Bigger classes have more pairs, so it spreads faster",
-"tr": "Niños por clase. Las clases más grandes tienen más parejas, así que se propaga más rápido"
+"id": "s1491",
+"page": "peter",
+"ko": "이 모델에서는 승진하면 새 직무 능력이 다시 정해져, 현재 성과가 새 일의 적합성을 보장하지 않기 때문입니다.",
+"en": "In this model ability is redrawn in the new job, so current performance does not guarantee fit for the new role.",
+"tr": "En este modelo la capacidad se vuelve a sortear en el nuevo puesto, así que el rendimiento actual no garantiza el encaje en el nuevo rol."
 },
 {
-"id": "s0855",
-"page": "daycare",
-"ko": "접촉 강도 <output id=\"o-contact\"></output>",
-"en": "Contact level <output id=\"o-contact\"></output>",
-"tr": "Nivel de contacto <output id=\"o-contact\"></output>"
+"id": "s1492",
+"page": "peter",
+"ko": "승진 기준이 현재 성과인지 새 일의 적합성인지, 능력이 얼마나 이어지는지부터 살펴볼 만합니다.",
+"en": "Whether promotion rests on current performance or new-role fit, and how much ability carries over, is worth checking first.",
+"tr": "Conviene comprobar primero si el ascenso se basa en el rendimiento actual o en el encaje con el nuevo rol, y cuánta capacidad se transfiere."
 },
 {
-"id": "s0856",
-"page": "daycare",
-"ko": "붙어서 놀고 장난감을 같이 쓰는 정도. 높을수록 한 번 만날 때 퍼질 확률이 커요",
-"en": "How closely children play and share toys. Higher means a bigger chance of spreading per encounter",
-"tr": "Qué tan juntos juegan y comparten juguetes los niños. Más alto significa mayor probabilidad de contagio por encuentro"
+"id": "s1494",
+"page": "peter",
+"ko": "피터의 원리가 현실의 모든 조직에 해당한다는 뜻은 아닙니다. 논문과 달리 최저 능력자 승진이 가장 높게 나온 원인도 확인하지 못했습니다.",
+"en": "It does not mean the Peter principle holds in every organization, and why promoting the weakest scored highest, unlike the paper, is unconfirmed.",
+"tr": "No significa que el principio de Peter se cumpla en todas las organizaciones, y no está confirmado por qué ascender al más débil obtuvo la puntuación más alta, a diferencia del artículo."
 },
 {
-"id": "s0857",
-"page": "daycare",
-"ko": "아프면 쉬는 비율 <output id=\"o-stay\"></output>",
-"en": "Share who stay home when sick <output id=\"o-stay\"></output>",
-"tr": "Proporción que se queda en casa al enfermar <output id=\"o-stay\"></output>"
+"id": "s1495",
+"page": "peter",
+"ko": "직무별로 승진 전후의 성과를 비교해 능력이 이어지는 정도를 재고, 교육과 팀워크 같은 요소를 넣어 봐야 합니다.",
+"en": "Compare performance before and after promotion by role to measure carry-over, and add factors like training and teamwork.",
+"tr": "Comparar el rendimiento antes y después del ascenso por rol para medir la transferencia, y añadir factores como la formación y el trabajo en equipo."
 },
 {
-"id": "s0858",
-"page": "daycare",
-"ko": "아프기 시작한 둘째 날부터 집에서 쉬는 아이의 비율. 쉬는 아이는 반에 퍼뜨리지 않아요",
-"en": "Share of children who rest at home from the second sick day. Children at home do not spread it in class",
-"tr": "Proporción de niños que descansa en casa desde el segundo día de enfermedad. Los niños en casa no contagian en clase"
+"id": "s1497",
+"page": "peter",
+"ko": "<b>모델의 뿌리:</b> Laurence Peter와 Raymond Hull(1969, 『The Peter Principle』)이 &quot;사람은 무능해지는 자리까지 승진한다&quot;고 풍자한 것을, Pluchino, Rapisarda, Garofalo(2010, 「The Peter principle revisited: a computational study」, <i>Physica A</i> 389)가 에이전트 시뮬레이션으로 검증했습니다. 이 논문은 같은 해 이그노벨상(경영학)을 받았습니다.",
+"en": "<b>Where the model comes from:</b> Laurence Peter and Raymond Hull (1969, <i>The Peter Principle</i>) satirized the idea that people rise to the level of their incompetence; Pluchino, Rapisarda and Garofalo (2010, \"The Peter principle revisited: a computational study\", <i>Physica A</i> 389) tested it with an agent-based simulation. The paper received an Ig Nobel Prize (management) that year.",
+"tr": "<b>De dónde viene el modelo:</b> Laurence Peter y Raymond Hull (1969, <i>El principio de Peter</i>) satirizaron la idea de que las personas ascienden hasta su nivel de incompetencia; Pluchino, Rapisarda y Garofalo (2010, \"The Peter principle revisited: a computational study\", <i>Physica A</i> 389) lo pusieron a prueba con una simulación basada en agentes. Ese artículo recibió ese año un premio Ig Nobel (gestión)."
 },
 {
-"id": "s0859",
-"page": "daycare",
-"ko": "손씻기·환기로 줄인 전파 <output id=\"o-hyg\"></output>",
-"en": "Spread reduced by handwashing and ventilation <output id=\"o-hyg\"></output>",
-"tr": "Contagio reducido por lavado de manos y ventilación <output id=\"o-hyg\"></output>"
+"id": "s1498",
+"page": "peter",
+"ko": "<b>핵심 가정과 수식:</b> 6단계 피라미드(위에서부터 1, 5, 11, 21, 41, 81명)에서 60세 은퇴로 생긴 빈자리를 아래 단계에서 승진시켜 채웁니다. 승진하면 확률 continuity로 예전 능력을 유지하고 아니면 능력이 새로 뽑힙니다(continuity 0%가 피터 가설). 조직 효율은 단계별 평균 능력의 가중 평균(가중치 6, 5, 4, 3, 2, 1)입니다.",
+"en": "<b>Key assumptions and formulas:</b> In a six-level pyramid (1, 5, 11, 21, 41 and 81 people from the top), vacancies from retirement at age 60 are filled by promotion from the level below. A promoted person keeps the old competence with probability continuity, otherwise competence is redrawn (continuity 0% is the Peter hypothesis). Organizational efficiency is the weighted mean of level-average competence (weights 6, 5, 4, 3, 2, 1).",
+"tr": "<b>Supuestos clave y fórmulas:</b> En una pirámide de seis niveles (1, 5, 11, 21, 41 y 81 personas desde la cima), las vacantes por jubilación a los 60 años se cubren con ascensos desde el nivel inferior. Una persona ascendida conserva su competencia anterior con probabilidad de continuidad; si no, la competencia se vuelve a sortear (continuidad 0% es la hipótesis de Peter). La eficiencia de la organización es la media ponderada de la competencia media de cada nivel (pesos 6, 5, 4, 3, 2, 1)."
 },
 {
-"id": "s0860",
-"page": "daycare",
-"ko": "한 번 만날 때 퍼질 확률을 이만큼 줄입니다(모델상의 가정값)",
-"en": "Cuts the chance of spreading per encounter by this much (an assumed value in the model)",
-"tr": "Reduce la probabilidad de contagio por encuentro en esta cantidad (un valor supuesto en el modelo)"
+"id": "s1499",
+"page": "peter",
+"ko": "<b>이 프로젝트의 단순화:</b> 능력의 분포(평균 7, 표준편차 2를 0~10으로 자름), 효율 가중치, 나이 분포, 4가지 승진 방식의 정의는 이 프로젝트의 단순화이며 논문 설정을 그대로 옮긴 것이 아닙니다. 논문에서는 무작위·번갈아 승진이 가장 좋았는데 이 구현에서는 최저 능력자 승진이 가장 높게 나옵니다. 세부 설정 차이로 보이지만 원인은 확인하지 못했습니다.",
+"en": "<b>What this project simplifies:</b> The competence distribution (mean 7, SD 2, clipped to 0 to 10), the efficiency weights, the age distribution and the definitions of the four promotion rules are this project&#x27;s simplifications, not a copy of the paper&#x27;s setup. In the paper, random or alternating promotion did best, while in this implementation promoting the worst performer scores highest. This looks like a difference in details, but the cause has not been confirmed.",
+"tr": "<b>Qué simplifica este proyecto:</b> La distribución de la competencia (media 7, DE 2, recortada a 0–10), los pesos de eficiencia, la distribución de edades y las definiciones de las cuatro reglas de ascenso son simplificaciones de este proyecto, no una copia del planteamiento del artículo. En el artículo, el ascenso aleatorio o alterno fue el mejor, mientras que en esta implementación promover al peor obtiene la mayor puntuación. Parece una diferencia de detalles, pero la causa no se ha confirmado."
 },
 {
-"id": "s0861",
-"page": "daycare",
-"ko": "면역 지속 <output id=\"o-imm\"></output>",
-"en": "Immunity duration <output id=\"o-imm\"></output>",
-"tr": "Duración de la inmunidad <output id=\"o-imm\"></output>"
+"id": "s1500",
+"page": "peter",
+"ko": "<b>이론값과 시뮬레이션:</b> 닫힌 해는 없지만 무작위 승진·continuity 0%는 손으로 확인됩니다. 모두의 능력이 매번 새로 뽑힌 값이라 효율은 잘린 정규분포의 평균 7−2[φ(1.5)−1.5(1−Φ(1.5))]≈6.94에 가야 하고, 시뮬레이션은 6.96입니다. continuity 0%에서 최고 능력자 승진 6.46, 번갈아 7.04, 최저 승진 7.41이고, 100%에서는 최고 승진 9.31, 최저 승진 3.94입니다(60년 뒤, 30회 평균, 처음 약 7.0. <code>node tools/validate-more.js peter</code>).",
+"en": "<b>Theory versus simulation:</b> There is no closed form, but random promotion with continuity 0% can be checked by hand. Everyone&#x27;s competence is a fresh draw, so efficiency should approach the mean of the clipped normal, 7 − 2[φ(1.5) − 1.5(1 − Φ(1.5))] ≈ 6.94; the simulation gives 6.96. At continuity 0%, promoting the best gives 6.46, alternating 7.04 and promoting the worst 7.41; at 100%, promoting the best gives 9.31 and the worst 3.94 (after 60 years, 30-run average, starting near 7.0; <code>node tools/validate-more.js peter</code>).",
+"tr": "<b>Teoría frente a simulación:</b> No hay forma cerrada, pero el ascenso aleatorio con continuidad 0% puede comprobarse a mano. La competencia de todos es un sorteo nuevo, así que la eficiencia debería acercarse a la media de la normal recortada, 7 − 2[φ(1,5) − 1,5(1 − Φ(1,5))] ≈ 6,94; la simulación da 6,96. Con continuidad 0%, promover al mejor da 6,46, alternar 7,04 y promover al peor 7,41; con 100%, promover al mejor da 9,31 y al peor 3,94 (tras 60 años, promedio de 30 ejecuciones, partiendo cerca de 7,0; <code>node tools/validate-more.js peter</code>)."
 },
 {
-"id": "s0862",
-"page": "daycare",
-"ko": "나은 뒤 이 기간(일) 동안은 다시 안 걸려요. 길수록 한 해 걸리는 횟수가 줄어요",
-"en": "Days after recovery during which a child cannot be reinfected. Longer means fewer infections a year",
-"tr": "Días tras la recuperación en que un niño no puede reinfectarse. Más largo significa menos infecciones al año"
+"id": "s1501",
+"page": "peter",
+"ko": "<b>더 읽을거리:</b> Peter, L. J. &amp; Hull, R. (1969), 『The Peter Principle』, William Morrow. / Pluchino, A., Rapisarda, A. &amp; Garofalo, C. (2010), 「The Peter principle revisited: a computational study」, <i>Physica A</i> 389.",
+"en": "<b>Further reading:</b> Peter, L. J. and Hull, R. (1969), <i>The Peter Principle</i>, William Morrow. / Pluchino, A., Rapisarda, A. and Garofalo, C. (2010), \"The Peter principle revisited: a computational study\", <i>Physica A</i> 389.",
+"tr": "<b>Lecturas adicionales:</b> Peter, L. J. y Hull, R. (1969), <i>The Peter Principle</i>, William Morrow. / Pluchino, A., Rapisarda, A. y Garofalo, C. (2010), \"The Peter principle revisited: a computational study\", <i>Physica A</i> 389."
 },
 {
-"id": "s0863",
-"page": "daycare",
-"ko": "같은 설정, 다른 반",
-"en": "Same settings, different classes",
-"tr": "Misma configuración, otras clases"
+"id": "s1537",
+"page": "population",
+"ko": "출산율 0.72가 유지되면 이 모델에서 2070년 인구는 약 2,940만 명, 65세 이상이 54%예요.",
+"en": "If fertility stays at 0.72, this model gives about 29.4 million people in 2070, with 54% aged 65 or older.",
+"tr": "Si la fecundidad se mantiene en 0,72, este modelo da unos 29,4 millones de personas en 2070, con un 54 % de 65 años o más."
 },
 {
-"id": "s0864",
-"page": "daycare",
-"ko": "① 여덟 반을 지켜보기",
-"en": "① Watching Eight Classes",
-"tr": "① Observar ocho clases"
+"id": "s1538",
+"page": "population",
+"ko": "출산율을 1.5로 올려도 줄어드는 건 이미 태어난 세대가 작아서 앞으로 부모가 될 사람이 적기 때문일 수 있어요.",
+"en": "Even at 1.5 it still shrinks, possibly because the generations already born are small, leaving fewer future parents.",
+"tr": "Incluso con 1,5 sigue reduciéndose, posiblemente porque las generaciones ya nacidas son pequeñas y habrá menos futuros padres."
 },
 {
-"id": "s0865",
-"page": "daycare",
-"ko": "점 하나가 아이 한 명입니다. 파랑은 건강, 노랑은 잠복, 빨강 채움은 아파도 등원한 아이, 빨강 고리는 집에서 쉬는 아이, 초록은 막 나아서 면역이 있는 아이입니다. 한 반에서 시작한 감염이 번지고 다시 가라앉는 모습을 보세요. 주말에는 반이 회색으로 바뀝니다.",
-"en": "Each dot is one child. Blue is healthy, yellow incubating, solid red a sick child who still attended, a red ring a child resting at home, and green a recently recovered child with immunity. Watch an infection start in one class, spread, and fade. Classes turn gray on weekends.",
-"tr": "Cada punto es un niño. Azul es sano, amarillo incubando, rojo sólido un niño enfermo que asistió, un anillo rojo un niño que descansa en casa y verde un niño recién recuperado con inmunidad. Observa cómo una infección empieza en una clase, se propaga y se apaga. Las clases se vuelven grises los fines de semana."
+"id": "s1539",
+"page": "population",
+"ko": "인구 구조는 출산율만이 아니라 세대의 크기와 기대수명을 함께 볼 때 어디가 중요한지 보여요.",
+"en": "The age structure shows where to look when cohort sizes and life expectancy are viewed together with fertility, not fertility alone.",
+"tr": "La estructura por edades indica dónde mirar cuando se ven juntos el tamaño de las cohortes y la esperanza de vida con la fecundidad, y no solo la fecundidad."
 },
 {
-"id": "s0866",
-"page": "daycare",
-"ko": "<i style=\"background:#8fb3e8\"></i>건강",
-"en": "<i style=\"background:#8fb3e8\"></i>Healthy",
-"tr": "<i style=\"background:#8fb3e8\"></i>Sano"
+"id": "s1541",
+"page": "population",
+"ko": "통계청의 공식 추계도 미래 예측도 아니고, 어떤 정책이 옳은지도 말하지 않아요.",
+"en": "It is neither an official projection nor a forecast, and it does not say which policy is right.",
+"tr": "No es una proyección oficial ni un pronóstico, y no dice qué política es la correcta."
 },
 {
-"id": "s0867",
-"page": "daycare",
-"ko": "<i style=\"background:#f0b429\"></i>잠복",
-"en": "<i style=\"background:#f0b429\"></i>Incubating",
-"tr": "<i style=\"background:#f0b429\"></i>Incubando"
+"id": "s1542",
+"page": "population",
+"ko": "출산율을 고정했고 이민·정책 효과는 평가하지 않아서, 공식 추계와 비교하며 가정을 따로 확인해야 해요.",
+"en": "Fertility is held fixed and immigration and policy effects are not assessed, so the assumptions should be checked against official projections.",
+"tr": "La fecundidad se mantiene fija y no se evalúan los efectos de la inmigración ni de las políticas, así que conviene contrastar los supuestos con las proyecciones oficiales."
 },
 {
-"id": "s0868",
-"page": "daycare",
-"ko": "<i style=\"background:#e5484d\"></i>아픈데 등원",
-"en": "<i style=\"background:#e5484d\"></i>Sick, attending",
-"tr": "<i style=\"background:#e5484d\"></i>Enfermo, asiste"
+"id": "s1544",
+"page": "population",
+"ko": "<b>모델의 뿌리:</b> 인구 추계의 표준 방법인 <b>코호트 요인법</b>입니다. 같은 해에 태어난 집단(코호트)을 해마다 한 살씩 옮기며 출생·사망·이동을 더하는 방식으로, Whelpton (1936)이 정리했다고 알려져 있습니다. 나이별 인구를 행렬 곱으로 다루는 수학은 Leslie (1945, <i>Biometrika</i>)의 연구가 대표적이고, 나이가 들수록 사망 확률이 지수적으로 커진다는 생각은 Gompertz (1825)로 거슬러 올라갑니다.",
+"en": "<b>Where the model comes from:</b> This is the <b>cohort-component method</b>, the standard way to project populations: each birth cohort is moved forward one year at a time while births, deaths and migration are added. It is usually credited to Whelpton (1936). The matrix form of age-structured populations is classically due to Leslie (1945, <i>Biometrika</i>), and the idea that mortality rises exponentially with age goes back to Gompertz (1825).",
+"tr": "<b>De dónde viene el modelo:</b> Es el <b>método de componentes por cohortes</b>, la forma estándar de proyectar poblaciones: cada cohorte de nacimiento avanza un año cada vez mientras se suman nacimientos, muertes y migración. Suele atribuirse a Whelpton (1936). La forma matricial de las poblaciones estructuradas por edad se debe clásicamente a Leslie (1945, <i>Biometrika</i>), y la idea de que la mortalidad crece exponencialmente con la edad se remonta a Gompertz (1825)."
 },
 {
-"id": "s0869",
-"page": "daycare",
-"ko": "<i style=\"background:transparent;border:2px solid #e5484d;box-sizing:border-box\"></i>집에서 쉼",
-"en": "<i style=\"background:transparent;border:2px solid #e5484d;box-sizing:border-box\"></i>Resting at home",
-"tr": "<i style=\"background:transparent;border:2px solid #e5484d;box-sizing:border-box\"></i>Descansa en casa"
+"id": "s1545",
+"page": "population",
+"ko": "<b>핵심 가정과 수식:</b> <code>P(a+1, t+1) = P(a, t)·S(a, t) + M(a)</code>, 출생은 <code>B(t) = TFR × Σ f(a)·(여성 수 P(a, t)/2)</code>입니다. <code>S</code>는 생존율, <code>M</code>은 이민, <code>f(a)</code>는 15~49세 출산 연령 분포(합이 1)입니다. 슬라이더는 TFR, <code>M</code>의 크기, 해마다 기대수명이 늘어나는 정도를 정합니다.",
+"en": "<b>Key assumptions and formulas:</b> <code>P(a+1, t+1) = P(a, t)·S(a, t) + M(a)</code>, and births are <code>B(t) = TFR × Σ f(a)·(women P(a, t)/2)</code>. <code>S</code> is survival, <code>M</code> is migration and <code>f(a)</code> is the age pattern of childbearing at 15–49 (summing to 1). The sliders set TFR, the size of <code>M</code>, and how fast life expectancy rises.",
+"tr": "<b>Supuestos clave y fórmulas:</b> <code>P(a+1, t+1) = P(a, t)·S(a, t) + M(a)</code>, y los nacimientos son <code>B(t) = TFR × Σ f(a)·(mujeres P(a, t)/2)</code>. <code>S</code> es la supervivencia, <code>M</code> la migración y <code>f(a)</code> el patrón de edad de la maternidad entre los 15 y 49 años (suma 1). Los controles deslizantes fijan la TFR, el tamaño de <code>M</code> y la rapidez con que sube la esperanza de vida."
 },
 {
-"id": "s0870",
-"page": "daycare",
-"ko": "<i style=\"background:#1fa463\"></i>면역 있음",
-"en": "<i style=\"background:#1fa463\"></i>Immune",
-"tr": "<i style=\"background:#1fa463\"></i>Inmune"
+"id": "s1546",
+"page": "population",
+"ko": "<b>이 프로젝트의 단순화:</b> 남녀를 합쳐 절반을 여성으로 가정하고, 출산 연령 곡선(평균 32.5세, 표준편차 4.5)과 사망 곡선의 모양, 이민이 20~39세로만 들어오는 것은 이 프로젝트가 정한 값입니다. 2024년 한 살 단위 인구는 공식 자료가 아니라 공표된 세 연령대 비중에 맞춘 근사이고, 출산율은 2070년까지 고정입니다.",
+"en": "<b>What this project simplifies:</b> Sexes are combined with half assumed female. The childbearing age curve (mean 32.5, SD 4.5), the shape of the mortality curve and the rule that migrants arrive at ages 20–39 are this project's own choices. The 2024 single-age population is an approximation scaled to published three-group shares, and fertility is held fixed to 2070.",
+"tr": "<b>Qué simplifica este proyecto:</b> Los sexos se combinan suponiendo que la mitad son mujeres. La curva de edad de la maternidad (media 32,5, DE 4,5), la forma de la curva de mortalidad y la regla de que los migrantes llegan entre los 20 y 39 años son elecciones propias de este proyecto. La población de 2024 por edad simple es una aproximación escalada a las proporciones publicadas de tres grupos, y la fecundidad se mantiene fija hasta 2070."
 },
 {
-"id": "s0871",
-"page": "daycare",
-"ko": "② 주마다 아픈 아이는 얼마나 될까",
-"en": "② How Many Children Are Sick Each Week?",
-"tr": "② ¿Cuántos niños están enfermos cada semana?"
+"id": "s1547",
+"page": "population",
+"ko": "<b>이론값과 시뮬레이션:</b> 이 모델의 숫자는 검증 스크립트 출력입니다. 합계출산율 2.1이어도 2070년 인구는 4,720만 명으로 2024년(약 5,170만 명)의 91%인데, 이미 태어난 세대가 작아 출산율을 회복해도 한동안 줄기 때문입니다. 비교 대상으로 통계청 2023년 12월 장래인구추계(중위, 보도 기준)는 2072년 약 3,600만 명, 65세 이상 47.7%이고 출산율이 0.65에서 1.08로 회복한다고 가정합니다. 이 모델은 0.72 고정으로 2,820만 명, 54.6%로, 출산율 가정이 다른 만큼 차이가 납니다.",
+"en": "<b>Theory versus simulation:</b> These are outputs of the validation script. Even at a fertility rate of 2.1, the 2070 population is 47.2 million, 91% of 2024 (about 51.7 million), because the generations already born are small, so the population keeps shrinking for a while even if fertility recovers. For comparison, the medium scenario of Statistics Korea's December 2023 projections (as reported in the press) gives about 36 million and 47.7% aged 65+ in 2072, assuming fertility recovers from 0.65 to 1.08. This model, with fertility fixed at 0.72, gives 28.2 million and 54.6%; the gap reflects the different fertility assumption.",
+"tr": "<b>Teoría frente a simulación:</b> Estos son resultados del script de validación. Incluso con una tasa de fecundidad de 2,1, la población de 2070 es de 47,2 millones, el 91% de la de 2024 (unos 51,7 millones), porque las generaciones ya nacidas son pequeñas, así que la población sigue reduciéndose durante un tiempo aunque la fecundidad se recupere. A modo de comparación, el escenario medio de las proyecciones de Statistics Korea de diciembre de 2023 (según la prensa) da unos 36 millones y un 47,7% de personas de 65 años o más en 2072, suponiendo que la fecundidad se recupera de 0,65 a 1,08. Este modelo, con la fecundidad fija en 0,72, da 28,2 millones y 54,6%; la diferencia refleja el distinto supuesto de fecundidad."
 },
 {
-"id": "s0872",
-"page": "daycare",
-"ko": "가로는 학기가 시작된 뒤 몇 주째인지, 세로는 그 주에 아팠던 아이의 비율입니다. 빨간 선이 이번에 돌린 결과, 짙은 선은 그 중 집에서 쉰 아이, 회색 선은 같은 설정에서 아무도 쉬지 않을 때의 평균입니다. 처음에는 모두 건강해서 크게 번지고, 면역이 쌓이면서 낮아집니다.",
-"en": "The horizontal axis is the week since the term began and the vertical axis the share of children sick that week. The red line is this run, the dark line the children among them resting at home, and the gray line the average when nobody stays home at the same settings. It spreads widely at first because everyone is susceptible, then falls as immunity builds.",
-"tr": "El eje horizontal es la semana desde el inicio del curso y el vertical la proporción de niños enfermos esa semana. La línea roja es esta ejecución, la oscura los niños de entre ellos que descansan en casa, y la gris la media cuando nadie se queda en casa con la misma configuración. Al principio se propaga mucho porque todos son susceptibles y luego baja al acumularse la inmunidad."
+"id": "s1548",
+"page": "population",
+"ko": "<b>더 읽을거리:</b> Preston, Heuveline, Guillot (2001), 『Demography: Measuring and Modeling Population Processes』, Blackwell. Leslie (1945), \"On the use of matrices in certain population mathematics\", <i>Biometrika</i>. 한국의 공식 수치는 통계청(KOSTAT)의 장래인구추계 원자료를 직접 확인하세요.",
+"en": "<b>Further reading:</b> Preston, Heuveline, Guillot (2001), <i>Demography: Measuring and Modeling Population Processes</i>, Blackwell. Leslie (1945), \"On the use of matrices in certain population mathematics\", <i>Biometrika</i>. For official Korean figures, consult the original Statistics Korea (KOSTAT) projection tables directly.",
+"tr": "<b>Lecturas adicionales:</b> Preston, Heuveline, Guillot (2001), <i>Demography: Measuring and Modeling Population Processes</i>, Blackwell. Leslie (1945), \"On the use of matrices in certain population mathematics\", <i>Biometrika</i>. Para las cifras oficiales de Corea, consulta directamente las tablas originales de proyección de Statistics Korea (KOSTAT)."
 },
 {
-"id": "s0873",
-"page": "daycare",
-"ko": "③ 한 해 동안 몇 번 걸렸을까",
-"en": "③ How Many Times Did Each Child Catch It?",
-"tr": "③ ¿Cuántas veces se contagió cada niño?"
+"id": "s1581",
+"page": "queue",
+"ko": "새치기는 처음엔 퍼지지만, 응징하는 사람이 충분하면 다시 사라져요.",
+"en": "Cutting spreads at first, but it dies out again if enough people punish it.",
+"tr": "Hacer trampa se extiende al principio, pero vuelve a apagarse si suficientes personas lo castigan."
 },
 {
-"id": "s0874",
-"page": "daycare",
-"ko": "아이마다 한 해 동안 걸린 횟수를 세어 비율로 쌓았습니다. 초록 막대는 한 번도 안 걸린 아이입니다. 점선은 평균입니다. 같은 반이라도 아이마다 운에 따라 몇 번씩 차이가 납니다.",
-"en": "Each child's number of infections in the year, shown as shares. The green bar is children who never caught it. The dashed line is the average. Even in the same class, luck makes the counts differ from child to child.",
-"tr": "El número de infecciones de cada niño en el año, mostrado como proporciones. La barra verde son los niños que nunca se contagiaron. La línea discontinua es la media. Incluso en la misma clase, la suerte hace que las cifras difieran de un niño a otro."
+"id": "s1582",
+"page": "queue",
+"ko": "이득이 큰 새치기를 막으려면 누군가 눈총의 비용을 치러야 해서, 그 비용을 나눠 지는 사람이 많을수록 질서가 버텨요.",
+"en": "Stopping profitable cutting costs someone the price of disapproval, so order holds when many share that cost.",
+"tr": "Dejar de colarse tiene un coste, el precio de la desaprobación, para alguien, así que el orden se mantiene cuando muchos comparten ese coste."
 },
 {
-"id": "s0875",
-"page": "daycare",
-"ko": "④ 아프면 쉬는 아이가 늘어나면",
-"en": "④ If More Sick Children Stay Home",
-"tr": "④ Si más niños enfermos se quedan en casa"
+"id": "s1583",
+"page": "queue",
+"ko": "줄이 무너진다면 사람 탓보다, 막는 사람이 혼자 비용을 지는 구조인지부터 살펴볼 만해요.",
+"en": "If a queue breaks down, it is worth first checking whether those who stop cutting bear the cost alone.",
+"tr": "Si una cola se desordena, conviene comprobar primero si quienes dejan de colarse asumen el coste en solitario."
 },
 {
-"id": "s0876",
-"page": "daycare",
-"ko": "가로는 아프면 쉬는 아이의 비율, 세로는 한 해 아이 한 명이 걸린 횟수입니다(점은 여섯 번 돌린 각각, 선은 평균). 지금 설정에서 비율만 바꿔 훑은 것입니다. 비율이 100%여도 0회가 되지 않는 점을 보세요.",
-"en": "The horizontal axis is the share of children who stay home when sick and the vertical axis the times a child caught it in a year (dots are six separate runs, the line their average). Only this share is varied at your current settings. Notice that even at 100% the count does not reach zero.",
-"tr": "El eje horizontal es la proporción de niños que se queda en casa al enfermar y el vertical las veces que un niño se contagió en un año (los puntos son seis ejecuciones separadas, la línea su media). Solo se varía esta proporción con tu configuración actual. Observa que incluso con 100% la cifra no llega a cero."
+"id": "s1585",
+"page": "queue",
+"ko": "현실의 줄 서기가 이렇게 단순하다는 뜻은 아니에요. 눈총의 비용과 효과는 이 모델이 정한 값이에요.",
+"en": "Real queueing is not this simple; the cost and effect of disapproval are values set by this model.",
+"tr": "Las colas reales no son tan simples; el coste y el efecto de la desaprobación son valores fijados por este modelo."
 },
 {
-"id": "s0877",
-"page": "daycare",
-"ko": "⑤ 반 크기를 바꾸면",
-"en": "⑤ If the Class Size Changes",
-"tr": "⑤ Si cambia el tamaño de la clase"
+"id": "s1586",
+"page": "queue",
+"ko": "실제 줄에서 누가 얼마나 나서는지, 안내 직원이나 표지판이 어떤 차이를 만드는지 관찰해야 알 수 있어요.",
+"en": "Who steps up in real queues, and what staff or signs change, has to be observed to know.",
+"tr": "Quién da un paso adelante en las colas reales, y qué cambia el personal o la señalización, hay que observarlo para saberlo."
 },
 {
-"id": "s0878",
-"page": "daycare",
-"ko": "가로는 반 크기, 세로는 한 해 아이 한 명이 걸린 횟수입니다. 반이 작아지면 만나는 짝이 줄어 횟수도 줄지만, 반이 아주 작아져도 반 밖에서 들어오는 감염 때문에 0이 되지는 않습니다.",
-"en": "The horizontal axis is class size and the vertical axis the times a child caught it in a year. Smaller classes mean fewer pairs, so the count falls, but it never reaches zero because of infection arriving from outside the class.",
-"tr": "El eje horizontal es el tamaño de la clase y el vertical las veces que un niño se contagió en un año. Las clases más pequeñas implican menos parejas, así que la cifra baja, pero nunca llega a cero por la infección que llega desde fuera de la clase."
+"id": "s1588",
+"page": "queue",
+"ko": "<b>모델의 뿌리:</b> 격자 위에서 이웃과 게임을 하고 가장 성공한 이웃의 전략을 따라 하는 공간 진화 게임으로, Nowak과 May가 1992년 <i>Nature</i> 359에 낸 \"Evolutionary games and spatial chaos\"의 방식입니다. 응징하는 사람이 비용을 치르며 규범을 지키는 아이디어는 Axelrod (1986)의 규범 모델과 Fehr, Gächter (2002)의 실험에서 왔습니다.",
+"en": "<b>Where the model comes from:</b> This is a spatial evolutionary game in which people play their neighbors and copy the most successful neighbor, in the style of Nowak and May, \"Evolutionary games and spatial chaos\", <i>Nature</i> 359 (1992). The idea of punishers paying a cost to uphold a norm comes from Axelrod's (1986) norms model and the experiments of Fehr and Gächter (2002).",
+"tr": "<b>De dónde viene el modelo:</b> Es un juego evolutivo espacial en el que las personas juegan con sus vecinos y copian al vecino de más éxito, al estilo de Nowak y May, \"Evolutionary games and spatial chaos\", <i>Nature</i> 359 (1992). La idea de que los castigadores paguen un coste para sostener una norma proviene del modelo de normas de Axelrod (1986) y de los experimentos de Fehr y Gächter (2002)."
 },
 {
-"id": "s0879",
-"page": "daycare",
-"ko": "이 모델에서는 아프면 쉬는 비율이 100%일 때 한 해 감염이 5.0회에서 2.5회로 절반이 됐어요.",
-"en": "In this model, when 100% of sick children stay home, yearly infections fell from 5.0 to 2.5, half as many.",
-"tr": "En este modelo, cuando el 100 % de los niños enfermos se queda en casa, las infecciones anuales bajaron de 5,0 a 2,5, la mitad."
+"id": "s1589",
+"page": "queue",
+"ko": "<b>핵심 가정과 수식:</b> 50×50 격자에서 모두가 이웃 8명과 한 번씩 만나 점수를 모으고 이웃 중 최고 점수의 전략을 따릅니다. 새치기는 질서를 만나면 +<i>g</i>(이득), 질서는 −<i>g</i>를 받고, 새치기가 눈총형을 만나면 이득이 <i>g</i>−<i>f</i>로(눈총의 효과 <i>f</i>), 눈총형은 새치기를 볼 때마다 비용 <i>c</i>를 치릅니다. 따라서 대략 <i>f</i>가 <i>g</i>보다 커야 새치기가 눈총형 이웃 곁에서 손해를 봅니다. 슬라이더가 <i>g</i>, <i>f</i>, <i>c</i>입니다.",
+"en": "<b>Key assumptions and formulas:</b> On a 50×50 grid everyone meets their 8 neighbors once and copies the strategy of the highest-scoring neighbor. A cutter meeting an orderly person gains +<i>g</i> (the orderly person gets −<i>g</i>); a cutter meeting a punisher nets <i>g</i>−<i>f</i> (punishment effect <i>f</i>), and a punisher pays cost <i>c</i> each time it sees a cutter. So roughly, <i>f</i> must exceed <i>g</i> for cutting to be a loss next to punishers. The sliders are <i>g</i>, <i>f</i>, and <i>c</i>.",
+"tr": "<b>Supuestos clave y fórmulas:</b> En una cuadrícula de 50×50, cada persona se encuentra una vez con sus 8 vecinos y copia la estrategia del vecino con mayor puntuación. Quien se cuela y se encuentra con una persona ordenada gana +<i>g</i> (la persona ordenada obtiene −<i>g</i>); quien se cuela y se encuentra con un castigador obtiene neto <i>g</i>−<i>f</i> (efecto del castigo <i>f</i>), y el castigador paga un coste <i>c</i> cada vez que ve a alguien colarse. Así, a grandes rasgos, <i>f</i> debe superar a <i>g</i> para que colarse sea una pérdida junto a los castigadores. Los controles deslizantes son <i>g</i>, <i>f</i> y <i>c</i>."
 },
 {
-"id": "s0880",
-"page": "daycare",
-"ko": "같은 반 안에서 아픈 아이가 나오는 만큼 퍼지기 때문에, 반 크기와 면역 기간도 쉬기만큼 결과를 바꿨어요.",
-"en": "Spread follows the sick children within a class, so class size and immunity length moved the result about as much as staying home.",
-"tr": "El contagio sigue a los niños enfermos dentro de una clase, así que el tamaño de la clase y la duración de la inmunidad movieron el resultado casi tanto como quedarse en casa."
+"id": "s1590",
+"page": "queue",
+"ko": "<b>이 프로젝트의 단순화:</b> \"응징하는 협력자\"를 넣고 점수표를 정한 것은 이 프로젝트의 설계이며 원 논문의 모델이나 수치의 재현이 아닙니다. 눈총형은 처음에 있던 사람뿐이고 새로 생기지 않으며, 아주 작은 확률로 질서나 새치기가 새로 들어옵니다. 점수와 비용의 숫자는 비교를 위한 상대적인 값입니다.",
+"en": "<b>What this project simplifies:</b> Adding the \"punishing cooperator\" and choosing the payoff table is this project's own design, not the paper's model or a reproduction of its numbers. Punishers exist only among the initial population and never newly appear, while with a very small probability new orderly people or cutters enter. The payoff and cost numbers are relative values for comparison.",
+"tr": "<b>Qué simplifica este proyecto:</b> Añadir al \"cooperador castigador\" y elegir la tabla de pagos es un diseño propio de este proyecto, no el modelo del artículo ni una reproducción de sus números. Los castigadores existen solo en la población inicial y nunca aparecen de nuevo, mientras que con una probabilidad muy pequeña entran nuevas personas ordenadas o que se cuelan. Los números de pago y de coste son valores relativos para comparar."
 },
 {
-"id": "s0881",
-"page": "daycare",
-"ko": "개별 선택보다 반의 크기, 접촉, 면역 같은 구조가 어떻게 겹치는지가 열쇠일 수 있어요.",
-"en": "Rather than individual choices, how class size, contact and immunity combine may be the key to look at.",
-"tr": "Más que las decisiones individuales, cómo se combinan el tamaño de la clase, el contacto y la inmunidad puede ser lo que hay que mirar."
+"id": "s1591",
+"page": "queue",
+"ko": "<b>이론값과 시뮬레이션:</b> 이 모델에는 알려진 닫힌 해가 없어 이론값과 비교하지 못했고, 위의 대략적인 조건 <i>f</i>&gt;<i>g</i>과 시뮬레이션이 맞는지 확인했습니다. <i>g</i>=0.5에서 눈총의 효과 0.3이면 새치기가 100%이고, 0.6이면 80%로 일부만 막히며, 1.0이면 새치기가 0%, 눈총형 87%입니다. 눈총형이 없으면 새치기가 100%입니다. 눈총의 비용은 0.2까지는 87%지만 0.5부터는 100%로 무너지고, 이득이 0.2나 1.5이면 새치기가 86~87%로 우세해 단순한 조건만으로는 설명되지 않습니다 (5회 평균, <code>node tools/validate-more.js queue</code>).",
+"en": "<b>Theory versus simulation:</b> This model has no known closed form, so there is no theoretical value to compare; I checked the rough condition <i>f</i>&gt;<i>g</i> against the simulation. With <i>g</i>=0.5, a punishment effect of 0.3 leaves 100% cutters, 0.6 only partly stops them (80%), and 1.0 leaves 0% cutters and 87% punishers. Without punishers cutters reach 100%. A punishment cost of up to 0.2 keeps 87%, but from 0.5 order collapses to 100% cutters, and with a gain of 0.2 or 1.5 cutters dominate at 86 to 87%, which the simple condition alone does not explain (5-run means, <code>node tools/validate-more.js queue</code>).",
+"tr": "<b>Teoría frente a simulación:</b> Este modelo no tiene una forma cerrada conocida, así que no hay un valor teórico con el que comparar; comprobé la condición aproximada <i>f</i>&gt;<i>g</i> con la simulación. Con <i>g</i>=0,5, un efecto del castigo de 0,3 deja un 100% de personas que se cuelan, 0,6 solo las frena en parte (80%), y 1,0 deja un 0% de personas que se cuelan y un 87% de castigadores. Sin castigadores, quienes se cuelan llegan al 100%. Un coste del castigo de hasta 0,2 mantiene el 87%, pero a partir de 0,5 el orden se derrumba hasta el 100% de personas que se cuelan, y con una ganancia de 0,2 o 1,5 dominan quienes se cuelan, con un 86 a 87%, lo que la condición simple por sí sola no explica (medias de 5 ejecuciones, <code>node tools/validate-more.js queue</code>)."
 },
 {
-"id": "s0882",
-"page": "daycare",
-"ko": "<b>말하는 것:</b> 반 20명, 접촉 5단계, 면역 30일, 손씻기·환기 0%인 설정에서 스무 번 돌린 평균입니다(예시 숫자). 아프면 쉬는 비율이 0%이면 한 해 아이 한 명이 5.0회 걸렸고, 30%이면 4.4회, 70%이면 3.5회(0%보다 30% 적음), 100%이면 2.5회(절반)였습니다. 대신 아파서 집에서 쉰 평일은 0일에서 70%일 때 6.9일, 100%일 때 7.0일로 늘었습니다. 100%여도 0이 되지 않는 이유는 증상 전 첫날의 등원과 반 밖에서 들어오는 감염입니다. 반 크기는 쉬기 30%에서 8명이면 2.5회, 10명이면 2.9회, 20명이면 4.4회, 30명이면 5.5회였고, 쉬기 0%→70%의 효과는 반 10명에서 3.3→2.3회, 20명에서 5.0→3.5회, 30명에서 6.0→4.3회였습니다. 손씻기·환기로 전파를 30% 줄이면 4.4→3.7회, 60%이면 2.9회였습니다. 접촉 강도 2단계는 2.9회, 8단계는 5.2회였고, 면역이 14일이면 6.0회, 90일이면 2.7회, 180일이면 1.8회였습니다. 면역이 쌓이는 효과는 첫 3개월에 아이 1명당 1.6회, 이후 3개월마다 1.0, 1.0, 0.9회로 줄어드는 모습에서 보입니다. 시드 1로 한 번 돌리면(기본 설정) 4.2회, 쉰 날 3.4일, 아픈 아이가 가장 많았던 때는 3주째였습니다. 쉬기 0%, 손씻기·환기 30%, 반 12명을 합치면 3.2회였습니다.",
-"en": "<b>What it shows:</b> These are averages of twenty runs at class size 20, contact level 5, immunity 30 days and 0% handwashing and ventilation (example numbers). With 0% of children staying home when sick, a child caught it 5.0 times a year; at 30% it was 4.4, at 70% 3.5 (30% fewer than at 0%), and at 100% 2.5 (half). In exchange, weekdays resting at home rose from 0 to 6.9 days at 70% and 7.0 at 100%. It does not reach zero even at 100% because of the first day before symptoms, when the child still attends, and infection arriving from outside. Class size at 30% staying home gave 2.5 times for 8 children, 2.9 for 10, 4.4 for 20 and 5.5 for 30, and the effect of going from 0% to 70% staying home was 3.3 → 2.3 at 10 children, 5.0 → 3.5 at 20 and 6.0 → 4.3 at 30. Cutting spread by 30% with handwashing and ventilation took 4.4 to 3.7, and 60% gave 2.9. Contact level 2 gave 2.9 times and level 8 gave 5.2; with immunity of 14 days it was 6.0, at 90 days 2.7 and at 180 days 1.8. Accumulating immunity shows in 1.6 infections per child in the first three months, then 1.0, 1.0 and 0.9 in each following three months. One run with seed 1 at the defaults gave 4.2 times, 3.4 rest days, and the week with the most sick children was week 3. Combining 0% staying home, 30% handwashing and ventilation, and 12 children gave 3.2.",
-"tr": "<b>Qué muestra:</b> Son promedios de veinte ejecuciones con clase de 20, nivel de contacto 5, inmunidad de 30 días y 0% de lavado de manos y ventilación (cifras de ejemplo). Con 0% de niños en casa al enfermar, un niño se contagió 5,0 veces al año; con 30% fueron 4,4, con 70% fueron 3,5 (30% menos que con 0%) y con 100% fueron 2,5 (la mitad). A cambio, los días laborables de descanso en casa subieron de 0 a 6,9 días con 70% y 7,0 con 100%. No llega a cero ni con 100% por el primer día antes de los síntomas, cuando el niño aún asiste, y por la infección que llega desde fuera. El tamaño de la clase con 30% en casa dio 2,5 veces con 8 niños, 2,9 con 10, 4,4 con 20 y 5,5 con 30, y el efecto de pasar de 0% a 70% en casa fue 3,3 → 2,3 con 10 niños, 5,0 → 3,5 con 20 y 6,0 → 4,3 con 30. Reducir el contagio un 30% con lavado de manos y ventilación llevó 4,4 a 3,7, y un 60% dio 2,9. El nivel de contacto 2 dio 2,9 veces y el nivel 8 dio 5,2; con inmunidad de 14 días fue 6,0, con 90 días 2,7 y con 180 días 1,8. La inmunidad acumulada se refleja en 1,6 infecciones por niño en los primeros tres meses, y luego 1,0, 1,0 y 0,9 en cada trimestre siguiente. Una ejecución con semilla 1 y los valores por defecto dio 4,2 veces, 3,4 días de descanso, y la semana con más niños enfermos fue la 3. Combinar 0% en casa, 30% de lavado de manos y ventilación y 12 niños dio 3,2."
+"id": "s1592",
+"page": "queue",
+"ko": "<b>더 읽을거리:</b> Nowak, May (1992), \"Evolutionary games and spatial chaos\", <i>Nature</i> 359. / Axelrod (1986), \"An evolutionary approach to norms\", <i>American Political Science Review</i> 80. / Fehr, Gächter (2002), \"Altruistic punishment in humans\", <i>Nature</i> 415.",
+"en": "<b>Further reading:</b> Nowak, May (1992), \"Evolutionary games and spatial chaos\", <i>Nature</i> 359. / Axelrod (1986), \"An evolutionary approach to norms\", <i>American Political Science Review</i> 80. / Fehr, Gächter (2002), \"Altruistic punishment in humans\", <i>Nature</i> 415.",
+"tr": "<b>Lecturas adicionales:</b> Nowak, May (1992), \"Evolutionary games and spatial chaos\", <i>Nature</i> 359. / Axelrod (1986), \"An evolutionary approach to norms\", <i>American Political Science Review</i> 80. / Fehr, Gächter (2002), \"Altruistic punishment in humans\", <i>Nature</i> 415."
 },
 {
-"id": "s0883",
-"page": "daycare",
-"ko": "실제 어린이집의 감염 횟수를 예측하거나, 아이를 어떻게 돌볼지 권하는 모델이 아니에요. 숫자는 예시예요.",
-"en": "It neither predicts real daycare infections nor advises how to care for a child; the numbers are examples.",
-"tr": "No predice las infecciones reales en guarderías ni aconseja cómo cuidar a un niño; las cifras son ejemplos."
+"id": "s1628",
+"page": "regression",
+"ko": "진짜 효과가 0이어도 칭찬받은 쪽은 -7.0점, 혼난 쪽은 +7.1점 변했어요.",
+"en": "With zero true effect, praised people still dropped 7.0 points and scolded ones rose 7.1.",
+"tr": "Con un efecto real nulo, las personas elogiadas bajaron igualmente 7,0 puntos y las reprendidas subieron 7,1."
 },
 {
-"id": "s0884",
-"page": "daycare",
-"ko": "실제 판단은 소아과 의사·교사 등 전문가와 하고, 형제자매나 병원균별 차이 같은 빠진 요소는 따로 확인해야 해요.",
-"en": "Real decisions belong with pediatricians and teachers, and missing factors such as siblings or specific germs need separate checking.",
-"tr": "Las decisiones reales corresponden a pediatras y docentes, y los factores ausentes, como los hermanos o gérmenes concretos, requieren comprobación aparte."
+"id": "s1629",
+"page": "regression",
+"ko": "이 모델에서는 점수에 운이 섞여 있어, 극단에 오른 사람은 다음엔 운이 빠지며 평균 쪽으로 돌아와요.",
+"en": "In this model scores include luck, so those at an extreme drift back toward the average next time.",
+"tr": "En este modelo las puntuaciones incluyen suerte, así que quienes están en un extremo tienden a volver hacia la media la vez siguiente."
 },
 {
-"id": "s0885",
-"page": "daycare",
-"ko": "<b>말하지 않는 것:</b> 실제 어린이집의 감염 횟수를 예측하거나 재현한 것이 아닙니다. 병원균을 특정하지 않은 \"감기 같은 호흡기 감염\"을 가정한 이 프로젝트의 단순화된 모델이고, 기본값(접촉 강도, 면역 기간 등)은 예시 숫자입니다. 실제 감염 횟수나 결석 일수를 말해 주는 통계가 아닙니다. 어떻게 아이를 돌볼지, 아플 때 등원할지, 어떤 예방을 할지를 권하거나 판단하지 않으며, 쉬기를 선택하는 가정이든 등원을 선택하는 가정이든 각자 사정이 있습니다. 참고용 모델이며 실제 판단은 소아과 의사·교사 등 전문가와 하시기 바랍니다. 이 모델에는 형제자매와 부모를 거치는 감염, 병원균별 차이, 다른 반과의 접촉, 아이마다 다른 체질, 방학과 개학의 영향, 어린이집의 실제 운영 방식이 없습니다.",
-"en": "<b>What it doesn't show:</b> This does not predict or reproduce the number of infections at any real daycare. It is this project's simplified model of a \"cold-like respiratory infection\" with no specific pathogen, and the defaults (contact level, immunity period and so on) are example numbers, not statistics about real infection counts or absences. It does not recommend or judge how to care for a child, whether to attend when sick, or which precautions to take, and families who keep children home and families who send them each have their reasons. This is a reference model; for real decisions please consult professionals such as a pediatrician or a teacher. The model leaves out infection passing through siblings and parents, differences between pathogens, contact with other classes, differences between children, the effect of vacations, and how real daycares operate.",
-"tr": "<b>Qué no muestra:</b> Esto no predice ni reproduce el número de infecciones de ninguna guardería real. Es el modelo simplificado de este proyecto de una «infección respiratoria tipo resfriado» sin ningún patógeno concreto, y los valores por defecto (nivel de contacto, periodo de inmunidad, etc.) son cifras de ejemplo, no estadísticas sobre infecciones o ausencias reales. No recomienda ni juzga cómo cuidar a un niño, si debe asistir estando enfermo o qué precauciones tomar, y las familias que dejan a sus hijos en casa y las que los envían tienen cada una sus razones. Es un modelo de referencia; para decisiones reales consulta a profesionales como un pediatra o un docente. El modelo omite el contagio a través de hermanos y padres, las diferencias entre patógenos, el contacto con otras clases, las diferencias entre niños, el efecto de las vacaciones y el funcionamiento real de las guarderías."
+"id": "s1630",
+"page": "regression",
+"ko": "변화를 볼 때는 말의 효과를 따지기 전에 점수에 운이 얼마나 섞여 있는지부터 살펴볼 만해요.",
+"en": "Before judging what words did, check first how much luck is mixed into the scores.",
+"tr": "Antes de juzgar qué efecto tuvieron las palabras, conviene comprobar cuánta suerte hay mezclada en las puntuaciones."
 },
 {
-"id": "s0886",
-"page": "daycare",
-"ko": "<b>모델의 뿌리:</b> 감염병 구획 모델의 고전인 Kermack &amp; McKendrick (1927), 「A contribution to the mathematical theory of epidemics」(<i>Proceedings of the Royal Society A</i>)의 SIR 모델이 뿌리입니다. 집단을 걸릴 수 있는 사람(S), 감염된 사람(I), 회복한 사람(R)으로 나누고, 처음 한 명이 평균 R0명에게 퍼뜨리는지에 따라 유행이 커지거나 사라진다는 내용입니다.",
-"en": "<b>Where the model comes from:</b> The root is the SIR model of the classic compartment-model paper by Kermack &amp; McKendrick (1927), &quot;A contribution to the mathematical theory of epidemics&quot; (<i>Proceedings of the Royal Society A</i>). It splits a population into susceptible (S), infected (I) and recovered (R), and says an outbreak grows or dies out depending on whether one case infects more or fewer than R0 others on average.",
-"tr": "<b>De dónde viene el modelo:</b> La raíz es el modelo SIR del artículo clásico de modelos de compartimentos de Kermack &amp; McKendrick (1927), &quot;A contribution to the mathematical theory of epidemics&quot; (<i>Proceedings of the Royal Society A</i>). Divide a la población en susceptibles (S), infectados (I) y recuperados (R), y dice que un brote crece o se extingue según si un caso infecta en promedio a más o menos de R0 personas."
+"id": "s1632",
+"page": "regression",
+"ko": "칭찬이 소용없거나 꾸중이 낫다는 뜻은 아니고, 이 모델은 진짜 효과를 0으로 맞춘 것이에요.",
+"en": "It doesn't mean praise is useless or scolding better; the true effect was set to zero.",
+"tr": "No significa que el elogio sea inútil ni que la reprimenda sea mejor; el efecto real se fijó en cero."
 },
 {
-"id": "s0887",
-"page": "daycare",
-"ko": "<b>핵심 가정과 수식:</b> 한 반 안은 모두가 서로 섞이는 균질 혼합으로 보고, 감염된 아이가 평균 <code>R0 = τ × (반 크기 − 1) × 등원하는 아픈 날수</code>명을 감염시킵니다. τ는 한 쌍이 하루에 만나 퍼질 확률(접촉 강도 × 1% × (1 − 줄인 전파))이고, 등원하는 아픈 날수는 <code>1 + (5 − 1) × (1 − 쉬는 비율)</code>입니다. 유행이 끝났을 때 걸린 비율 z는 <code>z = 1 − e<sup>−R0·z</sup></code>를 만족합니다. 슬라이더는 반 크기, 접촉 강도(τ), 쉬는 비율, 전파 감소(τ)입니다.",
-"en": "<b>Key assumptions and formulas:</b> A class is treated as fully mixed, and an infected child infects on average <code>R0 = τ × (class size − 1) × sick days attended</code> others. τ is the chance a pair spreads it in a day (contact level × 1% × (1 − reduced spread)) and the sick days attended are <code>1 + (5 − 1) × (1 − share staying home)</code>. When an outbreak ends, the share who caught it, z, satisfies <code>z = 1 − e<sup>−R0·z</sup></code>. The sliders are class size, contact level (τ), the share staying home and the spread reduction (τ).",
-"tr": "<b>Supuestos y fórmulas clave:</b> Una clase se trata como totalmente mezclada, y un niño infectado infecta en promedio a <code>R0 = τ × (tamaño de la clase − 1) × días enfermo con asistencia</code> otros. τ es la probabilidad de que una pareja lo contagie en un día (nivel de contacto × 1% × (1 − contagio reducido)) y los días enfermo con asistencia son <code>1 + (5 − 1) × (1 − proporción en casa)</code>. Cuando un brote termina, la proporción que se contagió, z, cumple <code>z = 1 − e<sup>−R0·z</sup></code>. Los controles deslizantes son el tamaño de la clase, el nivel de contacto (τ), la proporción en casa y la reducción del contagio (τ)."
+"id": "s1633",
+"page": "regression",
+"ko": "실제 효과는 비교 집단을 둔 실험으로, 그리고 실력이 변하는 점까지 넣어 확인해야 해요.",
+"en": "Real effects need experiments with a comparison group, and must allow skill to change.",
+"tr": "Los efectos reales requieren experimentos con un grupo de comparación, y deben permitir que la habilidad cambie."
 },
 {
-"id": "s0888",
-"page": "daycare",
-"ko": "<b>이 프로젝트의 단순화:</b> 원래의 SIR에 이 프로젝트가 덧붙인 것이 많습니다: 잠복기(평균 2일), 평일과 주말, 겨울에 25% 더 잘 퍼지는 계절 효과, 반 밖에서 들어오는 단순한 감염 항, 면역 지속과 걸릴 때마다 쌓이는 면역(1/(1+0.3×걸린 횟수)), 증상 전 첫날의 등원. 이 값들은 모두 이 프로젝트가 정한 예시 숫자이고 실제 병원균을 맞춘 것이 아닙니다. 가정으로 퍼지는 2차 감염은 반 밖 감염 항(하루 0.15%에 전체 아픈 아이 비율의 20%를 더함) 하나로 뭉뚱그렸습니다.",
-"en": "<b>What this project simplifies:</b> This project adds many things to plain SIR: an incubation period (2 days on average), weekdays and weekends, a seasonal effect that spreads 25% more in winter, a simple term for infection arriving from outside the class, immunity duration with immunity that builds with each infection (1/(1+0.3×infections)), and attending on the first day before symptoms. All of these are example values set by this project, not fitted to a real pathogen. Secondary infection spreading through households is lumped into one outside term (0.15% a day plus 20% of the share of sick children overall).",
-"tr": "<b>Qué simplifica este proyecto:</b> Este proyecto añade muchas cosas al SIR básico: un periodo de incubación (2 días de media), días laborables y fines de semana, un efecto estacional que propaga un 25% más en invierno, un término sencillo para la infección que llega desde fuera de la clase, la duración de la inmunidad con una inmunidad que se acumula con cada infección (1/(1+0,3×infecciones)) y la asistencia el primer día antes de los síntomas. Todos son valores de ejemplo fijados por este proyecto, no ajustados a ningún patógeno real. El contagio secundario a través de los hogares se agrupa en un único término externo (0,15% al día más el 20% de la proporción de niños enfermos en total)."
+"id": "s1635",
+"page": "regression",
+"ko": "<b>모델의 뿌리:</b> 평균으로의 회귀는 Francis Galton이 1886년 「Regression towards mediocrity in hereditary stature」(<i>Journal of the Anthropological Institute</i>)에서 부모와 자녀의 키를 비교하며 보인 현상입니다. 두 측정이 완전히 일치하지 않으면, 첫 측정에서 극단이었던 쪽은 다음에 평균 쪽으로 돌아옵니다. 비행 교관 일화는 Kahneman의 『Thinking, Fast and Slow』(2011)에 소개되어 있습니다.",
+"en": "<b>Where the model comes from:</b> Regression to the mean was shown by Francis Galton in &quot;Regression towards mediocrity in hereditary stature&quot; (1886, <i>Journal of the Anthropological Institute</i>) by comparing the heights of parents and children. When two measurements do not agree perfectly, those who were extreme the first time move back toward the average the next time. The flight-instructor anecdote appears in Kahneman's <i>Thinking, Fast and Slow</i> (2011).",
+"tr": "<b>De dónde viene el modelo:</b> La regresión a la media fue mostrada por Francis Galton en &quot;Regression towards mediocrity in hereditary stature&quot; (1886, <i>Journal of the Anthropological Institute</i>) al comparar las estaturas de padres e hijos. Cuando dos mediciones no coinciden perfectamente, quienes fueron extremos la primera vez vuelven hacia el promedio la siguiente. La anécdota del instructor de vuelo aparece en <i>Pensar rápido, pensar despacio</i> de Kahneman (2011)."
 },
 {
-"id": "s0889",
-"page": "daycare",
-"ko": "<b>이론값과 시뮬레이션:</b> 이론이 맞는 조건(한 반 500명, 주말·계절·바깥 감염·재감염 없음, 처음 5명 감염)에서 스무 번 돌린 평균과 비교했습니다. R0 1.5에서 이론 58.3%, 시뮬레이션 56.8%. R0 2에서 79.7%와 80.6%. R0 3에서 94.0%와 94.6%. 쉬는 비율 50%(R0 2)에서 79.7%와 77.7%, 70%(R0 3)에서 94.0%와 95.0%였습니다. R0 0.8에서는 이론상 큰 유행이 없고 시뮬레이션도 처음 5명에 더해 4.2%만 걸렸습니다. 기본 설정(주말·계절·반 밖 감염·재감염 포함)에는 닫힌 식이 없어 시뮬레이션만으로 확인했습니다.",
-"en": "<b>Theory versus simulation:</b> I compared against twenty-run averages under the conditions where the theory applies (one class of 500, no weekends, season, outside infection or reinfection, 5 initial cases). At R0 1.5 the theory gives 58.3% and the simulation 56.8%; at R0 2, 79.7% and 80.6%; at R0 3, 94.0% and 94.6%. With 50% staying home (R0 2) it was 79.7% and 77.7%, and with 70% (R0 3) 94.0% and 95.0%. At R0 0.8 the theory predicts no large outbreak and the simulation had only 4.2% infected including the first 5. The default settings (with weekends, season, outside infection and reinfection) have no closed form, so they were checked by simulation only.",
-"tr": "<b>Teoría frente a simulación:</b> Comparé con promedios de veinte ejecuciones en las condiciones en que la teoría se aplica (una clase de 500, sin fines de semana, estación, infección externa ni reinfección, 5 casos iniciales). Con R0 1,5 la teoría da 58,3% y la simulación 56,8%; con R0 2, 79,7% y 80,6%; con R0 3, 94,0% y 94,6%. Con 50% en casa (R0 2) fue 79,7% y 77,7%, y con 70% (R0 3) 94,0% y 95,0%. Con R0 0,8 la teoría predice que no hay un brote grande y la simulación tuvo solo 4,2% de infectados incluyendo los 5 primeros. La configuración por defecto (con fines de semana, estación, infección externa y reinfección) no tiene forma cerrada, así que se comprobó solo por simulación."
+"id": "s1636",
+"page": "regression",
+"ko": "<b>핵심 가정과 수식:</b> 점수는 <code>50 + 10 × (√(1−L)·실력 + √L·운)</code>이고 실력과 운은 표준정규분포입니다(L = 운의 몫 슬라이더). 그러면 1회와 2회 점수의 상관은 ρ = 1−L이고, 1회 점수를 알 때 2회 점수의 기댓값은 <code>50 + ρ(1회 − 50)</code>입니다. 상위 20% 집단은 1회에 50보다 평균 10·φ(z)/0.2 ≈ 14점 높으므로(z ≈ 0.84) 기대 변화는 −L × 14점입니다. 슬라이더 중 &quot;칭찬·꾸중 대상&quot;이 꼬리의 크기, &quot;말의 진짜 효과&quot;가 ±e입니다.",
+"en": "<b>Key assumptions and formulas:</b> Scores are <code>50 + 10 × (√(1−L)·skill + √L·luck)</code> with standard normal skill and luck (L = the luck-share slider). The correlation between trials 1 and 2 is then ρ = 1−L, and the expected trial 2 score given trial 1 is <code>50 + ρ(trial 1 − 50)</code>. The top 20% scored on average 10·φ(z)/0.2 ≈ 14 points above 50 in trial 1 (z ≈ 0.84), so the expected change is −L × 14 points. The &quot;share praised / scolded&quot; slider sets the tail size and the &quot;true effect&quot; slider is ±e.",
+"tr": "<b>Supuestos clave y fórmulas:</b> Las puntuaciones son <code>50 + 10 × (√(1−L)·skill + √L·luck)</code> con habilidad y suerte normales estándar (L = el control deslizante de la proporción de suerte). La correlación entre las pruebas 1 y 2 es entonces ρ = 1−L, y la puntuación esperada en la prueba 2 dada la de la prueba 1 es <code>50 + ρ(prueba 1 − 50)</code>. El 20% superior obtuvo de media 10·φ(z)/0,2 ≈ 14 puntos por encima de 50 en la prueba 1 (z ≈ 0,84), así que el cambio esperado es −L × 14 puntos. El control deslizante de \"proporción elogiada / reprendida\" fija el tamaño de la cola y el de \"efecto real\" es ±e."
 },
 {
-"id": "s0890",
-"page": "daycare",
-"ko": "<b>더 읽을거리:</b> Kermack &amp; McKendrick (1927), <i>Proceedings of the Royal Society A</i> / Anderson &amp; May (1991), <i>Infectious Diseases of Humans: Dynamics and Control</i>, Oxford University Press / Keeling &amp; Rohani (2008), <i>Modeling Infectious Diseases in Humans and Animals</i>, Princeton University Press.",
-"en": "<b>Further reading:</b> Kermack &amp; McKendrick (1927), <i>Proceedings of the Royal Society A</i> / Anderson &amp; May (1991), <i>Infectious Diseases of Humans: Dynamics and Control</i>, Oxford University Press / Keeling &amp; Rohani (2008), <i>Modeling Infectious Diseases in Humans and Animals</i>, Princeton University Press.",
-"tr": "<b>Para seguir leyendo:</b> Kermack &amp; McKendrick (1927), <i>Proceedings of the Royal Society A</i> / Anderson &amp; May (1991), <i>Infectious Diseases of Humans: Dynamics and Control</i>, Oxford University Press / Keeling &amp; Rohani (2008), <i>Modeling Infectious Diseases in Humans and Animals</i>, Princeton University Press."
+"id": "s1637",
+"page": "regression",
+"ko": "<b>이 프로젝트의 단순화:</b> 실력은 변하지 않고 운은 시도마다 독립이며 점수는 정규분포라고 가정했습니다(현실의 연습, 피로, 사기는 없음). 칭찬과 꾸중의 효과는 대칭인 ±e로 단순화했습니다. 사람 수 400, 운의 몫 50%, 상위·하위 20%는 이 프로젝트가 정한 기본값이며 실제 교관이나 스포츠 자료가 아닙니다.",
+"en": "<b>What this project simplifies:</b> Skill never changes, luck is independent on each trial and scores are normal (no real practice, fatigue or morale). The effects of praise and scolding are simplified to a symmetric ±e. The defaults of 400 people, 50% luck and top/bottom 20% are this project's own choices, and no real instructor or sports data is used.",
+"tr": "<b>Qué simplifica este proyecto:</b> La habilidad nunca cambia, la suerte es independiente en cada prueba y las puntuaciones son normales (sin práctica, fatiga ni moral reales). Los efectos del elogio y la reprimenda se simplifican a un ±e simétrico. Los valores por defecto de 400 personas, 50% de suerte y 20% superior/inferior son elecciones propias de este proyecto, y no se usan datos reales de instructores ni de deporte."
 },
 {
-"id": "s0891",
-"page": "daycare",
-"ko": "시뮬레이션은 하루를 한 걸음으로 하고 시드 난수(mulberry32)를 써서 같은 시드면 같은 결과가 나옵니다. 통계 카드의 \"쉬기 0% → 70%\"는 지금 설정에서 시드 8개를 각각 돌려 평균한 값이고, ④·⑤번 그래프는 시드 6개씩입니다. 그래서 슬라이더를 바꾸면 잠시 뒤에 갱신됩니다.",
-"en": "The simulation advances one day per step and uses a seeded random generator (mulberry32), so the same seed gives the same result. The \"0% → 70% staying home\" card averages eight seeds at your current settings, and graphs ④ and ⑤ use six seeds per point, so they update a moment after you move a slider.",
-"tr": "La simulación avanza un día por paso y usa un generador aleatorio con semilla (mulberry32), así que la misma semilla da el mismo resultado. La tarjeta «0% → 70% en casa» promedia ocho semillas con tu configuración actual, y los gráficos ④ y ⑤ usan seis semillas por punto, por lo que se actualizan un momento después de mover un control deslizante."
+"id": "s1638",
+"page": "regression",
+"ko": "<b>이론값과 시뮬레이션:</b> 운 50%, 상위·하위 20%, 진짜 효과 0에서 400번 반복 평균은 칭찬받은 쪽 −7.0, 혼난 쪽 +7.1점으로 이론값 ∓7.0과 맞았고, 회귀선 기울기는 0.50(이론 1−L = 0.50)이었습니다. 대상을 5%로 줄이면 약 ∓10.4(이론 ∓10.3), 50%로 늘리면 약 ∓4.0(이론 ∓4.0)이었습니다. 진짜 효과 e = 7이면 코치가 보는 차이가 0이 되어(이론 7.0) 시뮬레이션과 일치했습니다.",
+"en": "<b>Theory versus simulation:</b> With 50% luck, top/bottom 20% and a true effect of 0, the average of 400 repeats was −7.0 for the praised and +7.1 for the scolded, matching the theory of ∓7.0, and the regression slope was 0.50 (theory 1−L = 0.50). Narrowing the groups to 5% gave about ∓10.4 (theory ∓10.3) and widening to 50% about ∓4.0 (theory ∓4.0). With a true effect of e = 7 the difference the coach sees fell to 0 (theory 7.0), as the simulation showed.",
+"tr": "<b>Teoría frente a simulación:</b> Con 50% de suerte, 20% superior/inferior y un efecto real de 0, el promedio de 400 repeticiones fue −7,0 para los elogiados y +7,1 para los reprendidos, en línea con la teoría de ∓7,0, y la pendiente de regresión fue 0,50 (teoría 1−L = 0,50). Al reducir los grupos al 5% se obtuvo aproximadamente ∓10,4 (teoría ∓10,3) y al ampliarlos al 50% aproximadamente ∓4,0 (teoría ∓4,0). Con un efecto real de e = 7, la diferencia que ve el entrenador cayó a 0 (teoría 7,0), como mostró la simulación."
 },
 {
-"id": "s0892",
-"page": "daycare",
-"ko": "검증은 <code>node tools/validate-daycare.js</code>로 할 수 있습니다. 이 페이지의 숫자는 모두 이 출력과 같습니다.",
-"en": "You can verify with <code>node tools/validate-daycare.js</code>. Every number on this page matches its output.",
-"tr": "Puedes verificarlo con <code>node tools/validate-daycare.js</code>. Cada cifra de esta página coincide con su salida."
+"id": "s1639",
+"page": "regression",
+"ko": "<b>더 읽을거리:</b> Galton (1886), Regression towards mediocrity in hereditary stature, <i>Journal of the Anthropological Institute</i> / Kahneman &amp; Tversky (1973), On the psychology of prediction, <i>Psychological Review</i> / Kahneman (2011), <i>Thinking, Fast and Slow</i>, Farrar, Straus and Giroux.",
+"en": "<b>Further reading:</b> Galton (1886), Regression towards mediocrity in hereditary stature, <i>Journal of the Anthropological Institute</i> / Kahneman &amp; Tversky (1973), On the psychology of prediction, <i>Psychological Review</i> / Kahneman (2011), <i>Thinking, Fast and Slow</i>, Farrar, Straus and Giroux.",
+"tr": "<b>Lecturas adicionales:</b> Galton (1886), Regression towards mediocrity in hereditary stature, <i>Journal of the Anthropological Institute</i> / Kahneman &amp; Tversky (1973), On the psychology of prediction, <i>Psychological Review</i> / Kahneman (2011), <i>Thinking, Fast and Slow</i>, Farrar, Straus and Giroux."
 },
 {
-"id": "s0893",
-"page": "daycare",
-"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/daycare\">GitHub</a>에서 볼 수 있습니다.",
-"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/daycare\">GitHub</a>.",
-"tr": "El código está disponible en <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/daycare\">GitHub</a>."
+"id": "s1669",
+"page": "revolution",
+"ko": "문턱이 1%인 사람 한 명이 바뀌었을 뿐인데 100명이 나서던 광장이 1명에서 멈췄어요.",
+"en": "Changing one person's threshold to 1% turned a square of 100 into a stop at just 1 person.",
+"tr": "Cambiar el umbral de una persona al 1 % hizo que un cuadrado de 100 se detuviera en solo 1 persona."
 },
 {
-"id": "s0894",
-"page": "dla",
-"ko": "번개·산호·눈송이는 왜 닮았을까 (DLA) · 시뮬라티오 랩",
-"en": "Why Lightning, Coral and Frost Look Alike (DLA) · Simulatio Lab",
-"tr": "Por qué se parecen el rayo, el coral y la escarcha (DLA) · Simulatio Lab"
+"id": "s1670",
+"page": "revolution",
+"ko": "이 모델에서는 문턱이 촘촘히 이어져야 한 명이 나서 다음 사람을 끌어내는 연쇄가 끊기지 않기 때문일 수 있어요.",
+"en": "In this model, thresholds must be closely spaced for each person to pull out the next, so one gap can break the chain.",
+"tr": "En este modelo, los umbrales deben estar muy próximos para que cada persona arrastre a la siguiente, así que un solo hueco puede romper la cadena."
 },
 {
-"id": "s0895",
-"page": "dla",
-"ko": "무작위로 떠도는 입자가 닿으면 붙기만 하는 아주 단순한 규칙이 번개·산호·서리를 닮은 가지 모양 프랙탈을 키웁니다. 붙는 확률과 씨앗 모양을 바꿔 직접 키워 보세요.",
-"en": "A very simple rule, particles that wander randomly and stick on contact, grows branching fractals that resemble lightning, coral and frost. Change the stickiness and seed shape and grow one yourself.",
-"tr": "Una regla muy simple, partículas que vagan al azar y se pegan al tocar, hace crecer fractales ramificados que se parecen al rayo, al coral y a la escarcha. Cambia la adherencia y la forma de la semilla y haz crecer uno tú mismo."
+"id": "s1671",
+"page": "revolution",
+"ko": "결과가 갈릴 때는 평균 분위기보다 불씨가 있는지, 문턱 사이에 빈틈이 없는지부터 살펴볼 만해요.",
+"en": "When outcomes split, whether a spark exists and whether thresholds have gaps may matter more than the average mood.",
+"tr": "Cuando los resultados se bifurcan, la existencia de una chispa y de huecos en los umbrales puede importar más que el ánimo medio."
 },
 {
-"id": "s0896",
-"page": "dla",
-"ko": "번개, 산호, 서리, 강 하구의 가지는 재료도 크기도 전혀 다른데 모양은 이상하게 닮았습니다. 그러니 각각 복잡한 사정이 있을 거라고 생각하기 쉽습니다. 그런데 \"무작위로 떠돌던 입자가 덩어리에 닿으면 붙는다\"는 규칙 하나만 반복해도 이런 가지 모양이 저절로 자랍니다. 아무도 가지를 그리라고 시키지 않았는데, 바깥쪽 끝이 안쪽 틈을 가려 버리는 것만으로요. 아래 장면에서 입자 4,000개를 떨어뜨려 보세요.",
-"en": "Lightning, coral, frost and river branches are made of entirely different things at entirely different sizes, yet they look strangely alike. You might expect each to have its own complicated story. But repeat one rule, \"a particle wandering at random sticks when it touches the cluster\", and this kind of branching grows by itself. Nobody tells it to draw branches; the outer tips simply shade the inner gaps. Drop 4,000 particles in the scene below.",
-"tr": "El rayo, el coral, la escarcha y las ramas de un río están hechos de cosas completamente distintas a tamaños completamente distintos, y sin embargo se parecen de forma extraña. Podrías esperar que cada uno tuviera su propia historia complicada. Pero si repites una sola regla, «una partícula que vaga al azar se pega cuando toca el cúmulo», este tipo de ramificación crece por sí sola. Nadie le dice que dibuje ramas; las puntas exteriores simplemente dan sombra a los huecos interiores. Deja caer 4.000 partículas en la escena de abajo."
+"id": "s1673",
+"page": "revolution",
+"ko": "실제 시위가 이 숫자대로 일어난다는 뜻도, 어느 편을 들거나 예측하는 것도 아니에요.",
+"en": "It does not mean real protests follow these numbers, nor does it take sides or predict.",
+"tr": "No significa que las protestas reales sigan estos números, ni toma partido ni predice."
 },
 {
-"id": "s0897",
-"page": "dla",
-"ko": "격자 한가운데에 <b>씨앗</b>(점·선·고리)을 놓습니다. 덩어리를 감싸는 큰 원 위에서 입자를 하나씩 출발시키면, 입자는 상하좌우로 무작위로 한 칸씩 떠돕니다.",
-"en": "A <b>seed</b> (point, line or ring) sits in the middle of a grid. Particles are released one at a time on a big circle around the cluster and wander at random, one cell up, down, left or right.",
-"tr": "Una <b>semilla</b> (punto, línea o anillo) está en el centro de una cuadrícula. Las partículas se sueltan de una en una sobre un círculo grande alrededor del cúmulo y vagan al azar, una celda arriba, abajo, a la izquierda o a la derecha."
+"id": "s1674",
+"page": "revolution",
+"ko": "문턱은 눈에 보이지 않으니, 정보와 두려움, 연결망 같은 모델에 없는 것을 실제로 관찰해야 해요.",
+"en": "Thresholds are invisible, so information, fear and networks, absent here, would need real observation.",
+"tr": "Los umbrales son invisibles, así que la información, el miedo y las redes, ausentes aquí, requerirían observación real."
 },
 {
-"id": "s0898",
-"page": "dla",
-"ko": "덩어리에 닿으면 <b>붙는 확률</b>만큼의 확률로 그 자리에 붙습니다. 안 붙으면 계속 떠돌고, 너무 멀리 가면 버리고 새 입자를 내보냅니다. 100%면 닿는 즉시 붙습니다.",
-"en": "On touching the cluster, a particle sticks with the <b>sticking probability</b>. If it does not, it keeps wandering, and if it strays too far it is discarded and a new one is released. At 100% it sticks on first touch.",
-"tr": "Al tocar el cúmulo, una partícula se pega con la <b>probabilidad de adherencia</b>. Si no se pega, sigue vagando, y si se aleja demasiado se descarta y se suelta una nueva. Con 100% se pega al primer contacto."
+"id": "s1676",
+"page": "revolution",
+"ko": "<b>모델의 뿌리:</b> Granovetter (1978), \"Threshold Models of Collective Behavior\", <i>American Journal of Sociology</i> 83(6)의 <b>문턱 모델</b>입니다. 사람마다 \"몇 명이 이미 나서면 나도 나선다\"는 문턱이 다르면, 같은 평균이어도 한 명의 차이로 집단행동이 번지거나 멈출 수 있다는 것이 요지입니다. Schelling의 이진 선택 모델을 사회운동 설명으로 넓힌 것으로 알려져 있습니다.",
+"en": "<b>Where the model comes from:</b> This is the <b>threshold model</b> of Granovetter (1978), \"Threshold Models of Collective Behavior\", <i>American Journal of Sociology</i> 83(6). Its point is that when people differ in how many others must already have joined before they do, collective action can spread or stall because of a difference of a single person, even with the same average. It is generally described as extending Schelling's binary-choice models.",
+"tr": "<b>De dónde viene el modelo:</b> Es el <b>modelo de umbral</b> de Granovetter (1978), \"Threshold Models of Collective Behavior\", <i>American Journal of Sociology</i> 83(6). Su idea es que, cuando las personas difieren en cuántas otras deben haberse sumado ya antes de que ellas lo hagan, la acción colectiva puede extenderse o estancarse por la diferencia de una sola persona, incluso con el mismo promedio. Suele describirse como una extensión de los modelos de elección binaria de Schelling."
 },
 {
-"id": "s0899",
-"page": "dla",
-"ko": "이렇게 붙은 순서대로 색을 입혔습니다(금빛이 먼저, 하늘색이 나중). 바깥으로 뻗은 가지 끝은 입자가 먼저 닿고, 안쪽 틈은 가지에 가려 잘 닿지 못해서 가지가 갈라지며 뻗어 나갑니다.",
-"en": "Cells are colored by arrival order (gold first, sky blue last). Particles reach the outstretched tips first, while the inner gaps are shaded by the branches, so the cluster splits and reaches outward.",
-"tr": "Las celdas se colorean por orden de llegada (dorado primero, azul cielo último). Las partículas llegan primero a las puntas extendidas, mientras que los huecos interiores quedan a la sombra de las ramas, así que el cúmulo se divide y se extiende hacia fuera."
+"id": "s1677",
+"page": "revolution",
+"ko": "<b>핵심 가정과 수식:</b> 문턱의 누적분포를 <code>F(x)</code>라 하면 참여 비율은 <code>r<sub>t+1</sub> = F(r<sub>t</sub>)</code>로 갱신되고, <code>F(x) = x</code>가 처음 만나는 곳(균형)에서 멈춥니다. 슬라이더의 평균과 퍼짐은 <code>F</code>의 모양을, 선동가 비율은 <code>F(0)</code>(문턱 0인 사람)의 크기를 정합니다.",
+"en": "<b>Key assumptions and formulas:</b> If <code>F(x)</code> is the cumulative distribution of thresholds, the share participating updates as <code>r<sub>t+1</sub> = F(r<sub>t</sub>)</code> and stops where <code>F(x) = x</code> is first met (the equilibrium). The mean and spread sliders shape <code>F</code>, and the instigator share sets <code>F(0)</code>, the people with threshold 0.",
+"tr": "<b>Supuestos clave y fórmulas:</b> Si <code>F(x)</code> es la distribución acumulada de los umbrales, la proporción que participa se actualiza como <code>r<sub>t+1</sub> = F(r<sub>t</sub>)</code> y se detiene donde primero se cumple <code>F(x) = x</code> (el equilibrio). Los controles deslizantes de media y dispersión dan forma a <code>F</code>, y la proporción de instigadores fija <code>F(0)</code>, las personas con umbral 0."
 },
 {
-"id": "s0900",
-"page": "dla",
-"ko": "덩어리가 얼마나 성긴지는 <b>프랙탈 차원 D</b>로 재요. 반지름 r 안의 입자 수가 <i>r<sup>D</sup></i>에 비례한다고 보고 로그-로그 그래프의 기울기를 구합니다. 꽉 찬 면이면 2, 가는 선이면 1입니다.",
-"en": "How sparse the cluster is can be measured by its <b>fractal dimension D</b>: the number of particles within radius r grows like <i>r<sup>D</sup></i>, so D is the slope on a log-log graph. A solid area gives 2, a thin line gives 1.",
-"tr": "Cuán ralo es el cúmulo puede medirse con su <b>dimensión fractal D</b>: el número de partículas dentro del radio r crece como <i>r<sup>D</sup></i>, así que D es la pendiente en un gráfico log-log. Un área sólida da 2, una línea fina da 1."
+"id": "s1678",
+"page": "revolution",
+"ko": "<b>이 프로젝트의 단순화:</b> 모두가 전체 참여 비율을 정확히 알고(연결망 없음), 문턱은 0~1로 자른 정규분포이며 평균 20%·퍼짐 15%·선동가 1%는 이 프로젝트가 정한 값입니다. 두려움, 조직, 정부 대응, 속마음을 숨기는 행동은 없습니다. 고전 예시는 Granovetter의 100명 예(문턱 0, 1, …, 99)를 따랐습니다.",
+"en": "<b>What this project simplifies:</b> Everyone knows the exact overall participation share (no network), thresholds are a normal distribution truncated to 0–1, and the mean 20%, spread 15% and 1% instigators are this project's values. Fear, organization, government response and hiding one's true preferences are absent. The classic example follows Granovetter's 100-person case (thresholds 0, 1, …, 99).",
+"tr": "<b>Qué simplifica este proyecto:</b> Todos conocen la proporción exacta de participación total (sin red), los umbrales siguen una distribución normal truncada a 0–1, y la media del 20%, la dispersión del 15% y el 1% de instigadores son valores de este proyecto. No hay miedo, organización, respuesta del gobierno ni ocultación de las preferencias verdaderas. El ejemplo clásico sigue el caso de 100 personas de Granovetter (umbrales 0, 1, …, 99)."
 },
 {
-"id": "s0901",
-"page": "dla",
-"ko": "붙는 확률 <output id=\"o-stick\"></output>",
-"en": "Sticking probability <output id=\"o-stick\"></output>",
-"tr": "Probabilidad de adherencia <output id=\"o-stick\"></output>"
+"id": "s1679",
+"page": "revolution",
+"ko": "<b>이론값과 시뮬레이션:</b> 고전 예시는 100명이 모두 나서고(101라운드), 한 명의 문턱만 바꾸면 1명에서 멈춥니다. 정규 문턱에서 <code>F(x) = x</code>의 고정점을 직접 계산하면 평균 25%·선동가 1%는 전원 참여, 평균 30%는 약 1.7%, 40%는 약 1.1%이고 시뮬레이션은 2%, 1%였습니다. 갈림길 근처(평균 25%)에서는 1,000명의 우연 때문에 실행마다 2~100%로 갈렸습니다.",
+"en": "<b>Theory versus simulation:</b> The classic example gives full participation of all 100 (101 rounds), and changing one person's threshold stops it at 1. For normal thresholds, computing the fixed point of <code>F(x) = x</code> directly gives full participation at mean 25% with 1% instigators, about 1.7% at mean 30% and about 1.1% at 40%, against simulated 2% and 1%. Right at the tipping zone (mean 25%), chance among 1,000 people split runs anywhere from 2% to 100%.",
+"tr": "<b>Teoría frente a simulación:</b> El ejemplo clásico da participación total de los 100 (101 rondas), y cambiar el umbral de una persona lo detiene en 1. Con umbrales normales, calcular directamente el punto fijo de <code>F(x) = x</code> da participación total con media 25% y 1% de instigadores, aproximadamente 1,7% con media 30% y aproximadamente 1,1% con 40%, frente a 2% y 1% simulados. Justo en la zona de inflexión (media 25%), el azar entre 1.000 personas hizo que las ejecuciones se repartieran entre el 2% y el 100%."
 },
 {
-"id": "s0902",
-"page": "dla",
-"ko": "낮을수록 닿고도 더 떠돌다 붙어, 틈 안쪽까지 채워 더 촘촘하고 뭉툭해져요. 100%는 가시 돋은 가지",
-"en": "Lower means particles keep wandering after touching and fill the inner gaps, so the cluster is denser and blobbier. 100% gives spiky branches",
-"tr": "Un valor menor significa que las partículas siguen vagando tras tocar y rellenan los huecos interiores, así que el cúmulo es más denso y más compacto. Con 100% salen ramas puntiagudas"
+"id": "s1680",
+"page": "revolution",
+"ko": "<b>더 읽을거리:</b> Granovetter (1978), \"Threshold Models of Collective Behavior\", <i>American Journal of Sociology</i> 83(6). Schelling (1978), 『Micromotives and Macrobehavior』, W. W. Norton. Kuran (1989), \"Sparks and Prairie Fires: A Theory of Unanticipated Political Revolution\", <i>Public Choice</i> 61.",
+"en": "<b>Further reading:</b> Granovetter (1978), \"Threshold Models of Collective Behavior\", <i>American Journal of Sociology</i> 83(6). Schelling (1978), <i>Micromotives and Macrobehavior</i>, W. W. Norton. Kuran (1989), \"Sparks and Prairie Fires: A Theory of Unanticipated Political Revolution\", <i>Public Choice</i> 61.",
+"tr": "<b>Lecturas adicionales:</b> Granovetter (1978), \"Threshold Models of Collective Behavior\", <i>American Journal of Sociology</i> 83(6). Schelling (1978), <i>Micromotives and Macrobehavior</i>, W. W. Norton. Kuran (1989), \"Sparks and Prairie Fires: A Theory of Unanticipated Political Revolution\", <i>Public Choice</i> 61."
 },
 {
-"id": "s0903",
-"page": "dla",
-"ko": "입자 수 <output id=\"o-count\"></output>",
-"en": "Number of particles <output id=\"o-count\"></output>",
-"tr": "Número de partículas <output id=\"o-count\"></output>"
+"id": "s1681",
+"page": "revolution",
+"ko": "고전 예시(문턱이 0, 1, 2, …, 99)와 그중 한 명을 바꾼 경우는 <code>node tools/validate-revolution.js</code>로 확인할 수 있습니다.",
+"en": "The classic example (thresholds 0, 1, 2, …, 99) and the case with one person changed can be verified with <code>node tools/validate-revolution.js</code>.",
+"tr": "El ejemplo clásico (umbrales 0, 1, 2, …, 99) y el caso con una persona cambiada pueden verificarse con <code>node tools/validate-revolution.js</code>."
 },
 {
-"id": "s0904",
-"page": "dla",
-"ko": "많을수록 크게 자라지만 시간이 더 걸려요",
-"en": "More particles grow a larger cluster but take longer",
-"tr": "Más partículas hacen crecer un cúmulo mayor pero tardan más"
+"id": "s1720",
+"page": "rumor",
+"ko": "솔깃할 확률이 어느 문턱을 넘으면 소문이 갑자기 거의 모두에게 퍼져요.",
+"en": "Once the chance of being tempted crosses a threshold, a rumor suddenly reaches almost everyone.",
+"tr": "Una vez que la probabilidad de dejarse tentar cruza un umbral, un rumor llega de repente a casi todos."
 },
 {
-"id": "s0905",
-"page": "dla",
-"ko": "씨앗 모양 <output id=\"o-shape\"></output>",
-"en": "Seed shape <output id=\"o-shape\"></output>",
-"tr": "Forma de la semilla <output id=\"o-shape\"></output>"
+"id": "s1721",
+"page": "rumor",
+"ko": "퍼뜨리는 사람 한 명이 평균 한 명 넘게 옮기는 선을 넘으면 연쇄가 커지고, 여러 방에 걸친 사람이 방들을 이어 줘요.",
+"en": "Past the line where each spreader passes it on to more than one person the chain explodes, and people in several rooms link the rooms together.",
+"tr": "Al superar la línea en la que cada difusor se lo pasa a más de una persona, la cadena explota, y las personas presentes en varias salas conectan unas salas con otras."
 },
 {
-"id": "s0906",
-"page": "dla",
-"ko": "점",
-"en": "Point",
-"tr": "Punto"
+"id": "s1722",
+"page": "rumor",
+"ko": "소문이 퍼지는 모양을 볼 때는 문턱 앞에서의 대응 시점과, 방 사이를 잇는 사람이 누구인지부터 살펴볼 만해요.",
+"en": "To understand a rumor's spread, the timing of a response before the threshold and who bridges the rooms are good places to look.",
+"tr": "Para entender cómo se propaga un rumor, el momento de una respuesta antes del umbral y quién hace de puente entre las salas son buenos puntos donde mirar."
 },
 {
-"id": "s0907",
-"page": "dla",
-"ko": "선",
-"en": "Line",
-"tr": "Línea"
+"id": "s1724",
+"page": "rumor",
+"ko": "실제 단톡방의 소문이 이 숫자대로 퍼진다는 뜻은 아니에요. 정정이 소문의 70%만큼 솔깃하다는 값도 가정이에요.",
+"en": "It does not mean real chat-room rumors spread by these numbers; the correction being 70% as tempting is an assumption.",
+"tr": "No significa que los rumores reales en los chats se propaguen según estas cifras; que la corrección sea un 70 % de atractiva es un supuesto."
 },
 {
-"id": "s0908",
-"page": "dla",
-"ko": "고리 (바깥쪽으로 자람)",
-"en": "Ring (grows outward)",
-"tr": "Anillo (crece hacia fuera)"
+"id": "s1725",
+"page": "rumor",
+"ko": "소문의 내용, 보낸 사람에 대한 신뢰, 방 분위기가 빠져 있어, 실제 문턱은 현실의 퍼짐 기록을 관찰해 봐야 알 수 있어요.",
+"en": "Content, trust in the sender and room mood are missing, so real thresholds would need observation of how rumors actually spread.",
+"tr": "Faltan el contenido, la confianza en quien lo envía y el ánimo de la sala, así que los umbrales reales requerirían observar cómo se propagan realmente los rumores."
 },
 {
-"id": "s0909",
-"page": "dla",
-"ko": "어디서 자라기 시작하는지. 선은 양 끝에서 가장 잘 자라요",
-"en": "Where growth starts. A line grows best from its ends",
-"tr": "Dónde empieza el crecimiento. Una línea crece mejor desde sus extremos"
+"id": "s1727",
+"page": "rumor",
+"ko": "<b>모델의 뿌리:</b> 소문 확산의 고전 모델은 Daley와 Kendall(1964, 「Epidemics and rumours」, <i>Nature</i>)과 Maki와 Thompson(1973)의 모름–퍼뜨림–멈춤(ignorant–spreader–stifler) 모델입니다. 전염병의 SIR 모델(Kermack–McKendrick, 1927)에서 구조를 빌려 왔습니다.",
+"en": "<b>Where the model comes from:</b> The classic rumor models are those of Daley and Kendall (1964, \"Epidemics and rumours\", <i>Nature</i>) and Maki and Thompson (1973): ignorant, spreader and stifler. Their structure is borrowed from the epidemic SIR model (Kermack and McKendrick, 1927).",
+"tr": "<b>De dónde viene el modelo:</b> Los modelos clásicos de rumores son los de Daley y Kendall (1964, \"Epidemics and rumours\", <i>Nature</i>) y Maki y Thompson (1973): ignorantes, difusores y reprimidos. Su estructura está tomada del modelo epidémico SIR (Kermack y McKendrick, 1927)."
 },
 {
-"id": "s0910",
-"page": "dla",
-"ko": "같은 설정, 다른 무작위",
-"en": "Same settings, new randomness",
-"tr": "Mismos ajustes, nueva aleatoriedad"
+"id": "s1728",
+"page": "rumor",
+"ko": "<b>핵심 가정과 수식:</b> 퍼뜨리는 사람이 방에 글을 올리면 그 방의 모르는 사람이 확률 <i>p</i>로 솔깃해 다음 라운드부터 퍼뜨리고, 퍼뜨리던 사람은 라운드마다 확률 <i>q</i>(70%)로 관심을 잃습니다. 평균 퍼뜨리는 기간이 1/<i>q</i> 라운드이므로 <i>R</i><sub>0</sub> ≈ <i>p</i>·<i>k</i>/<i>q</i> (<i>k</i>: 한 사람이 글을 올릴 때 보게 되는 방 사람 수)이고, 이 값이 1을 넘어야 크게 퍼집니다. 슬라이더 <i>p</i>와 방 설정이 <i>R</i><sub>0</sub>를 움직입니다.",
+"en": "<b>Key assumptions and formulas:</b> When a spreader posts in a room, each unaware member is taken in with probability <i>p</i> and spreads from the next round; a spreader loses interest each round with probability <i>q</i> (70%). The mean spreading time is 1/<i>q</i> rounds, so <i>R</i><sub>0</sub> ≈ <i>p</i>·<i>k</i>/<i>q</i> (<i>k</i>: number of room members who see a person&#x27;s posts), and a large outbreak needs it above 1. The <i>p</i> slider and the room settings move <i>R</i><sub>0</sub>.",
+"tr": "<b>Supuestos clave y fórmulas:</b> Cuando un difusor publica en una sala, cada miembro que no sabe nada se lo cree con probabilidad <i>p</i> y lo difunde desde la ronda siguiente; un difusor pierde el interés en cada ronda con probabilidad <i>q</i> (70%). El tiempo medio de difusión es 1/<i>q</i> rondas, así que <i>R</i><sub>0</sub> ≈ <i>p</i>·<i>k</i>/<i>q</i> (<i>k</i>: número de miembros de la sala que ven las publicaciones de una persona), y un gran brote necesita que supere 1. El control deslizante de <i>p</i> y los ajustes de la sala mueven <i>R</i><sub>0</sub>."
 },
 {
-"id": "s0911",
-"page": "dla",
-"ko": "① 입자가 떠돌다 붙어 자라는 모습",
-"en": "① Particles Wandering, Sticking and Growing",
-"tr": "① Partículas que vagan, se pegan y crecen"
+"id": "s1729",
+"page": "rumor",
+"ko": "<b>이 프로젝트의 단순화:</b> 이 페이지는 원래 &quot;SIR&quot;이라 불렀지만 정확히는 Daley–Kendall/Maki–Thompson 계열의 변형입니다. 그 모델에서는 퍼뜨리는 사람이 이미 아는 사람과 만나야 멈추는데, 여기서는 만남과 상관없이 확률 <i>q</i>로 멈춰서 SIR의 회복에 가깝습니다. 정정 글을 두 번째 전파로 넣은 것, 방 구조, 모든 확률 값은 이 프로젝트가 정한 것입니다.",
+"en": "<b>What this project simplifies:</b> This page used to call the model &quot;SIR&quot;, but it is more precisely a variant of the Daley–Kendall / Maki–Thompson family. In those models a spreader stops after meeting someone who already knows; here spreaders stop with probability <i>q</i> regardless of contact, which is closer to SIR recovery. The correction as a second spread, the room structure and all probability values are this project&#x27;s own choices.",
+"tr": "<b>Qué simplifica este proyecto:</b> Esta página llamaba antes al modelo \"SIR\", pero con más precisión es una variante de la familia Daley–Kendall / Maki–Thompson. En esos modelos un difusor se detiene tras encontrarse con alguien que ya lo sabe; aquí los difusores se detienen con probabilidad <i>q</i> sin importar el contacto, lo que se parece más a la recuperación del SIR. La corrección como segunda difusión, la estructura de salas y todos los valores de probabilidad son elecciones propias de este proyecto."
 },
 {
-"id": "s0912",
-"page": "dla",
-"ko": "흰 점이 지금 떠도는 입자이고 꼬리는 최근 경로입니다. 흐린 점선 원이 입자를 내보내는 곳입니다. 화면은 덩어리가 자라는 만큼 저절로 넓어집니다.",
-"en": "The white dot is the particle wandering now and its tail is its recent path. The faint dashed circle is where particles are released. The view widens by itself as the cluster grows.",
-"tr": "El punto blanco es la partícula que vaga ahora y su cola es su trayectoria reciente. El círculo discontinuo tenue es donde se sueltan las partículas. La vista se amplía sola a medida que crece el cúmulo."
+"id": "s1730",
+"page": "rumor",
+"ko": "<b>이론값과 시뮬레이션:</b> 닫힌 해는 없지만, 모두가 비슷하게 섞인다는 SIR 근사(최종 도달 비율 <i>z</i> = 1 − e<sup>−<i>R</i><sub>0</sub><i>z</i></sup>)와 비교하면 이 설정의 평균 노출 수 <i>k</i>≈141에서 <i>p</i>=1%일 때 <i>R</i><sub>0</sub>≈2.0, 근사 80%, 시뮬레이션 63%이고, <i>p</i>=1.5%는 근사 94%, 시뮬레이션 89%입니다. <i>p</i>=0.5%는 <i>R</i><sub>0</sub>≈1.0 근처라 근사 2%인데 시작자 3명 때문에 시뮬레이션은 12%로, 같은 문턱 근처의 급변을 보입니다. 방 구조 때문에 근사보다 조금 덜 퍼집니다(<code>node tools/validate-rumor.js</code>, 20회 평균).",
+"en": "<b>Theory versus simulation:</b> There is no closed form, but the well-mixed SIR approximation (final reach <i>z</i> = 1 − e<sup>−<i>R</i><sub>0</sub><i>z</i></sup>) gives, with the mean exposure <i>k</i>≈141 of this setup: at <i>p</i>=1%, <i>R</i><sub>0</sub>≈2.0, approximation 80% versus simulation 63%; at <i>p</i>=1.5%, 94% versus 89%. At <i>p</i>=0.5%, <i>R</i><sub>0</sub> is near 1 and the approximation gives 2%, while the simulation gives 12% because of the 3 initial spreaders, showing the same sharp change near the threshold. The room structure makes the real spread a bit smaller than the approximation (<code>node tools/validate-rumor.js</code>, 20-run averages).",
+"tr": "<b>Teoría frente a simulación:</b> No hay forma cerrada, pero la aproximación SIR de mezcla homogénea (alcance final <i>z</i> = 1 − e<sup>−<i>R</i><sub>0</sub><i>z</i></sup>) da, con la exposición media <i>k</i>≈141 de esta configuración: con <i>p</i>=1%, <i>R</i><sub>0</sub>≈2,0, aproximación 80% frente a simulación 63%; con <i>p</i>=1,5%, 94% frente a 89%. Con <i>p</i>=0,5%, <i>R</i><sub>0</sub> está cerca de 1 y la aproximación da 2%, mientras que la simulación da 12% por los 3 difusores iniciales, mostrando el mismo cambio brusco cerca del umbral. La estructura de salas hace que la difusión real sea algo menor que la aproximación (<code>node tools/validate-rumor.js</code>, promedios de 20 ejecuciones)."
 },
 {
-"id": "s0913",
-"page": "dla",
-"ko": "② 프랙탈 차원: 질량 대 반지름",
-"en": "② Fractal Dimension: Mass versus Radius",
-"tr": "② Dimensión fractal: masa frente a radio"
+"id": "s1731",
+"page": "rumor",
+"ko": "<b>더 읽을거리:</b> Daley, D. J. &amp; Kendall, D. G. (1964), 「Epidemics and rumours」, <i>Nature</i> 204. / Maki, D. P. &amp; Thompson, M. (1973), 『Mathematical Models and Applications』, Prentice-Hall. / Kermack, W. O. &amp; McKendrick, A. G. (1927), 「A contribution to the mathematical theory of epidemics」, <i>Proc. R. Soc. A</i> 115.",
+"en": "<b>Further reading:</b> Daley, D. J. and Kendall, D. G. (1964), \"Epidemics and rumours\", <i>Nature</i> 204. / Maki, D. P. and Thompson, M. (1973), <i>Mathematical Models and Applications</i>, Prentice-Hall. / Kermack, W. O. and McKendrick, A. G. (1927), \"A contribution to the mathematical theory of epidemics\", <i>Proc. R. Soc. A</i> 115.",
+"tr": "<b>Lecturas adicionales:</b> Daley, D. J. y Kendall, D. G. (1964), \"Epidemics and rumours\", <i>Nature</i> 204. / Maki, D. P. y Thompson, M. (1973), <i>Mathematical Models and Applications</i>, Prentice-Hall. / Kermack, W. O. y McKendrick, A. G. (1927), \"A contribution to the mathematical theory of epidemics\", <i>Proc. R. Soc. A</i> 115."
 },
 {
-"id": "s0914",
-"page": "dla",
-"ko": "가로는 반지름, 세로는 그 안의 입자 수(둘 다 로그 눈금)입니다. 빨간 선의 기울기가 프랙탈 차원 D이고, 회색 점선(기울기 2)은 빈틈없이 꽉 찬 면일 때입니다. 점 씨앗은 중심에서, 선·고리 씨앗은 붙은 입자 150개 둘레에서 잰 평균이라 더 낮게 나오는 경향이 있어요.",
-"en": "The horizontal axis is radius and the vertical axis the number of particles inside it (both log scales). The slope of the red line is the fractal dimension D, and the gray dashed line (slope 2) is what a solid area would give. A point seed is measured from its center; for line and ring seeds, it is the average around 150 sampled particles, which tends to read lower.",
-"tr": "El eje horizontal es el radio y el vertical el número de partículas dentro de él (ambos en escala logarítmica). La pendiente de la línea roja es la dimensión fractal D, y la línea gris discontinua (pendiente 2) es lo que daría un área sólida. Una semilla de punto se mide desde su centro; en las semillas de línea y anillo, es el promedio alrededor de 150 partículas muestreadas, que tiende a dar valores menores."
+"id": "s1735",
+"page": "sandpile",
+"ko": "모래 한 알과 산사태 · 시뮬라티오 랩",
+"en": "A Grain of Sand and a Landslide · Simulatio Lab",
+"tr": "Un grano de arena y un desprendimiento · Simulatio Lab"
 },
 {
-"id": "s0915",
-"page": "dla",
-"ko": "③ 새 입자는 어디에 붙을까",
-"en": "③ Where Do New Particles Land?",
-"tr": "③ ¿Dónde caen las partículas nuevas?"
+"id": "s1736",
+"page": "sandpile",
+"ko": "모래를 한 알씩 쌓기만 해도 더미가 스스로 임계 상태에 이르고, 대부분은 아무 일도 없다가 가끔 거대한 눈사태가 나는 모습을 모래더미 시뮬레이션으로 직접 돌려보세요.",
+"en": "Pile sand one grain at a time and watch the pile organize itself into a critical state, where most grains do nothing and a few trigger huge avalanches. Run the sandpile simulation yourself.",
+"tr": "Apila arena grano a grano y observa cómo el montón se organiza solo hasta un estado crítico, en el que la mayoría de los granos no hacen nada y unos pocos desencadenan avalanchas enormes. Ejecuta tú mismo la simulación del montón de arena."
 },
 {
-"id": "s0916",
-"page": "dla",
-"ko": "가장 최근에 붙은 입자 300개가 중심에서 얼마나 떨어진 곳에 붙었는지입니다(가장 먼 끝까지의 거리를 1로). 대부분 바깥 가지 끝에 붙고 안쪽 틈은 거의 비어 있어요. 이것이 가지가 갈라지는 이유입니다.",
-"en": "How far from the center the 300 most recent particles landed (the distance to the farthest tip is 1). Most land on the outer branch tips while the inner gaps stay nearly empty, which is why the branches split.",
-"tr": "A qué distancia del centro cayeron las 300 partículas más recientes (la distancia a la punta más lejana es 1). La mayoría cae en las puntas exteriores de las ramas mientras que los huecos interiores quedan casi vacíos, y por eso las ramas se dividen."
+"id": "s1737",
+"page": "sandpile",
+"ko": "모래 한 알은 너무 가벼워서 산사태 같은 큰일을 일으킬 리 없다고 생각하기 쉽습니다. 큰 사태에는 큰 원인이 있을 테니까요. 그런데 이 모래더미에서는 똑같은 한 알이 어떤 때는 아무 일도 일으키지 않고, 어떤 때는 판 전체를 뒤흔드는 산사태를 일으킵니다. 어느 쪽일지는 미리 알 수 없는데도, 사태 크기의 통계는 놀랍도록 질서정연합니다.",
+"en": "It is easy to think a single grain of sand is far too light to cause anything like a landslide: big events should have big causes. But on this sandpile, the very same grain sometimes does nothing and sometimes sets off an avalanche that shakes the whole board. You cannot tell in advance which, yet the statistics of avalanche sizes are strikingly orderly.",
+"tr": "Es fácil pensar que un solo grano de arena es demasiado ligero para provocar algo parecido a un desprendimiento: los grandes sucesos deberían tener grandes causas. Pero en este montón de arena, el mismo grano a veces no hace nada y otras desencadena una avalancha que sacude todo el tablero. No se puede saber de antemano cuál ocurrirá, y sin embargo las estadísticas de los tamaños de las avalanchas son sorprendentemente ordenadas."
 },
 {
-"id": "s0917",
-"page": "dla",
-"ko": "④ 붙는 확률별로 얼마나 촘촘해질까",
-"en": "④ How Dense Does It Get at Each Stickiness?",
-"tr": "④ ¿Cuán denso se vuelve con cada adherencia?"
+"id": "s1738",
+"page": "sandpile",
+"ko": "판은 정사각형 격자이고 칸마다 모래알이 0~3개 쌓입니다. 한 번에 한 알을 무작위 칸(또는 가운데 칸)에 떨어뜨립니다.",
+"en": "The board is a square grid, and each cell holds 0 to 3 grains. One grain at a time is dropped on a random cell (or on the center cell).",
+"tr": "El tablero es una cuadrícula cuadrada y cada celda contiene de 0 a 3 granos. Se deja caer un grano cada vez en una celda al azar (o en la celda central)."
 },
 {
-"id": "s0918",
-"page": "dla",
-"ko": "입자 1,200개를 키운 뒤, 가장 먼 끝까지를 반지름으로 하는 원 중 입자가 채운 비율입니다(점 하나가 한 번의 실행). 붙는 확률이 낮을수록 같은 입자 수로 더 작고 촘촘한 덩어리가 됩니다.",
-"en": "After growing 1,200 particles, the share of the circle (out to the farthest tip) that the particles fill; each dot is one run. With the same number of particles, lower stickiness gives a smaller, denser cluster.",
-"tr": "Tras crecer 1.200 partículas, la proporción del círculo (hasta la punta más lejana) que llenan las partículas; cada punto es una ejecución. Con el mismo número de partículas, menor adherencia da un cúmulo más pequeño y más denso."
+"id": "s1739",
+"page": "sandpile",
+"ko": "한 칸에 모래알이 <b>4개 이상</b>이 되면 그 칸이 무너져, 위·아래·왼쪽·오른쪽 이웃 칸에 한 알씩 나눠 줍니다(4알이 줄어듭니다). 이웃이 4알이 되면 이어서 무너지는데, 이 연쇄가 <b>눈사태</b>입니다. 판 가장자리 밖으로 나간 알은 사라집니다.",
+"en": "When a cell reaches <b>4 or more grains</b> it topples, giving one grain to each of its up, down, left and right neighbors (losing 4 grains). A neighbor that reaches 4 topples in turn, and this chain reaction is an <b>avalanche</b>. Grains that cross the edge of the board are lost.",
+"tr": "Cuando una celda llega a <b>4 o más granos</b>, se desmorona y da un grano a cada uno de sus vecinos de arriba, abajo, izquierda y derecha (perdiendo 4 granos). Un vecino que llega a 4 se desmorona a su vez, y esta reacción en cadena es una <b>avalancha</b>. Los granos que cruzan el borde del tablero se pierden."
 },
 {
-"id": "s0919",
-"page": "dla",
-"ko": "점 씨앗에서 입자 4,000개를 키운 덩어리의 프랙탈 차원 D는 평균 1.66이었습니다.",
-"en": "A cluster of 4,000 particles from a point seed had a fractal dimension D averaging 1.66.",
-"tr": "Un cúmulo de 4.000 partículas a partir de una semilla puntual tuvo una dimensión fractal D de 1,66 en promedio."
+"id": "s1740",
+"page": "sandpile",
+"ko": "눈사태의 크기는 그 알 하나가 일으킨 무너짐의 총 횟수입니다. 아무 칸도 무너지지 않으면 0입니다. 아무것도 조절하지 않았는데도 더미가 알아서 이런 상태에 이르는지 지켜보세요.",
+"en": "The size of an avalanche is the total number of topplings that one grain set off; it is 0 if no cell topples. Watch whether the pile reaches this state on its own, without anyone tuning anything.",
+"tr": "El tamaño de una avalancha es el número total de desmoronamientos que desencadenó un grano; es 0 si ninguna celda se desmorona. Observa si el montón llega a este estado por sí solo, sin que nadie ajuste nada."
 },
 {
-"id": "s0920",
-"page": "dla",
-"ko": "튀어나온 가지 끝에 입자가 먼저 닿고 안쪽 틈은 가려져, 가지가 갈라지며 성긴 모양이 됐을 수 있습니다.",
-"en": "Particles reach protruding tips first while inner gaps are shielded, so branches may split into a sparse shape.",
-"tr": "Las partículas llegan primero a las puntas salientes mientras los huecos interiores quedan protegidos, así que las ramas pueden dividirse en una forma dispersa."
+"id": "s1741",
+"page": "sandpile",
+"ko": "판의 크기 <output id=\"o-size\"></output>",
+"en": "Board size <output id=\"o-size\"></output>",
+"tr": "Tamaño del tablero <output id=\"o-size\"></output>"
 },
 {
-"id": "s0921",
-"page": "dla",
-"ko": "붙는 확률을 낮추면 촘촘해졌으니, 모양이 성기거나 촘촘한 이유는 성장 조건부터 살펴볼 만합니다.",
-"en": "Lower sticking probability made it denser, so growth conditions are worth checking to explain sparse or dense shapes.",
-"tr": "Una menor probabilidad de adhesión la hizo más densa, así que las condiciones de crecimiento merecen revisarse para explicar las formas dispersas o densas."
+"id": "s1742",
+"page": "sandpile",
+"ko": "클수록 더 큰 눈사태가 가능하지만, 안정기에 이르는 데 더 오래 걸려요",
+"en": "Larger boards allow bigger avalanches but take longer to settle",
+"tr": "Los tableros más grandes permiten avalanchas mayores, pero tardan más en estabilizarse"
 },
 {
-"id": "s0922",
-"page": "dla",
-"ko": "<b>말하는 것:</b> 점 씨앗, 붙는 확률 100%, 입자 4,000개를 무작위 8번 키우면 프랙탈 차원 D는 평균 1.66(범위 1.61~1.69)이었습니다. 가장 먼 끝까지의 반지름은 평균 123칸이고 그 원의 약 9%(8.6%)만 입자로 채워졌으며, 마지막에 붙은 300개 중 57%가 바깥 30%에, 안쪽 절반에는 9%만 붙었습니다. 붙는 확률을 낮추면 촘촘해졌습니다. 4,000개를 키웠을 때 채움 비율은 100%에서 9%, 20%에서 16%, 5%에서 26%였고 반지름은 120칸에서 71칸으로 줄었으며 D는 1.66에서 1.78로 올랐습니다. 입자 수를 늘려도 D는 500개에서 1.56, 2,000개에서 1.65, 4,000개와 8,000개에서 1.66이었습니다. 선 씨앗(입자 3,000개)은 D 1.59, 고리 씨앗은 1.52로 잰 값이 더 낮았는데, 이는 다른 방법(표본 둘레 평균)으로 잰 값이라 점 씨앗과 직접 비교하기 어렵습니다.",
-"en": "<b>What it shows:</b> Growing 4,000 particles from a point seed at 100% stickiness in 8 random runs gave a fractal dimension D averaging 1.66 (range 1.61 to 1.69). The radius to the farthest tip averaged 123 cells and only about 9% (8.6%) of that circle was filled; of the last 300 particles, 57% landed in the outer 30% and just 9% in the inner half. Lowering stickiness made the cluster denser. With 4,000 particles the filled share was 9% at 100%, 16% at 20% and 26% at 5%, the radius shrank from 120 to 71 cells, and D rose from 1.66 to 1.78. Adding particles barely moved D: 1.56 at 500, 1.65 at 2,000, 1.66 at both 4,000 and 8,000. A line seed (3,000 particles) read D 1.59 and a ring seed 1.52, but those come from a different method (average around sampled particles), so they are not directly comparable with the point seed.",
-"tr": "<b>Qué muestra:</b> Hacer crecer 4.000 partículas desde una semilla de punto con 100% de adherencia en 8 ejecuciones aleatorias dio una dimensión fractal D de 1,66 de media (rango de 1,61 a 1,69). El radio hasta la punta más lejana fue de 123 celdas de media y solo cerca del 9% (8,6%) de ese círculo estaba lleno; de las últimas 300 partículas, el 57% cayó en el 30% exterior y solo el 9% en la mitad interior. Bajar la adherencia hizo el cúmulo más denso. Con 4.000 partículas, la proporción llena fue 9% con 100%, 16% con 20% y 26% con 5%, el radio se redujo de 120 a 71 celdas y D subió de 1,66 a 1,78. Añadir partículas apenas movió D: 1,56 con 500, 1,65 con 2.000, 1,66 tanto con 4.000 como con 8.000. Una semilla de línea (3.000 partículas) dio D 1,59 y una de anillo 1,52, pero provienen de un método distinto (promedio alrededor de partículas muestreadas), así que no son directamente comparables con la semilla de punto."
+"id": "s1743",
+"page": "sandpile",
+"ko": "알을 떨어뜨리는 곳 <output id=\"o-mode\"></output>",
+"en": "Where grains fall <output id=\"o-mode\"></output>",
+"tr": "Dónde caen los granos <output id=\"o-mode\"></output>"
 },
 {
-"id": "s0923",
-"page": "dla",
-"ko": "번개·눈송이·산호가 같은 원리로 생긴다는 뜻이 아닙니다. 이 모델은 격자와 입자 수가 유한합니다.",
-"en": "It does not mean lightning, snowflakes and coral form the same way; this model has a finite grid and particle count.",
-"tr": "No significa que los rayos, los copos de nieve y el coral se formen de la misma manera; este modelo tiene una cuadrícula finita y un número finito de partículas."
+"id": "s1744",
+"page": "sandpile",
+"ko": "무작위 칸",
+"en": "Random cell",
+"tr": "Celda al azar"
 },
 {
-"id": "s0924",
-"page": "dla",
-"ko": "실제 현상과 닮은 원리인지는 각각의 확산과 붙는 과정을 측정해 모양과 비교해야 확인할 수 있습니다.",
-"en": "Whether a real case shares the principle needs measuring its diffusion and sticking and comparing the shapes.",
-"tr": "Saber si un caso real comparte el principio exige medir su difusión y adhesión y comparar las formas."
+"id": "s1745",
+"page": "sandpile",
+"ko": "가운데 칸",
+"en": "Center cell",
+"tr": "Celda central"
 },
 {
-"id": "s0925",
-"page": "dla",
-"ko": "<b>말하지 않는 것:</b> 이 덩어리는 번개나 눈송이, 산호를 재현한 것이 아닙니다. 비슷한 모양이 같은 원리로 생긴다는 뜻도 아니고, 눈으로 닮았다는 시각적·통계적 유추일 뿐입니다. 진짜 눈송이는 얼음 결정이 표면에서 자라는 방식 때문에 여섯 방향 대칭이고 DLA와는 다른 메커니즘이 주로 작용합니다. 진짜 번개는 전기장과 공기의 절연 파괴 물리가 있고, 산호는 생물의 성장과 해류가 얽혀 있습니다. DLA는 장난감 모델이며, 이런 현상 중 일부(전기도금, 점성이 다른 유체의 손가락 모양 침투 등)에서 비슷한 모양이 관찰된다고 알려져 있을 뿐입니다. 또 \"붙는 확률이 낮으면 D가 올라간다\"는 이 페이지의 결과는 입자 수가 유한해서 생기는 효과가 섞여 있습니다. 아주 크게 키우면 어느 붙는 확률에서도 같은 D에 가까워질 것으로 알려져 있지만, 이 페이지에서 확인한 것은 아닙니다. 격자 위의 단순화이므로 모양에 격자의 영향(상하좌우 방향성)이 조금 남아 있습니다.",
-"en": "<b>What it doesn't show:</b> This does not reproduce lightning, snowflakes or coral. It does not mean look-alike shapes arise from the same cause; the resemblance is a visual, statistical analogy. A real snowflake is six-fold symmetric because of how ice crystals grow at their surfaces, and different mechanisms dominate over DLA. Real lightning involves electric fields and the breakdown of air, and coral involves biological growth and currents. DLA is a toy model, and similar shapes are reported in only some systems (electrodeposition, the fingering of one fluid pushing into another, and so on). Also, the finding here that lower stickiness raises D mixes in finite-size effects from a limited number of particles. For very large clusters D is expected to approach the same value at any stickiness, but I did not check that here. On a square grid, some influence of the grid directions (up, down, left, right) remains in the shapes.",
-"tr": "<b>Qué no muestra:</b> No reproduce rayos, copos de nieve ni corales. No significa que las formas parecidas surjan de la misma causa; el parecido es una analogía visual y estadística. Un copo de nieve real tiene simetría hexagonal por la forma en que crecen los cristales de hielo en sus superficies, y allí dominan mecanismos distintos a la DLA. Un rayo real implica campos eléctricos y la ruptura del aire, y el coral implica crecimiento biológico y corrientes. La DLA es un modelo de juguete, y formas similares se observan solo en algunos sistemas (electrodeposición, la digitación de un fluido que empuja a otro, etc.). Además, el resultado de que una menor adherencia aumente D mezcla efectos de tamaño finito debidos al número limitado de partículas. Para cúmulos muy grandes se espera que D se acerque al mismo valor con cualquier adherencia, pero aquí no lo comprobé. En una cuadrícula cuadrada, las formas conservan cierta influencia de las direcciones de la cuadrícula (arriba, abajo, izquierda, derecha)."
+"id": "s1746",
+"page": "sandpile",
+"ko": "가운데에만 떨어뜨리면 대칭 무늬가 생겨요",
+"en": "Dropping only at the center builds a symmetric pattern",
+"tr": "Dejar caer solo en el centro construye un patrón simétrico"
 },
 {
-"id": "s0926",
-"page": "dla",
-"ko": "<b>모델의 뿌리:</b> Witten과 Sander(1981)가 \"Diffusion-Limited Aggregation, a Kinetic Critical Phenomenon\"(Physical Review Letters 47, 1400)에서 제안한 확산 제한 응집(DLA) 모델입니다. 무작위로 확산하는 입자가 덩어리에 닿으면 붙어, 단순한 규칙에서 프랙탈 덩어리가 생김을 보였습니다.",
-"en": "<b>Where the model comes from:</b> The diffusion-limited aggregation (DLA) model proposed by Witten and Sander (1981), \"Diffusion-Limited Aggregation, a Kinetic Critical Phenomenon\", Physical Review Letters 47, 1400. Randomly diffusing particles stick on contact, and a fractal cluster grows from this simple rule.",
-"tr": "<b>Origen del modelo:</b> El modelo de agregación limitada por difusión (DLA) propuesto por Witten y Sander (1981), \"Diffusion-Limited Aggregation, a Kinetic Critical Phenomenon\", Physical Review Letters 47, 1400. Partículas que difunden al azar se pegan al tocarse, y de esta regla sencilla crece un cúmulo fractal."
+"id": "s1747",
+"page": "sandpile",
+"ko": "① 모래더미 지켜보기",
+"en": "① Watching the Sandpile",
+"tr": "① Observando el montón de arena"
 },
 {
-"id": "s0927",
-"page": "dla",
-"ko": "<b>핵심 가정과 수식:</b> 덩어리는 한 번에 입자 하나가 무작위 걸음(확산)으로 닿아 붙으며 자랍니다. 입자가 덩어리 표면의 어느 곳에 닿을 확률은 그 둘레의 확산 농도장(라플라스 방정식의 해)이 정하는데, 튀어나온 끝일수록 닿기 쉬워 가지가 자랍니다. 크기는 <i>M ∝ R<sup>D</sup></i>(질량 M, 반지름 R, 프랙탈 차원 D)로 늘어납니다. 슬라이더의 \"붙는 확률\"은 닿았을 때 붙는 확률이고, \"입자 수\"는 키울 총량입니다.",
-"en": "<b>Key assumptions and formulas:</b> The cluster grows one particle at a time, each arriving by a random walk (diffusion). Where a particle lands on the surface is set by the diffusing concentration field around it (a solution of the Laplace equation), and protruding tips are easier to reach, so branches grow. Size scales as <i>M ∝ R<sup>D</sup></i> (mass M, radius R, fractal dimension D). The slider \"sticking probability\" is the chance of sticking on contact and \"number of particles\" is the total to grow.",
-"tr": "<b>Supuestos y fórmulas clave:</b> El cúmulo crece de una partícula en una, y cada una llega mediante un paseo aleatorio (difusión). El lugar donde una partícula aterriza en la superficie lo determina el campo de concentración difusivo a su alrededor (una solución de la ecuación de Laplace), y las puntas salientes son más fáciles de alcanzar, así que crecen ramas. El tamaño escala como <i>M ∝ R<sup>D</sup></i> (masa M, radio R, dimensión fractal D). El control deslizante \"probabilidad de adherencia\" es la probabilidad de pegarse al contacto y \"número de partículas\" es el total que se hace crecer."
+"id": "s1748",
+"page": "sandpile",
+"ko": "색은 칸의 모래알 수입니다(남색 0, 청록 1, 노랑 2, 분홍 3). 눈사태가 나면 무너진 칸이 하얗게 번쩍입니다. 처음에는 알이 쌓이기만 하다가, 어느 순간부터 크고 작은 눈사태가 계속 일어나요. 회색 영역이 지나면 더미가 안정기에 들어선 것입니다.",
+"en": "Color shows how many grains a cell holds (navy 0, teal 1, yellow 2, pink 3). When an avalanche happens, the cells that toppled flash white. At first grains only pile up, then big and small avalanches keep happening. After the gray zone in the charts, the pile has settled into its steady regime.",
+"tr": "El color indica cuántos granos tiene una celda (azul marino 0, verde azulado 1, amarillo 2, rosa 3). Cuando ocurre una avalancha, las celdas que se desmoronaron parpadean en blanco. Al principio los granos solo se acumulan, y después se suceden avalanchas grandes y pequeñas. Tras la zona gris de los gráficos, el montón se ha estabilizado en su régimen estacionario."
 },
 {
-"id": "s0928",
-"page": "dla",
-"ko": "<b>이 프로젝트의 단순화:</b> 이 프로젝트는 560×560 격자 위에서 상하좌우 한 칸 걸음을 쓰고, 입자를 덩어리를 감싸는 원에서 출발시켜 더 먼 곳에서 버립니다(원 논문의 설정을 그대로 재현한 것이 아닙니다). 선·고리 씨앗과 \"붙는 확률\" 슬라이더는 이 프로젝트가 더한 변형입니다. 격자 때문에 방향성이 조금 남고, 입자 수가 유한해서 D가 점근값보다 낮게 나옵니다.",
-"en": "<b>What this project simplifies:</b> This project uses a 560 × 560 grid with one-cell steps up, down, left and right, releases particles on a circle around the cluster, and discards them farther out (it does not reproduce the original paper's setup). The line and ring seeds and the sticking-probability slider are variations added by this project. The grid leaves some directional bias, and the finite particle count makes D read lower than the asymptotic value.",
-"tr": "<b>Qué simplifica este proyecto:</b> Este proyecto usa una cuadrícula de 560 × 560 con pasos de una celda arriba, abajo, izquierda y derecha, libera las partículas en un círculo alrededor del cúmulo y las descarta más lejos (no reproduce la configuración del artículo original). Las semillas en línea y en anillo y el control deslizante de probabilidad de adherencia son variaciones añadidas por este proyecto. La cuadrícula deja cierto sesgo direccional, y el número finito de partículas hace que D se lea más bajo que el valor asintótico."
+"id": "s1749",
+"page": "sandpile",
+"ko": "모래 한 알만 떨어뜨리기",
+"en": "Drop just one grain",
+"tr": "Dejar caer un solo grano"
 },
 {
-"id": "s0929",
-"page": "dla",
-"ko": "<b>이론값과 시뮬레이션:</b> 2차원 DLA의 프랙탈 차원은 약 1.71로 널리 알려져 있습니다(이 값을 검증하려는 문헌 값으로만 사용했습니다). 시뮬레이션에서 점 씨앗, 붙는 확률 100%, 입자 4,000개를 8번 키워 잰 D는 평균 1.66(±0.03, 범위 1.61~1.69)으로 약 0.05 낮았고, 입자가 적을수록 더 낮았습니다(500개 1.56, 2,000개 1.65, 4,000개·8,000개 1.66). 크기가 유한하고 격자 효과가 있어 점근값에 못 미치는 것으로 보입니다.",
-"en": "<b>Theory versus simulation:</b> The fractal dimension of 2D DLA is widely quoted as about 1.71 (used here only as a literature value to compare against). In the simulation, a point seed at 100% stickiness with 4,000 particles, run 8 times, gave D averaging 1.66 (±0.03, range 1.61 to 1.69), about 0.05 below, and lower with fewer particles (1.56 at 500, 1.65 at 2,000, 1.66 at 4,000 and 8,000). Finite size and grid effects likely keep it short of the asymptotic value.",
-"tr": "<b>Teoría frente a simulación:</b> La dimensión fractal de la DLA en 2D se cita ampliamente como aproximadamente 1,71 (aquí solo se usa como valor de la literatura para comparar). En la simulación, una semilla puntual con 100 % de adherencia y 4.000 partículas, ejecutada 8 veces, dio una D media de 1,66 (±0,03, rango de 1,61 a 1,69), unos 0,05 por debajo, y menor con menos partículas (1,56 con 500, 1,65 con 2.000, 1,66 con 4.000 y 8.000). Es probable que los efectos de tamaño finito y de la cuadrícula la mantengan por debajo del valor asintótico."
+"id": "s1750",
+"page": "sandpile",
+"ko": "더미를 멈추고 딱 한 알만 떨어뜨립니다. 계속 눌러 보세요. 같은 한 알인데 어떤 때는 아무 일도 없고, 어떤 때는 산사태가 납니다.",
+"en": "Pauses the pile and drops a single grain. Press it again and again: the same kind of grain does nothing one time and sets off a landslide the next.",
+"tr": "Pausa el montón y deja caer un solo grano. Púlsalo una y otra vez: el mismo tipo de grano no hace nada una vez y desencadena un desprendimiento la siguiente."
 },
 {
-"id": "s0930",
-"page": "dla",
-"ko": "<b>더 읽을거리:</b> Witten &amp; Sander (1981), Physical Review Letters 47, 1400. Mandelbrot, 『The Fractal Geometry of Nature』(W. H. Freeman, 1982). Vicsek, 『Fractal Growth Phenomena』(World Scientific).",
-"en": "<b>Further reading:</b> Witten &amp; Sander (1981), Physical Review Letters 47, 1400. Mandelbrot, <i>The Fractal Geometry of Nature</i> (W. H. Freeman, 1982). Vicsek, <i>Fractal Growth Phenomena</i> (World Scientific).",
-"tr": "<b>Lecturas complementarias:</b> Witten &amp; Sander (1981), Physical Review Letters 47, 1400. Mandelbrot, <i>The Fractal Geometry of Nature</i> (W. H. Freeman, 1982). Vicsek, <i>Fractal Growth Phenomena</i> (World Scientific)."
+"id": "s1751",
+"page": "sandpile",
+"ko": "② 눈사태 크기의 시간 흐름",
+"en": "② Avalanche Size Over Time",
+"tr": "② Tamaño de las avalanchas a lo largo del tiempo"
+},
+{
+"id": "s1752",
+"page": "sandpile",
+"ko": "알을 하나 떨어뜨릴 때마다 눈사태 크기를 세로 막대로 그렸습니다(가까운 알끼리는 가장 큰 것만 보입니다). 대부분은 바닥에 붙어 있고, 가끔 하늘로 솟는 뾰족한 막대가 있습니다. 회색 영역은 아직 더미가 쌓이는 중인 구간입니다.",
+"en": "Each grain's avalanche size is drawn as a vertical bar (for grains close together, only the largest is visible). Most hug the floor, and now and then a spike shoots up. The gray zone is the stretch where the pile is still building up.",
+"tr": "El tamaño de la avalancha de cada grano se dibuja como una barra vertical (para granos muy próximos, solo se ve la mayor). La mayoría se pegan al suelo, y de vez en cuando se dispara un pico. La zona gris es el tramo en el que el montón aún se está formando."
+},
+{
+"id": "s1753",
+"page": "sandpile",
+"ko": "③ 눈사태 크기의 분포",
+"en": "③ Distribution of Avalanche Sizes",
+"tr": "③ Distribución de los tamaños de las avalanchas"
+},
+{
+"id": "s1754",
+"page": "sandpile",
+"ko": "안정기 이후의 눈사태를 크기별로 세어 가로세로 모두 로그 눈금으로 그렸습니다(무너진 적 없는 0은 뺐습니다). 점들이 대체로 내려가는 직선을 이루면 작은 사태는 아주 흔하고 큰 사태는 드물지만 아예 없지는 않다는 뜻입니다. 빨간 점선은 표본 10개 이상인 점들에 맞춘 직선이고, 기울기는 이 판 크기에서 실제로 잰 값입니다.",
+"en": "Avalanches in the steady regime are counted by size and drawn with both axes on a log scale (avalanches of size 0 are left out). If the dots roughly follow a falling straight line, small avalanches are very common and large ones rare but far from absent. The red dashed line is fitted to dots backed by at least 10 avalanches, and its slope is the value actually measured at this board size.",
+"tr": "Las avalanchas del régimen estacionario se cuentan por tamaño y se dibujan con ambos ejes en escala logarítmica (se excluyen las avalanchas de tamaño 0). Si los puntos siguen aproximadamente una recta descendente, las avalanchas pequeñas son muy comunes y las grandes son raras pero están lejos de faltar. La línea roja discontinua se ajusta a los puntos respaldados por al menos 10 avalanchas, y su pendiente es el valor realmente medido con este tamaño de tablero."
+},
+{
+"id": "s1755",
+"page": "sandpile",
+"ko": "④ 칸당 평균 높이",
+"en": "④ Average Height per Cell",
+"tr": "④ Altura media por celda"
+},
+{
+"id": "s1756",
+"page": "sandpile",
+"ko": "모래알이 쌓이면서 평균 높이가 오르다가, 어느 값에서 더는 오르지 않고 오르내리기만 합니다. 더 얹어도 가장자리로 흘러나가는 알과 새로 얹는 알이 균형을 이루기 때문입니다.",
+"en": "As grains accumulate the average height rises, then stops rising and only wobbles around a value. Grains added and grains lost over the edge balance out.",
+"tr": "A medida que se acumulan granos, la altura media sube; después deja de subir y solo oscila en torno a un valor. Los granos añadidos y los granos perdidos por el borde se equilibran."
+},
+{
+"id": "s1757",
+"page": "sandpile",
+"ko": "작은 눈사태가 흔하고 큰 눈사태가 드문 분포가 나타나, 기울기는 평균 -1.22였습니다.",
+"en": "Small avalanches were common and huge ones rare, with a log-log slope averaging -1.22.",
+"tr": "Las avalanchas pequeñas fueron comunes y las enormes raras, con una pendiente log-log promedio de -1,22."
+},
+{
+"id": "s1758",
+"page": "sandpile",
+"ko": "한 알이 이웃 넷에게 나눠지며 연쇄하는 구조라, 같은 한 알이 아무 일도 없기도 수천 번 무너짐이 되기도 했습니다.",
+"en": "Because a grain spreads to four neighbors and chains on, the same single grain caused nothing or thousands of topples.",
+"tr": "Como un grano se reparte entre cuatro vecinos y encadena, un mismo grano produjo desde ningún derrumbe hasta miles."
+},
+{
+"id": "s1759",
+"page": "sandpile",
+"ko": "큰 사건에 큰 원인이 꼭 필요하지 않을 수 있으니, 특별한 이유를 찾기 전에 연결 구조부터 살펴볼 만합니다.",
+"en": "Big events may not need big causes, so the connection structure is worth examining before hunting for a special reason.",
+"tr": "Los grandes sucesos quizá no necesitan grandes causas, así que conviene examinar la estructura de conexiones antes de buscar una razón especial."
+},
+{
+"id": "s1760",
+"page": "sandpile",
+"ko": "<b>말하는 것:</b> 판 크기 40×40, 무작위로 떨어뜨리기, 알 20,000개를 다섯 번(시드 1~5) 돌렸을 때, 알이 쌓인 지 약 4,800개(칸 수의 3배) 뒤부터 평균 높이는 2.1 안팎(2.07~2.11)에서 멈췄습니다. 이후 떨어뜨린 알의 57%는 아무 칸도 무너뜨리지 못했고, 무너짐이 있었던 눈사태의 중앙값은 20번인데 가장 큰 것은 3,778~4,760번(중앙값의 180~241배, 평균 약 208배)이었습니다. 눈사태 크기 분포를 로그-로그로 맞춘 기울기는 -1.17~-1.25(평균 -1.22)였습니다. 판 크기에 따라 기울기는 20×20에서 -1.35, 60×60에서 -1.20, 100×100에서 -1.18로 조금씩 달랐습니다. 같은 칸(가운데)에 같은 한 알을 3,000번 더해 보아도 56%는 아무 일이 없었고 592번은 100번 이상 무너졌으며 가장 큰 것은 3,889번이었습니다. 가운데에만 떨어뜨리면(20,000알) 아무 일 없는 비율이 68%, 기울기는 -1.18이었습니다(한 번 돌린 값).",
+"en": "<b>What it shows:</b> On a 40×40 board with random drops, running 20,000 grains five times (seeds 1 to 5), the average height stopped at about 2.1 (2.07 to 2.11) from roughly 4,800 grains (3 times the number of cells) on. After that, 57% of grains did not topple a single cell; among avalanches with at least one toppling the median was 20 topplings while the largest was 3,778 to 4,760 (180 to 241 times the median, about 208 on average). The log-log slope of the size distribution was -1.17 to -1.25 (average -1.22). The slope varied a little with board size: -1.35 at 20×20, -1.20 at 60×60 and -1.18 at 100×100. Adding the same grain 3,000 times to the same (center) cell, 56% did nothing, 592 caused 100 or more topplings, and the largest was 3,889. Dropping only at the center (20,000 grains), 68% did nothing and the slope was -1.18 (a single run).",
+"tr": "<b>Qué muestra:</b> En un tablero de 40×40 con caídas al azar, ejecutando 20.000 granos cinco veces (semillas 1 a 5), la altura media se estabilizó en torno a 2,1 (2,07 a 2,11) a partir de unos 4.800 granos (3 veces el número de celdas). Después, el 57% de los granos no desmoronó ninguna celda; entre las avalanchas con al menos un desmoronamiento, la mediana fue de 20 desmoronamientos mientras que la mayor fue de 3.778 a 4.760 (180 a 241 veces la mediana, unas 208 de media). La pendiente log-log de la distribución de tamaños fue de -1,17 a -1,25 (media -1,22). La pendiente varió algo con el tamaño del tablero: -1,35 con 20×20, -1,20 con 60×60 y -1,18 con 100×100. Añadiendo el mismo grano 3.000 veces a la misma celda (la central), el 56% no hizo nada, 592 causaron 100 o más desmoronamientos y el mayor fue de 3.889. Dejando caer solo en el centro (20.000 granos), el 68% no hizo nada y la pendiente fue de -1,18 (una sola ejecución)."
+},
+{
+"id": "s1761",
+"page": "sandpile",
+"ko": "실제 모래더미나 지진·산불·주가 폭락의 원인을 설명하는 것은 아닙니다. 기울기는 이 판에서 잰 값입니다.",
+"en": "It does not explain real sandpiles, quakes, fires or crashes; the slope is measured on these grids.",
+"tr": "No explica las pilas de arena, los terremotos, los incendios ni los desplomes reales; la pendiente se mide en estas cuadrículas."
+},
+{
+"id": "s1762",
+"page": "sandpile",
+"ko": "현실의 사건 크기를 모아 분포 모양을 비교하고, 이웃에게 전해지는 연결이 실제로 있는지 살펴야 합니다.",
+"en": "Real event sizes would need collecting to compare distributions, and whether such neighbor-to-neighbor links exist must be examined.",
+"tr": "Habría que recopilar tamaños de sucesos reales para comparar distribuciones, y examinar si existen esos vínculos entre vecinos."
+},
+{
+"id": "s1763",
+"page": "sandpile",
+"ko": "<b>말하지 않는 것:</b> 실제 모래더미나 산사태를 재현한 것이 아닙니다. 네 이웃에게 나눠 주는 규칙만 가진, 이 프로젝트의 단순화된 모델입니다. 지진, 산불, 주가 폭락 등에서도 작은 사건은 흔하고 큰 사건은 드문 비슷한 통계가 보고되었다는 이야기가 흔히 인용되지만, 이 시뮬레이션이 그 현상들의 원인을 설명하거나 증명한 것은 아닙니다. 닮았다는 것은 암시일 뿐입니다. 기울기는 판 크기와 표본이 한정된 이 실험에서 잰 값이며, 이론의 정확한 지수를 확인한 것이 아닙니다. 실제 모래더미 실험에서는 이 이상적 모델만큼 깔끔한 결과가 나오지 않는 경우가 많다고 알려져 있습니다.",
+"en": "<b>What it doesn't show:</b> This does not reproduce real sandpiles or landslides. It is this project's simplified model with nothing but a rule of passing grains to four neighbors. Similar statistics, with small events common and big ones rare, are often cited for earthquakes, wildfires and stock crashes, but this simulation neither explains nor proves the causes behind them; the resemblance is only suggestive. The slope is a value measured in this experiment with a limited board size and sample, and does not confirm the exact exponent of the theory. Real sand-pile experiments are often reported not to behave as cleanly as this idealized model.",
+"tr": "<b>Qué no muestra:</b> No reproduce montones de arena ni desprendimientos reales. Es el modelo simplificado de este proyecto, con una única regla: pasar granos a cuatro vecinos. Se suelen citar estadísticas parecidas, con sucesos pequeños comunes y grandes raros, para terremotos, incendios forestales y caídas bursátiles, pero esta simulación ni explica ni demuestra las causas que hay detrás; el parecido es solo sugerente. La pendiente es un valor medido en este experimento con un tamaño de tablero y una muestra limitados, y no confirma el exponente exacto de la teoría. Con frecuencia se informa de que los experimentos reales con montones de arena no se comportan de forma tan limpia como este modelo idealizado."
+},
+{
+"id": "s1764",
+"page": "sandpile",
+"ko": "<b>모델의 뿌리:</b> 1987년 Bak, Tang, Wiesenfeld가 제안한 모래더미 모델로, 아무것도 조절하지 않아도 계가 스스로 임계 상태에 이른다는 <b>자기조직화 임계성(self-organized criticality)</b>의 대표 예입니다. 출처: Bak, Tang &amp; Wiesenfeld (1987), \"Self-organized criticality: An explanation of the 1/f noise\", <i>Physical Review Letters</i> 59, 381.",
+"en": "<b>Where the model comes from:</b> The sandpile model proposed by Bak, Tang and Wiesenfeld in 1987, the standard example of <b>self-organized criticality</b>: a system that drives itself to a critical state without anyone tuning it. Source: Bak, Tang &amp; Wiesenfeld (1987), \"Self-organized criticality: An explanation of the 1/f noise\", <i>Physical Review Letters</i> 59, 381.",
+"tr": "<b>De dónde viene el modelo:</b> El modelo del montón de arena propuesto por Bak, Tang y Wiesenfeld en 1987, el ejemplo estándar de <b>criticalidad autoorganizada</b>: un sistema que se lleva por sí solo a un estado crítico sin que nadie lo ajuste. Fuente: Bak, Tang &amp; Wiesenfeld (1987), \"Self-organized criticality: An explanation of the 1/f noise\", <i>Physical Review Letters</i> 59, 381."
+},
+{
+"id": "s1765",
+"page": "sandpile",
+"ko": "<b>핵심 가정과 수식:</b> 칸 높이 <code>h</code>가 4 이상이면 <code>h → h − 4</code>로 줄고 상하좌우 이웃 네 칸의 높이가 각각 1 늘어납니다. 눈사태 크기 <code>s</code>는 이 무너짐의 총 횟수이고, 임계 상태에서는 큰 사태까지 <code>P(s) ~ s<sup>−τ</sup></code> 꼴의 거듭제곱 분포를 따를 것으로 봅니다. 슬라이더는 판의 한 변 길이(격자 크기)입니다.",
+"en": "<b>Key assumptions and formulas:</b> When a cell's height <code>h</code> reaches 4 or more it drops by 4 (<code>h → h − 4</code>) and each of its four neighbors gains 1. The avalanche size <code>s</code> is the total number of topplings, and at criticality it is expected to follow a power law <code>P(s) ~ s<sup>−τ</sup></code> over a wide range of sizes. The slider sets the side length of the grid.",
+"tr": "<b>Supuestos clave y fórmulas:</b> Cuando la altura <code>h</code> de una celda llega a 4 o más, baja en 4 (<code>h → h − 4</code>) y cada uno de sus cuatro vecinos gana 1. El tamaño de la avalancha <code>s</code> es el número total de desmoronamientos, y en la criticalidad se espera que siga una ley de potencias <code>P(s) ~ s<sup>−τ</sup></code> en un amplio rango de tamaños. El control deslizante fija el lado de la cuadrícula."
+},
+{
+"id": "s1766",
+"page": "sandpile",
+"ko": "<b>이 프로젝트의 단순화:</b> 이 프로젝트는 가장자리로 알이 빠져나가는 정사각형 격자, 임계 높이 4, 한 번에 한 알이라는 가장 단순한 형태만 구현했습니다. 알이 쌓이는 속도와 눈사태가 끝나는 속도를 분리한 것도 모델의 설정이며 실제 모래의 마찰과 관성은 없습니다. 판 크기 기본값 40과 안정기 기준(알 수의 3배)은 이 프로젝트가 정한 값입니다.",
+"en": "<b>What this project simplifies:</b> This project implements only the simplest form: a square grid with open edges, a threshold of 4 and one grain at a time. Treating grain arrival as much slower than the avalanche is a modeling assumption, and real sand's friction and inertia are absent. The default board size of 40 and the steady-regime cutoff (3 times the number of cells) are values chosen by this project.",
+"tr": "<b>Qué simplifica este proyecto:</b> Este proyecto implementa solo la forma más simple: una cuadrícula cuadrada con bordes abiertos, un umbral de 4 y un grano cada vez. Tratar la llegada de granos como mucho más lenta que la avalancha es un supuesto de modelado, y no existen la fricción ni la inercia de la arena real. El tamaño de tablero por defecto de 40 y el corte del régimen estacionario (3 veces el número de celdas) son valores elegidos por este proyecto."
+},
+{
+"id": "s1767",
+"page": "sandpile",
+"ko": "<b>이론값과 시뮬레이션:</b> 이 모델의 거듭제곱 지수에 대해 이 프로젝트가 직접 확인한 교과서 값은 없습니다. 보고된 값은 눈사태 크기를 무엇으로 재는지와 격자 크기에 따라 달라서 맞춰 보지 않았고, 시뮬레이션에서 잰 값만 적습니다. 40×40에서 기울기는 -1.17~-1.25(평균 -1.22)이고 판이 커질수록 -1.35(20×20), -1.20(60×60), -1.18(100×100)로 완만해졌습니다. 보존 검사(더한 알 = 남은 알 + 사라진 알)와 모든 칸이 3 이하로 안정되는지는 <code>node tools/validate-sandpile.js</code>에서 확인했습니다.",
+"en": "<b>Theory versus simulation:</b> This project has no textbook value for the exponent that it checked directly. Reported values depend on how avalanche size is measured and on the grid size, so none was matched here; only measured values are given. At 40×40 the slope was -1.17 to -1.25 (average -1.22), and it flattened with board size: -1.35 (20×20), -1.20 (60×60), -1.18 (100×100). Conservation (grains added = grains left + grains lost) and stability (every cell at most 3) were checked with <code>node tools/validate-sandpile.js</code>.",
+"tr": "<b>Teoría frente a simulación:</b> Este proyecto no tiene un valor de manual para el exponente que haya comprobado directamente. Los valores publicados dependen de cómo se mide el tamaño de la avalancha y del tamaño de la cuadrícula, así que no se ajustó ninguno aquí; solo se dan valores medidos. Con 40×40 la pendiente fue de -1,17 a -1,25 (media -1,22), y se aplanó con el tamaño del tablero: -1,35 (20×20), -1,20 (60×60), -1,18 (100×100). La conservación (granos añadidos = granos restantes + granos perdidos) y la estabilidad (toda celda como máximo 3) se comprobaron con <code>node tools/validate-sandpile.js</code>."
+},
+{
+"id": "s1768",
+"page": "sandpile",
+"ko": "<b>더 읽을거리:</b> Bak, Tang &amp; Wiesenfeld (1987), <i>Physical Review Letters</i> 59, 381 (위 논문). Per Bak (1996), <i>How Nature Works: The Science of Self-Organized Criticality</i>, Copernicus.",
+"en": "<b>Further reading:</b> Bak, Tang &amp; Wiesenfeld (1987), <i>Physical Review Letters</i> 59, 381 (the paper above). Per Bak (1996), <i>How Nature Works: The Science of Self-Organized Criticality</i>, Copernicus.",
+"tr": "<b>Lecturas adicionales:</b> Bak, Tang &amp; Wiesenfeld (1987), <i>Physical Review Letters</i> 59, 381 (el artículo citado arriba). Per Bak (1996), <i>How Nature Works: The Science of Self-Organized Criticality</i>, Copernicus."
+},
+{
+"id": "s1769",
+"page": "sandpile",
+"ko": "눈사태는 쌓인 칸을 스택에 넣어 처리하는데, 무너지는 순서는 최종 모양과 무너짐 횟수에 영향을 주지 않습니다. 분포는 크기를 약 1.5배씩 넓어지는 구간으로 묶어 구간 폭으로 나눈 비율을 그리고, 표본 10개 이상인 구간에 최소제곱으로 직선을 맞춥니다. 난수는 시드를 쓰는 mulberry32입니다.",
+"en": "Avalanches are processed with a stack of overfull cells; the order of toppling does not change the final shape or the number of topplings. The distribution groups sizes into bins about 1.5 times wider each and plots the share divided by bin width, with a least-squares line fitted to bins holding at least 10 avalanches. Random numbers come from a seeded mulberry32.",
+"tr": "Las avalanchas se procesan con una pila de celdas desbordadas; el orden de los desmoronamientos no cambia la forma final ni el número de desmoronamientos. La distribución agrupa los tamaños en intervalos cada vez unas 1,5 veces más anchos y representa la proporción dividida por la anchura del intervalo, con una recta de mínimos cuadrados ajustada a los intervalos que contienen al menos 10 avalanchas. Los números aleatorios provienen de un mulberry32 con semilla."
+},
+{
+"id": "s1770",
+"page": "sandpile",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/sandpile\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/sandpile\">GitHub</a>.",
+"tr": "El código está disponible en <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/sandpile\">GitHub</a>."
+},
+{
+"id": "s1798",
+"page": "schelling",
+"ko": "소수가 되기 싫다는 약한 바람만으로도 아무도 원하지 않은 강한 분리가 생길 수 있어요.",
+"en": "A weak wish not to be in the minority can produce strong segregation that nobody wanted.",
+"tr": "Un débil deseo de no estar en minoría puede producir una fuerte segregación que nadie quería."
+},
+{
+"id": "s1799",
+"page": "schelling",
+"ko": "불만족한 사람이 떠나면 남은 이웃의 비율이 바뀌어 또 다른 사람이 불만족해지는 연쇄가 이어지기 때문일 수 있어요.",
+"en": "When an unhappy person leaves, the neighbors' mix changes and makes others unhappy, which may set off a chain.",
+"tr": "Cuando una persona insatisfecha se va, cambia la mezcla de los vecinos y hace que otros se sientan insatisfechos, lo que puede desencadenar una cadena."
+},
+{
+"id": "s1800",
+"page": "schelling",
+"ko": "분리를 볼 때는 개인의 속마음보다 이사의 연쇄를 만드는 구조가 어디인지 살펴볼 만해요.",
+"en": "To read segregation, it may help to look for what starts the chain of moves rather than guessing at individuals' feelings.",
+"tr": "Para interpretar la segregación, puede ayudar buscar qué inicia la cadena de mudanzas en lugar de adivinar los sentimientos de cada individuo."
+},
+{
+"id": "s1802",
+"page": "schelling",
+"ko": "현실의 주거 분리가 모두 이런 이유 때문이라는 뜻은 아니에요.",
+"en": "It does not mean all real residential segregation arises this way.",
+"tr": "No significa que toda la segregación residencial real surja de esta manera."
+},
+{
+"id": "s1803",
+"page": "schelling",
+"ko": "집값, 학군, 일자리, 제도는 모델에 없어서, 실제 이동 이유와 이웃 구성은 따로 관찰해야 알 수 있어요.",
+"en": "Housing prices, schools, jobs and institutions are absent, so real reasons for moving and neighborhood mix would have to be observed.",
+"tr": "Faltan los precios de la vivienda, las escuelas, los empleos y las instituciones, así que habría que observar las razones reales para mudarse y la mezcla real de los barrios."
+},
+{
+"id": "s1805",
+"page": "schelling",
+"ko": "<b>모델의 뿌리:</b> Thomas C. Schelling(1971)의 \"Dynamic Models of Segregation\"(<i>Journal of Mathematical Sociology</i> 1(2))입니다. 개인은 \"내 이웃의 일정 비율은 나와 같았으면\"이라는 약한 선호만 가져도, 이사를 반복하면 전체는 크게 갈라질 수 있음을 보였습니다. 이후 책 『Micromotives and Macrobehavior』(1978)에서 널리 알려졌습니다.",
+"en": "<b>Where the model comes from:</b> This is Thomas C. Schelling (1971), \"Dynamic Models of Segregation\" (<i>Journal of Mathematical Sociology</i> 1(2)). It showed that even if each person has only a mild preference that some share of their neighbors resemble them, repeated moving can split the whole population sharply. It became widely known through his book <i>Micromotives and Macrobehavior</i> (1978).",
+"tr": "<b>De dónde viene el modelo:</b> Es Thomas C. Schelling (1971), \"Dynamic Models of Segregation\" (<i>Journal of Mathematical Sociology</i> 1(2)). Mostró que, aunque cada persona tenga solo una preferencia leve de que cierta proporción de sus vecinos se le parezca, las mudanzas repetidas pueden dividir de forma nítida a toda la población. Se hizo muy conocido gracias a su libro <i>Micromotives and Macrobehavior</i> (1978)."
+},
+{
+"id": "s1806",
+"page": "schelling",
+"ko": "<b>핵심 가정과 수식:</b> 50×50 격자(가장자리가 이어짐)에 두 집단이 섞여 있고 빈 칸이 10%입니다. 둘레 8칸 이웃 중 같은 집단 비율이 <code>threshold</code> 이상이면 만족, 미만이면 불만족입니다. 불만족한 사람은 무작위 빈 칸으로 이사합니다. 슬라이더는 이 <code>threshold</code>(원하는 비율)입니다.",
+"en": "<b>Key assumptions and formulas:</b> Two groups are mixed on a 50×50 grid (edges wrap around) with 10% empty cells. A person is content if the share of the same group among the 8 surrounding neighbors is at least <code>threshold</code>, and unhappy otherwise. Unhappy people move to a random empty cell. The slider is this <code>threshold</code> (the desired share).",
+"tr": "<b>Supuestos clave y fórmulas:</b> Se mezclan dos grupos en una cuadrícula de 50×50 (los bordes se conectan) con un 10% de celdas vacías. Una persona está contenta si la proporción del mismo grupo entre los 8 vecinos que la rodean es al menos el <code>umbral</code>, y descontenta en caso contrario. Las personas descontentas se mudan a una celda vacía al azar. El control deslizante es este <code>umbral</code> (la proporción deseada)."
+},
+{
+"id": "s1807",
+"page": "schelling",
+"ko": "<b>이 프로젝트의 단순화:</b> Schelling의 원 모델은 줄 위 또는 바둑판 위의 동전으로 설명되며 이사 규칙이 여러 가지입니다. 이 구현은 흔한 변형으로, 불만족한 사람이 무작위 순서로 한 명씩 무작위 빈 칸으로 이사합니다. 이웃이 한 명도 없으면 만족으로 봅니다. 격자 크기, 빈 칸 10%, 두 집단 50:50은 이 프로젝트가 정한 값입니다.",
+"en": "<b>What this project simplifies:</b> Schelling's original model is described with coins on a line or board and allows several moving rules. This implementation is a common variant: unhappy people move one at a time in random order to a random empty cell. A person with no neighbors counts as content. The grid size, 10% empty cells and 50:50 split are this project's own values.",
+"tr": "<b>Qué simplifica este proyecto:</b> El modelo original de Schelling se describe con monedas en una línea o un tablero y admite varias reglas de mudanza. Esta implementación es una variante habitual: las personas descontentas se mudan de una en una, en orden aleatorio, a una celda vacía al azar. Una persona sin vecinos cuenta como contenta. El tamaño de la cuadrícula, el 10% de celdas vacías y la división 50:50 son valores propios de este proyecto."
+},
+{
+"id": "s1808",
+"page": "schelling",
+"ko": "<b>이론값과 시뮬레이션:</b> 닫힌 해가 없어 시뮬레이션만으로 확인했습니다. 처음 같은 이웃 비율은 50%였고, 원하는 비율이 10%면 51%, 30%면 75%, 40%면 83%, 50%면 87%, 60%면 98%로 끝납니다(5회 평균). 원하는 비율 70%까지는 거의 완전히 갈라지지만 수렴에 100라운드 넘게 걸리고, 80%에서는 모두 만족하는 배치가 없어 300라운드에도 51%에 머뭅니다(<code>node tools/validate-schelling.js</code>).",
+"en": "<b>Theory versus simulation:</b> There is no closed-form result, so this was checked by simulation only. The initial same-neighbor share was 50%; it ends at 51% for a desired share of 10%, 75% for 30%, 83% for 40%, 87% for 50% and 98% for 60% (5-run averages). Up to 70% the population separates almost completely but takes over 100 rounds to settle, and at 80% no arrangement satisfies everyone, so it stays at 51% after 300 rounds (<code>node tools/validate-schelling.js</code>).",
+"tr": "<b>Teoría frente a simulación:</b> No existe un resultado en forma cerrada, así que se comprobó solo mediante simulación. La proporción inicial de vecinos iguales fue del 50 %; termina en 51 % para una proporción deseada del 10 %, 75 % para el 30 %, 83 % para el 40 %, 87 % para el 50 % y 98 % para el 60 % (promedios de 5 ejecuciones). Hasta el 70 % la población se separa casi por completo, pero tarda más de 100 rondas en estabilizarse, y con el 80 % ninguna disposición satisface a todos, por lo que se queda en 51 % tras 300 rondas (<code>node tools/validate-schelling.js</code>)."
+},
+{
+"id": "s1809",
+"page": "schelling",
+"ko": "<b>더 읽을거리:</b> Thomas C. Schelling (1971), \"Dynamic Models of Segregation\", <i>Journal of Mathematical Sociology</i> 1(2). Thomas C. Schelling (1978), 『Micromotives and Macrobehavior』, W. W. Norton.",
+"en": "<b>Further reading:</b> Thomas C. Schelling (1971), \"Dynamic Models of Segregation\", <i>Journal of Mathematical Sociology</i> 1(2). Thomas C. Schelling (1978), <i>Micromotives and Macrobehavior</i>, W. W. Norton.",
+"tr": "<b>Lecturas complementarias:</b> Thomas C. Schelling (1971), «Dynamic Models of Segregation», <i>Journal of Mathematical Sociology</i> 1(2). Thomas C. Schelling (1978), <i>Micromotives and Macrobehavior</i>, W. W. Norton."
+},
+{
+"id": "s1813",
+"page": "seating",
+"ko": "벤치 자리 앉기 · 시뮬라티오 랩",
+"en": "Bench Seating · Simulatio Lab",
+"tr": "Asientos en el banco · Simulatio Lab"
+},
+{
+"id": "s1814",
+"page": "seating",
+"ko": "모두가 예의 바르게 옆 사람과 거리를 두고 앉았는데도 벤치 자리가 이만큼 남는 이유를, 앉는 방식 네 가지를 나란히 돌려보며 알아보세요.",
+"en": "Everyone sits politely, yet seats go unused. Run four ways of sitting side by side and see why a bench jams before it is full.",
+"tr": "Todos se sientan con educación, pero quedan asientos sin usar. Ejecuta cuatro maneras de sentarse lado a lado y mira por qué un banco se atasca antes de llenarse."
+},
+{
+"id": "s1815",
+"page": "seating",
+"ko": "낯선 사람 옆에는 한두 칸 띄우고 앉는 것이 예의입니다. 모두가 그렇게 하면 벤치가 알맞게 채워질 것 같습니다. 그런데 한 명씩 마음 가는 대로 앉게 하면, 아직 빈 자리가 한가득인데도 \"앉을 곳이 없네\" 하며 돌아가는 사람이 생깁니다. 아무도 잘못하지 않았는데 자리가 이렇게 낭비되는 까닭은 무엇일까요?",
+"en": "When you sit next to a stranger, it is polite to leave a seat or two between you. If everyone does, the bench should fill up neatly. But let people sit one at a time wherever they like, and some turn away saying \"no room\" while plenty of seats are still empty. Nobody did anything wrong, so why are seats wasted?",
+"tr": "Cuando te sientas junto a un desconocido, lo cortés es dejar uno o dos asientos de por medio. Si todos lo hacen, el banco debería llenarse con orden. Pero si cada persona se sienta una a una donde quiere, algunas se van diciendo «no hay sitio» mientras quedan muchos asientos libres. Nadie hizo nada mal, entonces ¿por qué se desperdician asientos?"
+},
+{
+"id": "s1816",
+"page": "seating",
+"ko": "벤치에 자리가 <b>n석</b> 한 줄로 있고, 낯선 사람이 한 명씩 도착합니다. 앉은 사람의 양옆 <b>g칸</b>은 비워 두어야 해서, 그 안의 빈 자리(빨간 ×)에는 앉을 수 없습니다.",
+"en": "A bench has <b>n seats</b> in a row and strangers arrive one at a time. Each seated person needs <b>g empty seats</b> on both sides, so those seats (red ×) are off limits.",
+"tr": "Un banco tiene <b>n asientos</b> en fila y los desconocidos llegan de uno en uno. Cada persona sentada necesita <b>g asientos libres</b> a ambos lados, así que esos asientos (× roja) quedan prohibidos."
+},
+{
+"id": "s1817",
+"page": "seating",
+"ko": "같은 사람들이 <b>네 가지 방식</b>으로 앉습니다. 무작위(앉을 수 있는 자리 중 아무 곳), 가장 먼 자리(앉은 사람에게서 가장 먼 곳), 끝자리 먼저(끝이 비었으면 거기, 아니면 무작위), 정돈(왼쪽부터 g+1칸 간격으로 빽빽하게).",
+"en": "The same arrivals sit in <b>four ways</b>: random (any allowed seat), farthest (as far from everyone as possible), edge first (an end seat if free, else random), and orderly (from the left, every g+1 seats).",
+"tr": "Las mismas llegadas se sientan de <b>cuatro maneras</b>: al azar (cualquier asiento permitido), lo más lejos (lo más alejado posible de todos), primero el extremo (un asiento de las puntas si está libre, si no al azar) y ordenada (desde la izquierda, cada g+1 asientos)."
+},
+{
+"id": "s1818",
+"page": "seating",
+"ko": "앉을 곳이 없으면 그 사람은 돌아갑니다. 정돈해서 앉으면 최대 <b>⌈n÷(g+1)⌉명</b>이 앉을 수 있고, 이것이 기준선입니다. 아래 <b>직접 앉혀 보기</b>에서는 처음 몇 명을 여러분이 앉히고 나머지는 무작위로 들어옵니다.",
+"en": "A person with no allowed seat leaves. Orderly seating fits at most <b>⌈n ÷ (g+1)⌉ people</b>, which is the baseline. In <b>Seat them yourself</b> below you place the first few people and the rest arrive at random.",
+"tr": "Una persona sin asiento permitido se va. La disposición ordenada admite como máximo <b>⌈n ÷ (g+1)⌉ personas</b>, que es la referencia. En <b>Siéntalos tú mismo</b>, más abajo, colocas a las primeras personas y las demás llegan al azar."
+},
+{
+"id": "s1819",
+"page": "seating",
+"ko": "벤치의 자리 수 <output id=\"o-n\"></output>",
+"en": "Seats on the bench <output id=\"o-n\"></output>",
+"tr": "Asientos del banco <output id=\"o-n\"></output>"
+},
+{
+"id": "s1820",
+"page": "seating",
+"ko": "길수록 이론값에 가까워지는 모습이 보여요",
+"en": "Longer benches approach the theory value",
+"tr": "Los bancos más largos se acercan al valor teórico"
+},
+{
+"id": "s1821",
+"page": "seating",
+"ko": "비워 두는 칸 <output id=\"o-g\"></output>",
+"en": "Empty seats kept between people <output id=\"o-g\"></output>",
+"tr": "Asientos vacíos entre personas <output id=\"o-g\"></output>"
+},
+{
+"id": "s1822",
+"page": "seating",
+"ko": "0이면 바짝 붙어 앉아 낭비가 없어요",
+"en": "0 means sitting shoulder to shoulder, with no waste",
+"tr": "0 significa sentarse hombro con hombro, sin desperdicio"
+},
+{
+"id": "s1823",
+"page": "seating",
+"ko": "찾아오는 사람 <output id=\"o-arrivals\"></output>",
+"en": "People arriving <output id=\"o-arrivals\"></output>",
+"tr": "Personas que llegan <output id=\"o-arrivals\"></output>"
+},
+{
+"id": "s1824",
+"page": "seating",
+"ko": "자리보다 훨씬 많이 오면 돌아가는 사람이 늘어요",
+"en": "More people than fit means more turn away",
+"tr": "Más personas de las que caben significa que más se van"
+},
+{
+"id": "s1825",
+"page": "seating",
+"ko": "같은 설정, 다른 도착 순서",
+"en": "Same settings, different arrival order",
+"tr": "Mismos ajustes, distinto orden de llegada"
+},
+{
+"id": "s1826",
+"page": "seating",
+"ko": "① 같은 사람들, 네 가지 앉는 방식",
+"en": "① The Same People, Four Ways to Sit",
+"tr": "① Las mismas personas, cuatro maneras de sentarse"
+},
+{
+"id": "s1827",
+"page": "seating",
+"ko": "위에서부터 무작위, 가장 먼 자리, 끝자리 먼저, 정돈입니다. 사람이 들어올 때마다 네 줄이 함께 움직입니다. 빨간 ×는 비어 있지만 앉을 수 없는 자리, 굵은 테두리는 방금 앉은 사람입니다.",
+"en": "From the top: random, farthest, edge first, and orderly. All four rows move with each arrival. A red × is an empty seat nobody may take, and a bold outline marks the person who just sat.",
+"tr": "De arriba abajo: al azar, lo más lejos, primero el extremo y ordenada. Las cuatro filas avanzan con cada llegada. Una × roja es un asiento vacío que nadie puede ocupar, y un contorno grueso marca a la persona que acaba de sentarse."
+},
+{
+"id": "s1828",
+"page": "seating",
+"ko": "<i style=\"background:var(--accent)\"></i>앉은 사람",
+"en": "<i style=\"background:var(--accent)\"></i>Seated person",
+"tr": "<i style=\"background:var(--accent)\"></i>Persona sentada"
+},
+{
+"id": "s1829",
+"page": "seating",
+"ko": "<i style=\"background:rgba(229,72,77,0.35)\"></i>앉을 수 없는 빈 자리",
+"en": "<i style=\"background:rgba(229,72,77,0.35)\"></i>Empty seat nobody may take",
+"tr": "<i style=\"background:rgba(229.72.77.0.35)\"></i>Asiento vacío que nadie puede ocupar"
+},
+{
+"id": "s1830",
+"page": "seating",
+"ko": "<i style=\"background:#fff;border:1px solid #cfd6e4\"></i>앉을 수 있는 빈 자리",
+"en": "<i style=\"background:#fff;border:1px solid #cfd6e4\"></i>Empty seat still allowed",
+"tr": "<i style=\"background:#fff;border:1px solid #cfd6e4\"></i>Asiento vacío aún permitido"
+},
+{
+"id": "s1831",
+"page": "seating",
+"ko": "② 직접 앉혀 보기",
+"en": "② Seat Them Yourself",
+"tr": "② Siéntalos tú mismo"
+},
+{
+"id": "s1832",
+"page": "seating",
+"ko": "자리를 눌러 처음 몇 명을 앉혀 보세요(초록은 앉을 수 있는 자리, 빨강은 너무 가까운 자리). 그다음 버튼을 누르면 나머지는 무작위로 들어옵니다. 처음 몇 명을 잘 앉히면 결과가 달라질까요?",
+"en": "Click seats to place the first few people (green means allowed, red too close). Then press the button and the rest arrive at random. Can placing the first few well change the outcome?",
+"tr": "Haz clic en los asientos para colocar a las primeras personas (verde significa permitido, rojo demasiado cerca). Luego pulsa el botón y las demás llegan al azar. ¿Puede cambiar el resultado colocar bien a las primeras?"
+},
+{
+"id": "s1833",
+"page": "seating",
+"ko": "나머지는 무작위로 들어오게 하기",
+"en": "Let the rest arrive at random",
+"tr": "Que el resto llegue al azar"
+},
+{
+"id": "s1834",
+"page": "seating",
+"ko": "비우고 다시",
+"en": "Clear and retry",
+"tr": "Borrar y reintentar"
+},
+{
+"id": "s1835",
+"page": "seating",
+"ko": "자리를 눌러 앉혀 보세요.",
+"en": "Click a seat to place a person.",
+"tr": "Haz clic en un asiento para colocar a una persona."
+},
+{
+"id": "s1836",
+"page": "seating",
+"ko": "③ 벤치가 길어지면",
+"en": "③ As the Bench Gets Longer",
+"tr": "③ A medida que el banco se alarga"
+},
+{
+"id": "s1837",
+"page": "seating",
+"ko": "가로는 벤치의 자리 수, 세로는 앉은 비율입니다. 파란 점은 시뮬레이션 평균, 초록 선은 정확한 기댓값, 빨간 점선은 아주 긴 벤치의 이론값, 회색은 정돈했을 때의 최대입니다.",
+"en": "The horizontal axis is the number of seats, the vertical axis the share seated. Blue dots are simulation averages, the green line is the exact expected value, the red dashed line is the theory value for a very long bench, and gray is the orderly maximum.",
+"tr": "El eje horizontal es el número de asientos y el vertical la proporción ocupada. Los puntos azules son promedios de la simulación, la línea verde es el valor esperado exacto, la línea roja discontinua es el valor teórico para un banco muy largo y el gris es el máximo ordenado."
+},
+{
+"id": "s1838",
+"page": "seating",
+"ko": "<i style=\"background:var(--accent)\"></i>시뮬레이션 평균",
+"en": "<i style=\"background:var(--accent)\"></i>Simulation average",
+"tr": "<i style=\"background:var(--accent)\"></i>Promedio de la simulación"
+},
+{
+"id": "s1839",
+"page": "seating",
+"ko": "<i style=\"background:#1fa463\"></i>정확한 기댓값",
+"en": "<i style=\"background:#1fa463\"></i>Exact expected value",
+"tr": "<i style=\"background:#1fa463\"></i>Valor esperado exacto"
+},
+{
+"id": "s1840",
+"page": "seating",
+"ko": "<i style=\"background:#e5484d\"></i>긴 벤치 이론값",
+"en": "<i style=\"background:#e5484d\"></i>Long-bench theory",
+"tr": "<i style=\"background:#e5484d\"></i>Teoría del banco largo"
+},
+{
+"id": "s1841",
+"page": "seating",
+"ko": "<i style=\"background:#8a93a6\"></i>정돈했을 때 최대",
+"en": "<i style=\"background:#8a93a6\"></i>Orderly maximum",
+"tr": "<i style=\"background:#8a93a6\"></i>Máximo ordenado"
+},
+{
+"id": "s1842",
+"page": "seating",
+"ko": "④ 앉는 방식에 따라",
+"en": "④ Depending on How People Sit",
+"tr": "④ Según cómo se sienta la gente"
+},
+{
+"id": "s1843",
+"page": "seating",
+"ko": "지금 설정에서 방식마다 끝까지 채웠을 때 앉는 사람 수의 평균(수백 판)입니다. 초록 점선이 정돈했을 때의 최대입니다. 똑똑해 보이는 \"가장 먼 자리\"가 항상 더 낫지는 않습니다.",
+"en": "The average number seated under each way of sitting when filled to the end (hundreds of runs) at the current settings. The green dashed line is the orderly maximum. The clever-looking \"farthest seat\" is not always better.",
+"tr": "Promedio de personas sentadas con cada manera de sentarse al llenar hasta el final (cientos de ejecuciones) con los ajustes actuales. La línea verde discontinua es el máximo ordenado. El «asiento más lejano», que parece inteligente, no siempre es mejor."
+},
+{
+"id": "s1844",
+"page": "seating",
+"ko": "⑤ 간격을 넓히면 낭비도 늘까",
+"en": "⑤ Does a Wider Gap Waste More?",
+"tr": "⑤ ¿Un hueco mayor desperdicia más?"
+},
+{
+"id": "s1845",
+"page": "seating",
+"ko": "가로는 비워 두는 칸 수, 세로는 무작위로 앉았을 때 정돈 대비 앉는 비율입니다. 초록은 지금 벤치 길이의 정확한 기댓값, 빨강은 아주 긴 벤치입니다. 간격이 있기만 하면 항상 정돈보다 덜 앉습니다.",
+"en": "The horizontal axis is the gap kept between people, the vertical axis the share of the orderly maximum that random seating reaches. Green is the exact value for the current bench length and red for a very long bench. Any gap at all leaves it below orderly.",
+"tr": "El eje horizontal es el hueco que se deja entre personas y el vertical la proporción del máximo ordenado que alcanza la ocupación al azar. El verde es el valor exacto para la longitud actual del banco y el rojo para un banco muy largo. Con cualquier hueco queda por debajo del orden."
+},
+{
+"id": "s1846",
+"page": "seating",
+"ko": "<i style=\"background:#1fa463\"></i>지금 벤치 길이",
+"en": "<i style=\"background:#1fa463\"></i>Current bench length",
+"tr": "<i style=\"background:#1fa463\"></i>Longitud actual del banco"
+},
+{
+"id": "s1847",
+"page": "seating",
+"ko": "<i style=\"background:#e5484d\"></i>아주 긴 벤치",
+"en": "<i style=\"background:#e5484d\"></i>Very long bench",
+"tr": "<i style=\"background:#e5484d\"></i>Banco muy largo"
+},
+{
+"id": "s1848",
+"page": "seating",
+"ko": "아무도 규칙을 어기지 않아도, 무작위로 앉으면 정돈했을 때보다 자리가 14~20% 놓쳐져요.",
+"en": "Even with nobody breaking the rule, random seating wastes about 14 to 20% of the orderly capacity.",
+"tr": "Aunque nadie rompa la regla, sentarse al azar desperdicia entre un 14 y un 20% de la capacidad ordenada."
+},
+{
+"id": "s1849",
+"page": "seating",
+"ko": "이 모델에서는 앉은 자리가 움직이지 않고 서로 모른 채 차례로 앉아, 애매한 빈틈이 쓰이지 못하고 남아요.",
+"en": "In this model seats never move and strangers sit one by one, so awkward gaps are left unused.",
+"tr": "En este modelo los asientos nunca se mueven y los desconocidos se sientan uno a uno, así que los huecos incómodos quedan sin usar."
+},
+{
+"id": "s1850",
+"page": "seating",
+"ko": "빈자리가 아쉽다면 사람 태도보다, 앉는 순서와 안내 방식이 틈을 만드는지부터 살펴볼 만해요.",
+"en": "If seats feel wasted, it is worth checking whether seating order and guidance create the gaps, not attitudes.",
+"tr": "Si los asientos parecen desaprovechados, conviene comprobar si el orden de asiento y las indicaciones crean los huecos, y no las actitudes."
+},
+{
+"id": "s1851",
+"page": "seating",
+"ko": "<b>말하는 것:</b> 간격 1칸이면 아주 긴 벤치에서 무작위로 앉은 사람은 자리의 43.2%(이론 (1−e<sup>−2</sup>)/2)로, 정돈했을 때의 50%보다 적었습니다(시뮬레이션 43.3%). 간격 2칸이면 27.5%(정돈 33.3%), 3칸이면 20.1%(정돈 25.0%)였습니다. 자리 30개, 간격 2칸에서는 정돈하면 10명이 앉지만 무작위로는 평균 8.6명이었고(정확한 기댓값 8.61명), 가장 먼 자리는 8.9명, 끝자리 먼저는 8.9명이었습니다. 아무도 규칙을 어기지 않았는데도 정돈했을 때에 비해 약 14~20%의 자리가 놓쳐졌습니다(간격 1~3칸, 긴 벤치).",
+"en": "<b>What it shows:</b> With a one-seat gap, people seating themselves at random on a very long bench fill 43.2% of the seats (theory (1−e<sup>−2</sup>)/2), below the 50% of orderly seating (simulation 43.3%). With a two-seat gap it is 27.5% (orderly 33.3%), and with three 20.1% (orderly 25.0%). With 30 seats and a two-seat gap, orderly seating fits 10 people but random seating averaged 8.6 (exact expectation 8.61); farthest-seat averaged 8.9 and edge-first 8.9. Nobody broke the rule, yet about 14 to 20% of the orderly capacity was lost (gaps of 1 to 3 seats, long bench).",
+"tr": "<b>Qué muestra:</b> Con un asiento de hueco, las personas que se sientan al azar en un banco muy largo ocupan el 43,2 % de los asientos (teoría (1−e<sup>−2</sup>)/2), por debajo del 50 % de la ocupación ordenada (simulación 43,3 %). Con un hueco de dos asientos es 27,5 % (ordenada 33,3 %) y con tres, 20,1 % (ordenada 25,0 %). Con 30 asientos y un hueco de dos, la ocupación ordenada admite 10 personas, pero la aleatoria promedió 8,6 (esperanza exacta 8,61); el asiento más lejano promedió 8,9 y el primero el extremo 8,9. Nadie rompió la regla, y aun así se perdió entre el 14 y el 20 % de la capacidad ordenada (huecos de 1 a 3 asientos, banco largo)."
+},
+{
+"id": "s1852",
+"page": "seating",
+"ko": "실제 대기실이나 지하철의 모든 것을 설명하지는 않아요. 간격은 모두 같다고 정한 값이에요.",
+"en": "It does not explain every real waiting room or subway car; equal spacing for all is an assumption.",
+"tr": "No explica todas las salas de espera ni vagones de metro reales; el mismo espaciado para todos es un supuesto."
+},
+{
+"id": "s1853",
+"page": "seating",
+"ko": "일행이나 사람마다 다른 간격이 실제 자리 활용에 얼마나 영향을 주는지 관찰해 봐야 해요.",
+"en": "How groups and differing personal spacing affect real seat use would need to be observed.",
+"tr": "Habría que observar cómo influyen los grupos y las distintas distancias personales en el uso real de los asientos."
+},
+{
+"id": "s1854",
+"page": "seating",
+"ko": "<b>말하지 않는 것:</b> 실제 대기실이나 지하철의 모든 것을 설명하는 것이 아닙니다. 이 모델은 한 줄짜리 벤치, 서로 모르는 사람, 엄격한 최소 간격, 한 명씩 차례로 도착하는 가정으로 만든 이 프로젝트의 단순화된 모델입니다. 실제 사람들은 일행과 붙어 앉고, 간격이 사람마다 다르고, 앉은 사람이 자리를 옮기기도 하며, 문화와 상황에 따라 앉는 방식이 다릅니다. \"정돈\"은 모두가 도착 순서를 알고 협력할 때만 가능한 이상적인 기준선입니다.",
+"en": "<b>What it doesn't show:</b> This does not explain every waiting room or subway car. It is this project's simplified model: a single-row bench, strangers, a strict minimum gap and one arrival at a time. Real people sit with companions, keep different distances, move seats, and differ by culture and setting. \"Orderly\" is an idealized baseline that needs everyone to cooperate and know the arrival order.",
+"tr": "<b>Qué no muestra:</b> Esto no explica todas las salas de espera ni todos los vagones de metro. Es el modelo simplificado de este proyecto: un banco de una sola fila, desconocidos, un hueco mínimo estricto y una llegada a la vez. Las personas reales se sientan con acompañantes, mantienen distintas distancias, cambian de asiento y varían según la cultura y el lugar. «Ordenada» es una referencia idealizada que exige que todos cooperen y conozcan el orden de llegada."
+},
+{
+"id": "s1855",
+"page": "seating",
+"ko": "<b>모델의 뿌리:</b> 이 문제는 물리·수학의 <b>무작위 순차 흡착(random sequential adsorption, RSA)</b>, 그중에서도 1차원 <b>렌니 주차 문제</b>와 같은 구조입니다. Rényi (1958)가 도로에 길이가 같은 자동차를 무작위 위치에 차례로 세우는 문제를 풀었고, Flory (1939)는 고분자에서 이웃한 자리끼리 반응하는 같은 구조를 먼저 다뤘습니다. 한 번 놓이면 움직이지 않고 겹칠 수 없다는 것이 핵심입니다.",
+"en": "<b>Where the model comes from:</b> This is <b>random sequential adsorption (RSA)</b>, specifically the one-dimensional <b>Rényi parking problem</b>. Rényi (1958) solved the problem of parking equal-length cars at random positions on a road one after another, and Flory (1939) had treated the same structure for neighboring reactive sites on polymers. The key is that once placed, an object never moves and may not overlap another.",
+"tr": "<b>De dónde viene el modelo:</b> Es la <b>adsorción secuencial aleatoria (RSA)</b>, en concreto el <b>problema de aparcamiento de Rényi</b> unidimensional. Rényi (1958) resolvió el problema de aparcar coches de igual longitud en posiciones aleatorias de una calle, uno tras otro, y Flory (1939) había tratado la misma estructura para sitios reactivos vecinos en polímeros. La clave es que, una vez colocado, un objeto no se mueve y no puede solaparse con otro."
+},
+{
+"id": "s1856",
+"page": "seating",
+"ko": "<b>핵심 가정과 수식:</b> 앉은 사람이 양옆 g칸을 막으므로, 사람 한 명은 길이 g+1짜리 막대 하나를 놓는 것과 같습니다. 긴 벤치에서 앉는 비율은 <code>∫<sub>0</sub><sup>∞</sup> exp(−u − 2·Σ<sub>j=1..g</sub> (1−e<sup>−ju</sup>)/j) du</code>이고, g=0이면 1, g=1이면 (1−e<sup>−2</sup>)/2 ≈ 0.432입니다. 길이 n인 벤치의 기댓값은 <code>f(n) = 1 + (1/n)·Σ<sub>i</sub> [f(i−1−g) + f(n−i−g)]</code>로 구합니다. 슬라이더 n, g가 이 식의 n, g입니다.",
+"en": "<b>Key assumptions and formulas:</b> A seated person blocks g seats on each side, so each person is like placing a rod of length g+1. On a long bench the seated share is <code>∫<sub>0</sub><sup>∞</sup> exp(−u − 2·Σ<sub>j=1..g</sub> (1−e<sup>−ju</sup>)/j) du</code>, which is 1 for g=0 and (1−e<sup>−2</sup>)/2 ≈ 0.432 for g=1. For a bench of n seats the expectation follows <code>f(n) = 1 + (1/n)·Σ<sub>i</sub> [f(i−1−g) + f(n−i−g)]</code>. The sliders n and g are the n and g in these formulas.",
+"tr": "<b>Supuestos clave y fórmulas:</b> Una persona sentada bloquea g asientos a cada lado, de modo que cada persona equivale a colocar una barra de longitud g+1. En un banco largo la proporción ocupada es <code>∫<sub>0</sub><sup>∞</sup> exp(−u − 2·Σ<sub>j=1..g</sub> (1−e<sup>−ju</sup>)/j) du</code>, que vale 1 para g=0 y (1−e<sup>−2</sup>)/2 ≈ 0,432 para g=1. Para un banco de n asientos, la esperanza cumple <code>f(n) = 1 + (1/n)·Σ<sub>i</sub> [f(i−1−g) + f(n−i−g)]</code>. Los controles deslizantes n y g son las n y g de estas fórmulas."
+},
+{
+"id": "s1857",
+"page": "seating",
+"ko": "<b>이 프로젝트의 단순화:</b> 원 문제는 연속적인 길이이고, 이 페이지는 칸이 나뉜 좌석입니다. \"가장 먼 자리\", \"끝자리 먼저\", \"정돈\"은 이 프로젝트가 정한 앉는 방식이고 이론이 있는 것은 무작위뿐입니다. 도착하는 사람 수, 기본값(30석, 2칸, 24명), 사람마다 같은 간격을 둔다는 가정은 이 프로젝트의 설계입니다.",
+"en": "<b>What this project simplifies:</b> The original problem uses continuous lengths, whereas this page uses discrete seats. \"Farthest\", \"edge first\" and \"orderly\" are this project's own ways of sitting, and only random has a theory behind it. The number of arrivals, the defaults (30 seats, gap 2, 24 people) and the assumption that everyone keeps the same gap are this project's design.",
+"tr": "<b>Qué simplifica este proyecto:</b> El problema original usa longitudes continuas, mientras que esta página usa asientos discretos. «Más lejano», «primero el extremo» y «ordenada» son maneras de sentarse propias de este proyecto, y solo la aleatoria tiene una teoría detrás. El número de llegadas, los valores por defecto (30 asientos, hueco 2, 24 personas) y el supuesto de que todos mantienen el mismo hueco son decisiones de diseño de este proyecto."
+},
+{
+"id": "s1858",
+"page": "seating",
+"ko": "<b>이론값과 시뮬레이션:</b> <code>node tools/validate-seating.js</code> 결과, 긴 벤치(2,000석, 200판)에서 이론 대 시뮬레이션은 간격 1칸 0.4323 대 0.4327, 2칸 0.2746 대 0.2749, 3칸 0.2010 대 0.2009였습니다. 유한한 벤치의 정확한 기댓값도 시뮬레이션(5,000판)과 맞았습니다(24석 1칸 10.673 대 10.679명, 30석 2칸 8.609 대 8.600명). 앉은 사람 사이 간격 위반은 0건이었습니다.",
+"en": "<b>Theory versus simulation:</b> In <code>node tools/validate-seating.js</code>, theory versus simulation on a long bench (2,000 seats, 200 runs) was 0.4323 vs 0.4327 for gap 1, 0.2746 vs 0.2749 for gap 2 and 0.2010 vs 0.2009 for gap 3. The exact finite-bench expectation also matched simulation (5,000 runs): 24 seats, gap 1: 10.673 vs 10.679 people; 30 seats, gap 2: 8.609 vs 8.600. There were 0 gap violations.",
+"tr": "<b>Teoría frente a simulación:</b> Con <code>node tools/validate-seating.js</code>, la teoría frente a la simulación en un banco largo (2000 asientos, 200 ejecuciones) fue 0,4323 frente a 0,4327 con hueco 1, 0,2746 frente a 0,2749 con hueco 2 y 0,2010 frente a 0,2009 con hueco 3. La esperanza exacta de un banco finito también coincidió con la simulación (5000 ejecuciones): 24 asientos, hueco 1: 10,673 frente a 10,679 personas; 30 asientos, hueco 2: 8,609 frente a 8,600. Hubo 0 infracciones del hueco."
+},
+{
+"id": "s1859",
+"page": "seating",
+"ko": "<b>더 읽을거리:</b> Rényi, A. (1958), \"On a one-dimensional problem concerning random space-filling\", <i>Publ. Math. Inst. Hungarian Acad. Sci.</i>; Flory, P. J. (1939), <i>J. Am. Chem. Soc.</i> 61, 1518; Evans, J. W. (1993), \"Random and cooperative sequential adsorption\", <i>Reviews of Modern Physics</i> 65, 1281 (개설).",
+"en": "<b>Further reading:</b> Rényi, A. (1958), \"On a one-dimensional problem concerning random space-filling\", <i>Publ. Math. Inst. Hungarian Acad. Sci.</i>; Flory, P. J. (1939), <i>J. Am. Chem. Soc.</i> 61, 1518; Evans, J. W. (1993), \"Random and cooperative sequential adsorption\", <i>Reviews of Modern Physics</i> 65, 1281 (review).",
+"tr": "<b>Lecturas complementarias:</b> Rényi, A. (1958), «On a one-dimensional problem concerning random space-filling», <i>Publ. Math. Inst. Hungarian Acad. Sci.</i>; Flory, P. J. (1939), <i>J. Am. Chem. Soc.</i> 61, 1518; Evans, J. W. (1993), «Random and cooperative sequential adsorption», <i>Reviews of Modern Physics</i> 65, 1281 (revisión)."
+},
+{
+"id": "s1860",
+"page": "seating",
+"ko": "시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 네 줄은 같은 도착 인원으로 각자 자기 난수를 씁니다. 통계 카드와 ④번 그래프는 설정마다 300판, ③번 그래프의 점은 벤치 길이마다 150판의 평균입니다.",
+"en": "The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. The four rows share the same number of arrivals but each uses its own random numbers. The stat cards and chart ④ average 300 runs per setting, and each dot in chart ③ averages 150 runs per bench length.",
+"tr": "La simulación usa un generador aleatorio con semilla (mulberry32), así que la misma semilla da el mismo resultado. Las cuatro filas comparten el mismo número de llegadas, pero cada una usa sus propios números aleatorios. Las tarjetas de estadísticas y el gráfico ④ promedian 300 ejecuciones por ajuste, y cada punto del gráfico ③ promedia 150 ejecuciones por longitud de banco."
+},
+{
+"id": "s1861",
+"page": "seating",
+"ko": "검증은 <code>node tools/validate-seating.js</code>로 할 수 있습니다. 앉는 방식은 <code>site/experiments/seating/sim.js</code>의 <code>pick</code> 함수에 있습니다.",
+"en": "You can verify with <code>node tools/validate-seating.js</code>. The ways of sitting are in the <code>pick</code> function of <code>site/experiments/seating/sim.js</code>.",
+"tr": "Puedes comprobarlo con <code>node tools/validate-seating.js</code>. Las maneras de sentarse están en la función <code>pick</code> de <code>site/experiments/seating/sim.js</code>."
+},
+{
+"id": "s1862",
+"page": "seating",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/seating\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/seating\">GitHub</a>.",
+"tr": "El código está disponible en <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/seating\">GitHub</a>."
+},
+{
+"id": "s1863",
+"page": "secretary",
+"ko": "37%의 법칙 · 시뮬라티오 랩",
+"en": "The 37% Rule · Simulatio Lab",
+"tr": "La regla del 37 % · Simulatio Lab"
+},
+{
+"id": "s1864",
+"page": "secretary",
+"ko": "후보를 한 명씩 만나고 되돌아갈 수 없을 때, 몇 명을 지켜본 뒤에 고르면 최고를 만날 확률이 가장 높을까요? 비서 문제(최적 멈춤 문제)를 직접 돌려보세요.",
+"en": "When you meet candidates one at a time and cannot go back, how many should you watch before choosing? Run the secretary problem (optimal stopping) yourself.",
+"tr": "Si conoces a los candidatos de uno en uno y no puedes volver atrás, ¿a cuántos conviene observar antes de elegir? Ejecuta tú mismo el problema de la secretaria (parada óptima)."
 }
 ]

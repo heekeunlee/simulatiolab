@@ -1,478 +1,1136 @@
 [
 {
-"id": "s1107",
-"page": "firefly",
-"ko": "동기화를 이해하려면 서로 얼마나 영향을 주는지와 개체 차이의 균형부터 살펴볼 만해요.",
-"en": "To understand synchrony, the balance between mutual influence and individual differences is a good place to start.",
-"tr": "Pour comprendre la synchronie, l'équilibre entre l'influence mutuelle et les différences individuelles est un bon point de départ."
+"id": "s2241",
+"page": "turing",
+"ko": "<b>모델의 뿌리:</b> Turing (1952), \"The chemical basis of morphogenesis\", <i>Philosophical Transactions of the Royal Society B</i> 237에서, 퍼지고 반응하는 화학물질만으로 균일한 상태에서 무늬가 저절로 생길 수 있음을 수학으로 보였습니다. 이 페이지는 그 계열의 그레이-스콧(Gray–Scott) 모델을 쓰며, 다양한 무늬는 Pearson (1993), \"Complex patterns in a simple system\", <i>Science</i> 261로 널리 알려졌습니다.",
+"en": "<b>Where the model comes from:</b> Turing (1952), \"The chemical basis of morphogenesis\", <i>Philosophical Transactions of the Royal Society B</i> 237, showed mathematically that chemicals that diffuse and react can create patterns from a uniform state on their own. This page uses the Gray–Scott model from that family, whose variety of patterns became widely known through Pearson (1993), \"Complex patterns in a simple system\", <i>Science</i> 261.",
+"tr": "<b>D'où vient le modèle :</b> Turing (1952), « The chemical basis of morphogenesis », <i>Philosophical Transactions of the Royal Society B</i> 237, a montré mathématiquement que des substances chimiques qui diffusent et réagissent peuvent créer d'elles-mêmes des motifs à partir d'un état uniforme. Cette page utilise le modèle de Gray–Scott de cette famille, dont la variété de motifs est devenue largement connue grâce à Pearson (1993), « Complex patterns in a simple system », <i>Science</i> 261."
 },
 {
-"id": "s1109",
-"page": "firefly",
-"ko": "실제 반딧불이가 이렇게 박자를 맞춘다는 증명은 아니고, 빛의 세기나 학습 같은 요소도 빠져 있어요.",
-"en": "It does not prove real fireflies sync this way, and factors like light intensity and learning are missing.",
-"tr": "Il ne prouve pas que de vraies lucioles se synchronisent ainsi, et des facteurs comme l'intensité lumineuse et l'apprentissage sont absents."
+"id": "s2242",
+"page": "turing",
+"ko": "<b>핵심 가정과 수식:</b> 식은 <code>∂u/∂t = D<sub>u</sub>∇²u − uv² + F(1 − u)</code>, <code>∂v/∂t = D<sub>v</sub>∇²v + uv² − (F + k)v</code>이고 여기서는 D<sub>u</sub> = 0.16, D<sub>v</sub> = 0.08입니다. 슬라이더 F는 u를 채우는 항, k는 v를 없애는 항입니다. v가 없는 u = 1, v = 0은 그대로 유지되는 상태라서 씨앗이 있어야 무늬가 시작됩니다.",
+"en": "<b>Key assumptions and formulas:</b> The equations are <code>∂u/∂t = D<sub>u</sub>∇²u − uv² + F(1 − u)</code> and <code>∂v/∂t = D<sub>v</sub>∇²v + uv² − (F + k)v</code>, here with D<sub>u</sub> = 0.16 and D<sub>v</sub> = 0.08. The F slider is the term that replenishes u and k is the term that removes v. The state u = 1, v = 0 stays as it is, so a seed is needed for a pattern to start.",
+"tr": "<b>Hypothèses clés et formules :</b> Les équations sont <code>∂u/∂t = D<sub>u</sub>∇²u − uv² + F(1 − u)</code> et <code>∂v/∂t = D<sub>v</sub>∇²v + uv² − (F + k)v</code>, ici avec D<sub>u</sub> = 0,16 et D<sub>v</sub> = 0,08. Le curseur F est le terme qui réapprovisionne u et k est le terme qui retire v. L'état u = 1, v = 0 reste tel quel, si bien qu'un germe est nécessaire pour qu'un motif démarre."
 },
 {
-"id": "s1110",
-"page": "firefly",
-"ko": "실제 종의 깜빡임 간격과 서로 보는 거리를 관찰해 모델의 가정과 맞는지 확인해야 해요.",
-"en": "Observing real species' flash timing and viewing distances would show whether the assumptions hold.",
-"tr": "Observer le moment des éclairs et les distances de vue d'espèces réelles montrerait si les hypothèses tiennent."
+"id": "s2243",
+"page": "turing",
+"ko": "<b>이 프로젝트의 단순화:</b> 실제 동물의 무늬는 유전자 활동, 성장, 몸 모양이 함께 만들고, 이 모델의 F와 k는 생물학적 값이 아닙니다. 격자는 96×96, 시간 간격 dt = 1, 가장자리는 반대편과 이어지게 하는 등 계산 편의를 위해 단순화했습니다. 점무늬와 줄무늬의 이름과 F, k 조합은 이 프로젝트가 고른 대표값입니다.",
+"en": "<b>What this project simplifies:</b> Real animal patterns come from gene activity, growth and body shape together, and F and k in this model are not biological values. The grid is 96×96 with time step dt = 1 and wrap-around edges, simplified for ease of computation. The names of the presets and their F, k pairs are representative values chosen by this project.",
+"tr": "<b>Ce que ce projet simplifie :</b> Les vrais motifs des animaux résultent à la fois de l'activité des gènes, de la croissance et de la forme du corps, et F et k dans ce modèle ne sont pas des valeurs biologiques. La grille est de 96×96 avec un pas de temps dt = 1 et des bords périodiques, simplifiée pour faciliter le calcul. Les noms des préréglages et leurs couples F, k sont des valeurs représentatives choisies par ce projet."
 },
 {
-"id": "s1112",
-"page": "firefly",
-"ko": "<b>모델의 뿌리:</b> Peskin (1975)이 심장 박동 세포를 모델로 처음 다룬 \"펄스 결합 진동자\"를 Mirollo & Strogatz (1990)가 수학적으로 분석했습니다. 서로 모두 연결되고 똑같은 진동자들이 신호 때 서로를 조금씩 앞당기면, 거의 모든 시작 상태에서 한꺼번에 반짝이게 된다는 정리입니다. 반딧불이의 동시 점멸은 Buck & Buck (1968) 등이 관찰·설명했습니다.",
-"en": "<b>Where the model comes from:</b> Mirollo & Strogatz (1990) analyzed mathematically the \"pulse-coupled oscillators\" that Peskin (1975) first considered as a model of heart pacemaker cells: if identical oscillators, all connected to each other, nudge one another ahead whenever one fires, they end up firing together from almost any starting state. Synchronous flashing of fireflies was described by Buck & Buck (1968) and others.",
-"tr": "<b>D'où vient le modèle :</b> Mirollo et Strogatz (1990) ont analysé mathématiquement les « oscillateurs à impulsions couplées » que Peskin (1975) avait d'abord envisagés comme modèle des cellules pacemaker du cœur : si des oscillateurs identiques, tous reliés entre eux, s'avancent mutuellement chaque fois que l'un s'allume, ils finissent par s'allumer ensemble à partir de presque n'importe quel état de départ. Le clignotement synchrone des lucioles a été décrit par Buck et Buck (1968) et d'autres."
+"id": "s2244",
+"page": "turing",
+"ko": "<b>이론값과 시뮬레이션:</b> 무늬 전체에 대한 닫힌 해는 없어서 이론적 기준값 없이 시뮬레이션만으로 확인했습니다. 3개 시드로 20,000번 돌린 결과 값은 모두 유한했고, v가 차지한 면적은 점무늬 19%, 세포 분열 21%, 줄무늬 43%, 산호 53%였습니다. 점무늬는 독립된 점 50개 안팎으로, 줄무늬와 산호는 대개 하나로 이어진 모양으로 안정됐습니다.",
+"en": "<b>Theory versus simulation:</b> There is no closed-form solution for the whole pattern, so it was checked by simulation alone, without a theoretical reference value. Running 3 seeds for 20,000 iterations, all values stayed finite, and the area covered by v was 19% for spots, 21% for mitosis, 43% for stripes and 53% for coral. Spots settled as about 50 separate dots, and stripes and coral mostly as one connected shape.",
+"tr": "<b>Théorie et simulation :</b> Il n'existe pas de solution sous forme fermée pour l'ensemble du motif ; la vérification s'est donc faite uniquement par simulation, sans valeur théorique de référence. En exécutant 3 graines pendant 20 000 itérations, toutes les valeurs sont restées finies, et la surface couverte par v était de 19 % pour les taches, 21 % pour la mitose, 43 % pour les rayures et 53 % pour le corail. Les taches se sont stabilisées en environ 50 points séparés, et les rayures et le corail surtout en une seule forme connectée."
 },
 {
-"id": "s1113",
-"page": "firefly",
-"ko": "<b>핵심 가정과 수식:</b> 개체마다 위상이 1주기에 걸쳐 한 바퀴를 돌고, 1에 닿으면 반짝이며 범위 안의 이웃 위상을 결합 세기만큼 앞당깁니다. 동기화 정도는 위상을 원 위의 점으로 놓고 평균 화살표의 길이 <code>r = |평균 e<sup>iθ</sup>|</code>(Kuramoto의 질서 변수)로 잽니다. 결합 세기, 이웃 범위, 속도 차이가 슬라이더입니다.",
-"en": "<b>Key assumptions and formulas:</b> Each firefly's phase runs once around a cycle, and on reaching 1 it flashes and advances the phase of neighbors in range by the coupling strength. Synchrony is measured by putting the phases as points on a circle and taking the length of the mean arrow, <code>r = |mean e<sup>iθ</sup>|</code> (Kuramoto's order parameter). Coupling strength, neighbor range and speed spread are the sliders.",
-"tr": "<b>Hypothèses et formules clés :</b> La phase de chaque luciole parcourt une fois un cycle, et en atteignant 1 elle clignote et avance la phase des voisines à portée selon la force de couplage. La synchronie se mesure en plaçant les phases comme des points sur un cercle et en prenant la longueur de la flèche moyenne, <code>r = |mean e<sup>iθ</sup>|</code> (paramètre d'ordre de Kuramoto). La force de couplage, la portée de voisinage et la dispersion des vitesses sont les curseurs."
+"id": "s2245",
+"page": "turing",
+"ko": "<b>더 읽을거리:</b> Turing (1952), \"The chemical basis of morphogenesis\", <i>Phil. Trans. R. Soc. B</i>. Pearson (1993), \"Complex patterns in a simple system\", <i>Science</i>. Kondo &amp; Asai (1995), \"A reaction–diffusion wave on the skin of the marine angelfish <i>Pomacanthus</i>\", <i>Nature</i>: 실제 물고기 무늬가 반응-확산과 비슷하게 움직인다고 보고한 연구입니다.",
+"en": "<b>Further reading:</b> Turing (1952), \"The chemical basis of morphogenesis\", <i>Phil. Trans. R. Soc. B</i>. Pearson (1993), \"Complex patterns in a simple system\", <i>Science</i>. Kondo &amp; Asai (1995), \"A reaction–diffusion wave on the skin of the marine angelfish <i>Pomacanthus</i>\", <i>Nature</i>, a study reporting that the pattern on a real fish changes in a way consistent with reaction–diffusion.",
+"tr": "<b>Pour aller plus loin :</b> Turing (1952), « The chemical basis of morphogenesis », <i>Phil. Trans. R. Soc. B</i>. Pearson (1993), « Complex patterns in a simple system », <i>Science</i>. Kondo &amp; Asai (1995), « A reaction–diffusion wave on the skin of the marine angelfish <i>Pomacanthus</i> », <i>Nature</i>, une étude rapportant que le motif d'un vrai poisson change d'une manière cohérente avec la réaction-diffusion."
 },
 {
-"id": "s1114",
-"page": "firefly",
-"ko": "<b>이 프로젝트의 단순화:</b> Mirollo–Strogatz 정리는 위상 곡선이 위로 오목하고 모두가 서로 보며 속도가 같다는 조건이 필요하지만, 여기서는 위상을 선형으로 밀고 이웃이 제한되며 속도도 개체마다 다릅니다. 그래서 정리를 그대로 적용하지 않고 시뮬레이션으로 확인합니다. 한 번 반짝임으로 전달되는 크기, 0.02씩 자라는 위상, 150마리는 이 프로젝트가 정한 값입니다.",
-"en": "<b>What this project simplifies:</b> The Mirollo–Strogatz theorem requires a concave-down phase curve, everyone seeing everyone, and equal speeds. Here the phase nudge is linear, neighbors are limited and speeds differ per firefly, so the theorem does not apply as is and the result is checked by simulation. The size of a flash's nudge, the 0.02 phase growth per step and 150 fireflies are this project's own values.",
-"tr": "<b>Ce que ce projet simplifie :</b> Le théorème de Mirollo–Strogatz exige une courbe de phase concave vers le bas, que chacun voie tout le monde et des vitesses égales. Ici, la poussée de phase est linéaire, les voisines sont limitées et les vitesses diffèrent d'une luciole à l'autre, donc le théorème ne s'applique pas tel quel et le résultat est vérifié par simulation. La taille de la poussée d'un éclair, la croissance de phase de 0,02 par pas et les 150 lucioles sont des valeurs propres à ce projet."
+"id": "s2246",
+"page": "turing",
+"ko": "식: du = 0.16·lap(u) − u·v² + F(1 − u), dv = 0.08·lap(v) + u·v² − (F + k)·v. 한 단계에 dt = 1, 라플라시안은 상하좌우 4칸으로 계산했고 가장자리는 반대편과 이어집니다. 화면의 한 단계는 계산 40번입니다. 확산 계수의 비(2:1)는 Pearson의 설정과 같지만 격자와 시간 단위가 달라 모양이 똑같지는 않습니다.",
+"en": "Equations: du = 0.16·lap(u) − u·v² + F(1 − u), dv = 0.08·lap(v) + u·v² − (F + k)·v. Each step uses dt = 1, the Laplacian is computed from the four neighbors, and the edges wrap around. One step on screen is 40 calculations. The ratio of the diffusion coefficients (2:1) is the same as in Pearson’s setup, but the grid and time units differ, so the shapes are not identical.",
+"tr": "Équations : du = 0,16·lap(u) − u·v² + F(1 − u), dv = 0,08·lap(v) + u·v² − (F + k)·v. Chaque pas utilise dt = 1, le laplacien est calculé à partir des quatre voisins et les bords sont périodiques. Un pas à l'écran correspond à 40 calculs. Le rapport des coefficients de diffusion (2:1) est le même que dans la configuration de Pearson, mais la grille et les unités de temps diffèrent, de sorte que les formes ne sont pas identiques."
 },
 {
-"id": "s1115",
-"page": "firefly",
-"ko": "<b>이론값과 시뮬레이션:</b> 이론이 확실히 말하는 극단은 시뮬레이션과 맞습니다. 속도 차이가 0이면 최종 r은 1.00이고, 결합이 0이면 r은 0.06으로 무작위 위상의 기대 크기(1/√150, 약 0.07~0.08)와 같습니다. 기본 설정의 최종 r은 6회 평균 0.87이고, 결합 3% 이상에서 0.95 근처, 이웃 범위 40% 이상에서 0.96입니다(<code>node tools/validate-firefly.js</code>). 조건이 달라 임계 결합 세기의 이론값은 없습니다.",
-"en": "<b>Theory versus simulation:</b> The extremes that theory is sure about match the simulation. With zero speed spread the final r is 1.00, and with zero coupling r is 0.06, about the expected size for random phases (about 0.07 to 0.08, from 1/√150). The default final r is 0.87 averaged over 6 runs, about 0.95 at coupling of 3% or more and 0.96 at neighbor range of 40% or more (<code>node tools/validate-firefly.js</code>). Because the conditions differ there is no theoretical value for the critical coupling.",
-"tr": "<b>Théorie et simulation :</b> Les cas extrêmes dont la théorie est sûre concordent avec la simulation. Avec une dispersion de vitesses nulle, le r final vaut 1,00, et avec un couplage nul r vaut 0,06, à peu près la taille attendue pour des phases aléatoires (environ 0,07 à 0,08, d'après 1/√150). Le r final par défaut est de 0,87 en moyenne sur 6 exécutions, environ 0,95 pour un couplage de 3 % ou plus et 0,96 pour une portée de voisinage de 40 % ou plus (<code>node tools/validate-firefly.js</code>). Les conditions étant différentes, il n'existe pas de valeur théorique pour le couplage critique."
+"id": "s2286",
+"page": "veil",
+"ko": "이 가정에서는 위험을 싫어하는 정도 γ가 커질수록 승자독식에서 평등 사회로 선택이 차례로 바뀌었어요.",
+"en": "Under these assumptions, as risk aversion γ grew, the choice shifted step by step from winner-take-all to an equal society.",
+"tr": "Sous ces hypothèses, à mesure que l'aversion au risque γ augmentait, le choix est passé peu à peu du « le gagnant rafle tout » à une société égalitaire."
 },
 {
-"id": "s1116",
-"page": "firefly",
-"ko": "<b>더 읽을거리:</b> Mirollo & Strogatz (1990), 「Synchronization of pulse-coupled biological oscillators」, SIAM Journal on Applied Mathematics 50(6). Strogatz (2003), 『Sync』, Hyperion(교양서). Buck & Buck (1968), 「Mechanism of rhythmic synchronous flashing of fireflies」, Science 159.",
-"en": "<b>Further reading:</b> Mirollo & Strogatz (1990), \"Synchronization of pulse-coupled biological oscillators\", <i>SIAM Journal on Applied Mathematics</i> 50(6). Strogatz (2003), <i>Sync</i>, Hyperion (popular account). Buck & Buck (1968), \"Mechanism of rhythmic synchronous flashing of fireflies\", <i>Science</i> 159.",
-"tr": "<b>Pour aller plus loin :</b> Mirollo &amp; Strogatz (1990), « Synchronization of pulse-coupled biological oscillators », <i>SIAM Journal on Applied Mathematics</i> 50(6). Strogatz (2003), <i>Sync</i>, Hyperion (grand public). Buck &amp; Buck (1968), « Mechanism of rhythmic synchronous flashing of fireflies », <i>Science</i> 159."
+"id": "s2287",
+"page": "veil",
+"ko": "평등할수록 평균이 낮다는 소득 가정 아래, γ가 커지면 가장 가난한 자리를 더 크게 보기 때문이에요.",
+"en": "With incomes assumed to be lower in more equal societies, a larger γ weighs the poorest seat more heavily.",
+"tr": "En supposant que les revenus sont plus faibles dans les sociétés plus égalitaires, un γ plus grand donne plus de poids à la place la plus pauvre."
 },
 {
-"id": "s1117",
-"page": "firefly",
-"ko": "이 프로젝트가 직접 설계한 단순화 구현이며 논문 수치를 재현한 것은 아닙니다.",
-"en": "A simplified implementation of this project's own design; it does not reproduce any paper's numbers.",
-"tr": "Une implémentation simplifiée conçue par ce projet ; elle ne reproduit les chiffres d'aucun article."
+"id": "s2288",
+"page": "veil",
+"ko": "같은 베일 뒤에서도 갈리는 것은 규칙 자체보다 위험을 어떻게 보는지와 어떤 가정을 두는지일 수 있어요.",
+"en": "Even behind the same veil, what divides choices may be how risk is viewed and which assumptions are made, more than the rule itself.",
+"tr": "Même derrière le même voile, ce qui divise les choix peut être la façon de voir le risque et les hypothèses retenues, plus que la règle elle-même."
 },
 {
-"id": "s1119",
-"page": "firefly",
-"ko": "기본 설정(결합 2.5%, 범위 30%, 속도 차이 10%)으로 시드 10개를 돌리면 모두 동기화(r>0.9)에 닿고, 걸린 주기는 2~31주기(10개 중 7개는 2~6주기)입니다. 결합이 1% 이하면 r이 0.2 아래, 3% 이상이면 0.95 근처입니다 (<code>node tools/validate-firefly.js</code>로 확인).",
-"en": "With the default settings (coupling 2.5%, range 30%, speed spread 10%), 10 seeds all reach synchrony (r>0.9), taking 2 to 31 cycles (7 of the 10 within 2 to 6). At coupling of 1% or less r stays below 0.2, and at 3% or more it is near 0.95 (verify with <code>node tools/validate-firefly.js</code>).",
-"tr": "Avec les réglages par défaut (couplage 2,5 %, portée 30 %, dispersion des vitesses 10 %), 10 graines atteignent toutes la synchronie (r>0,9), en 2 à 31 cycles (7 sur 10 entre 2 et 6). À un couplage de 1 % ou moins, r reste sous 0,2, et à 3 % ou plus il est proche de 0,95 (vérifiez avec <code>node tools/validate-firefly.js</code>)."
+"id": "s2290",
+"page": "veil",
+"ko": "어느 사회가 정의로운지에 답하거나 롤스나 하사니 중 한쪽을 편드는 모델이 아니에요. 결과는 소득 숫자와 효용 함수에 달려 있어요.",
+"en": "It does not say which society is just or side with Rawls or Harsanyi; results depend on the assumed incomes and utility function.",
+"tr": "Cela ne dit pas quelle société est juste ni ne prend parti pour Rawls ou Harsanyi ; les résultats dépendent des revenus et de la fonction d'utilité supposés."
 },
 {
-"id": "s1157",
-"page": "friendship",
-"ko": "이 관계망에서는 사람 82.6%가 자기 친구들이 평균적으로 자기보다 친구가 더 많았어요.",
-"en": "In this network, 82.6% of people had friends who, on average, had more friends than they did.",
-"tr": "Dans ce réseau, 82,6 % des personnes avaient des amis qui, en moyenne, avaient plus d'amis qu'elles."
+"id": "s2291",
+"page": "veil",
+"ko": "다른 소득 가정이나 확률 가정에서도 같은지, 노력·책임·권리 같은 다른 쟁점은 어떤지는 따로 살펴봐야 해요.",
+"en": "Whether the same holds under other income or probability assumptions, and what effort, responsibility and rights add, must be examined separately.",
+"tr": "Il faut examiner séparément si la même chose vaut avec d'autres hypothèses de revenus ou de probabilités, et ce qu'apportent l'effort, la responsabilité et les droits."
 },
 {
-"id": "s1158",
-"page": "friendship",
-"ko": "친구 목록을 훑으면 친구가 많은 사람이 그만큼 더 자주 나오기 때문에, 친구 수가 다르기만 해도 이렇게 돼요.",
-"en": "Scanning friend lists, people with many friends show up more often, so merely having uneven friend counts produces this.",
-"tr": "En parcourant les listes d'amis, les personnes qui ont beaucoup d'amis apparaissent plus souvent ; le simple fait que le nombre d'amis soit inégal produit donc cet effet."
+"id": "s2293",
+"page": "veil",
+"ko": "<b>모델의 뿌리:</b> Rawls (1971), 『A Theory of Justice』(Harvard University Press)는 자기 자리를 모르는 \"원초적 입장\"에서 고른 규칙이 공정하다고 보고 차등 원칙(가장 불리한 사람의 처지를 최대로)을 이끌었습니다. 같은 장치에서 Harsanyi (1953, 1955), 『Journal of Political Economy』는 자리를 같은 확률로 보고 기대효용(평균 효용)을 극대화해야 한다고 주장했습니다.",
+"en": "<b>Where the model comes from:</b> Rawls (1971), <i>A Theory of Justice</i> (Harvard University Press), held that rules chosen in an \"original position\" where one does not know one’s place are fair, and drew from it the difference principle (maximize the position of the worst-off). Using the same device, Harsanyi (1953, 1955), <i>Journal of Political Economy</i>, assumed equal probabilities for the positions and argued for maximizing expected (average) utility.",
+"tr": "<b>D'où vient le modèle :</b> Rawls (1971), <i>Théorie de la justice</i> (Harvard University Press), soutenait que les règles choisies dans une « position originelle » où l'on ignore sa place sont équitables, et en tirait le principe de différence (maximiser la situation des plus défavorisés). Avec le même dispositif, Harsanyi (1953, 1955), <i>Journal of Political Economy</i>, supposait des probabilités égales pour les positions et défendait la maximisation de l'utilité espérée (moyenne)."
 },
 {
-"id": "s1159",
-"page": "friendship",
-"ko": "내 친구가 더 많아 보일 때는 내 처지보다, 목록에 허브가 자주 등장하는 구조 탓은 아닌지 살펴볼 만해요.",
-"en": "When friends seem to have more friends, it may be worth checking whether hubs simply appear in many lists before blaming yourself.",
-"tr": "Quand les amis semblent avoir plus d'amis, il peut être utile de vérifier si les hubs apparaissent simplement dans beaucoup de listes avant de se blâmer."
+"id": "s2294",
+"page": "veil",
+"ko": "<b>핵심 가정과 수식:</b> 소득 y의 효용을 <code>u(y) = y<sup>1−γ</sup> / (1−γ)</code>(γ = 1이면 ln y)로 두고, 다섯 자리의 기댓값이 가장 큰 사회를 고릅니다. 이것이 상대적 위험 회피가 일정한(CRRA) 효용이고 슬라이더 γ가 위험 회피 정도입니다. 확실성 등가 소득은 <code>(E[y<sup>1−γ</sup>])<sup>1/(1−γ)</sup></code>이며 γ = 0이면 평균, γ가 아주 커지면 최솟값(롤스의 최소 극대화)에 가까워집니다.",
+"en": "<b>Key assumptions and formulas:</b> The utility of income y is <code>u(y) = y<sup>1−γ</sup> / (1−γ)</code> (ln y when γ = 1), and the society with the highest expected value over the five positions is chosen. This is constant relative risk aversion (CRRA) utility, and the γ slider is the degree of risk aversion. The certainty-equivalent income is <code>(E[y<sup>1−γ</sup>])<sup>1/(1−γ)</sup></code>, which equals the average at γ = 0 and approaches the minimum (Rawls’s maximin) as γ grows very large.",
+"tr": "<b>Hypothèses clés et formules :</b> L'utilité d'un revenu y est <code>u(y) = y<sup>1−γ</sup> / (1−γ)</code> (ln y quand γ = 1), et l'on choisit la société dont la valeur espérée sur les cinq positions est la plus élevée. C'est l'utilité à aversion relative au risque constante (CRRA), et le curseur γ représente le degré d'aversion au risque. Le revenu équivalent certain est <code>(E[y<sup>1−γ</sup>])<sup>1/(1−γ)</sup></code> ; il est égal à la moyenne pour γ = 0 et tend vers le minimum (le maximin de Rawls) quand γ devient très grand."
 },
 {
-"id": "s1161",
-"page": "friendship",
-"ko": "내가 인기가 없다거나 친구 많은 사람이 더 행복하다는 뜻은 아니에요. 82.6%도 이 모델의 실험 결과예요.",
-"en": "It does not mean you are unpopular or that people with more friends are happier; the 82.6% is this model's experimental result.",
-"tr": "Cela ne veut pas dire que vous êtes impopulaire ni que les gens qui ont plus d'amis sont plus heureux ; les 82,6 % sont le résultat expérimental de ce modèle."
+"id": "s2295",
+"page": "veil",
+"ko": "<b>이 프로젝트의 단순화:</b> 다섯 사회의 소득 숫자, \"평등할수록 평균이 낮다\"는 가정, CRRA 효용, 자리가 같은 확률이라는 가정은 모두 이 프로젝트가 정한 것이고 두 학자의 논문 수치를 재현한 것이 아닙니다. 롤스는 확률을 알 수 없다고 보았고 기대효용 극대화를 그대로 받아들이지 않았으므로, 여기서 γ로 두 입장을 한 다이얼에 놓은 것은 비교를 위한 단순화입니다.",
+"en": "<b>What this project simplifies:</b> The income numbers of the five societies, the assumption that \"more equal means a lower average\", the CRRA utility and the equal-probability assumption were all chosen by this project, and they do not reproduce figures from either author. Rawls held that probabilities cannot be known and did not accept expected-utility maximization as such, so putting the two views on one γ dial is a simplification for comparison.",
+"tr": "<b>Ce que ce projet simplifie :</b> Les revenus des cinq sociétés, l'hypothèse que « plus d'égalité signifie une moyenne plus basse », l'utilité CRRA et l'hypothèse d'équiprobabilité ont tous été choisis par ce projet et ne reproduisent les chiffres d'aucun des deux auteurs. Rawls tenait que les probabilités ne peuvent pas être connues et n'acceptait pas la maximisation de l'utilité espérée en tant que telle ; réunir les deux points de vue sur un même réglage γ est donc une simplification destinée à la comparaison."
 },
 {
-"id": "s1162",
-"page": "friendship",
-"ko": "모임·동네 같은 묶음 구조와 외톨이가 빠져 있어, 실제 친구 수와 관계망은 따로 조사해야 확인할 수 있어요.",
-"en": "Groups, neighborhoods and loners are missing, so real friend counts and networks need to be surveyed separately.",
-"tr": "Les groupes, les quartiers et les solitaires sont absents ; le nombre d'amis et les réseaux réels doivent donc être étudiés séparément."
+"id": "s2296",
+"page": "veil",
+"ko": "<b>이론값과 시뮬레이션:</b> 식으로 직접 확인되는 값이 시뮬레이션과 맞습니다. γ = 1이면 확실성 등가는 기하평균이라 안전망 사회는 (40·48·58·72·96)<sup>1/5</sup> ≈ 59.9이고 스크립트 값도 59.9입니다. 추첨 20,000번의 평균은 110.2(이론 110.4), 최소 극대화 사회는 50.0(이론 50)이었습니다. 선택이 바뀌는 γ는 0.7, 1.0, 2.15, 6.1이었습니다.",
+"en": "<b>Theory versus simulation:</b> Values that can be computed by hand match the script. At γ = 1 the certainty equivalent is the geometric mean, so the safety-net society gives (40·48·58·72·96)<sup>1/5</sup> ≈ 59.9, and the script also gives 59.9. The mean of 20,000 draws was 110.2 (theory 110.4), and the maximin society gave 50.0 (theory 50). The choice switched at γ = 0.7, 1.0, 2.15 and 6.1.",
+"tr": "<b>Théorie et simulation :</b> Les valeurs calculables à la main concordent avec le script. Pour γ = 1, l'équivalent certain est la moyenne géométrique ; la société à filet de sécurité donne donc (40·48·58·72·96)<sup>1/5</sup> ≈ 59,9, et le script donne aussi 59,9. La moyenne de 20 000 tirages était de 110,2 (théorie 110,4), et la société maximin a donné 50,0 (théorie 50). Le choix a changé à γ = 0,7, 1,0, 2,15 et 6,1."
 },
 {
-"id": "s1164",
-"page": "friendship",
-"ko": "<b>모델의 뿌리:</b> Scott L. Feld가 1991년 「Why your friends have more friends than you do」(<i>American Journal of Sociology</i>)에서 정리한 &quot;친구의 역설&quot;입니다. 친구 목록을 훑으면 친구가 많은 사람이 그만큼 더 자주 나오기 때문에, 친구들의 친구 수는 평균적으로 전체 평균 이상이 됩니다. 이 페이지의 관계망 규칙에는 선호 연결(Barabási와 Albert, 1999)의 아이디어를 썼습니다.",
-"en": "<b>Where the model comes from:</b> The &quot;friendship paradox&quot; laid out by Scott L. Feld in &quot;Why your friends have more friends than you do&quot; (1991, <i>American Journal of Sociology</i>). Scanning friend lists, people with many friends show up more often, so on average friends have at least as many friends as the overall average. The network rule here borrows the idea of preferential attachment (Barabási and Albert, 1999).",
-"tr": "<b>D'où vient le modèle :</b> Le « paradoxe de l'amitié » exposé par Scott L. Feld dans « Why your friends have more friends than you do » (1991, <i>American Journal of Sociology</i>). En parcourant les listes d'amis, les personnes ayant beaucoup d'amis apparaissent plus souvent, si bien qu'en moyenne les amis ont au moins autant d'amis que la moyenne générale. La règle de réseau utilisée ici emprunte l'idée de l'attachement préférentiel (Barabási et Albert, 1999)."
+"id": "s2297",
+"page": "veil",
+"ko": "<b>더 읽을거리:</b> Rawls (1971), 『A Theory of Justice』, Harvard University Press. Harsanyi (1955), \"Cardinal welfare, individualistic ethics, and interpersonal comparisons of utility\", <i>Journal of Political Economy</i>. Frohlich &amp; Oppenheimer (1992), 『Choosing Justice: An Experimental Approach to Ethical Theory』, University of California Press.",
+"en": "<b>Further reading:</b> Rawls (1971), <i>A Theory of Justice</i>, Harvard University Press. Harsanyi (1955), \"Cardinal welfare, individualistic ethics, and interpersonal comparisons of utility\", <i>Journal of Political Economy</i>. Frohlich &amp; Oppenheimer (1992), <i>Choosing Justice: An Experimental Approach to Ethical Theory</i>, University of California Press.",
+"tr": "<b>Pour aller plus loin :</b> Rawls (1971), <i>Théorie de la justice</i>, Harvard University Press. Harsanyi (1955), « Cardinal welfare, individualistic ethics, and interpersonal comparisons of utility », <i>Journal of Political Economy</i>. Frohlich &amp; Oppenheimer (1992), <i>Choosing Justice: An Experimental Approach to Ethical Theory</i>, University of California Press."
 },
 {
-"id": "s1165",
-"page": "friendship",
-"ko": "<b>핵심 가정과 수식:</b> 친구 목록 칸 하나를 무작위로 골랐을 때 그 사람의 친구 수 평균은 <code>⟨k²⟩/⟨k⟩ = ⟨k⟩ + Var(k)/⟨k⟩</code>이라서, 친구 수가 모두 같지 않으면 평균 ⟨k⟩보다 큽니다. 허브 쏠림 슬라이더가 클수록 Var(k)가 커집니다. 사람별 &quot;친구들의 평균&quot;을 다시 평균 낸 값도 친구 관계 하나마다 (이웃의 친구 수 ÷ 내 친구 수) + (내 친구 수 ÷ 이웃의 친구 수) ≥ 2이므로 항상 ⟨k⟩ 이상입니다.",
-"en": "<b>Key assumptions and formulas:</b> Picking one slot in the friend lists at random, the average number of friends of that person is <code>⟨k²⟩/⟨k⟩ = ⟨k⟩ + Var(k)/⟨k⟩</code>, which exceeds the mean ⟨k⟩ unless everyone has the same number. A larger hub-concentration slider raises Var(k). The average of each person's &quot;friends' average&quot; is also always at least ⟨k⟩, because each friendship contributes (neighbor's friends ÷ my friends) + (my friends ÷ neighbor's friends) ≥ 2.",
-"tr": "<b>Hypothèses et formules clés :</b> En choisissant au hasard une place dans les listes d'amis, le nombre moyen d'amis de cette personne est <code>⟨k²⟩/⟨k⟩ = ⟨k⟩ + Var(k)/⟨k⟩</code>, ce qui dépasse la moyenne ⟨k⟩ sauf si tout le monde a le même nombre d'amis. Un curseur de concentration sur les hubs plus élevé augmente Var(k). La moyenne des « moyennes des amis » de chaque personne est elle aussi toujours au moins égale à ⟨k⟩, car chaque amitié apporte (amis du voisin ÷ mes amis) + (mes amis ÷ amis du voisin) ≥ 2."
+"id": "s2324",
+"page": "voting",
+"ko": "후보가 셋 이상이면 같은 표라도 투표 방식에 따라 당선자가 달라질 수 있습니다.",
+"en": "With three or more candidates, the same ballots can elect different winners depending on the method.",
+"tr": "Avec trois candidats ou plus, les mêmes bulletins peuvent élire des gagnants différents selon la méthode."
 },
 {
-"id": "s1166",
-"page": "friendship",
-"ko": "<b>이 프로젝트의 단순화:</b> 실제 사회 조사 자료가 아니라 이 프로젝트가 만든 가상 관계망입니다. 새로 온 사람이 기존 사람 중 균등하게, 또는 친구 수에 비례해 친구를 고르는 규칙이며, 외톨이도 모임·동네 같은 묶음 구조도 없습니다. 허브 쏠림 0%도 완전 무작위가 아니라 먼저 온 사람이 유리한 규칙입니다. 사람 수 150, 허브 80%, 평균 친구 6은 이 프로젝트가 정한 기본값입니다.",
-"en": "<b>What this project simplifies:</b> This is a synthetic network built by this project, not survey data. Each newcomer picks existing people uniformly or in proportion to their friend count; there are no loners and no clusters such as clubs or neighborhoods. Hub concentration of 0% is not fully random either, since early arrivals have an advantage. The defaults of 150 people, 80% hubs and 6 friends on average are this project's own choices.",
-"tr": "<b>Ce que ce projet simplifie :</b> C'est un réseau synthétique construit par ce projet, et non des données d'enquête. Chaque nouvel arrivant choisit des personnes existantes de façon uniforme ou proportionnellement à leur nombre d'amis ; il n'y a ni solitaires ni regroupements comme des clubs ou des quartiers. Une concentration sur les hubs de 0 % n'est pas non plus entièrement aléatoire, puisque les premiers arrivés ont un avantage. Les valeurs par défaut de 150 personnes, 80 % de hubs et 6 amis en moyenne sont des choix propres à ce projet."
+"id": "s2325",
+"page": "voting",
+"ko": "이 모델에서는 단순다수가 1순위만 세어, 비슷한 후보들이 표를 나누면 중도 후보를 놓치기 쉬웠습니다.",
+"en": "Here plurality counts only first choices, so similar candidates splitting votes easily miss the centrist.",
+"tr": "Ici, le scrutin majoritaire à un tour ne compte que les premiers choix : des candidats proches qui se partagent les voix peuvent donc facilement laisser de côté le candidat centriste."
 },
 {
-"id": "s1167",
-"page": "friendship",
-"ko": "<b>이론값과 시뮬레이션:</b> 기본값 관계망 300개 평균에서 평균 친구 수는 5.92, ⟨k²⟩/⟨k⟩는 9.70, 사람별 친구들 평균의 평균은 10.17로 둘 다 5.92보다 컸고, 300개 모두에서 (친구들 평균 − 평균 친구 수)의 최솟값이 2.81(≥ 0)이었습니다. 관계망 하나에서 친구 목록 전체의 평균은 식값 ⟨k²⟩/⟨k⟩와 같았습니다(10.0856). 친구들이 더 많은 사람의 비율은 허브 0%에서 71.3%, 100%에서 85.4%였고, 이 비율은 법칙이 아니라 이 모델의 실험 결과입니다.",
-"en": "<b>Theory versus simulation:</b> Over 300 default networks the average number of friends was 5.92, ⟨k²⟩/⟨k⟩ was 9.70 and the average of per-person friends' averages was 10.17, both above 5.92, and in all 300 the minimum of (friends' average − average friend count) was 2.81 (≥ 0). In one network the average over all friend-list slots equaled the formula ⟨k²⟩/⟨k⟩ (10.0856). The share of people whose friends have more friends was 71.3% at 0% hubs and 85.4% at 100%; that share is a result of this model, not a law.",
-"tr": "<b>Théorie et simulation :</b> Sur 300 réseaux par défaut, le nombre moyen d'amis était de 5,92, ⟨k²⟩/⟨k⟩ de 9,70 et la moyenne des moyennes d'amis par personne de 10,17, tous deux au-dessus de 5,92, et dans les 300 réseaux le minimum de (moyenne des amis − nombre moyen d'amis) était de 2,81 (≥ 0). Dans un réseau, la moyenne sur toutes les places des listes d'amis égalait la formule ⟨k²⟩/⟨k⟩ (10,0856). La part de personnes dont les amis ont plus d'amis était de 71,3 % à 0 % de hubs et de 85,4 % à 100 % ; cette part est un résultat de ce modèle, et non une loi."
+"id": "s2326",
+"page": "voting",
+"ko": "결과가 갈린다면 표가 어떻게 갈리는지와 방식이 순위의 어느 부분을 쓰는지 살펴볼 만합니다.",
+"en": "When results differ, how votes split and which part of rankings each method uses are worth examining.",
+"tr": "Quand les résultats diffèrent, il vaut la peine d'examiner comment les voix se répartissent et quelle partie des classements chaque méthode utilise."
 },
 {
-"id": "s1168",
-"page": "friendship",
-"ko": "<b>더 읽을거리:</b> Feld (1991), Why your friends have more friends than you do, <i>American Journal of Sociology</i> / Barabási &amp; Albert (1999), Emergence of scaling in random networks, <i>Science</i> / Christakis &amp; Fowler (2010), Social network sensors for early detection of contagious outbreaks, <i>PLoS ONE</i> (이 성질을 감염병 조기 감지에 쓰자는 제안).",
-"en": "<b>Further reading:</b> Feld (1991), Why your friends have more friends than you do, <i>American Journal of Sociology</i> / Barabási &amp; Albert (1999), Emergence of scaling in random networks, <i>Science</i> / Christakis &amp; Fowler (2010), Social network sensors for early detection of contagious outbreaks, <i>PLoS ONE</i> (a proposal to use this property for early outbreak detection).",
-"tr": "<b>Pour aller plus loin :</b> Feld (1991), Why your friends have more friends than you do, <i>American Journal of Sociology</i> / Barabási &amp; Albert (1999), Emergence of scaling in random networks, <i>Science</i> / Christakis &amp; Fowler (2010), Social network sensors for early detection of contagious outbreaks, <i>PLoS ONE</i> (une proposition d'utiliser cette propriété pour la détection précoce des épidémies)."
+"id": "s2328",
+"page": "voting",
+"ko": "어떤 방식이 더 좋다거나 제도를 바꿔야 한다는 주장은 아닙니다. 전략적 투표와 정당이 이 모델에 없습니다.",
+"en": "It does not claim any method is better or that rules should change; strategic voting and parties are absent.",
+"tr": "Cela n'affirme pas qu'une méthode soit meilleure ni qu'il faille changer les règles ; le vote stratégique et les partis sont absents."
 },
 {
-"id": "s1169",
-"page": "friendship",
-"ko": "재생의 표본 추출은 \"무작위로 고른 사람이 말해 준 친구\"를 뽑는 방식이라 사람별 친구들 평균의 평균(10.17명)에 수렴합니다.",
-"en": "The sampling in the animation draws \"a friend named by a randomly chosen person\", so it converges to the average of per-person friend averages (10.17).",
-"tr": "L'échantillonnage dans l'animation tire « un ami cité par une personne choisie au hasard », il converge donc vers la moyenne des moyennes d'amis par personne (10,17)."
+"id": "s2329",
+"page": "voting",
+"ko": "현실의 선호 분포와 대표성·안정성 같은 다른 기준까지 함께 봐야 하며, 중도 후보 당선이 항상 기준은 아닙니다.",
+"en": "Real preference distributions and criteria like representation and stability also matter; electing the centrist is not always the standard.",
+"tr": "Les distributions réelles de préférences et des critères comme la représentation et la stabilité comptent aussi ; élire le candidat centriste n'est pas toujours le critère."
 },
 {
-"id": "s1172",
-"page": "fxrate",
-"ko": "캐리 트레이드와 환율 · 시뮬라티오 랩",
-"en": "Carry Trade and Exchange Rates · Simulatio Lab",
-"tr": "Carry trade et taux de change · Simulatio Lab"
+"id": "s2331",
+"page": "voting",
+"ko": "<b>모델의 뿌리:</b> 유권자와 후보를 정책 공간의 점으로 놓는 공간 투표 모델은 Downs(1957, 『An Economic Theory of Democracy』)가 널리 알렸습니다. 투표 규칙은 Condorcet(1785)의 1:1 다수결, Borda(1781)의 순위 점수에서 시작했고 Arrow(1951, 『Social Choice and Individual Values』)가 완벽한 순위 투표 규칙이 없음을 보였습니다.",
+"en": "<b>Where the model comes from:</b> The spatial voting model, which places voters and candidates as points in a policy space, was popularized by Downs (1957, <i>An Economic Theory of Democracy</i>). The rules trace back to Condorcet&#x27;s (1785) pairwise majority and Borda&#x27;s (1781) rank scores, and Arrow (1951, <i>Social Choice and Individual Values</i>) showed that no rank-order rule is flawless.",
+"tr": "<b>D'où vient le modèle :</b> Le modèle spatial du vote, qui place électeurs et candidats comme des points dans un espace de politiques, a été popularisé par Downs (1957, <i>An Economic Theory of Democracy</i>). Les règles remontent à la majorité par paires de Condorcet (1785) et aux scores de rang de Borda (1781), et Arrow (1951, <i>Social Choice and Individual Values</i>) a montré qu'aucune règle fondée sur l'ordre des préférences n'est sans défaut."
 },
 {
-"id": "s1173",
-"page": "fxrate",
-"ko": "금리가 높은 나라의 통화를 사서 이자를 챙기는 캐리 트레이드가 왜 오래 조금씩 벌다 한 번에 크게 잃는지, 환율과 투자자 쏠림 시뮬레이션으로 직접 돌려보세요.",
-"en": "Run a simulation of exchange rates and investor crowding to see why the carry trade, buying a high-interest currency for its interest, tends to earn a little for years and then lose a lot at once.",
-"tr": "Lancez une simulation de taux de change et d'afflux d'investisseurs pour voir pourquoi le carry trade, qui consiste à acheter une devise à taux élevé pour son intérêt, tend à rapporter un peu pendant des années, puis à faire perdre beaucoup d'un coup."
+"id": "s2332",
+"page": "voting",
+"ko": "<b>핵심 가정과 수식:</b> 유권자는 가까운 후보를 더 좋아하고(거리 순 선호), 같은 표로 단순다수, 결선, 선호투표(즉시결선), 보르다를 계산합니다. 기준은 콩도르세 승자, 곧 다른 모든 후보와 1:1로 붙어 이기는 후보입니다. 후보 수 슬라이더와 양극화(두 무리 사이 거리)가 입력입니다.",
+"en": "<b>Key assumptions and formulas:</b> Voters prefer closer candidates (preference by distance), and the same ballots are counted by plurality, runoff, ranked-choice (instant runoff) and Borda. The benchmark is the Condorcet winner, the candidate who beats every other candidate in a one-on-one contest. The sliders set the number of candidates and polarization (the distance between the two clusters).",
+"tr": "<b>Hypothèses clés et formules :</b> Les électeurs préfèrent les candidats les plus proches (préférence selon la distance), et les mêmes bulletins sont dépouillés selon le scrutin uninominal à un tour, le second tour, le vote préférentiel (second tour instantané) et Borda. La référence est le gagnant de Condorcet, le candidat qui bat tous les autres dans un duel. Les curseurs règlent le nombre de candidats et la polarisation (la distance entre les deux groupes)."
 },
 {
-"id": "s1174",
-"page": "fxrate",
-"ko": "금리가 높은 나라의 통화를 사서 이자를 받으면, 환율만 그대로라면 가만히 앉아서 버는 거래처럼 보입니다. 이론은 그 이자만큼 그 통화값이 떨어져서 결국 공짜 점심은 없다고 말하지만, 현실에서는 그렇지 않은 때가 많아 이 거래(캐리 트레이드)에 사람들이 몰립니다. 그런데 이 시뮬레이션에서는 사람들이 몰릴수록 통화값이 몇 해 동안 계단처럼 조용히 오르다가 어느 한 주에 일제히 빠져나가며 몇 년치 이익이 한꺼번에 사라집니다. 평균으로는 벌어도, 번 돈의 모양이 위험한 거래입니다.",
-"en": "Buy the currency of a high-interest country, collect the interest, and as long as the exchange rate stays put it looks like money for nothing. Theory says that currency should fall by about the interest gap, so there is no free lunch, yet in practice it often does not, and people pile into this trade (the carry trade). In this simulation, though, the more people pile in, the more the currency creeps up like a staircase for years, until one week everybody exits at once and years of gains vanish together. On average it pays, but the shape of the pay is dangerous.",
-"tr": "Achetez la devise d'un pays à taux élevé, encaissez l'intérêt, et tant que le taux de change ne bouge pas, cela ressemble à de l'argent facile. La théorie dit que cette devise devrait baisser d'environ l'écart de taux, donc il n'y a pas de repas gratuit ; pourtant, dans la pratique, ce n'est souvent pas le cas, et les gens se ruent sur cette opération (le carry trade). Dans cette simulation, plus il y a de monde, plus la devise grimpe comme par un escalier pendant des années, jusqu'à ce qu'une semaine tout le monde sorte d'un coup et que des années de gains disparaissent ensemble. En moyenne, cela rapporte, mais la forme de ce gain est dangereuse."
+"id": "s2333",
+"page": "voting",
+"ko": "<b>이 프로젝트의 단순화:</b> 정책을 2차원 평면의 점으로, 선호를 거리로 단순화했고, 모든 유권자가 솔직하게(전략 투표 없이) 투표하며 모든 후보에게 순위를 매깁니다. 후보와 유권자는 같은 분포(두 무리의 가우시안 혼합, 표준편차 0.6)에서 뽑습니다. 이 분포는 이 프로젝트가 정한 것이고, 현실의 선호는 더 복잡해서 콩도르세 승자가 없을 수도 있습니다.",
+"en": "<b>What this project simplifies:</b> Policy is simplified to points on a 2-D plane and preference to distance; all voters vote sincerely (no strategic voting) and rank every candidate. Candidates and voters are drawn from the same distribution (a mixture of two Gaussians, SD 0.6), which is this project&#x27;s own choice. Real preferences are more complex, and a Condorcet winner may not exist.",
+"tr": "<b>Ce que ce projet simplifie :</b> Les politiques sont réduites à des points sur un plan 2D et la préférence à la distance ; tous les électeurs votent sincèrement (pas de vote stratégique) et classent tous les candidats. Candidats et électeurs sont tirés de la même distribution (un mélange de deux gaussiennes, écart-type 0,6), un choix propre à ce projet. Les préférences réelles sont plus complexes, et il peut ne pas exister de gagnant de Condorcet."
 },
 {
-"id": "s1175",
-"page": "fxrate",
-"ko": "두 나라가 있습니다. 한 나라는 금리가 낮아 돈을 빌리기 좋고(자금 조달 통화), 다른 나라는 금리가 높습니다(<b>높은 금리 통화</b>, 원화 같은 신흥국 통화를 떠올려 보세요). 캐리 트레이드는 낮은 금리로 빌려 높은 금리 통화를 사서 이자 차이를 받는 거래입니다. 금리 차이(기본 4%p)는 <b>예시 숫자</b>이고 어느 시점의 실제 금리가 아닙니다.",
-"en": "There are two countries. One has low interest rates and is a cheap place to borrow (the funding currency); the other has high rates (the <b>high-rate currency</b>; think of an emerging-market currency such as the won). The carry trade borrows cheaply, buys the high-rate currency and pockets the interest gap. The gap (4 percentage points by default) is an <b>example number</b>, not any real rate at any date.",
-"tr": "Il y a deux pays. L'un a des taux bas et c'est un endroit peu coûteux pour emprunter (la devise de financement) ; l'autre a des taux élevés (la <b>devise à taux élevé</b> ; pensez à une devise émergente comme le won). Le carry trade emprunte à bas coût, achète la devise à taux élevé et empoche l'écart de taux. L'écart (4 points de pourcentage par défaut) est un <b>chiffre d'exemple</b>, pas un taux réel à une date donnée."
+"id": "s2334",
+"page": "voting",
+"ko": "<b>이론값과 시뮬레이션:</b> 후보 2명이면 네 방식이 모두 1:1 다수결과 같아 콩도르세 승자를 100% 고르고, 시뮬레이션도 모두 100%입니다. 후보가 늘면 이 승자를 고르는 비율이 단순다수 76→50→40%(3, 5, 6명), 선호투표 93→75→59%로 떨어지고 보르다는 87→84→82%로 덜 떨어집니다. 이 모델에서 콩도르세 승자는 98~100%의 선거에 존재했습니다(양극화 0.6, 300번 선거, <code>node tools/validate-more.js vote</code>).",
+"en": "<b>Theory versus simulation:</b> With 2 candidates all four rules reduce to the pairwise majority and must pick the Condorcet winner, and the simulation gives 100% for all. As candidates are added, the share of elections where the rule picks that winner falls for plurality from 76% to 50% to 40% (3, 5, 6 candidates) and for ranked-choice from 93% to 75% to 59%, while Borda falls less, 87% to 84% to 82%. In this model a Condorcet winner existed in 98 to 100% of elections (polarization 0.6, 300 elections, <code>node tools/validate-more.js vote</code>).",
+"tr": "<b>Théorie et simulation :</b> Avec 2 candidats, les quatre règles se ramènent à la majorité par paires et doivent désigner le gagnant de Condorcet ; la simulation donne 100% pour toutes. À mesure que l'on ajoute des candidats, la part des élections où la règle choisit ce gagnant baisse pour le scrutin uninominal de 76% à 50% puis 40% (3, 5, 6 candidats) et pour le vote préférentiel de 93% à 75% puis 59%, tandis que Borda baisse moins, de 87% à 84% puis 82%. Dans ce modèle, un gagnant de Condorcet existait dans 98 à 100% des élections (polarisation 0,6, 300 élections, <code>node tools/validate-more.js vote</code>)."
 },
 {
-"id": "s1176",
-"page": "fxrate",
-"ko": "이론(<b>비커버드 이자율 평가, UIP</b>)이 완전히 맞다면 높은 금리 통화는 평균적으로 금리 차이만큼 약해져서 캐리의 기대 수익은 0입니다. 슬라이더 <b>UIP가 맞는 정도</b>는 그 상쇄가 실제로 일어나는 비율입니다. 100%면 이론 그대로이고 0%면 환율이 그냥 제멋대로(임의보행) 움직입니다. 기본은 30%입니다. 현실에서는 상쇄가 이론에 못 미치는 경우가 많다고 알려져 있지만 이 값은 이 프로젝트가 정한 예시입니다.",
-"en": "If theory (<b>uncovered interest parity, UIP</b>) held fully, the high-rate currency would on average weaken by the interest gap, so the carry trade's expected profit would be zero. The slider <b>How much UIP holds</b> sets the share of that offsetting that actually happens: at 100% theory holds exactly, at 0% the exchange rate just wanders (a random walk). The default is 30%. The offset is often found to fall short of theory in real data, but this value is just this project's example.",
-"tr": "Si la théorie (<b>parité des taux d'intérêt non couverte, UIP</b>) se vérifiait pleinement, la devise à taux élevé se déprécierait en moyenne de l'écart de taux, et le gain espéré du carry trade serait nul. Le curseur <b>Dans quelle mesure l'UIP se vérifie</b> règle la part de cette compensation qui se produit réellement : à 100 % la théorie est exacte, à 0 % le taux de change erre simplement (marche aléatoire). La valeur par défaut est 30 %. On constate souvent dans les données réelles que la compensation est inférieure à la théorie, mais cette valeur n'est qu'un exemple de ce projet."
+"id": "s2335",
+"page": "voting",
+"ko": "<b>더 읽을거리:</b> Arrow, K. J. (1951), 『Social Choice and Individual Values』, Wiley. / Downs, A. (1957), 『An Economic Theory of Democracy』, Harper &amp; Row. / Black, D. (1948), 「On the Rationale of Group Decision-making」, <i>Journal of Political Economy</i>.",
+"en": "<b>Further reading:</b> Arrow, K. J. (1951), <i>Social Choice and Individual Values</i>, Wiley. / Downs, A. (1957), <i>An Economic Theory of Democracy</i>, Harper and Row. / Black, D. (1948), \"On the Rationale of Group Decision-making\", <i>Journal of Political Economy</i>.",
+"tr": "<b>Pour aller plus loin :</b> Arrow, K. J. (1951), <i>Social Choice and Individual Values</i>, Wiley. / Downs, A. (1957), <i>An Economic Theory of Democracy</i>, Harper and Row. / Black, D. (1948), « On the Rationale of Group Decision-making », <i>Journal of Political Economy</i>."
 },
 {
-"id": "s1177",
-"page": "fxrate",
-"ko": "환율은 매주 무작위로 흔들립니다(<b>변동성</b>). 여기에 <b>쏠림</b>이 더해집니다. 캐리가 매력적일수록(금리 차이가 크고 변동성이 작을수록) 캐리 투자자가 천천히 늘고, 늘 때마다 높은 금리 통화를 사 들여 가격을 조금씩 밀어 올립니다(계단). 쏠림이 커질수록 한 주에 일제히 청산할 확률도 커지고, 청산하면 쏠림이 한꺼번에 줄며 그만큼 통화값이 떨어집니다(엘리베이터). <b>쏠림의 힘</b>은 투자자 전체가 움직일 때 통화값이 밀리는 크기입니다.",
-"en": "The exchange rate shakes randomly every week (<b>volatility</b>). On top of that comes <b>crowding</b>. The more attractive the carry (a bigger gap and lower volatility), the more carry investors slowly join, and each time they buy the high-rate currency and nudge its price up (the stairs). The bigger the crowd, the higher the chance that everyone unwinds in a single week, and when they do the crowd shrinks at once and the currency falls by the same amount (the elevator). <b>Crowd power</b> is how far the currency is pushed when the whole crowd moves.",
-"tr": "Le taux de change s'agite au hasard chaque semaine (<b>volatilité</b>). S'y ajoute l'<b>afflux</b>. Plus le carry est attractif (écart plus grand et volatilité plus faible), plus des investisseurs carry rejoignent lentement le mouvement, et à chaque fois ils achètent la devise à taux élevé et font monter son prix (l'escalier). Plus la foule est grande, plus il est probable que tout le monde dénoue en une seule semaine ; alors la foule fond d'un coup et la devise baisse d'autant (l'ascenseur). La <b>force de la foule</b> est l'ampleur du mouvement de la devise quand toute la foule bouge."
+"id": "s2336",
+"page": "voting",
+"ko": "후보와 유권자는 같은 분포(두 무리의 가우시안 혼합, 표준편차 0.6)에서 뽑습니다. 이 2차원 모델에서는 콩도르세 승자가 거의 항상 존재하는데(98% 이상), 현실의 선호는 더 복잡해서 승자가 없을 수도 있습니다.",
+"en": "Candidates and voters are drawn from the same distribution (a mixture of two Gaussians, SD 0.6). In this 2-D model a Condorcet winner almost always exists (at least 98%), while real preferences are more complex and there may be no Condorcet winner.",
+"tr": "Candidats et électeurs sont tirés de la même distribution (un mélange de deux gaussiennes, écart-type 0,6). Dans ce modèle 2D, un gagnant de Condorcet existe presque toujours (au moins 98%), alors que les préférences réelles sont plus complexes et qu'il peut ne pas y avoir de gagnant de Condorcet."
 },
 {
-"id": "s1178",
-"page": "fxrate",
-"ko": "한 주의 <b>캐리 수익</b>은 이자 차이의 주간 몫에 그 주의 환율 변화를 더한 값입니다(빌린 돈 1단위당, 레버리지 없음). 아래 차트는 이 수익을 쌓은 누적 손익, 한 주 수익의 분포, 금리 차이에 따른 변화입니다. 같은 설정에서 시장 번호만 바꿔 다른 운의 시장을 볼 수 있습니다.",
-"en": "A week's <b>carry profit</b> is the weekly share of the interest gap plus that week's exchange-rate change (per unit borrowed, no leverage). The charts below show the running total, the distribution of weekly profits, and how things change with the interest gap. Keep the settings and change only the market number to see a market with different luck.",
-"tr": "Le <b>gain du carry</b> d'une semaine est la part hebdomadaire de l'écart de taux plus la variation du taux de change de cette semaine (par unité empruntée, sans effet de levier). Les graphiques ci-dessous montrent le total cumulé, la distribution des gains hebdomadaires et l'évolution selon l'écart de taux. Gardez les réglages et changez seulement le numéro de marché pour voir un marché avec une autre chance."
+"id": "s2339",
+"page": "war",
+"ko": "전쟁은 어떻게 일어나고 번질까 · 시뮬라티오 랩",
+"en": "How Does War Start and Spread? · Simulatio Lab",
+"tr": "Comment une guerre commence-t-elle et se propage-t-elle ? · Simulatio Lab"
 },
 {
-"id": "s1179",
-"page": "fxrate",
-"ko": "두 나라의 금리 차이 (예시) <output id=\"o-diff\"></output>",
-"en": "Interest gap between the two countries (example) <output id=\"o-diff\"></output>",
-"tr": "Écart de taux entre les deux pays (exemple) <output id=\"o-diff\"></output>"
+"id": "s2340",
+"page": "war",
+"ko": "전쟁은 비싸서 양쪽 모두 합의가 낫다는데도 왜 일어날까요? 협상 실패, 군비 경쟁, 이웃으로의 번짐을 이름 없는 추상 국가들의 시뮬레이션으로 직접 돌려보세요.",
+"en": "War is costly, so a deal should beat it for both sides. Why does it still happen? Run failed bargaining, arms races and spreading among nameless abstract states.",
+"tr": "La guerre coûte cher, donc un accord devrait valoir mieux pour les deux camps. Pourquoi a-t-elle lieu malgré tout ? Lancez des négociations ratées, des courses aux armements et une propagation entre des États abstraits sans nom."
 },
 {
-"id": "s1180",
-"page": "fxrate",
-"ko": "클수록 이자 수입이 크고 캐리가 매력적이라 사람이 빨리 몰려요",
-"en": "The bigger it is, the more interest you collect and the faster people pile in",
-"tr": "Plus il est grand, plus vous touchez d'intérêts et plus les gens affluent vite"
+"id": "s2341",
+"page": "war",
+"ko": "전쟁은 늘 누군가가 원해서 일어난다고 생각하기 쉽습니다. 그런데 전쟁은 양쪽 모두에게 비싸서, 싸우지 않고 나누는 편이 둘 다에게 낫다는 합의가 언제나 존재합니다. 이 단순한 모델에서는 합의 범위가 분명히 있는데도, 상대 힘을 정확히 모른다는 이유만으로 분쟁의 약 40%가 전쟁이 됩니다. 이름 없는 추상 국가들로 돌려 보며 이 구조를 만져 보세요.",
+"en": "It is easy to think war happens because someone wants it. But war is costly for both sides, so a deal that beats fighting always exists. In this simple model, even with such a deal clearly available, about 40% of disputes become war just because one side cannot tell how strong the other really is. Play with that structure using nameless, abstract states.",
+"tr": "On pense volontiers que la guerre éclate parce que quelqu'un la veut. Mais la guerre coûte cher aux deux camps, donc un accord préférable au combat existe toujours. Dans ce modèle simple, même avec un tel accord clairement disponible, environ 40% des différends tournent à la guerre simplement parce qu'un camp ne sait pas quelle est la vraie force de l'autre. Explorez cette structure avec des États abstraits sans nom."
 },
 {
-"id": "s1181",
-"page": "fxrate",
-"ko": "UIP가 맞는 정도 <output id=\"o-uip\"></output>",
-"en": "How much UIP holds <output id=\"o-uip\"></output>",
-"tr": "Dans quelle mesure l'UIP se vérifie <output id=\"o-uip\"></output>"
+"id": "s2342",
+"page": "war",
+"ko": "<b>① 협상 실패.</b> 두 나라(A, B)가 파이 1을 나눕니다. 전쟁을 하면 A는 이길 가능성 p만큼 얻고 양쪽 모두 비용 c를 치릅니다(A의 전쟁 몫 p−c, B의 전쟁 몫 1−p−c). 그래서 A의 몫이 p−c와 p+c 사이인 합의는 둘 다 전쟁보다 낫습니다. 다만 p는 B만 정확히 알고, A는 50%±(불확실성) 사이 어딘가라고만 짐작합니다. A는 기대 몫이 가장 큰 요구를 한 번 내밀고, B는 그 요구가 전쟁보다 나쁘면 거절해 전쟁이 납니다.",
+"en": "<b>① Failed bargaining.</b> Two states (A, B) split a pie of size 1. In war, A gets its chance of winning p and both pay a cost c (A's war share is p−c, B's is 1−p−c). So any deal giving A between p−c and p+c beats war for both. But only B knows p exactly; A just guesses it lies within 50% ± (uncertainty). A makes one demand that maximizes its expected share, and B rejects it if war is better for B, which means war.",
+"tr": "<b>① Échec de la négociation.</b> Deux États (A, B) se partagent un gâteau de taille 1. En cas de guerre, A obtient sa probabilité de gagner p et les deux paient un coût c (la part de guerre de A est p−c, celle de B 1−p−c). Tout accord donnant à A entre p−c et p+c vaut donc mieux que la guerre pour les deux. Mais seul B connaît p exactement ; A suppose seulement qu'elle se situe dans 50% ± (incertitude). A formule une exigence qui maximise sa part espérée, et B la refuse si la guerre lui est plus favorable, ce qui signifie la guerre."
 },
 {
-"id": "s1182",
-"page": "fxrate",
-"ko": "100%면 높은 금리 통화가 금리 차이만큼 약해져 기대 수익이 0이에요",
-"en": "At 100% the high-rate currency weakens by the gap and expected profit is zero",
-"tr": "À 100 %, la devise à taux élevé se déprécie de l'écart et le gain espéré est nul"
+"id": "s2343",
+"page": "war",
+"ko": "<b>② 군비 경쟁.</b> 두 나라가 매 라운드 상대의 군비에 <b>반응</b>(k)해 자기 군비를 늘리고, 자기 군비의 부담에 <b>피로</b>(a)를 느껴 줄입니다. 반응이 피로보다 작으면 군비가 한 수준에서 멈추고, 크면 서로를 키우며 계속 올라갑니다. 군비가 과열선(이 프로젝트가 정한 기준)을 넘는 라운드를 셉니다.",
+"en": "<b>② Arms race.</b> Each round, two states <b>react</b> (k) to the other's arms by building up, and feel the <b>fatigue</b> (a) of their own burden by cutting back. If reaction is smaller than fatigue, arms settle at some level; if larger, they keep pushing each other up. The page counts the round when arms cross a \"heat line\" (a threshold set by this project).",
+"tr": "<b>② Course aux armements.</b> À chaque tour, les deux États <b>réagissent</b> (k) à l'armement de l'autre en renforçant le leur, et ressentent la <b>fatigue</b> (a) de leur propre fardeau en le réduisant. Si la réaction est inférieure à la fatigue, l'armement se stabilise à un certain niveau ; sinon, ils se poussent mutuellement vers le haut. La page compte le tour où l'armement franchit un « seuil de surchauffe » (un seuil fixé par ce projet)."
 },
 {
-"id": "s1183",
-"page": "fxrate",
-"ko": "쏠림의 힘 <output id=\"o-imp\"></output>",
-"en": "Crowd power <output id=\"o-imp\"></output>",
-"tr": "Force de la foule <output id=\"o-imp\"></output>"
+"id": "s2344",
+"page": "war",
+"ko": "<b>③ 번짐.</b> 15×15 격자 위의 225개 추상 국가 중 한 곳에서 전쟁이 시작됩니다. 전쟁 중인 나라는 이웃(위아래 좌우) 각각을 확률 q로 끌어들이고, 새로 끌려든 나라도 같은 방식으로 이웃을 끌어들입니다. 더 번질 곳이 없으면 그 전쟁은 끝나고, 잠시 뒤 다른 곳에서 새 전쟁이 시작됩니다. 이 단계는 번짐의 구조만 보여 주는 작은 한 단계입니다.",
+"en": "<b>③ Spreading.</b> A war starts in one of 225 abstract states on a 15×15 grid. A state at war pulls in each neighbor (up, down, left, right) with probability q, and newly pulled-in states do the same. When nothing more can spread, that war ends, and after a short pause a new one starts elsewhere. This is a small step that only shows the structure of spreading.",
+"tr": "<b>③ Propagation.</b> Une guerre commence dans l'un des 225 États abstraits d'une grille de 15×15. Un État en guerre entraîne chacun de ses voisins (haut, bas, gauche, droite) avec la probabilité q, et les États nouvellement entraînés font de même. Quand plus rien ne peut se propager, cette guerre se termine et, après une courte pause, une nouvelle commence ailleurs. C'est une petite étape qui montre seulement la structure de la propagation."
 },
 {
-"id": "s1184",
-"page": "fxrate",
-"ko": "0이면 쏠림이 없는 순수한 임의보행. 크면 급락도 커요",
-"en": "0 means no crowding, a pure random walk. Higher means bigger crashes",
-"tr": "0 signifie aucun afflux, une marche aléatoire pure. Plus c'est élevé, plus les chutes sont fortes"
+"id": "s2345",
+"page": "war",
+"ko": "상대 힘에 대한 불확실성 <output id=\"o-u\"></output>",
+"en": "Uncertainty about the other's strength <output id=\"o-u\"></output>",
+"tr": "Incertitude sur la force de l'autre <output id=\"o-u\"></output>"
 },
 {
-"id": "s1185",
-"page": "fxrate",
-"ko": "환율 변동성 (연) <output id=\"o-vol\"></output>",
-"en": "Exchange-rate volatility (yearly) <output id=\"o-vol\"></output>",
-"tr": "Volatilité du taux de change (annuelle) <output id=\"o-vol\"></output>"
+"id": "s2346",
+"page": "war",
+"ko": "A가 짐작하는 B의 힘 범위의 절반 폭. 0이면 서로 다 압니다 (① 협상)",
+"en": "Half-width of A's guess about the other's strength. At 0 everyone knows everything (① bargaining)",
+"tr": "Demi-largeur de ce que A suppose sur la force de l'autre. À 0, chacun sait tout (① négociation)"
 },
 {
-"id": "s1186",
-"page": "fxrate",
-"ko": "클수록 환율이 요동쳐요. 캐리의 매력은 금리 차이÷변동성이에요",
-"en": "Higher means a wilder exchange rate. A carry's appeal is the gap divided by volatility",
-"tr": "Plus elle est élevée, plus le taux de change est agité. L'attrait d'un carry est l'écart divisé par la volatilité"
+"id": "s2347",
+"page": "war",
+"ko": "전쟁의 비용 <output id=\"o-c\"></output>",
+"en": "Cost of war <output id=\"o-c\"></output>",
+"tr": "Coût de la guerre <output id=\"o-c\"></output>"
 },
 {
-"id": "s1187",
-"page": "fxrate",
-"ko": "기간 <output id=\"o-years\"></output>",
-"en": "Period <output id=\"o-years\"></output>",
-"tr": "Période <output id=\"o-years\"></output>"
+"id": "s2348",
+"page": "war",
+"ko": "전쟁이 나면 양쪽 모두 치르는 비용(파이 대비). 클수록 합의 여지가 넓지만 정보 문제는 그대로입니다 (① 협상)",
+"en": "The cost each side pays in war (relative to the pie). Larger means more room for a deal, but the information problem stays (① bargaining)",
+"tr": "Le coût que chaque camp paie en cas de guerre (relatif au gâteau). Plus il est élevé, plus la marge d'accord est grande, mais le problème d'information demeure (① négociation)"
 },
 {
-"id": "s1188",
-"page": "fxrate",
-"ko": "길수록 쏠림과 청산이 여러 번 돌아요",
-"en": "Longer lets crowding and unwinding cycle several times",
-"tr": "Plus long, l'afflux et le dénouement peuvent se répéter plusieurs fois"
+"id": "s2349",
+"page": "war",
+"ko": "상대 군비에 대한 반응 <output id=\"o-k\"></output>",
+"en": "Reaction to the other's arms <output id=\"o-k\"></output>",
+"tr": "Réaction à l'armement de l'autre <output id=\"o-k\"></output>"
 },
 {
-"id": "s1189",
-"page": "fxrate",
-"ko": "같은 설정, 다른 운의 시장",
-"en": "Same settings, a market with different luck",
-"tr": "Mêmes réglages, un marché avec une autre chance"
+"id": "s2350",
+"page": "war",
+"ko": "상대 군비 1이 늘 때 내 군비를 늘리는 정도 (② 군비 경쟁)",
+"en": "How much I build up per unit of the other's arms (② arms race)",
+"tr": "De combien je renforce mon armement par unité d'armement de l'autre (② course aux armements)"
 },
 {
-"id": "s1190",
-"page": "fxrate",
-"ko": "① 통화값과 캐리 투자자의 쏠림",
-"en": "① The Currency and the Crowd of Carry Investors",
-"tr": "① La devise et la foule des investisseurs carry"
+"id": "s2351",
+"page": "war",
+"ko": "자기 부담의 피로 <output id=\"o-a\"></output>",
+"en": "Fatigue of own burden <output id=\"o-a\"></output>",
+"tr": "Fatigue du propre fardeau <output id=\"o-a\"></output>"
 },
 {
-"id": "s1191",
-"page": "fxrate",
-"ko": "위쪽 파란 선은 높은 금리 통화의 가치입니다(시작 = 100). 아래 주황 띠는 캐리 투자자가 얼마나 몰렸는지입니다. 쏠림이 차오르는 동안 통화값은 계단처럼 오르고, 붉은 점에서 일제히 청산하면 한 번에 떨어집니다. 지켜보세요.",
-"en": "The blue line on top is the value of the high-rate currency (start = 100). The orange band below shows how crowded the carry trade is. While the crowd builds, the currency climbs like a staircase, and at each red dot everybody unwinds and it drops at once. Watch.",
-"tr": "La ligne bleue du haut est la valeur de la devise à taux élevé (départ = 100). La bande orange du bas montre l'affluence dans le carry trade. Tant que la foule grossit, la devise monte comme par un escalier, et à chaque point rouge tout le monde dénoue et elle chute d'un coup. Regardez."
+"id": "s2352",
+"page": "war",
+"ko": "내 군비가 클수록 스스로 줄이려는 정도 (② 군비 경쟁)",
+"en": "How much I cut back the larger my own arms are (② arms race)",
+"tr": "De combien je réduis mon armement à mesure que le mien grandit (② course aux armements)"
 },
 {
-"id": "s1192",
-"page": "fxrate",
-"ko": "② 캐리를 계속 들고 있었다면: 누적 손익",
-"en": "② If You Kept Holding the Carry: Running Profit",
-"tr": "② Si vous gardiez le carry : gain cumulé"
+"id": "s2353",
+"page": "war",
+"ko": "이웃을 끌어들일 확률 <output id=\"o-q\"></output>",
+"en": "Chance of pulling in a neighbor <output id=\"o-q\"></output>",
+"tr": "Probabilité d'entraîner un voisin <output id=\"o-q\"></output>"
 },
 {
-"id": "s1193",
-"page": "fxrate",
-"ko": "매주 캐리 수익을 쌓은 선입니다(빌린 돈 1단위당, %p). 회색 점선은 UIP가 완전히 맞을 때의 기대(0), 초록 점선은 이 설정의 평균 기대입니다. 붉은 세로선은 청산한 주, 붉은 띠는 가장 크게 빠진 구간(최대 낙폭)입니다.",
-"en": "This line adds up each week's carry profit (per unit borrowed, in percentage points). The gray dashed line is the expectation when UIP holds fully (zero), the green dashed line the average expectation for these settings. Red vertical lines mark unwinding weeks and the red band the deepest fall (maximum drawdown).",
-"tr": "Cette ligne additionne le gain du carry de chaque semaine (par unité empruntée, en points de pourcentage). La ligne grise en pointillés est l'espérance quand l'UIP se vérifie pleinement (zéro), la verte en pointillés l'espérance moyenne avec ces réglages. Les lignes rouges verticales marquent les semaines de dénouement et la bande rouge la baisse la plus profonde (perte maximale)."
+"id": "s2354",
+"page": "war",
+"ko": "전쟁 중인 나라가 이웃 한 곳을 참전시킬 확률 (③ 번짐)",
+"en": "Chance that a state at war pulls in one neighbor (③ spreading)",
+"tr": "Probabilité qu'un État en guerre entraîne un voisin (③ propagation)"
 },
 {
-"id": "s1194",
-"page": "fxrate",
-"ko": "<i style=\"background:var(--accent)\"></i>누적 캐리 손익",
-"en": "<i style=\"background:var(--accent)\"></i>Running carry profit",
-"tr": "<i style=\"background:var(--accent)\"></i>Gain cumulé du carry"
+"id": "s2355",
+"page": "war",
+"ko": "같은 설정, 다른 분쟁들",
+"en": "Same settings, different disputes",
+"tr": "Mêmes réglages, différends différents"
 },
 {
-"id": "s1195",
-"page": "fxrate",
-"ko": "<i style=\"background:#1fa463\"></i>이 설정의 평균 기대",
-"en": "<i style=\"background:#1fa463\"></i>Average expectation here",
-"tr": "<i style=\"background:#1fa463\"></i>Espérance moyenne ici"
+"id": "s2356",
+"page": "war",
+"ko": "① 합의가 있었는데도 전쟁이 나는 분쟁들",
+"en": "① Disputes That End in War Despite a Deal Existing",
+"tr": "① Différends qui finissent en guerre alors qu'un accord existait"
 },
 {
-"id": "s1196",
-"page": "fxrate",
-"ko": "<i style=\"background:#8a93a6\"></i>UIP가 완전할 때(0)",
-"en": "<i style=\"background:#8a93a6\"></i>If UIP held fully (0)",
-"tr": "<i style=\"background:#8a93a6\"></i>Si l'UIP se vérifiait pleinement (0)"
+"id": "s2357",
+"page": "war",
+"ko": "점 하나가 분쟁 하나이고, 가로 위치는 A가 실제로 이길 가능성입니다(B는 알고 A는 모릅니다). A는 점선보다 오른쪽이라면 요구를 받아들여질 거라 보고 요구하는데, 실제 힘이 점선보다 왼쪽인 분쟁은 요구가 거절되어 전쟁(빨강)이 됩니다. 아래 막대는 가장 최근 분쟁에서 양쪽이 전쟁보다 나은 합의 범위(초록 띠)와 A의 요구를 보여 줍니다.",
+"en": "Each dot is one dispute, positioned by A's true chance of winning (B knows it, A does not). A makes its demand expecting it to be accepted unless the true strength falls left of the dashed line; those disputes have the demand rejected and become war (red). The bar below shows, for the latest dispute, the deals both sides prefer to war (green band) and A's demand.",
+"tr": "Chaque point est un différend, placé selon la probabilité réelle de victoire de A (B la connaît, A non). A formule son exigence en s'attendant à ce qu'elle soit acceptée, sauf si la force réelle tombe à gauche de la ligne pointillée ; dans ces différends, l'exigence est refusée et ils tournent à la guerre (rouge). La barre ci-dessous montre, pour le dernier différend, les accords que les deux camps préfèrent à la guerre (bande verte) et l'exigence de A."
 },
 {
-"id": "s1197",
-"page": "fxrate",
-"ko": "③ 한 주의 손익은 어떻게 흩어질까",
-"en": "③ How Weekly Profits Scatter",
-"tr": "③ Comment se dispersent les gains hebdomadaires"
+"id": "s2358",
+"page": "war",
+"ko": "② 불확실성이 커질수록 전쟁이 늘어난다",
+"en": "② More Uncertainty, More War",
+"tr": "② Plus d'incertitude, plus de guerre"
 },
 {
-"id": "s1198",
-"page": "fxrate",
-"ko": "경로 40개를 합쳐 한 주의 캐리 수익을 센 분포입니다. 회색 선은 같은 평균과 변동성을 가진 종 모양(정규분포)입니다. 쏠림이 있으면 왼쪽 꼬리(붉은 부분, 한 주에 -5% 아래)가 종 모양이 말하는 것보다 훨씬 두껍습니다. 쏠림의 힘을 0으로 내리면 꼬리가 사라집니다.",
-"en": "This counts weekly carry profits pooled over 40 paths. The gray line is a bell curve (normal distribution) with the same average and volatility. With crowding the left tail (red, below -5% in a week) is far thicker than the bell curve says. Set crowd power to 0 and the tail disappears.",
-"tr": "On compte ici les gains hebdomadaires du carry regroupés sur 40 trajectoires. La ligne grise est une courbe en cloche (loi normale) de même moyenne et même volatilité. Avec l'afflux, la queue de gauche (rouge, sous -5 % en une semaine) est bien plus épaisse que ne le dit la courbe en cloche. Mettez la force de la foule à 0 et la queue disparaît."
+"id": "s2359",
+"page": "war",
+"ko": "가로는 불확실성, 세로는 전쟁이 되는 분쟁의 비율입니다. 빨간 선은 이 모델의 이론값(1−c/u), 초록 점은 시뮬레이션입니다. 불확실성이 전쟁 비용보다 작으면 전쟁이 한 건도 없다가, 그것을 넘으면서 늘어납니다.",
+"en": "The horizontal axis is uncertainty and the vertical axis the share of disputes that become war. The red line is the model's theory (1−c/u) and the green dots are simulations. Below the cost of war there is no war at all, and above it war grows.",
+"tr": "L'axe horizontal est l'incertitude et l'axe vertical la part des différends qui tournent à la guerre. La ligne rouge est la théorie du modèle (1−c/u) et les points verts sont des simulations. Sous le coût de la guerre, il n'y a aucune guerre, et au-dessus la guerre augmente."
 },
 {
-"id": "s1199",
-"page": "fxrate",
-"ko": "<i style=\"background:var(--accent)\"></i>실제 주 수",
-"en": "<i style=\"background:var(--accent)\"></i>Actual weeks",
-"tr": "<i style=\"background:var(--accent)\"></i>Semaines réelles"
+"id": "s2360",
+"page": "war",
+"ko": "<i style=\"background:#e5484d\"></i>이론값",
+"en": "<i style=\"background:#e5484d\"></i>Theory",
+"tr": "<i style=\"background:#e5484d\"></i>Théorie"
 },
 {
-"id": "s1200",
-"page": "fxrate",
-"ko": "<i style=\"background:#e5484d\"></i>-5% 아래",
-"en": "<i style=\"background:#e5484d\"></i>Below -5%",
-"tr": "<i style=\"background:#e5484d\"></i>Sous -5 %"
+"id": "s2361",
+"page": "war",
+"ko": "<i style=\"background:#1fa463\"></i>시뮬레이션",
+"en": "<i style=\"background:#1fa463\"></i>Simulation",
+"tr": "<i style=\"background:#1fa463\"></i>Simulation"
 },
 {
-"id": "s1201",
-"page": "fxrate",
-"ko": "<i style=\"background:#8a93a6\"></i>종 모양(정규분포)",
-"en": "<i style=\"background:#8a93a6\"></i>Bell curve (normal)",
-"tr": "<i style=\"background:#8a93a6\"></i>Courbe en cloche (normale)"
+"id": "s2362",
+"page": "war",
+"ko": "③ 군비 경쟁: 멈출까, 폭주할까",
+"en": "③ Arms Race: Will It Settle or Run Away?",
+"tr": "③ Course aux armements : se stabilise-t-elle ou s'emballe-t-elle ?"
 },
 {
-"id": "s1202",
-"page": "fxrate",
-"ko": "④ 금리 차이를 키우면",
-"en": "④ If the Interest Gap Grows",
-"tr": "④ Si l'écart de taux grandit"
+"id": "s2363",
+"page": "war",
+"ko": "파랑과 보라는 두 나라의 군비 수준입니다. 반응(k)이 피로(a)보다 작으면 두 선이 한 수준에서 멈추고(초록 점선), 크면 서로를 끌어올려 빨간 과열선을 넘습니다. 슬라이더로 k와 a를 가까이 붙여 보세요.",
+"en": "Blue and purple are the two states' arms levels. When reaction (k) is below fatigue (a) both lines settle at one level (green dotted), and when above they pull each other past the red heat line. Try moving k and a close together with the sliders.",
+"tr": "Le bleu et le violet sont les niveaux d'armement des deux États. Quand la réaction (k) est inférieure à la fatigue (a), les deux lignes se stabilisent à un même niveau (pointillé vert) ; sinon, elles se tirent mutuellement au-delà du seuil rouge de surchauffe. Essayez de rapprocher k et a avec les curseurs."
 },
 {
-"id": "s1203",
-"page": "fxrate",
-"ko": "가로는 금리 차이, 세로는 평균입니다. 초록은 연 평균 캐리 수익, 빨강은 가장 나쁜 한 주의 평균 손실입니다. 금리 차이가 클수록 이자는 더 벌지만, 사람이 빨리 몰려 한 주의 급락도 커집니다. 경로 24개의 평균입니다.",
-"en": "The horizontal axis is the interest gap, the vertical axis an average. Green is the average yearly carry profit, red the average loss in the worst single week. A bigger gap earns more interest but also draws the crowd faster, so the worst week gets bigger. Each point averages 24 paths.",
-"tr": "L'axe horizontal est l'écart de taux, l'axe vertical une moyenne. Le vert est le gain annuel moyen du carry, le rouge la perte moyenne de la pire semaine. Un écart plus grand rapporte plus d'intérêts mais attire aussi la foule plus vite, donc la pire semaine est plus lourde. Chaque point est la moyenne de 24 trajectoires."
+"id": "s2364",
+"page": "war",
+"ko": "<i style=\"background:var(--accent)\"></i>한 나라",
+"en": "<i style=\"background:var(--accent)\"></i>State A",
+"tr": "<i style=\"background:var(--accent)\"></i>État A"
 },
 {
-"id": "s1204",
-"page": "fxrate",
-"ko": "<i style=\"background:#1fa463\"></i>연 평균 캐리 수익",
-"en": "<i style=\"background:#1fa463\"></i>Average yearly carry profit",
-"tr": "<i style=\"background:#1fa463\"></i>Gain annuel moyen du carry"
+"id": "s2365",
+"page": "war",
+"ko": "<i style=\"background:#7c5cff\"></i>다른 나라",
+"en": "<i style=\"background:#7c5cff\"></i>State B",
+"tr": "<i style=\"background:#7c5cff\"></i>État B"
 },
 {
-"id": "s1205",
-"page": "fxrate",
-"ko": "<i style=\"background:#e5484d\"></i>가장 나쁜 한 주의 평균 손실",
-"en": "<i style=\"background:#e5484d\"></i>Average loss in the worst week",
-"tr": "<i style=\"background:#e5484d\"></i>Perte moyenne de la pire semaine"
+"id": "s2366",
+"page": "war",
+"ko": "④ 한 나라의 전쟁이 이웃으로 번지는 모습",
+"en": "④ How One War Spreads to Neighbors",
+"tr": "④ Comment une guerre se propage aux voisins"
 },
 {
-"id": "s1206",
-"page": "fxrate",
-"ko": "캐리 거래는 연 3.1%를 벌었지만, 최악의 한 주는 평균 -10.0%였습니다.",
-"en": "Carry earned 3.1% a year, but the worst week averaged -10.0%.",
-"tr": "Le carry a rapporté 3,1 % par an, mais la pire semaine a donné en moyenne -10,0 %."
+"id": "s2367",
+"page": "war",
+"ko": "격자 한 칸이 한 나라입니다. 테두리 친 칸에서 시작해 진한 빨강에서 옅은 주황 순서로 끌려든 나라를 칠합니다. 오른쪽(휴대폰에서는 아래) 막대는 끝난 전쟁마다 참전한 나라 수입니다.",
+"en": "Each cell is one state. The war starts in the outlined cell, and states pulled in are painted from deep red to pale orange in order. The bars on the right (below, on phones) show how many states joined each finished war.",
+"tr": "Chaque cellule est un État. La guerre commence dans la cellule entourée, et les États entraînés sont peints dans l'ordre, du rouge profond à l'orange pâle. Les barres à droite (en dessous, sur mobile) montrent combien d'États ont rejoint chaque guerre terminée."
 },
 {
-"id": "s1207",
-"page": "fxrate",
-"ko": "이 모델에서는 쏠림이 천천히 쌓이다 한 주에 일제히 풀리며 통화값이 밀려, 왼쪽 꼬리가 길어졌습니다.",
-"en": "In this model crowding builds slowly and unwinds in one week, pushing the currency down and making a long left tail.",
-"tr": "Dans ce modèle, l'encombrement s'accumule lentement et se dénoue en une semaine, ce qui fait chuter la devise et crée une longue queue gauche."
+"id": "s2368",
+"page": "war",
+"ko": "⑤ 번짐 확률이 임계점을 넘으면",
+"en": "⑤ When the Spreading Chance Passes the Tipping Point",
+"tr": "⑤ Quand la probabilité de propagation dépasse le point de bascule"
 },
 {
-"id": "s1208",
-"page": "fxrate",
-"ko": "평균 수익만이 아니라 쏠림이 얼마나 쌓였는지와 급락의 모양까지 살펴볼 만합니다.",
-"en": "Beyond average returns, how much crowding has built up and the shape of the drops are worth examining.",
-"tr": "Au-delà des rendements moyens, il vaut la peine d'examiner l'ampleur de l'encombrement accumulé et la forme des chutes."
+"id": "s2369",
+"page": "war",
+"ko": "가로는 이웃을 끌어들일 확률, 파란 선은 평균 참전국 비율, 빨간 선은 전체의 25% 이상으로 번진 전쟁의 비율입니다(확률마다 300번씩 시뮬레이션). 정사각 격자에서는 이 확률이 50% 근처에서 갑자기 큰 번짐이 가능해집니다.",
+"en": "The horizontal axis is the chance of pulling in a neighbor, the blue line the average share of states joining, and the red line the share of wars that spread to 25% or more of all states (300 simulations per value). On a square grid, big spreads suddenly become possible near 50%.",
+"tr": "L'axe horizontal est la probabilité d'entraîner un voisin, la ligne bleue la part moyenne d'États qui rejoignent, et la ligne rouge la part des guerres qui se sont propagées à 25% ou plus de tous les États (300 simulations par valeur). Sur une grille carrée, les grandes propagations deviennent soudain possibles près de 50%."
 },
 {
-"id": "s1209",
-"page": "fxrate",
-"ko": "<b>말하는 것:</b> 기본 설정(금리 차이 4%p, 변동성 연 8%, UIP 30%, 쏠림의 힘 12%, 20년)에서 시장 번호 1은 청산이 4번 있었고 연 평균 6.9%를 벌었지만, 최악의 한 주는 -11.5%로 평소 한 주 평균 이익의 87주치(약 1.7년치)를 날렸습니다. 같은 설정의 다른 시장은 운이 달라서 번호 3은 연 평균 -1.1%에 최대 낙폭 66.0%p였습니다. 200개 시장을 평균하면 연 3.1%를 벌었고 이는 이론값(쏠림이 없을 때 2.8%에 쏠림이 만드는 가격 밀림 0.3%를 더한 3.12%)과 맞았습니다. 하지만 최악의 한 주는 평균 -10.0%, 그 한 주가 지운 이익은 중앙값으로 155주치(약 3.0년치)였고 수익이 난 주는 53.7%뿐이었습니다. 쏠림이 없으면(힘 0) 같은 조건에서 최악의 주가 -3.5%이고 분포가 좌우 대칭(왜도 0.00)이었지만, 쏠림이 있으면 왜도가 -1.50으로 왼쪽 꼬리가 길어졌습니다. 쏠림의 힘을 5%, 20%, 25%로 바꾸면 왜도가 -0.16, -4.03, -5.53이고 최악의 주는 -4.8%, -16.2%, -20.1%였습니다. UIP가 100% 맞아도(평균 캐리 약 0) 쏠림이 있으면 왜도는 여전히 -1.50이었습니다. 즉 평균 이익이 없어도, 있어도 급락의 모양은 남았습니다. 경로 40개를 합친 41,600주 중 -5% 아래인 주는 249주(0.60%)였는데, 같은 평균과 변동성의 종 모양이라면 약 1.3주만 나올 정도입니다. 금리 차이를 0, 4, 10%p로 올리면 연 평균 캐리 수익이 0.20%, 3.06%, 7.70%로 늘었고, 가장 나쁜 한 주의 평균 손실도 3.6%, 10.1%, 10.5%로 커졌습니다.",
-"en": "<b>What it shows:</b> With the default settings (interest gap 4 points, volatility 8% a year, UIP 30%, crowd power 12%, 20 years), market number 1 had 4 unwinds and earned 6.9% a year on average, yet its worst week was -11.5%, wiping out 87 weeks (about 1.7 years) of the usual average weekly gain. Other markets with the same settings had different luck: number 3 averaged -1.1% a year with a maximum drawdown of 66.0 points. Averaged over 200 markets the trade earned 3.1% a year, matching the theory value (2.8% without crowding plus the 0.3% price push from the crowd, 3.12%). But the worst week averaged -10.0%, the profit that week erased was a median of 155 weeks (about 3.0 years), and only 53.7% of weeks made money. With no crowding (power 0) under the same conditions the worst week was -3.5% and the distribution was symmetric (skewness 0.00), whereas with crowding skewness was -1.50, a long left tail. With crowd power at 5%, 20% and 25%, skewness was -0.16, -4.03 and -5.53 and the worst week -4.8%, -16.2% and -20.1%. Even when UIP held 100% (average carry about zero) the skewness with crowding was still -1.50: with or without average profit, the shape of the crash remained. Among 41,600 weeks pooled from 40 paths, 249 (0.60%) fell below -5%, where a bell curve with the same average and volatility would give only about 1.3. Raising the interest gap to 0, 4 and 10 points lifted the average yearly carry profit to 0.20%, 3.06% and 7.70%, and also raised the average loss in the worst week to 3.6%, 10.1% and 10.5%.",
-"tr": "<b>Ce que cela montre :</b> Avec les réglages par défaut (écart de taux 4 points, volatilité 8 % par an, UIP 30 %, force de la foule 12 %, 20 ans), le marché numéro 1 a connu 4 dénouements et gagné en moyenne 6,9 % par an, mais sa pire semaine a été de -11,5 %, effaçant 87 semaines (environ 1,7 an) du gain hebdomadaire moyen habituel. D'autres marchés aux mêmes réglages ont eu une autre chance : le numéro 3 a fait en moyenne -1,1 % par an avec une perte maximale de 66,0 points. Moyenné sur 200 marchés, le trade a rapporté 3,1 % par an, conforme à la valeur théorique (2,8 % sans afflux plus 0,3 % de poussée de prix due à la foule, soit 3,12 %). Mais la pire semaine a atteint en moyenne -10,0 %, le gain effacé cette semaine-là était de 155 semaines en médiane (environ 3,0 ans), et seules 53,7 % des semaines étaient gagnantes. Sans afflux (force 0) dans les mêmes conditions, la pire semaine était de -3,5 % et la distribution symétrique (asymétrie 0,00), alors qu'avec l'afflux l'asymétrie était de -1,50, avec une longue queue à gauche. Avec une force de la foule de 5 %, 20 % et 25 %, l'asymétrie était de -0,16, -4,03 et -5,53 et la pire semaine de -4,8 %, -16,2 % et -20,1 %. Même quand l'UIP se vérifiait à 100 % (carry moyen proche de zéro), l'asymétrie avec afflux restait de -1,50 : avec ou sans gain moyen, la forme du krach demeurait. Sur 41 600 semaines regroupées à partir de 40 trajectoires, 249 (0,60 %) sont passées sous -5 %, là où une courbe en cloche de même moyenne et même volatilité n'en donnerait qu'environ 1,3. Porter l'écart de taux à 0, 4 et 10 points a fait passer le gain annuel moyen du carry à 0,20 %, 3,06 % et 7,70 %, et la perte moyenne de la pire semaine à 3,6 %, 10,1 % et 10,5 %."
+"id": "s2370",
+"page": "war",
+"ko": "<i style=\"background:var(--accent)\"></i>평균 참전국 비율",
+"en": "<i style=\"background:var(--accent)\"></i>Average share of states joining",
+"tr": "<i style=\"background:var(--accent)\"></i>Part moyenne d'États qui rejoignent"
 },
 {
-"id": "s1210",
-"page": "fxrate",
-"ko": "환율이나 이익을 맞히는 모델이 아닙니다. 투자 판단에 쓰지 마세요. 금리 차이와 쏠림 규칙은 예시 값입니다.",
-"en": "It does not predict exchange rates or profits and is not for investment decisions; the rate gap and crowding rules are examples.",
-"tr": "Il ne prédit ni les taux de change ni les profits et ne doit pas servir à des décisions d'investissement ; l'écart de taux et les règles d'encombrement sont des exemples."
+"id": "s2371",
+"page": "war",
+"ko": "<i style=\"background:#e5484d\"></i>25% 이상으로 번진 전쟁",
+"en": "<i style=\"background:#e5484d\"></i>Wars spreading to 25% or more",
+"tr": "<i style=\"background:#e5484d\"></i>Guerres qui se propagent à 25% ou plus"
 },
 {
-"id": "s1211",
-"page": "fxrate",
-"ko": "실제 급락에 쏠림이 얼마나 작용했는지는 이 모델로 알 수 없어, 실제 자료로 따로 확인해야 합니다.",
-"en": "How much crowding drove real crashes cannot be told from this model and must be checked against real data.",
-"tr": "Dans quelle mesure l'encombrement a provoqué de vrais krachs ne peut pas être déduit de ce modèle et doit être vérifié avec des données réelles."
+"id": "s2372",
+"page": "war",
+"ko": "전쟁 비용 15%, 불확실성 ±25%에서 양쪽이 선호할 합의가 늘 있어도 분쟁의 40.0%가 전쟁이 돼요.",
+"en": "At war cost 15% and uncertainty +/-25%, 40.0% of disputes become wars even though a deal both prefer always exists.",
+"tr": "Avec un coût de guerre de 15 % et une incertitude de +/-25 %, 40,0 % des différends tournent à la guerre alors qu'il existe toujours un accord que les deux préfèrent."
 },
 {
-"id": "s1212",
-"page": "fxrate",
-"ko": "<b>말하지 않는 것:</b> 이 모델로 금리나 환율을 맞힐 수 없고, 어떤 거래가 이익일지 알려 주지도 않습니다. 투자 판단에 쓰지 마세요. 모든 숫자(금리 차이, 변동성, 쏠림의 힘, UIP가 맞는 정도, 쏠림이 늘고 청산하는 규칙)는 이 프로젝트가 정한 예시이고, 원화를 비롯한 특정 통화나 어느 시기의 실제 환율·금리를 나타내지 않습니다. 현실의 환율에는 경제 지표, 정책, 국제 자금의 이동, 위험 회피 같은 훨씬 많은 요인이 있고, 이 모델은 \"쏠림과 일제 청산이 이런 계단과 급락의 모양을 만들 수 있다\"는 메커니즘 하나만 보여 줄 뿐 실제 급락의 원인이 이것이라고 증명하지 않습니다. 거래 비용, 레버리지, 세금, 여러 통화의 조합도 빠져 있습니다.",
-"en": "<b>What it doesn't show:</b> This model cannot predict interest rates or exchange rates, and does not tell you which trade will make money. Do not use it for investment decisions. Every number (the interest gap, volatility, crowd power, how much UIP holds, and the rules for the crowd to grow and unwind) is an example chosen by this project and stands for no particular currency, including the won, and for no real exchange rate or interest rate at any date. Real exchange rates have many more drivers, such as economic data, policy, international capital flows and risk aversion, and this model shows only one mechanism, that crowding and a joint exit can create this staircase-and-crash shape, without proving that this is what causes real crashes. Trading costs, leverage, taxes and portfolios of several currencies are also left out.",
-"tr": "<b>Ce que cela ne montre pas :</b> Ce modèle ne peut prédire ni les taux d'intérêt ni les taux de change, et ne dit pas quelle opération rapportera de l'argent. Ne l'utilisez pas pour des décisions d'investissement. Chaque chiffre (l'écart de taux, la volatilité, la force de la foule, la mesure dans laquelle l'UIP se vérifie, et les règles de croissance et de dénouement de la foule) est un exemple choisi par ce projet et ne représente aucune devise en particulier, y compris le won, ni aucun taux de change ou taux d'intérêt réel à une date donnée. Les taux de change réels ont bien d'autres moteurs, comme les données économiques, la politique, les flux internationaux de capitaux et l'aversion au risque, et ce modèle ne montre qu'un seul mécanisme, à savoir que l'afflux et une sortie collective peuvent créer cette forme d'escalier suivi d'un krach, sans prouver que c'est ce qui cause les krachs réels. Les coûts de transaction, l'effet de levier, les impôts et les portefeuilles de plusieurs devises sont également exclus."
+"id": "s2373",
+"page": "war",
+"ko": "A가 상대 힘을 몰라 요구를 한 번만 내밀면, 비용이 작을수록 거절되는 구간이 커져 합의가 있어도 전쟁이 날 수 있어요.",
+"en": "If A cannot see B's strength and makes one demand, lower costs widen the range that gets refused, so war can occur despite a possible deal.",
+"tr": "Si A ne peut pas voir la force de B et formule une seule exigence, des coûts plus faibles élargissent la plage des refus : la guerre peut donc survenir malgré un accord possible."
 },
 {
-"id": "s1213",
-"page": "fxrate",
-"ko": "<b>모델의 뿌리:</b> 서로 다른 두 통화의 금리 차이와 환율의 관계를 말하는 <b>이자율 평가</b>가 뿌리입니다. 차익거래로 성립하는 <i>커버드</i> 이자율 평가와 달리, 환율을 미리 고정하지 않은 <i>비커버드</i>(UIP)는 기대되는 환율 변화가 금리 차이와 같다는 가설입니다. Fama(1984)는 「Forward and spot exchange rates」(<i>Journal of Monetary Economics</i>)에서 실제 자료가 이에 맞지 않는 점을 보였고(UIP 퍼즐), Meese와 Rogoff(1983)는 환율 모형이 임의보행보다 표본 밖에서 더 잘 맞히지 못한다고 보고했습니다. 쏠림과 급락은 Brunnermeier, Nagel, Pedersen(2009)의 「Carry Trades and Currency Crashes」가 다룬 주제입니다.",
-"en": "<b>Where the model comes from:</b> The root is <b>interest rate parity</b>, linking the interest gap between two currencies to the exchange rate. Unlike <i>covered</i> parity, which holds by arbitrage, <i>uncovered</i> parity (UIP) is the hypothesis that the expected change in the exchange rate equals the interest gap. Fama (1984), in &quot;Forward and spot exchange rates&quot; (<i>Journal of Monetary Economics</i>), showed real data do not fit it (the UIP puzzle), and Meese and Rogoff (1983) reported that exchange-rate models forecast out of sample no better than a random walk. Crowding and crashes are the theme of Brunnermeier, Nagel and Pedersen (2009), &quot;Carry Trades and Currency Crashes&quot;.",
-"tr": "<b>D'où vient le modèle :</b> La racine est la <b>parité des taux d'intérêt</b>, qui relie l'écart de taux entre deux devises au taux de change. Contrairement à la parité <i>couverte</i>, qui tient par arbitrage, la parité <i>non couverte</i> (UIP) est l'hypothèse selon laquelle la variation attendue du taux de change égale l'écart de taux. Fama (1984), dans &quot;Forward and spot exchange rates&quot; (<i>Journal of Monetary Economics</i>), a montré que les données réelles ne s'y conforment pas (le puzzle de l'UIP), et Meese et Rogoff (1983) ont rapporté que les modèles de taux de change ne prévoient pas mieux hors échantillon qu'une marche aléatoire. L'afflux et les krachs sont le thème de Brunnermeier, Nagel et Pedersen (2009), &quot;Carry Trades and Currency Crashes&quot;."
+"id": "s2374",
+"page": "war",
+"ko": "구조를 보면 정보의 불확실성과 반응의 세기가 어디서 문턱을 넘는지가 중요한 부분일 수 있어요.",
+"en": "Structurally, where information gaps and reaction strengths cross a threshold may be the important part.",
+"tr": "Sur le plan structurel, ce qui compte peut être l'endroit où les écarts d'information et l'intensité des réactions franchissent un seuil."
 },
 {
-"id": "s1214",
-"page": "fxrate",
-"ko": "<b>핵심 가정과 수식:</b> 환율 x(높은 금리 통화 가치의 로그)는 주마다 <code>x ← x − u·d/52 + k·(c' − c) + (σ/√52)·ε</code>로 바뀝니다(d 금리 차이, u UIP가 맞는 정도, c 쏠림, k 쏠림의 힘, σ 연 변동성). 캐리 수익은 <code>d/52 + Δx</code>라서 쏠림이 없으면 기대치가 <code>(1−u)·d</code>이고 u=1이면 0입니다. 쏠림은 <code>c ← c + r·c(1−c)</code>(r = 0.06×d/σ에 약간의 무작위)로 늘고, 주마다 <code>0.0004 + 0.02·c³</code>의 확률로 일제히 청산해 c가 50~90% 줄어듭니다.",
-"en": "<b>Key assumptions and formulas:</b> The exchange rate x (log of the high-rate currency's value) changes each week as <code>x ← x − u·d/52 + k·(c' − c) + (σ/√52)·ε</code> (d interest gap, u how much UIP holds, c crowding, k crowd power, σ yearly volatility). The carry profit is <code>d/52 + Δx</code>, so without crowding its expectation is <code>(1−u)·d</code>, and zero when u=1. Crowding grows as <code>c ← c + r·c(1−c)</code> (r = 0.06×d/σ with some randomness), and each week with probability <code>0.0004 + 0.02·c³</code> everyone unwinds and c shrinks by 50 to 90%.",
-"tr": "<b>Hypothèses et formules clés :</b> Le taux de change x (logarithme de la valeur de la devise à taux élevé) évolue chaque semaine selon <code>x ← x − u·d/52 + k·(c' − c) + (σ/√52)·ε</code> (d écart de taux, u mesure dans laquelle l'UIP se vérifie, c afflux, k force de la foule, σ volatilité annuelle). Le gain du carry est <code>d/52 + Δx</code>, donc sans afflux son espérance est <code>(1−u)·d</code>, et nulle quand u=1. L'afflux croît selon <code>c ← c + r·c(1−c)</code> (r = 0,06×d/σ avec un peu d'aléa), et chaque semaine, avec la probabilité <code>0.0004 + 0.02·c³</code>, tout le monde dénoue et c diminue de 50 à 90 %."
+"id": "s2375",
+"page": "war",
+"ko": "<b>말하는 것:</b> ① 전쟁 비용 15%, 불확실성 ±25%에서 A는 자기 몫을 가장 크게 기대하는 요구(60%)를 했고, 이론상 분쟁의 40.0%가 전쟁이 됩니다(시뮬레이션 20만 건에서 39.8%). 양쪽이 전쟁보다 낫다고 여길 합의 범위(폭 30%)가 늘 있었는데도 그렇습니다. 정보가 정확하면(불확실성 0) 전쟁은 0%였고, 불확실성이 15% 이하이면 전쟁 비용과 같거나 작아 역시 0%였습니다. 불확실성 20%에서 25.0%, 30%에서 50.0%, 40%에서 62.5%, 50%에서 70.0%로 늘었습니다. 불확실성 ±25%에서 전쟁 비용을 5%로 낮추면 80.0%, 10%는 60.0%, 20%는 20.0%였고 25% 이상에서는 0%였습니다. 두 방법으로 45개 조합을 비교했을 때 이론과 시뮬레이션의 차이는 최대 0.1%p였습니다. ② 군비 경쟁은 반응 k가 피로 a보다 작으면 멈추고 클수록 폭주했습니다(k, a를 0.1~1.0으로 바꾼 342개 조합이 모두 이 조건과 일치). 기본값(k 0.60, a 0.45)에서는 모든 시드(1~5)에서 31라운드에 과열선에 닿았고, k 0.50 · a 0.45에서는 63~64라운드로 늦어졌습니다. k 0.50 · a 0.60이면 이론상 안정 수준 1.00에 시뮬레이션 평균 0.99로 멈췄습니다. ③ 이웃을 끌어들일 확률이 30%일 때 평균 참전 5.5개국(2.5%), 40%에서 17.1개국, 50%에서 69.9개국(31.1%), 60%에서 169.7개국(75.4%), 70%에서 213.0개국(94.7%)이었습니다. 50%에서는 전쟁의 49.6%가 전체의 25% 이상으로 번졌고, 같은 설정에서 규모가 1~2개국에 그친 전쟁도 12.5%였습니다. 30%에서는 가장 큰 전쟁도 57개국(2만 번 중)이었습니다.",
+"en": "<b>What it shows:</b> ① With a war cost of 15% and uncertainty of ±25%, A makes the demand with the best expected share (60%), and in theory 40.0% of disputes become war (39.8% in 200,000 simulated disputes), even though a range of deals (30% wide) that both sides prefer to war always existed. With accurate information (uncertainty 0) war was 0%, and with uncertainty at or below 15%, no larger than the war cost, it was 0% too. It grew to 25.0% at uncertainty 20%, 50.0% at 30%, 62.5% at 40% and 70.0% at 50%. At uncertainty ±25%, a war cost of 5% gave 80.0%, 10% gave 60.0%, 20% gave 20.0%, and from 25% on it was 0%. Across 45 combinations, theory and simulation differed by at most 0.1 percentage points. ② In the arms race, arms settled when reaction k was below fatigue a and ran away otherwise (all 342 combinations of k and a from 0.1 to 1.0 matched that condition). With the defaults (k 0.60, a 0.45) every seed (1 to 5) hit the heat line at round 31, and with k 0.50 and a 0.45 it was delayed to rounds 63 to 64. With k 0.50 and a 0.60 arms settled at the theoretical level of 1.00, averaging 0.99 in simulation. ③ With a 30% chance of pulling in a neighbor, an average of 5.5 states (2.5%) joined; 17.1 at 40%, 69.9 (31.1%) at 50%, 169.7 (75.4%) at 60%, and 213.0 (94.7%) at 70%. At 50%, 49.6% of wars spread to 25% or more of all states, yet 12.5% stayed within 1 or 2 states. At 30% even the largest war (out of 20,000) had 57 states.",
+"tr": "<b>Ce que cela montre :</b> ① Avec un coût de guerre de 15% et une incertitude de ±25%, A formule l'exigence à la meilleure part espérée (60%), et en théorie 40,0% des différends tournent à la guerre (39,8% sur 200 000 différends simulés), alors qu'il existait toujours une plage d'accords (de 30% de large) que les deux camps préféraient à la guerre. Avec une information exacte (incertitude 0), la guerre était à 0%, et avec une incertitude inférieure ou égale à 15%, pas plus grande que le coût de la guerre, aussi à 0%. Elle est montée à 25,0% pour une incertitude de 20%, 50,0% à 30%, 62,5% à 40% et 70,0% à 50%. Avec une incertitude de ±25%, un coût de guerre de 5% a donné 80,0%, 10% a donné 60,0%, 20% a donné 20,0%, et à partir de 25% c'était 0%. Sur 45 combinaisons, la théorie et la simulation différaient d'au plus 0,1 point de pourcentage. ② Dans la course aux armements, l'armement s'est stabilisé quand la réaction k était inférieure à la fatigue a et s'est emballé dans le cas contraire (les 342 combinaisons de k et a de 0,1 à 1,0 respectaient cette condition). Avec les valeurs par défaut (k 0,60, a 0,45), chaque graine (1 à 5) a atteint le seuil de surchauffe au tour 31, et avec k 0,50 et a 0,45 cela a été retardé aux tours 63 à 64. Avec k 0,50 et a 0,60, l'armement s'est stabilisé au niveau théorique de 1,00, avec une moyenne de 0,99 en simulation. ③ Avec une probabilité de 30% d'entraîner un voisin, en moyenne 5,5 États (2,5%) ont rejoint ; 17,1 à 40%, 69,9 (31,1%) à 50%, 169,7 (75,4%) à 60% et 213,0 (94,7%) à 70%. À 50%, 49,6% des guerres se sont propagées à 25% ou plus de tous les États, mais 12,5% sont restées à 1 ou 2 États. À 30%, même la plus grande guerre (sur 20 000) a compté 57 États."
 },
 {
-"id": "s1215",
-"page": "fxrate",
-"ko": "<b>이 프로젝트의 단순화:</b> 쏠림이 늘고 청산하는 규칙과 그 상수(0.06, 0.0004, 0.02, 청산 때 50~90% 감소), 시작 쏠림 10%, 변동성이 일정한 점, 이자 차이가 일정한 점은 이 프로젝트가 정한 값입니다. 실제 시장의 위험 회피, 유동성, 레버리지, 중앙은행 개입, 거래 비용은 없습니다. Fama의 퍼즐과 Brunnermeier 등의 분석을 재현한 것이 아니라 그 직관을 보여 주는 장난감 모델입니다.",
-"en": "<b>What this project simplifies:</b> The rules for the crowd to grow and unwind and their constants (0.06, 0.0004, 0.02, a 50 to 90% drop at an unwind), the 10% starting crowd, the constant volatility and the constant interest gap are this project's own choices. Real-market risk aversion, liquidity, leverage, central-bank intervention and trading costs are absent. It does not reproduce Fama's puzzle or the analysis of Brunnermeier et al.; it is a toy model that shows their intuition.",
-"tr": "<b>Ce que ce projet simplifie :</b> Les règles de croissance et de dénouement de la foule et leurs constantes (0,06, 0,0004, 0,02, une baisse de 50 à 90 % lors d'un dénouement), l'afflux initial de 10 %, la volatilité constante et l'écart de taux constant sont des choix propres à ce projet. L'aversion au risque, la liquidité, l'effet de levier, les interventions des banques centrales et les coûts de transaction des marchés réels sont absents. Il ne reproduit ni le puzzle de Fama ni l'analyse de Brunnermeier et al. ; c'est un modèle jouet qui en montre l'intuition."
+"id": "s2376",
+"page": "war",
+"ko": "실제 전쟁의 원인을 설명하거나 예측하지는 않아요.",
+"en": "It does not explain or predict the causes of real wars.",
+"tr": "Cela n'explique ni ne prédit les causes des guerres réelles."
 },
 {
-"id": "s1216",
-"page": "fxrate",
-"ko": "<b>이론값과 시뮬레이션:</b> 쏠림이 없을 때 평균 연 캐리 수익의 이론값 <code>(1−u)·d</code>는 UIP 30%에서 2.80%, 100%에서 0이고, 3,000개 시장×20년 시뮬레이션은 2.84%와 0.04%였습니다(표준오차 약 0.03). 쏠림이 있으면 환율 밀림의 합이 k×(끝 쏠림−처음 쏠림)이라 이론 2.80%에 0.32%를 더한 3.12%이고 시뮬레이션도 3.12%였습니다. 쏠림이 없을 때 주간 변동성은 이론 1.109%에 시뮬레이션 1.108%, 1주 자기상관은 -0.001이었습니다. 52주 뒤 환율 변화를 맞히는 오차(제곱평균제곱근)는 쏠림이 없을 때 변화 없음 예측이 7.82%p, 금리 차이만큼 약해진다는 UIP 예측이 8.36%p로, 이 모델은 UIP가 30%만 맞도록 만들어서 Meese–Rogoff식 결과가 나오게 되어 있으므로 실제 증거가 아닙니다.",
-"en": "<b>Theory versus simulation:</b> Without crowding, the theoretical average yearly carry profit <code>(1−u)·d</code> is 2.80% at UIP 30% and 0 at 100%, and the simulation of 3,000 markets × 20 years gave 2.84% and 0.04% (standard error about 0.03). With crowding the total price push is k×(final crowd − starting crowd), so theory is 2.80% plus 0.32% = 3.12%, and the simulation also gave 3.12%. Without crowding, weekly volatility was 1.108% in the simulation against a theoretical 1.109%, and one-week autocorrelation was -0.001. For guessing the exchange-rate change 52 weeks ahead, the root-mean-square error without crowding was 7.82 points for a no-change forecast and 8.36 points for the UIP forecast (the currency weakens by the gap); since this model makes UIP hold only 30%, a Meese–Rogoff-style result is built in and is not real evidence.",
-"tr": "<b>Théorie contre simulation :</b> Sans afflux, le gain annuel moyen théorique du carry <code>(1−u)·d</code> est de 2,80 % avec une UIP à 30 % et de 0 à 100 %, et la simulation de 3 000 marchés × 20 ans a donné 2,84 % et 0,04 % (erreur standard d'environ 0,03). Avec l'afflux, la poussée totale du prix est k×(foule finale − foule initiale), donc la théorie donne 2,80 % plus 0,32 % = 3,12 %, et la simulation a aussi donné 3,12 %. Sans afflux, la volatilité hebdomadaire était de 1,108 % en simulation contre 1,109 % en théorie, et l'autocorrélation à une semaine de -0,001. Pour deviner la variation du taux de change à 52 semaines, l'erreur quadratique moyenne sans afflux était de 7,82 points pour une prévision d'absence de changement et de 8,36 points pour la prévision UIP (la devise se déprécie de l'écart) ; comme ce modèle ne fait vérifier l'UIP qu'à 30 %, un résultat de type Meese–Rogoff est intégré d'office et ne constitue pas une preuve réelle."
+"id": "s2377",
+"page": "war",
+"ko": "국내 정치, 이념, 동맹, 약속을 믿지 못하는 문제는 모델에 없고, 이런 구조가 가능하다는 것만 보여 줘요.",
+"en": "Domestic politics, ideology, alliances and commitment problems are absent; it only shows that such a structure is possible.",
+"tr": "La politique intérieure, l'idéologie, les alliances et les problèmes d'engagement sont absents ; cela montre seulement qu'une telle structure est possible."
 },
 {
-"id": "s1217",
-"page": "fxrate",
-"ko": "<b>더 읽을거리:</b> Fama (1984), 「Forward and spot exchange rates」, <i>Journal of Monetary Economics</i> / Meese &amp; Rogoff (1983), 「Empirical exchange rate models of the seventies: Do they fit out of sample?」, <i>Journal of International Economics</i> / Brunnermeier, Nagel &amp; Pedersen (2009), 「Carry Trades and Currency Crashes」, <i>NBER Macroeconomics Annual</i>.",
-"en": "<b>Further reading:</b> Fama (1984), &quot;Forward and spot exchange rates&quot;, <i>Journal of Monetary Economics</i> / Meese &amp; Rogoff (1983), &quot;Empirical exchange rate models of the seventies: Do they fit out of sample?&quot;, <i>Journal of International Economics</i> / Brunnermeier, Nagel &amp; Pedersen (2009), &quot;Carry Trades and Currency Crashes&quot;, <i>NBER Macroeconomics Annual</i>.",
-"tr": "<b>Pour aller plus loin :</b> Fama (1984), &quot;Forward and spot exchange rates&quot;, <i>Journal of Monetary Economics</i> / Meese &amp; Rogoff (1983), &quot;Empirical exchange rate models of the seventies: Do they fit out of sample?&quot;, <i>Journal of International Economics</i> / Brunnermeier, Nagel &amp; Pedersen (2009), &quot;Carry Trades and Currency Crashes&quot;, <i>NBER Macroeconomics Annual</i>."
+"id": "s2378",
+"page": "war",
+"ko": "<b>말하지 않는 것:</b> 실제 전쟁의 원인을 설명하거나 예측하지 않습니다. 실제 전쟁은 훨씬 복잡합니다. 이 페이지의 나라들은 이름도 얼굴도 없는 추상 국가이며, 어떤 실제 분쟁도 가리키지 않습니다. 세 모델은 모두 이 프로젝트가 크게 단순화한 것입니다. 전쟁의 이득과 비용을 파이의 몫으로만 다루고, 사람의 고통이나 국내 정치, 이념, 동맹, 제3자의 개입은 담지 않았습니다. 이 결과는 \"이런 구조가 전쟁을 만들 수 있다\"는 가능성을 보여 줄 뿐, 어느 전쟁이 이렇게 일어났다는 증거가 아닙니다. 또 협상 실패에는 정보 문제 외에 약속을 믿지 못하는 문제 등도 있는데 여기서는 다루지 않았습니다. 군비 경쟁의 과열선과 번짐 격자의 크기, 번짐 확률은 이 프로젝트가 정한 값이고, 군비가 많다고 곧 전쟁이 난다는 뜻도 아닙니다.",
+"en": "<b>What it doesn't show:</b> This does not explain or predict the causes of real wars. Real wars are far more complex. The states on this page are nameless, faceless abstractions and point to no real conflict. All three models are heavy simplifications by this project: gains and costs of war are only shares of a pie, and human suffering, domestic politics, ideology, alliances and third-party intervention are left out. The results only show that such structures can produce war; they are no evidence that any particular war began this way. Bargaining can also fail for reasons beyond information, such as an inability to trust promises, which is not covered here. The heat line for arms, the size of the grid and the spreading chances are values chosen by this project, and having many arms does not mean war will break out.",
+"tr": "<b>Ce que cela ne montre pas :</b> Cela n'explique ni ne prédit les causes des guerres réelles. Les guerres réelles sont bien plus complexes. Les États de cette page sont des abstractions sans nom ni visage et ne renvoient à aucun conflit réel. Les trois modèles sont de fortes simplifications de ce projet : les gains et les coûts de la guerre ne sont que des parts d'un gâteau, et les souffrances humaines, la politique intérieure, l'idéologie, les alliances et l'intervention de tiers sont laissés de côté. Les résultats montrent seulement que de telles structures peuvent produire la guerre ; ils ne prouvent pas qu'une guerre particulière ait commencé ainsi. La négociation peut aussi échouer pour des raisons autres que l'information, comme l'incapacité à se fier aux promesses, ce qui n'est pas traité ici. Le seuil de surchauffe de l'armement, la taille de la grille et les probabilités de propagation sont des valeurs choisies par ce projet, et avoir beaucoup d'armes ne signifie pas qu'une guerre éclatera."
 },
 {
-"id": "s1218",
-"page": "fxrate",
-"ko": "검증은 <code>node tools/validate-fxrate.js</code>로 할 수 있습니다. 시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시장 번호면 같은 결과가 나옵니다. 위 통계 카드의 왜도는 같은 설정으로 40개 경로를 따로 돌린 평균이고, ④의 점은 경로 24개 평균입니다.",
-"en": "You can verify with <code>node tools/validate-fxrate.js</code>. The simulation uses a seeded random generator (mulberry32), so the same market number gives the same result. The skewness in the statistics cards is the average over 40 separate paths with the same settings, and each point in chart ④ averages 24 paths.",
-"tr": "Vous pouvez le vérifier avec <code>node tools/validate-fxrate.js</code>. La simulation utilise un générateur aléatoire à graine (mulberry32), donc le même numéro de marché donne le même résultat. L'asymétrie des cartes de statistiques est la moyenne de 40 trajectoires distinctes avec les mêmes réglages, et chaque point du graphique ④ est la moyenne de 24 trajectoires."
+"id": "s2379",
+"page": "war",
+"ko": "<b>모델의 뿌리:</b> 세 부분은 각각 다른 고전에서 왔습니다. 협상 부분은 James Fearon의 1995년 논문 「Rationalist Explanations for War」(<i>International Organization</i>)로, 전쟁이 비싸서 늘 더 나은 합의가 있는데도 정보 비대칭 같은 이유로 협상이 깨질 수 있다는 설명입니다. 군비 경쟁 부분은 Lewis Fry Richardson의 『Arms and Insecurity』(1960)에서 나온 상호 반응 모델입니다. 번짐 부분은 격자 위 확률적 전파(결합 퍼콜레이션) 모델이고, 전쟁의 규모 통계를 다룬 Richardson의 『Statistics of Deadly Quarrels』(1960)가 배경입니다.",
+"en": "<b>Where the model comes from:</b> The three parts come from different classics. The bargaining part follows James Fearon's 1995 paper &quot;Rationalist Explanations for War&quot; (<i>International Organization</i>): war is costly so a better deal always exists, yet bargaining can fail because of reasons such as asymmetric information. The arms race part is the mutual-reaction model from Lewis Fry Richardson's <i>Arms and Insecurity</i> (1960). The spreading part is a probabilistic spread on a grid (bond percolation), with Richardson's <i>Statistics of Deadly Quarrels</i> (1960), on the statistics of war sizes, as its background.",
+"tr": "<b>D'où vient le modèle :</b> Les trois parties viennent de classiques différents. La partie négociation suit l'article de James Fearon de 1995 &quot;Rationalist Explanations for War&quot; (<i>International Organization</i>) : la guerre coûte cher donc un meilleur accord existe toujours, mais la négociation peut échouer pour des raisons comme l'asymétrie d'information. La partie course aux armements est le modèle de réaction mutuelle d'<i>Arms and Insecurity</i> (1960) de Lewis Fry Richardson. La partie propagation est une diffusion probabiliste sur une grille (percolation de liens), avec pour arrière-plan <i>Statistics of Deadly Quarrels</i> (1960) de Richardson, sur les statistiques de la taille des guerres."
+},
+{
+"id": "s2380",
+"page": "war",
+"ko": "<b>핵심 가정과 수식:</b> ① A의 승리 가능성 p는 [0.5−u, 0.5+u]에서 고르게 나오고, 전쟁 때 A는 p−c, B는 1−p−c를 얻으므로 A의 몫이 p−c와 p+c 사이인 합의가 둘 다에게 낫습니다. A가 요구 x를 하면 B는 p ≥ x−c일 때 받아들입니다. A의 기대 몫을 최대화하면 문턱은 p = 0.5+u−2c이고, 그 아래의 분쟁이 전쟁이 되어 전쟁 확률은 <code>max(0, 1 − c/u)</code>입니다. ② 군비 <code>x' = x + dt(k·y − a·x + g)</code>, y도 대칭(dt = 0.5, g = 0.1)이고 약간의 잡음이 섞입니다. 이 대칭 경우 <code>k &lt; a</code>이면 안정 수준 <code>g/(a−k)</code>에 닿고 아니면 무한히 커집니다(일반형은 k₁k₂ &lt; a₁a₂). ③ 격자 위 각 연결이 확률 q로 열려 한 나라에서 퍼지는 군집이 전쟁의 규모이고, 정사각 격자의 임계값은 1/2입니다. 슬라이더는 u, c(①), k, a(②), q(③)입니다.",
+"en": "<b>Key assumptions and formulas:</b> ① A's winning chance p is uniform on [0.5−u, 0.5+u]. In war A gets p−c and B gets 1−p−c, so any deal giving A between p−c and p+c is better for both. If A demands x, B accepts when p ≥ x−c. Maximizing A's expected share gives a threshold at p = 0.5+u−2c; disputes below it become war, so the war probability is <code>max(0, 1 − c/u)</code>. ② Arms follow <code>x' = x + dt(k·y − a·x + g)</code>, with y symmetric (dt = 0.5, g = 0.1) and a little noise. In this symmetric case, if <code>k &lt; a</code> arms settle at <code>g/(a−k)</code>, otherwise they grow without limit (in general k₁k₂ &lt; a₁a₂). ③ Each link on the grid is open with probability q, and the cluster reached from one state is the war's size; the threshold for a square grid is 1/2. The sliders are u and c (①), k and a (②), and q (③).",
+"tr": "<b>Hypothèses clés et formules :</b> ① La probabilité de victoire p de A est uniforme sur [0,5−u, 0,5+u]. En cas de guerre, A obtient p−c et B obtient 1−p−c, donc tout accord donnant à A entre p−c et p+c est meilleur pour les deux. Si A exige x, B accepte quand p ≥ x−c. Maximiser la part espérée de A donne un seuil à p = 0,5+u−2c ; les différends en dessous tournent à la guerre, d'où une probabilité de guerre de <code>max(0, 1 − c/u)</code>. ② L'armement suit <code>x' = x + dt(k·y − a·x + g)</code>, avec y symétrique (dt = 0,5, g = 0,1) et un peu de bruit. Dans ce cas symétrique, si <code>k &lt; a</code> l'armement se stabilise à <code>g/(a−k)</code>, sinon il croît sans limite (en général k₁k₂ &lt; a₁a₂). ③ Chaque lien de la grille est ouvert avec la probabilité q, et l'amas atteint depuis un État donne la taille de la guerre ; le seuil pour une grille carrée est 1/2. Les curseurs sont u et c (①), k et a (②), et q (③)."
+},
+{
+"id": "s2381",
+"page": "war",
+"ko": "<b>이 프로젝트의 단순화:</b> 현실의 전쟁에는 비용의 크기가 사람마다 다르고, 지도자와 국내 사정, 동맹, 약속의 신뢰 문제 등이 얽힙니다. 이 프로젝트는 비용을 양쪽 같은 c로, 힘의 불확실성을 고른 분포로, A가 한 번만 요구하는 방식으로 줄였습니다. 군비 경쟁은 두 나라가 똑같은 대칭 모델이고 과열선(10)과 자극값(g = 0.1)은 이 프로젝트가 정했습니다. 번짐은 15×15 격자, 위아래 좌우 이웃만, 모든 연결이 같은 확률인 단순화이며 동맹 같은 구조는 없습니다(동맹의 연쇄는 별도 실험 참고).",
+"en": "<b>What this project simplifies:</b> Real wars involve costs that differ by actor, leaders, domestic circumstances, alliances and problems of trusting promises. This project reduces it to the same cost c for both sides, a uniform distribution for uncertainty about strength, and a single demand from A. The arms race is a symmetric model with identical states, and the heat line (10) and the constant pressure (g = 0.1) are this project's own values. Spreading is a 15×15 grid with only four neighbors and the same probability on every link, with no alliances (see the separate alliance experiment for chains of alliances).",
+"tr": "<b>Ce que ce projet simplifie :</b> Les guerres réelles impliquent des coûts qui diffèrent selon les acteurs, des dirigeants, des circonstances intérieures, des alliances et des problèmes de confiance dans les promesses. Ce projet ramène tout cela à un même coût c pour les deux camps, une distribution uniforme pour l'incertitude sur la force et une seule exigence de A. La course aux armements est un modèle symétrique avec des États identiques, et le seuil de surchauffe (10) ainsi que la pression constante (g = 0,1) sont des valeurs propres à ce projet. La propagation se fait sur une grille de 15×15 avec seulement quatre voisins et la même probabilité sur chaque lien, sans alliances (voir l'expérience distincte sur les alliances pour les chaînes d'alliances)."
+},
+{
+"id": "s2382",
+"page": "war",
+"ko": "<b>이론값과 시뮬레이션:</b> ① 전쟁 확률 <code>max(0, 1−c/u)</code>를 시뮬레이션과 비교했을 때 기본값에서 이론 40.0%, 20만 건 시뮬레이션 39.8%였고, u 0~0.5, c 0.05~0.3의 45개 조합에서 최대 차이는 0.1%p였습니다. ② 안정 조건 k &lt; a는 342개 k, a 조합이 모두 일치했고(경계 k = a는 제외), 안정 수준은 k 0.5 · a 0.6에서 이론 1.00, 시뮬레이션 0.99였습니다. ③ 임계점 1/2는 격자에서 한 나라가 시작한 전쟁의 평균 참전국이 q 0.3에서 5.5개국, 0.5에서 69.9개국, 0.7에서 213.0개국으로 급증하는 것과 맞았습니다. 다만 15×15의 유한한 격자라서 50% 부근이 매끈하게 번지고, 정확한 임계값 1/2는 무한 격자의 값입니다.",
+"en": "<b>Theory versus simulation:</b> ① Comparing the war probability <code>max(0, 1−c/u)</code> with simulation, the defaults gave a theory of 40.0% and 39.8% in 200,000 simulated disputes; across 45 combinations of u from 0 to 0.5 and c from 0.05 to 0.3 the largest gap was 0.1 percentage points. ② The stability condition k &lt; a matched in all 342 combinations of k and a (excluding the boundary k = a), and the settled level at k 0.5 and a 0.6 was 1.00 in theory and 0.99 in simulation. ③ The threshold of 1/2 agreed with the average number of states in a war started in one state on the grid jumping from 5.5 at q 0.3 to 69.9 at 0.5 and 213.0 at 0.7. Because the 15×15 grid is finite the rise around 50% is smoothed, and the exact threshold of 1/2 is the value for an infinite grid.",
+"tr": "<b>Théorie contre simulation :</b> ① En comparant la probabilité de guerre <code>max(0, 1−c/u)</code> avec la simulation, les valeurs par défaut ont donné une théorie de 40,0% et 39,8% sur 200 000 différends simulés ; sur 45 combinaisons de u de 0 à 0,5 et c de 0,05 à 0,3, l'écart maximal était de 0,1 point de pourcentage. ② La condition de stabilité k &lt; a correspondait dans les 342 combinaisons de k et a (hors frontière k = a), et le niveau d'équilibre à k 0,5 et a 0,6 était de 1,00 en théorie et 0,99 en simulation. ③ Le seuil de 1/2 concordait avec le fait que le nombre moyen d'États dans une guerre partie d'un État de la grille passe de 5,5 à q 0,3 à 69,9 à 0,5 et 213,0 à 0,7. Comme la grille 15×15 est finie, la hausse autour de 50% est lissée, et le seuil exact de 1/2 est la valeur pour une grille infinie."
+},
+{
+"id": "s2383",
+"page": "war",
+"ko": "<b>더 읽을거리:</b> Fearon (1995), &quot;Rationalist Explanations for War&quot;, <i>International Organization</i> / Richardson (1960), <i>Arms and Insecurity</i>, Boxwood Press / Richardson (1960), <i>Statistics of Deadly Quarrels</i>, Boxwood Press.",
+"en": "<b>Further reading:</b> Fearon (1995), &quot;Rationalist Explanations for War&quot;, <i>International Organization</i> / Richardson (1960), <i>Arms and Insecurity</i>, Boxwood Press / Richardson (1960), <i>Statistics of Deadly Quarrels</i>, Boxwood Press.",
+"tr": "<b>Pour aller plus loin :</b> Fearon (1995), &quot;Rationalist Explanations for War&quot;, <i>International Organization</i> / Richardson (1960), <i>Arms and Insecurity</i>, Boxwood Press / Richardson (1960), <i>Statistics of Deadly Quarrels</i>, Boxwood Press."
+},
+{
+"id": "s2384",
+"page": "war",
+"ko": "검증은 <code>node tools/validate-war.js</code>로 할 수 있습니다. 시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 화면의 분쟁은 한 라운드에 4건씩 쌓이고, 번짐은 한 라운드에 한 겹씩 퍼집니다.",
+"en": "You can verify with <code>node tools/validate-war.js</code>. The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. On screen, four disputes are added per round and a war spreads one layer per round.",
+"tr": "Vous pouvez le vérifier avec <code>node tools/validate-war.js</code>. La simulation utilise un générateur aléatoire à graine (mulberry32), donc la même graine donne le même résultat. À l'écran, quatre différends sont ajoutés par tour et une guerre se propage d'une couche par tour."
+},
+{
+"id": "s2385",
+"page": "war",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/war\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/war\">GitHub</a>.",
+"tr": "Le code est disponible sur <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/war\">GitHub</a>."
+},
+{
+"id": "s2386",
+"page": "weakties",
+"ko": "약한 유대의 힘 · 시뮬라티오 랩",
+"en": "The Strength of Weak Ties · Simulatio Lab",
+"tr": "La force des liens faibles · Simulatio Lab"
+},
+{
+"id": "s2387",
+"page": "weakties",
+"ko": "친한 친구 무리에 얼굴만 아는 사람 몇 명을 이었더니 소식이 퍼지는 속도가 몇 배로 빨라지는 작은 세상 네트워크를, 슬라이더로 직접 돌려보세요.",
+"en": "Run a small-world network yourself: add just a few acquaintances to tight friend circles and watch news reach everyone several times faster.",
+"tr": "Lancez vous-même un réseau petit monde : ajoutez juste quelques connaissances à des cercles d'amis très soudés et regardez la nouvelle atteindre tout le monde bien plus vite."
+},
+{
+"id": "s2388",
+"page": "weakties",
+"ko": "새 일자리 소식은 가장 친한 친구에게서 올 것 같습니다. 그런데 친한 친구들은 대개 서로도 아는 사이라 같은 소식만 돌고 돕니다. 이 모델에서는 서로 가까운 이웃끼리만 이어진 300명의 원에 먼 사람과 이은 선 약 18개(전체 연결의 2%)를 보태자, 소식이 90%에 퍼지는 시간이 58턴에서 16턴으로 줄어듭니다. 친구 무리는 거의 그대로인데 세상이 갑자기 작아집니다. 원 위의 사람을 눌러 그 사람부터 소식을 시작해 보세요.",
+"en": "You would expect a job tip to come from your closest friends. But close friends mostly know each other, so the same news just circulates. In this model, 300 people in a ring are tied only to near neighbors; adding about 18 ties to far-away people (2% of all ties) cuts the time for news to reach 90% of people from 58 turns to 16. The friend circles barely change, yet the world suddenly gets small. Click a person on the ring to start the news from them.",
+"tr": "On s'attendrait à ce qu'un tuyau pour un emploi vienne de nos amis les plus proches. Mais les amis proches se connaissent surtout entre eux, et la même nouvelle ne fait que circuler. Dans ce modèle, 300 personnes placées en anneau ne sont liées qu'à leurs voisins proches ; ajouter environ 18 liens vers des personnes éloignées (2% de tous les liens) fait passer de 58 à 16 tours le temps nécessaire pour que la nouvelle atteigne 90% des gens. Les cercles d'amis changent à peine, et pourtant le monde devient soudain petit. Cliquez sur une personne de l'anneau pour y faire démarrer la nouvelle."
+},
+{
+"id": "s2389",
+"page": "weakties",
+"ko": "<b>원 위의 사람들</b>이 각자 양옆 가까운 이웃 몇 명(기본 6명)과 이어져 있습니다. 서로 이웃의 이웃이라 친구 무리가 촘촘하게 겹칩니다. 소식은 이 무리를 따라 한 걸음씩 번져서 반대편까지 가는 데 오래 걸립니다.",
+"en": "<b>People stand on a ring</b>, each tied to a few near neighbors on either side (6 by default). Neighbors share neighbors, so friend circles overlap tightly. News creeps along them step by step and takes a long time to reach the far side.",
+"tr": "<b>Les gens sont placés sur un anneau</b>, chacun lié à quelques voisins proches de chaque côté (6 par défaut). Les voisins partagent des voisins, si bien que les cercles d'amis se recoupent fortement. La nouvelle progresse pas à pas et met longtemps à atteindre l'autre côté."
+},
+{
+"id": "s2390",
+"page": "weakties",
+"ko": "이어진 선마다 확률 p로 한쪽 끝을 <b>원 어디든 무작위 먼 사람</b>으로 바꿉니다. 이것이 얼굴만 아는 사이, 곧 약한 연결입니다(보라색 선). p가 0이면 약한 연결이 없고, 1이면 모든 선이 무작위입니다.",
+"en": "Each tie has probability p of having one end <b>moved to a random far-away person</b>. These are acquaintances, the weak ties (purple lines). With p = 0 there are none, and with p = 1 every tie is random.",
+"tr": "Chaque lien a une probabilité p de voir l'une de ses extrémités <b>déplacée vers une personne éloignée tirée au hasard</b>. Ce sont les connaissances, les liens faibles (lignes violettes). Avec p = 0, il n'y en a aucun ; avec p = 1, tous les liens sont aléatoires."
+},
+{
+"id": "s2391",
+"page": "weakties",
+"ko": "소식은 한 사람에서 시작합니다. 매 턴 소식을 아는 사람이 아직 모르는 이웃에게 전달 확률(기본 50%)로 전합니다. 90%가 알 때까지 걸린 턴을 재고, 여러 번 돌려 평균을 냅니다.",
+"en": "The news starts with one person. Each turn, everyone who knows it tells each neighbor who does not, with the passing probability (50% by default). I measure the turns until 90% know it, averaged over many runs.",
+"tr": "La nouvelle part d'une seule personne. À chaque tour, tous ceux qui la connaissent la transmettent à chaque voisin qui l'ignore, avec la probabilité de transmission (50% par défaut). Je mesure le nombre de tours avant que 90% la connaissent, en moyenne sur de nombreuses exécutions."
+},
+{
+"id": "s2392",
+"page": "weakties",
+"ko": "<b>평균 거리</b>는 두 사람 사이 최단 경로의 평균 걸음 수, <b>친구 무리의 촘촘함</b>(군집계수)은 내 친구 둘이 서로도 친구일 비율의 평균입니다.",
+"en": "The <b>average distance</b> is the mean number of steps on the shortest path between two people, and the <b>tightness of friend circles</b> (clustering coefficient) is the average chance that two of my friends are also friends.",
+"tr": "La <b>distance moyenne</b> est le nombre moyen d'étapes du plus court chemin entre deux personnes, et la <b>cohésion des cercles d'amis</b> (coefficient de regroupement) est la probabilité moyenne que deux de mes amis soient aussi amis entre eux."
+},
+{
+"id": "s2393",
+"page": "weakties",
+"ko": "약한 연결 비율 p <output id=\"o-p\"></output>",
+"en": "Share of weak ties p <output id=\"o-p\"></output>",
+"tr": "Part de liens faibles p <output id=\"o-p\"></output>"
+},
+{
+"id": "s2394",
+"page": "weakties",
+"ko": "0%부터 100%까지 열두 칸. 1~5% 구간을 천천히 만져 보세요",
+"en": "Twelve steps from 0% to 100%. Try the 1 to 5% range slowly",
+"tr": "Douze pas de 0% à 100%. Essayez lentement la plage de 1 à 5%"
+},
+{
+"id": "s2395",
+"page": "weakties",
+"ko": "사람 수 <output id=\"o-n\"></output>",
+"en": "People <output id=\"o-n\"></output>",
+"tr": "Personnes <output id=\"o-n\"></output>"
+},
+{
+"id": "s2396",
+"page": "weakties",
+"ko": "많을수록 원이 커져서, 약한 연결이 없을 때 소식이 더 오래 걸려요",
+"en": "More people make a bigger ring, so news takes longer without weak ties",
+"tr": "Plus de personnes forment un anneau plus grand ; sans liens faibles, la nouvelle met donc plus de temps"
+},
+{
+"id": "s2397",
+"page": "weakties",
+"ko": "가까운 이웃 수 <output id=\"o-k\"></output>",
+"en": "Close neighbors <output id=\"o-k\"></output>",
+"tr": "Voisins proches <output id=\"o-k\"></output>"
+},
+{
+"id": "s2398",
+"page": "weakties",
+"ko": "한 사람이 이어진 가까운 이웃의 수(양옆 합계)",
+"en": "Close neighbors per person, both sides together",
+"tr": "Voisins proches par personne, les deux côtés ensemble"
+},
+{
+"id": "s2399",
+"page": "weakties",
+"ko": "전달 확률 <output id=\"o-q\"></output>",
+"en": "Passing probability <output id=\"o-q\"></output>",
+"tr": "Probabilité de transmission <output id=\"o-q\"></output>"
+},
+{
+"id": "s2400",
+"page": "weakties",
+"ko": "아는 사람이 한 턴에 이웃에게 소식을 전할 확률",
+"en": "Chance a person who knows passes it to a neighbor each turn",
+"tr": "Probabilité qu'une personne qui connaît la nouvelle la transmette à un voisin à chaque tour"
+},
+{
+"id": "s2401",
+"page": "weakties",
+"ko": "같은 설정, 다른 네트워크",
+"en": "Same settings, different network",
+"tr": "Mêmes réglages, autre réseau"
+},
+{
+"id": "s2402",
+"page": "weakties",
+"ko": "① 소식이 퍼지는 모습",
+"en": "① Watching the News Spread",
+"tr": "① Voir la nouvelle se propager"
+},
+{
+"id": "s2403",
+"page": "weakties",
+"ko": "원 위의 점이 사람, 가까운 이웃끼리는 회색 선, 먼 사람과 이은 약한 연결은 보라색 선입니다. 남색 점은 소식을 안 사람이고 진할수록 먼저 안 사람입니다. 소식이 약한 연결을 건너뛰면 그 선이 굵어집니다. 점을 누르면 그 사람부터 다시 시작합니다.",
+"en": "Dots are people, gray lines are ties between near neighbors, and purple lines are weak ties to far-away people. Navy dots know the news, darker meaning earlier. When the news jumps across a weak tie, that line turns thick. Click a dot to restart from that person.",
+"tr": "Les points sont des personnes, les lignes grises des liens entre voisins proches et les lignes violettes des liens faibles vers des personnes éloignées. Les points bleu marine connaissent la nouvelle, et plus ils sont foncés, plus tôt ils l'ont apprise. Quand la nouvelle saute par un lien faible, cette ligne s'épaissit. Cliquez sur un point pour relancer à partir de cette personne."
+},
+{
+"id": "s2404",
+"page": "weakties",
+"ko": "② 거리는 급히 줄고 무리는 그대로",
+"en": "② Distance Collapses, Circles Stay",
+"tr": "② La distance s'effondre, les cercles restent"
+},
+{
+"id": "s2405",
+"page": "weakties",
+"ko": "가로는 약한 연결의 비율(로그 눈금), 세로는 약한 연결이 없을 때를 100%로 놓은 값입니다. 파랑(평균 거리)은 1%만 되어도 절반 아래로 떨어지는데, 노랑(친구 무리의 촘촘함)은 거의 그대로입니다. 이 간격이 작은 세상입니다.",
+"en": "The horizontal axis is the share of weak ties (log scale) and the vertical axis shows each value relative to no weak ties (100%). Blue (average distance) falls below half by 1%, while yellow (tightness of friend circles) barely moves. That gap is the small world.",
+"tr": "L'axe horizontal est la part de liens faibles (échelle logarithmique) et l'axe vertical montre chaque valeur relativement à l'absence de liens faibles (100%). Le bleu (distance moyenne) passe sous la moitié dès 1%, tandis que le jaune (cohésion des cercles d'amis) bouge à peine. Cet écart, c'est le petit monde."
+},
+{
+"id": "s2406",
+"page": "weakties",
+"ko": "③ 소식이 퍼지는 속도 비교",
+"en": "③ How Fast the News Spreads",
+"tr": "③ À quelle vitesse la nouvelle se propage"
+},
+{
+"id": "s2407",
+"page": "weakties",
+"ko": "턴마다 소식을 아는 사람의 비율입니다(8번 평균). 회색은 약한 연결이 없을 때, 나머지는 약한 연결이 늘어난 경우이고, 검은 굵은 선이 지금 설정입니다. 점선은 90%입니다.",
+"en": "The share of people who know the news at each turn (averaged over 8 runs). Gray is no weak ties, the others have more of them, and the thick black line is the current setting. The dotted line marks 90%.",
+"tr": "La part des personnes qui connaissent la nouvelle à chaque tour (moyenne de 8 exécutions). Le gris correspond à l'absence de liens faibles, les autres en ont davantage, et la ligne noire épaisse est le réglage actuel. La ligne pointillée marque 90%."
+},
+{
+"id": "s2408",
+"page": "weakties",
+"ko": "<i style=\"background:#8a93a6\"></i>0%",
+"en": "<i style=\"background:#8a93a6\"></i>0%",
+"tr": "<i style=\"background:#8a93a6\"></i>0%"
+},
+{
+"id": "s2409",
+"page": "weakties",
+"ko": "<i style=\"background:#4f7cf0\"></i>0.5%",
+"en": "<i style=\"background:#4f7cf0\"></i>0.5%",
+"tr": "<i style=\"background:#4f7cf0\"></i>0,5%"
+},
+{
+"id": "s2410",
+"page": "weakties",
+"ko": "<i style=\"background:#1fa463\"></i>2%",
+"en": "<i style=\"background:#1fa463\"></i>2%",
+"tr": "<i style=\"background:#1fa463\"></i>2%"
+},
+{
+"id": "s2411",
+"page": "weakties",
+"ko": "<i style=\"background:#e0a100\"></i>10%",
+"en": "<i style=\"background:#e0a100\"></i>10%",
+"tr": "<i style=\"background:#e0a100\"></i>10%"
+},
+{
+"id": "s2412",
+"page": "weakties",
+"ko": "<i style=\"background:#e5484d\"></i>100%",
+"en": "<i style=\"background:#e5484d\"></i>100%",
+"tr": "<i style=\"background:#e5484d\"></i>100%"
+},
+{
+"id": "s2413",
+"page": "weakties",
+"ko": "<i style=\"background:#1b1f2a\"></i>지금 설정",
+"en": "<i style=\"background:#1b1f2a\"></i>Current setting",
+"tr": "<i style=\"background:#1b1f2a\"></i>Réglage actuel"
+},
+{
+"id": "s2414",
+"page": "weakties",
+"ko": "④ 약한 연결이 얼마나 필요할까",
+"en": "④ How Many Weak Ties Do We Need?",
+"tr": "④ De combien de liens faibles a-t-on besoin ?"
+},
+{
+"id": "s2415",
+"page": "weakties",
+"ko": "90%가 알 때까지 걸리는 턴을 약한 연결 비율별로 그렸습니다. 처음 몇 개가 가장 크게 줄여 주고, 그 뒤로는 점점 덜 줄어듭니다.",
+"en": "Turns needed for 90% to know the news, by share of weak ties. The first few ties help most, and each further tie helps less.",
+"tr": "Nombre de tours nécessaires pour que 90% connaissent la nouvelle, selon la part de liens faibles. Les premiers liens aident le plus, et chaque lien supplémentaire aide moins."
+},
+{
+"id": "s2416",
+"page": "weakties",
+"ko": "약한 연결이 2%만 있어도 소식이 90%에 닿는 시간이 58.1턴에서 16.2턴으로 줄었어요.",
+"en": "Just 2% weak ties cut the time for news to reach 90% of people from 58.1 to 16.2 turns.",
+"tr": "Seulement 2 % de liens faibles ont réduit le temps nécessaire pour que la nouvelle atteigne 90 % des gens, de 58,1 à 16,2 tours."
+},
+{
+"id": "s2417",
+"page": "weakties",
+"ko": "이 모델에서는 먼 사람과 잇는 선 몇 개가 지름길이 되어 거리를 줄이고, 가까운 무리의 촘촘함은 거의 그대로예요.",
+"en": "In this model a few links to distant people act as shortcuts, shortening distance while close-knit groups barely change.",
+"tr": "Dans ce modèle, quelques liens avec des personnes éloignées servent de raccourcis et réduisent la distance, tandis que les groupes soudés changent à peine."
+},
+{
+"id": "s2418",
+"page": "weakties",
+"ko": "퍼짐이 느리다면 사람 수보다, 무리 사이를 잇는 연결이 있는지부터 살펴볼 만해요.",
+"en": "If spread is slow, whether anything links the groups is worth checking before looking at headcount.",
+"tr": "Si la diffusion est lente, il vaut la peine de vérifier si quelque chose relie les groupes avant de regarder le nombre de personnes."
+},
+{
+"id": "s2419",
+"page": "weakties",
+"ko": "<b>말하는 것:</b> 사람 300명, 가까운 이웃 6명, 전달 확률 50%에서 약한 연결이 없을 때 소식이 90%에 닿는 데 평균 58.1턴(40번 평균)이 걸렸습니다. 약한 연결 1%에서는 22.0턴, 2%(연결 900개 중 약 18개)에서는 16.2턴으로 3.6배 빨랐고, 5%에서는 11.8턴, 전부 무작위(100%)일 때는 6.2턴이었습니다. 평균 거리는 약한 연결이 없을 때 25.4걸음이었다가 1%에서 44%(11.2걸음), 2%에서 33%(8.4걸음)로 줄었지만, 친구 무리의 촘촘함은 같은 구간에서 각각 97%, 94%로 거의 그대로였습니다. 전달 확률 20%에서도 103.6턴에서 31.1턴으로, 사람 500명에서도 96.8턴에서 18.1턴으로 줄었습니다.",
+"en": "<b>What it shows:</b> With 300 people, 6 close neighbors and a 50% passing probability, news took an average of 58.1 turns (40-run average) to reach 90% of people without weak ties. With 1% weak ties it took 22.0 turns, and with 2% (about 18 of 900 ties) it took 16.2, which is 3.6 times faster; 5% gave 11.8 turns and fully random ties (100%) gave 6.2. The average distance fell from 25.4 steps with no weak ties to 44% (11.2 steps) at 1% and 33% (8.4 steps) at 2%, while the tightness of friend circles stayed at 97% and 94% of its starting value. At a 20% passing probability the time still fell from 103.6 to 31.1 turns, and with 500 people from 96.8 to 18.1.",
+"tr": "<b>Ce que cela montre :</b> Avec 300 personnes, 6 voisins proches et une probabilité de transmission de 50%, la nouvelle a mis en moyenne 58,1 tours (moyenne de 40 exécutions) pour atteindre 90% des gens sans liens faibles. Avec 1% de liens faibles, il a fallu 22,0 tours, et avec 2% (environ 18 liens sur 900) 16,2, soit 3,6 fois plus vite ; 5% ont donné 11,8 tours et des liens entièrement aléatoires (100%) 6,2. La distance moyenne est passée de 25,4 étapes sans liens faibles à 44% (11,2 étapes) avec 1% et à 33% (8,4 étapes) avec 2%, tandis que la cohésion des cercles d'amis est restée à 97% et 94% de sa valeur initiale. Avec une probabilité de transmission de 20%, le temps a encore baissé de 103,6 à 31,1 tours, et avec 500 personnes de 96,8 à 18,1."
+},
+{
+"id": "s2420",
+"page": "weakties",
+"ko": "약한 연결이 일자리를 얻는 데 더 낫다는 것까지 증명하지는 않아요. 모든 연결의 힘은 같다고 가정했어요.",
+"en": "It does not prove weak ties are better for finding jobs; every link is assumed equally strong.",
+"tr": "Cela ne prouve pas que les liens faibles soient meilleurs pour trouver un emploi ; tous les liens sont supposés de même force."
+},
+{
+"id": "s2421",
+"page": "weakties",
+"ko": "실제 약한 연결은 덜 믿고 덜 전할 수 있어서, 실제 관계망의 전달 정도를 조사해 봐야 해요.",
+"en": "Real weak ties may be trusted and passed along less, so actual transmission in real networks must be surveyed.",
+"tr": "Les liens faibles réels peuvent inspirer moins de confiance et être moins relayés ; la transmission réelle dans les réseaux réels doit donc être étudiée."
+},
+{
+"id": "s2422",
+"page": "weakties",
+"ko": "<b>말하지 않는 것:</b> 실제 사회를 재현한 것이 아닙니다. 이 모델은 모두가 같은 수의 이웃을 갖고, 약한 연결이 똑같이 소식을 전한다는 이 프로젝트의 단순화된 가정으로 만들었습니다. 현실의 약한 연결은 덜 믿고, 덜 자주 연락하고, 소식을 덜 전할 수 있는데 여기서는 그 차이를 두지 않았습니다. 또 그라노베터의 주장은 일자리 정보가 나에게 닿는 경로에 관한 것입니다. 이 모델은 소식이 퍼지는 속도만 보여 줄 뿐 일자리를 얻는 데 약한 유대가 더 낫다는 것을 증명하지 않으며, 이후 연구 결과도 엇갈립니다. 친한 친구가 더 적극적으로 도와주는 경우도 있습니다.",
+"en": "<b>What it doesn't show:</b> This does not reproduce real societies. It is this project's simplified model in which everyone has the same number of neighbors and weak ties pass news just as well as close ones. In reality weak ties may be trusted less, contacted less and pass news less, which is not modeled here. Granovetter's claim is about how job information reaches you. This model shows only how fast news spreads; it does not prove that weak ties are better for getting a job, and later studies are mixed. Close friends sometimes help more actively.",
+"tr": "<b>Ce que cela ne montre pas :</b> Cela ne reproduit pas de véritables sociétés. C'est le modèle simplifié de ce projet, où chacun a le même nombre de voisins et où les liens faibles transmettent la nouvelle aussi bien que les liens proches. Dans la réalité, les liens faibles peuvent inspirer moins confiance, être moins sollicités et transmettre moins de nouvelles, ce qui n'est pas modélisé ici. La thèse de Granovetter porte sur la façon dont l'information sur un emploi vous parvient. Ce modèle montre seulement la vitesse de propagation d'une nouvelle ; il ne prouve pas que les liens faibles soient meilleurs pour trouver un emploi, et les études ultérieures sont partagées. Les amis proches aident parfois plus activement."
+},
+{
+"id": "s2423",
+"page": "weakties",
+"ko": "<b>모델의 뿌리:</b> 작은 세상 네트워크는 Watts &amp; Strogatz (1998), \"Collective dynamics of 'small-world' networks\", <i>Nature</i> 393, 440-442에서 나왔고, 약한 유대라는 생각은 Granovetter (1973), \"The Strength of Weak Ties\", <i>American Journal of Sociology</i> 78(6), 1360-1380에서 나왔습니다. 가까운 이웃으로 이뤄진 격자에 무작위 연결 몇 개만 섞어도 평균 거리가 크게 줄어듭니다.",
+"en": "<b>Where the model comes from:</b> The small-world network comes from Watts &amp; Strogatz (1998), \"Collective dynamics of 'small-world' networks\", <i>Nature</i> 393, 440-442, and the idea of weak ties from Granovetter (1973), \"The Strength of Weak Ties\", <i>American Journal of Sociology</i> 78(6), 1360-1380. Mixing a few random ties into a lattice of near neighbors sharply cuts the average distance.",
+"tr": "<b>D'où vient le modèle :</b> Le réseau petit monde vient de Watts &amp; Strogatz (1998), « Collective dynamics of 'small-world' networks », <i>Nature</i> 393, 440-442, et l'idée de liens faibles de Granovetter (1973), « The Strength of Weak Ties », <i>American Journal of Sociology</i> 78(6), 1360-1380. Mêler quelques liens aléatoires à un réseau régulier de voisins proches réduit fortement la distance moyenne."
+},
+{
+"id": "s2424",
+"page": "weakties",
+"ko": "<b>핵심 가정과 수식:</b> 원 위의 n명이 각자 가까운 이웃 k명과 이어진 상태에서 시작해 연결마다 확률 p로 끝을 무작위로 바꿉니다. 이론적으로 p = 0에서 평균 거리는 약 <code>n/(2k)</code>, 군집계수는 <code>C(0) = 3(k−2)/(4(k−1))</code>이고, p가 작을 때 군집계수는 <code>C(p) ≈ C(0)(1−p)<sup>3</sup></code>로 근사됩니다(Barrat &amp; Weigt, 2000). 슬라이더 p, k, n이 각각 이 식의 p, k, n입니다.",
+"en": "<b>Key assumptions and formulas:</b> Start with n people on a ring, each tied to k near neighbors, and move one end of each tie to a random person with probability p. In theory, at p = 0 the average distance is about <code>n/(2k)</code> and the clustering coefficient is <code>C(0) = 3(k−2)/(4(k−1))</code>; for small p the clustering is approximately <code>C(p) ≈ C(0)(1−p)<sup>3</sup></code> (Barrat &amp; Weigt, 2000). The sliders p, k and n are these same symbols.",
+"tr": "<b>Hypothèses clés et formules :</b> On part de n personnes sur un anneau, chacune liée à k voisins proches, et l'on déplace une extrémité de chaque lien vers une personne au hasard avec la probabilité p. En théorie, pour p = 0, la distance moyenne est d'environ <code>n/(2k)</code> et le coefficient de regroupement est <code>C(0) = 3(k−2)/(4(k−1))</code> ; pour p petit, le regroupement vaut approximativement <code>C(p) ≈ C(0)(1−p)<sup>3</sup></code> (Barrat &amp; Weigt, 2000). Les curseurs p, k et n correspondent à ces mêmes symboles."
+},
+{
+"id": "s2425",
+"page": "weakties",
+"ko": "<b>이 프로젝트의 단순화:</b> 원 논문은 평균 거리와 군집계수만 다루고 소식 퍼짐은 이 프로젝트가 덧붙인 것입니다. 전달 확률, 한 사람에서 시작, 모든 연결이 같은 힘이라는 가정, 90% 기준, 사람 수 300과 이웃 6명은 이 프로젝트가 정한 값입니다. 연결의 세기나 신뢰는 모델에 없습니다.",
+"en": "<b>What this project simplifies:</b> The original paper covers only average distance and clustering; the news spreading is this project's addition. The passing probability, starting from one person, equal strength for all ties, the 90% criterion, and the defaults of 300 people and 6 neighbors are this project's choices. Tie strength and trust are not in the model.",
+"tr": "<b>Ce que ce projet simplifie :</b> L'article original ne traite que de la distance moyenne et du regroupement ; la propagation de la nouvelle est un ajout de ce projet. La probabilité de transmission, le départ d'une seule personne, l'égalité de force de tous les liens, le critère des 90% et les valeurs par défaut de 300 personnes et 6 voisins sont des choix de ce projet. La force des liens et la confiance ne figurent pas dans le modèle."
+},
+{
+"id": "s2426",
+"page": "weakties",
+"ko": "<b>이론값과 시뮬레이션:</b> p = 0에서 시뮬레이션의 평균 거리는 25.4걸음으로 근사 n/(2k) = 25.0과 비슷했고, 군집계수는 0.600으로 이론값 0.600과 같았습니다. p = 2%에서 군집계수는 0.566으로 C(0)(1−p)<sup>3</sup> = 0.565와 맞았고, p = 20%에서도 0.322 대 0.307로 가까웠습니다(p가 클수록 근사가 어긋나 50%에서는 0.095 대 0.075). 소식 퍼짐은 이론값이 없어 시뮬레이션만으로 확인했습니다(<code>node tools/validate-weakties.js</code>).",
+"en": "<b>Theory versus simulation:</b> At p = 0 the simulated average distance was 25.4 steps against the approximation n/(2k) = 25.0, and the clustering was 0.600, equal to the theoretical 0.600. At p = 2% the clustering was 0.566 against C(0)(1−p)<sup>3</sup> = 0.565, and at p = 20% 0.322 against 0.307; the approximation drifts for large p (0.095 against 0.075 at 50%). The news spreading has no theoretical benchmark, so it was checked by simulation only (<code>node tools/validate-weakties.js</code>).",
+"tr": "<b>Théorie et simulation :</b> Pour p = 0, la distance moyenne simulée était de 25,4 étapes contre l'approximation n/(2k) = 25,0, et le regroupement de 0,600, égal à la valeur théorique 0,600. Pour p = 2%, le regroupement était de 0,566 contre C(0)(1−p)<sup>3</sup> = 0,565, et pour p = 20% de 0,322 contre 0,307 ; l'approximation s'écarte pour les grands p (0,095 contre 0,075 à 50%). La propagation de la nouvelle n'a pas de référence théorique ; elle n'a donc été vérifiée que par simulation (<code>node tools/validate-weakties.js</code>)."
+},
+{
+"id": "s2427",
+"page": "weakties",
+"ko": "<b>더 읽을거리:</b> Granovetter (1973), \"The Strength of Weak Ties\", <i>American Journal of Sociology</i> 78(6); Watts &amp; Strogatz (1998), <i>Nature</i> 393; Barrat &amp; Weigt (2000), \"On the properties of small-world network models\", <i>European Physical Journal B</i> 13.",
+"en": "<b>Further reading:</b> Granovetter (1973), \"The Strength of Weak Ties\", <i>American Journal of Sociology</i> 78(6); Watts &amp; Strogatz (1998), <i>Nature</i> 393; Barrat &amp; Weigt (2000), \"On the properties of small-world network models\", <i>European Physical Journal B</i> 13.",
+"tr": "<b>Pour aller plus loin :</b> Granovetter (1973), « The Strength of Weak Ties », <i>American Journal of Sociology</i> 78(6) ; Watts &amp; Strogatz (1998), <i>Nature</i> 393 ; Barrat &amp; Weigt (2000), « On the properties of small-world network models », <i>European Physical Journal B</i> 13."
+},
+{
+"id": "s2428",
+"page": "weakties",
+"ko": "시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 평균 거리는 일부 출발점에서 너비 우선 탐색으로 구한 평균이고, ②와 ④는 설정마다 네트워크 6개, ③은 8개, 상단 숫자 카드는 14개를 만들어 평균을 냅니다.",
+"en": "The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. Average distance comes from breadth-first search from a sample of starting people; charts ② and ④ average 6 networks per setting, ③ averages 8, and the top cards average 14.",
+"tr": "La simulation utilise un générateur aléatoire à graine (mulberry32) ; la même graine donne donc le même résultat. La distance moyenne provient d'un parcours en largeur depuis un échantillon de personnes de départ ; les graphiques ② et ④ font la moyenne de 6 réseaux par réglage, ③ de 8, et les cartes du haut de 14."
+},
+{
+"id": "s2429",
+"page": "weakties",
+"ko": "검증은 <code>node tools/validate-weakties.js</code>로 할 수 있습니다.",
+"en": "You can verify with <code>node tools/validate-weakties.js</code>.",
+"tr": "Vous pouvez le vérifier avec <code>node tools/validate-weakties.js</code>."
+},
+{
+"id": "s2430",
+"page": "weakties",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/weakties\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/weakties\">GitHub</a>.",
+"tr": "Le code est disponible sur <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/weakties\">GitHub</a>."
+},
+{
+"id": "s2461",
+"page": "wealth",
+"ko": "모든 거래가 공정해도 시간이 지나면 부가 소수에게 쏠려요.",
+"en": "Even when every trade is fair, wealth concentrates in a few hands over time.",
+"tr": "Même quand chaque échange est équitable, la richesse se concentre avec le temps entre quelques mains."
+},
+{
+"id": "s2462",
+"page": "wealth",
+"ko": "이 모델에서는 가난해지면 걸 수 있는 돈이 작아 회복이 느려서, 우연이 곱해질수록 격차가 쌓여요.",
+"en": "In this model the poor can stake little, so recovery is slow and multiplied chance piles up gaps.",
+"tr": "Dans ce modèle, les pauvres ne peuvent miser que peu : le redressement est donc lent et le hasard multiplié accumule les écarts."
+},
+{
+"id": "s2463",
+"page": "wealth",
+"ko": "쏠림의 원인을 찾을 때는 개인의 행동보다 격차가 쌓이는 구조가 어디인지 살펴볼 만해요.",
+"en": "In looking for causes, it may help to examine where gaps accumulate, not just individual behavior.",
+"tr": "En cherchant des causes, il peut être utile d'examiner où les écarts s'accumulent, et pas seulement le comportement individuel."
+},
+{
+"id": "s2465",
+"page": "wealth",
+"ko": "현실의 부는 노동·상속·투자로 만들어지는데 이 모델에는 생산이 없고, 정책의 답도 아니에요.",
+"en": "Real wealth comes from work, inheritance and investment; this model has no production and no policy answer.",
+"tr": "La richesse réelle provient du travail, de l'héritage et de l'investissement ; ce modèle n'a pas de production et n'apporte pas de réponse politique."
+},
+{
+"id": "s2466",
+"page": "wealth",
+"ko": "재분배율은 실제 세율과 직접 비교할 수 없어서, 실제 자산 자료와 제도를 따로 살펴봐야 해요.",
+"en": "The redistribution rate isn't comparable to real tax rates; real asset data and rules need separate review.",
+"tr": "Le taux de redistribution n'est pas comparable aux taux d'imposition réels ; les données patrimoniales et les règles réelles demandent un examen séparé."
+},
+{
+"id": "s2468",
+"page": "wealth",
+"ko": "<b>모델의 뿌리:</b> 경제물리학의 \"야드세일(yard-sale) 모델\"을 바탕으로 합니다. 거래마다 가난한 쪽 재산의 일정 비율을 두고 공정한 내기를 하는 교환 모델로, John Angle(1986) 등이 처음 다뤘고 Brian Hayes(2002)의 글과 Bruce Boghosian 연구진의 연구로 알려졌습니다.",
+"en": "<b>Where the model comes from:</b> This builds on the \"yard-sale model\" of econophysics: in each trade two agents make a fair bet on a fixed fraction of the poorer one's wealth. It goes back to work such as John Angle (1986) and became widely known through Brian Hayes (2002) and the research of Bruce Boghosian and colleagues.",
+"tr": "<b>D'où vient le modèle :</b> Il s'appuie sur le « modèle du vide-grenier » (yard-sale model) de l'économophysique : à chaque échange, deux agents font un pari équitable sur une fraction fixe de la richesse du plus pauvre. Il remonte à des travaux comme ceux de John Angle (1986) et s'est fait largement connaître grâce à Brian Hayes (2002) et aux recherches de Bruce Boghosian et ses collègues."
+},
+{
+"id": "s2469",
+"page": "wealth",
+"ko": "<b>핵심 가정과 수식:</b> 두 사람의 재산이 <i>w<sub>i</sub></i>, <i>w<sub>j</sub></i>일 때 판돈은 <code>f·min(w<sub>i</sub>, w<sub>j</sub>)</code>이고 이길 확률은 50%입니다. 그래서 각자의 재산 기댓값은 거래로 변하지 않는데도, 재산이 곱셈으로 불었다 줄었다 하며 쏠림이 쌓입니다(순수 야드세일 모델은 오래 돌리면 한 사람에게 몰리는 것으로 알려져 있습니다). 재분배는 라운드마다 <code>w ← (1−τ)·w + τ·평균</code>, 부자 유리 정도 <i>b</i>는 부자가 이길 확률을 <code>0.5 + b·(w<sub>부자</sub>−w<sub>가난</sub>)/(w<sub>i</sub>+w<sub>j</sub>)</code>로 올립니다. 슬라이더는 <i>τ</i>(재분배율), <i>f</i>(판돈 비율), <i>b</i>(부자 유리 정도)입니다.",
+"en": "<b>Key assumptions and formulas:</b> With wealth <i>w<sub>i</sub></i> and <i>w<sub>j</sub></i>, the stake is <code>f·min(w<sub>i</sub>, w<sub>j</sub>)</code> and each side wins with probability 50%. Each person's expected wealth is unchanged by a trade, yet wealth grows and shrinks multiplicatively and concentration builds up (the pure yard-sale model is known to condense onto one agent if run long enough). Redistribution is <code>w ← (1−τ)·w + τ·mean</code> each round, and the rich-advantage <i>b</i> raises the richer side's win chance to <code>0.5 + b·(w<sub>rich</sub>−w<sub>poor</sub>)/(w<sub>i</sub>+w<sub>j</sub>)</code>. The sliders are <i>τ</i> (redistribution rate), <i>f</i> (stake fraction) and <i>b</i> (rich advantage).",
+"tr": "<b>Hypothèses clés et formules :</b> Avec les richesses <i>w<sub>i</sub></i> et <i>w<sub>j</sub></i>, la mise est <code>f·min(w<sub>i</sub>, w<sub>j</sub>)</code> et chaque camp gagne avec une probabilité de 50%. La richesse espérée de chacun n'est pas modifiée par un échange, mais la richesse croît et décroît de façon multiplicative et la concentration s'accumule (le modèle du vide-grenier pur est connu pour se condenser sur un seul agent s'il tourne assez longtemps). La redistribution est <code>w ← (1−τ)·w + τ·moyenne</code> à chaque tour, et l'avantage du riche <i>b</i> relève la chance de gain du plus riche à <code>0.5 + b·(w<sub>riche</sub>−w<sub>pauvre</sub>)/(w<sub>i</sub>+w<sub>j</sub>)</code>. Les curseurs sont <i>τ</i> (taux de redistribution), <i>f</i> (fraction misée) et <i>b</i> (avantage du riche)."
+},
+{
+"id": "s2470",
+"page": "wealth",
+"ko": "<b>이 프로젝트의 단순화:</b> 특정 논문의 수치를 그대로 재현한 것이 아닙니다. 사람 1,000명, 판돈 비율 20%, 한 라운드 1,000번 거래, 300라운드, 재분배를 라운드 끝에 한꺼번에 걷어 똑같이 나누는 방식, 부자 유리 식의 모양은 모두 이 프로젝트가 정한 값과 단순화입니다. 소득·노동·저축·상속은 없습니다.",
+"en": "<b>What this project simplifies:</b> It does not reproduce the numbers of a specific paper. The 1,000 agents, 20% stake, 1,000 trades per round, 300 rounds, collecting and splitting redistribution once at the end of each round, and the form of the rich-advantage formula are all this project's own values and simplifications. There is no income, labor, saving or inheritance.",
+"tr": "<b>Ce que ce projet simplifie :</b> Il ne reproduit pas les chiffres d'un article précis. Les 1 000 agents, la mise de 20%, les 1 000 échanges par tour, les 300 tours, la collecte et le partage de la redistribution une fois à la fin de chaque tour, ainsi que la forme de la formule de l'avantage du riche sont des valeurs et des simplifications propres à ce projet. Il n'y a ni revenu, ni travail, ni épargne, ni héritage."
+},
+{
+"id": "s2471",
+"page": "wealth",
+"ko": "<b>이론값과 시뮬레이션:</b> 이 설정에는 비교할 닫힌 해가 없어 시뮬레이션만으로 확인했습니다. 총 재산은 늘 1,000으로 보존되고, 기본 설정(공정한 거래, 세금 0)에서 지니계수가 0 → 0.39(10라운드) → 0.78(100) → 0.87(200) → 0.90(300)으로 계속 오르며 상위 10%가 86%를 가집니다. 재분배율 0.5%는 0.68, 1%는 0.58, 5%는 0.34로 낮춥니다(5회 평균, <code>node tools/validate-wealth.js</code>).",
+"en": "<b>Theory versus simulation:</b> There is no closed-form result to compare against here, so this was checked by simulation only. Total wealth stays at 1,000, and in the default setting (fair trades, no redistribution) the Gini coefficient keeps rising: 0 → 0.39 (round 10) → 0.78 (100) → 0.87 (200) → 0.90 (300), with the top 10% holding 86%. A redistribution rate of 0.5% lowers it to 0.68, 1% to 0.58 and 5% to 0.34 (5-run averages, <code>node tools/validate-wealth.js</code>).",
+"tr": "<b>Théorie et simulation :</b> Il n'existe ici aucun résultat analytique à comparer ; la vérification s'est donc faite uniquement par simulation. La richesse totale reste à 1 000 et, avec le réglage par défaut (échanges équitables, sans redistribution), le coefficient de Gini ne cesse de monter : 0 → 0,39 (tour 10) → 0,78 (100) → 0,87 (200) → 0,90 (300), les 10% les plus riches détenant 86%. Un taux de redistribution de 0,5% le ramène à 0,68, 1% à 0,58 et 5% à 0,34 (moyennes de 5 exécutions, <code>node tools/validate-wealth.js</code>)."
+},
+{
+"id": "s2472",
+"page": "wealth",
+"ko": "<b>더 읽을거리:</b> Brian Hayes (2002), \"Follow the Money\", <i>American Scientist</i>. Bruce M. Boghosian (2014), \"Kinetics of wealth and the Pareto law\", <i>Physical Review E</i>.",
+"en": "<b>Further reading:</b> Brian Hayes (2002), \"Follow the Money\", <i>American Scientist</i>. Bruce M. Boghosian (2014), \"Kinetics of wealth and the Pareto law\", <i>Physical Review E</i>.",
+"tr": "<b>Pour aller plus loin :</b> Brian Hayes (2002), « Follow the Money », <i>American Scientist</i>. Bruce M. Boghosian (2014), « Kinetics of wealth and the Pareto law », <i>Physical Review E</i>."
+},
+{
+"id": "s2475",
+"page": "wildfire",
+"ko": "산불 억제의 역설 · 시뮬라티오 랩",
+"en": "The Fire Suppression Paradox · Simulatio Lab",
+"tr": "Le paradoxe de la lutte contre les incendies · Simulatio Lab"
+},
+{
+"id": "s2476",
+"page": "wildfire",
+"ko": "나무가 자라고 번개가 치는 숲 격자에서 작은 불을 끄면 연료가 쌓여 큰 불이 늘어나는 과정을, 두 숲을 나란히 돌려 직접 확인해 보세요.",
+"en": "Run two forests side by side on a grid where trees grow and lightning strikes, and watch how putting out small fires lets fuel build up and makes big fires more frequent.",
+"tr": "Lancez deux forêts côte à côte sur une grille où poussent des arbres et tombent des éclairs, et regardez comment éteindre les petits feux laisse s'accumuler le combustible et rend les grands incendies plus fréquents."
+},
+{
+"id": "s2477",
+"page": "wildfire",
+"ko": "불이 나면 일찍 끌수록 좋다고 생각하기 쉽습니다. 작은 불을 놓치지 않고 끄면 큰 불도 막을 수 있을 테니까요. 그런데 이 모델의 숲에서는 작은 불을 90% 끄자 숲의 10% 이상을 태우는 큰 불이 약 6배로 늘었습니다(1만 단계당 21번에서 125번). 불이 태우던 나무가 치워지지 않고 쌓여, 한번 붙으면 걷잡을 수 없는 숲이 되기 때문입니다. 왼쪽(그냥 두기)과 오른쪽(작은 불 끄기)을 나란히 지켜보세요.",
+"en": "It is easy to think that the sooner a fire is put out, the better: catch every small fire and you also prevent the big ones. In this model forest, though, putting out 90% of small fires made fires that burn 10% or more of the forest about 6 times as frequent (from 21 to 125 per 10,000 steps). The trees small fires would have cleared pile up instead, and the forest becomes one where a single spark gets out of control. Watch the left forest (let it burn) and the right one (put out small fires) side by side.",
+"tr": "On pense facilement que plus vite un feu est éteint, mieux c'est : en maîtrisant tous les petits feux, on évite aussi les grands. Pourtant, dans cette forêt modèle, éteindre 90% des petits feux a rendu environ 6 fois plus fréquents les incendies qui brûlent 10% ou plus de la forêt (de 21 à 125 pour 10 000 pas). Les arbres que les petits feux auraient éliminés s'accumulent, et la forêt devient une forêt où une seule étincelle devient incontrôlable. Observez côte à côte la forêt de gauche (laisser brûler) et celle de droite (éteindre les petits feux)."
+},
+{
+"id": "s2478",
+"page": "wildfire",
+"ko": "숲은 격자 칸으로 이루어지고, 각 칸은 빈 땅이거나 나무입니다. 매 단계 <b>빈 땅에는 확률 p로 나무가 자랍니다.</b> 또 칸마다 확률 f로 <b>번개</b>가 칩니다(기본은 칸 1만 개당 단계마다 2번). 번개가 나무에 맞으면 불이 붙습니다.",
+"en": "The forest is a grid of cells, each empty or holding a tree. At every step <b>an empty cell grows a tree with probability p.</b> Each cell is also struck by <b>lightning</b> with probability f (by default 2 strikes per 10,000 cells per step). If lightning hits a tree, it catches fire.",
+"tr": "La forêt est une grille de cellules, chacune vide ou occupée par un arbre. À chaque pas, <b>une cellule vide fait pousser un arbre avec la probabilité p.</b> Chaque cellule est aussi frappée par la <b>foudre</b> avec la probabilité f (par défaut 2 impacts pour 10 000 cellules par pas). Si la foudre touche un arbre, il prend feu."
+},
+{
+"id": "s2479",
+"page": "wildfire",
+"ko": "불은 상하좌우로 이웃한 나무에 곧바로 번져, 이어진 나무 덩어리 전체가 한 번에 탑니다. 탄 자리는 빈 땅이 되어 다시 자랍니다. 이것이 Drossel-Schwabl 숲불 모델의 규칙입니다.",
+"en": "Fire spreads at once to the four neighboring trees, so a whole connected clump of trees burns in one go. Burnt cells become empty and regrow. These are the rules of the Drossel-Schwabl forest-fire model.",
+"tr": "Le feu se propage aussitôt aux quatre arbres voisins, si bien qu'un amas connexe d'arbres brûle d'un seul coup. Les cellules brûlées deviennent vides et repoussent. Ce sont les règles du modèle d'incendie de forêt de Drossel-Schwabl."
+},
+{
+"id": "s2480",
+"page": "wildfire",
+"ko": "<b>소방</b>은 이 프로젝트가 덧붙인 규칙입니다. 불이 붙은 순간 그 불이 작으면(덩어리가 격자 칸의 5% 이하) 확률 s로 곧바로 끕니다. 큰 불은 끌 수 없습니다. 끈 불의 나무는 타지 않고 남아 더 자라고, 이웃 덩어리와 이어집니다.",
+"en": "<b>Firefighting</b> is a rule this project added. When a fire starts and is small (the clump is 5% of the grid cells or less), it is put out right away with probability s. Large fires cannot be put out. The trees of an extinguished fire do not burn, stay, and link up with neighboring clumps.",
+"tr": "<b>La lutte contre les incendies</b> est une règle ajoutée par ce projet. Quand un feu démarre et qu'il est petit (l'amas occupe 5% des cellules de la grille ou moins), il est éteint aussitôt avec la probabilité s. Les grands feux ne peuvent pas être éteints. Les arbres d'un feu éteint ne brûlent pas, restent en place et se relient aux amas voisins."
+},
+{
+"id": "s2481",
+"page": "wildfire",
+"ko": "화면의 두 숲은 같은 설정으로 시작하지만 왼쪽은 s=0(그냥 두기), 오른쪽은 고른 s입니다. 아래 통계는 두 숲을 따로 오래 돌려(보통 4만 단계) 센 값이고, 큰 불은 격자 칸의 10% 이상을 태운 불입니다.",
+"en": "The two forests on screen start with the same settings, but the left one has s = 0 (let it burn) and the right one the s you choose. The statistics below come from running the two forests separately for a long time (usually 40,000 steps); a big fire is one that burns 10% or more of the grid cells.",
+"tr": "Les deux forêts à l'écran démarrent avec les mêmes réglages, mais celle de gauche a s = 0 (laisser brûler) et celle de droite le s que vous choisissez. Les statistiques ci-dessous proviennent de l'exécution séparée des deux forêts pendant longtemps (en général 40 000 pas) ; un grand incendie est un feu qui brûle 10% ou plus des cellules de la grille."
+},
+{
+"id": "s2482",
+"page": "wildfire",
+"ko": "나무가 자라는 속도 (p) <output id=\"o-p\"></output>",
+"en": "Tree growth rate (p) <output id=\"o-p\"></output>",
+"tr": "Taux de croissance des arbres (p) <output id=\"o-p\"></output>"
+},
+{
+"id": "s2483",
+"page": "wildfire",
+"ko": "매 단계 빈 땅 100칸 중 몇 칸에 나무가 자라는지. 클수록 숲이 빨리 우거져요",
+"en": "How many of every 100 empty cells grow a tree each step. Higher means a faster-growing forest",
+"tr": "Combien de cellules vides sur 100 font pousser un arbre à chaque pas. Plus c'est élevé, plus la forêt pousse vite"
+},
+{
+"id": "s2484",
+"page": "wildfire",
+"ko": "번개 세기 (f) <output id=\"o-f\"></output>",
+"en": "Lightning rate (f) <output id=\"o-f\"></output>",
+"tr": "Fréquence de la foudre (f) <output id=\"o-f\"></output>"
+},
+{
+"id": "s2485",
+"page": "wildfire",
+"ko": "칸 1만 개당 단계마다 치는 번개 수. 번개가 잦으면 불이 작을 때 번져 큰 불이 잘 안 나요",
+"en": "Lightning strikes per 10,000 cells per step. Frequent lightning burns forests while the fires are still small",
+"tr": "Impacts de foudre pour 10 000 cellules par pas. Quand la foudre est fréquente, les forêts brûlent alors que les feux sont encore petits"
+},
+{
+"id": "s2486",
+"page": "wildfire",
+"ko": "작은 불을 끄는 확률 (s) <output id=\"o-s\"></output>",
+"en": "Chance of putting out a small fire (s) <output id=\"o-s\"></output>",
+"tr": "Probabilité d'éteindre un petit feu (s) <output id=\"o-s\"></output>"
+},
+{
+"id": "s2487",
+"page": "wildfire",
+"ko": "0%면 오른쪽도 그냥 둡니다. 큰 불은 끌 수 없어요",
+"en": "At 0% the right forest is left alone too. Large fires cannot be put out",
+"tr": "À 0%, la forêt de droite est elle aussi laissée tranquille. Les grands feux ne peuvent pas être éteints"
+},
+{
+"id": "s2488",
+"page": "wildfire",
+"ko": "숲의 크기 <output id=\"o-n\"></output>",
+"en": "Forest size <output id=\"o-n\"></output>",
+"tr": "Taille de la forêt <output id=\"o-n\"></output>"
+},
+{
+"id": "s2489",
+"page": "wildfire",
+"ko": "한 변의 칸 수. 클수록 큰 불이 숲 전체를 덮기 어려워요",
+"en": "Cells per side. In a bigger forest, a fire has a harder time covering all of it",
+"tr": "Cellules par côté. Dans une forêt plus grande, un feu a plus de mal à tout recouvrir"
+},
+{
+"id": "s2490",
+"page": "wildfire",
+"ko": "같은 설정, 다른 숲",
+"en": "Same settings, a different forest",
+"tr": "Mêmes réglages, une autre forêt"
+},
+{
+"id": "s2491",
+"page": "wildfire",
+"ko": "① 두 숲의 불 지켜보기",
+"en": "① Watching Two Forests Burn",
+"tr": "① Voir brûler deux forêts"
+},
+{
+"id": "s2492",
+"page": "wildfire",
+"ko": "초록은 나무(어릴수록 연하고 오래될수록 짙음), 주황은 번지는 불꽃, 어두운 색은 방금 탄 자리와 빈 땅입니다. 왼쪽은 불을 그냥 두고, 오른쪽은 작은 불을 끕니다. 오른쪽 숲이 점점 짙어지다가 한꺼번에 타오르는 순간을 기다려 보세요.",
+"en": "Green is trees (lighter when young, darker when old), orange is spreading flame, and the dark colors are freshly burnt ground and empty land. The left forest lets fires burn, and the right one puts out small fires. Wait for the moment the right forest, growing darker and darker, goes up all at once.",
+"tr": "Le vert représente les arbres (plus clair quand ils sont jeunes, plus foncé quand ils sont vieux), l'orange la flamme qui se propage, et les couleurs sombres le sol fraîchement brûlé et les terrains vides. La forêt de gauche laisse brûler les feux, celle de droite éteint les petits. Attendez le moment où la forêt de droite, de plus en plus sombre, s'embrase d'un seul coup."
+},
+{
+"id": "s2493",
+"page": "wildfire",
+"ko": "② 숲에 나무가 얼마나 찰까",
+"en": "② How Full Does the Forest Get?",
+"tr": "② Jusqu'où la forêt se remplit-elle ?"
+},
+{
+"id": "s2494",
+"page": "wildfire",
+"ko": "두 숲의 나무 밀도(칸 중 나무가 있는 비율)가 시간에 따라 변하는 모습입니다. 점선은 칸에 나무가 무작위로 이 정도 있으면 이어진 덩어리가 숲 전체로 커질 수 있는 밀도(약 59%)입니다. 작은 불을 끄는 숲은 점선 가까이까지 올라갔다가 큰 불로 떨어집니다.",
+"en": "The tree density (share of cells holding a tree) of both forests over time. The dotted line is the density (about 59%) above which randomly placed trees can form a connected clump spanning the whole forest. The forest that puts out small fires climbs toward the line and then crashes in a big fire.",
+"tr": "La densité d'arbres (part des cellules occupées par un arbre) des deux forêts au fil du temps. La ligne pointillée est la densité (environ 59%) au-dessus de laquelle des arbres placés au hasard peuvent former un amas connexe traversant toute la forêt. La forêt qui éteint les petits feux monte vers la ligne puis s'effondre dans un grand incendie."
+},
+{
+"id": "s2495",
+"page": "wildfire",
+"ko": "<i style=\"background:#e5484d\"></i>그냥 두기",
+"en": "<i style=\"background:#e5484d\"></i>Let it burn",
+"tr": "<i style=\"background:#e5484d\"></i>Laisser brûler"
+},
+{
+"id": "s2496",
+"page": "wildfire",
+"ko": "<i style=\"background:#1f7a45\"></i>작은 불 끄기",
+"en": "<i style=\"background:#1f7a45\"></i>Put out small fires",
+"tr": "<i style=\"background:#1f7a45\"></i>Éteindre les petits feux"
+},
+{
+"id": "s2497",
+"page": "wildfire",
+"ko": "③ 불의 크기 분포",
+"en": "③ How Big Are the Fires?",
+"tr": "③ Quelle est la taille des incendies ?"
+},
+{
+"id": "s2498",
+"page": "wildfire",
+"ko": "두 숲을 따로 오래 돌렸을 때, 어떤 크기 이상의 불이 1,000단계에 몇 번 났는지입니다(양쪽 로그 눈금). 작은 불을 끄면 왼쪽 위의 작은 불이 사라지고, 오른쪽의 큰 불은 오히려 늘어납니다. 붉은 영역이 큰 불입니다.",
+"en": "After running both forests separately for a long time, this shows how many fires of at least a given size occurred per 1,000 steps (both axes logarithmic). Putting out small fires removes the small fires at upper left, while the big fires on the right actually become more frequent. The red zone marks big fires.",
+"tr": "Après avoir exécuté les deux forêts séparément pendant longtemps, ce graphique montre combien de feux d'au moins une taille donnée se sont produits pour 1 000 pas (les deux axes sont logarithmiques). Éteindre les petits feux supprime les petits en haut à gauche, tandis que les grands à droite deviennent plus fréquents. La zone rouge marque les grands incendies."
+},
+{
+"id": "s2499",
+"page": "wildfire",
+"ko": "④ 탄 면적은 어떤 불이 태웠나",
+"en": "④ Which Fires Burned the Area?",
+"tr": "④ Quels feux ont brûlé la surface ?"
+},
+{
+"id": "s2500",
+"page": "wildfire",
+"ko": "막대의 길이는 매 단계 타는 숲의 비율이고, 색은 그 면적을 태운 불의 크기입니다. 총량은 두 숲이 비슷합니다. 나무가 자라는 만큼만 탈 수 있기 때문이에요. 달라지는 것은 작은 불로 조금씩 타느냐, 큰 불로 한꺼번에 타느냐입니다.",
+"en": "The bar length is the share of the forest burning per step, and the colors show the size of the fires that burned it. The total is about the same in both forests, because only as many trees as grow can burn. What changes is whether it burns a little at a time in small fires or all at once in big ones.",
+"tr": "La longueur de la barre est la part de la forêt qui brûle par pas, et les couleurs indiquent la taille des feux qui l'ont brûlée. Le total est à peu près le même dans les deux forêts, car seuls autant d'arbres que ceux qui poussent peuvent brûler. Ce qui change, c'est si cela brûle peu à peu en petits feux ou d'un seul coup en grands incendies."
+},
+{
+"id": "s2501",
+"page": "wildfire",
+"ko": "작은 불을 100% 끄자 큰 불이 1만 단계당 21.4번에서 145.5번으로 늘었어요.",
+"en": "Putting out every small fire raised big fires from 21.4 to 145.5 per 10,000 steps.",
+"tr": "Éteindre tous les petits incendies a fait passer les grands incendies de 21,4 à 145,5 par 10 000 pas."
+},
+{
+"id": "s2502",
+"page": "wildfire",
+"ko": "끈 불의 나무가 타지 않고 남아 숲이 이어지면서, 나중에 번개가 맞으면 더 큰 덩어리가 한꺼번에 타기 때문일 수 있어요.",
+"en": "Saved trees stay and link up, so a later strike can burn a larger connected clump at once, at least in this model.",
+"tr": "Les arbres épargnés restent et se relient, de sorte qu'un coup de foudre ultérieur peut brûler d'un coup un massif connecté plus grand, du moins dans ce modèle."
+},
+{
+"id": "s2503",
+"page": "wildfire",
+"ko": "불 횟수만이 아니라 숲의 연료가 얼마나 이어져 쌓이는지까지 함께 살펴볼 만해요.",
+"en": "Beyond counting fires, how much connected fuel builds up may be worth looking at too.",
+"tr": "Au-delà du nombre d'incendies, il peut aussi être utile de regarder la quantité de combustible connecté qui s'accumule."
+},
+{
+"id": "s2504",
+"page": "wildfire",
+"ko": "<b>말하는 것:</b> 격자 100×100, 나무 성장 p=1%, 번개 칸 1만 개당 단계마다 2번, 소방이 끄는 불의 상한 5%에서, 시드 4개를 평균해 4만 단계 중 앞 2,000단계를 뺀 값은 이렇습니다. 그냥 두면 큰 불(격자의 10% 이상)이 1만 단계당 21.4번, 이 불들이 태운 면적은 전체의 4%였습니다. 작은 불을 50% 끄면 65.1번(13%), 90% 끄면 125.1번(27%), 100% 끄면 145.5번(31%)으로 늘었습니다. 한편 매 단계 타는 면적은 0.63%에서 0.61%로 거의 같았고, 평균 나무 밀도는 37%에서 39%로 조금만 올랐습니다. 가장 큰 불은 격자의 20%에서 28%로 커졌습니다. 이 효과는 번개가 드물수록 큽니다. 번개 세기를 1로 낮추면 큰 불의 면적 비중이 28%에서 51%가 되고, 5로 올리면 0%에서 6%, 10이면 0%에서 1%가 됩니다. 나무가 빨리 자랄수록(p=2%) 28%에서 52%, 숲이 작을수록(60×60) 38%에서 60%로 커졌고, 큰 숲(160×160)에서는 0%에서 6%였습니다.",
+"en": "<b>What it shows:</b> With a 100×100 grid, tree growth p = 1%, 2 lightning strikes per 10,000 cells per step and fires up to 5% of the grid put out by firefighters, averaging 4 seeds over 40,000 steps minus the first 2,000, the results were these. Left alone, big fires (10% or more of the grid) occurred 21.4 times per 10,000 steps and burned 4% of the total burned area. Putting out 50% of small fires raised this to 65.1 times (13%), 90% to 125.1 times (27%) and 100% to 145.5 times (31%). The area burning per step stayed almost the same, 0.63% versus 0.61%, and the mean tree density rose only a little, from 37% to 39%. The largest fire grew from 20% to 28% of the grid. The effect is larger when lightning is rarer: with lightning rate 1 the big fires' share of burned area goes from 28% to 51%, with 5 from 0% to 6%, and with 10 from 0% to 1%. It grew from 28% to 52% with faster tree growth (p = 2%) and from 38% to 60% in a smaller forest (60×60), and in a larger forest (160×160) it went from 0% to 6%.",
+"tr": "<b>Ce que cela montre :</b> Avec une grille de 100×100, une croissance des arbres p = 1%, 2 impacts de foudre pour 10 000 cellules par pas et des feux allant jusqu'à 5% de la grille éteints par les pompiers, en moyenne sur 4 graines pendant 40 000 pas moins les 2 000 premiers, voici les résultats. Laissés à eux-mêmes, les grands feux (10% ou plus de la grille) se produisaient 21,4 fois pour 10 000 pas et brûlaient 4% de la surface brûlée totale. Éteindre 50% des petits feux a porté ce chiffre à 65,1 fois (13%), 90% à 125,1 fois (27%) et 100% à 145,5 fois (31%). La surface brûlant par pas est restée presque la même, 0,63% contre 0,61%, et la densité moyenne d'arbres n'a que peu augmenté, de 37% à 39%. Le plus grand incendie est passé de 20% à 28% de la grille. L'effet est plus marqué quand la foudre est plus rare : avec une fréquence de foudre de 1, la part de la surface brûlée due aux grands feux passe de 28% à 51%, avec 5 de 0% à 6% et avec 10 de 0% à 1%. Elle est passée de 28% à 52% avec une croissance plus rapide des arbres (p = 2%) et de 38% à 60% dans une forêt plus petite (60×60) ; dans une forêt plus grande (160×160), elle est passée de 0% à 6%."
+},
+{
+"id": "s2505",
+"page": "wildfire",
+"ko": "실제 숲이 아니고 바람, 지형, 방화, 소방 자원이 빠져 있으며, 불을 꺼야 하는지는 알려 주지 않아요.",
+"en": "This is not a real forest, lacks wind, terrain and resources, and does not say whether to suppress fires.",
+"tr": "Ce n'est pas une vraie forêt, il n'y a ni vent, ni relief, ni ressources, et cela ne dit pas s'il faut supprimer les incendies."
+},
+{
+"id": "s2506",
+"page": "wildfire",
+"ko": "특정 지역에서는 연료 쌓임, 번개 빈도, 숲 크기를 실제로 관찰해 효과를 따로 확인해야 해요.",
+"en": "For a given region, fuel buildup, lightning frequency and forest size would need real observation.",
+"tr": "Pour une région donnée, il faudrait observer l'accumulation de combustible, la fréquence de la foudre et la taille de la forêt."
+},
+{
+"id": "s2507",
+"page": "wildfire",
+"ko": "<b>말하지 않는 것:</b> 이 모델은 실제 숲을 재현한 것이 아닙니다. 바람, 날씨, 지형, 나무 종류, 불씨가 날아가 번지는 것, 사람의 방화나 실화, 소방 자원의 한계, 계획적으로 놓는 불(처방 화입) 같은 요소가 모두 빠져 있고, 불은 이웃한 나무로만 곧바로 번집니다. 산불 생태학에서 오래 논의되어 온 \"억제의 역설\"(작은 불을 계속 끄면 연료가 쌓여 나중에 큰 불이 난다)의 메커니즘을 보여 줄 뿐, 어떤 지역에서 불을 꺼야 하는지 말아야 하는지를 알려 주지는 않습니다. 소방이 불을 끄는 것 자체가 나쁘다는 뜻도 아닙니다. 사람과 마을을 지키는 데는 불을 끄는 것이 필요하고, 이 모델에서도 번개가 잦고 숲이 크면 효과가 작았습니다. 끄는 불의 상한(5%)과 큰 불의 기준(10%)은 이 프로젝트가 정한 값입니다.",
+"en": "<b>What it doesn't show:</b> This model does not reproduce any real forest. Wind, weather, terrain, tree species, embers flying ahead of a fire, arson or accidental ignition by people, limits on firefighting resources, and deliberate burning (prescribed fire) are all missing, and fire spreads only to adjacent trees. It only shows the mechanism of the \"suppression paradox\" long discussed in fire ecology (keep putting out small fires and fuel builds up for a bigger fire later), and it cannot tell you where fires should or should not be put out. Nor does it mean that firefighting is bad: putting out fires is needed to protect people and towns, and in this model too the effect was small when lightning was frequent and the forest large. The size limit for fires that can be put out (5%) and the cutoff for a big fire (10%) are values this project chose.",
+"tr": "<b>Ce que cela ne montre pas :</b> Ce modèle ne reproduit aucune forêt réelle. Le vent, la météo, le relief, les essences d'arbres, les braises projetées en avant du feu, les incendies criminels ou accidentels d'origine humaine, les limites des moyens de lutte et le brûlage dirigé (brûlage prescrit) sont tous absents, et le feu ne se propage qu'aux arbres adjacents. Il montre seulement le mécanisme du « paradoxe de la suppression » longuement discuté en écologie du feu (continuer à éteindre les petits feux fait s'accumuler le combustible pour un feu plus grand par la suite), et il ne peut pas dire où il faut ou non éteindre les feux. Il ne signifie pas non plus que lutter contre les incendies est mauvais : éteindre les feux est nécessaire pour protéger les personnes et les villes, et dans ce modèle aussi, l'effet était faible quand la foudre était fréquente et la forêt grande. La limite de taille des feux éteignables (5%) et le seuil du grand incendie (10%) sont des valeurs choisies par ce projet."
 }
 ]

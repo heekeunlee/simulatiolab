@@ -1,0 +1,114 @@
+{
+ "s1174": {
+  "tr": "Achetez la devise d'un pays à taux élevé, encaissez l'intérêt, et tant que le taux de change ne bouge pas, cela ressemble à de l'argent facile. La théorie dit que cette devise devrait baisser d'environ l'écart de taux, donc il n'y a pas de repas gratuit ; pourtant, dans la pratique, ce n'est souvent pas le cas, et les gens se ruent sur cette opération (le carry trade). Dans cette simulation, plus il y a de monde, plus la devise grimpe en silence, par paliers, pendant des années, jusqu'à ce qu'une semaine tout le monde sorte d'un coup et que des années de gains disparaissent ensemble. En moyenne, cela rapporte, mais la forme de ce gain est dangereuse.",
+  "why": "'조용히' 누락, 어색한 'comme par un escalier'"
+ },
+ "s1177": {
+  "tr": "Le taux de change s'agite au hasard chaque semaine (<b>volatilité</b>). S'y ajoute l'<b>afflux</b>. Plus le carry est attractif (écart plus grand et volatilité plus faible), plus les investisseurs carry rejoignent lentement le mouvement, et à chaque fois ils achètent la devise à taux élevé et font monter son prix (l'escalier). Plus la foule est grande, plus il est probable que tout le monde dénoue en une seule semaine ; alors la foule fond d'un coup et la devise baisse d'autant (l'ascenseur). La <b>force de la foule</b> est l'ampleur du mouvement de la devise quand toute la foule bouge.",
+  "why": "문법"
+ },
+ "s1178": {
+  "tr": "Le <b>gain du carry</b> d'une semaine est la part hebdomadaire de l'écart de taux plus la variation du taux de change de cette semaine (par unité empruntée, sans effet de levier). Les graphiques ci-dessous montrent le total cumulé, la distribution des gains hebdomadaires et l'évolution selon l'écart de taux. Gardez les réglages et changez seulement le numéro de marché pour voir un marché au hasard différent.",
+  "why": "'다른 운'의 어색한 직역"
+ },
+ "s1189": {
+  "tr": "Mêmes réglages, un autre tirage du hasard",
+  "why": "어색한 직역"
+ },
+ "s1209": {
+  "tr": "<b>Ce que cela montre :</b> Avec les réglages par défaut (écart de taux 4 points, volatilité 8 % par an, UIP 30 %, force de la foule 12 %, 20 ans), le marché numéro 1 a connu 4 dénouements et gagné en moyenne 6,9 % par an, mais sa pire semaine a été de -11,5 %, effaçant 87 semaines (environ 1,7 an) du gain hebdomadaire moyen habituel. D'autres marchés aux mêmes réglages ont connu un autre tirage du hasard : le numéro 3 a fait en moyenne -1,1 % par an avec une perte maximale de 66,0 points. Moyenné sur 200 marchés, le trade a rapporté 3,1 % par an, conforme à la valeur théorique (2,8 % sans afflux plus 0,3 % de poussée de prix due à la foule, soit 3,12 %). Mais la pire semaine a atteint en moyenne -10,0 %, le gain effacé cette semaine-là était de 155 semaines en médiane (environ 3,0 ans), et seules 53,7 % des semaines étaient gagnantes. Sans afflux (force 0) dans les mêmes conditions, la pire semaine était de -3,5 % et la distribution symétrique (asymétrie 0,00), alors qu'avec l'afflux l'asymétrie était de -1,50, avec une longue queue à gauche. Avec une force de la foule de 5 %, 20 % et 25 %, l'asymétrie était de -0,16, -4,03 et -5,53 et la pire semaine de -4,8 %, -16,2 % et -20,1 %. Même quand l'UIP se vérifiait à 100 % (carry moyen proche de zéro), l'asymétrie avec afflux restait de -1,50 : avec ou sans gain moyen, la forme du krach demeurait. Sur 41 600 semaines regroupées à partir de 40 trajectoires, 249 (0,60 %) sont passées sous -5 %, là où une courbe en cloche de même moyenne et même volatilité n'en donnerait qu'environ 1,3. Porter l'écart de taux à 0, 4 et 10 points a fait passer le gain annuel moyen du carry à 0,20 %, 3,06 % et 7,70 %, et la perte moyenne de la pire semaine à 3,6 %, 10,1 % et 10,5 %.",
+  "why": "어색한 직역"
+ },
+ "s1207": {
+  "tr": "Dans ce modèle, l'afflux s'accumule lentement et se dénoue en une semaine, ce qui fait chuter la devise et crée une longue queue gauche.",
+  "why": "쏠림 용어 통일(afflux)"
+ },
+ "s1208": {
+  "tr": "Au-delà des rendements moyens, il vaut la peine d'examiner l'ampleur de l'afflux accumulé et la forme des chutes.",
+  "why": "쏠림 용어 통일"
+ },
+ "s1210": {
+  "tr": "Il ne prédit ni les taux de change ni les profits et ne doit pas servir à des décisions d'investissement ; l'écart de taux et les règles d'afflux et de dénouement sont des exemples.",
+  "why": "쏠림 용어 통일"
+ },
+ "s1211": {
+  "tr": "Dans quelle mesure l'afflux a provoqué de vrais krachs ne peut pas être déduit de ce modèle et doit être vérifié avec des données réelles.",
+  "why": "쏠림 용어 통일"
+ },
+ "s1216": {
+  "tr": "<b>Théorie contre simulation :</b> Sans afflux, le gain annuel moyen théorique du carry <code>(1−u)·d</code> est de 2,80 % avec une UIP à 30 % et de 0 avec une UIP à 100 %, et la simulation de 3 000 marchés × 20 ans a donné 2,84 % et 0,04 % (erreur standard d'environ 0,03). Avec l'afflux, la poussée totale du prix est k×(foule finale − foule initiale), donc la théorie donne 2,80 % plus 0,32 % = 3,12 %, et la simulation a aussi donné 3,12 %. Sans afflux, la volatilité hebdomadaire était de 1,108 % en simulation contre 1,109 % en théorie, et l'autocorrélation à une semaine de -0,001. Pour prédire la variation du taux de change à 52 semaines, la racine de l'erreur quadratique moyenne sans afflux était de 7,82 points pour une prévision d'absence de changement et de 8,36 points pour la prévision UIP (la devise se déprécie de l'écart) ; comme ce modèle est construit pour que l'UIP ne se vérifie qu'à 30 %, un résultat de type Meese–Rogoff y est intégré d'office et ne constitue pas une preuve réelle.",
+  "why": "모호한 수치 표현; 어휘; RMSE 정확화; 어색한 구문"
+ },
+ "s1223": {
+  "tr": "Quand la famille d'à côté ajoute un cours, nous avons l'impression que nous devrions le faire aussi, et que cela ferait monter le rang de notre enfant. Dans ce modèle, si une seule famille ajoute un cours, son rang monte bel et bien, de 7,5 points de pourcentage en moyenne. Mais si toutes les familles le font, le rang de personne ne change, et dans le réglage par défaut seule la facture totale augmente, jusqu'à environ 5 fois son niveau de départ. Aucune famille n'a mal choisi : un rang est une valeur relative : pour que l'un monte, un autre doit descendre. Avec un seuil de réussite fixe, en revanche, tout le monde peut monter ensemble.",
+  "why": "on/nous 혼용; 어색한 번역"
+ },
+ "s1225": {
+  "tr": "Le résultat dépend de la façon dont on évalue. Avec la <b>notation relative</b>, le résultat est le <b>rang</b> de l'enfant (la part d'enfants ayant un score plus bas), et avec la <b>notation absolue</b>, c'est la chance de franchir un seuil de réussite fixe (0,6 point). Le gain d'un foyer est <code>résultat − coût × nombre de cours</code>, le coût étant mesuré comme une part de la valeur du meilleur rang (4 points de pourcentage par défaut).",
+  "why": "'travail' 덧붙음"
+ },
+ "s1240": {
+  "tr": "Chaque point est un foyer. L'axe horizontal est le score sans cours et l'axe vertical le score actuel ; les points plus foncés suivent plus de cours. Les points s'élèvent au-dessus de la ligne pointillée (sans cours). Avec la notation relative, la ligne de la moitié supérieure monte avec eux, donc la part située au-dessus reste la même ; le seuil de réussite de la notation absolue reste en place.",
+  "why": "'그대로'를 'jamais'로 과장"
+ },
+ "s1248": {
+  "tr": "③ Quelle part des foyers suit combien de cours ?",
+  "why": "원문 의미(몇 개씩 보내는 집이 몇 %)"
+ },
+ "s1258": {
+  "tr": "<i style=\"background:#2f6fed\"></i>Gain d'un foyer qui ajoute seul un cours",
+  "why": "어색한 표현"
+ },
+ "s1268": {
+  "tr": "Cela ne dit pas que ces cours sont bons ou mauvais, ni qu'un foyer a mal choisi.",
+  "why": "용어 통일(cours)"
+ },
+ "s1269": {
+  "tr": "L'intérêt, la garde des enfants et les amitiés sont absents du modèle ; ce que les vraies familles en retirent devrait donc être examiné séparément.",
+  "why": "돌봄=garde"
+ },
+ "s1270": {
+  "tr": "<b>Ce que cela ne montre pas :</b> Ceci ne reproduit ni les dépenses réelles de cours particuliers ni l'effet d'un quelconque cours, et tous les chiffres sont des exemples choisis par ce projet. Il ne dit pas qu'envoyer les enfants à des cours est bien ou mal, ni qu'une famille a mal choisi : le modèle ne fait que montrer une structure. Les vrais cours peuvent offrir des choses au-delà des notes, comme l'intérêt, la garde des enfants et des amis, mais ce modèle ne regarde que le rang (ou la chance de réussir). Il ne dit pas non plus que la notation relative est mauvaise et la notation absolue bonne : il montre seulement que tout le monde peut monter quand le seuil de réussite est fixe, tandis que la façon dont le seuil est fixé et les éventuels autres effets secondaires ne sont pas dans le modèle. Il ne soutient ni ne critique aucun système ou politique en particulier. C'est un modèle de référence ; prenez les décisions réelles avec des experts tels que des pédiatres et des enseignants.",
+  "why": "돌봄=garde"
+ },
+ "s1307": {
+  "tr": "Avec des bus aléatoires toutes les 10 minutes en moyenne, l'attente moyenne était de 10,1 minutes, le double des 5 minutes du calcul naïf.",
+  "why": "단위 누락"
+ },
+ "s1316": {
+  "tr": "<b>Ce que ce projet simplifie :</b> Les intervalles sont indépendants et suivent une loi gamma (c = 1 donne la loi exponentielle, c'est-à-dire des arrivées aléatoires) et les passagers arrivent uniformément sur tout l'axe du temps sans connaître l'horaire. Les personnes qui sortent selon l'horaire et la psychologie des souvenirs désagréables qui durent plus longtemps ne sont pas modélisées. L'irrégularité de 1,0 et la valeur de classe de 0,3 sont des exemples, non mesurés sur de vraies lignes ou écoles, et les effectifs de classe sont arrondis à des entiers d'au moins 1.",
+  "why": "통계 용어"
+ },
+ "s1328": {
+  "tr": "Les boutons de <b>scène</b> ci-dessous permettent de voir directement : l'effectif doublé, la division qui fait perdre, la loi linéaire, et la qualité contre l'effectif.",
+  "why": "어색한 구문"
+ },
+ "s1365": {
+  "tr": "Au-delà des chiffres, le fait que le combat soit un contre un ou tous contre tous, et que la force soit concentrée ou divisée peut être la clé.",
+  "why": "'숫자만 볼 것이 아니라' 누락; 문장부호"
+ },
+ "s1366": {
+  "tr": "<b>Ce que cela montre :</b> Avec 200 bleus contre 100 rouges et une qualité égale, la théorie de la loi du carré dit que le bleu gagne avec 87 % de sa force restante (environ 173 soldats) ; sur 300 combats simulés, la moyenne a été d'environ 172 (86 %), et le bleu a gagné à chaque fois. Avec la loi linéaire, la même situation laisse environ 100 (50 %) en théorie comme en simulation. Ainsi, avec deux fois plus de soldats, la force est 4 fois plus grande avec la loi du carré et 2 fois avec la loi linéaire. À qualité égale et 130 contre 100, le bleu qui combattait uni a gardé 82 soldats en moyenne (64 %), mais quand le bleu arrivait en deux moitiés, le rouge a gagné 84 % des 300 combats, avec environ 40 soldats restants. Avec la loi linéaire, se diviser n'a rien changé : le bleu a encore gagné avec environ 30 restants. Pour compenser le double de soldats par la qualité, la qualité de l'adversaire doit être 4 fois plus élevée avec la loi du carré (2 fois avec la loi linéaire) ; à cet équilibre, le bleu a gagné 53 % et le rouge 47 % des 300 combats.",
+  "why": "용어 통일(loi du carré)"
+ },
+ "s1370": {
+  "tr": "<b>D'où vient le modèle :</b> Un modèle de combat présenté par Frederick W. Lanchester dans <i>Aircraft in Warfare</i> (1916). C'est une paire d'équations différentielles où la force de chaque armée diminue à un rythme fixé par l'autre, ce qui donne une « loi du carré » pour le tir ajusté et une « loi linéaire » pour les combats un contre un.",
+  "why": "용어 통일(loi du carré)"
+ },
+ "s1373": {
+  "tr": "<b>Théorie contre simulation :</b> Avec <code>node tools/validate-lanchester.js</code>, 300 exécutions chacune ont été comparées aux résultats en forme fermée. À 200 contre 100 avec une qualité égale, la théorie de la loi du carré donne 173,2 restants contre une moyenne simulée de 171,9, et la théorie de la loi linéaire donne 100 contre 100,7. Avec 50 à 400 soldats, la part restante pour un rapport de 2 à 1 reste à 86-87 %, donc elle ne dépend pas de l'échelle. À 130 contre 100 avec le bleu divisé, la théorie dit que le rouge gagne avec 39,4 restants, et la simulation a donné 84 % de victoires rouges avec 40,0 restants en moyenne. Les valeurs simulées un peu plus basses viennent du hasard et de l'avancement du temps par pas discrets.",
+  "why": "용어 통일(loi du carré); 1인칭 'J'ai' 덧붙음"
+ },
+ "s1374": {
+  "tr": "<b>Pour aller plus loin :</b> F. W. Lanchester, <i>Aircraft in Warfare: The Dawn of the Fourth Arm</i> (1916, Constable). Pour une vue d'ensemble, l'article de Wikipédia « Lois de Lanchester » est une introduction accessible.",
+  "why": "직역투"
+ },
+ "s1376": {
+  "tr": "Les graphiques 4 et 5 sont des valeurs théoriques calculées à partir des formules ci-dessus, et non des simulations. Lorsqu'une armée est divisée, les combats s'enchaînent l'un après l'autre : d'abord la première moitié, puis la seconde.",
+  "why": "어색한 표현"
+ },
+ "s1410": {
+  "tr": "Comme il vise une phrase prédéfinie, ce n'est pas un modèle de l'évolution réelle, ce que Dawkins a lui-même reconnu.",
+  "why": "주어 모호, 원문 의미"
+ }
+}

@@ -1,0 +1,174 @@
+{
+ "s0876": {
+  "tr": "L'axe horizontal est la part des enfants qui restent à la maison quand ils sont malades et l'axe vertical le nombre de fois qu'un enfant l'a attrapé en un an (les points sont six simulations distinctes, la ligne leur moyenne). Avec vos réglages actuels, seule cette part varie. Remarquez que même à 100 %, le nombre n'atteint pas zéro.",
+  "why": "어색한 어순"
+ },
+ "s0880": {
+  "tr": "Comme la contagion se propage au sein d'une classe en fonction du nombre d'enfants malades, la taille de la classe et la durée de l'immunité ont modifié le résultat autant que le fait de rester à la maison.",
+  "why": "원문 '쉬기만큼'을 살리고 어색한 문장 정리, 덧붙은 'presque' 제거"
+ },
+ "s0882": {
+  "tr": "<b>Ce que cela montre :</b> Il s'agit de moyennes de vingt simulations avec une classe de 20, un niveau de contact de 5, une immunité de 30 jours et 0 % de lavage des mains et d'aération (chiffres d'exemple). Avec 0 % d'enfants restant à la maison quand ils sont malades, un enfant l'a attrapé 5,0 fois par an ; à 30 % c'était 4,4, à 70 % 3,5 (30 % de moins qu'à 0 %), et à 100 % 2,5 (la moitié). En contrepartie, les jours de semaine de repos à la maison sont passés de 0 (à 0 %) à 6,9 jours à 70 % et à 7,0 à 100 %. Le nombre n'atteint pas zéro même à 100 % à cause du premier jour avant les symptômes, où l'enfant vient encore, et de l'infection venue de l'extérieur. La taille de la classe avec 30 % à la maison a donné 2,5 fois pour 8 enfants, 2,9 pour 10, 4,4 pour 20 et 5,5 pour 30, et l'effet du passage de 0 % à 70 % à la maison était 3,3 → 2,3 à 10 enfants, 5,0 → 3,5 à 20 et 6,0 → 4,3 à 30. Réduire la transmission de 30 % par le lavage des mains et l'aération a fait passer le nombre de 4,4 à 3,7, et 60 % a donné 2,9. Un niveau de contact de 2 a donné 2,9 fois et un niveau de 8 a donné 5,2 ; avec une immunité de 14 jours c'était 6,0, à 90 jours 2,7 et à 180 jours 1,8. L'accumulation d'immunité se voit dans 1,6 infection par enfant les trois premiers mois, puis 1,0, 1,0 et 0,9 pour chaque trimestre suivant. Une simulation avec la graine 1 et les valeurs par défaut a donné 4,2 fois, 3,4 jours de repos, et la semaine avec le plus d'enfants malades était la semaine 3. Combiner 0 % à la maison, 30 % de lavage des mains et d'aération et 12 enfants a donné 3,2 fois.",
+  "why": "모호한 표현·문법 보정"
+ },
+ "s0883": {
+  "tr": "Ce modèle ne prédit pas le nombre réel d'infections en crèche et ne conseille pas la façon de s'occuper d'un enfant ; les chiffres sont des exemples.",
+  "why": "'ni...ni ne' 문법 오류"
+ },
+ "s0884": {
+  "tr": "Les décisions réelles reviennent aux pédiatres et aux enseignants, et les éléments absents du modèle, comme les frères et sœurs ou les différences selon l'agent pathogène, doivent être vérifiés à part.",
+  "why": "'germes précis' 오역·용어(pathogène) 통일"
+ },
+ "s0885": {
+  "tr": "<b>Ce que cela ne montre pas :</b> Ce modèle ne prédit ni ne reproduit le nombre d'infections d'une crèche réelle. Il s'agit d'un modèle simplifié, propre à ce projet, d'une « infection respiratoire de type rhume » sans pathogène précis, et les valeurs par défaut (niveau de contact, période d'immunité, etc.) sont des chiffres d'exemple, pas des statistiques sur les infections ou les absences réelles. Il ne recommande ni ne juge la façon de s'occuper d'un enfant, la présence en cas de maladie ou les précautions à prendre, et les familles qui gardent leurs enfants à la maison comme celles qui les envoient ont chacune leurs raisons. C'est un modèle à titre indicatif ; pour les décisions réelles, consultez des professionnels comme un pédiatre ou un enseignant. Le modèle omet la transmission par les frères et sœurs et les parents, les différences entre pathogènes, le contact avec les autres classes, les différences entre enfants, l'effet des vacances et le fonctionnement réel des crèches.",
+  "why": "이중부정·어색한 구문"
+ },
+ "s0886": {
+  "tr": "<b>D'où vient le modèle :</b> Le modèle repose sur le modèle SIR de l'article classique sur les modèles compartimentaux de Kermack &amp; McKendrick (1927), &quot;A contribution to the mathematical theory of epidemics&quot; (<i>Proceedings of the Royal Society A</i>). Il répartit une population en personnes susceptibles (S), infectées (I) et guéries (R), et dit qu'une épidémie croît ou s'éteint selon que le nombre moyen R0 de personnes infectées par un premier cas est supérieur ou inférieur à 1.",
+  "why": "R0 설명 오류(‘R0명보다 많이/적게’는 틀림), 용어 susceptibles"
+ },
+ "s0887": {
+  "tr": "<b>Hypothèses et formules clés :</b> Une classe est traitée comme parfaitement mélangée, et un enfant infecté en infecte en moyenne <code>R0 = τ × (taille de la classe − 1) × jours de maladie en présence</code> autres. τ est la probabilité qu'une paire transmette l'infection en un jour (niveau de contact × 1 % × (1 − transmission réduite)) et les jours de maladie en présence sont <code>1 + (5 − 1) × (1 − part restant à la maison)</code>. Quand une épidémie s'achève, la part de ceux qui l'ont attrapée, z, vérifie <code>z = 1 − e<sup>−R0·z</sup></code>. Les curseurs sont la taille de la classe, le niveau de contact (τ), la part restant à la maison et la réduction de la transmission (τ).",
+  "why": "용어(chance→probabilité)"
+ },
+ "s0888": {
+  "tr": "<b>Ce que ce projet simplifie :</b> Ce projet ajoute beaucoup de choses au SIR de base : une période d'incubation (2 jours en moyenne), des jours de semaine et de week-end, un effet saisonnier qui propage 25 % de plus en hiver, un terme simple pour l'infection venue de l'extérieur de la classe, une durée d'immunité avec une immunité qui se construit à chaque infection (1/(1+0,3×infections)), et la présence le premier jour avant les symptômes. Toutes ces valeurs sont des chiffres d'exemple fixés par ce projet, non ajustés à un pathogène réel. L'infection secondaire transmise par les foyers est regroupée en un seul terme externe (0,15 % par jour plus 20 % de la part d'enfants malades au total).",
+  "why": "성·수 일치 오류"
+ },
+ "s0895": {
+  "tr": "Une règle très simple (des particules errent au hasard et collent au contact) fait croître des fractales ramifiées qui ressemblent à la foudre, au corail et au givre. Changez l'adhérence et la forme du germe, et faites-en pousser vous-même.",
+  "why": "문장 구조 정리"
+ },
+ "s0912": {
+  "tr": "Le point blanc est la particule en train d'errer et sa queue est son trajet récent. Le cercle en pointillés pâle est l'endroit où les particules sont lâchées. La vue s'élargit d'elle-même à mesure que l'amas grandit.",
+  "why": "흐린 점선 → pâle"
+ },
+ "s0921": {
+  "tr": "Une adhérence plus faible l'a rendu plus dense : les conditions de croissance méritent donc d'être examinées pour expliquer les formes clairsemées ou denses.",
+  "why": "용어 통일(adhérence)"
+ },
+ "s0925": {
+  "tr": "<b>Ce que cela ne montre pas :</b> Cela ne reproduit ni la foudre, ni les flocons de neige, ni le corail. Cela ne signifie pas que des formes semblables naissent de la même cause ; la ressemblance est une analogie visuelle et statistique. Un vrai flocon de neige a une symétrie d'ordre six à cause de la façon dont les cristaux de glace croissent à leur surface, et d'autres mécanismes que la DLA y dominent. La vraie foudre fait intervenir des champs électriques et le claquage de l'air, et le corail une croissance biologique et des courants. La DLA est un modèle jouet, et des formes similaires ne sont observées que dans certains systèmes (électrodéposition, digitation d'un fluide qui en repousse un autre, etc.). De plus, le résultat selon lequel une adhérence plus faible augmente D mêle des effets de taille finie dus au nombre limité de particules. Pour de très grands amas, D devrait tendre vers la même valeur quelle que soit l'adhérence, mais cela n'est pas vérifié sur cette page. Sur une grille carrée, les formes gardent une certaine influence des directions de la grille (haut, bas, gauche, droite).",
+  "why": "의미 정정, 1인칭 제거"
+ },
+ "s0926": {
+  "tr": "<b>D'où vient le modèle :</b> C'est le modèle d'agrégation limitée par la diffusion (DLA) proposé par Witten et Sander (1981) dans « Diffusion-Limited Aggregation, a Kinetic Critical Phenomenon » (Physical Review Letters 47, 1400). Ils ont montré qu'un amas fractal naît d'une règle simple : des particules qui diffusent au hasard collent au contact de l'amas.",
+  "why": "동사 없는 문장, 원문의 '보였습니다' 반영"
+ },
+ "s0928": {
+  "tr": "<b>Ce que ce projet simplifie :</b> Ce projet utilise une grille de 560 × 560 avec des pas d'une case vers le haut, le bas, la gauche et la droite, lâche les particules sur un cercle autour de l'amas et les écarte plus loin (il ne reproduit pas la configuration de l'article original). Les germes en ligne et en anneau et le curseur de probabilité d'adhérence sont des variantes ajoutées par ce projet. La grille laisse un certain biais directionnel, et le nombre fini de particules fait que D se lit plus bas que la valeur asymptotique.",
+  "why": "case/cellule 용어 통일(DLA 페이지)"
+ },
+ "s0931": {
+  "tr": "La simulation utilise un générateur aléatoire à graine (mulberry32), de sorte que la même graine donne le même résultat. Les particules partent d'un cercle situé 6 cases au-delà de la pointe la plus éloignée, sont écartées au-delà de 1,6 fois ce rayon plus 20 cellules, et la croissance s'arrête quand l'amas atteint un rayon de 160 cases.",
+  "why": "case/cellule 용어 통일"
+ },
+ "s0932": {
+  "tr": "La dimension fractale est la pente log-log obtenue en comptant les particules à l'intérieur de rayons allant de r = 3 jusqu'à la moitié de la distance à la pointe la plus éloignée (croissance d'un facteur 1,25), puis en ajustant par moindres carrés une droite aux points avec r ≥ 4. Vous pouvez le vérifier avec <code>node tools/validate-dla.js</code>.",
+  "why": "주어-서술 불일치, 구조 정리"
+ },
+ "s0969": {
+  "tr": "À cause du temps que mettent les enfants à grandir, la population ne réagit qu'à la moyenne récente de la forêt ; elle peut donc dépasser l'équilibre et ne décliner qu'une fois la forêt réduite.",
+  "why": "누락된 '아이가 자라는 시간' 반영"
+ },
+ "s0977": {
+  "tr": "<b>Ce que ce projet simplifie :</b> Il n'utilise ni les équations ni les valeurs de Brander et Taylor, laisse de côté la nourriture, l'agriculture, les rats et le climat, et ajoute un délai pour que la population réagisse à la moyenne récente de la forêt. Fixer le maximum de la forêt à 100 %, le taux de déclin à 0,03 et les coefficients par défaut sont des valeurs propres à ce projet, et non des chiffres réels de l'île de Pâques. Ce qui a réellement causé l'effondrement (abattage, rats, contacts extérieurs, etc.) est interprété différemment par les chercheurs, et ce modèle n'en prouve aucune.",
+  "why": "문법 정리"
+ },
+ "s0978": {
+  "tr": "<b>Théorie et simulation :</b> Calculé à la main avec les réglages par défaut, R* = 0,03 ÷ 0,05 = 0,60 et P* = 0,01 × 0,4 ÷ 2×10<sup>-6</sup> = 2 000 personnes, ce qui correspond à la sortie de validate. La trajectoire réelle, à cause du délai, ne reste pas à l'équilibre mais le dépasse jusqu'à un pic de 5 287 (environ 2,6 fois P*) et retombe à 696 à l'année 600. Le pic est proportionnel à P* : pour une intensité de récolte de 0,5/2/16 il vaut 21 104/5 287/691, de sorte que (intensité × pic) reste quasi constant, autour de 10 550 à 11 060.",
+  "why": "'비례' 명시, '600년째' 정확화"
+ },
+ "s0986": {
+  "tr": "Avec seulement deux règles, la croissance de la population et une lente dispersion, l'agriculture finit par couvrir un continent à environ un kilomètre par an : lancez la simulation sur la carte et modifiez les règles vous-même.",
+  "why": "원문 구조(두 규칙→대륙을 덮음) 반영, 어색한 문장 정리"
+ },
+ "s0989": {
+  "tr": "Les agriculteurs font deux choses. Dans une cellule, ils <b>se multiplient</b> (taux de croissance r, jusqu'à ce que la cellule soit pleine), et ils <b>se dispersent peu à peu</b> vers les cellules voisines (coefficient de diffusion D). Ensemble, ces deux valeurs fixent la vitesse du front.",
+  "why": "dérivent=표류, 확산 계수=coefficient de diffusion"
+ },
+ "s0990": {
+  "tr": "Les chasseurs-cueilleurs restent où ils sont. Plus une cellule compte d'agriculteurs, moins il reste de chasseurs-cueilleurs, et, parmi ceux qui disparaissent ainsi, la proportion donnée par le curseur de <b>mélange</b> adopte l'agriculture (assimilation) tandis que le reste est repoussé et disparaît (remplacement).",
+  "why": "원문 의미 정확화"
+ },
+ "s0991": {
+  "tr": "Le terrain diffère légèrement en fertilité d'une cellule à l'autre (jusqu'à ±25 %). Le <b>détroit</b> est fermé par la mer, à l'exception d'un seul pont de terre, et les <b>montagnes</b> forment une bande où la croissance et la dispersion sont lentes. Les couleurs de la carte indiquent quand les agriculteurs sont arrivés pour la première fois, avec une nouvelle bande tous les 100 ans.",
+  "why": "어색한 표현"
+ },
+ "s0993": {
+  "tr": "Plus la valeur est élevée, plus la population croît vite. À 2,5 % par an, elle double en environ 28 ans",
+  "why": "어색한 구문"
+ },
+ "s0995": {
+  "tr": "Plus la valeur est élevée, plus la dispersion vers les cellules voisines est large (kilomètres carrés par an)",
+  "why": "비문"
+ },
+ "s0997": {
+  "tr": "0 % : les populations locales sont repoussées ; 100 % : elles adoptent toutes l'agriculture",
+  "why": "'agricultrices' 부자연"
+ },
+ "s0998": {
+  "tr": "Obstacle géographique <output id=\"o-barrier\"></output>",
+  "why": "지형 → géographique"
+ },
+ "s1004": {
+  "tr": "L'étoile marque le début de l'agriculture. La couleur indique quand les agriculteurs sont arrivés pour la première fois en un lieu (années depuis leur départ de l'origine), et les lignes sombres entre les bandes sont des courbes de niveau. Des lignes très serrées n'indiquent pas un passage rapide : le front y a au contraire avancé lentement.",
+  "why": "어색한 표현"
+ },
+ "s1013": {
+  "tr": "④ Comment la vitesse change avec le taux de croissance",
+  "why": "명확화"
+ },
+ "s1016": {
+  "tr": "Sur le front, le taux de croissance et le taux de dispersion déterminent la vitesse, et un mélange plus important l'a un peu accélérée.",
+  "why": "용어 통일(mélange)"
+ },
+ "s1017": {
+  "tr": "La vitesse seule ne permet pas de distinguer la migration de la diffusion des idées ; il vaut donc aussi la peine de regarder de qui sont issus ceux qui se sont répandus.",
+  "why": "어색한 문장"
+ },
+ "s1023": {
+  "tr": "<b>Hypothèses et formules clés :</b> La densité d'agriculteurs F (1 est le maximum que la terre peut porter) suit <code>∂F/∂t = rF(1 − F) + D∇²F</code>. Au bord d'attaque, F est petit et croît linéairement, de sorte que le front avance à <code>c = 2√(rD)</code> (r taux de croissance, D coefficient de diffusion). Ce modèle compare aussi <code>c = 2√((r + mix·κ·h₀)D)</code>, car l'assimilation des chasseurs-cueilleurs porte le taux de croissance au front à <code>r + mix·κ·h₀</code> (κ = 0,05 par an et h₀ = 0,25 sont des valeurs choisies par ce projet).",
+  "why": "확산 계수"
+ },
+ "s1024": {
+  "tr": "<b>Ce que ce projet simplifie :</b> La carte est abstraite, le terrain presque uniforme, et les chasseurs-cueilleurs sont immobiles, avec une densité constante de 0,25. Une génération = 25 ans, κ et h₀ ci-dessus, et les montagnes (croissance 0,5 fois, dispersion 0,25 fois) sont des hypothèses de ce projet. Que l'agriculture se soit propagée par le déplacement de personnes ou par la diffusion d'idées et de techniques est encore débattu ; le modèle ne fait que glisser de l'un à l'autre avec un seul paramètre de mélange et ne tranche pas.",
+  "why": "어색한 표현"
+ },
+ "s1057": {
+  "tr": "Dans ce modèle, la foule poursuit et les créateurs de tendance fuient dans le même sens, si bien que le rythme suit le plus lent des deux.",
+  "why": "용어 통일(foule, créateurs de tendance)"
+ },
+ "s1061": {
+  "tr": "L'influence de l'industrie, des médias et des prix, ainsi que le fait que la fuite ne se fasse pas dans une seule direction, sont à examiner à part à partir d'observations de la mode réelle.",
+  "why": "어색한 직역"
+ },
+ "s1064": {
+  "tr": "<b>Hypothèses et formules clés :</b> Un style est un angle θ sur un cercle et deux règles s'appliquent. La foule avance de α degrés vers le créateur de tendance le plus proche (imitation), et les créateurs de tendance fuient dans une direction jusqu'à β degrés selon la densité de la foule à proximité (différenciation). La vitesse d'imitation α, la vitesse de fuite β, l'agitation et la part de créateurs de tendance sont les curseurs.",
+  "why": "용어 통일(différenciation)"
+ },
+ "s1066": {
+  "tr": "<b>Théorie et simulation :</b> Il n'existe pas de solution analytique, mais un argument simple existe : tout le flux tourne à la plus lente des deux vitesses. L'angle parcouru par itération est d'environ min(α, β), donc avec α=β=2° on attend environ 0,55 tour en 100 itérations (200°/100 itérations) et la valeur mesurée est 0,53 tour ; α=0,5/1 donne 0,13/0,27 tour (attendu 0,14/0,28), et β=1 donne 0,26 tour (attendu 0,28). Avec β=0, la rotation reste de 0,00 jusqu'à 6 000 itérations.",
+  "why": "'tour'가 라운드와 바퀴 둘 다 뜻해 혼동, 누락된 (200도/100라운드) 보충"
+ },
+ "s1106": {
+  "tr": "Les voisines qui voient un éclair avancent leur horloge, ce qui réduit les décalages de rythme, mais les vitesses différentes empêchent la synchronisation d'être parfaite.",
+  "why": "어색한 차용어"
+ },
+ "s1159": {
+  "tr": "Quand les amis semblent avoir plus d'amis que soi, il peut être utile de vérifier si les hubs apparaissent simplement dans beaucoup de listes, plutôt que de s'en prendre à sa propre situation.",
+  "why": "'se blâmer' 뉘앙스 어긋남"
+ },
+ "s1164": {
+  "tr": "<b>D'où vient le modèle :</b> C'est le « paradoxe de l'amitié » exposé par Scott L. Feld dans « Why your friends have more friends than you do » (1991, <i>American Journal of Sociology</i>). En parcourant les listes d'amis, les personnes ayant beaucoup d'amis apparaissent plus souvent, si bien qu'en moyenne les amis ont au moins autant d'amis que la moyenne générale. La règle de réseau utilisée ici emprunte l'idée de l'attachement préférentiel (Barabási et Albert, 1999).",
+  "why": "동사 없는 문장"
+ },
+ "s1165": {
+  "tr": "<b>Hypothèses et formules clés :</b> En choisissant au hasard une place dans les listes d'amis, le nombre moyen d'amis de cette personne est <code>⟨k²⟩/⟨k⟩ = ⟨k⟩ + Var(k)/⟨k⟩</code>, ce qui dépasse la moyenne ⟨k⟩ sauf si tout le monde a le même nombre d'amis. Plus le curseur de concentration sur les hubs est élevé, plus Var(k) augmente. La moyenne des « moyennes des amis » de chaque personne est elle aussi toujours au moins égale à ⟨k⟩, car chaque amitié apporte (amis du voisin ÷ mes amis) + (mes amis ÷ amis du voisin) ≥ 2.",
+  "why": "어색한 구문"
+ },
+ "s1173": {
+  "tr": "Lancez vous-même une simulation du taux de change et des mouvements de foule des investisseurs pour voir pourquoi le carry trade, qui consiste à acheter la devise d'un pays à taux élevé pour en toucher les intérêts, rapporte un peu pendant longtemps puis fait perdre beaucoup d'un coup.",
+  "why": "'투자자 쏠림'을 afflux로 오역"
+ }
+}

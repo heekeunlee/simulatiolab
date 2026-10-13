@@ -1,0 +1,142 @@
+{
+ "s1866": {
+  "tr": "Un total de <b>n candidatos</b> aparecen uno a uno en orden aleatorio. Cada uno tiene una puntuación, pero solo puedes compararlo con <b>los que ya has visto</b> (cuanto más alta, mejor), y no puedes volver con alguien que dejaste pasar. Puedes imaginar a los candidatos como personas, trabajos o pisos.",
+  "why": "부자연스러운 비교 표현"
+ },
+ "s1880": {
+  "tr": "Cada ficha es un candidato y el número es su puntuación (cuanto más alta, mejor). La barra ámbar marca la fase de observación (solo rechazar) y la azul la fase de elección. Una estrella (★) marca al mejor visto hasta ahora, y la ficha rellena de azul es tu elección. Cuando termina una ejecución, se revelan los candidatos que aún no habías conocido y el mejor real recibe un contorno dorado.",
+  "why": "부자연스러운 비교 표현"
+ },
+ "s1875": {
+  "tr": "Hasta los 2 mejores",
+  "why": "'Vale entre'은 어색, 원문은 상위 2명까지"
+ },
+ "s1876": {
+  "tr": "Hasta los 3 mejores",
+  "why": "'Vale entre'은 어색, 원문은 상위 3명까지"
+ },
+ "s1881": {
+  "tr": "Continuar automáticamente con candidatos nuevos al terminar cada ejecución",
+  "why": "원문은 한 판이 끝나면 새 후보들로 자동 계속; 어색한 구조"
+ },
+ "s1885": {
+  "tr": "② ¿Cuánto observar para dar con el mejor?",
+  "why": "관찰 '시간'이 아니라 관찰 비율; 원문 의미에 맞춤"
+ },
+ "s1886": {
+  "tr": "El eje horizontal es la proporción de la fase de observación y el vertical la probabilidad de éxito. La línea es el valor exacto y los puntos son simulaciones de 600 ejecuciones por ajuste. El punto dorado es el máximo. Si la fase es demasiado corta o demasiado larga, la probabilidad cae, y por eso la curva tiene forma de colina.",
+  "why": "문법·어색한 표현"
+ },
+ "s1897": {
+  "tr": "En este modelo no se puede volver atrás, así que, si eliges demasiado pronto, te falta información, y si eliges demasiado tarde, el mejor ya pudo haber pasado.",
+  "why": "비문 정리"
+ },
+ "s1900": {
+  "tr": "No es un consejo de conocer solo al 37 % de las parejas posibles; es un supuesto idealizado: se conoce el número de candidatos y no se puede volver atrás.",
+  "why": "원문은 '37%만 만나라는 처방이 아니다'; 'salir con'은 오역, 후속 문장 정리"
+ },
+ "s1902": {
+  "tr": "<b>Qué no muestra:</b> Conocer gente, buscar trabajo o casa no funciona como este modelo. Supone el entorno idealizado del problema de la secretaria: conoces de antemano el número de candidatos, los conoces de uno en uno en orden aleatorio, solo sabes su puesto relativo respecto a los ya vistos y nunca puedes volver con alguien rechazado. En la vida real no sabes a cuántos conocerás, quizá puedas volver, la otra parte también te elige a ti y las personas no se pueden ordenar con una sola puntuación. Así que esto no es un consejo de conocer gente hasta el 37 % y luego decidir; es un modelo de juguete que muestra cómo es la matemática de la parada bajo reglas fijas. También conviene recordar que, incluso con muchos candidatos, la probabilidad de dar con el mejor se queda en torno al 36,8 %.",
+  "why": "'conformarse'는 원문에 없는 뉘앙스"
+ },
+ "s1963": {
+  "tr": "Los ángulos de fracciones simples apilan las semillas en las mismas direcciones, dejando radios y grandes huecos, y puede que el ángulo áureo funcione mejor porque es el más alejado de esas fracciones.",
+  "why": "원문의 '~일 수 있어요' 완곡함이 단정으로 바뀜"
+ },
+ "s1966": {
+  "tr": "No demuestra que los girasoles reales se formen así, y el ángulo áureo no es el único que rellena bien el espacio.",
+  "why": "'buen empaquetador'는 어색"
+ },
+ "s2023": {
+  "tr": "<b>Supuestos clave y fórmulas:</b> El número de impactos sigue una distribución de Poisson de media 3, y cada bala cae en la sección s con proporción de área a<sub>s</sub> y derriba el avión con letalidad l<sub>s</sub>. El blindaje detiene el 70 % de las balas, así que la letalidad se multiplica por 0,3. Al filtrar el proceso de Poisson y quedarse solo con las balas que derriban el avión, la probabilidad de supervivencia por salida es <code>exp(−3 Σ a<sub>s</sub>·l<sub>s</sub>·m<sub>s</sub>)</code> (m = 0,3 si está blindada, si no 1). Cuanto más letal es una sección, menos agujeros se ven en los aviones que regresan. Los controles deslizantes son la letalidad del motor, el número de secciones blindadas y el número de salidas.",
+  "why": "'adelgazar'는 직역투"
+ },
+ "s2062": {
+  "tr": "Aquí el capital se multiplica por 2 o por 1/2 y se va acumulando, y el talento solo interviene en la probabilidad de aprovechar la suerte, así que una pequeña dosis de suerte se amplifica mucho.",
+  "why": "'una pequeña suerte se acumula enormemente'는 어색"
+ },
+ "s2072": {
+  "tr": "<b>Lecturas complementarias:</b> Pluchino, Biondo y Rapisarda (2018), el artículo anterior (<a href=\"https://arxiv.org/abs/1802.07068\">arXiv:1802.07068</a>). Robert H. Frank (2016), <i>Success and Luck</i>, Princeton University Press. Robert K. Merton (1968), «The Matthew Effect in Science», <i>Science</i> 159.",
+  "why": "arXiv 번호의 소수점이 쉼표로 바뀜"
+ },
+ "s2107": {
+  "tr": "Los detalles menos memorables tienen más probabilidades de olvidarse en cada relato y los inusuales se sustituyen por otros familiares, de modo que cadenas distintas pueden acabar pareciéndose.",
+  "why": "튀는 세부가 익숙한 것으로 바뀜을 명확히"
+ },
+ "s2111": {
+  "tr": "La memorabilidad y la lista de motivos son elecciones arbitrarias, así que las historias reales habría que comprobarlas con experimentos de reproducción en serie.",
+  "why": "s2113과 용어 통일"
+ },
+ "s2114": {
+  "tr": "<b>Supuestos clave y fórmulas:</b> La probabilidad de que un motivo sobreviva a un relato es <code>p = 1 − (1 − memoria) × (1.5 × (1 − memorabilidad) + 0.1)</code>. El control deslizante de memoria es la primera parte de esta fórmula, y los motivos corrientes con poca memorabilidad tienen una p menor y desaparecen primero. La probabilidad de que un detalle raro se cambie por un motivo familiar es la convencionalidad, y la de que se añada un motivo nuevo es la adición.",
+  "why": "식의 변수명이 영어로 남음; 덧붙이기=adición"
+ },
+ "s2116": {
+  "tr": "<b>Teoría frente a simulación:</b> No hay un valor cerrado para toda la historia, pero una parte puede comprobarse a mano. Un motivo con memorabilidad 0,5 y memoria del 96 % tiene p = 1 − 0,04 × 0,85 = 0,966, así que tras 40 relatos quedan 0,966<sup>40</sup> ≈ 0,25, cerca de la supervivencia simulada del motivo original de 0,25 (promedio de 8 ejecuciones). El solapamiento esperado por azar es s / (2 − s) (0,14 con s = 0,25), y el solapamiento medido entre cadenas fue 0,31, es decir, aproximadamente el doble.",
+  "why": "어색한 비교"
+ },
+ "s2161": {
+  "tr": "Simula tipos a corto plazo que oscilan al azar para ver qué fija la rentabilidad a 10 años y por qué un bono que ya tienes pierde valor cuando suben los tipos.",
+  "why": "'deambular'는 어색"
+ },
+ "s2162": {
+  "tr": "Cuando suben los tipos, los bonos recién emitidos pagan más interés, lo que suena a buena noticia. Sin embargo, un bono que ya tienes cae de valor. En este ajuste de ejemplo, cuando la rentabilidad a 10 años sube 1 punto porcentual, un bono a 10 años cae alrededor de un 8 %. Más extraño aún es lo que fija la rentabilidad a 10 años: no el tipo a corto plazo de hoy, sino la expectativa de \"dónde se situarán de media los tipos a corto plazo en los próximos 10 años\". Así, aunque el tipo a corto plazo salte 1 punto porcentual, la rentabilidad a 10 años se mueve solo algo más de 0,3 puntos porcentuales. (Todas las cifras son ejemplos, no afirmaciones sobre tipos reales.)",
+  "why": "단위 누락"
+ },
+ "s2165": {
+  "tr": "El <b>bono</b> vence a 10 años, paga interés una vez al año y se compra a valor nominal 100 con un cupón igual a la rentabilidad a 10 años al inicio. Si luego suben los tipos, los bonos nuevos pagan más, así que tu bono antiguo debe bajar de precio para venderse. Solo se muestra la variación de precio, no el interés cobrado.",
+  "why": "인칭 일관성"
+ },
+ "s2166": {
+  "tr": "La <b>duración</b> es el tiempo medio ponderado hasta recibir el principal y los intereses, y da una idea aproximada de qué porcentaje varía el precio por cada punto porcentual que se mueve la rentabilidad (una duración de alrededor de 8 significa alrededor de un 8 %). El precio real es una curva, no una recta, así que para el mismo punto porcentual una bajada de la rentabilidad gana más de lo que pierde una subida; esta curvatura se llama <b>convexidad</b>.",
+  "why": "원문은 '몇 %'; 표현 정리"
+ },
+ "s2184": {
+  "tr": "El eje horizontal es la rentabilidad a 10 años y el vertical el precio del bono a 10 años. Es una curva que baja al subir la rentabilidad. La línea gris es la aproximación por duración y el hueco verde es la convexidad. El punto naranja marca dónde está la rentabilidad media actual a 10 años.",
+  "why": "주황 점 색 누락"
+ },
+ "s2190": {
+  "tr": "Si el tipo a corto plazo salta 1 punto porcentual, la rentabilidad a 10 años sube solo 0,33 puntos, y este valor depende mucho de la velocidad de reversión.",
+  "why": "pp 약어·용어('tipo a 10 años') 통일"
+ },
+ "s2193": {
+  "tr": "<b>Qué muestra:</b> Con un tipo a corto plazo inicial del 2,5 %, un promedio a largo plazo del 3,5 %, velocidad de reversión 0,3, volatilidad de 1 punto porcentual y prima por plazo de 0,5 puntos (todas cifras de ejemplo), la rentabilidad a 10 años del modelo fue 3,72 %. Queda por encima del tipo a corto plazo medio esperado en los próximos 10 años (3,18 %) por la prima por plazo. Un bono a 10 años comprado a esa rentabilidad tuvo una duración modificada de 8,22: si la rentabilidad a 10 años subía 1 punto porcentual, el precio caía 7,83 %, y si bajaba 1 punto, el precio subía 8,65 % (una estimación lineal da 8,22 % en ambos casos). Cuando el tipo a corto plazo saltó 1 punto porcentual, la rentabilidad a 10 años subió solo 0,33 puntos. Eso depende mucho de la velocidad de reversión: 0,81 puntos con 0,05, 0,33 con 0,3 y 0,09 con 1,2. Con primas por plazo de 0, 0,5 y 1,5 puntos, la rentabilidad a 10 años fue 3,20 %, 3,72 % y 4,76 %. Los bonos con cupones más altos tenían duraciones más cortas (8,98 con un cupón del 2 %, 6,71 con el 8 %) y eran menos sensibles a la rentabilidad. La variación de precio del bono comprado al inicio se dispersó con un promedio de -0,7 % tras 1 año, -4,5 % en el 5 % inferior y +3,2 % en el 5 % superior (20.000 trayectorias, sin intereses).",
+  "why": "단위 보충, 어색한 표현"
+ },
+ "s2194": {
+  "tr": "El modelo no predice los tipos y no debe usarse para decidir inversiones. Todos los valores por defecto son cifras de ejemplo.",
+  "why": "원문은 투자 판단에 쓰면 안 된다는 금지 표현"
+ },
+ "s2195": {
+  "tr": "Faltan factores como la inflación, la política monetaria, la demanda de bonos y las primas de plazo cambiantes, para los que hacen falta datos reales.",
+  "why": "'정책' -> 통화정책"
+ },
+ "s2198": {
+  "tr": "<b>Supuestos clave y fórmulas:</b> El tipo a corto plazo sigue <code>dr = a(b − r)dt + σdW</code>, donde a es la velocidad de reversión, b el promedio a largo plazo y σ la volatilidad. El precio de un bono cupón cero de vencimiento τ años es <code>exp(A − B·r)</code> con <code>B = (1 − e<sup>−aτ</sup>)/a</code> y <code>A = (b − σ²/2a²)(B − τ) − σ²B²/4a</code>, y la rentabilidad es <code>(B·r − A)/τ</code>. Esta página suma la prima por plazo a esa rentabilidad para obtener la rentabilidad a 10 años. Cuando el tipo a corto plazo se mueve 1, la rentabilidad a 10 años se mueve aproximadamente B/10.",
+  "why": "소제목 통일"
+ },
+ "s2201": {
+  "tr": "<b>Lecturas complementarias:</b> Vasicek (1977), &quot;An equilibrium characterization of the term structure&quot;, <i>Journal of Financial Economics</i> / Macaulay (1938), <i>Some Theoretical Problems Suggested by the Movements of Interest Rates, Bond Yields and Stock Prices in the United States since 1856</i>, NBER / Brigo &amp; Mercurio, <i>Interest Rate Models: Theory and Practice</i>, Springer.",
+  "why": "소제목 통일"
+ },
+ "s2236": {
+  "tr": "Cuando los patrones difieren, conviene mirar primero el equilibrio entre aporte y eliminación y la diferencia de velocidad de difusión, antes que añadir más reglas.",
+  "why": "어색한 구문 정리"
+ },
+ "s2238": {
+  "tr": "No demuestra que las rayas de las cebras reales surjan así, y F y k no son valores biológicos.",
+  "why": "'matemáticos'는 원문에 없음"
+ },
+ "s2243": {
+  "tr": "<b>Qué simplifica este proyecto:</b> Los patrones reales de los animales provienen conjuntamente de la actividad génica, el crecimiento y la forma del cuerpo, y F y k en este modelo no son valores biológicos. La cuadrícula es de 96×96 con paso de tiempo dt = 1 y bordes periódicos (cada borde se une con el opuesto), simplificado para facilitar el cálculo. Los nombres de los preajustes y sus pares F, k son valores representativos elegidos por este proyecto.",
+  "why": "'envolverse'는 wrap의 직역"
+ },
+ "s2246": {
+  "tr": "Ecuaciones: du = 0,16·lap(u) − u·v² + F(1 − u), dv = 0,08·lap(v) + u·v² − (F + k)·v. Cada paso usa dt = 1, el laplaciano se calcula a partir de los cuatro vecinos y cada borde se une con el opuesto. Un paso en pantalla son 40 cálculos. La razón de los coeficientes de difusión (2:1) es la misma que en la configuración de Pearson, pero la cuadrícula y las unidades de tiempo difieren, así que las formas no son idénticas.",
+  "why": "'envolverse'는 wrap의 직역"
+ },
+ "s2286": {
+  "tr": "Bajo estos supuestos, a medida que crecía la aversión al riesgo γ, la elección fue pasando por etapas de la sociedad en que el ganador se lo lleva todo a una sociedad igualitaria.",
+  "why": "어색한 'paso a paso de que...' 구문"
+ }
+}

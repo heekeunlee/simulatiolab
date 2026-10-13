@@ -1,0 +1,142 @@
+{
+ "d0265": {
+  "tr": "Boston · solicitando la opción {0} (las asignaciones son definitivas en cuanto se llena el cupo)",
+  "why": "정원이 차면 바로 확정이라는 뜻인데 '닫힌 자리'로 의미가 어긋남"
+ },
+ "d0452": {
+  "tr": "Espera media: sin medida correctiva → con medida correctiva",
+  "why": "'sin remedio'는 '절망적'이라는 뜻이 되어 오역; 처방 없음/있음"
+ },
+ "d0468": {
+  "tr": "Tú: {0} min · pasaron antes los que llegaron después: {1}",
+  "why": "'{1} que llegaron'은 1명일 때 수 일치가 깨짐"
+ },
+ "d0469": {
+  "tr": "Tú: esperando {0} min · pasaron antes los que llegaron después: {1}",
+  "why": "'{1} personas'는 1일 때 수 일치가 깨짐"
+ },
+ "d0492": {
+  "tr": "N.º de cliente",
+  "why": "축 이름 '손님 번호'를 복수 '고객들'로 옮김"
+ },
+ "d0564": {
+  "tr": "20 % o menos",
+  "why": "같은 페이지 안에서 숫자와 % 사이 띄어쓰기를 통일(스페인어 관행)"
+ },
+ "d0566": {
+  "tr": "80 % o más",
+  "why": "같은 페이지 안에서 숫자와 % 사이 띄어쓰기를 통일(스페인어 관행)"
+ },
+ "d0568": {
+  "tr": "Sigue repartida por igual",
+  "why": "'Se mantiene igual'은 무엇이 같은지 모호; 고르게 남는다"
+ },
+ "d0575": {
+  "tr": "¿Qué porcentaje de tus vecinos debe parecerse a ti para sentirte a gusto?",
+  "why": "남성형 'cómodo' 회피"
+ },
+ "d0614": {
+  "tr": "Bastan unas reacciones químicas sencillas",
+  "why": "'una química sencilla'은 어색; 간단한 화학 반응"
+ },
+ "d0630": {
+  "tr": "Siempre se arruina",
+  "why": "'Siempre'만으로는 뜻이 불완전; 반드시 망한다"
+ },
+ "d0654": {
+  "tr": "Alrededor del 30 %",
+  "why": "같은 페이지 안에서 숫자와 % 사이 띄어쓰기를 통일(스페인어 관행)"
+ },
+ "d0655": {
+  "tr": "Alrededor del 40 %",
+  "why": "같은 페이지 안에서 숫자와 % 사이 띄어쓰기를 통일(스페인어 관행)"
+ },
+ "d0656": {
+  "tr": "50 % o más",
+  "why": "같은 페이지 안에서 숫자와 % 사이 띄어쓰기를 통일(스페인어 관행)"
+ },
+ "d0665": {
+  "tr": "No lo sé",
+  "why": "남성형 'seguro' 대신 중립적이고 자연스러운 표현"
+ },
+ "d0667": {
+  "tr": "También quienes fracasaron pueden tenerlo",
+  "why": "'los fracasados'는 낙인찍는 어감"
+ },
+ "d0680": {
+  "tr": "Después de verlos todos",
+  "why": "끝까지 다 보고 = 전부; 'casi todos'는 오역"
+ },
+ "d0681": {
+  "tr": "¿Quién tiene más probabilidades de avisarte primero de un nuevo empleo?",
+  "why": "'¿Quién es más probable que...?'는 비문"
+ },
+ "d0690": {
+  "tr": "Cada conductor va a su aire",
+  "why": "제멋대로 = 마음대로; 'sin cuidado'는 난폭 운전으로 뜻이 바뀜"
+ },
+ "d0703": {
+  "tr": "Si siempre se han apagado enseguida los pequeños incendios del bosque cerca de tu casa, ¿cómo estará este bosque dentro de 10 años?",
+  "why": "시제 불일치(hubiera apagado/sería); '꺼 왔다면'은 현재완료"
+ },
+ "d0712": {
+  "tr": "Hasta la ciudad vecina",
+  "why": "'옆 도시'를 pueblo(마을)로 옮겨 규모가 달라짐"
+ },
+ "d0713": {
+  "tr": "Una vuelta entera a un país",
+  "why": "'나라 한 바퀴'는 한쪽 끝에서 끝이 아니라 한 바퀴 둘러보는 거리"
+ },
+ "d0846": {
+  "tr": "Puente terrestre",
+  "why": "land bridge의 통용 표기"
+ },
+ "d0852": {
+  "tr": "Tiempo de llegada: años desde la salida del origen (cada banda = 100 años)",
+  "why": "'desde que se salió'는 어색한 비인칭"
+ },
+ "d0853": {
+  "tr": "Años desde la salida del origen",
+  "why": "'desde que se salió'는 어색한 비인칭"
+ },
+ "d1061": {
+  "tr": "Ley cuadrática: todos apuntan a cualquier enemigo · el azul llega dividido en dos tandas",
+  "why": "'차례로 도착'(순차 도착) 누락"
+ },
+ "d1062": {
+  "tr": "Ley cuadrática: todos apuntan a cualquier enemigo · el rojo llega dividido en dos tandas",
+  "why": "'차례로 도착'(순차 도착) 누락"
+ },
+ "d1063": {
+  "tr": "Ley lineal: combates uno contra uno · el azul llega dividido en dos tandas",
+  "why": "'차례로 도착'(순차 도착) 누락"
+ },
+ "d1064": {
+  "tr": "Ley lineal: combates uno contra uno · el rojo llega dividido en dos tandas",
+  "why": "'차례로 도착'(순차 도착) 누락"
+ },
+ "d1093": {
+  "tr": "N.º de combate",
+  "why": "'Combatir'(동사)는 오역; 전투 번호"
+ },
+ "d1195": {
+  "tr": "Ni gana ni pierde",
+  "why": "'본전'을 체스 용어 'tablas'로 옮겨 어색"
+ },
+ "d1203": {
+  "tr": "Retrocede, en sentido contrario al tráfico. Cuando el coche de delante arranca, el de atrás lo hace un poco más tarde: así el extremo delantero del atasco se despeja y el trasero sigue creciendo.",
+  "why": "반응 지연이라는 원인(뒤차가 조금 늦게 출발)이 빠짐"
+ },
+ "d1212": {
+  "tr": "Sin lazos débiles tardó 58,1 turnos de media; con el 2 % tardó 16,2 (3,6 veces más rápido, media de 40 ejecuciones). La distancia media bajó de 25,4 pasos a un 33 % de ese valor, mientras que la cohesión de los círculos de amigos se mantuvo en el 94 %.",
+  "why": "'cayó al 33 % de 25,4 pasos'는 어색/모호"
+ },
+ "d1216": {
+  "tr": "Con 4 cajas ocupadas al 90 %, si los clientes eligen por separado la fila con menos gente, ¿cómo se compara la espera media con una sola fila compartida?",
+  "why": "계산대는 cajeros(계산원)가 아니라 cajas; '따로 서면' 의미 보강"
+ },
+ "d1222": {
+  "tr": "Sin medida correctiva, el coeficiente de variación de los intervalos pasó de 0,04 a 2,10 (minuto 360), y la espera media fue de 8,7 minutos, unas 3,8 veces los 2,3 minutos del espaciado uniforme.",
+  "why": "'sin remedio'(속수무책) 오역; 처방 없을 때"
+ }
+}

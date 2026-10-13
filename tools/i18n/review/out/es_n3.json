@@ -1,0 +1,114 @@
+{
+ "s1210": {
+  "tr": "No predice tipos de cambio ni beneficios y no sirve para decisiones de inversión; el diferencial de tipos y las reglas de aglomeración son ejemplos.",
+  "why": "용어 통일(tipos)"
+ },
+ "s1216": {
+  "tr": "<b>Teoría frente a simulación:</b> Sin aglomeración, el beneficio carry anual medio teórico <code>(1−u)·d</code> es 2,80 % con UIP 30 % y 0 con 100 %, y la simulación de 3.000 mercados × 20 años dio 2,84 % y 0,04 % (error estándar de unos 0,03). Con aglomeración, el empuje total del precio es k×(multitud final − multitud inicial), así que la teoría es 2,80 % más 0,32 % = 3,12 %, y la simulación también dio 3,12 %. Sin aglomeración, la volatilidad semanal fue 1,108 % en la simulación frente a 1,109 % teórica, y la autocorrelación a una semana fue -0,001. Para predecir la variación del tipo de cambio a 52 semanas vista, la raíz del error cuadrático medio sin aglomeración fue 7,82 puntos para un pronóstico de no cambio y 8,36 puntos para el pronóstico UIP (la moneda se deprecia el diferencial); como este modelo hace que la UIP se cumpla solo al 30 %, un resultado al estilo Meese–Rogoff viene incorporado de origen y no es evidencia real.",
+  "why": "adivinar→predecir, RMSE는 raíz del error cuadrático medio"
+ },
+ "s1225": {
+  "tr": "El resultado depende de el sistema de evaluación. Con la <b>evaluación relativa</b> el resultado es la <b>posición</b> del niño (la proporción de niños con menor puntuación), y con la <b>evaluación absoluta</b> es la probabilidad de superar una línea de aprobado fija (0,6 puntos). El beneficio de un hogar es <code>resultado − coste × número de clases</code>, con el coste medido como proporción del valor de la mejor posición (4 puntos porcentuales por defecto).",
+  "why": "en의 work 오역 계승, 평가 방식"
+ },
+ "s1226": {
+  "tr": "En cada ronda, el 25% de los hogares reconsidera. De ellos, el 40% <b>imita</b> (si un vecino con mejor resultado envía más clases, sube un escalón) y el 60% <b>experimenta</b> (prueba subir o bajar un escalón y lo mantiene si su beneficio mejora). Todas las decisiones se toman a la vez a partir del estado de la ronda anterior.",
+  "why": "수 일치(el 40% ... imita → sube)"
+ },
+ "s1264": {
+  "tr": "Si todos los hogares añaden clases, el coste se multiplica por cinco, pero la posición media sigue igual con la evaluación relativa.",
+  "why": "용어 통일 coste/posición/evaluación"
+ },
+ "s1265": {
+  "tr": "Con la evaluación relativa las posiciones no cambian cuando todos suben juntos, así que decisiones que ayudan a un hogar pueden sumar solo coste.",
+  "why": "용어 통일; 원문은 비용만 남는 구조"
+ },
+ "s1266": {
+  "tr": "Con la evaluación absoluta todos podrían subir juntos, así que el método de evaluación, más que las decisiones individuales, puede ser la clave.",
+  "why": "용어 통일"
+ },
+ "s1267": {
+  "tr": "<b>Qué muestra:</b> En el ajuste por defecto (300 hogares, efecto 0,30, coste 4 puntos, evaluación relativa) el número medio de clases empezó en 0,87, superó 2 en la ronda 15, 3 en la ronda 30 y 4 en la ronda 55, y llegó a 4,39 en la ronda 100 (el 74% de los hogares enviando 5). La factura total creció hasta 5,0 veces el inicio, pero la posición media se mantuvo en 50%, y el beneficio neto por hogar bajó de 47% a 32%. El 40% de los hogares terminó con una posición mejor que al inicio y el 47% con una peor: las posiciones simplemente se intercambiaron. En teoría, cuando todos envían el mismo número, un hogar que envía una más gana 7,5 puntos porcentuales de media (7,6 en la simulación), más que el coste de 4 puntos, así que siempre compensa. Sin embargo, cuando todos los hogares enviaron el mismo número, el mayor cambio de posición fue 0, y el beneficio neto baja de 50% con todos en 0 clases a 30% con todos en 5. Cuando el coste superaba los 7,5 puntos, la teoría decía que el equilibrio era que nadie enviara (desde 8 puntos), y en la simulación la media bajó a 0,70 con un coste de 10 puntos. Los hogares de niños de nivel medio enviaron más, 5,0 de media, frente a 2,9 del 10% inferior y 3,9 del 10% superior. Con un límite acordado de 2, la media fue 1,81 clases, la factura total 2,1 veces el inicio y el beneficio neto 43%; con un límite de 0 las posiciones fueron las mismas y el beneficio neto fue 50%. Con la evaluación absoluta la probabilidad media de aprobar subió de 43% a 73% (3,48 clases de media), con 78% de hogares mejor y 7% peor, y el beneficio neto pasó de 39% a 59%.",
+  "why": "que que 중복·어색"
+ },
+ "s1268": {
+  "tr": "No dice que las clases extra sean buenas o malas, ni que algún hogar eligiera mal.",
+  "why": "용어 통일(clases extra)"
+ },
+ "s1270": {
+  "tr": "<b>Qué no muestra:</b> Esto no reproduce el gasto real en clases extra ni el efecto de ninguna clase, y todas las cifras son ejemplos elegidos por este proyecto. No dice que enviar a los niños a clases sea bueno o malo, ni que alguna familia haya elegido mal: el modelo solo muestra una estructura. Las clases reales pueden ofrecer cosas más allá de las puntuaciones, como interés, cuidado y amigos, pero este modelo solo mira la posición (o la probabilidad de aprobar). Tampoco dice que la evaluación relativa sea mala y la absoluta buena: solo muestra que todos pueden subir cuando la línea de aprobado es fija, mientras que cómo se fija la línea y otros posibles efectos secundarios no están en el modelo. No apoya ni critica ningún sistema o política en particular. Es un modelo de referencia; toma las decisiones reales junto con expertos como pediatras y docentes.",
+  "why": "ninguna은 뜻이 반대가 됨(어느 집도 잘못이라는 뜻 아님)"
+ },
+ "s1271": {
+  "tr": "<b>De dónde viene el modelo:</b> Fred Hirsch trató los &quot;bienes posicionales&quot;, donde la posición misma es el valor, en su libro de 1976 <i>Social Limits to Growth</i> (Harvard University Press), y Robert H. Frank lo desarrolló como una teoría de la competencia por el estatus en <i>Choosing the Right Pond</i> (1985, Oxford University Press). Una estructura en la que, si todos hacen la misma elección, se anula la ganancia de cada uno es un juego simétrico del tipo dilema del prisionero, y un estado en el que nadie tiene motivo para cambiar es un equilibrio de Nash (John Nash, 1950).",
+  "why": "비문법적 구조"
+ },
+ "s1275": {
+  "tr": "<b>Lecturas adicionales:</b> Hirsch (1976), <i>Social Limits to Growth</i>, Harvard University Press / Frank (1985), <i>Choosing the Right Pond: Human Behavior and the Quest for Status</i>, Oxford University Press / Nash (1950), &quot;Equilibrium points in n-person games&quot;, <i>Proceedings of the National Academy of Sciences</i>.",
+  "why": "제목 통일"
+ },
+ "s1307": {
+  "tr": "Con autobuses aleatorios cada 10 minutos de media, la espera media fue de 10,1 minutos, el doble de los 5 minutos del cálculo ingenuo.",
+  "why": "5 ingenuos 오역"
+ },
+ "s1314": {
+  "tr": "<b>De dónde viene el modelo:</b> La paradoja de la inspección (del tiempo de espera) es un resultado clásico de la teoría de renovación. Quien llega en un instante aleatorio cae en un intervalo con probabilidad proporcional a su longitud, así que el intervalo que ve es más largo que el intervalo medio. Se trata en <i>An Introduction to Probability Theory and Its Applications</i>, volumen 2 (Wiley), de William Feller, y en <i>Introduction to Probability Models</i> (Academic Press), de Sheldon Ross. La paradoja de la amistad (Feld, 1991) es el mismo sesgo de muestreo.",
+  "why": "머리말 통일"
+ },
+ "s1318": {
+  "tr": "<b>Lecturas adicionales:</b> Feller (1971), <i>An Introduction to Probability Theory and Its Applications</i>, vol. 2, Wiley / Ross, <i>Introduction to Probability Models</i>, Academic Press (el capítulo sobre procesos de renovación) / Feld (1991), Why your friends have more friends than you do, <i>American Journal of Sociology</i>.",
+  "why": "제목 통일"
+ },
+ "s1363": {
+  "tr": "Con fuego dirigido, el doble de efectivos da cuatro veces el poder de combate, y una fuerza dividida pierde incluso 130 contra 100.",
+  "why": "병력 2배=전투력 4배 어색한 번역"
+ },
+ "s1371": {
+  "tr": "<b>Supuestos y fórmulas clave:</b> Fuego dirigido: <code>dA/dt = −β·B</code>, <code>dB/dt = −α·A</code>. Al dividir ambas e integrar se ve que <code>α·A² − β·B²</code> se conserva (fuerza = calidad × número²), y el ganador queda con <code>√(A₀² − (β/α)·B₀²)</code>. En los combates uno contra uno se conserva <code>α·A − β·B</code> y el ganador conserva <code>A₀ − (β/α)·B₀</code>. Los controles deslizantes fijan A₀, B₀ y la razón α/β.",
+  "why": "머리말 통일"
+ },
+ "s1373": {
+  "tr": "<b>Teoría frente a simulación:</b> Se compararon 300 ejecuciones de cada caso con las soluciones de forma cerrada mediante <code>node tools/validate-lanchester.js</code>. Con 200 contra 100 y la misma calidad, la teoría de la ley cuadrática da 173,2 restantes frente a una media simulada de 171,9, y la teoría de la ley lineal da 100 frente a 100,7. Con entre 50 y 400 soldados, la proporción restante con una razón de 2 a 1 se mantiene en el 86-87%, de modo que no depende de la escala. Con 130 contra 100 y el azul dividido, la teoría dice que gana el rojo con 39,4 restantes, y en la simulación el rojo ganó el 84% de los combates con 40,0 restantes de media. Los valores simulados algo más bajos se deben al azar y a avanzar el tiempo en pasos discretos.",
+  "why": "1인칭 → 비인칭, 어색"
+ },
+ "s1416": {
+  "tr": "<b>Teoría frente a simulación:</b> El recuento esperado para el azar es una forma cerrada y el cálculo es correcto. Con 18 letras, 27<sup>18</sup> ≈ 5,8×10<sup>25</sup> intentos a mil millones por segundo tardan unos 1.800 millones de años (0,13 de los 13.800 millones del universo), y con 28 letras, 27<sup>28</sup> ≈ 1,2×10<sup>40</sup> intentos tardan unos 3,8×10<sup>23</sup> años, en coincidencia con la salida de validate. La selección acumulativa no tiene forma cerrada y se comprobó solo por simulación: con los valores por defecto, 18 letras necesitaron 46 generaciones y 28 letras 77 de media (20 ejecuciones), y los intentos bajo selección solo subieron de unos 1.000 con 3 letras a unos 5.000 con 18.",
+  "why": "계산이 맞습니다"
+ },
+ "s1418": {
+  "tr": "Esta es una implementación propia de este proyecto, no una réplica literal del programa del libro.",
+  "why": "어색한 표현"
+ },
+ "s1322": {
+  "tr": "La ley cuadrática de Lanchester · Simulatio Lab",
+  "why": "ley cuadrática로 통일(통용 표기)"
+ },
+ "s1323": {
+  "tr": "Ejecuta tú mismo la ley cuadrática de Lanchester: dos ejércitos abstractos se desgastan mutuamente, y duplicar los soldados hace una fuerza cuatro veces más fuerte. Mira por qué dividir tus fuerzas hace perder.",
+  "why": "ley cuadrática로 통일(통용 표기)"
+ },
+ "s1326": {
+  "tr": "Bajo la <b>ley cuadrática</b> (fuego dirigido) cada soldado puede disparar a cualquier enemigo, así que más soldados reducen al enemigo más rápido y la fuerza crece como <b>calidad × número²</b>. Bajo la <b>ley lineal</b> (combates uno a uno) solo luchan los pares enfrentados, así que la fuerza es simplemente <b>calidad × número</b>.",
+  "why": "ley cuadrática로 통일(통용 표기)"
+ },
+ "s1336": {
+  "tr": "Ley cuadrática: fuego dirigido",
+  "why": "ley cuadrática로 통일(통용 표기)"
+ },
+ "s1353": {
+  "tr": "Las líneas gruesas son este combate y las discontinuas las curvas esperadas con el azar promediado (cuando luchan juntos). Bajo la ley cuadrática la contienda empieza despacio y luego el bando más débil se derrumba cada vez más rápido.",
+  "why": "ley cuadrática로 통일(통용 표기)"
+ },
+ "s1358": {
+  "tr": "La fuerza de la tropa que está ahora en el frente (el bando más fuerte al inicio es el 100 %). Bajo la ley cuadrática la diferencia <code>α·A² − β·B²</code> se mantiene casi constante todo el tiempo, así que las dos líneas bajan en paralelo. Si un ejército llega en mitades, su línea salta cuando entra la segunda mitad.",
+  "why": "ley cuadrática로 통일(통용 표기)"
+ },
+ "s1360": {
+  "tr": "Cinco casos para los números y la calidad actuales, comparados según la teoría. Una barra es la proporción de la fuerza inicial del ganador que queda. Bajo la ley cuadrática, el bando mayor pierde mucho al dividirse; bajo la ley lineal, dividirse no cambia nada.",
+  "why": "ley cuadrática로 통일(통용 표기)"
+ },
+ "s1362": {
+  "tr": "El eje horizontal es la razón de tamaño y el vertical la razón de calidad. Azul donde gana el azul, rojo donde gana el rojo, más oscuro donde queda más del ganador. La curva continua es la línea de equilibrio de la ley cuadrática (donde calidad × número² es igual), la discontinua la de la ley lineal. Con el doble de soldados, la calidad tiene que ser una cuarta parte para igualar.",
+  "why": "ley cuadrática로 통일(통용 표기)"
+ }
+}

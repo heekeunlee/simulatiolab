@@ -1,667 +1,1059 @@
 [
 {
-"id": "s0525",
-"page": "bar",
-"ko": "<b>이론값과 시뮬레이션:</b> 논문에 나온 값을 숫자로 대조한 것이 아니라 이 구현의 결과입니다. 모두 같은 예측이면 평균 50.0, 표준편차 50.0으로 0명과 100명을 오갑니다. 예측법이 다양하면 평균 손님이 58~60명으로 정원 근처에 모이고(예측법 5개: 58.3), 정원을 30, 50, 70으로 바꾸면 33.7, 50.2, 66.0이 됩니다. 비교 기준으로 \"각자 확률 0.6으로 간다\"면 표준편차가 <code>√(100·0.6·0.4)≈4.9</code>인데, 시뮬레이션은 0.6~4.0으로 더 작습니다 (<code>node tools/validate-more.js bar</code>). 정원 90에서는 평균이 79.9로 정원에 못 미칩니다.",
-"en": "<b>Theory versus simulation:</b> These are this implementation's results, not a numerical match to values in the paper. With one shared forecast, attendance averages 50.0 with standard deviation 50.0, swinging between 0 and 100. With diverse predictors, mean attendance settles at 58 to 60, near capacity (5 predictors: 58.3), and capacities 30, 50 and 70 give 33.7, 50.2 and 66.0. As a rough benchmark, if everyone simply went with probability 0.6 the standard deviation would be <code>√(100·0.6·0.4)≈4.9</code>; the simulation gives 0.6 to 4.0, which is smaller (<code>node tools/validate-more.js bar</code>). At capacity 90 the mean is 79.9, falling short of capacity.",
-"tr": "<b>Théorie et simulation :</b> Ce sont les résultats de cette implémentation, pas une concordance numérique avec les valeurs de l'article. Avec une seule prévision partagée, la fréquentation moyenne est de 50,0 avec un écart type de 50,0, oscillant entre 0 et 100. Avec des prédicteurs variés, la fréquentation moyenne se stabilise entre 58 et 60, près de la capacité (5 prédicteurs : 58,3), et les capacités 30, 50 et 70 donnent 33,7, 50,2 et 66,0. À titre de repère approximatif, si tout le monde y allait simplement avec une probabilité de 0,6, l'écart type serait de <code>√(100·0.6·0.4)≈4.9</code> ; la simulation donne de 0,6 à 4,0, ce qui est plus petit (<code>node tools/validate-more.js bar</code>). Pour une capacité de 90, la moyenne est de 79,9, en dessous de la capacité."
+"id": "s0875",
+"page": "daycare",
+"ko": "④ 아프면 쉬는 아이가 늘어나면",
+"en": "④ If More Sick Children Stay Home",
+"tr": "④ Si plus d'enfants malades restent à la maison"
 },
 {
-"id": "s0526",
-"page": "bar",
-"ko": "<b>더 읽을거리:</b> Arthur (1994), \"Inductive reasoning and bounded rationality\", <i>American Economic Review</i> 84(2). / Challet, Zhang (1997), \"Emergence of cooperation and organization in an evolutionary game\", <i>Physica A</i> 246 (소수 게임, 이 문제를 단순화한 후속 모델).",
-"en": "<b>Further reading:</b> Arthur (1994), \"Inductive reasoning and bounded rationality\", <i>American Economic Review</i> 84(2). / Challet, Zhang (1997), \"Emergence of cooperation and organization in an evolutionary game\", <i>Physica A</i> 246 (the Minority Game, a simplified follow-up model).",
-"tr": "<b>Pour aller plus loin :</b> Arthur (1994), « Inductive reasoning and bounded rationality », <i>American Economic Review</i> 84(2). / Challet, Zhang (1997), « Emergence of cooperation and organization in an evolutionary game », <i>Physica A</i> 246 (le jeu de la minorité, un modèle de suite simplifié)."
+"id": "s0876",
+"page": "daycare",
+"ko": "가로는 아프면 쉬는 아이의 비율, 세로는 한 해 아이 한 명이 걸린 횟수입니다(점은 여섯 번 돌린 각각, 선은 평균). 지금 설정에서 비율만 바꿔 훑은 것입니다. 비율이 100%여도 0회가 되지 않는 점을 보세요.",
+"en": "The horizontal axis is the share of children who stay home when sick and the vertical axis the times a child caught it in a year (dots are six separate runs, the line their average). Only this share is varied at your current settings. Notice that even at 100% the count does not reach zero.",
+"tr": "L'axe horizontal est la part des enfants qui restent à la maison quand ils sont malades et l'axe vertical le nombre de fois qu'un enfant l'a attrapé en un an (les points sont six simulations distinctes, la ligne leur moyenne). Seule cette part varie avec vos réglages actuels. Remarquez que même à 100 %, le nombre n'atteint pas zéro."
 },
 {
-"id": "s0566",
-"page": "braess",
-"ko": "운전자 4,000명일 때 지름길을 열자 평균이 65.0분에서 80.0분으로 늘었어요.",
-"en": "With 4,000 drivers, opening the shortcut raised the average from 65.0 to 80.0 minutes.",
-"tr": "Avec 4 000 conducteurs, l'ouverture du raccourci a fait passer la moyenne de 65,0 à 80,0 minutes."
+"id": "s0877",
+"page": "daycare",
+"ko": "⑤ 반 크기를 바꾸면",
+"en": "⑤ If the Class Size Changes",
+"tr": "⑤ Si la taille de la classe change"
 },
 {
-"id": "s0567",
-"page": "braess",
-"ko": "각자 더 빠른 길로 옮기다 모두 지름길로 몰려, 혼자 바꿔도 이득 없는 상태에서 오히려 느려졌어요.",
-"en": "Each driver kept switching to a faster route until all piled onto the shortcut, ending slower though no one gains by switching.",
-"tr": "Chaque conducteur a continué de passer à un itinéraire plus rapide jusqu'à ce que tous s'entassent sur le raccourci, finissant plus lents alors que personne n'a intérêt à changer."
+"id": "s0878",
+"page": "daycare",
+"ko": "가로는 반 크기, 세로는 한 해 아이 한 명이 걸린 횟수입니다. 반이 작아지면 만나는 짝이 줄어 횟수도 줄지만, 반이 아주 작아져도 반 밖에서 들어오는 감염 때문에 0이 되지는 않습니다.",
+"en": "The horizontal axis is class size and the vertical axis the times a child caught it in a year. Smaller classes mean fewer pairs, so the count falls, but it never reaches zero because of infection arriving from outside the class.",
+"tr": "L'axe horizontal est la taille de la classe et l'axe vertical le nombre de fois qu'un enfant l'a attrapé en un an. Les petites classes ont moins de paires, donc le nombre diminue, mais il n'atteint jamais zéro à cause de l'infection venue de l'extérieur de la classe."
 },
 {
-"id": "s0568",
-"page": "braess",
-"ko": "새 길의 효과는 이용자 수와 혼잡 정도에 달려 있어서, 길 하나보다 전체 교통량부터 살펴볼 만해요.",
-"en": "A new road's effect depends on traffic volume and congestion, so total demand may be worth examining first.",
-"tr": "L'effet d'une nouvelle route dépend du volume de trafic et de la congestion ; il peut donc être utile d'examiner d'abord la demande totale."
+"id": "s0879",
+"page": "daycare",
+"ko": "이 모델에서는 아프면 쉬는 비율이 100%일 때 한 해 감염이 5.0회에서 2.5회로 절반이 됐어요.",
+"en": "In this model, when 100% of sick children stay home, yearly infections fell from 5.0 to 2.5, half as many.",
+"tr": "Dans ce modèle, quand 100 % des enfants malades restent à la maison, les infections annuelles sont passées de 5,0 à 2,5, soit la moitié."
 },
 {
-"id": "s0570",
-"page": "braess",
-"ko": "실제 도시 도로망이 아니라 작고 대칭인 도로망이고, 새 길이 늘 해롭다는 뜻도 아니에요.",
-"en": "This is a small symmetric network, not a real city, and it does not mean new roads are always harmful.",
-"tr": "C'est un petit réseau symétrique, pas une vraie ville, et cela ne signifie pas que les nouvelles routes sont toujours nuisibles."
+"id": "s0880",
+"page": "daycare",
+"ko": "같은 반 안에서 아픈 아이가 나오는 만큼 퍼지기 때문에, 반 크기와 면역 기간도 쉬기만큼 결과를 바꿨어요.",
+"en": "Spread follows the sick children within a class, so class size and immunity length moved the result about as much as staying home.",
+"tr": "La propagation suit les enfants malades au sein d'une classe ; la taille de la classe et la durée de l'immunité ont donc fait varier le résultat presque autant que le maintien à la maison."
 },
 {
-"id": "s0571",
-"page": "braess",
-"ko": "대중교통, 출발 시각 조정, 새로 생기는 수요를 넣고 실제 도로의 교통량 변화를 관찰해야 확인돼요.",
-"en": "Transit, departure-time shifts and induced demand would need adding, and real traffic changes observing.",
-"tr": "Il faudrait ajouter les transports en commun, les décalages d'heure de départ et la demande induite, et observer les changements réels du trafic."
+"id": "s0881",
+"page": "daycare",
+"ko": "개별 선택보다 반의 크기, 접촉, 면역 같은 구조가 어떻게 겹치는지가 열쇠일 수 있어요.",
+"en": "Rather than individual choices, how class size, contact and immunity combine may be the key to look at.",
+"tr": "Plutôt que les choix individuels, la façon dont la taille de la classe, les contacts et l'immunité se combinent peut être la clé à examiner."
 },
 {
-"id": "s0573",
-"page": "braess",
-"ko": "<b>모델의 뿌리:</b> Dietrich Braess가 1968년 논문 「Über ein Paradoxon aus der Verkehrsplanung」(<i>Unternehmensforschung</i>)에서 보인 역설입니다. 모두가 자기에게 가장 빠른 길을 고르는 균형에서는 길을 하나 더해도 모두의 이동 시간이 늘어날 수 있다는 내용입니다. 이 페이지의 운전자 4,000명, 막히는 길 x/100분, 고정 45분 도로망은 Easley와 Kleinberg의 교과서에 실린 널리 알려진 예시를 따랐습니다.",
-"en": "<b>Where the model comes from:</b> A paradox shown by Dietrich Braess in his 1968 paper &quot;Über ein Paradoxon aus der Verkehrsplanung&quot; (<i>Unternehmensforschung</i>): in an equilibrium where everyone picks their own fastest route, adding a road can make everyone's travel time longer. The 4,000 drivers, x/100-minute congestible roads and fixed 45 minutes on this page follow the widely used example in Easley and Kleinberg's textbook.",
-"tr": "<b>D'où vient le modèle :</b> Un paradoxe mis en évidence par Dietrich Braess dans son article de 1968 &quot;Über ein Paradoxon aus der Verkehrsplanung&quot; (<i>Unternehmensforschung</i>) : dans un équilibre où chacun choisit son itinéraire le plus rapide, ajouter une route peut allonger le trajet de tout le monde. Les 4 000 conducteurs, les routes à congestion de x/100 minutes et les 45 minutes fixes de cette page suivent l'exemple très répandu du manuel d'Easley et Kleinberg."
+"id": "s0882",
+"page": "daycare",
+"ko": "<b>말하는 것:</b> 반 20명, 접촉 5단계, 면역 30일, 손씻기·환기 0%인 설정에서 스무 번 돌린 평균입니다(예시 숫자). 아프면 쉬는 비율이 0%이면 한 해 아이 한 명이 5.0회 걸렸고, 30%이면 4.4회, 70%이면 3.5회(0%보다 30% 적음), 100%이면 2.5회(절반)였습니다. 대신 아파서 집에서 쉰 평일은 0일에서 70%일 때 6.9일, 100%일 때 7.0일로 늘었습니다. 100%여도 0이 되지 않는 이유는 증상 전 첫날의 등원과 반 밖에서 들어오는 감염입니다. 반 크기는 쉬기 30%에서 8명이면 2.5회, 10명이면 2.9회, 20명이면 4.4회, 30명이면 5.5회였고, 쉬기 0%→70%의 효과는 반 10명에서 3.3→2.3회, 20명에서 5.0→3.5회, 30명에서 6.0→4.3회였습니다. 손씻기·환기로 전파를 30% 줄이면 4.4→3.7회, 60%이면 2.9회였습니다. 접촉 강도 2단계는 2.9회, 8단계는 5.2회였고, 면역이 14일이면 6.0회, 90일이면 2.7회, 180일이면 1.8회였습니다. 면역이 쌓이는 효과는 첫 3개월에 아이 1명당 1.6회, 이후 3개월마다 1.0, 1.0, 0.9회로 줄어드는 모습에서 보입니다. 시드 1로 한 번 돌리면(기본 설정) 4.2회, 쉰 날 3.4일, 아픈 아이가 가장 많았던 때는 3주째였습니다. 쉬기 0%, 손씻기·환기 30%, 반 12명을 합치면 3.2회였습니다.",
+"en": "<b>What it shows:</b> These are averages of twenty runs at class size 20, contact level 5, immunity 30 days and 0% handwashing and ventilation (example numbers). With 0% of children staying home when sick, a child caught it 5.0 times a year; at 30% it was 4.4, at 70% 3.5 (30% fewer than at 0%), and at 100% 2.5 (half). In exchange, weekdays resting at home rose from 0 to 6.9 days at 70% and 7.0 at 100%. It does not reach zero even at 100% because of the first day before symptoms, when the child still attends, and infection arriving from outside. Class size at 30% staying home gave 2.5 times for 8 children, 2.9 for 10, 4.4 for 20 and 5.5 for 30, and the effect of going from 0% to 70% staying home was 3.3 → 2.3 at 10 children, 5.0 → 3.5 at 20 and 6.0 → 4.3 at 30. Cutting spread by 30% with handwashing and ventilation took 4.4 to 3.7, and 60% gave 2.9. Contact level 2 gave 2.9 times and level 8 gave 5.2; with immunity of 14 days it was 6.0, at 90 days 2.7 and at 180 days 1.8. Accumulating immunity shows in 1.6 infections per child in the first three months, then 1.0, 1.0 and 0.9 in each following three months. One run with seed 1 at the defaults gave 4.2 times, 3.4 rest days, and the week with the most sick children was week 3. Combining 0% staying home, 30% handwashing and ventilation, and 12 children gave 3.2.",
+"tr": "<b>Ce que cela montre :</b> Il s'agit de moyennes de vingt simulations avec une classe de 20, un niveau de contact de 5, une immunité de 30 jours et 0 % de lavage des mains et d'aération (chiffres d'exemple). Avec 0 % d'enfants restant à la maison quand ils sont malades, un enfant l'a attrapé 5,0 fois par an ; à 30 % c'était 4,4, à 70 % 3,5 (30 % de moins qu'à 0 %), et à 100 % 2,5 (la moitié). En contrepartie, les jours de semaine de repos à la maison sont passés de 0 à 6,9 jours à 70 % et 7,0 à 100 %. Cela n'atteint pas zéro même à 100 % à cause du premier jour avant les symptômes, où l'enfant vient encore, et de l'infection venue de l'extérieur. La taille de la classe avec 30 % à la maison a donné 2,5 fois pour 8 enfants, 2,9 pour 10, 4,4 pour 20 et 5,5 pour 30, et l'effet du passage de 0 % à 70 % à la maison était 3,3 → 2,3 à 10 enfants, 5,0 → 3,5 à 20 et 6,0 → 4,3 à 30. Réduire la transmission de 30 % par le lavage des mains et l'aération a fait passer 4,4 à 3,7, et 60 % a donné 2,9. Un niveau de contact de 2 a donné 2,9 fois et un niveau de 8 a donné 5,2 ; avec une immunité de 14 jours c'était 6,0, à 90 jours 2,7 et à 180 jours 1,8. L'accumulation d'immunité se voit dans 1,6 infection par enfant les trois premiers mois, puis 1,0, 1,0 et 0,9 pour chaque trimestre suivant. Une simulation avec la graine 1 et les valeurs par défaut a donné 4,2 fois, 3,4 jours de repos, et la semaine avec le plus d'enfants malades était la semaine 3. Combiner 0 % à la maison, 30 % de lavage des mains et d'aération et 12 enfants a donné 3,2."
 },
 {
-"id": "s0574",
-"page": "braess",
-"ko": "<b>핵심 가정과 수식:</b> 운전자는 자기 시간만 줄이려 하고, 아무도 혼자 길을 바꿔서는 이득을 못 보는 상태(내시 균형)에 닿습니다. 막히는 길의 시간은 <code>a × 이용자 수</code>(a = 민감도/1000), 고정 길은 45분입니다. 지름길이 없으면 두 길에 반씩 나뉘어 <code>a·n/2 + 45</code>이고, 지름길 비용이 c일 때 <code>a·n + c ≤ 45</code>이면 모두 지름길을 타서 평균이 <code>2a·n + c</code>가 됩니다. 슬라이더는 n(운전자 수), c(지름길 비용), a(민감도)입니다.",
-"en": "<b>Key assumptions and formulas:</b> Drivers only try to cut their own time and settle where nobody can gain by switching alone (a Nash equilibrium). A congestible road takes <code>a × its users</code> (a = sensitivity/1000) and the fixed road 45 minutes. Without the shortcut drivers split evenly, giving <code>a·n/2 + 45</code>; with a shortcut costing c, if <code>a·n + c ≤ 45</code> everyone takes it and the average becomes <code>2a·n + c</code>. The sliders are n (drivers), c (shortcut cost) and a (sensitivity).",
-"tr": "<b>Hypothèses clés et formules :</b> Les conducteurs cherchent seulement à réduire leur propre temps et se stabilisent là où personne ne gagne à changer seul (un équilibre de Nash). Une route à congestion prend <code>a × ses usagers</code> (a = sensibilité/1000) et la route fixe 45 minutes. Sans le raccourci, les conducteurs se répartissent également, ce qui donne <code>a·n/2 + 45</code> ; avec un raccourci coûtant c, si <code>a·n + c ≤ 45</code> tout le monde l'emprunte et la moyenne devient <code>2a·n + c</code>. Les curseurs sont n (conducteurs), c (coût du raccourci) et a (sensibilité)."
+"id": "s0883",
+"page": "daycare",
+"ko": "실제 어린이집의 감염 횟수를 예측하거나, 아이를 어떻게 돌볼지 권하는 모델이 아니에요. 숫자는 예시예요.",
+"en": "It neither predicts real daycare infections nor advises how to care for a child; the numbers are examples.",
+"tr": "Il ne prédit ni les infections réelles en crèche ni ne conseille sur la façon de s'occuper d'un enfant ; les chiffres sont des exemples."
 },
 {
-"id": "s0575",
-"page": "braess",
-"ko": "<b>이 프로젝트의 단순화:</b> 도로망은 길 네 개짜리 대칭 도로망 하나, 출발지와 목적지도 하나이며 운전자는 시간만 따집니다. 운전자의 재선택 규칙(매 라운드 8%가 확실히 더 빠를 때만 이동)과 기본값(민감도 10, 지름길 비용 0분)은 이 프로젝트가 정한 것이고, 실제 도시의 교통량이나 수요 변화는 없습니다.",
-"en": "<b>What this project simplifies:</b> The network is one symmetric four-road network with a single origin and destination, and drivers care only about time. The re-choosing rule (each round 8% of drivers move, and only if clearly faster) and the defaults (sensitivity 10, shortcut cost 0 minutes) are this project's own choices; there is no real city traffic or demand change.",
-"tr": "<b>Ce que ce projet simplifie :</b> Le réseau est un réseau symétrique de quatre routes avec une seule origine et une seule destination, et les conducteurs ne se soucient que du temps. La règle de nouveau choix (à chaque tour, 8% des conducteurs changent, et seulement si c'est nettement plus rapide) et les valeurs par défaut (sensibilité 10, coût du raccourci 0 minute) sont des choix propres à ce projet ; il n'y a ni trafic urbain réel ni variation de la demande."
+"id": "s0884",
+"page": "daycare",
+"ko": "실제 판단은 소아과 의사·교사 등 전문가와 하고, 형제자매나 병원균별 차이 같은 빠진 요소는 따로 확인해야 해요.",
+"en": "Real decisions belong with pediatricians and teachers, and missing factors such as siblings or specific germs need separate checking.",
+"tr": "Les décisions réelles reviennent aux pédiatres et aux enseignants, et les facteurs absents, comme les frères et sœurs ou des germes précis, demandent une vérification distincte."
 },
 {
-"id": "s0576",
-"page": "braess",
-"ko": "<b>이론값과 시뮬레이션:</b> 4,000명, 비용 0분에서 이론값은 닫힘 65.0분, 열림 80.0분, 사회 최적 64.7분이고 시뮬레이션도 65.0분과 80.0분(180라운드)이었습니다. 운전자 수, 지름길 비용, 민감도를 바꾼 여러 설정에서 시뮬레이션의 끝 평균이 이론값과 맞았고, 끝 상태에서 혼자 옮겨 얻는 이득은 0분이었습니다. 무정부 가격(균형÷최적)은 4,000명에서 1.24, 4,500명에서 최대 1.33(=4/3)으로, 선형 지연 시간의 알려진 상한 4/3과 같았습니다.",
-"en": "<b>Theory versus simulation:</b> At 4,000 drivers and cost 0 the theory gives 65.0 minutes closed, 80.0 open and 64.7 at the social optimum, and the simulation reached 65.0 and 80.0 (round 180). Across settings varying drivers, shortcut cost and sensitivity, the simulated end averages matched the theory, and the gain from switching alone at the end state was 0 minutes. The price of anarchy (equilibrium ÷ optimum) was 1.24 at 4,000 drivers and peaked at 1.33 (= 4/3) at 4,500, equal to the known bound of 4/3 for linear delays.",
-"tr": "<b>Théorie et simulation :</b> Avec 4 000 conducteurs et un coût de 0, la théorie donne 65,0 minutes raccourci fermé, 80,0 ouvert et 64,7 à l'optimum social, et la simulation a atteint 65,0 et 80,0 (tour 180). Pour tous les réglages faisant varier conducteurs, coût du raccourci et sensibilité, les moyennes finales simulées concordaient avec la théorie, et le gain à changer seul à l'état final était de 0 minute. Le prix de l'anarchie (équilibre ÷ optimum) était de 1,24 pour 4 000 conducteurs et a culminé à 1,33 (= 4/3) pour 4 500, ce qui est égal à la borne connue de 4/3 pour les retards linéaires."
+"id": "s0885",
+"page": "daycare",
+"ko": "<b>말하지 않는 것:</b> 실제 어린이집의 감염 횟수를 예측하거나 재현한 것이 아닙니다. 병원균을 특정하지 않은 \"감기 같은 호흡기 감염\"을 가정한 이 프로젝트의 단순화된 모델이고, 기본값(접촉 강도, 면역 기간 등)은 예시 숫자입니다. 실제 감염 횟수나 결석 일수를 말해 주는 통계가 아닙니다. 어떻게 아이를 돌볼지, 아플 때 등원할지, 어떤 예방을 할지를 권하거나 판단하지 않으며, 쉬기를 선택하는 가정이든 등원을 선택하는 가정이든 각자 사정이 있습니다. 참고용 모델이며 실제 판단은 소아과 의사·교사 등 전문가와 하시기 바랍니다. 이 모델에는 형제자매와 부모를 거치는 감염, 병원균별 차이, 다른 반과의 접촉, 아이마다 다른 체질, 방학과 개학의 영향, 어린이집의 실제 운영 방식이 없습니다.",
+"en": "<b>What it doesn't show:</b> This does not predict or reproduce the number of infections at any real daycare. It is this project's simplified model of a \"cold-like respiratory infection\" with no specific pathogen, and the defaults (contact level, immunity period and so on) are example numbers, not statistics about real infection counts or absences. It does not recommend or judge how to care for a child, whether to attend when sick, or which precautions to take, and families who keep children home and families who send them each have their reasons. This is a reference model; for real decisions please consult professionals such as a pediatrician or a teacher. The model leaves out infection passing through siblings and parents, differences between pathogens, contact with other classes, differences between children, the effect of vacations, and how real daycares operate.",
+"tr": "<b>Ce que cela ne montre pas :</b> Ceci ne prédit ni ne reproduit le nombre d'infections dans aucune crèche réelle. C'est le modèle simplifié de ce projet d'une « infection respiratoire de type rhume » sans pathogène précis, et les valeurs par défaut (niveau de contact, période d'immunité, etc.) sont des chiffres d'exemple, pas des statistiques sur les infections ou les absences réelles. Il ne recommande ni ne juge la façon de s'occuper d'un enfant, la présence en cas de maladie ou les précautions à prendre, et les familles qui gardent leurs enfants à la maison comme celles qui les envoient ont chacune leurs raisons. C'est un modèle de référence ; pour les décisions réelles, consultez des professionnels comme un pédiatre ou un enseignant. Le modèle omet la transmission par les frères et sœurs et les parents, les différences entre pathogènes, le contact avec les autres classes, les différences entre enfants, l'effet des vacances et le fonctionnement réel des crèches."
 },
 {
-"id": "s0577",
-"page": "braess",
-"ko": "<b>더 읽을거리:</b> Braess (1968), Unternehmensforschung(영어 번역: Braess, Nagurney &amp; Wakolbinger, 2005, &quot;On a paradox of traffic planning&quot;, <i>Transportation Science</i>) / Roughgarden &amp; Tardos (2002), &quot;How bad is selfish routing?&quot;, <i>Journal of the ACM</i> / Easley &amp; Kleinberg (2010), <i>Networks, Crowds, and Markets</i>, Cambridge University Press.",
-"en": "<b>Further reading:</b> Braess (1968), Unternehmensforschung (English translation: Braess, Nagurney &amp; Wakolbinger, 2005, &quot;On a paradox of traffic planning&quot;, <i>Transportation Science</i>) / Roughgarden &amp; Tardos (2002), &quot;How bad is selfish routing?&quot;, <i>Journal of the ACM</i> / Easley &amp; Kleinberg (2010), <i>Networks, Crowds, and Markets</i>, Cambridge University Press.",
-"tr": "<b>Pour aller plus loin :</b> Braess (1968), Unternehmensforschung (traduction anglaise : Braess, Nagurney &amp; Wakolbinger, 2005, &quot;On a paradox of traffic planning&quot;, <i>Transportation Science</i>) / Roughgarden &amp; Tardos (2002), &quot;How bad is selfish routing?&quot;, <i>Journal of the ACM</i> / Easley &amp; Kleinberg (2010), <i>Networks, Crowds, and Markets</i>, Cambridge University Press."
+"id": "s0886",
+"page": "daycare",
+"ko": "<b>모델의 뿌리:</b> 감염병 구획 모델의 고전인 Kermack &amp; McKendrick (1927), 「A contribution to the mathematical theory of epidemics」(<i>Proceedings of the Royal Society A</i>)의 SIR 모델이 뿌리입니다. 집단을 걸릴 수 있는 사람(S), 감염된 사람(I), 회복한 사람(R)으로 나누고, 처음 한 명이 평균 R0명에게 퍼뜨리는지에 따라 유행이 커지거나 사라진다는 내용입니다.",
+"en": "<b>Where the model comes from:</b> The root is the SIR model of the classic compartment-model paper by Kermack &amp; McKendrick (1927), &quot;A contribution to the mathematical theory of epidemics&quot; (<i>Proceedings of the Royal Society A</i>). It splits a population into susceptible (S), infected (I) and recovered (R), and says an outbreak grows or dies out depending on whether one case infects more or fewer than R0 others on average.",
+"tr": "<b>D'où vient le modèle :</b> La racine est le modèle SIR de l'article classique sur les modèles compartimentaux de Kermack &amp; McKendrick (1927), &quot;A contribution to the mathematical theory of epidemics&quot; (<i>Proceedings of the Royal Society A</i>). Il répartit une population en sensibles (S), infectés (I) et guéris (R), et dit qu'une épidémie croît ou s'éteint selon qu'un cas infecte en moyenne plus ou moins de R0 autres personnes."
 },
 {
-"id": "s0581",
-"page": "bunching",
-"ko": "버스 뭉침 · 시뮬라티오 랩",
-"en": "Bus Bunching · Simulatio Lab",
-"tr": "Bus en grappe · Simulatio Lab"
+"id": "s0887",
+"page": "daycare",
+"ko": "<b>핵심 가정과 수식:</b> 한 반 안은 모두가 서로 섞이는 균질 혼합으로 보고, 감염된 아이가 평균 <code>R0 = τ × (반 크기 − 1) × 등원하는 아픈 날수</code>명을 감염시킵니다. τ는 한 쌍이 하루에 만나 퍼질 확률(접촉 강도 × 1% × (1 − 줄인 전파))이고, 등원하는 아픈 날수는 <code>1 + (5 − 1) × (1 − 쉬는 비율)</code>입니다. 유행이 끝났을 때 걸린 비율 z는 <code>z = 1 − e<sup>−R0·z</sup></code>를 만족합니다. 슬라이더는 반 크기, 접촉 강도(τ), 쉬는 비율, 전파 감소(τ)입니다.",
+"en": "<b>Key assumptions and formulas:</b> A class is treated as fully mixed, and an infected child infects on average <code>R0 = τ × (class size − 1) × sick days attended</code> others. τ is the chance a pair spreads it in a day (contact level × 1% × (1 − reduced spread)) and the sick days attended are <code>1 + (5 − 1) × (1 − share staying home)</code>. When an outbreak ends, the share who caught it, z, satisfies <code>z = 1 − e<sup>−R0·z</sup></code>. The sliders are class size, contact level (τ), the share staying home and the spread reduction (τ).",
+"tr": "<b>Hypothèses et formules clés :</b> Une classe est traitée comme parfaitement mélangée, et un enfant infecté en infecte en moyenne <code>R0 = τ × (taille de la classe − 1) × jours de maladie en présence</code> autres. τ est la chance qu'une paire transmette l'infection en un jour (niveau de contact × 1 % × (1 − transmission réduite)) et les jours de maladie en présence sont <code>1 + (5 − 1) × (1 − part restant à la maison)</code>. Quand une épidémie s'achève, la part de ceux qui l'ont attrapée, z, vérifie <code>z = 1 − e<sup>−R0·z</sup></code>. Les curseurs sont la taille de la classe, le niveau de contact (τ), la part restant à la maison et la réduction de la transmission (τ)."
 },
 {
-"id": "s0582",
-"page": "bunching",
-"ko": "같은 간격으로 출발한 버스가 왜 몇 대씩 뭉쳐 다니게 되는지, 승객이 많을수록 늦어지는 되먹임 모델로 직접 돌려보고 해결책도 시험해 보세요.",
-"en": "Run a feedback model to see why evenly spaced buses end up travelling in bunches, and test remedies that restore the spacing.",
-"tr": "Lancez un modèle de rétroaction pour voir pourquoi des bus régulièrement espacés finissent par rouler en grappes, et testez des remèdes qui rétablissent l'espacement."
+"id": "s0888",
+"page": "daycare",
+"ko": "<b>이 프로젝트의 단순화:</b> 원래의 SIR에 이 프로젝트가 덧붙인 것이 많습니다: 잠복기(평균 2일), 평일과 주말, 겨울에 25% 더 잘 퍼지는 계절 효과, 반 밖에서 들어오는 단순한 감염 항, 면역 지속과 걸릴 때마다 쌓이는 면역(1/(1+0.3×걸린 횟수)), 증상 전 첫날의 등원. 이 값들은 모두 이 프로젝트가 정한 예시 숫자이고 실제 병원균을 맞춘 것이 아닙니다. 가정으로 퍼지는 2차 감염은 반 밖 감염 항(하루 0.15%에 전체 아픈 아이 비율의 20%를 더함) 하나로 뭉뚱그렸습니다.",
+"en": "<b>What this project simplifies:</b> This project adds many things to plain SIR: an incubation period (2 days on average), weekdays and weekends, a seasonal effect that spreads 25% more in winter, a simple term for infection arriving from outside the class, immunity duration with immunity that builds with each infection (1/(1+0.3×infections)), and attending on the first day before symptoms. All of these are example values set by this project, not fitted to a real pathogen. Secondary infection spreading through households is lumped into one outside term (0.15% a day plus 20% of the share of sick children overall).",
+"tr": "<b>Ce que ce projet simplifie :</b> Ce projet ajoute beaucoup de choses au SIR de base : une période d'incubation (2 jours en moyenne), des jours de semaine et de week-end, un effet saisonnier qui propage 25 % de plus en hiver, un terme simple pour l'infection venue de l'extérieur de la classe, une durée d'immunité avec une immunité qui se construit à chaque infection (1/(1+0,3×infections)), et la présence le premier jour avant les symptômes. Ce sont tous des valeurs d'exemple fixées par ce projet, non ajustées à un pathogène réel. L'infection secondaire transmise par les foyers est regroupée en un seul terme externe (0,15 % par jour plus 20 % de la part d'enfants malades au total)."
 },
 {
-"id": "s0583",
-"page": "bunching",
-"ko": "버스를 기다리다 보면 한참 안 오다가 두세 대가 줄줄이 오곤 합니다. 운이 나빴거나 기사님들이 제멋대로여서라고 생각하기 쉽습니다. 그런데 이 모델의 버스는 모두 똑같은 속도와 똑같은 규칙으로 달리고, 처음에는 간격도 거의 고릅니다. 그런데도 시간이 지나면 어김없이 뭉칩니다. 뭉침은 불운이 아니라, 노선이라는 시스템에 처음부터 들어 있는 구조입니다.",
-"en": "While waiting for a bus you often wait ages, then two or three arrive in a row. It is easy to blame bad luck or careless drivers. Yet every bus in this model runs at the same speed under the same rule, and at the start they are almost perfectly spaced. They bunch up anyway. It is not bad luck: it is built into the system of a bus route.",
-"tr": "En attendant un bus, on attend souvent une éternité, puis deux ou trois arrivent d'affilée. Il est facile d'accuser la malchance ou des conducteurs négligents. Pourtant, tous les bus de ce modèle roulent à la même vitesse selon la même règle et, au départ, ils sont presque parfaitement espacés. Ils se regroupent malgré tout. Ce n'est pas de la malchance : c'est inscrit dans le système d'une ligne de bus."
+"id": "s0889",
+"page": "daycare",
+"ko": "<b>이론값과 시뮬레이션:</b> 이론이 맞는 조건(한 반 500명, 주말·계절·바깥 감염·재감염 없음, 처음 5명 감염)에서 스무 번 돌린 평균과 비교했습니다. R0 1.5에서 이론 58.3%, 시뮬레이션 56.8%. R0 2에서 79.7%와 80.6%. R0 3에서 94.0%와 94.6%. 쉬는 비율 50%(R0 2)에서 79.7%와 77.7%, 70%(R0 3)에서 94.0%와 95.0%였습니다. R0 0.8에서는 이론상 큰 유행이 없고 시뮬레이션도 처음 5명에 더해 4.2%만 걸렸습니다. 기본 설정(주말·계절·반 밖 감염·재감염 포함)에는 닫힌 식이 없어 시뮬레이션만으로 확인했습니다.",
+"en": "<b>Theory versus simulation:</b> I compared against twenty-run averages under the conditions where the theory applies (one class of 500, no weekends, season, outside infection or reinfection, 5 initial cases). At R0 1.5 the theory gives 58.3% and the simulation 56.8%; at R0 2, 79.7% and 80.6%; at R0 3, 94.0% and 94.6%. With 50% staying home (R0 2) it was 79.7% and 77.7%, and with 70% (R0 3) 94.0% and 95.0%. At R0 0.8 the theory predicts no large outbreak and the simulation had only 4.2% infected including the first 5. The default settings (with weekends, season, outside infection and reinfection) have no closed form, so they were checked by simulation only.",
+"tr": "<b>Théorie et simulation :</b> J'ai comparé avec des moyennes de vingt simulations dans les conditions où la théorie s'applique (une classe de 500, sans week-ends, saison, infection externe ni réinfection, 5 cas initiaux). Pour R0 1,5, la théorie donne 58,3 % et la simulation 56,8 % ; pour R0 2, 79,7 % et 80,6 % ; pour R0 3, 94,0 % et 94,6 %. Avec 50 % à la maison (R0 2), c'était 79,7 % et 77,7 %, et avec 70 % (R0 3) 94,0 % et 95,0 %. Pour R0 0,8, la théorie prédit qu'il n'y a pas de grande épidémie et la simulation n'a eu que 4,2 % d'infectés, y compris les 5 premiers. Les réglages par défaut (avec week-ends, saison, infection externe et réinfection) n'ont pas de forme fermée, ils n'ont donc été vérifiés que par simulation."
 },
 {
-"id": "s0584",
-"page": "bunching",
-"ko": "고리 모양 노선에 정류장 24곳이 같은 간격으로 있고, 버스 여러 대가 같은 방향으로 돕니다. 버스는 정류장 사이를 1분에 달립니다. 정류장마다 승객이 일정한 평균 속도로 무작위로 도착해 줄을 섭니다(슬라이더의 승객 수요).",
-"en": "A ring-shaped route has 24 evenly spaced stops, and several buses circle in the same direction. A bus covers the gap between stops in 1 minute. At every stop passengers arrive at random with a constant average rate and queue up (the passenger demand slider).",
-"tr": "Une ligne circulaire compte 24 arrêts régulièrement espacés et plusieurs bus tournent dans le même sens. Un bus parcourt la distance entre deux arrêts en 1 minute. À chaque arrêt, les passagers arrivent au hasard à un rythme moyen constant et font la queue (le curseur de demande de passagers)."
+"id": "s0890",
+"page": "daycare",
+"ko": "<b>더 읽을거리:</b> Kermack &amp; McKendrick (1927), <i>Proceedings of the Royal Society A</i> / Anderson &amp; May (1991), <i>Infectious Diseases of Humans: Dynamics and Control</i>, Oxford University Press / Keeling &amp; Rohani (2008), <i>Modeling Infectious Diseases in Humans and Animals</i>, Princeton University Press.",
+"en": "<b>Further reading:</b> Kermack &amp; McKendrick (1927), <i>Proceedings of the Royal Society A</i> / Anderson &amp; May (1991), <i>Infectious Diseases of Humans: Dynamics and Control</i>, Oxford University Press / Keeling &amp; Rohani (2008), <i>Modeling Infectious Diseases in Humans and Animals</i>, Princeton University Press.",
+"tr": "<b>Pour aller plus loin :</b> Kermack &amp; McKendrick (1927), <i>Proceedings of the Royal Society A</i> / Anderson &amp; May (1991), <i>Infectious Diseases of Humans: Dynamics and Control</i>, Oxford University Press / Keeling &amp; Rohani (2008), <i>Modeling Infectious Diseases in Humans and Animals</i>, Princeton University Press."
 },
 {
-"id": "s0585",
-"page": "bunching",
-"ko": "버스는 정류장에 서서 줄 선 승객을 한 명씩 태웁니다(1명에 3초). 줄이 빌 때까지 서 있고, 서 있는 동안 새로 온 승객도 태웁니다. 그래서 <b>서 있는 시간은 줄 선 승객 수에 비례</b>합니다. 앞차와 간격이 벌어진 버스는 승객이 더 많이 쌓여 있어 더 오래 서고, 그래서 더 늦어집니다.",
-"en": "At a stop the bus loads the waiting passengers one by one (3 seconds each). It stays until the queue is empty, taking anyone who arrives meanwhile. So the <b>time it stands is proportional to the number waiting</b>. A bus with a larger gap ahead finds more people waiting, stands longer, and falls even further behind.",
-"tr": "À un arrêt, le bus fait monter les passagers en attente un par un (3 secondes chacun). Il reste jusqu'à ce que la file soit vide, en prenant aussi ceux qui arrivent entre-temps. Ainsi, le <b>temps d'arrêt est proportionnel au nombre de personnes qui attendent</b>. Un bus ayant un écart plus grand devant lui trouve plus de monde à l'arrêt, s'arrête plus longtemps et prend encore plus de retard."
+"id": "s0891",
+"page": "daycare",
+"ko": "시뮬레이션은 하루를 한 걸음으로 하고 시드 난수(mulberry32)를 써서 같은 시드면 같은 결과가 나옵니다. 통계 카드의 \"쉬기 0% → 70%\"는 지금 설정에서 시드 8개를 각각 돌려 평균한 값이고, ④·⑤번 그래프는 시드 6개씩입니다. 그래서 슬라이더를 바꾸면 잠시 뒤에 갱신됩니다.",
+"en": "The simulation advances one day per step and uses a seeded random generator (mulberry32), so the same seed gives the same result. The \"0% → 70% staying home\" card averages eight seeds at your current settings, and graphs ④ and ⑤ use six seeds per point, so they update a moment after you move a slider.",
+"tr": "La simulation avance d'un jour par pas et utilise un générateur aléatoire à graine (mulberry32), donc la même graine donne le même résultat. La carte « 0 % → 70 % à la maison » fait la moyenne de huit graines avec vos réglages actuels, et les graphiques ④ et ⑤ utilisent six graines par point, ils se mettent donc à jour un instant après le déplacement d'un curseur."
 },
 {
-"id": "s0586",
-"page": "bunching",
-"ko": "반대로 뒤차는 앞차가 이미 승객을 태워 간 뒤라 줄이 짧아 금방 출발하고, 앞차를 따라잡습니다. 앞차는 더 늦어지고 뒤차는 더 빨라지는 <b>양의 되먹임</b>이 작은 어긋남을 점점 키워, 결국 몇 대가 한 덩어리로 달립니다.",
-"en": "The bus behind finds short queues because the one ahead has already taken the passengers, so it leaves quickly and catches up. The one ahead gets slower, the one behind faster: this <b>positive feedback</b> amplifies tiny differences until several buses run as one clump.",
-"tr": "Le bus de derrière trouve de courtes files, car celui de devant a déjà pris les passagers ; il repart donc vite et le rattrape. Celui de devant ralentit, celui de derrière accélère : cette <b>rétroaction positive</b> amplifie de minuscules différences jusqu'à ce que plusieurs bus roulent en un seul bloc."
+"id": "s0892",
+"page": "daycare",
+"ko": "검증은 <code>node tools/validate-daycare.js</code>로 할 수 있습니다. 이 페이지의 숫자는 모두 이 출력과 같습니다.",
+"en": "You can verify with <code>node tools/validate-daycare.js</code>. Every number on this page matches its output.",
+"tr": "Vous pouvez le vérifier avec <code>node tools/validate-daycare.js</code>. Chaque chiffre de cette page correspond à sa sortie."
 },
 {
-"id": "s0587",
-"page": "bunching",
-"ko": "<b>처방</b>을 고를 수 있습니다. 간격 유지는 앞차가 이 정류장을 떠난 뒤 이상적 간격의 1.15배가 지나야 출발하게 하고, 승차 제한은 한 정류장에서 서는 시간에 상한을 둬서 남은 승객은 다음 버스에 맡깁니다.",
-"en": "You can pick a <b>remedy</b>. Holding keeps a bus at the stop until 1.15 times the ideal spacing has passed since the bus ahead left, and limited boarding caps how long a bus may stand, leaving the remaining passengers to the next bus.",
-"tr": "Vous pouvez choisir un <b>remède</b>. La retenue garde un bus à l'arrêt jusqu'à ce que 1,15 fois l'intervalle idéal se soit écoulé depuis le départ du bus précédent, et l'embarquement limité plafonne la durée d'arrêt d'un bus, laissant les passagers restants au bus suivant."
+"id": "s0893",
+"page": "daycare",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/daycare\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/daycare\">GitHub</a>.",
+"tr": "Le code est disponible sur <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/daycare\">GitHub</a>."
 },
 {
-"id": "s0588",
-"page": "bunching",
-"ko": "버스 수 <output id=\"o-n\"></output>",
-"en": "Number of buses <output id=\"o-n\"></output>",
-"tr": "Nombre de bus <output id=\"o-n\"></output>"
+"id": "s0894",
+"page": "dla",
+"ko": "번개·산호·눈송이는 왜 닮았을까 (DLA) · 시뮬라티오 랩",
+"en": "Why Lightning, Coral and Frost Look Alike (DLA) · Simulatio Lab",
+"tr": "Pourquoi la foudre, le corail et le givre se ressemblent (DLA) · Simulatio Lab"
 },
 {
-"id": "s0589",
-"page": "bunching",
-"ko": "많을수록 이상적 간격이 짧아져요",
-"en": "More buses mean a shorter ideal gap",
-"tr": "Plus de bus, c'est un intervalle idéal plus court"
+"id": "s0895",
+"page": "dla",
+"ko": "무작위로 떠도는 입자가 닿으면 붙기만 하는 아주 단순한 규칙이 번개·산호·서리를 닮은 가지 모양 프랙탈을 키웁니다. 붙는 확률과 씨앗 모양을 바꿔 직접 키워 보세요.",
+"en": "A very simple rule, particles that wander randomly and stick on contact, grows branching fractals that resemble lightning, coral and frost. Change the stickiness and seed shape and grow one yourself.",
+"tr": "Une règle très simple, des particules qui errent au hasard et collent au contact, fait croître des fractales ramifiées qui ressemblent à la foudre, au corail et au givre. Changez l'adhérence et la forme du germe et faites-en pousser une vous-même."
 },
 {
-"id": "s0590",
-"page": "bunching",
-"ko": "승객 수요 <output id=\"o-demand\"></output>",
-"en": "Passenger demand <output id=\"o-demand\"></output>",
-"tr": "Demande de passagers <output id=\"o-demand\"></output>"
+"id": "s0896",
+"page": "dla",
+"ko": "번개, 산호, 서리, 강 하구의 가지는 재료도 크기도 전혀 다른데 모양은 이상하게 닮았습니다. 그러니 각각 복잡한 사정이 있을 거라고 생각하기 쉽습니다. 그런데 \"무작위로 떠돌던 입자가 덩어리에 닿으면 붙는다\"는 규칙 하나만 반복해도 이런 가지 모양이 저절로 자랍니다. 아무도 가지를 그리라고 시키지 않았는데, 바깥쪽 끝이 안쪽 틈을 가려 버리는 것만으로요. 아래 장면에서 입자 4,000개를 떨어뜨려 보세요.",
+"en": "Lightning, coral, frost and river branches are made of entirely different things at entirely different sizes, yet they look strangely alike. You might expect each to have its own complicated story. But repeat one rule, \"a particle wandering at random sticks when it touches the cluster\", and this kind of branching grows by itself. Nobody tells it to draw branches; the outer tips simply shade the inner gaps. Drop 4,000 particles in the scene below.",
+"tr": "La foudre, le corail, le givre et les ramifications d'une rivière sont faits de choses totalement différentes à des tailles totalement différentes, et pourtant ils se ressemblent étrangement. On pourrait s'attendre à ce que chacun ait sa propre histoire compliquée. Mais si l'on répète une seule règle, « une particule qui erre au hasard colle quand elle touche l'amas », ce type de ramification pousse tout seul. Personne ne lui demande de dessiner des branches ; les pointes extérieures font simplement de l'ombre aux creux intérieurs. Lâchez 4 000 particules dans la scène ci-dessous."
 },
 {
-"id": "s0591",
-"page": "bunching",
-"ko": "정류장 한 곳에 시간당 도착하는 평균 승객 수. 클수록 되먹임이 세져요",
-"en": "Average passengers arriving per hour at each stop. The higher it is, the stronger the feedback",
-"tr": "Nombre moyen de passagers arrivant par heure à chaque arrêt. Plus il est élevé, plus la rétroaction est forte"
+"id": "s0897",
+"page": "dla",
+"ko": "격자 한가운데에 <b>씨앗</b>(점·선·고리)을 놓습니다. 덩어리를 감싸는 큰 원 위에서 입자를 하나씩 출발시키면, 입자는 상하좌우로 무작위로 한 칸씩 떠돕니다.",
+"en": "A <b>seed</b> (point, line or ring) sits in the middle of a grid. Particles are released one at a time on a big circle around the cluster and wander at random, one cell up, down, left or right.",
+"tr": "Un <b>germe</b> (point, ligne ou anneau) est placé au centre d'une grille. Les particules sont lâchées une par une sur un grand cercle autour de l'amas et errent au hasard, d'une case vers le haut, le bas, la gauche ou la droite."
 },
 {
-"id": "s0592",
-"page": "bunching",
-"ko": "처음 어긋남 <output id=\"o-eps\"></output>",
-"en": "Initial disturbance <output id=\"o-eps\"></output>",
-"tr": "Perturbation initiale <output id=\"o-eps\"></output>"
+"id": "s0898",
+"page": "dla",
+"ko": "덩어리에 닿으면 <b>붙는 확률</b>만큼의 확률로 그 자리에 붙습니다. 안 붙으면 계속 떠돌고, 너무 멀리 가면 버리고 새 입자를 내보냅니다. 100%면 닿는 즉시 붙습니다.",
+"en": "On touching the cluster, a particle sticks with the <b>sticking probability</b>. If it does not, it keeps wandering, and if it strays too far it is discarded and a new one is released. At 100% it sticks on first touch.",
+"tr": "Au contact de l'amas, une particule colle avec la <b>probabilité d'adhérence</b>. Sinon, elle continue d'errer, et si elle s'éloigne trop, elle est écartée et une nouvelle est lâchée. À 100 %, elle colle dès le premier contact."
 },
 {
-"id": "s0593",
-"page": "bunching",
-"ko": "처음 출발 위치를 이상적 간격의 몇 %만큼 무작위로 흩뜨릴지",
-"en": "How far, in percent of the ideal gap, the starting positions are randomly shifted",
-"tr": "De combien, en pourcentage de l'intervalle idéal, les positions de départ sont décalées au hasard"
+"id": "s0899",
+"page": "dla",
+"ko": "이렇게 붙은 순서대로 색을 입혔습니다(금빛이 먼저, 하늘색이 나중). 바깥으로 뻗은 가지 끝은 입자가 먼저 닿고, 안쪽 틈은 가지에 가려 잘 닿지 못해서 가지가 갈라지며 뻗어 나갑니다.",
+"en": "Cells are colored by arrival order (gold first, sky blue last). Particles reach the outstretched tips first, while the inner gaps are shaded by the branches, so the cluster splits and reaches outward.",
+"tr": "Les cases sont colorées selon l'ordre d'arrivée (or en premier, bleu ciel en dernier). Les particules atteignent d'abord les pointes les plus avancées, tandis que les creux intérieurs sont à l'ombre des branches : l'amas se divise et s'étend vers l'extérieur."
 },
 {
-"id": "s0594",
-"page": "bunching",
-"ko": "처방 <output id=\"o-remedy\"></output>",
-"en": "Remedy <output id=\"o-remedy\"></output>",
-"tr": "Remède <output id=\"o-remedy\"></output>"
+"id": "s0900",
+"page": "dla",
+"ko": "덩어리가 얼마나 성긴지는 <b>프랙탈 차원 D</b>로 재요. 반지름 r 안의 입자 수가 <i>r<sup>D</sup></i>에 비례한다고 보고 로그-로그 그래프의 기울기를 구합니다. 꽉 찬 면이면 2, 가는 선이면 1입니다.",
+"en": "How sparse the cluster is can be measured by its <b>fractal dimension D</b>: the number of particles within radius r grows like <i>r<sup>D</sup></i>, so D is the slope on a log-log graph. A solid area gives 2, a thin line gives 1.",
+"tr": "On peut mesurer le caractère clairsemé de l'amas par sa <b>dimension fractale D</b> : le nombre de particules dans un rayon r croît comme <i>r<sup>D</sup></i>, donc D est la pente sur un graphique log-log. Une surface pleine donne 2, une ligne fine donne 1."
 },
 {
-"id": "s0595",
-"page": "bunching",
-"ko": "처방 없음",
-"en": "No remedy",
-"tr": "Aucun remède"
+"id": "s0901",
+"page": "dla",
+"ko": "붙는 확률 <output id=\"o-stick\"></output>",
+"en": "Sticking probability <output id=\"o-stick\"></output>",
+"tr": "Probabilité d'adhérence <output id=\"o-stick\"></output>"
 },
 {
-"id": "s0596",
-"page": "bunching",
-"ko": "간격 유지: 앞차가 떠난 뒤 일정 시간이 지나야 출발",
-"en": "Holding: wait until enough time has passed since the bus ahead left",
-"tr": "Retenue : attendre qu'assez de temps se soit écoulé depuis le départ du bus précédent"
+"id": "s0902",
+"page": "dla",
+"ko": "낮을수록 닿고도 더 떠돌다 붙어, 틈 안쪽까지 채워 더 촘촘하고 뭉툭해져요. 100%는 가시 돋은 가지",
+"en": "Lower means particles keep wandering after touching and fill the inner gaps, so the cluster is denser and blobbier. 100% gives spiky branches",
+"tr": "Une valeur plus faible signifie que les particules continuent d'errer après le contact et comblent les creux intérieurs : l'amas est plus dense et plus compact. À 100 %, on obtient des branches pointues"
 },
 {
-"id": "s0597",
-"page": "bunching",
-"ko": "승차 제한: 서는 시간에 상한",
-"en": "Limited boarding: cap the standing time",
-"tr": "Embarquement limité : plafonner la durée d'arrêt"
+"id": "s0903",
+"page": "dla",
+"ko": "입자 수 <output id=\"o-count\"></output>",
+"en": "Number of particles <output id=\"o-count\"></output>",
+"tr": "Nombre de particules <output id=\"o-count\"></output>"
 },
 {
-"id": "s0598",
-"page": "bunching",
-"ko": "처방을 바꾸면 처음부터 다시 돌립니다. 아래 차트는 세 처방을 같은 조건으로 비교해요",
-"en": "Changing it restarts the run. The charts below compare all three remedies under the same conditions",
-"tr": "Le modifier relance l'exécution. Les graphiques ci-dessous comparent les trois remèdes dans les mêmes conditions"
+"id": "s0904",
+"page": "dla",
+"ko": "많을수록 크게 자라지만 시간이 더 걸려요",
+"en": "More particles grow a larger cluster but take longer",
+"tr": "Plus de particules font grandir un amas plus gros mais prennent plus de temps"
 },
 {
-"id": "s0599",
-"page": "bunching",
-"ko": "같은 설정, 다른 승객 도착",
-"en": "Same settings, different arrivals",
-"tr": "Mêmes réglages, arrivées différentes"
+"id": "s0905",
+"page": "dla",
+"ko": "씨앗 모양 <output id=\"o-shape\"></output>",
+"en": "Seed shape <output id=\"o-shape\"></output>",
+"tr": "Forme du germe <output id=\"o-shape\"></output>"
 },
 {
-"id": "s0600",
-"page": "bunching",
-"ko": "① 순환 노선 지켜보기",
-"en": "① Watching the Ring Route",
-"tr": "① Observer la ligne circulaire"
+"id": "s0906",
+"page": "dla",
+"ko": "점",
+"en": "Point",
+"tr": "Point"
 },
 {
-"id": "s0601",
-"page": "bunching",
-"ko": "동그라미가 버스, 번호가 버스 번호입니다. 정류장에서 바깥으로 뻗은 주황 막대는 줄 선 승객이고, 검은 테두리 버스는 승객을 태우는 중입니다. 처음엔 고르게 돌다가 점점 서로 붙는 것을 지켜보세요.",
-"en": "Circles are buses and the numbers are bus numbers. Orange bars sticking out from the stops are queues of waiting passengers, and a bus with a black outline is loading. Watch evenly spaced buses gradually stick together.",
-"tr": "Les cercles sont des bus et les chiffres sont leurs numéros. Les barres orange qui sortent des arrêts sont les files de passagers en attente, et un bus au contour noir est en cours d'embarquement. Observez comment des bus régulièrement espacés finissent par se coller peu à peu."
+"id": "s0907",
+"page": "dla",
+"ko": "선",
+"en": "Line",
+"tr": "Ligne"
 },
 {
-"id": "s0602",
-"page": "bunching",
-"ko": "② 간격이 흐트러지는 모습",
-"en": "② How the Gaps Drift",
-"tr": "② Comment les intervalles dérivent"
+"id": "s0908",
+"page": "dla",
+"ko": "고리 (바깥쪽으로 자람)",
+"en": "Ring (grows outward)",
+"tr": "Anneau (croît vers l'extérieur)"
 },
 {
-"id": "s0603",
-"page": "bunching",
-"ko": "가로는 시간, 세로는 버스 번호이고 색은 그 버스와 앞차 사이의 간격입니다. 옅은 회색은 고른 간격, 빨강은 바짝 붙음, 파랑은 크게 벌어짐입니다. 줄무늬가 빨강과 파랑으로 갈라지면 뭉친 것입니다.",
-"en": "Time runs left to right and buses top to bottom; color shows the gap between that bus and the one ahead. Pale gray is even spacing, red is bunched tightly, blue is a large gap. When the stripes split into red and blue the buses have bunched.",
-"tr": "Le temps va de gauche à droite et les bus de haut en bas ; la couleur indique l'intervalle entre ce bus et celui qui le précède. Le gris pâle correspond à un espacement régulier, le rouge à des bus très rapprochés, le bleu à un grand intervalle. Quand les bandes se séparent en rouge et bleu, les bus se sont regroupés."
+"id": "s0909",
+"page": "dla",
+"ko": "어디서 자라기 시작하는지. 선은 양 끝에서 가장 잘 자라요",
+"en": "Where growth starts. A line grows best from its ends",
+"tr": "Où commence la croissance. Une ligne croît mieux depuis ses extrémités"
 },
 {
-"id": "s0604",
-"page": "bunching",
-"ko": "<i style=\"background:#e5484d\"></i>앞차에 바짝 붙음",
-"en": "<i style=\"background:#e5484d\"></i>Tight behind the bus ahead",
-"tr": "<i style=\"background:#e5484d\"></i>Collé au bus précédent"
+"id": "s0910",
+"page": "dla",
+"ko": "같은 설정, 다른 무작위",
+"en": "Same settings, new randomness",
+"tr": "Mêmes réglages, nouvel aléa"
 },
 {
-"id": "s0605",
-"page": "bunching",
-"ko": "<i style=\"background:#eef1f7;border:1px solid #c3cce0\"></i>고른 간격",
-"en": "<i style=\"background:#eef1f7;border:1px solid #c3cce0\"></i>Even gap",
-"tr": "<i style=\"background:#eef1f7;border:1px solid #c3cce0\"></i>Intervalle régulier"
+"id": "s0911",
+"page": "dla",
+"ko": "① 입자가 떠돌다 붙어 자라는 모습",
+"en": "① Particles Wandering, Sticking and Growing",
+"tr": "① Particules qui errent, collent et grandissent"
 },
 {
-"id": "s0606",
-"page": "bunching",
-"ko": "<i style=\"background:#2f6fed\"></i>앞차와 크게 벌어짐",
-"en": "<i style=\"background:#2f6fed\"></i>Large gap to the bus ahead",
-"tr": "<i style=\"background:#2f6fed\"></i>Grand écart avec le bus précédent"
+"id": "s0912",
+"page": "dla",
+"ko": "흰 점이 지금 떠도는 입자이고 꼬리는 최근 경로입니다. 흐린 점선 원이 입자를 내보내는 곳입니다. 화면은 덩어리가 자라는 만큼 저절로 넓어집니다.",
+"en": "The white dot is the particle wandering now and its tail is its recent path. The faint dashed circle is where particles are released. The view widens by itself as the cluster grows.",
+"tr": "Le point blanc est la particule en train d'errer et sa queue est son trajet récent. Le cercle en pointillés discret est l'endroit où les particules sont lâchées. La vue s'élargit d'elle-même à mesure que l'amas grandit."
 },
 {
-"id": "s0607",
-"page": "bunching",
-"ko": "③ 간격 변동계수(CV)의 변화",
-"en": "③ How the Variation of Gaps Grows",
-"tr": "③ Comment grandit la variation des intervalles"
+"id": "s0913",
+"page": "dla",
+"ko": "② 프랙탈 차원: 질량 대 반지름",
+"en": "② Fractal Dimension: Mass versus Radius",
+"tr": "② Dimension fractale : masse en fonction du rayon"
 },
 {
-"id": "s0608",
-"page": "bunching",
-"ko": "버스 간격이 얼마나 들쭉날쭉한지를 나타내는 값입니다(표준편차 ÷ 평균). 0이면 완전히 고르고, 버스가 모두 한 덩어리가 되면 최댓값에 가깝습니다. 굵은 검은 선이 지금 돌리는 실험이고, 색 선은 세 처방을 같은 조건으로 끝까지 돌린 결과입니다.",
-"en": "This measures how uneven the gaps are (standard deviation divided by the mean). 0 means perfectly even, and it is close to its maximum when all buses form one clump. The thick black line is the run you are watching, and the colored lines are all three remedies run to the end under the same conditions.",
-"tr": "Cela mesure l'irrégularité des intervalles (écart type divisé par la moyenne). 0 signifie parfaitement régulier, et la valeur est proche de son maximum quand tous les bus forment un seul paquet. Le trait noir épais est l'exécution que vous regardez, et les lignes colorées sont les trois remèdes menés à terme dans les mêmes conditions."
+"id": "s0914",
+"page": "dla",
+"ko": "가로는 반지름, 세로는 그 안의 입자 수(둘 다 로그 눈금)입니다. 빨간 선의 기울기가 프랙탈 차원 D이고, 회색 점선(기울기 2)은 빈틈없이 꽉 찬 면일 때입니다. 점 씨앗은 중심에서, 선·고리 씨앗은 붙은 입자 150개 둘레에서 잰 평균이라 더 낮게 나오는 경향이 있어요.",
+"en": "The horizontal axis is radius and the vertical axis the number of particles inside it (both log scales). The slope of the red line is the fractal dimension D, and the gray dashed line (slope 2) is what a solid area would give. A point seed is measured from its center; for line and ring seeds, it is the average around 150 sampled particles, which tends to read lower.",
+"tr": "L'axe horizontal est le rayon et l'axe vertical le nombre de particules à l'intérieur (les deux en échelle logarithmique). La pente de la ligne rouge est la dimension fractale D, et la ligne grise en pointillés (pente 2) est ce que donnerait une surface pleine. Un germe ponctuel est mesuré depuis son centre ; pour les germes en ligne et en anneau, c'est la moyenne autour de 150 particules échantillonnées, qui tend à donner des valeurs plus basses."
 },
 {
-"id": "s0609",
-"page": "bunching",
-"ko": "<i style=\"background:#e5484d\"></i>처방 없음",
-"en": "<i style=\"background:#e5484d\"></i>No remedy",
-"tr": "<i style=\"background:#e5484d\"></i>Aucun remède"
+"id": "s0915",
+"page": "dla",
+"ko": "③ 새 입자는 어디에 붙을까",
+"en": "③ Where Do New Particles Land?",
+"tr": "③ Où atterrissent les nouvelles particules ?"
 },
 {
-"id": "s0610",
-"page": "bunching",
-"ko": "<i style=\"background:#1fa463\"></i>간격 유지",
-"en": "<i style=\"background:#1fa463\"></i>Holding",
-"tr": "<i style=\"background:#1fa463\"></i>Retenue"
+"id": "s0916",
+"page": "dla",
+"ko": "가장 최근에 붙은 입자 300개가 중심에서 얼마나 떨어진 곳에 붙었는지입니다(가장 먼 끝까지의 거리를 1로). 대부분 바깥 가지 끝에 붙고 안쪽 틈은 거의 비어 있어요. 이것이 가지가 갈라지는 이유입니다.",
+"en": "How far from the center the 300 most recent particles landed (the distance to the farthest tip is 1). Most land on the outer branch tips while the inner gaps stay nearly empty, which is why the branches split.",
+"tr": "À quelle distance du centre se sont posées les 300 particules les plus récentes (la distance à la pointe la plus éloignée vaut 1). La plupart atterrissent sur les pointes extérieures des branches tandis que les creux intérieurs restent presque vides, ce qui explique que les branches se divisent."
 },
 {
-"id": "s0611",
-"page": "bunching",
-"ko": "<i style=\"background:#e0a100\"></i>승차 제한",
-"en": "<i style=\"background:#e0a100\"></i>Limited boarding",
-"tr": "<i style=\"background:#e0a100\"></i>Embarquement limité"
+"id": "s0917",
+"page": "dla",
+"ko": "④ 붙는 확률별로 얼마나 촘촘해질까",
+"en": "④ How Dense Does It Get at Each Stickiness?",
+"tr": "④ Quelle densité obtient-on pour chaque adhérence ?"
 },
 {
-"id": "s0612",
-"page": "bunching",
-"ko": "<i style=\"background:#111\"></i>지금 돌리는 중",
-"en": "<i style=\"background:#111\"></i>Running now",
-"tr": "<i style=\"background:#111\"></i>En cours"
+"id": "s0918",
+"page": "dla",
+"ko": "입자 1,200개를 키운 뒤, 가장 먼 끝까지를 반지름으로 하는 원 중 입자가 채운 비율입니다(점 하나가 한 번의 실행). 붙는 확률이 낮을수록 같은 입자 수로 더 작고 촘촘한 덩어리가 됩니다.",
+"en": "After growing 1,200 particles, the share of the circle (out to the farthest tip) that the particles fill; each dot is one run. With the same number of particles, lower stickiness gives a smaller, denser cluster.",
+"tr": "Après la croissance de 1 200 particules, la part du cercle (jusqu'à la pointe la plus éloignée) que remplissent les particules ; chaque point est une exécution. À nombre de particules égal, une adhérence plus faible donne un amas plus petit et plus dense."
 },
 {
-"id": "s0613",
-"page": "bunching",
-"ko": "④ 처방의 효과와 대가",
-"en": "④ What the Remedies Gain and Cost",
-"tr": "④ Ce que les remèdes apportent et coûtent"
+"id": "s0919",
+"page": "dla",
+"ko": "점 씨앗에서 입자 4,000개를 키운 덩어리의 프랙탈 차원 D는 평균 1.66이었습니다.",
+"en": "A cluster of 4,000 particles from a point seed had a fractal dimension D averaging 1.66.",
+"tr": "Un amas de 4 000 particules issu d'un germe ponctuel avait une dimension fractale D de 1,66 en moyenne."
 },
 {
-"id": "s0614",
-"page": "bunching",
-"ko": "왼쪽은 승객이 버스를 기다리는 평균 시간, 오른쪽은 버스가 한 바퀴 도는 데 걸리는 시간입니다. 간격을 지키게 하면 기다림은 크게 줄지만 버스가 정류장에서 쉬는 만큼 한 바퀴가 길어집니다. 점선은 기준값입니다.",
-"en": "Left is the average time passengers wait for a bus, right the time a bus needs for one lap. Keeping the spacing cuts the wait a lot, but the lap gets longer because buses rest at stops. Dashed lines are reference values.",
-"tr": "À gauche, le temps moyen d'attente d'un bus par les passagers ; à droite, le temps qu'un bus met pour faire un tour. Maintenir l'espacement réduit beaucoup l'attente, mais le tour s'allonge car les bus patientent aux arrêts. Les lignes pointillées sont des valeurs de référence."
+"id": "s0920",
+"page": "dla",
+"ko": "튀어나온 가지 끝에 입자가 먼저 닿고 안쪽 틈은 가려져, 가지가 갈라지며 성긴 모양이 됐을 수 있습니다.",
+"en": "Particles reach protruding tips first while inner gaps are shielded, so branches may split into a sparse shape.",
+"tr": "Les particules atteignent d'abord les pointes saillantes tandis que les creux intérieurs sont protégés ; les branches peuvent donc se diviser en une forme clairsemée."
 },
 {
-"id": "s0615",
-"page": "bunching",
-"ko": "처방이 없으면 이 가상 노선에서 버스가 뭉치고 평균 기다림이 약 3.8배로 길어졌어요.",
-"en": "With no remedy, buses on this virtual line bunched up and the average wait grew about 3.8 times.",
-"tr": "Sans aucun remède, les bus de cette ligne virtuelle se sont regroupés et l'attente moyenne a été multipliée par environ 3,8."
+"id": "s0921",
+"page": "dla",
+"ko": "붙는 확률을 낮추면 촘촘해졌으니, 모양이 성기거나 촘촘한 이유는 성장 조건부터 살펴볼 만합니다.",
+"en": "Lower sticking probability made it denser, so growth conditions are worth checking to explain sparse or dense shapes.",
+"tr": "Une probabilité d'adhésion plus faible l'a rendu plus dense ; les conditions de croissance méritent donc d'être examinées pour expliquer les formes clairsemées ou denses."
 },
 {
-"id": "s0616",
-"page": "bunching",
-"ko": "앞차는 승객이 쌓여 더 늦어지고 뒤차는 따라잡는 되먹임 때문에, 작은 어긋남이 스스로 커질 수 있어요.",
-"en": "A late bus piles up passengers and gets later while the next one catches up, so a small gap can feed on itself.",
-"tr": "Un bus en retard accumule des voyageurs et prend encore du retard pendant que le suivant le rattrape ; un petit écart peut ainsi s'auto-entretenir."
+"id": "s0922",
+"page": "dla",
+"ko": "<b>말하는 것:</b> 점 씨앗, 붙는 확률 100%, 입자 4,000개를 무작위 8번 키우면 프랙탈 차원 D는 평균 1.66(범위 1.61~1.69)이었습니다. 가장 먼 끝까지의 반지름은 평균 123칸이고 그 원의 약 9%(8.6%)만 입자로 채워졌으며, 마지막에 붙은 300개 중 57%가 바깥 30%에, 안쪽 절반에는 9%만 붙었습니다. 붙는 확률을 낮추면 촘촘해졌습니다. 4,000개를 키웠을 때 채움 비율은 100%에서 9%, 20%에서 16%, 5%에서 26%였고 반지름은 120칸에서 71칸으로 줄었으며 D는 1.66에서 1.78로 올랐습니다. 입자 수를 늘려도 D는 500개에서 1.56, 2,000개에서 1.65, 4,000개와 8,000개에서 1.66이었습니다. 선 씨앗(입자 3,000개)은 D 1.59, 고리 씨앗은 1.52로 잰 값이 더 낮았는데, 이는 다른 방법(표본 둘레 평균)으로 잰 값이라 점 씨앗과 직접 비교하기 어렵습니다.",
+"en": "<b>What it shows:</b> Growing 4,000 particles from a point seed at 100% stickiness in 8 random runs gave a fractal dimension D averaging 1.66 (range 1.61 to 1.69). The radius to the farthest tip averaged 123 cells and only about 9% (8.6%) of that circle was filled; of the last 300 particles, 57% landed in the outer 30% and just 9% in the inner half. Lowering stickiness made the cluster denser. With 4,000 particles the filled share was 9% at 100%, 16% at 20% and 26% at 5%, the radius shrank from 120 to 71 cells, and D rose from 1.66 to 1.78. Adding particles barely moved D: 1.56 at 500, 1.65 at 2,000, 1.66 at both 4,000 and 8,000. A line seed (3,000 particles) read D 1.59 and a ring seed 1.52, but those come from a different method (average around sampled particles), so they are not directly comparable with the point seed.",
+"tr": "<b>Ce que cela montre :</b> Faire croître 4 000 particules à partir d'un germe ponctuel avec 100 % d'adhérence, sur 8 exécutions aléatoires, a donné une dimension fractale D de 1,66 en moyenne (de 1,61 à 1,69). Le rayon jusqu'à la pointe la plus éloignée était en moyenne de 123 cases et seulement environ 9 % (8,6 %) de ce cercle était rempli ; parmi les 300 dernières particules, 57 % ont atterri dans les 30 % extérieurs et seulement 9 % dans la moitié intérieure. Baisser l'adhérence a rendu l'amas plus dense. Avec 4 000 particules, la part remplie était de 9 % à 100 %, 16 % à 20 % et 26 % à 5 %, le rayon passait de 120 à 71 cases et D de 1,66 à 1,78. Ajouter des particules a à peine fait bouger D : 1,56 à 500, 1,65 à 2 000, 1,66 à 4 000 comme à 8 000. Un germe en ligne (3 000 particules) a donné D 1,59 et un germe en anneau 1,52, mais ces valeurs proviennent d'une autre méthode (moyenne autour de particules échantillonnées) et ne sont donc pas directement comparables avec le germe ponctuel."
 },
 {
-"id": "s0617",
-"page": "bunching",
-"ko": "기사 개인보다 정차 시간이 간격에 비례하는 구조와, 간격 유지의 대가로 한 바퀴가 길어지는 점을 살펴볼 만해요.",
-"en": "The structure, where stop time grows with the gap, and the longer loop that spacing control costs are worth a look before blaming drivers.",
-"tr": "Avant d'accuser les conducteurs, il vaut la peine d'examiner la structure, où le temps d'arrêt croît avec l'écart, et la boucle plus longue que coûte la régulation de l'espacement."
+"id": "s0923",
+"page": "dla",
+"ko": "번개·눈송이·산호가 같은 원리로 생긴다는 뜻이 아닙니다. 이 모델은 격자와 입자 수가 유한합니다.",
+"en": "It does not mean lightning, snowflakes and coral form the same way; this model has a finite grid and particle count.",
+"tr": "Cela ne veut pas dire que la foudre, les flocons de neige et le corail se forment de la même façon ; ce modèle a une grille finie et un nombre fini de particules."
 },
 {
-"id": "s0618",
-"page": "bunching",
-"ko": "<b>말하는 것:</b> 버스 6대, 정류장 24곳, 정류장당 시간당 승객 40명, 처음 어긋남 5%에서 이상적 간격은 4.6분(한 바퀴 27.8분)이었습니다. 처방이 없으면 간격의 변동계수가 0분에 0.04였던 것이 60분에 0.54, 120분에 1.00, 240분에 1.51, 360분에 2.10으로 커졌습니다(시드 20개 평균, 6대가 모두 한 덩어리가 되면 최댓값 2.24). 평균 기다림은 뒤쪽 절반 시간에 8.7분으로, 간격이 고를 때의 2.3분의 약 3.8배였습니다. 기다림은 (이상적 간격÷2)×(1+CV²)로 거의 설명되어 식의 9.0분과 가까웠습니다. 처음 어긋남이 0%여도 승객 도착의 무작위성만으로 CV가 0.5를 넘는 데 63분이 걸렸고, 5%에서도 63분, 25%에서는 35분이었습니다. 간격 유지 처방은 CV를 0.04로 눌러 기다림을 2.5분으로 줄였지만 한 바퀴는 27.1분에서 32.4분으로 약 19% 길어졌습니다. 승차 제한은 기다림을 3.4분(한 바퀴 25.9분)으로 줄였으나 CV는 120분 즈음까지 0.13 안팎에 머물다가 360분에 0.66으로 올라, 뭉침을 늦출 뿐 막지는 못했습니다. 수요가 시간당 10명이면 기다림이 거의 늘지 않아(약 1.0배) 뭉침이 없었고, 20명에서 약 1.2배, 60명에서 약 5.7배였습니다.",
-"en": "<b>What it shows:</b> With 6 buses, 24 stops, 40 passengers per hour at each stop and a 5% initial disturbance, the ideal gap was 4.6 minutes (a lap of 27.8 minutes). With no remedy, the coefficient of variation of the gaps grew from 0.04 at minute 0 to 0.54 at minute 60, 1.00 at 120, 1.51 at 240 and 2.10 at 360 (mean of 20 seeds; the maximum when all 6 buses form one clump is 2.24). The average wait in the second half was 8.7 minutes, about 3.8 times the 2.3 minutes of even spacing. The wait was mostly explained by (ideal gap ÷ 2) × (1 + CV²), giving 9.0 minutes, close to the measured value. Even with 0% initial disturbance, the randomness of passenger arrivals alone took CV above 0.5 after 63 minutes; with 5% it was 63 minutes and with 25% it was 35. Holding pushed CV down to 0.04 and the wait to 2.5 minutes, but the lap grew about 19%, from 27.1 to 32.4 minutes. Limited boarding cut the wait to 3.4 minutes (lap 25.9 minutes), but CV stayed around 0.13 until about minute 120 and then rose to 0.66 by minute 360, so it delayed the bunching rather than preventing it. At 10 passengers per hour the wait barely grew (about 1.0 times) and the buses did not bunch; at 20 it was about 1.2 times and at 60 about 5.7 times.",
-"tr": "<b>Ce que cela montre :</b> Avec 6 bus, 24 arrêts, 40 passagers par heure à chaque arrêt et une perturbation initiale de 5 %, l'intervalle idéal était de 4,6 minutes (un tour de 27,8 minutes). Sans remède, le coefficient de variation des intervalles est passé de 0,04 à la minute 0 à 0,54 à la minute 60, 1,00 à 120, 1,51 à 240 et 2,10 à 360 (moyenne de 20 graines ; le maximum quand les 6 bus forment un seul paquet est 2,24). L'attente moyenne dans la seconde moitié était de 8,7 minutes, soit environ 3,8 fois les 2,3 minutes d'un espacement régulier. L'attente s'expliquait en grande partie par (intervalle idéal ÷ 2) × (1 + CV²), ce qui donne 9,0 minutes, proche de la valeur mesurée. Même avec 0 % de perturbation initiale, le seul caractère aléatoire des arrivées de passagers a fait passer le CV au-dessus de 0,5 après 63 minutes ; avec 5 %, c'était 63 minutes, et avec 25 %, 35. La retenue a ramené le CV à 0,04 et l'attente à 2,5 minutes, mais le tour s'est allongé d'environ 19 %, de 27,1 à 32,4 minutes. L'embarquement limité a réduit l'attente à 3,4 minutes (tour de 25,9 minutes), mais le CV est resté autour de 0,13 jusqu'à la minute 120 environ puis est monté à 0,66 à la minute 360 : il a donc retardé le regroupement plutôt que de l'empêcher. À 10 passagers par heure, l'attente a à peine augmenté (environ 1,0 fois) et les bus ne se sont pas regroupés ; à 20, c'était environ 1,2 fois et à 60 environ 5,7 fois."
+"id": "s0924",
+"page": "dla",
+"ko": "실제 현상과 닮은 원리인지는 각각의 확산과 붙는 과정을 측정해 모양과 비교해야 확인할 수 있습니다.",
+"en": "Whether a real case shares the principle needs measuring its diffusion and sticking and comparing the shapes.",
+"tr": "Savoir si un cas réel partage le principe demande de mesurer sa diffusion et son adhésion et de comparer les formes."
 },
 {
-"id": "s0619",
-"page": "bunching",
-"ko": "실제 노선을 재현한 것이 아니고 숫자는 이 가상 노선에서만 맞아요. 신호, 정체, 환승은 빠져 있어요.",
-"en": "It does not reproduce a real route and the numbers hold only for this virtual line; signals, traffic and transfers are missing.",
-"tr": "Il ne reproduit pas une vraie ligne et les chiffres ne valent que pour cette ligne virtuelle ; feux, circulation et correspondances sont absents."
+"id": "s0925",
+"page": "dla",
+"ko": "<b>말하지 않는 것:</b> 이 덩어리는 번개나 눈송이, 산호를 재현한 것이 아닙니다. 비슷한 모양이 같은 원리로 생긴다는 뜻도 아니고, 눈으로 닮았다는 시각적·통계적 유추일 뿐입니다. 진짜 눈송이는 얼음 결정이 표면에서 자라는 방식 때문에 여섯 방향 대칭이고 DLA와는 다른 메커니즘이 주로 작용합니다. 진짜 번개는 전기장과 공기의 절연 파괴 물리가 있고, 산호는 생물의 성장과 해류가 얽혀 있습니다. DLA는 장난감 모델이며, 이런 현상 중 일부(전기도금, 점성이 다른 유체의 손가락 모양 침투 등)에서 비슷한 모양이 관찰된다고 알려져 있을 뿐입니다. 또 \"붙는 확률이 낮으면 D가 올라간다\"는 이 페이지의 결과는 입자 수가 유한해서 생기는 효과가 섞여 있습니다. 아주 크게 키우면 어느 붙는 확률에서도 같은 D에 가까워질 것으로 알려져 있지만, 이 페이지에서 확인한 것은 아닙니다. 격자 위의 단순화이므로 모양에 격자의 영향(상하좌우 방향성)이 조금 남아 있습니다.",
+"en": "<b>What it doesn't show:</b> This does not reproduce lightning, snowflakes or coral. It does not mean look-alike shapes arise from the same cause; the resemblance is a visual, statistical analogy. A real snowflake is six-fold symmetric because of how ice crystals grow at their surfaces, and different mechanisms dominate over DLA. Real lightning involves electric fields and the breakdown of air, and coral involves biological growth and currents. DLA is a toy model, and similar shapes are reported in only some systems (electrodeposition, the fingering of one fluid pushing into another, and so on). Also, the finding here that lower stickiness raises D mixes in finite-size effects from a limited number of particles. For very large clusters D is expected to approach the same value at any stickiness, but I did not check that here. On a square grid, some influence of the grid directions (up, down, left, right) remains in the shapes.",
+"tr": "<b>Ce que cela ne montre pas :</b> Cela ne reproduit ni la foudre, ni les flocons de neige, ni le corail. Cela ne signifie pas que des formes semblables naissent de la même cause ; la ressemblance est une analogie visuelle et statistique. Un vrai flocon de neige a une symétrie d'ordre six à cause de la façon dont les cristaux de glace croissent à leur surface, et d'autres mécanismes l'emportent sur la DLA. La vraie foudre fait intervenir des champs électriques et le claquage de l'air, et le corail une croissance biologique et des courants. La DLA est un modèle jouet, et des formes similaires ne sont observées que dans certains systèmes (électrodéposition, digitation d'un fluide qui en repousse un autre, etc.). De plus, le résultat selon lequel une adhérence plus faible augmente D mêle des effets de taille finie dus au nombre limité de particules. Pour de très grands amas, D devrait tendre vers la même valeur quelle que soit l'adhérence, mais je ne l'ai pas vérifié ici. Sur une grille carrée, les formes gardent une certaine influence des directions de la grille (haut, bas, gauche, droite)."
 },
 {
-"id": "s0620",
-"page": "bunching",
-"ko": "실제 노선의 뭉침은 운행 기록과 승객 수요를 모아 보고, 처방이 실제로 통하는지 시험해 봐야 알 수 있어요.",
-"en": "Bunching on a real route needs trip logs and passenger demand, and any remedy would have to be tested there.",
-"tr": "Pour le regroupement sur une vraie ligne, il faut des relevés de trajets et la demande des voyageurs, et tout remède devrait y être testé."
+"id": "s0926",
+"page": "dla",
+"ko": "<b>모델의 뿌리:</b> Witten과 Sander(1981)가 \"Diffusion-Limited Aggregation, a Kinetic Critical Phenomenon\"(Physical Review Letters 47, 1400)에서 제안한 확산 제한 응집(DLA) 모델입니다. 무작위로 확산하는 입자가 덩어리에 닿으면 붙어, 단순한 규칙에서 프랙탈 덩어리가 생김을 보였습니다.",
+"en": "<b>Where the model comes from:</b> The diffusion-limited aggregation (DLA) model proposed by Witten and Sander (1981), \"Diffusion-Limited Aggregation, a Kinetic Critical Phenomenon\", Physical Review Letters 47, 1400. Randomly diffusing particles stick on contact, and a fractal cluster grows from this simple rule.",
+"tr": "<b>D'où vient le modèle :</b> Le modèle d'agrégation limitée par la diffusion (DLA) proposé par Witten et Sander (1981), « Diffusion-Limited Aggregation, a Kinetic Critical Phenomenon », Physical Review Letters 47, 1400. Des particules qui diffusent au hasard collent au contact, et un amas fractal grandit à partir de cette règle simple."
 },
 {
-"id": "s0621",
-"page": "bunching",
-"ko": "<b>말하지 않는 것:</b> 실제 버스 노선을 재현한 것이 아닙니다. 이 모델은 신호등, 교통 정체, 승객 하차, 승객이 정류장마다 다른 수요, 환승, 버스 크기·정원, 앞지르기 금지 같은 현실의 요소를 모두 뺀 이 프로젝트의 단순화된 모델입니다. 정차 시간은 줄 선 승객 수로 정해지는 단순한 규칙이고, 기사님들의 행동 차이도 없습니다. 그래서 \"버스가 몇 대로 뭉치는지\"나 \"처방이 몇 %를 줄이는지\" 같은 숫자는 이 가상 노선에서만 맞는 값입니다. 다만 늦은 버스가 더 늦어지고 뒤차가 따라잡는 되먹임이 작은 어긋남을 키울 수 있다는 메커니즘은 교통 연구에서 오래 다뤄 온 것입니다. 처방도 이 모델의 단순한 규칙일 뿐, 실제 운영에서 쓰는 방법과 효과를 그대로 나타내지 않습니다.",
-"en": "<b>What it doesn't show:</b> This does not reproduce any real bus route. It is this project's simplified model with no traffic lights, congestion, alighting passengers, stop-by-stop differences in demand, transfers, bus capacity or overtaking rules. Standing time follows a plain rule based on the queue, and drivers do not differ in behavior. So numbers such as how many buses clump or how much a remedy helps are valid only for this imaginary route. The mechanism itself, where a late bus gets later while the one behind catches up and small differences grow, has long been studied in transport research. The remedies are also simple rules in this model, not a faithful picture of how real operators work or how well it would work.",
-"tr": "<b>Ce que cela ne montre pas :</b> Cela ne reproduit aucune ligne de bus réelle. C'est le modèle simplifié de ce projet, sans feux, sans congestion, sans passagers qui descendent, sans différences de demande d'un arrêt à l'autre, sans correspondances, sans capacité des bus ni règles de dépassement. La durée d'arrêt suit une règle simple fondée sur la file d'attente, et les conducteurs ne se comportent pas différemment. Les chiffres, comme le nombre de bus regroupés ou l'apport d'un remède, ne valent donc que pour cette ligne imaginaire. Le mécanisme lui-même, où un bus en retard prend encore du retard pendant que celui de derrière le rattrape et où de petits écarts grandissent, est étudié depuis longtemps dans la recherche sur les transports. Les remèdes sont aussi de simples règles dans ce modèle, et non une image fidèle du fonctionnement des exploitants réels ni de leur efficacité."
+"id": "s0927",
+"page": "dla",
+"ko": "<b>핵심 가정과 수식:</b> 덩어리는 한 번에 입자 하나가 무작위 걸음(확산)으로 닿아 붙으며 자랍니다. 입자가 덩어리 표면의 어느 곳에 닿을 확률은 그 둘레의 확산 농도장(라플라스 방정식의 해)이 정하는데, 튀어나온 끝일수록 닿기 쉬워 가지가 자랍니다. 크기는 <i>M ∝ R<sup>D</sup></i>(질량 M, 반지름 R, 프랙탈 차원 D)로 늘어납니다. 슬라이더의 \"붙는 확률\"은 닿았을 때 붙는 확률이고, \"입자 수\"는 키울 총량입니다.",
+"en": "<b>Key assumptions and formulas:</b> The cluster grows one particle at a time, each arriving by a random walk (diffusion). Where a particle lands on the surface is set by the diffusing concentration field around it (a solution of the Laplace equation), and protruding tips are easier to reach, so branches grow. Size scales as <i>M ∝ R<sup>D</sup></i> (mass M, radius R, fractal dimension D). The slider \"sticking probability\" is the chance of sticking on contact and \"number of particles\" is the total to grow.",
+"tr": "<b>Hypothèses et formules clés :</b> L'amas grandit une particule à la fois, chacune arrivant par une marche aléatoire (diffusion). L'endroit où une particule se pose à la surface est déterminé par le champ de concentration diffusif qui l'entoure (une solution de l'équation de Laplace), et les pointes saillantes sont plus faciles à atteindre, si bien que des branches se forment. La taille suit <i>M ∝ R<sup>D</sup></i> (masse M, rayon R, dimension fractale D). Le curseur « probabilité d'adhérence » est la probabilité de coller au contact et « nombre de particules » est le total à faire croître."
 },
 {
-"id": "s0622",
-"page": "bunching",
-"ko": "<b>모델의 뿌리:</b> 버스 뭉침의 되먹임은 Newell과 Potts가 1964년 논문 \"Maintaining a bus schedule\"(호주 도로연구위원회 학술대회 논문집)에서 일찍이 분석한 고전적 결과로 알려져 있습니다. 같은 간격으로 달리는 버스는 불안정해서 작은 어긋남이 커진다는 것이 요지입니다.",
-"en": "<b>Where the model comes from:</b> The feedback behind bus bunching was analyzed early by Newell and Potts (1964) in \"Maintaining a bus schedule\" (Australian Road Research Board conference proceedings), a classic result. In short, evenly spaced buses are unstable and small disturbances grow.",
-"tr": "<b>D'où vient le modèle :</b> La rétroaction à l'origine du regroupement des bus a été analysée très tôt par Newell et Potts (1964) dans « Maintaining a bus schedule » (actes de la conférence de l'Australian Road Research Board), un résultat classique. En bref, des bus régulièrement espacés sont instables et les petites perturbations s'amplifient."
+"id": "s0928",
+"page": "dla",
+"ko": "<b>이 프로젝트의 단순화:</b> 이 프로젝트는 560×560 격자 위에서 상하좌우 한 칸 걸음을 쓰고, 입자를 덩어리를 감싸는 원에서 출발시켜 더 먼 곳에서 버립니다(원 논문의 설정을 그대로 재현한 것이 아닙니다). 선·고리 씨앗과 \"붙는 확률\" 슬라이더는 이 프로젝트가 더한 변형입니다. 격자 때문에 방향성이 조금 남고, 입자 수가 유한해서 D가 점근값보다 낮게 나옵니다.",
+"en": "<b>What this project simplifies:</b> This project uses a 560 × 560 grid with one-cell steps up, down, left and right, releases particles on a circle around the cluster, and discards them farther out (it does not reproduce the original paper's setup). The line and ring seeds and the sticking-probability slider are variations added by this project. The grid leaves some directional bias, and the finite particle count makes D read lower than the asymptotic value.",
+"tr": "<b>Ce que ce projet simplifie :</b> Ce projet utilise une grille de 560 × 560 avec des pas d'une cellule vers le haut, le bas, la gauche et la droite, lâche les particules sur un cercle autour de l'amas et les écarte plus loin (il ne reproduit pas la configuration de l'article original). Les germes en ligne et en anneau et le curseur de probabilité d'adhérence sont des variantes ajoutées par ce projet. La grille laisse un certain biais directionnel, et le nombre fini de particules fait que D se lit plus bas que la valeur asymptotique."
 },
 {
-"id": "s0623",
-"page": "bunching",
-"ko": "<b>핵심 가정과 수식:</b> 정류장에 도착하는 승객은 평균 속도 λ의 무작위 과정이라, 간격 h인 버스 앞에는 평균 λh명이 기다립니다. 1명을 태우는 데 β분이 걸리고 서 있는 동안 도착하는 승객도 태우면 정차 시간은 <code>T = β·λh / (1 − βλ)</code>로 h에 비례합니다. 간격이 벌어지면 정차가 길어지고 그만큼 더 늦어지는 양의 되먹임입니다. 슬라이더의 수요가 λ입니다. 도착이 무작위일 때 평균 기다림은 간격 h<sub>i</sub>에 대해 <code>Σh<sub>i</sub>² / (2Σh<sub>i</sub>) = (H/2)(1 + CV²)</code>입니다.",
-"en": "<b>Key assumptions and formulas:</b> Passengers reach a stop at random with average rate λ, so a bus with gap h ahead finds about λh people waiting. If loading takes β minutes each and people who arrive meanwhile also board, the standing time is <code>T = β·λh / (1 − βλ)</code>, proportional to h. A larger gap means a longer stop and so even more delay: positive feedback. The demand slider is λ. With random arrivals, the mean wait for gaps h<sub>i</sub> is <code>Σh<sub>i</sub>² / (2Σh<sub>i</sub>) = (H/2)(1 + CV²)</code>.",
-"tr": "<b>Hypothèses et formules clés :</b> Les passagers arrivent à un arrêt au hasard avec un taux moyen λ, de sorte qu'un bus ayant un intervalle h devant lui trouve environ λh personnes en attente. Si l'embarquement prend β minutes par personne et que ceux qui arrivent entre-temps montent aussi, la durée d'arrêt est <code>T = β·λh / (1 − βλ)</code>, proportionnelle à h. Un intervalle plus grand signifie un arrêt plus long et donc encore plus de retard : une rétroaction positive. Le curseur de demande est λ. Avec des arrivées aléatoires, l'attente moyenne pour des intervalles h<sub>i</sub> est <code>Σh<sub>i</sub>² / (2Σh<sub>i</sub>) = (H/2)(1 + CV²)</code>."
+"id": "s0929",
+"page": "dla",
+"ko": "<b>이론값과 시뮬레이션:</b> 2차원 DLA의 프랙탈 차원은 약 1.71로 널리 알려져 있습니다(이 값을 검증하려는 문헌 값으로만 사용했습니다). 시뮬레이션에서 점 씨앗, 붙는 확률 100%, 입자 4,000개를 8번 키워 잰 D는 평균 1.66(±0.03, 범위 1.61~1.69)으로 약 0.05 낮았고, 입자가 적을수록 더 낮았습니다(500개 1.56, 2,000개 1.65, 4,000개·8,000개 1.66). 크기가 유한하고 격자 효과가 있어 점근값에 못 미치는 것으로 보입니다.",
+"en": "<b>Theory versus simulation:</b> The fractal dimension of 2D DLA is widely quoted as about 1.71 (used here only as a literature value to compare against). In the simulation, a point seed at 100% stickiness with 4,000 particles, run 8 times, gave D averaging 1.66 (±0.03, range 1.61 to 1.69), about 0.05 below, and lower with fewer particles (1.56 at 500, 1.65 at 2,000, 1.66 at 4,000 and 8,000). Finite size and grid effects likely keep it short of the asymptotic value.",
+"tr": "<b>Théorie et simulation :</b> La dimension fractale de la DLA 2D est couramment citée comme environ 1,71 (utilisée ici seulement comme valeur de la littérature à titre de comparaison). Dans la simulation, un germe ponctuel à 100 % d'adhérence avec 4 000 particules, lancé 8 fois, a donné une D moyenne de 1,66 (±0,03, de 1,61 à 1,69), soit environ 0,05 de moins, et plus bas avec moins de particules (1,56 pour 500, 1,65 pour 2 000, 1,66 pour 4 000 et 8 000). Les effets de taille finie et de grille l'empêchent probablement d'atteindre la valeur asymptotique."
 },
 {
-"id": "s0624",
-"page": "bunching",
-"ko": "<b>이 프로젝트의 단순화:</b> 이 프로젝트의 단순화: 정류장 24곳과 버스 사이 이동 1분, 승객 1명 탑승 3초, 최소 정차 0.1분, 간격 유지 1.15배, 승차 제한 상한(이상적 정차 시간)은 모두 이 프로젝트가 정한 값입니다. 하차, 신호, 정체, 앞지르기, 시간표는 없고, 모델의 간격은 버스 사이 거리를 이상적 간격으로 나눈 값입니다.",
-"en": "<b>What this project simplifies:</b> What this project simplifies: 24 stops, 1 minute between stops, 3 seconds per boarding passenger, a 0.1 minute minimum stop, the 1.15 holding factor and the boarding cap (the ideal standing time) are all values chosen by this project. There is no alighting, no signals, no congestion, no overtaking and no timetable, and the gap in the model is the distance between buses divided by the ideal gap.",
-"tr": "<b>Ce que ce projet simplifie :</b> 24 arrêts, 1 minute entre les arrêts, 3 secondes par passager qui monte, un arrêt minimal de 0,1 minute, le facteur de retenue de 1,15 et le plafond d'embarquement (la durée d'arrêt idéale) sont des valeurs choisies par ce projet. Il n'y a ni descente de passagers, ni feux, ni congestion, ni dépassements, ni horaires, et l'intervalle dans le modèle est la distance entre les bus divisée par l'intervalle idéal."
+"id": "s0930",
+"page": "dla",
+"ko": "<b>더 읽을거리:</b> Witten &amp; Sander (1981), Physical Review Letters 47, 1400. Mandelbrot, 『The Fractal Geometry of Nature』(W. H. Freeman, 1982). Vicsek, 『Fractal Growth Phenomena』(World Scientific).",
+"en": "<b>Further reading:</b> Witten &amp; Sander (1981), Physical Review Letters 47, 1400. Mandelbrot, <i>The Fractal Geometry of Nature</i> (W. H. Freeman, 1982). Vicsek, <i>Fractal Growth Phenomena</i> (World Scientific).",
+"tr": "<b>Pour aller plus loin :</b> Witten &amp; Sander (1981), Physical Review Letters 47, 1400. Mandelbrot, <i>The Fractal Geometry of Nature</i> (W. H. Freeman, 1982). Vicsek, <i>Fractal Growth Phenomena</i> (World Scientific)."
 },
 {
-"id": "s0625",
-"page": "bunching",
-"ko": "<b>이론값과 시뮬레이션:</b> 시뮬레이션의 평균 기다림은 식 (H/2)(1+CV²)의 값과 처방 없음에서 8.7분 대 9.0분, 간격 유지에서 2.5분 대 2.7분으로 가까웠습니다. 승차 제한에서는 남겨진 승객이 있어 3.4분 대 2.4분으로 식과 맞지 않았습니다. 뭉침 속도에 대한 이론값은 없어 시뮬레이션으로만 확인했습니다(<code>node tools/validate-bunching.js</code>, 시드 20개).",
-"en": "<b>Theory versus simulation:</b> The simulated mean wait was close to the formula (H/2)(1+CV²): 8.7 vs 9.0 minutes with no remedy and 2.5 vs 2.7 with holding. With limited boarding, left-behind passengers make the formula fail (3.4 vs 2.4 minutes). There is no theoretical value for the speed of bunching, so that part was checked by simulation alone (<code>node tools/validate-bunching.js</code>, 20 seeds).",
-"tr": "<b>Théorie et simulation :</b> L'attente moyenne simulée était proche de la formule (H/2)(1+CV²) : 8,7 contre 9,0 minutes sans remède et 2,5 contre 2,7 avec la retenue. Avec l'embarquement limité, les passagers laissés sur le quai font échouer la formule (3,4 contre 2,4 minutes). Il n'existe pas de valeur théorique pour la vitesse du regroupement, cette partie n'a donc été vérifiée que par simulation (<code>node tools/validate-bunching.js</code>, 20 graines)."
+"id": "s0931",
+"page": "dla",
+"ko": "시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 입자는 덩어리의 가장 먼 끝보다 6칸 바깥의 원에서 출발하고, 그 1.6배+20칸 바깥에서 버려지며, 덩어리가 반지름 160칸에 닿으면 성장을 멈춥니다.",
+"en": "The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. Particles start on a circle 6 cells beyond the farthest tip, are discarded beyond 1.6 times that radius plus 20 cells, and growth stops when the cluster reaches a radius of 160 cells.",
+"tr": "La simulation utilise un générateur aléatoire à graine (mulberry32), de sorte que la même graine donne le même résultat. Les particules partent d'un cercle situé 6 cellules au-delà de la pointe la plus éloignée, sont écartées au-delà de 1,6 fois ce rayon plus 20 cellules, et la croissance s'arrête quand l'amas atteint un rayon de 160 cellules."
 },
 {
-"id": "s0626",
-"page": "bunching",
-"ko": "<b>더 읽을거리:</b> Newell &amp; Potts (1964), \"Maintaining a bus schedule\", Australian Road Research Board 학술대회 논문집. Gershenson &amp; Pineda (2009), \"Why does public transport not arrive on time? The pervasiveness of equal headway instability\", <i>PLoS ONE</i>. Daganzo (2009), \"A headway-based approach to eliminate bus bunching\", <i>Transportation Research Part B</i>.",
-"en": "<b>Further reading:</b> Newell &amp; Potts (1964), \"Maintaining a bus schedule\", Australian Road Research Board conference proceedings. Gershenson &amp; Pineda (2009), \"Why does public transport not arrive on time? The pervasiveness of equal headway instability\", <i>PLoS ONE</i>. Daganzo (2009), \"A headway-based approach to eliminate bus bunching\", <i>Transportation Research Part B</i>.",
-"tr": "<b>Pour aller plus loin :</b> Newell &amp; Potts (1964), « Maintaining a bus schedule », actes de la conférence de l'Australian Road Research Board. Gershenson &amp; Pineda (2009), « Why does public transport not arrive on time? The pervasiveness of equal headway instability », <i>PLoS ONE</i>. Daganzo (2009), « A headway-based approach to eliminate bus bunching », <i>Transportation Research Part B</i>."
+"id": "s0932",
+"page": "dla",
+"ko": "프랙탈 차원은 반지름 r = 3부터 가장 먼 끝의 절반까지(1.25배씩 늘리며) 안쪽 입자 수를 세어, r ≥ 4인 점들에 최소제곱 직선을 맞춘 로그-로그 기울기입니다. 검증은 <code>node tools/validate-dla.js</code>로 할 수 있습니다.",
+"en": "The fractal dimension counts particles inside radii from r = 3 up to half the farthest tip (growing by a factor of 1.25) and fits a least-squares line to the log-log points with r ≥ 4. You can verify with <code>node tools/validate-dla.js</code>.",
+"tr": "La dimension fractale compte les particules à l'intérieur de rayons allant de r = 3 jusqu'à la moitié de la pointe la plus éloignée (croissant d'un facteur 1,25) et ajuste par moindres carrés une droite aux points log-log avec r ≥ 4. Vous pouvez vérifier avec <code>node tools/validate-dla.js</code>."
 },
 {
-"id": "s0627",
-"page": "bunching",
-"ko": "검증은 <code>node tools/validate-bunching.js</code>로 할 수 있습니다. 시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 시간은 0.1분 단위로 흐르고, 평균 기다림은 줄 선 사람의 대기 시간을 모두 더해 도착한 사람 수로 나눈 값(리틀의 법칙)입니다.",
-"en": "You can verify with <code>node tools/validate-bunching.js</code>. The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. Time advances in 0.1 minute steps, and the mean wait is the total queueing time of everyone waiting divided by the number of arrivals (Little's law).",
-"tr": "Vous pouvez le vérifier avec <code>node tools/validate-bunching.js</code>. La simulation utilise un générateur aléatoire à graine (mulberry32), donc une même graine donne le même résultat. Le temps avance par pas de 0,1 minute, et l'attente moyenne est le temps total passé en file par tous ceux qui attendent divisé par le nombre d'arrivées (loi de Little)."
+"id": "s0933",
+"page": "dla",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/dla\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/dla\">GitHub</a>.",
+"tr": "Le code est disponible sur <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/dla\">GitHub</a>."
 },
 {
-"id": "s0628",
-"page": "bunching",
-"ko": "④번 차트의 막대는 같은 설정을 시드 6개로 돌려 뒤쪽 절반 시간만 평균한 값이라, 위에서 돌고 있는 한 번의 실험과는 숫자가 다를 수 있습니다.",
-"en": "The bars in chart ④ average six seeds over the second half of the run, so they can differ from the single run playing above.",
-"tr": "Les barres du graphique ④ sont la moyenne de six graines sur la seconde moitié de l'exécution, elles peuvent donc différer de l'exécution unique affichée au-dessus."
+"id": "s0968",
+"page": "easter",
+"ko": "이 모델에서는 인구가 숲에 늦게 반응하고 빨리 늘수록 정점 뒤에 더 크게 줄어요.",
+"en": "In this model, the slower the population reacts to the forest and the faster it grows, the more it falls after its peak.",
+"tr": "Dans ce modèle, plus la population réagit lentement à la forêt et plus elle croît vite, plus elle chute après son pic."
 },
 {
-"id": "s0629",
-"page": "bunching",
-"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/bunching\">GitHub</a>에서 볼 수 있습니다.",
-"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/bunching\">GitHub</a>.",
-"tr": "Le code est disponible sur <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/bunching\">GitHub</a>."
+"id": "s0969",
+"page": "easter",
+"ko": "아이가 자라는 시간 때문에 인구가 숲의 최근 평균에만 반응해서, 균형점을 지나쳐 늘다가 숲이 줄고 나서야 꺾이기 때문일 수 있어요.",
+"en": "Because it responds only to the recent forest average, it can overshoot the balance and turn down only after the forest has shrunk.",
+"tr": "Comme elle ne réagit qu'à la moyenne récente de la forêt, elle peut dépasser l'équilibre et ne décliner qu'une fois la forêt réduite."
 },
 {
-"id": "s0630",
-"page": "checkout",
-"ko": "마트 계산대 줄 서기 · 시뮬라티오 랩",
-"en": "Checkout Lines · Simulatio Lab",
-"tr": "Files de caisse · Simulatio Lab"
+"id": "s0970",
+"page": "easter",
+"ko": "자원이 사람에게 되먹임하는 곳이라면 정점의 높이보다 반응이 얼마나 늦는지를 살펴볼 만해요.",
+"en": "Where a resource feeds back on people, how late they respond may be worth examining as much as how high the peak goes.",
+"tr": "Là où une ressource rétroagit sur les gens, le retard de leur réaction mérite peut-être autant d'attention que la hauteur du pic."
 },
 {
-"id": "s0631",
-"page": "checkout",
-"ko": "같은 계산대, 같은 손님인데 줄을 하나로 세우느냐 따로 세우느냐에 따라 대기시간과 공정함이 달라지는 이유를, 두 가게를 나란히 돌려 직접 확인해 보세요.",
-"en": "Same cashiers, same customers, yet one shared line and separate lines give different waits and fairness. Run two stores side by side and see why.",
-"tr": "Mêmes caissiers, mêmes clients, et pourtant une file unique et des files séparées donnent des attentes et une équité différentes. Faites tourner deux magasins côte à côte et voyez pourquoi."
+"id": "s0972",
+"page": "easter",
+"ko": "실제 이스터섬에서 무슨 일이 있었는지 설명하거나 판정하지는 않아요.",
+"en": "It does not explain or judge what actually happened on Easter Island.",
+"tr": "Il n'explique ni ne juge ce qui s'est réellement passé sur l'île de Pâques."
 },
 {
-"id": "s0632",
-"page": "checkout",
-"ko": "가장 짧은 줄을 골라 섰는데 옆줄이 먼저 줄어든 적이 있나요? 줄은 짧을수록 빨리 빠질 것 같지만, 그건 운이 나빴던 것만이 아닐 수 있습니다. 그런데 계산대와 손님이 모두 똑같은 두 가게에서 한쪽은 줄을 하나로 세우고 다른 쪽은 계산대마다 따로 세우면, 같은 손님이 두 곳에서 전혀 다른 시간을 기다리게 됩니다. 왼쪽 가게와 오른쪽 가게에 똑같은 손님을 보내 보세요.",
-"en": "Ever picked the shortest line, only to watch the one beside you clear first? That may not be just bad luck. Take two stores with identical cashiers and identical customers, one with a single shared line and one with a separate line per cashier, and the same customer can end up waiting very different times in each. Send the exact same shoppers to the left store and the right store and watch.",
-"tr": "Vous avez déjà choisi la file la plus courte, pour voir celle d'à côté avancer plus vite ? Ce n'est peut-être pas seulement de la malchance. Prenez deux magasins avec des caissiers identiques et des clients identiques, l'un avec une seule file commune et l'autre avec une file par caissier : un même client peut attendre des durées très différentes dans chacun. Envoyez exactement les mêmes clients dans le magasin de gauche et dans celui de droite, puis observez."
+"id": "s0973",
+"page": "easter",
+"ko": "쥐, 질병, 외부 접촉 등 연구자마다 해석이 갈리는 요인은 모델에 없어서, 고고학 자료와 따로 맞춰 봐야 해요.",
+"en": "Rats, disease and outside contact, which researchers interpret differently, are absent, so it would need checking against archaeological evidence.",
+"tr": "Les rats, les maladies et les contacts extérieurs, que les chercheurs interprètent différemment, sont absents ; il faudrait donc vérifier avec les preuves archéologiques."
 },
 {
-"id": "s0633",
-"page": "checkout",
-"ko": "<b>왼쪽 가게(A)</b>는 줄이 하나입니다. 맨 앞 손님은 가장 먼저 빈 계산대로 갑니다. <b>오른쪽 가게</b>는 계산대마다 줄이 따로 있고, 도착한 손님이 한 번 줄을 고르면 바꾸지 않습니다. 고르는 방식은 B(사람 수가 가장 적은 줄), C(아무 줄이나), D(물건이 가장 적은 줄) 중에서 고릅니다.",
-"en": "<b>The left store (A)</b> has a single line: the person at the front goes to the first free cashier. <b>The right store</b> has a separate line per cashier, and arriving customers pick one line and never switch. The choice rule is B (fewest people), C (any line) or D (fewest items).",
-"tr": "<b>Le magasin de gauche (A)</b> a une seule file : la personne en tête va au premier caissier libre. <b>Le magasin de droite</b> a une file par caissier, et les clients qui arrivent choisissent une file sans jamais en changer. La règle de choix est B (le moins de personnes), C (n'importe quelle file) ou D (le moins d'articles)."
+"id": "s0975",
+"page": "easter",
+"ko": "<b>모델의 뿌리:</b> 재생 가능한 자원과 인구가 서로 되먹임하는 포식자–피식자(Lotka–Volterra) 꼴의 모델입니다. Brander & Taylor (1998)가 이를 이스터섬에 적용해, 자원이 남아 있는 동안 인구가 늘다가 자원이 무너지며 따라서 줄어드는 과잉 성장과 붕괴가 나올 수 있음을 보였습니다.",
+"en": "<b>Where the model comes from:</b> This is a predator–prey (Lotka–Volterra) type model in which a renewable resource and a population feed back on each other. Brander & Taylor (1998) applied it to Easter Island and showed that overshoot and collapse can arise: the population grows while the resource lasts, then falls as the resource gives way.",
+"tr": "<b>D'où vient le modèle :</b> C'est un modèle de type prédateur-proie (Lotka-Volterra) dans lequel une ressource renouvelable et une population s'influencent mutuellement. Brander et Taylor (1998) l'ont appliqué à l'île de Pâques et ont montré qu'un dépassement suivi d'un effondrement peut se produire : la population croît tant que la ressource dure, puis décline quand celle-ci cède."
 },
 {
-"id": "s0634",
-"page": "checkout",
-"ko": "손님은 무작위로 도착하고(평균 간격은 붐빔 정도로 정해짐), 계산 시간은 평균 3분에 물건 수에 비례합니다. 두 가게에는 <b>똑같은 손님 목록</b>(도착 시각, 물건 수)이 들어가므로, 차이는 오직 줄 서는 방식에서 나옵니다.",
-"en": "Customers arrive at random (the average gap follows from how busy the store is) and checkout takes 3 minutes on average, in proportion to the number of items. Both stores get <b>exactly the same customer list</b> (arrival times, items), so any difference comes only from how the lines are organized.",
-"tr": "Les clients arrivent au hasard (l'intervalle moyen dépend de l'affluence du magasin) et le passage en caisse dure 3 minutes en moyenne, proportionnellement au nombre d'articles. Les deux magasins reçoivent <b>exactement la même liste de clients</b> (heures d'arrivée, articles), donc toute différence vient uniquement de l'organisation des files."
+"id": "s0976",
+"page": "easter",
+"ko": "<b>핵심 가정과 수식:</b> 숲은 로지스틱 성장(Verhulst 1838)에 사람의 벌채를 뺀 식이고, 인구는 숲이 온전할수록 빨리 늘고 기본 감소율 0.03이 있습니다. 균형은 <code>R* = 0.03 ÷ 증가속도</code>, <code>P* = 재생 × (1−R*) ÷ (벌채 × (1−보존))</code>입니다. 인구 증가 속도·재생 속도·벌채 강도·보존 슬라이더가 이 식의 계수이고, 반응 지연이 길수록 균형 주변에서 넘치고 꺼지는 진동이 커집니다.",
+"en": "<b>Key assumptions and formulas:</b> The forest follows logistic growth (Verhulst 1838) minus human logging, and the population grows faster the more intact the forest is, with a baseline decline of 0.03. The equilibrium is <code>R* = 0.03 ÷ growth rate</code> and <code>P* = regrowth × (1−R*) ÷ (harvest × (1−conservation))</code>. The growth, regrowth, harvest and conservation sliders are coefficients of these equations, and a longer reaction delay makes the swings around the equilibrium larger.",
+"tr": "<b>Hypothèses et formules clés :</b> La forêt suit une croissance logistique (Verhulst 1838) moins l'abattage humain, et la population croît d'autant plus vite que la forêt est intacte, avec un déclin de base de 0,03. L'équilibre est <code>R* = 0.03 ÷ taux de croissance</code> et <code>P* = repousse × (1−R*) ÷ (récolte × (1−conservation))</code>. Les curseurs de croissance, de repousse, de récolte et de conservation sont des coefficients de ces équations, et un délai de réaction plus long amplifie les oscillations autour de l'équilibre."
 },
 {
-"id": "s0635",
-"page": "checkout",
-"ko": "화면의 점 하나가 손님, 점 크기가 물건 수입니다. 계산대가 놀고 있는데 다른 줄에는 손님이 기다리는 순간은 계산대가 빨갛게 표시됩니다. 금빛 고리가 '나'이고, 점을 누르면 다른 손님이 '나'가 됩니다.",
-"en": "Each dot is a customer and its size shows the number of items. A cashier turns red when it is idle while somebody waits in another line. The gold ring is 'you'; click a dot to make a different customer 'you'.",
-"tr": "Chaque point est un client et sa taille indique le nombre d'articles. Un caissier devient rouge quand il est libre alors que quelqu'un attend dans une autre file. L'anneau doré, c'est « vous » ; cliquez sur un point pour désigner un autre client comme « vous »."
+"id": "s0977",
+"page": "easter",
+"ko": "<b>이 프로젝트의 단순화:</b> Brander & Taylor의 방정식과 값을 쓰지 않고 식량·농업·쥐·기후 같은 요소를 뺐으며, 인구가 숲의 최근 평균에 반응하도록 지연을 넣었습니다. 숲 최대치를 100%로 둔 것, 감소율 0.03, 기본 계수는 이 프로젝트가 정한 값이라 실제 이스터섬의 숫자가 아닙니다. 실제 붕괴의 원인(벌목, 쥐, 외부 접촉 등)은 연구자마다 해석이 갈리고, 이 모델은 어느 쪽도 증명하지 않습니다.",
+"en": "<b>What this project simplifies:</b> It does not use Brander & Taylor's equations or values, leaves out food, farming, rats and climate, and adds a delay so the population reacts to the recent average of the forest. Setting the forest maximum to 100%, the decline rate of 0.03 and the default coefficients are this project's own values, not real Easter Island numbers. What actually caused the real collapse (logging, rats, outside contact and so on) is interpreted differently by researchers, and this model proves none of them.",
+"tr": "<b>Ce que ce projet simplifie :</b> Il n'utilise ni les équations ni les valeurs de Brander et Taylor, laisse de côté la nourriture, l'agriculture, les rats et le climat, et ajoute un délai pour que la population réagisse à la moyenne récente de la forêt. Fixer le maximum de la forêt à 100 %, le taux de déclin à 0,03 et les coefficients par défaut relève des valeurs propres à ce projet, et non de chiffres réels de l'île de Pâques. Ce qui a réellement causé l'effondrement (abattage, rats, contacts extérieurs, etc.) est interprété différemment par les chercheurs, et ce modèle n'en prouve aucune."
 },
 {
-"id": "s0636",
-"page": "checkout",
-"ko": "결과 숫자는 손님 15만 명을 돌린 긴 시간 평균이고, 화면 속 가게는 문을 연 지 2시간 뒤부터 2시간 동안의 한 장면입니다.",
-"en": "The numbers on the cards are long-run averages over 150,000 customers; the store on screen is a 2-hour slice of one run, starting 2 hours after opening.",
-"tr": "Les chiffres des cartes sont des moyennes à long terme sur 150 000 clients ; le magasin à l'écran est une tranche de 2 heures d'une exécution, commençant 2 heures après l'ouverture."
+"id": "s0978",
+"page": "easter",
+"ko": "<b>이론값과 시뮬레이션:</b> 균형점은 기본 설정에서 손으로 계산하면 R* = 0.03 ÷ 0.05 = 0.60, P* = 0.01 × 0.4 ÷ 2×10<sup>-6</sup> = 2,000명이고 validate 출력과 같습니다. 그러나 실제 궤적은 지연 때문에 균형에 머물지 않고 최고 5,287명(P*의 약 2.6배)까지 넘친 뒤 600년째 696명으로 떨어집니다. 최고 인구는 P*에 비례해서, 벌채 강도 0.5/2/16에서 21,104/5,287/691명이고 (강도 × 최고 인구)는 약 10,550~11,060으로 거의 일정합니다.",
+"en": "<b>Theory versus simulation:</b> Calculated by hand with default settings, R* = 0.03 ÷ 0.05 = 0.60 and P* = 0.01 × 0.4 ÷ 2×10<sup>-6</sup> = 2,000 people, matching the validate output. The actual trajectory, because of the delay, does not stay at equilibrium but overshoots to a peak of 5,287 (about 2.6 times P*) and drops to 696 by year 600. The peak scales with P*: at harvest intensity 0.5/2/16 it is 21,104/5,287/691, so intensity × peak stays near-constant at about 10,550 to 11,060.",
+"tr": "<b>Théorie et simulation :</b> Calculé à la main avec les réglages par défaut, R* = 0,03 ÷ 0,05 = 0,60 et P* = 0,01 × 0,4 ÷ 2×10<sup>-6</sup> = 2 000 personnes, ce qui correspond à la sortie de validate. La trajectoire réelle, à cause du délai, ne reste pas à l'équilibre mais le dépasse jusqu'à un pic de 5 287 (environ 2,6 fois P*) et retombe à 696 vers l'an 600. Le pic suit P* : pour une intensité de récolte de 0,5/2/16 il vaut 21 104/5 287/691, de sorte que intensité × pic reste quasi constant, autour de 10 550 à 11 060."
 },
 {
-"id": "s0637",
-"page": "checkout",
-"ko": "계산대 수 <output id=\"o-k\"></output>",
-"en": "Number of cashiers <output id=\"o-k\"></output>",
-"tr": "Nombre de caissiers <output id=\"o-k\"></output>"
+"id": "s0979",
+"page": "easter",
+"ko": "<b>더 읽을거리:</b> Brander & Taylor (1998), 「The Simple Economics of Easter Island: A Ricardo-Malthus Model of Renewable Resource Use」, American Economic Review 88(1). Diamond (2005), 『Collapse』, Viking(대중적이지만 해석에 논쟁이 있음). Hunt & Lipo (2011), 『The Statues That Walked』, Free Press(다른 해석).",
+"en": "<b>Further reading:</b> Brander & Taylor (1998), \"The Simple Economics of Easter Island: A Ricardo-Malthus Model of Renewable Resource Use\", <i>American Economic Review</i> 88(1). Diamond (2005), <i>Collapse</i>, Viking (popular, but its interpretation is disputed). Hunt & Lipo (2011), <i>The Statues That Walked</i>, Free Press (an alternative reading).",
+"tr": "<b>Pour aller plus loin :</b> Brander &amp; Taylor (1998), « The Simple Economics of Easter Island: A Ricardo-Malthus Model of Renewable Resource Use », <i>American Economic Review</i> 88(1). Diamond (2005), <i>Collapse</i>, Viking (grand public, mais son interprétation est contestée). Hunt &amp; Lipo (2011), <i>The Statues That Walked</i>, Free Press (une lecture alternative)."
 },
 {
-"id": "s0638",
-"page": "checkout",
-"ko": "많을수록 한 줄로 합치는 이득도, 줄 따로의 낭비도 커져요",
-"en": "More cashiers make both the gain from merging lines and the waste from separate lines larger",
-"tr": "Plus de caissiers accroissent à la fois le gain d'une file unique et le gaspillage des files séparées"
+"id": "s0980",
+"page": "easter",
+"ko": "이 프로젝트가 단순화해 직접 짠 구현이며 논문의 방정식과 값을 그대로 쓰지 않았습니다. 인구가 숲의 최근 평균에 반응하도록 지연을 넣었습니다.",
+"en": "This is this project's own simplified implementation; it does not use the paper's equations or values. A delay is added so the population reacts to the recent average of the forest.",
+"tr": "Il s'agit d'une implémentation simplifiée propre à ce projet ; elle n'utilise ni les équations ni les valeurs de l'article. Un délai est ajouté pour que la population réagisse à la moyenne récente de la forêt."
 },
 {
-"id": "s0639",
-"page": "checkout",
-"ko": "붐비는 정도 <output id=\"o-rho\"></output>",
-"en": "How busy <output id=\"o-rho\"></output>",
-"tr": "Affluence <output id=\"o-rho\"></output>"
+"id": "s0985",
+"page": "farming",
+"ko": "농경의 전파 · 시뮬라티오 랩",
+"en": "The Spread of Farming · Simulatio Lab",
+"tr": "La diffusion de l'agriculture · Simulatio Lab"
 },
 {
-"id": "s0640",
-"page": "checkout",
-"ko": "계산대가 평균 몇 %의 시간 동안 일하는가. 95에 가까우면 줄이 급격히 길어져요",
-"en": "The average share of time a cashier is working. Near 95 the lines get dramatically longer",
-"tr": "La part moyenne du temps où un caissier travaille. Près de 95, les files s'allongent considérablement"
+"id": "s0986",
+"page": "farming",
+"ko": "인구가 늘고 조금씩 흩어지는 두 가지 규칙만으로 농경이 한 해에 1킬로미터쯤의 속도로 대륙을 덮는 모습을, 지도 위에서 직접 돌려보세요.",
+"en": "Watch farming sweep across a map at roughly a kilometer a year from just two rules, population growth and slow dispersal, and change them yourself.",
+"tr": "Regardez l'agriculture parcourir une carte à environ un kilomètre par an avec seulement deux règles, la croissance de la population et une lente dispersion, et modifiez-les vous-même."
 },
 {
-"id": "s0641",
-"page": "checkout",
-"ko": "계산 시간의 들쭉날쭉함 <output id=\"o-cv\"></output>",
-"en": "Variability of checkout time <output id=\"o-cv\"></output>",
-"tr": "Variabilité du temps de passage en caisse <output id=\"o-cv\"></output>"
+"id": "s0987",
+"page": "farming",
+"ko": "농사가 번지는 속도는 걸음에 비하면 보잘것없습니다. 한 세대(약 25년)에 25킬로미터 남짓이니까요. 그런데 이 느린 걸음이 쉬지 않고 이어지면, 이 모델에서는 약 천 년 만에 지도 전체가 농지로 덮입니다. 더 이상한 것은 그 속도를 누가 정해 준 적이 없다는 점입니다. &#39;늘어나는 속도&#39;와 &#39;흩어지는 정도&#39; 두 숫자만 있으면 속도가 저절로 정해진다는데, 정말 그럴까요? 직접 두 값을 바꿔 보세요.",
+"en": "The speed at which farming spread looks pitiful next to a walking pace: a bit over 25 kilometers per generation of about 25 years. Yet if that slow march never stops, then in this model a whole map is farmland in about a thousand years. Odder still, nobody sets that speed. The claim is that two numbers, how fast a population grows and how far it scatters, fix it by themselves. Is that really so? Change the two values and see.",
+"tr": "La vitesse à laquelle l'agriculture s'est diffusée paraît dérisoire à côté d'une allure de marche : un peu plus de 25 kilomètres par génération d'environ 25 ans. Pourtant, si cette lente progression ne s'arrête jamais, dans ce modèle toute une carte devient terre cultivée en un millier d'années environ. Plus étrange encore, personne ne fixe cette vitesse. Selon l'hypothèse, deux nombres, la vitesse de croissance d'une population et la distance sur laquelle elle se disperse, la déterminent à eux seuls. Est-ce vraiment le cas ? Modifiez les deux valeurs et voyez."
 },
 {
-"id": "s0642",
-"page": "checkout",
-"ko": "0.3은 모두 비슷한 시간, 1.0은 보통, 2.0은 어떤 손님은 아주 오래 걸려요",
-"en": "0.3 means everyone takes about the same time, 1.0 is typical, 2.0 means some customers take very long",
-"tr": "0,3 signifie que tout le monde met à peu près le même temps, 1,0 est typique, 2,0 signifie que certains clients mettent très longtemps"
+"id": "s0988",
+"page": "farming",
+"ko": "지도는 10km 칸으로 나뉘어 있고, 칸마다 <b>농부 밀도</b>(땅이 감당하는 최대치를 1로)와 <b>수렵채집민 밀도</b>(처음에는 어디나 0.25)가 있습니다. 한 곳(왼쪽 가운데 &#39;기원지&#39;)에서만 농부가 시작합니다.",
+"en": "The map is a grid of 10 km cells. Each cell has a <b>farmer density</b> (1 is the most the land can carry) and a <b>hunter-gatherer density</b> (0.25 everywhere at first). Farmers start in only one place, the origin on the middle of the left edge.",
+"tr": "La carte est une grille de cellules de 10 km. Chaque cellule a une <b>densité d'agriculteurs</b> (1 est le maximum que la terre peut porter) et une <b>densité de chasseurs-cueilleurs</b> (0,25 partout au départ). Les agriculteurs ne commencent qu'à un seul endroit, l'origine, au milieu du bord gauche."
 },
 {
-"id": "s0643",
-"page": "checkout",
-"ko": "오른쪽 가게의 줄 고르는 방식 <output id=\"o-strat\"></output>",
-"en": "Line choice in the right store <output id=\"o-strat\"></output>",
-"tr": "Choix de file dans le magasin de droite <output id=\"o-strat\"></output>"
+"id": "s0989",
+"page": "farming",
+"ko": "농부는 두 가지로 움직입니다. 한 칸 안에서 <b>늘어나고</b>(성장률 r, 가득 차면 멈춤), 이웃 칸으로 <b>조금씩 흩어집니다</b>(확산 계수 D). 두 값이 같이 정하는 속도가 전선의 속도입니다.",
+"en": "Farmers do two things. Inside a cell they <b>multiply</b> (growth rate r, stopping when the cell is full), and they <b>drift a little</b> into neighboring cells (dispersal coefficient D). Together the two values set the speed of the front.",
+"tr": "Les agriculteurs font deux choses. Dans une cellule, ils <b>se multiplient</b> (taux de croissance r, jusqu'à ce que la cellule soit pleine), et ils <b>dérivent un peu</b> vers les cellules voisines (coefficient de dispersion D). Ensemble, ces deux valeurs fixent la vitesse du front."
 },
 {
-"id": "s0644",
-"page": "checkout",
-"ko": "B 사람이 가장 적은 줄",
-"en": "B Fewest people",
-"tr": "B Moins de personnes"
+"id": "s0990",
+"page": "farming",
+"ko": "수렵채집민은 제자리에 머뭅니다. 농부가 많아질수록 그 칸의 수렵채집민이 줄어드는데, 줄어든 몫 가운데 <b>섞이는 비율</b>만큼은 농부가 되고(동화), 나머지는 밀려나 사라집니다(대체).",
+"en": "Hunter-gatherers stay where they are. The more farmers a cell has, the fewer hunter-gatherers remain, and the share set by the <b>mixing</b> slider becomes farmers (assimilation) while the rest is pushed out (replacement).",
+"tr": "Les chasseurs-cueilleurs restent où ils sont. Plus une cellule compte d'agriculteurs, moins il reste de chasseurs-cueilleurs, et la part fixée par le curseur de <b>mélange</b> devient agricultrice (assimilation) tandis que le reste est repoussé (remplacement)."
 },
 {
-"id": "s0645",
-"page": "checkout",
-"ko": "C 아무 줄이나",
-"en": "C Any line",
-"tr": "C N'importe quelle file"
+"id": "s0991",
+"page": "farming",
+"ko": "땅은 칸마다 기름짐이 조금씩 다릅니다(최대 ±25%). <b>해협</b>은 땅다리 하나만 남기고 바다로 막고, <b>산맥</b>은 성장과 확산이 느린 띠입니다. 지도의 색은 농부가 처음 들어선 시각이고, 100년마다 띠가 바뀝니다.",
+"en": "The land is slightly different in fertility from cell to cell (up to ±25%). The <b>strait</b> is sea except for one land bridge, and the <b>mountains</b> are a band where growth and dispersal are slow. Map colors show when farmers first arrived, with a new band every 100 years.",
+"tr": "Le terrain diffère légèrement en fertilité d'une cellule à l'autre (jusqu'à ±25 %). Le <b>détroit</b> est de la mer, sauf un pont de terre, et les <b>montagnes</b> forment une bande où la croissance et la dispersion sont lentes. Les couleurs de la carte indiquent quand les agriculteurs sont arrivés pour la première fois, avec une nouvelle bande tous les 100 ans."
 },
 {
-"id": "s0646",
-"page": "checkout",
-"ko": "D 물건이 가장 적은 줄",
-"en": "D Fewest items",
-"tr": "D Moins d'articles"
+"id": "s0992",
+"page": "farming",
+"ko": "인구 증가율 (r) <output id=\"o-r\"></output>",
+"en": "Population growth rate (r) <output id=\"o-r\"></output>",
+"tr": "Taux de croissance de la population (r) <output id=\"o-r\"></output>"
 },
 {
-"id": "s0647",
-"page": "checkout",
-"ko": "왼쪽 가게는 언제나 한 줄(A)입니다",
-"en": "The left store is always a single line (A)",
-"tr": "Le magasin de gauche a toujours une seule file (A)"
+"id": "s0993",
+"page": "farming",
+"ko": "클수록 인구가 빨리 늘어요. 연 2.5%면 약 28년마다 두 배",
+"en": "Higher means faster growth. At 2.5% a year the population doubles in about 28 years",
+"tr": "Plus élevé signifie une croissance plus rapide. À 2,5 % par an, la population double en environ 28 ans"
 },
 {
-"id": "s0648",
-"page": "checkout",
-"ko": "같은 설정, 다른 손님들",
-"en": "Same settings, different customers",
-"tr": "Mêmes réglages, clients différents"
+"id": "s0994",
+"page": "farming",
+"ko": "흩어지는 정도 (D) <output id=\"o-D\"></output>",
+"en": "Dispersal (D) <output id=\"o-D\"></output>",
+"tr": "Dispersion (D) <output id=\"o-D\"></output>"
 },
 {
-"id": "s0649",
-"page": "checkout",
-"ko": "① 두 가게를 나란히 보기",
-"en": "① Two Stores, Side by Side",
-"tr": "① Deux magasins côte à côte"
+"id": "s0995",
+"page": "farming",
+"ko": "클수록 이웃으로 더 넓게 퍼져요 (제곱킬로미터 / 년)",
+"en": "Higher means spreading wider into neighbors (square kilometers per year)",
+"tr": "Plus élevé signifie s'étendre plus largement vers les voisins (kilomètres carrés par an)"
 },
 {
-"id": "s0650",
-"page": "checkout",
-"ko": "위쪽 계산대, 아래쪽 줄입니다. 파란 왼쪽은 줄 하나, 오른쪽은 계산대마다 줄 하나입니다. 같은 손님이 같은 시각에 도착합니다. 금빛 고리의 '나'는 두 가게 모두에 있고, 아래 문장에서 내 기다림을 비교합니다.",
-"en": "Cashiers are on top and the lines below. The blue left store has one line, the right store has one line per cashier. The same customers arrive at the same moments. The gold-ringed 'you' is in both stores, and the line at the bottom compares your waits.",
-"tr": "Les caissiers sont en haut et les files en dessous. Le magasin bleu de gauche a une seule file, celui de droite une file par caissier. Les mêmes clients arrivent aux mêmes moments. Le « vous » à l'anneau doré est dans les deux magasins, et la ligne du bas compare vos attentes."
+"id": "s0996",
+"page": "farming",
+"ko": "토착민과 섞이는 비율 <output id=\"o-mix\"></output>",
+"en": "Mixing with hunter-gatherers <output id=\"o-mix\"></output>",
+"tr": "Mélange avec les chasseurs-cueilleurs <output id=\"o-mix\"></output>"
 },
 {
-"id": "s0651",
-"page": "checkout",
-"ko": "② 붐비는 정도에 따른 평균 대기",
-"en": "② Average Wait vs. Busyness",
-"tr": "② Attente moyenne selon l'affluence"
+"id": "s0997",
+"page": "farming",
+"ko": "0%면 토착민은 밀려나고, 100%면 모두 농부가 돼요",
+"en": "0% means locals are displaced, 100% means they all become farmers",
+"tr": "0 % signifie que les populations locales sont repoussées, 100 % qu'elles deviennent toutes agricultrices"
 },
 {
-"id": "s0652",
-"page": "checkout",
-"ko": "가로는 계산대가 바쁜 정도, 세로는 평균 대기시간입니다. 실선은 시뮬레이션, 점선은 이론입니다. 무작위로 줄을 서면(빨강) 붐빌수록 그래프 밖으로 치솟고, 짧은 줄(주황)이나 물건 적은 줄(초록)은 한 줄(파랑)에 훨씬 가깝습니다.",
-"en": "The horizontal axis is how busy the cashiers are and the vertical axis the average wait. Solid lines are simulation, dashed lines are theory. With random line choice (red) the wait shoots off the chart as it gets busier, while the shortest line (orange) and fewest items (green) stay much closer to the single line (blue).",
-"tr": "L'axe horizontal indique l'affluence aux caisses et l'axe vertical l'attente moyenne. Les traits pleins sont la simulation, les pointillés la théorie. Avec un choix de file au hasard (rouge), l'attente explose hors du graphique quand l'affluence augmente, tandis que la file la plus courte (orange) et le moins d'articles (vert) restent bien plus proches de la file unique (bleu)."
+"id": "s0998",
+"page": "farming",
+"ko": "지형 장벽 <output id=\"o-barrier\"></output>",
+"en": "Landscape barrier <output id=\"o-barrier\"></output>",
+"tr": "Obstacle du paysage <output id=\"o-barrier\"></output>"
 },
 {
-"id": "s0653",
-"page": "checkout",
-"ko": "<i style=\"background:#2f6fed\"></i>A 한 줄",
-"en": "<i style=\"background:#2f6fed\"></i>A Single line",
-"tr": "<i style=\"background:#2f6fed\"></i>A File unique"
+"id": "s0999",
+"page": "farming",
+"ko": "해협 (땅다리 하나)",
+"en": "Strait (one land bridge)",
+"tr": "Détroit (un pont de terre)"
 },
 {
-"id": "s0654",
-"page": "checkout",
-"ko": "<i style=\"background:#e0a100\"></i>B 짧은 줄",
-"en": "<i style=\"background:#e0a100\"></i>B Shortest line",
-"tr": "<i style=\"background:#e0a100\"></i>B File la plus courte"
+"id": "s1000",
+"page": "farming",
+"ko": "산맥 (느린 띠)",
+"en": "Mountains (slow band)",
+"tr": "Montagnes (bande lente)"
 },
 {
-"id": "s0655",
-"page": "checkout",
-"ko": "<i style=\"background:#e5484d\"></i>C 무작위",
-"en": "<i style=\"background:#e5484d\"></i>C Random",
-"tr": "<i style=\"background:#e5484d\"></i>C Au hasard"
+"id": "s1001",
+"page": "farming",
+"ko": "장벽을 켜면 전선이 돌아가거나 천천히 넘어가는 것을 볼 수 있어요",
+"en": "Turn a barrier on to see the front go around it or slowly across",
+"tr": "Activez un obstacle pour voir le front le contourner ou le traverser lentement"
 },
 {
-"id": "s0656",
-"page": "checkout",
-"ko": "<i style=\"background:#1fa463\"></i>D 물건 적은 줄",
-"en": "<i style=\"background:#1fa463\"></i>D Fewest items",
-"tr": "<i style=\"background:#1fa463\"></i>D Moins d'articles"
+"id": "s1002",
+"page": "farming",
+"ko": "같은 설정, 다른 땅",
+"en": "Same settings, different land",
+"tr": "Mêmes réglages, autre terrain"
 },
 {
-"id": "s0657",
-"page": "checkout",
-"ko": "③ 90% 손님이 기다리는 시간",
-"en": "③ The Wait 90% of Customers Stay Under",
-"tr": "③ L'attente que 90 % des clients ne dépassent pas"
+"id": "s1003",
+"page": "farming",
+"ko": "① 번져 가는 농경",
+"en": "① Farming Spreading",
+"tr": "① La diffusion de l'agriculture"
 },
 {
-"id": "s0658",
-"page": "checkout",
-"ko": "손님 10명 중 9명이 이 시간 안에 계산을 시작합니다. 평균보다 '운이 나쁜 손님'이 얼마나 오래 기다리는지를 보여 줍니다.",
-"en": "Nine out of ten customers start checking out within this time. It shows how long the unlucky customers wait, which the average hides.",
-"tr": "Neuf clients sur dix commencent à payer dans ce délai. Cela montre combien attendent les clients malchanceux, ce que la moyenne cache."
+"id": "s1004",
+"page": "farming",
+"ko": "별표가 농경의 시작점입니다. 색은 그 땅에 농부가 처음 들어선 시각(기원지를 떠난 뒤 지난 햇수)이고, 띠 사이의 짙은 선이 곧 등고선입니다. 선이 촘촘하면 빠르게 지나간 곳이 아니라 오히려 느리게 지나간 곳이에요.",
+"en": "The star marks where farming begins. Color shows when farmers first arrived in a place (years since leaving the origin), and the dark lines between bands are contours. Lines packed close together do not mean fast; the front was moving slowly there.",
+"tr": "L'étoile marque le début de l'agriculture. La couleur indique quand les agriculteurs sont arrivés pour la première fois en un lieu (années depuis leur départ de l'origine), et les lignes sombres entre les bandes sont des courbes de niveau. Des lignes très serrées ne signifient pas la rapidité ; le front y avançait lentement."
 },
 {
-"id": "s0659",
-"page": "checkout",
-"ko": "④ 기다림의 분포",
-"en": "④ Distribution of Waits",
-"tr": "④ Répartition des attentes"
+"id": "s1005",
+"page": "farming",
+"ko": "지도 보기",
+"en": "Map view",
+"tr": "Vue de la carte"
 },
 {
-"id": "s0660",
-"page": "checkout",
-"ko": "파란 막대는 한 줄, 선은 오른쪽 가게의 방식입니다. 바로 계산하는 손님의 비율과, 오래 기다리는 꼬리가 어떻게 달라지는지 보세요.",
-"en": "Blue bars are the single line, the outline is the right store's method. Look at the share who start immediately and at how the long tail of waiting differs.",
-"tr": "Les barres bleues représentent la file unique, le contour la méthode du magasin de droite. Regardez la part de ceux qui commencent immédiatement et la différence dans la longue traîne des attentes."
+"id": "s1006",
+"page": "farming",
+"ko": "도착 시각 (등고선 띠)",
+"en": "Arrival time (contour bands)",
+"tr": "Temps d'arrivée (bandes de niveau)"
 },
 {
-"id": "s0661",
-"page": "checkout",
-"ko": "계산대 4개, 붐빔 90%에서 한 줄은 평균 6.1분, 줄 따로 서기는 최대 4.9배 기다렸습니다.",
-"en": "With 4 counters at 90% load, one line averaged 6.1 minutes; separate lines waited up to 4.9 times longer.",
-"tr": "Avec 4 caisses à 90 % de charge, une file unique a donné 6,1 minutes en moyenne ; avec des files séparées, l'attente atteignait jusqu'à 4,9 fois plus."
+"id": "s1007",
+"page": "farming",
+"ko": "농부의 혈통",
+"en": "Ancestry of the farmers",
+"tr": "Ascendance des agriculteurs"
 },
 {
-"id": "s0662",
-"page": "checkout",
-"ko": "줄을 나누면 한쪽 계산대가 놀아도 다른 줄 손님은 옮기지 못해, 일하는 능력이 낭비되기 때문일 수 있습니다.",
-"en": "Splitting lines lets a counter sit idle while others queue and customers cannot move, which can waste capacity.",
-"tr": "Séparer les files laisse une caisse inactive pendant que d'autres ont la queue et que les clients ne peuvent pas bouger, ce qui peut gaspiller de la capacité."
+"id": "s1008",
+"page": "farming",
+"ko": "농부들이 이주민의 후손인지 토착민의 후손인지 바꿔 볼 수 있어요.",
+"en": "Switch to see whose descendants the farmers are: migrants or local hunter-gatherers.",
+"tr": "Basculez pour voir de qui les agriculteurs sont les descendants : des migrants ou des chasseurs-cueilleurs locaux."
 },
 {
-"id": "s0663",
-"page": "checkout",
-"ko": "기다림이 길다면 계산대 수보다 줄이 어떻게 나뉘고 어떻게 배정되는지부터 살펴볼 만합니다.",
-"en": "If waits run long, how lines are split and assigned may be worth checking before adding counters.",
-"tr": "Si les attentes sont longues, la façon dont les files sont réparties et attribuées mérite peut-être d'être vérifiée avant d'ajouter des caisses."
+"id": "s1009",
+"page": "farming",
+"ko": "② 전선은 얼마나 멀리 갔을까",
+"en": "② How Far Has the Front Gone?",
+"tr": "② Jusqu'où le front est-il allé ?"
+},
+{
+"id": "s1010",
+"page": "farming",
+"ko": "파란 선은 기원지에서 가장 멀리 간 농부까지의 거리입니다. 초록 점선은 피셔-콜모고로프 이론 2√(rD)에서 나온 직선이고, 토착민을 흡수하면 빨간 점선처럼 조금 더 가팔라집니다. 처음 100여 년은 전선이 자리를 잡느라 이론선보다 늦지만 기울기는 이론과 나란해집니다. 장벽이 있으면 선이 꺾이는 곳을 보세요.",
+"en": "The blue line is the distance from the origin to the farthest farmers. The green dashed line comes from the Fisher-Kolmogorov theory, 2√(rD), and when locals are assimilated the front follows the slightly steeper red dashed line. The first hundred or so years lag behind the theory while the front settles in, after which the slope runs parallel to it. With a barrier, watch where the line bends.",
+"tr": "La ligne bleue est la distance entre l'origine et les agriculteurs les plus éloignés. La ligne verte en pointillés vient de la théorie de Fisher-Kolmogorov, 2√(rD), et quand les populations locales sont assimilées, le front suit la ligne rouge en pointillés, un peu plus raide. Les cent premières années environ restent en retrait de la théorie le temps que le front s'installe, puis la pente devient parallèle à celle-ci. Avec un obstacle, observez où la ligne se courbe."
+},
+{
+"id": "s1011",
+"page": "farming",
+"ko": "③ 칸마다 도착 시각",
+"en": "③ Arrival Time, Cell by Cell",
+"tr": "③ Temps d'arrivée, cellule par cellule"
+},
+{
+"id": "s1012",
+"page": "farming",
+"ko": "점 하나가 지도의 칸 하나입니다. 가로는 기원지에서의 거리, 세로는 농부가 처음 닿은 시각이에요. 점들이 이론의 직선을 따라 늘어서면 일정한 속도로 퍼졌다는 뜻이고, 직선 위로 솟은 곳은 장벽 때문에 늦어진 곳입니다.",
+"en": "Each dot is one cell of the map. The horizontal axis is distance from the origin and the vertical axis the time farmers first arrived. Dots lining up along the theory line mean a steady speed, and dots that rise above the line are places delayed by a barrier.",
+"tr": "Chaque point est une cellule de la carte. L'axe horizontal est la distance à l'origine et l'axe vertical le moment où les agriculteurs sont arrivés pour la première fois. Des points alignés le long de la droite théorique indiquent une vitesse constante, et les points au-dessus de la droite sont des lieux retardés par un obstacle."
+},
+{
+"id": "s1013",
+"page": "farming",
+"ko": "④ 성장률을 바꾸면 속도는",
+"en": "④ How Speed Changes with Growth",
+"tr": "④ Comment la vitesse change avec la croissance"
+},
+{
+"id": "s1014",
+"page": "farming",
+"ko": "지금의 흩어지는 정도와 섞이는 비율에서 성장률만 바꿔 가며 쟀습니다(한 줄로 펼친 평면 파동). 이론 곡선과 측정점이 거의 겹치면, 속도가 두 숫자로 정해진다는 말이 맞는다는 뜻입니다.",
+"en": "Keeping the current dispersal and mixing, only the growth rate was varied (a plane wave unrolled onto one strip). If the measured dots nearly sit on the theory curve, the claim that two numbers fix the speed holds up.",
+"tr": "En gardant la dispersion et le mélange actuels, seul le taux de croissance a varié (une onde plane déroulée sur une seule bande). Si les points mesurés se placent presque sur la courbe théorique, l'affirmation selon laquelle deux nombres fixent la vitesse se vérifie."
+},
+{
+"id": "s1015",
+"page": "farming",
+"ko": "늘어나고 흩어지는 두 규칙만으로도 연 1km쯤의 일정한 속도의 파동이 생겼어요.",
+"en": "Growth plus dispersal alone produced a wave moving at a steady speed of about 1 km a year.",
+"tr": "La croissance et la dispersion seules ont produit une onde avançant à une vitesse constante d'environ 1 km par an."
+},
+{
+"id": "s1016",
+"page": "farming",
+"ko": "앞쪽 끝에서는 늘어나는 속도와 흩어지는 속도가 전선의 속도를 정하고, 섞임이 많을수록 조금 빨라졌어요.",
+"en": "At the front, growth rate and dispersal rate set the speed, and more mixing made it a bit faster.",
+"tr": "Sur le front, le taux de croissance et le taux de dispersion déterminent la vitesse, et plus de brassage l'a rendue un peu plus rapide."
+},
+{
+"id": "s1017",
+"page": "farming",
+"ko": "속도만으로는 이동인지 전파인지 가리기 어려우니, 누구의 후손이 퍼졌는지를 함께 볼 만해요.",
+"en": "Speed alone cannot separate migration from diffusion of ideas, so whose descendants spread is worth examining too.",
+"tr": "La vitesse seule ne permet pas de distinguer la migration de la diffusion des idées ; il vaut donc aussi la peine d'examiner les descendants de qui se sont répandus."
+},
+{
+"id": "s1018",
+"page": "farming",
+"ko": "<b>말하는 것:</b> 기본값(연 2.5% 성장, 흩어지는 정도 10km²/년, 섞이는 비율 50%, 장벽 없음, 땅 번호 1)에서 잰 전선 속도는 1.03km/년이고, 흡수가 없을 때의 이론 2√(rD)는 1.00km/년, 흡수를 반영한 이론은 1.12km/년입니다. 한 세대(25년)로 치면 약 26km이고, 땅의 99%가 덮이는 데 975년이 걸렸습니다. 장벽이 있으면 같은 설정에서 해협은 1,095년, 산맥은 1,130년으로 늦어졌습니다. 해협에서는 전선이 땅다리 쪽으로 휘어 들어가 건너편에서 부채꼴로 다시 퍼졌고, 산맥 안에서는 속도가 평지의 약 3분의 1(0.29 대 0.89km/년, 이론은 0.35배)로 줄었지만 멈추지는 않았습니다. 성장률을 바꿔 한 줄 파동으로 잰 속도는 이론의 94~100%였고, 섞이는 비율을 0%에서 100%로 올리면 속도가 0.97에서 1.19km/년으로 빨라져 흡수를 반영한 이론(1.00에서 1.22)과 4% 안에서 맞았습니다. 같은 설정에서 농부 가운데 토착 수렵채집민 후손의 몫은 섞이는 비율 50%일 때 87%, 100%일 때 95%였습니다. 속도는 거의 같은데 누구의 후손이 퍼졌는지는 크게 달랐습니다.",
+"en": "<b>What it shows:</b> With the defaults (2.5% growth a year, dispersal 10 km²/year, mixing 50%, no barrier, land number 1) the measured front speed is 1.03 km/year, against 1.00 km/year from the theory 2√(rD) without assimilation and 1.12 km/year with it. That is about 26 km per generation of 25 years, and 99% of the land was covered after 975 years. With the same settings a barrier slowed things: 1,095 years with the strait and 1,130 with the mountains. At the strait the front bent toward the land bridge and fanned out again on the far side, while inside the mountains speed fell to about a third of the lowland value (0.29 versus 0.89 km/year, theory 0.35 times) without stopping. Varying the growth rate on a single strip gave speeds 94 to 100% of the theory, and raising mixing from 0% to 100% raised the speed from 0.97 to 1.19 km/year, within 4% of the theory with assimilation (1.00 to 1.22). In the same runs the share of farmers descended from local hunter-gatherers was 87% at 50% mixing and 95% at 100%. The speed was nearly the same, yet whose descendants spread was very different.",
+"tr": "<b>Ce que cela montre :</b> Avec les valeurs par défaut (croissance de 2,5 % par an, dispersion de 10 km²/an, mélange de 50 %, sans obstacle, terrain numéro 1), la vitesse mesurée du front est de 1,03 km/an, contre 1,00 km/an selon la théorie 2√(rD) sans assimilation et 1,12 km/an avec. Cela fait environ 26 km par génération de 25 ans, et 99 % des terres étaient couvertes au bout de 975 ans. Avec les mêmes réglages, un obstacle a ralenti les choses : 1 095 ans avec le détroit et 1 130 avec les montagnes. Au détroit, le front s'est courbé vers le pont de terre puis s'est à nouveau déployé de l'autre côté, tandis que dans les montagnes la vitesse est tombée à environ un tiers de celle des plaines (0,29 contre 0,89 km/an, théorie 0,35 fois) sans s'arrêter. En faisant varier le taux de croissance sur une seule bande, les vitesses ont atteint 94 à 100 % de la théorie, et en faisant passer le mélange de 0 % à 100 %, la vitesse est passée de 0,97 à 1,19 km/an, à moins de 4 % de la théorie avec assimilation (1,00 à 1,22). Dans les mêmes exécutions, la part d'agriculteurs descendant de chasseurs-cueilleurs locaux était de 87 % à 50 % de mélange et de 95 % à 100 %. La vitesse était presque la même, mais les descendants de ceux qui se sont étendus étaient très différents."
+},
+{
+"id": "s1019",
+"page": "farming",
+"ko": "실제 유럽 농경 전파를 재현했다는 뜻은 아니에요. 지도와 수치는 추상적으로 정한 값이에요.",
+"en": "This is not a reconstruction of how farming really spread; the map and numbers are abstract.",
+"tr": "Ce n'est pas une reconstitution de la façon dont l'agriculture s'est réellement diffusée ; la carte et les chiffres sont abstraits."
+},
+{
+"id": "s1020",
+"page": "farming",
+"ko": "바닷길·기후 같은 현실 요소와 이동 여부는 고고학·유전자 증거로 따로 확인해야 해요.",
+"en": "Sea routes, climate and whether people actually moved need archaeological and genetic evidence.",
+"tr": "Les routes maritimes, le climat et le fait que les gens se soient réellement déplacés demandent des preuves archéologiques et génétiques."
+},
+{
+"id": "s1021",
+"page": "farming",
+"ko": "<b>말하지 않는 것:</b> 실제 유럽의 농경 전파를 재현한 것이 아닙니다. 고고학자들은 농경이 유럽에서 평균 연 1km 안팎의 속도로 퍼졌다고 추정했고, 이런 &#39;전진하는 파동&#39; 생각은 Ammerman과 Cavalli-Sforza(1971)가 농경 전파에 적용해 널리 알려졌지만, 추정값은 연구마다 다르며 퍼진 것이 사람(이주)인지 기술과 생각(문화 전파)인지는 지금도 논쟁 중입니다. 이 모델은 지도가 추상적이고 땅이 거의 균일하며, 바닷길 이동, 강과 해안의 길, 기후 변화, 마을 단위의 갑작스러운 도약 같은 현실의 요소가 없습니다. 섞이는 비율이나 토착민 후손의 몫(87%, 95%)도 이 프로젝트가 정한 값에 크게 의존하므로 실제 유럽 사람들의 혈통에 대한 주장으로 읽으면 안 됩니다. 이 실험은 &#39;늘어나고 흩어지는 두 규칙만으로도 일정한 속도의 파동이 만들어질 수 있다&#39;는 메커니즘을 보여 줄 뿐입니다.",
+"en": "<b>What it doesn't show:</b> This is not a reconstruction of the real spread of farming in Europe. Archaeologists have estimated that farming spread across Europe at roughly one kilometer a year on average, and the wave-of-advance idea was applied to farming by Ammerman and Cavalli-Sforza (1971), but estimates vary between studies and whether people (migration) or techniques and ideas (cultural diffusion) did the spreading is still debated. The map here is abstract, the land nearly uniform, and real factors such as sea voyages, river and coastal routes, climate change and sudden village-scale jumps are absent. The mixing ratio and the shares of local descendants (87%, 95%) depend strongly on values this project chose, so do not read them as a claim about real European ancestry. The experiment only shows a mechanism: growth plus slow dispersal alone can produce a wave moving at a steady speed.",
+"tr": "<b>Ce que cela ne montre pas :</b> Ce n'est pas une reconstitution de la diffusion réelle de l'agriculture en Europe. Les archéologues ont estimé que l'agriculture s'est répandue en Europe à environ un kilomètre par an en moyenne, et l'idée d'onde d'avancée a été appliquée à l'agriculture par Ammerman et Cavalli-Sforza (1971), mais les estimations varient selon les études et l'on débat encore de savoir si ce sont les gens (migration) ou les techniques et les idées (diffusion culturelle) qui se sont propagés. La carte ici est abstraite, le terrain presque uniforme, et des facteurs réels comme les traversées maritimes, les voies fluviales et côtières, le changement climatique et les sauts soudains à l'échelle d'un village sont absents. Le taux de mélange et les parts de descendants locaux (87 %, 95 %) dépendent fortement de valeurs choisies par ce projet, il ne faut donc pas les lire comme une affirmation sur l'ascendance européenne réelle. L'expérience ne montre qu'un mécanisme : la croissance associée à une lente dispersion suffit à produire une onde se déplaçant à vitesse constante."
+},
+{
+"id": "s1022",
+"page": "farming",
+"ko": "<b>모델의 뿌리:</b> Fisher (1937), &quot;The wave of advance of advantageous genes&quot;, <i>Annals of Eugenics</i> 7은 유리한 유전자가 공간에서 일정한 속도의 파동으로 퍼진다는 방정식을 다뤘고, 같은 해 Kolmogorov, Petrovsky, Piskunov도 독립적으로 같은 방정식을 연구해 피셔-콜모고로프(Fisher-KPP) 방정식이라 부릅니다. Ammerman &amp; Cavalli-Sforza (1971), <i>Man</i> 6이 이를 유럽의 농경 전파에 적용했습니다.",
+"en": "<b>Where the model comes from:</b> Fisher (1937), &quot;The wave of advance of advantageous genes&quot;, <i>Annals of Eugenics</i> 7, treated an equation in which an advantageous gene spreads through space as a wave of constant speed. Kolmogorov, Petrovsky and Piskunov studied the same equation independently that year, hence the name Fisher-KPP. Ammerman &amp; Cavalli-Sforza (1971), <i>Man</i> 6, applied it to the spread of farming in Europe.",
+"tr": "<b>D'où vient le modèle :</b> Fisher (1937), &quot;The wave of advance of advantageous genes&quot;, <i>Annals of Eugenics</i> 7, a étudié une équation dans laquelle un gène avantageux se propage dans l'espace comme une onde de vitesse constante. Kolmogorov, Petrovsky et Piskunov ont étudié la même équation indépendamment la même année, d'où le nom Fisher-KPP. Ammerman &amp; Cavalli-Sforza (1971), <i>Man</i> 6, l'ont appliquée à la diffusion de l'agriculture en Europe."
+},
+{
+"id": "s1023",
+"page": "farming",
+"ko": "<b>핵심 가정과 수식:</b> 농부 밀도 F(땅이 감당하는 최대치 = 1)는 <code>∂F/∂t = rF(1 − F) + D∇²F</code>를 따릅니다. 앞쪽 끝에서는 F가 작아 선형으로 늘기 때문에 전선은 <code>c = 2√(rD)</code>의 속도로 나아갑니다(r 증가율, D 확산 계수). 이 모델은 수렵채집민을 흡수하면 앞쪽의 증가율이 <code>r + mix·κ·h₀</code>로 커진다고 보아 <code>c = 2√((r + mix·κ·h₀)D)</code>를 함께 비교합니다(κ = 0.05/년, h₀ = 0.25는 이 프로젝트가 정한 값).",
+"en": "<b>Key assumptions and formulas:</b> Farmer density F (1 is the most the land can carry) follows <code>∂F/∂t = rF(1 − F) + D∇²F</code>. At the leading edge F is small and grows linearly, so the front advances at <code>c = 2√(rD)</code> (r growth rate, D dispersal coefficient). This model also compares <code>c = 2√((r + mix·κ·h₀)D)</code>, because assimilating hunter-gatherers raises the growth rate at the front to <code>r + mix·κ·h₀</code> (κ = 0.05 per year and h₀ = 0.25 are values this project chose).",
+"tr": "<b>Hypothèses et formules clés :</b> La densité d'agriculteurs F (1 est le maximum que la terre peut porter) suit <code>∂F/∂t = rF(1 − F) + D∇²F</code>. Au bord d'attaque, F est petit et croît linéairement, de sorte que le front avance à <code>c = 2√(rD)</code> (r taux de croissance, D coefficient de dispersion). Ce modèle compare aussi <code>c = 2√((r + mix·κ·h₀)D)</code>, car l'assimilation des chasseurs-cueilleurs porte le taux de croissance au front à <code>r + mix·κ·h₀</code> (κ = 0,05 par an et h₀ = 0,25 sont des valeurs choisies par ce projet)."
+},
+{
+"id": "s1024",
+"page": "farming",
+"ko": "<b>이 프로젝트의 단순화:</b> 지도는 추상적이고 땅은 거의 균일하며, 수렵채집민은 움직이지 않고 밀도가 0.25로 일정하다고 봅니다. 한 세대 = 25년과 위의 κ, h₀, 산맥(성장 0.5배, 확산 0.25배)은 이 프로젝트의 가정입니다. 농경이 사람의 이동으로 퍼졌는지 생각과 기술의 전파로 퍼졌는지는 지금도 논쟁 중이고, 이 모델은 &#39;섞이는 비율&#39; 하나로 둘 사이를 오가게 했을 뿐 어느 쪽이 맞는지 가리지 않습니다.",
+"en": "<b>What this project simplifies:</b> The map is abstract, the land nearly uniform, and hunter-gatherers neither move nor change from a constant density of 0.25. One generation = 25 years, κ and h₀ above, and the mountains (growth 0.5 times, dispersal 0.25 times) are this project's assumptions. Whether farming spread by people moving or by ideas and techniques spreading is still debated; the model only slides between the two with a single mixing parameter and does not decide which is right.",
+"tr": "<b>Ce que ce projet simplifie :</b> La carte est abstraite, le terrain presque uniforme, et les chasseurs-cueilleurs ne bougent pas et ne s'écartent pas d'une densité constante de 0,25. Une génération = 25 ans, κ et h₀ ci-dessus, et les montagnes (croissance 0,5 fois, dispersion 0,25 fois) sont des hypothèses de ce projet. Que l'agriculture se soit propagée par le déplacement de personnes ou par la diffusion d'idées et de techniques est encore débattu ; le modèle ne fait que glisser de l'un à l'autre avec un seul paramètre de mélange et ne tranche pas."
+},
+{
+"id": "s1025",
+"page": "farming",
+"ko": "<b>이론값과 시뮬레이션:</b> 흡수가 없을 때 한 줄 파동으로 잰 속도는 이론 2√(rD)의 94~100%였습니다(예: r=2.5%, D=10에서 0.97 대 1.00km/년). 섞이는 비율을 0, 25, 50, 75, 100%로 올리면 잰 값이 0.97, 1.03, 1.08, 1.14, 1.19km/년으로 흡수를 반영한 이론 1.00, 1.06, 1.12, 1.17, 1.22와 4% 안에서 맞았습니다. 둥근 전선이 있는 2차원에서는 휘어짐 때문에 장벽·잡음이 없을 때도 0.93으로 조금 느렸고, 산맥 안의 속도비는 0.32로 이론 0.35와 비슷했습니다. 모두 <code>node tools/validate-farming.js</code>의 출력입니다.",
+"en": "<b>Theory versus simulation:</b> With no assimilation, speeds measured on a one-dimensional wave were 94 to 100% of the theory 2√(rD) (for example 0.97 versus 1.00 km/year at r = 2.5%, D = 10). Raising mixing through 0, 25, 50, 75 and 100% gave 0.97, 1.03, 1.08, 1.14 and 1.19 km/year, within 4% of the theory with assimilation, 1.00, 1.06, 1.12, 1.17 and 1.22. In two dimensions the curved front made speed a little lower, 0.93, even with no barrier or noise, and the speed ratio inside the mountains was 0.32 against a theoretical 0.35. All of this is the output of <code>node tools/validate-farming.js</code>.",
+"tr": "<b>Théorie et simulation :</b> Sans assimilation, les vitesses mesurées sur une onde unidimensionnelle étaient de 94 à 100 % de la théorie 2√(rD) (par exemple 0,97 contre 1,00 km/an pour r = 2,5 %, D = 10). En augmentant le mélange à 0, 25, 50, 75 et 100 %, on a obtenu 0,97, 1,03, 1,08, 1,14 et 1,19 km/an, à moins de 4 % de la théorie avec assimilation, 1,00, 1,06, 1,12, 1,17 et 1,22. En deux dimensions, le front courbe a rendu la vitesse un peu plus faible, 0,93, même sans obstacle ni bruit, et le rapport de vitesse dans les montagnes était de 0,32 contre 0,35 en théorie. Tout cela est la sortie de <code>node tools/validate-farming.js</code>."
+},
+{
+"id": "s1026",
+"page": "farming",
+"ko": "<b>더 읽을거리:</b> Ammerman &amp; Cavalli-Sforza (1971), &quot;Measuring the rate of spread of early farming in Europe&quot;, <i>Man</i> 6. Fisher (1937), 위의 논문. J. D. Murray, 『Mathematical Biology』, Springer (퍼지는 파동 방정식의 개설).",
+"en": "<b>Further reading:</b> Ammerman &amp; Cavalli-Sforza (1971), &quot;Measuring the rate of spread of early farming in Europe&quot;, <i>Man</i> 6. Fisher (1937), cited above. J. D. Murray, <i>Mathematical Biology</i>, Springer (an introduction to traveling-wave equations).",
+"tr": "<b>Pour aller plus loin :</b> Ammerman &amp; Cavalli-Sforza (1971), &quot;Measuring the rate of spread of early farming in Europe&quot;, <i>Man</i> 6. Fisher (1937), cité ci-dessus. J. D. Murray, <i>Mathematical Biology</i>, Springer (une introduction aux équations d'ondes progressives)."
+},
+{
+"id": "s1027",
+"page": "farming",
+"ko": "지도는 100×60칸(칸 하나 10km)이고 시간은 0.5년 간격의 명시적 차분으로 나아갑니다. 확산은 칸 사이의 조화 평균 계수로 계산해 바다 칸으로는 흐르지 않고, 지도 가장자리는 막혀 있습니다. 칸마다 기름짐은 성긴 값 잡음을 이어 만들며(시드 난수 mulberry32, 같은 땅 번호면 같은 결과) 성장률에만 곱합니다.",
+"en": "The map is 100×60 cells of 10 km, advanced in 0.5-year explicit finite-difference steps. Diffusion uses a harmonic-mean coefficient between cells so nothing flows into sea cells, and the map edges are closed. Fertility comes from smoothly joined coarse noise (seeded mulberry32, so the same land number gives the same result) and multiplies only the growth rate.",
+"tr": "La carte compte 100×60 cellules de 10 km, avancées par pas explicites de différences finies de 0,5 an. La diffusion utilise un coefficient de moyenne harmonique entre cellules pour que rien ne s'écoule vers les cellules de mer, et les bords de la carte sont fermés. La fertilité vient d'un bruit grossier raccordé en douceur (mulberry32 à graine, de sorte que le même numéro de terrain donne le même résultat) et ne multiplie que le taux de croissance."
+},
+{
+"id": "s1028",
+"page": "farming",
+"ko": "전선 속도는 농부 밀도 0.5를 처음 넘은 시각을 칸의 도착 시각으로 삼고, 기원지에서 가장 먼 도착 지점의 거리 R(t)를 100~380km 구간에서 최소제곱으로 맞춘 기울기입니다. ④번 그래프는 같은 규칙을 250칸짜리 한 줄에서 돌려 도착 시각과 거리의 기울기로 구한 값입니다. 검증은 <code>node tools/validate-farming.js</code>로 할 수 있습니다.",
+"en": "Front speed takes the first time farmer density passes 0.5 as a cell's arrival time, and fits the distance R(t) of the farthest arrival from the origin by least squares over 100 to 380 km. Graph ④ runs the same rules on a strip of 250 cells and uses the slope of arrival time against distance. You can verify with <code>node tools/validate-farming.js</code>.",
+"tr": "La vitesse du front prend comme temps d'arrivée d'une cellule le premier instant où la densité d'agriculteurs dépasse 0,5, et ajuste par moindres carrés la distance R(t) de l'arrivée la plus éloignée à l'origine entre 100 et 380 km. Le graphique ④ applique les mêmes règles sur une bande de 250 cellules et utilise la pente du temps d'arrivée en fonction de la distance. Vous pouvez vérifier avec <code>node tools/validate-farming.js</code>."
+},
+{
+"id": "s1029",
+"page": "farming",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/farming\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/farming\">GitHub</a>.",
+"tr": "Le code est disponible sur <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/farming\">GitHub</a>."
+},
+{
+"id": "s1056",
+"page": "fashion",
+"ko": "모방과 차별화가 함께 있을 때만 유행이 색상환을 계속 돌아요.",
+"en": "Trends keep circling the color wheel only when imitation and differentiation both exist.",
+"tr": "Les tendances ne continuent de tourner autour du cercle chromatique que si l'imitation et la différenciation existent toutes les deux."
+},
+{
+"id": "s1057",
+"page": "fashion",
+"ko": "이 모델에서는 대중이 쫓고 트렌드세터가 한쪽으로 달아나는 구조라, 도는 속도는 둘 중 느린 쪽을 따라요.",
+"en": "In this model the masses chase and trendsetters flee one way, so the pace follows the slower of the two.",
+"tr": "Dans ce modèle, la masse poursuit et les précurseurs fuient dans le même sens, si bien que le rythme suit le plus lent des deux."
+},
+{
+"id": "s1058",
+"page": "fashion",
+"ko": "유행이 멈췄다면 따라 하는 힘과 달아나는 힘 중 어느 쪽이 약한지부터 살펴볼 만해요.",
+"en": "If a trend stalls, look first at which is weaker: the urge to follow or the urge to flee.",
+"tr": "Si une tendance stagne, regardez d'abord lequel est le plus faible : l'envie de suivre ou l'envie de fuir."
+},
+{
+"id": "s1060",
+"page": "fashion",
+"ko": "실제 유행이 이런 규칙으로 움직이거나 주기를 예측할 수 있다는 뜻은 아니에요.",
+"en": "It doesn't mean real fashion follows these rules or that its cycles can be predicted.",
+"tr": "Cela ne signifie pas que la mode réelle suive ces règles ni que ses cycles puissent être prédits."
+},
+{
+"id": "s1061",
+"page": "fashion",
+"ko": "산업·미디어·가격의 영향과 달아나는 방향이 하나가 아닌 점은 실제 유행을 관찰해 따로 봐야 해요.",
+"en": "Industry, media, price and non-single escape directions must be checked in real fashion data.",
+"tr": "L'industrie, les médias, le prix et les directions de fuite non uniques doivent être vérifiés dans de vraies données de mode."
+},
+{
+"id": "s1063",
+"page": "fashion",
+"ko": "<b>모델의 뿌리:</b> Georg Simmel의 「유행」(1904)은 윗사람은 남과 달라 보이려 하고 아랫사람은 따라 하다가, 모방이 퍼지면 윗사람이 다시 새 유행으로 옮겨 간다고 설명했습니다. 이 발상은 Veblen의 『유한계급론』(1899)에 닿아 있고, Blumer (1969)는 유행이 계층에서 아래로 흐르기만 하지 않는다고 비판했습니다.",
+"en": "<b>Where the model comes from:</b> Georg Simmel's \"Fashion\" (1904) argued that those on top try to look different while those below imitate them, and once imitation spreads those on top move on to a new fashion. The idea is related to Veblen's <i>The Theory of the Leisure Class</i> (1899), and Blumer (1969) criticized it, arguing that fashion does not simply trickle down from class to class.",
+"tr": "<b>D'où vient le modèle :</b> « La mode » (1904) de Georg Simmel soutenait que ceux d'en haut cherchent à se distinguer tandis que ceux d'en bas les imitent, et qu'une fois l'imitation répandue, ceux d'en haut passent à une nouvelle mode. L'idée est liée à la <i>Théorie de la classe de loisir</i> de Veblen (1899), et Blumer (1969) l'a critiquée, soutenant que la mode ne descend pas simplement d'une classe à l'autre."
+},
+{
+"id": "s1064",
+"page": "fashion",
+"ko": "<b>핵심 가정과 수식:</b> 스타일을 원 위의 각도 θ로 두고 두 규칙을 씁니다. 대중은 가장 가까운 트렌드세터 쪽으로 한 걸음에 α도 다가가고(모방), 트렌드세터는 주변 대중의 밀도에 따라 최대 β도까지 한 방향으로 달아납니다(차별화). 모방 속도 α, 도망 속도 β, 흔들림, 트렌드세터 비율이 슬라이더입니다.",
+"en": "<b>Key assumptions and formulas:</b> A style is an angle θ on a circle and two rules apply. The crowd steps α degrees toward the nearest trendsetter (imitation), and trendsetters run in one direction at up to β degrees depending on the density of the crowd near them (distinction). The imitation speed α, flight speed β, wobble and share of trendsetters are the sliders.",
+"tr": "<b>Hypothèses et formules clés :</b> Un style est un angle θ sur un cercle et deux règles s'appliquent. La foule avance de α degrés vers le créateur de tendance le plus proche (imitation), et les créateurs de tendance fuient dans une direction jusqu'à β degrés selon la densité de la foule à proximité (distinction). La vitesse d'imitation α, la vitesse de fuite β, l'agitation et la part de créateurs de tendance sont les curseurs."
+},
+{
+"id": "s1065",
+"page": "fashion",
+"ko": "<b>이 프로젝트의 단순화:</b> Simmel은 계층 간 이동과 사회적 신호를 다뤘지만 여기서는 계층, 가격, 매체를 모두 빼고 한 줄의 원만 둡니다. \"트렌드세터는 한 방향으로만 달아난다\", \"모두가 한 시즌의 유행 주위에서 시작한다\", 3배 밀도 기준, ±30도 범위는 순환이 보이도록 이 프로젝트가 정한 가정입니다. 방향을 고정하지 않으면 하나의 순환이 생기지 않았습니다.",
+"en": "<b>What this project simplifies:</b> Simmel dealt with movement between classes and social signals, but here class, price and media are all left out and there is only a single circle. \"Trendsetters flee in one direction only,\" \"everyone starts around one season's fashion,\" the 3x density threshold and the ±30° window are assumptions this project chose so that a cycle can appear. Without a fixed direction no single cycle formed.",
+"tr": "<b>Ce que ce projet simplifie :</b> Simmel traitait du mouvement entre classes et des signaux sociaux, mais ici la classe, le prix et les médias sont tous laissés de côté et il n'y a qu'un seul cercle. « Les créateurs de tendance fuient dans une seule direction », « tout le monde commence autour de la mode d'une saison », le seuil de densité de 3x et la fenêtre de ±30° sont des hypothèses que ce projet a choisies pour qu'un cycle puisse apparaître. Sans direction fixe, aucun cycle unique ne s'est formé."
+},
+{
+"id": "s1066",
+"page": "fashion",
+"ko": "<b>이론값과 시뮬레이션:</b> 닫힌 해는 없지만 간단한 추론이 있습니다. 흐름 전체는 느린 쪽 속도로 돕니다. 한 라운드에 도는 각도는 약 min(α, β)이므로 α=β=2도면 100라운드에 0.55바퀴(200도/100라운드)쯤이라는 예상에 실측 0.53바퀴가 맞고, α=0.5/1이면 0.13/0.27바퀴(예상 0.14/0.28), β=1이면 0.26바퀴(예상 0.28)입니다. β=0이면 6,000라운드까지 회전 0.00입니다.",
+"en": "<b>Theory versus simulation:</b> There is no closed-form solution, but a simple argument exists: the whole flow turns at the slower of the two speeds. The angle per round is about min(α, β), so with α=β=2° one expects around 0.55 turns per 100 rounds and the measured value is 0.53; α=0.5/1 gives 0.13/0.27 turns (expected 0.14/0.28), and β=1 gives 0.26 (expected 0.28). With β=0 there is zero rotation up to 6,000 rounds.",
+"tr": "<b>Théorie et simulation :</b> Il n'existe pas de solution analytique, mais un argument simple existe : tout le flux tourne à la plus lente des deux vitesses. L'angle par tour est d'environ min(α, β), donc avec α=β=2° on attend environ 0,55 tour par 100 tours et la valeur mesurée est 0,53 ; α=0,5/1 donne 0,13/0,27 tour (attendu 0,14/0,28), et β=1 donne 0,26 (attendu 0,28). Avec β=0, il n'y a aucune rotation jusqu'à 6 000 tours."
+},
+{
+"id": "s1067",
+"page": "fashion",
+"ko": "<b>더 읽을거리:</b> Simmel (1904), 「Fashion」, International Quarterly 10. Veblen (1899), 『The Theory of the Leisure Class』. Blumer (1969), 「Fashion: From Class Differentiation to Collective Selection」, The Sociological Quarterly 10(3). Acerbi, Ghirlanda & Enquist (2012), 「The Logic of Fashion Cycles」, PLoS ONE 7(3).",
+"en": "<b>Further reading:</b> Simmel (1904), \"Fashion\", <i>International Quarterly</i> 10. Veblen (1899), <i>The Theory of the Leisure Class</i>. Blumer (1969), \"Fashion: From Class Differentiation to Collective Selection\", <i>The Sociological Quarterly</i> 10(3). Acerbi, Ghirlanda & Enquist (2012), \"The Logic of Fashion Cycles\", <i>PLoS ONE</i> 7(3).",
+"tr": "<b>Pour aller plus loin :</b> Simmel (1904), « Fashion », <i>International Quarterly</i> 10. Veblen (1899), <i>The Theory of the Leisure Class</i>. Blumer (1969), « Fashion: From Class Differentiation to Collective Selection », <i>The Sociological Quarterly</i> 10(3). Acerbi, Ghirlanda &amp; Enquist (2012), « The Logic of Fashion Cycles », <i>PLoS ONE</i> 7(3)."
+},
+{
+"id": "s1068",
+"page": "fashion",
+"ko": "이 프로젝트가 직접 설계한 단순화 모델이며 특정 논문의 재현이 아닙니다.",
+"en": "A stylized model of this project's own design, not a reproduction of a paper.",
+"tr": "Un modèle stylisé conçu par ce projet, et non la reproduction d'un article."
+},
+{
+"id": "s1105",
+"page": "firefly",
+"ko": "서로 앞당기는 세기와 볼 수 있는 범위가 충분하면 중앙 지휘 없이 거의 한 박자로 맞춰졌어요.",
+"en": "With enough mutual nudging and viewing range, the fireflies synced up with no central leader.",
+"tr": "Avec assez d'influence mutuelle et de portée de vue, les lucioles se sont synchronisées sans aucun chef central."
+},
+{
+"id": "s1106",
+"page": "firefly",
+"ko": "반짝임을 본 이웃이 시계를 앞당기면 박자 차이가 줄어들지만, 개체마다 속도가 다르면 완전히 맞지는 않아요.",
+"en": "Neighbors that see a flash advance their clocks, shrinking timing gaps, but differing speeds keep sync from being perfect.",
+"tr": "Les voisines qui voient un éclair avancent leur horloge, ce qui réduit les écarts de timing, mais les vitesses différentes empêchent la synchronisation d'être parfaite."
+},
+{
+"id": "s1107",
+"page": "firefly",
+"ko": "동기화를 이해하려면 서로 얼마나 영향을 주는지와 개체 차이의 균형부터 살펴볼 만해요.",
+"en": "To understand synchrony, the balance between mutual influence and individual differences is a good place to start.",
+"tr": "Pour comprendre la synchronie, l'équilibre entre l'influence mutuelle et les différences individuelles est un bon point de départ."
+},
+{
+"id": "s1109",
+"page": "firefly",
+"ko": "실제 반딧불이가 이렇게 박자를 맞춘다는 증명은 아니고, 빛의 세기나 학습 같은 요소도 빠져 있어요.",
+"en": "It does not prove real fireflies sync this way, and factors like light intensity and learning are missing.",
+"tr": "Il ne prouve pas que de vraies lucioles se synchronisent ainsi, et des facteurs comme l'intensité lumineuse et l'apprentissage sont absents."
+},
+{
+"id": "s1110",
+"page": "firefly",
+"ko": "실제 종의 깜빡임 간격과 서로 보는 거리를 관찰해 모델의 가정과 맞는지 확인해야 해요.",
+"en": "Observing real species' flash timing and viewing distances would show whether the assumptions hold.",
+"tr": "Observer le moment des éclairs et les distances de vue d'espèces réelles montrerait si les hypothèses tiennent."
+},
+{
+"id": "s1112",
+"page": "firefly",
+"ko": "<b>모델의 뿌리:</b> Peskin (1975)이 심장 박동 세포를 모델로 처음 다룬 \"펄스 결합 진동자\"를 Mirollo & Strogatz (1990)가 수학적으로 분석했습니다. 서로 모두 연결되고 똑같은 진동자들이 신호 때 서로를 조금씩 앞당기면, 거의 모든 시작 상태에서 한꺼번에 반짝이게 된다는 정리입니다. 반딧불이의 동시 점멸은 Buck & Buck (1968) 등이 관찰·설명했습니다.",
+"en": "<b>Where the model comes from:</b> Mirollo & Strogatz (1990) analyzed mathematically the \"pulse-coupled oscillators\" that Peskin (1975) first considered as a model of heart pacemaker cells: if identical oscillators, all connected to each other, nudge one another ahead whenever one fires, they end up firing together from almost any starting state. Synchronous flashing of fireflies was described by Buck & Buck (1968) and others.",
+"tr": "<b>D'où vient le modèle :</b> Mirollo et Strogatz (1990) ont analysé mathématiquement les « oscillateurs à impulsions couplées » que Peskin (1975) avait d'abord envisagés comme modèle des cellules pacemaker du cœur : si des oscillateurs identiques, tous reliés entre eux, s'avancent mutuellement chaque fois que l'un s'allume, ils finissent par s'allumer ensemble à partir de presque n'importe quel état de départ. Le clignotement synchrone des lucioles a été décrit par Buck et Buck (1968) et d'autres."
+},
+{
+"id": "s1113",
+"page": "firefly",
+"ko": "<b>핵심 가정과 수식:</b> 개체마다 위상이 1주기에 걸쳐 한 바퀴를 돌고, 1에 닿으면 반짝이며 범위 안의 이웃 위상을 결합 세기만큼 앞당깁니다. 동기화 정도는 위상을 원 위의 점으로 놓고 평균 화살표의 길이 <code>r = |평균 e<sup>iθ</sup>|</code>(Kuramoto의 질서 변수)로 잽니다. 결합 세기, 이웃 범위, 속도 차이가 슬라이더입니다.",
+"en": "<b>Key assumptions and formulas:</b> Each firefly's phase runs once around a cycle, and on reaching 1 it flashes and advances the phase of neighbors in range by the coupling strength. Synchrony is measured by putting the phases as points on a circle and taking the length of the mean arrow, <code>r = |mean e<sup>iθ</sup>|</code> (Kuramoto's order parameter). Coupling strength, neighbor range and speed spread are the sliders.",
+"tr": "<b>Hypothèses et formules clés :</b> La phase de chaque luciole parcourt une fois un cycle, et en atteignant 1 elle clignote et avance la phase des voisines à portée selon la force de couplage. La synchronie se mesure en plaçant les phases comme des points sur un cercle et en prenant la longueur de la flèche moyenne, <code>r = |mean e<sup>iθ</sup>|</code> (paramètre d'ordre de Kuramoto). La force de couplage, la portée de voisinage et la dispersion des vitesses sont les curseurs."
+},
+{
+"id": "s1114",
+"page": "firefly",
+"ko": "<b>이 프로젝트의 단순화:</b> Mirollo–Strogatz 정리는 위상 곡선이 위로 오목하고 모두가 서로 보며 속도가 같다는 조건이 필요하지만, 여기서는 위상을 선형으로 밀고 이웃이 제한되며 속도도 개체마다 다릅니다. 그래서 정리를 그대로 적용하지 않고 시뮬레이션으로 확인합니다. 한 번 반짝임으로 전달되는 크기, 0.02씩 자라는 위상, 150마리는 이 프로젝트가 정한 값입니다.",
+"en": "<b>What this project simplifies:</b> The Mirollo–Strogatz theorem requires a concave-down phase curve, everyone seeing everyone, and equal speeds. Here the phase nudge is linear, neighbors are limited and speeds differ per firefly, so the theorem does not apply as is and the result is checked by simulation. The size of a flash's nudge, the 0.02 phase growth per step and 150 fireflies are this project's own values.",
+"tr": "<b>Ce que ce projet simplifie :</b> Le théorème de Mirollo–Strogatz exige une courbe de phase concave vers le bas, que chacun voie tout le monde et des vitesses égales. Ici, la poussée de phase est linéaire, les voisines sont limitées et les vitesses diffèrent d'une luciole à l'autre, donc le théorème ne s'applique pas tel quel et le résultat est vérifié par simulation. La taille de la poussée d'un éclair, la croissance de phase de 0,02 par pas et les 150 lucioles sont des valeurs propres à ce projet."
+},
+{
+"id": "s1115",
+"page": "firefly",
+"ko": "<b>이론값과 시뮬레이션:</b> 이론이 확실히 말하는 극단은 시뮬레이션과 맞습니다. 속도 차이가 0이면 최종 r은 1.00이고, 결합이 0이면 r은 0.06으로 무작위 위상의 기대 크기(1/√150, 약 0.07~0.08)와 같습니다. 기본 설정의 최종 r은 6회 평균 0.87이고, 결합 3% 이상에서 0.95 근처, 이웃 범위 40% 이상에서 0.96입니다(<code>node tools/validate-firefly.js</code>). 조건이 달라 임계 결합 세기의 이론값은 없습니다.",
+"en": "<b>Theory versus simulation:</b> The extremes that theory is sure about match the simulation. With zero speed spread the final r is 1.00, and with zero coupling r is 0.06, about the expected size for random phases (about 0.07 to 0.08, from 1/√150). The default final r is 0.87 averaged over 6 runs, about 0.95 at coupling of 3% or more and 0.96 at neighbor range of 40% or more (<code>node tools/validate-firefly.js</code>). Because the conditions differ there is no theoretical value for the critical coupling.",
+"tr": "<b>Théorie et simulation :</b> Les cas extrêmes dont la théorie est sûre concordent avec la simulation. Avec une dispersion de vitesses nulle, le r final vaut 1,00, et avec un couplage nul r vaut 0,06, à peu près la taille attendue pour des phases aléatoires (environ 0,07 à 0,08, d'après 1/√150). Le r final par défaut est de 0,87 en moyenne sur 6 exécutions, environ 0,95 pour un couplage de 3 % ou plus et 0,96 pour une portée de voisinage de 40 % ou plus (<code>node tools/validate-firefly.js</code>). Les conditions étant différentes, il n'existe pas de valeur théorique pour le couplage critique."
+},
+{
+"id": "s1116",
+"page": "firefly",
+"ko": "<b>더 읽을거리:</b> Mirollo & Strogatz (1990), 「Synchronization of pulse-coupled biological oscillators」, SIAM Journal on Applied Mathematics 50(6). Strogatz (2003), 『Sync』, Hyperion(교양서). Buck & Buck (1968), 「Mechanism of rhythmic synchronous flashing of fireflies」, Science 159.",
+"en": "<b>Further reading:</b> Mirollo & Strogatz (1990), \"Synchronization of pulse-coupled biological oscillators\", <i>SIAM Journal on Applied Mathematics</i> 50(6). Strogatz (2003), <i>Sync</i>, Hyperion (popular account). Buck & Buck (1968), \"Mechanism of rhythmic synchronous flashing of fireflies\", <i>Science</i> 159.",
+"tr": "<b>Pour aller plus loin :</b> Mirollo &amp; Strogatz (1990), « Synchronization of pulse-coupled biological oscillators », <i>SIAM Journal on Applied Mathematics</i> 50(6). Strogatz (2003), <i>Sync</i>, Hyperion (grand public). Buck &amp; Buck (1968), « Mechanism of rhythmic synchronous flashing of fireflies », <i>Science</i> 159."
+},
+{
+"id": "s1117",
+"page": "firefly",
+"ko": "이 프로젝트가 직접 설계한 단순화 구현이며 논문 수치를 재현한 것은 아닙니다.",
+"en": "A simplified implementation of this project's own design; it does not reproduce any paper's numbers.",
+"tr": "Une implémentation simplifiée conçue par ce projet ; elle ne reproduit les chiffres d'aucun article."
+},
+{
+"id": "s1119",
+"page": "firefly",
+"ko": "기본 설정(결합 2.5%, 범위 30%, 속도 차이 10%)으로 시드 10개를 돌리면 모두 동기화(r>0.9)에 닿고, 걸린 주기는 2~31주기(10개 중 7개는 2~6주기)입니다. 결합이 1% 이하면 r이 0.2 아래, 3% 이상이면 0.95 근처입니다 (<code>node tools/validate-firefly.js</code>로 확인).",
+"en": "With the default settings (coupling 2.5%, range 30%, speed spread 10%), 10 seeds all reach synchrony (r>0.9), taking 2 to 31 cycles (7 of the 10 within 2 to 6). At coupling of 1% or less r stays below 0.2, and at 3% or more it is near 0.95 (verify with <code>node tools/validate-firefly.js</code>).",
+"tr": "Avec les réglages par défaut (couplage 2,5 %, portée 30 %, dispersion des vitesses 10 %), 10 graines atteignent toutes la synchronie (r>0,9), en 2 à 31 cycles (7 sur 10 entre 2 et 6). À un couplage de 1 % ou moins, r reste sous 0,2, et à 3 % ou plus il est proche de 0,95 (vérifiez avec <code>node tools/validate-firefly.js</code>)."
+},
+{
+"id": "s1157",
+"page": "friendship",
+"ko": "이 관계망에서는 사람 82.6%가 자기 친구들이 평균적으로 자기보다 친구가 더 많았어요.",
+"en": "In this network, 82.6% of people had friends who, on average, had more friends than they did.",
+"tr": "Dans ce réseau, 82,6 % des personnes avaient des amis qui, en moyenne, avaient plus d'amis qu'elles."
+},
+{
+"id": "s1158",
+"page": "friendship",
+"ko": "친구 목록을 훑으면 친구가 많은 사람이 그만큼 더 자주 나오기 때문에, 친구 수가 다르기만 해도 이렇게 돼요.",
+"en": "Scanning friend lists, people with many friends show up more often, so merely having uneven friend counts produces this.",
+"tr": "En parcourant les listes d'amis, les personnes qui ont beaucoup d'amis apparaissent plus souvent ; le simple fait que le nombre d'amis soit inégal produit donc cet effet."
+},
+{
+"id": "s1159",
+"page": "friendship",
+"ko": "내 친구가 더 많아 보일 때는 내 처지보다, 목록에 허브가 자주 등장하는 구조 탓은 아닌지 살펴볼 만해요.",
+"en": "When friends seem to have more friends, it may be worth checking whether hubs simply appear in many lists before blaming yourself.",
+"tr": "Quand les amis semblent avoir plus d'amis, il peut être utile de vérifier si les hubs apparaissent simplement dans beaucoup de listes avant de se blâmer."
+},
+{
+"id": "s1161",
+"page": "friendship",
+"ko": "내가 인기가 없다거나 친구 많은 사람이 더 행복하다는 뜻은 아니에요. 82.6%도 이 모델의 실험 결과예요.",
+"en": "It does not mean you are unpopular or that people with more friends are happier; the 82.6% is this model's experimental result.",
+"tr": "Cela ne veut pas dire que vous êtes impopulaire ni que les gens qui ont plus d'amis sont plus heureux ; les 82,6 % sont le résultat expérimental de ce modèle."
+},
+{
+"id": "s1162",
+"page": "friendship",
+"ko": "모임·동네 같은 묶음 구조와 외톨이가 빠져 있어, 실제 친구 수와 관계망은 따로 조사해야 확인할 수 있어요.",
+"en": "Groups, neighborhoods and loners are missing, so real friend counts and networks need to be surveyed separately.",
+"tr": "Les groupes, les quartiers et les solitaires sont absents ; le nombre d'amis et les réseaux réels doivent donc être étudiés séparément."
+},
+{
+"id": "s1164",
+"page": "friendship",
+"ko": "<b>모델의 뿌리:</b> Scott L. Feld가 1991년 「Why your friends have more friends than you do」(<i>American Journal of Sociology</i>)에서 정리한 &quot;친구의 역설&quot;입니다. 친구 목록을 훑으면 친구가 많은 사람이 그만큼 더 자주 나오기 때문에, 친구들의 친구 수는 평균적으로 전체 평균 이상이 됩니다. 이 페이지의 관계망 규칙에는 선호 연결(Barabási와 Albert, 1999)의 아이디어를 썼습니다.",
+"en": "<b>Where the model comes from:</b> The &quot;friendship paradox&quot; laid out by Scott L. Feld in &quot;Why your friends have more friends than you do&quot; (1991, <i>American Journal of Sociology</i>). Scanning friend lists, people with many friends show up more often, so on average friends have at least as many friends as the overall average. The network rule here borrows the idea of preferential attachment (Barabási and Albert, 1999).",
+"tr": "<b>D'où vient le modèle :</b> Le « paradoxe de l'amitié » exposé par Scott L. Feld dans « Why your friends have more friends than you do » (1991, <i>American Journal of Sociology</i>). En parcourant les listes d'amis, les personnes ayant beaucoup d'amis apparaissent plus souvent, si bien qu'en moyenne les amis ont au moins autant d'amis que la moyenne générale. La règle de réseau utilisée ici emprunte l'idée de l'attachement préférentiel (Barabási et Albert, 1999)."
+},
+{
+"id": "s1165",
+"page": "friendship",
+"ko": "<b>핵심 가정과 수식:</b> 친구 목록 칸 하나를 무작위로 골랐을 때 그 사람의 친구 수 평균은 <code>⟨k²⟩/⟨k⟩ = ⟨k⟩ + Var(k)/⟨k⟩</code>이라서, 친구 수가 모두 같지 않으면 평균 ⟨k⟩보다 큽니다. 허브 쏠림 슬라이더가 클수록 Var(k)가 커집니다. 사람별 &quot;친구들의 평균&quot;을 다시 평균 낸 값도 친구 관계 하나마다 (이웃의 친구 수 ÷ 내 친구 수) + (내 친구 수 ÷ 이웃의 친구 수) ≥ 2이므로 항상 ⟨k⟩ 이상입니다.",
+"en": "<b>Key assumptions and formulas:</b> Picking one slot in the friend lists at random, the average number of friends of that person is <code>⟨k²⟩/⟨k⟩ = ⟨k⟩ + Var(k)/⟨k⟩</code>, which exceeds the mean ⟨k⟩ unless everyone has the same number. A larger hub-concentration slider raises Var(k). The average of each person's &quot;friends' average&quot; is also always at least ⟨k⟩, because each friendship contributes (neighbor's friends ÷ my friends) + (my friends ÷ neighbor's friends) ≥ 2.",
+"tr": "<b>Hypothèses et formules clés :</b> En choisissant au hasard une place dans les listes d'amis, le nombre moyen d'amis de cette personne est <code>⟨k²⟩/⟨k⟩ = ⟨k⟩ + Var(k)/⟨k⟩</code>, ce qui dépasse la moyenne ⟨k⟩ sauf si tout le monde a le même nombre d'amis. Un curseur de concentration sur les hubs plus élevé augmente Var(k). La moyenne des « moyennes des amis » de chaque personne est elle aussi toujours au moins égale à ⟨k⟩, car chaque amitié apporte (amis du voisin ÷ mes amis) + (mes amis ÷ amis du voisin) ≥ 2."
+},
+{
+"id": "s1166",
+"page": "friendship",
+"ko": "<b>이 프로젝트의 단순화:</b> 실제 사회 조사 자료가 아니라 이 프로젝트가 만든 가상 관계망입니다. 새로 온 사람이 기존 사람 중 균등하게, 또는 친구 수에 비례해 친구를 고르는 규칙이며, 외톨이도 모임·동네 같은 묶음 구조도 없습니다. 허브 쏠림 0%도 완전 무작위가 아니라 먼저 온 사람이 유리한 규칙입니다. 사람 수 150, 허브 80%, 평균 친구 6은 이 프로젝트가 정한 기본값입니다.",
+"en": "<b>What this project simplifies:</b> This is a synthetic network built by this project, not survey data. Each newcomer picks existing people uniformly or in proportion to their friend count; there are no loners and no clusters such as clubs or neighborhoods. Hub concentration of 0% is not fully random either, since early arrivals have an advantage. The defaults of 150 people, 80% hubs and 6 friends on average are this project's own choices.",
+"tr": "<b>Ce que ce projet simplifie :</b> C'est un réseau synthétique construit par ce projet, et non des données d'enquête. Chaque nouvel arrivant choisit des personnes existantes de façon uniforme ou proportionnellement à leur nombre d'amis ; il n'y a ni solitaires ni regroupements comme des clubs ou des quartiers. Une concentration sur les hubs de 0 % n'est pas non plus entièrement aléatoire, puisque les premiers arrivés ont un avantage. Les valeurs par défaut de 150 personnes, 80 % de hubs et 6 amis en moyenne sont des choix propres à ce projet."
+},
+{
+"id": "s1167",
+"page": "friendship",
+"ko": "<b>이론값과 시뮬레이션:</b> 기본값 관계망 300개 평균에서 평균 친구 수는 5.92, ⟨k²⟩/⟨k⟩는 9.70, 사람별 친구들 평균의 평균은 10.17로 둘 다 5.92보다 컸고, 300개 모두에서 (친구들 평균 − 평균 친구 수)의 최솟값이 2.81(≥ 0)이었습니다. 관계망 하나에서 친구 목록 전체의 평균은 식값 ⟨k²⟩/⟨k⟩와 같았습니다(10.0856). 친구들이 더 많은 사람의 비율은 허브 0%에서 71.3%, 100%에서 85.4%였고, 이 비율은 법칙이 아니라 이 모델의 실험 결과입니다.",
+"en": "<b>Theory versus simulation:</b> Over 300 default networks the average number of friends was 5.92, ⟨k²⟩/⟨k⟩ was 9.70 and the average of per-person friends' averages was 10.17, both above 5.92, and in all 300 the minimum of (friends' average − average friend count) was 2.81 (≥ 0). In one network the average over all friend-list slots equaled the formula ⟨k²⟩/⟨k⟩ (10.0856). The share of people whose friends have more friends was 71.3% at 0% hubs and 85.4% at 100%; that share is a result of this model, not a law.",
+"tr": "<b>Théorie et simulation :</b> Sur 300 réseaux par défaut, le nombre moyen d'amis était de 5,92, ⟨k²⟩/⟨k⟩ de 9,70 et la moyenne des moyennes d'amis par personne de 10,17, tous deux au-dessus de 5,92, et dans les 300 réseaux le minimum de (moyenne des amis − nombre moyen d'amis) était de 2,81 (≥ 0). Dans un réseau, la moyenne sur toutes les places des listes d'amis égalait la formule ⟨k²⟩/⟨k⟩ (10,0856). La part de personnes dont les amis ont plus d'amis était de 71,3 % à 0 % de hubs et de 85,4 % à 100 % ; cette part est un résultat de ce modèle, et non une loi."
+},
+{
+"id": "s1168",
+"page": "friendship",
+"ko": "<b>더 읽을거리:</b> Feld (1991), Why your friends have more friends than you do, <i>American Journal of Sociology</i> / Barabási &amp; Albert (1999), Emergence of scaling in random networks, <i>Science</i> / Christakis &amp; Fowler (2010), Social network sensors for early detection of contagious outbreaks, <i>PLoS ONE</i> (이 성질을 감염병 조기 감지에 쓰자는 제안).",
+"en": "<b>Further reading:</b> Feld (1991), Why your friends have more friends than you do, <i>American Journal of Sociology</i> / Barabási &amp; Albert (1999), Emergence of scaling in random networks, <i>Science</i> / Christakis &amp; Fowler (2010), Social network sensors for early detection of contagious outbreaks, <i>PLoS ONE</i> (a proposal to use this property for early outbreak detection).",
+"tr": "<b>Pour aller plus loin :</b> Feld (1991), Why your friends have more friends than you do, <i>American Journal of Sociology</i> / Barabási &amp; Albert (1999), Emergence of scaling in random networks, <i>Science</i> / Christakis &amp; Fowler (2010), Social network sensors for early detection of contagious outbreaks, <i>PLoS ONE</i> (une proposition d'utiliser cette propriété pour la détection précoce des épidémies)."
+},
+{
+"id": "s1169",
+"page": "friendship",
+"ko": "재생의 표본 추출은 \"무작위로 고른 사람이 말해 준 친구\"를 뽑는 방식이라 사람별 친구들 평균의 평균(10.17명)에 수렴합니다.",
+"en": "The sampling in the animation draws \"a friend named by a randomly chosen person\", so it converges to the average of per-person friend averages (10.17).",
+"tr": "L'échantillonnage dans l'animation tire « un ami cité par une personne choisie au hasard », il converge donc vers la moyenne des moyennes d'amis par personne (10,17)."
+},
+{
+"id": "s1172",
+"page": "fxrate",
+"ko": "캐리 트레이드와 환율 · 시뮬라티오 랩",
+"en": "Carry Trade and Exchange Rates · Simulatio Lab",
+"tr": "Carry trade et taux de change · Simulatio Lab"
+},
+{
+"id": "s1173",
+"page": "fxrate",
+"ko": "금리가 높은 나라의 통화를 사서 이자를 챙기는 캐리 트레이드가 왜 오래 조금씩 벌다 한 번에 크게 잃는지, 환율과 투자자 쏠림 시뮬레이션으로 직접 돌려보세요.",
+"en": "Run a simulation of exchange rates and investor crowding to see why the carry trade, buying a high-interest currency for its interest, tends to earn a little for years and then lose a lot at once.",
+"tr": "Lancez une simulation de taux de change et d'afflux d'investisseurs pour voir pourquoi le carry trade, qui consiste à acheter une devise à taux élevé pour son intérêt, tend à rapporter un peu pendant des années, puis à faire perdre beaucoup d'un coup."
 }
 ]

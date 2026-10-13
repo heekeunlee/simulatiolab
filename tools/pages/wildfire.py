@@ -19,7 +19,7 @@ page(dict(
         T('화면의 두 숲은 같은 설정으로 시작하지만 왼쪽은 s=0(그냥 두기), 오른쪽은 고른 s입니다. 아래 통계는 두 숲을 따로 오래 돌려(보통 4만 단계) 센 값이고, 큰 불은 격자 칸의 10% 이상을 태운 불입니다.',
           'The two forests on screen start with the same settings, but the left one has s = 0 (let it burn) and the right one the s you choose. The statistics below come from running the two forests separately for a long time (usually 40,000 steps); a big fire is one that burns 10% or more of the grid cells.')],
  sliders=[('p', T('나무가 자라는 속도 (p)', 'Tree growth rate (p)'), 0.005, 0.03, 0.005, 0.01, T('매 단계 빈 땅 100칸 중 몇 칸에 나무가 자라는지. 클수록 숲이 빨리 우거져요', 'How many of every 100 empty cells grow a tree each step. Higher means a faster-growing forest')),
-          ('f', T('번개 세기 (f)', 'Lightning rate (f)'), 1, 10, 1, 2, T('칸 1만 개당 단계마다 치는 번개 수. 번개가 잦으면 불이 작을 때 번져 큰 불이 잘 안 나요', 'Lightning strikes per 10,000 cells per step. Frequent lightning burns forests while the fires are still small')),
+          ('f', T('번개 세기 (f)', 'Lightning rate (f)'), 1, 10, 1, 2, T('칸 1만 개당 단계마다 치는 번개 수. 번개가 잦으면 불이 작을 때 번져 큰 불이 잘 안 나요', 'Lightning strikes per 10,000 cells per step. Frequent lightning burns forests while the fires are still small, so big fires rarely occur')),
           ('s', T('작은 불을 끄는 확률 (s)', 'Chance of putting out a small fire (s)'), 0, 100, 10, 90, T('0%면 오른쪽도 그냥 둡니다. 큰 불은 끌 수 없어요', 'At 0% the right forest is left alone too. Large fires cannot be put out')),
           ('n', T('숲의 크기', 'Forest size'), 60, 160, 20, 100, T('한 변의 칸 수. 클수록 큰 불이 숲 전체를 덮기 어려워요', 'Cells per side. In a bigger forest, a fire has a harder time covering all of it'))],
  selects=[],

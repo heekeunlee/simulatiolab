@@ -1,0 +1,54 @@
+{
+ "d1249": {
+  "tr": "La velocidad del frente es 2√(rD), fijada solo por la tasa de crecimiento r y la dispersión D. Con los valores por defecto la teoría da 1.00 km/año y la simulación midió 1.03 km/año (1.12 para la teoría con asimilación).",
+  "why": "소수점 표기를 같은 페이지(0.33 등)와 통일"
+ },
+ "d1270": {
+  "tr": "Cuando todos envían el mismo número, todas las puntuaciones suben por igual, así que el mayor cambio de posición es 0. Una sola familia gana 7.5 puntos, mientras que en la ejecución por defecto el costo creció hasta 5.0 veces el inicial y la posición media siguió en 50 %.",
+  "why": "퍼센트 띄어쓰기·coste/costo 통일"
+ },
+ "d1274": {
+  "tr": "Si la proporción de niños que se quedan en casa al enfermar sube de 0 % a 70 %, ¿qué ocurre con los contagios por año? (clase de 20, configuración de ejemplo)",
+  "why": "같은 페이지의 퍼센트 띄어쓰기(87 %)와 통일"
+ },
+ "d1275": {
+  "tr": "Promediando 20 semillas, pasó de 5.0 a 3.5. Incluso con 100 % en casa fue 2.5, cerca de la mitad, porque los niños contagian el día antes de los síntomas y además llegan contagios desde fuera de la clase.",
+  "why": "같은 페이지의 퍼센트 띄어쓰기(87 %)와 통일"
+ },
+ "d1278": {
+  "tr": "Baja cerca de un 30 %, de 5.0 a 3.5",
+  "why": "같은 페이지의 퍼센트 띄어쓰기(87 %)와 통일"
+ },
+ "d1280": {
+  "tr": "En una muestra de 60 niños, 43 % (26) salió ganando con Boston y 0 % con aceptación diferida (Boston promedió 34.3 % en las semillas 1 a 12). La aceptación diferida es un diseño en el que lo mejor es ser sincero.",
+  "why": "같은 페이지의 퍼센트 띄어쓰기(87 %)와 통일"
+ },
+ "d1281": {
+  "tr": "Parecido en ambos, alrededor de 40 %",
+  "why": "같은 페이지의 퍼센트 띄어쓰기(87 %)와 통일"
+ },
+ "d1282": {
+  "tr": "Boston 43 %, aceptación diferida 0 %",
+  "why": "같은 페이지의 퍼센트 띄어쓰기(87 %)와 통일"
+ },
+ "d1283": {
+  "tr": "Boston 0 %, aceptación diferida 43 %",
+  "why": "같은 페이지의 퍼센트 띄어쓰기(87 %)와 통일"
+ },
+ "d1272": {
+  "tr": "Se queda igual y solo crece el costo",
+  "why": "coste/costo 통일(다른 문구는 costo)"
+ },
+ "d1366": {
+  "tr": "Derrumbes: {0}",
+  "why": "1일 때 복수형 불일치 방지"
+ },
+ "d1382": {
+  "tr": "Derrumbes: máx. {0} · típico (mediana) {1}",
+  "why": "1일 때 복수형 불일치 방지"
+ },
+ "d1408": {
+  "tr": "({0}% de la colocación ordenada)",
+  "why": "'del orden'는 뜻이 불명확"
+ }
+}

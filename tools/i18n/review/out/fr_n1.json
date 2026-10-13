@@ -1,0 +1,74 @@
+{
+ "s0575": {
+  "tr": "<b>Ce que ce projet simplifie :</b> Le réseau est un réseau symétrique de quatre routes avec une seule origine et une seule destination, et les conducteurs ne se soucient que du temps. La règle de nouveau choix (à chaque tour, 8 % des conducteurs changent, et seulement si c'est nettement plus rapide) et les valeurs par défaut (sensibilité 10, coût du raccourci 0 minute) sont des choix propres à ce projet ; il n'y a ni trafic urbain réel ni variation de la demande.",
+  "why": "백분율 앞 공백(페이지 내 일관)"
+ },
+ "s0576": {
+  "tr": "<b>Théorie et simulation :</b> Avec 4 000 conducteurs et un coût de 0, la théorie donne 65,0 minutes raccourci fermé, 80,0 ouvert et 64,7 à l'optimum social, et la simulation a atteint 65,0 et 80,0 (tour 180). Dans plusieurs réglages faisant varier conducteurs, coût du raccourci et sensibilité, les moyennes finales simulées concordaient avec la théorie, et le gain à changer seul à l'état final était de 0 minute. Le prix de l'anarchie (équilibre ÷ optimum) était de 1,24 pour 4 000 conducteurs et a culminé à 1,33 (= 4/3) pour 4 500, soit exactement la borne connue de 4/3 pour les retards linéaires.",
+  "why": "'여러 설정'을 '모든'으로 과장; 어색한 표현"
+ },
+ "s0586": {
+  "tr": "Le bus de derrière trouve de courtes files, car celui de devant a déjà pris les passagers ; il repart donc vite et le rattrape. Celui de devant ralentit, celui de derrière accélère : cette <b>rétroaction positive</b> amplifie de minuscules différences jusqu'à ce que plusieurs bus roulent en un seul paquet.",
+  "why": "뭉침 용어 통일(paquet)"
+ },
+ "s0617": {
+  "tr": "Avant d'accuser les conducteurs, mieux vaut examiner la structure où le temps d'arrêt croît avec l'écart, ainsi que l'allongement du tour que coûte la régulation de l'espacement.",
+  "why": "'한 바퀴'를 tour로 통일, 어색한 문장 정리"
+ },
+ "s0652": {
+  "tr": "L'axe horizontal indique l'affluence aux caisses et l'axe vertical l'attente moyenne. Les traits pleins sont la simulation, les pointillés la théorie. Avec un choix de file au hasard (rouge), l'attente explose hors du graphique quand l'affluence augmente, tandis que la file la plus courte (orange) et celle qui a le moins d'articles (vert) restent bien plus proches de la file unique (bleu).",
+  "why": "비문(file 누락)"
+ },
+ "s0662": {
+  "tr": "Avec des files séparées, une caisse peut rester inactive pendant que des clients d'autres files attendent sans pouvoir en changer, ce qui peut gaspiller de la capacité.",
+  "why": "어색한 표현(d'autres ont la queue)"
+ },
+ "s0751": {
+  "tr": "Dans ce cadre, sans surveillance, le stock est tombé à 1-2 % de la capacité, puis s'est stabilisé autour de 26 %.",
+  "why": "'à 1 à 2' 어색"
+ },
+ "s0759": {
+  "tr": "<b>Hypothèses et formules clés :</b> Le stock S croît selon <code>S ← S + r·S·(1 − S/K) − prélèvement</code> (r=0,4, K=100), et pour S = K/2 le prélèvement maximal soutenable est <code>rK/4 = 10</code>. Le gain est le prélèvement moins le coût de l'effort ; le curseur de surveillance est la probabilité qu'un utilisateur avide soit pris et l'amende s'exprime en multiples de la prise du tour. Les stratégies se diffusent par une règle de copie (une fonction logistique de la différence de gains, la règle de Fermi).",
+  "why": "벌금=수확의 몇 배, 부자연스러운 문장"
+ },
+ "s0760": {
+  "tr": "<b>Ce que ce projet simplifie :</b> Le coût de l'effort (25), le taux de repousse (0,4), l'intensité de l'avidité (3 fois la part soutenable), la probabilité de copie (25 %), la mutation (1 %) et les 10 % initiaux de modérés sont tous fixés par ce projet. Les utilisateurs suivent l'une de trois stratégies, et la propriété, l'arrivée de personnes extérieures, la confiance et le rôle de l'État sont absents. Les conditions de réussite identifiées par Ostrom, comme des limites claires et des règles adaptées au contexte local, ne figurent pas non plus dans le modèle.",
+  "why": "탐욕=avidité로 통일; 외부인≠étrangers(외국인)"
+ },
+ "s0761": {
+  "tr": "<b>Théorie et simulation :</b> Le prélèvement maximal soutenable de 10 est le même dans la formule et dans la simulation. Avec 100 % de surveillance, le prélèvement moyen était de 10,0 et le stock d'environ 48 % de la capacité, proche du niveau théorique (50 %) qui donne le prélèvement maximal. Sans surveillance, le stock était en moyenne de 26 % sur la dernière période avec un prélèvement de 7,0. Le niveau de profit nul de Gordon n'a pas été comparé numériquement, et les parts de stratégies diffusées par copie n'ont pas de forme fermée, elles n'ont donc été vérifiées que par simulation.",
+  "why": "1인칭 제거(원문은 비인칭)"
+ },
+ "s0795": {
+  "tr": "Dans ce modèle, les rencontres répétées réduisent le gain de la trahison, et les erreurs fréquentes enferment Tit for Tat dans un cycle de représailles.",
+  "why": "맞받아치기 용어 통일(Tit for Tat)"
+ },
+ "s0801": {
+  "tr": "<b>D'où vient le modèle :</b> Le dilemme du prisonnier est un jeu conçu vers 1950 par Flood et Dresher à la RAND. Le fait que la répétition permette la coopération a été montré par Axelrod et Hamilton (1981) et Axelrod (1984) avec des tournois et une simulation évolutive, où la stratégie soumise la plus simple, le Tit for Tat d'Anatol Rapoport, l'a emporté.",
+  "why": "entry 오역(participation)"
+ },
+ "s0802": {
+  "tr": "<b>Hypothèses et formules clés :</b> Un tour unique rapporte tentation T &gt; récompense R &gt; punition P &gt; dupe S, et dans la répétition une coopération constante devrait l'emporter sur l'exploitation à tour de rôle, <code>2R &gt; T+S</code> (ici 3, 1, 0 et T=5, donc 6 &gt; 5). La défection gagne toujours dans un jeu unique, mais si la probabilité de se revoir est assez grande, des stratégies comme Tit for Tat deviennent stables (la condition d'Axelrod est <code>w ≥ max((T−R)/(T−P), (T−R)/(R−S))</code>, soit w ≥ 2/3 pour cette table de gains, environ 3 tours en moyenne). Les curseurs sont T, le nombre de tours, le taux d'erreurs et la part initiale de défecteurs.",
+  "why": "배신자=défecteurs (déserteurs는 탈영병)"
+ },
+ "s0803": {
+  "tr": "<b>Ce que ce projet simplifie :</b> Axelrod a organisé un tournoi toutes rondes avec des stratégies soumises par des participants et a laissé les stratégies croître en proportion de leurs scores. Ce projet n'a que cinq stratégies, joue contre 6 adversaires au hasard et copie selon une règle de Fermi (Szabó & Tőke 1998). Le nombre de tours est fixe plutôt que probabiliste, et la température d'imitation 0,4 et la mutation de 1 % sont des valeurs choisies par ce projet.",
+  "why": "어색/오역"
+ },
+ "s0804": {
+  "tr": "<b>Théorie et simulation :</b> Il n'existe pas de réponse sous forme fermée, seule la tendance a donc été comparée. Avec 1 ou 2 tours, la coopération est de 3 % (presque tous font défection) et dès 5 tours elle monte à 90 %, conformément à la théorie selon laquelle la coopération exige des rencontres répétées. Sans erreurs, elle est de 99 % et, à 10 % d'erreurs, elle s'effondre à 11 %, ce qui correspond à l'idée connue que le bruit pousse Tit for Tat à des représailles sans fin. « Tit for Tat est le meilleur » n'a pas été reproduit ; avec des erreurs, Pavlov et Tit for Tat généreux sont en tête, ce qui se rapproche plutôt de Nowak & Sigmund (1993) (<code>node tools/validate-cooperation.js</code>).",
+  "why": "문법(일치/연결)"
+ },
+ "s0838": {
+  "tr": "<b>D'où vient le modèle :</b> L'idée que les deux parties doivent être d'accord vient du problème des mariages stables de Gale et Shapley (1962, « College Admissions and the Stability of Marriages », <i>American Mathematical Monthly</i>) ; l'exigence qui baisse vient de la théorie de la recherche du salaire de réservation de McCall (1970). Les modèles de recherche du marché matrimonial ont été développés par Burdett et Coles (1997).",
+  "why": "영어 소유격 's가 남음"
+ },
+ "s0857": {
+  "tr": "Part d'enfants qui restent à la maison en cas de maladie <output id=\"o-stay\"></output>",
+  "why": "'elle' 지시 불명확, 어색"
+ },
+ "s0872": {
+  "tr": "L'axe horizontal est la semaine depuis la rentrée et l'axe vertical la part d'enfants malades cette semaine-là. La ligne rouge est cette simulation, la ligne foncée la part de ces enfants qui se reposent à la maison, et la ligne grise la moyenne quand personne ne reste à la maison avec les mêmes réglages. La propagation est forte au début car tout le monde est réceptif, puis elle diminue à mesure que l'immunité se constitue.",
+  "why": "어색한 표현"
+ }
+}

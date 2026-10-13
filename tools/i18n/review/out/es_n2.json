@@ -1,0 +1,58 @@
+{
+ "s0887": {
+  "tr": "<b>Supuestos y fórmulas clave:</b> Una clase se trata como totalmente mezclada, y un niño infectado infecta en promedio a <code>R0 = τ × (tamaño de la clase − 1) × días de asistencia estando enfermo</code> otros. τ es la probabilidad de que una pareja lo contagie en un día (nivel de contacto × 1% × (1 − reducción del contagio)) y los días de asistencia estando enfermo son <code>1 + (5 − 1) × (1 − proporción en casa)</code>. Cuando un brote termina, la proporción que se contagió, z, cumple <code>z = 1 − e<sup>−R0·z</sup></code>. Los controles deslizantes son el tamaño de la clase, el nivel de contacto (τ), la proporción en casa y la reducción del contagio (τ).",
+  "why": "\"días enfermo con asistencia\"·\"contagio reducido\" 어색 → 자연스러운 표현"
+ },
+ "s0889": {
+  "tr": "<b>Teoría frente a simulación:</b> Comparé con promedios de veinte ejecuciones en las condiciones en que la teoría se aplica (una clase de 500, sin fines de semana, estacionalidad, infección externa ni reinfección, 5 casos iniciales). Con R0 1,5 la teoría da 58,3% y la simulación 56,8%; con R0 2, 79,7% y 80,6%; con R0 3, 94,0% y 94,6%. Con 50% en casa (R0 2) fue 79,7% y 77,7%, y con 70% (R0 3) 94,0% y 95,0%. Con R0 0,8 la teoría predice que no hay un brote grande y la simulación tuvo solo 4,2% de infectados incluyendo los 5 primeros. La configuración por defecto (con fines de semana, estación, infección externa y reinfección) no tiene forma cerrada, así que se comprobó solo por simulación.",
+  "why": "season=계절 효과, \"estación\"은 오역(계절 자체)"
+ },
+ "s0917": {
+  "tr": "④ ¿Qué densidad alcanza con cada nivel de adherencia?",
+  "why": "어색한 의문문"
+ },
+ "s0921": {
+  "tr": "Una menor probabilidad de adherencia la hizo más densa, así que las condiciones de crecimiento merecen revisarse para explicar las formas dispersas o densas.",
+  "why": "용어 통일(adherencia)"
+ },
+ "s0924": {
+  "tr": "Saber si un caso real comparte el principio exige medir su difusión y adherencia y comparar las formas.",
+  "why": "용어 통일(adherencia)"
+ },
+ "s0927": {
+  "tr": "<b>Supuestos y fórmulas clave:</b> El cúmulo crece de una partícula en una, y cada una llega mediante un paseo aleatorio (difusión). El lugar donde una partícula aterriza en la superficie lo determina el campo de concentración difusivo a su alrededor (una solución de la ecuación de Laplace), y las puntas salientes son más fáciles de alcanzar, así que crecen ramas. El tamaño escala como <i>M ∝ R<sup>D</sup></i> (masa M, radio R, dimensión fractal D). El control deslizante «probabilidad de adherencia» es la probabilidad de pegarse al contacto y «número de partículas» es el total que se hace crecer.",
+  "why": "따옴표 통일(«»)"
+ },
+ "s0929": {
+  "tr": "<b>Teoría frente a simulación:</b> La dimensión fractal de la DLA en 2D se cita ampliamente como aproximadamente 1,71 (aquí solo se usa como valor de la literatura para comparar). En la simulación, una semilla puntual con 100% de adherencia y 4.000 partículas, ejecutada 8 veces, dio una D media de 1,66 (±0,03, rango de 1,61 a 1,69), unos 0,05 por debajo, y menor con menos partículas (1,56 con 500, 1,65 con 2.000, 1,66 con 4.000 y 8.000). Es probable que los efectos de tamaño finito y de la cuadrícula la mantengan por debajo del valor asintótico.",
+  "why": "페이지 내 % 표기 통일"
+ },
+ "s0976": {
+  "tr": "<b>Supuestos y fórmulas clave:</b> El bosque sigue un crecimiento logístico (Verhulst 1838) menos la tala humana, y la población crece más rápido cuanto más intacto está el bosque, con un descenso de base de 0,03. El equilibrio es <code>R* = 0,03 ÷ tasa de crecimiento</code> y <code>P* = regeneración × (1−R*) ÷ (cosecha × (1−conservación))</code>. Los controles deslizantes de crecimiento, regeneración, cosecha y conservación son coeficientes de estas ecuaciones, y un retardo de reacción más largo hace mayores las oscilaciones en torno al equilibrio.",
+  "why": "소수 표기 통일(쉼표)"
+ },
+ "s1017": {
+  "tr": "La velocidad por sí sola no permite distinguir la migración de la difusión de ideas, así que también vale la pena examinar de quién descienden quienes se expandieron.",
+  "why": "비문"
+ },
+ "s1024": {
+  "tr": "<b>Qué simplifica este proyecto:</b> El mapa es abstracto, la tierra casi uniforme, y los cazadores-recolectores ni se mueven ni cambian: su densidad se mantiene constante en 0,25. Una generación = 25 años, κ y h₀ de arriba, y las montañas (crecimiento 0,5 veces, dispersión 0,25 veces) son supuestos de este proyecto. Si la agricultura se extendió por el movimiento de personas o por la difusión de ideas y técnicas sigue siendo objeto de debate; el modelo solo se desliza entre ambas con un único parámetro de mezcla y no decide cuál es la correcta.",
+  "why": "어색한 전치사"
+ },
+ "s1061": {
+  "tr": "La industria, los medios, el precio y la existencia de varias direcciones de huida deben comprobarse con datos reales de moda.",
+  "why": "\"no únicas\" 어색"
+ },
+ "s1066": {
+  "tr": "<b>Teoría frente a simulación:</b> No hay solución de forma cerrada, pero existe un argumento sencillo: todo el flujo gira a la velocidad de la más lenta de las dos. El ángulo por ronda es aproximadamente min(α, β), así que con α=β=2° se esperan unas 0,55 vueltas por cada 100 rondas y el valor medido es 0,53; α=0,5/1 da 0,13/0,27 vueltas (esperado 0,14/0,28), y β=1 da 0,26 (esperado 0,28). Con β=0 no hay rotación hasta las 6.000 rondas.",
+  "why": "문법/의미 보완"
+ },
+ "s1159": {
+  "tr": "Cuando los amigos parecen tener más amigos, puede valer la pena comprobar si los hubs simplemente aparecen en muchas listas antes de culparse a uno mismo.",
+  "why": "용어 통일(hubs)"
+ },
+ "s1165": {
+  "tr": "<b>Supuestos y fórmulas clave:</b> Al elegir al azar una posición en las listas de amigos, el número medio de amigos de esa persona es <code>⟨k²⟩/⟨k⟩ = ⟨k⟩ + Var(k)/⟨k⟩</code>, que supera la media ⟨k⟩ salvo que todos tengan el mismo número. Subir el control deslizante de concentración en hubs aumenta Var(k). El promedio del \"promedio de amigos\" de cada persona también es siempre al menos ⟨k⟩, porque cada amistad aporta (amigos del vecino ÷ mis amigos) + (mis amigos ÷ amigos del vecino) ≥ 2.",
+  "why": "어색한 문장"
+ }
+}
