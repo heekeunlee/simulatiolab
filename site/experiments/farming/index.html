@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="The Spread of Farming · Simulatio Lab">농경의 전파 · 시뮬라티오 랩</title>
+<meta name="description" content="인구가 늘고 조금씩 흩어지는 두 가지 규칙만으로 농경이 한 해에 1킬로미터쯤의 속도로 대륙을 덮는 모습을, 지도 위에서 직접 돌려보세요." data-en-content="Watch farming sweep across a map at roughly a kilometer a year from just two rules, population growth and slow dispersal, and change them yourself.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="theme-color" content="#2f6fed">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1 data-en="How Did Farming Cross a Continent? About One Kilometer a Year">농사는 어떻게 대륙을 건넜을까: 한 해에 1킬로미터씩 번진 농경</h1>
+  <p class="lead" data-en="The speed at which farming spread looks pitiful next to a walking pace: a bit over 25 kilometers per generation of about 25 years. Yet if that slow march never stops, then in this model a whole map is farmland in about a thousand years. Odder still, nobody sets that speed. The claim is that two numbers, how fast a population grows and how far it scatters, fix it by themselves. Is that really so? Change the two values and see.">농사가 번지는 속도는 걸음에 비하면 보잘것없습니다. 한 세대(약 25년)에 25킬로미터 남짓이니까요. 그런데 이 느린 걸음이 쉬지 않고 이어지면, 이 모델에서는 약 천 년 만에 지도 전체가 농지로 덮입니다. 더 이상한 것은 그 속도를 누가 정해 준 적이 없다는 점입니다. &#39;늘어나는 속도&#39;와 &#39;흩어지는 정도&#39; 두 숫자만 있으면 속도가 저절로 정해진다는데, 정말 그럴까요? 직접 두 값을 바꿔 보세요.</p>
+
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li data-en="The map is a grid of 10 km cells. Each cell has a &lt;b&gt;farmer density&lt;/b&gt; (1 is the most the land can carry) and a &lt;b&gt;hunter-gatherer density&lt;/b&gt; (0.25 everywhere at first). Farmers start in only one place, the origin on the middle of the left edge.">지도는 10km 칸으로 나뉘어 있고, 칸마다 <b>농부 밀도</b>(땅이 감당하는 최대치를 1로)와 <b>수렵채집민 밀도</b>(처음에는 어디나 0.25)가 있습니다. 한 곳(왼쪽 가운데 &#39;기원지&#39;)에서만 농부가 시작합니다.</li>
+    <li data-en="Farmers do two things. Inside a cell they &lt;b&gt;multiply&lt;/b&gt; (growth rate r, stopping when the cell is full), and they &lt;b&gt;drift a little&lt;/b&gt; into neighboring cells (dispersal coefficient D). Together the two values set the speed of the front.">농부는 두 가지로 움직입니다. 한 칸 안에서 <b>늘어나고</b>(성장률 r, 가득 차면 멈춤), 이웃 칸으로 <b>조금씩 흩어집니다</b>(확산 계수 D). 두 값이 같이 정하는 속도가 전선의 속도입니다.</li>
+    <li data-en="Hunter-gatherers stay where they are. The more farmers a cell has, the fewer hunter-gatherers remain, and the share set by the &lt;b&gt;mixing&lt;/b&gt; slider becomes farmers (assimilation) while the rest is pushed out (replacement).">수렵채집민은 제자리에 머뭅니다. 농부가 많아질수록 그 칸의 수렵채집민이 줄어드는데, 줄어든 몫 가운데 <b>섞이는 비율</b>만큼은 농부가 되고(동화), 나머지는 밀려나 사라집니다(대체).</li>
+    <li data-en="The land is slightly different in fertility from cell to cell (up to ±25%). The &lt;b&gt;strait&lt;/b&gt; is sea except for one land bridge, and the &lt;b&gt;mountains&lt;/b&gt; are a band where growth and dispersal are slow. Map colors show when farmers first arrived, with a new band every 100 years.">땅은 칸마다 기름짐이 조금씩 다릅니다(최대 ±25%). <b>해협</b>은 땅다리 하나만 남기고 바다로 막고, <b>산맥</b>은 성장과 확산이 느린 띠입니다. 지도의 색은 농부가 처음 들어선 시각이고, 100년마다 띠가 바뀝니다.</li>
+  </ul>
+
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="r" data-en="Population growth rate (r) &lt;output id=&quot;o-r&quot;&gt;&lt;/output&gt;">인구 증가율 (r) <output id="o-r"></output></label>
+        <input type="range" id="r" min="10" max="40" step="1" value="25">
+        <span class="hint" data-en="Higher means faster growth. At 2.5% a year the population doubles in about 28 years">클수록 인구가 빨리 늘어요. 연 2.5%면 약 28년마다 두 배</span></div>
+<div class="ctl"><label for="D" data-en="Dispersal (D) &lt;output id=&quot;o-D&quot;&gt;&lt;/output&gt;">흩어지는 정도 (D) <output id="o-D"></output></label>
+        <input type="range" id="D" min="4" max="30" step="1" value="10">
+        <span class="hint" data-en="Higher means spreading wider into neighbors (square kilometers per year)">클수록 이웃으로 더 넓게 퍼져요 (제곱킬로미터 / 년)</span></div>
+<div class="ctl"><label for="mix" data-en="Mixing with hunter-gatherers &lt;output id=&quot;o-mix&quot;&gt;&lt;/output&gt;">토착민과 섞이는 비율 <output id="o-mix"></output></label>
+        <input type="range" id="mix" min="0" max="100" step="5" value="50">
+        <span class="hint" data-en="0% means locals are displaced, 100% means they all become farmers">0%면 토착민은 밀려나고, 100%면 모두 농부가 돼요</span></div>
+<div class="ctl"><label for="barrier" data-en="Landscape barrier &lt;output id=&quot;o-barrier&quot;&gt;&lt;/output&gt;">지형 장벽 <output id="o-barrier"></output></label>
+        <select id="barrier" class="sel"><option value="none" selected data-en="None">없음</option><option value="sea" data-en="Strait (one land bridge)">해협 (땅다리 하나)</option><option value="mountain" data-en="Mountains (slow band)">산맥 (느린 띠)</option></select>
+        <span class="hint" data-en="Turn a barrier on to see the front go around it or slowly across">장벽을 켜면 전선이 돌아가거나 천천히 넘어가는 것을 볼 수 있어요</span></div>
+    </div>
+    <div class="btns">
+      <button class=primary id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Same settings, different land">같은 설정, 다른 땅</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3 data-en="① Farming Spreading">① 번져 가는 농경</h3>
+    <p data-en="The star marks where farming begins. Color shows when farmers first arrived in a place (years since leaving the origin), and the dark lines between bands are contours. Lines packed close together do not mean fast; the front was moving slowly there.">별표가 농경의 시작점입니다. 색은 그 땅에 농부가 처음 들어선 시각(기원지를 떠난 뒤 지난 햇수)이고, 띠 사이의 짙은 선이 곧 등고선입니다. 선이 촘촘하면 빠르게 지나간 곳이 아니라 오히려 느리게 지나간 곳이에요.</p>
+    <canvas id="c-map" class="rounded" data-thumb aria-label="① Farming Spreading"></canvas>
+    <div class="anim-bar">
+      <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
+      <button id="stepbtn" data-en="Step">한 단계</button>
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="speed"><option value="8" data-en="Slow">느리게</option><option value="20" selected data-en="Normal">보통</option><option value="50" data-en="Fast">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+    <div class="anim-bar"><label for="view" class="muted small" data-en="Map view">지도 보기</label> <select id="view" class="sel"><option value="time" data-en="Arrival time (contour bands)" selected>도착 시각 (등고선 띠)</option><option value="anc" data-en="Ancestry of the farmers">농부의 혈통</option></select><span class="muted small" data-en="Switch to see whose descendants the farmers are: migrants or local hunter-gatherers.">농부들이 이주민의 후손인지 토착민의 후손인지 바꿔 볼 수 있어요.</span></div>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3 data-en="② How Far Has the Front Gone?">② 전선은 얼마나 멀리 갔을까</h3>
+    <p data-en="The blue line is the distance from the origin to the farthest farmers. The green dashed line comes from the Fisher-Kolmogorov theory, 2√(rD), and when locals are assimilated the front follows the slightly steeper red dashed line. The first hundred or so years lag behind the theory while the front settles in, after which the slope runs parallel to it. With a barrier, watch where the line bends.">파란 선은 기원지에서 가장 멀리 간 농부까지의 거리입니다. 초록 점선은 피셔-콜모고로프 이론 2√(rD)에서 나온 직선이고, 토착민을 흡수하면 빨간 점선처럼 조금 더 가팔라집니다. 처음 100여 년은 전선이 자리를 잡느라 이론선보다 늦지만 기울기는 이론과 나란해집니다. 장벽이 있으면 선이 꺾이는 곳을 보세요.</p>
+    <canvas id="c-front" class="" aria-label="② How Far Has the Front Gone?"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ Arrival Time, Cell by Cell">③ 칸마다 도착 시각</h3>
+    <p data-en="Each dot is one cell of the map. The horizontal axis is distance from the origin and the vertical axis the time farmers first arrived. Dots lining up along the theory line mean a steady speed, and dots that rise above the line are places delayed by a barrier.">점 하나가 지도의 칸 하나입니다. 가로는 기원지에서의 거리, 세로는 농부가 처음 닿은 시각이에요. 점들이 이론의 직선을 따라 늘어서면 일정한 속도로 퍼졌다는 뜻이고, 직선 위로 솟은 곳은 장벽 때문에 늦어진 곳입니다.</p>
+    <canvas id="c-arrive" class="" aria-label="③ Arrival Time, Cell by Cell"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="④ How Speed Changes with Growth">④ 성장률을 바꾸면 속도는</h3>
+    <p data-en="Keeping the current dispersal and mixing, only the growth rate was varied (a plane wave unrolled onto one strip). If the measured dots nearly sit on the theory curve, the claim that two numbers fix the speed holds up.">지금의 흩어지는 정도와 섞이는 비율에서 성장률만 바꿔 가며 쟀습니다(한 줄로 펼친 평면 파동). 이론 곡선과 측정점이 거의 겹치면, 속도가 두 숫자로 정해진다는 말이 맞는다는 뜻입니다.</p>
+    <canvas id="c-sweep" class="" aria-label="④ How Speed Changes with Growth"></canvas>
+    </section>
+  </div>
+
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout" data-en="&lt;b&gt;What it shows:&lt;/b&gt; With the defaults (2.5% growth a year, dispersal 10 km²/year, mixing 50%, no barrier, land number 1) the measured front speed is 1.03 km/year, against 1.00 km/year from the theory 2√(rD) without assimilation and 1.12 km/year with it. That is about 26 km per generation of 25 years, and 99% of the land was covered after 975 years. With the same settings a barrier slowed things: 1,095 years with the strait and 1,130 with the mountains. At the strait the front bent toward the land bridge and fanned out again on the far side, while inside the mountains speed fell to about a third of the lowland value (0.29 versus 0.89 km/year, theory 0.35 times) without stopping. Varying the growth rate on a single strip gave speeds 94 to 100% of the theory, and raising mixing from 0% to 100% raised the speed from 0.97 to 1.19 km/year, within 4% of the theory with assimilation (1.00 to 1.22). In the same runs the share of farmers descended from local hunter-gatherers was 87% at 50% mixing and 95% at 100%. The speed was nearly the same, yet whose descendants spread was very different."><b>말하는 것:</b> 기본값(연 2.5% 성장, 흩어지는 정도 10km²/년, 섞이는 비율 50%, 장벽 없음, 땅 번호 1)에서 잰 전선 속도는 1.03km/년이고, 흡수가 없을 때의 이론 2√(rD)는 1.00km/년, 흡수를 반영한 이론은 1.12km/년입니다. 한 세대(25년)로 치면 약 26km이고, 땅의 99%가 덮이는 데 975년이 걸렸습니다. 장벽이 있으면 같은 설정에서 해협은 1,095년, 산맥은 1,130년으로 늦어졌습니다. 해협에서는 전선이 땅다리 쪽으로 휘어 들어가 건너편에서 부채꼴로 다시 퍼졌고, 산맥 안에서는 속도가 평지의 약 3분의 1(0.29 대 0.89km/년, 이론은 0.35배)로 줄었지만 멈추지는 않았습니다. 성장률을 바꿔 한 줄 파동으로 잰 속도는 이론의 94~100%였고, 섞이는 비율을 0%에서 100%로 올리면 속도가 0.97에서 1.19km/년으로 빨라져 흡수를 반영한 이론(1.00에서 1.22)과 4% 안에서 맞았습니다. 같은 설정에서 농부 가운데 토착 수렵채집민 후손의 몫은 섞이는 비율 50%일 때 87%, 100%일 때 95%였습니다. 속도는 거의 같은데 누구의 후손이 퍼졌는지는 크게 달랐습니다.</div>
+  <div class="callout" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; This is not a reconstruction of the real spread of farming in Europe. Archaeologists have estimated that farming spread across Europe at roughly one kilometer a year on average, and the wave-of-advance idea was applied to farming by Ammerman and Cavalli-Sforza (1971), but estimates vary between studies and whether people (migration) or techniques and ideas (cultural diffusion) did the spreading is still debated. The map here is abstract, the land nearly uniform, and real factors such as sea voyages, river and coastal routes, climate change and sudden village-scale jumps are absent. The mixing ratio and the shares of local descendants (87%, 95%) depend strongly on values this project chose, so do not read them as a claim about real European ancestry. The experiment only shows a mechanism: growth plus slow dispersal alone can produce a wave moving at a steady speed."><b>말하지 않는 것:</b> 실제 유럽의 농경 전파를 재현한 것이 아닙니다. 고고학자들은 농경이 유럽에서 평균 연 1km 안팎의 속도로 퍼졌다고 추정했고, 이런 &#39;전진하는 파동&#39; 생각은 Ammerman과 Cavalli-Sforza(1971)가 농경 전파에 적용해 널리 알려졌지만, 추정값은 연구마다 다르며 퍼진 것이 사람(이주)인지 기술과 생각(문화 전파)인지는 지금도 논쟁 중입니다. 이 모델은 지도가 추상적이고 땅이 거의 균일하며, 바닷길 이동, 강과 해안의 길, 기후 변화, 마을 단위의 갑작스러운 도약 같은 현실의 요소가 없습니다. 섞이는 비율이나 토착민 후손의 몫(87%, 95%)도 이 프로젝트가 정한 값에 크게 의존하므로 실제 유럽 사람들의 혈통에 대한 주장으로 읽으면 안 됩니다. 이 실험은 &#39;늘어나고 흩어지는 두 규칙만으로도 일정한 속도의 파동이 만들어질 수 있다&#39;는 메커니즘을 보여 줄 뿐입니다.</div>
+
+  <h2 data-en="Theory and implementation notes">이론적 근거와 구현 메모</h2>
+  <ul class="small">
+    <li class="memo theory" data-en="&lt;b&gt;Where the model comes from:&lt;/b&gt; Fisher (1937), &amp;quot;The wave of advance of advantageous genes&amp;quot;, &lt;i&gt;Annals of Eugenics&lt;/i&gt; 7, treated an equation in which an advantageous gene spreads through space as a wave of constant speed. Kolmogorov, Petrovsky and Piskunov studied the same equation independently that year, hence the name Fisher-KPP. Ammerman &amp;amp; Cavalli-Sforza (1971), &lt;i&gt;Man&lt;/i&gt; 6, applied it to the spread of farming in Europe."><b>모델의 뿌리:</b> Fisher (1937), &quot;The wave of advance of advantageous genes&quot;, <i>Annals of Eugenics</i> 7은 유리한 유전자가 공간에서 일정한 속도의 파동으로 퍼진다는 방정식을 다뤘고, 같은 해 Kolmogorov, Petrovsky, Piskunov도 독립적으로 같은 방정식을 연구해 피셔-콜모고로프(Fisher-KPP) 방정식이라 부릅니다. Ammerman &amp; Cavalli-Sforza (1971), <i>Man</i> 6이 이를 유럽의 농경 전파에 적용했습니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Key assumptions and formulas:&lt;/b&gt; Farmer density F (1 is the most the land can carry) follows &lt;code&gt;∂F/∂t = rF(1 − F) + D∇²F&lt;/code&gt;. At the leading edge F is small and grows linearly, so the front advances at &lt;code&gt;c = 2√(rD)&lt;/code&gt; (r growth rate, D dispersal coefficient). This model also compares &lt;code&gt;c = 2√((r + mix·κ·h₀)D)&lt;/code&gt;, because assimilating hunter-gatherers raises the growth rate at the front to &lt;code&gt;r + mix·κ·h₀&lt;/code&gt; (κ = 0.05 per year and h₀ = 0.25 are values this project chose)."><b>핵심 가정과 수식:</b> 농부 밀도 F(땅이 감당하는 최대치 = 1)는 <code>∂F/∂t = rF(1 − F) + D∇²F</code>를 따릅니다. 앞쪽 끝에서는 F가 작아 선형으로 늘기 때문에 전선은 <code>c = 2√(rD)</code>의 속도로 나아갑니다(r 증가율, D 확산 계수). 이 모델은 수렵채집민을 흡수하면 앞쪽의 증가율이 <code>r + mix·κ·h₀</code>로 커진다고 보아 <code>c = 2√((r + mix·κ·h₀)D)</code>를 함께 비교합니다(κ = 0.05/년, h₀ = 0.25는 이 프로젝트가 정한 값).</li>
+    <li class="memo theory" data-en="&lt;b&gt;What this project simplifies:&lt;/b&gt; The map is abstract, the land nearly uniform, and hunter-gatherers neither move nor change from a constant density of 0.25. One generation = 25 years, κ and h₀ above, and the mountains (growth 0.5 times, dispersal 0.25 times) are this project&#x27;s assumptions. Whether farming spread by people moving or by ideas and techniques spreading is still debated; the model only slides between the two with a single mixing parameter and does not decide which is right."><b>이 프로젝트의 단순화:</b> 지도는 추상적이고 땅은 거의 균일하며, 수렵채집민은 움직이지 않고 밀도가 0.25로 일정하다고 봅니다. 한 세대 = 25년과 위의 κ, h₀, 산맥(성장 0.5배, 확산 0.25배)은 이 프로젝트의 가정입니다. 농경이 사람의 이동으로 퍼졌는지 생각과 기술의 전파로 퍼졌는지는 지금도 논쟁 중이고, 이 모델은 &#39;섞이는 비율&#39; 하나로 둘 사이를 오가게 했을 뿐 어느 쪽이 맞는지 가리지 않습니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Theory versus simulation:&lt;/b&gt; With no assimilation, speeds measured on a one-dimensional wave were 94 to 100% of the theory 2√(rD) (for example 0.97 versus 1.00 km/year at r = 2.5%, D = 10). Raising mixing through 0, 25, 50, 75 and 100% gave 0.97, 1.03, 1.08, 1.14 and 1.19 km/year, within 4% of the theory with assimilation, 1.00, 1.06, 1.12, 1.17 and 1.22. In two dimensions the curved front made speed a little lower, 0.93, even with no barrier or noise, and the speed ratio inside the mountains was 0.32 against a theoretical 0.35. All of this is the output of &lt;code&gt;node tools/validate-farming.js&lt;/code&gt;."><b>이론값과 시뮬레이션:</b> 흡수가 없을 때 한 줄 파동으로 잰 속도는 이론 2√(rD)의 94~100%였습니다(예: r=2.5%, D=10에서 0.97 대 1.00km/년). 섞이는 비율을 0, 25, 50, 75, 100%로 올리면 잰 값이 0.97, 1.03, 1.08, 1.14, 1.19km/년으로 흡수를 반영한 이론 1.00, 1.06, 1.12, 1.17, 1.22와 4% 안에서 맞았습니다. 둥근 전선이 있는 2차원에서는 휘어짐 때문에 장벽·잡음이 없을 때도 0.93으로 조금 느렸고, 산맥 안의 속도비는 0.32로 이론 0.35와 비슷했습니다. 모두 <code>node tools/validate-farming.js</code>의 출력입니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Further reading:&lt;/b&gt; Ammerman &amp;amp; Cavalli-Sforza (1971), &amp;quot;Measuring the rate of spread of early farming in Europe&amp;quot;, &lt;i&gt;Man&lt;/i&gt; 6. Fisher (1937), cited above. J. D. Murray, &lt;i&gt;Mathematical Biology&lt;/i&gt;, Springer (an introduction to traveling-wave equations)."><b>더 읽을거리:</b> Ammerman &amp; Cavalli-Sforza (1971), &quot;Measuring the rate of spread of early farming in Europe&quot;, <i>Man</i> 6. Fisher (1937), 위의 논문. J. D. Murray, 『Mathematical Biology』, Springer (퍼지는 파동 방정식의 개설).</li>
+    <li  data-en="The map is 100×60 cells of 10 km, advanced in 0.5-year explicit finite-difference steps. Diffusion uses a harmonic-mean coefficient between cells so nothing flows into sea cells, and the map edges are closed. Fertility comes from smoothly joined coarse noise (seeded mulberry32, so the same land number gives the same result) and multiplies only the growth rate.">지도는 100×60칸(칸 하나 10km)이고 시간은 0.5년 간격의 명시적 차분으로 나아갑니다. 확산은 칸 사이의 조화 평균 계수로 계산해 바다 칸으로는 흐르지 않고, 지도 가장자리는 막혀 있습니다. 칸마다 기름짐은 성긴 값 잡음을 이어 만들며(시드 난수 mulberry32, 같은 땅 번호면 같은 결과) 성장률에만 곱합니다.</li>
+    <li  data-en="Front speed takes the first time farmer density passes 0.5 as a cell&#x27;s arrival time, and fits the distance R(t) of the farthest arrival from the origin by least squares over 100 to 380 km. Graph ④ runs the same rules on a strip of 250 cells and uses the slope of arrival time against distance. You can verify with &lt;code&gt;node tools/validate-farming.js&lt;/code&gt;.">전선 속도는 농부 밀도 0.5를 처음 넘은 시각을 칸의 도착 시각으로 삼고, 기원지에서 가장 먼 도착 지점의 거리 R(t)를 100~380km 구간에서 최소제곱으로 맞춘 기울기입니다. ④번 그래프는 같은 규칙을 250칸짜리 한 줄에서 돌려 도착 시각과 거리의 기울기로 구한 값입니다. 검증은 <code>node tools/validate-farming.js</code>로 할 수 있습니다.</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/farming&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/farming">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap" data-en="Simulatio Lab · Run by Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
+<script src="../../exps.js"></script>
+<script src="../../layout.js"></script>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../counter.js"></script>
+<script src="../../engage.js"></script>
+</body>
+</html>

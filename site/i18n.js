@@ -84,6 +84,7 @@
   const UI = {
     'How it works': { es: 'Cómo funciona', fr: 'Fonctionnement', ja: 'しくみ', ru: 'Как это работает', zh: '模型说明' },
     'What it shows': { es: 'Qué muestra', fr: 'Ce que cela montre', ja: '結果の読み方', ru: 'Что это показывает', zh: '结果解读' },
+    'Theory & notes': { es: 'Teoría y notas', fr: 'Théorie et notes', ja: '理論と実装メモ', ru: 'Теория и заметки', zh: '理论与实现说明' },
     'Notes': { es: 'Notas', fr: 'Notes', ja: '実装メモ', ru: 'Заметки', zh: '实现说明' },
     '✕ Close': { es: '✕ Cerrar', fr: '✕ Fermer', ja: '✕ 閉じる', ru: '✕ Закрыть', zh: '✕ 关闭' },
     '⚙ Settings': { es: '⚙ Ajustes', fr: '⚙ Réglages', ja: '⚙ 設定', ru: '⚙ Настройки', zh: '⚙ 设置' },

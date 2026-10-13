@@ -32,7 +32,7 @@
 
   // 바로가기
   const jump = document.createElement('nav'); jump.className = 'jump';
-  const labels = [U('모델 설명', 'How it works'), U('결과 해석', 'What it shows'), U('구현 메모', 'Notes')];
+  const labels = [U('모델 설명', 'How it works'), U('결과 해석', 'What it shows'), U('이론·구현 메모', 'Theory & notes')];
   jump.innerHTML = `<a href="#model">${labels[0]}</a><a href="#insight">${labels[1]}</a><a href="#notes">${labels[2]}</a>`;
   lead.after(jump); jump.after(bench);
 

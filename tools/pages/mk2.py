@@ -61,7 +61,15 @@ def page(sp):
     # wide=True 이면 결과 격자에서 한 줄 전체를 쓴다 (3D 보기 등 큰 화면)
     rest = ''.join(f'    <section class="panel chart{" wide" if c.get("wide") else ""}">\n      {sec(c)}\n    </section>\n' for c in secs[1:])
     model = ''.join(f'\n    <li{da(b)}>{b[0]}</li>' for b in sp['model'])
-    memo = ''.join(f'\n    <li class="memo"{da(b)}>{b[0]}</li>' for b in sp['memo'])
+    # 이론적 근거: 실험마다 같은 다섯 칸 (뿌리 · 핵심 가정과 수식 · 이 프로젝트의 단순화 · 이론값과 시뮬레이션 · 더 읽을거리).
+    #   page(theory=[('root', T('한국어','English')), ('model', T(..)), ('simplify', T(..)), ('check', T(..)), ('read', T(..))])
+    THEORY_LABELS = {'root': T('모델의 뿌리', 'Where the model comes from'), 'model': T('핵심 가정과 수식', 'Key assumptions and formulas'), 'simplify': T('이 프로젝트의 단순화', 'What this project simplifies'),
+                     'check': T('이론값과 시뮬레이션', 'Theory versus simulation'), 'read': T('더 읽을거리', 'Further reading')}
+    theory = ''
+    for key, tx in sp.get('theory', []):
+        lab = THEORY_LABELS[key]
+        theory += f'\n    <li class="memo theory" data-en="{esc("<b>" + lab[1] + ":</b> " + tx[1])}"><b>{lab[0]}:</b> {tx[0]}</li>'
+    memo = theory + ''.join(f'\n    <li class="memo"{da(b)}>{b[0]}</li>' for b in sp['memo'])
     code = T('코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/%s">GitHub</a>에서 볼 수 있습니다.' % sp['slug'],
              'The code is available on <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/%s">GitHub</a>.' % sp['slug'])
     h = lambda ko, en, tag='h2': f'<{tag} data-en="{esc(en)}">{ko}</{tag}>'
@@ -114,7 +122,7 @@ def page(sp):
   <div class="callout"{da(T("<b>말하는 것:</b> " + sp["says"][0], "<b>What it shows:</b> " + sp["says"][1]))}><b>말하는 것:</b> {sp["says"][0]}</div>
   <div class="callout"{da(T("<b>말하지 않는 것:</b> " + sp["not"][0], "<b>What it doesn't show:</b> " + sp["not"][1]))}><b>말하지 않는 것:</b> {sp["not"][0]}</div>
 
-  {h("구현 메모", "Implementation notes")}
+  {h("이론적 근거와 구현 메모", "Theory and implementation notes")}
   <ul class="small">{memo}
     <li{da(code)}>{code[0]}</li>
   </ul>

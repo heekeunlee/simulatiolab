@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Bench Seating · Simulatio Lab">벤치 자리 앉기 · 시뮬라티오 랩</title>
+<meta name="description" content="모두가 예의 바르게 옆 사람과 거리를 두고 앉았는데도 벤치 자리가 이만큼 남는 이유를, 앉는 방식 네 가지를 나란히 돌려보며 알아보세요." data-en-content="Everyone sits politely, yet seats go unused. Run four ways of sitting side by side and see why a bench jams before it is full.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="theme-color" content="#2f6fed">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1 data-en="How Many Strangers Can Fit on a Bench?">모르는 사람끼리 벤치에 앉으면 몇 명이나 앉을 수 있을까</h1>
+  <p class="lead" data-en="When you sit next to a stranger, it is polite to leave a seat or two between you. If everyone does, the bench should fill up neatly. But let people sit one at a time wherever they like, and some turn away saying &quot;no room&quot; while plenty of seats are still empty. Nobody did anything wrong, so why are seats wasted?">낯선 사람 옆에는 한두 칸 띄우고 앉는 것이 예의입니다. 모두가 그렇게 하면 벤치가 알맞게 채워질 것 같습니다. 그런데 한 명씩 마음 가는 대로 앉게 하면, 아직 빈 자리가 한가득인데도 "앉을 곳이 없네" 하며 돌아가는 사람이 생깁니다. 아무도 잘못하지 않았는데 자리가 이렇게 낭비되는 까닭은 무엇일까요?</p>
+
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li data-en="A bench has &lt;b&gt;n seats&lt;/b&gt; in a row and strangers arrive one at a time. Each seated person needs &lt;b&gt;g empty seats&lt;/b&gt; on both sides, so those seats (red ×) are off limits.">벤치에 자리가 <b>n석</b> 한 줄로 있고, 낯선 사람이 한 명씩 도착합니다. 앉은 사람의 양옆 <b>g칸</b>은 비워 두어야 해서, 그 안의 빈 자리(빨간 ×)에는 앉을 수 없습니다.</li>
+    <li data-en="The same arrivals sit in &lt;b&gt;four ways&lt;/b&gt;: random (any allowed seat), farthest (as far from everyone as possible), edge first (an end seat if free, else random), and orderly (from the left, every g+1 seats).">같은 사람들이 <b>네 가지 방식</b>으로 앉습니다. 무작위(앉을 수 있는 자리 중 아무 곳), 가장 먼 자리(앉은 사람에게서 가장 먼 곳), 끝자리 먼저(끝이 비었으면 거기, 아니면 무작위), 정돈(왼쪽부터 g+1칸 간격으로 빽빽하게).</li>
+    <li data-en="A person with no allowed seat leaves. Orderly seating fits at most &lt;b&gt;⌈n ÷ (g+1)⌉ people&lt;/b&gt;, which is the baseline. In &lt;b&gt;Seat them yourself&lt;/b&gt; below you place the first few people and the rest arrive at random.">앉을 곳이 없으면 그 사람은 돌아갑니다. 정돈해서 앉으면 최대 <b>⌈n÷(g+1)⌉명</b>이 앉을 수 있고, 이것이 기준선입니다. 아래 <b>직접 앉혀 보기</b>에서는 처음 몇 명을 여러분이 앉히고 나머지는 무작위로 들어옵니다.</li>
+  </ul>
+
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="n" data-en="Seats on the bench &lt;output id=&quot;o-n&quot;&gt;&lt;/output&gt;">벤치의 자리 수 <output id="o-n"></output></label>
+        <input type="range" id="n" min="8" max="40" step="1" value="30">
+        <span class="hint" data-en="Longer benches approach the theory value">길수록 이론값에 가까워지는 모습이 보여요</span></div>
+<div class="ctl"><label for="g" data-en="Empty seats kept between people &lt;output id=&quot;o-g&quot;&gt;&lt;/output&gt;">비워 두는 칸 <output id="o-g"></output></label>
+        <input type="range" id="g" min="0" max="3" step="1" value="2">
+        <span class="hint" data-en="0 means sitting shoulder to shoulder, with no waste">0이면 바짝 붙어 앉아 낭비가 없어요</span></div>
+<div class="ctl"><label for="arrivals" data-en="People arriving &lt;output id=&quot;o-arrivals&quot;&gt;&lt;/output&gt;">찾아오는 사람 <output id="o-arrivals"></output></label>
+        <input type="range" id="arrivals" min="5" max="60" step="1" value="24">
+        <span class="hint" data-en="More people than fit means more turn away">자리보다 훨씬 많이 오면 돌아가는 사람이 늘어요</span></div>
+    </div>
+    <div class="btns">
+      <button class=primary id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Same settings, different arrival order">같은 설정, 다른 도착 순서</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3 data-en="① The Same People, Four Ways to Sit">① 같은 사람들, 네 가지 앉는 방식</h3>
+    <p data-en="From the top: random, farthest, edge first, and orderly. All four rows move with each arrival. A red × is an empty seat nobody may take, and a bold outline marks the person who just sat.">위에서부터 무작위, 가장 먼 자리, 끝자리 먼저, 정돈입니다. 사람이 들어올 때마다 네 줄이 함께 움직입니다. 빨간 ×는 비어 있지만 앉을 수 없는 자리, 굵은 테두리는 방금 앉은 사람입니다.</p>
+    <canvas id="c-rows" class="rounded" data-thumb aria-label="① The Same People, Four Ways to Sit"></canvas>
+    <div class="anim-bar">
+      <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
+      <button id="stepbtn" data-en="Step">한 단계</button>
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="speed"><option value="3" data-en="Slow">느리게</option><option value="6" selected data-en="Normal">보통</option><option value="14" data-en="Fast">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Seated person"><i style="background:var(--accent)"></i>앉은 사람</span><span data-en="&lt;i style=&quot;background:rgba(229,72,77,0.35)&quot;&gt;&lt;/i&gt;Empty seat nobody may take"><i style="background:rgba(229,72,77,0.35)"></i>앉을 수 없는 빈 자리</span><span data-en="&lt;i style=&quot;background:#fff;border:1px solid #cfd6e4&quot;&gt;&lt;/i&gt;Empty seat still allowed"><i style="background:#fff;border:1px solid #cfd6e4"></i>앉을 수 있는 빈 자리</span></div>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3 data-en="② Seat Them Yourself">② 직접 앉혀 보기</h3>
+    <p data-en="Click seats to place the first few people (green means allowed, red too close). Then press the button and the rest arrive at random. Can placing the first few well change the outcome?">자리를 눌러 처음 몇 명을 앉혀 보세요(초록은 앉을 수 있는 자리, 빨강은 너무 가까운 자리). 그다음 버튼을 누르면 나머지는 무작위로 들어옵니다. 처음 몇 명을 잘 앉히면 결과가 달라질까요?</p>
+    <canvas id="c-play" class="rounded" aria-label="② Seat Them Yourself"></canvas>
+    <div class="anim-bar"><button id="m-go" data-en="Let the rest arrive at random">나머지는 무작위로 들어오게 하기</button><button id="m-clear" data-en="Clear and retry">비우고 다시</button></div>
+    <p class="small muted" id="m-msg" aria-live="polite" data-en="Click a seat to place a person.">자리를 눌러 앉혀 보세요.</p>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ As the Bench Gets Longer">③ 벤치가 길어지면</h3>
+    <p data-en="The horizontal axis is the number of seats, the vertical axis the share seated. Blue dots are simulation averages, the green line is the exact expected value, the red dashed line is the theory value for a very long bench, and gray is the orderly maximum.">가로는 벤치의 자리 수, 세로는 앉은 비율입니다. 파란 점은 시뮬레이션 평균, 초록 선은 정확한 기댓값, 빨간 점선은 아주 긴 벤치의 이론값, 회색은 정돈했을 때의 최대입니다.</p>
+    <canvas id="c-n" class="" aria-label="③ As the Bench Gets Longer"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Simulation average"><i style="background:var(--accent)"></i>시뮬레이션 평균</span><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Exact expected value"><i style="background:#1fa463"></i>정확한 기댓값</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Long-bench theory"><i style="background:#e5484d"></i>긴 벤치 이론값</span><span data-en="&lt;i style=&quot;background:#8a93a6&quot;&gt;&lt;/i&gt;Orderly maximum"><i style="background:#8a93a6"></i>정돈했을 때 최대</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="④ Depending on How People Sit">④ 앉는 방식에 따라</h3>
+    <p data-en="The average number seated under each way of sitting when filled to the end (hundreds of runs) at the current settings. The green dashed line is the orderly maximum. The clever-looking &quot;farthest seat&quot; is not always better.">지금 설정에서 방식마다 끝까지 채웠을 때 앉는 사람 수의 평균(수백 판)입니다. 초록 점선이 정돈했을 때의 최대입니다. 똑똑해 보이는 "가장 먼 자리"가 항상 더 낫지는 않습니다.</p>
+    <canvas id="c-rules" class="" aria-label="④ Depending on How People Sit"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="⑤ Does a Wider Gap Waste More?">⑤ 간격을 넓히면 낭비도 늘까</h3>
+    <p data-en="The horizontal axis is the gap kept between people, the vertical axis the share of the orderly maximum that random seating reaches. Green is the exact value for the current bench length and red for a very long bench. Any gap at all leaves it below orderly.">가로는 비워 두는 칸 수, 세로는 무작위로 앉았을 때 정돈 대비 앉는 비율입니다. 초록은 지금 벤치 길이의 정확한 기댓값, 빨강은 아주 긴 벤치입니다. 간격이 있기만 하면 항상 정돈보다 덜 앉습니다.</p>
+    <canvas id="c-g" class="" aria-label="⑤ Does a Wider Gap Waste More?"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Current bench length"><i style="background:#1fa463"></i>지금 벤치 길이</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Very long bench"><i style="background:#e5484d"></i>아주 긴 벤치</span></div>
+    </section>
+  </div>
+
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout" data-en="&lt;b&gt;What it shows:&lt;/b&gt; With a one-seat gap, people seating themselves at random on a very long bench fill 43.2% of the seats (theory (1−e&lt;sup&gt;−2&lt;/sup&gt;)/2), below the 50% of orderly seating (simulation 43.3%). With a two-seat gap it is 27.5% (orderly 33.3%), and with three 20.1% (orderly 25.0%). With 30 seats and a two-seat gap, orderly seating fits 10 people but random seating averaged 8.6 (exact expectation 8.61); farthest-seat averaged 8.9 and edge-first 8.9. Nobody broke the rule, yet about 14 to 20% of the orderly capacity was lost (gaps of 1 to 3 seats, long bench)."><b>말하는 것:</b> 간격 1칸이면 아주 긴 벤치에서 무작위로 앉은 사람은 자리의 43.2%(이론 (1−e<sup>−2</sup>)/2)로, 정돈했을 때의 50%보다 적었습니다(시뮬레이션 43.3%). 간격 2칸이면 27.5%(정돈 33.3%), 3칸이면 20.1%(정돈 25.0%)였습니다. 자리 30개, 간격 2칸에서는 정돈하면 10명이 앉지만 무작위로는 평균 8.6명이었고(정확한 기댓값 8.61명), 가장 먼 자리는 8.9명, 끝자리 먼저는 8.9명이었습니다. 아무도 규칙을 어기지 않았는데도 정돈했을 때에 비해 약 14~20%의 자리가 놓쳐졌습니다(간격 1~3칸, 긴 벤치).</div>
+  <div class="callout" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; This does not explain every waiting room or subway car. It is this project&#x27;s simplified model: a single-row bench, strangers, a strict minimum gap and one arrival at a time. Real people sit with companions, keep different distances, move seats, and differ by culture and setting. &quot;Orderly&quot; is an idealized baseline that needs everyone to cooperate and know the arrival order."><b>말하지 않는 것:</b> 실제 대기실이나 지하철의 모든 것을 설명하는 것이 아닙니다. 이 모델은 한 줄짜리 벤치, 서로 모르는 사람, 엄격한 최소 간격, 한 명씩 차례로 도착하는 가정으로 만든 이 프로젝트의 단순화된 모델입니다. 실제 사람들은 일행과 붙어 앉고, 간격이 사람마다 다르고, 앉은 사람이 자리를 옮기기도 하며, 문화와 상황에 따라 앉는 방식이 다릅니다. "정돈"은 모두가 도착 순서를 알고 협력할 때만 가능한 이상적인 기준선입니다.</div>
+
+  <h2 data-en="Theory and implementation notes">이론적 근거와 구현 메모</h2>
+  <ul class="small">
+    <li class="memo theory" data-en="&lt;b&gt;Where the model comes from:&lt;/b&gt; This is &lt;b&gt;random sequential adsorption (RSA)&lt;/b&gt;, specifically the one-dimensional &lt;b&gt;Rényi parking problem&lt;/b&gt;. Rényi (1958) solved the problem of parking equal-length cars at random positions on a road one after another, and Flory (1939) had treated the same structure for neighboring reactive sites on polymers. The key is that once placed, an object never moves and may not overlap another."><b>모델의 뿌리:</b> 이 문제는 물리·수학의 <b>무작위 순차 흡착(random sequential adsorption, RSA)</b>, 그중에서도 1차원 <b>렌니 주차 문제</b>와 같은 구조입니다. Rényi (1958)가 도로에 길이가 같은 자동차를 무작위 위치에 차례로 세우는 문제를 풀었고, Flory (1939)는 고분자에서 이웃한 자리끼리 반응하는 같은 구조를 먼저 다뤘습니다. 한 번 놓이면 움직이지 않고 겹칠 수 없다는 것이 핵심입니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Key assumptions and formulas:&lt;/b&gt; A seated person blocks g seats on each side, so each person is like placing a rod of length g+1. On a long bench the seated share is &lt;code&gt;∫&lt;sub&gt;0&lt;/sub&gt;&lt;sup&gt;∞&lt;/sup&gt; exp(−u − 2·Σ&lt;sub&gt;j=1..g&lt;/sub&gt; (1−e&lt;sup&gt;−ju&lt;/sup&gt;)/j) du&lt;/code&gt;, which is 1 for g=0 and (1−e&lt;sup&gt;−2&lt;/sup&gt;)/2 ≈ 0.432 for g=1. For a bench of n seats the expectation follows &lt;code&gt;f(n) = 1 + (1/n)·Σ&lt;sub&gt;i&lt;/sub&gt; [f(i−1−g) + f(n−i−g)]&lt;/code&gt;. The sliders n and g are the n and g in these formulas."><b>핵심 가정과 수식:</b> 앉은 사람이 양옆 g칸을 막으므로, 사람 한 명은 길이 g+1짜리 막대 하나를 놓는 것과 같습니다. 긴 벤치에서 앉는 비율은 <code>∫<sub>0</sub><sup>∞</sup> exp(−u − 2·Σ<sub>j=1..g</sub> (1−e<sup>−ju</sup>)/j) du</code>이고, g=0이면 1, g=1이면 (1−e<sup>−2</sup>)/2 ≈ 0.432입니다. 길이 n인 벤치의 기댓값은 <code>f(n) = 1 + (1/n)·Σ<sub>i</sub> [f(i−1−g) + f(n−i−g)]</code>로 구합니다. 슬라이더 n, g가 이 식의 n, g입니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;What this project simplifies:&lt;/b&gt; The original problem uses continuous lengths, whereas this page uses discrete seats. &quot;Farthest&quot;, &quot;edge first&quot; and &quot;orderly&quot; are this project&#x27;s own ways of sitting, and only random has a theory behind it. The number of arrivals, the defaults (30 seats, gap 2, 24 people) and the assumption that everyone keeps the same gap are this project&#x27;s design."><b>이 프로젝트의 단순화:</b> 원 문제는 연속적인 길이이고, 이 페이지는 칸이 나뉜 좌석입니다. "가장 먼 자리", "끝자리 먼저", "정돈"은 이 프로젝트가 정한 앉는 방식이고 이론이 있는 것은 무작위뿐입니다. 도착하는 사람 수, 기본값(30석, 2칸, 24명), 사람마다 같은 간격을 둔다는 가정은 이 프로젝트의 설계입니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Theory versus simulation:&lt;/b&gt; In &lt;code&gt;node tools/validate-seating.js&lt;/code&gt;, theory versus simulation on a long bench (2,000 seats, 200 runs) was 0.4323 vs 0.4327 for gap 1, 0.2746 vs 0.2749 for gap 2 and 0.2010 vs 0.2009 for gap 3. The exact finite-bench expectation also matched simulation (5,000 runs): 24 seats, gap 1: 10.673 vs 10.679 people; 30 seats, gap 2: 8.609 vs 8.600. There were 0 gap violations."><b>이론값과 시뮬레이션:</b> <code>node tools/validate-seating.js</code> 결과, 긴 벤치(2,000석, 200판)에서 이론 대 시뮬레이션은 간격 1칸 0.4323 대 0.4327, 2칸 0.2746 대 0.2749, 3칸 0.2010 대 0.2009였습니다. 유한한 벤치의 정확한 기댓값도 시뮬레이션(5,000판)과 맞았습니다(24석 1칸 10.673 대 10.679명, 30석 2칸 8.609 대 8.600명). 앉은 사람 사이 간격 위반은 0건이었습니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Further reading:&lt;/b&gt; Rényi, A. (1958), &quot;On a one-dimensional problem concerning random space-filling&quot;, &lt;i&gt;Publ. Math. Inst. Hungarian Acad. Sci.&lt;/i&gt;; Flory, P. J. (1939), &lt;i&gt;J. Am. Chem. Soc.&lt;/i&gt; 61, 1518; Evans, J. W. (1993), &quot;Random and cooperative sequential adsorption&quot;, &lt;i&gt;Reviews of Modern Physics&lt;/i&gt; 65, 1281 (review)."><b>더 읽을거리:</b> Rényi, A. (1958), "On a one-dimensional problem concerning random space-filling", <i>Publ. Math. Inst. Hungarian Acad. Sci.</i>; Flory, P. J. (1939), <i>J. Am. Chem. Soc.</i> 61, 1518; Evans, J. W. (1993), "Random and cooperative sequential adsorption", <i>Reviews of Modern Physics</i> 65, 1281 (개설).</li>
+    <li  data-en="The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. The four rows share the same number of arrivals but each uses its own random numbers. The stat cards and chart ④ average 300 runs per setting, and each dot in chart ③ averages 150 runs per bench length.">시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 네 줄은 같은 도착 인원으로 각자 자기 난수를 씁니다. 통계 카드와 ④번 그래프는 설정마다 300판, ③번 그래프의 점은 벤치 길이마다 150판의 평균입니다.</li>
+    <li  data-en="You can verify with &lt;code&gt;node tools/validate-seating.js&lt;/code&gt;. The ways of sitting are in the &lt;code&gt;pick&lt;/code&gt; function of &lt;code&gt;site/experiments/seating/sim.js&lt;/code&gt;.">검증은 <code>node tools/validate-seating.js</code>로 할 수 있습니다. 앉는 방식은 <code>site/experiments/seating/sim.js</code>의 <code>pick</code> 함수에 있습니다.</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/seating&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/seating">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap" data-en="Simulatio Lab · Run by Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
+<script src="../../exps.js"></script>
+<script src="../../layout.js"></script>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../counter.js"></script>
+<script src="../../engage.js"></script>
+</body>
+</html>

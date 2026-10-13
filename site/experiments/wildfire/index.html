@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="The Fire Suppression Paradox · Simulatio Lab">산불 억제의 역설 · 시뮬라티오 랩</title>
+<meta name="description" content="나무가 자라고 번개가 치는 숲 격자에서 작은 불을 끄면 연료가 쌓여 큰 불이 늘어나는 과정을, 두 숲을 나란히 돌려 직접 확인해 보세요." data-en-content="Run two forests side by side on a grid where trees grow and lightning strikes, and watch how putting out small fires lets fuel build up and makes big fires more frequent.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="theme-color" content="#2f6fed">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1 data-en="Why Putting Out Every Small Fire Can Lead to Bigger Ones Later">작은 산불을 다 끄면 왜 나중에 더 큰 불이 날까</h1>
+  <p class="lead" data-en="It is easy to think that the sooner a fire is put out, the better: catch every small fire and you also prevent the big ones. In this model forest, though, putting out 90% of small fires made fires that burn 10% or more of the forest about 6 times as frequent (from 21 to 125 per 10,000 steps). The trees small fires would have cleared pile up instead, and the forest becomes one where a single spark gets out of control. Watch the left forest (let it burn) and the right one (put out small fires) side by side.">불이 나면 일찍 끌수록 좋다고 생각하기 쉽습니다. 작은 불을 놓치지 않고 끄면 큰 불도 막을 수 있을 테니까요. 그런데 이 모델의 숲에서는 작은 불을 90% 끄자 숲의 10% 이상을 태우는 큰 불이 약 6배로 늘었습니다(1만 단계당 21번에서 125번). 불이 태우던 나무가 치워지지 않고 쌓여, 한번 붙으면 걷잡을 수 없는 숲이 되기 때문입니다. 왼쪽(그냥 두기)과 오른쪽(작은 불 끄기)을 나란히 지켜보세요.</p>
+
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li data-en="The forest is a grid of cells, each empty or holding a tree. At every step &lt;b&gt;an empty cell grows a tree with probability p.&lt;/b&gt; Each cell is also struck by &lt;b&gt;lightning&lt;/b&gt; with probability f (by default 2 strikes per 10,000 cells per step). If lightning hits a tree, it catches fire.">숲은 격자 칸으로 이루어지고, 각 칸은 빈 땅이거나 나무입니다. 매 단계 <b>빈 땅에는 확률 p로 나무가 자랍니다.</b> 또 칸마다 확률 f로 <b>번개</b>가 칩니다(기본은 칸 1만 개당 단계마다 2번). 번개가 나무에 맞으면 불이 붙습니다.</li>
+    <li data-en="Fire spreads at once to the four neighboring trees, so a whole connected clump of trees burns in one go. Burnt cells become empty and regrow. These are the rules of the Drossel-Schwabl forest-fire model.">불은 상하좌우로 이웃한 나무에 곧바로 번져, 이어진 나무 덩어리 전체가 한 번에 탑니다. 탄 자리는 빈 땅이 되어 다시 자랍니다. 이것이 Drossel-Schwabl 숲불 모델의 규칙입니다.</li>
+    <li data-en="&lt;b&gt;Firefighting&lt;/b&gt; is a rule this project added. When a fire starts and is small (the clump is 5% of the grid cells or less), it is put out right away with probability s. Large fires cannot be put out. The trees of an extinguished fire do not burn, stay, and link up with neighboring clumps."><b>소방</b>은 이 프로젝트가 덧붙인 규칙입니다. 불이 붙은 순간 그 불이 작으면(덩어리가 격자 칸의 5% 이하) 확률 s로 곧바로 끕니다. 큰 불은 끌 수 없습니다. 끈 불의 나무는 타지 않고 남아 더 자라고, 이웃 덩어리와 이어집니다.</li>
+    <li data-en="The two forests on screen start with the same settings, but the left one has s = 0 (let it burn) and the right one the s you choose. The statistics below come from running the two forests separately for a long time (usually 40,000 steps); a big fire is one that burns 10% or more of the grid cells.">화면의 두 숲은 같은 설정으로 시작하지만 왼쪽은 s=0(그냥 두기), 오른쪽은 고른 s입니다. 아래 통계는 두 숲을 따로 오래 돌려(보통 4만 단계) 센 값이고, 큰 불은 격자 칸의 10% 이상을 태운 불입니다.</li>
+  </ul>
+
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="p" data-en="Tree growth rate (p) &lt;output id=&quot;o-p&quot;&gt;&lt;/output&gt;">나무가 자라는 속도 (p) <output id="o-p"></output></label>
+        <input type="range" id="p" min="0.005" max="0.03" step="0.005" value="0.01">
+        <span class="hint" data-en="How many of every 100 empty cells grow a tree each step. Higher means a faster-growing forest">매 단계 빈 땅 100칸 중 몇 칸에 나무가 자라는지. 클수록 숲이 빨리 우거져요</span></div>
+<div class="ctl"><label for="f" data-en="Lightning rate (f) &lt;output id=&quot;o-f&quot;&gt;&lt;/output&gt;">번개 세기 (f) <output id="o-f"></output></label>
+        <input type="range" id="f" min="1" max="10" step="1" value="2">
+        <span class="hint" data-en="Lightning strikes per 10,000 cells per step. Frequent lightning burns forests while the fires are still small">칸 1만 개당 단계마다 치는 번개 수. 번개가 잦으면 불이 작을 때 번져 큰 불이 잘 안 나요</span></div>
+<div class="ctl"><label for="s" data-en="Chance of putting out a small fire (s) &lt;output id=&quot;o-s&quot;&gt;&lt;/output&gt;">작은 불을 끄는 확률 (s) <output id="o-s"></output></label>
+        <input type="range" id="s" min="0" max="100" step="10" value="90">
+        <span class="hint" data-en="At 0% the right forest is left alone too. Large fires cannot be put out">0%면 오른쪽도 그냥 둡니다. 큰 불은 끌 수 없어요</span></div>
+<div class="ctl"><label for="n" data-en="Forest size &lt;output id=&quot;o-n&quot;&gt;&lt;/output&gt;">숲의 크기 <output id="o-n"></output></label>
+        <input type="range" id="n" min="60" max="160" step="20" value="100">
+        <span class="hint" data-en="Cells per side. In a bigger forest, a fire has a harder time covering all of it">한 변의 칸 수. 클수록 큰 불이 숲 전체를 덮기 어려워요</span></div>
+    </div>
+    <div class="btns">
+      <button class=primary id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Same settings, a different forest">같은 설정, 다른 숲</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3 data-en="① Watching Two Forests Burn">① 두 숲의 불 지켜보기</h3>
+    <p data-en="Green is trees (lighter when young, darker when old), orange is spreading flame, and the dark colors are freshly burnt ground and empty land. The left forest lets fires burn, and the right one puts out small fires. Wait for the moment the right forest, growing darker and darker, goes up all at once.">초록은 나무(어릴수록 연하고 오래될수록 짙음), 주황은 번지는 불꽃, 어두운 색은 방금 탄 자리와 빈 땅입니다. 왼쪽은 불을 그냥 두고, 오른쪽은 작은 불을 끕니다. 오른쪽 숲이 점점 짙어지다가 한꺼번에 타오르는 순간을 기다려 보세요.</p>
+    <canvas id="c-forest" class="rounded" data-thumb aria-label="① Watching Two Forests Burn"></canvas>
+    <div class="anim-bar">
+      <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
+      <button id="stepbtn" data-en="Step">한 단계</button>
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="speed"><option value="6" data-en="Slow">느리게</option><option value="15" selected data-en="Normal">보통</option><option value="40" data-en="Fast">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3 data-en="② How Full Does the Forest Get?">② 숲에 나무가 얼마나 찰까</h3>
+    <p data-en="The tree density (share of cells holding a tree) of both forests over time. The dotted line is the density (about 59%) above which randomly placed trees can form a connected clump spanning the whole forest. The forest that puts out small fires climbs toward the line and then crashes in a big fire.">두 숲의 나무 밀도(칸 중 나무가 있는 비율)가 시간에 따라 변하는 모습입니다. 점선은 칸에 나무가 무작위로 이 정도 있으면 이어진 덩어리가 숲 전체로 커질 수 있는 밀도(약 59%)입니다. 작은 불을 끄는 숲은 점선 가까이까지 올라갔다가 큰 불로 떨어집니다.</p>
+    <canvas id="c-dens" class="" aria-label="② How Full Does the Forest Get?"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Let it burn"><i style="background:#e5484d"></i>그냥 두기</span><span data-en="&lt;i style=&quot;background:#1f7a45&quot;&gt;&lt;/i&gt;Put out small fires"><i style="background:#1f7a45"></i>작은 불 끄기</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ How Big Are the Fires?">③ 불의 크기 분포</h3>
+    <p data-en="After running both forests separately for a long time, this shows how many fires of at least a given size occurred per 1,000 steps (both axes logarithmic). Putting out small fires removes the small fires at upper left, while the big fires on the right actually become more frequent. The red zone marks big fires.">두 숲을 따로 오래 돌렸을 때, 어떤 크기 이상의 불이 1,000단계에 몇 번 났는지입니다(양쪽 로그 눈금). 작은 불을 끄면 왼쪽 위의 작은 불이 사라지고, 오른쪽의 큰 불은 오히려 늘어납니다. 붉은 영역이 큰 불입니다.</p>
+    <canvas id="c-size" class="" aria-label="③ How Big Are the Fires?"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Let it burn"><i style="background:#e5484d"></i>그냥 두기</span><span data-en="&lt;i style=&quot;background:#1f7a45&quot;&gt;&lt;/i&gt;Put out small fires"><i style="background:#1f7a45"></i>작은 불 끄기</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="④ Which Fires Burned the Area?">④ 탄 면적은 어떤 불이 태웠나</h3>
+    <p data-en="The bar length is the share of the forest burning per step, and the colors show the size of the fires that burned it. The total is about the same in both forests, because only as many trees as grow can burn. What changes is whether it burns a little at a time in small fires or all at once in big ones.">막대의 길이는 매 단계 타는 숲의 비율이고, 색은 그 면적을 태운 불의 크기입니다. 총량은 두 숲이 비슷합니다. 나무가 자라는 만큼만 탈 수 있기 때문이에요. 달라지는 것은 작은 불로 조금씩 타느냐, 큰 불로 한꺼번에 타느냐입니다.</p>
+    <canvas id="c-area" class="" aria-label="④ Which Fires Burned the Area?"></canvas>
+    </section>
+  </div>
+
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout" data-en="&lt;b&gt;What it shows:&lt;/b&gt; With a 100×100 grid, tree growth p = 1%, 2 lightning strikes per 10,000 cells per step and fires up to 5% of the grid put out by firefighters, averaging 4 seeds over 40,000 steps minus the first 2,000, the results were these. Left alone, big fires (10% or more of the grid) occurred 21.4 times per 10,000 steps and burned 4% of the total burned area. Putting out 50% of small fires raised this to 65.1 times (13%), 90% to 125.1 times (27%) and 100% to 145.5 times (31%). The area burning per step stayed almost the same, 0.63% versus 0.61%, and the mean tree density rose only a little, from 37% to 39%. The largest fire grew from 20% to 28% of the grid. The effect is larger when lightning is rarer: with lightning rate 1 the big fires&#x27; share of burned area goes from 28% to 51%, with 5 from 0% to 6%, and with 10 from 0% to 1%. It grew from 28% to 52% with faster tree growth (p = 2%) and from 38% to 60% in a smaller forest (60×60), and in a larger forest (160×160) it went from 0% to 6%."><b>말하는 것:</b> 격자 100×100, 나무 성장 p=1%, 번개 칸 1만 개당 단계마다 2번, 소방이 끄는 불의 상한 5%에서, 시드 4개를 평균해 4만 단계 중 앞 2,000단계를 뺀 값은 이렇습니다. 그냥 두면 큰 불(격자의 10% 이상)이 1만 단계당 21.4번, 이 불들이 태운 면적은 전체의 4%였습니다. 작은 불을 50% 끄면 65.1번(13%), 90% 끄면 125.1번(27%), 100% 끄면 145.5번(31%)으로 늘었습니다. 한편 매 단계 타는 면적은 0.63%에서 0.61%로 거의 같았고, 평균 나무 밀도는 37%에서 39%로 조금만 올랐습니다. 가장 큰 불은 격자의 20%에서 28%로 커졌습니다. 이 효과는 번개가 드물수록 큽니다. 번개 세기를 1로 낮추면 큰 불의 면적 비중이 28%에서 51%가 되고, 5로 올리면 0%에서 6%, 10이면 0%에서 1%가 됩니다. 나무가 빨리 자랄수록(p=2%) 28%에서 52%, 숲이 작을수록(60×60) 38%에서 60%로 커졌고, 큰 숲(160×160)에서는 0%에서 6%였습니다.</div>
+  <div class="callout" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; This model does not reproduce any real forest. Wind, weather, terrain, tree species, embers flying ahead of a fire, arson or accidental ignition by people, limits on firefighting resources, and deliberate burning (prescribed fire) are all missing, and fire spreads only to adjacent trees. It only shows the mechanism of the &quot;suppression paradox&quot; long discussed in fire ecology (keep putting out small fires and fuel builds up for a bigger fire later), and it cannot tell you where fires should or should not be put out. Nor does it mean that firefighting is bad: putting out fires is needed to protect people and towns, and in this model too the effect was small when lightning was frequent and the forest large. The size limit for fires that can be put out (5%) and the cutoff for a big fire (10%) are values this project chose."><b>말하지 않는 것:</b> 이 모델은 실제 숲을 재현한 것이 아닙니다. 바람, 날씨, 지형, 나무 종류, 불씨가 날아가 번지는 것, 사람의 방화나 실화, 소방 자원의 한계, 계획적으로 놓는 불(처방 화입) 같은 요소가 모두 빠져 있고, 불은 이웃한 나무로만 곧바로 번집니다. 산불 생태학에서 오래 논의되어 온 "억제의 역설"(작은 불을 계속 끄면 연료가 쌓여 나중에 큰 불이 난다)의 메커니즘을 보여 줄 뿐, 어떤 지역에서 불을 꺼야 하는지 말아야 하는지를 알려 주지는 않습니다. 소방이 불을 끄는 것 자체가 나쁘다는 뜻도 아닙니다. 사람과 마을을 지키는 데는 불을 끄는 것이 필요하고, 이 모델에서도 번개가 잦고 숲이 크면 효과가 작았습니다. 끄는 불의 상한(5%)과 큰 불의 기준(10%)은 이 프로젝트가 정한 값입니다.</div>
+
+  <h2 data-en="Theory and implementation notes">이론적 근거와 구현 메모</h2>
+  <ul class="small">
+    <li class="memo theory" data-en="&lt;b&gt;Where the model comes from:&lt;/b&gt; Drossel &amp;amp; Schwabl (1992), &quot;Self-organized critical forest-fire model&quot;, &lt;i&gt;Physical Review Letters&lt;/i&gt; 69. A simple grid model where trees grow and lightning starts fires, proposed to study critical behavior in fire sizes. This is this project&#x27;s implementation of those rules."><b>모델의 뿌리:</b> Drossel &amp; Schwabl (1992), "Self-organized critical forest-fire model", <i>Physical Review Letters</i> 69. 나무가 자라고 번개가 불을 내는 단순한 격자 모델로, 불의 크기가 규칙적으로 오르내리는 임계 현상을 연구하려고 제안되었습니다. 이 모델은 그 규칙을 따른 이 프로젝트의 구현입니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Key assumptions and formulas:&lt;/b&gt; Each step an empty cell becomes a tree with probability p, a tree catches fire with probability f (here a lightning strike with probability f lands on each cell and ignites it if it holds a tree, so a tree ignites with probability f as well), and fire spreads to neighbors instantly. The more trees grow per lightning strike, p/f, the bigger the fires. For randomly placed trees on a square grid (4 neighbors), the critical density above which connected clumps can span everything is about 0.593 (site percolation). The sliders p, f, s and size are the model&#x27;s p, f, the firefighting probability and the grid side length."><b>핵심 가정과 수식:</b> 매 단계 빈 칸은 확률 p로 나무가 되고, 나무는 확률 f로 불이 붙으며(여기서는 칸마다 확률 f의 번개가 치고 나무에 맞으면 불이 붙으니 나무 한 그루에 불이 붙을 확률도 f), 불은 이웃으로 즉시 번집니다. 한 번개당 자라는 나무 수 p/f가 클수록 큰 불이 납니다. 칸에 무작위로 나무가 있을 때 이어진 덩어리가 모든 곳으로 퍼지는 임계 밀도는 정사각 격자(상하좌우 이웃)에서 약 0.593입니다(site percolation). 슬라이더 p, f, s, 크기가 각각 식의 p, f, 소방 확률, 격자 변의 길이입니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;What this project simplifies:&lt;/b&gt; The original model shows a power-law range of fire sizes in the limit where f/p goes to zero. This page&#x27;s defaults (p/f of 50 per cell) are far from that limit and the grid is small, so no power law is claimed. Firefighting (putting out only small fires with probability s) is an extra rule added by this project, and the 5% and 10% are values it chose. The edges are walls that do not wrap around."><b>이 프로젝트의 단순화:</b> 원 모델은 f/p가 0에 가까운 극한에서 불 크기 분포가 거듭제곱 법칙을 따르는 구간을 보이는데, 이 페이지의 기본값(p/f는 칸당 50)은 그 극한과 멀고 격자도 작아서 거듭제곱 법칙을 주장하지 않습니다. 소방(작은 불만 확률 s로 끄기)은 원 모델에 없는 이 프로젝트의 추가 규칙이고, 5%·10%는 이 프로젝트가 정한 값입니다. 가장자리는 이어지지 않는 벽입니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Theory versus simulation:&lt;/b&gt; Using independently rewritten code to plant trees at random on a 100×100 grid, the share taken by the largest clump was 2% at density 0.5, 27% at 0.59 and 50% at 0.62, growing sharply around the critical density of about 0.593 (average of 20 runs). The number of trees burned and planted also matched over the long run (1,883,823 versus 1,883,740 over 30,000 steps). How much fuel builds up because of firefighting is given by the measurements under &quot;What it shows&quot; above. This effect was not compared with a closed-form solution; it was checked by simulation only."><b>이론값과 시뮬레이션:</b> 독립적으로 다시 짠 코드로 100×100 격자에 무작위로 나무를 심으면 가장 큰 덩어리가 차지하는 비율이 밀도 0.5에서 2%, 0.59에서 27%, 0.62에서 50%로, 임계 밀도 약 0.593 부근에서 급격히 커졌습니다(20회 평균). 장기 평균에서 타는 나무 수와 심어지는 나무 수도 맞았습니다(3만 단계에 188만 3,823그루 대 188만 3,740그루). 소방 때문에 연료가 쌓이는 정도는 위의 "말하는 것"의 실측값입니다. 이 효과를 식으로 풀어 비교하지는 않았고 시뮬레이션만으로 확인했습니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Further reading:&lt;/b&gt; Drossel &amp;amp; Schwabl (1992), &lt;i&gt;Physical Review Letters&lt;/i&gt; 69 (the paper above). Percolation is covered in Stauffer &amp;amp; Aharony, &lt;i&gt;Introduction to Percolation Theory&lt;/i&gt; (Taylor &amp;amp; Francis)."><b>더 읽을거리:</b> Drossel &amp; Schwabl (1992), <i>Physical Review Letters</i> 69 (위 논문). 퍼콜레이션은 Stauffer &amp; Aharony, <i>Introduction to Percolation Theory</i> (Taylor &amp; Francis)에 정리되어 있습니다.</li>
+    <li  data-en="You can verify with &lt;code&gt;node tools/validate-wildfire.js&lt;/code&gt; (about 2 minutes). The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result.">검증은 <code>node tools/validate-wildfire.js</code>로 할 수 있습니다(약 2분). 시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다.</li>
+    <li  data-en="Growth plants trees at random from a list of empty cells (a Poisson approximation scaled to the number of empty cells), and lightning lands on a Poisson number of random cells. A fire&#x27;s clump is found by depth-first search and burned at once. The statistic cards come from separate long runs, not from the two forests on screen.">성장은 빈 칸 목록에서 무작위로 뽑아 심고(칸 수에 비례하는 푸아송 근사), 번개는 푸아송 수만큼 무작위 칸에 떨어뜨립니다. 불 덩어리는 깊이 우선 탐색으로 구해 한 번에 태웁니다. 페이지의 통계 카드는 화면의 두 숲과 별개로 따로 오래 돌린 값입니다.</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/wildfire&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/wildfire">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap" data-en="Simulatio Lab · Run by Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
+<script src="../../exps.js"></script>
+<script src="../../layout.js"></script>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../counter.js"></script>
+<script src="../../engage.js"></script>
+</body>
+</html>

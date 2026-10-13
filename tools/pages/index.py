@@ -11,10 +11,12 @@ CATS = [
   ('wealth', T('야드세일 교환 모델', 'Yard-sale exchange model'), T('부의 쏠림', 'Wealth Concentration'), T('모든 거래가 동전 던지기처럼 공정해도 부는 쏠릴까? 얼마나 나누면 막을 수 있을까?', 'Even if every trade is as fair as a coin flip, does wealth concentrate? How much sharing does it take to stop it?')),
   ('youtube', T('선호적 연결 모델', 'Preferential attachment model'), T('유튜브는 왜 상위 1%만 뜰까', 'Why Do Only the Top 1% of YouTubers Break Through?'), T('좋은 콘텐츠가 이길까, 먼저 뜬 채널이 이길까? 같은 채널로 시작한 평행우주를 비교해요.', 'Does good content win, or do channels that broke out first keep winning? Compare parallel universes that start with the same channels.')),
  ]),
- ('people', '#2f6fed', '🧑‍🤝‍🧑', T('사람 사이', 'People &amp; Relationships'), T('소문, 편견, 만남은 어떻게 퍼지고 갈라질까?', 'How do rumors, bias and encounters spread and split us apart?'), [
+ ('people', '#2f6fed', '🧑‍🤝‍🧑', T('인간관계', 'Relationships'), T('소문, 편견, 만남은 어떻게 퍼지고 갈라질까?', 'How do rumors, bias and encounters spread and split us apart?'), [
   ('schelling', T('셸링 분리 모델', 'Schelling segregation model'), T('끼리끼리 모이는 이유', 'Why Birds of a Feather Flock Together'), T('"소수가 되기 싫다" 정도의 약한 바람만으로도 동네가 완전히 갈라질까?', 'Can a mild wish like "I don\'t want to be a minority" split a neighborhood completely apart?')),
   ('rumor', T('소문 전파 모델 (SIR)', 'Rumor spreading model (SIR)'), T('단톡방 소문 확산', 'Rumor Spread in Group Chats'), T('소문은 얼마나 빨리, 누구를 거쳐 퍼질까? 정정 글은 언제까지 올려야 소용이 있을까?', 'How fast does a rumor spread, and through whom? How late can a correction come and still matter?')),
   ('dating', T('매칭·탐색 모델', 'Matching &amp; search model'), T('눈을 낮추면 짝을 찾을까', 'Does Lowering Your Standards Help You Find a Match?'), T('서로 동의해야 맺어지는 시장에서 눈높이가 짝 찾는 시간에 미치는 영향을 봐요.', 'See how aspiration level affects the time to find a partner in a market where both sides must agree.')),
+  ('secretary', T('최적 멈춤 모델 (비서 문제)', 'Optimal stopping model (secretary problem)'), T('몇 명을 만나 보고 정해야 최고의 사람을 만날까: 37%의 법칙', 'How Many Should You Meet Before Choosing? The 37% Rule'), T('되돌아갈 수 없는 만남에서, 몇 %를 지켜본 뒤 고르면 최고를 만날 확률이 가장 높을까요? 약 37%라는 답을 직접 확인해요.', 'When you cannot go back, how much should you watch before choosing to have the best chance at the very best? Check the famous 37% answer yourself.')),
+  ('weakties', T('스몰월드 네트워크 (와츠–스트로가츠)', 'Small-world network (Watts–Strogatz)'), T('새 일자리 소식은 왜 친한 친구가 아니라 얼굴만 아는 사람에게서 올까: 약한 유대의 힘', 'Why Do Job Tips Come from Acquaintances, Not Close Friends? The Strength of Weak Ties'), T('친한 친구 무리에 얼굴만 아는 사람 몇 명만 이어도 소식이 퍼지는 속도가 몇 배로 빨라져요.', 'Tie just a few acquaintances into tight friend circles and news spreads several times faster.')),
  ]),
  ('work', '#7c5cff', '🏢', T('일터와 제도', 'Work &amp; Institutions'), T('조직과 규칙이 결과를 바꾸는 방식', 'How organizations and rules change outcomes'), [
   ('peter', T('피터의 원리 모델', 'Peter principle model'), T('무능한 상사는 왜 생길까', 'Why Do Incompetent Bosses Exist?'), T('일 잘하는 사람을 승진시키면 조직이 좋아질까? 승진 방식을 바꿔 비교해요.', 'Does promoting your best performers make an organization better? Compare promotion methods.')),
@@ -24,15 +26,24 @@ CATS = [
   ('traffic', T('나겔-슈레켄베르크 모델', 'Nagel–Schreckenberg model'), T('유령 정체: 사고도 공사도 없는데 왜 막힐까', 'Phantom Traffic Jams: Why Does Traffic Stop Without an Accident?'), T('가끔 밟는 브레이크 하나가 도로 전체를 막는 과정을 지켜봐요.', 'Watch how one occasional tap on the brakes can jam a whole road.')),
   ('bar', T('엘 파롤 바 문제', 'El Farol Bar problem'), T('다 같이 가는 식당은 왜 늘 붐빌까', 'Why Is the Popular Restaurant Always Packed?'), T('모두가 같은 생각을 하면 왜 모두 손해일까? 예측이 제각각이면 어떻게 될까?', 'Why does everyone lose when everyone thinks alike? And what if predictions differ?')),
   ('queue', T('공간 진화 게임', 'Spatial evolutionary game'), T('새치기가 늘면 줄은 어떻게 될까', 'What Happens When Queue-Jumping Spreads?'), T('질서는 가만히 지켜지지 않고 누군가 비용을 치르며 지켜진다는 걸 실험해요.', "Test the idea that order isn't kept by itself but by someone paying a price to keep it.")),
+  ('checkout', T('대기행렬 모델 (M/M/c)', 'Queueing model (M/M/c)'), T('마트 계산대, 줄을 하나로 서면 왜 더 빠를까', 'Why Is One Shared Checkout Line Faster?'), T('같은 계산대, 같은 손님인데 줄을 하나로 세우느냐 따로 세우느냐에 따라 대기시간과 공정함이 크게 달라져요.', 'Same cashiers, same customers: one shared line or many separate ones changes both waiting time and fairness.')),
+  ('bunching', T('버스 군집 모델', 'Bus-bunching model'), T('버스는 왜 꼭 두 대씩 몰려올까', 'Why Do Buses Always Come in Pairs?'), T('같은 간격으로 출발한 버스가 왜 뭉쳐 다니게 될까요? 승객이 많을수록 늦어지는 되먹임을 돌려 보고 해결책도 시험해요.', 'Why do evenly spaced buses end up in clumps? Run the feedback where more passengers means more delay, and test remedies.')),
+  ('seating', T('무작위 순차 채우기 (렌니 주차 문제)', 'Random sequential filling (Rényi parking problem)'), T('모르는 사람끼리 벤치에 앉으면 몇 명이나 앉을 수 있을까', 'How Many Strangers Can Fit on a Bench?'), T('모두가 예의 바르게 거리를 두고 앉았는데도 벤치가 이만큼 남는 이유를, 앉는 방식 네 가지를 나란히 돌려 알아봐요.', 'Everyone sat politely apart, yet seats go unused. Compare four ways of sitting side by side to see why.')),
  ]),
  ('science', '#0ea5a5', '🔬', T('과학', 'Science'), T('자연이 스스로 질서와 무늬를 만드는 방식', 'How nature makes order and pattern by itself'), [
   ('firefly', T('펄스 결합 진동자', 'Pulse-coupled oscillators'), T('반딧불이는 왜 동시에 깜빡일까', 'Why Do Fireflies Flash in Unison?'), T('지휘자 없이도 수백 마리가 같은 박자로 빛나는 과정을 지켜봐요.', 'Watch hundreds of fireflies fall into the same rhythm with no conductor.')),
   ('turing', T('튜링 반응-확산 (Gray–Scott)', 'Turing reaction–diffusion (Gray–Scott)'), T('얼룩말 무늬는 어떻게 생길까', 'How Does a Zebra Get Its Stripes?'), T('두 물질의 단순한 반응만으로 점, 줄무늬, 미로 무늬가 저절로 생겨요. 직접 씨앗을 뿌려 보세요.', 'Two simple reacting chemicals can form spots, stripes and mazes by themselves. Drop your own seeds.')),
+  ('dla', T('확산 제한 응집 (DLA)', 'Diffusion-limited aggregation (DLA)'), T('번개, 산호, 눈송이는 왜 서로 닮았을까', 'Why Do Lightning, Coral and Frost Look Alike?'), T('떠돌던 입자가 닿으면 붙기만 하는 규칙이 번개와 산호를 닮은 가지 모양을 키워요. 붙는 확률을 바꿔 직접 키워 보세요.', 'A rule as simple as "stick on touch" grows branching shapes like lightning and coral. Change the stickiness and grow your own.')),
+  ('sandpile', T('모래더미 모델 (BTW)', 'Sandpile model (BTW)'), T('모래 한 알이 산사태를 일으킬 수 있을까', 'Can a Single Grain of Sand Cause a Landslide?'), T('모래를 한 알씩 쌓기만 해도 더미가 스스로 임계 상태가 되어, 대부분은 조용하다가 가끔 거대한 눈사태가 나요.', 'Adding sand one grain at a time, the pile organizes itself to a critical state: mostly quiet, now and then a huge avalanche.')),
+  ('wildfire', T('숲불 모델 (Drossel–Schwabl)', 'Forest-fire model (Drossel–Schwabl)'), T('작은 산불을 다 끄면 왜 나중에 더 큰 불이 날까', 'Why Putting Out Every Small Fire Can Lead to Bigger Ones Later'), T('작은 불을 끄면 연료가 쌓여 큰 불이 늘어나는 과정을, 두 숲을 나란히 돌려 확인해요.', 'See how putting out small fires lets fuel pile up and big fires multiply, with two forests running side by side.')),
+  ('ant', T('랭턴의 개미 (세포 자동자)', "Langton's ant (cellular automaton)"), T('규칙 두 줄짜리 개미가 만 걸음 뒤 갑자기 길을 낸다: 랭턴의 개미', "A Two-Rule Ant Suddenly Builds a Road After 10,000 Steps: Langton's Ant"), T('규칙이 두 줄뿐인 개미가 대칭 무늬, 혼돈을 거쳐 약 만 걸음 뒤 갑자기 대각선 길을 내요.', 'An ant with just two rules makes symmetry, then chaos, then suddenly a diagonal road after about 10,000 steps.')),
  ]),
  ('history', '#c2410c', '📜', T('역사', 'History'), T('작은 계기가 큰 흐름으로 번지는 순간', 'When a small spark turns into a big movement'), [
   ('revolution', T('문턱 모델 (Granovetter)', 'Threshold model (Granovetter)'), T('혁명은 어떻게 시작될까', 'How Does a Revolution Begin?'), T('사람마다 "몇 명이 나서면 나도 나선다"는 문턱이 다를 때, 한 사람의 차이가 광장 전체를 바꿀 수 있을까요?', 'When everyone has a different "I\'ll join if this many others do" threshold, can one person change the whole square?')),
   ('easter', T('자원-인구 과잉 모델', 'Resource–population overshoot model'), T('이스터섬은 왜 몰락했을까', 'Why Did Easter Island Collapse?'), T('숲과 사람이 함께 늘다가 한꺼번에 무너지는 과잉-붕괴의 곡선을 그려요. (실제 역사는 아직 논쟁 중이에요)', 'Forest and people grow together, then crash: trace the overshoot-and-collapse curve. (The real history is still debated.)')),
   ('alliance', T('동맹 네트워크 연쇄 모델', 'Alliance-network cascade model'), T('한 발의 총성이 세계대전이 되려면', 'How Does a Single Shot Become a World War?'), T('동맹이 촘촘해지면 작은 충돌이 어디까지 번질까요? 이름 없는 나라들로 해 보는 연쇄 실험이에요.', 'How far does a small clash spread as alliances get denser? A cascade experiment with anonymous states.')),
+  ('farming', T('진행파 모델 (피셔–콜모고로프)', 'Wave-of-advance model (Fisher–Kolmogorov)'), T('농사는 어떻게 대륙을 건넜을까: 한 해에 1킬로미터씩 번진 농경', 'How Did Farming Cross a Continent? About One Kilometer a Year'), T('인구가 늘고 조금씩 흩어지는 두 규칙만으로 농경이 한 해 1킬로미터쯤의 속도로 땅을 덮는 모습을 지도 위에서 봐요.', 'Population growth plus a little dispersal is enough for farming to cover the land at about a kilometer a year. Watch it on a map.')),
+  ('lanchester', T('란체스터 제곱 법칙', "Lanchester's square law"), T('병력이 두 배면 왜 네 배 강할까: 나눠 싸우면 지는 이유', 'Why Double the Soldiers Is Four Times as Strong: Why Splitting Up Loses'), T('병력이 두 배면 전투력은 네 배. 서로 병력을 깎는 두 군대로 제곱 법칙과, 힘을 나누면 지는 이유를 확인해요.', 'Twice the numbers means four times the strength. See the square law and why splitting your force loses, with two armies wearing each other down.')),
  ]),
  ('philosophy', '#be185d', '🧠', T('철학', 'Philosophy'), T('도덕과 신뢰는 어떻게 살아남을까', 'How do morality and trust survive?'), [
   ('cooperation', T('반복 죄수의 딜레마', "Iterated prisoner's dilemma"), T('착한 사람은 살아남을까', 'Do Nice People Survive?'), T('배신하는 사람이 많은 세상에서 협력과 신뢰는 어떻게 되살아날까? 실수가 끼어들면 어떻게 될까?', 'In a world full of defectors, how do cooperation and trust come back? What changes when mistakes creep in?')),
@@ -76,21 +87,33 @@ def thumb(slug):
 
 # 주제로 이어지는 "이게 흥미로웠다면" 추천 (앞의 것이 더 가까운 주제)
 RELATED = {
+ 'lanchester': ['alliance', 'cooperation', 'braess'],
+ 'farming': ['easter', 'population', 'wildfire'],
+ 'ant': ['turing', 'sandpile', 'firefly'],
+ 'wildfire': ['sandpile', 'rumor', 'commons'],
+ 'sandpile': ['wildfire', 'dla', 'revolution'],
+ 'dla': ['turing', 'sunflower', 'sandpile'],
+ 'seating': ['queue', 'schelling', 'bar'],
+ 'bunching': ['traffic', 'braess', 'inspection'],
+ 'checkout': ['queue', 'inspection', 'bar'],
+ 'weakties': ['rumor', 'friendship', 'schelling'],
+ 'secretary': ['dating', 'peter', 'auction'],
  'talent-vs-luck': ['wealth', 'regression', 'youtube'], 'wealth': ['talent-vs-luck', 'veil', 'youtube'], 'youtube': ['wealth', 'friendship', 'talent-vs-luck'],
- 'schelling': ['rumor', 'fashion', 'friendship'], 'rumor': ['schelling', 'revolution', 'telephone'], 'dating': ['auction', 'bar', 'schelling'],
- 'peter': ['regression', 'voting', 'cooperation'], 'voting': ['veil', 'revolution', 'alliance'],
- 'traffic': ['braess', 'queue', 'firefly'], 'bar': ['traffic', 'braess', 'dating'], 'queue': ['cooperation', 'commons', 'traffic'],
- 'firefly': ['turing', 'sunflower', 'revolution'], 'turing': ['sunflower', 'firefly', 'zipf'],
- 'revolution': ['rumor', 'alliance', 'fashion'], 'easter': ['commons', 'population', 'apartment'], 'alliance': ['revolution', 'rumor', 'veil'],
+ 'schelling': ['rumor', 'fashion', 'friendship', 'seating'], 'rumor': ['schelling', 'revolution', 'telephone', 'weakties'], 'dating': ['auction', 'bar', 'schelling', 'secretary'],
+ 'peter': ['regression', 'voting', 'cooperation', 'secretary'], 'voting': ['veil', 'revolution', 'alliance'],
+ 'traffic': ['braess', 'queue', 'firefly', 'bunching'], 'bar': ['traffic', 'braess', 'dating'], 'queue': ['cooperation', 'commons', 'traffic', 'checkout'],
+ 'firefly': ['turing', 'sunflower', 'revolution', 'ant'], 'turing': ['sunflower', 'firefly', 'zipf', 'dla'],
+ 'revolution': ['rumor', 'alliance', 'fashion'], 'easter': ['commons', 'population', 'apartment', 'farming'], 'alliance': ['revolution', 'rumor', 'veil', 'lanchester'],
  'cooperation': ['queue', 'commons', 'veil'], 'veil': ['wealth', 'cooperation', 'voting'], 'commons': ['easter', 'cooperation', 'queue'],
  'monkey': ['zipf', 'telephone', 'painters'], 'zipf': ['monkey', 'telephone', 'youtube'], 'telephone': ['rumor', 'monkey', 'painters'],
- 'fashion': ['painters', 'schelling', 'rumor'], 'painters': ['fashion', 'telephone', 'sunflower'], 'sunflower': ['turing', 'firefly', 'painters'], 'auction': ['dating', 'survivor', 'regression'],
+ 'fashion': ['painters', 'schelling', 'rumor'], 'painters': ['fashion', 'telephone', 'sunflower'], 'sunflower': ['turing', 'firefly', 'painters', 'dla'], 'auction': ['dating', 'survivor', 'regression'],
  'population': ['apartment', 'easter', 'wealth'], 'apartment': ['population', 'rumor', 'auction'],
  'braess': ['traffic', 'bar', 'queue'], 'regression': ['survivor', 'talent-vs-luck', 'peter'], 'survivor': ['regression', 'talent-vs-luck', 'auction'],
- 'friendship': ['inspection', 'rumor', 'youtube'], 'inspection': ['friendship', 'coincidence', 'traffic'], 'coincidence': ['inspection', 'friendship', 'regression'],
+ 'friendship': ['inspection', 'rumor', 'youtube', 'weakties'], 'inspection': ['friendship', 'coincidence', 'traffic', 'checkout'], 'coincidence': ['inspection', 'friendship', 'regression'],
 }
 # 새 실험을 추가한 날 (NEW 표시는 이 날짜부터 7일 동안, 그리고 "지난 방문 이후 새 실험" 계산에 쓴다). 새 실험을 만들면 한 줄 추가.
 ADDED = {s: '2026-10-12' for s in ['braess', 'regression', 'survivor', 'friendship', 'inspection', 'coincidence']}
+ADDED.update({s: '2026-10-13' for s in ['secretary', 'weakties', 'checkout', 'bunching', 'seating', 'dla', 'sandpile', 'wildfire', 'ant', 'farming', 'lanchester']})
 
 # slug -> (기호, 짧은 이름 T, 미니 애니메이션 종류)
 META = {
@@ -128,6 +151,17 @@ META = {
  'friendship': ('Fp', T('친구의 역설', 'Friend Paradox'), 'net'),
  'inspection': ('Ip', T('대기 시간', 'Waiting'), 'stripes'),
  'coincidence': ('Ci', T('우연의 일치', 'Coincidence'), 'ring'),
+ 'secretary': ('Sk', T('37%의 법칙', 'The 37% Rule'), 'ring'),
+ 'weakties': ('Wk', T('약한 유대', 'Weak Ties'), 'net'),
+ 'checkout': ('Lq', T('계산대 줄', 'Checkout Lines'), 'stripes'),
+ 'bunching': ('Bu', T('버스 뭉침', 'Bus Bunching'), 'ring'),
+ 'seating': ('Bn', T('벤치 자리', 'Bench Seating'), 'grid2'),
+ 'dla': ('Dl', T('가지 프랙탈', 'Branching'), 'spread'),
+ 'sandpile': ('Sp', T('모래더미', 'Sandpile'), 'grid'),
+ 'wildfire': ('Wf', T('산불', 'Wildfire'), 'heat'),
+ 'ant': ('La', T('랭턴의 개미', "Langton's Ant"), 'spiral'),
+ 'farming': ('Fm', T('농경 전파', 'Farming Spread'), 'spread'),
+ 'lanchester': ('Lc', T('란체스터 법칙', "Lanchester's Law"), 'tri'),
 }
 
 def build(only_existing=True):

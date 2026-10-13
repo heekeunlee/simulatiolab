@@ -44,6 +44,21 @@ DAILY = [  # (실험 slug, 질문, [보기 3개])
  ('inspection', T('버스는 왜 내가 기다릴 때만 늦게 오는 것 같을까요?', 'Why does the bus only seem to be late when you are the one waiting?'), [T('내 운이 나빠서', 'Just bad luck'), T('원래 그런 것', 'It really works that way'), T('착각이다', 'It is my imagination')]),
  ('coincidence', T('"어떻게 이런 우연이!" 싶은 일은 드문 일일까요?', 'Are "what a coincidence!" moments actually rare?'), [T('아주 드물다', 'Very rare'), T('가끔 있다', 'Now and then'), T('생각보다 자주 생긴다', 'More common than you think')]),
 ]
+
+DAILY += [  # 2026-10-13 새 실험 11개 (정답 없는 가벼운 3지선다)
+ ('secretary', T('집을 보러 다니는데 한 번 지나친 집은 다시 못 본다면, 몇 군데를 보고 나서 정하는 게 좋을까요?', 'You are viewing apartments and cannot return to one you passed. How many should you see before you decide?'), [T('첫 집에서 바로', 'Right at the first one'), T('전체의 3분의 1쯤 보고 나서', 'After about a third of them'), T('끝까지 다 보고 나서', 'After seeing nearly all')]),
+ ('weakties', T('새 일자리 소식을 가장 먼저 알려 줄 사람은 누구일까요?', 'Who is most likely to tell you about a new job first?'), [T('가장 친한 친구', 'My closest friend'), T('가끔 보는 얼굴만 아는 사람', 'An acquaintance I rarely see'), T('가족', 'Family')]),
+ ('checkout', T('마트 계산대 앞에서 줄을 고를 때, 당신은 어떻게 하나요?', 'At a supermarket checkout, how do you pick a line?'), [T('사람이 가장 적은 줄', 'The line with the fewest people'), T('물건이 가장 적어 보이는 줄', 'The line with the smallest carts'), T('가까운 줄에 그냥 선다', 'Just the nearest line')]),
+ ('bunching', T('버스 정류장에서 한참 기다렸더니 버스 세 대가 줄줄이 왔습니다. 가장 그럴듯한 이유는?', 'You waited ages at a stop and then three buses arrived in a row. What is the most likely reason?'), [T('기사님들이 제멋대로 달려서', 'The drivers drove carelessly'), T('늦은 버스가 승객을 더 태워 더 늦어지는 구조 때문에', 'Late buses load more passengers and fall further behind'), T('그냥 운이 나빠서', 'Just bad luck')]),
+ ('seating', T('빈 벤치에 낯선 사람들이 한 명씩 와서 서로 한 칸 이상 띄우고 앉으면, 자리가 몇 개나 낭비될까요?', 'Strangers arrive one at a time at an empty bench and each leaves at least one seat between themselves and others. How many seats end up wasted?'), [T('거의 없다', 'Almost none'), T('열 자리 중 한두 자리', 'One or two in ten'), T('절반 이상', 'More than half')]),
+ ('dla', T('호수 바닥에 떨어진 가루가 서로 닿으면 붙기만 한다면, 덩어리는 어떤 모양이 될까요?', 'If powder in a lake sticks only when it touches, what shape does the clump take?'), [T('둥글고 꽉 찬 공', 'A round, solid ball'), T('가지가 뻗은 성긴 모양', 'A sparse, branching shape'), T('납작한 판', 'A flat plate')]),
+ ('sandpile', T('만약 모래를 한 알씩 계속 쌓으면, 어느 순간 한 알이 일으키는 가장 큰 변화는 어떻게 될까요?', 'If you keep adding sand one grain at a time, what is the biggest change a single grain can cause?'), [T('늘 비슷하게 작은 변화만 일어난다', 'Always only a similarly small change'), T('가끔 더미 전체가 무너질 수도 있다', 'Sometimes the whole pile can collapse'), T('쌓을수록 더 안 무너진다', 'The more you pile, the less it collapses')]),
+ ('wildfire', T('집 근처 숲에서 작은 불이 날 때마다 바로 꺼 왔다면, 10년 뒤 이 숲은 어떻게 될까요?', 'If every small fire near your home had been put out right away, what would this forest be like in 10 years?'), [T('더 안전해진다', 'Safer'), T('나무가 쌓여 큰 불 위험이 커진다', 'More trees pile up and big fires become likelier'), T('별 차이 없다', 'No real difference')]),
+ ('ant', T('아무 계획 없이 두 가지 규칙만 따르는 개미를 오래 풀어 두면 어떻게 될까요?', 'If you let an ant that follows just two rules and has no plan roam for a long time, what happens?'), [T('계속 제자리를 맴돈다', 'It keeps circling in place'), T('온 판을 어지럽게 채운다', 'It fills the whole grid messily'), T('어느 순간 곧은 길을 낸다', 'At some point it builds a straight road')]),
+ ('farming', T('낯선 땅으로 이사 간 이웃이 한 해에 1킬로미터씩만 퍼져도, 천 년 뒤면 얼마나 갈까요?', 'If a settlement spread just one kilometer a year, how far would it get in a thousand years?'), [T('옆 도시까지', 'To the next town'), T('나라 한 바퀴쯤', 'About across a country'), T('대륙 하나를 가로질러', 'Across a whole continent')]),
+ ('lanchester', T('우리 편이 상대의 두 배인 사람으로 서로 겨누어 싸운다면, 우리 쪽의 힘은 상대의 몇 배일까요?', 'If your side has twice as many people as the other and both aim at each other, how many times stronger is your side?'), [T('약 2배', 'About 2 times'), T('약 4배', 'About 4 times'), T('잘 모르겠다', 'Not sure')]),
+]
+
 TOPIC = {  # 다음 실험 주제 투표. 새 투표를 열 땐 id를 바꾼다.
  'id': 'topic-2026-10',
  'q': T('다음에 만들 실험을 골라 주세요', 'Pick the next experiment we build'),
@@ -83,7 +98,7 @@ for s, q, opts in DAILY:
 dyn[TOPIC['q'][0]] = TOPIC['q'][1]
 for o in TOPIC['o']: dyn[o[0]] = o[1]
 for t in UI: dyn[t[0]] = t[1]
-assert len(DAILY) == 34 and all(len(d[2]) == 3 for d in DAILY)
+assert len(DAILY) == 45 and all(len(d[2]) == 3 for d in DAILY)
 open(os.path.join(SITE, 'daily.js'), 'w', encoding='utf-8').write('// 오늘의 만약에 · 주제 투표 데이터 (tools/pages/daily.py 가 만든다)\nwindow.LAB_DAILY = ' + json.dumps(data, ensure_ascii=False) + ';\n')
 open(os.path.join(HERE, 'dyn_daily.py'), 'w', encoding='utf-8').write('# tools/pages/daily.py 가 만든다 (직접 고치지 말 것)\nDYN = ' + json.dumps(dyn, ensure_ascii=False, indent=1) + '\n')
 print(len(DAILY), '개 질문,', len(dyn), '개 문구')

@@ -75,6 +75,55 @@ PRED = {
   T('반대 방향으로(뒤로) 물러나요. 앞차가 출발해도 뒤차는 조금 늦게 출발해서, 정체의 앞쪽 끝은 풀리고 뒤쪽 끝은 계속 늘어나요.',
     'It drifts backward. The front of the jam clears as cars pull away while the back keeps growing, so the whole jam moves against the traffic.')),
 }
+
+# ---- 2026-10-13 새 실험 11개 (정답·해설의 숫자는 각 validate 출력 기준) ----
+PRED.update({
+ 'secretary': (  # validate-secretary: n=100, r=37 → 37.1%; n=40: r=4 24.2%, r=24 31.2%, r=32 18.1%
+  T('후보를 한 명씩 만나고 되돌아갈 수 없을 때, 처음 몇 %를 거절만 하며 지켜본 뒤 고르면 최고를 만날 확률이 가장 높을까요?', 'When you meet candidates one at a time and cannot go back, what share should you only watch before choosing to have the best chance of the very best?'),
+  [T('약 10%', 'About 10%'), T('약 37%', 'About 37%'), T('약 70%', 'About 70%')], 1,
+  T('후보 100명에서 37명(37%)을 관찰할 때 최고를 고를 확률이 37.1%로 가장 높았습니다. 후보 40명에서 4명(10%)은 24.2%, 24명(60%)은 31.2%, 32명(80%)은 18.1%였습니다.', 'With 100 candidates, watching 37 (37%) gave the highest chance of the best, 37.1%. With 40 candidates, watching 4 (10%) gave 24.2%, 24 (60%) gave 31.2% and 32 (80%) gave 18.1%.')),
+ 'weakties': (  # validate-weakties: 약한 연결 0%에서 58.1턴 → 2%에서 16.2턴 (40번 평균)
+  T('원 위의 300명이 가까운 이웃 6명과만 이어져 있습니다. 먼 사람과 이은 선을 전체 연결의 2%(약 18개)만 보태면 소식이 90%에 퍼지는 데 걸리는 시간은 어떻게 될까요?', 'In a ring of 300 people tied only to 6 close neighbors, you add ties to far-away people for just 2% of all ties (about 18). What happens to the time for news to reach 90% of people?'),
+  [T('거의 그대로이다', 'Barely changes'), T('약 3분의 1로 줄어든다', 'Falls to about a third'), T('절반 정도 줄어든다', 'Falls by about half')], 1,
+  T('약한 연결이 없을 때 평균 58.1턴이던 것이 2%에서 16.2턴(3.6배 빠름)이 되었습니다(40번 평균). 평균 거리는 25.4걸음에서 33%로 줄었지만 친구 무리의 촘촘함은 94%로 거의 그대로였습니다.', 'Without weak ties it took 58.1 turns on average; with 2% it took 16.2 (3.6 times faster, 40-run average). The average distance fell to 33% of 25.4 steps while the tightness of friend circles stayed at 94%.')),
+ 'checkout': (  # validate-checkout: 4대·90%: 한 줄 6.1분, 짧은 줄 6.9분(×1.13), 추월당한 손님 44%, 무작위 줄 29.9분
+  T('계산대 4개, 붐비는 정도 90%에서 손님이 "사람 수가 가장 적은 줄"을 골라 따로 서면, 한 줄로 서는 가게보다 평균 대기시간은 어떻게 될까요?', 'With 4 cashiers at 90% busy, if customers join the line with the fewest people, how does the average wait compare with a single shared line?'),
+  [T('거의 같다 (5% 이내)', 'About the same (within 5%)'), T('약 13% 길다', 'About 13% longer'), T('두 배 이상 길다', 'More than twice as long')], 1,
+  T('시뮬레이션에서 한 줄은 평균 6.1분, 사람 적은 줄은 6.9분(×1.13)이었습니다. 평균 차이는 작아도 손님의 44%는 뒤에 온 사람에게 추월당했고, 아무 줄이나 서면 29.9분(×4.9)이었습니다.', 'In the simulation the single line averaged 6.1 minutes and the fewest-people rule 6.9 (1.13 times). The average gap is small, but 44% of customers were overtaken by someone who came later, and joining any line averaged 29.9 minutes (4.9 times).')),
+ 'bunching': (  # validate-bunching: CV 0.04 → 2.10(360분), 평균 기다림 8.7분 vs 고른 간격 2.3분 (약 3.8배)
+  T('버스 6대가 처음엔 똑같은 간격으로 달립니다. 승객이 많아 정차가 길어지는 규칙만 있을 때, 몇 시간 뒤 버스 간격은 어떻게 될까요?', 'Six buses start evenly spaced. If the only rule is that stops last longer when more passengers wait, what happens to the gaps after a few hours?'),
+  [T('계속 거의 고르다', 'They stay nearly even'), T('몇 대씩 뭉치고 평균 기다림이 3배 넘게 늘어난다', 'Buses clump and the average wait grows more than threefold'), T('모두 정확히 두 대씩 짝이 된다', 'They pair up exactly in twos')], 1,
+  T('처방이 없을 때 간격 변동계수가 0.04에서 2.10(360분)으로 커지고, 평균 기다림은 8.7분으로 간격이 고를 때(2.3분)의 약 3.8배였습니다.', 'With no remedy, the coefficient of variation of the gaps grew from 0.04 to 2.10 (minute 360), and the average wait was 8.7 minutes, about 3.8 times the 2.3 minutes of even spacing.')),
+ 'seating': (  # validate-seating: g=1 이론 0.4323, 시뮬 0.4327
+  T('서로 한 칸씩 띄우고 앉기로 한 사람들이 아주 긴 벤치에 무작위로 한 명씩 앉으면, 끝내 자리의 몇 %가 찰까요?', 'If people who agree to leave one empty seat between them sit one at a time at random on a very long bench, what share of the seats ends up filled?'),
+  [T('약 33%', 'About 33%'), T('약 43%', 'About 43%'), T('50% (모든 자리의 절반)', '50% (every other seat)')], 1,
+  T('이론값은 (1−e^−2)/2≈43.2%이고 시뮬레이션은 43.3%였습니다. 한 칸씩 띄워 정돈해 앉으면 50%까지 가능하지만 무작위로 앉으면 그만큼 못 채웁니다.', 'Theory gives (1−e^−2)/2 ≈ 43.2% and the simulation 43.3%. Orderly seating could reach 50%, but random seating cannot.')),
+ 'dla': (  # validate-dla: 4,000개, 반지름 평균 123칸, 8.6%만 채워짐
+  T('무작위로 떠돌던 입자가 덩어리에 닿으면 붙기만 하는 규칙으로 4,000개를 키우면, 덩어리는 반지름 안의 몇 %를 채울까요?', 'If 4,000 randomly wandering particles stick on touching a cluster, what share of the circle out to its farthest tip do they fill?'),
+  [T('약 50% (꽉 찬 덩어리)', 'About 50% (a solid blob)'), T('약 25%', 'About 25%'), T('약 9% (대부분 빈틈)', 'About 9% (mostly gaps)')], 2,
+  T('시뮬레이션에서 가장 먼 끝까지의 원(반지름 평균 123칸) 중 평균 8.6%만 채워졌습니다. 바깥 가지 끝이 안쪽 틈을 가리기 때문입니다.', 'In the simulation only 8.6% on average of the circle out to the farthest tip (mean radius 123 cells) was filled, because the outer branch tips shade the inner gaps.')),
+ 'sandpile': (  # validate-sandpile: 40x40, 안정기 이후 57%의 알은 아무 칸도 무너뜨리지 못함
+  T('모래를 한 알씩 쌓는 판(40×40)에서 안정기 이후 떨어뜨린 알 중, 아무 칸도 무너지지 않고 지나간 알은 몇 %일까요?', 'On a 40×40 board where grains are added one at a time, what share of grains dropped after the pile has settled cause no toppling at all?'),
+  [T('약 10%', 'About 10%'), T('약 57%', 'About 57%'), T('약 90%', 'About 90%')], 1,
+  T('시드 1~5 평균 57%였습니다. 무너짐이 있었던 눈사태의 중앙값은 20번인데 가장 큰 것은 3,778~4,760번(중앙값의 약 208배)까지 나왔습니다.', 'The average over seeds 1 to 5 was 57%. Among avalanches that did topple, the median was 20 topplings while the largest reached 3,778 to 4,760 (about 208 times the median).')),
+ 'wildfire': (  # validate-wildfire: 큰 불 1만 단계당 21.4번 → 125.1번 (90% 끄기)
+  T('작은 산불을 90% 꺼 주는 숲은, 그냥 두는 숲과 비교해 큰 불(숲의 10% 이상)이 얼마나 자주 날까요?', 'Compared with a forest left alone, how often do big fires (10% or more of the forest) occur in a forest where 90% of small fires are put out?'),
+  [T('거의 달라지지 않는다', 'Barely changes'), T('훨씬 줄어든다', 'Becomes much rarer'), T('훨씬 늘어난다', 'Becomes much more frequent')], 2,
+  T('1만 단계당 21.4번에서 125.1번으로 약 6배 늘었습니다. 매 단계 타는 면적은 0.63%와 0.61%로 거의 같았고, 큰 불이 태운 면적의 비중이 4%에서 27%로 커졌습니다.', "It rose about 6 times, from 21.4 to 125.1 per 10,000 steps. The area burning per step was almost the same, 0.63% versus 0.61%, but the big fires' share of the burned area grew from 4% to 27%.")),
+ 'ant': (  # validate-ant: 빈 판 9,976걸음에 고속도로 시작
+  T('빈 판에서 출발한 규칙 두 줄짜리 개미가 대각선으로 곧게 뻗는 길(고속도로)을 내기 시작하는 건 몇 걸음쯤일까요?', 'On a blank grid, about how many steps does a two-rule ant take before it starts building a straight diagonal road (the highway)?'),
+  [T('약 100걸음', 'About 100 steps'), T('약 1만 걸음', 'About 10,000 steps'), T('길을 내지 않는다', 'It never builds one')], 1,
+  T('이 시뮬레이션에서는 9,976걸음째부터 104걸음마다 같은 동작을 되풀이하며 대각선으로 나아갔고 40,000걸음까지 이어졌습니다. 처음 약 500걸음은 대칭 무늬, 그 뒤는 혼돈이었습니다. 항상 길이 생긴다는 것은 증명되지 않은 추측입니다.', 'In this simulation, from step 9,976 the ant repeated the same 104-step routine and moved diagonally, continuing to step 40,000. The first ~500 steps were symmetric patterns and the rest chaos. That it always builds a road is an unproved conjecture.')),
+ 'farming': (  # validate-farming: 전선 속도 2√(rD)=1.00km/년, 시뮬 1.03, 흡수 반영 이론 1.12
+  T('농사가 번지는 속도는 무엇으로 정해질까요?', 'What sets the speed at which farming spreads?'),
+  [T('사람이 걷는 속도', 'How fast people walk'), T('인구가 느는 속도와 이웃으로 흩어지는 정도', 'How fast the population grows and how far it scatters'), T('처음 농부가 몇 명이었는지', 'How many farmers there were at the start')], 1,
+  T('전선 속도는 2√(rD)로, 성장률 r과 확산 D만으로 정해집니다. 기본값에서 이론 1.00km/년, 시뮬레이션에서 잰 값 1.03km/년(토착민 흡수를 반영한 이론은 1.12)이었습니다.', 'The front speed is 2√(rD), set by growth rate r and dispersal D alone. With the defaults the theory gives 1.00 km/year and the simulation measured 1.03 km/year (1.12 for the theory with assimilation).')),
+ 'lanchester': (  # validate-lanchester: 200 대 100, 질 같음 → 이론 173명(87%), 시뮬 172명(86%); 선형이면 50%
+  T('질이 같은 두 군대가 서로 겨누어 쏘며 싸웁니다. 파랑이 200명, 빨강이 100명이면 이긴 파랑에는 처음 병력의 얼마쯤이 남을까요?', 'Two armies of equal quality aim and fire at each other. With 200 blue and 100 red soldiers, about what share of its starting force does the winning blue army keep?'),
+  [T('약 50%', 'About 50%'), T('약 70%', 'About 70%'), T('약 87%', 'About 87%')], 2,
+  T('사각 법칙에서는 α·A²−β·B²가 보존되어 남는 병력이 √(200²−100²)≈173명, 즉 87%입니다. 시뮬레이션 300회 평균은 약 172명(86%)이었습니다. 일대일로 맞붙는 선형 법칙이면 50%만 남습니다.', 'Under the square law, α·A²−β·B² is conserved, so the survivors number √(200²−100²)≈173, or 87%. The average of 300 simulated fights was about 172 (86%). Under the one-to-one linear law only 50% would be left.')),
+})
+
 # 카드에 쓰는 문구 (한국어 → 영어)
 UI = [
  (T('🔮 먼저 예상해 보세요', '🔮 Make a prediction first')),

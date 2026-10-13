@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Bus Bunching · Simulatio Lab">버스 뭉침 · 시뮬라티오 랩</title>
+<meta name="description" content="같은 간격으로 출발한 버스가 왜 몇 대씩 뭉쳐 다니게 되는지, 승객이 많을수록 늦어지는 되먹임 모델로 직접 돌려보고 해결책도 시험해 보세요." data-en-content="Run a feedback model to see why evenly spaced buses end up travelling in bunches, and test remedies that restore the spacing.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="theme-color" content="#2f6fed">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1 data-en="Why Do Buses Always Come in Pairs?">버스는 왜 꼭 두 대씩 몰려올까</h1>
+  <p class="lead" data-en="While waiting for a bus you often wait ages, then two or three arrive in a row. It is easy to blame bad luck or careless drivers. Yet every bus in this model runs at the same speed under the same rule, and at the start they are almost perfectly spaced. They bunch up anyway. It is not bad luck: it is built into the system of a bus route.">버스를 기다리다 보면 한참 안 오다가 두세 대가 줄줄이 오곤 합니다. 운이 나빴거나 기사님들이 제멋대로여서라고 생각하기 쉽습니다. 그런데 이 모델의 버스는 모두 똑같은 속도와 똑같은 규칙으로 달리고, 처음에는 간격도 거의 고릅니다. 그런데도 시간이 지나면 어김없이 뭉칩니다. 뭉침은 불운이 아니라, 노선이라는 시스템에 처음부터 들어 있는 구조입니다.</p>
+
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li data-en="A ring-shaped route has 24 evenly spaced stops, and several buses circle in the same direction. A bus covers the gap between stops in 1 minute. At every stop passengers arrive at random with a constant average rate and queue up (the passenger demand slider).">고리 모양 노선에 정류장 24곳이 같은 간격으로 있고, 버스 여러 대가 같은 방향으로 돕니다. 버스는 정류장 사이를 1분에 달립니다. 정류장마다 승객이 일정한 평균 속도로 무작위로 도착해 줄을 섭니다(슬라이더의 승객 수요).</li>
+    <li data-en="At a stop the bus loads the waiting passengers one by one (3 seconds each). It stays until the queue is empty, taking anyone who arrives meanwhile. So the &lt;b&gt;time it stands is proportional to the number waiting&lt;/b&gt;. A bus with a larger gap ahead finds more people waiting, stands longer, and falls even further behind.">버스는 정류장에 서서 줄 선 승객을 한 명씩 태웁니다(1명에 3초). 줄이 빌 때까지 서 있고, 서 있는 동안 새로 온 승객도 태웁니다. 그래서 <b>서 있는 시간은 줄 선 승객 수에 비례</b>합니다. 앞차와 간격이 벌어진 버스는 승객이 더 많이 쌓여 있어 더 오래 서고, 그래서 더 늦어집니다.</li>
+    <li data-en="The bus behind finds short queues because the one ahead has already taken the passengers, so it leaves quickly and catches up. The one ahead gets slower, the one behind faster: this &lt;b&gt;positive feedback&lt;/b&gt; amplifies tiny differences until several buses run as one clump.">반대로 뒤차는 앞차가 이미 승객을 태워 간 뒤라 줄이 짧아 금방 출발하고, 앞차를 따라잡습니다. 앞차는 더 늦어지고 뒤차는 더 빨라지는 <b>양의 되먹임</b>이 작은 어긋남을 점점 키워, 결국 몇 대가 한 덩어리로 달립니다.</li>
+    <li data-en="You can pick a &lt;b&gt;remedy&lt;/b&gt;. Holding keeps a bus at the stop until 1.15 times the ideal spacing has passed since the bus ahead left, and limited boarding caps how long a bus may stand, leaving the remaining passengers to the next bus."><b>처방</b>을 고를 수 있습니다. 간격 유지는 앞차가 이 정류장을 떠난 뒤 이상적 간격의 1.15배가 지나야 출발하게 하고, 승차 제한은 한 정류장에서 서는 시간에 상한을 둬서 남은 승객은 다음 버스에 맡깁니다.</li>
+  </ul>
+
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="n" data-en="Number of buses &lt;output id=&quot;o-n&quot;&gt;&lt;/output&gt;">버스 수 <output id="o-n"></output></label>
+        <input type="range" id="n" min="3" max="12" step="1" value="6">
+        <span class="hint" data-en="More buses mean a shorter ideal gap">많을수록 이상적 간격이 짧아져요</span></div>
+<div class="ctl"><label for="demand" data-en="Passenger demand &lt;output id=&quot;o-demand&quot;&gt;&lt;/output&gt;">승객 수요 <output id="o-demand"></output></label>
+        <input type="range" id="demand" min="10" max="90" step="5" value="40">
+        <span class="hint" data-en="Average passengers arriving per hour at each stop. The higher it is, the stronger the feedback">정류장 한 곳에 시간당 도착하는 평균 승객 수. 클수록 되먹임이 세져요</span></div>
+<div class="ctl"><label for="eps" data-en="Initial disturbance &lt;output id=&quot;o-eps&quot;&gt;&lt;/output&gt;">처음 어긋남 <output id="o-eps"></output></label>
+        <input type="range" id="eps" min="0" max="30" step="1" value="5">
+        <span class="hint" data-en="How far, in percent of the ideal gap, the starting positions are randomly shifted">처음 출발 위치를 이상적 간격의 몇 %만큼 무작위로 흩뜨릴지</span></div>
+<div class="ctl"><label for="remedy" data-en="Remedy &lt;output id=&quot;o-remedy&quot;&gt;&lt;/output&gt;">처방 <output id="o-remedy"></output></label>
+        <select id="remedy" class="sel"><option value="none" selected data-en="No remedy">처방 없음</option><option value="hold" data-en="Holding: wait until enough time has passed since the bus ahead left">간격 유지: 앞차가 떠난 뒤 일정 시간이 지나야 출발</option><option value="limit" data-en="Limited boarding: cap the standing time">승차 제한: 서는 시간에 상한</option></select>
+        <span class="hint" data-en="Changing it restarts the run. The charts below compare all three remedies under the same conditions">처방을 바꾸면 처음부터 다시 돌립니다. 아래 차트는 세 처방을 같은 조건으로 비교해요</span></div>
+    </div>
+    <div class="btns">
+      <button class=primary id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Same settings, different arrivals">같은 설정, 다른 승객 도착</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3 data-en="① Watching the Ring Route">① 순환 노선 지켜보기</h3>
+    <p data-en="Circles are buses and the numbers are bus numbers. Orange bars sticking out from the stops are queues of waiting passengers, and a bus with a black outline is loading. Watch evenly spaced buses gradually stick together.">동그라미가 버스, 번호가 버스 번호입니다. 정류장에서 바깥으로 뻗은 주황 막대는 줄 선 승객이고, 검은 테두리 버스는 승객을 태우는 중입니다. 처음엔 고르게 돌다가 점점 서로 붙는 것을 지켜보세요.</p>
+    <canvas id="c-ring" class="rounded" data-thumb aria-label="① Watching the Ring Route"></canvas>
+    <div class="anim-bar">
+      <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
+      <button id="stepbtn" data-en="Step">한 단계</button>
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="speed"><option value="25" data-en="Slow">느리게</option><option value="60" selected data-en="Normal">보통</option><option value="160" data-en="Fast">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3 data-en="② How the Gaps Drift">② 간격이 흐트러지는 모습</h3>
+    <p data-en="Time runs left to right and buses top to bottom; color shows the gap between that bus and the one ahead. Pale gray is even spacing, red is bunched tightly, blue is a large gap. When the stripes split into red and blue the buses have bunched.">가로는 시간, 세로는 버스 번호이고 색은 그 버스와 앞차 사이의 간격입니다. 옅은 회색은 고른 간격, 빨강은 바짝 붙음, 파랑은 크게 벌어짐입니다. 줄무늬가 빨강과 파랑으로 갈라지면 뭉친 것입니다.</p>
+    <canvas id="c-heat" class="" aria-label="② How the Gaps Drift"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Tight behind the bus ahead"><i style="background:#e5484d"></i>앞차에 바짝 붙음</span><span data-en="&lt;i style=&quot;background:#eef1f7;border:1px solid #c3cce0&quot;&gt;&lt;/i&gt;Even gap"><i style="background:#eef1f7;border:1px solid #c3cce0"></i>고른 간격</span><span data-en="&lt;i style=&quot;background:#2f6fed&quot;&gt;&lt;/i&gt;Large gap to the bus ahead"><i style="background:#2f6fed"></i>앞차와 크게 벌어짐</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ How the Variation of Gaps Grows">③ 간격 변동계수(CV)의 변화</h3>
+    <p data-en="This measures how uneven the gaps are (standard deviation divided by the mean). 0 means perfectly even, and it is close to its maximum when all buses form one clump. The thick black line is the run you are watching, and the colored lines are all three remedies run to the end under the same conditions.">버스 간격이 얼마나 들쭉날쭉한지를 나타내는 값입니다(표준편차 ÷ 평균). 0이면 완전히 고르고, 버스가 모두 한 덩어리가 되면 최댓값에 가깝습니다. 굵은 검은 선이 지금 돌리는 실험이고, 색 선은 세 처방을 같은 조건으로 끝까지 돌린 결과입니다.</p>
+    <canvas id="c-cv" class="" aria-label="③ How the Variation of Gaps Grows"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;No remedy"><i style="background:#e5484d"></i>처방 없음</span><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Holding"><i style="background:#1fa463"></i>간격 유지</span><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;Limited boarding"><i style="background:#e0a100"></i>승차 제한</span><span data-en="&lt;i style=&quot;background:#111&quot;&gt;&lt;/i&gt;Running now"><i style="background:#111"></i>지금 돌리는 중</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="④ What the Remedies Gain and Cost">④ 처방의 효과와 대가</h3>
+    <p data-en="Left is the average time passengers wait for a bus, right the time a bus needs for one lap. Keeping the spacing cuts the wait a lot, but the lap gets longer because buses rest at stops. Dashed lines are reference values.">왼쪽은 승객이 버스를 기다리는 평균 시간, 오른쪽은 버스가 한 바퀴 도는 데 걸리는 시간입니다. 간격을 지키게 하면 기다림은 크게 줄지만 버스가 정류장에서 쉬는 만큼 한 바퀴가 길어집니다. 점선은 기준값입니다.</p>
+    <canvas id="c-bars" class="" aria-label="④ What the Remedies Gain and Cost"></canvas>
+    </section>
+  </div>
+
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout" data-en="&lt;b&gt;What it shows:&lt;/b&gt; With 6 buses, 24 stops, 40 passengers per hour at each stop and a 5% initial disturbance, the ideal gap was 4.6 minutes (a lap of 27.8 minutes). With no remedy, the coefficient of variation of the gaps grew from 0.04 at minute 0 to 0.54 at minute 60, 1.00 at 120, 1.51 at 240 and 2.10 at 360 (mean of 20 seeds; the maximum when all 6 buses form one clump is 2.24). The average wait in the second half was 8.7 minutes, about 3.8 times the 2.3 minutes of even spacing. The wait was mostly explained by (ideal gap ÷ 2) × (1 + CV²), giving 9.0 minutes, close to the measured value. Even with 0% initial disturbance, the randomness of passenger arrivals alone took CV above 0.5 after 63 minutes; with 5% it was 63 minutes and with 25% it was 35. Holding pushed CV down to 0.04 and the wait to 2.5 minutes, but the lap grew about 19%, from 27.1 to 32.4 minutes. Limited boarding cut the wait to 3.4 minutes (lap 25.9 minutes), but CV stayed around 0.13 until about minute 120 and then rose to 0.66 by minute 360, so it delayed the bunching rather than preventing it. At 10 passengers per hour the wait barely grew (about 1.0 times) and the buses did not bunch; at 20 it was about 1.2 times and at 60 about 5.7 times."><b>말하는 것:</b> 버스 6대, 정류장 24곳, 정류장당 시간당 승객 40명, 처음 어긋남 5%에서 이상적 간격은 4.6분(한 바퀴 27.8분)이었습니다. 처방이 없으면 간격의 변동계수가 0분에 0.04였던 것이 60분에 0.54, 120분에 1.00, 240분에 1.51, 360분에 2.10으로 커졌습니다(시드 20개 평균, 6대가 모두 한 덩어리가 되면 최댓값 2.24). 평균 기다림은 뒤쪽 절반 시간에 8.7분으로, 간격이 고를 때의 2.3분의 약 3.8배였습니다. 기다림은 (이상적 간격÷2)×(1+CV²)로 거의 설명되어 식의 9.0분과 가까웠습니다. 처음 어긋남이 0%여도 승객 도착의 무작위성만으로 CV가 0.5를 넘는 데 63분이 걸렸고, 5%에서도 63분, 25%에서는 35분이었습니다. 간격 유지 처방은 CV를 0.04로 눌러 기다림을 2.5분으로 줄였지만 한 바퀴는 27.1분에서 32.4분으로 약 19% 길어졌습니다. 승차 제한은 기다림을 3.4분(한 바퀴 25.9분)으로 줄였으나 CV는 120분 즈음까지 0.13 안팎에 머물다가 360분에 0.66으로 올라, 뭉침을 늦출 뿐 막지는 못했습니다. 수요가 시간당 10명이면 기다림이 거의 늘지 않아(약 1.0배) 뭉침이 없었고, 20명에서 약 1.2배, 60명에서 약 5.7배였습니다.</div>
+  <div class="callout" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; This does not reproduce any real bus route. It is this project&#x27;s simplified model with no traffic lights, congestion, alighting passengers, stop-by-stop differences in demand, transfers, bus capacity or overtaking rules. Standing time follows a plain rule based on the queue, and drivers do not differ in behavior. So numbers such as how many buses clump or how much a remedy helps are valid only for this imaginary route. The mechanism itself, where a late bus gets later while the one behind catches up and small differences grow, has long been studied in transport research. The remedies are also simple rules in this model, not a faithful picture of how real operators work or how well it would work."><b>말하지 않는 것:</b> 실제 버스 노선을 재현한 것이 아닙니다. 이 모델은 신호등, 교통 정체, 승객 하차, 승객이 정류장마다 다른 수요, 환승, 버스 크기·정원, 앞지르기 금지 같은 현실의 요소를 모두 뺀 이 프로젝트의 단순화된 모델입니다. 정차 시간은 줄 선 승객 수로 정해지는 단순한 규칙이고, 기사님들의 행동 차이도 없습니다. 그래서 "버스가 몇 대로 뭉치는지"나 "처방이 몇 %를 줄이는지" 같은 숫자는 이 가상 노선에서만 맞는 값입니다. 다만 늦은 버스가 더 늦어지고 뒤차가 따라잡는 되먹임이 작은 어긋남을 키울 수 있다는 메커니즘은 교통 연구에서 오래 다뤄 온 것입니다. 처방도 이 모델의 단순한 규칙일 뿐, 실제 운영에서 쓰는 방법과 효과를 그대로 나타내지 않습니다.</div>
+
+  <h2 data-en="Theory and implementation notes">이론적 근거와 구현 메모</h2>
+  <ul class="small">
+    <li class="memo theory" data-en="&lt;b&gt;Where the model comes from:&lt;/b&gt; The feedback behind bus bunching was analyzed early by Newell and Potts (1964) in &quot;Maintaining a bus schedule&quot; (Australian Road Research Board conference proceedings), a classic result. In short, evenly spaced buses are unstable and small disturbances grow."><b>모델의 뿌리:</b> 버스 뭉침의 되먹임은 Newell과 Potts가 1964년 논문 "Maintaining a bus schedule"(호주 도로연구위원회 학술대회 논문집)에서 일찍이 분석한 고전적 결과로 알려져 있습니다. 같은 간격으로 달리는 버스는 불안정해서 작은 어긋남이 커진다는 것이 요지입니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Key assumptions and formulas:&lt;/b&gt; Passengers reach a stop at random with average rate λ, so a bus with gap h ahead finds about λh people waiting. If loading takes β minutes each and people who arrive meanwhile also board, the standing time is &lt;code&gt;T = β·λh / (1 − βλ)&lt;/code&gt;, proportional to h. A larger gap means a longer stop and so even more delay: positive feedback. The demand slider is λ. With random arrivals, the mean wait for gaps h&lt;sub&gt;i&lt;/sub&gt; is &lt;code&gt;Σh&lt;sub&gt;i&lt;/sub&gt;² / (2Σh&lt;sub&gt;i&lt;/sub&gt;) = (H/2)(1 + CV²)&lt;/code&gt;."><b>핵심 가정과 수식:</b> 정류장에 도착하는 승객은 평균 속도 λ의 무작위 과정이라, 간격 h인 버스 앞에는 평균 λh명이 기다립니다. 1명을 태우는 데 β분이 걸리고 서 있는 동안 도착하는 승객도 태우면 정차 시간은 <code>T = β·λh / (1 − βλ)</code>로 h에 비례합니다. 간격이 벌어지면 정차가 길어지고 그만큼 더 늦어지는 양의 되먹임입니다. 슬라이더의 수요가 λ입니다. 도착이 무작위일 때 평균 기다림은 간격 h<sub>i</sub>에 대해 <code>Σh<sub>i</sub>² / (2Σh<sub>i</sub>) = (H/2)(1 + CV²)</code>입니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;What this project simplifies:&lt;/b&gt; What this project simplifies: 24 stops, 1 minute between stops, 3 seconds per boarding passenger, a 0.1 minute minimum stop, the 1.15 holding factor and the boarding cap (the ideal standing time) are all values chosen by this project. There is no alighting, no signals, no congestion, no overtaking and no timetable, and the gap in the model is the distance between buses divided by the ideal gap."><b>이 프로젝트의 단순화:</b> 이 프로젝트의 단순화: 정류장 24곳과 버스 사이 이동 1분, 승객 1명 탑승 3초, 최소 정차 0.1분, 간격 유지 1.15배, 승차 제한 상한(이상적 정차 시간)은 모두 이 프로젝트가 정한 값입니다. 하차, 신호, 정체, 앞지르기, 시간표는 없고, 모델의 간격은 버스 사이 거리를 이상적 간격으로 나눈 값입니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Theory versus simulation:&lt;/b&gt; The simulated mean wait was close to the formula (H/2)(1+CV²): 8.7 vs 9.0 minutes with no remedy and 2.5 vs 2.7 with holding. With limited boarding, left-behind passengers make the formula fail (3.4 vs 2.4 minutes). There is no theoretical value for the speed of bunching, so that part was checked by simulation alone (&lt;code&gt;node tools/validate-bunching.js&lt;/code&gt;, 20 seeds)."><b>이론값과 시뮬레이션:</b> 시뮬레이션의 평균 기다림은 식 (H/2)(1+CV²)의 값과 처방 없음에서 8.7분 대 9.0분, 간격 유지에서 2.5분 대 2.7분으로 가까웠습니다. 승차 제한에서는 남겨진 승객이 있어 3.4분 대 2.4분으로 식과 맞지 않았습니다. 뭉침 속도에 대한 이론값은 없어 시뮬레이션으로만 확인했습니다(<code>node tools/validate-bunching.js</code>, 시드 20개).</li>
+    <li class="memo theory" data-en="&lt;b&gt;Further reading:&lt;/b&gt; Newell &amp;amp; Potts (1964), &quot;Maintaining a bus schedule&quot;, Australian Road Research Board conference proceedings. Gershenson &amp;amp; Pineda (2009), &quot;Why does public transport not arrive on time? The pervasiveness of equal headway instability&quot;, &lt;i&gt;PLoS ONE&lt;/i&gt;. Daganzo (2009), &quot;A headway-based approach to eliminate bus bunching&quot;, &lt;i&gt;Transportation Research Part B&lt;/i&gt;."><b>더 읽을거리:</b> Newell &amp; Potts (1964), "Maintaining a bus schedule", Australian Road Research Board 학술대회 논문집. Gershenson &amp; Pineda (2009), "Why does public transport not arrive on time? The pervasiveness of equal headway instability", <i>PLoS ONE</i>. Daganzo (2009), "A headway-based approach to eliminate bus bunching", <i>Transportation Research Part B</i>.</li>
+    <li  data-en="You can verify with &lt;code&gt;node tools/validate-bunching.js&lt;/code&gt;. The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. Time advances in 0.1 minute steps, and the mean wait is the total queueing time of everyone waiting divided by the number of arrivals (Little&#x27;s law).">검증은 <code>node tools/validate-bunching.js</code>로 할 수 있습니다. 시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 시간은 0.1분 단위로 흐르고, 평균 기다림은 줄 선 사람의 대기 시간을 모두 더해 도착한 사람 수로 나눈 값(리틀의 법칙)입니다.</li>
+    <li  data-en="The bars in chart ④ average six seeds over the second half of the run, so they can differ from the single run playing above.">④번 차트의 막대는 같은 설정을 시드 6개로 돌려 뒤쪽 절반 시간만 평균한 값이라, 위에서 돌고 있는 한 번의 실험과는 숫자가 다를 수 있습니다.</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/bunching&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/bunching">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap" data-en="Simulatio Lab · Run by Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
+<script src="../../exps.js"></script>
+<script src="../../layout.js"></script>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../counter.js"></script>
+<script src="../../engage.js"></script>
+</body>
+</html>
