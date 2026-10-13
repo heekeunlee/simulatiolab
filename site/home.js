@@ -24,10 +24,26 @@
       dots.push({ x: rng(), y: rng(), vx: 0, vy: 0, f, r: 2 + rng() * 2.2, phase: rng() * 6.28 });
     }
     let mouse = null, scatter = 0, t0 = performance.now();
+    // 소개 영역에서 제목 글자 끝과 카드 왼쪽 사이의 빈 자리(점 무리가 모일 곳)를 잰다
+    let gapCache = null, gapW = 0;
+    const gapBox = (w, h) => {
+      if (gapCache && gapW === w + ':' + h) return gapCache;
+      let cx = w * 0.5, rx = w * 0.14; const ry = h * 0.36, cy = h * 0.5;
+      try {
+        const heroEl = hero.parentElement.getBoundingClientRect(), h1 = document.querySelector('.mega'), card = document.querySelector('.hero-daily');
+        if (h1 && card) {
+          const r = document.createRange(); r.selectNodeContents(h1); const tr = r.getBoundingClientRect(), cr = card.getBoundingClientRect();
+          const L = tr.right - heroEl.left + 28, R = cr.left - heroEl.left - 28;
+          if (R - L > 120) { cx = (L + R) / 2; rx = (R - L) * 0.42; }
+        }
+      } catch (e) {}
+      gapW = w + ':' + h; gapCache = { cx, cy, rx, ry }; return gapCache;
+    };
+    window.addEventListener('resize', () => { gapCache = null; }); setTimeout(() => { gapCache = null; }, 800); window.addEventListener('load', () => { gapCache = null; });
     const centers = () => {
       const { w, h } = fit(hero);
       return fields.map((f, i) => {
-        if (w >= 1060) { const n = Math.max(1, fields.length - 1); return { x: w * (0.07 + 0.86 * i / n), y: h * (0.5 + 0.3 * Math.sin(i * 1.9 + 0.6)) }; }   // 넓은 화면: 소개 영역 전체에 물결 모양으로 펼친다 (글·카드 뒤로 겹쳐 보임)
+        if (w >= 1060) { const g = gapBox(w, h), t = Math.sqrt((i + 0.5) / fields.length), a = i * 2.39996; return { x: g.cx + t * g.rx * Math.cos(a), y: g.cy + t * g.ry * Math.sin(a) }; }   // 넓은 화면: 제목(왼쪽)과 오늘의 만약에 카드(오른쪽) 사이 빈 자리에 겹쳐 모은다
         const a = -0.55 + (i / Math.max(1, fields.length - 1)) * 1.1;
         const R = Math.min(w, h) * 0.72;
         return { x: w * 0.72 + Math.sin(a) * R * 0.5, y: h * 0.5 - Math.cos(a) * R * 0.42 };
@@ -55,7 +71,7 @@
         px += d.vx; py += d.vy;
         px = Math.max(4, Math.min(w - 4, px)); py = Math.max(4, Math.min(h - 4, py));
         d.x = px / w; d.y = py / h;
-        ctx.fillStyle = d.f.color; ctx.globalAlpha = (w >= 1060 ? 0.5 : 0.72);
+        ctx.fillStyle = d.f.color; ctx.globalAlpha = 0.72;
         ctx.beginPath(); ctx.arc(px, py, d.r, 0, 7); ctx.fill();
       }
       ctx.globalAlpha = 1;

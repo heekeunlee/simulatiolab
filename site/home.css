@@ -160,7 +160,7 @@ html:not([lang="ko"]) .fh b { font-size: 12px; letter-spacing: -0.02em; overflow
   .hero-in > :not(.hero-daily) { grid-column: 1; }
   .hero-in .hero-daily { grid-column: 2; grid-row: 1 / span 6; align-self: start; width: auto; max-width: none; margin: 0; padding: 10px 14px 11px; border-radius: 16px; pointer-events: auto; background: rgba(255, 251, 240, .95); border-color: #f0dfae; box-shadow: 0 6px 20px rgba(20,30,60,.10); }
   .mega br { display: none; }
-  .hero .lead { display: block; font-size: 13.5px; line-height: 1.6; max-width: 620px; margin: 0 0 14px; color: var(--muted); }
+  .hero .lead { display: block; font-size: 13.5px; line-height: 1.6; max-width: 470px; margin: 0 0 14px; color: var(--muted); }
   .hero-daily .dbody { min-height: 0; }
   .hero-daily h3 { font-size: 13.5px; margin-bottom: 4px; }
   .hero-daily .pq { font-size: 15px; margin: 0 0 8px; }
