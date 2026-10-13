@@ -124,6 +124,14 @@ PRED.update({
   T('사각 법칙에서는 α·A²−β·B²가 보존되어 남는 병력이 √(200²−100²)≈173명, 즉 87%입니다. 시뮬레이션 300회 평균은 약 172명(86%)이었습니다. 일대일로 맞붙는 선형 법칙이면 50%만 남습니다.', 'Under the square law, α·A²−β·B² is conserved, so the survivors number √(200²−100²)≈173, or 87%. The average of 300 simulated fights was about 172 (86%). Under the one-to-one linear law only 50% would be left.')),
 })
 
+
+PRED.update({
+ 'treasury': (
+  T('단기금리가 1%p 뛰면, 이 모델에서 10년 금리는 얼마나 오를까요?','If the short rate jumps 1 percentage point, how much does the 10-year yield rise in this model?'), [T('거의 1%p','Nearly 1 point'), T('약 0.33%p','About 0.33 points'), T('거의 오르지 않는다(0.01%p 이하)','Hardly at all (0.01 points or less)')], 1, T('회귀 속도 0.3일 때 닫힌 해와 시뮬레이션 모두 0.33%p였습니다. 10년 금리는 앞으로 10년 단기금리 예상 평균이라 단기금리 충격이 평균으로 돌아오면서 희석됩니다. 회귀 속도 0.05면 0.81%p, 1.2면 0.09%p입니다.','Both the closed form and the simulation gave 0.33 points at reversion speed 0.3. The 10-year yield is the expected average short rate, so a short-rate shock fades as it reverts. It is 0.81 points at speed 0.05 and 0.09 at 1.2.')),
+ 'fxrate': (
+  T('금리 차이가 크면 이자를 더 벌지만, 캐리 거래에서 가장 나쁜 한 주의 손실은 어떻게 될까요?', 'A bigger interest gap earns more interest. What happens to the loss in the carry trade\'s worst week?'), [T('거의 그대로이거나 오히려 줄어든다', 'It stays about the same or even shrinks'), T('이자가 늘어난 만큼 함께 커진다(약 3.6% → 10.5%)', 'It grows along with the interest (about 3.6% to 10.5%)'), T('금리 차이와 상관없이 늘 3.5% 안팎이다', 'It is always around 3.5% whatever the gap')], 1, T('금리 차이 0, 4, 10%p에서 연 평균 캐리는 0.20%, 3.06%, 7.70%로 늘었고 가장 나쁜 한 주의 평균 손실도 3.6%, 10.1%, 10.5%로 커졌습니다. 캐리가 매력적일수록 사람이 빨리 몰려 급락이 커지기 때문입니다.', 'With gaps of 0, 4 and 10 points the average yearly carry rose to 0.20%, 3.06% and 7.70%, and the average loss in the worst week also grew to 3.6%, 10.1% and 10.5%. The more attractive the carry, the faster the crowd piles in and the bigger the crash.')),
+})
+
 # 카드에 쓰는 문구 (한국어 → 영어)
 UI = [
  (T('🔮 먼저 예상해 보세요', '🔮 Make a prediction first')),

@@ -40,4 +40,4 @@
 - **예상 문제 1개** (복사해 붙일 수 있는 형식): `('<slug>', (T('질문','Question'), [T('보기1','Opt1'), T('보기2','Opt2'), T('보기3','Opt3')], 정답번호0부터, T('해설(검증 수치 포함)','Explanation')))` — 보기 3개, 정답은 검증 출력의 수치에 근거
 - **오늘의 만약에 질문 1개**: `('<slug>', T('질문','Question'), [T('보기1','Opt1'), T('보기2','Opt2'), T('보기3','Opt3')])` — 생활 속 직관을 묻는 가벼운 3지선다(정답 없음)
 - 확인하지 못한 것, 공용 파일에 필요한 요청
-- 이미 쓰인 기호(금지): Tl Ws Yt Sc Ru Da Pe Vo Tr Ba Qu Ff Tu Rv Es Al Co Vl Cm Mk Zp Tp Fa Pa Ph Au Po Ap Br Rg Sv Fp Ip Ci
+- 이미 쓰인 기호(금지): Tl Ws Yt Sc Ru Da Pe Vo Tr Ba Qu Ff Tu Rv Es Al Co Vl Cm Mk Zp Tp Fa Pa Ph Au Po Ap Br Rg Sv Fp Ip Ci Sk Wk Lq Bu Bn Dl Sp Wf La Fm Lc

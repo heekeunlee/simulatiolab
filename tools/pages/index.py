@@ -60,6 +60,8 @@ CATS = [
   ('painters', T('문화 전파 모델', 'Cultural transmission model'), T('AI 화가 100명이 서로 따라 그리면', 'What If 100 AI Painters Copy Each Other?'), T('모방이 늘수록 화풍은 하나로 수렴할까? 100점의 그림이 어떻게 달라지는지 지켜봐요.', 'Does imitation collapse styles into one? Watch 100 paintings change.')),
   ('sunflower', T('황금각 잎차례 모델', 'Golden-angle phyllotaxis'), T('해바라기 씨는 왜 그 각도로 배열될까', 'Why Do Sunflower Seeds Sit at That Angle?'), T('씨앗을 137.5°씩 돌려 놓으면 틈 없이 빽빽해져요. 각도를 조금만 바꿔도 무늬가 무너지는 걸 보세요.', 'Turn each seed by 137.5° and they pack with no gaps. Nudge the angle and watch the pattern fall apart.')),
   ('auction', T('승자의 저주 모델', "Winner's curse model"), T('경매에서 이기면 왜 손해일까', 'Why Does Winning an Auction Cost You?'), T('가장 높게 쓴 사람이 이기는데, 왜 이긴 사람이 평균적으로 손해일까요? 얼마나 깎아 써야 본전일까요?', 'The highest bidder wins, so why does the winner lose on average? How much should you shade your bid to break even?')),
+  ('treasury', T('평균회귀 금리 모델 (바시첵)', 'Mean-reverting rate model (Vasicek)'), T('금리가 오르면 내 채권값은 왜 떨어질까: 10년 국채 금리', 'Why Does My Bond Fall When Rates Rise? The 10-Year Treasury Yield'), T('단기금리 경로로 10년 금리가 정해지는 과정과, 금리가 1%p 오를 때 이미 산 채권값이 얼마나 떨어지는지 돌려 봐요. (예시 숫자, 예측 아님)', 'See how short-rate paths set the 10-year yield and how much a bond you already hold falls when rates rise one point. (Example numbers, not a forecast.)')),
+  ('fxrate', T('캐리 트레이드 쏠림 모델', 'Carry-trade crowding model'), T('금리 높은 통화를 샀더니: 계단으로 오르고 엘리베이터로 떨어지는 캐리 트레이드', 'Buying the High-Rate Currency: The Carry Trade That Takes the Stairs Up and the Elevator Down'), T('이자를 더 주는 통화를 사면 오래 조금씩 벌다 한 번에 크게 잃을 수 있어요. 쏠림과 청산이 만드는 모양을 돌려 봐요. (예시 숫자, 투자 조언 아님)', 'Holding a higher-yield currency can earn a little for years and lose a lot at once. See the shape crowding and unwinding create. (Example numbers, not investment advice.)')),
  ]),
  ('paradox', '#4d7c0f', '🔄', T('뒤집어 보기', 'Flip the View'), T('"이렇게도 해석할 수 있구나" 싶은 직관의 반전', 'Counterintuitive twists that make you say "oh, so that\'s how to read it"'), [
   ('braess', T('브라에스 네트워크 모델', 'Braess network model'), T('새 길을 뚫었더니 모두가 느려졌다', 'A New Road Made Everyone Slower'), T('지름길을 열었더니 모두의 출근 시간이 늘어난다? 운전자들이 스스로 길을 고르게 두고 확인해요.', 'Open a shortcut and everyone\'s commute gets longer? Let drivers pick their own routes and see.')),
@@ -87,6 +89,8 @@ def thumb(slug):
 
 # 주제로 이어지는 "이게 흥미로웠다면" 추천 (앞의 것이 더 가까운 주제)
 RELATED = {
+ 'treasury': ['fxrate','regression','wealth'],
+ 'fxrate': ['treasury','bar','braess'],
  'lanchester': ['alliance', 'cooperation', 'braess'],
  'farming': ['easter', 'population', 'wildfire'],
  'ant': ['turing', 'sandpile', 'firefly'],
@@ -113,7 +117,7 @@ RELATED = {
 }
 # 새 실험을 추가한 날 (NEW 표시는 이 날짜부터 7일 동안, 그리고 "지난 방문 이후 새 실험" 계산에 쓴다). 새 실험을 만들면 한 줄 추가.
 ADDED = {s: '2026-10-12' for s in ['braess', 'regression', 'survivor', 'friendship', 'inspection', 'coincidence']}
-ADDED.update({s: '2026-10-13' for s in ['secretary', 'weakties', 'checkout', 'bunching', 'seating', 'dla', 'sandpile', 'wildfire', 'ant', 'farming', 'lanchester']})
+ADDED.update({s: '2026-10-13' for s in ['secretary', 'weakties', 'checkout', 'bunching', 'seating', 'dla', 'sandpile', 'wildfire', 'ant', 'farming', 'lanchester', 'treasury', 'fxrate']})
 
 # slug -> (기호, 짧은 이름 T, 미니 애니메이션 종류)
 META = {
@@ -151,6 +155,8 @@ META = {
  'friendship': ('Fp', T('친구의 역설', 'Friend Paradox'), 'net'),
  'inspection': ('Ip', T('대기 시간', 'Waiting'), 'stripes'),
  'coincidence': ('Ci', T('우연의 일치', 'Coincidence'), 'ring'),
+ 'treasury': ('Ty', T('국채 금리', 'Treasury Yield'), 'rise'),
+ 'fxrate': ('Fx', T('환율과 캐리', 'FX Carry'), 'stairs'),
  'secretary': ('Sk', T('37%의 법칙', 'The 37% Rule'), 'ring'),
  'weakties': ('Wk', T('약한 유대', 'Weak Ties'), 'net'),
  'checkout': ('Lq', T('계산대 줄', 'Checkout Lines'), 'stripes'),
