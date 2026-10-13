@@ -292,3 +292,14 @@ span.popt { cursor: default; }
 .vid img { width: 100%; height: 100%; object-fit: cover; opacity: .9; }
 .vid .vplay { position: absolute; inset: 0; margin: auto; width: 68px; height: 68px; border-radius: 50%; background: rgba(229, 72, 77, .95); color: #fff; font-size: 26px; display: grid; place-items: center; padding-left: 5px; box-shadow: 0 6px 20px rgba(0,0,0,.35); }
 .small li.theory > b:first-child { color: var(--accent); }
+
+/* ---- 재생 막대: 눈에 잘 띄게 (재생은 채운 버튼, 나머지는 색 테두리) ---- */
+.anim-bar { padding: 8px 10px; border-radius: 16px; background: color-mix(in srgb, var(--accent) 7%, var(--surface)); border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--line)); gap: 8px; }
+.anim-bar button { font-weight: 700; font-size: 15px; min-height: 42px; padding: 0 16px; border-radius: 12px; border: 1.5px solid color-mix(in srgb, var(--accent) 55%, var(--line)); background: var(--surface); color: var(--accent); cursor: pointer; transition: transform .12s, box-shadow .12s, background .12s; }
+.anim-bar button:hover { background: color-mix(in srgb, var(--accent) 10%, var(--surface)); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(47,111,237,.18); }
+.anim-bar button:active { transform: translateY(0); }
+.anim-bar #play { background: var(--accent); border-color: var(--accent); color: #fff; min-width: 124px; box-shadow: 0 6px 16px rgba(47,111,237,.32); }
+.anim-bar #play:hover { background: color-mix(in srgb, var(--accent) 88%, #000); }
+.anim-bar select { min-height: 42px; padding: 0 10px; font-weight: 700; font-size: 14.5px; border: 1.5px solid color-mix(in srgb, var(--accent) 55%, var(--line)); border-radius: 12px; color: var(--accent); cursor: pointer; }
+.anim-bar button:focus-visible, .anim-bar select:focus-visible { outline: 3px solid color-mix(in srgb, var(--accent) 45%, transparent); outline-offset: 2px; }
+@media (max-width: 760px) { .anim-bar button { flex: 1 1 auto; min-height: 46px; } .anim-bar #play { flex: 2 1 40%; } .anim-bar select { min-height: 46px; flex: 1 1 auto; } .anim-bar .when { flex: 1 1 100%; margin-left: 0; text-align: right; } }

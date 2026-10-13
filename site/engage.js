@@ -322,7 +322,7 @@
         place(); [mq, mqs].forEach((q) => (q.addEventListener ? q.addEventListener('change', place) : q.addListener(place)));
       }
       // ---- 오늘의 만약에: 방문할 때마다 다른 질문이 나오고, 몇 초마다 다음 질문으로 바뀐다 ----
-      const box = $('daily'), ROTATE_MS = 9000;
+      const box = $('daily'), ROTATE_MS = 7000;
       const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
       const idOf = (q) => 'q-' + q.s;
       // 순서: 아직 안 답한 질문을 먼저, 연이어 같은 분야가 나오지 않게 섞는다. 지난 방문의 첫 질문은 피한다.
