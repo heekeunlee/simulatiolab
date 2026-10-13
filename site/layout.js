@@ -73,6 +73,31 @@
   const apply = () => { panel.classList.toggle('wb-sheet', mq.matches); if (!mq.matches) { panel.classList.remove('open'); setFab(false); } };
   (mq.addEventListener ? mq.addEventListener('change', apply) : mq.addListener(apply));
   apply();
+
+  // ---------- 휴대폰 다듬기 ----------
+  // 긴 소개 글은 세 줄만 보이고 "더 보기"로 펼친다
+  if (lead && lead.classList && lead.classList.contains('lead')) {
+    const more = document.createElement('button'); more.type = 'button'; more.className = 'leadmore';
+    const setMore = (open) => { lead.classList.toggle('clamp', !open); more.textContent = open ? U('접기', 'Less') : U('더 보기', 'More'); more.setAttribute('aria-expanded', String(open)); };
+    more.addEventListener('click', () => setMore(lead.classList.contains('clamp')));
+    lead.after(more); setMore(false);
+    const fitMore = () => { const clamped = lead.scrollHeight > lead.clientHeight + 2 || !lead.classList.contains('clamp'); more.hidden = !mq.matches || !clamped; };
+    const sync = () => { lead.classList.toggle('clampable', mq.matches); if (!mq.matches) lead.classList.remove('clamp'); else if (!more.dataset.touched) lead.classList.add('clamp'); fitMore(); };
+    more.addEventListener('click', () => { more.dataset.touched = '1'; fitMore(); });
+    (mq.addEventListener ? mq.addEventListener('change', sync) : mq.addListener(sync)); sync(); window.addEventListener('load', fitMore);
+  }
+  // 그래프는 옆으로 넘겨 보는 카드 + 점 표시
+  const chartsEl = main.querySelector('.charts');
+  if (chartsEl && chartsEl.children.length > 1) {
+    const dots = document.createElement('div'); dots.className = 'chartdots';
+    dots.innerHTML = Array.from(chartsEl.children).map(() => '<i></i>').join('') + '<span class="swipehint">' + U('옆으로 넘겨 보세요', 'Swipe for more charts') + '</span>';
+    chartsEl.after(dots);
+    const upd = () => { const w = chartsEl.clientWidth || 1; const idx = Math.round(chartsEl.scrollLeft / (chartsEl.scrollWidth / chartsEl.children.length)); dots.querySelectorAll('i').forEach((d, k) => d.classList.toggle('on', k === idx)); };
+    chartsEl.addEventListener('scroll', () => { requestAnimationFrame(upd); }, { passive: true }); upd();
+  }
+  // 재생 막대가 표준(재생·한 단계·처음부터·속도)뿐일 때만 화면 아래에 달라붙게 한다 (버튼이 더 있는 페이지는 그대로)
+  const firstBar = main.querySelector('.wb-main > section.panel:first-of-type .anim-bar');
+  if (firstBar && Array.from(firstBar.children).every((c) => ['play', 'stepbtn', 'restart', 'speed', 'when'].includes(c.id))) { firstBar.classList.add('stickybar'); document.body.classList.add('has-animbar'); }
 })();
 
 // ---------- 실험 페이지 더하기: 주소로 설정 공유, 단축키, 이전/다음 실험 ----------

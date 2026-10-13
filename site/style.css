@@ -303,3 +303,48 @@ span.popt { cursor: default; }
 .anim-bar select { min-height: 42px; padding: 0 10px; font-weight: 700; font-size: 14.5px; border: 1.5px solid color-mix(in srgb, var(--accent) 55%, var(--line)); border-radius: 12px; color: var(--accent); cursor: pointer; }
 .anim-bar button:focus-visible, .anim-bar select:focus-visible { outline: 3px solid color-mix(in srgb, var(--accent) 45%, transparent); outline-offset: 2px; }
 @media (max-width: 760px) { .anim-bar button { flex: 1 1 auto; min-height: 46px; } .anim-bar #play { flex: 2 1 40%; } .anim-bar select { min-height: 46px; flex: 1 1 auto; } .anim-bar .when { flex: 1 1 100%; margin-left: 0; text-align: right; } }
+
+/* ================= 실험 페이지 휴대폰 다듬기 (≤980px) ================= */
+.leadmore, .chartdots { display: none; }
+@media (max-width: 980px) {
+  main.wide .lead.clamp { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  main.wide .lead { font-size: 15px; line-height: 1.6; }
+  .leadmore { display: inline-block; margin: 6px 0 0; padding: 4px 2px; border: 0; background: none; color: var(--accent); font-weight: 700; font-size: 14px; cursor: pointer; }
+  .leadmore[hidden] { display: none; }
+  .jump { flex-wrap: nowrap; overflow-x: auto; margin-right: -16px; padding: 2px 16px 4px 0; scrollbar-width: none; }
+  .jump::-webkit-scrollbar { display: none; }
+  .jump a, .jump button { flex: 0 0 auto; min-height: 40px; display: inline-flex; align-items: center; padding: 0 14px; }
+  /* 슬라이더: 손가락으로 잡기 쉽게 큰 손잡이와 넉넉한 높이 */
+  .ctl { padding: 4px 0 10px; }
+  .ctl input[type=range] { -webkit-appearance: none; appearance: none; height: 44px; background: transparent; margin: 0; touch-action: pan-y; }
+  .ctl input[type=range]::-webkit-slider-runnable-track { height: 8px; border-radius: 99px; background: color-mix(in srgb, var(--accent) 22%, #dfe5f1); }
+  .ctl input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 30px; height: 30px; margin-top: -11px; border-radius: 50%; background: var(--accent); border: 3px solid #fff; box-shadow: 0 2px 8px rgba(20,30,60,.35); }
+  .ctl input[type=range]::-moz-range-track { height: 8px; border-radius: 99px; background: color-mix(in srgb, var(--accent) 22%, #dfe5f1); }
+  .ctl input[type=range]::-moz-range-thumb { width: 26px; height: 26px; border-radius: 50%; background: var(--accent); border: 3px solid #fff; box-shadow: 0 2px 8px rgba(20,30,60,.35); }
+  .ctl label { font-size: 15px; font-weight: 700; }
+  .ctl label output { color: var(--accent); font-weight: 800; }
+  .ctl select.sel { min-height: 44px; font-size: 15px; }
+  .btns button { min-height: 44px; }
+  /* 설정 패널: 손잡이 막대, 넉넉한 안쪽 여백 */
+  .wb-sheet { padding-top: 22px; padding-bottom: calc(22px + env(safe-area-inset-bottom)); }
+  .wb-sheet::before { content: ""; position: absolute; top: 8px; left: 50%; width: 44px; height: 5px; margin-left: -22px; border-radius: 99px; background: #cfd6e4; }
+  /* 그래프: 옆으로 넘겨 보는 카드 */
+  .wb-main .charts { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 -16px; padding: 4px 16px 8px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .wb-main .charts::-webkit-scrollbar { display: none; }
+  .wb-main .charts > section.panel { flex: 0 0 90%; min-width: 0; scroll-snap-align: center; margin: 0; }
+  .wb-main .charts > section.panel.wide { grid-column: auto; }
+  .chartdots { display: flex; align-items: center; justify-content: center; gap: 7px; margin: 2px 0 14px; }
+  .chartdots i { width: 8px; height: 8px; border-radius: 50%; background: #cfd6e4; transition: width .2s, background .2s; }
+  .chartdots i.on { width: 22px; border-radius: 99px; background: var(--accent); }
+  .chartdots .swipehint { margin-left: 8px; font-size: 12px; color: var(--muted); }
+  /* 재생 막대: 그래프를 보는 동안 화면 아래에 달라붙어 계속 누를 수 있게 (설정 버튼은 그 위로) */
+  .wb-main > section.panel:first-of-type .anim-bar.stickybar { position: sticky; bottom: 10px; z-index: 40; box-shadow: 0 8px 24px rgba(20,30,60,.2); background: color-mix(in srgb, var(--accent) 9%, var(--surface)); }
+  .wb-main > section.panel:first-of-type .anim-bar.stickybar { flex-wrap: nowrap; gap: 6px; padding: 7px 8px; }
+  .wb-main > section.panel:first-of-type .anim-bar.stickybar button, .wb-main > section.panel:first-of-type .anim-bar.stickybar select { flex: 1 1 auto; min-width: 0; min-height: 44px; padding: 0 8px; font-size: 14px; }
+  .wb-main > section.panel:first-of-type .anim-bar.stickybar button, .wb-main > section.panel:first-of-type .anim-bar.stickybar select { white-space: nowrap; }
+  .wb-main > section.panel:first-of-type .anim-bar.stickybar #play { flex: 0 0 auto; padding: 0 12px; min-width: 0; }
+  .wb-main > section.panel:first-of-type .anim-bar.stickybar select { flex: 0 1 92px; text-overflow: ellipsis; font-size: 13px; padding: 0 4px; }
+  .wb-main > section.panel:first-of-type .anim-bar.stickybar .when { display: none; }
+  body.has-animbar .wb-fab { bottom: 86px; }
+  body.has-animbar { padding-bottom: 150px; }
+}
