@@ -1,0 +1,429 @@
+[
+{
+"id": "s1366",
+"page": "lanchester",
+"ko": "<b>말하는 것:</b> 파랑 200명 대 빨강 100명, 질이 같을 때 사각 법칙의 이론값은 파랑 승, 처음 병력의 87%(약 173명)가 남는 것이었고, 시뮬레이션 300회 평균은 약 172명(86%)이며 모두 파랑이 이겼습니다. 같은 조건을 선형 법칙으로 돌리면 이론도 시뮬레이션도 약 100명(50%)이 남았습니다. 그래서 병력이 2배일 때 전투력은 사각 법칙에서 4배, 선형 법칙에서 2배입니다. 질이 같고 130 대 100일 때 파랑이 모여 싸우면 평균 82명(64%)이 남았지만, 파랑이 반씩 나뉘어 차례로 도착하면 300회 중 84%에서 빨강이 이겼고 이긴 빨강에 약 40명이 남았습니다. 선형 법칙에서는 나뉘어도 파랑이 약 30명을 남기고 이겨 결과가 같았습니다. 병력 2배를 질로 맞서려면 사각 법칙에서는 상대 질이 4배여야 하고(선형은 2배), 이때 300회 중 파랑 53%, 빨강 47%로 팽팽했습니다.",
+"en": "<b>What it shows:</b> With 200 blue against 100 red and equal quality, the square law's theory says blue wins with 87% of its force (about 173 soldiers) left; over 300 simulated fights the average was about 172 (86%), and blue won every time. Under the linear law the same setting leaves about 100 (50%) in both theory and simulation. So with twice the soldiers, strength is 4 times as large under the square law and 2 times under the linear law. With equal quality and 130 against 100, blue fighting together kept 82 soldiers on average (64%), but when blue arrived in two halves red won 84% of 300 fights, with about 40 soldiers left. Under the linear law splitting changed nothing: blue still won with about 30 left. To offset double the soldiers with quality, the opponent's quality must be 4 times as high under the square law (2 times under the linear law); at that balance blue won 53% and red 47% of 300 fights.",
+"tr": "<b>Qué muestra:</b> Con 200 azules contra 100 rojos y la misma calidad, la teoría de la ley cuadrática dice que gana el azul y le queda el 87% de su fuerza (unos 173 soldados); en 300 combates simulados el promedio fue de unos 172 (86%), y el azul ganó siempre. Con la ley lineal, la misma situación deja unos 100 (50%) tanto en la teoría como en la simulación. Es decir, con el doble de soldados la fuerza es 4 veces mayor con la ley cuadrática y 2 veces mayor con la lineal. Con la misma calidad y 130 contra 100, el azul que luchó unido conservó 82 soldados de media (64%), pero cuando el azul llegó en dos mitades, el rojo ganó el 84% de 300 combates, con unos 40 soldados restantes. Con la ley lineal dividirse no cambió nada: el azul siguió ganando con unos 30 restantes. Para compensar el doble de soldados con calidad, la calidad del oponente debe ser 4 veces mayor con la ley cuadrática (2 veces con la lineal); en ese equilibrio el azul ganó el 53% y el rojo el 47% de 300 combates."
+},
+{
+"id": "s1367",
+"page": "lanchester",
+"ko": "실제 전투를 재현하거나 승패를 예측한 것은 아니고, 파랑과 빨강은 어떤 실제 집단도 가리키지 않아요.",
+"en": "It neither recreates real battles nor predicts outcomes; blue and red are no real groups.",
+"tr": "No recrea batallas reales ni predice resultados; azul y rojo no son grupos reales."
+},
+{
+"id": "s1368",
+"page": "lanchester",
+"ko": "지형·사기·보급 같은 빠진 요소와 역사 사례는 자료를 따로 대조해야 확인할 수 있어요.",
+"en": "Missing factors like terrain, morale and supply, and historical cases, need separate sources.",
+"tr": "Los factores ausentes como el terreno, la moral y el abastecimiento, y los casos históricos, requieren fuentes aparte."
+},
+{
+"id": "s1369",
+"page": "lanchester",
+"ko": "<b>말하지 않는 것:</b> 실제 전투를 재현하거나 예측한 것이 아닙니다. 이 모델은 지형, 사기, 보급, 지휘, 전술, 무기의 종류, 병사 한 명 한 명의 차이를 모두 빼고 병력 수와 병사의 명중률만 남긴 이 프로젝트의 단순화된 수학 모델입니다. 파랑과 빨강은 어떤 실제 나라나 집단도 가리키지 않습니다. 이 법칙은 해전 등 역사 사례를 설명하는 데 흔히 인용되지만 역사가들은 그 해석을 단순화로 보며 논쟁합니다. 이 모델이 말하는 것은 어떤 가정 아래서 병력의 효과가 제곱으로 커질 수 있다는 수학적 구조이지, 실제로 어느 쪽이 옳았거나 이길 것이라는 주장이 아닙니다.",
+"en": "<b>What it doesn't show:</b> This does not reproduce or predict any real battle. It is this project's simplified mathematical model: terrain, morale, supply, command, tactics, weapon types and differences between individual soldiers are all left out, leaving only head counts and each soldier's hit chance. Blue and red stand for no real country or group. The law is often cited to explain historical cases such as naval battles, but historians dispute those readings as oversimplified. What the model shows is the mathematical structure: under certain assumptions the effect of numbers can grow with the square. It is no claim about who was right or who would win in reality.",
+"tr": "<b>Qué no muestra:</b> No reproduce ni predice ninguna batalla real. Es el modelo matemático simplificado de este proyecto: el terreno, la moral, el abastecimiento, el mando, la táctica, los tipos de armas y las diferencias entre soldados quedan fuera, y solo se conservan el número de efectivos y la probabilidad de acierto de cada soldado. Azul y rojo no representan a ningún país ni grupo real. La ley se cita a menudo para explicar casos históricos como las batallas navales, pero los historiadores discuten esas lecturas por simplistas. Lo que muestra el modelo es la estructura matemática: bajo ciertos supuestos, el efecto del número puede crecer con el cuadrado. No afirma quién tenía razón ni quién ganaría en la realidad."
+},
+{
+"id": "s1370",
+"page": "lanchester",
+"ko": "<b>모델의 뿌리:</b> 프레더릭 란체스터(F. W. Lanchester)가 『Aircraft in Warfare』(1916)에서 소개한 전투 모델입니다. 군대의 병력이 서로의 손실률에 비례해 줄어든다는 미분방정식으로, 겨누어 쏘는 싸움에는 \"제곱 법칙\"을, 일대일 싸움에는 \"선형 법칙\"을 보였습니다.",
+"en": "<b>Where the model comes from:</b> A combat model introduced by Frederick W. Lanchester in <i>Aircraft in Warfare</i> (1916). It is a pair of differential equations in which each army's strength falls at a rate set by the other, giving a \"square law\" for aimed fire and a \"linear law\" for one-to-one fights.",
+"tr": "<b>De dónde viene el modelo:</b> Un modelo de combate presentado por Frederick W. Lanchester en <i>Aircraft in Warfare</i> (1916). Es un par de ecuaciones diferenciales en las que la fuerza de cada ejército disminuye a un ritmo fijado por el otro, lo que da una \"ley cuadrática\" para el fuego dirigido y una \"ley lineal\" para los combates uno contra uno."
+},
+{
+"id": "s1371",
+"page": "lanchester",
+"ko": "<b>핵심 가정과 수식:</b> 겨누어 쏘기: <code>dA/dt = −β·B</code>, <code>dB/dt = −α·A</code> 이고 두 식을 나누어 적분하면 <code>α·A² − β·B²</code>가 변하지 않습니다(전투력 = 질 × 병력²). 이긴 쪽에 남는 병력은 <code>√(A₀² − (β/α)·B₀²)</code>입니다. 일대일 맞붙기는 <code>α·A − β·B</code>가 보존되고 남는 병력은 <code>A₀ − (β/α)·B₀</code>입니다. 슬라이더의 병력이 A₀, B₀이고 질 비율이 α/β입니다.",
+"en": "<b>Key assumptions and formulas:</b> Aimed fire: <code>dA/dt = −β·B</code>, <code>dB/dt = −α·A</code>. Dividing the two and integrating shows that <code>α·A² − β·B²</code> is conserved (strength = quality × numbers²), and the winner is left with <code>√(A₀² − (β/α)·B₀²)</code>. For one-to-one fights <code>α·A − β·B</code> is conserved and the winner keeps <code>A₀ − (β/α)·B₀</code>. The sliders set A₀, B₀ and the ratio α/β.",
+"tr": "<b>Supuestos clave y fórmulas:</b> Fuego dirigido: <code>dA/dt = −β·B</code>, <code>dB/dt = −α·A</code>. Al dividir ambas e integrar se ve que <code>α·A² − β·B²</code> se conserva (fuerza = calidad × número²), y el ganador queda con <code>√(A₀² − (β/α)·B₀²)</code>. En los combates uno contra uno se conserva <code>α·A − β·B</code> y el ganador conserva <code>A₀ − (β/α)·B₀</code>. Los controles deslizantes fijan A₀, B₀ y la razón α/β."
+},
+{
+"id": "s1372",
+"page": "lanchester",
+"ko": "<b>이 프로젝트의 단순화:</b> 원 모델은 연속적인 병력 수의 평균 변화를 다루지만 여기서는 병사 하나하나가 확률로 쓰러지는 이산 시뮬레이션입니다. 선형 법칙은 마주한 쌍마다 싸우는 모양으로 구현했고 싸움을 빨리 끝내려고 쌍당 명중률을 5배로 두었습니다. 나뉘어 싸우기(두 번째 반은 첫 반이 쓰러진 뒤 합류)와 명중률 수치는 이 프로젝트가 정한 설정입니다. 보충병, 후퇴, 지형은 없습니다.",
+"en": "<b>What this project simplifies:</b> The original model tracks continuous average strengths, while here each soldier falls by chance in a discrete simulation. The linear law is implemented as facing pairs fighting, with a 5 times higher hit chance per pair only to finish the fight sooner. The split rule (the second half joins after the first has fallen) and the hit-chance values are this project's own settings. There are no reinforcements, retreats or terrain.",
+"tr": "<b>Qué simplifica este proyecto:</b> El modelo original sigue fuerzas medias continuas, mientras que aquí cada soldado cae por azar en una simulación discreta. La ley lineal se implementa como parejas enfrentadas que luchan, con una probabilidad de acierto 5 veces mayor por pareja solo para acabar el combate antes. La regla de división (la segunda mitad se une cuando la primera ha caído) y los valores de la probabilidad de acierto son ajustes propios de este proyecto. No hay refuerzos, retiradas ni terreno."
+},
+{
+"id": "s1373",
+"page": "lanchester",
+"ko": "<b>이론값과 시뮬레이션:</b> <code>node tools/validate-lanchester.js</code>로 300회씩 돌려 닫힌 해와 비교했습니다. 200 대 100(질 같음)에서 사각 법칙 이론 173.2명(87%) 대 시뮬 평균 171.9명, 선형 법칙 이론 100명 대 시뮬 100.7명입니다. 병력 50~400명에서도 병력 2배일 때 남는 비율은 86~87%로 같아, 규모와 무관함을 확인했습니다. 130 대 100에서 파랑이 나뉘면 이론은 빨강 승, 39.4명 남음, 시뮬은 빨강 84% 승, 평균 40.0명 남음입니다. 시뮬레이션이 약간 낮은 것은 우연과 한 단계씩 끊어 계산한 영향입니다.",
+"en": "<b>Theory versus simulation:</b> I compared 300 runs each with the closed-form results using <code>node tools/validate-lanchester.js</code>. At 200 against 100 with equal quality, the square-law theory gives 173.2 left versus a simulated mean of 171.9, and the linear-law theory gives 100 versus 100.7. With 50 to 400 soldiers the share left at a 2-to-1 ratio stays at 86-87%, so it does not depend on scale. At 130 against 100 with blue split, theory says red wins with 39.4 left, and the simulation had red winning 84% of fights with 40.0 left on average. The slightly lower simulated values come from chance and from stepping time in discrete steps.",
+"tr": "<b>Teoría frente a simulación:</b> Comparé 300 ejecuciones cada una con los resultados de forma cerrada mediante <code>node tools/validate-lanchester.js</code>. Con 200 contra 100 y la misma calidad, la teoría de la ley cuadrática da 173,2 restantes frente a una media simulada de 171,9, y la teoría de la ley lineal da 100 frente a 100,7. Con entre 50 y 400 soldados, la proporción restante con una razón de 2 a 1 se mantiene en el 86-87%, de modo que no depende de la escala. Con 130 contra 100 y el azul dividido, la teoría dice que gana el rojo con 39,4 restantes, y en la simulación el rojo ganó el 84% de los combates con 40,0 restantes de media. Los valores simulados algo más bajos se deben al azar y a avanzar el tiempo en pasos discretos."
+},
+{
+"id": "s1374",
+"page": "lanchester",
+"ko": "<b>더 읽을거리:</b> F. W. Lanchester, 『Aircraft in Warfare: The Dawn of the Fourth Arm』(1916, Constable). 개설로는 위키백과의 \"Lanchester's laws\" 항목이 읽기 쉽습니다.",
+"en": "<b>Further reading:</b> F. W. Lanchester, <i>Aircraft in Warfare: The Dawn of the Fourth Arm</i> (1916, Constable). For an overview, the Wikipedia article \"Lanchester's laws\" is an easy start.",
+"tr": "<b>Lecturas adicionales:</b> F. W. Lanchester, <i>Aircraft in Warfare: The Dawn of the Fourth Arm</i> (1916, Constable). Como visión general, el artículo de Wikipedia \"Leyes de Lanchester\" es un buen punto de partida."
+},
+{
+"id": "s1375",
+"page": "lanchester",
+"ko": "검증은 <code>node tools/validate-lanchester.js</code>로 할 수 있습니다. 시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 가운데 점선 곡선은 같은 규칙을 평균값으로 풀어 그린 것입니다.",
+"en": "You can verify with <code>node tools/validate-lanchester.js</code>. The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. The dashed curves are the same rules solved with averages instead of chance.",
+"tr": "Puedes comprobarlo con <code>node tools/validate-lanchester.js</code>. La simulación usa un generador aleatorio con semilla (mulberry32), así que la misma semilla da el mismo resultado. Las curvas discontinuas son las mismas reglas resueltas con promedios en lugar de azar."
+},
+{
+"id": "s1376",
+"page": "lanchester",
+"ko": "④, ⑤번 그래프는 시뮬레이션이 아니라 위의 식으로 계산한 이론값입니다. 나뉜 군대가 있는 경우는 싸움을 첫 무리, 둘째 무리 차례로 이어서 계산합니다.",
+"en": "Charts 4 and 5 are theory computed from the formulas above, not simulations. When an army is split, the fights are chained one after another, first half then second half.",
+"tr": "Los gráficos 4 y 5 son teoría calculada con las fórmulas anteriores, no simulaciones. Cuando un ejército se divide, los combates se encadenan uno tras otro: primero la primera mitad y luego la segunda."
+},
+{
+"id": "s1377",
+"page": "lanchester",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/lanchester\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/lanchester\">GitHub</a>.",
+"tr": "El código está disponible en <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/lanchester\">GitHub</a>."
+},
+{
+"id": "s1406",
+"page": "monkey",
+"ko": "우연만으로 18글자를 맞히려면 약 5.8×10^25번이 필요하지만, 누적 선택은 평균 46세대였어요.",
+"en": "Pure chance needs about 5.8×10^25 tries for 18 letters, while cumulative selection took 46 generations on average.",
+"tr": "El azar puro necesita unos 5,8×10^25 intentos para 18 letras, mientras que la selección acumulativa tardó 46 generaciones en promedio."
+},
+{
+"id": "s1407",
+"page": "monkey",
+"ko": "우연은 매번 처음부터 다시 맞히지만, 누적 선택은 맞은 글자를 남겨 두고 조금씩 바꾸기 때문이에요.",
+"en": "Chance restarts from scratch each try, while cumulative selection keeps matched letters and changes the rest bit by bit.",
+"tr": "El azar reinicia desde cero en cada intento, mientras que la selección acumulativa conserva las letras acertadas y cambia el resto poco a poco."
+},
+{
+"id": "s1408",
+"page": "monkey",
+"ko": "어려운 일도 한 번에 맞히려 할지, 작은 개선을 걸러 쌓을 수 있는지로 달라 보인다는 점을 살펴볼 만해요.",
+"en": "Whether a hard goal is hit all at once or built from filtered small gains is worth examining.",
+"tr": "Vale la pena examinar si una meta difícil se alcanza de golpe o se construye con pequeñas ganancias filtradas."
+},
+{
+"id": "s1410",
+"page": "monkey",
+"ko": "미리 정한 목표 문장이 있어서 실제 진화의 모델이 아니고, 도킨스 자신도 이를 밝혔어요.",
+"en": "It has a preset target, so it is not a model of real evolution, as Dawkins himself noted.",
+"tr": "Tiene un objetivo prefijado, así que no es un modelo de la evolución real, como señaló el propio Dawkins."
+},
+{
+"id": "s1411",
+"page": "monkey",
+"ko": "실제 진화에서 무엇이 걸러지는지는 이 모델로 알 수 없고, 실제 생물 자료로 따로 확인해야 해요.",
+"en": "What gets filtered in real evolution cannot be learned here and needs real biological evidence.",
+"tr": "Qué se filtra en la evolución real no puede saberse aquí y requiere evidencia biológica real."
+},
+{
+"id": "s1413",
+"page": "monkey",
+"ko": "<b>모델의 뿌리:</b> 타자기를 치는 원숭이 비유는 Émile Borel (1913)까지 거슬러 올라간다고 흔히 인용됩니다. 한편 Richard Dawkins (1986)는 『The Blind Watchmaker』에서 \"위즐 프로그램\"으로, 우연은 아득히 오래 걸리지만 작은 개선을 쌓아 가는 누적 선택은 훨씬 빠르다는 점을 보였습니다.",
+"en": "<b>Where the model comes from:</b> The typing-monkey metaphor is commonly traced back to Émile Borel (1913). Richard Dawkins (1986), in <i>The Blind Watchmaker</i>, used his \"weasel program\" to show that chance takes unimaginably long, while cumulative selection that keeps small improvements is far faster.",
+"tr": "<b>De dónde viene el modelo:</b> La metáfora del mono que teclea suele atribuirse a Émile Borel (1913). Richard Dawkins (1986), en <i>El relojero ciego</i>, usó su \"programa weasel\" para mostrar que el azar tarda un tiempo inimaginable, mientras que la selección acumulativa, que conserva pequeñas mejoras, es mucho más rápida."
+},
+{
+"id": "s1414",
+"page": "monkey",
+"ko": "<b>핵심 가정과 수식:</b> 글자 27가지에서 무작위로 L글자를 치면 한 번에 정확히 맞힐 확률은 <code>27<sup>-L</sup></code>이라 기대 시도 횟수는 대략 <code>27<sup>L</sup></code>입니다. 누적 선택은 복사본 여러 개를 만들고 글자마다 일정 확률로 바꾼 뒤 가장 많이 맞은 복사본만 남깁니다. 복사본 수와 돌연변이율이 슬라이더이고, 글자 수가 늘어도 필요한 시도는 27의 거듭제곱이 아니라 훨씬 완만하게 늘어납니다.",
+"en": "<b>Key assumptions and formulas:</b> Typing L random symbols from 27 gets it exactly right with probability <code>27<sup>-L</sup></code>, so the expected number of attempts is roughly <code>27<sup>L</sup></code>. Cumulative selection makes several copies, changes each letter with some probability, and keeps only the copy with the most matches. The number of copies and the mutation rate are the sliders, and as the sentence grows the attempts needed grow far more gently than a power of 27.",
+"tr": "<b>Supuestos clave y fórmulas:</b> Teclear L símbolos aleatorios de 27 lo acierta exactamente con probabilidad <code>27<sup>-L</sup></code>, por lo que el número esperado de intentos es aproximadamente <code>27<sup>L</sup></code>. La selección acumulativa hace varias copias, cambia cada letra con cierta probabilidad y conserva solo la copia con más coincidencias. El número de copias y la tasa de mutación son los controles deslizantes, y al crecer la frase los intentos necesarios crecen mucho más suavemente que una potencia de 27."
+},
+{
+"id": "s1415",
+"page": "monkey",
+"ko": "<b>이 프로젝트의 단순화:</b> Dawkins 본인이 밝혔듯 위즐 프로그램은 미리 정한 목표가 있어서 실제 진화(목표가 없음)의 모형이 아니고 누적 선택이 위력적이라는 점만 보여 주는 비유입니다. 책의 프로그램과 세부 설정이 다르며, 복사본 100개, 돌연변이 5%, 대문자와 띄어쓰기만 쓴 것, 초당 10억 번 시도는 이 프로젝트가 정한 값입니다.",
+"en": "<b>What this project simplifies:</b> As Dawkins himself noted, the weasel program has a fixed target, so it is not a model of real evolution (which has no target) and only illustrates how powerful cumulative selection is. Its details differ from the book's program, and 100 copies, 5% mutation, capital letters and space only, and one billion attempts per second are values this project chose.",
+"tr": "<b>Qué simplifica este proyecto:</b> Como señaló el propio Dawkins, el programa weasel tiene un objetivo fijo, así que no es un modelo de la evolución real (que no tiene objetivo) y solo ilustra lo poderosa que es la selección acumulativa. Sus detalles difieren del programa del libro, y 100 copias, 5% de mutación, solo mayúsculas y espacio, y mil millones de intentos por segundo son valores elegidos por este proyecto."
+},
+{
+"id": "s1416",
+"page": "monkey",
+"ko": "<b>이론값과 시뮬레이션:</b> 우연의 기대 횟수는 닫힌 식이라 계산이 맞습니다. 18글자 27<sup>18</sup> ≈ 5.8×10<sup>25</sup>번은 초당 10억 번이면 약 18억 년(우주 나이 138억 년의 0.13배), 28글자 27<sup>28</sup> ≈ 1.2×10<sup>40</sup>번은 약 3.8×10<sup>23</sup>년이고 validate 출력과 같습니다. 누적 선택은 닫힌 해가 없어 시뮬레이션만으로 확인했고, 기본 설정에서 18글자는 평균 46세대, 28글자는 평균 77세대(20회)였고, 선택 쪽 시도 횟수는 3글자 약 1,000번에서 18글자 약 5,000번으로만 늘었습니다.",
+"en": "<b>Theory versus simulation:</b> The expected count for chance is a closed form and the calculation holds. For 18 letters 27<sup>18</sup> ≈ 5.8×10<sup>25</sup> attempts at a billion per second take about 1.8 billion years (0.13 of the universe's 13.8 billion), and for 28 letters 27<sup>28</sup> ≈ 1.2×10<sup>40</sup> attempts take about 3.8×10<sup>23</sup> years, matching the validate output. Cumulative selection has no closed form and was checked by simulation only: with defaults, 18 letters took 46 generations and 28 letters 77 on average (20 runs), and the attempts under selection rose only from about 1,000 at 3 letters to about 5,000 at 18.",
+"tr": "<b>Teoría frente a simulación:</b> El recuento esperado para el azar es una forma cerrada y el cálculo se cumple. Con 18 letras, 27<sup>18</sup> ≈ 5,8×10<sup>25</sup> intentos a mil millones por segundo tardan unos 1.800 millones de años (0,13 de los 13.800 millones del universo), y con 28 letras, 27<sup>28</sup> ≈ 1,2×10<sup>40</sup> intentos tardan unos 3,8×10<sup>23</sup> años, en coincidencia con la salida de validate. La selección acumulativa no tiene forma cerrada y se comprobó solo por simulación: con los valores por defecto, 18 letras necesitaron 46 generaciones y 28 letras 77 de media (20 ejecuciones), y los intentos bajo selección solo subieron de unos 1.000 con 3 letras a unos 5.000 con 18."
+},
+{
+"id": "s1417",
+"page": "monkey",
+"ko": "<b>더 읽을거리:</b> Dawkins (1986), 『The Blind Watchmaker』, Longman(3장). 무한 원숭이 정리는 확률론 교재의 Borel–Cantelli 보조정리 부분에서 다룹니다.",
+"en": "<b>Further reading:</b> Dawkins (1986), <i>The Blind Watchmaker</i>, Longman (chapter 3). The infinite monkey theorem is covered in probability textbooks under the Borel–Cantelli lemmas.",
+"tr": "<b>Lecturas adicionales:</b> Dawkins (1986), <i>The Blind Watchmaker</i>, Longman (capítulo 3). El teorema del mono infinito se trata en los manuales de probabilidad dentro de los lemas de Borel–Cantelli."
+},
+{
+"id": "s1418",
+"page": "monkey",
+"ko": "이 프로젝트가 직접 짠 구현이며 책의 프로그램을 그대로 옮긴 것은 아닙니다.",
+"en": "This is this project's own implementation, not a literal port of the program in the book.",
+"tr": "Esta es una implementación propia de este proyecto, no una traslación literal del programa del libro."
+},
+{
+"id": "s1448",
+"page": "painters",
+"ko": "따라 그리는 비율이 높아질수록 화풍의 다양성이 줄고 하나의 대표 화풍으로 쏠렸어요.",
+"en": "As the copying rate rose, style diversity fell and painters converged on one dominant style.",
+"tr": "A medida que subió la tasa de copia, la diversidad de estilos cayó y los pintores convergieron en un estilo dominante."
+},
+{
+"id": "s1449",
+"page": "painters",
+"ko": "따라 그리면 서로 화풍이 가까워지고 혁신은 독창성만큼만 흩뜨려서, 인기 편향이나 낮은 독창성이 쏠림을 굳혀요.",
+"en": "Copying pulls styles together while innovation scatters them only as much as originality allows, so popularity bias and low originality lock in the convergence.",
+"tr": "Copiar acerca los estilos mientras la innovación los dispersa solo en la medida en que lo permite la originalidad, así que el sesgo de popularidad y la poca originalidad fijan la convergencia."
+},
+{
+"id": "s1450",
+"page": "painters",
+"ko": "다양성을 살펴볼 때는 개인의 취향보다 얼마나 따라 하는지, 인기를 얼마나 좇는지, 새 시도가 얼마나 나오는지가 열쇠일 수 있어요.",
+"en": "To look at diversity, how much people copy, how much they chase popularity and how many new attempts appear may matter more than individual taste.",
+"tr": "Para mirar la diversidad, cuánto se copia, cuánto se persigue la popularidad y cuántos intentos nuevos aparecen puede importar más que el gusto individual."
+},
+{
+"id": "s1452",
+"page": "painters",
+"ko": "실제 화가나 이미지 생성 AI를 재현한 것도, 모방이 나쁘다는 뜻도 아니에요. 그림의 좋고 나쁨은 모델에 없어요.",
+"en": "It does not reproduce real painters or image-generating AI, and it does not say copying is bad; quality is absent from the model.",
+"tr": "No reproduce a pintores reales ni a la IA que genera imágenes, y no dice que copiar sea malo; la calidad no está en el modelo."
+},
+{
+"id": "s1453",
+"page": "painters",
+"ko": "모방이 실제로 다양성을 얼마나 줄이는지는 실제 작품 데이터로 확인해야 하고, 모방이 기술을 퍼뜨리는 효과도 함께 봐야 해요.",
+"en": "How much copying really reduces diversity needs real artwork data, alongside the way copying also spreads skills.",
+"tr": "Cuánto reduce realmente la diversidad el copiar requiere datos reales de obras, junto con el hecho de que copiar también difunde habilidades."
+},
+{
+"id": "s1455",
+"page": "painters",
+"ko": "<b>모델의 뿌리:</b> 두 가지 뿌리가 있습니다. 하나는 문화 진화 이론의 \"편향된 전달\"(Boyd, Richerson, 1985, 『Culture and the Evolutionary Process』)로, 사람들이 인기 있는 쪽을 골라 따라 한다는 생각입니다. 다른 하나는 이웃의 값 쪽으로 조금씩 다가가는 평균 모델(DeGroot, 1974, \"Reaching a consensus\", <i>Journal of the American Statistical Association</i>)입니다. 인기와 사회적 영향이 결과를 바꾼다는 Salganik, Dodds, Watts (2006, <i>Science</i>)의 음악 시장 실험에서도 발상을 얻었지만, 그 실험을 재현한 것은 아닙니다.",
+"en": "<b>Where the model comes from:</b> There are two roots. One is the \"biased transmission\" of cultural evolution theory (Boyd and Richerson, 1985, <i>Culture and the Evolutionary Process</i>): people choose whom to copy, often favoring the popular. The other is the averaging model in which agents move part of the way toward others' values (DeGroot, 1974, \"Reaching a consensus\", <i>Journal of the American Statistical Association</i>). The design was also inspired by the music-market experiment of Salganik, Dodds and Watts (2006, <i>Science</i>) on popularity and social influence, but it does not reproduce that experiment.",
+"tr": "<b>De dónde viene el modelo:</b> Hay dos raíces. Una es la \"transmisión sesgada\" de la teoría de la evolución cultural (Boyd y Richerson, 1985, <i>Culture and the Evolutionary Process</i>): las personas eligen a quién copiar, a menudo favoreciendo lo popular. La otra es el modelo de promediado en el que los agentes se acercan parcialmente a los valores de otros (DeGroot, 1974, \"Reaching a consensus\", <i>Journal of the American Statistical Association</i>). El diseño también se inspiró en el experimento de mercado musical de Salganik, Dodds y Watts (2006, <i>Science</i>) sobre popularidad e influencia social, pero no reproduce ese experimento."
+},
+{
+"id": "s1456",
+"page": "painters",
+"ko": "<b>핵심 가정과 수식:</b> 화풍은 네 숫자의 벡터 <code>s</code>입니다. 라운드마다 확률 <b>복사율</b>로 화가 <i>i</i>는 화가 <i>j</i>를 골라 <code>s<sub>i</sub> ← s<sub>i</sub> + 0.5(s<sub>j</sub> − s<sub>i</sub>)</code>로 절반쯤 다가가고, 아니면 <b>독창성</b> 크기의 무작위 변화를 더합니다. <i>j</i>가 뽑힐 가중치는 <code>(1−b) + b(p<sub>j</sub>/평균 p)<sup>2</sup></code>이며 <b>b</b>가 인기 편향 슬라이더입니다.",
+"en": "<b>Key assumptions and formulas:</b> A style is a vector <code>s</code> of four numbers. Each round, with probability <b>copy rate</b> painter <i>i</i> picks painter <i>j</i> and moves halfway: <code>s<sub>i</sub> ← s<sub>i</sub> + 0.5(s<sub>j</sub> − s<sub>i</sub>)</code>; otherwise a random change of size <b>originality</b> is added. The weight for picking <i>j</i> is <code>(1−b) + b(p<sub>j</sub>/mean p)<sup>2</sup></code>, where <b>b</b> is the popularity-bias slider.",
+"tr": "<b>Supuestos clave y fórmulas:</b> Un estilo es un vector <code>s</code> de cuatro números. En cada ronda, con probabilidad <b>tasa de copia</b>, el pintor <i>i</i> elige al pintor <i>j</i> y avanza la mitad del camino: <code>s<sub>i</sub> ← s<sub>i</sub> + 0.5(s<sub>j</sub> − s<sub>i</sub>)</code>; si no, se añade un cambio aleatorio de tamaño <b>originalidad</b>. El peso para elegir a <i>j</i> es <code>(1−b) + b(p<sub>j</sub>/mean p)<sup>2</sup></code>, donde <b>b</b> es el control deslizante del sesgo de popularidad."
+},
+{
+"id": "s1457",
+"page": "painters",
+"ko": "<b>이 프로젝트의 단순화:</b> 화풍을 네 숫자로 줄였고, 반쯤 다가가는 정도(0.5)와 인기 가중치를 제곱으로 둔 것, 인기가 시간이 지나면 줄어드는 방식은 모두 이 프로젝트가 정한 값입니다. 모든 화가가 서로를 볼 수 있고 한 번에 한 명만 따라 하며, 그림의 좋고 나쁨(품질)은 없습니다.",
+"en": "<b>What this project simplifies:</b> Style is reduced to four numbers. The halfway step (0.5), the squared popularity weight and the way popularity fades over time are values chosen by this project. Everyone can see everyone, each painter copies only one other at a time, and there is no notion of quality.",
+"tr": "<b>Qué simplifica este proyecto:</b> El estilo se reduce a cuatro números. El paso a mitad de camino (0,5), el peso de popularidad al cuadrado y la forma en que la popularidad se desvanece con el tiempo son valores elegidos por este proyecto. Todos ven a todos, cada pintor copia solo a otro a la vez y no existe la noción de calidad."
+},
+{
+"id": "s1458",
+"page": "painters",
+"ko": "<b>이론값과 시뮬레이션:</b> 이 모델에는 비교할 닫힌 해나 논문 값이 없어 시뮬레이션만으로 확인했습니다. 확인한 것은 방향과 양끝입니다. 복사율 0%에서는 다양성 0.47·쏠림 2%, 100%에서는 다양성 0.02·쏠림 100%, 기본값(복사 60%)에서는 0.18·55%였고, 인기 편향을 0으로 하면 복사율 60%에서 쏠림이 25%로 줄었습니다.",
+"en": "<b>Theory versus simulation:</b> There is no closed-form result or published number to compare with, so it was checked by simulation only. What was confirmed is the direction and the two ends: at a copy rate of 0%, diversity is 0.47 and concentration 2%; at 100%, 0.02 and 100%; at the default (60%), 0.18 and 55%. With zero popularity bias, concentration at a 60% copy rate falls to 25%.",
+"tr": "<b>Teoría frente a simulación:</b> No hay un resultado de forma cerrada ni un número publicado con el que comparar, así que se comprobó solo por simulación. Lo que se confirmó es la dirección y los dos extremos: con una tasa de copia del 0%, la diversidad es 0,47 y la concentración 2%; con el 100%, 0,02 y 100%; con el valor por defecto (60%), 0,18 y 55%. Con sesgo de popularidad cero, la concentración con una tasa de copia del 60% baja al 25%."
+},
+{
+"id": "s1459",
+"page": "painters",
+"ko": "<b>더 읽을거리:</b> Salganik, Dodds, Watts (2006), \"Experimental Study of Inequality and Unpredictability in an Artificial Cultural Market\", <i>Science</i> 311. Boyd, Richerson (1985), 『Culture and the Evolutionary Process』, University of Chicago Press. DeGroot (1974), \"Reaching a consensus\", <i>Journal of the American Statistical Association</i>.",
+"en": "<b>Further reading:</b> Salganik, Dodds, Watts (2006), \"Experimental Study of Inequality and Unpredictability in an Artificial Cultural Market\", <i>Science</i> 311. Boyd, Richerson (1985), <i>Culture and the Evolutionary Process</i>, University of Chicago Press. DeGroot (1974), \"Reaching a consensus\", <i>Journal of the American Statistical Association</i>.",
+"tr": "<b>Lecturas adicionales:</b> Salganik, Dodds, Watts (2006), \"Experimental Study of Inequality and Unpredictability in an Artificial Cultural Market\", <i>Science</i> 311. Boyd, Richerson (1985), <i>Culture and the Evolutionary Process</i>, University of Chicago Press. DeGroot (1974), \"Reaching a consensus\", <i>Journal of the American Statistical Association</i>."
+},
+{
+"id": "s1490",
+"page": "peter",
+"ko": "승진 뒤 능력이 이어지지 않으면 최고 능력자만 올리는 방식은 평균 이하의 결과를 냅니다.",
+"en": "If ability does not carry over after promotion, promoting only the top performer gives below-average results.",
+"tr": "Si la habilidad no se mantiene tras el ascenso, ascender solo al mejor desempeño da resultados por debajo del promedio."
+},
+{
+"id": "s1491",
+"page": "peter",
+"ko": "이 모델에서는 승진하면 새 직무 능력이 다시 정해져, 현재 성과가 새 일의 적합성을 보장하지 않기 때문입니다.",
+"en": "In this model ability is redrawn in the new job, so current performance does not guarantee fit for the new role.",
+"tr": "En este modelo la capacidad se vuelve a sortear en el nuevo puesto, así que el rendimiento actual no garantiza el encaje en el nuevo rol."
+},
+{
+"id": "s1492",
+"page": "peter",
+"ko": "승진 기준이 현재 성과인지 새 일의 적합성인지, 능력이 얼마나 이어지는지부터 살펴볼 만합니다.",
+"en": "Whether promotion rests on current performance or new-role fit, and how much ability carries over, is worth checking first.",
+"tr": "Conviene comprobar primero si el ascenso se basa en el rendimiento actual o en el encaje con el nuevo rol, y cuánta capacidad se transfiere."
+},
+{
+"id": "s1494",
+"page": "peter",
+"ko": "피터의 원리가 현실의 모든 조직에 해당한다는 뜻은 아닙니다. 논문과 달리 최저 능력자 승진이 가장 높게 나온 원인도 확인하지 못했습니다.",
+"en": "It does not mean the Peter principle holds in every organization, and why promoting the weakest scored highest, unlike the paper, is unconfirmed.",
+"tr": "No significa que el principio de Peter se cumpla en todas las organizaciones, y no está confirmado por qué ascender al más débil obtuvo la puntuación más alta, a diferencia del artículo."
+},
+{
+"id": "s1495",
+"page": "peter",
+"ko": "직무별로 승진 전후의 성과를 비교해 능력이 이어지는 정도를 재고, 교육과 팀워크 같은 요소를 넣어 봐야 합니다.",
+"en": "Compare performance before and after promotion by role to measure carry-over, and add factors like training and teamwork.",
+"tr": "Comparar el rendimiento antes y después del ascenso por rol para medir la transferencia, y añadir factores como la formación y el trabajo en equipo."
+},
+{
+"id": "s1497",
+"page": "peter",
+"ko": "<b>모델의 뿌리:</b> Laurence Peter와 Raymond Hull(1969, 『The Peter Principle』)이 &quot;사람은 무능해지는 자리까지 승진한다&quot;고 풍자한 것을, Pluchino, Rapisarda, Garofalo(2010, 「The Peter principle revisited: a computational study」, <i>Physica A</i> 389)가 에이전트 시뮬레이션으로 검증했습니다. 이 논문은 같은 해 이그노벨상(경영학)을 받았습니다.",
+"en": "<b>Where the model comes from:</b> Laurence Peter and Raymond Hull (1969, <i>The Peter Principle</i>) satirized the idea that people rise to the level of their incompetence; Pluchino, Rapisarda and Garofalo (2010, \"The Peter principle revisited: a computational study\", <i>Physica A</i> 389) tested it with an agent-based simulation. The paper received an Ig Nobel Prize (management) that year.",
+"tr": "<b>De dónde viene el modelo:</b> Laurence Peter y Raymond Hull (1969, <i>El principio de Peter</i>) satirizaron la idea de que las personas ascienden hasta su nivel de incompetencia; Pluchino, Rapisarda y Garofalo (2010, \"The Peter principle revisited: a computational study\", <i>Physica A</i> 389) lo pusieron a prueba con una simulación basada en agentes. Ese artículo recibió ese año un premio Ig Nobel (gestión)."
+},
+{
+"id": "s1498",
+"page": "peter",
+"ko": "<b>핵심 가정과 수식:</b> 6단계 피라미드(위에서부터 1, 5, 11, 21, 41, 81명)에서 60세 은퇴로 생긴 빈자리를 아래 단계에서 승진시켜 채웁니다. 승진하면 확률 continuity로 예전 능력을 유지하고 아니면 능력이 새로 뽑힙니다(continuity 0%가 피터 가설). 조직 효율은 단계별 평균 능력의 가중 평균(가중치 6, 5, 4, 3, 2, 1)입니다.",
+"en": "<b>Key assumptions and formulas:</b> In a six-level pyramid (1, 5, 11, 21, 41 and 81 people from the top), vacancies from retirement at age 60 are filled by promotion from the level below. A promoted person keeps the old competence with probability continuity, otherwise competence is redrawn (continuity 0% is the Peter hypothesis). Organizational efficiency is the weighted mean of level-average competence (weights 6, 5, 4, 3, 2, 1).",
+"tr": "<b>Supuestos clave y fórmulas:</b> En una pirámide de seis niveles (1, 5, 11, 21, 41 y 81 personas desde la cima), las vacantes por jubilación a los 60 años se cubren con ascensos desde el nivel inferior. Una persona ascendida conserva su competencia anterior con probabilidad de continuidad; si no, la competencia se vuelve a sortear (continuidad 0% es la hipótesis de Peter). La eficiencia de la organización es la media ponderada de la competencia media de cada nivel (pesos 6, 5, 4, 3, 2, 1)."
+},
+{
+"id": "s1499",
+"page": "peter",
+"ko": "<b>이 프로젝트의 단순화:</b> 능력의 분포(평균 7, 표준편차 2를 0~10으로 자름), 효율 가중치, 나이 분포, 4가지 승진 방식의 정의는 이 프로젝트의 단순화이며 논문 설정을 그대로 옮긴 것이 아닙니다. 논문에서는 무작위·번갈아 승진이 가장 좋았는데 이 구현에서는 최저 능력자 승진이 가장 높게 나옵니다. 세부 설정 차이로 보이지만 원인은 확인하지 못했습니다.",
+"en": "<b>What this project simplifies:</b> The competence distribution (mean 7, SD 2, clipped to 0 to 10), the efficiency weights, the age distribution and the definitions of the four promotion rules are this project&#x27;s simplifications, not a copy of the paper&#x27;s setup. In the paper, random or alternating promotion did best, while in this implementation promoting the worst performer scores highest. This looks like a difference in details, but the cause has not been confirmed.",
+"tr": "<b>Qué simplifica este proyecto:</b> La distribución de la competencia (media 7, DE 2, recortada a 0–10), los pesos de eficiencia, la distribución de edades y las definiciones de las cuatro reglas de ascenso son simplificaciones de este proyecto, no una copia del planteamiento del artículo. En el artículo, el ascenso aleatorio o alterno fue el mejor, mientras que en esta implementación promover al peor obtiene la mayor puntuación. Parece una diferencia de detalles, pero la causa no se ha confirmado."
+},
+{
+"id": "s1500",
+"page": "peter",
+"ko": "<b>이론값과 시뮬레이션:</b> 닫힌 해는 없지만 무작위 승진·continuity 0%는 손으로 확인됩니다. 모두의 능력이 매번 새로 뽑힌 값이라 효율은 잘린 정규분포의 평균 7−2[φ(1.5)−1.5(1−Φ(1.5))]≈6.94에 가야 하고, 시뮬레이션은 6.96입니다. continuity 0%에서 최고 능력자 승진 6.46, 번갈아 7.04, 최저 승진 7.41이고, 100%에서는 최고 승진 9.31, 최저 승진 3.94입니다(60년 뒤, 30회 평균, 처음 약 7.0. <code>node tools/validate-more.js peter</code>).",
+"en": "<b>Theory versus simulation:</b> There is no closed form, but random promotion with continuity 0% can be checked by hand. Everyone&#x27;s competence is a fresh draw, so efficiency should approach the mean of the clipped normal, 7 − 2[φ(1.5) − 1.5(1 − Φ(1.5))] ≈ 6.94; the simulation gives 6.96. At continuity 0%, promoting the best gives 6.46, alternating 7.04 and promoting the worst 7.41; at 100%, promoting the best gives 9.31 and the worst 3.94 (after 60 years, 30-run average, starting near 7.0; <code>node tools/validate-more.js peter</code>).",
+"tr": "<b>Teoría frente a simulación:</b> No hay forma cerrada, pero el ascenso aleatorio con continuidad 0% puede comprobarse a mano. La competencia de todos es un sorteo nuevo, así que la eficiencia debería acercarse a la media de la normal recortada, 7 − 2[φ(1,5) − 1,5(1 − Φ(1,5))] ≈ 6,94; la simulación da 6,96. Con continuidad 0%, promover al mejor da 6,46, alternar 7,04 y promover al peor 7,41; con 100%, promover al mejor da 9,31 y al peor 3,94 (tras 60 años, promedio de 30 ejecuciones, partiendo cerca de 7,0; <code>node tools/validate-more.js peter</code>)."
+},
+{
+"id": "s1501",
+"page": "peter",
+"ko": "<b>더 읽을거리:</b> Peter, L. J. &amp; Hull, R. (1969), 『The Peter Principle』, William Morrow. / Pluchino, A., Rapisarda, A. &amp; Garofalo, C. (2010), 「The Peter principle revisited: a computational study」, <i>Physica A</i> 389.",
+"en": "<b>Further reading:</b> Peter, L. J. and Hull, R. (1969), <i>The Peter Principle</i>, William Morrow. / Pluchino, A., Rapisarda, A. and Garofalo, C. (2010), \"The Peter principle revisited: a computational study\", <i>Physica A</i> 389.",
+"tr": "<b>Lecturas adicionales:</b> Peter, L. J. y Hull, R. (1969), <i>The Peter Principle</i>, William Morrow. / Pluchino, A., Rapisarda, A. y Garofalo, C. (2010), \"The Peter principle revisited: a computational study\", <i>Physica A</i> 389."
+},
+{
+"id": "s1537",
+"page": "population",
+"ko": "출산율 0.72가 유지되면 이 모델에서 2070년 인구는 약 2,940만 명, 65세 이상이 54%예요.",
+"en": "If fertility stays at 0.72, this model gives about 29.4 million people in 2070, with 54% aged 65 or older.",
+"tr": "Si la fecundidad se mantiene en 0,72, este modelo da unos 29,4 millones de personas en 2070, con un 54 % de 65 años o más."
+},
+{
+"id": "s1538",
+"page": "population",
+"ko": "출산율을 1.5로 올려도 줄어드는 건 이미 태어난 세대가 작아서 앞으로 부모가 될 사람이 적기 때문일 수 있어요.",
+"en": "Even at 1.5 it still shrinks, possibly because the generations already born are small, leaving fewer future parents.",
+"tr": "Incluso con 1,5 sigue reduciéndose, posiblemente porque las generaciones ya nacidas son pequeñas y habrá menos futuros padres."
+},
+{
+"id": "s1539",
+"page": "population",
+"ko": "인구 구조는 출산율만이 아니라 세대의 크기와 기대수명을 함께 볼 때 어디가 중요한지 보여요.",
+"en": "The age structure shows where to look when cohort sizes and life expectancy are viewed together with fertility, not fertility alone.",
+"tr": "La estructura por edades indica dónde mirar cuando se ven juntos el tamaño de las cohortes y la esperanza de vida con la fecundidad, y no solo la fecundidad."
+},
+{
+"id": "s1541",
+"page": "population",
+"ko": "통계청의 공식 추계도 미래 예측도 아니고, 어떤 정책이 옳은지도 말하지 않아요.",
+"en": "It is neither an official projection nor a forecast, and it does not say which policy is right.",
+"tr": "No es una proyección oficial ni un pronóstico, y no dice qué política es la correcta."
+},
+{
+"id": "s1542",
+"page": "population",
+"ko": "출산율을 고정했고 이민·정책 효과는 평가하지 않아서, 공식 추계와 비교하며 가정을 따로 확인해야 해요.",
+"en": "Fertility is held fixed and immigration and policy effects are not assessed, so the assumptions should be checked against official projections.",
+"tr": "La fecundidad se mantiene fija y no se evalúan los efectos de la inmigración ni de las políticas, así que conviene contrastar los supuestos con las proyecciones oficiales."
+},
+{
+"id": "s1544",
+"page": "population",
+"ko": "<b>모델의 뿌리:</b> 인구 추계의 표준 방법인 <b>코호트 요인법</b>입니다. 같은 해에 태어난 집단(코호트)을 해마다 한 살씩 옮기며 출생·사망·이동을 더하는 방식으로, Whelpton (1936)이 정리했다고 알려져 있습니다. 나이별 인구를 행렬 곱으로 다루는 수학은 Leslie (1945, <i>Biometrika</i>)의 연구가 대표적이고, 나이가 들수록 사망 확률이 지수적으로 커진다는 생각은 Gompertz (1825)로 거슬러 올라갑니다.",
+"en": "<b>Where the model comes from:</b> This is the <b>cohort-component method</b>, the standard way to project populations: each birth cohort is moved forward one year at a time while births, deaths and migration are added. It is usually credited to Whelpton (1936). The matrix form of age-structured populations is classically due to Leslie (1945, <i>Biometrika</i>), and the idea that mortality rises exponentially with age goes back to Gompertz (1825).",
+"tr": "<b>De dónde viene el modelo:</b> Es el <b>método de componentes por cohortes</b>, la forma estándar de proyectar poblaciones: cada cohorte de nacimiento avanza un año cada vez mientras se suman nacimientos, muertes y migración. Suele atribuirse a Whelpton (1936). La forma matricial de las poblaciones estructuradas por edad se debe clásicamente a Leslie (1945, <i>Biometrika</i>), y la idea de que la mortalidad crece exponencialmente con la edad se remonta a Gompertz (1825)."
+},
+{
+"id": "s1545",
+"page": "population",
+"ko": "<b>핵심 가정과 수식:</b> <code>P(a+1, t+1) = P(a, t)·S(a, t) + M(a)</code>, 출생은 <code>B(t) = TFR × Σ f(a)·(여성 수 P(a, t)/2)</code>입니다. <code>S</code>는 생존율, <code>M</code>은 이민, <code>f(a)</code>는 15~49세 출산 연령 분포(합이 1)입니다. 슬라이더는 TFR, <code>M</code>의 크기, 해마다 기대수명이 늘어나는 정도를 정합니다.",
+"en": "<b>Key assumptions and formulas:</b> <code>P(a+1, t+1) = P(a, t)·S(a, t) + M(a)</code>, and births are <code>B(t) = TFR × Σ f(a)·(women P(a, t)/2)</code>. <code>S</code> is survival, <code>M</code> is migration and <code>f(a)</code> is the age pattern of childbearing at 15–49 (summing to 1). The sliders set TFR, the size of <code>M</code>, and how fast life expectancy rises.",
+"tr": "<b>Supuestos clave y fórmulas:</b> <code>P(a+1, t+1) = P(a, t)·S(a, t) + M(a)</code>, y los nacimientos son <code>B(t) = TFR × Σ f(a)·(mujeres P(a, t)/2)</code>. <code>S</code> es la supervivencia, <code>M</code> la migración y <code>f(a)</code> el patrón de edad de la maternidad entre los 15 y 49 años (suma 1). Los controles deslizantes fijan la TFR, el tamaño de <code>M</code> y la rapidez con que sube la esperanza de vida."
+},
+{
+"id": "s1546",
+"page": "population",
+"ko": "<b>이 프로젝트의 단순화:</b> 남녀를 합쳐 절반을 여성으로 가정하고, 출산 연령 곡선(평균 32.5세, 표준편차 4.5)과 사망 곡선의 모양, 이민이 20~39세로만 들어오는 것은 이 프로젝트가 정한 값입니다. 2024년 한 살 단위 인구는 공식 자료가 아니라 공표된 세 연령대 비중에 맞춘 근사이고, 출산율은 2070년까지 고정입니다.",
+"en": "<b>What this project simplifies:</b> Sexes are combined with half assumed female. The childbearing age curve (mean 32.5, SD 4.5), the shape of the mortality curve and the rule that migrants arrive at ages 20–39 are this project's own choices. The 2024 single-age population is an approximation scaled to published three-group shares, and fertility is held fixed to 2070.",
+"tr": "<b>Qué simplifica este proyecto:</b> Los sexos se combinan suponiendo que la mitad son mujeres. La curva de edad de la maternidad (media 32,5, DE 4,5), la forma de la curva de mortalidad y la regla de que los migrantes llegan entre los 20 y 39 años son elecciones propias de este proyecto. La población de 2024 por edad simple es una aproximación escalada a las proporciones publicadas de tres grupos, y la fecundidad se mantiene fija hasta 2070."
+},
+{
+"id": "s1547",
+"page": "population",
+"ko": "<b>이론값과 시뮬레이션:</b> 이 모델의 숫자는 검증 스크립트 출력입니다. 합계출산율 2.1이어도 2070년 인구는 4,720만 명으로 2024년(약 5,170만 명)의 91%인데, 이미 태어난 세대가 작아 출산율을 회복해도 한동안 줄기 때문입니다. 비교 대상으로 통계청 2023년 12월 장래인구추계(중위, 보도 기준)는 2072년 약 3,600만 명, 65세 이상 47.7%이고 출산율이 0.65에서 1.08로 회복한다고 가정합니다. 이 모델은 0.72 고정으로 2,820만 명, 54.6%로, 출산율 가정이 다른 만큼 차이가 납니다.",
+"en": "<b>Theory versus simulation:</b> These are outputs of the validation script. Even at a fertility rate of 2.1, the 2070 population is 47.2 million, 91% of 2024 (about 51.7 million), because the generations already born are small, so the population keeps shrinking for a while even if fertility recovers. For comparison, the medium scenario of Statistics Korea's December 2023 projections (as reported in the press) gives about 36 million and 47.7% aged 65+ in 2072, assuming fertility recovers from 0.65 to 1.08. This model, with fertility fixed at 0.72, gives 28.2 million and 54.6%; the gap reflects the different fertility assumption.",
+"tr": "<b>Teoría frente a simulación:</b> Estos son resultados del script de validación. Incluso con una tasa de fecundidad de 2,1, la población de 2070 es de 47,2 millones, el 91% de la de 2024 (unos 51,7 millones), porque las generaciones ya nacidas son pequeñas, así que la población sigue reduciéndose durante un tiempo aunque la fecundidad se recupere. A modo de comparación, el escenario medio de las proyecciones de Statistics Korea de diciembre de 2023 (según la prensa) da unos 36 millones y un 47,7% de personas de 65 años o más en 2072, suponiendo que la fecundidad se recupera de 0,65 a 1,08. Este modelo, con la fecundidad fija en 0,72, da 28,2 millones y 54,6%; la diferencia refleja el distinto supuesto de fecundidad."
+},
+{
+"id": "s1548",
+"page": "population",
+"ko": "<b>더 읽을거리:</b> Preston, Heuveline, Guillot (2001), 『Demography: Measuring and Modeling Population Processes』, Blackwell. Leslie (1945), \"On the use of matrices in certain population mathematics\", <i>Biometrika</i>. 한국의 공식 수치는 통계청(KOSTAT)의 장래인구추계 원자료를 직접 확인하세요.",
+"en": "<b>Further reading:</b> Preston, Heuveline, Guillot (2001), <i>Demography: Measuring and Modeling Population Processes</i>, Blackwell. Leslie (1945), \"On the use of matrices in certain population mathematics\", <i>Biometrika</i>. For official Korean figures, consult the original Statistics Korea (KOSTAT) projection tables directly.",
+"tr": "<b>Lecturas adicionales:</b> Preston, Heuveline, Guillot (2001), <i>Demography: Measuring and Modeling Population Processes</i>, Blackwell. Leslie (1945), \"On the use of matrices in certain population mathematics\", <i>Biometrika</i>. Para las cifras oficiales de Corea, consulta directamente las tablas originales de proyección de Statistics Korea (KOSTAT)."
+},
+{
+"id": "s1581",
+"page": "queue",
+"ko": "새치기는 처음엔 퍼지지만, 응징하는 사람이 충분하면 다시 사라져요.",
+"en": "Cutting spreads at first, but it dies out again if enough people punish it.",
+"tr": "Hacer trampa se extiende al principio, pero vuelve a apagarse si suficientes personas lo castigan."
+},
+{
+"id": "s1582",
+"page": "queue",
+"ko": "이득이 큰 새치기를 막으려면 누군가 눈총의 비용을 치러야 해서, 그 비용을 나눠 지는 사람이 많을수록 질서가 버텨요.",
+"en": "Stopping profitable cutting costs someone the price of disapproval, so order holds when many share that cost.",
+"tr": "Dejar de colarse tiene un coste, el precio de la desaprobación, para alguien, así que el orden se mantiene cuando muchos comparten ese coste."
+},
+{
+"id": "s1583",
+"page": "queue",
+"ko": "줄이 무너진다면 사람 탓보다, 막는 사람이 혼자 비용을 지는 구조인지부터 살펴볼 만해요.",
+"en": "If a queue breaks down, it is worth first checking whether those who stop cutting bear the cost alone.",
+"tr": "Si una cola se desordena, conviene comprobar primero si quienes dejan de colarse asumen el coste en solitario."
+},
+{
+"id": "s1585",
+"page": "queue",
+"ko": "현실의 줄 서기가 이렇게 단순하다는 뜻은 아니에요. 눈총의 비용과 효과는 이 모델이 정한 값이에요.",
+"en": "Real queueing is not this simple; the cost and effect of disapproval are values set by this model.",
+"tr": "Las colas reales no son tan simples; el coste y el efecto de la desaprobación son valores fijados por este modelo."
+},
+{
+"id": "s1586",
+"page": "queue",
+"ko": "실제 줄에서 누가 얼마나 나서는지, 안내 직원이나 표지판이 어떤 차이를 만드는지 관찰해야 알 수 있어요.",
+"en": "Who steps up in real queues, and what staff or signs change, has to be observed to know.",
+"tr": "Quién da un paso adelante en las colas reales, y qué cambia el personal o la señalización, hay que observarlo para saberlo."
+},
+{
+"id": "s1588",
+"page": "queue",
+"ko": "<b>모델의 뿌리:</b> 격자 위에서 이웃과 게임을 하고 가장 성공한 이웃의 전략을 따라 하는 공간 진화 게임으로, Nowak과 May가 1992년 <i>Nature</i> 359에 낸 \"Evolutionary games and spatial chaos\"의 방식입니다. 응징하는 사람이 비용을 치르며 규범을 지키는 아이디어는 Axelrod (1986)의 규범 모델과 Fehr, Gächter (2002)의 실험에서 왔습니다.",
+"en": "<b>Where the model comes from:</b> This is a spatial evolutionary game in which people play their neighbors and copy the most successful neighbor, in the style of Nowak and May, \"Evolutionary games and spatial chaos\", <i>Nature</i> 359 (1992). The idea of punishers paying a cost to uphold a norm comes from Axelrod's (1986) norms model and the experiments of Fehr and Gächter (2002).",
+"tr": "<b>De dónde viene el modelo:</b> Es un juego evolutivo espacial en el que las personas juegan con sus vecinos y copian al vecino de más éxito, al estilo de Nowak y May, \"Evolutionary games and spatial chaos\", <i>Nature</i> 359 (1992). La idea de que los castigadores paguen un coste para sostener una norma proviene del modelo de normas de Axelrod (1986) y de los experimentos de Fehr y Gächter (2002)."
+},
+{
+"id": "s1589",
+"page": "queue",
+"ko": "<b>핵심 가정과 수식:</b> 50×50 격자에서 모두가 이웃 8명과 한 번씩 만나 점수를 모으고 이웃 중 최고 점수의 전략을 따릅니다. 새치기는 질서를 만나면 +<i>g</i>(이득), 질서는 −<i>g</i>를 받고, 새치기가 눈총형을 만나면 이득이 <i>g</i>−<i>f</i>로(눈총의 효과 <i>f</i>), 눈총형은 새치기를 볼 때마다 비용 <i>c</i>를 치릅니다. 따라서 대략 <i>f</i>가 <i>g</i>보다 커야 새치기가 눈총형 이웃 곁에서 손해를 봅니다. 슬라이더가 <i>g</i>, <i>f</i>, <i>c</i>입니다.",
+"en": "<b>Key assumptions and formulas:</b> On a 50×50 grid everyone meets their 8 neighbors once and copies the strategy of the highest-scoring neighbor. A cutter meeting an orderly person gains +<i>g</i> (the orderly person gets −<i>g</i>); a cutter meeting a punisher nets <i>g</i>−<i>f</i> (punishment effect <i>f</i>), and a punisher pays cost <i>c</i> each time it sees a cutter. So roughly, <i>f</i> must exceed <i>g</i> for cutting to be a loss next to punishers. The sliders are <i>g</i>, <i>f</i>, and <i>c</i>.",
+"tr": "<b>Supuestos clave y fórmulas:</b> En una cuadrícula de 50×50, cada persona se encuentra una vez con sus 8 vecinos y copia la estrategia del vecino con mayor puntuación. Quien se cuela y se encuentra con una persona ordenada gana +<i>g</i> (la persona ordenada obtiene −<i>g</i>); quien se cuela y se encuentra con un castigador obtiene neto <i>g</i>−<i>f</i> (efecto del castigo <i>f</i>), y el castigador paga un coste <i>c</i> cada vez que ve a alguien colarse. Así, a grandes rasgos, <i>f</i> debe superar a <i>g</i> para que colarse sea una pérdida junto a los castigadores. Los controles deslizantes son <i>g</i>, <i>f</i> y <i>c</i>."
+},
+{
+"id": "s1590",
+"page": "queue",
+"ko": "<b>이 프로젝트의 단순화:</b> \"응징하는 협력자\"를 넣고 점수표를 정한 것은 이 프로젝트의 설계이며 원 논문의 모델이나 수치의 재현이 아닙니다. 눈총형은 처음에 있던 사람뿐이고 새로 생기지 않으며, 아주 작은 확률로 질서나 새치기가 새로 들어옵니다. 점수와 비용의 숫자는 비교를 위한 상대적인 값입니다.",
+"en": "<b>What this project simplifies:</b> Adding the \"punishing cooperator\" and choosing the payoff table is this project's own design, not the paper's model or a reproduction of its numbers. Punishers exist only among the initial population and never newly appear, while with a very small probability new orderly people or cutters enter. The payoff and cost numbers are relative values for comparison.",
+"tr": "<b>Qué simplifica este proyecto:</b> Añadir al \"cooperador castigador\" y elegir la tabla de pagos es un diseño propio de este proyecto, no el modelo del artículo ni una reproducción de sus números. Los castigadores existen solo en la población inicial y nunca aparecen de nuevo, mientras que con una probabilidad muy pequeña entran nuevas personas ordenadas o que se cuelan. Los números de pago y de coste son valores relativos para comparar."
+}
+]

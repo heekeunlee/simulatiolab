@@ -1,20 +1,20 @@
 {
  "says_ko": [
-  "빈 판의 개미는 9,976걸음째부터 104걸음마다 대각선 고속도로를 끝없이 되풀이했습니다.",
-  "단순한 규칙 하나에서도 설계 없이 질서가 나타날 수 있고, 그 과정은 혼돈처럼 보일 수 있습니다.",
-  "시작 걸음이 200~50,000걸음으로 크게 달랐으니, 질서가 언제 올지는 규칙만 보고 알기 어려울 수 있습니다."
+  "빈 판의 개미는 9,976걸음째부터 104걸음 동작을 되풀이하며 대각선 고속도로를 만들었습니다.",
+  "두 줄 규칙이 흔적을 남기고 그 흔적을 다시 밟기 때문에, 혼돈 끝에 질서가 나타났을 수 있습니다.",
+  "왜 하필 고속도로인지는 아직 증명되지 않아, 규칙을 바꾸거나 시작 판을 달리해 보는 것이 열쇠일 수 있습니다."
  ],
  "says_en": [
-  "Starting from a blank grid, the ant began at step 9,976 an endless 104-step diagonal highway routine.",
-  "Even one simple rule can produce order without any design, and the road to it can look like pure chaos.",
-  "Start steps ranged from 200 to 50,000, so when order appears may be hard to tell from the rule alone."
+  "Starting blank, the ant began a 104-step diagonal highway cycle at step 9,976.",
+  "The two-line rule leaves marks that the ant steps on again, so order may emerge after chaos.",
+  "Why a highway forms is unproven, so changing the rule or the starting grid may be the key."
  ],
  "not_ko": [
-  "어떤 판에서든 고속도로가 반드시 생긴다는 것은 증명되지 않았습니다.",
-  "이 개미는 수학적 장난감이라 실제 개미나 길 만들기를 설명하지 않습니다."
+  "고속도로가 늘 생긴다는 것은 증명되지 않았고, 시작 걸음이 언제인지 미리 구하는 식도 없습니다.",
+  "실제 개미나 길 만들기에 쓰려면 규칙이 다른 모델과 비교하고, 어떤 단순한 규칙이 비슷한 질서를 만드는지 따로 확인해야 합니다."
  ],
  "not_en": [
-  "It has not been proved that a highway always forms from every starting grid.",
-  "This ant is a mathematical toy and does not explain real ants or how paths form."
+  "It is unproven that a highway always forms, and no formula predicts its start step.",
+  "Applying it to real ants or paths would need comparison with other rules and separate checks of which simple rules give similar order."
  ]
 }

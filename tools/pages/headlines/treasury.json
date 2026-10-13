@@ -1,1 +1,20 @@
-{"says_ko": ["단기금리가 1%p 뛰면 10년 금리는 0.33%p만 오르고, 이 값은 회귀 속도에 크게 달렸어요.", "금리가 같은 폭으로 올라도 내려도 채권값은 대칭으로 움직이지 않고, 내릴 때 더 올라요.", "이 모델에서 10년 금리에는 예상 평균뿐 아니라 기간 프리미엄이 얹혀 있어요."], "says_en": ["A 1pp jump in the short rate lifts the 10-year yield only 0.33pp, depending heavily on mean-reversion speed.", "Bond prices don't move symmetrically: the same fall in yields lifts prices more than a rise cuts them.", "In this model, the 10-year yield includes a term premium on top of the expected average."], "not_ko": ["금리를 맞힐 수 없고 투자 판단에 써서는 안 돼요.", "기본값은 모두 예시 숫자이고, 물가·통화정책 같은 현실 요인은 이 모델에 없어요."], "not_en": ["It cannot predict rates and must not be used for investment decisions.", "All defaults are example numbers, and real factors like inflation and policy are absent."]}
+{
+"says_ko": [
+"단기금리가 1%p 뛰어도 10년 금리는 0.33%p만 오르고, 이 값은 회귀 속도에 크게 달렸어요.",
+"이 모델에서는 단기금리가 평균으로 돌아온다고 보기에, 오래 갈수록 지금의 흔들림이 10년 금리에 덜 반영돼요.",
+"금리가 오를 때와 내릴 때 채권값이 어떻게 달라지는지까지 살펴볼 만해요."
+],
+"says_en": [
+"A 1pp jump in the short rate lifts the 10-year rate only 0.33pp, depending heavily on reversion speed.",
+"In this model short rates return to their mean, so today's swings count for less the further out you look.",
+"It is worth looking at how bond prices differ when rates rise and when they fall."
+],
+"not_ko": [
+"금리를 맞히는 모델이 아니고, 투자 판단에 쓰면 안 돼요. 기본값은 모두 예시 숫자예요.",
+"물가·통화정책·채권 수요 같은 빠진 요소와 기간 프리미엄의 변화는 실제 자료로 따로 확인해야 해요."
+],
+"not_en": [
+"This can't predict rates or guide investing; every default is an example number.",
+"Missing factors like inflation, policy, bond demand and shifting term premia need real data."
+]
+}

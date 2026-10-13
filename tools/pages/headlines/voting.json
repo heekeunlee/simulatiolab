@@ -1,20 +1,20 @@
 {
  "says_ko": [
   "후보가 셋 이상이면 같은 표라도 투표 방식에 따라 당선자가 달라질 수 있습니다.",
-  "단순다수는 비슷한 후보들이 표를 나눠 가져 다수가 선호하는 중도 후보를 놓치기 쉽습니다.",
-  "투표 방식은 중립적인 도구처럼 보여도, 결과를 정하는 규칙의 일부일 수 있습니다."
+  "이 모델에서는 단순다수가 1순위만 세어, 비슷한 후보들이 표를 나누면 중도 후보를 놓치기 쉬웠습니다.",
+  "결과가 갈린다면 표가 어떻게 갈리는지와 방식이 순위의 어느 부분을 쓰는지 살펴볼 만합니다."
  ],
  "says_en": [
-  "With more than two candidates, identical votes can elect different winners depending on the voting method.",
-  "Plurality voting can miss a centrist most voters prefer when similar candidates split the vote.",
-  "A voting method may look like a neutral tool, yet it can be part of what decides the result."
+  "With three or more candidates, the same ballots can elect different winners depending on the method.",
+  "Here plurality counts only first choices, so similar candidates splitting votes easily miss the centrist.",
+  "When results differ, how votes split and which part of rankings each method uses are worth examining."
  ],
  "not_ko": [
-  "어떤 투표 방식이 더 좋다거나 제도를 바꿔야 한다는 주장은 아닙니다.",
-  "이 모델에는 전략적 투표와 정당이 없고, 현실의 제도 논의에는 대표성·안정성 같은 기준도 있습니다."
+  "어떤 방식이 더 좋다거나 제도를 바꿔야 한다는 주장은 아닙니다. 전략적 투표와 정당이 이 모델에 없습니다.",
+  "현실의 선호 분포와 대표성·안정성 같은 다른 기준까지 함께 봐야 하며, 중도 후보 당선이 항상 기준은 아닙니다."
  ],
  "not_en": [
-  "It makes no claim that any voting method is better or that any system should change.",
-  "The model has no strategic voting or parties, and real debates also weigh representation and stability."
+  "It does not claim any method is better or that rules should change; strategic voting and parties are absent.",
+  "Real preference distributions and criteria like representation and stability also matter; electing the centrist is not always the standard."
  ]
 }

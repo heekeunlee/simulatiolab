@@ -5,7 +5,7 @@ R = os.path.dirname(os.path.abspath(__file__)); MEM = os.path.join(R, '..', 'tr'
 mem = json.load(open(MEM, encoding='utf-8'))
 HAN = re.compile('[ㄱ-ㆎ가-힣]'); tag = lambda s: Counter(re.findall(r'</?\w+', s)); ph = lambda s: Counter(re.findall(r'\{\d+\}', s))
 log, n, bad = [], 0, 0
-for f in sorted(glob.glob(os.path.join(R, 'out', '*_[0-9].json'))):
+for f in sorted(glob.glob(os.path.join(R, 'out', '*_[0-9].json')) + glob.glob(os.path.join(R, 'out', '*_n[0-9]*.json'))):
     lang, k = os.path.basename(f)[:-5].split('_')
     items = {x['id']: x for x in json.load(open(os.path.join(R, f'{lang}_{k}.json'), encoding='utf-8'))}
     for i, v in json.load(open(f, encoding='utf-8')).items():
@@ -18,5 +18,7 @@ for f in sorted(glob.glob(os.path.join(R, 'out', '*_[0-9].json'))):
             store[key][lang] = new; n += 1
             log.append(f"- {lang} `{x['page']}` {x['ko'][:40]!r}: {x['tr'][:70]!r} → {new[:70]!r} ({v.get('why', '')})")
 json.dump(mem, open(MEM, 'w', encoding='utf-8'), ensure_ascii=False)
-open(os.path.join(R, 'applied.md'), 'w', encoding='utf-8').write(f'# 번역 검수 반영 기록\n\n반영 {n}개, 검사 실패 {bad}개\n\n' + '\n'.join(log) + '\n')
+import datetime
+_hdr = '# 번역 검수 반영 기록\n\n' if not os.path.exists(os.path.join(R, 'applied.md')) else ''
+open(os.path.join(R, 'applied.md'), 'a', encoding='utf-8').write(_hdr + f'\n## {datetime.date.today()} 반영 {n}개, 검사 실패 {bad}개\n\n' + '\n'.join(log) + '\n')   # 이전 기록은 지우지 않고 덧붙인다
 print('반영', n, '검사 실패', bad)

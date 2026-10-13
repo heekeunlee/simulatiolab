@@ -350,7 +350,7 @@
       // 카드 안쪽 HTML (표시용과 높이 재기용이 같은 것을 쓴다)
       function build(Q, mine, c) {
         const e = byId[Q.s];
-        let h = `<h3>${esc(tt('🌤 오늘의 만약에'))}<span class="dnav"><button type="button" class="dprev" aria-label="${esc(tt('이전 질문'))}" title="${esc(tt('이전 질문'))}">‹</button><button type="button" class="dnext" aria-label="${esc(tt('다음 질문'))}" title="${esc(tt('다음 질문'))}">›</button></span></h3>`;
+        let h = `<h3>${esc(tt('🎯 내 직관, 맞을까?'))}<span class="dnav"><button type="button" class="dprev" aria-label="${esc(tt('이전 질문'))}" title="${esc(tt('이전 질문'))}">‹</button><button type="button" class="dnext" aria-label="${esc(tt('다음 질문'))}" title="${esc(tt('다음 질문'))}">›</button></span></h3>`;
         h += `<div class="dprog${rotating() && !paused ? ' run' : ''}"><i></i></div><div class="dbody"><p class="pq">${esc(tt(Q.q))}</p>`;
         if (mine == null) h += `<div class="popts">${Q.o.map((o, i) => `<button type="button" class="popt" data-i="${i}">${esc(tt(o))}</button>`).join('')}</div>`;
         let cap = '';

@@ -182,7 +182,7 @@ DYN = {
  "심슨의 역설: 병원마다 더 나은데 전체로는 왜 더 나쁠까": "Simpson's paradox: better in every hospital, yet worse overall?",
  "전염병과 거리두기: 모두가 조금씩 줄이면 어떻게 될까": "Epidemics and distancing: what if everyone cuts back a little?",
  "도박사의 오류: 앞면이 다섯 번 나오면 다음은 뒷면일까": "The gambler's fallacy: after five heads in a row, is tails due?",
- "🌤 오늘의 만약에": "🌤 Today's What If",
+ "🎯 내 직관, 맞을까?": "🎯 Is My Intuition Right?",
  "오늘의 질문은 하루에 하나, 날마다 바뀌어요.": "One question a day, a new one every day.",
  "이 질문, 실험해 볼까요? →": "Try this question as an experiment →",
  "지금까지 {#0}명이 투표했어요": "{0} people have voted so far",

@@ -1,0 +1,492 @@
+[
+{
+"id": "s0668",
+"page": "checkout",
+"ko": "<b>모델의 뿌리:</b> 대기행렬 이론입니다. 덴마크의 A. K. Erlang이 전화 교환기에서 통화를 기다리는 문제를 풀며 만든 계산식(얼랑 C)이 계산대 여러 개에 한 줄로 서는 가게(M/M/c)의 기본 이론이고, 줄 따로는 계산대마다 따로 계산하는 줄(M/M/1)이 여러 개 있는 경우와 같습니다.",
+"en": "<b>Where the model comes from:</b> This is queueing theory. The Erlang C formula, worked out by the Danish engineer A. K. Erlang for calls waiting in telephone exchanges, is the basic result for a single shared line feeding several cashiers (M/M/c), and separate lines behave like several independent single-cashier queues (M/M/1).",
+"tr": "<b>Откуда взялась модель:</b> Это теория массового обслуживания. Формула Эрланга C, выведенная датским инженером А. К. Эрлангом для звонков, ожидающих на телефонных станциях, — основной результат для одной общей очереди, обслуживаемой несколькими кассирами (M/M/c), а раздельные очереди ведут себя как несколько независимых очередей с одним кассиром (M/M/1)."
+},
+{
+"id": "s0669",
+"page": "checkout",
+"ko": "<b>핵심 가정과 수식:</b> 붐빔 ρ = 도착률 × 평균 계산 시간 ÷ 계산대 수 (슬라이더 '붐비는 정도'). 계산대 c개, a = ρc일 때 손님이 도착해 기다려야 할 확률 C(c, a)를 얼랑 C 식으로 구하고, 평균 대기는 <code>Wq = C(c, a) × S / (c(1−ρ))</code> (S는 평균 계산 시간 3분), 기다림이 t를 넘을 확률은 <code>C × e<sup>−c(1−ρ)t/S</sup></code>입니다. 줄 따로이고 아무 줄이나 서면 계산대마다 M/M/1이 되어 <code>Wq = ρS / (1−ρ)</code>입니다.",
+"en": "<b>Key assumptions and formulas:</b> Utilization ρ = arrival rate × mean checkout time ÷ number of cashiers (the 'How busy' slider). With c cashiers and a = ρc, the Erlang C formula gives C(c, a), the probability that an arriving customer has to wait; the mean wait is <code>Wq = C(c, a) × S / (c(1−ρ))</code> with S the mean checkout time (3 minutes), and the chance of waiting longer than t is <code>C × e<sup>−c(1−ρ)t/S</sup></code>. With separate lines and random choice each cashier is an M/M/1 queue, <code>Wq = ρS / (1−ρ)</code>.",
+"tr": "<b>Основные допущения и формулы:</b> Загрузка ρ = интенсивность прихода × среднее время оплаты ÷ число кассиров (ползунок «Загруженность»). При c кассирах и a = ρc формула Эрланга C даёт C(c, a) — вероятность того, что пришедшему покупателю придётся ждать; среднее ожидание равно <code>Wq = C(c, a) × S / (c(1−ρ))</code>, где S — среднее время оплаты (3 минуты), а вероятность ждать дольше t равна <code>C × e<sup>−c(1−ρ)t/S</sup></code>. При раздельных очередях и случайном выборе каждый кассир — очередь M/M/1, <code>Wq = ρS / (1−ρ)</code>."
+},
+{
+"id": "s0670",
+"page": "checkout",
+"ko": "<b>이 프로젝트의 단순화:</b> 계산 시간을 평균 3분의 감마분포(슬라이더로 들쭉날쭉함 조절)로, 물건 수는 평균 10개로 두고 계산 시간에 비례하게 정한 것은 이 프로젝트의 설정입니다. 들쭉날쭉함이 1.0이 아닐 때의 한 줄 이론선은 평균 대기에 (1+cv²)/2를 곱하는 흔한 근사이고, 무작위 줄은 폴라체크-힌친 평균 대기 공식입니다. 줄 바꾸기, 포기하는 손님, 전용 계산대는 넣지 않았습니다.",
+"en": "<b>What this project simplifies:</b> Checkout time is a gamma distribution with a mean of 3 minutes (the variability slider), and items average 10 and are proportional to checkout time; these are this project's choices. When variability is not 1.0, the single-line theory line uses the common approximation of multiplying the mean wait by (1+cv²)/2, and the random-line one is the Pollaczek-Khinchine mean wait formula. Line switching, balking and express lanes are not modeled.",
+"tr": "<b>Что упрощает этот проект:</b> Время оплаты подчиняется гамма-распределению со средним 3 минуты (ползунок разброса), а число товаров в среднем равно 10 и пропорционально времени оплаты; это выбор проекта. Когда разброс не равен 1,0, теоретическая линия для одной очереди использует распространённое приближение — умножение среднего ожидания на (1+cv²)/2, а для случайных очередей — формулу среднего ожидания Полячека — Хинчина. Смена очереди, уход из очереди и экспресс-кассы не моделируются."
+},
+{
+"id": "s0671",
+"page": "checkout",
+"ko": "<b>이론값과 시뮬레이션:</b> <code>node tools/validate-checkout.js</code>의 결과(시드 5개 × 손님 10만 명 평균, 들쭉날쭉함 1.0)입니다. 계산대 4개 붐빔 60%에서 한 줄 평균 대기는 시뮬레이션 0.54분, 이론 0.54분이고, 붐빔 80%는 2.25분 대 2.24분, 90%는 6.11분 대 5.91분이었습니다. 90% 손님 기준은 붐빔 90%에서 16.0분 대 15.5분입니다. 계산대 2개 붐빔 70%는 2.88분 대 2.88분이었습니다. 무작위 줄은 붐빔 60%에서 4.55분 대 4.50분, 80%에서 12.46분 대 12.00분, 90%에서 29.9분 대 27.0분으로 붐빌수록 시뮬레이션이 이론보다 높게 나왔습니다(유한한 손님 수 때문으로 보임). 들쭉날쭉함 1.5, 붐빔 90%에서 한 줄 근사는 9.60분으로 시뮬레이션 9.03분보다 약 7% 높았습니다.",
+"en": "<b>Theory versus simulation:</b> From <code>node tools/validate-checkout.js</code> (average of 5 seeds × 100,000 customers, variability 1.0). With 4 cashiers at 60% busy the single line mean wait was 0.54 minutes in simulation and 0.54 in theory; at 80% it was 2.25 vs 2.24 and at 90% 6.11 vs 5.91. The 90th percentile at 90% busy was 16.0 vs 15.5 minutes. With 2 cashiers at 70% it was 2.88 vs 2.88. For random lines the simulation gave 4.55 vs 4.50 at 60% busy, 12.46 vs 12.00 at 80% and 29.9 vs 27.0 at 90%, so the simulation ran higher than theory as it got busier (likely due to the finite number of customers). With variability 1.5 and 90% busy the single-line approximation gave 9.60 minutes, about 7% above the simulated 9.03.",
+"tr": "<b>Теория и симуляция:</b> Данные из <code>node tools/validate-checkout.js</code> (среднее по 5 зёрнам × 100 000 покупателей, разброс 1,0). При 4 кассирах и загруженности 60% среднее ожидание в одной очереди составило 0,54 минуты в симуляции и 0,54 в теории; при 80% — 2,25 против 2,24, при 90% — 6,11 против 5,91. 90-й процентиль при загруженности 90% составил 16,0 против 15,5 минуты. При 2 кассирах и 70% — 2,88 против 2,88. Для случайных очередей симуляция дала 4,55 против 4,50 при 60%, 12,46 против 12,00 при 80% и 29,9 против 27,0 при 90%, то есть при росте загруженности симуляция оказывалась выше теории (вероятно, из-за конечного числа покупателей). При разбросе 1,5 и загруженности 90% приближение для одной очереди дало 9,60 минуты, примерно на 7% выше смоделированных 9,03."
+},
+{
+"id": "s0672",
+"page": "checkout",
+"ko": "<b>더 읽을거리:</b> Leonard Kleinrock, 『Queueing Systems, Volume 1: Theory』(Wiley, 1975). Donald Gross와 Carl M. Harris, 『Fundamentals of Queueing Theory』(Wiley). 줄을 합치는 것이 항상 이로운 것은 아니라는 점은 Rothkopf &amp; Rech (1987), \"Perspectives on queues: combining queues is not always beneficial\", <i>Operations Research</i>에서 다룹니다.",
+"en": "<b>Further reading:</b> Leonard Kleinrock, <i>Queueing Systems, Volume 1: Theory</i> (Wiley, 1975). Donald Gross and Carl M. Harris, <i>Fundamentals of Queueing Theory</i> (Wiley). That combining queues is not always beneficial is discussed in Rothkopf &amp; Rech (1987), \"Perspectives on queues: combining queues is not always beneficial\", <i>Operations Research</i>.",
+"tr": "<b>Дополнительное чтение:</b> Leonard Kleinrock, <i>Queueing Systems, Volume 1: Theory</i> (Wiley, 1975). Donald Gross и Carl M. Harris, <i>Fundamentals of Queueing Theory</i> (Wiley). О том, что объединение очередей не всегда выгодно, говорится в Rothkopf &amp; Rech (1987), «Perspectives on queues: combining queues is not always beneficial», <i>Operations Research</i>."
+},
+{
+"id": "s0673",
+"page": "checkout",
+"ko": "시뮬레이션은 손님 목록(도착 시각, 계산 시간, 물건 수, 무작위 줄 선택용 난수)을 한 번 만들어 모든 방식에 똑같이 넣는 공통 난수 방식입니다. 시드 난수(mulberry32)를 쓰므로 같은 시드면 같은 결과가 나옵니다. 화면의 가게는 두 방식의 시작·끝 시각을 미리 계산해 두고 시간에 따라 위치만 그립니다.",
+"en": "The simulation builds one customer list (arrival times, checkout times, items, and random numbers for the random choice) and feeds it identically to every method, a common random numbers design. It uses a seeded generator (mulberry32), so the same seed gives the same result. The store on screen precomputes each method's start and end times and just draws positions as time advances.",
+"tr": "Симуляция строит один список покупателей (время прихода, время оплаты, товары и случайные числа для случайного выбора) и подаёт его одинаково каждому методу — это схема с общими случайными числами. Используется генератор с зерном (mulberry32), поэтому одно и то же зерно даёт один и тот же результат. Магазин на экране заранее вычисляет моменты начала и конца обслуживания для каждого метода и лишь рисует положения по мере хода времени."
+},
+{
+"id": "s0674",
+"page": "checkout",
+"ko": "추월당한 손님은 자기보다 늦게 도착한 사람이 더 먼저 계산을 시작한 손님입니다. 계산대가 놀면서 기다리는 사람이 있는 시간 비율은 시작과 끝 시각을 시간순으로 훑어 구했고, 처음 10% 손님은 가게가 비어 있던 시기라 통계에서 뺐습니다.",
+"en": "An overtaken customer is one for whom someone who arrived later started checkout earlier. The share of time with an idle cashier while someone waits was found by sweeping start and end times in order, and the first 10% of customers, from when the store was still empty, were left out of the statistics.",
+"tr": "Обогнанный покупатель — это тот, у кого кто-то пришедший позже начал оплату раньше. Доля времени, когда кассир простаивал, пока кто-то ждёт, найдена последовательным просмотром моментов начала и конца, а первые 10% покупателей, пришедших, когда магазин ещё был пуст, исключены из статистики."
+},
+{
+"id": "s0675",
+"page": "checkout",
+"ko": "카드 숫자는 손님 15만 명을 한 번 돌린 값이라 페이지 설명(10만 명 × 5번 평균)과 조금 다를 수 있습니다. 검증은 <code>node tools/validate-checkout.js</code>로 할 수 있습니다.",
+"en": "The numbers on the cards come from a single run of 150,000 customers, so they can differ slightly from the page text (an average of 5 runs of 100,000). You can verify with <code>node tools/validate-checkout.js</code>.",
+"tr": "Числа на карточках получены из одного запуска на 150 000 покупателей, поэтому могут немного отличаться от текста страницы (среднее по 5 запускам по 100 000). Проверить можно командой <code>node tools/validate-checkout.js</code>."
+},
+{
+"id": "s0676",
+"page": "checkout",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/checkout\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/checkout\">GitHub</a>.",
+"tr": "Код доступен на <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/checkout\">GitHub</a>."
+},
+{
+"id": "s0707",
+"page": "coincidence",
+"ko": "23명이면 방 안 어딘가에서 생일이 같을 확률은 50.7%지만, 나와 같을 확률은 5.9%예요.",
+"en": "With 23 people, the chance that some pair shares a birthday is 50.7%, but the chance that someone shares mine is 5.9%.",
+"tr": "Среди 23 человек вероятность, что у какой-то пары совпадёт день рождения, равна 50,7%, а что у кого-то совпадёт с моим — 5,9%."
+},
+{
+"id": "s0708",
+"page": "coincidence",
+"ko": "사람이 늘면 가능한 짝이 거의 제곱으로 늘어서, '어딘가의 일치'는 빨리 흔해지고 '나와의 일치'는 천천히 늘어요.",
+"en": "As people grow, possible pairs grow almost as the square, so a match somewhere becomes common fast while a match with me grows slowly.",
+"tr": "С ростом числа людей число возможных пар растёт почти как квадрат, поэтому совпадение где-нибудь быстро становится обычным, а совпадение со мной растёт медленно."
+},
+{
+"id": "s0709",
+"page": "coincidence",
+"ko": "신기한 일치를 만나면 '내 경우'인지 '아무 경우나'인지, 몇 쌍을 비교했는지부터 따져 볼 만해요.",
+"en": "When you meet a striking match, it may help to ask whether it was about me or about anyone, and how many pairs were being compared.",
+"tr": "Столкнувшись с поразительным совпадением, можно спросить себя, было ли оно именно про меня или про кого угодно и сколько пар сравнивалось."
+},
+{
+"id": "s0711",
+"page": "coincidence",
+"ko": "모든 소름 돋는 우연이 그냥 우연이라는 뜻은 아니에요.",
+"en": "It does not mean every eerie coincidence is just chance.",
+"tr": "Это не значит, что любое жутковатое совпадение — лишь случайность."
+},
+{
+"id": "s0712",
+"page": "coincidence",
+"ko": "생일과 취미가 고르고 독립이라는 가정이라, 실제 사건은 실제 분포와 비교하는 자료가 더 있어야 알 수 있어요.",
+"en": "It assumes birthdays and traits are even and independent, so judging a real event needs data on the real distributions.",
+"tr": "Он предполагает, что дни рождения и признаки распределены равномерно и независимо, поэтому для оценки реального события нужны данные о реальных распределениях."
+},
+{
+"id": "s0714",
+"page": "coincidence",
+"ko": "<b>모델의 뿌리:</b> 생일 문제(birthday problem)는 방 안 사람들 중 생일이 같은 쌍이 있을 확률을 묻는 확률론의 고전 문제로, Feller의 확률론 교과서 같은 입문서에도 실려 있습니다. \"소름 돋는 우연도 어딘가에서는 일어난다\"는 생각은 Diaconis와 Mosteller(1989)가 \"아주 큰 수의 법칙(law of truly large numbers)\", 곧 표본이 충분히 크면 아무리 드문 일도 일어날 법하다는 원리로 정리했습니다.",
+"en": "<b>Where the model comes from:</b> The birthday problem is a classic of probability that asks how likely it is that some pair in a room shares a birthday, and it is treated in introductory texts such as Feller's. The idea that \"even spooky coincidences happen somewhere\" was framed by Diaconis and Mosteller (1989) as the \"law of truly large numbers\": with a large enough sample, even very rare events are likely to occur.",
+"tr": "<b>Откуда взялась модель:</b> Задача о днях рождения — классика теории вероятностей: насколько вероятно, что у какой-нибудь пары людей в комнате совпадёт день рождения; она разбирается во вводных учебниках, например у Феллера. Мысль о том, что «даже жуткие совпадения где-нибудь случаются», сформулировали Диаконис и Мостеллер (1989) как «закон по-настоящему больших чисел»: при достаточно большой выборке вероятно, что произойдут даже очень редкие события."
+},
+{
+"id": "s0715",
+"page": "coincidence",
+"ko": "<b>핵심 가정과 수식:</b> 한 특징이 c가지 값을 같은 확률로 가지면 N명이 모두 다를 확률은 <code>(1−1/c)(1−2/c)…(1−(N−1)/c)</code>이고, 특징들이 독립이면 특징별 확률을 곱한 값이 \"일치한 쌍이 하나도 없을 확률\"입니다. 나와 일치할 확률은 <code>1 − Π(1−1/c)<sup>N−1</sup></code>이고, 인원 슬라이더가 N, 특징 슬라이더가 k(생일은 c=365), 다른 특징의 값 개수가 c입니다.",
+"en": "<b>Key assumptions and formulas:</b> If a feature takes c values with equal chance, the probability that N people all differ is <code>(1−1/c)(1−2/c)…(1−(N−1)/c)</code>, and with independent features the product over features is the \"chance of no matching pair\". The chance of matching me is <code>1 − Π(1−1/c)<sup>N−1</sup></code>. The headcount slider is N, the feature slider is k (birthday has c=365) and the values slider sets c for the other features.",
+"tr": "<b>Основные допущения и формулы:</b> Если признак принимает c значений с равной вероятностью, то вероятность того, что все N человек различны, равна <code>(1−1/c)(1−2/c)…(1−(N−1)/c)</code>, а при независимых признаках произведение по признакам даёт «вероятность отсутствия совпадающей пары». Вероятность совпасть со мной равна <code>1 − Π(1−1/c)<sup>N−1</sup></code>. Ползунок числа людей — это N, ползунок признаков — k (у дня рождения c=365), а ползунок значений задаёт c для остальных признаков."
+},
+{
+"id": "s0716",
+"page": "coincidence",
+"ko": "<b>이 프로젝트의 단순화:</b> 모든 특징이 균등하고 서로 독립이라고 가정하고 윤일은 무시했습니다. 실제 생일은 연중 완전히 고르지 않고 고향·취미도 서로 얽혀 있습니다. 특징 개수와 \"다른 특징의 값 개수\"(기본 30)는 이 프로젝트가 정한 값이며 실제 분포를 반영하지 않습니다.",
+"en": "<b>What this project simplifies:</b> All features are assumed uniform and independent, and leap days are ignored. Real birthdays are not perfectly even through the year, and hometown and hobbies are tangled together. The number of features and the \"values per other feature\" (default 30) are set by this project and do not reflect real distributions.",
+"tr": "<b>Что упрощает этот проект:</b> Все признаки считаются равномерными и независимыми, а високосные дни игнорируются. Реальные дни рождения распределены по году не идеально ровно, а родной город и увлечения связаны между собой. Число признаков и «значений на другой признак» (по умолчанию 30) заданы проектом и не отражают реальных распределений."
+},
+{
+"id": "s0717",
+"page": "coincidence",
+"ko": "<b>이론값과 시뮬레이션:</b> 이 식은 정확한 닫힌 해라서 시뮬레이션과 바로 비교됩니다. 생일만 볼 때 \"어딘가 일치\"는 23명에서 이론 50.7%, 시뮬레이션 50.4%, 57명에서 99.0%와 99.0%였고, \"나와 일치\"는 23명에서 5.9%와 5.9%였습니다. 나와 일치할 확률이 50%를 넘는 최소 인원은 254명(나 말고 253명)입니다. 특징 2가지(값 30개), 23명에서는 나와 일치가 이론 55.3%, 시뮬레이션 55.7%였습니다.",
+"en": "<b>Theory versus simulation:</b> These formulas are exact closed forms, so they compare directly with the simulation. For birthday only, \"a match somewhere\" was 50.7% in theory and 50.4% simulated with 23 people, and 99.0% and 99.0% with 57; \"a match with me\" was 5.9% and 5.9% with 23. The smallest headcount where a match with me passes 50% is 254 (253 besides me). With 2 features (30 values) and 23 people, a match with me was 55.3% in theory and 55.7% simulated.",
+"tr": "<b>Теория и симуляция:</b> Эти формулы — точные замкнутые выражения, поэтому их можно напрямую сравнивать с симуляцией. Только для дня рождения «совпадение где-нибудь» при 23 людях составило 50,7% в теории и 50,4% в симуляции, а при 57 — 99,0% и 99,0%; «совпадение со мной» при 23 — 5,9% и 5,9%. Наименьшее число людей, при котором совпадение со мной превышает 50%, равно 254 (253 помимо меня). При 2 признаках (30 значений) и 23 людях совпадение со мной составило 55,3% в теории и 55,7% в симуляции."
+},
+{
+"id": "s0718",
+"page": "coincidence",
+"ko": "<b>더 읽을거리:</b> Diaconis, P. & Mosteller, F. (1989), 「Methods for Studying Coincidences」, <i>Journal of the American Statistical Association</i> 84. Feller, W. (1968), <i>An Introduction to Probability Theory and Its Applications</i>, Vol. 1 (3rd ed.), Wiley.",
+"en": "<b>Further reading:</b> Diaconis, P. & Mosteller, F. (1989), \"Methods for Studying Coincidences\", <i>Journal of the American Statistical Association</i> 84. Feller, W. (1968), <i>An Introduction to Probability Theory and Its Applications</i>, Vol. 1 (3rd ed.), Wiley.",
+"tr": "<b>Дополнительное чтение:</b> Diaconis, P. & Mosteller, F. (1989), «Methods for Studying Coincidences», <i>Journal of the American Statistical Association</i> 84. Feller, W. (1968), <i>An Introduction to Probability Theory and Its Applications</i>, Vol. 1 (3-е изд.), Wiley."
+},
+{
+"id": "s0751",
+"page": "commons",
+"ko": "이 설정에서는 감시가 없으면 저량이 수용력의 1~2%까지 무너졌다가 평균 약 26%에 머물렀어요.",
+"en": "In this setup, without monitoring the stock fell to 1 to 2% of capacity, then settled around 26%.",
+"tr": "В этой постановке без контроля запас упал до 1–2% от ёмкости, а затем установился около 26%."
+},
+{
+"id": "s0752",
+"page": "commons",
+"ko": "이 모델에서는 탐욕이 이득이 커 보여 퍼지는데, 감시와 벌금이 그 이득을 깎아야 절제가 버텨요.",
+"en": "In this model greed spreads because it pays more, and monitoring plus fines must cut that gain for restraint to hold.",
+"tr": "В этой модели жадность распространяется, потому что приносит больше, и чтобы сдержанность сохранялась, контроль и штрафы должны сократить эту выгоду."
+},
+{
+"id": "s0753",
+"page": "commons",
+"ko": "적발 확률과 벌금의 크기가 함께 있어야 했으니, 규칙의 실제 집행력이 열쇠일 수 있어요.",
+"en": "Both catch rate and fine size were needed, so how firmly rules are enforced may be the key.",
+"tr": "Нужны были и вероятность обнаружения, и размер штрафа, поэтому ключом может быть то, насколько твёрдо соблюдаются правила."
+},
+{
+"id": "s0755",
+"page": "commons",
+"ko": "하딘이나 오스트롬이 옳다는 증명은 아니에요. 비용·재생 속도는 이 모델이 정한 값이에요.",
+"en": "It does not prove Hardin or Ostrom right; cost and regrowth are values this model chose.",
+"tr": "Он не доказывает правоту Хардина или Остром; затраты и восстановление — значения, выбранные этой моделью."
+},
+{
+"id": "s0756",
+"page": "commons",
+"ko": "소유권·신뢰·경계 같은 모델에 없는 조건이 실제 공동체에서 어떻게 작동하는지 사례로 확인해야 해요.",
+"en": "How ownership, trust and boundaries, all missing here, work in real communities needs case studies.",
+"tr": "То, как в реальных сообществах работают собственность, доверие и границы, которых здесь нет, требует изучения конкретных случаев."
+},
+{
+"id": "s0758",
+"page": "commons",
+"ko": "<b>모델의 뿌리:</b> \"공유지의 비극\"은 Hardin(1968)이 『Science』에 실은 논문으로 널리 알려졌고, 각자의 이익을 좇으면 공유 자원이 망한다는 주장입니다. 이에 맞서 Ostrom(1990)은 『Governing the Commons』에서 공동체가 스스로 규칙과 감시·제재로 자원을 지켜 온 사례들을 분석했습니다. 자원 쪽은 Gordon(1954)의 어업 경제 모형(공유 자원은 이윤이 사라질 때까지 남획된다)과 로지스틱 재생 모형의 아이디어를 단순화했습니다.",
+"en": "<b>Where the model comes from:</b> \"The tragedy of the commons\" is best known from Hardin's (1968) paper in <i>Science</i>, which argues that individuals pursuing their own interest ruin a shared resource. In response, Ostrom (1990), in <i>Governing the Commons</i>, analyzed cases in which communities protected resources through their own rules, monitoring and sanctions. The resource side simplifies the fishery economics of Gordon (1954), in which a commons is fished until profit vanishes, together with logistic regrowth.",
+"tr": "<b>Откуда взялась модель:</b> «Трагедия общин» наиболее известна по статье Хардина (1968) в <i>Science</i>, где утверждается, что индивиды, преследующие собственный интерес, губят общий ресурс. В ответ Остром (1990) в книге <i>Governing the Commons</i> проанализировала случаи, когда сообщества защищали ресурсы собственными правилами, контролем и санкциями. Часть модели, связанная с ресурсом, упрощает экономику рыболовства Гордона (1954), где общий ресурс вылавливают, пока прибыль не исчезнет, в сочетании с логистическим восстановлением."
+},
+{
+"id": "s0759",
+"page": "commons",
+"ko": "<b>핵심 가정과 수식:</b> 저량 S는 <code>S ← S + r·S·(1 − S/K) − 수확</code>으로 자라고(r=0.4, K=100), 저량이 K/2일 때 지속 가능한 최대 수확 <code>rK/4 = 10</code>이 나옵니다. 이득은 수확에서 노력 비용을 뺀 값이고, 감시 슬라이더는 욕심낸 사람이 적발될 확률, 벌금은 그 라운드 수확의 몇 배를 내는지입니다. 전략은 모방 규칙(점수 차이의 로지스틱, 페르미 규칙)으로 퍼집니다.",
+"en": "<b>Key assumptions and formulas:</b> The stock S grows as <code>S ← S + r·S·(1 − S/K) − harvest</code> (r=0.4, K=100), and at S = K/2 the maximum sustainable harvest is <code>rK/4 = 10</code>. Payoff is the harvest minus the cost of effort; the monitoring slider is the chance a greedy user is caught and the fine is how many times that round's catch they pay. Strategies spread by a copying rule (a logistic function of the payoff difference, the Fermi rule).",
+"tr": "<b>Основные допущения и формулы:</b> Запас S растёт по формуле <code>S ← S + r·S·(1 − S/K) − вылов</code> (r=0,4, K=100), а при S = K/2 максимальный устойчивый вылов равен <code>rK/4 = 10</code>. Выигрыш — это вылов за вычетом затрат на усилия; ползунок контроля задаёт вероятность поймать жадного пользователя, а штраф — во сколько раз улов этого раунда он выплачивает. Стратегии распространяются по правилу копирования (логистическая функция разности выигрышей, правило Ферми)."
+},
+{
+"id": "s0760",
+"page": "commons",
+"ko": "<b>이 프로젝트의 단순화:</b> 노력 비용(25), 재생 속도(0.4), 탐욕의 크기(지속 가능한 몫의 3배), 모방 확률(25%), 돌연변이(1%), 처음 절제 10%는 모두 이 프로젝트가 정한 값입니다. 이용자는 세 가지 전략 중 하나만 따르고, 소유권·외부인 진입·신뢰·국가의 역할은 없습니다. Ostrom이 정리한 성공 조건(명확한 경계, 지역에 맞는 규칙 등)도 모델에 들어 있지 않습니다.",
+"en": "<b>What this project simplifies:</b> The cost of effort (25), regrowth rate (0.4), strength of greed (3 times the sustainable share), copying probability (25%), mutation (1%) and the initial 10% restrained are all set by this project. Users follow one of three strategies, and ownership, outsiders' entry, trust and the role of the state are absent. The success conditions Ostrom identified, such as clear boundaries and locally suited rules, are not in the model either.",
+"tr": "<b>Что упрощает этот проект:</b> Затраты на усилия (25), скорость восстановления (0,4), сила жадности (3 устойчивые доли), вероятность копирования (25%), мутация (1%) и начальные 10% сдержанных заданы проектом. Пользователи следуют одной из трёх стратегий, а собственность, приход посторонних, доверие и роль государства отсутствуют. Условия успеха, выделенные Остром, такие как чёткие границы и правила, подходящие к местным условиям, в модели тоже отсутствуют."
+},
+{
+"id": "s0761",
+"page": "commons",
+"ko": "<b>이론값과 시뮬레이션:</b> 지속 가능한 최대 수확 10은 식과 시뮬레이션이 같은 값입니다. 감시 100%에서 평균 수확은 10.0이고 저량은 수용력의 약 48%로, 최대 수확을 주는 이론상 수준(50%)에 가깝습니다. 감시가 없으면 저량은 마지막 구간에서 평균 26%, 수확 7.0이었습니다. Gordon의 이윤 소멸 수준과는 숫자로 대조하지 않았고, 모방으로 퍼지는 전략 비율에도 닫힌 해가 없어 시뮬레이션만으로 확인했습니다.",
+"en": "<b>Theory versus simulation:</b> The maximum sustainable harvest of 10 is the same in the formula and the simulation. At 100% monitoring the average harvest was 10.0 and the stock about 48% of capacity, close to the theoretical level (50%) that gives the maximum harvest. With no monitoring the stock averaged 26% over the final stretch with a harvest of 7.0. I did not compare numerically with Gordon's zero-profit level, and the strategy shares spread by copying have no closed form, so those were checked by simulation alone.",
+"tr": "<b>Теория и симуляция:</b> Максимальный устойчивый вылов, равный 10, одинаков в формуле и в симуляции. При контроле 100% средний вылов составил 10,0, а запас — около 48% ёмкости, что близко к теоретическому уровню (50%), дающему максимальный вылов. Без контроля запас в среднем составил 26% на заключительном отрезке при вылове 7,0. Числовое сравнение с уровнем нулевой прибыли по Гордону не проводилось, а доли стратегий, распространяющихся копированием, не имеют замкнутой формы, поэтому они проверены только симуляцией."
+},
+{
+"id": "s0762",
+"page": "commons",
+"ko": "<b>더 읽을거리:</b> Hardin, G. (1968), 「The Tragedy of the Commons」, <i>Science</i> 162. Ostrom, E. (1990), <i>Governing the Commons: The Evolution of Institutions for Collective Action</i>, Cambridge University Press. Gordon, H. S. (1954), 「The Economic Theory of a Common-Property Resource: The Fishery」, <i>Journal of Political Economy</i> 62.",
+"en": "<b>Further reading:</b> Hardin, G. (1968), \"The Tragedy of the Commons\", <i>Science</i> 162. Ostrom, E. (1990), <i>Governing the Commons: The Evolution of Institutions for Collective Action</i>, Cambridge University Press. Gordon, H. S. (1954), \"The Economic Theory of a Common-Property Resource: The Fishery\", <i>Journal of Political Economy</i> 62.",
+"tr": "<b>Дополнительное чтение:</b> Hardin, G. (1968), «The Tragedy of the Commons», <i>Science</i> 162. Ostrom, E. (1990), <i>Governing the Commons: The Evolution of Institutions for Collective Action</i>, Cambridge University Press. Gordon, H. S. (1954), «The Economic Theory of a Common-Property Resource: The Fishery», <i>Journal of Political Economy</i> 62."
+},
+{
+"id": "s0794",
+"page": "cooperation",
+"ko": "다시 만나는 관계에서 협력은 퍼졌지만, 실수 10%에서는 12번 중 10번 무너졌어요.",
+"en": "Cooperation spread among repeat partners, but at 10% error it collapsed in 10 of 12 runs.",
+"tr": "Сотрудничество распространилось среди постоянных партнёров, но при 10% ошибок оно рухнуло в 10 из 12 запусков."
+},
+{
+"id": "s0795",
+"page": "cooperation",
+"ko": "이 모델에서는 다시 만날 가능성이 배신의 이득을 깎고, 실수가 잦으면 맞받아치기가 보복의 연쇄에 빠져요.",
+"en": "In this model, repeat meetings cut the payoff of betrayal, and frequent errors trap tit-for-tat in retaliation.",
+"tr": "В этой модели повторные встречи снижают выгоду от предательства, а частые ошибки загоняют «зуб за зуб» в ловушку возмездия."
+},
+{
+"id": "s0796",
+"page": "cooperation",
+"ko": "협력이 무너진다면 사람 탓보다 만남이 이어지는지, 실수를 넘길 여지가 있는지부터 살펴볼 만해요.",
+"en": "If cooperation breaks down, check whether meetings repeat and whether mistakes can be forgiven.",
+"tr": "Если сотрудничество рушится, стоит проверить, повторяются ли встречи и можно ли прощать ошибки."
+},
+{
+"id": "s0798",
+"page": "cooperation",
+"ko": "착한 사람이 이긴다는 뜻은 아니고, 점수표와 모방 규칙은 이 모델이 정한 값이에요.",
+"en": "It doesn't mean nice people win; the payoffs and imitation rule are set by this model.",
+"tr": "Это не значит, что побеждают добрые; выигрыши и правило подражания задаются этой моделью."
+},
+{
+"id": "s0799",
+"page": "cooperation",
+"ko": "현실의 평판·소문·제도가 협력을 얼마나 지키는지는 실제 사례를 관찰해 따로 확인해야 해요.",
+"en": "How much reputation, gossip and institutions sustain cooperation needs separate real-world checks.",
+"tr": "Насколько репутация, слухи и институты поддерживают сотрудничество, нужно проверять отдельно в реальном мире."
+},
+{
+"id": "s0801",
+"page": "cooperation",
+"ko": "<b>모델의 뿌리:</b> \"죄수의 딜레마\"는 1950년경 RAND의 Flood와 Dresher가 만든 게임이고, 되풀이하면 협력이 가능한지는 Axelrod & Hamilton (1981)과 Axelrod (1984)가 대회와 진화 시뮬레이션으로 보였습니다. 이때 Anatol Rapoport가 낸 가장 단순한 전략 맞받아치기(Tit for Tat)가 우승했습니다.",
+"en": "<b>Where the model comes from:</b> The prisoner's dilemma is a game devised around 1950 by Flood and Dresher at RAND. Whether repetition allows cooperation was shown by Axelrod & Hamilton (1981) and Axelrod (1984) with tournaments and evolutionary simulation, where the simplest entry, Anatol Rapoport's Tit for Tat, won.",
+"tr": "<b>Откуда взялась модель:</b> Дилемма заключённого — игра, придуманная около 1950 года Флудом и Дрешером в RAND. Что повторение делает возможным сотрудничество, показали Аксельрод и Гамильтон (1981) и Аксельрод (1984) с помощью турниров и эволюционной симуляции, где победила самая простая участница — стратегия «Око за око» (Tit for Tat) Анатоля Рапопорта."
+},
+{
+"id": "s0802",
+"page": "cooperation",
+"ko": "<b>핵심 가정과 수식:</b> 한 판의 점수는 배신 유혹 T &gt; 협력 R &gt; 서로 배신 P &gt; 당함 S이고, 되풀이에서 서로 번갈아 속이는 것보다 계속 협력하는 편이 낫도록 <code>2R &gt; T+S</code>를 둡니다(여기서는 3, 1, 0, T=5라 6 &gt; 5). 한 번뿐이면 배신이 늘 유리하지만, 만남이 이어질 확률이 충분히 크면 맞받아치기 같은 전략이 안정해집니다(Axelrod의 조건은 <code>w ≥ max((T−R)/(T−P), (T−R)/(R−S))</code>, 이 점수표에서는 w ≥ 2/3, 곧 평균 3판 정도). 슬라이더는 T, 판 수, 실수 확률, 처음 배신자 비율에 해당합니다.",
+"en": "<b>Key assumptions and formulas:</b> A single round pays temptation T &gt; reward R &gt; punishment P &gt; sucker S, and in repetition steady cooperation should beat taking turns exploiting each other, <code>2R &gt; T+S</code> (here 3, 1, 0 and T=5, so 6 &gt; 5). Defection always wins a one-shot game, but if the chance of meeting again is large enough, strategies like Tit for Tat become stable (Axelrod's condition is <code>w ≥ max((T−R)/(T−P), (T−R)/(R−S))</code>, which is w ≥ 2/3 for this payoff table, about 3 rounds on average). The sliders are T, the number of rounds, the mistake rate and the initial share of defectors.",
+"tr": "<b>Основные допущения и формулы:</b> В единичном раунде выплаты таковы: искушение T &gt; награда R &gt; наказание P &gt; проигрыш простака S, а при повторении устойчивое сотрудничество должно превосходить поочерёдную эксплуатацию друг друга, <code>2R &gt; T+S</code> (здесь 3, 1, 0 и T=5, значит, 6 &gt; 5). В однократной игре всегда выигрывает предательство, но если вероятность новой встречи достаточно велика, стратегии вроде «Око за око» (Tit for Tat) становятся устойчивыми (условие Аксельрода: <code>w ≥ max((T−R)/(T−P), (T−R)/(R−S))</code>, то есть w ≥ 2/3 для этой таблицы выплат, в среднем около 3 раундов). Ползунки — это T, число раундов, доля ошибок и начальная доля предателей."
+},
+{
+"id": "s0803",
+"page": "cooperation",
+"ko": "<b>이 프로젝트의 단순화:</b> Axelrod의 대회는 사람들이 낸 전략이 모두와 한 번씩 겨루는 리그전이었고 진화 쪽은 점수에 비례해 늘어나게 했지만, 이 프로젝트는 전략 5개만 두고 무작위 상대 6명과 겨룬 뒤 페르미 규칙(Szabó & Tőke 1998)으로 모방하게 했습니다. 판 수는 확률이 아니라 고정된 횟수이고, 모방 온도 0.4와 돌연변이 1%는 이 프로젝트가 정한 값입니다.",
+"en": "<b>What this project simplifies:</b> Axelrod ran a round-robin of entries submitted by people and let strategies grow in proportion to their scores. This project has only five strategies, plays 6 random opponents, and copies with a Fermi rule (Szabó & Tőke 1998). The number of rounds is fixed rather than probabilistic, and the imitation temperature 0.4 and 1% mutation are values this project chose.",
+"tr": "<b>Что упрощает этот проект:</b> Аксельрод провёл круговой турнир со стратегиями, присланными людьми, и позволил стратегиям расти пропорционально набранным очкам. В этом проекте всего пять стратегий, игра идёт с 6 случайными соперниками, а копирование выполняется по правилу Ферми (Szabó & Tőke 1998). Число раундов фиксировано, а не вероятностное, а температура имитации 0,4 и мутация 1% — значения, выбранные проектом."
+},
+{
+"id": "s0804",
+"page": "cooperation",
+"ko": "<b>이론값과 시뮬레이션:</b> 닫힌 해는 없어서 방향만 비교했습니다. 한 판·두 판일 때 협력률이 3%(거의 모두 배신)이고 5판부터 90%로 올라, 만남이 이어져야 협력이 선다는 이론과 같은 방향입니다. 실수가 없으면 99%, 10%이면 11%로 무너져, 잡음이 크면 맞받아치기가 보복을 되풀이한다는 알려진 이야기와 맞습니다. 다만 Axelrod 계열의 \"맞받아치기가 최고\"는 재현되지 않았고, 실수가 있으면 파블로프와 너그러운 맞받아치기가 앞서는 Nowak & Sigmund (1993) 쪽과 가깝습니다(<code>node tools/validate-cooperation.js</code>).",
+"en": "<b>Theory versus simulation:</b> There is no closed-form answer, so only the direction was compared. With 1 or 2 rounds cooperation is 3% (nearly all defect) and from 5 rounds it rises to 90%, in line with the theory that cooperation needs repeated meetings. With no mistakes it is 99% and at 10% mistakes it collapses to 11%, matching the known story that noise makes Tit for Tat trade endless retaliation. \"Tit for Tat is best\" was not reproduced; with mistakes Pavlov and Generous Tit for Tat lead, closer to Nowak & Sigmund (1993) (<code>node tools/validate-cooperation.js</code>).",
+"tr": "<b>Теория и симуляция:</b> Ответа в замкнутой форме нет, поэтому сравнивалось только направление. При 1 или 2 раундах сотрудничество составляет 3% (почти все предают), а начиная с 5 раундов оно растёт до 90%, что согласуется с теорией о том, что сотрудничеству нужны повторные встречи. Без ошибок оно равно 99%, а при 10% ошибок падает до 11%, что соответствует известной истории о том, что шум толкает «Око за око» (Tit for Tat) к бесконечным ответным мерам. Утверждение «Tit for Tat — лучшая» не воспроизвелось; при ошибках лидируют «Павлов» и великодушная «Око за око», что ближе к Nowak & Sigmund (1993) (<code>node tools/validate-cooperation.js</code>)."
+},
+{
+"id": "s0805",
+"page": "cooperation",
+"ko": "<b>더 읽을거리:</b> Axelrod (1984), 『The Evolution of Cooperation』, Basic Books. Axelrod & Hamilton (1981), 「The Evolution of Cooperation」, Science 211. Nowak & Sigmund (1993), 「A strategy of win-stay, lose-shift that outperforms tit-for-tat in the Prisoner's Dilemma game」, Nature 364.",
+"en": "<b>Further reading:</b> Axelrod (1984), <i>The Evolution of Cooperation</i>, Basic Books. Axelrod & Hamilton (1981), \"The Evolution of Cooperation\", <i>Science</i> 211. Nowak & Sigmund (1993), \"A strategy of win-stay, lose-shift that outperforms tit-for-tat in the Prisoner's Dilemma game\", <i>Nature</i> 364.",
+"tr": "<b>Дополнительное чтение:</b> Axelrod (1984), <i>The Evolution of Cooperation</i>, Basic Books. Axelrod & Hamilton (1981), «The Evolution of Cooperation», <i>Science</i> 211. Nowak & Sigmund (1993), «A strategy of win-stay, lose-shift that outperforms tit-for-tat in the Prisoner's Dilemma game», <i>Nature</i> 364."
+},
+{
+"id": "s0806",
+"page": "cooperation",
+"ko": "이 프로젝트가 직접 짠 구현이며 논문의 수치를 재현한 것은 아닙니다. 출처는 위 \"이론적 근거\"를 보세요.",
+"en": "This is this project's own implementation and does not reproduce any paper's numbers. See the theory notes above for sources.",
+"tr": "Это собственная реализация проекта, она не воспроизводит числа ни одной статьи. Источники смотрите в теоретических примечаниях выше."
+},
+{
+"id": "s0831",
+"page": "dating",
+"ko": "눈높이가 +10%p만 올라가도 짝을 찾는 평균 대기가 21.0라운드로 늘었어요.",
+"en": "Raising standards by just 10 points stretched the average wait to 21.0 rounds.",
+"tr": "Повышение требований всего на 10 пунктов растянуло среднее ожидание до 21,0 раунда."
+},
+{
+"id": "s0832",
+"page": "dating",
+"ko": "서로 상대가 자기 기준 이상이어야 맺어지는데, 둘 다 나보다 나은 사람을 원하면 기준이 내려오기 전엔 성립할 수 없어요.",
+"en": "A match needs both sides to clear each other's bar, so if both want someone better, no pair is possible until bars drop.",
+"tr": "Для пары нужно, чтобы каждый прошёл планку другого, поэтому если оба хотят кого-то лучше, ни одна пара невозможна, пока планки не снизятся."
+},
+{
+"id": "s0833",
+"page": "dating",
+"ko": "기다림이 길다면 눈높이 자체보다 기준이 얼마나 빨리 바뀌는지부터 살펴볼 만해요.",
+"en": "If waits are long, how fast standards adjust may be worth examining before the standards themselves.",
+"tr": "Если ожидание долгое, прежде чем разбираться с самими требованиями, стоит изучить, как быстро они подстраиваются."
+},
+{
+"id": "s0835",
+"page": "dating",
+"ko": "사랑이나 결혼이 이런 계산으로 이루어진다는 뜻이 아니고, 어떤 눈높이가 옳다는 판단도 아니에요.",
+"en": "It does not mean love or marriage works by such calculation, nor that any standard is right.",
+"tr": "Это не значит, что любовь или брак устроены по такому расчёту и что какая-то планка правильная."
+},
+{
+"id": "s0836",
+"page": "dating",
+"ko": "성격, 거리, 타이밍처럼 모델에 없는 요소와 사람마다 다른 취향을 실제 관찰로 확인해야 해요.",
+"en": "Personality, distance, timing and differing tastes are missing and would need real observation.",
+"tr": "Личность, расстояние, момент времени и различие вкусов отсутствуют и требовали бы реальных наблюдений."
+},
+{
+"id": "s0838",
+"page": "dating",
+"ko": "<b>모델의 뿌리:</b> 양쪽이 모두 동의해야 맺어지는 시장은 Gale와 Shapley(1962, 「College Admissions and the Stability of Marriages」, <i>American Mathematical Monthly</i>)의 안정 결혼 문제에서, 기준이 시간에 따라 내려가는 탐색은 McCall(1970)의 유보 임금(reservation wage) 탐색 이론에서 왔습니다. 짝짓기 시장의 탐색 모델은 Burdett와 Coles(1997)가 발전시켰습니다.",
+"en": "<b>Where the model comes from:</b> The idea that both sides must agree comes from the stable marriage problem of Gale and Shapley (1962, \"College Admissions and the Stability of Marriages\", <i>American Mathematical Monthly</i>); the falling standard comes from McCall&#x27;s (1970) reservation-wage search theory. Search models of the marriage market were developed by Burdett and Coles (1997).",
+"tr": "<b>Откуда взялась модель:</b> Идея о том, что обе стороны должны согласиться, происходит из задачи об устойчивых браках Гейла и Шепли (1962, «College Admissions and the Stability of Marriages», <i>American Mathematical Monthly</i>); снижение планки — из теории поиска с резервной зарплатой McCall&#x27;s (1970). Модели поиска на брачном рынке развили Бёрдетт и Коулз (1997)."
+},
+{
+"id": "s0839",
+"page": "dating",
+"ko": "<b>핵심 가정과 수식:</b> 모든 사람의 매력 <i>a</i>는 0~1이고 모두가 같게 평가합니다. 내 기준은 <i>a</i> + eye이고, 만난 두 사람 <i>i</i>, <i>j</i>는 <i>a</i><sub><i>j</i></sub> ≥ <i>a</i><sub><i>i</i></sub> + eye 그리고 <i>a</i><sub><i>i</i></sub> ≥ <i>a</i><sub><i>j</i></sub> + eye일 때만 맺어지며, 짝이 없는 사람은 라운드마다 기준을 drift만큼 낮춥니다.",
+"en": "<b>Key assumptions and formulas:</b> Each person has an attractiveness <i>a</i> in 0 to 1, rated the same by everyone. My standard is <i>a</i> + eye, and two people <i>i</i> and <i>j</i> who meet pair up only if <i>a</i><sub><i>j</i></sub> ≥ <i>a</i><sub><i>i</i></sub> + eye and <i>a</i><sub><i>i</i></sub> ≥ <i>a</i><sub><i>j</i></sub> + eye; unpaired people lower their standard by drift each round.",
+"tr": "<b>Основные допущения и формулы:</b> У каждого человека есть привлекательность <i>a</i> от 0 до 1, которую все оценивают одинаково. Моя планка — <i>a</i> + eye, и два человека <i>i</i> и <i>j</i>, которые встретились, образуют пару, только если <i>a</i><sub><i>j</i></sub> ≥ <i>a</i><sub><i>i</i></sub> + eye и <i>a</i><sub><i>i</i></sub> ≥ <i>a</i><sub><i>j</i></sub> + eye; люди без пары снижают планку на drift в каждом раунде."
+},
+{
+"id": "s0840",
+"page": "dating",
+"ko": "<b>이 프로젝트의 단순화:</b> Gale–Shapley는 모두의 선호 순위를 알고 계산하는 알고리즘이고, 여기서는 아직 짝이 없는 사람끼리 무작위로 한 쌍씩 만납니다. 매력을 모두가 같게 평가한다는 가정(실제로는 취향이 갈립니다), 매력의 균등분포, 눈높이와 기준 하향의 값은 이 프로젝트가 정한 것입니다.",
+"en": "<b>What this project simplifies:</b> Gale–Shapley is an algorithm that works from everyone&#x27;s full preference rankings; here unpaired people simply meet one random partner per round. The assumption that everyone rates attractiveness alike (real tastes differ), the uniform distribution of attractiveness, and the values of eye and drift are this project&#x27;s own choices.",
+"tr": "<b>Что упрощает этот проект:</b> Алгоритм Гейла — Шепли работает по полным спискам предпочтений каждого; здесь же люди без пары просто встречают по одному случайному партнёру за раунд. Допущение, что все одинаково оценивают привлекательность (реальные вкусы различаются), равномерное распределение привлекательности и значения eye и drift — собственный выбор проекта."
+},
+{
+"id": "s0841",
+"page": "dating",
+"ko": "<b>이론값과 시뮬레이션:</b> 닫힌 해는 없지만 한 가지는 손으로 확인됩니다. eye &gt; 0이면 두 부등식을 더해 0 ≥ 2·eye가 되어 기준을 낮추기 전에는 아무도 맺어질 수 없고, 기준이 eye 이상 내려가야(눈높이 ÷ 하향 속도 라운드 이상) 첫 커플이 가능합니다. 시뮬레이션에서 eye +0.1, 하향 1%일 때 첫 커플은 12라운드, eye +0.3은 32라운드에 나오고, 하향 0%이면 짝 0%입니다. 평균 대기는 눈높이 −0.3에서 2.7, +0.1에서 21.0, +0.3에서 40.7 라운드입니다(<code>node tools/validate-more.js dating</code>).",
+"en": "<b>Theory versus simulation:</b> There is no closed form, but one thing can be checked by hand. If eye &gt; 0, adding the two inequalities gives 0 ≥ 2·eye, so nobody can pair before standards fall; the first couple needs the standard to fall by at least eye (eye ÷ drift rounds). In the simulation with eye +0.1 and drift 1%, the first couple appears at round 12, and with eye +0.3 at round 32; with drift 0% nobody pairs. The mean wait is 2.7 rounds at eye −0.3, 21.0 at +0.1 and 40.7 at +0.3 (<code>node tools/validate-more.js dating</code>).",
+"tr": "<b>Теория и симуляция:</b> Замкнутой формы нет, но одно можно проверить вручную. Если eye &gt; 0, сложение двух неравенств даёт 0 ≥ 2·eye, так что никто не может образовать пару, пока планки не снизятся; для первой пары планка должна упасть как минимум на eye (eye ÷ drift раундов). В симуляции при eye +0,1 и drift 1% первая пара появляется в раунде 12, а при eye +0,3 — в раунде 32; при drift 0% никто пары не образует. Среднее ожидание составляет 2,7 раунда при eye −0,3, 21,0 при +0,1 и 40,7 при +0,3 (<code>node tools/validate-more.js dating</code>)."
+},
+{
+"id": "s0842",
+"page": "dating",
+"ko": "<b>더 읽을거리:</b> Gale, D. &amp; Shapley, L. S. (1962), 「College Admissions and the Stability of Marriages」, <i>American Mathematical Monthly</i>. / Becker, G. S. (1973), 「A Theory of Marriage: Part I」, <i>Journal of Political Economy</i>. / Roth, A. E. &amp; Sotomayor, M. (1990), 『Two-Sided Matching』, Cambridge University Press.",
+"en": "<b>Further reading:</b> Gale, D. and Shapley, L. S. (1962), \"College Admissions and the Stability of Marriages\", <i>American Mathematical Monthly</i>. / Becker, G. S. (1973), \"A Theory of Marriage: Part I\", <i>Journal of Political Economy</i>. / Roth, A. E. and Sotomayor, M. (1990), <i>Two-Sided Matching</i>, Cambridge University Press.",
+"tr": "<b>Дополнительное чтение:</b> Gale, D. и Shapley, L. S. (1962), «College Admissions and the Stability of Marriages», <i>American Mathematical Monthly</i>. / Becker, G. S. (1973), «A Theory of Marriage: Part I», <i>Journal of Political Economy</i>. / Roth, A. E. и Sotomayor, M. (1990), <i>Two-Sided Matching</i>, Cambridge University Press."
+},
+{
+"id": "s0846",
+"page": "daycare",
+"ko": "어린이집 감기 · 시뮬라티오 랩",
+"en": "Daycare Colds · Simulatio Lab",
+"tr": "Простуды в детском саду · Simulatio Lab"
+},
+{
+"id": "s0847",
+"page": "daycare",
+"ko": "같은 반 아이 20명이 모여 있으면 감기 같은 감염은 한 해에 몇 번이나 돌까요? 반 크기, 접촉, 아프면 쉬기, 면역이 결과를 어떻게 바꾸는지 시뮬레이션으로 직접 돌려보세요.",
+"en": "In a class of 20 children, how often does a cold-like infection go around in a year? Run a simulation to see how class size, contact, staying home when sick and immunity change the result.",
+"tr": "Как часто за год по классу из 20 детей проходит простудная инфекция? Запустите симуляцию и посмотрите, как размер класса, контакты, отдых дома при болезни и иммунитет меняют результат."
+},
+{
+"id": "s0848",
+"page": "daycare",
+"ko": "어린이집에 다니기 시작하면 감기를 달고 산다고들 합니다. 아이가 약해서 그렇다고 생각하기 쉽지만, 이 단순한 모델에서는 아이가 특별히 약하지 않아도 같은 반 아이 20명 사이에서 한 해에 네 번 넘게 감염이 돕니다. 그리고 \"아프면 쉬기\"를 모두가 지켜도 횟수는 절반쯤만 줄어듭니다. 증상이 나타나기 전 하루 동안 이미 반에 퍼뜨리기 때문이에요. 누구의 잘못도 아니고, 아이들이 한 교실에서 가까이 지내는 구조가 만드는 일입니다.",
+"en": "People say children catch colds constantly once they start daycare. It is easy to blame weak children, but in this simple model, children with no special weakness still pass an infection around a class of 20 more than four times a year. And even if everyone stays home when sick, the count falls by only about half, because each child has already spread it to the class during the day before symptoms show. Nobody is at fault: this comes from the structure of children spending time close together in one room.",
+"tr": "Говорят, что дети постоянно простужаются, как только начинают ходить в детский сад. Легко обвинить слабых детей, но в этой простой модели дети без какой-либо особой слабости передают инфекцию по классу из 20 человек более четырёх раз в год. И даже если все остаются дома при болезни, число снижается лишь примерно вдвое, потому что каждый ребёнок уже заразил класс за день до появления симптомов. Никто не виноват: это следствие того, что дети проводят время рядом друг с другом в одной комнате."
+},
+{
+"id": "s0849",
+"page": "daycare",
+"ko": "아이들은 <b>반</b>(교실)마다 모여 있고, 평일(월~금)에는 같은 반 아이끼리만 만납니다. 주말에는 반 안의 접촉이 없고, 반과 반 사이의 접촉도 없습니다. 아이는 <b>건강</b> → <b>잠복</b>(걸렸지만 아직 퍼뜨리지 않음, 평균 2일) → <b>아픔</b>(평균 5일 동안 퍼뜨림) → <b>회복 후 면역</b>(정해진 기간 동안 안 걸림) → 다시 건강으로 돌아갑니다.",
+"en": "Children sit in <b>classes</b> (rooms) and on weekdays (Monday to Friday) meet only classmates. There is no contact inside a class on weekends and none between classes. A child goes <b>healthy</b> → <b>incubating</b> (infected but not yet spreading, 2 days on average) → <b>sick</b> (spreading, 5 days on average) → <b>immune after recovery</b> (cannot be infected for a set time) → healthy again.",
+"tr": "Дети распределены по <b>классам</b> (комнатам) и по будням (с понедельника по пятницу) встречаются только с одноклассниками. В выходные контактов внутри класса нет, как и между классами. Ребёнок проходит путь: <b>здоров</b> → <b>инкубация</b> (заражён, но ещё не заразен, в среднем 2 дня) → <b>болен</b> (заразен, в среднем 5 дней) → <b>иммунитет после выздоровления</b> (заразиться нельзя в течение заданного времени) → снова здоров."
+},
+{
+"id": "s0850",
+"page": "daycare",
+"ko": "그날 등원한 아픈 아이가 한 명이면, 같은 반의 건강한 아이 한 명이 걸릴 확률은 하루 <b>접촉 강도 × 1%</b>(손씻기·환기를 하면 그만큼 줄어듦)입니다. 아픈 아이가 여럿이면 확률이 쌓입니다. 그래서 <b>반이 클수록</b> 만나는 짝이 많아져 퍼지는 속도가 빨라집니다.",
+"en": "If one sick child attends that day, a healthy classmate catches it with probability <b>contact level × 1%</b> per day (lower with handwashing and ventilation). With several sick children the chances add up. So <b>the bigger the class</b>, the more pairs there are, and the faster it spreads.",
+"tr": "Если в этот день присутствует один больной ребёнок, здоровый одноклассник заражается с вероятностью <b>уровень контактов × 1%</b> в день (ниже при мытье рук и проветривании). При нескольких больных детях вероятности складываются. Поэтому <b>чем больше класс</b>, тем больше пар и тем быстрее распространение."
+},
+{
+"id": "s0851",
+"page": "daycare",
+"ko": "<b>아프면 쉬기</b>: 아프기 시작한 첫날은 증상이 아직 없어 모두 등원합니다. 둘째 날부터는 정한 비율의 아이가 집에서 쉬고, 나머지는 계속 등원합니다. 쉬는 아이는 반을 감염시키지 못하지만, 그만큼 결석 일수가 늘어납니다.",
+"en": "<b>Staying home when sick</b>: on the first sick day there are no symptoms yet, so everyone attends. From the second day a set share of children rest at home and the rest keep attending. Children at home cannot infect the class, but absence days go up.",
+"tr": "<b>Отдых дома при болезни</b>: в первый день болезни симптомов ещё нет, поэтому все приходят. Со второго дня заданная доля детей отдыхает дома, а остальные продолжают ходить. Дети дома не могут заразить класс, но число пропущенных дней растёт."
+},
+{
+"id": "s0852",
+"page": "daycare",
+"ko": "반 밖(집·동네)에서 들어오는 감염은 아주 단순한 항 하나로만 넣었습니다(하루 0.15%에, 아픈 아이가 많을수록 조금 더). 나은 뒤에는 면역 지속 기간 동안 안 걸리고, 그 뒤에도 걸릴 때마다 면역이 쌓여 걸릴 확률이 낮아집니다(걸린 횟수가 1번이면 약 77%, 3번이면 약 53%). 한 해(365일)를 돌려 아이 한 명이 걸린 평균 횟수를 셉니다.",
+"en": "Infection arriving from outside the class (home, neighborhood) is included as one very simple term (0.15% a day, a little more when many children are sick). After recovery a child cannot be infected for the immunity period, and after that each infection builds more immunity, lowering the chance of catching it again (about 77% after 1 infection, 53% after 3). One year (365 days) is simulated and the average number of times a child caught it is counted.",
+"tr": "Заражение, приходящее извне класса (из дома, из района), учтено одним очень простым слагаемым (0,15% в день, немного больше, когда болеет много детей). После выздоровления ребёнок не может заразиться в течение периода иммунитета, а затем каждая инфекция усиливает иммунитет и снижает шанс заболеть снова (около 77% после 1 инфекции, 53% после 3). Моделируется один год (365 дней) и подсчитывается среднее число заболеваний на ребёнка."
+},
+{
+"id": "s0853",
+"page": "daycare",
+"ko": "반 크기 <output id=\"o-size\"></output>",
+"en": "Class size <output id=\"o-size\"></output>",
+"tr": "Размер класса <output id=\"o-size\"></output>"
+},
+{
+"id": "s0854",
+"page": "daycare",
+"ko": "한 반의 아이 수. 클수록 만나는 짝이 많아져 퍼지는 속도가 빨라져요",
+"en": "Children per class. Bigger classes have more pairs, so it spreads faster",
+"tr": "Детей в классе. В больших классах больше пар, поэтому распространение быстрее"
+},
+{
+"id": "s0855",
+"page": "daycare",
+"ko": "접촉 강도 <output id=\"o-contact\"></output>",
+"en": "Contact level <output id=\"o-contact\"></output>",
+"tr": "Уровень контактов <output id=\"o-contact\"></output>"
+},
+{
+"id": "s0856",
+"page": "daycare",
+"ko": "붙어서 놀고 장난감을 같이 쓰는 정도. 높을수록 한 번 만날 때 퍼질 확률이 커요",
+"en": "How closely children play and share toys. Higher means a bigger chance of spreading per encounter",
+"tr": "Насколько близко дети играют и делятся игрушками. Чем выше, тем больше вероятность передачи при каждой встрече"
+},
+{
+"id": "s0857",
+"page": "daycare",
+"ko": "아프면 쉬는 비율 <output id=\"o-stay\"></output>",
+"en": "Share who stay home when sick <output id=\"o-stay\"></output>",
+"tr": "Доля остающихся дома при болезни <output id=\"o-stay\"></output>"
+},
+{
+"id": "s0858",
+"page": "daycare",
+"ko": "아프기 시작한 둘째 날부터 집에서 쉬는 아이의 비율. 쉬는 아이는 반에 퍼뜨리지 않아요",
+"en": "Share of children who rest at home from the second sick day. Children at home do not spread it in class",
+"tr": "Доля детей, отдыхающих дома со второго дня болезни. Дети дома не заражают других в классе"
+},
+{
+"id": "s0859",
+"page": "daycare",
+"ko": "손씻기·환기로 줄인 전파 <output id=\"o-hyg\"></output>",
+"en": "Spread reduced by handwashing and ventilation <output id=\"o-hyg\"></output>",
+"tr": "Снижение передачи за счёт мытья рук и проветривания <output id=\"o-hyg\"></output>"
+},
+{
+"id": "s0860",
+"page": "daycare",
+"ko": "한 번 만날 때 퍼질 확률을 이만큼 줄입니다(모델상의 가정값)",
+"en": "Cuts the chance of spreading per encounter by this much (an assumed value in the model)",
+"tr": "Снижает вероятность передачи при каждой встрече на эту величину (предполагаемое значение в модели)"
+},
+{
+"id": "s0861",
+"page": "daycare",
+"ko": "면역 지속 <output id=\"o-imm\"></output>",
+"en": "Immunity duration <output id=\"o-imm\"></output>",
+"tr": "Длительность иммунитета <output id=\"o-imm\"></output>"
+},
+{
+"id": "s0862",
+"page": "daycare",
+"ko": "나은 뒤 이 기간(일) 동안은 다시 안 걸려요. 길수록 한 해 걸리는 횟수가 줄어요",
+"en": "Days after recovery during which a child cannot be reinfected. Longer means fewer infections a year",
+"tr": "Дни после выздоровления, когда ребёнок не может заразиться повторно. Чем дольше, тем меньше заражений за год"
+},
+{
+"id": "s0863",
+"page": "daycare",
+"ko": "같은 설정, 다른 반",
+"en": "Same settings, different classes",
+"tr": "Те же настройки, другие классы"
+},
+{
+"id": "s0864",
+"page": "daycare",
+"ko": "① 여덟 반을 지켜보기",
+"en": "① Watching Eight Classes",
+"tr": "① Наблюдаем за восемью классами"
+},
+{
+"id": "s0865",
+"page": "daycare",
+"ko": "점 하나가 아이 한 명입니다. 파랑은 건강, 노랑은 잠복, 빨강 채움은 아파도 등원한 아이, 빨강 고리는 집에서 쉬는 아이, 초록은 막 나아서 면역이 있는 아이입니다. 한 반에서 시작한 감염이 번지고 다시 가라앉는 모습을 보세요. 주말에는 반이 회색으로 바뀝니다.",
+"en": "Each dot is one child. Blue is healthy, yellow incubating, solid red a sick child who still attended, a red ring a child resting at home, and green a recently recovered child with immunity. Watch an infection start in one class, spread, and fade. Classes turn gray on weekends.",
+"tr": "Каждая точка — один ребёнок. Синий — здоров, жёлтый — инкубация, сплошной красный — больной ребёнок, который пришёл, красное кольцо — ребёнок, отдыхающий дома, зелёный — недавно выздоровевший ребёнок с иммунитетом. Посмотрите, как инфекция начинается в одном классе, распространяется и затухает. В выходные классы становятся серыми."
+}
+]

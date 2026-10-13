@@ -1,0 +1,695 @@
+[
+{
+"id": "s1802",
+"page": "schelling",
+"ko": "현실의 주거 분리가 모두 이런 이유 때문이라는 뜻은 아니에요.",
+"en": "It does not mean all real residential segregation arises this way.",
+"tr": "No significa que toda la segregación residencial real surja de esta manera."
+},
+{
+"id": "s1803",
+"page": "schelling",
+"ko": "집값, 학군, 일자리, 제도는 모델에 없어서, 실제 이동 이유와 이웃 구성은 따로 관찰해야 알 수 있어요.",
+"en": "Housing prices, schools, jobs and institutions are absent, so real reasons for moving and neighborhood mix would have to be observed.",
+"tr": "Faltan los precios de la vivienda, las escuelas, los empleos y las instituciones, así que habría que observar las razones reales para mudarse y la mezcla real de los barrios."
+},
+{
+"id": "s1805",
+"page": "schelling",
+"ko": "<b>모델의 뿌리:</b> Thomas C. Schelling(1971)의 \"Dynamic Models of Segregation\"(<i>Journal of Mathematical Sociology</i> 1(2))입니다. 개인은 \"내 이웃의 일정 비율은 나와 같았으면\"이라는 약한 선호만 가져도, 이사를 반복하면 전체는 크게 갈라질 수 있음을 보였습니다. 이후 책 『Micromotives and Macrobehavior』(1978)에서 널리 알려졌습니다.",
+"en": "<b>Where the model comes from:</b> This is Thomas C. Schelling (1971), \"Dynamic Models of Segregation\" (<i>Journal of Mathematical Sociology</i> 1(2)). It showed that even if each person has only a mild preference that some share of their neighbors resemble them, repeated moving can split the whole population sharply. It became widely known through his book <i>Micromotives and Macrobehavior</i> (1978).",
+"tr": "<b>De dónde viene el modelo:</b> Es Thomas C. Schelling (1971), \"Dynamic Models of Segregation\" (<i>Journal of Mathematical Sociology</i> 1(2)). Mostró que, aunque cada persona tenga solo una preferencia leve de que cierta proporción de sus vecinos se le parezca, las mudanzas repetidas pueden dividir de forma nítida a toda la población. Se hizo muy conocido gracias a su libro <i>Micromotives and Macrobehavior</i> (1978)."
+},
+{
+"id": "s1806",
+"page": "schelling",
+"ko": "<b>핵심 가정과 수식:</b> 50×50 격자(가장자리가 이어짐)에 두 집단이 섞여 있고 빈 칸이 10%입니다. 둘레 8칸 이웃 중 같은 집단 비율이 <code>threshold</code> 이상이면 만족, 미만이면 불만족입니다. 불만족한 사람은 무작위 빈 칸으로 이사합니다. 슬라이더는 이 <code>threshold</code>(원하는 비율)입니다.",
+"en": "<b>Key assumptions and formulas:</b> Two groups are mixed on a 50×50 grid (edges wrap around) with 10% empty cells. A person is content if the share of the same group among the 8 surrounding neighbors is at least <code>threshold</code>, and unhappy otherwise. Unhappy people move to a random empty cell. The slider is this <code>threshold</code> (the desired share).",
+"tr": "<b>Supuestos clave y fórmulas:</b> Se mezclan dos grupos en una cuadrícula de 50×50 (los bordes se conectan) con un 10% de celdas vacías. Una persona está contenta si la proporción del mismo grupo entre los 8 vecinos que la rodean es al menos el <code>umbral</code>, y descontenta en caso contrario. Las personas descontentas se mudan a una celda vacía al azar. El control deslizante es este <code>umbral</code> (la proporción deseada)."
+},
+{
+"id": "s1807",
+"page": "schelling",
+"ko": "<b>이 프로젝트의 단순화:</b> Schelling의 원 모델은 줄 위 또는 바둑판 위의 동전으로 설명되며 이사 규칙이 여러 가지입니다. 이 구현은 흔한 변형으로, 불만족한 사람이 무작위 순서로 한 명씩 무작위 빈 칸으로 이사합니다. 이웃이 한 명도 없으면 만족으로 봅니다. 격자 크기, 빈 칸 10%, 두 집단 50:50은 이 프로젝트가 정한 값입니다.",
+"en": "<b>What this project simplifies:</b> Schelling's original model is described with coins on a line or board and allows several moving rules. This implementation is a common variant: unhappy people move one at a time in random order to a random empty cell. A person with no neighbors counts as content. The grid size, 10% empty cells and 50:50 split are this project's own values.",
+"tr": "<b>Qué simplifica este proyecto:</b> El modelo original de Schelling se describe con monedas en una línea o un tablero y admite varias reglas de mudanza. Esta implementación es una variante habitual: las personas descontentas se mudan de una en una, en orden aleatorio, a una celda vacía al azar. Una persona sin vecinos cuenta como contenta. El tamaño de la cuadrícula, el 10% de celdas vacías y la división 50:50 son valores propios de este proyecto."
+},
+{
+"id": "s1808",
+"page": "schelling",
+"ko": "<b>이론값과 시뮬레이션:</b> 닫힌 해가 없어 시뮬레이션만으로 확인했습니다. 처음 같은 이웃 비율은 50%였고, 원하는 비율이 10%면 51%, 30%면 75%, 40%면 83%, 50%면 87%, 60%면 98%로 끝납니다(5회 평균). 원하는 비율 70%까지는 거의 완전히 갈라지지만 수렴에 100라운드 넘게 걸리고, 80%에서는 모두 만족하는 배치가 없어 300라운드에도 51%에 머뭅니다(<code>node tools/validate-schelling.js</code>).",
+"en": "<b>Theory versus simulation:</b> There is no closed-form result, so this was checked by simulation only. The initial same-neighbor share was 50%; it ends at 51% for a desired share of 10%, 75% for 30%, 83% for 40%, 87% for 50% and 98% for 60% (5-run averages). Up to 70% the population separates almost completely but takes over 100 rounds to settle, and at 80% no arrangement satisfies everyone, so it stays at 51% after 300 rounds (<code>node tools/validate-schelling.js</code>).",
+"tr": "<b>Teoría frente a simulación:</b> No existe un resultado en forma cerrada, así que se comprobó solo mediante simulación. La proporción inicial de vecinos iguales fue del 50 %; termina en 51 % para una proporción deseada del 10 %, 75 % para el 30 %, 83 % para el 40 %, 87 % para el 50 % y 98 % para el 60 % (promedios de 5 ejecuciones). Hasta el 70 % la población se separa casi por completo, pero tarda más de 100 rondas en estabilizarse, y con el 80 % ninguna disposición satisface a todos, por lo que se queda en 51 % tras 300 rondas (<code>node tools/validate-schelling.js</code>)."
+},
+{
+"id": "s1809",
+"page": "schelling",
+"ko": "<b>더 읽을거리:</b> Thomas C. Schelling (1971), \"Dynamic Models of Segregation\", <i>Journal of Mathematical Sociology</i> 1(2). Thomas C. Schelling (1978), 『Micromotives and Macrobehavior』, W. W. Norton.",
+"en": "<b>Further reading:</b> Thomas C. Schelling (1971), \"Dynamic Models of Segregation\", <i>Journal of Mathematical Sociology</i> 1(2). Thomas C. Schelling (1978), <i>Micromotives and Macrobehavior</i>, W. W. Norton.",
+"tr": "<b>Lecturas complementarias:</b> Thomas C. Schelling (1971), «Dynamic Models of Segregation», <i>Journal of Mathematical Sociology</i> 1(2). Thomas C. Schelling (1978), <i>Micromotives and Macrobehavior</i>, W. W. Norton."
+},
+{
+"id": "s1813",
+"page": "seating",
+"ko": "벤치 자리 앉기 · 시뮬라티오 랩",
+"en": "Bench Seating · Simulatio Lab",
+"tr": "Asientos en el banco · Simulatio Lab"
+},
+{
+"id": "s1814",
+"page": "seating",
+"ko": "모두가 예의 바르게 옆 사람과 거리를 두고 앉았는데도 벤치 자리가 이만큼 남는 이유를, 앉는 방식 네 가지를 나란히 돌려보며 알아보세요.",
+"en": "Everyone sits politely, yet seats go unused. Run four ways of sitting side by side and see why a bench jams before it is full.",
+"tr": "Todos se sientan con educación, pero quedan asientos sin usar. Ejecuta cuatro maneras de sentarse lado a lado y mira por qué un banco se atasca antes de llenarse."
+},
+{
+"id": "s1815",
+"page": "seating",
+"ko": "낯선 사람 옆에는 한두 칸 띄우고 앉는 것이 예의입니다. 모두가 그렇게 하면 벤치가 알맞게 채워질 것 같습니다. 그런데 한 명씩 마음 가는 대로 앉게 하면, 아직 빈 자리가 한가득인데도 \"앉을 곳이 없네\" 하며 돌아가는 사람이 생깁니다. 아무도 잘못하지 않았는데 자리가 이렇게 낭비되는 까닭은 무엇일까요?",
+"en": "When you sit next to a stranger, it is polite to leave a seat or two between you. If everyone does, the bench should fill up neatly. But let people sit one at a time wherever they like, and some turn away saying \"no room\" while plenty of seats are still empty. Nobody did anything wrong, so why are seats wasted?",
+"tr": "Cuando te sientas junto a un desconocido, lo cortés es dejar uno o dos asientos de por medio. Si todos lo hacen, el banco debería llenarse con orden. Pero si cada persona se sienta una a una donde quiere, algunas se van diciendo «no hay sitio» mientras quedan muchos asientos libres. Nadie hizo nada mal, entonces ¿por qué se desperdician asientos?"
+},
+{
+"id": "s1816",
+"page": "seating",
+"ko": "벤치에 자리가 <b>n석</b> 한 줄로 있고, 낯선 사람이 한 명씩 도착합니다. 앉은 사람의 양옆 <b>g칸</b>은 비워 두어야 해서, 그 안의 빈 자리(빨간 ×)에는 앉을 수 없습니다.",
+"en": "A bench has <b>n seats</b> in a row and strangers arrive one at a time. Each seated person needs <b>g empty seats</b> on both sides, so those seats (red ×) are off limits.",
+"tr": "Un banco tiene <b>n asientos</b> en fila y los desconocidos llegan de uno en uno. Cada persona sentada necesita <b>g asientos libres</b> a ambos lados, así que esos asientos (× roja) quedan prohibidos."
+},
+{
+"id": "s1817",
+"page": "seating",
+"ko": "같은 사람들이 <b>네 가지 방식</b>으로 앉습니다. 무작위(앉을 수 있는 자리 중 아무 곳), 가장 먼 자리(앉은 사람에게서 가장 먼 곳), 끝자리 먼저(끝이 비었으면 거기, 아니면 무작위), 정돈(왼쪽부터 g+1칸 간격으로 빽빽하게).",
+"en": "The same arrivals sit in <b>four ways</b>: random (any allowed seat), farthest (as far from everyone as possible), edge first (an end seat if free, else random), and orderly (from the left, every g+1 seats).",
+"tr": "Las mismas llegadas se sientan de <b>cuatro maneras</b>: al azar (cualquier asiento permitido), lo más lejos (lo más alejado posible de todos), primero el extremo (un asiento de las puntas si está libre, si no al azar) y ordenada (desde la izquierda, cada g+1 asientos)."
+},
+{
+"id": "s1818",
+"page": "seating",
+"ko": "앉을 곳이 없으면 그 사람은 돌아갑니다. 정돈해서 앉으면 최대 <b>⌈n÷(g+1)⌉명</b>이 앉을 수 있고, 이것이 기준선입니다. 아래 <b>직접 앉혀 보기</b>에서는 처음 몇 명을 여러분이 앉히고 나머지는 무작위로 들어옵니다.",
+"en": "A person with no allowed seat leaves. Orderly seating fits at most <b>⌈n ÷ (g+1)⌉ people</b>, which is the baseline. In <b>Seat them yourself</b> below you place the first few people and the rest arrive at random.",
+"tr": "Una persona sin asiento permitido se va. La disposición ordenada admite como máximo <b>⌈n ÷ (g+1)⌉ personas</b>, que es la referencia. En <b>Siéntalos tú mismo</b>, más abajo, colocas a las primeras personas y las demás llegan al azar."
+},
+{
+"id": "s1819",
+"page": "seating",
+"ko": "벤치의 자리 수 <output id=\"o-n\"></output>",
+"en": "Seats on the bench <output id=\"o-n\"></output>",
+"tr": "Asientos del banco <output id=\"o-n\"></output>"
+},
+{
+"id": "s1820",
+"page": "seating",
+"ko": "길수록 이론값에 가까워지는 모습이 보여요",
+"en": "Longer benches approach the theory value",
+"tr": "Los bancos más largos se acercan al valor teórico"
+},
+{
+"id": "s1821",
+"page": "seating",
+"ko": "비워 두는 칸 <output id=\"o-g\"></output>",
+"en": "Empty seats kept between people <output id=\"o-g\"></output>",
+"tr": "Asientos vacíos entre personas <output id=\"o-g\"></output>"
+},
+{
+"id": "s1822",
+"page": "seating",
+"ko": "0이면 바짝 붙어 앉아 낭비가 없어요",
+"en": "0 means sitting shoulder to shoulder, with no waste",
+"tr": "0 significa sentarse hombro con hombro, sin desperdicio"
+},
+{
+"id": "s1823",
+"page": "seating",
+"ko": "찾아오는 사람 <output id=\"o-arrivals\"></output>",
+"en": "People arriving <output id=\"o-arrivals\"></output>",
+"tr": "Personas que llegan <output id=\"o-arrivals\"></output>"
+},
+{
+"id": "s1824",
+"page": "seating",
+"ko": "자리보다 훨씬 많이 오면 돌아가는 사람이 늘어요",
+"en": "More people than fit means more turn away",
+"tr": "Más personas de las que caben significa que más se van"
+},
+{
+"id": "s1825",
+"page": "seating",
+"ko": "같은 설정, 다른 도착 순서",
+"en": "Same settings, different arrival order",
+"tr": "Mismos ajustes, distinto orden de llegada"
+},
+{
+"id": "s1826",
+"page": "seating",
+"ko": "① 같은 사람들, 네 가지 앉는 방식",
+"en": "① The Same People, Four Ways to Sit",
+"tr": "① Las mismas personas, cuatro maneras de sentarse"
+},
+{
+"id": "s1827",
+"page": "seating",
+"ko": "위에서부터 무작위, 가장 먼 자리, 끝자리 먼저, 정돈입니다. 사람이 들어올 때마다 네 줄이 함께 움직입니다. 빨간 ×는 비어 있지만 앉을 수 없는 자리, 굵은 테두리는 방금 앉은 사람입니다.",
+"en": "From the top: random, farthest, edge first, and orderly. All four rows move with each arrival. A red × is an empty seat nobody may take, and a bold outline marks the person who just sat.",
+"tr": "De arriba abajo: al azar, lo más lejos, primero el extremo y ordenada. Las cuatro filas avanzan con cada llegada. Una × roja es un asiento vacío que nadie puede ocupar, y un contorno grueso marca a la persona que acaba de sentarse."
+},
+{
+"id": "s1828",
+"page": "seating",
+"ko": "<i style=\"background:var(--accent)\"></i>앉은 사람",
+"en": "<i style=\"background:var(--accent)\"></i>Seated person",
+"tr": "<i style=\"background:var(--accent)\"></i>Persona sentada"
+},
+{
+"id": "s1829",
+"page": "seating",
+"ko": "<i style=\"background:rgba(229,72,77,0.35)\"></i>앉을 수 없는 빈 자리",
+"en": "<i style=\"background:rgba(229,72,77,0.35)\"></i>Empty seat nobody may take",
+"tr": "<i style=\"background:rgba(229.72.77.0.35)\"></i>Asiento vacío que nadie puede ocupar"
+},
+{
+"id": "s1830",
+"page": "seating",
+"ko": "<i style=\"background:#fff;border:1px solid #cfd6e4\"></i>앉을 수 있는 빈 자리",
+"en": "<i style=\"background:#fff;border:1px solid #cfd6e4\"></i>Empty seat still allowed",
+"tr": "<i style=\"background:#fff;border:1px solid #cfd6e4\"></i>Asiento vacío aún permitido"
+},
+{
+"id": "s1831",
+"page": "seating",
+"ko": "② 직접 앉혀 보기",
+"en": "② Seat Them Yourself",
+"tr": "② Siéntalos tú mismo"
+},
+{
+"id": "s1832",
+"page": "seating",
+"ko": "자리를 눌러 처음 몇 명을 앉혀 보세요(초록은 앉을 수 있는 자리, 빨강은 너무 가까운 자리). 그다음 버튼을 누르면 나머지는 무작위로 들어옵니다. 처음 몇 명을 잘 앉히면 결과가 달라질까요?",
+"en": "Click seats to place the first few people (green means allowed, red too close). Then press the button and the rest arrive at random. Can placing the first few well change the outcome?",
+"tr": "Haz clic en los asientos para colocar a las primeras personas (verde significa permitido, rojo demasiado cerca). Luego pulsa el botón y las demás llegan al azar. ¿Puede cambiar el resultado colocar bien a las primeras?"
+},
+{
+"id": "s1833",
+"page": "seating",
+"ko": "나머지는 무작위로 들어오게 하기",
+"en": "Let the rest arrive at random",
+"tr": "Que el resto llegue al azar"
+},
+{
+"id": "s1834",
+"page": "seating",
+"ko": "비우고 다시",
+"en": "Clear and retry",
+"tr": "Borrar y reintentar"
+},
+{
+"id": "s1835",
+"page": "seating",
+"ko": "자리를 눌러 앉혀 보세요.",
+"en": "Click a seat to place a person.",
+"tr": "Haz clic en un asiento para colocar a una persona."
+},
+{
+"id": "s1836",
+"page": "seating",
+"ko": "③ 벤치가 길어지면",
+"en": "③ As the Bench Gets Longer",
+"tr": "③ A medida que el banco se alarga"
+},
+{
+"id": "s1837",
+"page": "seating",
+"ko": "가로는 벤치의 자리 수, 세로는 앉은 비율입니다. 파란 점은 시뮬레이션 평균, 초록 선은 정확한 기댓값, 빨간 점선은 아주 긴 벤치의 이론값, 회색은 정돈했을 때의 최대입니다.",
+"en": "The horizontal axis is the number of seats, the vertical axis the share seated. Blue dots are simulation averages, the green line is the exact expected value, the red dashed line is the theory value for a very long bench, and gray is the orderly maximum.",
+"tr": "El eje horizontal es el número de asientos y el vertical la proporción ocupada. Los puntos azules son promedios de la simulación, la línea verde es el valor esperado exacto, la línea roja discontinua es el valor teórico para un banco muy largo y el gris es el máximo ordenado."
+},
+{
+"id": "s1838",
+"page": "seating",
+"ko": "<i style=\"background:var(--accent)\"></i>시뮬레이션 평균",
+"en": "<i style=\"background:var(--accent)\"></i>Simulation average",
+"tr": "<i style=\"background:var(--accent)\"></i>Promedio de la simulación"
+},
+{
+"id": "s1839",
+"page": "seating",
+"ko": "<i style=\"background:#1fa463\"></i>정확한 기댓값",
+"en": "<i style=\"background:#1fa463\"></i>Exact expected value",
+"tr": "<i style=\"background:#1fa463\"></i>Valor esperado exacto"
+},
+{
+"id": "s1840",
+"page": "seating",
+"ko": "<i style=\"background:#e5484d\"></i>긴 벤치 이론값",
+"en": "<i style=\"background:#e5484d\"></i>Long-bench theory",
+"tr": "<i style=\"background:#e5484d\"></i>Teoría del banco largo"
+},
+{
+"id": "s1841",
+"page": "seating",
+"ko": "<i style=\"background:#8a93a6\"></i>정돈했을 때 최대",
+"en": "<i style=\"background:#8a93a6\"></i>Orderly maximum",
+"tr": "<i style=\"background:#8a93a6\"></i>Máximo ordenado"
+},
+{
+"id": "s1842",
+"page": "seating",
+"ko": "④ 앉는 방식에 따라",
+"en": "④ Depending on How People Sit",
+"tr": "④ Según cómo se sienta la gente"
+},
+{
+"id": "s1843",
+"page": "seating",
+"ko": "지금 설정에서 방식마다 끝까지 채웠을 때 앉는 사람 수의 평균(수백 판)입니다. 초록 점선이 정돈했을 때의 최대입니다. 똑똑해 보이는 \"가장 먼 자리\"가 항상 더 낫지는 않습니다.",
+"en": "The average number seated under each way of sitting when filled to the end (hundreds of runs) at the current settings. The green dashed line is the orderly maximum. The clever-looking \"farthest seat\" is not always better.",
+"tr": "Promedio de personas sentadas con cada manera de sentarse al llenar hasta el final (cientos de ejecuciones) con los ajustes actuales. La línea verde discontinua es el máximo ordenado. El «asiento más lejano», que parece inteligente, no siempre es mejor."
+},
+{
+"id": "s1844",
+"page": "seating",
+"ko": "⑤ 간격을 넓히면 낭비도 늘까",
+"en": "⑤ Does a Wider Gap Waste More?",
+"tr": "⑤ ¿Un hueco mayor desperdicia más?"
+},
+{
+"id": "s1845",
+"page": "seating",
+"ko": "가로는 비워 두는 칸 수, 세로는 무작위로 앉았을 때 정돈 대비 앉는 비율입니다. 초록은 지금 벤치 길이의 정확한 기댓값, 빨강은 아주 긴 벤치입니다. 간격이 있기만 하면 항상 정돈보다 덜 앉습니다.",
+"en": "The horizontal axis is the gap kept between people, the vertical axis the share of the orderly maximum that random seating reaches. Green is the exact value for the current bench length and red for a very long bench. Any gap at all leaves it below orderly.",
+"tr": "El eje horizontal es el hueco que se deja entre personas y el vertical la proporción del máximo ordenado que alcanza la ocupación al azar. El verde es el valor exacto para la longitud actual del banco y el rojo para un banco muy largo. Con cualquier hueco queda por debajo del orden."
+},
+{
+"id": "s1846",
+"page": "seating",
+"ko": "<i style=\"background:#1fa463\"></i>지금 벤치 길이",
+"en": "<i style=\"background:#1fa463\"></i>Current bench length",
+"tr": "<i style=\"background:#1fa463\"></i>Longitud actual del banco"
+},
+{
+"id": "s1847",
+"page": "seating",
+"ko": "<i style=\"background:#e5484d\"></i>아주 긴 벤치",
+"en": "<i style=\"background:#e5484d\"></i>Very long bench",
+"tr": "<i style=\"background:#e5484d\"></i>Banco muy largo"
+},
+{
+"id": "s1848",
+"page": "seating",
+"ko": "아무도 규칙을 어기지 않아도, 무작위로 앉으면 정돈했을 때보다 자리가 14~20% 놓쳐져요.",
+"en": "Even with nobody breaking the rule, random seating wastes about 14 to 20% of the orderly capacity.",
+"tr": "Aunque nadie rompa la regla, sentarse al azar desperdicia entre un 14 y un 20% de la capacidad ordenada."
+},
+{
+"id": "s1849",
+"page": "seating",
+"ko": "이 모델에서는 앉은 자리가 움직이지 않고 서로 모른 채 차례로 앉아, 애매한 빈틈이 쓰이지 못하고 남아요.",
+"en": "In this model seats never move and strangers sit one by one, so awkward gaps are left unused.",
+"tr": "En este modelo los asientos nunca se mueven y los desconocidos se sientan uno a uno, así que los huecos incómodos quedan sin usar."
+},
+{
+"id": "s1850",
+"page": "seating",
+"ko": "빈자리가 아쉽다면 사람 태도보다, 앉는 순서와 안내 방식이 틈을 만드는지부터 살펴볼 만해요.",
+"en": "If seats feel wasted, it is worth checking whether seating order and guidance create the gaps, not attitudes.",
+"tr": "Si los asientos parecen desaprovechados, conviene comprobar si el orden de asiento y las indicaciones crean los huecos, y no las actitudes."
+},
+{
+"id": "s1851",
+"page": "seating",
+"ko": "<b>말하는 것:</b> 간격 1칸이면 아주 긴 벤치에서 무작위로 앉은 사람은 자리의 43.2%(이론 (1−e<sup>−2</sup>)/2)로, 정돈했을 때의 50%보다 적었습니다(시뮬레이션 43.3%). 간격 2칸이면 27.5%(정돈 33.3%), 3칸이면 20.1%(정돈 25.0%)였습니다. 자리 30개, 간격 2칸에서는 정돈하면 10명이 앉지만 무작위로는 평균 8.6명이었고(정확한 기댓값 8.61명), 가장 먼 자리는 8.9명, 끝자리 먼저는 8.9명이었습니다. 아무도 규칙을 어기지 않았는데도 정돈했을 때에 비해 약 14~20%의 자리가 놓쳐졌습니다(간격 1~3칸, 긴 벤치).",
+"en": "<b>What it shows:</b> With a one-seat gap, people seating themselves at random on a very long bench fill 43.2% of the seats (theory (1−e<sup>−2</sup>)/2), below the 50% of orderly seating (simulation 43.3%). With a two-seat gap it is 27.5% (orderly 33.3%), and with three 20.1% (orderly 25.0%). With 30 seats and a two-seat gap, orderly seating fits 10 people but random seating averaged 8.6 (exact expectation 8.61); farthest-seat averaged 8.9 and edge-first 8.9. Nobody broke the rule, yet about 14 to 20% of the orderly capacity was lost (gaps of 1 to 3 seats, long bench).",
+"tr": "<b>Qué muestra:</b> Con un asiento de hueco, las personas que se sientan al azar en un banco muy largo ocupan el 43,2 % de los asientos (teoría (1−e<sup>−2</sup>)/2), por debajo del 50 % de la ocupación ordenada (simulación 43,3 %). Con un hueco de dos asientos es 27,5 % (ordenada 33,3 %) y con tres, 20,1 % (ordenada 25,0 %). Con 30 asientos y un hueco de dos, la ocupación ordenada admite 10 personas, pero la aleatoria promedió 8,6 (esperanza exacta 8,61); el asiento más lejano promedió 8,9 y el primero el extremo 8,9. Nadie rompió la regla, y aun así se perdió entre el 14 y el 20 % de la capacidad ordenada (huecos de 1 a 3 asientos, banco largo)."
+},
+{
+"id": "s1852",
+"page": "seating",
+"ko": "실제 대기실이나 지하철의 모든 것을 설명하지는 않아요. 간격은 모두 같다고 정한 값이에요.",
+"en": "It does not explain every real waiting room or subway car; equal spacing for all is an assumption.",
+"tr": "No explica todas las salas de espera ni vagones de metro reales; el mismo espaciado para todos es un supuesto."
+},
+{
+"id": "s1853",
+"page": "seating",
+"ko": "일행이나 사람마다 다른 간격이 실제 자리 활용에 얼마나 영향을 주는지 관찰해 봐야 해요.",
+"en": "How groups and differing personal spacing affect real seat use would need to be observed.",
+"tr": "Habría que observar cómo influyen los grupos y las distintas distancias personales en el uso real de los asientos."
+},
+{
+"id": "s1854",
+"page": "seating",
+"ko": "<b>말하지 않는 것:</b> 실제 대기실이나 지하철의 모든 것을 설명하는 것이 아닙니다. 이 모델은 한 줄짜리 벤치, 서로 모르는 사람, 엄격한 최소 간격, 한 명씩 차례로 도착하는 가정으로 만든 이 프로젝트의 단순화된 모델입니다. 실제 사람들은 일행과 붙어 앉고, 간격이 사람마다 다르고, 앉은 사람이 자리를 옮기기도 하며, 문화와 상황에 따라 앉는 방식이 다릅니다. \"정돈\"은 모두가 도착 순서를 알고 협력할 때만 가능한 이상적인 기준선입니다.",
+"en": "<b>What it doesn't show:</b> This does not explain every waiting room or subway car. It is this project's simplified model: a single-row bench, strangers, a strict minimum gap and one arrival at a time. Real people sit with companions, keep different distances, move seats, and differ by culture and setting. \"Orderly\" is an idealized baseline that needs everyone to cooperate and know the arrival order.",
+"tr": "<b>Qué no muestra:</b> Esto no explica todas las salas de espera ni todos los vagones de metro. Es el modelo simplificado de este proyecto: un banco de una sola fila, desconocidos, un hueco mínimo estricto y una llegada a la vez. Las personas reales se sientan con acompañantes, mantienen distintas distancias, cambian de asiento y varían según la cultura y el lugar. «Ordenada» es una referencia idealizada que exige que todos cooperen y conozcan el orden de llegada."
+},
+{
+"id": "s1855",
+"page": "seating",
+"ko": "<b>모델의 뿌리:</b> 이 문제는 물리·수학의 <b>무작위 순차 흡착(random sequential adsorption, RSA)</b>, 그중에서도 1차원 <b>렌니 주차 문제</b>와 같은 구조입니다. Rényi (1958)가 도로에 길이가 같은 자동차를 무작위 위치에 차례로 세우는 문제를 풀었고, Flory (1939)는 고분자에서 이웃한 자리끼리 반응하는 같은 구조를 먼저 다뤘습니다. 한 번 놓이면 움직이지 않고 겹칠 수 없다는 것이 핵심입니다.",
+"en": "<b>Where the model comes from:</b> This is <b>random sequential adsorption (RSA)</b>, specifically the one-dimensional <b>Rényi parking problem</b>. Rényi (1958) solved the problem of parking equal-length cars at random positions on a road one after another, and Flory (1939) had treated the same structure for neighboring reactive sites on polymers. The key is that once placed, an object never moves and may not overlap another.",
+"tr": "<b>De dónde viene el modelo:</b> Es la <b>adsorción secuencial aleatoria (RSA)</b>, en concreto el <b>problema de aparcamiento de Rényi</b> unidimensional. Rényi (1958) resolvió el problema de aparcar coches de igual longitud en posiciones aleatorias de una calle, uno tras otro, y Flory (1939) había tratado la misma estructura para sitios reactivos vecinos en polímeros. La clave es que, una vez colocado, un objeto no se mueve y no puede solaparse con otro."
+},
+{
+"id": "s1856",
+"page": "seating",
+"ko": "<b>핵심 가정과 수식:</b> 앉은 사람이 양옆 g칸을 막으므로, 사람 한 명은 길이 g+1짜리 막대 하나를 놓는 것과 같습니다. 긴 벤치에서 앉는 비율은 <code>∫<sub>0</sub><sup>∞</sup> exp(−u − 2·Σ<sub>j=1..g</sub> (1−e<sup>−ju</sup>)/j) du</code>이고, g=0이면 1, g=1이면 (1−e<sup>−2</sup>)/2 ≈ 0.432입니다. 길이 n인 벤치의 기댓값은 <code>f(n) = 1 + (1/n)·Σ<sub>i</sub> [f(i−1−g) + f(n−i−g)]</code>로 구합니다. 슬라이더 n, g가 이 식의 n, g입니다.",
+"en": "<b>Key assumptions and formulas:</b> A seated person blocks g seats on each side, so each person is like placing a rod of length g+1. On a long bench the seated share is <code>∫<sub>0</sub><sup>∞</sup> exp(−u − 2·Σ<sub>j=1..g</sub> (1−e<sup>−ju</sup>)/j) du</code>, which is 1 for g=0 and (1−e<sup>−2</sup>)/2 ≈ 0.432 for g=1. For a bench of n seats the expectation follows <code>f(n) = 1 + (1/n)·Σ<sub>i</sub> [f(i−1−g) + f(n−i−g)]</code>. The sliders n and g are the n and g in these formulas.",
+"tr": "<b>Supuestos clave y fórmulas:</b> Una persona sentada bloquea g asientos a cada lado, de modo que cada persona equivale a colocar una barra de longitud g+1. En un banco largo la proporción ocupada es <code>∫<sub>0</sub><sup>∞</sup> exp(−u − 2·Σ<sub>j=1..g</sub> (1−e<sup>−ju</sup>)/j) du</code>, que vale 1 para g=0 y (1−e<sup>−2</sup>)/2 ≈ 0,432 para g=1. Para un banco de n asientos, la esperanza cumple <code>f(n) = 1 + (1/n)·Σ<sub>i</sub> [f(i−1−g) + f(n−i−g)]</code>. Los controles deslizantes n y g son las n y g de estas fórmulas."
+},
+{
+"id": "s1857",
+"page": "seating",
+"ko": "<b>이 프로젝트의 단순화:</b> 원 문제는 연속적인 길이이고, 이 페이지는 칸이 나뉜 좌석입니다. \"가장 먼 자리\", \"끝자리 먼저\", \"정돈\"은 이 프로젝트가 정한 앉는 방식이고 이론이 있는 것은 무작위뿐입니다. 도착하는 사람 수, 기본값(30석, 2칸, 24명), 사람마다 같은 간격을 둔다는 가정은 이 프로젝트의 설계입니다.",
+"en": "<b>What this project simplifies:</b> The original problem uses continuous lengths, whereas this page uses discrete seats. \"Farthest\", \"edge first\" and \"orderly\" are this project's own ways of sitting, and only random has a theory behind it. The number of arrivals, the defaults (30 seats, gap 2, 24 people) and the assumption that everyone keeps the same gap are this project's design.",
+"tr": "<b>Qué simplifica este proyecto:</b> El problema original usa longitudes continuas, mientras que esta página usa asientos discretos. «Más lejano», «primero el extremo» y «ordenada» son maneras de sentarse propias de este proyecto, y solo la aleatoria tiene una teoría detrás. El número de llegadas, los valores por defecto (30 asientos, hueco 2, 24 personas) y el supuesto de que todos mantienen el mismo hueco son decisiones de diseño de este proyecto."
+},
+{
+"id": "s1858",
+"page": "seating",
+"ko": "<b>이론값과 시뮬레이션:</b> <code>node tools/validate-seating.js</code> 결과, 긴 벤치(2,000석, 200판)에서 이론 대 시뮬레이션은 간격 1칸 0.4323 대 0.4327, 2칸 0.2746 대 0.2749, 3칸 0.2010 대 0.2009였습니다. 유한한 벤치의 정확한 기댓값도 시뮬레이션(5,000판)과 맞았습니다(24석 1칸 10.673 대 10.679명, 30석 2칸 8.609 대 8.600명). 앉은 사람 사이 간격 위반은 0건이었습니다.",
+"en": "<b>Theory versus simulation:</b> In <code>node tools/validate-seating.js</code>, theory versus simulation on a long bench (2,000 seats, 200 runs) was 0.4323 vs 0.4327 for gap 1, 0.2746 vs 0.2749 for gap 2 and 0.2010 vs 0.2009 for gap 3. The exact finite-bench expectation also matched simulation (5,000 runs): 24 seats, gap 1: 10.673 vs 10.679 people; 30 seats, gap 2: 8.609 vs 8.600. There were 0 gap violations.",
+"tr": "<b>Teoría frente a simulación:</b> Con <code>node tools/validate-seating.js</code>, la teoría frente a la simulación en un banco largo (2000 asientos, 200 ejecuciones) fue 0,4323 frente a 0,4327 con hueco 1, 0,2746 frente a 0,2749 con hueco 2 y 0,2010 frente a 0,2009 con hueco 3. La esperanza exacta de un banco finito también coincidió con la simulación (5000 ejecuciones): 24 asientos, hueco 1: 10,673 frente a 10,679 personas; 30 asientos, hueco 2: 8,609 frente a 8,600. Hubo 0 infracciones del hueco."
+},
+{
+"id": "s1859",
+"page": "seating",
+"ko": "<b>더 읽을거리:</b> Rényi, A. (1958), \"On a one-dimensional problem concerning random space-filling\", <i>Publ. Math. Inst. Hungarian Acad. Sci.</i>; Flory, P. J. (1939), <i>J. Am. Chem. Soc.</i> 61, 1518; Evans, J. W. (1993), \"Random and cooperative sequential adsorption\", <i>Reviews of Modern Physics</i> 65, 1281 (개설).",
+"en": "<b>Further reading:</b> Rényi, A. (1958), \"On a one-dimensional problem concerning random space-filling\", <i>Publ. Math. Inst. Hungarian Acad. Sci.</i>; Flory, P. J. (1939), <i>J. Am. Chem. Soc.</i> 61, 1518; Evans, J. W. (1993), \"Random and cooperative sequential adsorption\", <i>Reviews of Modern Physics</i> 65, 1281 (review).",
+"tr": "<b>Lecturas complementarias:</b> Rényi, A. (1958), «On a one-dimensional problem concerning random space-filling», <i>Publ. Math. Inst. Hungarian Acad. Sci.</i>; Flory, P. J. (1939), <i>J. Am. Chem. Soc.</i> 61, 1518; Evans, J. W. (1993), «Random and cooperative sequential adsorption», <i>Reviews of Modern Physics</i> 65, 1281 (revisión)."
+},
+{
+"id": "s1860",
+"page": "seating",
+"ko": "시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 네 줄은 같은 도착 인원으로 각자 자기 난수를 씁니다. 통계 카드와 ④번 그래프는 설정마다 300판, ③번 그래프의 점은 벤치 길이마다 150판의 평균입니다.",
+"en": "The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. The four rows share the same number of arrivals but each uses its own random numbers. The stat cards and chart ④ average 300 runs per setting, and each dot in chart ③ averages 150 runs per bench length.",
+"tr": "La simulación usa un generador aleatorio con semilla (mulberry32), así que la misma semilla da el mismo resultado. Las cuatro filas comparten el mismo número de llegadas, pero cada una usa sus propios números aleatorios. Las tarjetas de estadísticas y el gráfico ④ promedian 300 ejecuciones por ajuste, y cada punto del gráfico ③ promedia 150 ejecuciones por longitud de banco."
+},
+{
+"id": "s1861",
+"page": "seating",
+"ko": "검증은 <code>node tools/validate-seating.js</code>로 할 수 있습니다. 앉는 방식은 <code>site/experiments/seating/sim.js</code>의 <code>pick</code> 함수에 있습니다.",
+"en": "You can verify with <code>node tools/validate-seating.js</code>. The ways of sitting are in the <code>pick</code> function of <code>site/experiments/seating/sim.js</code>.",
+"tr": "Puedes comprobarlo con <code>node tools/validate-seating.js</code>. Las maneras de sentarse están en la función <code>pick</code> de <code>site/experiments/seating/sim.js</code>."
+},
+{
+"id": "s1862",
+"page": "seating",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/seating\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/seating\">GitHub</a>.",
+"tr": "El código está disponible en <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/seating\">GitHub</a>."
+},
+{
+"id": "s1863",
+"page": "secretary",
+"ko": "37%의 법칙 · 시뮬라티오 랩",
+"en": "The 37% Rule · Simulatio Lab",
+"tr": "La regla del 37 % · Simulatio Lab"
+},
+{
+"id": "s1864",
+"page": "secretary",
+"ko": "후보를 한 명씩 만나고 되돌아갈 수 없을 때, 몇 명을 지켜본 뒤에 고르면 최고를 만날 확률이 가장 높을까요? 비서 문제(최적 멈춤 문제)를 직접 돌려보세요.",
+"en": "When you meet candidates one at a time and cannot go back, how many should you watch before choosing? Run the secretary problem (optimal stopping) yourself.",
+"tr": "Si conoces a los candidatos de uno en uno y no puedes volver atrás, ¿a cuántos conviene observar antes de elegir? Ejecuta tú mismo el problema de la secretaria (parada óptima)."
+},
+{
+"id": "s1865",
+"page": "secretary",
+"ko": "좋은 사람, 좋은 일자리, 좋은 집은 \"충분히 둘러본 뒤\" 정하라고들 합니다. 그런데 얼마나 둘러봐야 충분할까요? 한 명 만나고 바로 정하면 기준이 없고, 끝까지 기다리면 이미 최고를 지나쳐 보냈을 수 있습니다. 놀랍게도 이 문제에는 수학적으로 가장 좋은 멈출 때가 있습니다. 후보가 많을 때 약 37%를 지켜보기만 하고, 그 뒤 처음으로 \"지금까지 본 누구보다 나은\" 후보를 고르는 것입니다. 그래도 최고를 만날 확률은 36.8% 정도에 그칩니다. 직접 돌려서 확인해 보세요.",
+"en": "People say to look around enough before choosing a partner, a job or an apartment. But how much is enough? Choose right after the first and you have no standard; wait until the end and you may have already let the best one go by. Surprisingly, this problem has a mathematically best time to stop: with many candidates, only watch the first 37% or so, then pick the first one who beats everyone you have seen. Even then your chance of landing the very best is only about 36.8%. Run it and see.",
+"tr": "Se dice que hay que mirar lo suficiente antes de elegir pareja, trabajo o piso. Pero ¿cuánto es suficiente? Si eliges justo después del primero, no tienes referencia; si esperas hasta el final, quizá ya dejaste pasar al mejor. Sorprendentemente, este problema tiene un momento matemáticamente óptimo para parar: con muchos candidatos, observa solo al 37 % inicial y luego elige al primero que supere a todos los que has visto. Aun así, tu probabilidad de dar con el mejor de todos es de solo un 36,8 %. Ejecútalo y compruébalo."
+},
+{
+"id": "s1866",
+"page": "secretary",
+"ko": "후보 <b>n명</b>이 무작위 순서로 한 명씩 나타납니다. 각자에게는 점수가 있지만, 당신은 <b>지금까지 본 사람들과 비교한 순서</b>만 알 수 있고(점수 높을수록 좋음), 한 번 지나친 사람은 되돌릴 수 없습니다. 후보는 사람, 일자리, 집 무엇으로 읽어도 됩니다.",
+"en": "A total of <b>n candidates</b> show up one by one in random order. Each has a score, but you can only compare each with <b>those you have already seen</b> (higher is better), and you cannot go back to someone you passed. Read the candidates as people, jobs or apartments.",
+"tr": "Un total de <b>n candidatos</b> aparecen uno a uno en orden aleatorio. Cada uno tiene una puntuación, pero solo puedes compararlo con <b>los que ya has visto</b> (más alta es mejor), y no puedes volver con alguien que dejaste pasar. Puedes imaginar a los candidatos como personas, trabajos o pisos."
+},
+{
+"id": "s1867",
+"page": "secretary",
+"ko": "전략은 하나입니다. 처음 <b>r명</b>(관찰 구간)은 점수를 기억만 하고 모두 거절합니다. 그다음부터는 지금까지 본 모든 후보보다 점수가 높은 첫 후보를 바로 고릅니다. 끝까지 그런 후보가 없으면 마지막 후보를 받아야 합니다.",
+"en": "There is a single strategy. Reject the first <b>r candidates</b> (the observation phase) and just remember their scores. After that, take the first candidate who beats everyone seen so far. If nobody does, you are stuck with the last candidate.",
+"tr": "Solo hay una estrategia. Rechaza a los primeros <b>r candidatos</b> (la fase de observación) y limítate a recordar sus puntuaciones. Después, toma al primer candidato que supere a todos los vistos hasta ahora. Si nadie lo hace, te quedas con el último candidato."
+},
+{
+"id": "s1868",
+"page": "secretary",
+"ko": "성공은 기본적으로 \"전체에서 가장 높은 점수를 가진 후보를 고른 것\"입니다. 아래 선택 상자에서 상위 2명이나 3명까지 성공으로 치는 기준을 고를 수도 있습니다. 슬라이더는 후보 수 n과, 관찰 구간의 비율(r÷n)입니다.",
+"en": "Success by default means picking the candidate with the highest score overall. With the selector below you can also count the top 2 or top 3 as a success. The sliders set the number of candidates n and the observation share (r ÷ n).",
+"tr": "Por defecto, el éxito es elegir al candidato con la puntuación más alta de todos. Con el selector de abajo también puedes contar como éxito a los 2 o 3 mejores. Los controles deslizantes fijan el número de candidatos n y la proporción de observación (r ÷ n)."
+},
+{
+"id": "s1869",
+"page": "secretary",
+"ko": "후보 수 <output id=\"o-n\"></output>",
+"en": "Number of candidates <output id=\"o-n\"></output>",
+"tr": "Número de candidatos <output id=\"o-n\"></output>"
+},
+{
+"id": "s1870",
+"page": "secretary",
+"ko": "많을수록 최적 비율이 37%에 가까워지고, 적으면 조금씩 달라집니다",
+"en": "The more candidates, the closer the best share gets to 37%; with few it differs a little",
+"tr": "Cuantos más candidatos, más se acerca la proporción óptima al 37 %; con pocos difiere un poco"
+},
+{
+"id": "s1871",
+"page": "secretary",
+"ko": "관찰 구간 (거절만 하는 비율) <output id=\"o-cut\"></output>",
+"en": "Observation phase (share you only watch) <output id=\"o-cut\"></output>",
+"tr": "Fase de observación (proporción que solo miras) <output id=\"o-cut\"></output>"
+},
+{
+"id": "s1872",
+"page": "secretary",
+"ko": "0%면 첫 후보를 바로 받고, 100%면 끝까지 기다려 마지막 후보를 받습니다",
+"en": "At 0% you take the first candidate; at 100% you wait and are stuck with the last",
+"tr": "Con 0 % tomas al primer candidato; con 100 % esperas y te quedas con el último"
+},
+{
+"id": "s1873",
+"page": "secretary",
+"ko": "성공의 기준 <output id=\"o-goal\"></output>",
+"en": "What counts as success <output id=\"o-goal\"></output>",
+"tr": "Qué cuenta como éxito <output id=\"o-goal\"></output>"
+},
+{
+"id": "s1874",
+"page": "secretary",
+"ko": "최고 한 명만",
+"en": "Only the very best",
+"tr": "Solo el mejor"
+},
+{
+"id": "s1875",
+"page": "secretary",
+"ko": "상위 2명까지",
+"en": "Top 2 are fine",
+"tr": "Vale entre los 2 mejores"
+},
+{
+"id": "s1876",
+"page": "secretary",
+"ko": "상위 3명까지",
+"en": "Top 3 are fine",
+"tr": "Vale entre los 3 mejores"
+},
+{
+"id": "s1877",
+"page": "secretary",
+"ko": "기준이 느슨하면 가장 좋은 관찰 비율이 줄어듭니다",
+"en": "With a looser standard the best observation share shrinks",
+"tr": "Con un criterio más laxo, la mejor proporción de observación disminuye"
+},
+{
+"id": "s1878",
+"page": "secretary",
+"ko": "같은 설정, 다른 후보들",
+"en": "Same settings, new candidates",
+"tr": "Mismos ajustes, candidatos nuevos"
+},
+{
+"id": "s1879",
+"page": "secretary",
+"ko": "① 후보를 한 명씩 만나 보기",
+"en": "① Meeting the Candidates One by One",
+"tr": "① Conocer a los candidatos de uno en uno"
+},
+{
+"id": "s1880",
+"page": "secretary",
+"ko": "각 칸이 후보 한 명이고 숫자는 점수입니다(높을수록 좋음). 주황 막대는 관찰 구간(거절만), 파랑 막대는 선택 구간입니다. 별(★)은 지금까지 본 최고이고, 파랗게 채워진 칸이 고른 후보입니다. 한 판이 끝나면 아직 못 만난 후보가 공개되고 진짜 최고에 금색 테두리가 둘러집니다.",
+"en": "Each tile is one candidate and the number is the score (higher is better). The amber bar marks the observation phase (reject only), the blue bar the choosing phase. A star (★) marks the best seen so far, and the blue-filled tile is your pick. When a run ends, the candidates not yet met are revealed and the true best gets a gold outline.",
+"tr": "Cada ficha es un candidato y el número es su puntuación (más alta es mejor). La barra ámbar marca la fase de observación (solo rechazar) y la azul la fase de elección. Una estrella (★) marca al mejor visto hasta ahora, y la ficha rellena de azul es tu elección. Cuando termina una ejecución, se revelan los candidatos que aún no habías conocido y el mejor real recibe un contorno dorado."
+},
+{
+"id": "s1881",
+"page": "secretary",
+"ko": "한 판이 끝나면 새 후보들로 자동으로 계속하기",
+"en": "Keep going: when a run ends, meet a new set of candidates automatically",
+"tr": "Seguir: al terminar una ejecución, conocer automáticamente un nuevo grupo de candidatos"
+},
+{
+"id": "s1882",
+"page": "secretary",
+"ko": "<i style=\"background:#e0a100\"></i>관찰 구간 (거절만)",
+"en": "<i style=\"background:#e0a100\"></i>Observation (reject only)",
+"tr": "<i style=\"background:#e0a100\"></i>Observación (solo rechazar)"
+},
+{
+"id": "s1883",
+"page": "secretary",
+"ko": "<i style=\"background:var(--accent)\"></i>선택 구간 / 고른 후보",
+"en": "<i style=\"background:var(--accent)\"></i>Choosing phase / your pick",
+"tr": "<i style=\"background:var(--accent)\"></i>Fase de elección / tu elección"
+},
+{
+"id": "s1884",
+"page": "secretary",
+"ko": "<i style=\"background:#f2b705\"></i>★ 지금까지의 최고 · 진짜 최고",
+"en": "<i style=\"background:#f2b705\"></i>★ best so far · the true best",
+"tr": "<i style=\"background:#f2b705\"></i>★ mejor hasta ahora · el mejor real"
+},
+{
+"id": "s1885",
+"page": "secretary",
+"ko": "② 얼마나 지켜보면 최고를 만날까",
+"en": "② How Long Should You Watch?",
+"tr": "② ¿Cuánto tiempo hay que observar?"
+},
+{
+"id": "s1886",
+"page": "secretary",
+"ko": "가로는 관찰 구간의 비율, 세로는 성공할 확률입니다. 선은 정확한 값, 점은 같은 설정을 600번씩 돌려 본 시뮬레이션입니다. 금색 점이 가장 높은 곳입니다. 너무 짧아도 너무 길어도 확률이 떨어지는 산 모양입니다.",
+"en": "The horizontal axis is the share of the observation phase, the vertical axis the chance of success. The line is the exact value, the dots are simulations of 600 runs per setting. The gold dot is the peak. Too short or too long both lower the chance, giving a hill shape.",
+"tr": "El eje horizontal es la proporción de la fase de observación y el vertical la probabilidad de éxito. La línea es el valor exacto y los puntos son simulaciones de 600 ejecuciones por ajuste. El punto dorado es el máximo. Tanto demasiado corta como demasiado larga reducen la probabilidad, lo que da forma de colina."
+},
+{
+"id": "s1887",
+"page": "secretary",
+"ko": "③ 실패하는 두 가지 방식",
+"en": "③ Two Ways to Fail",
+"tr": "③ Dos maneras de fracasar"
+},
+{
+"id": "s1888",
+"page": "secretary",
+"ko": "최고 한 명을 목표로 할 때, 초록은 성공, 주황은 최고가 오기 전에 평범한 후보에게 먼저 멈춘 경우, 빨강은 최고를 관찰 구간에서 이미 지나쳐 보낸 경우입니다. 관찰이 짧으면 주황이, 길면 빨강이 커집니다.",
+"en": "When aiming for the single best, green is success, amber is stopping on a lesser candidate before the best arrives, and red is having already let the best go by during observation. A short observation grows the amber, a long one the red.",
+"tr": "Cuando se busca al mejor de todos, el verde es éxito, el ámbar es parar en un candidato peor antes de que llegue el mejor, y el rojo es haber dejado pasar ya al mejor durante la observación. Una observación corta hace crecer el ámbar y una larga el rojo."
+},
+{
+"id": "s1889",
+"page": "secretary",
+"ko": "<i style=\"background:#1fa463\"></i>최고를 골랐다",
+"en": "<i style=\"background:#1fa463\"></i>Picked the best",
+"tr": "<i style=\"background:#1fa463\"></i>Eligió al mejor"
+},
+{
+"id": "s1890",
+"page": "secretary",
+"ko": "<i style=\"background:#e0a100\"></i>최고가 오기 전에 먼저 멈췄다",
+"en": "<i style=\"background:#e0a100\"></i>Stopped before the best arrived",
+"tr": "<i style=\"background:#e0a100\"></i>Paró antes de que llegara el mejor"
+},
+{
+"id": "s1891",
+"page": "secretary",
+"ko": "<i style=\"background:#e5484d\"></i>최고를 이미 지나쳐 보냈다",
+"en": "<i style=\"background:#e5484d\"></i>Had already passed the best",
+"tr": "<i style=\"background:#e5484d\"></i>Ya había dejado pasar al mejor"
+},
+{
+"id": "s1892",
+"page": "secretary",
+"ko": "④ 결국 누구를 고르게 될까",
+"en": "④ Whom Do You End Up With?",
+"tr": "④ ¿Con quién te quedas?"
+},
+{
+"id": "s1893",
+"page": "secretary",
+"ko": "지금 설정으로 고른 후보의 순위 분포입니다(1위가 가장 좋음). 막대는 정확한 값, 검은 점은 4,000번 돌린 시뮬레이션, 검은 가로선은 아무렇게나 골랐을 때의 비율입니다. 최고는 못 만나도 상위권에 몰립니다.",
+"en": "The distribution of the rank of the candidate you end up with (rank 1 is the best). Bars are exact values, black dots a simulation of 4,000 runs, and the black horizontal ticks show what picking at random would give. Even when you miss the best, you tend to land near the top.",
+"tr": "La distribución del puesto del candidato con el que terminas (el puesto 1 es el mejor). Las barras son valores exactos, los puntos negros una simulación de 4000 ejecuciones y las marcas horizontales negras muestran lo que daría elegir al azar. Aunque no des con el mejor, tiendes a quedar cerca de los primeros."
+},
+{
+"id": "s1894",
+"page": "secretary",
+"ko": "<i style=\"background:#1fa463\"></i>성공으로 치는 순위",
+"en": "<i style=\"background:#1fa463\"></i>Ranks that count as success",
+"tr": "<i style=\"background:#1fa463\"></i>Puestos que cuentan como éxito"
+},
+{
+"id": "s1895",
+"page": "secretary",
+"ko": "<i style=\"background:#8a93a6\"></i>그 밖의 순위",
+"en": "<i style=\"background:#8a93a6\"></i>Other ranks",
+"tr": "<i style=\"background:#8a93a6\"></i>Otros puestos"
+},
+{
+"id": "s1896",
+"page": "secretary",
+"ko": "후보 40명 중 15명을 지켜보고 고르면 최고를 뽑을 확률이 37.6%예요.",
+"en": "Watching 15 of 40 candidates and then choosing finds the best one 37.6% of the time.",
+"tr": "Observar 15 de 40 candidatos y luego elegir encuentra al mejor el 37,6 % de las veces."
+},
+{
+"id": "s1897",
+"page": "secretary",
+"ko": "이 모델에서는 되돌릴 수 없어서, 너무 일찍 고르면 정보가 모자라고 너무 늦으면 최고를 이미 지나쳐요.",
+"en": "In this model there's no going back, so choosing early lacks information and late may pass the best.",
+"tr": "En este modelo no se puede volver atrás, así que elegir pronto carece de información y elegir tarde puede dejar pasar al mejor."
+},
+{
+"id": "s1898",
+"page": "secretary",
+"ko": "고를 때를 정할 때는 몇 번째가 아니라 전체의 몇 %까지 살펴보는지가 열쇠일 수 있어요.",
+"en": "What may matter is not which number you stop at, but what share of all candidates you observe first.",
+"tr": "Lo que puede importar no es en qué número uno se detiene, sino qué proporción del total de candidatos se observa primero."
+},
+{
+"id": "s1899",
+"page": "secretary",
+"ko": "<b>말하는 것:</b> 후보 40명, 관찰 구간 37%(15명)에서 최고를 고를 확률은 정확히 37.6%였고, 상위 2명 안은 52.1%, 상위 3명 안은 59.0%였습니다. 아무렇게나 고르면 최고는 2.5%입니다. 고른 후보의 평균 순위는 9.0위로, 아무렇게나 고를 때(20.5위)보다 훨씬 높았습니다. 관찰을 줄이면 확률이 떨어졌습니다: 0명이면 2.5%, 4명(10%)이면 24.2%, 8명(20%)이면 33.2%였고, 늘려도 떨어졌습니다: 24명(60%)이면 31.2%, 32명(80%)이면 18.1%, 39명이면 다시 2.5%였습니다. 15명을 관찰할 때 실패 62.4% 가운데 37.5%는 최고가 관찰 구간에 있었고, 24.9%는 최고가 오기 전에 먼저 멈춘 경우였습니다. 가장 좋은 비율은 후보 수에 따라 조금 달랐습니다: 5명이면 2명(40%)에서 43.3%, 10명이면 3명(30%)에서 39.9%, 20명이면 7명(35%)에서 38.4%, 40명이면 15명(38%)에서 37.6%, 100명이면 37명(37%)에서 37.1%, 1,000명이면 368명(36.8%)에서 36.8%로 1/e에 닿았습니다. 상위 2명까지 성공으로 치면 후보 100명에서는 30명(30%) 관찰이 가장 좋아 52.0%, 상위 3명이면 26명(26%)에서 60.6%였습니다.",
+"en": "<b>What it shows:</b> With 40 candidates and a 37% observation phase (15 candidates), the chance of picking the very best was exactly 37.6%, of landing in the top 2 was 52.1%, and in the top 3 was 59.0%. Picking at random would give 2.5% for the best. The average rank you ended up with was 9.0, far better than the 20.5 of a random pick. Watching less lowered the chance: 0 candidates gave 2.5%, 4 (10%) gave 24.2% and 8 (20%) gave 33.2%; watching more lowered it too: 24 (60%) gave 31.2%, 32 (80%) gave 18.1%, and 39 gave 2.5% again. Of the 62.4% of failures with 15 watched, 37.5% were cases where the best was in the observation phase and 24.9% were stopping before the best arrived. The best share varied a little with the number of candidates: 5 candidates peaked at 2 (40%) with 43.3%, 10 at 3 (30%) with 39.9%, 20 at 7 (35%) with 38.4%, 40 at 15 (38%) with 37.6%, 100 at 37 (37%) with 37.1%, and 1,000 at 368 (36.8%) with 36.8%, reaching 1/e. If the top 2 count as success, with 100 candidates the best phase was 30 (30%) at 52.0%, and for the top 3 it was 26 (26%) at 60.6%.",
+"tr": "<b>Qué muestra:</b> Con 40 candidatos y una fase de observación del 37 % (15 candidatos), la probabilidad de elegir exactamente al mejor fue de 37,6 %, la de quedar entre los 2 mejores 52,1 % y entre los 3 mejores 59,0 %. Elegir al azar daría 2,5 % para el mejor. El puesto medio con el que se terminó fue 9,0, mucho mejor que el 20,5 de una elección al azar. Observar menos redujo la probabilidad: 0 candidatos dieron 2,5 %, 4 (10 %) dieron 24,2 % y 8 (20 %) dieron 33,2 %; observar más también la redujo: 24 (60 %) dieron 31,2 %, 32 (80 %) dieron 18,1 % y 39 volvieron a dar 2,5 %. Del 62,4 % de fracasos con 15 observados, el 37,5 % fueron casos en que el mejor estaba en la fase de observación y el 24,9 % fueron paradas antes de que llegara el mejor. La mejor proporción varió un poco con el número de candidatos: 5 candidatos alcanzaron el máximo en 2 (40 %) con 43,3 %, 10 en 3 (30 %) con 39,9 %, 20 en 7 (35 %) con 38,4 %, 40 en 15 (38 %) con 37,6 %, 100 en 37 (37 %) con 37,1 % y 1.000 en 368 (36,8 %) con 36,8 %, llegando a 1/e. Si los 2 mejores cuentan como éxito, con 100 candidatos la mejor fase fue 30 (30 %) con 52,0 %, y para los 3 mejores fue 26 (26 %) con 60,6 %."
+},
+{
+"id": "s1900",
+"page": "secretary",
+"ko": "연애는 37%만 만나라는 처방은 아니고, 후보 수를 알고 되돌릴 수 없다는 이상화된 가정이에요.",
+"en": "It isn't advice to date only 37%; it assumes a known pool and no going back.",
+"tr": "No es un consejo de salir solo con el 37 %; supone un grupo conocido y que no se puede volver atrás."
+},
+{
+"id": "s1901",
+"page": "secretary",
+"ko": "실제로 후보 수를 모르거나 되돌아갈 수 있을 때 어떻게 달라지는지 따로 따져 봐야 해요.",
+"en": "How things change when the pool is unknown or choices can be revisited needs separate study.",
+"tr": "Cómo cambian las cosas cuando se desconoce el número de candidatos o se pueden revisar las decisiones requiere un estudio aparte."
+},
+{
+"id": "s1902",
+"page": "secretary",
+"ko": "<b>말하지 않는 것:</b> 실제 사람을 만나거나 일자리·집을 구하는 일은 이 모델과 다릅니다. 이 모델은 후보 수를 미리 알고, 후보를 한 번에 한 명씩 무작위 순서로 만나며, 지금까지 본 사람과의 상대 순위만 알 수 있고, 한 번 거절하면 영영 되돌릴 수 없다는 비서 문제의 이상화된 가정입니다. 현실에서는 후보를 몇 명 만날지 모르고, 되돌아갈 수도 있으며, 상대도 나를 고르고, 점수 하나로 사람을 줄 세울 수도 없습니다. 그래서 \"연애는 37%까지만 만나고 정하라\"는 처방이 아니라, 정해진 규칙 아래에서 멈추는 때를 수학으로 풀면 어떤 모양이 되는지 보여 주는 장난감 모델입니다. 후보가 많아져도 최고를 만날 확률이 36.8%에 머문다는 점도 기억할 만합니다.",
+"en": "<b>What it doesn't show:</b> Meeting people, or finding a job or a home, is not like this model. It assumes the idealized setting of the secretary problem: you know the number of candidates beforehand, meet them one at a time in random order, know only the rank relative to those already seen, and can never go back to someone you rejected. In real life you do not know how many you will meet, you may be able to return, the other side chooses you too, and people cannot be ranked by a single score. So this is not advice to meet people up to 37% and then settle; it is a toy model showing what the math of stopping looks like under fixed rules. It is also worth remembering that even with many candidates the chance of the very best stays at about 36.8%.",
+"tr": "<b>Qué no muestra:</b> Conocer gente, buscar trabajo o casa no funciona como este modelo. Supone el entorno idealizado del problema de la secretaria: conoces de antemano el número de candidatos, los conoces de uno en uno en orden aleatorio, solo sabes su puesto relativo respecto a los ya vistos y nunca puedes volver con alguien rechazado. En la vida real no sabes a cuántos conocerás, quizá puedas volver, la otra parte también te elige a ti y las personas no se pueden ordenar con una sola puntuación. Así que esto no es un consejo de conocer gente hasta el 37 % y luego conformarse; es un modelo de juguete que muestra cómo es la matemática de la parada bajo reglas fijas. También conviene recordar que, incluso con muchos candidatos, la probabilidad de dar con el mejor se queda en torno al 36,8 %."
+},
+{
+"id": "s1903",
+"page": "secretary",
+"ko": "<b>모델의 뿌리:</b> 비서 문제(최적 멈춤 문제, 결혼 문제)로 알려진 고전 문제입니다. 마틴 가드너가 1960년 『Scientific American』의 \"Mathematical Games\" 칼럼에서 대중에게 소개해 널리 알려졌고, Gilbert &amp; Mosteller (1966), \"Recognizing the Maximum of a Sequence\", <i>Journal of the American Statistical Association</i>이 대표적인 수학적 분석으로 자주 인용됩니다. 누가 처음 풀었는지는 Ferguson (1989)이 정리한 대로 역사가 복잡합니다.",
+"en": "<b>Where the model comes from:</b> This is the classic secretary problem (also called the optimal stopping or marriage problem). It became widely known through Martin Gardner's \"Mathematical Games\" column in <i>Scientific American</i> in 1960, and Gilbert &amp; Mosteller (1966), \"Recognizing the Maximum of a Sequence\", <i>Journal of the American Statistical Association</i>, is a standard reference for its mathematical analysis. Who first solved it has a tangled history, as Ferguson (1989) recounts.",
+"tr": "<b>De dónde viene el modelo:</b> Es el clásico problema de la secretaria (también llamado de parada óptima o del matrimonio). Se hizo muy conocido por la columna «Mathematical Games» de Martin Gardner en <i>Scientific American</i> en 1960, y Gilbert &amp; Mosteller (1966), «Recognizing the Maximum of a Sequence», <i>Journal of the American Statistical Association</i>, es una referencia estándar de su análisis matemático. Quién lo resolvió primero tiene una historia enredada, como relata Ferguson (1989)."
+},
+{
+"id": "s1904",
+"page": "secretary",
+"ko": "<b>핵심 가정과 수식:</b> 관찰 구간 r(≥1)일 때 i번째(i &gt; r) 후보에서 멈출 확률은 r / (i(i−1))이고, 최고를 고를 확률은 <code>P(r) = (r/n) × (1/r + 1/(r+1) + … + 1/(n−1))</code>입니다. n이 크면 r/n = x에서 <code>P ≈ −x ln x</code>이고, 이것은 x = 1/e ≈ 0.368에서 최대 1/e ≈ 36.8%가 됩니다. 슬라이더 \"관찰 구간\"은 x이고 \"후보 수\"는 n입니다.",
+"en": "<b>Key assumptions and formulas:</b> With observation phase r (≥ 1), the chance of stopping at candidate i (i &gt; r) is r / (i(i−1)), and the chance of picking the best is <code>P(r) = (r/n) × (1/r + 1/(r+1) + … + 1/(n−1))</code>. For large n, with x = r/n, <code>P ≈ −x ln x</code>, which peaks at x = 1/e ≈ 0.368 with value 1/e ≈ 36.8%. The \"observation phase\" slider is x and \"number of candidates\" is n.",
+"tr": "<b>Supuestos clave y fórmulas:</b> Con fase de observación r (≥ 1), la probabilidad de parar en el candidato i (i &gt; r) es r / (i(i−1)), y la de elegir al mejor es <code>P(r) = (r/n) × (1/r + 1/(r+1) + … + 1/(n−1))</code>. Para n grande, con x = r/n, <code>P ≈ −x ln x</code>, que alcanza su máximo en x = 1/e ≈ 0,368 con valor 1/e ≈ 36,8 %. El control deslizante de «fase de observación» es x y el de «número de candidatos» es n."
+}
+]

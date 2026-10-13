@@ -1,0 +1,541 @@
+[
+{
+"id": "s2407",
+"page": "weakties",
+"ko": "턴마다 소식을 아는 사람의 비율입니다(8번 평균). 회색은 약한 연결이 없을 때, 나머지는 약한 연결이 늘어난 경우이고, 검은 굵은 선이 지금 설정입니다. 점선은 90%입니다.",
+"en": "The share of people who know the news at each turn (averaged over 8 runs). Gray is no weak ties, the others have more of them, and the thick black line is the current setting. The dotted line marks 90%.",
+"tr": "La part des personnes qui connaissent la nouvelle à chaque tour (moyenne de 8 exécutions). Le gris correspond à l'absence de liens faibles, les autres en ont davantage, et la ligne noire épaisse est le réglage actuel. La ligne pointillée marque 90%."
+},
+{
+"id": "s2408",
+"page": "weakties",
+"ko": "<i style=\"background:#8a93a6\"></i>0%",
+"en": "<i style=\"background:#8a93a6\"></i>0%",
+"tr": "<i style=\"background:#8a93a6\"></i>0%"
+},
+{
+"id": "s2409",
+"page": "weakties",
+"ko": "<i style=\"background:#4f7cf0\"></i>0.5%",
+"en": "<i style=\"background:#4f7cf0\"></i>0.5%",
+"tr": "<i style=\"background:#4f7cf0\"></i>0,5%"
+},
+{
+"id": "s2410",
+"page": "weakties",
+"ko": "<i style=\"background:#1fa463\"></i>2%",
+"en": "<i style=\"background:#1fa463\"></i>2%",
+"tr": "<i style=\"background:#1fa463\"></i>2%"
+},
+{
+"id": "s2411",
+"page": "weakties",
+"ko": "<i style=\"background:#e0a100\"></i>10%",
+"en": "<i style=\"background:#e0a100\"></i>10%",
+"tr": "<i style=\"background:#e0a100\"></i>10%"
+},
+{
+"id": "s2412",
+"page": "weakties",
+"ko": "<i style=\"background:#e5484d\"></i>100%",
+"en": "<i style=\"background:#e5484d\"></i>100%",
+"tr": "<i style=\"background:#e5484d\"></i>100%"
+},
+{
+"id": "s2413",
+"page": "weakties",
+"ko": "<i style=\"background:#1b1f2a\"></i>지금 설정",
+"en": "<i style=\"background:#1b1f2a\"></i>Current setting",
+"tr": "<i style=\"background:#1b1f2a\"></i>Réglage actuel"
+},
+{
+"id": "s2414",
+"page": "weakties",
+"ko": "④ 약한 연결이 얼마나 필요할까",
+"en": "④ How Many Weak Ties Do We Need?",
+"tr": "④ De combien de liens faibles a-t-on besoin ?"
+},
+{
+"id": "s2415",
+"page": "weakties",
+"ko": "90%가 알 때까지 걸리는 턴을 약한 연결 비율별로 그렸습니다. 처음 몇 개가 가장 크게 줄여 주고, 그 뒤로는 점점 덜 줄어듭니다.",
+"en": "Turns needed for 90% to know the news, by share of weak ties. The first few ties help most, and each further tie helps less.",
+"tr": "Nombre de tours nécessaires pour que 90% connaissent la nouvelle, selon la part de liens faibles. Les premiers liens aident le plus, et chaque lien supplémentaire aide moins."
+},
+{
+"id": "s2416",
+"page": "weakties",
+"ko": "약한 연결이 2%만 있어도 소식이 90%에 닿는 시간이 58.1턴에서 16.2턴으로 줄었어요.",
+"en": "Just 2% weak ties cut the time for news to reach 90% of people from 58.1 to 16.2 turns.",
+"tr": "Seulement 2 % de liens faibles ont réduit le temps nécessaire pour que la nouvelle atteigne 90 % des gens, de 58,1 à 16,2 tours."
+},
+{
+"id": "s2417",
+"page": "weakties",
+"ko": "이 모델에서는 먼 사람과 잇는 선 몇 개가 지름길이 되어 거리를 줄이고, 가까운 무리의 촘촘함은 거의 그대로예요.",
+"en": "In this model a few links to distant people act as shortcuts, shortening distance while close-knit groups barely change.",
+"tr": "Dans ce modèle, quelques liens avec des personnes éloignées servent de raccourcis et réduisent la distance, tandis que les groupes soudés changent à peine."
+},
+{
+"id": "s2418",
+"page": "weakties",
+"ko": "퍼짐이 느리다면 사람 수보다, 무리 사이를 잇는 연결이 있는지부터 살펴볼 만해요.",
+"en": "If spread is slow, whether anything links the groups is worth checking before looking at headcount.",
+"tr": "Si la diffusion est lente, il vaut la peine de vérifier si quelque chose relie les groupes avant de regarder le nombre de personnes."
+},
+{
+"id": "s2419",
+"page": "weakties",
+"ko": "<b>말하는 것:</b> 사람 300명, 가까운 이웃 6명, 전달 확률 50%에서 약한 연결이 없을 때 소식이 90%에 닿는 데 평균 58.1턴(40번 평균)이 걸렸습니다. 약한 연결 1%에서는 22.0턴, 2%(연결 900개 중 약 18개)에서는 16.2턴으로 3.6배 빨랐고, 5%에서는 11.8턴, 전부 무작위(100%)일 때는 6.2턴이었습니다. 평균 거리는 약한 연결이 없을 때 25.4걸음이었다가 1%에서 44%(11.2걸음), 2%에서 33%(8.4걸음)로 줄었지만, 친구 무리의 촘촘함은 같은 구간에서 각각 97%, 94%로 거의 그대로였습니다. 전달 확률 20%에서도 103.6턴에서 31.1턴으로, 사람 500명에서도 96.8턴에서 18.1턴으로 줄었습니다.",
+"en": "<b>What it shows:</b> With 300 people, 6 close neighbors and a 50% passing probability, news took an average of 58.1 turns (40-run average) to reach 90% of people without weak ties. With 1% weak ties it took 22.0 turns, and with 2% (about 18 of 900 ties) it took 16.2, which is 3.6 times faster; 5% gave 11.8 turns and fully random ties (100%) gave 6.2. The average distance fell from 25.4 steps with no weak ties to 44% (11.2 steps) at 1% and 33% (8.4 steps) at 2%, while the tightness of friend circles stayed at 97% and 94% of its starting value. At a 20% passing probability the time still fell from 103.6 to 31.1 turns, and with 500 people from 96.8 to 18.1.",
+"tr": "<b>Ce que cela montre :</b> Avec 300 personnes, 6 voisins proches et une probabilité de transmission de 50%, la nouvelle a mis en moyenne 58,1 tours (moyenne de 40 exécutions) pour atteindre 90% des gens sans liens faibles. Avec 1% de liens faibles, il a fallu 22,0 tours, et avec 2% (environ 18 liens sur 900) 16,2, soit 3,6 fois plus vite ; 5% ont donné 11,8 tours et des liens entièrement aléatoires (100%) 6,2. La distance moyenne est passée de 25,4 étapes sans liens faibles à 44% (11,2 étapes) avec 1% et à 33% (8,4 étapes) avec 2%, tandis que la cohésion des cercles d'amis est restée à 97% et 94% de sa valeur initiale. Avec une probabilité de transmission de 20%, le temps a encore baissé de 103,6 à 31,1 tours, et avec 500 personnes de 96,8 à 18,1."
+},
+{
+"id": "s2420",
+"page": "weakties",
+"ko": "약한 연결이 일자리를 얻는 데 더 낫다는 것까지 증명하지는 않아요. 모든 연결의 힘은 같다고 가정했어요.",
+"en": "It does not prove weak ties are better for finding jobs; every link is assumed equally strong.",
+"tr": "Cela ne prouve pas que les liens faibles soient meilleurs pour trouver un emploi ; tous les liens sont supposés de même force."
+},
+{
+"id": "s2421",
+"page": "weakties",
+"ko": "실제 약한 연결은 덜 믿고 덜 전할 수 있어서, 실제 관계망의 전달 정도를 조사해 봐야 해요.",
+"en": "Real weak ties may be trusted and passed along less, so actual transmission in real networks must be surveyed.",
+"tr": "Les liens faibles réels peuvent inspirer moins de confiance et être moins relayés ; la transmission réelle dans les réseaux réels doit donc être étudiée."
+},
+{
+"id": "s2422",
+"page": "weakties",
+"ko": "<b>말하지 않는 것:</b> 실제 사회를 재현한 것이 아닙니다. 이 모델은 모두가 같은 수의 이웃을 갖고, 약한 연결이 똑같이 소식을 전한다는 이 프로젝트의 단순화된 가정으로 만들었습니다. 현실의 약한 연결은 덜 믿고, 덜 자주 연락하고, 소식을 덜 전할 수 있는데 여기서는 그 차이를 두지 않았습니다. 또 그라노베터의 주장은 일자리 정보가 나에게 닿는 경로에 관한 것입니다. 이 모델은 소식이 퍼지는 속도만 보여 줄 뿐 일자리를 얻는 데 약한 유대가 더 낫다는 것을 증명하지 않으며, 이후 연구 결과도 엇갈립니다. 친한 친구가 더 적극적으로 도와주는 경우도 있습니다.",
+"en": "<b>What it doesn't show:</b> This does not reproduce real societies. It is this project's simplified model in which everyone has the same number of neighbors and weak ties pass news just as well as close ones. In reality weak ties may be trusted less, contacted less and pass news less, which is not modeled here. Granovetter's claim is about how job information reaches you. This model shows only how fast news spreads; it does not prove that weak ties are better for getting a job, and later studies are mixed. Close friends sometimes help more actively.",
+"tr": "<b>Ce que cela ne montre pas :</b> Cela ne reproduit pas de véritables sociétés. C'est le modèle simplifié de ce projet, où chacun a le même nombre de voisins et où les liens faibles transmettent la nouvelle aussi bien que les liens proches. Dans la réalité, les liens faibles peuvent inspirer moins confiance, être moins sollicités et transmettre moins de nouvelles, ce qui n'est pas modélisé ici. La thèse de Granovetter porte sur la façon dont l'information sur un emploi vous parvient. Ce modèle montre seulement la vitesse de propagation d'une nouvelle ; il ne prouve pas que les liens faibles soient meilleurs pour trouver un emploi, et les études ultérieures sont partagées. Les amis proches aident parfois plus activement."
+},
+{
+"id": "s2423",
+"page": "weakties",
+"ko": "<b>모델의 뿌리:</b> 작은 세상 네트워크는 Watts &amp; Strogatz (1998), \"Collective dynamics of 'small-world' networks\", <i>Nature</i> 393, 440-442에서 나왔고, 약한 유대라는 생각은 Granovetter (1973), \"The Strength of Weak Ties\", <i>American Journal of Sociology</i> 78(6), 1360-1380에서 나왔습니다. 가까운 이웃으로 이뤄진 격자에 무작위 연결 몇 개만 섞어도 평균 거리가 크게 줄어듭니다.",
+"en": "<b>Where the model comes from:</b> The small-world network comes from Watts &amp; Strogatz (1998), \"Collective dynamics of 'small-world' networks\", <i>Nature</i> 393, 440-442, and the idea of weak ties from Granovetter (1973), \"The Strength of Weak Ties\", <i>American Journal of Sociology</i> 78(6), 1360-1380. Mixing a few random ties into a lattice of near neighbors sharply cuts the average distance.",
+"tr": "<b>D'où vient le modèle :</b> Le réseau petit monde vient de Watts &amp; Strogatz (1998), « Collective dynamics of 'small-world' networks », <i>Nature</i> 393, 440-442, et l'idée de liens faibles de Granovetter (1973), « The Strength of Weak Ties », <i>American Journal of Sociology</i> 78(6), 1360-1380. Mêler quelques liens aléatoires à un réseau régulier de voisins proches réduit fortement la distance moyenne."
+},
+{
+"id": "s2424",
+"page": "weakties",
+"ko": "<b>핵심 가정과 수식:</b> 원 위의 n명이 각자 가까운 이웃 k명과 이어진 상태에서 시작해 연결마다 확률 p로 끝을 무작위로 바꿉니다. 이론적으로 p = 0에서 평균 거리는 약 <code>n/(2k)</code>, 군집계수는 <code>C(0) = 3(k−2)/(4(k−1))</code>이고, p가 작을 때 군집계수는 <code>C(p) ≈ C(0)(1−p)<sup>3</sup></code>로 근사됩니다(Barrat &amp; Weigt, 2000). 슬라이더 p, k, n이 각각 이 식의 p, k, n입니다.",
+"en": "<b>Key assumptions and formulas:</b> Start with n people on a ring, each tied to k near neighbors, and move one end of each tie to a random person with probability p. In theory, at p = 0 the average distance is about <code>n/(2k)</code> and the clustering coefficient is <code>C(0) = 3(k−2)/(4(k−1))</code>; for small p the clustering is approximately <code>C(p) ≈ C(0)(1−p)<sup>3</sup></code> (Barrat &amp; Weigt, 2000). The sliders p, k and n are these same symbols.",
+"tr": "<b>Hypothèses clés et formules :</b> On part de n personnes sur un anneau, chacune liée à k voisins proches, et l'on déplace une extrémité de chaque lien vers une personne au hasard avec la probabilité p. En théorie, pour p = 0, la distance moyenne est d'environ <code>n/(2k)</code> et le coefficient de regroupement est <code>C(0) = 3(k−2)/(4(k−1))</code> ; pour p petit, le regroupement vaut approximativement <code>C(p) ≈ C(0)(1−p)<sup>3</sup></code> (Barrat &amp; Weigt, 2000). Les curseurs p, k et n correspondent à ces mêmes symboles."
+},
+{
+"id": "s2425",
+"page": "weakties",
+"ko": "<b>이 프로젝트의 단순화:</b> 원 논문은 평균 거리와 군집계수만 다루고 소식 퍼짐은 이 프로젝트가 덧붙인 것입니다. 전달 확률, 한 사람에서 시작, 모든 연결이 같은 힘이라는 가정, 90% 기준, 사람 수 300과 이웃 6명은 이 프로젝트가 정한 값입니다. 연결의 세기나 신뢰는 모델에 없습니다.",
+"en": "<b>What this project simplifies:</b> The original paper covers only average distance and clustering; the news spreading is this project's addition. The passing probability, starting from one person, equal strength for all ties, the 90% criterion, and the defaults of 300 people and 6 neighbors are this project's choices. Tie strength and trust are not in the model.",
+"tr": "<b>Ce que ce projet simplifie :</b> L'article original ne traite que de la distance moyenne et du regroupement ; la propagation de la nouvelle est un ajout de ce projet. La probabilité de transmission, le départ d'une seule personne, l'égalité de force de tous les liens, le critère des 90% et les valeurs par défaut de 300 personnes et 6 voisins sont des choix de ce projet. La force des liens et la confiance ne figurent pas dans le modèle."
+},
+{
+"id": "s2426",
+"page": "weakties",
+"ko": "<b>이론값과 시뮬레이션:</b> p = 0에서 시뮬레이션의 평균 거리는 25.4걸음으로 근사 n/(2k) = 25.0과 비슷했고, 군집계수는 0.600으로 이론값 0.600과 같았습니다. p = 2%에서 군집계수는 0.566으로 C(0)(1−p)<sup>3</sup> = 0.565와 맞았고, p = 20%에서도 0.322 대 0.307로 가까웠습니다(p가 클수록 근사가 어긋나 50%에서는 0.095 대 0.075). 소식 퍼짐은 이론값이 없어 시뮬레이션만으로 확인했습니다(<code>node tools/validate-weakties.js</code>).",
+"en": "<b>Theory versus simulation:</b> At p = 0 the simulated average distance was 25.4 steps against the approximation n/(2k) = 25.0, and the clustering was 0.600, equal to the theoretical 0.600. At p = 2% the clustering was 0.566 against C(0)(1−p)<sup>3</sup> = 0.565, and at p = 20% 0.322 against 0.307; the approximation drifts for large p (0.095 against 0.075 at 50%). The news spreading has no theoretical benchmark, so it was checked by simulation only (<code>node tools/validate-weakties.js</code>).",
+"tr": "<b>Théorie et simulation :</b> Pour p = 0, la distance moyenne simulée était de 25,4 étapes contre l'approximation n/(2k) = 25,0, et le regroupement de 0,600, égal à la valeur théorique 0,600. Pour p = 2%, le regroupement était de 0,566 contre C(0)(1−p)<sup>3</sup> = 0,565, et pour p = 20% de 0,322 contre 0,307 ; l'approximation s'écarte pour les grands p (0,095 contre 0,075 à 50%). La propagation de la nouvelle n'a pas de référence théorique ; elle n'a donc été vérifiée que par simulation (<code>node tools/validate-weakties.js</code>)."
+},
+{
+"id": "s2427",
+"page": "weakties",
+"ko": "<b>더 읽을거리:</b> Granovetter (1973), \"The Strength of Weak Ties\", <i>American Journal of Sociology</i> 78(6); Watts &amp; Strogatz (1998), <i>Nature</i> 393; Barrat &amp; Weigt (2000), \"On the properties of small-world network models\", <i>European Physical Journal B</i> 13.",
+"en": "<b>Further reading:</b> Granovetter (1973), \"The Strength of Weak Ties\", <i>American Journal of Sociology</i> 78(6); Watts &amp; Strogatz (1998), <i>Nature</i> 393; Barrat &amp; Weigt (2000), \"On the properties of small-world network models\", <i>European Physical Journal B</i> 13.",
+"tr": "<b>Pour aller plus loin :</b> Granovetter (1973), « The Strength of Weak Ties », <i>American Journal of Sociology</i> 78(6) ; Watts &amp; Strogatz (1998), <i>Nature</i> 393 ; Barrat &amp; Weigt (2000), « On the properties of small-world network models », <i>European Physical Journal B</i> 13."
+},
+{
+"id": "s2428",
+"page": "weakties",
+"ko": "시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 평균 거리는 일부 출발점에서 너비 우선 탐색으로 구한 평균이고, ②와 ④는 설정마다 네트워크 6개, ③은 8개, 상단 숫자 카드는 14개를 만들어 평균을 냅니다.",
+"en": "The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. Average distance comes from breadth-first search from a sample of starting people; charts ② and ④ average 6 networks per setting, ③ averages 8, and the top cards average 14.",
+"tr": "La simulation utilise un générateur aléatoire à graine (mulberry32) ; la même graine donne donc le même résultat. La distance moyenne provient d'un parcours en largeur depuis un échantillon de personnes de départ ; les graphiques ② et ④ font la moyenne de 6 réseaux par réglage, ③ de 8, et les cartes du haut de 14."
+},
+{
+"id": "s2429",
+"page": "weakties",
+"ko": "검증은 <code>node tools/validate-weakties.js</code>로 할 수 있습니다.",
+"en": "You can verify with <code>node tools/validate-weakties.js</code>.",
+"tr": "Vous pouvez le vérifier avec <code>node tools/validate-weakties.js</code>."
+},
+{
+"id": "s2430",
+"page": "weakties",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/weakties\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/weakties\">GitHub</a>.",
+"tr": "Le code est disponible sur <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/weakties\">GitHub</a>."
+},
+{
+"id": "s2461",
+"page": "wealth",
+"ko": "모든 거래가 공정해도 시간이 지나면 부가 소수에게 쏠려요.",
+"en": "Even when every trade is fair, wealth concentrates in a few hands over time.",
+"tr": "Même quand chaque échange est équitable, la richesse se concentre avec le temps entre quelques mains."
+},
+{
+"id": "s2462",
+"page": "wealth",
+"ko": "이 모델에서는 가난해지면 걸 수 있는 돈이 작아 회복이 느려서, 우연이 곱해질수록 격차가 쌓여요.",
+"en": "In this model the poor can stake little, so recovery is slow and multiplied chance piles up gaps.",
+"tr": "Dans ce modèle, les pauvres ne peuvent miser que peu : le redressement est donc lent et le hasard multiplié accumule les écarts."
+},
+{
+"id": "s2463",
+"page": "wealth",
+"ko": "쏠림의 원인을 찾을 때는 개인의 행동보다 격차가 쌓이는 구조가 어디인지 살펴볼 만해요.",
+"en": "In looking for causes, it may help to examine where gaps accumulate, not just individual behavior.",
+"tr": "En cherchant des causes, il peut être utile d'examiner où les écarts s'accumulent, et pas seulement le comportement individuel."
+},
+{
+"id": "s2465",
+"page": "wealth",
+"ko": "현실의 부는 노동·상속·투자로 만들어지는데 이 모델에는 생산이 없고, 정책의 답도 아니에요.",
+"en": "Real wealth comes from work, inheritance and investment; this model has no production and no policy answer.",
+"tr": "La richesse réelle provient du travail, de l'héritage et de l'investissement ; ce modèle n'a pas de production et n'apporte pas de réponse politique."
+},
+{
+"id": "s2466",
+"page": "wealth",
+"ko": "재분배율은 실제 세율과 직접 비교할 수 없어서, 실제 자산 자료와 제도를 따로 살펴봐야 해요.",
+"en": "The redistribution rate isn't comparable to real tax rates; real asset data and rules need separate review.",
+"tr": "Le taux de redistribution n'est pas comparable aux taux d'imposition réels ; les données patrimoniales et les règles réelles demandent un examen séparé."
+},
+{
+"id": "s2468",
+"page": "wealth",
+"ko": "<b>모델의 뿌리:</b> 경제물리학의 \"야드세일(yard-sale) 모델\"을 바탕으로 합니다. 거래마다 가난한 쪽 재산의 일정 비율을 두고 공정한 내기를 하는 교환 모델로, John Angle(1986) 등이 처음 다뤘고 Brian Hayes(2002)의 글과 Bruce Boghosian 연구진의 연구로 알려졌습니다.",
+"en": "<b>Where the model comes from:</b> This builds on the \"yard-sale model\" of econophysics: in each trade two agents make a fair bet on a fixed fraction of the poorer one's wealth. It goes back to work such as John Angle (1986) and became widely known through Brian Hayes (2002) and the research of Bruce Boghosian and colleagues.",
+"tr": "<b>D'où vient le modèle :</b> Il s'appuie sur le « modèle du vide-grenier » (yard-sale model) de l'économophysique : à chaque échange, deux agents font un pari équitable sur une fraction fixe de la richesse du plus pauvre. Il remonte à des travaux comme ceux de John Angle (1986) et s'est fait largement connaître grâce à Brian Hayes (2002) et aux recherches de Bruce Boghosian et ses collègues."
+},
+{
+"id": "s2469",
+"page": "wealth",
+"ko": "<b>핵심 가정과 수식:</b> 두 사람의 재산이 <i>w<sub>i</sub></i>, <i>w<sub>j</sub></i>일 때 판돈은 <code>f·min(w<sub>i</sub>, w<sub>j</sub>)</code>이고 이길 확률은 50%입니다. 그래서 각자의 재산 기댓값은 거래로 변하지 않는데도, 재산이 곱셈으로 불었다 줄었다 하며 쏠림이 쌓입니다(순수 야드세일 모델은 오래 돌리면 한 사람에게 몰리는 것으로 알려져 있습니다). 재분배는 라운드마다 <code>w ← (1−τ)·w + τ·평균</code>, 부자 유리 정도 <i>b</i>는 부자가 이길 확률을 <code>0.5 + b·(w<sub>부자</sub>−w<sub>가난</sub>)/(w<sub>i</sub>+w<sub>j</sub>)</code>로 올립니다. 슬라이더는 <i>τ</i>(재분배율), <i>f</i>(판돈 비율), <i>b</i>(부자 유리 정도)입니다.",
+"en": "<b>Key assumptions and formulas:</b> With wealth <i>w<sub>i</sub></i> and <i>w<sub>j</sub></i>, the stake is <code>f·min(w<sub>i</sub>, w<sub>j</sub>)</code> and each side wins with probability 50%. Each person's expected wealth is unchanged by a trade, yet wealth grows and shrinks multiplicatively and concentration builds up (the pure yard-sale model is known to condense onto one agent if run long enough). Redistribution is <code>w ← (1−τ)·w + τ·mean</code> each round, and the rich-advantage <i>b</i> raises the richer side's win chance to <code>0.5 + b·(w<sub>rich</sub>−w<sub>poor</sub>)/(w<sub>i</sub>+w<sub>j</sub>)</code>. The sliders are <i>τ</i> (redistribution rate), <i>f</i> (stake fraction) and <i>b</i> (rich advantage).",
+"tr": "<b>Hypothèses clés et formules :</b> Avec les richesses <i>w<sub>i</sub></i> et <i>w<sub>j</sub></i>, la mise est <code>f·min(w<sub>i</sub>, w<sub>j</sub>)</code> et chaque camp gagne avec une probabilité de 50%. La richesse espérée de chacun n'est pas modifiée par un échange, mais la richesse croît et décroît de façon multiplicative et la concentration s'accumule (le modèle du vide-grenier pur est connu pour se condenser sur un seul agent s'il tourne assez longtemps). La redistribution est <code>w ← (1−τ)·w + τ·moyenne</code> à chaque tour, et l'avantage du riche <i>b</i> relève la chance de gain du plus riche à <code>0.5 + b·(w<sub>riche</sub>−w<sub>pauvre</sub>)/(w<sub>i</sub>+w<sub>j</sub>)</code>. Les curseurs sont <i>τ</i> (taux de redistribution), <i>f</i> (fraction misée) et <i>b</i> (avantage du riche)."
+},
+{
+"id": "s2470",
+"page": "wealth",
+"ko": "<b>이 프로젝트의 단순화:</b> 특정 논문의 수치를 그대로 재현한 것이 아닙니다. 사람 1,000명, 판돈 비율 20%, 한 라운드 1,000번 거래, 300라운드, 재분배를 라운드 끝에 한꺼번에 걷어 똑같이 나누는 방식, 부자 유리 식의 모양은 모두 이 프로젝트가 정한 값과 단순화입니다. 소득·노동·저축·상속은 없습니다.",
+"en": "<b>What this project simplifies:</b> It does not reproduce the numbers of a specific paper. The 1,000 agents, 20% stake, 1,000 trades per round, 300 rounds, collecting and splitting redistribution once at the end of each round, and the form of the rich-advantage formula are all this project's own values and simplifications. There is no income, labor, saving or inheritance.",
+"tr": "<b>Ce que ce projet simplifie :</b> Il ne reproduit pas les chiffres d'un article précis. Les 1 000 agents, la mise de 20%, les 1 000 échanges par tour, les 300 tours, la collecte et le partage de la redistribution une fois à la fin de chaque tour, ainsi que la forme de la formule de l'avantage du riche sont des valeurs et des simplifications propres à ce projet. Il n'y a ni revenu, ni travail, ni épargne, ni héritage."
+},
+{
+"id": "s2471",
+"page": "wealth",
+"ko": "<b>이론값과 시뮬레이션:</b> 이 설정에는 비교할 닫힌 해가 없어 시뮬레이션만으로 확인했습니다. 총 재산은 늘 1,000으로 보존되고, 기본 설정(공정한 거래, 세금 0)에서 지니계수가 0 → 0.39(10라운드) → 0.78(100) → 0.87(200) → 0.90(300)으로 계속 오르며 상위 10%가 86%를 가집니다. 재분배율 0.5%는 0.68, 1%는 0.58, 5%는 0.34로 낮춥니다(5회 평균, <code>node tools/validate-wealth.js</code>).",
+"en": "<b>Theory versus simulation:</b> There is no closed-form result to compare against here, so this was checked by simulation only. Total wealth stays at 1,000, and in the default setting (fair trades, no redistribution) the Gini coefficient keeps rising: 0 → 0.39 (round 10) → 0.78 (100) → 0.87 (200) → 0.90 (300), with the top 10% holding 86%. A redistribution rate of 0.5% lowers it to 0.68, 1% to 0.58 and 5% to 0.34 (5-run averages, <code>node tools/validate-wealth.js</code>).",
+"tr": "<b>Théorie et simulation :</b> Il n'existe ici aucun résultat analytique à comparer ; la vérification s'est donc faite uniquement par simulation. La richesse totale reste à 1 000 et, avec le réglage par défaut (échanges équitables, sans redistribution), le coefficient de Gini ne cesse de monter : 0 → 0,39 (tour 10) → 0,78 (100) → 0,87 (200) → 0,90 (300), les 10% les plus riches détenant 86%. Un taux de redistribution de 0,5% le ramène à 0,68, 1% à 0,58 et 5% à 0,34 (moyennes de 5 exécutions, <code>node tools/validate-wealth.js</code>)."
+},
+{
+"id": "s2472",
+"page": "wealth",
+"ko": "<b>더 읽을거리:</b> Brian Hayes (2002), \"Follow the Money\", <i>American Scientist</i>. Bruce M. Boghosian (2014), \"Kinetics of wealth and the Pareto law\", <i>Physical Review E</i>.",
+"en": "<b>Further reading:</b> Brian Hayes (2002), \"Follow the Money\", <i>American Scientist</i>. Bruce M. Boghosian (2014), \"Kinetics of wealth and the Pareto law\", <i>Physical Review E</i>.",
+"tr": "<b>Pour aller plus loin :</b> Brian Hayes (2002), « Follow the Money », <i>American Scientist</i>. Bruce M. Boghosian (2014), « Kinetics of wealth and the Pareto law », <i>Physical Review E</i>."
+},
+{
+"id": "s2475",
+"page": "wildfire",
+"ko": "산불 억제의 역설 · 시뮬라티오 랩",
+"en": "The Fire Suppression Paradox · Simulatio Lab",
+"tr": "Le paradoxe de la lutte contre les incendies · Simulatio Lab"
+},
+{
+"id": "s2476",
+"page": "wildfire",
+"ko": "나무가 자라고 번개가 치는 숲 격자에서 작은 불을 끄면 연료가 쌓여 큰 불이 늘어나는 과정을, 두 숲을 나란히 돌려 직접 확인해 보세요.",
+"en": "Run two forests side by side on a grid where trees grow and lightning strikes, and watch how putting out small fires lets fuel build up and makes big fires more frequent.",
+"tr": "Lancez deux forêts côte à côte sur une grille où poussent des arbres et tombent des éclairs, et regardez comment éteindre les petits feux laisse s'accumuler le combustible et rend les grands incendies plus fréquents."
+},
+{
+"id": "s2477",
+"page": "wildfire",
+"ko": "불이 나면 일찍 끌수록 좋다고 생각하기 쉽습니다. 작은 불을 놓치지 않고 끄면 큰 불도 막을 수 있을 테니까요. 그런데 이 모델의 숲에서는 작은 불을 90% 끄자 숲의 10% 이상을 태우는 큰 불이 약 6배로 늘었습니다(1만 단계당 21번에서 125번). 불이 태우던 나무가 치워지지 않고 쌓여, 한번 붙으면 걷잡을 수 없는 숲이 되기 때문입니다. 왼쪽(그냥 두기)과 오른쪽(작은 불 끄기)을 나란히 지켜보세요.",
+"en": "It is easy to think that the sooner a fire is put out, the better: catch every small fire and you also prevent the big ones. In this model forest, though, putting out 90% of small fires made fires that burn 10% or more of the forest about 6 times as frequent (from 21 to 125 per 10,000 steps). The trees small fires would have cleared pile up instead, and the forest becomes one where a single spark gets out of control. Watch the left forest (let it burn) and the right one (put out small fires) side by side.",
+"tr": "On pense facilement que plus vite un feu est éteint, mieux c'est : en maîtrisant tous les petits feux, on évite aussi les grands. Pourtant, dans cette forêt modèle, éteindre 90% des petits feux a rendu environ 6 fois plus fréquents les incendies qui brûlent 10% ou plus de la forêt (de 21 à 125 pour 10 000 pas). Les arbres que les petits feux auraient éliminés s'accumulent, et la forêt devient une forêt où une seule étincelle devient incontrôlable. Observez côte à côte la forêt de gauche (laisser brûler) et celle de droite (éteindre les petits feux)."
+},
+{
+"id": "s2478",
+"page": "wildfire",
+"ko": "숲은 격자 칸으로 이루어지고, 각 칸은 빈 땅이거나 나무입니다. 매 단계 <b>빈 땅에는 확률 p로 나무가 자랍니다.</b> 또 칸마다 확률 f로 <b>번개</b>가 칩니다(기본은 칸 1만 개당 단계마다 2번). 번개가 나무에 맞으면 불이 붙습니다.",
+"en": "The forest is a grid of cells, each empty or holding a tree. At every step <b>an empty cell grows a tree with probability p.</b> Each cell is also struck by <b>lightning</b> with probability f (by default 2 strikes per 10,000 cells per step). If lightning hits a tree, it catches fire.",
+"tr": "La forêt est une grille de cellules, chacune vide ou occupée par un arbre. À chaque pas, <b>une cellule vide fait pousser un arbre avec la probabilité p.</b> Chaque cellule est aussi frappée par la <b>foudre</b> avec la probabilité f (par défaut 2 impacts pour 10 000 cellules par pas). Si la foudre touche un arbre, il prend feu."
+},
+{
+"id": "s2479",
+"page": "wildfire",
+"ko": "불은 상하좌우로 이웃한 나무에 곧바로 번져, 이어진 나무 덩어리 전체가 한 번에 탑니다. 탄 자리는 빈 땅이 되어 다시 자랍니다. 이것이 Drossel-Schwabl 숲불 모델의 규칙입니다.",
+"en": "Fire spreads at once to the four neighboring trees, so a whole connected clump of trees burns in one go. Burnt cells become empty and regrow. These are the rules of the Drossel-Schwabl forest-fire model.",
+"tr": "Le feu se propage aussitôt aux quatre arbres voisins, si bien qu'un amas connexe d'arbres brûle d'un seul coup. Les cellules brûlées deviennent vides et repoussent. Ce sont les règles du modèle d'incendie de forêt de Drossel-Schwabl."
+},
+{
+"id": "s2480",
+"page": "wildfire",
+"ko": "<b>소방</b>은 이 프로젝트가 덧붙인 규칙입니다. 불이 붙은 순간 그 불이 작으면(덩어리가 격자 칸의 5% 이하) 확률 s로 곧바로 끕니다. 큰 불은 끌 수 없습니다. 끈 불의 나무는 타지 않고 남아 더 자라고, 이웃 덩어리와 이어집니다.",
+"en": "<b>Firefighting</b> is a rule this project added. When a fire starts and is small (the clump is 5% of the grid cells or less), it is put out right away with probability s. Large fires cannot be put out. The trees of an extinguished fire do not burn, stay, and link up with neighboring clumps.",
+"tr": "<b>La lutte contre les incendies</b> est une règle ajoutée par ce projet. Quand un feu démarre et qu'il est petit (l'amas occupe 5% des cellules de la grille ou moins), il est éteint aussitôt avec la probabilité s. Les grands feux ne peuvent pas être éteints. Les arbres d'un feu éteint ne brûlent pas, restent en place et se relient aux amas voisins."
+},
+{
+"id": "s2481",
+"page": "wildfire",
+"ko": "화면의 두 숲은 같은 설정으로 시작하지만 왼쪽은 s=0(그냥 두기), 오른쪽은 고른 s입니다. 아래 통계는 두 숲을 따로 오래 돌려(보통 4만 단계) 센 값이고, 큰 불은 격자 칸의 10% 이상을 태운 불입니다.",
+"en": "The two forests on screen start with the same settings, but the left one has s = 0 (let it burn) and the right one the s you choose. The statistics below come from running the two forests separately for a long time (usually 40,000 steps); a big fire is one that burns 10% or more of the grid cells.",
+"tr": "Les deux forêts à l'écran démarrent avec les mêmes réglages, mais celle de gauche a s = 0 (laisser brûler) et celle de droite le s que vous choisissez. Les statistiques ci-dessous proviennent de l'exécution séparée des deux forêts pendant longtemps (en général 40 000 pas) ; un grand incendie est un feu qui brûle 10% ou plus des cellules de la grille."
+},
+{
+"id": "s2482",
+"page": "wildfire",
+"ko": "나무가 자라는 속도 (p) <output id=\"o-p\"></output>",
+"en": "Tree growth rate (p) <output id=\"o-p\"></output>",
+"tr": "Taux de croissance des arbres (p) <output id=\"o-p\"></output>"
+},
+{
+"id": "s2483",
+"page": "wildfire",
+"ko": "매 단계 빈 땅 100칸 중 몇 칸에 나무가 자라는지. 클수록 숲이 빨리 우거져요",
+"en": "How many of every 100 empty cells grow a tree each step. Higher means a faster-growing forest",
+"tr": "Combien de cellules vides sur 100 font pousser un arbre à chaque pas. Plus c'est élevé, plus la forêt pousse vite"
+},
+{
+"id": "s2484",
+"page": "wildfire",
+"ko": "번개 세기 (f) <output id=\"o-f\"></output>",
+"en": "Lightning rate (f) <output id=\"o-f\"></output>",
+"tr": "Fréquence de la foudre (f) <output id=\"o-f\"></output>"
+},
+{
+"id": "s2485",
+"page": "wildfire",
+"ko": "칸 1만 개당 단계마다 치는 번개 수. 번개가 잦으면 불이 작을 때 번져 큰 불이 잘 안 나요",
+"en": "Lightning strikes per 10,000 cells per step. Frequent lightning burns forests while the fires are still small",
+"tr": "Impacts de foudre pour 10 000 cellules par pas. Quand la foudre est fréquente, les forêts brûlent alors que les feux sont encore petits"
+},
+{
+"id": "s2486",
+"page": "wildfire",
+"ko": "작은 불을 끄는 확률 (s) <output id=\"o-s\"></output>",
+"en": "Chance of putting out a small fire (s) <output id=\"o-s\"></output>",
+"tr": "Probabilité d'éteindre un petit feu (s) <output id=\"o-s\"></output>"
+},
+{
+"id": "s2487",
+"page": "wildfire",
+"ko": "0%면 오른쪽도 그냥 둡니다. 큰 불은 끌 수 없어요",
+"en": "At 0% the right forest is left alone too. Large fires cannot be put out",
+"tr": "À 0%, la forêt de droite est elle aussi laissée tranquille. Les grands feux ne peuvent pas être éteints"
+},
+{
+"id": "s2488",
+"page": "wildfire",
+"ko": "숲의 크기 <output id=\"o-n\"></output>",
+"en": "Forest size <output id=\"o-n\"></output>",
+"tr": "Taille de la forêt <output id=\"o-n\"></output>"
+},
+{
+"id": "s2489",
+"page": "wildfire",
+"ko": "한 변의 칸 수. 클수록 큰 불이 숲 전체를 덮기 어려워요",
+"en": "Cells per side. In a bigger forest, a fire has a harder time covering all of it",
+"tr": "Cellules par côté. Dans une forêt plus grande, un feu a plus de mal à tout recouvrir"
+},
+{
+"id": "s2490",
+"page": "wildfire",
+"ko": "같은 설정, 다른 숲",
+"en": "Same settings, a different forest",
+"tr": "Mêmes réglages, une autre forêt"
+},
+{
+"id": "s2491",
+"page": "wildfire",
+"ko": "① 두 숲의 불 지켜보기",
+"en": "① Watching Two Forests Burn",
+"tr": "① Voir brûler deux forêts"
+},
+{
+"id": "s2492",
+"page": "wildfire",
+"ko": "초록은 나무(어릴수록 연하고 오래될수록 짙음), 주황은 번지는 불꽃, 어두운 색은 방금 탄 자리와 빈 땅입니다. 왼쪽은 불을 그냥 두고, 오른쪽은 작은 불을 끕니다. 오른쪽 숲이 점점 짙어지다가 한꺼번에 타오르는 순간을 기다려 보세요.",
+"en": "Green is trees (lighter when young, darker when old), orange is spreading flame, and the dark colors are freshly burnt ground and empty land. The left forest lets fires burn, and the right one puts out small fires. Wait for the moment the right forest, growing darker and darker, goes up all at once.",
+"tr": "Le vert représente les arbres (plus clair quand ils sont jeunes, plus foncé quand ils sont vieux), l'orange la flamme qui se propage, et les couleurs sombres le sol fraîchement brûlé et les terrains vides. La forêt de gauche laisse brûler les feux, celle de droite éteint les petits. Attendez le moment où la forêt de droite, de plus en plus sombre, s'embrase d'un seul coup."
+},
+{
+"id": "s2493",
+"page": "wildfire",
+"ko": "② 숲에 나무가 얼마나 찰까",
+"en": "② How Full Does the Forest Get?",
+"tr": "② Jusqu'où la forêt se remplit-elle ?"
+},
+{
+"id": "s2494",
+"page": "wildfire",
+"ko": "두 숲의 나무 밀도(칸 중 나무가 있는 비율)가 시간에 따라 변하는 모습입니다. 점선은 칸에 나무가 무작위로 이 정도 있으면 이어진 덩어리가 숲 전체로 커질 수 있는 밀도(약 59%)입니다. 작은 불을 끄는 숲은 점선 가까이까지 올라갔다가 큰 불로 떨어집니다.",
+"en": "The tree density (share of cells holding a tree) of both forests over time. The dotted line is the density (about 59%) above which randomly placed trees can form a connected clump spanning the whole forest. The forest that puts out small fires climbs toward the line and then crashes in a big fire.",
+"tr": "La densité d'arbres (part des cellules occupées par un arbre) des deux forêts au fil du temps. La ligne pointillée est la densité (environ 59%) au-dessus de laquelle des arbres placés au hasard peuvent former un amas connexe traversant toute la forêt. La forêt qui éteint les petits feux monte vers la ligne puis s'effondre dans un grand incendie."
+},
+{
+"id": "s2495",
+"page": "wildfire",
+"ko": "<i style=\"background:#e5484d\"></i>그냥 두기",
+"en": "<i style=\"background:#e5484d\"></i>Let it burn",
+"tr": "<i style=\"background:#e5484d\"></i>Laisser brûler"
+},
+{
+"id": "s2496",
+"page": "wildfire",
+"ko": "<i style=\"background:#1f7a45\"></i>작은 불 끄기",
+"en": "<i style=\"background:#1f7a45\"></i>Put out small fires",
+"tr": "<i style=\"background:#1f7a45\"></i>Éteindre les petits feux"
+},
+{
+"id": "s2497",
+"page": "wildfire",
+"ko": "③ 불의 크기 분포",
+"en": "③ How Big Are the Fires?",
+"tr": "③ Quelle est la taille des incendies ?"
+},
+{
+"id": "s2498",
+"page": "wildfire",
+"ko": "두 숲을 따로 오래 돌렸을 때, 어떤 크기 이상의 불이 1,000단계에 몇 번 났는지입니다(양쪽 로그 눈금). 작은 불을 끄면 왼쪽 위의 작은 불이 사라지고, 오른쪽의 큰 불은 오히려 늘어납니다. 붉은 영역이 큰 불입니다.",
+"en": "After running both forests separately for a long time, this shows how many fires of at least a given size occurred per 1,000 steps (both axes logarithmic). Putting out small fires removes the small fires at upper left, while the big fires on the right actually become more frequent. The red zone marks big fires.",
+"tr": "Après avoir exécuté les deux forêts séparément pendant longtemps, ce graphique montre combien de feux d'au moins une taille donnée se sont produits pour 1 000 pas (les deux axes sont logarithmiques). Éteindre les petits feux supprime les petits en haut à gauche, tandis que les grands à droite deviennent plus fréquents. La zone rouge marque les grands incendies."
+},
+{
+"id": "s2499",
+"page": "wildfire",
+"ko": "④ 탄 면적은 어떤 불이 태웠나",
+"en": "④ Which Fires Burned the Area?",
+"tr": "④ Quels feux ont brûlé la surface ?"
+},
+{
+"id": "s2500",
+"page": "wildfire",
+"ko": "막대의 길이는 매 단계 타는 숲의 비율이고, 색은 그 면적을 태운 불의 크기입니다. 총량은 두 숲이 비슷합니다. 나무가 자라는 만큼만 탈 수 있기 때문이에요. 달라지는 것은 작은 불로 조금씩 타느냐, 큰 불로 한꺼번에 타느냐입니다.",
+"en": "The bar length is the share of the forest burning per step, and the colors show the size of the fires that burned it. The total is about the same in both forests, because only as many trees as grow can burn. What changes is whether it burns a little at a time in small fires or all at once in big ones.",
+"tr": "La longueur de la barre est la part de la forêt qui brûle par pas, et les couleurs indiquent la taille des feux qui l'ont brûlée. Le total est à peu près le même dans les deux forêts, car seuls autant d'arbres que ceux qui poussent peuvent brûler. Ce qui change, c'est si cela brûle peu à peu en petits feux ou d'un seul coup en grands incendies."
+},
+{
+"id": "s2501",
+"page": "wildfire",
+"ko": "작은 불을 100% 끄자 큰 불이 1만 단계당 21.4번에서 145.5번으로 늘었어요.",
+"en": "Putting out every small fire raised big fires from 21.4 to 145.5 per 10,000 steps.",
+"tr": "Éteindre tous les petits incendies a fait passer les grands incendies de 21,4 à 145,5 par 10 000 pas."
+},
+{
+"id": "s2502",
+"page": "wildfire",
+"ko": "끈 불의 나무가 타지 않고 남아 숲이 이어지면서, 나중에 번개가 맞으면 더 큰 덩어리가 한꺼번에 타기 때문일 수 있어요.",
+"en": "Saved trees stay and link up, so a later strike can burn a larger connected clump at once, at least in this model.",
+"tr": "Les arbres épargnés restent et se relient, de sorte qu'un coup de foudre ultérieur peut brûler d'un coup un massif connecté plus grand, du moins dans ce modèle."
+},
+{
+"id": "s2503",
+"page": "wildfire",
+"ko": "불 횟수만이 아니라 숲의 연료가 얼마나 이어져 쌓이는지까지 함께 살펴볼 만해요.",
+"en": "Beyond counting fires, how much connected fuel builds up may be worth looking at too.",
+"tr": "Au-delà du nombre d'incendies, il peut aussi être utile de regarder la quantité de combustible connecté qui s'accumule."
+},
+{
+"id": "s2504",
+"page": "wildfire",
+"ko": "<b>말하는 것:</b> 격자 100×100, 나무 성장 p=1%, 번개 칸 1만 개당 단계마다 2번, 소방이 끄는 불의 상한 5%에서, 시드 4개를 평균해 4만 단계 중 앞 2,000단계를 뺀 값은 이렇습니다. 그냥 두면 큰 불(격자의 10% 이상)이 1만 단계당 21.4번, 이 불들이 태운 면적은 전체의 4%였습니다. 작은 불을 50% 끄면 65.1번(13%), 90% 끄면 125.1번(27%), 100% 끄면 145.5번(31%)으로 늘었습니다. 한편 매 단계 타는 면적은 0.63%에서 0.61%로 거의 같았고, 평균 나무 밀도는 37%에서 39%로 조금만 올랐습니다. 가장 큰 불은 격자의 20%에서 28%로 커졌습니다. 이 효과는 번개가 드물수록 큽니다. 번개 세기를 1로 낮추면 큰 불의 면적 비중이 28%에서 51%가 되고, 5로 올리면 0%에서 6%, 10이면 0%에서 1%가 됩니다. 나무가 빨리 자랄수록(p=2%) 28%에서 52%, 숲이 작을수록(60×60) 38%에서 60%로 커졌고, 큰 숲(160×160)에서는 0%에서 6%였습니다.",
+"en": "<b>What it shows:</b> With a 100×100 grid, tree growth p = 1%, 2 lightning strikes per 10,000 cells per step and fires up to 5% of the grid put out by firefighters, averaging 4 seeds over 40,000 steps minus the first 2,000, the results were these. Left alone, big fires (10% or more of the grid) occurred 21.4 times per 10,000 steps and burned 4% of the total burned area. Putting out 50% of small fires raised this to 65.1 times (13%), 90% to 125.1 times (27%) and 100% to 145.5 times (31%). The area burning per step stayed almost the same, 0.63% versus 0.61%, and the mean tree density rose only a little, from 37% to 39%. The largest fire grew from 20% to 28% of the grid. The effect is larger when lightning is rarer: with lightning rate 1 the big fires' share of burned area goes from 28% to 51%, with 5 from 0% to 6%, and with 10 from 0% to 1%. It grew from 28% to 52% with faster tree growth (p = 2%) and from 38% to 60% in a smaller forest (60×60), and in a larger forest (160×160) it went from 0% to 6%.",
+"tr": "<b>Ce que cela montre :</b> Avec une grille de 100×100, une croissance des arbres p = 1%, 2 impacts de foudre pour 10 000 cellules par pas et des feux allant jusqu'à 5% de la grille éteints par les pompiers, en moyenne sur 4 graines pendant 40 000 pas moins les 2 000 premiers, voici les résultats. Laissés à eux-mêmes, les grands feux (10% ou plus de la grille) se produisaient 21,4 fois pour 10 000 pas et brûlaient 4% de la surface brûlée totale. Éteindre 50% des petits feux a porté ce chiffre à 65,1 fois (13%), 90% à 125,1 fois (27%) et 100% à 145,5 fois (31%). La surface brûlant par pas est restée presque la même, 0,63% contre 0,61%, et la densité moyenne d'arbres n'a que peu augmenté, de 37% à 39%. Le plus grand incendie est passé de 20% à 28% de la grille. L'effet est plus marqué quand la foudre est plus rare : avec une fréquence de foudre de 1, la part de la surface brûlée due aux grands feux passe de 28% à 51%, avec 5 de 0% à 6% et avec 10 de 0% à 1%. Elle est passée de 28% à 52% avec une croissance plus rapide des arbres (p = 2%) et de 38% à 60% dans une forêt plus petite (60×60) ; dans une forêt plus grande (160×160), elle est passée de 0% à 6%."
+},
+{
+"id": "s2505",
+"page": "wildfire",
+"ko": "실제 숲이 아니고 바람, 지형, 방화, 소방 자원이 빠져 있으며, 불을 꺼야 하는지는 알려 주지 않아요.",
+"en": "This is not a real forest, lacks wind, terrain and resources, and does not say whether to suppress fires.",
+"tr": "Ce n'est pas une vraie forêt, il n'y a ni vent, ni relief, ni ressources, et cela ne dit pas s'il faut supprimer les incendies."
+},
+{
+"id": "s2506",
+"page": "wildfire",
+"ko": "특정 지역에서는 연료 쌓임, 번개 빈도, 숲 크기를 실제로 관찰해 효과를 따로 확인해야 해요.",
+"en": "For a given region, fuel buildup, lightning frequency and forest size would need real observation.",
+"tr": "Pour une région donnée, il faudrait observer l'accumulation de combustible, la fréquence de la foudre et la taille de la forêt."
+},
+{
+"id": "s2507",
+"page": "wildfire",
+"ko": "<b>말하지 않는 것:</b> 이 모델은 실제 숲을 재현한 것이 아닙니다. 바람, 날씨, 지형, 나무 종류, 불씨가 날아가 번지는 것, 사람의 방화나 실화, 소방 자원의 한계, 계획적으로 놓는 불(처방 화입) 같은 요소가 모두 빠져 있고, 불은 이웃한 나무로만 곧바로 번집니다. 산불 생태학에서 오래 논의되어 온 \"억제의 역설\"(작은 불을 계속 끄면 연료가 쌓여 나중에 큰 불이 난다)의 메커니즘을 보여 줄 뿐, 어떤 지역에서 불을 꺼야 하는지 말아야 하는지를 알려 주지는 않습니다. 소방이 불을 끄는 것 자체가 나쁘다는 뜻도 아닙니다. 사람과 마을을 지키는 데는 불을 끄는 것이 필요하고, 이 모델에서도 번개가 잦고 숲이 크면 효과가 작았습니다. 끄는 불의 상한(5%)과 큰 불의 기준(10%)은 이 프로젝트가 정한 값입니다.",
+"en": "<b>What it doesn't show:</b> This model does not reproduce any real forest. Wind, weather, terrain, tree species, embers flying ahead of a fire, arson or accidental ignition by people, limits on firefighting resources, and deliberate burning (prescribed fire) are all missing, and fire spreads only to adjacent trees. It only shows the mechanism of the \"suppression paradox\" long discussed in fire ecology (keep putting out small fires and fuel builds up for a bigger fire later), and it cannot tell you where fires should or should not be put out. Nor does it mean that firefighting is bad: putting out fires is needed to protect people and towns, and in this model too the effect was small when lightning was frequent and the forest large. The size limit for fires that can be put out (5%) and the cutoff for a big fire (10%) are values this project chose.",
+"tr": "<b>Ce que cela ne montre pas :</b> Ce modèle ne reproduit aucune forêt réelle. Le vent, la météo, le relief, les essences d'arbres, les braises projetées en avant du feu, les incendies criminels ou accidentels d'origine humaine, les limites des moyens de lutte et le brûlage dirigé (brûlage prescrit) sont tous absents, et le feu ne se propage qu'aux arbres adjacents. Il montre seulement le mécanisme du « paradoxe de la suppression » longuement discuté en écologie du feu (continuer à éteindre les petits feux fait s'accumuler le combustible pour un feu plus grand par la suite), et il ne peut pas dire où il faut ou non éteindre les feux. Il ne signifie pas non plus que lutter contre les incendies est mauvais : éteindre les feux est nécessaire pour protéger les personnes et les villes, et dans ce modèle aussi, l'effet était faible quand la foudre était fréquente et la forêt grande. La limite de taille des feux éteignables (5%) et le seuil du grand incendie (10%) sont des valeurs choisies par ce projet."
+},
+{
+"id": "s2508",
+"page": "wildfire",
+"ko": "<b>모델의 뿌리:</b> Drossel &amp; Schwabl (1992), \"Self-organized critical forest-fire model\", <i>Physical Review Letters</i> 69. 나무가 자라고 번개가 불을 내는 단순한 격자 모델로, 불의 크기가 규칙적으로 오르내리는 임계 현상을 연구하려고 제안되었습니다. 이 모델은 그 규칙을 따른 이 프로젝트의 구현입니다.",
+"en": "<b>Where the model comes from:</b> Drossel &amp; Schwabl (1992), \"Self-organized critical forest-fire model\", <i>Physical Review Letters</i> 69. A simple grid model where trees grow and lightning starts fires, proposed to study critical behavior in fire sizes. This is this project's implementation of those rules.",
+"tr": "<b>D'où vient le modèle :</b> Drossel &amp; Schwabl (1992), « Self-organized critical forest-fire model », <i>Physical Review Letters</i> 69. Un modèle de grille simple où les arbres poussent et la foudre déclenche des feux, proposé pour étudier le comportement critique de la taille des incendies. Voici l'implémentation de ces règles par ce projet."
+},
+{
+"id": "s2509",
+"page": "wildfire",
+"ko": "<b>핵심 가정과 수식:</b> 매 단계 빈 칸은 확률 p로 나무가 되고, 나무는 확률 f로 불이 붙으며(여기서는 칸마다 확률 f의 번개가 치고 나무에 맞으면 불이 붙으니 나무 한 그루에 불이 붙을 확률도 f), 불은 이웃으로 즉시 번집니다. 한 번개당 자라는 나무 수 p/f가 클수록 큰 불이 납니다. 칸에 무작위로 나무가 있을 때 이어진 덩어리가 모든 곳으로 퍼지는 임계 밀도는 정사각 격자(상하좌우 이웃)에서 약 0.593입니다(site percolation). 슬라이더 p, f, s, 크기가 각각 식의 p, f, 소방 확률, 격자 변의 길이입니다.",
+"en": "<b>Key assumptions and formulas:</b> Each step an empty cell becomes a tree with probability p, a tree catches fire with probability f (here a lightning strike with probability f lands on each cell and ignites it if it holds a tree, so a tree ignites with probability f as well), and fire spreads to neighbors instantly. The more trees grow per lightning strike, p/f, the bigger the fires. For randomly placed trees on a square grid (4 neighbors), the critical density above which connected clumps can span everything is about 0.593 (site percolation). The sliders p, f, s and size are the model's p, f, the firefighting probability and the grid side length.",
+"tr": "<b>Hypothèses clés et formules :</b> À chaque pas, une cellule vide devient un arbre avec la probabilité p, un arbre prend feu avec la probabilité f (ici, un coup de foudre de probabilité f tombe sur chaque cellule et l'enflamme si elle contient un arbre, de sorte qu'un arbre s'enflamme lui aussi avec la probabilité f), et le feu se propage instantanément aux voisins. Plus il pousse d'arbres par coup de foudre, p/f, plus les incendies sont grands. Pour des arbres placés au hasard sur une grille carrée (4 voisins), la densité critique au-dessus de laquelle des amas connexes peuvent tout traverser est d'environ 0,593 (percolation de sites). Les curseurs p, f, s et taille sont le p et le f du modèle, la probabilité de lutte contre le feu et le côté de la grille."
+},
+{
+"id": "s2510",
+"page": "wildfire",
+"ko": "<b>이 프로젝트의 단순화:</b> 원 모델은 f/p가 0에 가까운 극한에서 불 크기 분포가 거듭제곱 법칙을 따르는 구간을 보이는데, 이 페이지의 기본값(p/f는 칸당 50)은 그 극한과 멀고 격자도 작아서 거듭제곱 법칙을 주장하지 않습니다. 소방(작은 불만 확률 s로 끄기)은 원 모델에 없는 이 프로젝트의 추가 규칙이고, 5%·10%는 이 프로젝트가 정한 값입니다. 가장자리는 이어지지 않는 벽입니다.",
+"en": "<b>What this project simplifies:</b> The original model shows a power-law range of fire sizes in the limit where f/p goes to zero. This page's defaults (p/f of 50 per cell) are far from that limit and the grid is small, so no power law is claimed. Firefighting (putting out only small fires with probability s) is an extra rule added by this project, and the 5% and 10% are values it chose. The edges are walls that do not wrap around.",
+"tr": "<b>Ce que ce projet simplifie :</b> Le modèle original présente une plage de tailles d'incendie en loi de puissance dans la limite où f/p tend vers zéro. Les valeurs par défaut de cette page (p/f de 50 par cellule) sont très éloignées de cette limite et la grille est petite ; aucune loi de puissance n'est donc revendiquée. La lutte contre le feu (n'éteindre que les petits feux avec la probabilité s) est une règle supplémentaire ajoutée par ce projet, et les 5% et 10% sont des valeurs qu'il a choisies. Les bords sont des murs qui ne se referment pas sur eux-mêmes."
+},
+{
+"id": "s2511",
+"page": "wildfire",
+"ko": "<b>이론값과 시뮬레이션:</b> 독립적으로 다시 짠 코드로 100×100 격자에 무작위로 나무를 심으면 가장 큰 덩어리가 차지하는 비율이 밀도 0.5에서 2%, 0.59에서 27%, 0.62에서 50%로, 임계 밀도 약 0.593 부근에서 급격히 커졌습니다(20회 평균). 장기 평균에서 타는 나무 수와 심어지는 나무 수도 맞았습니다(3만 단계에 188만 3,823그루 대 188만 3,740그루). 소방 때문에 연료가 쌓이는 정도는 위의 \"말하는 것\"의 실측값입니다. 이 효과를 식으로 풀어 비교하지는 않았고 시뮬레이션만으로 확인했습니다.",
+"en": "<b>Theory versus simulation:</b> Using independently rewritten code to plant trees at random on a 100×100 grid, the share taken by the largest clump was 2% at density 0.5, 27% at 0.59 and 50% at 0.62, growing sharply around the critical density of about 0.593 (average of 20 runs). The number of trees burned and planted also matched over the long run (1,883,823 versus 1,883,740 over 30,000 steps). How much fuel builds up because of firefighting is given by the measurements under \"What it shows\" above. This effect was not compared with a closed-form solution; it was checked by simulation only.",
+"tr": "<b>Théorie et simulation :</b> Avec un code réécrit indépendamment pour planter des arbres au hasard sur une grille de 100×100, la part occupée par le plus grand amas était de 2% à la densité 0,5, 27% à 0,59 et 50% à 0,62, croissant brutalement autour de la densité critique d'environ 0,593 (moyenne de 20 exécutions). Le nombre d'arbres brûlés et plantés concordait aussi sur le long terme (1 883 823 contre 1 883 740 en 30 000 pas). La quantité de combustible accumulée à cause de la lutte contre le feu est donnée par les mesures de « Ce que cela montre » ci-dessus. Cet effet n'a pas été comparé à une solution analytique ; il n'a été vérifié que par simulation."
+},
+{
+"id": "s2512",
+"page": "wildfire",
+"ko": "<b>더 읽을거리:</b> Drossel &amp; Schwabl (1992), <i>Physical Review Letters</i> 69 (위 논문). 퍼콜레이션은 Stauffer &amp; Aharony, <i>Introduction to Percolation Theory</i> (Taylor &amp; Francis)에 정리되어 있습니다.",
+"en": "<b>Further reading:</b> Drossel &amp; Schwabl (1992), <i>Physical Review Letters</i> 69 (the paper above). Percolation is covered in Stauffer &amp; Aharony, <i>Introduction to Percolation Theory</i> (Taylor &amp; Francis).",
+"tr": "<b>Pour aller plus loin :</b> Drossel &amp; Schwabl (1992), <i>Physical Review Letters</i> 69 (l'article ci-dessus). La percolation est traitée dans Stauffer &amp; Aharony, <i>Introduction to Percolation Theory</i> (Taylor &amp; Francis)."
+},
+{
+"id": "s2513",
+"page": "wildfire",
+"ko": "검증은 <code>node tools/validate-wildfire.js</code>로 할 수 있습니다(약 2분). 시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다.",
+"en": "You can verify with <code>node tools/validate-wildfire.js</code> (about 2 minutes). The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result.",
+"tr": "Vous pouvez le vérifier avec <code>node tools/validate-wildfire.js</code> (environ 2 minutes). La simulation utilise un générateur aléatoire à graine (mulberry32) ; la même graine donne donc le même résultat."
+},
+{
+"id": "s2514",
+"page": "wildfire",
+"ko": "성장은 빈 칸 목록에서 무작위로 뽑아 심고(칸 수에 비례하는 푸아송 근사), 번개는 푸아송 수만큼 무작위 칸에 떨어뜨립니다. 불 덩어리는 깊이 우선 탐색으로 구해 한 번에 태웁니다. 페이지의 통계 카드는 화면의 두 숲과 별개로 따로 오래 돌린 값입니다.",
+"en": "Growth plants trees at random from a list of empty cells (a Poisson approximation scaled to the number of empty cells), and lightning lands on a Poisson number of random cells. A fire's clump is found by depth-first search and burned at once. The statistic cards come from separate long runs, not from the two forests on screen.",
+"tr": "La croissance plante des arbres au hasard à partir d'une liste de cellules vides (une approximation de Poisson mise à l'échelle du nombre de cellules vides), et la foudre tombe sur un nombre poissonnien de cellules aléatoires. L'amas d'un feu est trouvé par un parcours en profondeur et brûlé d'un coup. Les cartes de statistiques proviennent d'exécutions longues séparées, et non des deux forêts affichées à l'écran."
+},
+{
+"id": "s2515",
+"page": "wildfire",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/wildfire\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/wildfire\">GitHub</a>.",
+"tr": "Le code est disponible sur <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/wildfire\">GitHub</a>."
+},
+{
+"id": "s2535",
+"page": "youtube",
+"ko": "인기 순 추천이 강할수록 구독이 소수 채널에 쏠리고 품질과 결과의 연결은 약해졌어요.",
+"en": "The stronger the popularity-based recommendation, the more subscriptions piled onto a few channels and the weaker the tie to quality.",
+"tr": "Plus la recommandation fondée sur la popularité était forte, plus les abonnements s'entassaient sur quelques chaînes et plus le lien avec la qualité s'affaiblissait."
+},
+{
+"id": "s2536",
+"page": "youtube",
+"ko": "구독자가 많은 채널이 더 많이 추천받는 되먹임 때문에, 초기 우연이 쌓여 순위가 굳을 수 있어요.",
+"en": "Channels with more subscribers get recommended more, so early luck can compound and harden the ranking.",
+"tr": "Les chaînes qui comptent plus d'abonnés sont davantage recommandées : la chance du début peut donc se cumuler et figer le classement."
+}
+]

@@ -1,20 +1,20 @@
 {
  "says_ko": [
   "작은 눈사태가 흔하고 큰 눈사태가 드문 분포가 나타나, 기울기는 평균 -1.22였습니다.",
-  "같은 한 알이 아무 일도 없기도 하고 수천 번의 무너짐이 되기도 해서, 원인의 크기가 결과의 크기를 정하지 않을 수 있습니다.",
-  "큰 사건에 큰 원인이 꼭 필요하지 않을 수 있으니, 사건마다 특별한 이유를 찾기 전에 구조부터 살펴볼 만합니다."
+  "한 알이 이웃 넷에게 나눠지며 연쇄하는 구조라, 같은 한 알이 아무 일도 없기도 수천 번 무너짐이 되기도 했습니다.",
+  "큰 사건에 큰 원인이 꼭 필요하지 않을 수 있으니, 특별한 이유를 찾기 전에 연결 구조부터 살펴볼 만합니다."
  ],
  "says_en": [
   "Small avalanches were common and huge ones rare, with a log-log slope averaging -1.22.",
-  "The same single grain can do nothing or trigger thousands of topples, so cause size may not set effect size.",
-  "Big events may not need big causes, so it is worth examining structure before hunting for a special reason."
+  "Because a grain spreads to four neighbors and chains on, the same single grain caused nothing or thousands of topples.",
+  "Big events may not need big causes, so the connection structure is worth examining before hunting for a special reason."
  ],
  "not_ko": [
-  "실제 모래더미나 지진·산불·주가 폭락의 원인을 설명하거나 증명하지는 않습니다.",
-  "기울기는 한정된 판과 표본에서 잰 값이라 이론의 정확한 지수를 확인한 것은 아닙니다."
+  "실제 모래더미나 지진·산불·주가 폭락의 원인을 설명하는 것은 아닙니다. 기울기는 이 판에서 잰 값입니다.",
+  "현실의 사건 크기를 모아 분포 모양을 비교하고, 이웃에게 전해지는 연결이 실제로 있는지 살펴야 합니다."
  ],
  "not_en": [
-  "It neither explains nor proves the causes of real sandpiles, earthquakes, wildfires or stock crashes.",
-  "The slope was measured on limited grids and samples, so it does not confirm the theoretical exponent."
+  "It does not explain real sandpiles, quakes, fires or crashes; the slope is measured on these grids.",
+  "Real event sizes would need collecting to compare distributions, and whether such neighbor-to-neighbor links exist must be examined."
  ]
 }

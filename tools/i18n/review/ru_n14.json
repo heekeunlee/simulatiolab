@@ -1,0 +1,1066 @@
+[
+{
+"id": "s2480",
+"page": "wildfire",
+"ko": "<b>소방</b>은 이 프로젝트가 덧붙인 규칙입니다. 불이 붙은 순간 그 불이 작으면(덩어리가 격자 칸의 5% 이하) 확률 s로 곧바로 끕니다. 큰 불은 끌 수 없습니다. 끈 불의 나무는 타지 않고 남아 더 자라고, 이웃 덩어리와 이어집니다.",
+"en": "<b>Firefighting</b> is a rule this project added. When a fire starts and is small (the clump is 5% of the grid cells or less), it is put out right away with probability s. Large fires cannot be put out. The trees of an extinguished fire do not burn, stay, and link up with neighboring clumps.",
+"tr": "<b>Борьба с пожарами</b> — правило, добавленное этим проектом. Когда начинается пожар и он невелик (скопление занимает не более 5% клеток сетки), он тут же тушится с вероятностью s. Большие пожары потушить нельзя. Деревья потушенного пожара не сгорают, остаются и соединяются с соседними скоплениями."
+},
+{
+"id": "s2481",
+"page": "wildfire",
+"ko": "화면의 두 숲은 같은 설정으로 시작하지만 왼쪽은 s=0(그냥 두기), 오른쪽은 고른 s입니다. 아래 통계는 두 숲을 따로 오래 돌려(보통 4만 단계) 센 값이고, 큰 불은 격자 칸의 10% 이상을 태운 불입니다.",
+"en": "The two forests on screen start with the same settings, but the left one has s = 0 (let it burn) and the right one the s you choose. The statistics below come from running the two forests separately for a long time (usually 40,000 steps); a big fire is one that burns 10% or more of the grid cells.",
+"tr": "Два леса на экране начинают с одинаковыми настройками, но у левого s = 0 (пусть горит), а у правого — выбранное вами s. Статистика ниже получена при отдельном длительном запуске двух лесов (обычно 40 000 шагов); большой пожар — это пожар, сжигающий 10% клеток сетки и более."
+},
+{
+"id": "s2482",
+"page": "wildfire",
+"ko": "나무가 자라는 속도 (p) <output id=\"o-p\"></output>",
+"en": "Tree growth rate (p) <output id=\"o-p\"></output>",
+"tr": "Скорость роста деревьев (p) <output id=\"o-p\"></output>"
+},
+{
+"id": "s2483",
+"page": "wildfire",
+"ko": "매 단계 빈 땅 100칸 중 몇 칸에 나무가 자라는지. 클수록 숲이 빨리 우거져요",
+"en": "How many of every 100 empty cells grow a tree each step. Higher means a faster-growing forest",
+"tr": "Сколько из каждых 100 пустых клеток обрастают деревом за шаг. Чем выше, тем быстрее растёт лес"
+},
+{
+"id": "s2484",
+"page": "wildfire",
+"ko": "번개 세기 (f) <output id=\"o-f\"></output>",
+"en": "Lightning rate (f) <output id=\"o-f\"></output>",
+"tr": "Частота молний (f) <output id=\"o-f\"></output>"
+},
+{
+"id": "s2485",
+"page": "wildfire",
+"ko": "칸 1만 개당 단계마다 치는 번개 수. 번개가 잦으면 불이 작을 때 번져 큰 불이 잘 안 나요",
+"en": "Lightning strikes per 10,000 cells per step. Frequent lightning burns forests while the fires are still small",
+"tr": "Ударов молнии на 10 000 клеток за шаг. При частых молниях леса горят, пока пожары ещё малы"
+},
+{
+"id": "s2486",
+"page": "wildfire",
+"ko": "작은 불을 끄는 확률 (s) <output id=\"o-s\"></output>",
+"en": "Chance of putting out a small fire (s) <output id=\"o-s\"></output>",
+"tr": "Вероятность потушить небольшой пожар (s) <output id=\"o-s\"></output>"
+},
+{
+"id": "s2487",
+"page": "wildfire",
+"ko": "0%면 오른쪽도 그냥 둡니다. 큰 불은 끌 수 없어요",
+"en": "At 0% the right forest is left alone too. Large fires cannot be put out",
+"tr": "При 0% правый лес тоже оставлен в покое. Большие пожары потушить нельзя"
+},
+{
+"id": "s2488",
+"page": "wildfire",
+"ko": "숲의 크기 <output id=\"o-n\"></output>",
+"en": "Forest size <output id=\"o-n\"></output>",
+"tr": "Размер леса <output id=\"o-n\"></output>"
+},
+{
+"id": "s2489",
+"page": "wildfire",
+"ko": "한 변의 칸 수. 클수록 큰 불이 숲 전체를 덮기 어려워요",
+"en": "Cells per side. In a bigger forest, a fire has a harder time covering all of it",
+"tr": "Клеток на сторону. В большом лесу огню труднее охватить всё"
+},
+{
+"id": "s2490",
+"page": "wildfire",
+"ko": "같은 설정, 다른 숲",
+"en": "Same settings, a different forest",
+"tr": "Те же настройки, другой лес"
+},
+{
+"id": "s2491",
+"page": "wildfire",
+"ko": "① 두 숲의 불 지켜보기",
+"en": "① Watching Two Forests Burn",
+"tr": "① Как горят два леса"
+},
+{
+"id": "s2492",
+"page": "wildfire",
+"ko": "초록은 나무(어릴수록 연하고 오래될수록 짙음), 주황은 번지는 불꽃, 어두운 색은 방금 탄 자리와 빈 땅입니다. 왼쪽은 불을 그냥 두고, 오른쪽은 작은 불을 끕니다. 오른쪽 숲이 점점 짙어지다가 한꺼번에 타오르는 순간을 기다려 보세요.",
+"en": "Green is trees (lighter when young, darker when old), orange is spreading flame, and the dark colors are freshly burnt ground and empty land. The left forest lets fires burn, and the right one puts out small fires. Wait for the moment the right forest, growing darker and darker, goes up all at once.",
+"tr": "Зелёный — деревья (светлее у молодых, темнее у старых), оранжевый — распространяющееся пламя, а тёмные цвета — свежая гарь и пустая земля. Левый лес позволяет пожарам гореть, правый тушит мелкие. Дождитесь момента, когда правый лес, становясь всё темнее, вспыхнет разом."
+},
+{
+"id": "s2493",
+"page": "wildfire",
+"ko": "② 숲에 나무가 얼마나 찰까",
+"en": "② How Full Does the Forest Get?",
+"tr": "② Насколько густеет лес?"
+},
+{
+"id": "s2494",
+"page": "wildfire",
+"ko": "두 숲의 나무 밀도(칸 중 나무가 있는 비율)가 시간에 따라 변하는 모습입니다. 점선은 칸에 나무가 무작위로 이 정도 있으면 이어진 덩어리가 숲 전체로 커질 수 있는 밀도(약 59%)입니다. 작은 불을 끄는 숲은 점선 가까이까지 올라갔다가 큰 불로 떨어집니다.",
+"en": "The tree density (share of cells holding a tree) of both forests over time. The dotted line is the density (about 59%) above which randomly placed trees can form a connected clump spanning the whole forest. The forest that puts out small fires climbs toward the line and then crashes in a big fire.",
+"tr": "Плотность деревьев (доля клеток с деревом) в обоих лесах с течением времени. Пунктир — плотность (около 59%), выше которой случайно расставленные деревья могут образовать связное скопление, пересекающее весь лес. Лес, где тушат мелкие пожары, поднимается к этой линии, а затем рушится в большом пожаре."
+},
+{
+"id": "s2495",
+"page": "wildfire",
+"ko": "<i style=\"background:#e5484d\"></i>그냥 두기",
+"en": "<i style=\"background:#e5484d\"></i>Let it burn",
+"tr": "<i style=\"background:#e5484d\"></i>Пусть горит"
+},
+{
+"id": "s2496",
+"page": "wildfire",
+"ko": "<i style=\"background:#1f7a45\"></i>작은 불 끄기",
+"en": "<i style=\"background:#1f7a45\"></i>Put out small fires",
+"tr": "<i style=\"background:#1f7a45\"></i>Тушить мелкие пожары"
+},
+{
+"id": "s2497",
+"page": "wildfire",
+"ko": "③ 불의 크기 분포",
+"en": "③ How Big Are the Fires?",
+"tr": "③ Насколько велики пожары?"
+},
+{
+"id": "s2498",
+"page": "wildfire",
+"ko": "두 숲을 따로 오래 돌렸을 때, 어떤 크기 이상의 불이 1,000단계에 몇 번 났는지입니다(양쪽 로그 눈금). 작은 불을 끄면 왼쪽 위의 작은 불이 사라지고, 오른쪽의 큰 불은 오히려 늘어납니다. 붉은 영역이 큰 불입니다.",
+"en": "After running both forests separately for a long time, this shows how many fires of at least a given size occurred per 1,000 steps (both axes logarithmic). Putting out small fires removes the small fires at upper left, while the big fires on the right actually become more frequent. The red zone marks big fires.",
+"tr": "После длительного отдельного запуска обоих лесов показано, сколько пожаров размером не меньше заданного случалось на 1 000 шагов (обе оси логарифмические). Тушение мелких пожаров убирает небольшие пожары слева вверху, а большие справа, наоборот, становятся чаще. Красная зона обозначает большие пожары."
+},
+{
+"id": "s2499",
+"page": "wildfire",
+"ko": "④ 탄 면적은 어떤 불이 태웠나",
+"en": "④ Which Fires Burned the Area?",
+"tr": "④ Какие пожары выжгли площадь?"
+},
+{
+"id": "s2500",
+"page": "wildfire",
+"ko": "막대의 길이는 매 단계 타는 숲의 비율이고, 색은 그 면적을 태운 불의 크기입니다. 총량은 두 숲이 비슷합니다. 나무가 자라는 만큼만 탈 수 있기 때문이에요. 달라지는 것은 작은 불로 조금씩 타느냐, 큰 불로 한꺼번에 타느냐입니다.",
+"en": "The bar length is the share of the forest burning per step, and the colors show the size of the fires that burned it. The total is about the same in both forests, because only as many trees as grow can burn. What changes is whether it burns a little at a time in small fires or all at once in big ones.",
+"tr": "Длина столбца — доля леса, сгорающая за шаг, а цвета показывают размер пожаров, которые её сожгли. Итог в обоих лесах примерно одинаков, ведь сгореть может лишь столько деревьев, сколько выросло. Меняется то, горит ли лес понемногу в мелких пожарах или сразу в больших."
+},
+{
+"id": "s2501",
+"page": "wildfire",
+"ko": "작은 불을 100% 끄자 큰 불이 1만 단계당 21.4번에서 145.5번으로 늘었어요.",
+"en": "Putting out every small fire raised big fires from 21.4 to 145.5 per 10,000 steps.",
+"tr": "Тушение всех мелких пожаров увеличило число крупных с 21,4 до 145,5 на 10 000 шагов."
+},
+{
+"id": "s2502",
+"page": "wildfire",
+"ko": "끈 불의 나무가 타지 않고 남아 숲이 이어지면서, 나중에 번개가 맞으면 더 큰 덩어리가 한꺼번에 타기 때문일 수 있어요.",
+"en": "Saved trees stay and link up, so a later strike can burn a larger connected clump at once, at least in this model.",
+"tr": "Сохранённые деревья остаются и соединяются между собой, поэтому последующий удар может сжечь сразу более крупный связный массив — по крайней мере, в этой модели."
+},
+{
+"id": "s2503",
+"page": "wildfire",
+"ko": "불 횟수만이 아니라 숲의 연료가 얼마나 이어져 쌓이는지까지 함께 살펴볼 만해요.",
+"en": "Beyond counting fires, how much connected fuel builds up may be worth looking at too.",
+"tr": "Помимо подсчёта пожаров, возможно, стоит посмотреть и на то, сколько связного топлива накапливается."
+},
+{
+"id": "s2504",
+"page": "wildfire",
+"ko": "<b>말하는 것:</b> 격자 100×100, 나무 성장 p=1%, 번개 칸 1만 개당 단계마다 2번, 소방이 끄는 불의 상한 5%에서, 시드 4개를 평균해 4만 단계 중 앞 2,000단계를 뺀 값은 이렇습니다. 그냥 두면 큰 불(격자의 10% 이상)이 1만 단계당 21.4번, 이 불들이 태운 면적은 전체의 4%였습니다. 작은 불을 50% 끄면 65.1번(13%), 90% 끄면 125.1번(27%), 100% 끄면 145.5번(31%)으로 늘었습니다. 한편 매 단계 타는 면적은 0.63%에서 0.61%로 거의 같았고, 평균 나무 밀도는 37%에서 39%로 조금만 올랐습니다. 가장 큰 불은 격자의 20%에서 28%로 커졌습니다. 이 효과는 번개가 드물수록 큽니다. 번개 세기를 1로 낮추면 큰 불의 면적 비중이 28%에서 51%가 되고, 5로 올리면 0%에서 6%, 10이면 0%에서 1%가 됩니다. 나무가 빨리 자랄수록(p=2%) 28%에서 52%, 숲이 작을수록(60×60) 38%에서 60%로 커졌고, 큰 숲(160×160)에서는 0%에서 6%였습니다.",
+"en": "<b>What it shows:</b> With a 100×100 grid, tree growth p = 1%, 2 lightning strikes per 10,000 cells per step and fires up to 5% of the grid put out by firefighters, averaging 4 seeds over 40,000 steps minus the first 2,000, the results were these. Left alone, big fires (10% or more of the grid) occurred 21.4 times per 10,000 steps and burned 4% of the total burned area. Putting out 50% of small fires raised this to 65.1 times (13%), 90% to 125.1 times (27%) and 100% to 145.5 times (31%). The area burning per step stayed almost the same, 0.63% versus 0.61%, and the mean tree density rose only a little, from 37% to 39%. The largest fire grew from 20% to 28% of the grid. The effect is larger when lightning is rarer: with lightning rate 1 the big fires' share of burned area goes from 28% to 51%, with 5 from 0% to 6%, and with 10 from 0% to 1%. It grew from 28% to 52% with faster tree growth (p = 2%) and from 38% to 60% in a smaller forest (60×60), and in a larger forest (160×160) it went from 0% to 6%.",
+"tr": "<b>Что это показывает:</b> На сетке 100×100 при росте деревьев p = 1%, 2 ударах молнии на 10 000 клеток за шаг и тушении пожарными пожаров до 5% сетки, при усреднении по 4 зёрнам за 40 000 шагов без первых 2 000, получились такие результаты. Без вмешательства большие пожары (10% сетки и более) случались 21,4 раза на 10 000 шагов и сжигали 4% всей выгоревшей площади. Тушение 50% мелких пожаров подняло это до 65,1 раза (13%), 90% — до 125,1 раза (27%), а 100% — до 145,5 раза (31%). Площадь, сгорающая за шаг, осталась почти прежней — 0,63% против 0,61%, а средняя плотность деревьев выросла лишь немного, с 37% до 39%. Самый большой пожар вырос с 20% до 28% сетки. Эффект сильнее при более редких молниях: при частоте молний 1 доля выгоревшей площади, приходящаяся на большие пожары, растёт с 28% до 51%, при 5 — с 0% до 6%, при 10 — с 0% до 1%. Она выросла с 28% до 52% при более быстром росте деревьев (p = 2%) и с 38% до 60% в меньшем лесу (60×60), а в большем лесу (160×160) — с 0% до 6%."
+},
+{
+"id": "s2505",
+"page": "wildfire",
+"ko": "실제 숲이 아니고 바람, 지형, 방화, 소방 자원이 빠져 있으며, 불을 꺼야 하는지는 알려 주지 않아요.",
+"en": "This is not a real forest, lacks wind, terrain and resources, and does not say whether to suppress fires.",
+"tr": "Это не настоящий лес: в нём нет ветра, рельефа и ресурсов, и он не говорит, нужно ли подавлять пожары."
+},
+{
+"id": "s2506",
+"page": "wildfire",
+"ko": "특정 지역에서는 연료 쌓임, 번개 빈도, 숲 크기를 실제로 관찰해 효과를 따로 확인해야 해요.",
+"en": "For a given region, fuel buildup, lightning frequency and forest size would need real observation.",
+"tr": "Для конкретного региона пришлось бы наблюдать накопление топлива, частоту молний и размер леса."
+},
+{
+"id": "s2507",
+"page": "wildfire",
+"ko": "<b>말하지 않는 것:</b> 이 모델은 실제 숲을 재현한 것이 아닙니다. 바람, 날씨, 지형, 나무 종류, 불씨가 날아가 번지는 것, 사람의 방화나 실화, 소방 자원의 한계, 계획적으로 놓는 불(처방 화입) 같은 요소가 모두 빠져 있고, 불은 이웃한 나무로만 곧바로 번집니다. 산불 생태학에서 오래 논의되어 온 \"억제의 역설\"(작은 불을 계속 끄면 연료가 쌓여 나중에 큰 불이 난다)의 메커니즘을 보여 줄 뿐, 어떤 지역에서 불을 꺼야 하는지 말아야 하는지를 알려 주지는 않습니다. 소방이 불을 끄는 것 자체가 나쁘다는 뜻도 아닙니다. 사람과 마을을 지키는 데는 불을 끄는 것이 필요하고, 이 모델에서도 번개가 잦고 숲이 크면 효과가 작았습니다. 끄는 불의 상한(5%)과 큰 불의 기준(10%)은 이 프로젝트가 정한 값입니다.",
+"en": "<b>What it doesn't show:</b> This model does not reproduce any real forest. Wind, weather, terrain, tree species, embers flying ahead of a fire, arson or accidental ignition by people, limits on firefighting resources, and deliberate burning (prescribed fire) are all missing, and fire spreads only to adjacent trees. It only shows the mechanism of the \"suppression paradox\" long discussed in fire ecology (keep putting out small fires and fuel builds up for a bigger fire later), and it cannot tell you where fires should or should not be put out. Nor does it mean that firefighting is bad: putting out fires is needed to protect people and towns, and in this model too the effect was small when lightning was frequent and the forest large. The size limit for fires that can be put out (5%) and the cutoff for a big fire (10%) are values this project chose.",
+"tr": "<b>Чего это не показывает:</b> Эта модель не воспроизводит никакой реальный лес. В ней нет ветра, погоды, рельефа, пород деревьев, головёшек, летящих впереди огня, поджогов или случайных возгораний по вине людей, ограничений ресурсов пожаротушения и преднамеренных выжиганий (контролируемых палов), а огонь переходит только на соседние деревья. Она лишь показывает механизм «парадокса подавления», давно обсуждаемого в экологии пожаров (если постоянно тушить мелкие пожары, топливо накапливается для более крупного пожара позже), и не может сказать, где пожары следует или не следует тушить. Это и не значит, что тушение — плохо: тушить пожары нужно, чтобы защищать людей и города, и в этой модели эффект тоже был мал, когда молнии были частыми, а лес большим. Предел размера тушимых пожаров (5%) и порог большого пожара (10%) — значения, выбранные этим проектом."
+},
+{
+"id": "s2508",
+"page": "wildfire",
+"ko": "<b>모델의 뿌리:</b> Drossel &amp; Schwabl (1992), \"Self-organized critical forest-fire model\", <i>Physical Review Letters</i> 69. 나무가 자라고 번개가 불을 내는 단순한 격자 모델로, 불의 크기가 규칙적으로 오르내리는 임계 현상을 연구하려고 제안되었습니다. 이 모델은 그 규칙을 따른 이 프로젝트의 구현입니다.",
+"en": "<b>Where the model comes from:</b> Drossel &amp; Schwabl (1992), \"Self-organized critical forest-fire model\", <i>Physical Review Letters</i> 69. A simple grid model where trees grow and lightning starts fires, proposed to study critical behavior in fire sizes. This is this project's implementation of those rules.",
+"tr": "<b>Откуда взялась модель:</b> Drossel &amp; Schwabl (1992), «Self-organized critical forest-fire model», <i>Physical Review Letters</i> 69. Простая сеточная модель, где деревья растут, а молнии вызывают пожары; она была предложена для изучения критического поведения размеров пожаров. Это реализация этих правил в данном проекте."
+},
+{
+"id": "s2509",
+"page": "wildfire",
+"ko": "<b>핵심 가정과 수식:</b> 매 단계 빈 칸은 확률 p로 나무가 되고, 나무는 확률 f로 불이 붙으며(여기서는 칸마다 확률 f의 번개가 치고 나무에 맞으면 불이 붙으니 나무 한 그루에 불이 붙을 확률도 f), 불은 이웃으로 즉시 번집니다. 한 번개당 자라는 나무 수 p/f가 클수록 큰 불이 납니다. 칸에 무작위로 나무가 있을 때 이어진 덩어리가 모든 곳으로 퍼지는 임계 밀도는 정사각 격자(상하좌우 이웃)에서 약 0.593입니다(site percolation). 슬라이더 p, f, s, 크기가 각각 식의 p, f, 소방 확률, 격자 변의 길이입니다.",
+"en": "<b>Key assumptions and formulas:</b> Each step an empty cell becomes a tree with probability p, a tree catches fire with probability f (here a lightning strike with probability f lands on each cell and ignites it if it holds a tree, so a tree ignites with probability f as well), and fire spreads to neighbors instantly. The more trees grow per lightning strike, p/f, the bigger the fires. For randomly placed trees on a square grid (4 neighbors), the critical density above which connected clumps can span everything is about 0.593 (site percolation). The sliders p, f, s and size are the model's p, f, the firefighting probability and the grid side length.",
+"tr": "<b>Ключевые допущения и формулы:</b> На каждом шаге пустая клетка становится деревом с вероятностью p, дерево загорается с вероятностью f (здесь молния с вероятностью f попадает в каждую клетку и поджигает её, если там есть дерево, так что дерево тоже загорается с вероятностью f), а огонь мгновенно переходит на соседей. Чем больше деревьев вырастает на один удар молнии, p/f, тем больше пожары. Для случайно расставленных деревьев на квадратной сетке (4 соседа) критическая плотность, выше которой связные скопления могут охватить всё, составляет около 0,593 (перколяция по узлам). Ползунки p, f, s и размер — это p и f модели, вероятность тушения и длина стороны сетки."
+},
+{
+"id": "s2510",
+"page": "wildfire",
+"ko": "<b>이 프로젝트의 단순화:</b> 원 모델은 f/p가 0에 가까운 극한에서 불 크기 분포가 거듭제곱 법칙을 따르는 구간을 보이는데, 이 페이지의 기본값(p/f는 칸당 50)은 그 극한과 멀고 격자도 작아서 거듭제곱 법칙을 주장하지 않습니다. 소방(작은 불만 확률 s로 끄기)은 원 모델에 없는 이 프로젝트의 추가 규칙이고, 5%·10%는 이 프로젝트가 정한 값입니다. 가장자리는 이어지지 않는 벽입니다.",
+"en": "<b>What this project simplifies:</b> The original model shows a power-law range of fire sizes in the limit where f/p goes to zero. This page's defaults (p/f of 50 per cell) are far from that limit and the grid is small, so no power law is claimed. Firefighting (putting out only small fires with probability s) is an extra rule added by this project, and the 5% and 10% are values it chose. The edges are walls that do not wrap around.",
+"tr": "<b>Что упрощает этот проект:</b> Исходная модель показывает степенной диапазон размеров пожаров в пределе, когда f/p стремится к нулю. Значения по умолчанию на этой странице (p/f, равное 50 на клетку) далеки от этого предела, а сетка мала, поэтому степенной закон не утверждается. Тушение (гасятся только небольшие пожары с вероятностью s) — дополнительное правило проекта, а 5% и 10% — выбранные им значения. Края сетки — стены, которые не замыкаются."
+},
+{
+"id": "s2511",
+"page": "wildfire",
+"ko": "<b>이론값과 시뮬레이션:</b> 독립적으로 다시 짠 코드로 100×100 격자에 무작위로 나무를 심으면 가장 큰 덩어리가 차지하는 비율이 밀도 0.5에서 2%, 0.59에서 27%, 0.62에서 50%로, 임계 밀도 약 0.593 부근에서 급격히 커졌습니다(20회 평균). 장기 평균에서 타는 나무 수와 심어지는 나무 수도 맞았습니다(3만 단계에 188만 3,823그루 대 188만 3,740그루). 소방 때문에 연료가 쌓이는 정도는 위의 \"말하는 것\"의 실측값입니다. 이 효과를 식으로 풀어 비교하지는 않았고 시뮬레이션만으로 확인했습니다.",
+"en": "<b>Theory versus simulation:</b> Using independently rewritten code to plant trees at random on a 100×100 grid, the share taken by the largest clump was 2% at density 0.5, 27% at 0.59 and 50% at 0.62, growing sharply around the critical density of about 0.593 (average of 20 runs). The number of trees burned and planted also matched over the long run (1,883,823 versus 1,883,740 over 30,000 steps). How much fuel builds up because of firefighting is given by the measurements under \"What it shows\" above. This effect was not compared with a closed-form solution; it was checked by simulation only.",
+"tr": "<b>Теория и симуляция:</b> При независимо переписанном коде, случайно высаживающем деревья на сетке 100×100, доля, занятая наибольшим скоплением, составила 2% при плотности 0,5, 27% при 0,59 и 50% при 0,62, резко возрастая около критической плотности примерно 0,593 (среднее по 20 запускам). Число сгоревших и посаженных деревьев также совпало на длинной дистанции (1 883 823 против 1 883 740 за 30 000 шагов). Сколько топлива накапливается из-за тушения, показывают измерения в разделе «Что это показывает» выше. Этот эффект не сравнивался с аналитическим решением; он проверен только симуляцией."
+},
+{
+"id": "s2512",
+"page": "wildfire",
+"ko": "<b>더 읽을거리:</b> Drossel &amp; Schwabl (1992), <i>Physical Review Letters</i> 69 (위 논문). 퍼콜레이션은 Stauffer &amp; Aharony, <i>Introduction to Percolation Theory</i> (Taylor &amp; Francis)에 정리되어 있습니다.",
+"en": "<b>Further reading:</b> Drossel &amp; Schwabl (1992), <i>Physical Review Letters</i> 69 (the paper above). Percolation is covered in Stauffer &amp; Aharony, <i>Introduction to Percolation Theory</i> (Taylor &amp; Francis).",
+"tr": "<b>Что почитать дальше:</b> Drossel &amp; Schwabl (1992), <i>Physical Review Letters</i> 69 (статья выше). О перколяции рассказывается в Stauffer &amp; Aharony, <i>Introduction to Percolation Theory</i> (Taylor &amp; Francis)."
+},
+{
+"id": "s2513",
+"page": "wildfire",
+"ko": "검증은 <code>node tools/validate-wildfire.js</code>로 할 수 있습니다(약 2분). 시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다.",
+"en": "You can verify with <code>node tools/validate-wildfire.js</code> (about 2 minutes). The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result.",
+"tr": "Проверить можно с помощью <code>node tools/validate-wildfire.js</code> (около 2 минут). Симуляция использует генератор случайных чисел с зерном (mulberry32), поэтому одно и то же зерно даёт один и тот же результат."
+},
+{
+"id": "s2514",
+"page": "wildfire",
+"ko": "성장은 빈 칸 목록에서 무작위로 뽑아 심고(칸 수에 비례하는 푸아송 근사), 번개는 푸아송 수만큼 무작위 칸에 떨어뜨립니다. 불 덩어리는 깊이 우선 탐색으로 구해 한 번에 태웁니다. 페이지의 통계 카드는 화면의 두 숲과 별개로 따로 오래 돌린 값입니다.",
+"en": "Growth plants trees at random from a list of empty cells (a Poisson approximation scaled to the number of empty cells), and lightning lands on a Poisson number of random cells. A fire's clump is found by depth-first search and burned at once. The statistic cards come from separate long runs, not from the two forests on screen.",
+"tr": "Рост высаживает деревья случайно из списка пустых клеток (пуассоновское приближение, масштабированное по числу пустых клеток), а молнии попадают в пуассоновское число случайных клеток. Скопление пожара находится поиском в глубину и сжигается разом. Карточки статистики получены из отдельных длительных запусков, а не из двух лесов на экране."
+},
+{
+"id": "s2515",
+"page": "wildfire",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/wildfire\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/wildfire\">GitHub</a>.",
+"tr": "Код доступен на <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/wildfire\">GitHub</a>."
+},
+{
+"id": "s2535",
+"page": "youtube",
+"ko": "인기 순 추천이 강할수록 구독이 소수 채널에 쏠리고 품질과 결과의 연결은 약해졌어요.",
+"en": "The stronger the popularity-based recommendation, the more subscriptions piled onto a few channels and the weaker the tie to quality.",
+"tr": "Чем сильнее была рекомендация на основе популярности, тем больше подписок скапливалось на нескольких каналах и тем слабее становилась связь с качеством."
+},
+{
+"id": "s2536",
+"page": "youtube",
+"ko": "구독자가 많은 채널이 더 많이 추천받는 되먹임 때문에, 초기 우연이 쌓여 순위가 굳을 수 있어요.",
+"en": "Channels with more subscribers get recommended more, so early luck can compound and harden the ranking.",
+"tr": "Каналы с большим числом подписчиков рекомендуются чаще, поэтому ранняя удача может накапливаться и закреплять рейтинг."
+},
+{
+"id": "s2537",
+"page": "youtube",
+"ko": "순위를 읽을 때는 품질뿐 아니라 추천이 인기를 얼마나 따라가는지와 초기 출발이 어땠는지도 살펴볼 만해요.",
+"en": "When reading a ranking, it may help to look not only at quality but at how closely recommendations follow popularity and how each channel started.",
+"tr": "При чтении рейтинга может помочь взгляд не только на качество, но и на то, насколько рекомендации следуют за популярностью и как стартовал каждый канал."
+},
+{
+"id": "s2539",
+"page": "youtube",
+"ko": "품질이 아무 소용이 없다는 뜻은 아니에요. 인기 순 추천이 약할 때는 품질대로 결과가 나왔어요.",
+"en": "It does not mean quality is useless; when popularity-based recommendation was weak, results followed quality.",
+"tr": "Это не значит, что качество бесполезно; когда рекомендация на основе популярности была слабой, результаты следовали за качеством."
+},
+{
+"id": "s2540",
+"page": "youtube",
+"ko": "실제 플랫폼의 추천은 훨씬 복잡해서, 인기 편향이 얼마나 센지는 실제 구독 데이터로 확인해야 해요.",
+"en": "Real platform recommendations are far more complex, so the strength of popularity bias needs real subscription data.",
+"tr": "Рекомендации реальных платформ гораздо сложнее, поэтому силу смещения в пользу популярности нужно оценивать по реальным данным о подписках."
+},
+{
+"id": "s2542",
+"page": "youtube",
+"ko": "<b>모델의 뿌리:</b> 두 가지 발상을 합친 모델입니다. 하나는 \"인기 있는 쪽이 더 많이 선택받는다\"는 선호적 연결로, Barabási와 Albert(1999)의 \"Emergence of scaling in random networks\"(<i>Science</i>)가 대표적입니다. 다른 하나는 Salganik, Dodds, Watts(2006)의 음악 시장 실험(<i>Science</i> 311)으로, 다른 사람의 선택을 볼 수 있으면 불평등이 커지고 무엇이 성공할지 예측하기 어려워진다고 보고했습니다.",
+"en": "<b>Where the model comes from:</b> It combines two ideas. One is preferential attachment, where popular items are chosen more often, as in Barabási and Albert (1999), \"Emergence of scaling in random networks\" (<i>Science</i>). The other is the music-market experiment of Salganik, Dodds and Watts (2006, <i>Science</i> 311), which reported that when people can see others' choices, inequality grows and success becomes harder to predict.",
+"tr": "<b>Откуда взялась модель:</b> Она сочетает две идеи. Одна — предпочтительное присоединение, при котором популярное выбирают чаще, как в работе Barabási и Albert (1999), «Emergence of scaling in random networks» (<i>Science</i>). Другая — эксперимент с музыкальным рынком Salganik, Dodds и Watts (2006, <i>Science</i> 311), где сообщалось, что когда люди видят выбор других, неравенство растёт, а успех становится труднее предсказать."
+},
+{
+"id": "s2543",
+"page": "youtube",
+"ko": "<b>핵심 가정과 수식:</b> 채널마다 품질 <i>q</i>(로그정규분포)가 있고, 시청자는 확률 <code>social</code>로 인기 순 추천을, 나머지는 <i>q</i>에 비례해 고릅니다. 인기 순 추천은 구독자+1에 비례해 후보 2개를 뽑아 더 큰 쪽을 고르는 방식입니다. 슬라이더 <code>social</code>이 클수록 품질보다 이미 쌓인 구독자가 결과를 좌우합니다.",
+"en": "<b>Key assumptions and formulas:</b> Each channel has a quality <i>q</i> (log-normal). With probability <code>social</code> a viewer follows the popularity-based recommendation, otherwise picks in proportion to <i>q</i>. The recommendation draws 2 candidates in proportion to subscribers+1 and takes the larger. The larger the <code>social</code> slider, the more accumulated subscribers, rather than quality, decide the outcome.",
+"tr": "<b>Ключевые допущения и формулы:</b> У каждого канала есть качество <i>q</i> (логнормальное). С вероятностью <code>social</code> зритель следует рекомендации на основе популярности, иначе выбирает пропорционально <i>q</i>. Рекомендация выбирает 2 кандидатов пропорционально числу подписчиков+1 и берёт большего. Чем больше ползунок <code>social</code>, тем сильнее исход определяют накопленные подписчики, а не качество."
+},
+{
+"id": "s2544",
+"page": "youtube",
+"ko": "<b>이 프로젝트의 단순화:</b> 논문 수치를 재현한 것이 아니라 이 프로젝트의 설계입니다. 품질의 분포(σ=0.5)와 고정된 시드, \"후보 2개 중 큰 쪽\"이라는 추천 방식, 채널 200개·한 라운드 시청자 100명은 임의로 정했습니다. 후보를 1개만 뽑으면 쏠림이 약해서(상위 10% 몫 약 23~33%) 알고리즘이 인기 쪽으로 더 기운다고 가정했습니다. 순수 선호적 연결의 닫힌 해(멱법칙)와는 다릅니다.",
+"en": "<b>What this project simplifies:</b> It does not reproduce a paper's numbers; it is this project's own design. The quality distribution (σ=0.5) with a fixed seed, the \"larger of 2 candidates\" recommendation rule, and the 200 channels with 100 viewers per round are arbitrary choices. Drawing only 1 candidate gives weak concentration (top-10% share about 23–33%), so we assumed the algorithm leans further toward popularity. It also differs from pure preferential attachment, which has a power-law closed form.",
+"tr": "<b>Что упрощает этот проект:</b> Он не воспроизводит цифры статьи; это собственная разработка проекта. Распределение качества (σ=0,5) с фиксированным зерном, правило рекомендации «больший из 2 кандидатов» и 200 каналов со 100 зрителями за раунд — произвольные выборы. Выбор всего 1 кандидата даёт слабую концентрацию (доля верхних 10% около 23–33%), поэтому мы предположили, что алгоритм сильнее склоняется к популярности. Он также отличается от чистого предпочтительного присоединения, у которого есть степенное решение в замкнутом виде."
+},
+{
+"id": "s2545",
+"page": "youtube",
+"ko": "<b>이론값과 시뮬레이션:</b> 비교할 이론값이 없어 시뮬레이션만으로 확인했습니다. 평행우주 12개 평균으로, <code>social</code> 0%에서는 품질-구독자 순위 상관 0.97, 상위 10% 몫 23%, 1위 채널의 품질 순위 1위입니다. 50%에서는 0.85, 41%, 3위, 70%(기본값)에서는 0.71, 60%, 80위, 100%에서는 0.01, 97%, 114위입니다. 인기 영향이 클수록 쏠림이 커지고 품질로는 설명이 안 된다는 방향은 Salganik 외 실험의 정성적 결론과 같습니다(<code>node tools/validate-more.js youtube</code>).",
+"en": "<b>Theory versus simulation:</b> There is no theoretical value to compare with, so this was checked by simulation only. Averaged over 12 parallel universes: at <code>social</code> 0%, the quality-subscriber rank correlation is 0.97, the top-10% share 23%, and the top channel ranks 1st in quality. At 50% these are 0.85, 41% and 3rd; at 70% (default) 0.71, 60% and 80th; at 100% 0.01, 97% and 114th. That stronger social influence brings more concentration and less link to quality matches the qualitative conclusion of Salganik et al. (<code>node tools/validate-more.js youtube</code>).",
+"tr": "<b>Теория и симуляция:</b> Теоретического значения для сравнения нет, поэтому проверка выполнена только симуляцией. В среднем по 12 параллельным вселенным: при <code>social</code> 0% ранговая корреляция качества и подписчиков равна 0,97, доля верхних 10% — 23%, а главный канал занимает 1-е место по качеству. При 50% это 0,85, 41% и 3-е место; при 70% (по умолчанию) — 0,71, 60% и 80-е; при 100% — 0,01, 97% и 114-е. То, что более сильное социальное влияние даёт большую концентрацию и более слабую связь с качеством, совпадает с качественным выводом Salganik и соавторов (<code>node tools/validate-more.js youtube</code>)."
+},
+{
+"id": "s2546",
+"page": "youtube",
+"ko": "<b>더 읽을거리:</b> Salganik, Dodds, Watts (2006), \"Experimental study of inequality and unpredictability in an artificial cultural market\", <i>Science</i> 311. Barabási, Albert (1999), \"Emergence of scaling in random networks\", <i>Science</i>.",
+"en": "<b>Further reading:</b> Salganik, Dodds and Watts (2006), \"Experimental study of inequality and unpredictability in an artificial cultural market\", <i>Science</i> 311. Barabási and Albert (1999), \"Emergence of scaling in random networks\", <i>Science</i>.",
+"tr": "<b>Что почитать дальше:</b> Salganik, Dodds and Watts (2006), «Experimental study of inequality and unpredictability in an artificial cultural market», <i>Science</i> 311. Barabási and Albert (1999), «Emergence of scaling in random networks», <i>Science</i>."
+},
+{
+"id": "s2579",
+"page": "zipf",
+"ko": "'이미 쓴 것을 더 자주 쓰는' 규칙 하나만으로 지프의 법칙 모양이 나올 수 있어요.",
+"en": "One rule, reusing what was already used more often, can produce a Zipf-like shape.",
+"tr": "Одно-единственное правило — чаще повторно использовать то, что уже использовалось чаще, — может дать распределение, похожее на закон Ципфа."
+},
+{
+"id": "s2580",
+"page": "zipf",
+"ko": "자주 쓰인 단어는 글에 많이 흩어져 있어 더 자주 베껴지니, 처음의 작은 차이가 계속 커져요.",
+"en": "Frequent words are scattered through the text and get copied more, so early small differences keep growing.",
+"tr": "Частые слова разбросаны по тексту и копируются чаще, поэтому небольшие начальные различия продолжают расти."
+},
+{
+"id": "s2581",
+"page": "zipf",
+"ko": "쏠린 분포를 만나면 의미나 설계를 찾기 전에, 이런 부익부 되먹임이 있는지부터 살펴볼 만해요.",
+"en": "When you see a skewed distribution, check for this kind of rich-get-richer feedback before looking for meaning or design.",
+"tr": "Увидев перекошенное распределение, проверьте наличие такой обратной связи «богатый богатеет», прежде чем искать смысл или замысел."
+},
+{
+"id": "s2583",
+"page": "zipf",
+"ko": "실제 언어가 이렇게 만들어진다는 뜻은 아니에요. 같은 모양을 만드는 설명은 여러 가지이고 문법·의미는 모델에 없어요.",
+"en": "It does not mean real language forms this way; several explanations give the same shape and grammar and meaning are absent.",
+"tr": "Это не значит, что реальный язык формируется так; несколько объяснений дают ту же форму, а грамматика и смысл здесь отсутствуют."
+},
+{
+"id": "s2584",
+"page": "zipf",
+"ko": "실제 글에서 단어가 늘어나는 과정을 관찰하고, 다른 설명이 만드는 모양과 견주어 봐야 어느 쪽인지 알 수 있어요.",
+"en": "Observing how words accumulate in real texts and comparing with other explanations is needed to tell which fits.",
+"tr": "Чтобы понять, какое объяснение подходит, нужно наблюдать, как накапливаются слова в реальных текстах, и сравнивать с другими объяснениями."
+},
+{
+"id": "s2586",
+"page": "zipf",
+"ko": "<b>모델의 뿌리:</b> Zipf (1949), 『Human Behavior and the Principle of Least Effort』(Addison-Wesley)가 단어 빈도가 순위에 반비례하는 규칙성을 알렸고, Simon (1955), \"On a class of skew distribution functions\", <i>Biometrika</i>는 \"새 것은 가끔 생기고 나머지는 기존 것을 빈도에 비례해 따라 한다\"는 모델로 같은 모양이 나옴을 보였습니다(Yule 과정과 같은 계열).",
+"en": "<b>Where the model comes from:</b> Zipf (1949), <i>Human Behavior and the Principle of Least Effort</i> (Addison-Wesley), made known the regularity that word frequency falls roughly in inverse proportion to rank. Simon (1955), \"On a class of skew distribution functions\", <i>Biometrika</i>, showed that the same shape arises from a model in which new items appear occasionally and the rest copy existing ones in proportion to their frequency (the same family as the Yule process).",
+"tr": "<b>Откуда взялась модель:</b> Zipf (1949), <i>Human Behavior and the Principle of Least Effort</i> (Addison-Wesley), сделал известной закономерность, по которой частота слов падает примерно обратно пропорционально рангу. Simon (1955), «On a class of skew distribution functions», <i>Biometrika</i>, показал, что та же форма возникает в модели, где время от времени появляются новые элементы, а остальные копируют существующие пропорционально их частоте (того же семейства, что и процесс Юла)."
+},
+{
+"id": "s2587",
+"page": "zipf",
+"ko": "<b>핵심 가정과 수식:</b> 새 단어가 확률 α로 생기고, 아니면 이미 쓴 글의 무작위 위치를 베끼니 단어를 고를 확률이 그 단어의 빈도에 비례합니다(부익부). 이 모델의 순위-빈도 곡선은 <code>빈도 ∝ 순위<sup>−(1−α)</sup></code>이고, α가 작으면 기울기는 −1에 가깝습니다. 슬라이더 \"새 단어 확률\"이 α입니다.",
+"en": "<b>Key assumptions and formulas:</b> A new word appears with probability α; otherwise a random earlier position is copied, so a word is chosen with probability proportional to its frequency (rich get richer). The rank–frequency curve of this model is <code>frequency ∝ rank<sup>−(1−α)</sup></code>, so for small α the slope is close to −1. The \"new-word probability\" slider is α.",
+"tr": "<b>Ключевые допущения и формулы:</b> Новое слово появляется с вероятностью α; иначе случайно копируется более ранняя позиция, так что слово выбирается с вероятностью, пропорциональной его частоте (богатые богатеют). Кривая «ранг — частота» этой модели имеет вид <code>частота ∝ ранг<sup>−(1−α)</sup></code>, поэтому при малом α наклон близок к −1. Ползунок «вероятность нового слова» — это α."
+},
+{
+"id": "s2588",
+"page": "zipf",
+"ko": "<b>이 프로젝트의 단순화:</b> 단어는 뜻 없는 가짜 단어이고 문법·의미·주제는 없으며, 새 단어 확률 α도 글 내내 일정하다고 둔 것은 이 프로젝트의 단순화입니다. 논문의 그림이나 수치를 재현한 것은 아닙니다. 또 실제 언어가 지프의 법칙을 따르게 되는 원인은 여러 설명이 맞서 있어, 이 모델은 \"이런 규칙으로 가능하다\"는 것만 보여 줍니다.",
+"en": "<b>What this project simplifies:</b> The words are meaningless made-up ones with no grammar, meaning or topic, and keeping α constant throughout the text is this project’s simplification. It does not reproduce figures or numbers from the paper. Several competing explanations exist for why real language follows Zipf’s law, so this model only shows what such a rule can do.",
+"tr": "<b>Что упрощает этот проект:</b> Слова — бессмысленные выдуманные, без грамматики, значения и темы, а постоянство α на протяжении всего текста — упрощение этого проекта. Он не воспроизводит рисунки и числа из статьи. Существует несколько конкурирующих объяснений того, почему реальный язык следует закону Ципфа, поэтому эта модель лишь показывает, на что способно такое правило."
+},
+{
+"id": "s2589",
+"page": "zipf",
+"ko": "<b>이론값과 시뮬레이션:</b> 이론 기울기 1−α와 실측(순위 3~200, 10만 단어, 6편 평균)을 비교하면 α = 3%에서 0.97 대 1.01, 5%에서 0.95 대 0.99, 10%에서 0.90 대 0.97이었고, α = 0.5%에서는 0.995 대 1.12로 가장 크게 벌어졌습니다. 가까우나 정확히 같지는 않으며 적합 구간과 글 길이에 따라 값이 달라집니다. 균등 선택(대조)은 기울기 0.18~0.47로 훨씬 완만했습니다.",
+"en": "<b>Theory versus simulation:</b> Comparing the theoretical slope 1−α with the measured one (ranks 3–200, 100,000 words, 6-text average): at α = 3% it was 0.97 versus 1.01, at 5% 0.95 versus 0.99, at 10% 0.90 versus 0.97, and the largest gap was at α = 0.5% with 0.995 versus 1.12. They are close but not identical, and the value shifts with the fitting range and text length. Uniform choice (the control) gave a much shallower slope of 0.18 to 0.47.",
+"tr": "<b>Теория и симуляция:</b> Сравнение теоретического наклона 1−α с измеренным (ранги 3–200, 100 000 слов, среднее по 6 текстам): при α = 3% получилось 0,97 против 1,01, при 5% — 0,95 против 0,99, при 10% — 0,90 против 0,97, а наибольшая разница была при α = 0,5% — 0,995 против 1,12. Значения близки, но не совпадают, и результат смещается в зависимости от диапазона подгонки и длины текста. Равномерный выбор (контроль) дал гораздо более пологий наклон — от 0,18 до 0,47."
+},
+{
+"id": "s2590",
+"page": "zipf",
+"ko": "<b>더 읽을거리:</b> Simon (1955), \"On a class of skew distribution functions\", <i>Biometrika</i>. Newman (2005), \"Power laws, Pareto distributions and Zipf’s law\", <i>Contemporary Physics</i>. Piantadosi (2014), \"Zipf’s word frequency law in natural language: A critical review and future directions\", <i>Psychonomic Bulletin &amp; Review</i>.",
+"en": "<b>Further reading:</b> Simon (1955), \"On a class of skew distribution functions\", <i>Biometrika</i>. Newman (2005), \"Power laws, Pareto distributions and Zipf’s law\", <i>Contemporary Physics</i>. Piantadosi (2014), \"Zipf’s word frequency law in natural language: A critical review and future directions\", <i>Psychonomic Bulletin &amp; Review</i>.",
+"tr": "<b>Что почитать дальше:</b> Simon (1955), «On a class of skew distribution functions», <i>Biometrika</i>. Newman (2005), «Power laws, Pareto distributions and Zipf’s law», <i>Contemporary Physics</i>. Piantadosi (2014), «Zipf’s word frequency law in natural language: A critical review and future directions», <i>Psychonomic Bulletin &amp; Review</i>."
+},
+{
+"id": "d0255",
+"page": "(실행 중 문구) admission",
+"ko": "대기 중 {#0}명",
+"en": "Waiting: {0}",
+"tr": "Ожидают: {0}"
+},
+{
+"id": "d0256",
+"page": "(실행 중 문구) admission",
+"ko": "{0} · 정원 {#1}",
+"en": "{0} · capacity {1}",
+"tr": "{0} · мест {1}"
+},
+{
+"id": "d0257",
+"page": "(실행 중 문구) admission",
+"ko": "1지망 {#0}명",
+"en": "1st choice: {0}",
+"tr": "1-й выбор: {0}"
+},
+{
+"id": "d0258",
+"page": "(실행 중 문구) admission",
+"ko": "선착순",
+"en": "First come",
+"tr": "По очереди"
+},
+{
+"id": "d0259",
+"page": "(실행 중 문구) admission",
+"ko": "추첨 순번",
+"en": "Lottery order",
+"tr": "Порядок жребия"
+},
+{
+"id": "d0260",
+"page": "(실행 중 문구) admission",
+"ko": "보스턴",
+"en": "Boston",
+"tr": "Бостон"
+},
+{
+"id": "d0261",
+"page": "(실행 중 문구) admission",
+"ko": "지연 수락",
+"en": "Deferred acc.",
+"tr": "Отложенное принятие"
+},
+{
+"id": "d0262",
+"page": "(실행 중 문구) admission",
+"ko": "{0} · 배정이 끝났어요",
+"en": "{0} · assignment done",
+"tr": "{0} · распределение завершено"
+},
+{
+"id": "d0263",
+"page": "(실행 중 문구) admission",
+"ko": "선착순 · 접수한 순서대로 {#0}/{#1}명이 골랐어요",
+"en": "First come, first served · {0}/{1} children have chosen, in order of arrival",
+"tr": "По очереди · выбрали {0}/{1} детей, в порядке подачи"
+},
+{
+"id": "d0264",
+"page": "(실행 중 문구) admission",
+"ko": "추첨 순번 · 추첨 번호 순서대로 {#0}/{#1}명이 골랐어요",
+"en": "Lottery order · {0}/{1} children have chosen, in lottery-number order",
+"tr": "Порядок жребия · выбрали {0}/{1} детей, по номеру жребия"
+},
+{
+"id": "d0265",
+"page": "(실행 중 문구) admission",
+"ko": "보스턴 · {#0}지망 접수 중 (정원이 차면 바로 확정)",
+"en": "Boston · applying to choice {0} (a place that fills up is closed for good)",
+"tr": "Бостон · подача на выбор {0} (заполненное место закрывается окончательно)"
+},
+{
+"id": "d0266",
+"page": "(실행 중 문구) admission",
+"ko": "지연 수락 · {#0}번째 라운드: 임시 배정, 밀려난 아이는 다음 지망으로",
+"en": "Deferred acceptance · round {0}: tentative places, bumped children move to the next choice",
+"tr": "Отложенное принятие · раунд {0}: предварительные места, вытесненные дети переходят к следующему выбору"
+},
+{
+"id": "d0267",
+"page": "(실행 중 문구) admission",
+"ko": "내 아이 시험",
+"en": "My child test",
+"tr": "Проверка моего ребёнка"
+},
+{
+"id": "d0268",
+"page": "(실행 중 문구) admission",
+"ko": "아이 {#0}번은 솔직하게 적으면 {#1}지망 '{2}'에 배정됩니다.",
+"en": "Child #{0} is assigned choice {1} ('{2}') when writing honestly.",
+"tr": "Ребёнок № {0} при честном заполнении получает выбор {1} («{2}»)."
+},
+{
+"id": "d0269",
+"page": "(실행 중 문구) admission",
+"ko": "아이 {#0}번은 솔직하게 적으면 배정받지 못합니다.",
+"en": "Child #{0} gets no place when writing honestly.",
+"tr": "Ребёнок № {0} при честном заполнении не получает места."
+},
+{
+"id": "d0270",
+"page": "(실행 중 문구) admission",
+"ko": "'{0}'을(를) {#1}번째로 옮겨 적으면 {#2}지망 '{3}'에 배정됩니다.",
+"en": "Moving '{0}' to position {1} gets choice {2} ('{3}').",
+"tr": "Если переместить «{0}» на позицию {1}, получается выбор {2} («{3}»)."
+},
+{
+"id": "d0271",
+"page": "(실행 중 문구) admission",
+"ko": "순서를 {#0}가지로 바꿔 적어 봐도 더 나은 곳은 얻지 못합니다.",
+"en": "None of the {0} ways of changing the order gets a better place.",
+"tr": "Ни один из {0} способов изменить порядок не даёт лучшего места."
+},
+{
+"id": "d0272",
+"page": "(실행 중 문구) admission",
+"ko": "{0} ({#1}/{#2}명)",
+"en": "{0} ({1}/{2} children)",
+"tr": "{0} ({1}/{2} детей)"
+},
+{
+"id": "d0273",
+"page": "(실행 중 문구) admission",
+"ko": "아이들의 취향이 비슷한 정도 (높을수록 같은 곳을 원함)",
+"en": "How similar the children's tastes are (higher = they want the same places)",
+"tr": "Насколько похожи вкусы детей (выше = хотят одни и те же места)"
+},
+{
+"id": "d0274",
+"page": "(실행 중 문구) admission",
+"ko": "지연 수락·추첨 순번·선착순: 0%",
+"en": "Deferred acceptance, lottery order, first come: 0%",
+"tr": "Отложенное принятие, порядок жребия, по очереди: 0%"
+},
+{
+"id": "d0275",
+"page": "(실행 중 문구) admission",
+"ko": "순위를 바꿔 적어 이득 보는 아이: 보스턴 / 지연 수락",
+"en": "Children gaining from changing their ranking: Boston / deferred acceptance",
+"tr": "Дети, выигрывающие от смены ранжирования: Бостон / отложенное принятие"
+},
+{
+"id": "d0276",
+"page": "(실행 중 문구) admission",
+"ko": "다른 집은 솔직하게 적고 이 아이만 순서를 바꿔 본 시험 (아이 60명 표본)",
+"en": "Test where only this child changes the order and all others write honestly (sample of 60 children)",
+"tr": "Проверка, где только этот ребёнок меняет порядок, а все остальные заполняют честно (выборка из 60 детей)"
+},
+{
+"id": "d0277",
+"page": "(실행 중 문구) admission",
+"ko": "1지망으로 간 아이 ({0})",
+"en": "Children getting their 1st choice ({0})",
+"tr": "Дети с 1-м выбором ({0})"
+},
+{
+"id": "d0278",
+"page": "(실행 중 문구) admission",
+"ko": "평균 {#0}지망 · 미배정 {#1}명",
+"en": "Average choice {0} · unassigned {1}",
+"tr": "В среднем выбор {0} · без места {1}"
+},
+{
+"id": "d0279",
+"page": "(실행 중 문구) admission",
+"ko": "억울한 아이 ({0})",
+"en": "Aggrieved children ({0})",
+"tr": "Обделённые дети ({0})"
+},
+{
+"id": "d0280",
+"page": "(실행 중 문구) admission",
+"ko": "더 원하는 곳에 자리가 남았거나, 나보다 순번이 낮은 아이가 들어간 아이",
+"en": "A preferred place had a seat left, or admitted a lower-priority child",
+"tr": "В более желанном месте остались свободные места или туда приняли ребёнка с меньшим приоритетом"
+},
+{
+"id": "d0281",
+"page": "(실행 중 문구) admission",
+"ko": "먼저 접수한 집의 이득 ({0})",
+"en": "Advantage of families who applied early ({0})",
+"tr": "Преимущество семей, подавших заявку раньше ({0})"
+},
+{
+"id": "d0282",
+"page": "(실행 중 문구) admission",
+"ko": "{0}지망",
+"en": "{0} choices",
+"tr": "{0} выбора"
+},
+{
+"id": "d0283",
+"page": "(실행 중 문구) admission",
+"ko": "일찍 접수할 수 있는 집이 나머지보다 평균 몇 지망 더 좋은 곳에 갔는지 (미배정은 {#0}지망으로 계산)",
+"en": "How many choices better, on average, the families who can apply early did than the rest (unassigned counts as choice {0})",
+"tr": "На сколько выборов в среднем лучше получили семьи, которые могут подать заявку раньше, чем остальные (без места считается как выбор {0})"
+},
+{
+"id": "d0284",
+"page": "(실행 중 문구) admission",
+"ko": "배정 번호",
+"en": "Children set",
+"tr": "Набор детей"
+},
+{
+"id": "d0304",
+"page": "(실행 중 문구) ant",
+"ko": "{#0}걸음",
+"en": "{0} steps",
+"tr": "{0} шагов"
+},
+{
+"id": "d0305",
+"page": "(실행 중 문구) ant",
+"ko": "걸음 수",
+"en": "Steps",
+"tr": "Шаги"
+},
+{
+"id": "d0306",
+"page": "(실행 중 문구) ant",
+"ko": "① 질서",
+"en": "① Order",
+"tr": "① Порядок"
+},
+{
+"id": "d0307",
+"page": "(실행 중 문구) ant",
+"ko": "② 혼돈",
+"en": "② Chaos",
+"tr": "② Хаос"
+},
+{
+"id": "d0308",
+"page": "(실행 중 문구) ant",
+"ko": "③ 고속도로",
+"en": "③ Highway",
+"tr": "③ Магистраль"
+},
+{
+"id": "d0309",
+"page": "(실행 중 문구) ant",
+"ko": "처음에는 대칭인 무늬가 되풀이되며 질서 있게 자랍니다. 빈 판의 개미는 약 470걸음까지 대칭 모양을 만들어요.",
+"en": "At first symmetric patterns keep recurring and the pattern grows in an orderly way. The ant on a blank grid makes symmetric shapes up to about step 470.",
+"tr": "Сначала повторяются симметричные узоры, и рисунок растёт упорядоченно. Муравей на пустой сетке создаёт симметричные фигуры примерно до 470-го шага."
+},
+{
+"id": "d0310",
+"page": "(실행 중 문구) ant",
+"ko": "무작위로 흩어진 점 사이에서 개미는 마구 맴돕니다. 고속도로는 언제 생길까요?",
+"en": "Among the scattered dots the ant wanders wildly. When will the highway appear?",
+"tr": "Среди случайно разбросанных точек муравей бродит без цели. Когда появится магистраль?"
+},
+{
+"id": "d0311",
+"page": "(실행 중 문구) ant",
+"ko": "대칭이 깨지고 어디로 갈지 알 수 없는 어지러운 무늬가 됩니다. 규칙은 두 줄뿐인데도요.",
+"en": "The symmetry breaks and the pattern turns into an unpredictable mess, even though there are only two rules.",
+"tr": "Симметрия нарушается, и узор превращается в непредсказуемый беспорядок, хотя правил всего два."
+},
+{
+"id": "d0312",
+"page": "(실행 중 문구) ant",
+"ko": "갑자기 104걸음짜리 동작이 되풀이되며 대각선으로 곧게 뻗는 길을 냅니다. 아무도 계획하지 않았는데요.",
+"en": "Suddenly a 104-step routine repeats and carves a road straight along the diagonal. Nobody planned it.",
+"tr": "Внезапно повторяется цикл из 104 шагов и прокладывает прямую дорогу по диагонали. Никто этого не планировал."
+},
+{
+"id": "d0313",
+"page": "(실행 중 문구) ant",
+"ko": "고속도로 시작: {#0}걸음",
+"en": "Highway start: step {0}",
+"tr": "Начало магистрали: шаг {0}"
+},
+{
+"id": "d0314",
+"page": "(실행 중 문구) ant",
+"ko": "{#0}걸음까지 고속도로가 보이지 않았습니다.",
+"en": "No highway was seen up to step {0}.",
+"tr": "До шага {0} магистраль не появилась."
+},
+{
+"id": "d0315",
+"page": "(실행 중 문구) ant",
+"ko": "검은 칸",
+"en": "Black cell",
+"tr": "Чёрная клетка"
+},
+{
+"id": "d0316",
+"page": "(실행 중 문구) ant",
+"ko": "지나간 흰 칸",
+"en": "Crossed white cell",
+"tr": "Пройденная белая клетка"
+},
+{
+"id": "d0317",
+"page": "(실행 중 문구) ant",
+"ko": "개미",
+"en": "Ant",
+"tr": "Муравей"
+},
+{
+"id": "d0318",
+"page": "(실행 중 문구) ant",
+"ko": "개미 {#0}",
+"en": "Ant {0}",
+"tr": "Муравей {0}"
+},
+{
+"id": "d0319",
+"page": "(실행 중 문구) ant",
+"ko": "고속도로 시작 {#0}걸음",
+"en": "Highway start: step {0}",
+"tr": "Начало магистрали: шаг {0}"
+},
+{
+"id": "d0320",
+"page": "(실행 중 문구) ant",
+"ko": "검은 칸 수",
+"en": "Number of black cells",
+"tr": "Число чёрных клеток"
+},
+{
+"id": "d0321",
+"page": "(실행 중 문구) ant",
+"ko": "원점에서 거리 (칸)",
+"en": "Distance from start (cells)",
+"tr": "Расстояние от начала (клетки)"
+},
+{
+"id": "d0322",
+"page": "(실행 중 문구) ant",
+"ko": "원점에서 거리 (칸, 개미 평균)",
+"en": "Distance from start (cells, ant average)",
+"tr": "Расстояние от начала (клетки, среднее по муравьям)"
+},
+{
+"id": "d0323",
+"page": "(실행 중 문구) ant",
+"ko": "빈 판: 9,976걸음",
+"en": "Blank grid: 9,976 steps",
+"tr": "Пустая сетка: 9 976 шагов"
+},
+{
+"id": "d0324",
+"page": "(실행 중 문구) ant",
+"ko": "처음에 흩뿌린 검은 칸의 비율 (0%는 빈 판)",
+"en": "Share of black cells scattered at the start (0% = blank grid)",
+"tr": "Доля чёрных клеток, разбросанных в начале (0% = пустая сетка)"
+},
+{
+"id": "d0325",
+"page": "(실행 중 문구) ant",
+"ko": "개미 수 {#0} · 설정마다 무작위로 {#1}번씩 돌림 · 고속도로가 생긴 횟수 {#2}/{#3}",
+"en": "Number of ants: {0} · each setting run {1} times with random grids · highways in {2}/{3} runs",
+"tr": "Число муравьёв: {0} · каждая настройка запускалась {1} раз со случайными сетками · магистраль появилась в {2}/{3} запусков"
+},
+{
+"id": "d0326",
+"page": "(실행 중 문구) ant",
+"ko": "고속도로가 시작된 걸음",
+"en": "Step where the highway began",
+"tr": "Шаг начала магистрали"
+},
+{
+"id": "d0327",
+"page": "(실행 중 문구) ant",
+"ko": "아직",
+"en": "Not yet",
+"tr": "Пока нет"
+},
+{
+"id": "d0328",
+"page": "(실행 중 문구) ant",
+"ko": "이 설정에서 직접 돌려 잰 값",
+"en": "Measured by running this setting",
+"tr": "Значение, измеренное запуском этой настройки"
+},
+{
+"id": "d0329",
+"page": "(실행 중 문구) ant",
+"ko": "속도를 올려 계속 돌려 보세요",
+"en": "Raise the speed and keep it running",
+"tr": "Увеличьте скорость и продолжайте запуск"
+},
+{
+"id": "d0330",
+"page": "(실행 중 문구) ant",
+"ko": "지금 단계",
+"en": "Current phase",
+"tr": "Текущая фаза"
+},
+{
+"id": "d0331",
+"page": "(실행 중 문구) ant",
+"ko": "{#0}걸음째",
+"en": "Step {0}",
+"tr": "Шаг {0}"
+},
+{
+"id": "d0332",
+"page": "(실행 중 문구) ant",
+"ko": "개미가 뒤집어 놓은 칸 중 지금 검은 것",
+"en": "Cells flipped by the ant that are black now",
+"tr": "Клетки, перевёрнутые муравьём, которые сейчас чёрные"
+},
+{
+"id": "d0333",
+"page": "(실행 중 문구) ant",
+"ko": "원점에서 거리",
+"en": "Distance from start",
+"tr": "Расстояние от начала"
+},
+{
+"id": "d0334",
+"page": "(실행 중 문구) ant",
+"ko": "{#0}칸 떨어짐",
+"en": "{0} cells away",
+"tr": "В {0} клетках от начала"
+},
+{
+"id": "d0335",
+"page": "(실행 중 문구) ant",
+"ko": "이제 걸음마다 일정하게 멀어집니다",
+"en": "Now moving away at a constant rate each step",
+"tr": "Теперь с каждым шагом она удаляется с постоянной скоростью"
+},
+{
+"id": "d0336",
+"page": "(실행 중 문구) ant",
+"ko": "혼돈 속에서는 거의 제자리를 맴돕니다",
+"en": "During the chaos it circles near where it started",
+"tr": "Во время хаоса она кружит рядом с местом старта"
+},
+{
+"id": "d0337",
+"page": "(실행 중 문구) ant",
+"ko": "시작 번호",
+"en": "Start",
+"tr": "Старт"
+},
+{
+"id": "d0338",
+"page": "(실행 중 문구) ant",
+"ko": "{#0}%",
+"en": "{0}%",
+"tr": "{0}%"
+},
+{
+"id": "d0429",
+"page": "(실행 중 문구) bunching",
+"ko": "{#0}분 경과",
+"en": "{0} min elapsed",
+"tr": "Прошло {0} мин"
+},
+{
+"id": "d0430",
+"page": "(실행 중 문구) bunching",
+"ko": "달리는 덩어리 수: {#0}",
+"en": "Number of clumps: {0}",
+"tr": "Число скоплений: {0}"
+},
+{
+"id": "d0431",
+"page": "(실행 중 문구) bunching",
+"ko": "가장 붙은 두 버스 간격 {#0}분 (이상적 {#1}분)",
+"en": "Closest two buses are {0} min apart (ideal {1} min)",
+"tr": "Два ближайших автобуса идут с интервалом {0} мин (идеал {1} мин)"
+},
+{
+"id": "d0432",
+"page": "(실행 중 문구) bunching",
+"ko": "주황 막대: 정류장에 줄 선 승객",
+"en": "Orange bars: passengers queueing at stops",
+"tr": "Оранжевые столбики: пассажиры в очереди на остановках"
+},
+{
+"id": "d0433",
+"page": "(실행 중 문구) bunching",
+"ko": "검은 테두리: 승객을 태우는 중",
+"en": "Black outline: loading passengers",
+"tr": "Чёрная рамка: идёт посадка пассажиров"
+},
+{
+"id": "d0434",
+"page": "(실행 중 문구) bunching",
+"ko": "{#0}/{#1}분",
+"en": "{0}/{1} min",
+"tr": "{0}/{1} мин"
+},
+{
+"id": "d0435",
+"page": "(실행 중 문구) bunching",
+"ko": "시간 (가로) · 버스 번호 (세로) · 색 = 앞차와의 간격",
+"en": "Time (across) · bus number (down) · color = gap to the bus ahead",
+"tr": "Время (по горизонтали) · номер автобуса (по вертикали) · цвет = интервал до переднего автобуса"
+},
+{
+"id": "d0436",
+"page": "(실행 중 문구) bunching",
+"ko": "시간",
+"en": "Time",
+"tr": "Время"
+},
+{
+"id": "d0437",
+"page": "(실행 중 문구) bunching",
+"ko": "간격 유지",
+"en": "Holding",
+"tr": "Удержание интервала"
+},
+{
+"id": "d0438",
+"page": "(실행 중 문구) bunching",
+"ko": "승차 제한",
+"en": "Boarding cap",
+"tr": "Лимит посадки"
+},
+{
+"id": "d0439",
+"page": "(실행 중 문구) bunching",
+"ko": "평균 기다림 (분)",
+"en": "Average wait (min)",
+"tr": "Среднее ожидание (мин)"
+},
+{
+"id": "d0440",
+"page": "(실행 중 문구) bunching",
+"ko": "이상적 간격이면 {#0}분",
+"en": "{0} min if evenly spaced",
+"tr": "{0} мин при равных интервалах"
+},
+{
+"id": "d0441",
+"page": "(실행 중 문구) bunching",
+"ko": "한 바퀴 도는 시간 (분)",
+"en": "Time for one lap (min)",
+"tr": "Время одного круга (мин)"
+},
+{
+"id": "d0442",
+"page": "(실행 중 문구) bunching",
+"ko": "이상적일 때 {#0}분",
+"en": "{0} min in the ideal case",
+"tr": "{0} мин в идеальном случае"
+},
+{
+"id": "d0443",
+"page": "(실행 중 문구) bunching",
+"ko": "같은 설정을 시드 6개로 돌린 평균 (뒤쪽 절반 시간)",
+"en": "Average of 6 runs with the same settings (second half of the time)",
+"tr": "Среднее по 6 запускам с теми же настройками (вторая половина времени)"
+},
+{
+"id": "d0444",
+"page": "(실행 중 문구) bunching",
+"ko": "지금 기다림은 이상적일 때의 몇 배",
+"en": "Wait now, as a multiple of the ideal wait",
+"tr": "Текущее ожидание в кратных идеальному"
+},
+{
+"id": "d0445",
+"page": "(실행 중 문구) bunching",
+"ko": "같은 버스 수·같은 승객인데 간격이 흐트러진 만큼 (식: 1 + CV²)",
+"en": "Same buses, same passengers, only the gaps have drifted (formula: 1 + CV²)",
+"tr": "Те же автобусы и те же пассажиры, изменились только интервалы (формула: 1 + CV²)"
+},
+{
+"id": "d0446",
+"page": "(실행 중 문구) bunching",
+"ko": "간격 흐트러짐 (CV)",
+"en": "Gap variation (CV)",
+"tr": "Неравномерность интервалов (CV)"
+},
+{
+"id": "d0447",
+"page": "(실행 중 문구) bunching",
+"ko": "0이면 완전히 고름, 클수록 몇 대씩 뭉침",
+"en": "0 is perfectly even; larger means buses clump together",
+"tr": "0 — полностью равномерно; чем больше, тем сильнее автобусы сбиваются в кучи"
+},
+{
+"id": "d0448",
+"page": "(실행 중 문구) bunching",
+"ko": "가장 붙은 두 버스의 간격",
+"en": "Gap between the closest two buses",
+"tr": "Интервал между двумя ближайшими автобусами"
+},
+{
+"id": "d0449",
+"page": "(실행 중 문구) bunching",
+"ko": "처음 이상적 간격 {#0}분",
+"en": "Ideal gap at the start: {0} min",
+"tr": "Идеальный интервал в начале: {0} мин"
+},
+{
+"id": "d0450",
+"page": "(실행 중 문구) bunching",
+"ko": "평균 기다림 (뒤쪽 절반)",
+"en": "Average wait (second half)",
+"tr": "Среднее ожидание (вторая половина)"
+},
+{
+"id": "d0451",
+"page": "(실행 중 문구) bunching",
+"ko": "이상적 간격이면 {#0}분 · 한 바퀴 {#1}분",
+"en": "{0} min if evenly spaced · lap {1} min",
+"tr": "{0} мин при равных интервалах · круг {1} мин"
+},
+{
+"id": "d0452",
+"page": "(실행 중 문구) bunching",
+"ko": "평균 기다림: 처방 없음 → 처방",
+"en": "Average wait: no remedy → remedy",
+"tr": "Среднее ожидание: без мер → с мерами"
+},
+{
+"id": "d0453",
+"page": "(실행 중 문구) bunching",
+"ko": "한 바퀴 시간 {#0} → {#1}분",
+"en": "Lap time {0} → {1} min",
+"tr": "Время круга {0} → {1} мин"
+},
+{
+"id": "d0454",
+"page": "(실행 중 문구) bunching",
+"ko": "{#0}명/시간",
+"en": "{0} per hour",
+"tr": "{0} в час"
+},
+{
+"id": "d0456",
+"page": "(실행 중 문구) checkout",
+"ko": "A · 한 줄로 서기",
+"en": "A · One shared line",
+"tr": "A · Одна общая очередь"
+},
+{
+"id": "d0457",
+"page": "(실행 중 문구) checkout",
+"ko": "B · 줄 따로, 사람 적은 줄",
+"en": "B · Fewest people",
+"tr": "B · Отдельные очереди, где меньше людей"
+},
+{
+"id": "d0458",
+"page": "(실행 중 문구) checkout",
+"ko": "C · 줄 따로, 아무 줄",
+"en": "C · Any line",
+"tr": "C · Отдельные очереди, любая"
+},
+{
+"id": "d0459",
+"page": "(실행 중 문구) checkout",
+"ko": "D · 줄 따로, 물건 적은 줄",
+"en": "D · Fewest items",
+"tr": "D · Отдельные очереди, где меньше товаров"
+},
+{
+"id": "d0460",
+"page": "(실행 중 문구) checkout",
+"ko": "한 줄",
+"en": "Single line",
+"tr": "Одна очередь"
+}
+]

@@ -1,0 +1,548 @@
+[
+{
+"id": "s0978",
+"page": "easter",
+"ko": "<b>이론값과 시뮬레이션:</b> 균형점은 기본 설정에서 손으로 계산하면 R* = 0.03 ÷ 0.05 = 0.60, P* = 0.01 × 0.4 ÷ 2×10<sup>-6</sup> = 2,000명이고 validate 출력과 같습니다. 그러나 실제 궤적은 지연 때문에 균형에 머물지 않고 최고 5,287명(P*의 약 2.6배)까지 넘친 뒤 600년째 696명으로 떨어집니다. 최고 인구는 P*에 비례해서, 벌채 강도 0.5/2/16에서 21,104/5,287/691명이고 (강도 × 최고 인구)는 약 10,550~11,060으로 거의 일정합니다.",
+"en": "<b>Theory versus simulation:</b> Calculated by hand with default settings, R* = 0.03 ÷ 0.05 = 0.60 and P* = 0.01 × 0.4 ÷ 2×10<sup>-6</sup> = 2,000 people, matching the validate output. The actual trajectory, because of the delay, does not stay at equilibrium but overshoots to a peak of 5,287 (about 2.6 times P*) and drops to 696 by year 600. The peak scales with P*: at harvest intensity 0.5/2/16 it is 21,104/5,287/691, so intensity × peak stays near-constant at about 10,550 to 11,060.",
+"tr": "<b>Теория и симуляция:</b> Расчёт вручную при настройках по умолчанию: R* = 0,03 ÷ 0,05 = 0,60 и P* = 0,01 × 0,4 ÷ 2×10<sup>-6</sup> = 2 000 человек, что совпадает с выводом validate. Реальная траектория из-за задержки не остаётся в равновесии, а проскакивает его до пика 5 287 (около 2,6 раза больше P*) и к 600-му году падает до 696. Пик масштабируется вместе с P*: при интенсивности добычи 0,5/2/16 он равен 21 104/5 287/691, так что интенсивность × пик остаётся почти постоянной, около 10 550–11 060."
+},
+{
+"id": "s0979",
+"page": "easter",
+"ko": "<b>더 읽을거리:</b> Brander & Taylor (1998), 「The Simple Economics of Easter Island: A Ricardo-Malthus Model of Renewable Resource Use」, American Economic Review 88(1). Diamond (2005), 『Collapse』, Viking(대중적이지만 해석에 논쟁이 있음). Hunt & Lipo (2011), 『The Statues That Walked』, Free Press(다른 해석).",
+"en": "<b>Further reading:</b> Brander & Taylor (1998), \"The Simple Economics of Easter Island: A Ricardo-Malthus Model of Renewable Resource Use\", <i>American Economic Review</i> 88(1). Diamond (2005), <i>Collapse</i>, Viking (popular, but its interpretation is disputed). Hunt & Lipo (2011), <i>The Statues That Walked</i>, Free Press (an alternative reading).",
+"tr": "<b>Что почитать дальше:</b> Brander &amp; Taylor (1998), «The Simple Economics of Easter Island: A Ricardo-Malthus Model of Renewable Resource Use», <i>American Economic Review</i> 88(1). Diamond (2005), <i>Collapse</i>, Viking (научно-популярная книга, но её трактовка оспаривается). Hunt &amp; Lipo (2011), <i>The Statues That Walked</i>, Free Press (альтернативное прочтение)."
+},
+{
+"id": "s0980",
+"page": "easter",
+"ko": "이 프로젝트가 단순화해 직접 짠 구현이며 논문의 방정식과 값을 그대로 쓰지 않았습니다. 인구가 숲의 최근 평균에 반응하도록 지연을 넣었습니다.",
+"en": "This is this project's own simplified implementation; it does not use the paper's equations or values. A delay is added so the population reacts to the recent average of the forest.",
+"tr": "Это собственная упрощённая реализация проекта; она не использует уравнения и значения из статьи. Добавлена задержка, чтобы население реагировало на недавнее среднее состояние леса."
+},
+{
+"id": "s0985",
+"page": "farming",
+"ko": "농경의 전파 · 시뮬라티오 랩",
+"en": "The Spread of Farming · Simulatio Lab",
+"tr": "Распространение земледелия · Simulatio Lab"
+},
+{
+"id": "s0986",
+"page": "farming",
+"ko": "인구가 늘고 조금씩 흩어지는 두 가지 규칙만으로 농경이 한 해에 1킬로미터쯤의 속도로 대륙을 덮는 모습을, 지도 위에서 직접 돌려보세요.",
+"en": "Watch farming sweep across a map at roughly a kilometer a year from just two rules, population growth and slow dispersal, and change them yourself.",
+"tr": "Посмотрите, как земледелие распространяется по карте со скоростью около километра в год всего по двум правилам — росту населения и медленному расселению, — и измените их сами."
+},
+{
+"id": "s0987",
+"page": "farming",
+"ko": "농사가 번지는 속도는 걸음에 비하면 보잘것없습니다. 한 세대(약 25년)에 25킬로미터 남짓이니까요. 그런데 이 느린 걸음이 쉬지 않고 이어지면, 이 모델에서는 약 천 년 만에 지도 전체가 농지로 덮입니다. 더 이상한 것은 그 속도를 누가 정해 준 적이 없다는 점입니다. &#39;늘어나는 속도&#39;와 &#39;흩어지는 정도&#39; 두 숫자만 있으면 속도가 저절로 정해진다는데, 정말 그럴까요? 직접 두 값을 바꿔 보세요.",
+"en": "The speed at which farming spread looks pitiful next to a walking pace: a bit over 25 kilometers per generation of about 25 years. Yet if that slow march never stops, then in this model a whole map is farmland in about a thousand years. Odder still, nobody sets that speed. The claim is that two numbers, how fast a population grows and how far it scatters, fix it by themselves. Is that really so? Change the two values and see.",
+"tr": "Скорость, с которой распространялось земледелие, выглядит жалкой рядом с шагом пешехода: чуть больше 25 километров за поколение примерно в 25 лет. Но если это медленное движение никогда не останавливается, то в этой модели вся карта становится пашней примерно за тысячу лет. Ещё любопытнее то, что эту скорость никто не задаёт. Утверждается, что её сами определяют два числа: как быстро растёт население и как далеко оно расселяется. Так ли это на самом деле? Измените два значения и посмотрите."
+},
+{
+"id": "s0988",
+"page": "farming",
+"ko": "지도는 10km 칸으로 나뉘어 있고, 칸마다 <b>농부 밀도</b>(땅이 감당하는 최대치를 1로)와 <b>수렵채집민 밀도</b>(처음에는 어디나 0.25)가 있습니다. 한 곳(왼쪽 가운데 &#39;기원지&#39;)에서만 농부가 시작합니다.",
+"en": "The map is a grid of 10 km cells. Each cell has a <b>farmer density</b> (1 is the most the land can carry) and a <b>hunter-gatherer density</b> (0.25 everywhere at first). Farmers start in only one place, the origin on the middle of the left edge.",
+"tr": "Карта — это сетка клеток по 10 км. В каждой клетке есть <b>плотность земледельцев</b> (1 — максимум, который может прокормить земля) и <b>плотность охотников-собирателей</b> (вначале везде 0,25). Земледельцы начинают только в одном месте — в точке начала на середине левого края."
+},
+{
+"id": "s0989",
+"page": "farming",
+"ko": "농부는 두 가지로 움직입니다. 한 칸 안에서 <b>늘어나고</b>(성장률 r, 가득 차면 멈춤), 이웃 칸으로 <b>조금씩 흩어집니다</b>(확산 계수 D). 두 값이 같이 정하는 속도가 전선의 속도입니다.",
+"en": "Farmers do two things. Inside a cell they <b>multiply</b> (growth rate r, stopping when the cell is full), and they <b>drift a little</b> into neighboring cells (dispersal coefficient D). Together the two values set the speed of the front.",
+"tr": "Земледельцы делают две вещи. Внутри клетки они <b>размножаются</b> (скорость роста r, пока клетка не заполнится) и <b>понемногу расселяются</b> в соседние клетки (коэффициент диффузии D). Вместе эти два значения задают скорость фронта."
+},
+{
+"id": "s0990",
+"page": "farming",
+"ko": "수렵채집민은 제자리에 머뭅니다. 농부가 많아질수록 그 칸의 수렵채집민이 줄어드는데, 줄어든 몫 가운데 <b>섞이는 비율</b>만큼은 농부가 되고(동화), 나머지는 밀려나 사라집니다(대체).",
+"en": "Hunter-gatherers stay where they are. The more farmers a cell has, the fewer hunter-gatherers remain, and the share set by the <b>mixing</b> slider becomes farmers (assimilation) while the rest is pushed out (replacement).",
+"tr": "Охотники-собиратели остаются на месте. Чем больше в клетке земледельцев, тем меньше остаётся охотников-собирателей, причём доля, заданная ползунком <b>смешения</b>, становится земледельцами (ассимиляция), а остальные вытесняются (замещение)."
+},
+{
+"id": "s0991",
+"page": "farming",
+"ko": "땅은 칸마다 기름짐이 조금씩 다릅니다(최대 ±25%). <b>해협</b>은 땅다리 하나만 남기고 바다로 막고, <b>산맥</b>은 성장과 확산이 느린 띠입니다. 지도의 색은 농부가 처음 들어선 시각이고, 100년마다 띠가 바뀝니다.",
+"en": "The land is slightly different in fertility from cell to cell (up to ±25%). The <b>strait</b> is sea except for one land bridge, and the <b>mountains</b> are a band where growth and dispersal are slow. Map colors show when farmers first arrived, with a new band every 100 years.",
+"tr": "Плодородие земли немного различается от клетки к клетке (до ±25 %). <b>Пролив</b> — это море, кроме одного сухопутного моста, а <b>горы</b> — полоса, где рост и расселение медленные. Цвета на карте показывают, когда земледельцы впервые пришли в данное место, новая полоса — каждые 100 лет."
+},
+{
+"id": "s0992",
+"page": "farming",
+"ko": "인구 증가율 (r) <output id=\"o-r\"></output>",
+"en": "Population growth rate (r) <output id=\"o-r\"></output>",
+"tr": "Скорость роста населения (r) <output id=\"o-r\"></output>"
+},
+{
+"id": "s0993",
+"page": "farming",
+"ko": "클수록 인구가 빨리 늘어요. 연 2.5%면 약 28년마다 두 배",
+"en": "Higher means faster growth. At 2.5% a year the population doubles in about 28 years",
+"tr": "Чем выше, тем быстрее рост. При 2,5 % в год население удваивается примерно за 28 лет"
+},
+{
+"id": "s0994",
+"page": "farming",
+"ko": "흩어지는 정도 (D) <output id=\"o-D\"></output>",
+"en": "Dispersal (D) <output id=\"o-D\"></output>",
+"tr": "Расселение (D) <output id=\"o-D\"></output>"
+},
+{
+"id": "s0995",
+"page": "farming",
+"ko": "클수록 이웃으로 더 넓게 퍼져요 (제곱킬로미터 / 년)",
+"en": "Higher means spreading wider into neighbors (square kilometers per year)",
+"tr": "Чем выше, тем шире расселение в соседние клетки (квадратных километров в год)"
+},
+{
+"id": "s0996",
+"page": "farming",
+"ko": "토착민과 섞이는 비율 <output id=\"o-mix\"></output>",
+"en": "Mixing with hunter-gatherers <output id=\"o-mix\"></output>",
+"tr": "Смешение с охотниками-собирателями <output id=\"o-mix\"></output>"
+},
+{
+"id": "s0997",
+"page": "farming",
+"ko": "0%면 토착민은 밀려나고, 100%면 모두 농부가 돼요",
+"en": "0% means locals are displaced, 100% means they all become farmers",
+"tr": "0 % означает, что местные жители вытесняются, 100 % — что все становятся земледельцами"
+},
+{
+"id": "s0998",
+"page": "farming",
+"ko": "지형 장벽 <output id=\"o-barrier\"></output>",
+"en": "Landscape barrier <output id=\"o-barrier\"></output>",
+"tr": "Ландшафтная преграда <output id=\"o-barrier\"></output>"
+},
+{
+"id": "s0999",
+"page": "farming",
+"ko": "해협 (땅다리 하나)",
+"en": "Strait (one land bridge)",
+"tr": "Пролив (один сухопутный мост)"
+},
+{
+"id": "s1000",
+"page": "farming",
+"ko": "산맥 (느린 띠)",
+"en": "Mountains (slow band)",
+"tr": "Горы (медленная полоса)"
+},
+{
+"id": "s1001",
+"page": "farming",
+"ko": "장벽을 켜면 전선이 돌아가거나 천천히 넘어가는 것을 볼 수 있어요",
+"en": "Turn a barrier on to see the front go around it or slowly across",
+"tr": "Включите преграду, чтобы увидеть, как фронт обходит её или медленно проходит насквозь"
+},
+{
+"id": "s1002",
+"page": "farming",
+"ko": "같은 설정, 다른 땅",
+"en": "Same settings, different land",
+"tr": "Те же настройки, другая земля"
+},
+{
+"id": "s1003",
+"page": "farming",
+"ko": "① 번져 가는 농경",
+"en": "① Farming Spreading",
+"tr": "① Распространение земледелия"
+},
+{
+"id": "s1004",
+"page": "farming",
+"ko": "별표가 농경의 시작점입니다. 색은 그 땅에 농부가 처음 들어선 시각(기원지를 떠난 뒤 지난 햇수)이고, 띠 사이의 짙은 선이 곧 등고선입니다. 선이 촘촘하면 빠르게 지나간 곳이 아니라 오히려 느리게 지나간 곳이에요.",
+"en": "The star marks where farming begins. Color shows when farmers first arrived in a place (years since leaving the origin), and the dark lines between bands are contours. Lines packed close together do not mean fast; the front was moving slowly there.",
+"tr": "Звёздочка отмечает место, откуда началось земледелие. Цвет показывает, когда земледельцы впервые пришли в данное место (годы с момента ухода из точки начала), а тёмные линии между полосами — контуры. Густо расположенные линии не означают быстрого движения; в этом месте фронт двигался медленно."
+},
+{
+"id": "s1005",
+"page": "farming",
+"ko": "지도 보기",
+"en": "Map view",
+"tr": "Вид карты"
+},
+{
+"id": "s1006",
+"page": "farming",
+"ko": "도착 시각 (등고선 띠)",
+"en": "Arrival time (contour bands)",
+"tr": "Время прихода (полосы контуров)"
+},
+{
+"id": "s1007",
+"page": "farming",
+"ko": "농부의 혈통",
+"en": "Ancestry of the farmers",
+"tr": "Происхождение земледельцев"
+},
+{
+"id": "s1008",
+"page": "farming",
+"ko": "농부들이 이주민의 후손인지 토착민의 후손인지 바꿔 볼 수 있어요.",
+"en": "Switch to see whose descendants the farmers are: migrants or local hunter-gatherers.",
+"tr": "Переключите, чтобы увидеть, чьи потомки земледельцы: мигрантов или местных охотников-собирателей."
+},
+{
+"id": "s1009",
+"page": "farming",
+"ko": "② 전선은 얼마나 멀리 갔을까",
+"en": "② How Far Has the Front Gone?",
+"tr": "② Как далеко ушёл фронт?"
+},
+{
+"id": "s1010",
+"page": "farming",
+"ko": "파란 선은 기원지에서 가장 멀리 간 농부까지의 거리입니다. 초록 점선은 피셔-콜모고로프 이론 2√(rD)에서 나온 직선이고, 토착민을 흡수하면 빨간 점선처럼 조금 더 가팔라집니다. 처음 100여 년은 전선이 자리를 잡느라 이론선보다 늦지만 기울기는 이론과 나란해집니다. 장벽이 있으면 선이 꺾이는 곳을 보세요.",
+"en": "The blue line is the distance from the origin to the farthest farmers. The green dashed line comes from the Fisher-Kolmogorov theory, 2√(rD), and when locals are assimilated the front follows the slightly steeper red dashed line. The first hundred or so years lag behind the theory while the front settles in, after which the slope runs parallel to it. With a barrier, watch where the line bends.",
+"tr": "Синяя линия — расстояние от точки начала до самых дальних земледельцев. Зелёная пунктирная линия получена из теории Фишера — Колмогорова, 2√(rD), а когда местных ассимилируют, фронт идёт вдоль чуть более крутой красной пунктирной линии. Первые сто лет или около того фронт отстаёт от теории, пока устанавливается, после чего наклон идёт параллельно ей. При наличии преграды обратите внимание, где линия изгибается."
+},
+{
+"id": "s1011",
+"page": "farming",
+"ko": "③ 칸마다 도착 시각",
+"en": "③ Arrival Time, Cell by Cell",
+"tr": "③ Время прихода, клетка за клеткой"
+},
+{
+"id": "s1012",
+"page": "farming",
+"ko": "점 하나가 지도의 칸 하나입니다. 가로는 기원지에서의 거리, 세로는 농부가 처음 닿은 시각이에요. 점들이 이론의 직선을 따라 늘어서면 일정한 속도로 퍼졌다는 뜻이고, 직선 위로 솟은 곳은 장벽 때문에 늦어진 곳입니다.",
+"en": "Each dot is one cell of the map. The horizontal axis is distance from the origin and the vertical axis the time farmers first arrived. Dots lining up along the theory line mean a steady speed, and dots that rise above the line are places delayed by a barrier.",
+"tr": "Каждая точка — одна клетка карты. По горизонтальной оси — расстояние от точки начала, по вертикальной — время первого прихода земледельцев. Точки, выстроившиеся вдоль теоретической линии, означают постоянную скорость, а точки выше линии — места, задержанные преградой."
+},
+{
+"id": "s1013",
+"page": "farming",
+"ko": "④ 성장률을 바꾸면 속도는",
+"en": "④ How Speed Changes with Growth",
+"tr": "④ Как скорость зависит от роста"
+},
+{
+"id": "s1014",
+"page": "farming",
+"ko": "지금의 흩어지는 정도와 섞이는 비율에서 성장률만 바꿔 가며 쟀습니다(한 줄로 펼친 평면 파동). 이론 곡선과 측정점이 거의 겹치면, 속도가 두 숫자로 정해진다는 말이 맞는다는 뜻입니다.",
+"en": "Keeping the current dispersal and mixing, only the growth rate was varied (a plane wave unrolled onto one strip). If the measured dots nearly sit on the theory curve, the claim that two numbers fix the speed holds up.",
+"tr": "При сохранении текущих значений расселения и смешения менялась только скорость роста (плоская волна, развёрнутая на одну полосу). Если измеренные точки почти лежат на теоретической кривой, утверждение о том, что скорость задают два числа, подтверждается."
+},
+{
+"id": "s1015",
+"page": "farming",
+"ko": "늘어나고 흩어지는 두 규칙만으로도 연 1km쯤의 일정한 속도의 파동이 생겼어요.",
+"en": "Growth plus dispersal alone produced a wave moving at a steady speed of about 1 km a year.",
+"tr": "Один лишь рост в сочетании с расселением дал волну, движущуюся с постоянной скоростью около 1 км в год."
+},
+{
+"id": "s1016",
+"page": "farming",
+"ko": "앞쪽 끝에서는 늘어나는 속도와 흩어지는 속도가 전선의 속도를 정하고, 섞임이 많을수록 조금 빨라졌어요.",
+"en": "At the front, growth rate and dispersal rate set the speed, and more mixing made it a bit faster.",
+"tr": "На фронте скорость задают темп роста и темп расселения, а более сильное перемешивание делало её немного выше."
+},
+{
+"id": "s1017",
+"page": "farming",
+"ko": "속도만으로는 이동인지 전파인지 가리기 어려우니, 누구의 후손이 퍼졌는지를 함께 볼 만해요.",
+"en": "Speed alone cannot separate migration from diffusion of ideas, so whose descendants spread is worth examining too.",
+"tr": "Одной скорости недостаточно, чтобы отличить миграцию от распространения идей, поэтому стоит изучить и то, потомки кого расселились."
+},
+{
+"id": "s1018",
+"page": "farming",
+"ko": "<b>말하는 것:</b> 기본값(연 2.5% 성장, 흩어지는 정도 10km²/년, 섞이는 비율 50%, 장벽 없음, 땅 번호 1)에서 잰 전선 속도는 1.03km/년이고, 흡수가 없을 때의 이론 2√(rD)는 1.00km/년, 흡수를 반영한 이론은 1.12km/년입니다. 한 세대(25년)로 치면 약 26km이고, 땅의 99%가 덮이는 데 975년이 걸렸습니다. 장벽이 있으면 같은 설정에서 해협은 1,095년, 산맥은 1,130년으로 늦어졌습니다. 해협에서는 전선이 땅다리 쪽으로 휘어 들어가 건너편에서 부채꼴로 다시 퍼졌고, 산맥 안에서는 속도가 평지의 약 3분의 1(0.29 대 0.89km/년, 이론은 0.35배)로 줄었지만 멈추지는 않았습니다. 성장률을 바꿔 한 줄 파동으로 잰 속도는 이론의 94~100%였고, 섞이는 비율을 0%에서 100%로 올리면 속도가 0.97에서 1.19km/년으로 빨라져 흡수를 반영한 이론(1.00에서 1.22)과 4% 안에서 맞았습니다. 같은 설정에서 농부 가운데 토착 수렵채집민 후손의 몫은 섞이는 비율 50%일 때 87%, 100%일 때 95%였습니다. 속도는 거의 같은데 누구의 후손이 퍼졌는지는 크게 달랐습니다.",
+"en": "<b>What it shows:</b> With the defaults (2.5% growth a year, dispersal 10 km²/year, mixing 50%, no barrier, land number 1) the measured front speed is 1.03 km/year, against 1.00 km/year from the theory 2√(rD) without assimilation and 1.12 km/year with it. That is about 26 km per generation of 25 years, and 99% of the land was covered after 975 years. With the same settings a barrier slowed things: 1,095 years with the strait and 1,130 with the mountains. At the strait the front bent toward the land bridge and fanned out again on the far side, while inside the mountains speed fell to about a third of the lowland value (0.29 versus 0.89 km/year, theory 0.35 times) without stopping. Varying the growth rate on a single strip gave speeds 94 to 100% of the theory, and raising mixing from 0% to 100% raised the speed from 0.97 to 1.19 km/year, within 4% of the theory with assimilation (1.00 to 1.22). In the same runs the share of farmers descended from local hunter-gatherers was 87% at 50% mixing and 95% at 100%. The speed was nearly the same, yet whose descendants spread was very different.",
+"tr": "<b>Что это показывает:</b> При значениях по умолчанию (рост 2,5 % в год, расселение 10 км²/год, смешение 50 %, без преграды, земля № 1) измеренная скорость фронта составляет 1,03 км/год при теоретических 1,00 км/год по формуле 2√(rD) без ассимиляции и 1,12 км/год с ассимиляцией. Это около 26 км за поколение в 25 лет, а 99 % земли было покрыто через 975 лет. При тех же настройках преграда замедляла процесс: 1 095 лет с проливом и 1 130 с горами. У пролива фронт изгибался в сторону сухопутного моста и снова расходился веером по ту сторону, а внутри гор скорость падала примерно до трети значения для равнин (0,29 против 0,89 км/год, теоретически 0,35 раза), не останавливаясь. При изменении скорости роста на одной полосе скорости составили от 94 до 100 % теоретических, а повышение смешения с 0 % до 100 % подняло скорость с 0,97 до 1,19 км/год, в пределах 4 % от теории с ассимиляцией (1,00–1,22). В тех же запусках доля земледельцев, происходящих от местных охотников-собирателей, составила 87 % при смешении 50 % и 95 % при 100 %. Скорость была почти одинаковой, но то, чьи потомки расселились, сильно различалось."
+},
+{
+"id": "s1019",
+"page": "farming",
+"ko": "실제 유럽 농경 전파를 재현했다는 뜻은 아니에요. 지도와 수치는 추상적으로 정한 값이에요.",
+"en": "This is not a reconstruction of how farming really spread; the map and numbers are abstract.",
+"tr": "Это не реконструкция того, как на самом деле распространялось земледелие; карта и цифры абстрактны."
+},
+{
+"id": "s1020",
+"page": "farming",
+"ko": "바닷길·기후 같은 현실 요소와 이동 여부는 고고학·유전자 증거로 따로 확인해야 해요.",
+"en": "Sea routes, climate and whether people actually moved need archaeological and genetic evidence.",
+"tr": "Морские пути, климат и то, действительно ли люди переселялись, требуют археологических и генетических данных."
+},
+{
+"id": "s1021",
+"page": "farming",
+"ko": "<b>말하지 않는 것:</b> 실제 유럽의 농경 전파를 재현한 것이 아닙니다. 고고학자들은 농경이 유럽에서 평균 연 1km 안팎의 속도로 퍼졌다고 추정했고, 이런 &#39;전진하는 파동&#39; 생각은 Ammerman과 Cavalli-Sforza(1971)가 농경 전파에 적용해 널리 알려졌지만, 추정값은 연구마다 다르며 퍼진 것이 사람(이주)인지 기술과 생각(문화 전파)인지는 지금도 논쟁 중입니다. 이 모델은 지도가 추상적이고 땅이 거의 균일하며, 바닷길 이동, 강과 해안의 길, 기후 변화, 마을 단위의 갑작스러운 도약 같은 현실의 요소가 없습니다. 섞이는 비율이나 토착민 후손의 몫(87%, 95%)도 이 프로젝트가 정한 값에 크게 의존하므로 실제 유럽 사람들의 혈통에 대한 주장으로 읽으면 안 됩니다. 이 실험은 &#39;늘어나고 흩어지는 두 규칙만으로도 일정한 속도의 파동이 만들어질 수 있다&#39;는 메커니즘을 보여 줄 뿐입니다.",
+"en": "<b>What it doesn't show:</b> This is not a reconstruction of the real spread of farming in Europe. Archaeologists have estimated that farming spread across Europe at roughly one kilometer a year on average, and the wave-of-advance idea was applied to farming by Ammerman and Cavalli-Sforza (1971), but estimates vary between studies and whether people (migration) or techniques and ideas (cultural diffusion) did the spreading is still debated. The map here is abstract, the land nearly uniform, and real factors such as sea voyages, river and coastal routes, climate change and sudden village-scale jumps are absent. The mixing ratio and the shares of local descendants (87%, 95%) depend strongly on values this project chose, so do not read them as a claim about real European ancestry. The experiment only shows a mechanism: growth plus slow dispersal alone can produce a wave moving at a steady speed.",
+"tr": "<b>Чего это не показывает:</b> Это не реконструкция реального распространения земледелия в Европе. Археологи оценивали, что земледелие распространялось по Европе со средней скоростью примерно километр в год, а идею волны продвижения применили к земледелию Аммерман и Кавалли-Сфорца (1971), но оценки в разных исследованиях различаются, и до сих пор обсуждается, что распространялось — люди (миграция) или техники и идеи (культурная диффузия). Карта здесь абстрактная, земля почти однородна, а реальные факторы, такие как морские переходы, речные и прибрежные маршруты, изменение климата и внезапные скачки масштаба деревни, отсутствуют. Доля смешения и доли местных потомков (87 %, 95 %) сильно зависят от значений, выбранных этим проектом, поэтому не читайте их как утверждение о реальном происхождении европейцев. Эксперимент показывает лишь механизм: рост плюс медленное расселение сами по себе могут породить волну, движущуюся с постоянной скоростью."
+},
+{
+"id": "s1022",
+"page": "farming",
+"ko": "<b>모델의 뿌리:</b> Fisher (1937), &quot;The wave of advance of advantageous genes&quot;, <i>Annals of Eugenics</i> 7은 유리한 유전자가 공간에서 일정한 속도의 파동으로 퍼진다는 방정식을 다뤘고, 같은 해 Kolmogorov, Petrovsky, Piskunov도 독립적으로 같은 방정식을 연구해 피셔-콜모고로프(Fisher-KPP) 방정식이라 부릅니다. Ammerman &amp; Cavalli-Sforza (1971), <i>Man</i> 6이 이를 유럽의 농경 전파에 적용했습니다.",
+"en": "<b>Where the model comes from:</b> Fisher (1937), &quot;The wave of advance of advantageous genes&quot;, <i>Annals of Eugenics</i> 7, treated an equation in which an advantageous gene spreads through space as a wave of constant speed. Kolmogorov, Petrovsky and Piskunov studied the same equation independently that year, hence the name Fisher-KPP. Ammerman &amp; Cavalli-Sforza (1971), <i>Man</i> 6, applied it to the spread of farming in Europe.",
+"tr": "<b>Откуда взялась модель:</b> Фишер (1937), &quot;The wave of advance of advantageous genes&quot;, <i>Annals of Eugenics</i> 7, рассмотрел уравнение, в котором выгодный ген распространяется в пространстве как волна постоянной скорости. Колмогоров, Петровский и Пискунов в том же году независимо изучили то же уравнение, отсюда название Фишера — КПП. Ammerman &amp; Cavalli-Sforza (1971), <i>Man</i> 6, применили его к распространению земледелия в Европе."
+},
+{
+"id": "s1023",
+"page": "farming",
+"ko": "<b>핵심 가정과 수식:</b> 농부 밀도 F(땅이 감당하는 최대치 = 1)는 <code>∂F/∂t = rF(1 − F) + D∇²F</code>를 따릅니다. 앞쪽 끝에서는 F가 작아 선형으로 늘기 때문에 전선은 <code>c = 2√(rD)</code>의 속도로 나아갑니다(r 증가율, D 확산 계수). 이 모델은 수렵채집민을 흡수하면 앞쪽의 증가율이 <code>r + mix·κ·h₀</code>로 커진다고 보아 <code>c = 2√((r + mix·κ·h₀)D)</code>를 함께 비교합니다(κ = 0.05/년, h₀ = 0.25는 이 프로젝트가 정한 값).",
+"en": "<b>Key assumptions and formulas:</b> Farmer density F (1 is the most the land can carry) follows <code>∂F/∂t = rF(1 − F) + D∇²F</code>. At the leading edge F is small and grows linearly, so the front advances at <code>c = 2√(rD)</code> (r growth rate, D dispersal coefficient). This model also compares <code>c = 2√((r + mix·κ·h₀)D)</code>, because assimilating hunter-gatherers raises the growth rate at the front to <code>r + mix·κ·h₀</code> (κ = 0.05 per year and h₀ = 0.25 are values this project chose).",
+"tr": "<b>Ключевые допущения и формулы:</b> Плотность земледельцев F (1 — максимум, который может прокормить земля) подчиняется уравнению <code>∂F/∂t = rF(1 − F) + D∇²F</code>. На передней кромке F мала и растёт линейно, поэтому фронт продвигается со скоростью <code>c = 2√(rD)</code> (r — скорость роста, D — коэффициент расселения). Эта модель также сравнивает <code>c = 2√((r + mix·κ·h₀)D)</code>, потому что ассимиляция охотников-собирателей повышает скорость роста на фронте до <code>r + mix·κ·h₀</code> (κ = 0,05 в год и h₀ = 0,25 — значения, выбранные этим проектом)."
+},
+{
+"id": "s1024",
+"page": "farming",
+"ko": "<b>이 프로젝트의 단순화:</b> 지도는 추상적이고 땅은 거의 균일하며, 수렵채집민은 움직이지 않고 밀도가 0.25로 일정하다고 봅니다. 한 세대 = 25년과 위의 κ, h₀, 산맥(성장 0.5배, 확산 0.25배)은 이 프로젝트의 가정입니다. 농경이 사람의 이동으로 퍼졌는지 생각과 기술의 전파로 퍼졌는지는 지금도 논쟁 중이고, 이 모델은 &#39;섞이는 비율&#39; 하나로 둘 사이를 오가게 했을 뿐 어느 쪽이 맞는지 가리지 않습니다.",
+"en": "<b>What this project simplifies:</b> The map is abstract, the land nearly uniform, and hunter-gatherers neither move nor change from a constant density of 0.25. One generation = 25 years, κ and h₀ above, and the mountains (growth 0.5 times, dispersal 0.25 times) are this project's assumptions. Whether farming spread by people moving or by ideas and techniques spreading is still debated; the model only slides between the two with a single mixing parameter and does not decide which is right.",
+"tr": "<b>Что упрощено в этом проекте:</b> Карта абстрактная, земля почти однородна, а охотники-собиратели не двигаются и не отклоняются от постоянной плотности 0,25. Одно поколение = 25 лет, κ и h₀ выше, а горы (рост в 0,5 раза, расселение в 0,25 раза) — допущения этого проекта. Распространялось ли земледелие через перемещение людей или через распространение идей и техник, до сих пор обсуждается; модель лишь плавно переходит между двумя вариантами одним параметром смешения и не решает, какой из них верен."
+},
+{
+"id": "s1025",
+"page": "farming",
+"ko": "<b>이론값과 시뮬레이션:</b> 흡수가 없을 때 한 줄 파동으로 잰 속도는 이론 2√(rD)의 94~100%였습니다(예: r=2.5%, D=10에서 0.97 대 1.00km/년). 섞이는 비율을 0, 25, 50, 75, 100%로 올리면 잰 값이 0.97, 1.03, 1.08, 1.14, 1.19km/년으로 흡수를 반영한 이론 1.00, 1.06, 1.12, 1.17, 1.22와 4% 안에서 맞았습니다. 둥근 전선이 있는 2차원에서는 휘어짐 때문에 장벽·잡음이 없을 때도 0.93으로 조금 느렸고, 산맥 안의 속도비는 0.32로 이론 0.35와 비슷했습니다. 모두 <code>node tools/validate-farming.js</code>의 출력입니다.",
+"en": "<b>Theory versus simulation:</b> With no assimilation, speeds measured on a one-dimensional wave were 94 to 100% of the theory 2√(rD) (for example 0.97 versus 1.00 km/year at r = 2.5%, D = 10). Raising mixing through 0, 25, 50, 75 and 100% gave 0.97, 1.03, 1.08, 1.14 and 1.19 km/year, within 4% of the theory with assimilation, 1.00, 1.06, 1.12, 1.17 and 1.22. In two dimensions the curved front made speed a little lower, 0.93, even with no barrier or noise, and the speed ratio inside the mountains was 0.32 against a theoretical 0.35. All of this is the output of <code>node tools/validate-farming.js</code>.",
+"tr": "<b>Теория и симуляция:</b> Без ассимиляции скорости, измеренные на одномерной волне, составили от 94 до 100 % теоретических 2√(rD) (например, 0,97 против 1,00 км/год при r = 2,5 %, D = 10). Повышение смешения до 0, 25, 50, 75 и 100 % дало 0,97, 1,03, 1,08, 1,14 и 1,19 км/год, в пределах 4 % от теории с ассимиляцией — 1,00, 1,06, 1,12, 1,17 и 1,22. В двух измерениях искривлённый фронт делал скорость чуть ниже, 0,93, даже без преграды и шума, а отношение скоростей в горах составило 0,32 при теоретических 0,35. Всё это — вывод команды <code>node tools/validate-farming.js</code>."
+},
+{
+"id": "s1026",
+"page": "farming",
+"ko": "<b>더 읽을거리:</b> Ammerman &amp; Cavalli-Sforza (1971), &quot;Measuring the rate of spread of early farming in Europe&quot;, <i>Man</i> 6. Fisher (1937), 위의 논문. J. D. Murray, 『Mathematical Biology』, Springer (퍼지는 파동 방정식의 개설).",
+"en": "<b>Further reading:</b> Ammerman &amp; Cavalli-Sforza (1971), &quot;Measuring the rate of spread of early farming in Europe&quot;, <i>Man</i> 6. Fisher (1937), cited above. J. D. Murray, <i>Mathematical Biology</i>, Springer (an introduction to traveling-wave equations).",
+"tr": "<b>Что почитать дальше:</b> Ammerman &amp; Cavalli-Sforza (1971), &quot;Measuring the rate of spread of early farming in Europe&quot;, <i>Man</i> 6. Fisher (1937), см. выше. J. D. Murray, <i>Mathematical Biology</i>, Springer (введение в уравнения бегущих волн)."
+},
+{
+"id": "s1027",
+"page": "farming",
+"ko": "지도는 100×60칸(칸 하나 10km)이고 시간은 0.5년 간격의 명시적 차분으로 나아갑니다. 확산은 칸 사이의 조화 평균 계수로 계산해 바다 칸으로는 흐르지 않고, 지도 가장자리는 막혀 있습니다. 칸마다 기름짐은 성긴 값 잡음을 이어 만들며(시드 난수 mulberry32, 같은 땅 번호면 같은 결과) 성장률에만 곱합니다.",
+"en": "The map is 100×60 cells of 10 km, advanced in 0.5-year explicit finite-difference steps. Diffusion uses a harmonic-mean coefficient between cells so nothing flows into sea cells, and the map edges are closed. Fertility comes from smoothly joined coarse noise (seeded mulberry32, so the same land number gives the same result) and multiplies only the growth rate.",
+"tr": "Карта состоит из 100×60 клеток по 10 км и продвигается явными конечно-разностными шагами по 0,5 года. Диффузия использует между клетками коэффициент гармонического среднего, чтобы ничего не перетекало в клетки моря, а края карты замкнуты. Плодородие берётся из плавно сшитого крупного шума (mulberry32 с зерном, поэтому один и тот же номер земли даёт один и тот же результат) и умножает только скорость роста."
+},
+{
+"id": "s1028",
+"page": "farming",
+"ko": "전선 속도는 농부 밀도 0.5를 처음 넘은 시각을 칸의 도착 시각으로 삼고, 기원지에서 가장 먼 도착 지점의 거리 R(t)를 100~380km 구간에서 최소제곱으로 맞춘 기울기입니다. ④번 그래프는 같은 규칙을 250칸짜리 한 줄에서 돌려 도착 시각과 거리의 기울기로 구한 값입니다. 검증은 <code>node tools/validate-farming.js</code>로 할 수 있습니다.",
+"en": "Front speed takes the first time farmer density passes 0.5 as a cell's arrival time, and fits the distance R(t) of the farthest arrival from the origin by least squares over 100 to 380 km. Graph ④ runs the same rules on a strip of 250 cells and uses the slope of arrival time against distance. You can verify with <code>node tools/validate-farming.js</code>.",
+"tr": "Скорость фронта определяется так: временем прихода клетки считается первый момент, когда плотность земледельцев превышает 0,5, а расстояние R(t) до самого дальнего места прихода от точки начала аппроксимируется методом наименьших квадратов на отрезке от 100 до 380 км. График ④ запускает те же правила на полосе из 250 клеток и использует наклон времени прихода относительно расстояния. Проверить можно командой <code>node tools/validate-farming.js</code>."
+},
+{
+"id": "s1029",
+"page": "farming",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/farming\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/farming\">GitHub</a>.",
+"tr": "Код доступен на <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/farming\">GitHub</a>."
+},
+{
+"id": "s1056",
+"page": "fashion",
+"ko": "모방과 차별화가 함께 있을 때만 유행이 색상환을 계속 돌아요.",
+"en": "Trends keep circling the color wheel only when imitation and differentiation both exist.",
+"tr": "Тренды продолжают ходить по цветовому кругу только тогда, когда есть и подражание, и стремление отличаться."
+},
+{
+"id": "s1057",
+"page": "fashion",
+"ko": "이 모델에서는 대중이 쫓고 트렌드세터가 한쪽으로 달아나는 구조라, 도는 속도는 둘 중 느린 쪽을 따라요.",
+"en": "In this model the masses chase and trendsetters flee one way, so the pace follows the slower of the two.",
+"tr": "В этой модели толпа догоняет, а законодатели трендов убегают в одном направлении, поэтому темп определяется более медленной из двух сторон."
+},
+{
+"id": "s1058",
+"page": "fashion",
+"ko": "유행이 멈췄다면 따라 하는 힘과 달아나는 힘 중 어느 쪽이 약한지부터 살펴볼 만해요.",
+"en": "If a trend stalls, look first at which is weaker: the urge to follow or the urge to flee.",
+"tr": "Если тренд застопорился, сначала посмотрите, что слабее: стремление следовать или стремление уйти."
+},
+{
+"id": "s1060",
+"page": "fashion",
+"ko": "실제 유행이 이런 규칙으로 움직이거나 주기를 예측할 수 있다는 뜻은 아니에요.",
+"en": "It doesn't mean real fashion follows these rules or that its cycles can be predicted.",
+"tr": "Это не значит, что реальная мода следует этим правилам или что её циклы можно предсказать."
+},
+{
+"id": "s1061",
+"page": "fashion",
+"ko": "산업·미디어·가격의 영향과 달아나는 방향이 하나가 아닌 점은 실제 유행을 관찰해 따로 봐야 해요.",
+"en": "Industry, media, price and non-single escape directions must be checked in real fashion data.",
+"tr": "Индустрию, медиа, цену и неединственные направления ухода нужно проверять на реальных данных о моде."
+},
+{
+"id": "s1063",
+"page": "fashion",
+"ko": "<b>모델의 뿌리:</b> Georg Simmel의 「유행」(1904)은 윗사람은 남과 달라 보이려 하고 아랫사람은 따라 하다가, 모방이 퍼지면 윗사람이 다시 새 유행으로 옮겨 간다고 설명했습니다. 이 발상은 Veblen의 『유한계급론』(1899)에 닿아 있고, Blumer (1969)는 유행이 계층에서 아래로 흐르기만 하지 않는다고 비판했습니다.",
+"en": "<b>Where the model comes from:</b> Georg Simmel's \"Fashion\" (1904) argued that those on top try to look different while those below imitate them, and once imitation spreads those on top move on to a new fashion. The idea is related to Veblen's <i>The Theory of the Leisure Class</i> (1899), and Blumer (1969) criticized it, arguing that fashion does not simply trickle down from class to class.",
+"tr": "<b>Откуда взялась модель:</b> «Мода» Георга Зиммеля (1904) утверждала, что стоящие наверху стараются выглядеть иначе, а те, кто ниже, им подражают, и когда подражание распространяется, верхние переходят к новой моде. Идея связана с <i>«Теорией праздного класса»</i> Веблена (1899), а Блумер (1969) критиковал её, утверждая, что мода не просто «просачивается» от класса к классу."
+},
+{
+"id": "s1064",
+"page": "fashion",
+"ko": "<b>핵심 가정과 수식:</b> 스타일을 원 위의 각도 θ로 두고 두 규칙을 씁니다. 대중은 가장 가까운 트렌드세터 쪽으로 한 걸음에 α도 다가가고(모방), 트렌드세터는 주변 대중의 밀도에 따라 최대 β도까지 한 방향으로 달아납니다(차별화). 모방 속도 α, 도망 속도 β, 흔들림, 트렌드세터 비율이 슬라이더입니다.",
+"en": "<b>Key assumptions and formulas:</b> A style is an angle θ on a circle and two rules apply. The crowd steps α degrees toward the nearest trendsetter (imitation), and trendsetters run in one direction at up to β degrees depending on the density of the crowd near them (distinction). The imitation speed α, flight speed β, wobble and share of trendsetters are the sliders.",
+"tr": "<b>Ключевые допущения и формулы:</b> Стиль — это угол θ на окружности, и действуют два правила. Толпа делает шаг на α градусов к ближайшему трендсеттеру (подражание), а трендсеттеры убегают в одном направлении до β градусов в зависимости от плотности толпы рядом с ними (дистанцирование). Скорость подражания α, скорость бегства β, колебания и доля трендсеттеров — это ползунки."
+},
+{
+"id": "s1065",
+"page": "fashion",
+"ko": "<b>이 프로젝트의 단순화:</b> Simmel은 계층 간 이동과 사회적 신호를 다뤘지만 여기서는 계층, 가격, 매체를 모두 빼고 한 줄의 원만 둡니다. \"트렌드세터는 한 방향으로만 달아난다\", \"모두가 한 시즌의 유행 주위에서 시작한다\", 3배 밀도 기준, ±30도 범위는 순환이 보이도록 이 프로젝트가 정한 가정입니다. 방향을 고정하지 않으면 하나의 순환이 생기지 않았습니다.",
+"en": "<b>What this project simplifies:</b> Simmel dealt with movement between classes and social signals, but here class, price and media are all left out and there is only a single circle. \"Trendsetters flee in one direction only,\" \"everyone starts around one season's fashion,\" the 3x density threshold and the ±30° window are assumptions this project chose so that a cycle can appear. Without a fixed direction no single cycle formed.",
+"tr": "<b>Что упрощено в этом проекте:</b> Зиммель рассматривал движение между классами и социальные сигналы, но здесь класс, цена и медиа не учитываются, а есть лишь одна окружность. «Трендсеттеры убегают только в одном направлении», «все начинают около моды одного сезона», порог плотности 3x и окно ±30° — допущения, выбранные этим проектом, чтобы мог появиться цикл. Без фиксированного направления единый цикл не образовывался."
+},
+{
+"id": "s1066",
+"page": "fashion",
+"ko": "<b>이론값과 시뮬레이션:</b> 닫힌 해는 없지만 간단한 추론이 있습니다. 흐름 전체는 느린 쪽 속도로 돕니다. 한 라운드에 도는 각도는 약 min(α, β)이므로 α=β=2도면 100라운드에 0.55바퀴(200도/100라운드)쯤이라는 예상에 실측 0.53바퀴가 맞고, α=0.5/1이면 0.13/0.27바퀴(예상 0.14/0.28), β=1이면 0.26바퀴(예상 0.28)입니다. β=0이면 6,000라운드까지 회전 0.00입니다.",
+"en": "<b>Theory versus simulation:</b> There is no closed-form solution, but a simple argument exists: the whole flow turns at the slower of the two speeds. The angle per round is about min(α, β), so with α=β=2° one expects around 0.55 turns per 100 rounds and the measured value is 0.53; α=0.5/1 gives 0.13/0.27 turns (expected 0.14/0.28), and β=1 gives 0.26 (expected 0.28). With β=0 there is zero rotation up to 6,000 rounds.",
+"tr": "<b>Теория и симуляция:</b> Решения в замкнутом виде нет, но есть простое рассуждение: весь поток вращается со скоростью более медленной из двух. Угол за раунд составляет примерно min(α, β), поэтому при α=β=2° ожидается около 0,55 оборота за 100 раундов, а измеренное значение — 0,53; α=0,5/1 даёт 0,13/0,27 оборота (ожидалось 0,14/0,28), а β=1 даёт 0,26 (ожидалось 0,28). При β=0 вращения нет до 6 000 раундов."
+},
+{
+"id": "s1067",
+"page": "fashion",
+"ko": "<b>더 읽을거리:</b> Simmel (1904), 「Fashion」, International Quarterly 10. Veblen (1899), 『The Theory of the Leisure Class』. Blumer (1969), 「Fashion: From Class Differentiation to Collective Selection」, The Sociological Quarterly 10(3). Acerbi, Ghirlanda & Enquist (2012), 「The Logic of Fashion Cycles」, PLoS ONE 7(3).",
+"en": "<b>Further reading:</b> Simmel (1904), \"Fashion\", <i>International Quarterly</i> 10. Veblen (1899), <i>The Theory of the Leisure Class</i>. Blumer (1969), \"Fashion: From Class Differentiation to Collective Selection\", <i>The Sociological Quarterly</i> 10(3). Acerbi, Ghirlanda & Enquist (2012), \"The Logic of Fashion Cycles\", <i>PLoS ONE</i> 7(3).",
+"tr": "<b>Что почитать дальше:</b> Simmel (1904), «Fashion», <i>International Quarterly</i> 10. Veblen (1899), <i>The Theory of the Leisure Class</i>. Blumer (1969), «Fashion: From Class Differentiation to Collective Selection», <i>The Sociological Quarterly</i> 10(3). Acerbi, Ghirlanda &amp; Enquist (2012), «The Logic of Fashion Cycles», <i>PLoS ONE</i> 7(3)."
+},
+{
+"id": "s1068",
+"page": "fashion",
+"ko": "이 프로젝트가 직접 설계한 단순화 모델이며 특정 논문의 재현이 아닙니다.",
+"en": "A stylized model of this project's own design, not a reproduction of a paper.",
+"tr": "Стилизованная модель собственной разработки проекта, а не воспроизведение статьи."
+},
+{
+"id": "s1105",
+"page": "firefly",
+"ko": "서로 앞당기는 세기와 볼 수 있는 범위가 충분하면 중앙 지휘 없이 거의 한 박자로 맞춰졌어요.",
+"en": "With enough mutual nudging and viewing range, the fireflies synced up with no central leader.",
+"tr": "При достаточном взаимном подталкивании и дальности обзора светлячки синхронизировались без какого-либо центрального лидера."
+},
+{
+"id": "s1106",
+"page": "firefly",
+"ko": "반짝임을 본 이웃이 시계를 앞당기면 박자 차이가 줄어들지만, 개체마다 속도가 다르면 완전히 맞지는 않아요.",
+"en": "Neighbors that see a flash advance their clocks, shrinking timing gaps, but differing speeds keep sync from being perfect.",
+"tr": "Соседи, увидевшие вспышку, переводят свои часы вперёд, и расхождения во времени сокращаются, но различия в скорости мешают синхронизации быть идеальной."
+},
+{
+"id": "s1107",
+"page": "firefly",
+"ko": "동기화를 이해하려면 서로 얼마나 영향을 주는지와 개체 차이의 균형부터 살펴볼 만해요.",
+"en": "To understand synchrony, the balance between mutual influence and individual differences is a good place to start.",
+"tr": "Чтобы понять синхронность, хорошей отправной точкой служит баланс между взаимным влиянием и индивидуальными различиями."
+},
+{
+"id": "s1109",
+"page": "firefly",
+"ko": "실제 반딧불이가 이렇게 박자를 맞춘다는 증명은 아니고, 빛의 세기나 학습 같은 요소도 빠져 있어요.",
+"en": "It does not prove real fireflies sync this way, and factors like light intensity and learning are missing.",
+"tr": "Он не доказывает, что реальные светлячки синхронизируются именно так, а такие факторы, как яркость света и обучение, отсутствуют."
+},
+{
+"id": "s1110",
+"page": "firefly",
+"ko": "실제 종의 깜빡임 간격과 서로 보는 거리를 관찰해 모델의 가정과 맞는지 확인해야 해요.",
+"en": "Observing real species' flash timing and viewing distances would show whether the assumptions hold.",
+"tr": "Наблюдение за временем вспышек и дальностью видимости у реальных видов показало бы, верны ли допущения."
+},
+{
+"id": "s1112",
+"page": "firefly",
+"ko": "<b>모델의 뿌리:</b> Peskin (1975)이 심장 박동 세포를 모델로 처음 다룬 \"펄스 결합 진동자\"를 Mirollo & Strogatz (1990)가 수학적으로 분석했습니다. 서로 모두 연결되고 똑같은 진동자들이 신호 때 서로를 조금씩 앞당기면, 거의 모든 시작 상태에서 한꺼번에 반짝이게 된다는 정리입니다. 반딧불이의 동시 점멸은 Buck & Buck (1968) 등이 관찰·설명했습니다.",
+"en": "<b>Where the model comes from:</b> Mirollo & Strogatz (1990) analyzed mathematically the \"pulse-coupled oscillators\" that Peskin (1975) first considered as a model of heart pacemaker cells: if identical oscillators, all connected to each other, nudge one another ahead whenever one fires, they end up firing together from almost any starting state. Synchronous flashing of fireflies was described by Buck & Buck (1968) and others.",
+"tr": "<b>Откуда взялась модель:</b> Миролло и Строгац (1990) математически проанализировали «импульсно-связанные осцилляторы», которые Пескин (1975) впервые рассмотрел как модель клеток-водителей ритма сердца: если одинаковые осцилляторы, все связанные друг с другом, подталкивают друг друга вперёд при каждой вспышке одного из них, то из почти любого начального состояния они в конце концов вспыхивают вместе. Синхронное мигание светлячков описали Бак и Бак (1968) и другие."
+},
+{
+"id": "s1113",
+"page": "firefly",
+"ko": "<b>핵심 가정과 수식:</b> 개체마다 위상이 1주기에 걸쳐 한 바퀴를 돌고, 1에 닿으면 반짝이며 범위 안의 이웃 위상을 결합 세기만큼 앞당깁니다. 동기화 정도는 위상을 원 위의 점으로 놓고 평균 화살표의 길이 <code>r = |평균 e<sup>iθ</sup>|</code>(Kuramoto의 질서 변수)로 잽니다. 결합 세기, 이웃 범위, 속도 차이가 슬라이더입니다.",
+"en": "<b>Key assumptions and formulas:</b> Each firefly's phase runs once around a cycle, and on reaching 1 it flashes and advances the phase of neighbors in range by the coupling strength. Synchrony is measured by putting the phases as points on a circle and taking the length of the mean arrow, <code>r = |mean e<sup>iθ</sup>|</code> (Kuramoto's order parameter). Coupling strength, neighbor range and speed spread are the sliders.",
+"tr": "<b>Ключевые допущения и формулы:</b> Фаза каждого светлячка проходит цикл один раз, и, достигнув 1, он вспыхивает и сдвигает вперёд фазу соседей в пределах досягаемости на величину силы связи. Синхронность измеряется так: фазы наносятся точками на окружность и берётся длина средней стрелки, <code>r = |mean e<sup>iθ</sup>|</code> (параметр порядка Курамото). Сила связи, радиус соседей и разброс скоростей — это ползунки."
+},
+{
+"id": "s1114",
+"page": "firefly",
+"ko": "<b>이 프로젝트의 단순화:</b> Mirollo–Strogatz 정리는 위상 곡선이 위로 오목하고 모두가 서로 보며 속도가 같다는 조건이 필요하지만, 여기서는 위상을 선형으로 밀고 이웃이 제한되며 속도도 개체마다 다릅니다. 그래서 정리를 그대로 적용하지 않고 시뮬레이션으로 확인합니다. 한 번 반짝임으로 전달되는 크기, 0.02씩 자라는 위상, 150마리는 이 프로젝트가 정한 값입니다.",
+"en": "<b>What this project simplifies:</b> The Mirollo–Strogatz theorem requires a concave-down phase curve, everyone seeing everyone, and equal speeds. Here the phase nudge is linear, neighbors are limited and speeds differ per firefly, so the theorem does not apply as is and the result is checked by simulation. The size of a flash's nudge, the 0.02 phase growth per step and 150 fireflies are this project's own values.",
+"tr": "<b>Что упрощено в этом проекте:</b> Теорема Миролло — Строгаца требует вогнутой вниз кривой фазы, чтобы все видели всех, и равных скоростей. Здесь сдвиг фазы линейный, соседи ограничены, а скорости у светлячков разные, поэтому теорема неприменима в чистом виде, и результат проверяется симуляцией. Величина сдвига от вспышки, прирост фазы 0,02 за шаг и 150 светлячков — собственные значения этого проекта."
+},
+{
+"id": "s1115",
+"page": "firefly",
+"ko": "<b>이론값과 시뮬레이션:</b> 이론이 확실히 말하는 극단은 시뮬레이션과 맞습니다. 속도 차이가 0이면 최종 r은 1.00이고, 결합이 0이면 r은 0.06으로 무작위 위상의 기대 크기(1/√150, 약 0.07~0.08)와 같습니다. 기본 설정의 최종 r은 6회 평균 0.87이고, 결합 3% 이상에서 0.95 근처, 이웃 범위 40% 이상에서 0.96입니다(<code>node tools/validate-firefly.js</code>). 조건이 달라 임계 결합 세기의 이론값은 없습니다.",
+"en": "<b>Theory versus simulation:</b> The extremes that theory is sure about match the simulation. With zero speed spread the final r is 1.00, and with zero coupling r is 0.06, about the expected size for random phases (about 0.07 to 0.08, from 1/√150). The default final r is 0.87 averaged over 6 runs, about 0.95 at coupling of 3% or more and 0.96 at neighbor range of 40% or more (<code>node tools/validate-firefly.js</code>). Because the conditions differ there is no theoretical value for the critical coupling.",
+"tr": "<b>Теория и симуляция:</b> Крайние случаи, в которых теория уверена, совпадают с симуляцией. При нулевом разбросе скоростей итоговое r равно 1,00, а при нулевой связи r равно 0,06 — примерно ожидаемая величина для случайных фаз (около 0,07–0,08, из 1/√150). Итоговое r по умолчанию в среднем по 6 запускам равно 0,87, около 0,95 при связи 3 % и более и 0,96 при радиусе соседей 40 % и более (<code>node tools/validate-firefly.js</code>). Поскольку условия отличаются, теоретического значения критической связи нет."
+},
+{
+"id": "s1116",
+"page": "firefly",
+"ko": "<b>더 읽을거리:</b> Mirollo & Strogatz (1990), 「Synchronization of pulse-coupled biological oscillators」, SIAM Journal on Applied Mathematics 50(6). Strogatz (2003), 『Sync』, Hyperion(교양서). Buck & Buck (1968), 「Mechanism of rhythmic synchronous flashing of fireflies」, Science 159.",
+"en": "<b>Further reading:</b> Mirollo & Strogatz (1990), \"Synchronization of pulse-coupled biological oscillators\", <i>SIAM Journal on Applied Mathematics</i> 50(6). Strogatz (2003), <i>Sync</i>, Hyperion (popular account). Buck & Buck (1968), \"Mechanism of rhythmic synchronous flashing of fireflies\", <i>Science</i> 159.",
+"tr": "<b>Что почитать дальше:</b> Mirollo &amp; Strogatz (1990), «Synchronization of pulse-coupled biological oscillators», <i>SIAM Journal on Applied Mathematics</i> 50(6). Strogatz (2003), <i>Sync</i>, Hyperion (научно-популярная книга). Buck &amp; Buck (1968), «Mechanism of rhythmic synchronous flashing of fireflies», <i>Science</i> 159."
+},
+{
+"id": "s1117",
+"page": "firefly",
+"ko": "이 프로젝트가 직접 설계한 단순화 구현이며 논문 수치를 재현한 것은 아닙니다.",
+"en": "A simplified implementation of this project's own design; it does not reproduce any paper's numbers.",
+"tr": "Упрощённая реализация собственной разработки проекта; она не воспроизводит числа ни из одной статьи."
+},
+{
+"id": "s1119",
+"page": "firefly",
+"ko": "기본 설정(결합 2.5%, 범위 30%, 속도 차이 10%)으로 시드 10개를 돌리면 모두 동기화(r>0.9)에 닿고, 걸린 주기는 2~31주기(10개 중 7개는 2~6주기)입니다. 결합이 1% 이하면 r이 0.2 아래, 3% 이상이면 0.95 근처입니다 (<code>node tools/validate-firefly.js</code>로 확인).",
+"en": "With the default settings (coupling 2.5%, range 30%, speed spread 10%), 10 seeds all reach synchrony (r>0.9), taking 2 to 31 cycles (7 of the 10 within 2 to 6). At coupling of 1% or less r stays below 0.2, and at 3% or more it is near 0.95 (verify with <code>node tools/validate-firefly.js</code>).",
+"tr": "При настройках по умолчанию (связь 2,5 %, радиус 30 %, разброс скоростей 10 %) все 10 зёрен достигают синхронности (r>0,9) за 2–31 цикл (7 из 10 — за 2–6). При связи 1 % и меньше r остаётся ниже 0,2, а при 3 % и больше близко к 0,95 (проверьте командой <code>node tools/validate-firefly.js</code>)."
+},
+{
+"id": "s1157",
+"page": "friendship",
+"ko": "이 관계망에서는 사람 82.6%가 자기 친구들이 평균적으로 자기보다 친구가 더 많았어요.",
+"en": "In this network, 82.6% of people had friends who, on average, had more friends than they did.",
+"tr": "В этой сети у 82,6% людей друзья имели в среднем больше друзей, чем они сами."
+},
+{
+"id": "s1158",
+"page": "friendship",
+"ko": "친구 목록을 훑으면 친구가 많은 사람이 그만큼 더 자주 나오기 때문에, 친구 수가 다르기만 해도 이렇게 돼요.",
+"en": "Scanning friend lists, people with many friends show up more often, so merely having uneven friend counts produces this.",
+"tr": "При просмотре списков друзей люди с большим числом друзей встречаются чаще, поэтому одной неравномерности числа друзей достаточно, чтобы это возникло."
+},
+{
+"id": "s1159",
+"page": "friendship",
+"ko": "내 친구가 더 많아 보일 때는 내 처지보다, 목록에 허브가 자주 등장하는 구조 탓은 아닌지 살펴볼 만해요.",
+"en": "When friends seem to have more friends, it may be worth checking whether hubs simply appear in many lists before blaming yourself.",
+"tr": "Когда кажется, что у друзей больше друзей, прежде чем винить себя, может стоить проверить, не попадают ли просто «хабы» во множество списков."
+},
+{
+"id": "s1161",
+"page": "friendship",
+"ko": "내가 인기가 없다거나 친구 많은 사람이 더 행복하다는 뜻은 아니에요. 82.6%도 이 모델의 실험 결과예요.",
+"en": "It does not mean you are unpopular or that people with more friends are happier; the 82.6% is this model's experimental result.",
+"tr": "Это не значит, что вы непопулярны или что люди с большим числом друзей счастливее; 82,6% — экспериментальный результат этой модели."
+},
+{
+"id": "s1162",
+"page": "friendship",
+"ko": "모임·동네 같은 묶음 구조와 외톨이가 빠져 있어, 실제 친구 수와 관계망은 따로 조사해야 확인할 수 있어요.",
+"en": "Groups, neighborhoods and loners are missing, so real friend counts and networks need to be surveyed separately.",
+"tr": "Группы, районы и одиночки отсутствуют, поэтому реальное число друзей и реальные сети нужно изучать отдельно."
+},
+{
+"id": "s1164",
+"page": "friendship",
+"ko": "<b>모델의 뿌리:</b> Scott L. Feld가 1991년 「Why your friends have more friends than you do」(<i>American Journal of Sociology</i>)에서 정리한 &quot;친구의 역설&quot;입니다. 친구 목록을 훑으면 친구가 많은 사람이 그만큼 더 자주 나오기 때문에, 친구들의 친구 수는 평균적으로 전체 평균 이상이 됩니다. 이 페이지의 관계망 규칙에는 선호 연결(Barabási와 Albert, 1999)의 아이디어를 썼습니다.",
+"en": "<b>Where the model comes from:</b> The &quot;friendship paradox&quot; laid out by Scott L. Feld in &quot;Why your friends have more friends than you do&quot; (1991, <i>American Journal of Sociology</i>). Scanning friend lists, people with many friends show up more often, so on average friends have at least as many friends as the overall average. The network rule here borrows the idea of preferential attachment (Barabási and Albert, 1999).",
+"tr": "<b>Откуда взялась модель:</b> «Парадокс дружбы», изложенный Скоттом Л. Фельдом в статье «Why your friends have more friends than you do» (1991, <i>American Journal of Sociology</i>). При просмотре списков друзей люди с большим числом друзей встречаются чаще, поэтому в среднем у друзей не меньше друзей, чем в среднем по всем. Правило построения сети здесь заимствует идею предпочтительного присоединения (Барабаши и Альберт, 1999)."
+},
+{
+"id": "s1165",
+"page": "friendship",
+"ko": "<b>핵심 가정과 수식:</b> 친구 목록 칸 하나를 무작위로 골랐을 때 그 사람의 친구 수 평균은 <code>⟨k²⟩/⟨k⟩ = ⟨k⟩ + Var(k)/⟨k⟩</code>이라서, 친구 수가 모두 같지 않으면 평균 ⟨k⟩보다 큽니다. 허브 쏠림 슬라이더가 클수록 Var(k)가 커집니다. 사람별 &quot;친구들의 평균&quot;을 다시 평균 낸 값도 친구 관계 하나마다 (이웃의 친구 수 ÷ 내 친구 수) + (내 친구 수 ÷ 이웃의 친구 수) ≥ 2이므로 항상 ⟨k⟩ 이상입니다.",
+"en": "<b>Key assumptions and formulas:</b> Picking one slot in the friend lists at random, the average number of friends of that person is <code>⟨k²⟩/⟨k⟩ = ⟨k⟩ + Var(k)/⟨k⟩</code>, which exceeds the mean ⟨k⟩ unless everyone has the same number. A larger hub-concentration slider raises Var(k). The average of each person's &quot;friends' average&quot; is also always at least ⟨k⟩, because each friendship contributes (neighbor's friends ÷ my friends) + (my friends ÷ neighbor's friends) ≥ 2.",
+"tr": "<b>Ключевые допущения и формулы:</b> Если случайно выбрать одну позицию в списках друзей, среднее число друзей у этого человека равно <code>⟨k²⟩/⟨k⟩ = ⟨k⟩ + Var(k)/⟨k⟩</code>, что превышает среднее ⟨k⟩, если только у всех не одинаковое число друзей. Больший ползунок концентрации на хабах увеличивает Var(k). Среднее по «среднему числу друзей друзей» каждого человека тоже всегда не меньше ⟨k⟩, потому что каждая дружба вносит (друзья соседа ÷ мои друзья) + (мои друзья ÷ друзья соседа) ≥ 2."
+}
+]

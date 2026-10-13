@@ -1,0 +1,1227 @@
+[
+{
+"id": "s0005",
+"page": "index",
+"ko": "SIMULATIO LAB · 실험 51개 · 분야 13개",
+"en": "SIMULATIO LAB · 51 experiments · 13 fields",
+"tr": "SIMULATIO LAB · 51の実験 · 13分野"
+},
+{
+"id": "s0010",
+"page": "index",
+"ko": "▶ 유튜브 구독",
+"en": "▶ Subscribe on YouTube",
+"tr": "▶ YouTubeで登録する"
+},
+{
+"id": "s0013",
+"page": "index",
+"ko": "51개의 실험을 13개 분야(열)로 묶었어요. 칸 위에 마우스를 올리면 아래 실험 노트에 내용이 나타납니다.",
+"en": "51 experiments in 13 fields (columns). Hover over a cell to see its details in the lab notebook below.",
+"tr": "13分野（列）に51の実験があります。セルにカーソルを重ねると、下の実験ノートに詳細が表示されます。"
+},
+{
+"id": "s0027",
+"page": "index",
+"ko": "계산대 줄",
+"en": "Checkout Lines",
+"tr": "レジの列"
+},
+{
+"id": "s0028",
+"page": "index",
+"ko": "마트 계산대, 줄을 하나로 서면 왜 더 빠를까",
+"en": "Why Is One Shared Checkout Line Faster?",
+"tr": "なぜ1列にまとめた方が速いのか?"
+},
+{
+"id": "s0029",
+"page": "index",
+"ko": "같은 계산대, 같은 손님인데 줄을 하나로 세우느냐 따로 세우느냐에 따라 대기시간과 공정함이 크게 달라져요.",
+"en": "Same cashiers, same customers: one shared line or many separate ones changes both waiting time and fairness.",
+"tr": "同じレジ係、同じお客さんでも、列を1本にまとめるか何本にも分けるかで、待ち時間も公平さも変わります。"
+},
+{
+"id": "s0030",
+"page": "index",
+"ko": "대기행렬 모델 (M/M/c)",
+"en": "Queueing model (M/M/c)",
+"tr": "待ち行列モデル(M/M/c)"
+},
+{
+"id": "s0031",
+"page": "index",
+"ko": "버스 뭉침",
+"en": "Bus Bunching",
+"tr": "バスの団子運転"
+},
+{
+"id": "s0032",
+"page": "index",
+"ko": "버스는 왜 꼭 두 대씩 몰려올까",
+"en": "Why Do Buses Always Come in Pairs?",
+"tr": "なぜバスはいつも2台続けてやって来るのか?"
+},
+{
+"id": "s0033",
+"page": "index",
+"ko": "같은 간격으로 출발한 버스가 왜 뭉쳐 다니게 될까요? 승객이 많을수록 늦어지는 되먹임을 돌려 보고 해결책도 시험해요.",
+"en": "Why do evenly spaced buses end up in clumps? Run the feedback where more passengers means more delay, and test remedies.",
+"tr": "等間隔だったバスが、なぜ団子になってしまうのでしょうか。乗客が多いほど遅れるというフィードバックを実行し、対策も試してみましょう。"
+},
+{
+"id": "s0034",
+"page": "index",
+"ko": "버스 군집 모델",
+"en": "Bus-bunching model",
+"tr": "バス団子運転モデル"
+},
+{
+"id": "s0035",
+"page": "index",
+"ko": "벤치 자리",
+"en": "Bench Seating",
+"tr": "ベンチの座り方"
+},
+{
+"id": "s0036",
+"page": "index",
+"ko": "모르는 사람끼리 벤치에 앉으면 몇 명이나 앉을 수 있을까",
+"en": "How Many Strangers Can Fit on a Bench?",
+"tr": "ベンチに知らない人は何人座れる?"
+},
+{
+"id": "s0037",
+"page": "index",
+"ko": "모두가 예의 바르게 거리를 두고 앉았는데도 벤치가 이만큼 남는 이유를, 앉는 방식 네 가지를 나란히 돌려 알아봐요.",
+"en": "Everyone sat politely apart, yet seats go unused. Compare four ways of sitting side by side to see why.",
+"tr": "みんなが礼儀正しく間隔を空けて座ったのに、使われない席が残ります。並んで座る4つの方法を比べて、その理由を探ります。"
+},
+{
+"id": "s0038",
+"page": "index",
+"ko": "무작위 순차 채우기 (렌니 주차 문제)",
+"en": "Random sequential filling (Rényi parking problem)",
+"tr": "ランダム逐次充填(レーニーの駐車問題)"
+},
+{
+"id": "s0039",
+"page": "index",
+"ko": "인간관계",
+"en": "Relationships",
+"tr": "人間関係"
+},
+{
+"id": "s0069",
+"page": "index",
+"ko": "경제",
+"en": "Economy",
+"tr": "経済"
+},
+{
+"id": "s0078",
+"page": "index",
+"ko": "국채 금리",
+"en": "Treasury Yield",
+"tr": "国債利回り"
+},
+{
+"id": "s0079",
+"page": "index",
+"ko": "금리가 오르면 내 채권값은 왜 떨어질까: 10년 국채 금리",
+"en": "Why Does My Bond Fall When Rates Rise? The 10-Year Treasury Yield",
+"tr": "金利が上がると、なぜ手持ちの債券は値下がりするのか? 10年国債利回り"
+},
+{
+"id": "s0080",
+"page": "index",
+"ko": "단기금리 경로로 10년 금리가 정해지는 과정과, 금리가 1%p 오를 때 이미 산 채권값이 얼마나 떨어지는지 돌려 봐요. (예시 숫자, 예측 아님)",
+"en": "See how short-rate paths set the 10-year yield and how much a bond you already hold falls when rates rise one point. (Example numbers, not a forecast.)",
+"tr": "短期金利の動きが10年金利をどう決めるか、そして金利が1%ポイント上がると手持ちの債券がどれだけ値下がりするかを見てみましょう。(例の数値であり、予測ではありません。)"
+},
+{
+"id": "s0081",
+"page": "index",
+"ko": "평균회귀 금리 모델 (바시첵)",
+"en": "Mean-reverting rate model (Vasicek)",
+"tr": "平均回帰型の金利モデル(ヴァシチェック)"
+},
+{
+"id": "s0082",
+"page": "index",
+"ko": "환율과 캐리",
+"en": "FX Carry",
+"tr": "為替キャリー"
+},
+{
+"id": "s0083",
+"page": "index",
+"ko": "금리 높은 통화를 샀더니: 계단으로 오르고 엘리베이터로 떨어지는 캐리 트레이드",
+"en": "Buying the High-Rate Currency: The Carry Trade That Takes the Stairs Up and the Elevator Down",
+"tr": "高金利通貨を買う: 階段で上がりエレベーターで下りるキャリートレード"
+},
+{
+"id": "s0084",
+"page": "index",
+"ko": "이자를 더 주는 통화를 사면 오래 조금씩 벌다 한 번에 크게 잃을 수 있어요. 쏠림과 청산이 만드는 모양을 돌려 봐요. (예시 숫자, 투자 조언 아님)",
+"en": "Holding a higher-yield currency can earn a little for years and lose a lot at once. See the shape crowding and unwinding create. (Example numbers, not investment advice.)",
+"tr": "利回りの高い通貨を持ち続けると、何年も少しずつ稼いだあとに一度に大きく失うことがあります。人が集まり、一斉に解消されるときに生まれる形を見てみましょう。(例の数値であり、投資助言ではありません。)"
+},
+{
+"id": "s0085",
+"page": "index",
+"ko": "캐리 트레이드 쏠림 모델",
+"en": "Carry-trade crowding model",
+"tr": "キャリートレードの集中モデル"
+},
+{
+"id": "s0086",
+"page": "index",
+"ko": "육아",
+"en": "Parenting",
+"tr": "子育て"
+},
+{
+"id": "s0087",
+"page": "index",
+"ko": "학원 딜레마",
+"en": "Cram-School Dilemma",
+"tr": "学習塾のジレンマ"
+},
+{
+"id": "s0088",
+"page": "index",
+"ko": "모두가 학원을 하나 더 보내면 왜 아무도 순위가 안 오를까",
+"en": "Why Does Everyone Adding One More Class Move Nobody Up?",
+"tr": "みんなが習い事を1つ増やすと、なぜ誰の順位も上がらないのか"
+},
+{
+"id": "s0089",
+"page": "index",
+"ko": "한 집만 하면 순위가 오르는데, 다 같이 하면 비용만 늘어요. 상대평가와 절대평가를 바꿔 구조를 비교해 봐요. (예시 숫자, 처방 아님)",
+"en": "One family alone climbs, but when all do it only the bill grows. Compare relative and absolute grading. (Example numbers, no advice.)",
+"tr": "1つの家庭だけなら順位は上がりますが、みんながそうすると増えるのは費用だけです。相対評価と絶対評価を比べます。（例示の数値であり、助言ではありません。）"
+},
+{
+"id": "s0090",
+"page": "index",
+"ko": "순위재 경쟁 모델",
+"en": "Positional-goods race model",
+"tr": "地位財競争モデル"
+},
+{
+"id": "s0091",
+"page": "index",
+"ko": "어린이집 감기",
+"en": "Daycare Colds",
+"tr": "保育園の風邪"
+},
+{
+"id": "s0092",
+"page": "index",
+"ko": "어린이집에 가면 왜 자꾸 아플까: 반 크기와 아프면 쉬기",
+"en": "Why Do Kids Keep Getting Sick at Daycare? Class Size and Staying Home",
+"tr": "保育園に入ると、なぜ子どもはよく病気になるのか？ クラスの人数と欠席"
+},
+{
+"id": "s0093",
+"page": "index",
+"ko": "반 크기, 아프면 쉬는 비율, 면역이 쌓이는 정도에 따라 한 해 감기 횟수가 달라지는 모습을 돌려 봐요. (참고용 모델)",
+"en": "See how class size, staying home when sick and built-up immunity change the colds in a year. (Reference model only.)",
+"tr": "クラスの人数、病気のときの欠席、積み重なる免疫によって、1年の風邪の回数がどう変わるかを見ます。（参考用のモデルにすぎません。）"
+},
+{
+"id": "s0094",
+"page": "index",
+"ko": "교실 감염 모델 (SEIR형)",
+"en": "Classroom infection model (SEIR-type)",
+"tr": "教室内感染モデル（SEIR型）"
+},
+{
+"id": "s0095",
+"page": "index",
+"ko": "입소 배정",
+"en": "Who Gets the Seat?",
+"tr": "誰が席を得るのか"
+},
+{
+"id": "s0096",
+"page": "index",
+"ko": "입소 배정, 선착순·추첨·선호 반영 중 무엇이 공정할까",
+"en": "Who Gets the Seat? First-Come, Lottery or Preference-Based Matching",
+"tr": "誰が席を得るのか？ 先着順・抽選・希望にもとづく割り当て"
+},
+{
+"id": "s0097",
+"page": "index",
+"ko": "지망 순위를 바꿔 적으면 이득일까? 네 가지 배정 방식을 나란히 돌려 봐요. (실제 입소 제도가 아님)",
+"en": "Does misreporting your ranking pay? Run four matching methods side by side. (Not the real admission system.)",
+"tr": "希望順位を偽って書くと得をするのでしょうか？ 4つの割り当て方式を並べて実行します。（実際の入園・入学の仕組みではありません。）"
+},
+{
+"id": "s0098",
+"page": "index",
+"ko": "배정 방식 비교 (보스턴·지연 수락)",
+"en": "Matching mechanisms (Boston vs deferred acceptance)",
+"tr": "マッチングの仕組み（ボストン方式と受入保留方式）"
+},
+{
+"id": "s0104",
+"page": "index",
+"ko": "37%의 법칙",
+"en": "The 37% Rule",
+"tr": "37%ルール"
+},
+{
+"id": "s0105",
+"page": "index",
+"ko": "몇 명을 만나 보고 정해야 최고의 사람을 만날까: 37%의 법칙",
+"en": "How Many Should You Meet Before Choosing? The 37% Rule",
+"tr": "何人会ってから選ぶべき? 37%ルール"
+},
+{
+"id": "s0106",
+"page": "index",
+"ko": "되돌아갈 수 없는 만남에서, 몇 %를 지켜본 뒤 고르면 최고를 만날 확률이 가장 높을까요? 약 37%라는 답을 직접 확인해요.",
+"en": "When you cannot go back, how much should you watch before choosing to have the best chance at the very best? Check the famous 37% answer yourself.",
+"tr": "後戻りできないとき、最高の1人を選べる確率を最も高くするには、選ぶ前にどれだけ見送ればよいでしょうか。有名な37%という答えを自分で確かめてみましょう。"
+},
+{
+"id": "s0107",
+"page": "index",
+"ko": "최적 멈춤 모델 (비서 문제)",
+"en": "Optimal stopping model (secretary problem)",
+"tr": "最適停止モデル(秘書問題)"
+},
+{
+"id": "s0108",
+"page": "index",
+"ko": "약한 유대",
+"en": "Weak Ties",
+"tr": "弱い絆"
+},
+{
+"id": "s0109",
+"page": "index",
+"ko": "새 일자리 소식은 왜 친한 친구가 아니라 얼굴만 아는 사람에게서 올까: 약한 유대의 힘",
+"en": "Why Do Job Tips Come from Acquaintances, Not Close Friends? The Strength of Weak Ties",
+"tr": "仕事の情報は、なぜ親友ではなく知り合いから来るのか? 弱い絆の強さ"
+},
+{
+"id": "s0110",
+"page": "index",
+"ko": "친한 친구 무리에 얼굴만 아는 사람 몇 명만 이어도 소식이 퍼지는 속도가 몇 배로 빨라져요.",
+"en": "Tie just a few acquaintances into tight friend circles and news spreads several times faster.",
+"tr": "結びつきの強い友だちグループに、知り合いを少しつなげるだけで、知らせは何倍も速く広がります。"
+},
+{
+"id": "s0111",
+"page": "index",
+"ko": "스몰월드 네트워크 (와츠–스트로가츠)",
+"en": "Small-world network (Watts–Strogatz)",
+"tr": "スモールワールドネットワーク(ワッツ=ストロガッツ)"
+},
+{
+"id": "s0121",
+"page": "index",
+"ko": "전쟁의 구조",
+"en": "How War Starts",
+"tr": "戦争はどう始まるか"
+},
+{
+"id": "s0122",
+"page": "index",
+"ko": "아무도 원하지 않는데 전쟁이 난다: 협상 실패와 군비 경쟁, 그리고 번짐",
+"en": "Nobody Wants It, Yet War Happens: Failed Bargains, Arms Races, and Spreading",
+"tr": "誰も望まないのに戦争は起こる：交渉の失敗、軍拡競争、そして広がり"
+},
+{
+"id": "s0123",
+"page": "index",
+"ko": "전쟁은 양쪽 모두에게 손해인데도 왜 일어날까요? 이름 없는 추상 국가들로 협상 실패, 군비 경쟁, 번짐을 돌려 봐요. (실제 전쟁을 설명하지 않아요)",
+"en": "War costs both sides, so why does it happen? Run failed bargaining, arms races and spreading among nameless abstract states. (It does not explain any real war.)",
+"tr": "戦争は双方に損なのに、なぜ起こるのか。名前のない抽象的な国々で、交渉の失敗・軍拡競争・広がりを実行します。（実際のどの戦争も説明するものではありません。）"
+},
+{
+"id": "s0124",
+"page": "index",
+"ko": "협상 실패·군비 경쟁·번짐 모델",
+"en": "Bargaining failure, arms race and spread",
+"tr": "交渉の失敗・軍拡競争・広がり"
+},
+{
+"id": "s0138",
+"page": "index",
+"ko": "농경 전파",
+"en": "Farming Spread",
+"tr": "農耕の広がり"
+},
+{
+"id": "s0139",
+"page": "index",
+"ko": "농사는 어떻게 대륙을 건넜을까: 한 해에 1킬로미터씩 번진 농경",
+"en": "How Did Farming Cross a Continent? About One Kilometer a Year",
+"tr": "農耕はどうやって大陸を横断したのか? 1年に約1キロメートル"
+},
+{
+"id": "s0140",
+"page": "index",
+"ko": "인구가 늘고 조금씩 흩어지는 두 규칙만으로 농경이 한 해 1킬로미터쯤의 속도로 땅을 덮는 모습을 지도 위에서 봐요.",
+"en": "Population growth plus a little dispersal is enough for farming to cover the land at about a kilometer a year. Watch it on a map.",
+"tr": "人口が増え、少し人が散らばるだけで、農耕は1年に約1キロメートルの速さで土地を覆っていきます。地図で確かめてみましょう。"
+},
+{
+"id": "s0141",
+"page": "index",
+"ko": "진행파 모델 (피셔–콜모고로프)",
+"en": "Wave-of-advance model (Fisher–Kolmogorov)",
+"tr": "進行波モデル(フィッシャー=コルモゴロフ)"
+},
+{
+"id": "s0142",
+"page": "index",
+"ko": "란체스터 법칙",
+"en": "Lanchester's Law",
+"tr": "ランチェスターの法則"
+},
+{
+"id": "s0143",
+"page": "index",
+"ko": "병력이 두 배면 왜 네 배 강할까: 나눠 싸우면 지는 이유",
+"en": "Why Double the Soldiers Is Four Times as Strong: Why Splitting Up Loses",
+"tr": "兵力2倍が4倍の強さになるのはなぜか: 戦力を分けると負ける理由"
+},
+{
+"id": "s0144",
+"page": "index",
+"ko": "병력이 두 배면 전투력은 네 배. 서로 병력을 깎는 두 군대로 제곱 법칙과, 힘을 나누면 지는 이유를 확인해요.",
+"en": "Twice the numbers means four times the strength. See the square law and why splitting your force loses, with two armies wearing each other down.",
+"tr": "数が2倍なら強さは4倍。2つの軍が互いに削り合う様子から、2乗の法則と、戦力を分けると負ける理由を見てみましょう。"
+},
+{
+"id": "s0145",
+"page": "index",
+"ko": "란체스터 제곱 법칙",
+"en": "Lanchester's square law",
+"tr": "ランチェスターの2乗法則"
+},
+{
+"id": "s0155",
+"page": "index",
+"ko": "가지 프랙탈",
+"en": "Branching",
+"tr": "枝分かれ"
+},
+{
+"id": "s0156",
+"page": "index",
+"ko": "번개, 산호, 눈송이는 왜 서로 닮았을까",
+"en": "Why Do Lightning, Coral and Frost Look Alike?",
+"tr": "なぜ稲妻、サンゴ、霜は似ているのか?"
+},
+{
+"id": "s0157",
+"page": "index",
+"ko": "떠돌던 입자가 닿으면 붙기만 하는 규칙이 번개와 산호를 닮은 가지 모양을 키워요. 붙는 확률을 바꿔 직접 키워 보세요.",
+"en": "A rule as simple as \"stick on touch\" grows branching shapes like lightning and coral. Change the stickiness and grow your own.",
+"tr": "「触れたらくっつく」というだけの単純なルールで、稲妻やサンゴのような枝分かれの形が育ちます。くっつきやすさを変えて、自分だけの形を育てましょう。"
+},
+{
+"id": "s0158",
+"page": "index",
+"ko": "확산 제한 응집 (DLA)",
+"en": "Diffusion-limited aggregation (DLA)",
+"tr": "拡散律速凝集(DLA)"
+},
+{
+"id": "s0159",
+"page": "index",
+"ko": "모래더미",
+"en": "Sandpile",
+"tr": "砂山"
+},
+{
+"id": "s0160",
+"page": "index",
+"ko": "모래 한 알이 산사태를 일으킬 수 있을까",
+"en": "Can a Single Grain of Sand Cause a Landslide?",
+"tr": "砂1粒で山崩れが起きる?"
+},
+{
+"id": "s0161",
+"page": "index",
+"ko": "모래를 한 알씩 쌓기만 해도 더미가 스스로 임계 상태가 되어, 대부분은 조용하다가 가끔 거대한 눈사태가 나요.",
+"en": "Adding sand one grain at a time, the pile organizes itself to a critical state: mostly quiet, now and then a huge avalanche.",
+"tr": "砂を1粒ずつ足していくと、砂山はひとりでに臨界状態になります。ふだんは静かでも、ときどき巨大ななだれが起きます。"
+},
+{
+"id": "s0162",
+"page": "index",
+"ko": "모래더미 모델 (BTW)",
+"en": "Sandpile model (BTW)",
+"tr": "砂山モデル(BTW)"
+},
+{
+"id": "s0163",
+"page": "index",
+"ko": "산불",
+"en": "Wildfire",
+"tr": "山火事"
+},
+{
+"id": "s0164",
+"page": "index",
+"ko": "작은 산불을 다 끄면 왜 나중에 더 큰 불이 날까",
+"en": "Why Putting Out Every Small Fire Can Lead to Bigger Ones Later",
+"tr": "小さな火事をすべて消すと、なぜ後で大きな火事になるのか"
+},
+{
+"id": "s0165",
+"page": "index",
+"ko": "작은 불을 끄면 연료가 쌓여 큰 불이 늘어나는 과정을, 두 숲을 나란히 돌려 확인해요.",
+"en": "See how putting out small fires lets fuel pile up and big fires multiply, with two forests running side by side.",
+"tr": "2つの森を並べて動かし、小さな火を消すと燃料がたまって大きな火事が増えていく様子を見てみましょう。"
+},
+{
+"id": "s0166",
+"page": "index",
+"ko": "숲불 모델 (Drossel–Schwabl)",
+"en": "Forest-fire model (Drossel–Schwabl)",
+"tr": "森林火災モデル(ドロッセル=シュワブル)"
+},
+{
+"id": "s0167",
+"page": "index",
+"ko": "랭턴의 개미",
+"en": "Langton's Ant",
+"tr": "ラングトンのアリ"
+},
+{
+"id": "s0168",
+"page": "index",
+"ko": "규칙 두 줄짜리 개미가 만 걸음 뒤 갑자기 길을 낸다: 랭턴의 개미",
+"en": "A Two-Rule Ant Suddenly Builds a Road After 10,000 Steps: Langton's Ant",
+"tr": "2つのルールだけのアリが、1万ステップ後に突然道を作る: ラングトンのアリ"
+},
+{
+"id": "s0169",
+"page": "index",
+"ko": "규칙이 두 줄뿐인 개미가 대칭 무늬, 혼돈을 거쳐 약 만 걸음 뒤 갑자기 대각선 길을 내요.",
+"en": "An ant with just two rules makes symmetry, then chaos, then suddenly a diagonal road after about 10,000 steps.",
+"tr": "たった2つのルールのアリが、対称な模様、次にカオスをつくり、約1万ステップ後に突然、斜めの道をつくり出します。"
+},
+{
+"id": "s0170",
+"page": "index",
+"ko": "랭턴의 개미 (세포 자동자)",
+"en": "Langton's ant (cellular automaton)",
+"tr": "ラングトンのアリ(セルオートマトン)"
+},
+{
+"id": "s0235",
+"page": "admission",
+"ko": "입소 배정 방식 비교 · 시뮬라티오 랩",
+"en": "Four Ways to Assign Seats · Simulatio Lab",
+"tr": "席を割り当てる4つの方法 · Simulatio Lab"
+},
+{
+"id": "s0236",
+"page": "admission",
+"ko": "어린이집 같은 기관에 아이를 나누는 선착순, 추첨 순번, 보스턴, 지연 수락 방식을 비교하고, 지망 순위를 바꿔 적으면 이득을 보는지 직접 돌려보세요.",
+"en": "Compare first-come-first-served, lottery order, the Boston mechanism and deferred acceptance for assigning children to places, and see who gains by changing the ranking they submit.",
+"tr": "子どもを席に割り当てる方法として、先着順、抽選順、ボストン方式、受入保留方式を比べ、提出する希望順位を変えると誰が得をするのかを見ます。"
+},
+{
+"id": "s0238",
+"page": "admission",
+"ko": "솔직하게 적으면 손해일까: 입소 배정 방식 네 가지",
+"en": "Does Honesty Pay? Four Ways to Assign Children to Daycares",
+"tr": "正直に書くと得か？ 保育園への割り当て4つの方式"
+},
+{
+"id": "s0239",
+"page": "admission",
+"ko": "아이를 기관에 나누는 일이라면, 원하는 순서를 있는 그대로 적어 내는 것이 가장 좋을 것 같습니다. 그런데 어떤 방식에서는 \"될 만한 곳\"을 앞에 적는 쪽이 이득이어서, 목록이 마음의 순서가 아니라 눈치 싸움이 됩니다. 같은 아이 200명을 네 가지 방식으로 나눠 보면, 보스턴 방식에서는 순위를 바꿔 적어 더 나은 곳에 가는 아이가 43%였고 지연 수락 방식에서는 0%였습니다. 누가 나쁜 것이 아니라 방식의 구조가 만드는 차이입니다.",
+"en": "When children are assigned to places, writing down your true order of preference seems like the best thing to do. In some systems, though, putting a \"realistic\" place first pays off, and the list becomes a guessing game rather than a statement of what you want. Assigning the same 200 children four different ways, 43% could do better by changing their ranking under the Boston method and 0% under deferred acceptance. Nobody is to blame: it is the structure of the method that makes the difference.",
+"tr": "子どもを席に割り当てるとき、望む順番をそのまま書くのが最善に思えます。ところが方式によっては「現実的な」所を先に書くほうが得になり、リストは望みを表すものではなく読み合いになります。同じ子ども200人を4つの方法で割り当てたところ、順位を書き換えて得をできる子は、ボストン方式で43%、受入保留方式では0%でした。誰のせいでもなく、方式の構造が違いを生みます。"
+},
+{
+"id": "s0241",
+"page": "admission",
+"ko": "아이 200명과 기관 8곳(A~H)이 있고, 기관마다 정원이 있습니다. 모든 아이는 8곳 모두에 지망 순위를 매깁니다. 기관에는 모두가 느끼는 \"인기\"가 있고 아이마다 취향도 다릅니다. <b>취향이 비슷한 정도</b>가 이 둘의 비중입니다. 높을수록 모두가 같은 곳을 원해 경쟁이 몰립니다.",
+"en": "There are 200 children and 8 places (labeled A to H), each with a limited capacity. Every child ranks all 8 places. Places have a \"popularity\" everyone feels, and children also have their own tastes. <b>How similar tastes are</b> sets the balance: the higher it is, the more everyone wants the same places and the more competition piles up.",
+"tr": "子どもは200人、場所は8か所（AからH）で、それぞれ定員があります。子どもはみな8か所すべてに順位をつけます。場所には誰もが感じる「人気」があり、子どもにはそれぞれの好みもあります。<b>好みの似かよい度</b>がそのバランスを決め、高いほど誰もが同じ場所を望み、競争が集中します。"
+},
+{
+"id": "s0242",
+"page": "admission",
+"ko": "기관은 아이들에게 우선순위를 매깁니다. 추첨 번호는 모든 기관이 같이 쓰고, 기관마다 따로 정한 순번을 얼마나 섞느냐가 <b>기관마다 순번이 다른 정도</b>입니다. 0%이면 모든 기관이 같은 추첨 번호로 줄을 세웁니다.",
+"en": "Each place ranks the children by priority. A lottery number is shared by all places, and <b>how much places differ in their own order</b> sets how much a place-specific random order is mixed in. At 0% every place lines children up by the same lottery number.",
+"tr": "各場所は子どもに優先順位をつけます。抽選番号はすべての場所で共通で、<b>場所ごとの順番の違い</b>は、場所ごとの無作為な順番をどれだけ混ぜるかを決めます。0%のときは、すべての場所が同じ抽選番号で子どもを並べます。"
+},
+{
+"id": "s0243",
+"page": "admission",
+"ko": "<b>① 선착순</b>: 접수한 순서대로 남은 곳 중 가장 원하는 곳을 고릅니다(일찍 접수할 수 있는 집이 앞섭니다). <b>② 추첨 순번</b>: 추첨 번호 순서대로 같은 방식으로 고릅니다. <b>③ 보스턴</b>: 모두 1지망에 접수하고 정원이 차면 그 자리는 바로 확정, 못 들어간 아이는 2지망에 접수하는 식으로 이어집니다. <b>④ 지연 수락</b>: 각 기관은 우선순위가 높은 아이를 임시로만 받아 두고, 더 높은 아이가 오면 밀어냅니다. 밀려난 아이는 다음 지망으로 가고, 더 움직일 아이가 없을 때 확정됩니다.",
+"en": "<b>① First come, first served</b>: in order of arrival, each child takes the place they like best among those left (families who can arrive early go first). <b>② Lottery order</b>: the same, but in lottery-number order. <b>③ Boston</b>: everyone applies to their 1st choice, a place that fills up is closed for good, and the rest apply to their 2nd choice, and so on. <b>④ Deferred acceptance</b>: each place only holds its highest-priority applicants tentatively and bumps them for a higher-priority child; bumped children move to the next choice, and everything is final only when nobody moves anymore.",
+"tr": "<b>① 先着順</b>：到着順に、残っている場所のうち最も好きな所を各自が取ります（早く来られる家庭が先）。<b>② 抽選順</b>：同じですが、抽選番号の順です。<b>③ ボストン方式</b>：全員が第1希望に申し込み、定員が埋まった所は確定して締め切られ、残りは第2希望に申し込み、というように進みます。<b>④ 受入保留方式</b>：各場所は優先順位の高い申込者だけを仮に受け入れ、より優先順位の高い子が来れば押し出します。押し出された子は次の希望へ移り、誰も動かなくなったとき初めてすべてが確定します。"
+},
+{
+"id": "s0244",
+"page": "admission",
+"ko": "<b>순위를 바꿔 적어 보는 시험</b>: 한 아이만 지망 순서를 바꿔 적고 다른 아이는 모두 솔직하게 적었다고 합시다. 지망 하나를 다른 자리로 옮기는 56가지를 모두 해 보고, 진짜 원하는 순서로 봐서 더 좋은 곳에 가는 경우가 하나라도 있으면 그 아이는 \"이득\"을 봅니다. 다른 집의 목록과 추첨 결과를 모두 안다는 가정이라, 현실에서는 이만큼 알기 어렵습니다.",
+"en": "<b>The ranking-change test</b>: suppose one child changes the order they submit while all other children write honestly. All 56 ways of moving one choice to another position are tried, and if any of them lands the child in a place they truly prefer, that child \"gains\". This assumes knowing every other list and the lottery result, which is far more than a real family could know.",
+"tr": "<b>順位変更テスト</b>：ほかの子はみな正直に書き、1人だけが提出する順番を変えるとします。ある選択肢を別の位置へ動かす56通りをすべて試し、そのうちどれか1つでも本当に好む所に入れるなら、その子は「得をする」とみなします。これは、ほかの全員のリストと抽選結果を知っているという前提で、実際の家庭が知りうる範囲をはるかに超えています。"
+},
+{
+"id": "s0246",
+"page": "admission",
+"ko": "아이 수 <output id=\"o-n\"></output>",
+"en": "Number of children <output id=\"o-n\"></output>",
+"tr": "子どもの人数 <output id=\"o-n\"></output>"
+},
+{
+"id": "s0247",
+"page": "admission",
+"ko": "기관 8곳이 정원을 나눠 가집니다",
+"en": "The 8 places share the seats between them",
+"tr": "8か所で席を分け合います"
+},
+{
+"id": "s0248",
+"page": "admission",
+"ko": "취향이 비슷한 정도 <output id=\"o-c\"></output>",
+"en": "How similar tastes are <output id=\"o-c\"></output>",
+"tr": "好みの似かよい度 <output id=\"o-c\"></output>"
+},
+{
+"id": "s0249",
+"page": "admission",
+"ko": "높을수록 모두 같은 곳을 원해 경쟁이 몰립니다. 0이면 제각각입니다",
+"en": "The higher, the more everyone wants the same places. At 0 tastes are all different",
+"tr": "高いほど誰もが同じ場所を望みます。0ではみな好みがばらばらです"
+},
+{
+"id": "s0250",
+"page": "admission",
+"ko": "기관마다 순번이 다른 정도 <output id=\"o-rho\"></output>",
+"en": "How much places differ in order <output id=\"o-rho\"></output>",
+"tr": "場所ごとの順番の違い <output id=\"o-rho\"></output>"
+},
+{
+"id": "s0251",
+"page": "admission",
+"ko": "0%이면 모든 기관이 같은 추첨 번호로 줄을 세웁니다",
+"en": "At 0% every place uses the same lottery number",
+"tr": "0%のとき、すべての場所が同じ抽選番号を使います"
+},
+{
+"id": "s0252",
+"page": "admission",
+"ko": "정원 ÷ 아이 수 <output id=\"o-ratio\"></output>",
+"en": "Seats ÷ children <output id=\"o-ratio\"></output>",
+"tr": "席数 ÷ 子ども <output id=\"o-ratio\"></output>"
+},
+{
+"id": "s0253",
+"page": "admission",
+"ko": "100% 미만이면 자리가 모자라 배정받지 못하는 아이가 생깁니다",
+"en": "Below 100% there are not enough seats and some children get none",
+"tr": "100%未満では席が足りず、割り当てを受けられない子が出ます"
+},
+{
+"id": "s0254",
+"page": "admission",
+"ko": "일찍 접수할 수 있는 집 <output id=\"o-early\"></output>",
+"en": "Families who can apply early <output id=\"o-early\"></output>",
+"tr": "早く申し込める家庭 <output id=\"o-early\"></output>"
+},
+{
+"id": "s0255",
+"page": "admission",
+"ko": "선착순에서만 앞섭니다. 다른 방식에서는 접수 순서가 상관없습니다",
+"en": "They lead only under first come, first served. In other methods arrival order does not matter",
+"tr": "先着順のときだけ先に選べます。ほかの方式では到着順は関係ありません"
+},
+{
+"id": "s0256",
+"page": "admission",
+"ko": "배정 방식 <output id=\"o-mech\"></output>",
+"en": "Assignment method <output id=\"o-mech\"></output>",
+"tr": "割り当て方式 <output id=\"o-mech\"></output>"
+},
+{
+"id": "s0257",
+"page": "admission",
+"ko": "선착순 고르기",
+"en": "First come, first served",
+"tr": "先着順"
+},
+{
+"id": "s0258",
+"page": "admission",
+"ko": "추첨 순번대로 고르기",
+"en": "Lottery order",
+"tr": "抽選順"
+},
+{
+"id": "s0259",
+"page": "admission",
+"ko": "보스턴 방식 (바로 확정)",
+"en": "Boston (immediate)",
+"tr": "ボストン方式（即時確定）"
+},
+{
+"id": "s0260",
+"page": "admission",
+"ko": "지연 수락 방식 (게일-섀플리)",
+"en": "Deferred acceptance (Gale-Shapley)",
+"tr": "受入保留方式（ゲール＝シャプレー）"
+},
+{
+"id": "s0261",
+"page": "admission",
+"ko": "위 그림과 \"내 아이 시험\"이 이 방식으로 바뀝니다. 아래 그래프는 네 방식을 모두 보여 줍니다",
+"en": "The animation and the \"my child\" test follow this method. The charts below always show all four",
+"tr": "アニメーションと「わが子」テストはこの方式に従います。下のグラフは常に4つすべてを表示します"
+},
+{
+"id": "s0263",
+"page": "admission",
+"ko": "같은 설정, 다른 아이들",
+"en": "Same settings, different children",
+"tr": "同じ設定で別の子どもたち"
+},
+{
+"id": "s0265",
+"page": "admission",
+"ko": "① 배정 지켜보기",
+"en": "① Watching the Assignment",
+"tr": "① 割り当てのようす"
+},
+{
+"id": "s0266",
+"page": "admission",
+"ko": "왼쪽은 아직 자리를 못 받은 아이들입니다(파란 점은 일찍 접수할 수 있는 집). 오른쪽은 인기 순서대로 A~H 기관의 자리이고, 색은 아이가 받은 지망입니다. 검은 동그라미는 아래에서 시험해 보는 아이입니다. 위에서 배정 방식을 바꿔 같은 아이들을 다른 방식으로 나눠 보세요.",
+"en": "On the left are children who have no place yet (blue dots are families who can apply early). On the right are the places A to H in order of popularity, and each color shows the choice number the child received. The black circle marks the child tested below. Change the method above to assign the same children another way.",
+"tr": "左側はまだ席がない子どもたちです（青い点は早く申し込める家庭）。右側はAからHまでの場所を人気順に並べたもので、色は子どもが得た希望順位を表します。黒い丸は下でテストしている子です。上の方式を変えると、同じ子どもたちを別の方法で割り当てられます。"
+},
+{
+"id": "s0272",
+"page": "admission",
+"ko": "<i style=\"background:#1fa463\"></i>1지망",
+"en": "<i style=\"background:#1fa463\"></i>1st choice",
+"tr": "<i style=\"background:#1fa463\"></i>第1希望"
+},
+{
+"id": "s0273",
+"page": "admission",
+"ko": "<i style=\"background:#a3c93a\"></i>2~3지망",
+"en": "<i style=\"background:#a3c93a\"></i>2nd-3rd choice",
+"tr": "<i style=\"background:#a3c93a\"></i>第2〜3希望"
+},
+{
+"id": "s0274",
+"page": "admission",
+"ko": "<i style=\"background:#e0a100\"></i>4~5지망",
+"en": "<i style=\"background:#e0a100\"></i>4th-5th choice",
+"tr": "<i style=\"background:#e0a100\"></i>第4〜5希望"
+},
+{
+"id": "s0275",
+"page": "admission",
+"ko": "<i style=\"background:#e5484d\"></i>6지망 이하",
+"en": "<i style=\"background:#e5484d\"></i>6th choice or lower",
+"tr": "<i style=\"background:#e5484d\"></i>第6希望以下"
+},
+{
+"id": "s0276",
+"page": "admission",
+"ko": "<i style=\"background:#8a93a6\"></i>배정 못 받음",
+"en": "<i style=\"background:#8a93a6\"></i>Not assigned",
+"tr": "<i style=\"background:#8a93a6\"></i>未割り当て"
+},
+{
+"id": "s0277",
+"page": "admission",
+"ko": "<i style=\"background:#3b6fd8\"></i>일찍 접수할 수 있는 집(대기 중)",
+"en": "<i style=\"background:#3b6fd8\"></i>Can apply early (waiting)",
+"tr": "<i style=\"background:#3b6fd8\"></i>早く申し込める（待機中）"
+},
+{
+"id": "s0278",
+"page": "admission",
+"ko": "<i style=\"background:transparent;border:2px solid #111;box-sizing:border-box\"></i>시험해 보는 아이",
+"en": "<i style=\"background:transparent;border:2px solid #111;box-sizing:border-box\"></i>Child being tested",
+"tr": "<i style=\"background:transparent;border:2px solid #111;box-sizing:border-box\"></i>テスト中の子"
+},
+{
+"id": "s0279",
+"page": "admission",
+"ko": "② 네 방식, 아이들은 어디로 갔나",
+"en": "② Four Methods: Where Did the Children Go?",
+"tr": "② 4つの方式：子どもたちはどこへ行ったか"
+},
+{
+"id": "s0280",
+"page": "admission",
+"ko": "같은 아이들, 같은 솔직한 목록으로 네 방식을 돌린 결과를 받은 지망별로 쌓았습니다. 굵은 이름은 지금 고른 방식입니다. 이 수치는 모두가 솔직하게 적었을 때의 것입니다.",
+"en": "The same children with the same honest lists, run through all four methods, stacked by the choice number received. The bold name is the method selected now. These figures assume everybody wrote honestly.",
+"tr": "同じ子どもたちが同じ正直なリストで4つの方式を通った結果を、得た希望順位ごとに積み上げたものです。太字は現在選択中の方式です。これらの数値は、全員が正直に書いたと仮定したものです。"
+},
+{
+"id": "s0281",
+"page": "admission",
+"ko": "③ 순위를 바꿔 적으면 이득을 볼까",
+"en": "③ Does Changing Your Ranking Pay?",
+"tr": "③ 順位を書き換えると得か？"
+},
+{
+"id": "s0282",
+"page": "admission",
+"ko": "아이 60명을 한 명씩 골라, 그 아이만 지망 순서를 바꿔 쓰는 56가지를 모두 시험했습니다. 막대는 그중 솔직할 때보다 더 원하는 곳에 가는 방법이 하나라도 있었던 아이의 비율입니다.",
+"en": "For each of 60 children, only that child changed their order, in all 56 ways. The bar is the share of children for whom some change landed them in a place they prefer to the one they get by writing honestly.",
+"tr": "子ども60人のそれぞれについて、その子だけが順番を56通りすべての方法で変えました。棒は、何らかの変更で、正直に書いた場合に得る所よりも好む所に入れた子の割合です。"
+},
+{
+"id": "s0283",
+"page": "admission",
+"ko": "④ 언제 솔직함이 손해가 될까",
+"en": "④ When Does Honesty Cost You?",
+"tr": "④ 正直に書くと損をするのはいつか"
+},
+{
+"id": "s0284",
+"page": "admission",
+"ko": "가로는 아이들의 취향이 비슷한 정도(다른 설정은 지금 값 그대로), 세로는 보스턴에서 순위를 바꿔 적어 이득을 보는 아이의 비율입니다. 각 점은 서로 다른 아이들 3벌의 평균입니다. 모두가 같은 곳을 원할수록 눈치를 볼 이유가 커집니다. 초록 점선은 나머지 세 방식의 0%입니다.",
+"en": "The horizontal axis is how similar tastes are (other settings as they are now), and the vertical axis is the share of children who gain by changing their ranking under Boston. Each point averages three different sets of children. The more everyone wants the same places, the more reason there is to second-guess. The green dashed line is the 0% of the other three methods.",
+"tr": "横軸は好みの似かよい度（ほかの設定は現在のまま）、縦軸はボストン方式で順位を書き換えて得をする子の割合です。各点は3組の異なる子どもたちの平均です。誰もが同じ場所を望むほど、順番を考え直す理由が増えます。緑の破線はほかの3方式の0%です。"
+},
+{
+"id": "s0286",
+"page": "admission",
+"ko": "<b>말하는 것:</b>",
+"en": "<b>What it shows:</b>",
+"tr": "<b>言えること：</b>"
+},
+{
+"id": "s0287",
+"page": "admission",
+"ko": "모두가 솔직할 때 1지망을 가장 많이 받는 방식은 보스턴(43%)이었어요.",
+"en": "Boston gave the most 1st choices (43%) when everyone was honest.",
+"tr": "全員が正直に申告した場合、ボストン方式が第1希望を最も多く満たしました（43%）。"
+},
+{
+"id": "s0288",
+"page": "admission",
+"ko": "보스턴은 1지망에서 정원이 차면 바로 확정해서, 순위를 바꿔 적어 이득 보는 아이가 보스턴에서만 나왔어요.",
+"en": "Boston locks seats in at the 1st round, so only under Boston did some children gain by misreporting.",
+"tr": "ボストン方式は第1ラウンドで席を確定するため、偽って申告して得をした子どもがいたのはボストン方式のときだけでした。"
+},
+{
+"id": "s0289",
+"page": "admission",
+"ko": "방식을 비교할 땐 결과 숫자와 함께 솔직하게 적어도 손해 없는 구조인지가 열쇠일 수 있어요.",
+"en": "When comparing methods, whether honest reporting is safe may matter as much as the outcome numbers.",
+"tr": "方式を比べるとき、正直に申告しても安全かどうかは、結果の数字と同じくらい重要かもしれません。"
+},
+{
+"id": "s0290",
+"page": "admission",
+"ko": "상세 설명",
+"en": "Details",
+"tr": "詳細"
+},
+{
+"id": "s0291",
+"page": "admission",
+"ko": "<b>말하는 것:</b> 아이 200명, 기관 8곳(정원 25명씩), 취향 비슷한 정도 60%, 기관마다 순번이 다른 정도 50%, 먼저 접수 25%, 시드 1에서 솔직하게 적었을 때 1지망을 받은 아이는 선착순 28%, 추첨 순번 29%, 보스턴 43%, 지연 수락 23%였고 평균 지망은 3.02, 3.06, 2.83, 3.28이었습니다. 나보다 순번이 낮은 아이가 내가 더 원한 곳에 들어간 \"억울한 아이\"는 72%, 65%, 35%, 0%였습니다(지연 수락은 정의상 0). 순위를 바꿔 적으면 이득을 보는 아이는 아이 60명 표본에서 보스턴 43%(26명)였고 나머지 세 방식은 0%였습니다. 시드 1~12 평균으로는 보스턴 34.3%였고, 이득을 볼 때 평균 3.0지망 더 좋은 곳으로 갔습니다. 취향이 비슷한 정도가 0%이면 6%, 30%이면 16%, 60%이면 36%, 90%이면 70%로 올랐습니다(시드 1~3 평균). 정원이 아이 수의 80%이면 46%, 120%이면 27%였습니다. 일찍 접수할 수 있는 집은 선착순에서 나머지 집보다 평균 2.6지망(시드 1~12 평균) 더 좋은 곳에 갔고, 다른 방식에서는 0.1지망 안팎이었습니다. 보스턴은 모두가 솔직할 때 1지망 비율이 가장 높았지만, 그 숫자는 모두가 솔직하다는 가정에서만 성립합니다.",
+"en": "<b>What it shows:</b> With 200 children, 8 places of 25 seats, taste similarity 60%, place-order difference 50%, 25% early applicants, and seed 1, when everyone wrote honestly the share getting their 1st choice was 28% for first come first served, 29% for lottery order, 43% for Boston and 23% for deferred acceptance, with average choice numbers 3.02, 3.06, 2.83 and 3.28. The share of \"aggrieved\" children, those who would prefer a place where a lower-priority child got in, was 72%, 65%, 35% and 0% (zero for deferred acceptance by definition). Among the 60 sampled children, 43% (26 children) gained by changing their ranking under Boston and 0% under the other three. Averaged over seeds 1 to 12 the Boston figure was 34.3%, and those who gained moved up 3.0 choices on average. With taste similarity at 0% it was 6%, at 30% 16%, at 60% 36% and at 90% 70% (seeds 1 to 3). With seats at 80% of children it was 46% and at 120% it was 27%. Families who could apply early did 2.6 choices better than the others under first come first served (seeds 1 to 12 average) and about 0.1 choices in the other methods. Boston gave the highest 1st-choice share when everyone was honest, but that figure holds only under the assumption that everyone is honest.",
+"tr": "<b>言えること：</b>子ども200人、25席の場所が8か所、好みの似かよい度60%、場所ごとの順番の違い50%、早く申し込む家庭25%、シード1で、全員が正直に書いたとき、第1希望になった割合は、先着順28%、抽選順29%、ボストン方式43%、受入保留方式23%で、平均の希望順位は3.02、3.06、2.83、3.28でした。「不満が残る」子、つまり自分より優先順位の低い子が入った場所のほうを望んだ子の割合は、72%、65%、35%、0%でした（受入保留方式は定義上0です）。サンプルの60人のうち、順位を書き換えて得をしたのは、ボストン方式で43%（26人）、ほかの3方式では0%でした。シード1〜12の平均ではボストン方式は34.3%で、得をした子は平均3.0希望ぶん上がりました。好みの似かよい度が0%のときは6%、30%で16%、60%で36%、90%で70%でした（シード1〜3）。席数が子どもの80%のときは46%、120%のときは27%でした。早く申し込める家庭は、先着順ではほかの家庭より2.6希望ぶん良い結果になり（シード1〜12の平均）、ほかの方式では約0.1希望ぶんでした。全員が正直なとき、第1希望の割合が最も高かったのはボストン方式ですが、この数値は全員が正直だという前提のもとでのみ成り立ちます。"
+},
+{
+"id": "s0292",
+"page": "admission",
+"ko": "<b>말하지 않는 것:</b>",
+"en": "<b>What it doesn't show:</b>",
+"tr": "<b>言えないこと：</b>"
+},
+{
+"id": "s0293",
+"page": "admission",
+"ko": "실제 입소 제도를 재현한 것도, 어느 방식이 옳다는 뜻도 아니에요. 값은 모두 이 모델이 정했어요.",
+"en": "It does not reproduce a real admission system or say which method is right; all values are set by the model.",
+"tr": "実際の入学選考制度を再現するものではなく、どの方式が正しいかを示すものでもありません。すべての値はモデルが設定したものです。"
+},
+{
+"id": "s0294",
+"page": "admission",
+"ko": "실제 규칙과 정보를 넣어 이득이 얼마나 되는지 따로 확인해야 하고, 판단은 해당 기관 안내를 따르세요.",
+"en": "How large any gain is needs checking with real rules and information; follow the institution's own guidance.",
+"tr": "得られる利益の大きさは、実際のルールや情報で確認する必要があります。各機関の案内に従ってください。"
+},
+{
+"id": "s0295",
+"page": "admission",
+"ko": "<b>말하지 않는 것:</b> 실제 어린이집·유치원의 입소 제도를 설명하거나 재현한 것이 아닙니다. 실제 제도에는 가산점, 형제 우선, 지원 가능한 곳 수 제한, 대기 순번처럼 이 모델에 없는 규칙이 많고 지역과 해마다 다릅니다. 아이 수, 정원, 취향은 모두 이 프로젝트가 정한 예시 값입니다. 어느 방식이 옳다거나 어떻게 적어 내라는 뜻이 아니고, 어느 가정도 비난하지 않습니다. 이 시험은 다른 집의 목록과 추첨 결과를 안다고 가정한 것이라 현실의 이득은 이보다 작을 수 있고, 한 아이만 바꿀 때를 본 것이어서 모두가 전략적으로 적은 결과는 계산하지 않았습니다. 참고용 모델이며 실제 판단은 해당 기관이나 지자체의 안내, 교사 같은 전문가와 함께 하세요.",
+"en": "<b>What it doesn't show:</b> This does not describe or reproduce any real daycare or kindergarten admission system. Real systems have rules this model leaves out, such as bonus points, sibling priority, limits on how many places you can list, and waiting numbers, and they differ by region and year. The number of children, capacities and tastes are all example values chosen by this project. It does not say which method is right or how anyone should fill in a form, and it blames no family. The test assumes knowing other families' lists and the lottery result, so real gains may be smaller, and it looks at one child changing alone, not at what happens when everyone plays strategically. This is a reference model; for real decisions, rely on the guidance of the institution or local government and on professionals such as teachers.",
+"tr": "<b>言えないこと：</b>これは、実在の保育園や幼稚園の入園の仕組みを説明したり再現したりするものではありません。実際の制度には、加点、きょうだい優先、書ける希望数の上限、待機番号など、このモデルが省いたルールがあり、地域や年によっても異なります。子どもの人数、定員、好みは、すべてこのプロジェクトが選んだ例示の値です。どの方式が正しいか、どう申込書を書くべきかは示しておらず、どの家庭も責めていません。テストは他の家庭のリストと抽選結果を知っていると仮定しているため、実際の得はもっと小さいかもしれず、1人だけが変える場合を見ていて、全員が戦略的に動いたときのことは扱っていません。これは参考用のモデルです。実際の判断では、施設や自治体の案内と、先生などの専門家の助言を頼りにしてください。"
+},
+{
+"id": "s0296",
+"page": "admission",
+"ko": "이론적 근거와 구현 메모",
+"en": "Theory and implementation notes",
+"tr": "理論と実装のメモ"
+},
+{
+"id": "s0297",
+"page": "admission",
+"ko": "<b>모델의 뿌리:</b> Gale &amp; Shapley (1962), &quot;College Admissions and the Stability of Marriage&quot;(<i>American Mathematical Monthly</i>)가 지연 수락 방식을 만들었고, Abdulkadiroğlu &amp; Sönmez (2003), &quot;School Choice: A Mechanism Design Approach&quot;(<i>American Economic Review</i> 93(3))가 이를 학교 배정에 적용해 보스턴 방식과 비교했습니다. 요지는 보스턴 방식에서는 솔직하게 쓰는 것이 늘 최선이 아니지만, 지연 수락 방식에서는 솔직하게 쓰는 것이 최선이라는 것입니다.",
+"en": "<b>Where the model comes from:</b> Gale &amp; Shapley (1962), &quot;College Admissions and the Stability of Marriage&quot; (<i>American Mathematical Monthly</i>) created deferred acceptance, and Abdulkadiroğlu &amp; Sönmez (2003), &quot;School Choice: A Mechanism Design Approach&quot; (<i>American Economic Review</i> 93(3)) applied it to school assignment and compared it with the Boston mechanism. The gist: under Boston, writing honestly is not always best, while under deferred acceptance honest reporting is best.",
+"tr": "<b>モデルの出どころ：</b>Gale &amp; Shapley (1962)、&quot;College Admissions and the Stability of Marriage&quot;（<i>American Mathematical Monthly</i>）が受入保留方式を考案し、Abdulkadiroğlu &amp; Sönmez (2003)、&quot;School Choice: A Mechanism Design Approach&quot;（<i>American Economic Review</i> 93(3)）がそれを学校の割り当てに応用し、ボストン方式と比較しました。要点：ボストン方式では正直に書くことが常に最善とは限りませんが、受入保留方式では正直に申告することが最善です。"
+},
+{
+"id": "s0298",
+"page": "admission",
+"ko": "<b>핵심 가정과 수식:</b> 아이의 선호는 <code>U<sub>ij</sub> = c·q<sub>j</sub> + (1−c)·e<sub>ij</sub></code>(q<sub>j</sub>는 모두가 느끼는 기관의 인기, e<sub>ij</sub>는 아이별 취향, 둘 다 표준정규분포)의 순서입니다. 기관의 우선순위 점수는 <code>s<sub>ij</sub> = (1−ρ)·u<sub>i</sub> + ρ·v<sub>ij</sub></code>(u<sub>i</sub>는 모든 기관 공통 추첨 번호, v<sub>ij</sub>는 기관별 무작위)이고 점수가 높은 아이가 앞섭니다. 슬라이더 c가 취향이 비슷한 정도, ρ가 기관마다 순번이 다른 정도입니다.",
+"en": "<b>Key assumptions and formulas:</b> A child's preference is the order of <code>U<sub>ij</sub> = c·q<sub>j</sub> + (1−c)·e<sub>ij</sub></code> (q<sub>j</sub> is the popularity everyone feels, e<sub>ij</sub> the child's own taste, both standard normal). A place's priority score is <code>s<sub>ij</sub> = (1−ρ)·u<sub>i</sub> + ρ·v<sub>ij</sub></code> (u<sub>i</sub> is a lottery number shared by all places, v<sub>ij</sub> is place-specific randomness) and a higher score goes first. The slider c is the taste similarity and ρ the difference in order between places.",
+"tr": "<b>主な仮定と式：</b>子どもの好みは <code>U<sub>ij</sub> = c·q<sub>j</sub> + (1−c)·e<sub>ij</sub></code> の大きさの順です（q<sub>j</sub> は誰もが感じる人気、e<sub>ij</sub> はその子自身の好みで、どちらも標準正規分布）。場所の優先度スコアは <code>s<sub>ij</sub> = (1−ρ)·u<sub>i</sub> + ρ·v<sub>ij</sub></code> で（u<sub>i</sub> はすべての場所に共通の抽選番号、v<sub>ij</sub> は場所ごとの無作為な値）、スコアが高いほど先になります。スライダーの c は好みの似かよい度、ρ は場所ごとの順番の違いです。"
+},
+{
+"id": "s0299",
+"page": "admission",
+"ko": "<b>이 프로젝트의 단순화:</b> 모든 아이가 8곳 전부를 순서대로 적고, 우선순위는 추첨 번호뿐입니다(가산점, 형제 우선, 거주지는 없음). 취향 분포, 정원, 아이 수, 일찍 접수할 수 있는 집의 비율은 이 프로젝트가 정한 값입니다. 바꿔 적기 시험은 지망 하나를 옮기는 56가지만 해 보므로, 다른 바꿔 적기가 더 나을 가능성은 남습니다.",
+"en": "<b>What this project simplifies:</b> Every child ranks all 8 places, and priority is the lottery number only (no bonus points, siblings or residence). The taste distribution, capacities, number of children and share of early applicants are this project's own choices. The ranking-change test only tries the 56 moves of a single choice, so another way of changing the list could do better.",
+"tr": "<b>このプロジェクトが単純化していること：</b>子どもはみな8か所すべてに順位をつけ、優先順位は抽選番号だけです（加点、きょうだい、居住地はなし）。好みの分布、定員、子どもの人数、早く申し込む家庭の割合は、このプロジェクト独自の選択です。順位変更テストは、1つの選択肢を動かす56通りだけを試すので、リストを変える別の方法のほうが有利になる可能性があります。"
+},
+{
+"id": "s0300",
+"page": "admission",
+"ko": "<b>이론값과 시뮬레이션:</b> 모두 같은 취향(c=100%)이고 정원이 아이 수와 같을 때 닫힌 식으로는 어느 방식이나 각 지망에 1/8씩 가므로 평균 4.50지망, 1지망 12.5%인데, 네 방식 모두 정확히 4.50과 12.5%였습니다. 기관 순번이 모두 같으면(ρ=0) 지연 수락과 추첨 순번 결과는 이론상 같고 시드 30개에서 30개가 모두 일치했습니다. 지연 수락의 억울한 아이는 12개 시드에서 모두 0이었고, 솔직하지 않게 적어 이득을 본 아이는 선착순·추첨 순번·지연 수락에서 0%, 보스턴에서 34.3%(시드 1~12 평균)였습니다. 애니메이션의 마지막 장면은 40번의 비교에서 모두 실제 배정과 같았습니다.",
+"en": "<b>Theory versus simulation:</b> With identical tastes (c=100%) and seats equal to children, the closed form gives every method 1/8 of children per choice, so an average of 4.50 and 12.5% first choices; all four methods gave exactly 4.50 and 12.5%. With identical place orders (ρ=0), deferred acceptance and lottery order should give the same result, and all 30 of 30 seeds matched. Deferred acceptance had zero aggrieved children in all 12 seeds, and the share who gained by changing their list was 0% for first come first served, lottery order and deferred acceptance and 34.3% for Boston (seeds 1 to 12 average). The final animation scene equaled the real assignment in all 40 comparisons.",
+"tr": "<b>理論とシミュレーションの比較：</b>好みがすべて同じ（c=100%）で席数が子どもの人数と等しいとき、閉じた式によればどの方式でも各希望順位に子どもの1/8ずつが入り、平均4.50、第1希望12.5%になります。4方式すべてがちょうど4.50と12.5%でした。場所の順番が同じ（ρ=0）なら、受入保留方式と抽選順は同じ結果になるはずで、30シード中30個が一致しました。受入保留方式では12シードすべてで不満が残る子は0人で、リストを変えて得をした割合は、先着順・抽選順・受入保留方式が0%、ボストン方式が34.3%でした（シード1〜12の平均）。アニメーションの最後の場面は、40回の比較すべてで実際の割り当てと一致しました。"
+},
+{
+"id": "s0301",
+"page": "admission",
+"ko": "<b>더 읽을거리:</b> Gale &amp; Shapley (1962), <i>American Mathematical Monthly</i> 69 / Abdulkadiroğlu &amp; Sönmez (2003), <i>American Economic Review</i> 93(3) / Roth (1982), &quot;The Economics of Matching: Stability and Incentives&quot;, <i>Mathematics of Operations Research</i>.",
+"en": "<b>Further reading:</b> Gale &amp; Shapley (1962), <i>American Mathematical Monthly</i> 69 / Abdulkadiroğlu &amp; Sönmez (2003), <i>American Economic Review</i> 93(3) / Roth (1982), &quot;The Economics of Matching: Stability and Incentives&quot;, <i>Mathematics of Operations Research</i>.",
+"tr": "<b>参考文献：</b>Gale &amp; Shapley (1962), <i>American Mathematical Monthly</i> 69 / Abdulkadiroğlu &amp; Sönmez (2003), <i>American Economic Review</i> 93(3) / Roth (1982), &quot;The Economics of Matching: Stability and Incentives&quot;, <i>Mathematics of Operations Research</i>。"
+},
+{
+"id": "s0302",
+"page": "admission",
+"ko": "검증은 <code>node tools/validate-admission.js</code>로 할 수 있습니다. 시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다.",
+"en": "You can verify with <code>node tools/validate-admission.js</code>. The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result.",
+"tr": "<code>node tools/validate-admission.js</code> で検証できます。シミュレーションにはシード付き乱数生成器（mulberry32）を使っているので、同じシードなら同じ結果になります。"
+},
+{
+"id": "s0303",
+"page": "admission",
+"ko": "억울한 아이는 \"더 원하는 기관에 자리가 남았거나, 그 기관에 들어간 아이 중 나보다 그 기관의 우선순위 점수가 낮은 아이가 있는\" 아이입니다. 바꿔 적기 시험은 처음 60명의 아이를 표본으로 하고, 아이들의 번호는 무작위로 섞인 것이라 표본이 치우치지 않습니다. 미배정 아이는 평균 지망을 셀 때 제외하고, 접수 시기별 이득을 셀 때는 9지망으로 칩니다.",
+"en": "An aggrieved child is one for whom a preferred place still has an empty seat, or where someone admitted has a lower priority score at that place. The ranking-change test samples the first 60 children; their numbering is random, so the sample is not biased. Unassigned children are left out of the average choice number, and counted as choice 9 when measuring the early-applicant advantage.",
+"tr": "「不満が残る子」とは、望んだ場所にまだ空席がある子、またはその場所で入った子の優先度スコアが自分より低い子のことです。順位変更テストは先頭の60人を抽出します。番号は無作為なので、サンプルに偏りはありません。未割り当ての子は平均の希望順位から除き、早く申し込む家庭の有利さを測るときは第9希望として数えます。"
+},
+{
+"id": "s0304",
+"page": "admission",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/admission\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/admission\">GitHub</a>.",
+"tr": "コードは<a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/admission\">GitHub</a>で公開しています。"
+},
+{
+"id": "s0338",
+"page": "alliance",
+"ko": "이 모델에서는 동맹이 평균 1~2개만 돼도 번졌고, 3개면 99%가 세계대전급이었어요.",
+"en": "In this model even 1-2 allies per country spread a clash, and at 3 allies 99% of runs reached world-war scale.",
+"tr": "このモデルでは、1か国あたり同盟国が1〜2でも衝突は広がり、3になると99%の実行で世界大戦規模に達しました。"
+},
+{
+"id": "s0339",
+"page": "alliance",
+"ko": "연결 하나하나가 확률로 충돌을 옮기는 구조라, 연결이 촘촘해지면 연쇄가 갑자기 커질 수 있어요.",
+"en": "Each link passes the conflict on with some probability, so once links get dense enough the chain can suddenly blow up.",
+"tr": "各つながりは一定の確率で衝突を伝えるため、つながりが十分に密になると、連鎖が突然爆発的に広がることがあります。"
+},
+{
+"id": "s0340",
+"page": "alliance",
+"ko": "충돌의 크기를 볼 때는 나라 하나하나보다 동맹이 얼마나 촘촘하고 어떻게 묶였는지부터 살펴볼 만해요.",
+"en": "To judge how big a conflict can grow, the density and layout of alliances may be a better place to start than any single country.",
+"tr": "衝突がどこまで大きくなりうるかを判断するには、特定の1か国よりも、同盟の密度と配置から見始める方がよいかもしれません。"
+},
+{
+"id": "s0342",
+"page": "alliance",
+"ko": "실제 전쟁이나 1914년의 사건, 어느 나라의 책임을 말하지는 않아요. 나라가 모두 같은 장난감 모델이에요.",
+"en": "It says nothing about real wars, 1914, or any country's responsibility; all countries here are identical toys.",
+"tr": "実際の戦争や1914年、どの国の責任についても何も語りません。ここでの国はすべて同一のおもちゃです。"
+},
+{
+"id": "s0343",
+"page": "alliance",
+"ko": "정치·경제·판단이 빠져 있어, 실제 동맹의 내용과 역사 자료를 따로 살펴봐야 확인할 수 있어요.",
+"en": "Politics, economics and decisions are missing, so the content of real alliances and historical records must be checked separately.",
+"tr": "政治・経済・意思決定が含まれていないため、実際の同盟の内容や歴史的記録は別に確認する必要があります。"
+},
+{
+"id": "s0345",
+"page": "alliance",
+"ko": "<b>모델의 뿌리:</b> 동맹을 따라 충돌이 번지는 구조는 네트워크 위의 \"연쇄(cascade)\" 모델에서 발상을 얻었습니다. Watts(2002)는 무작위 네트워크에서 작은 충격이 전체로 번지는 조건을 다뤘고, Kempe, Kleinberg, Tardos(2003)의 독립 연쇄(independent cascade) 모델은 \"연결마다 일정 확률로 전파된다\"는 점에서 이 페이지와 가장 닮았습니다. 무작위 동맹은 Erdős와 Rényi의 무작위 그래프와 같은 방식입니다.",
+"en": "<b>Where the model comes from:</b> The way a clash spreads along alliances draws on \"cascade\" models on networks. Watts (2002) studied when a small shock spreads across a whole random network, and the independent cascade model of Kempe, Kleinberg and Tardos (2003), where each link transmits with some probability, is the closest to this page. Random alliances work like the random graphs of Erdős and Rényi.",
+"tr": "<b>モデルの出どころ:</b> 衝突が同盟を伝って広がる仕組みは、ネットワーク上の「カスケード」モデルに基づいています。Watts(2002)は、小さな衝撃がランダムなネットワーク全体に広がる条件を調べました。各リンクがある確率で伝える Kempe、Kleinberg、Tardos(2003)の独立カスケードモデルが、このページに最も近いものです。ランダムな同盟は、エルデシュとレーニーのランダムグラフと同じように働きます。"
+},
+{
+"id": "s0346",
+"page": "alliance",
+"ko": "<b>핵심 가정과 수식:</b> 무작위 동맹에서는 어떤 두 나라든 같은 확률 <code>p = d/(N−1)</code>로 동맹이 됩니다(d가 \"나라마다 평균 동맹국 수\" 슬라이더, N=24). 이런 그래프는 평균 연결 수가 1을 넘을 즈음 큰 연결 덩어리가 생기고, 여기에 전파 확률 q(\"조약을 지킬 확률\")를 곱한 <code>q·d</code>가 1을 넘을 때 크게 번진다는 것이 대략적인 어림입니다.",
+"en": "<b>Key assumptions and formulas:</b> In random alliances any two countries are allied with the same probability <code>p = d/(N−1)</code> (d is the \"average allies per country\" slider, N=24). Such graphs grow a giant connected cluster around an average degree of 1, and a rough rule of thumb is that the spread becomes large when <code>q·d</code> exceeds 1, where q is the \"chance an ally honors the pact\".",
+"tr": "<b>主な前提と式:</b> ランダムな同盟では、どの2か国も同じ確率 <code>p = d/(N−1)</code> で同盟を結びます(d は「1か国あたりの平均同盟国数」のスライダー、N=24)。このようなグラフは、平均次数が1あたりで巨大な連結成分をつくります。おおまかな目安として、<code>q·d</code> が1を超えると広がりが大きくなります。q は「同盟国が約束を守る確率」です。"
+},
+{
+"id": "s0347",
+"page": "alliance",
+"ko": "<b>이 프로젝트의 단순화:</b> 나라는 모두 같고 동맹은 대칭적인 단순 연결이며, 조약 이행은 라운드마다 다시 판정하는 확률 하나로만 정합니다(연결마다 한 번만 시도하는 표준 독립 연쇄 모델과 다릅니다). 양쪽에서 요청받을 때의 다수결 규칙, 나라 수 24, 평균 동맹 수와 이행 확률의 값, \"세계대전급\"의 기준(12개국)은 모두 이 프로젝트가 정했습니다.",
+"en": "<b>What this project simplifies:</b> All countries are identical, alliances are plain symmetric links, and honoring a pact is a single probability re-drawn each round (unlike the standard independent cascade, which tries each link once). The majority rule for conflicting calls, the 24 countries, the values of average allies and honor probability, and the \"world-war scale\" cutoff (12 countries) are all set by this project.",
+"tr": "<b>このプロジェクトが単純化している点:</b> すべての国は同一で、同盟は単純な対称リンクであり、約束を守るかどうかは毎ラウンド引き直す単一の確率です(各リンクを1回だけ試す標準的な独立カスケードとは異なります)。矛盾する呼びかけへの多数決ルール、24か国、平均同盟国数と履行確率の値、「世界大戦規模」の基準(12か国)は、いずれもこのプロジェクトが決めたものです。"
+},
+{
+"id": "s0348",
+"page": "alliance",
+"ko": "<b>이론값과 시뮬레이션:</b> 이 설정에는 정확한 닫힌 해가 없고, 위 어림은 방향을 가늠하는 용도라서 이론값과 숫자로 대조하지는 않았습니다. 시뮬레이션에서는 조약 70%일 때 평균 동맹 0, 1, 1.5, 2, 3개에서 평균 2.0, 6.3, 12.1, 17.4, 22.4개국이 전쟁에 들어갔고(세계대전급 0, 15, 56, 85, 99%), 어림한 문턱 근처인 1~2개에서 가파르게 올랐습니다. 나라가 24개뿐이라 문턱이 날카롭지 않고 완만하게 오릅니다.",
+"en": "<b>Theory versus simulation:</b> This setup has no exact closed form and the rule of thumb above is only a guide to direction, so I did not compare it numerically. In the simulation at a 70% honor chance, average allies of 0, 1, 1.5, 2 and 3 gave 2.0, 6.3, 12.1, 17.4 and 22.4 countries at war (world-war scale 0, 15, 56, 85 and 99%), rising steeply around 1–2 allies near the rough threshold. With only 24 countries the threshold is smooth rather than sharp.",
+"tr": "<b>理論とシミュレーションの比較:</b> この設定には厳密な閉じた形の式がなく、上の目安は方向をつかむ手がかりにすぎないため、数値での比較はしていません。履行確率70%のシミュレーションでは、平均同盟国数が0、1、1.5、2、3のとき、戦争状態の国はそれぞれ2.0、6.3、12.1、17.4、22.4か国でした(世界大戦規模は0、15、56、85、99%)。おおまかな閾値に近い同盟国1〜2のあたりで急に上昇しています。国が24しかないため、閾値は鋭くなく滑らかです。"
+},
+{
+"id": "s0349",
+"page": "alliance",
+"ko": "<b>더 읽을거리:</b> Watts, D. J. (2002), 「A simple model of global cascades on random networks」, <i>Proceedings of the National Academy of Sciences</i> 99. Newman, M. E. J. (2010), <i>Networks: An Introduction</i>, Oxford University Press.",
+"en": "<b>Further reading:</b> Watts, D. J. (2002), \"A simple model of global cascades on random networks\", <i>Proceedings of the National Academy of Sciences</i> 99. Newman, M. E. J. (2010), <i>Networks: An Introduction</i>, Oxford University Press.",
+"tr": "<b>参考文献:</b> Watts, D. J. (2002), \"A simple model of global cascades on random networks\", <i>Proceedings of the National Academy of Sciences</i> 99. Newman, M. E. J. (2010), <i>Networks: An Introduction</i>, Oxford University Press."
+},
+{
+"id": "s0350",
+"page": "alliance",
+"ko": "나라는 A~X의 익명의 나라이고 실제 나라, 지도자, 날짜는 쓰지 않았습니다. 역사 연구가 아니고 어떤 논문의 모델이나 값을 재현한 것도 아닙니다.",
+"en": "The countries are anonymous A–X, with no real countries, leaders or dates. This is not historical research and does not reproduce the model or values of any paper.",
+"tr": "国はAからXまでの匿名で、実在の国、指導者、日付は使っていません。歴史研究ではなく、どの論文のモデルや値も再現していません。"
+},
+{
+"id": "s0354",
+"page": "ant",
+"ko": "랭턴의 개미 · 시뮬라티오 랩",
+"en": "Langton's Ant · Simulatio Lab",
+"tr": "ラングトンのアリ · Simulatio Lab"
+},
+{
+"id": "s0355",
+"page": "ant",
+"ko": "규칙이 두 줄뿐인 개미가 처음엔 대칭 무늬를, 다음엔 혼돈을 만들다가 약 만 걸음 뒤 갑자기 대각선 고속도로를 내는 랭턴의 개미를 직접 돌려보세요.",
+"en": "Run Langton's ant yourself: an ant with two rules draws symmetric patterns, then chaos, and after about 10,000 steps suddenly builds a diagonal highway.",
+"tr": "ラングトンのアリを自分で実行してみましょう。2つのルールのアリが対称な模様、次にカオスを描き、約1万ステップ後に突然、斜めのハイウェイをつくります。"
+},
+{
+"id": "s0356",
+"page": "ant",
+"ko": "계획이 없는 것은 어지럽게만 움직일 거라고 생각하기 쉽습니다. 규칙이 두 줄뿐인 개미라면 더 그렇겠죠. 그런데 빈 판에서 출발한 이 개미는 한동안 질서와 혼돈을 오간 끝에 9,976걸음째부터 104걸음마다 똑같은 동작을 되풀이하며 곧은 대각선 길을 내기 시작합니다. 아무도 길을 설계하지 않았는데도요.",
+"en": "It is easy to assume that something with no plan will just wander randomly, and an ant with only two rules even more so. Yet this ant, started on a blank grid, drifts between order and chaos and then, from step 9,976, repeats the same 104-step routine and starts building a straight diagonal road. Nobody designed that road.",
+"tr": "計画のないものはただでたらめに歩き回るだろう、ましてルールが2つしかないアリならなおさら、と考えがちです。ところが、このアリは何もない盤面から出発して、秩序とカオスの間をさまよい、9,976ステップ目から同じ104ステップの動きを繰り返して、まっすぐな斜めの道をつくり始めます。この道を設計した人はいません。"
+},
+{
+"id": "s0357",
+"page": "ant",
+"ko": "판은 흰 칸과 검은 칸으로 된 격자이고, 개미는 한 칸 위에 서서 위·아래·좌·우 중 한 방향을 봅니다. 규칙은 두 줄입니다. <b>흰 칸이면</b> 오른쪽으로 90도 돌고, 칸을 검게 바꾸고, 한 칸 앞으로 갑니다. <b>검은 칸이면</b> 왼쪽으로 90도 돌고, 칸을 희게 바꾸고, 한 칸 앞으로 갑니다.",
+"en": "The world is a grid of white and black cells, and the ant stands on one cell facing up, down, left or right. There are two rules. <b>On a white cell</b> it turns 90 degrees right, flips the cell to black and steps forward. <b>On a black cell</b> it turns 90 degrees left, flips the cell to white and steps forward.",
+"tr": "世界は白と黒のマス目でできていて、アリは1つのマスの上に、上・下・左・右のいずれかを向いて立っています。ルールは2つです。<b>白いマスでは</b>右に90度回り、そのマスを黒に変えて1歩進みます。<b>黒いマスでは</b>左に90度回り、そのマスを白に変えて1歩進みます。"
+},
+{
+"id": "s0358",
+"page": "ant",
+"ko": "빈 판에서 출발하면 처음 약 500걸음은 대칭 무늬가 되풀이되어 <b>질서</b>로 보이고, 이어 한참 어지러운 <b>혼돈</b>이 계속되다가, 끝내 104걸음짜리 동작이 되풀이되며 대각선으로 뻗는 <b>고속도로</b>가 됩니다. 고속도로가 시작된 걸음은 개미의 자리와 방향이 104걸음마다 (2,2)칸씩 옮겨 가며 세 번 이어서 되풀이되는 것으로 판정합니다.",
+"en": "From a blank grid, the first 500 steps or so repeatedly form symmetric shapes, which look like <b>order</b>. A long stretch of <b>chaos</b> follows, and finally a 104-step routine repeats and carries the ant diagonally: the <b>highway</b>. The highway start is detected when the ant's position and heading repeat every 104 steps, shifted by (2,2) cells, three times in a row.",
+"tr": "何もない盤面から始めると、最初の500ステップほどは対称な形が何度もできあがり、<b>秩序</b>のように見えます。その後に長い<b>カオス</b>が続き、最後に104ステップの動きが繰り返されてアリが斜めに進んでいきます。これが<b>ハイウェイ</b>です。ハイウェイの開始は、アリの位置と向きが104ステップごとに(2,2)マスずれて、3回続けて繰り返されたときに検出します。"
+},
+{
+"id": "s0359",
+"page": "ant",
+"ko": "<b>속도</b>는 1초에 몇 걸음을 돌릴지입니다. 고속도로를 보려면 초당 수천 걸음 이상으로 올려 보세요. <b>개미 수</b>를 2~4마리로 늘리면 개미들이 서로의 흔적을 밟고, <b>무작위 점으로 시작</b>하면 가운데 21×21칸 안에 검은 칸을 흩뿌려 놓고 출발합니다.",
+"en": "<b>Speed</b> is how many steps run per second; raise it to thousands per second to reach the highway. With 2 to 4 <b>ants</b> they walk on each other's trails, and a <b>random-dot start</b> scatters black cells in the central 21×21 cells before the ant starts.",
+"tr": "<b>速度</b>は1秒あたりに実行するステップ数です。ハイウェイに届くには、1秒あたり数千まで上げてください。<b>アリ</b>を2〜4匹にすると、互いの通った跡を歩きます。<b>ランダムな点で開始</b>では、アリが動き出す前に、中央の21×21マスに黒いマスをまき散らします。"
+},
+{
+"id": "s0360",
+"page": "ant",
+"ko": "개미 수 <output id=\"o-ants\"></output>",
+"en": "Number of ants <output id=\"o-ants\"></output>",
+"tr": "アリの数 <output id=\"o-ants\"></output>"
+},
+{
+"id": "s0361",
+"page": "ant",
+"ko": "여러 마리면 한 걸음마다 개미들이 차례로 한 번씩 움직이고, 서로의 흔적을 밟습니다",
+"en": "With several ants, each ant moves once per step in turn, and they walk on each other's trails",
+"tr": "アリが複数のときは、1ステップごとに順番に1回ずつ動き、互いの通った跡を歩きます"
+},
+{
+"id": "s0362",
+"page": "ant",
+"ko": "무작위 점의 비율 <output id=\"o-dens\"></output>",
+"en": "Random dot share <output id=\"o-dens\"></output>",
+"tr": "ランダムな点の割合 <output id=\"o-dens\"></output>"
+},
+{
+"id": "s0363",
+"page": "ant",
+"ko": "\"무작위 점으로 시작\"일 때만 쓰입니다. 가운데 21×21칸 중 처음부터 검은 칸의 비율",
+"en": "Used only for \"random dots\". The share of the central 21×21 cells that start black",
+"tr": "「ランダムな点」のときだけ使います。中央の21×21マスのうち、最初に黒にするマスの割合"
+},
+{
+"id": "s0364",
+"page": "ant",
+"ko": "시작하는 판 <output id=\"o-start\"></output>",
+"en": "Starting grid <output id=\"o-start\"></output>",
+"tr": "開始時の盤面 <output id=\"o-start\"></output>"
+},
+{
+"id": "s0365",
+"page": "ant",
+"ko": "빈 판",
+"en": "Blank grid",
+"tr": "何もない盤面"
+},
+{
+"id": "s0366",
+"page": "ant",
+"ko": "무작위 점으로 시작",
+"en": "Random dots",
+"tr": "ランダムな点"
+},
+{
+"id": "s0367",
+"page": "ant",
+"ko": "빈 판은 고전적인 실험입니다. 무작위 점으로 시작하면 번호를 바꿔 가며 매번 다른 판을 볼 수 있어요",
+"en": "The blank grid is the classic experiment. With random dots, change the seed to see a different grid each time",
+"tr": "何もない盤面が古典的な実験です。ランダムな点では、シードを変えるたびに違う盤面になります"
+},
+{
+"id": "s0368",
+"page": "ant",
+"ko": "같은 설정, 다른 무작위 판",
+"en": "Same settings, different random grid",
+"tr": "同じ設定でも、ランダムな盤面は変わります"
+},
+{
+"id": "s0369",
+"page": "ant",
+"ko": "① 개미가 길을 내는 모습",
+"en": "① Watching the Ant Build a Road",
+"tr": "① アリが道をつくる様子を見る"
+},
+{
+"id": "s0370",
+"page": "ant",
+"ko": "검은 칸은 짙은 남색, 개미가 지나갔다가 희게 돌아온 칸은 연한 파랑, 개미는 색 점입니다. 판은 지나간 곳이 모두 보이도록 저절로 넓어집니다. 속도를 올리면 초당 수십만 걸음까지 돌릴 수 있어요.",
+"en": "Black cells are dark navy, cells the ant crossed and left white are pale blue, and the ants are the coloured dots. The view widens by itself to show everywhere the ant has been. Raise the speed to run up to hundreds of thousands of steps per second.",
+"tr": "黒いマスは濃い紺色、アリが通って白に戻ったマスは淡い青、アリは色のついた点です。アリが通った場所がすべて見えるように、表示は自動で広がります。速度を上げると、1秒あたり数十万ステップまで実行できます。"
+},
+{
+"id": "s0371",
+"page": "ant",
+"ko": "초당 100걸음",
+"en": "100 steps/s",
+"tr": "100ステップ/秒"
+},
+{
+"id": "s0372",
+"page": "ant",
+"ko": "초당 1천걸음",
+"en": "1,000 steps/s",
+"tr": "1,000ステップ/秒"
+},
+{
+"id": "s0373",
+"page": "ant",
+"ko": "초당 5천걸음",
+"en": "5,000 steps/s",
+"tr": "5,000ステップ/秒"
+},
+{
+"id": "s0374",
+"page": "ant",
+"ko": "초당 3만걸음",
+"en": "30,000 steps/s",
+"tr": "30,000ステップ/秒"
+},
+{
+"id": "s0375",
+"page": "ant",
+"ko": "초당 30만걸음",
+"en": "300,000 steps/s",
+"tr": "300,000ステップ/秒"
+},
+{
+"id": "s0376",
+"page": "ant",
+"ko": "② 검은 칸의 수",
+"en": "② Number of Black Cells",
+"tr": "② 黒いマスの数"
+},
+{
+"id": "s0377",
+"page": "ant",
+"ko": "파란 바탕은 질서 있던 처음 약 500걸음(빈 판, 개미 1마리일 때)입니다. 혼돈 동안 불규칙하게 늘다가 고속도로가 시작되면 104걸음마다 12칸씩 일정하게 늘어납니다.",
+"en": "The blue band is the first ~500 ordered steps (blank grid, one ant). Black cells grow irregularly during the chaos, then by a steady 12 cells every 104 steps once the highway starts.",
+"tr": "青い帯は最初の約500ステップの秩序の部分です(何もない盤面、アリ1匹)。黒いマスはカオスの間は不規則に増え、ハイウェイが始まると104ステップごとに12マスずつ一定に増えます。"
+},
+{
+"id": "s0378",
+"page": "ant",
+"ko": "③ 원점에서 개미까지의 거리",
+"en": "③ Distance of the Ant from the Start",
+"tr": "③ スタート地点からアリまでの距離"
+},
+{
+"id": "s0379",
+"page": "ant",
+"ko": "혼돈 동안은 출발점 근처를 맴돌아 거의 평평하다가, 고속도로가 시작되면 곧은 직선으로 멀어집니다. 걸음당 약 0.027칸(104걸음에 2√2칸)씩입니다.",
+"en": "During the chaos the ant stays near its starting point and the curve is nearly flat, then it grows as a straight line once the highway begins: about 0.027 cells per step (2√2 cells per 104 steps).",
+"tr": "カオスの間、アリはスタート地点の近くにとどまり、曲線はほぼ平らです。ハイウェイが始まると直線的に増え、1ステップあたり約0.027マス(104ステップで2√2マス)になります。"
+},
+{
+"id": "s0380",
+"page": "ant",
+"ko": "④ 무작위 점으로 시작하면 고속도로는 언제 생길까",
+"en": "④ When Does the Highway Appear from Random Dots?",
+"tr": "④ ランダムな点からスタートすると、ハイウェイはいつ現れる?"
+},
+{
+"id": "s0381",
+"page": "ant",
+"ko": "가로는 처음에 흩뿌린 검은 칸의 비율, 세로는 고속도로가 시작된 걸음입니다. 점은 무작위 판 10개 각각의 결과이고 선은 그 중앙값입니다. 이 화면에서 돌린 판에서는 모두 고속도로가 생겼습니다.",
+"en": "The horizontal axis is the share of black cells scattered at the start, the vertical axis the step where the highway began. Each dot is one of 10 random grids and the line is their median. Every grid run here produced a highway.",
+"tr": "横軸は最初にまいた黒いマスの割合、縦軸はハイウェイが始まったステップです。点は10個のランダムな盤面のそれぞれで、線はその中央値です。ここで実行したどの盤面でもハイウェイができました。"
+},
+{
+"id": "s0382",
+"page": "ant",
+"ko": "빈 판의 개미는 9,976걸음째부터 104걸음 동작을 되풀이하며 대각선 고속도로를 만들었습니다.",
+"en": "Starting blank, the ant began a 104-step diagonal highway cycle at step 9,976.",
+"tr": "白紙の状態から始めて、アリは9,976ステップ目に104ステップ周期の斜めのハイウェイを作り始めました。"
+},
+{
+"id": "s0383",
+"page": "ant",
+"ko": "두 줄 규칙이 흔적을 남기고 그 흔적을 다시 밟기 때문에, 혼돈 끝에 질서가 나타났을 수 있습니다.",
+"en": "The two-line rule leaves marks that the ant steps on again, so order may emerge after chaos.",
+"tr": "2行のルールは、アリが再び踏む跡を残すため、混沌のあとに秩序が現れることがあります。"
+},
+{
+"id": "s0384",
+"page": "ant",
+"ko": "왜 하필 고속도로인지는 아직 증명되지 않아, 규칙을 바꾸거나 시작 판을 달리해 보는 것이 열쇠일 수 있습니다.",
+"en": "Why a highway forms is unproven, so changing the rule or the starting grid may be the key.",
+"tr": "ハイウェイがなぜできるのかは証明されていないため、ルールや初期の盤面を変えてみることが鍵かもしれません。"
+}
+]

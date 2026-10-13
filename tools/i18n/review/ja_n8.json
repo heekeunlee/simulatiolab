@@ -1,0 +1,674 @@
+[
+{
+"id": "s1853",
+"page": "seating",
+"ko": "일행이나 사람마다 다른 간격이 실제 자리 활용에 얼마나 영향을 주는지 관찰해 봐야 해요.",
+"en": "How groups and differing personal spacing affect real seat use would need to be observed.",
+"tr": "グループの存在や人それぞれの間隔の違いが、実際の席の使われ方にどう影響するかは、観察して確かめる必要があります。"
+},
+{
+"id": "s1854",
+"page": "seating",
+"ko": "<b>말하지 않는 것:</b> 실제 대기실이나 지하철의 모든 것을 설명하는 것이 아닙니다. 이 모델은 한 줄짜리 벤치, 서로 모르는 사람, 엄격한 최소 간격, 한 명씩 차례로 도착하는 가정으로 만든 이 프로젝트의 단순화된 모델입니다. 실제 사람들은 일행과 붙어 앉고, 간격이 사람마다 다르고, 앉은 사람이 자리를 옮기기도 하며, 문화와 상황에 따라 앉는 방식이 다릅니다. \"정돈\"은 모두가 도착 순서를 알고 협력할 때만 가능한 이상적인 기준선입니다.",
+"en": "<b>What it doesn't show:</b> This does not explain every waiting room or subway car. It is this project's simplified model: a single-row bench, strangers, a strict minimum gap and one arrival at a time. Real people sit with companions, keep different distances, move seats, and differ by culture and setting. \"Orderly\" is an idealized baseline that needs everyone to cooperate and know the arrival order.",
+"tr": "<b>言えないこと：</b> これはすべての待合室や地下鉄の車両を説明するものではありません。このプロジェクトの単純化したモデルで、一列のベンチ、見知らぬ人どうし、厳密な最小間隔、一度に一人ずつの到着を前提にしています。実際の人は連れと一緒に座り、保つ距離も違い、席を移り、文化や場面によっても異なります。「整然」は、全員が協力し到着順を知っていることを前提にした理想化された基準です。"
+},
+{
+"id": "s1855",
+"page": "seating",
+"ko": "<b>모델의 뿌리:</b> 이 문제는 물리·수학의 <b>무작위 순차 흡착(random sequential adsorption, RSA)</b>, 그중에서도 1차원 <b>렌니 주차 문제</b>와 같은 구조입니다. Rényi (1958)가 도로에 길이가 같은 자동차를 무작위 위치에 차례로 세우는 문제를 풀었고, Flory (1939)는 고분자에서 이웃한 자리끼리 반응하는 같은 구조를 먼저 다뤘습니다. 한 번 놓이면 움직이지 않고 겹칠 수 없다는 것이 핵심입니다.",
+"en": "<b>Where the model comes from:</b> This is <b>random sequential adsorption (RSA)</b>, specifically the one-dimensional <b>Rényi parking problem</b>. Rényi (1958) solved the problem of parking equal-length cars at random positions on a road one after another, and Flory (1939) had treated the same structure for neighboring reactive sites on polymers. The key is that once placed, an object never moves and may not overlap another.",
+"tr": "<b>モデルの出どころ:</b> これは<b>ランダム逐次吸着(RSA)</b>、なかでも1次元の<b>レーニの駐車問題</b>です。レーニ(1958)は、同じ長さの車を道路上のランダムな位置に次々と駐車する問題を解き、フローリー(1939)は高分子上の隣り合う反応部位について同じ構造を扱っていました。要点は、一度置かれたものは動かず、他のものと重ならないことです。"
+},
+{
+"id": "s1856",
+"page": "seating",
+"ko": "<b>핵심 가정과 수식:</b> 앉은 사람이 양옆 g칸을 막으므로, 사람 한 명은 길이 g+1짜리 막대 하나를 놓는 것과 같습니다. 긴 벤치에서 앉는 비율은 <code>∫<sub>0</sub><sup>∞</sup> exp(−u − 2·Σ<sub>j=1..g</sub> (1−e<sup>−ju</sup>)/j) du</code>이고, g=0이면 1, g=1이면 (1−e<sup>−2</sup>)/2 ≈ 0.432입니다. 길이 n인 벤치의 기댓값은 <code>f(n) = 1 + (1/n)·Σ<sub>i</sub> [f(i−1−g) + f(n−i−g)]</code>로 구합니다. 슬라이더 n, g가 이 식의 n, g입니다.",
+"en": "<b>Key assumptions and formulas:</b> A seated person blocks g seats on each side, so each person is like placing a rod of length g+1. On a long bench the seated share is <code>∫<sub>0</sub><sup>∞</sup> exp(−u − 2·Σ<sub>j=1..g</sub> (1−e<sup>−ju</sup>)/j) du</code>, which is 1 for g=0 and (1−e<sup>−2</sup>)/2 ≈ 0.432 for g=1. For a bench of n seats the expectation follows <code>f(n) = 1 + (1/n)·Σ<sub>i</sub> [f(i−1−g) + f(n−i−g)]</code>. The sliders n and g are the n and g in these formulas.",
+"tr": "<b>主な前提と式:</b> 座った人は両側のg席をふさぐので、一人ひとりが長さg+1の棒を置くのと同じです。長いベンチで埋まる割合は <code>∫<sub>0</sub><sup>∞</sup> exp(−u − 2·Σ<sub>j=1..g</sub> (1−e<sup>−ju</sup>)/j) du</code> で、g=0なら1、g=1なら(1−e<sup>−2</sup>)/2 ≈ 0.432です。n席のベンチでは、期待値は <code>f(n) = 1 + (1/n)·Σ<sub>i</sub> [f(i−1−g) + f(n−i−g)]</code> に従います。スライダーのnとgは、これらの式のnとgです。"
+},
+{
+"id": "s1857",
+"page": "seating",
+"ko": "<b>이 프로젝트의 단순화:</b> 원 문제는 연속적인 길이이고, 이 페이지는 칸이 나뉜 좌석입니다. \"가장 먼 자리\", \"끝자리 먼저\", \"정돈\"은 이 프로젝트가 정한 앉는 방식이고 이론이 있는 것은 무작위뿐입니다. 도착하는 사람 수, 기본값(30석, 2칸, 24명), 사람마다 같은 간격을 둔다는 가정은 이 프로젝트의 설계입니다.",
+"en": "<b>What this project simplifies:</b> The original problem uses continuous lengths, whereas this page uses discrete seats. \"Farthest\", \"edge first\" and \"orderly\" are this project's own ways of sitting, and only random has a theory behind it. The number of arrivals, the defaults (30 seats, gap 2, 24 people) and the assumption that everyone keeps the same gap are this project's design.",
+"tr": "<b>このプロジェクトが単純化している点:</b> 元の問題は連続的な長さを使いますが、このページは離散的な席を使います。「一番遠く」「端から」「整然」はこのプロジェクト独自の座り方で、理論の裏づけがあるのはランダムだけです。到着人数、初期値(30席、間隔2、24人)、全員が同じ間隔を保つという仮定は、このプロジェクトの設計です。"
+},
+{
+"id": "s1858",
+"page": "seating",
+"ko": "<b>이론값과 시뮬레이션:</b> <code>node tools/validate-seating.js</code> 결과, 긴 벤치(2,000석, 200판)에서 이론 대 시뮬레이션은 간격 1칸 0.4323 대 0.4327, 2칸 0.2746 대 0.2749, 3칸 0.2010 대 0.2009였습니다. 유한한 벤치의 정확한 기댓값도 시뮬레이션(5,000판)과 맞았습니다(24석 1칸 10.673 대 10.679명, 30석 2칸 8.609 대 8.600명). 앉은 사람 사이 간격 위반은 0건이었습니다.",
+"en": "<b>Theory versus simulation:</b> In <code>node tools/validate-seating.js</code>, theory versus simulation on a long bench (2,000 seats, 200 runs) was 0.4323 vs 0.4327 for gap 1, 0.2746 vs 0.2749 for gap 2 and 0.2010 vs 0.2009 for gap 3. The exact finite-bench expectation also matched simulation (5,000 runs): 24 seats, gap 1: 10.673 vs 10.679 people; 30 seats, gap 2: 8.609 vs 8.600. There were 0 gap violations.",
+"tr": "<b>理論とシミュレーションの比較:</b> <code>node tools/validate-seating.js</code> で、長いベンチ(2,000席、200回実行)の理論値とシミュレーションを比べると、間隔1では0.4323対0.4327、間隔2では0.2746対0.2749、間隔3では0.2010対0.2009でした。有限のベンチの正確な期待値もシミュレーション(5,000回実行)と一致しました。24席・間隔1では10.673人対10.679人、30席・間隔2では8.609人対8.600人です。間隔違反は0件でした。"
+},
+{
+"id": "s1859",
+"page": "seating",
+"ko": "<b>더 읽을거리:</b> Rényi, A. (1958), \"On a one-dimensional problem concerning random space-filling\", <i>Publ. Math. Inst. Hungarian Acad. Sci.</i>; Flory, P. J. (1939), <i>J. Am. Chem. Soc.</i> 61, 1518; Evans, J. W. (1993), \"Random and cooperative sequential adsorption\", <i>Reviews of Modern Physics</i> 65, 1281 (개설).",
+"en": "<b>Further reading:</b> Rényi, A. (1958), \"On a one-dimensional problem concerning random space-filling\", <i>Publ. Math. Inst. Hungarian Acad. Sci.</i>; Flory, P. J. (1939), <i>J. Am. Chem. Soc.</i> 61, 1518; Evans, J. W. (1993), \"Random and cooperative sequential adsorption\", <i>Reviews of Modern Physics</i> 65, 1281 (review).",
+"tr": "<b>参考文献:</b> Rényi, A. (1958), 「On a one-dimensional problem concerning random space-filling」, <i>Publ. Math. Inst. Hungarian Acad. Sci.</i>; Flory, P. J. (1939), <i>J. Am. Chem. Soc.</i> 61, 1518; Evans, J. W. (1993), 「Random and cooperative sequential adsorption」, <i>Reviews of Modern Physics</i> 65, 1281(総説)。"
+},
+{
+"id": "s1860",
+"page": "seating",
+"ko": "시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 네 줄은 같은 도착 인원으로 각자 자기 난수를 씁니다. 통계 카드와 ④번 그래프는 설정마다 300판, ③번 그래프의 점은 벤치 길이마다 150판의 평균입니다.",
+"en": "The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. The four rows share the same number of arrivals but each uses its own random numbers. The stat cards and chart ④ average 300 runs per setting, and each dot in chart ③ averages 150 runs per bench length.",
+"tr": "シミュレーションにはシード付きの乱数生成器(mulberry32)を使っているため、同じシードなら同じ結果になります。4つの列の到着人数は同じですが、それぞれ別の乱数を使います。統計カードとグラフ④は設定ごとに300回の実行の平均、グラフ③の各点はベンチの長さごとに150回の実行の平均です。"
+},
+{
+"id": "s1861",
+"page": "seating",
+"ko": "검증은 <code>node tools/validate-seating.js</code>로 할 수 있습니다. 앉는 방식은 <code>site/experiments/seating/sim.js</code>의 <code>pick</code> 함수에 있습니다.",
+"en": "You can verify with <code>node tools/validate-seating.js</code>. The ways of sitting are in the <code>pick</code> function of <code>site/experiments/seating/sim.js</code>.",
+"tr": "<code>node tools/validate-seating.js</code> で確認できます。座り方は <code>site/experiments/seating/sim.js</code> の <code>pick</code> 関数にあります。"
+},
+{
+"id": "s1862",
+"page": "seating",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/seating\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/seating\">GitHub</a>.",
+"tr": "コードは<a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/seating\">GitHub</a>で公開しています。"
+},
+{
+"id": "s1863",
+"page": "secretary",
+"ko": "37%의 법칙 · 시뮬라티오 랩",
+"en": "The 37% Rule · Simulatio Lab",
+"tr": "37%ルール · Simulatio Lab"
+},
+{
+"id": "s1864",
+"page": "secretary",
+"ko": "후보를 한 명씩 만나고 되돌아갈 수 없을 때, 몇 명을 지켜본 뒤에 고르면 최고를 만날 확률이 가장 높을까요? 비서 문제(최적 멈춤 문제)를 직접 돌려보세요.",
+"en": "When you meet candidates one at a time and cannot go back, how many should you watch before choosing? Run the secretary problem (optimal stopping) yourself.",
+"tr": "候補者に一人ずつ会い、後戻りできないとき、選ぶ前に何人見ておくべきでしょうか。秘書問題(最適停止)を自分で実行してみましょう。"
+},
+{
+"id": "s1865",
+"page": "secretary",
+"ko": "좋은 사람, 좋은 일자리, 좋은 집은 \"충분히 둘러본 뒤\" 정하라고들 합니다. 그런데 얼마나 둘러봐야 충분할까요? 한 명 만나고 바로 정하면 기준이 없고, 끝까지 기다리면 이미 최고를 지나쳐 보냈을 수 있습니다. 놀랍게도 이 문제에는 수학적으로 가장 좋은 멈출 때가 있습니다. 후보가 많을 때 약 37%를 지켜보기만 하고, 그 뒤 처음으로 \"지금까지 본 누구보다 나은\" 후보를 고르는 것입니다. 그래도 최고를 만날 확률은 36.8% 정도에 그칩니다. 직접 돌려서 확인해 보세요.",
+"en": "People say to look around enough before choosing a partner, a job or an apartment. But how much is enough? Choose right after the first and you have no standard; wait until the end and you may have already let the best one go by. Surprisingly, this problem has a mathematically best time to stop: with many candidates, only watch the first 37% or so, then pick the first one who beats everyone you have seen. Even then your chance of landing the very best is only about 36.8%. Run it and see.",
+"tr": "パートナーや仕事、住まいを選ぶ前には十分に見て回るべきだと言われます。では、どのくらいが十分なのでしょうか。最初の一人ですぐ決めると基準がなく、最後まで待つと最良の候補をすでに見送っているかもしれません。意外にも、この問題には数学的に最適な止め時があります。候補者が多いときは、最初の37%ほどだけを見て、その後は、それまでに見た全員を上回る最初の人を選びます。それでも、最良の一人に出会える確率は約36.8%にすぎません。実行して確かめてみましょう。"
+},
+{
+"id": "s1866",
+"page": "secretary",
+"ko": "후보 <b>n명</b>이 무작위 순서로 한 명씩 나타납니다. 각자에게는 점수가 있지만, 당신은 <b>지금까지 본 사람들과 비교한 순서</b>만 알 수 있고(점수 높을수록 좋음), 한 번 지나친 사람은 되돌릴 수 없습니다. 후보는 사람, 일자리, 집 무엇으로 읽어도 됩니다.",
+"en": "A total of <b>n candidates</b> show up one by one in random order. Each has a score, but you can only compare each with <b>those you have already seen</b> (higher is better), and you cannot go back to someone you passed. Read the candidates as people, jobs or apartments.",
+"tr": "合計<b>n人の候補者</b>がランダムな順番で一人ずつ現れます。それぞれにスコアがありますが、比べられるのは<b>すでに会った人</b>だけです(高いほど良い)。見送った人のところには戻れません。候補者は、人でも、仕事でも、住まいでも読み替えられます。"
+},
+{
+"id": "s1867",
+"page": "secretary",
+"ko": "전략은 하나입니다. 처음 <b>r명</b>(관찰 구간)은 점수를 기억만 하고 모두 거절합니다. 그다음부터는 지금까지 본 모든 후보보다 점수가 높은 첫 후보를 바로 고릅니다. 끝까지 그런 후보가 없으면 마지막 후보를 받아야 합니다.",
+"en": "There is a single strategy. Reject the first <b>r candidates</b> (the observation phase) and just remember their scores. After that, take the first candidate who beats everyone seen so far. If nobody does, you are stuck with the last candidate.",
+"tr": "戦略は1つだけです。最初の<b>r人</b>(観察フェーズ)は断り、スコアを覚えておくだけにします。その後は、それまでに見た全員を上回る最初の候補者を選びます。誰も上回らなければ、最後の候補者で決まってしまいます。"
+},
+{
+"id": "s1868",
+"page": "secretary",
+"ko": "성공은 기본적으로 \"전체에서 가장 높은 점수를 가진 후보를 고른 것\"입니다. 아래 선택 상자에서 상위 2명이나 3명까지 성공으로 치는 기준을 고를 수도 있습니다. 슬라이더는 후보 수 n과, 관찰 구간의 비율(r÷n)입니다.",
+"en": "Success by default means picking the candidate with the highest score overall. With the selector below you can also count the top 2 or top 3 as a success. The sliders set the number of candidates n and the observation share (r ÷ n).",
+"tr": "デフォルトでは、全体でスコアが最も高い候補者を選べれば成功です。下のセレクターで、上位2人または上位3人を成功として数えることもできます。スライダーで、候補者数nと観察の割合(r ÷ n)を設定します。"
+},
+{
+"id": "s1869",
+"page": "secretary",
+"ko": "후보 수 <output id=\"o-n\"></output>",
+"en": "Number of candidates <output id=\"o-n\"></output>",
+"tr": "候補者の数 <output id=\"o-n\"></output>"
+},
+{
+"id": "s1870",
+"page": "secretary",
+"ko": "많을수록 최적 비율이 37%에 가까워지고, 적으면 조금씩 달라집니다",
+"en": "The more candidates, the closer the best share gets to 37%; with few it differs a little",
+"tr": "候補者が多いほど最適な割合は37%に近づき、少ないと多少ずれます"
+},
+{
+"id": "s1871",
+"page": "secretary",
+"ko": "관찰 구간 (거절만 하는 비율) <output id=\"o-cut\"></output>",
+"en": "Observation phase (share you only watch) <output id=\"o-cut\"></output>",
+"tr": "観察フェーズ(見るだけの割合) <output id=\"o-cut\"></output>"
+},
+{
+"id": "s1872",
+"page": "secretary",
+"ko": "0%면 첫 후보를 바로 받고, 100%면 끝까지 기다려 마지막 후보를 받습니다",
+"en": "At 0% you take the first candidate; at 100% you wait and are stuck with the last",
+"tr": "0%なら最初の候補者を選び、100%なら待ち続けて最後の候補者になります"
+},
+{
+"id": "s1873",
+"page": "secretary",
+"ko": "성공의 기준 <output id=\"o-goal\"></output>",
+"en": "What counts as success <output id=\"o-goal\"></output>",
+"tr": "成功とみなす条件 <output id=\"o-goal\"></output>"
+},
+{
+"id": "s1874",
+"page": "secretary",
+"ko": "최고 한 명만",
+"en": "Only the very best",
+"tr": "最良の一人だけ"
+},
+{
+"id": "s1875",
+"page": "secretary",
+"ko": "상위 2명까지",
+"en": "Top 2 are fine",
+"tr": "上位2人ならOK"
+},
+{
+"id": "s1876",
+"page": "secretary",
+"ko": "상위 3명까지",
+"en": "Top 3 are fine",
+"tr": "上位3人ならOK"
+},
+{
+"id": "s1877",
+"page": "secretary",
+"ko": "기준이 느슨하면 가장 좋은 관찰 비율이 줄어듭니다",
+"en": "With a looser standard the best observation share shrinks",
+"tr": "基準をゆるめるほど、最適な観察の割合は小さくなります"
+},
+{
+"id": "s1878",
+"page": "secretary",
+"ko": "같은 설정, 다른 후보들",
+"en": "Same settings, new candidates",
+"tr": "同じ設定で、新しい候補者"
+},
+{
+"id": "s1879",
+"page": "secretary",
+"ko": "① 후보를 한 명씩 만나 보기",
+"en": "① Meeting the Candidates One by One",
+"tr": "① 候補者に一人ずつ会う"
+},
+{
+"id": "s1880",
+"page": "secretary",
+"ko": "각 칸이 후보 한 명이고 숫자는 점수입니다(높을수록 좋음). 주황 막대는 관찰 구간(거절만), 파랑 막대는 선택 구간입니다. 별(★)은 지금까지 본 최고이고, 파랗게 채워진 칸이 고른 후보입니다. 한 판이 끝나면 아직 못 만난 후보가 공개되고 진짜 최고에 금색 테두리가 둘러집니다.",
+"en": "Each tile is one candidate and the number is the score (higher is better). The amber bar marks the observation phase (reject only), the blue bar the choosing phase. A star (★) marks the best seen so far, and the blue-filled tile is your pick. When a run ends, the candidates not yet met are revealed and the true best gets a gold outline.",
+"tr": "1つのタイルが1人の候補者で、数字はスコアです(高いほど良い)。琥珀色のバーは観察フェーズ(断るだけ)、青いバーは選択フェーズです。星(★)はここまでで最良の人、青く塗られたタイルはあなたの選択です。実行が終わると、まだ会っていない候補者が明かされ、本当の最良の人に金色の枠がつきます。"
+},
+{
+"id": "s1881",
+"page": "secretary",
+"ko": "한 판이 끝나면 새 후보들로 자동으로 계속하기",
+"en": "Keep going: when a run ends, meet a new set of candidates automatically",
+"tr": "続ける:実行が終わったら、自動で新しい候補者に会う"
+},
+{
+"id": "s1882",
+"page": "secretary",
+"ko": "<i style=\"background:#e0a100\"></i>관찰 구간 (거절만)",
+"en": "<i style=\"background:#e0a100\"></i>Observation (reject only)",
+"tr": "<i style=\"background:#e0a100\"></i>観察(断るだけ)"
+},
+{
+"id": "s1883",
+"page": "secretary",
+"ko": "<i style=\"background:var(--accent)\"></i>선택 구간 / 고른 후보",
+"en": "<i style=\"background:var(--accent)\"></i>Choosing phase / your pick",
+"tr": "<i style=\"background:var(--accent)\"></i>選択フェーズ/あなたの選択"
+},
+{
+"id": "s1884",
+"page": "secretary",
+"ko": "<i style=\"background:#f2b705\"></i>★ 지금까지의 최고 · 진짜 최고",
+"en": "<i style=\"background:#f2b705\"></i>★ best so far · the true best",
+"tr": "<i style=\"background:#f2b705\"></i>★ ここまでの最良 · 本当の最良"
+},
+{
+"id": "s1885",
+"page": "secretary",
+"ko": "② 얼마나 지켜보면 최고를 만날까",
+"en": "② How Long Should You Watch?",
+"tr": "② どのくらい見ておくべきか"
+},
+{
+"id": "s1886",
+"page": "secretary",
+"ko": "가로는 관찰 구간의 비율, 세로는 성공할 확률입니다. 선은 정확한 값, 점은 같은 설정을 600번씩 돌려 본 시뮬레이션입니다. 금색 점이 가장 높은 곳입니다. 너무 짧아도 너무 길어도 확률이 떨어지는 산 모양입니다.",
+"en": "The horizontal axis is the share of the observation phase, the vertical axis the chance of success. The line is the exact value, the dots are simulations of 600 runs per setting. The gold dot is the peak. Too short or too long both lower the chance, giving a hill shape.",
+"tr": "横軸は観察フェーズの割合、縦軸は成功する確率です。線は正確な値、点は設定ごとに600回実行したシミュレーションです。金色の点が頂点です。短すぎても長すぎても確率が下がるため、山の形になります。"
+},
+{
+"id": "s1887",
+"page": "secretary",
+"ko": "③ 실패하는 두 가지 방식",
+"en": "③ Two Ways to Fail",
+"tr": "③ 失敗の2つのパターン"
+},
+{
+"id": "s1888",
+"page": "secretary",
+"ko": "최고 한 명을 목표로 할 때, 초록은 성공, 주황은 최고가 오기 전에 평범한 후보에게 먼저 멈춘 경우, 빨강은 최고를 관찰 구간에서 이미 지나쳐 보낸 경우입니다. 관찰이 짧으면 주황이, 길면 빨강이 커집니다.",
+"en": "When aiming for the single best, green is success, amber is stopping on a lesser candidate before the best arrives, and red is having already let the best go by during observation. A short observation grows the amber, a long one the red.",
+"tr": "最良の一人を狙う場合、緑は成功、琥珀色は最良の人が来る前に劣る候補者で止まってしまった場合、赤は観察中にすでに最良の人を見送ってしまった場合です。観察が短いと琥珀色が、長いと赤が増えます。"
+},
+{
+"id": "s1889",
+"page": "secretary",
+"ko": "<i style=\"background:#1fa463\"></i>최고를 골랐다",
+"en": "<i style=\"background:#1fa463\"></i>Picked the best",
+"tr": "<i style=\"background:#1fa463\"></i>最良の人を選んだ"
+},
+{
+"id": "s1890",
+"page": "secretary",
+"ko": "<i style=\"background:#e0a100\"></i>최고가 오기 전에 먼저 멈췄다",
+"en": "<i style=\"background:#e0a100\"></i>Stopped before the best arrived",
+"tr": "<i style=\"background:#e0a100\"></i>最良の人が来る前に止まった"
+},
+{
+"id": "s1891",
+"page": "secretary",
+"ko": "<i style=\"background:#e5484d\"></i>최고를 이미 지나쳐 보냈다",
+"en": "<i style=\"background:#e5484d\"></i>Had already passed the best",
+"tr": "<i style=\"background:#e5484d\"></i>すでに最良の人を見送っていた"
+},
+{
+"id": "s1892",
+"page": "secretary",
+"ko": "④ 결국 누구를 고르게 될까",
+"en": "④ Whom Do You End Up With?",
+"tr": "④ 最終的に誰を選ぶことになるか"
+},
+{
+"id": "s1893",
+"page": "secretary",
+"ko": "지금 설정으로 고른 후보의 순위 분포입니다(1위가 가장 좋음). 막대는 정확한 값, 검은 점은 4,000번 돌린 시뮬레이션, 검은 가로선은 아무렇게나 골랐을 때의 비율입니다. 최고는 못 만나도 상위권에 몰립니다.",
+"en": "The distribution of the rank of the candidate you end up with (rank 1 is the best). Bars are exact values, black dots a simulation of 4,000 runs, and the black horizontal ticks show what picking at random would give. Even when you miss the best, you tend to land near the top.",
+"tr": "最終的に選ぶことになる候補者の順位の分布です(順位1が最良)。棒は正確な値、黒い点は4,000回実行したシミュレーション、黒い横線はランダムに選んだ場合の値です。最良の人を逃しても、上位の近くに落ち着くことが多いです。"
+},
+{
+"id": "s1894",
+"page": "secretary",
+"ko": "<i style=\"background:#1fa463\"></i>성공으로 치는 순위",
+"en": "<i style=\"background:#1fa463\"></i>Ranks that count as success",
+"tr": "<i style=\"background:#1fa463\"></i>成功とみなす順位"
+},
+{
+"id": "s1895",
+"page": "secretary",
+"ko": "<i style=\"background:#8a93a6\"></i>그 밖의 순위",
+"en": "<i style=\"background:#8a93a6\"></i>Other ranks",
+"tr": "<i style=\"background:#8a93a6\"></i>その他の順位"
+},
+{
+"id": "s1896",
+"page": "secretary",
+"ko": "후보 40명 중 15명을 지켜보고 고르면 최고를 뽑을 확률이 37.6%예요.",
+"en": "Watching 15 of 40 candidates and then choosing finds the best one 37.6% of the time.",
+"tr": "40人の候補のうち15人を見てから選ぶと、37.6%の確率で最良の1人を選べます。"
+},
+{
+"id": "s1897",
+"page": "secretary",
+"ko": "이 모델에서는 되돌릴 수 없어서, 너무 일찍 고르면 정보가 모자라고 너무 늦으면 최고를 이미 지나쳐요.",
+"en": "In this model there's no going back, so choosing early lacks information and late may pass the best.",
+"tr": "このモデルでは後戻りできないため、早く選ぶと情報が足りず、遅く選ぶと最良の人を見逃すかもしれません。"
+},
+{
+"id": "s1898",
+"page": "secretary",
+"ko": "고를 때를 정할 때는 몇 번째가 아니라 전체의 몇 %까지 살펴보는지가 열쇠일 수 있어요.",
+"en": "What may matter is not which number you stop at, but what share of all candidates you observe first.",
+"tr": "重要なのは何番目で止めるかではなく、全候補者のうちどれだけの割合を最初に見るかかもしれません。"
+},
+{
+"id": "s1899",
+"page": "secretary",
+"ko": "<b>말하는 것:</b> 후보 40명, 관찰 구간 37%(15명)에서 최고를 고를 확률은 정확히 37.6%였고, 상위 2명 안은 52.1%, 상위 3명 안은 59.0%였습니다. 아무렇게나 고르면 최고는 2.5%입니다. 고른 후보의 평균 순위는 9.0위로, 아무렇게나 고를 때(20.5위)보다 훨씬 높았습니다. 관찰을 줄이면 확률이 떨어졌습니다: 0명이면 2.5%, 4명(10%)이면 24.2%, 8명(20%)이면 33.2%였고, 늘려도 떨어졌습니다: 24명(60%)이면 31.2%, 32명(80%)이면 18.1%, 39명이면 다시 2.5%였습니다. 15명을 관찰할 때 실패 62.4% 가운데 37.5%는 최고가 관찰 구간에 있었고, 24.9%는 최고가 오기 전에 먼저 멈춘 경우였습니다. 가장 좋은 비율은 후보 수에 따라 조금 달랐습니다: 5명이면 2명(40%)에서 43.3%, 10명이면 3명(30%)에서 39.9%, 20명이면 7명(35%)에서 38.4%, 40명이면 15명(38%)에서 37.6%, 100명이면 37명(37%)에서 37.1%, 1,000명이면 368명(36.8%)에서 36.8%로 1/e에 닿았습니다. 상위 2명까지 성공으로 치면 후보 100명에서는 30명(30%) 관찰이 가장 좋아 52.0%, 상위 3명이면 26명(26%)에서 60.6%였습니다.",
+"en": "<b>What it shows:</b> With 40 candidates and a 37% observation phase (15 candidates), the chance of picking the very best was exactly 37.6%, of landing in the top 2 was 52.1%, and in the top 3 was 59.0%. Picking at random would give 2.5% for the best. The average rank you ended up with was 9.0, far better than the 20.5 of a random pick. Watching less lowered the chance: 0 candidates gave 2.5%, 4 (10%) gave 24.2% and 8 (20%) gave 33.2%; watching more lowered it too: 24 (60%) gave 31.2%, 32 (80%) gave 18.1%, and 39 gave 2.5% again. Of the 62.4% of failures with 15 watched, 37.5% were cases where the best was in the observation phase and 24.9% were stopping before the best arrived. The best share varied a little with the number of candidates: 5 candidates peaked at 2 (40%) with 43.3%, 10 at 3 (30%) with 39.9%, 20 at 7 (35%) with 38.4%, 40 at 15 (38%) with 37.6%, 100 at 37 (37%) with 37.1%, and 1,000 at 368 (36.8%) with 36.8%, reaching 1/e. If the top 2 count as success, with 100 candidates the best phase was 30 (30%) at 52.0%, and for the top 3 it was 26 (26%) at 60.6%.",
+"tr": "<b>言えること：</b> 候補者40人、観察フェーズ37%(15人)のとき、最良の人を選べる確率はちょうど37.6%、上位2人に入る確率は52.1%、上位3人に入る確率は59.0%でした。ランダムに選ぶと最良の人は2.5%です。最終的に選んだ人の平均順位は9.0で、ランダムに選んだ場合の20.5よりずっと良い結果でした。観察を減らすと確率は下がり、0人で2.5%、4人(10%)で24.2%、8人(20%)で33.2%でした。観察を増やしても下がり、24人(60%)で31.2%、32人(80%)で18.1%、39人では再び2.5%でした。15人を観察した場合の失敗62.4%のうち、最良の人が観察フェーズにいたケースが37.5%、最良の人が来る前に止まったケースが24.9%でした。最適な割合は候補者数によって少し変わりました。5人では2人(40%)で43.3%、10人では3人(30%)で39.9%、20人では7人(35%)で38.4%、40人では15人(38%)で37.6%、100人では37人(37%)で37.1%、1,000人では368人(36.8%)で36.8%となり、1/eに達しています。上位2人を成功とすると、100人では最適な観察は30人(30%)で52.0%、上位3人では26人(26%)で60.6%でした。"
+},
+{
+"id": "s1900",
+"page": "secretary",
+"ko": "연애는 37%만 만나라는 처방은 아니고, 후보 수를 알고 되돌릴 수 없다는 이상화된 가정이에요.",
+"en": "It isn't advice to date only 37%; it assumes a known pool and no going back.",
+"tr": "37%の人とだけ付き合うようにという助言ではありません。候補の数が分かっていて、後戻りできないことを前提にしています。"
+},
+{
+"id": "s1901",
+"page": "secretary",
+"ko": "실제로 후보 수를 모르거나 되돌아갈 수 있을 때 어떻게 달라지는지 따로 따져 봐야 해요.",
+"en": "How things change when the pool is unknown or choices can be revisited needs separate study.",
+"tr": "候補の数が分からない場合や、選択をやり直せる場合にどう変わるかは、別に調べる必要があります。"
+},
+{
+"id": "s1902",
+"page": "secretary",
+"ko": "<b>말하지 않는 것:</b> 실제 사람을 만나거나 일자리·집을 구하는 일은 이 모델과 다릅니다. 이 모델은 후보 수를 미리 알고, 후보를 한 번에 한 명씩 무작위 순서로 만나며, 지금까지 본 사람과의 상대 순위만 알 수 있고, 한 번 거절하면 영영 되돌릴 수 없다는 비서 문제의 이상화된 가정입니다. 현실에서는 후보를 몇 명 만날지 모르고, 되돌아갈 수도 있으며, 상대도 나를 고르고, 점수 하나로 사람을 줄 세울 수도 없습니다. 그래서 \"연애는 37%까지만 만나고 정하라\"는 처방이 아니라, 정해진 규칙 아래에서 멈추는 때를 수학으로 풀면 어떤 모양이 되는지 보여 주는 장난감 모델입니다. 후보가 많아져도 최고를 만날 확률이 36.8%에 머문다는 점도 기억할 만합니다.",
+"en": "<b>What it doesn't show:</b> Meeting people, or finding a job or a home, is not like this model. It assumes the idealized setting of the secretary problem: you know the number of candidates beforehand, meet them one at a time in random order, know only the rank relative to those already seen, and can never go back to someone you rejected. In real life you do not know how many you will meet, you may be able to return, the other side chooses you too, and people cannot be ranked by a single score. So this is not advice to meet people up to 37% and then settle; it is a toy model showing what the math of stopping looks like under fixed rules. It is also worth remembering that even with many candidates the chance of the very best stays at about 36.8%.",
+"tr": "<b>言えないこと：</b> 人との出会いや仕事・住まい探しは、このモデルのようには進みません。ここでは秘書問題の理想化された設定を仮定しています。候補者の数を事前に知っている、ランダムな順番で一人ずつ会う、すでに会った人との相対順位しかわからない、断った人のところには二度と戻れない、という前提です。現実には、何人に会うかはわからず、戻れることもあり、相手側もあなたを選び、人を一つのスコアで順位づけることはできません。ですから、これは「37%まで会ってその後は妥協しよう」という助言ではなく、決まったルールのもとで止め時の数学がどうなるかを示すおもちゃのモデルです。候補者が多くても、最良の一人に出会える確率は約36.8%にとどまることも覚えておきましょう。"
+},
+{
+"id": "s1903",
+"page": "secretary",
+"ko": "<b>모델의 뿌리:</b> 비서 문제(최적 멈춤 문제, 결혼 문제)로 알려진 고전 문제입니다. 마틴 가드너가 1960년 『Scientific American』의 \"Mathematical Games\" 칼럼에서 대중에게 소개해 널리 알려졌고, Gilbert &amp; Mosteller (1966), \"Recognizing the Maximum of a Sequence\", <i>Journal of the American Statistical Association</i>이 대표적인 수학적 분석으로 자주 인용됩니다. 누가 처음 풀었는지는 Ferguson (1989)이 정리한 대로 역사가 복잡합니다.",
+"en": "<b>Where the model comes from:</b> This is the classic secretary problem (also called the optimal stopping or marriage problem). It became widely known through Martin Gardner's \"Mathematical Games\" column in <i>Scientific American</i> in 1960, and Gilbert &amp; Mosteller (1966), \"Recognizing the Maximum of a Sequence\", <i>Journal of the American Statistical Association</i>, is a standard reference for its mathematical analysis. Who first solved it has a tangled history, as Ferguson (1989) recounts.",
+"tr": "<b>モデルの出どころ:</b> 古典的な秘書問題(最適停止問題、結婚問題とも呼ばれます)です。1960年に<i>Scientific American</i>のマーティン・ガードナーのコラム「数学ゲーム」で広く知られるようになり、その数学的な分析の標準的な文献が Gilbert &amp; Mosteller (1966), 「Recognizing the Maximum of a Sequence」, <i>Journal of the American Statistical Association</i> です。誰が最初に解いたのかは経緯が入り組んでおり、Ferguson (1989) が詳しく述べています。"
+},
+{
+"id": "s1904",
+"page": "secretary",
+"ko": "<b>핵심 가정과 수식:</b> 관찰 구간 r(≥1)일 때 i번째(i &gt; r) 후보에서 멈출 확률은 r / (i(i−1))이고, 최고를 고를 확률은 <code>P(r) = (r/n) × (1/r + 1/(r+1) + … + 1/(n−1))</code>입니다. n이 크면 r/n = x에서 <code>P ≈ −x ln x</code>이고, 이것은 x = 1/e ≈ 0.368에서 최대 1/e ≈ 36.8%가 됩니다. 슬라이더 \"관찰 구간\"은 x이고 \"후보 수\"는 n입니다.",
+"en": "<b>Key assumptions and formulas:</b> With observation phase r (≥ 1), the chance of stopping at candidate i (i &gt; r) is r / (i(i−1)), and the chance of picking the best is <code>P(r) = (r/n) × (1/r + 1/(r+1) + … + 1/(n−1))</code>. For large n, with x = r/n, <code>P ≈ −x ln x</code>, which peaks at x = 1/e ≈ 0.368 with value 1/e ≈ 36.8%. The \"observation phase\" slider is x and \"number of candidates\" is n.",
+"tr": "<b>主な前提と式:</b> 観察フェーズをr(≥ 1)とすると、候補者i(i &gt; r)で止まる確率は r / (i(i−1)) で、最良の人を選ぶ確率は <code>P(r) = (r/n) × (1/r + 1/(r+1) + … + 1/(n−1))</code> です。nが大きいとき、x = r/n として <code>P ≈ −x ln x</code> となり、x = 1/e ≈ 0.368 で最大値 1/e ≈ 36.8% をとります。「観察フェーズ」スライダーがx、「候補者の数」がnです。"
+},
+{
+"id": "s1905",
+"page": "secretary",
+"ko": "<b>이 프로젝트의 단순화:</b> 이 페이지는 원 문제의 이상화된 가정(후보 수를 알고, 상대 순위만 알고, 되돌릴 수 없음)을 그대로 따르면서, 끝까지 고르지 못하면 마지막 후보를 받는다는 규칙을 둡니다. \"상위 2명, 3명까지 성공\" 보기는 이 프로젝트가 덧붙인 변형이며 같은 한 번의 컷오프 규칙을 쓰므로 그 기준의 최적 전략이 아닐 수 있습니다. 점수의 크기는 이 프로젝트가 정한 값입니다.",
+"en": "<b>What this project simplifies:</b> This page keeps the original idealized assumptions (known number of candidates, only relative ranks known, no going back) and adds the rule that if you never choose, you are stuck with the last candidate. The \"top 2 or top 3 counts\" option is a variant added by this project and uses the same single-cutoff rule, so it may not be the optimal strategy for that goal. The size of the scores is this project's own choice.",
+"tr": "<b>このプロジェクトが単純化している点:</b> このページは元の理想化された前提(候補者数が既知、相対順位しかわからない、後戻りできない)をそのまま保ち、選ばなかった場合は最後の候補者で決まるというルールを加えています。「上位2人または3人を成功とする」オプションはこのプロジェクトが加えた変形で、同じ単一のカットオフ規則を使うため、その目的に対して最適な戦略とは限りません。スコアの大きさはこのプロジェクト独自の選択です。"
+},
+{
+"id": "s1906",
+"page": "secretary",
+"ko": "<b>이론값과 시뮬레이션:</b> 정확한 값의 합은 모든 설정에서 1과 1e-14 안으로 맞았고, 1위 확률은 위 닫힌 식과 같았습니다. 30,000번씩 돌린 시뮬레이션은 정확한 값과 최대 0.71%p 차이였습니다. 최적 관찰 비율은 후보 100명에서 37%(37.1%), 1,000명에서 36.8%(36.8%)로 1/e와 맞았습니다.",
+"en": "<b>Theory versus simulation:</b> The exact probabilities summed to 1 within 1e-14 in every setting, and the chance of the best matched the closed formula above. Simulations of 30,000 runs differed from the exact values by at most 0.71 percentage points. The best observation share was 37% (37.1%) with 100 candidates and 36.8% (36.8%) with 1,000, matching 1/e.",
+"tr": "<b>理論とシミュレーションの比較:</b> 正確な確率の合計は、すべての設定で1e-14以内で1になり、最良の人を選ぶ確率も上の閉じた式と一致しました。30,000回実行したシミュレーションは、正確な値との差が最大でも0.71ポイントでした。最適な観察の割合は、候補者100人では37%(37.1%)、1,000人では36.8%(36.8%)で、1/eと一致します。"
+},
+{
+"id": "s1907",
+"page": "secretary",
+"ko": "<b>더 읽을거리:</b> Ferguson (1989), \"Who Solved the Secretary Problem?\", <i>Statistical Science</i> 4(3)가 역사를 다룬 읽기 쉬운 개설입니다. 그 밖에 위의 Gilbert &amp; Mosteller (1966)와 Gardner의 1960년 칼럼을 보세요.",
+"en": "<b>Further reading:</b> Ferguson (1989), \"Who Solved the Secretary Problem?\", <i>Statistical Science</i> 4(3), is a readable overview of the history. See also Gilbert &amp; Mosteller (1966) above and Gardner's 1960 column.",
+"tr": "<b>参考文献:</b> Ferguson (1989), 「Who Solved the Secretary Problem?」, <i>Statistical Science</i> 4(3) は、この問題の歴史を読みやすくまとめています。上記の Gilbert &amp; Mosteller (1966) と、1960年のガードナーのコラムも参照してください。"
+},
+{
+"id": "s1908",
+"page": "secretary",
+"ko": "시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 점수는 전체 순위를 100점 만점으로 바꾼 값일 뿐이며 판단에는 순서만 쓰입니다. 컷오프 r은 후보 수 × 비율을 반올림한 값이고 1 이상 후보 수 - 1 이하로 맞춥니다.",
+"en": "The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. The score is just the overall rank converted to a 100-point scale; only the order is used in decisions. The cutoff r is the number of candidates × the share, rounded, and kept between 0 and n − 1.",
+"tr": "シミュレーションにはシード付きの乱数生成器(mulberry32)を使っているため、同じシードなら同じ結果になります。スコアは全体の順位を100点満点に換算しただけで、判断に使うのは順序だけです。カットオフrは、候補者数×割合を四捨五入し、0〜n−1の範囲に収めた値です。"
+},
+{
+"id": "s1909",
+"page": "secretary",
+"ko": "정확한 값은 닫힌 식으로 계산하고(차트 ②~④의 선과 막대), 점은 시뮬레이션입니다. 검증은 <code>node tools/validate-secretary.js</code>로 할 수 있습니다.",
+"en": "Exact values come from closed-form formulas (the lines and bars in charts ② to ④), and the dots are simulations. You can verify with <code>node tools/validate-secretary.js</code>.",
+"tr": "正確な値は閉じた式から求めたもの(グラフ②〜④の線と棒)で、点はシミュレーションです。<code>node tools/validate-secretary.js</code> で確認できます。"
+},
+{
+"id": "s1910",
+"page": "secretary",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/secretary\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/secretary\">GitHub</a>.",
+"tr": "コードは<a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/secretary\">GitHub</a>で公開しています。"
+},
+{
+"id": "s1962",
+"page": "sunflower",
+"ko": "씨앗 600개에서 황금각은 빈틈 평균 0.38로, 90~180도를 훑은 각도 중 더 낮은 건 0.3%뿐이었어요.",
+"en": "At 600 seeds the golden angle's mean gap was 0.38, and only 0.3% of angles from 90 to 180 degrees beat it.",
+"tr": "種が600個のとき、黄金角の平均間隔は0.38で、90〜180度の角度のうちそれを上回ったのは0.3%だけでした。"
+},
+{
+"id": "s1963",
+"page": "sunflower",
+"ko": "간단한 분수 각도는 같은 방향으로 겹쳐 쌓여 바큇살과 큰 빈틈이 생기고, 황금각은 그런 분수에서 가장 멀기 때문일 수 있어요.",
+"en": "Simple-fraction angles stack seeds in the same directions, leaving spokes and big gaps, and the golden angle is farthest from such fractions.",
+"tr": "単純な分数の角度では種が同じ方向に重なって放射状の筋や大きな隙間ができ、黄金角はそうした分数から最も離れています。"
+},
+{
+"id": "s1964",
+"page": "sunflower",
+"ko": "고르게 채우는 배치를 찾는다면 특정 각도 자체보다 반복되는 규칙적 겹침을 피하는지부터 살펴볼 만해요.",
+"en": "In looking for even packing, avoiding repeated regular overlaps may matter more than any one angle.",
+"tr": "均等な配置を求めるうえでは、特定の角度よりも、規則的な重なりが繰り返されるのを避けることのほうが重要かもしれません。"
+},
+{
+"id": "s1966",
+"page": "sunflower",
+"ko": "실제 해바라기가 이 계산으로 만들어진다는 증명은 아니고, 황금각만 잘 채우는 것도 아니에요.",
+"en": "It does not prove real sunflowers are built this way, and the golden angle is not the only good packer.",
+"tr": "現実のヒマワリがこのようにできていることを証明するものではなく、黄金角だけが良い配置になるわけでもありません。"
+},
+{
+"id": "s1967",
+"page": "sunflower",
+"ko": "실제 식물의 씨앗이 생기는 순서와 각도를 관찰해 새 씨앗이 빈자리에 생기는 과정과 비교해 봐야 해요.",
+"en": "Observing the order and angles of real seeds would test the idea that new seeds form in the emptiest spot.",
+"tr": "実際の種の順序と角度を観察すれば、新しい種が最も空いた場所にできるという考えを検証できます。"
+},
+{
+"id": "s1969",
+"page": "sunflower",
+"ko": "<b>모델의 뿌리:</b> 식물의 잎·씨앗 배열(잎차례, phyllotaxis)을 설명하는 <b>Vogel의 나선</b>입니다. Vogel (1979, <i>Mathematical Biosciences</i>)은 <code>r = c√k</code>, <code>θ = k × 137.5°</code>로 해바라기 머리를 그릴 수 있음을 보였고, Douady, Couder (1992, <i>Physical Review Letters</i>)는 새 원기가 기존 것에서 가장 먼 빈자리에 생기는 과정이 황금각 배열로 이어짐을 실험과 모델로 보였습니다.",
+"en": "<b>Where the model comes from:</b> This is <b>Vogel's spiral</b>, a model of how leaves and seeds are arranged on plants (phyllotaxis). Vogel (1979, <i>Mathematical Biosciences</i>) showed that a sunflower head can be drawn with <code>r = c√k</code>, <code>θ = k × 137.5°</code>, and Douady and Couder (1992, <i>Physical Review Letters</i>) showed with experiments and a model that new primordia forming in the emptiest spot lead to the golden-angle arrangement.",
+"tr": "<b>モデルの出どころ:</b> 植物の葉や種の並び方(葉序)のモデルである<b>ヴォーゲルのらせん</b>です。ヴォーゲル(1979, <i>Mathematical Biosciences</i>)は、ヒマワリの花を <code>r = c√k</code>、<code>θ = k × 137.5°</code> で描けることを示しました。ドゥアディとクーデ(1992, <i>Physical Review Letters</i>)は、実験とモデルにより、最も空いた場所に新しい原基ができることが黄金角の配置につながることを示しました。"
+},
+{
+"id": "s1970",
+"page": "sunflower",
+"ko": "<b>핵심 가정과 수식:</b> 황금각은 <code>360°(1 − 1/φ) = 360°/φ<sup>2</sup> ≈ 137.508°</code> (<code>φ = (1+√5)/2</code>)입니다. 황금비는 연분수가 전부 1이라 유리수로 가장 근사하기 어려운 무리수여서(Hurwitz 정리), 어떤 방향으로도 씨앗이 겹쳐 쌓이지 않습니다. 슬라이더의 각도가 <code>θ</code>이고 씨앗 수가 <code>k</code>의 범위입니다.",
+"en": "<b>Key assumptions and formulas:</b> The golden angle is <code>360°(1 − 1/φ) = 360°/φ<sup>2</sup> ≈ 137.508°</code>, with <code>φ = (1+√5)/2</code>. Because all the terms of its continued fraction are 1, the golden ratio is the hardest irrational to approximate by fractions (Hurwitz's theorem), so seeds never stack along a few directions. The angle slider is <code>θ</code> and the seed count is the range of <code>k</code>.",
+"tr": "<b>主な前提と式:</b> 黄金角は <code>360°(1 − 1/φ) = 360°/φ<sup>2</sup> ≈ 137.508°</code> で、<code>φ = (1+√5)/2</code> です。連分数のすべての項が1であるため、黄金比は分数で最も近似しにくい無理数であり(フルヴィッツの定理)、種が特定の数方向に重なって並ぶことがありません。角度のスライダーが <code>θ</code>、種の数が <code>k</code> の範囲です。"
+},
+{
+"id": "s1971",
+"page": "sunflower",
+"ko": "<b>이 프로젝트의 단순화:</b> 이 구현은 씨앗의 위치만 계산하는 기하학 모델이고, 새 씨앗이 생기는 호르몬·억제 과정은 다루지 않습니다. 채움 품질의 정의(반지름 85% 안 점들에서 가장 가까운 씨앗까지 거리)와 씨앗 크기는 이 프로젝트가 정한 값이고, 논문 수치의 재현이 아닙니다.",
+"en": "<b>What this project simplifies:</b> This implementation is a geometric model that only computes seed positions and does not model the hormonal or inhibitory process that creates new seeds. The packing-quality definition (distance from probe points inside 85% of the radius to the nearest seed) and the seed size are this project's own choices, and no paper's numbers are reproduced.",
+"tr": "<b>このプロジェクトが単純化している点:</b> この実装は種の位置だけを計算する幾何学的なモデルで、新しい種をつくるホルモンや抑制の過程はモデル化していません。充填の質の定義(半径の85%以内にあるプローブ点から最も近い種までの距離)と種の大きさは、このプロジェクト独自の選択で、どの論文の数値も再現していません。"
+},
+{
+"id": "s1972",
+"page": "sunflower",
+"ko": "<b>이론값과 시뮬레이션:</b> 이론이 말하는 것은 \"황금각이 고르다\"는 것이고, 시뮬레이션에서 씨앗 1,000개의 빈틈 평균은 황금각 0.381, 137.7° 0.441, 144° 3.069, 90° 3.776, 180° 6.435였습니다. 이웃 거리의 변동계수도 황금각 0.011, 137° 0.117, 138° 0.157로, 0.5° 안팎만 어긋나도 한 자릿수 배 가까이 고르지 못했습니다. 다만 황금각만 잘 채우는 것은 아니고 가장 낮은 값을 다투는 각도가 가까이에 있습니다.",
+"en": "<b>Theory versus simulation:</b> Theory says the golden angle is even, and in the simulation with 1,000 seeds the average gap was 0.381 at the golden angle, 0.441 at 137.7°, 3.069 at 144°, 3.776 at 90° and 6.435 at 180°. The coefficient of variation of neighbor distances was 0.011 at the golden angle, 0.117 at 137° and 0.157 at 138°, so an error of about half a degree already made spacing roughly ten times less even. The golden angle is not the only good one, though; other angles come close.",
+"tr": "<b>理論とシミュレーションの比較:</b> 理論では黄金角が最も均等になります。種が1,000個のシミュレーションでは、平均の隙間は黄金角で0.381、137.7°で0.441、144°で3.069、90°で3.776、180°で6.435でした。隣り合う種との距離の変動係数は、黄金角で0.011、137°で0.117、138°で0.157となり、約0.5度のずれでも間隔の均等さは約10分の1に落ちました。ただし、良い角度は黄金角だけではなく、近い角度もあります。"
+},
+{
+"id": "s1973",
+"page": "sunflower",
+"ko": "<b>더 읽을거리:</b> Vogel (1979), \"A better way to construct the sunflower head\", <i>Mathematical Biosciences</i> 44. Douady, Couder (1992), \"Phyllotaxis as a physical self-organized growth process\", <i>Physical Review Letters</i> 68. Prusinkiewicz, Lindenmayer (1990), 『The Algorithmic Beauty of Plants』, Springer.",
+"en": "<b>Further reading:</b> Vogel (1979), \"A better way to construct the sunflower head\", <i>Mathematical Biosciences</i> 44. Douady, Couder (1992), \"Phyllotaxis as a physical self-organized growth process\", <i>Physical Review Letters</i> 68. Prusinkiewicz, Lindenmayer (1990), <i>The Algorithmic Beauty of Plants</i>, Springer.",
+"tr": "<b>参考文献:</b> Vogel (1979), 「A better way to construct the sunflower head」, <i>Mathematical Biosciences</i> 44. Douady, Couder (1992), 「Phyllotaxis as a physical self-organized growth process」, <i>Physical Review Letters</i> 68. Prusinkiewicz, Lindenmayer (1990), <i>The Algorithmic Beauty of Plants</i>, Springer."
+},
+{
+"id": "s1975",
+"page": "sunflower",
+"ko": "씨앗 1,000개에서 황금각의 이웃 거리 변동계수는 0.011이고, 137°는 0.117, 138°는 0.157, 144°는 0.198로 모두 더 높았습니다. 검증은 <code>node tools/validate-sunflower.js</code>로 할 수 있습니다.",
+"en": "With 1,000 seeds the coefficient of variation of neighbor distances is 0.011 at the golden angle, versus 0.117 at 137°, 0.157 at 138° and 0.198 at 144°. You can verify with <code>node tools/validate-sunflower.js</code>.",
+"tr": "種が1,000個のとき、隣り合う種との距離の変動係数は、黄金角で0.011、137°で0.117、138°で0.157、144°で0.198です。<code>node tools/validate-sunflower.js</code> で確認できます。"
+},
+{
+"id": "s2015",
+"page": "survivor",
+"ko": "이 모델에서는 구멍이 빈 엔진·조종석을 보강하면 생존율이 67.9%에서 83.3%로 올랐어요.",
+"en": "In this model, reinforcing the engine and cockpit, where holes were absent, raised survival from 67.9% to 83.3%.",
+"tr": "このモデルでは、穴が見つからなかったエンジンとコックピットを補強すると、生存率が67.9%から83.3%に上がりました。"
+},
+{
+"id": "s2016",
+"page": "survivor",
+"ko": "치명적인 곳에 맞은 비행기는 돌아오지 못해 증거가 사라지므로, 구멍이 적은 곳은 덜 맞은 곳이 아니라 맞으면 못 돌아오는 곳일 수 있어요.",
+"en": "Planes hit in fatal spots never return and their evidence vanishes, so few holes may mean hits that cannot be survived, not hits that never happened.",
+"tr": "致命的場所に被弾した機体は帰還せず、その証拠は消えてしまうため、穴が少ないことは、被弾しなかったのではなく、生き延びられない被弾だったことを意味するかもしれません。"
+},
+{
+"id": "s2017",
+"page": "survivor",
+"ko": "눈에 보이는 사례만 볼 때는 사라진 사례가 무엇인지, 어디서 걸러졌는지부터 물어볼 만해요.",
+"en": "When only visible cases are in front of you, asking what went missing and where it was filtered out is a good first step.",
+"tr": "目に見える事例だけが手元にあるときは、何が欠けているのか、どこで取り除かれたのかを問うのが最初の一歩として有効です。"
+},
+{
+"id": "s2019",
+"page": "survivor",
+"ko": "월드의 실제 보고서 내용도, 모든 상황에서 맞는 규칙도 아니에요. 부위별 치명률과 장갑 효과는 이 모델이 정한 값이에요.",
+"en": "It is neither Wald's actual report nor a rule that always holds; the per-part lethality and armor effect are values set by this model.",
+"tr": "ウォルドの実際の報告書でも、いつでも成り立つ法則でもありません。部位ごとの致死性や装甲の効果は、このモデルが設定した値です。"
+},
+{
+"id": "s2020",
+"page": "survivor",
+"ko": "실제에서는 부위별 치명률을 모르니, 돌아오지 못한 사례를 포함해 그것을 추정하는 방법과 자료가 더 필요해요.",
+"en": "Real lethality per part is unknown, so methods and data that estimate it, including cases that never came back, are needed.",
+"tr": "部位ごとの実際の致死性は分からないため、戻らなかった事例も含めてそれを推定する方法とデータが必要です。"
+},
+{
+"id": "s2022",
+"page": "survivor",
+"ko": "<b>모델의 뿌리:</b> 2차 세계대전 때 컬럼비아 대학 통계연구그룹의 Abraham Wald가 한 항공기 생존성 연구에 얽힌 이야기로, 생존자 편향의 고전 사례로 자주 인용됩니다. Wald의 연구는 돌아온 비행기의 피해만으로 부위별 &quot;맞았을 때 생존할 확률&quot;을 추정하는 통계 방법이었고(Mangel과 Samaniego, 1984가 해설), &quot;구멍 없는 곳을 보강하라&quot;는 한 줄 요약은 널리 퍼지면서 단순해진 것입니다.",
+"en": "<b>Where the model comes from:</b> A story tied to the aircraft survivability work of Abraham Wald at Columbia University's Statistical Research Group in the Second World War, often cited as a classic case of survivorship bias. Wald's work was a statistical method for estimating each section's chance of surviving a hit from the damage on returned planes alone (explained by Mangel and Samaniego, 1984); the one-line version &quot;armor where the holes are missing&quot; is a simplification that spread later.",
+"tr": "<b>モデルの出どころ:</b> 第二次世界大戦中、コロンビア大学の統計研究グループでアブラハム・ウォールドが行った航空機の生存性の研究にまつわる話で、生存者バイアスの古典的な例としてよく引用されます。ウォールドの研究は、帰還した機体の損傷だけから、各部位が被弾したときに生き残る確率を推定する統計的手法でした(Mangel と Samaniego, 1984 が解説)。「穴がない場所を補強する」という一行の説明は、後に広まった単純化です。"
+},
+{
+"id": "s2023",
+"page": "survivor",
+"ko": "<b>핵심 가정과 수식:</b> 총탄 수는 평균 3인 푸아송 분포이고, 각 탄은 부위 s의 면적 비율 a<sub>s</sub>로 떨어져 치명률 l<sub>s</sub>로 비행기를 추락시킵니다. 장갑은 총탄을 70% 막으므로 치명률에 0.3을 곱합니다. 푸아송 분포에서 추락하는 탄만 솎아 내면 출격당 생존 확률은 <code>exp(−3 Σ a<sub>s</sub>·l<sub>s</sub>·m<sub>s</sub>)</code>(장갑이면 m = 0.3, 아니면 1)입니다. 치명적인 부위일수록 돌아온 비행기에서 구멍이 덜 보입니다. 슬라이더는 엔진 치명률, 보강 곳수, 출격 횟수입니다.",
+"en": "<b>Key assumptions and formulas:</b> The number of hits is Poisson with mean 3, and each bullet lands in section s with area share a<sub>s</sub> and brings the plane down with lethality l<sub>s</sub>. Armor stops 70% of bullets, so lethality is multiplied by 0.3. Thinning the Poisson count to the bullets that bring the plane down gives the survival chance per sortie <code>exp(−3 Σ a<sub>s</sub>·l<sub>s</sub>·m<sub>s</sub>)</code> (m = 0.3 if armored, else 1). The deadlier a section, the fewer holes show on returned planes. The sliders are engine lethality, the number of armored sections and the number of sorties.",
+"tr": "<b>主な前提と式:</b> 被弾数は平均3のポアソン分布に従い、各弾丸は面積比a<sub>s</sub>で部位sに当たり、致死率l<sub>s</sub>で機体を撃墜します。装甲は弾の70%を止めるので、致死率は0.3倍になります。ポアソン分布の個数を、機体を撃墜する弾に間引くと、1回の出撃での生存確率は <code>exp(−3 Σ a<sub>s</sub>·l<sub>s</sub>·m<sub>s</sub>)</code>(装甲ありならm = 0.3、なければ1)となります。致死率が高い部位ほど、帰還機に見える穴は少なくなります。スライダーは、エンジンの致死率、装甲をつける部位の数、出撃回数です。"
+},
+{
+"id": "s2024",
+"page": "survivor",
+"ko": "<b>이 프로젝트의 단순화:</b> 부위 면적, 치명률(조종석 40%, 동체 5%, 날개 3%, 꼬리 5%), 장갑 효과 70%는 모두 이 프로젝트가 정한 값이며 Wald의 보고서 수치가 아닙니다. 총탄은 한 점에 독립적으로 떨어진다고 보았고, &quot;월드식 선택&quot;은 구멍 ÷ 넓이가 가장 작은 부위를 고르는 단순 규칙으로 흉내 낸 것이지 Wald의 추정 방법이 아닙니다.",
+"en": "<b>What this project simplifies:</b> The section areas, the lethalities (cockpit 40%, fuselage 5%, wings 3%, tail 5%) and the 70% armor effect are all this project's own values, not figures from Wald's report. Each bullet is taken to land independently at one point, and the &quot;Wald's way&quot; choice is imitated by a simple rule (pick the sections with the smallest holes ÷ area), not Wald's estimation method.",
+"tr": "<b>このプロジェクトが単純化している点:</b> 各部位の面積、致死率(コックピット40%、胴体5%、主翼3%、尾翼5%)、装甲効果70%は、すべてこのプロジェクト独自の値で、ウォールドの報告書の数値ではありません。各弾丸は独立に一点に当たるものとし、「ウォールド式」の選び方は、穴の数÷面積が最も小さい部位を選ぶという単純な規則で真似たもので、ウォールドの推定手法そのものではありません。"
+},
+{
+"id": "s2025",
+"page": "survivor",
+"ko": "<b>이론값과 시뮬레이션:</b> 엔진 치명률 50%, 2곳 보강에서 생존율 이론값은 무장갑 68.0%, 구멍 많은 곳(동체+날개) 71.4%, 엔진+조종석 83.3%이고, 시드 100개 평균 시뮬레이션은 68.0%, 71.4%, 83.4%였습니다. 출격 500회 이상에서는 모든 시드에서 월드식이 최선(엔진+조종석)을 골랐고 직관식은 한 번도 고르지 못했으며, 출격 100회에서는 월드식이 85%였습니다.",
+"en": "<b>Theory versus simulation:</b> With engine lethality 50% and two armored sections, the theoretical survival is 68.0% unarmored, 71.4% for armor where the holes are (fuselage + wings) and 83.3% for engine + cockpit; the simulation averaged over 100 seeds gave 68.0%, 71.4% and 83.4%. From 500 sorties on, the Wald-style rule picked the best option (engine + cockpit) in every seed and the intuitive rule never did; at 100 sorties the Wald-style rule did so in 85%.",
+"tr": "<b>理論とシミュレーションの比較:</b> エンジンの致死率が50%で、装甲を2か所につける場合、理論上の生存率は、装甲なしで68.0%、穴のある場所(胴体+主翼)に装甲で71.4%、エンジン+コックピットで83.3%です。100個のシードで平均したシミュレーションでは、68.0%、71.4%、83.4%でした。出撃が500回以上になると、ウォールド式の規則はすべてのシードで最良の選択(エンジン+コックピット)を選び、直感的な規則は一度も選びませんでした。100回の出撃では、ウォールド式の規則は85%で選びました。"
+},
+{
+"id": "s2026",
+"page": "survivor",
+"ko": "<b>더 읽을거리:</b> Mangel &amp; Samaniego (1984), Abraham Wald's work on aircraft survivability, <i>Journal of the American Statistical Association</i> / Wald, A., A method of estimating plane vulnerability based on damage of survivors (Statistical Research Group 보고서, 1980년 Center for Naval Analyses 재간행) / Ellenberg (2014), <i>How Not to Be Wrong</i>, Penguin.",
+"en": "<b>Further reading:</b> Mangel &amp; Samaniego (1984), Abraham Wald's work on aircraft survivability, <i>Journal of the American Statistical Association</i> / Wald, A., A method of estimating plane vulnerability based on damage of survivors (Statistical Research Group report, reprinted by the Center for Naval Analyses in 1980) / Ellenberg (2014), <i>How Not to Be Wrong</i>, Penguin.",
+"tr": "<b>参考文献:</b> Mangel と Samaniego (1984), Abraham Wald's work on aircraft survivability, <i>Journal of the American Statistical Association</i> / Wald, A., A method of estimating plane vulnerability based on damage of survivors(統計研究グループの報告書、1980年にCenter for Naval Analysesが再刊)/ Ellenberg (2014), <i>How Not to Be Wrong</i>, Penguin."
+},
+{
+"id": "s2061",
+"page": "talent-vs-luck",
+"ko": "재능이 비슷해도 운이 몇 번 겹치면 부의 격차가 극단적으로 벌어질 수 있어요.",
+"en": "Even with similar talent, a few lucky breaks can open extreme wealth gaps.",
+"tr": "才能が似ていても、いくつかの幸運に恵まれるだけで、極端な富の差が開くことがあります。"
+},
+{
+"id": "s2062",
+"page": "talent-vs-luck",
+"ko": "이 모델에서는 자본이 2배, 절반으로 곱해져 쌓이고 재능은 기회를 살릴 확률에만 들어가, 작은 운이 크게 불어나요.",
+"en": "Here capital doubles or halves and talent only sets the chance of seizing luck, so small luck compounds hugely.",
+"tr": "ここでは資本が2倍か半分になり、才能は幸運をつかむ確率を決めるだけなので、小さな運が大きく積み重なります。"
+},
+{
+"id": "s2063",
+"page": "talent-vs-luck",
+"ko": "격차가 클 때는 재능 차이로 보기 전에, 운이 곱해져 쌓이는 구조인지부터 살펴볼 만해요.",
+"en": "When gaps are large, it is worth checking whether luck compounds before reading them as talent differences.",
+"tr": "差が大きいときは、才能の違いと読む前に、運が積み重なっていないかを確認する価値があります。"
+},
+{
+"id": "s2065",
+"page": "talent-vs-luck",
+"ko": "재능이 소용없다는 뜻은 아니에요. 이 모델은 교육, 상속, 제도가 없고 만남의 규칙도 이 프로젝트가 정했어요.",
+"en": "It does not mean talent is useless; the model has no education, inheritance or institutions, and its encounter rules are our own.",
+"tr": "才能が無意味だという意味ではありません。このモデルには教育、相続、制度がなく、出会いのルールも私たちが決めたものです。"
+},
+{
+"id": "s2066",
+"page": "talent-vs-luck",
+"ko": "현실에서는 성공 경로에서 운이 어디에 얼마나 작용했는지 기록하고, 모델에 없는 요인을 넣어 비교해 봐야 해요.",
+"en": "In reality one would record where luck acted along success paths and add missing factors to compare.",
+"tr": "現実には、成功までの道のりのどこで運が働いたかを記録し、欠けている要因を加えて比較することになります。"
+},
+{
+"id": "s2068",
+"page": "talent-vs-luck",
+"ko": "<b>모델의 뿌리:</b> Pluchino, Biondo, Rapisarda (2018)의 논문 \"Talent vs Luck: the role of randomness in success and failure\"(<i>Advances in Complex Systems</i>)를 재현한 모델입니다. 재능이 정규분포라도 자본은 파레토형으로 쏠리고, 최고 부자가 최고 재능자인 경우는 드물다는 것이 요지입니다.",
+"en": "<b>Where the model comes from:</b> A reproduction of Pluchino, Biondo and Rapisarda (2018), \"Talent vs Luck: the role of randomness in success and failure\" (<i>Advances in Complex Systems</i>). Its point: even with normally distributed talent, capital becomes highly concentrated, and the richest person is rarely the most talented.",
+"tr": "<b>モデルの出どころ:</b> Pluchino, Biondo, Rapisarda (2018), 「Talent vs Luck: the role of randomness in success and failure」(<i>Advances in Complex Systems</i>)の再現です。その主張は、才能が正規分布に従っていても資本は極端に集中し、最も裕福な人が最も才能のある人であることはまれだ、というものです。"
+},
+{
+"id": "s2069",
+"page": "talent-vs-luck",
+"ko": "<b>핵심 가정과 수식:</b> 재능 <i>T</i>는 정규분포(평균 0.6, 표준편차 0.1), 초기 자본은 10입니다. 행운 이벤트를 만나면 확률 <i>T</i>로 자본이 2배, 불운 이벤트를 만나면 자본이 절반이 됩니다(불운에는 재능이 작용하지 않음). 재능은 \"기회를 살리는 확률\"에만 들어가므로, 이벤트 수와 비율을 바꾸는 슬라이더가 운의 크기를 조절합니다.",
+"en": "<b>Key assumptions and formulas:</b> Talent <i>T</i> is normally distributed (mean 0.6, s.d. 0.1) and initial capital is 10. On meeting a lucky event, capital doubles with probability <i>T</i>; on meeting an unlucky event, capital is halved (talent plays no role against bad luck). Talent only enters as the chance of exploiting an opportunity, so the event sliders control how large the role of luck is.",
+"tr": "<b>主な前提と式:</b> 才能<i>T</i>は正規分布(平均0.6、標準偏差0.1)に従い、初期資本は10です。幸運な出来事に出会うと、確率<i>T</i>で資本が2倍になります。不運な出来事に出会うと、資本は半分になります(不運に対して才能は働きません)。才能はチャンスを生かせる確率としてだけ働くので、出来事のスライダーが運の役割の大きさを決めます。"
+},
+{
+"id": "s2070",
+"page": "talent-vs-luck",
+"ko": "<b>이 프로젝트의 단순화:</b> 세계는 201×201 칸 토러스, 이벤트는 한 스텝에 2칸씩 임의 방향으로 이동하고 반경 1칸 안이면 만난 것으로 칩니다. 이 값들과, 한 스텝에 이벤트를 여러 개 만났을 때 만난 순서대로 모두 적용하는 처리는 이 프로젝트가 정한 것입니다(논문에 처리 방식이 없음).",
+"en": "<b>What this project simplifies:</b> The world is a 201×201 torus; events move 2 cells per step in a random direction and count as met within a radius of 1 cell. These values, and applying all events met in one step in the order met, are this project's own choices (the paper gives no rule for this).",
+"tr": "<b>このプロジェクトが単純化している点:</b> 世界は201×201のトーラスで、出来事は1ステップにつきランダムな方向へ2セル動き、半径1セル以内に入ると出会ったものとして数えます。これらの値と、1ステップで出会ったすべての出来事を出会った順に適用することは、このプロジェクト独自の選択です(論文にはこれについての規則がありません)。"
+},
+{
+"id": "s2071",
+"page": "talent-vs-luck",
+"ko": "<b>이론값과 시뮬레이션:</b> 논문 보고값은 상위 20%가 자본의 약 80%를 가지고, 한 번의 실행에서 최고 부자의 재능이 0.61 정도(평균 근처)라는 것입니다. 기본 설정 300회 실행에서 상위 20% 몫은 평균 78.8%로 비슷하지만, 최고 부자 재능은 중앙값 0.665로 논문 값보다 다소 높습니다(재능 평균 0.6보다는 조금 높은 정도). 최고 부자가 최고 재능자였던 비율은 0.3%였습니다(<code>node tools/validate.js</code>).",
+"en": "<b>Theory versus simulation:</b> The paper reports that the top 20% hold about 80% of capital and that, in a single run, the richest agent's talent is about 0.61 (near the mean). Over 300 runs with default settings, the top-20% share averages 78.8%, close to the paper, but the richest agent's median talent is 0.665, somewhat higher than the paper's value (still only a little above the mean of 0.6). The richest agent was also the most talented in only 0.3% of runs (<code>node tools/validate.js</code>).",
+"tr": "<b>理論とシミュレーションの比較:</b> 論文では、上位20%が資本の約80%を持ち、1回の実行で最も裕福なエージェントの才能は約0.61(平均に近い)と報告されています。デフォルト設定で300回実行すると、上位20%の割合の平均は78.8%で論文に近い値ですが、最も裕福なエージェントの才能の中央値は0.665で、論文の値よりやや高くなりました(それでも平均0.6より少し高いだけです)。最も裕福なエージェントが最も才能のあるエージェントでもあったのは、実行のわずか0.3%でした(<code>node tools/validate.js</code>)。"
+},
+{
+"id": "s2072",
+"page": "talent-vs-luck",
+"ko": "<b>더 읽을거리:</b> Pluchino, Biondo, Rapisarda (2018), 위 논문(<a href=\"https://arxiv.org/abs/1802.07068\">arXiv:1802.07068</a>). Robert H. Frank (2016), 『Success and Luck』, Princeton University Press. Robert K. Merton (1968), \"The Matthew Effect in Science\", <i>Science</i> 159.",
+"en": "<b>Further reading:</b> Pluchino, Biondo and Rapisarda (2018), the paper above (<a href=\"https://arxiv.org/abs/1802.07068\">arXiv:1802.07068</a>). Robert H. Frank (2016), <i>Success and Luck</i>, Princeton University Press. Robert K. Merton (1968), \"The Matthew Effect in Science\", <i>Science</i> 159.",
+"tr": "<b>参考文献:</b> Pluchino, Biondo, Rapisarda (2018)、上記の論文(<a href=\"https://arxiv.org/abs/1802.07068\">arXiv:1802.07068</a>)。Robert H. Frank (2016), <i>Success and Luck</i>, Princeton University Press. Robert K. Merton (1968), 「The Matthew Effect in Science」, <i>Science</i> 159."
+},
+{
+"id": "s2106",
+"page": "telephone",
+"ko": "이야기는 전해질수록 평범한 세부부터 사라지고 기억에 남는 세부가 살아남아요.",
+"en": "As a story is retold, ordinary details vanish first and memorable ones survive.",
+"tr": "話が語り継がれるうちに、ありふれた細部がまず消え、印象的な細部が残ります。"
+},
+{
+"id": "s2107",
+"page": "telephone",
+"ko": "기억용이성이 낮을수록 한 번 전할 때 잊힐 확률이 높고, 튀는 세부는 익숙한 것으로 바뀌어서 독립된 사슬도 비슷해질 수 있어요.",
+"en": "Less memorable details are more likely to be forgotten each telling and odd ones get normalized, so separate chains can come to resemble each other.",
+"tr": "印象に残りにくい細部ほど語るたびに忘れられやすく、奇妙な細部は普通のものに直されるため、別々の伝言の連なりが似通ってくることがあります。"
+},
+{
+"id": "s2108",
+"page": "telephone",
+"ko": "이야기가 닮아 간다면 전하는 사람보다 어떤 세부가 잘 남고 바뀌는지 규칙부터 살펴볼 만해요.",
+"en": "If stories converge, it may help to look first at which details tend to stay or change, rather than at who is telling.",
+"tr": "話が似通ってくるときは、誰が語っているかよりも、どの細部が残りやすく、どれが変わりやすいかを先に見ると役立つかもしれません。"
+},
+{
+"id": "s2110",
+"page": "telephone",
+"ko": "사람의 기억이 이 모델처럼 작동한다는 뜻은 아니에요.",
+"en": "It does not mean human memory works like this model.",
+"tr": "人間の記憶がこのモデルのように働くという意味ではありません。"
+},
+{
+"id": "s2111",
+"page": "telephone",
+"ko": "기억용이성과 모티프 목록은 임의로 정한 값이라, 실제 이야기에서는 전달 실험으로 따로 확인해야 해요.",
+"en": "Memorability and the motif list are arbitrary choices, so real stories would need to be checked with retelling experiments.",
+"tr": "印象の残りやすさとモチーフの一覧は恣意的に決めたものなので、現実の話は伝言実験で確かめる必要があります。"
+},
+{
+"id": "s2113",
+"page": "telephone",
+"ko": "<b>모델의 뿌리:</b> Bartlett (1932), 『Remembering』(Cambridge University Press)의 \"연쇄 재현\" 실험에서 온 발상입니다. 영국 학자 바틀릿은 북미 원주민 설화 「유령들의 전쟁」을 사람에서 사람으로 거듭 다시 말하게 했고, 이야기가 짧아지고 낯선 세부가 익숙한 것으로 바뀐다고 보고했습니다. 다만 후속 재현 연구에서는 왜곡이 그만큼 크지 않았다는 결과도 있어 해석이 갈립니다.",
+"en": "<b>Where the model comes from:</b> The idea comes from the serial-reproduction experiments in Bartlett (1932), <i>Remembering</i> (Cambridge University Press). Bartlett had people retell the Native American tale \"The War of the Ghosts\" again and again, and reported that it became shorter and that unfamiliar details were replaced by familiar ones. Later replications found less distortion than he described, so the interpretation is debated.",
+"tr": "<b>モデルの出どころ:</b> この着想は、Bartlett (1932), <i>Remembering</i>(ケンブリッジ大学出版局)の系列再生の実験に由来します。バートレットは、ネイティブアメリカンの昔話「幽霊の戦争」を人々に何度も語り直させ、話が短くなり、なじみのない細部がなじみのあるものに置き換わったと報告しました。その後の追試では、彼が述べたほどの歪みは見られなかったため、解釈には議論があります。"
+},
+{
+"id": "s2114",
+"page": "telephone",
+"ko": "<b>핵심 가정과 수식:</b> 모티프 하나가 한 번의 전달에서 살아남을 확률은 <code>p = 1 − (1 − 기억력) × (1.5 × (1 − 기억용이성) + 0.1)</code>입니다. 기억력 슬라이더는 이 식의 앞부분이고, 기억용이성이 낮은 평범한 모티프일수록 p가 낮아 먼저 사라집니다. 낯선 세부가 익숙한 모티프로 바뀌는 확률이 관습화, 새 모티프가 붙는 확률이 덧붙이기입니다.",
+"en": "<b>Key assumptions and formulas:</b> The probability that a motif survives one retelling is <code>p = 1 − (1 − memory) × (1.5 × (1 − memorability) + 0.1)</code>. The memory slider is the first part of this formula, and plain motifs with low memorability have a lower p and vanish first. The chance that an odd detail is swapped for a familiar motif is conventionality, and the chance that a new motif is added is embellishment.",
+"tr": "<b>主な前提と式:</b> モチーフが1回の語り直しを生き残る確率は <code>p = 1 − (1 − memory) × (1.5 × (1 − memorability) + 0.1)</code> です。記憶のスライダーは、この式の最初の部分にあたります。印象に残りにくい平凡なモチーフはpが低く、真っ先に消えます。奇妙な細部がなじみのあるモチーフに置き換わる確率が「型にはまりやすさ」、新しいモチーフが付け加わる確率が「脚色」です。"
+}
+]

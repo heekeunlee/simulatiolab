@@ -1,0 +1,2634 @@
+[
+{
+"id": "d0863",
+"page": "(실행 중 문구) farming",
+"ko": "시뮬레이션에서 잰 값 (한 줄로 펼친 평면 파동)",
+"en": "Measured in simulation (plane wave on a single strip)",
+"tr": "模拟中测得的值（在单条带上展开的平面波）"
+},
+{
+"id": "d0864",
+"page": "(실행 중 문구) farming",
+"ko": "이론 2√(rD)",
+"en": "Theory 2√(rD)",
+"tr": "理论值 2√(rD)"
+},
+{
+"id": "d0865",
+"page": "(실행 중 문구) farming",
+"ko": "토착민 흡수를 반영한 이론",
+"en": "Theory with assimilation",
+"tr": "含本地人被同化的理论"
+},
+{
+"id": "d0866",
+"page": "(실행 중 문구) farming",
+"ko": "퍼지는 속도 (시뮬레이션에서 잰 값)",
+"en": "Spread speed (measured in the simulation)",
+"tr": "扩散速度（模拟中测得）"
+},
+{
+"id": "d0867",
+"page": "(실행 중 문구) farming",
+"ko": "재는 중…",
+"en": "Measuring…",
+"tr": "测量中…"
+},
+{
+"id": "d0868",
+"page": "(실행 중 문구) farming",
+"ko": "{#0} km/년",
+"en": "{0} km/yr",
+"tr": "{0} 公里/年"
+},
+{
+"id": "d0869",
+"page": "(실행 중 문구) farming",
+"ko": "이론 2√(rD) = {#0} · 토착민 흡수를 반영하면 {#1} km/년",
+"en": "Theory 2√(rD) = {0} · with assimilation {1} km/yr",
+"tr": "理论值 2√(rD) = {0} · 含本地人被同化为 {1} 公里/年"
+},
+{
+"id": "d0870",
+"page": "(실행 중 문구) farming",
+"ko": "한 세대(25년)에 퍼지는 거리",
+"en": "Distance spread per generation (25 years)",
+"tr": "每代（25年）扩散的距离"
+},
+{
+"id": "d0871",
+"page": "(실행 중 문구) farming",
+"ko": "약 {#0} km",
+"en": "About {0} km",
+"tr": "约{0} 公里"
+},
+{
+"id": "d0872",
+"page": "(실행 중 문구) farming",
+"ko": "한 세대를 25년으로 본 단순 환산",
+"en": "A simple conversion taking one generation as 25 years",
+"tr": "把一代按25年计算的简单换算"
+},
+{
+"id": "d0873",
+"page": "(실행 중 문구) farming",
+"ko": "농사짓는 땅",
+"en": "Land under farming",
+"tr": "耕种的土地"
+},
+{
+"id": "d0874",
+"page": "(실행 중 문구) farming",
+"ko": "{#0}년 경과 · 기원지에서 전선까지 {#1} km",
+"en": "{0} years elapsed · {1} km from the origin to the front",
+"tr": "已过{0}年 · 从起源地到前沿{1}公里"
+},
+{
+"id": "d0875",
+"page": "(실행 중 문구) farming",
+"ko": "농부 가운데 토착 수렵채집민의 후손",
+"en": "Farmers descended from local hunter-gatherers",
+"tr": "本地狩猎采集者后代中的农民"
+},
+{
+"id": "d0876",
+"page": "(실행 중 문구) farming",
+"ko": "수렵채집 인구의 남은 몫 {#0}% (흡수되거나 밀려남)",
+"en": "Hunter-gatherers remaining: {0}% (absorbed or displaced)",
+"tr": "剩余狩猎采集者：{0}%（被同化或被迫迁走）"
+},
+{
+"id": "d0877",
+"page": "(실행 중 문구) farming",
+"ko": "{#0}년째 · {1}",
+"en": "Year {0} · {1}",
+"tr": "第{0}年 · {1}"
+},
+{
+"id": "d0878",
+"page": "(실행 중 문구) farming",
+"ko": "번지는 중",
+"en": "spreading",
+"tr": "扩散中"
+},
+{
+"id": "d0879",
+"page": "(실행 중 문구) farming",
+"ko": "연 {#0}%",
+"en": "{0}% per year",
+"tr": "每年{0}%"
+},
+{
+"id": "d0880",
+"page": "(실행 중 문구) farming",
+"ko": "{#0} km²/년",
+"en": "{0} km²/yr",
+"tr": "{0} 平方公里/年"
+},
+{
+"id": "d0881",
+"page": "(실행 중 문구) farming",
+"ko": "땅의 번호",
+"en": "Land",
+"tr": "土地"
+},
+{
+"id": "d0958",
+"page": "(실행 중 문구) fxrate",
+"ko": "높은 금리 통화의 가치 (시작 = 100)",
+"en": "Value of the high-rate currency (start = 100)",
+"tr": "高利率货币的价值（起点 = 100）"
+},
+{
+"id": "d0959",
+"page": "(실행 중 문구) fxrate",
+"ko": "캐리 투자자 쏠림",
+"en": "Carry-investor crowding",
+"tr": "套息投资者的拥挤度"
+},
+{
+"id": "d0960",
+"page": "(실행 중 문구) fxrate",
+"ko": "시간 (년)",
+"en": "Time (years)",
+"tr": "时间（年）"
+},
+{
+"id": "d0961",
+"page": "(실행 중 문구) fxrate",
+"ko": "붉은 점 = 일제히 청산",
+"en": "Red dot = everyone unwinds at once",
+"tr": "红点 = 所有人同时平仓"
+},
+{
+"id": "d0962",
+"page": "(실행 중 문구) fxrate",
+"ko": "{#0}년째 · 쏠림 {#1}% · 청산 {#2}번",
+"en": "Year {0} · crowding {1}% · {2} unwinds",
+"tr": "第{0}年 · 拥挤度 {1}% · 平仓{2}次"
+},
+{
+"id": "d0963",
+"page": "(실행 중 문구) fxrate",
+"ko": "UIP가 완전히 맞을 때의 기대: 0",
+"en": "Expectation if UIP held fully: 0",
+"tr": "UIP完全成立时的预期：0"
+},
+{
+"id": "d0964",
+"page": "(실행 중 문구) fxrate",
+"ko": "이 설정의 평균 기대 (연 {#0}%)",
+"en": "Average expectation here ({0}% a year)",
+"tr": "此设置的平均预期（年{0}%）"
+},
+{
+"id": "d0965",
+"page": "(실행 중 문구) fxrate",
+"ko": "최대 낙폭 {#0}%p",
+"en": "Maximum drawdown {0} pts",
+"tr": "最大回撤 {0}个百分点"
+},
+{
+"id": "d0966",
+"page": "(실행 중 문구) fxrate",
+"ko": "한 주의 캐리 수익률 (높이는 제곱근 눈금)",
+"en": "Carry profit in one week (bar height on a square-root scale)",
+"tr": "一周的套息收益（柱高为平方根刻度）"
+},
+{
+"id": "d0967",
+"page": "(실행 중 문구) fxrate",
+"ko": "회색 선: 같은 평균·변동성의 종 모양(정규분포)",
+"en": "Gray line: bell curve (normal) with the same average and volatility",
+"tr": "灰线：均值和波动率相同的钟形曲线（正态分布）"
+},
+{
+"id": "d0968",
+"page": "(실행 중 문구) fxrate",
+"ko": "-5% 아래 주: 실제 {#0}주 · 종 모양이라면 약 {#1}주",
+"en": "Weeks below -5%: actual {0} · about {1} if a bell curve",
+"tr": "低于-5%的周数：实际{0}周 · 若为钟形曲线约{1}周"
+},
+{
+"id": "d0969",
+"page": "(실행 중 문구) fxrate",
+"ko": "두 나라의 금리 차이 (예시)",
+"en": "Interest gap between the two countries (example)",
+"tr": "两国利差（示例）"
+},
+{
+"id": "d0970",
+"page": "(실행 중 문구) fxrate",
+"ko": "최악의 한 주가 지운 이익",
+"en": "Profit erased by the worst week",
+"tr": "最差一周抹去的收益"
+},
+{
+"id": "d0971",
+"page": "(실행 중 문구) fxrate",
+"ko": "약 {#0}년치",
+"en": "about {0} years' worth",
+"tr": "约{0}年的收益"
+},
+{
+"id": "d0972",
+"page": "(실행 중 문구) fxrate",
+"ko": "최악의 한 주 {#0}% · 평소 한 주 평균 이익 {#1}%",
+"en": "Worst week {0}% · usual average weekly gain {1}%",
+"tr": "最差一周 {0}% · 平常每周平均收益 {1}%"
+},
+{
+"id": "d0973",
+"page": "(실행 중 문구) fxrate",
+"ko": "이익 없음",
+"en": "No profit",
+"tr": "无收益"
+},
+{
+"id": "d0974",
+"page": "(실행 중 문구) fxrate",
+"ko": "계산 중",
+"en": "Calculating",
+"tr": "计算中"
+},
+{
+"id": "d0975",
+"page": "(실행 중 문구) fxrate",
+"ko": "최악의 한 주 {#0}% · 아직 번 돈이 없어요",
+"en": "Worst week {0}% · nothing earned yet",
+"tr": "最差一周 {0}% · 目前还没有赚到钱"
+},
+{
+"id": "d0976",
+"page": "(실행 중 문구) fxrate",
+"ko": "시간이 조금 흐르면 나타나요",
+"en": "Appears after a little time",
+"tr": "过一会儿就会出现"
+},
+{
+"id": "d0977",
+"page": "(실행 중 문구) fxrate",
+"ko": "지금까지 연평균 캐리 수익",
+"en": "Average yearly carry profit so far",
+"tr": "迄今为止的年均套息收益"
+},
+{
+"id": "d0978",
+"page": "(실행 중 문구) fxrate",
+"ko": "이 설정의 평균 기대 연 {#0}% (UIP가 완전하면 0)",
+"en": "Average expectation here {0}% a year (0 if UIP held fully)",
+"tr": "此设置的平均预期 年{0}%（UIP完全成立时为0）"
+},
+{
+"id": "d0979",
+"page": "(실행 중 문구) fxrate",
+"ko": "누적 손익의 최대 낙폭",
+"en": "Maximum drawdown of running profit",
+"tr": "累计损益的最大回撤"
+},
+{
+"id": "d0980",
+"page": "(실행 중 문구) fxrate",
+"ko": "꼭대기에서 바닥까지 가장 크게 빠진 폭",
+"en": "The largest fall from a peak to a trough",
+"tr": "从峰值到谷底的最大跌幅"
+},
+{
+"id": "d0981",
+"page": "(실행 중 문구) fxrate",
+"ko": "수익 분포의 기울기 (왜도, 40경로)",
+"en": "Tilt of the profit distribution (skewness, 40 paths)",
+"tr": "收益分布的倾斜程度（偏度，40条路径）"
+},
+{
+"id": "d0982",
+"page": "(실행 중 문구) fxrate",
+"ko": "0이면 좌우 대칭, 음수면 왼쪽(급락) 꼬리가 길어요",
+"en": "0 is symmetric; negative means a long left (crash) tail",
+"tr": "0表示左右对称，负值表示左侧（暴跌）尾部较长"
+},
+{
+"id": "d0983",
+"page": "(실행 중 문구) fxrate",
+"ko": "{#0}%p",
+"en": "{0} pts",
+"tr": "{0}个百分点"
+},
+{
+"id": "d0984",
+"page": "(실행 중 문구) hagwon",
+"ko": "학원 없이 얻을 점수 (실력과 운이 좋을수록 오른쪽)",
+"en": "Score without classes (further right = better ability and luck)",
+"tr": "不上课外班的得分（越靠右，能力和运气越好）"
+},
+{
+"id": "d0985",
+"page": "(실행 중 문구) hagwon",
+"ko": "지금 점수",
+"en": "Score now",
+"tr": "当前得分"
+},
+{
+"id": "d0986",
+"page": "(실행 중 문구) hagwon",
+"ko": "위쪽 절반 선 (점수 {#0})",
+"en": "Upper-half line (score {0})",
+"tr": "前一半分界线（得分 {0}）"
+},
+{
+"id": "d0987",
+"page": "(실행 중 문구) hagwon",
+"ko": "합격선 (고정) {#0}",
+"en": "Pass line (fixed) {0}",
+"tr": "合格线（固定）{0}"
+},
+{
+"id": "d0988",
+"page": "(실행 중 문구) hagwon",
+"ko": "학원 없을 때",
+"en": "No classes",
+"tr": "不上课外班"
+},
+{
+"id": "d0989",
+"page": "(실행 중 문구) hagwon",
+"ko": "{#0}라운드 · 평균 학원 {#1}개",
+"en": "Round {0} · average {1} classes",
+"tr": "第 {0} 轮 · 平均 {1} 个班"
+},
+{
+"id": "d0990",
+"page": "(실행 중 문구) hagwon",
+"ko": "학원 수",
+"en": "Classes",
+"tr": "课外班数"
+},
+{
+"id": "d0991",
+"page": "(실행 중 문구) hagwon",
+"ko": "{#0}개까지",
+"en": "up to {0}",
+"tr": "最多 {0} 个"
+},
+{
+"id": "d0992",
+"page": "(실행 중 문구) hagwon",
+"ko": "상대평가",
+"en": "Relative grading",
+"tr": "相对评价"
+},
+{
+"id": "d0993",
+"page": "(실행 중 문구) hagwon",
+"ko": "절대평가",
+"en": "Absolute grading",
+"tr": "绝对评价"
+},
+{
+"id": "d0994",
+"page": "(실행 중 문구) hagwon",
+"ko": "라운드 (가구들이 학원 수를 다시 정하는 차례)",
+"en": "Round (turns in which households re-decide their classes)",
+"tr": "轮次（各家庭重新决定课外班数量的回合）"
+},
+{
+"id": "d0995",
+"page": "(실행 중 문구) hagwon",
+"ko": "학원 없이 얻을 점수",
+"en": "Score without classes",
+"tr": "不上课外班的得分"
+},
+{
+"id": "d0996",
+"page": "(실행 중 문구) hagwon",
+"ko": "평균 순위 {#0}%",
+"en": "Average rank {0}%",
+"tr": "平均排名 {0}%"
+},
+{
+"id": "d0997",
+"page": "(실행 중 문구) hagwon",
+"ko": "평균 합격 가능성 {#0}%",
+"en": "Average chance of passing {0}%",
+"tr": "平均合格可能性 {0}%"
+},
+{
+"id": "d0998",
+"page": "(실행 중 문구) hagwon",
+"ko": "학원비 {#0}%",
+"en": "Bill {0}%",
+"tr": "课外班费用 {0}%"
+},
+{
+"id": "d0999",
+"page": "(실행 중 문구) hagwon",
+"ko": "순이득 {#0}%",
+"en": "Net payoff {0}%",
+"tr": "净收益 {0}%"
+},
+{
+"id": "d1000",
+"page": "(실행 중 문구) hagwon",
+"ko": "지금 평균",
+"en": "Average now",
+"tr": "当前平均"
+},
+{
+"id": "d1001",
+"page": "(실행 중 문구) hagwon",
+"ko": "합의 상한",
+"en": "Agreed cap",
+"tr": "约定上限"
+},
+{
+"id": "d1002",
+"page": "(실행 중 문구) hagwon",
+"ko": "모든 집이 보내는 학원 수 (개)",
+"en": "Classes every household sends",
+"tr": "每个家庭报的班数（个）"
+},
+{
+"id": "d1003",
+"page": "(실행 중 문구) hagwon",
+"ko": "{#0}점",
+"en": "{0} pts",
+"tr": "{0} 分"
+},
+{
+"id": "d1004",
+"page": "(실행 중 문구) hagwon",
+"ko": "순위 {#0}%p 가치",
+"en": "worth {0} rank pts",
+"tr": "相当于 {0} 个百分点的排名"
+},
+{
+"id": "d1005",
+"page": "(실행 중 문구) hagwon",
+"ko": "제한 없음",
+"en": "No limit",
+"tr": "不设上限"
+},
+{
+"id": "d1006",
+"page": "(실행 중 문구) hagwon",
+"ko": "한 집만 학원을 한 개 더 보내면",
+"en": "If one family alone sends one more class",
+"tr": "如果只有一个家庭多报一个班"
+},
+{
+"id": "d1007",
+"page": "(실행 중 문구) hagwon",
+"ko": "내 순위가 오르는 폭 (평균, 이론값)",
+"en": "How far my rank rises (average, theory)",
+"tr": "我的排名提升幅度（平均，理论值）"
+},
+{
+"id": "d1008",
+"page": "(실행 중 문구) hagwon",
+"ko": "내 합격 가능성이 오르는 폭 (평균, 이론값)",
+"en": "How far my chance of passing rises (average, theory)",
+"tr": "我的合格可能性提升幅度（平均，理论值）"
+},
+{
+"id": "d1009",
+"page": "(실행 중 문구) hagwon",
+"ko": "모든 집이 한 개씩 더 보내면",
+"en": "If every family sends one more class",
+"tr": "如果所有家庭都多报一个班"
+},
+{
+"id": "d1010",
+"page": "(실행 중 문구) hagwon",
+"ko": "평균 순위 변화. 누가 오르면 누군가는 내려갑니다",
+"en": "Average rank change. If someone rises, someone falls",
+"tr": "平均排名变化。有人上升，就有人下降"
+},
+{
+"id": "d1011",
+"page": "(실행 중 문구) hagwon",
+"ko": "평균 합격 가능성 변화 (이론값)",
+"en": "Average change in chance of passing (theory)",
+"tr": "平均合格可能性的变化（理论值）"
+},
+{
+"id": "d1012",
+"page": "(실행 중 문구) hagwon",
+"ko": "학원비 총액",
+"en": "Total bill",
+"tr": "课外班费用总额"
+},
+{
+"id": "d1013",
+"page": "(실행 중 문구) hagwon",
+"ko": "처음 대비 (평균 {#0}개 → {#1}개)",
+"en": "versus the start (average {0} → {1} classes)",
+"tr": "与起点相比（平均 {0} 个 → {1} 个班）"
+},
+{
+"id": "d1014",
+"page": "(실행 중 문구) hagwon",
+"ko": "가구당 순이득",
+"en": "Net payoff per household",
+"tr": "每个家庭的净收益"
+},
+{
+"id": "d1015",
+"page": "(실행 중 문구) hagwon",
+"ko": "결과 − 학원비 · 처음 {#0}% · 오른 집 {#1}% / 내린 집 {#2}%",
+"en": "result − bill · start {0}% · better off {1}% / worse off {2}%",
+"tr": "结果 − 费用 · 起点 {0}% · 变好 {1}% / 变差 {2}%"
+},
+{
+"id": "d1016",
+"page": "(실행 중 문구) hagwon",
+"ko": "가구 번호",
+"en": "Household set",
+"tr": "家庭组"
+},
+{
+"id": "d1050",
+"page": "(실행 중 문구) lanchester",
+"ko": "막상막하 · 서로 전멸",
+"en": "Too close to call · both wiped out",
+"tr": "势均力敌 · 双方全军覆没"
+},
+{
+"id": "d1051",
+"page": "(실행 중 문구) lanchester",
+"ko": "파랑 승 · {#0}% 남음",
+"en": "Blue wins · {0}% left",
+"tr": "蓝方获胜 · 剩余{0}%"
+},
+{
+"id": "d1052",
+"page": "(실행 중 문구) lanchester",
+"ko": "빨강 승 · {#0}% 남음",
+"en": "Red wins · {0}% left",
+"tr": "红方获胜 · 剩余{0}%"
+},
+{
+"id": "d1053",
+"page": "(실행 중 문구) lanchester",
+"ko": "파랑 {#0}명",
+"en": "Blue {0}",
+"tr": "蓝方 {0}"
+},
+{
+"id": "d1054",
+"page": "(실행 중 문구) lanchester",
+"ko": "빨강 {#0}명",
+"en": "Red {0}",
+"tr": "红方 {0}"
+},
+{
+"id": "d1055",
+"page": "(실행 중 문구) lanchester",
+"ko": "처음 {#0}명",
+"en": "Started with {0}",
+"tr": "开始时为 {0}"
+},
+{
+"id": "d1056",
+"page": "(실행 중 문구) lanchester",
+"ko": "파랑 승 · {#0}명 남음 ({#1}%)",
+"en": "Blue wins · {0} left ({1}%)",
+"tr": "蓝方获胜 · 剩余{0}（{1}%）"
+},
+{
+"id": "d1057",
+"page": "(실행 중 문구) lanchester",
+"ko": "빨강 승 · {#0}명 남음 ({#1}%)",
+"en": "Red wins · {0} left ({1}%)",
+"tr": "红方获胜 · 剩余{0}（{1}%）"
+},
+{
+"id": "d1058",
+"page": "(실행 중 문구) lanchester",
+"ko": "서로 전멸",
+"en": "Both wiped out",
+"tr": "双方全军覆没"
+},
+{
+"id": "d1059",
+"page": "(실행 중 문구) lanchester",
+"ko": "사각 법칙: 병력 모두가 상대 아무에게나 겨눈다",
+"en": "Square law: everyone aims at any enemy",
+"tr": "平方律：每个人都可以瞄准任何敌人"
+},
+{
+"id": "d1060",
+"page": "(실행 중 문구) lanchester",
+"ko": "선형 법칙: 일대일로 맞붙는다",
+"en": "Linear law: one-to-one fights",
+"tr": "线性律：一对一的战斗"
+},
+{
+"id": "d1061",
+"page": "(실행 중 문구) lanchester",
+"ko": "사각 법칙: 병력 모두가 상대 아무에게나 겨눈다 · 파랑은 둘로 나뉘어 차례로 도착",
+"en": "Square law: everyone aims at any enemy · blue arrives in two halves",
+"tr": "平方律：每个人都可以瞄准任何敌人 · 蓝方分两批到达"
+},
+{
+"id": "d1062",
+"page": "(실행 중 문구) lanchester",
+"ko": "사각 법칙: 병력 모두가 상대 아무에게나 겨눈다 · 빨강은 둘로 나뉘어 차례로 도착",
+"en": "Square law: everyone aims at any enemy · red arrives in two halves",
+"tr": "平方律：每个人都可以瞄准任何敌人 · 红方分两批到达"
+},
+{
+"id": "d1063",
+"page": "(실행 중 문구) lanchester",
+"ko": "선형 법칙: 일대일로 맞붙는다 · 파랑은 둘로 나뉘어 차례로 도착",
+"en": "Linear law: one-to-one fights · blue arrives in two halves",
+"tr": "线性律：一对一的战斗 · 蓝方分两批到达"
+},
+{
+"id": "d1064",
+"page": "(실행 중 문구) lanchester",
+"ko": "선형 법칙: 일대일로 맞붙는다 · 빨강은 둘로 나뉘어 차례로 도착",
+"en": "Linear law: one-to-one fights · red arrives in two halves",
+"tr": "线性律：一对一的战斗 · 红方分两批到达"
+},
+{
+"id": "d1065",
+"page": "(실행 중 문구) lanchester",
+"ko": "{#0}단계 · 전투 끝",
+"en": "Step {0} · fight over",
+"tr": "第{0}步 · 战斗结束"
+},
+{
+"id": "d1066",
+"page": "(실행 중 문구) lanchester",
+"ko": "{#0}단계 · 전투 중",
+"en": "Step {0} · fighting",
+"tr": "第{0}步 · 战斗中"
+},
+{
+"id": "d1067",
+"page": "(실행 중 문구) lanchester",
+"ko": "전투 시간 (단계)",
+"en": "Fight time (steps)",
+"tr": "战斗时长（步）"
+},
+{
+"id": "d1068",
+"page": "(실행 중 문구) lanchester",
+"ko": "사각 법칙 · 모여서",
+"en": "Square law · together",
+"tr": "平方律 · 合在一起"
+},
+{
+"id": "d1069",
+"page": "(실행 중 문구) lanchester",
+"ko": "사각 법칙 · 큰 쪽이 나뉘면",
+"en": "Square law · larger side splits",
+"tr": "平方律 · 较大一方分兵"
+},
+{
+"id": "d1070",
+"page": "(실행 중 문구) lanchester",
+"ko": "사각 법칙 · 작은 쪽이 나뉘면",
+"en": "Square law · smaller side splits",
+"tr": "平方律 · 较小一方分兵"
+},
+{
+"id": "d1071",
+"page": "(실행 중 문구) lanchester",
+"ko": "선형 법칙 · 모여서",
+"en": "Linear law · together",
+"tr": "线性律 · 合在一起"
+},
+{
+"id": "d1072",
+"page": "(실행 중 문구) lanchester",
+"ko": "선형 법칙 · 큰 쪽이 나뉘면",
+"en": "Linear law · larger side splits",
+"tr": "线性律 · 较大一方分兵"
+},
+{
+"id": "d1073",
+"page": "(실행 중 문구) lanchester",
+"ko": "병력 비율 (파랑 : 빨강)",
+"en": "Size ratio (blue : red)",
+"tr": "规模比（蓝 : 红）"
+},
+{
+"id": "d1074",
+"page": "(실행 중 문구) lanchester",
+"ko": "질 비율 (파랑 : 빨강)",
+"en": "Quality ratio (blue : red)",
+"tr": "质量比（蓝 : 红）"
+},
+{
+"id": "d1075",
+"page": "(실행 중 문구) lanchester",
+"ko": "사각 법칙 균형선",
+"en": "Square-law balance line",
+"tr": "平方律平衡线"
+},
+{
+"id": "d1076",
+"page": "(실행 중 문구) lanchester",
+"ko": "선형 법칙 균형선",
+"en": "Linear-law balance line",
+"tr": "线性律平衡线"
+},
+{
+"id": "d1077",
+"page": "(실행 중 문구) lanchester",
+"ko": "파랑 우세",
+"en": "Blue ahead",
+"tr": "蓝方占优"
+},
+{
+"id": "d1078",
+"page": "(실행 중 문구) lanchester",
+"ko": "빨강 우세",
+"en": "Red ahead",
+"tr": "红方占优"
+},
+{
+"id": "d1079",
+"page": "(실행 중 문구) lanchester",
+"ko": "파랑 병력이 빨강의 {#0}배일 때 막상막하가 되려면 빨강의 질이 파랑의",
+"en": "With blue at {0} times red's numbers, red's quality must be this many times blue's to make it even:",
+"tr": "当蓝方人数是红方的{0}倍时，红方的质量需要是蓝方的这么多倍才能打平："
+},
+{
+"id": "d1080",
+"page": "(실행 중 문구) lanchester",
+"ko": "사각 법칙",
+"en": "Square law",
+"tr": "平方律"
+},
+{
+"id": "d1081",
+"page": "(실행 중 문구) lanchester",
+"ko": "선형 법칙",
+"en": "Linear law",
+"tr": "线性律"
+},
+{
+"id": "d1082",
+"page": "(실행 중 문구) lanchester",
+"ko": "전투력 비율 (파랑 ÷ 빨강)",
+"en": "Strength ratio (blue ÷ red)",
+"tr": "战力比（蓝 ÷ 红）"
+},
+{
+"id": "d1083",
+"page": "(실행 중 문구) lanchester",
+"ko": "병력 {#0}배 × 질 {#1}배 → 병력은 제곱으로 작용",
+"en": "Numbers {0}x × quality {1}x → numbers count squared",
+"tr": "人数 {0}倍 × 质量 {1}倍 → 人数按平方计算"
+},
+{
+"id": "d1084",
+"page": "(실행 중 문구) lanchester",
+"ko": "병력 {#0}배 × 질 {#1}배 → 병력은 그대로 작용",
+"en": "Numbers {0}x × quality {1}x → numbers count as they are",
+"tr": "人数 {0}倍 × 质量 {1}倍 → 人数按原值计算"
+},
+{
+"id": "d1085",
+"page": "(실행 중 문구) lanchester",
+"ko": "지금 남은 병력",
+"en": "Soldiers left now",
+"tr": "当前剩余士兵"
+},
+{
+"id": "d1086",
+"page": "(실행 중 문구) lanchester",
+"ko": "{#0} : {#1}",
+"en": "{0} : {1}",
+"tr": "{0} : {1}"
+},
+{
+"id": "d1087",
+"page": "(실행 중 문구) lanchester",
+"ko": "파랑 : 빨강",
+"en": "Blue : Red",
+"tr": "蓝 : 红"
+},
+{
+"id": "d1088",
+"page": "(실행 중 문구) lanchester",
+"ko": "이론상 결과 (이 설정)",
+"en": "Theory (this setting)",
+"tr": "理论值（当前设置）"
+},
+{
+"id": "d1089",
+"page": "(실행 중 문구) lanchester",
+"ko": "연속 근사로 계산한 값",
+"en": "Calculated with the continuous approximation",
+"tr": "用连续近似计算"
+},
+{
+"id": "d1090",
+"page": "(실행 중 문구) lanchester",
+"ko": "선형 법칙이었다면",
+"en": "If it were the linear law",
+"tr": "如果是线性律"
+},
+{
+"id": "d1091",
+"page": "(실행 중 문구) lanchester",
+"ko": "사각 법칙이었다면",
+"en": "If it were the square law",
+"tr": "如果是平方律"
+},
+{
+"id": "d1092",
+"page": "(실행 중 문구) lanchester",
+"ko": "같은 설정, 법칙만 바꿔서",
+"en": "Same setting, only the law changed",
+"tr": "设置相同，只改变了定律"
+},
+{
+"id": "d1093",
+"page": "(실행 중 문구) lanchester",
+"ko": "전투 번호",
+"en": "Fight",
+"tr": "战斗"
+},
+{
+"id": "d1156",
+"page": "(실행 중 문구) predict",
+"ko": "운전자 4,000명이 모두 자기에게 가장 빠른 길을 고르는 도로망에 공짜 지름길을 새로 열면, 평균 출근 시간은 어떻게 될까요?",
+"en": "In a road network where 4,000 drivers each pick their own fastest route, what happens to the average commute when a free shortcut opens?",
+"tr": "在4,000名司机都选择对自己最快路线的路网中，新开通一条免费捷径后，平均通勤时间会怎样？"
+},
+{
+"id": "d1157",
+"page": "(실행 중 문구) predict",
+"ko": "65분에서 80분으로 길어져요. 모두가 자기에게 가장 빠른 길(지름길)을 고르다 보니, 오히려 모두가 막히는 길을 함께 타게 돼요.",
+"en": "It rises from 65 to 80 minutes. Because everyone picks the route that is fastest for them, they all end up sharing the congested roads.",
+"tr": "会从65分钟增加到80分钟。每个人都选对自己最快的路线（捷径），结果大家反而一起挤上了拥堵的道路。"
+},
+{
+"id": "d1158",
+"page": "(실행 중 문구) predict",
+"ko": "짧아진다",
+"en": "It gets shorter",
+"tr": "会变短"
+},
+{
+"id": "d1159",
+"page": "(실행 중 문구) predict",
+"ko": "그대로다",
+"en": "It stays the same",
+"tr": "保持不变"
+},
+{
+"id": "d1160",
+"page": "(실행 중 문구) predict",
+"ko": "오히려 길어진다",
+"en": "It actually gets longer",
+"tr": "反而变长"
+},
+{
+"id": "d1161",
+"page": "(실행 중 문구) predict",
+"ko": "말(칭찬·꾸중)에는 아무 효과가 없다면, 방금 칭찬받은 사람의 다음 점수는 어떻게 될까요?",
+"en": "If praise and scolding have no effect at all, what happens to the next score of someone who was just praised?",
+"tr": "如果表扬和批评完全没有效果，刚被表扬的人下一次的分数会怎样？"
+},
+{
+"id": "d1162",
+"page": "(실행 중 문구) predict",
+"ko": "평균 약 7점 내려가요(반대로 혼난 사람은 약 7점 올라요). 잘한 때는 운이 좋았을 가능성이 커서, 다음에는 평균 쪽으로 돌아오기 때문이에요.",
+"en": "It drops by about 7 points on average (and the scolded gain about 7). A great result is often partly luck, so the next one drifts back toward the average.",
+"tr": "平均会下降约7分（被批评的人则平均上升约7分）。表现出色时往往有运气的成分，所以下一次会向平均水平回归。"
+},
+{
+"id": "d1163",
+"page": "(실행 중 문구) predict",
+"ko": "더 오른다",
+"en": "It goes up",
+"tr": "会上升"
+},
+{
+"id": "d1164",
+"page": "(실행 중 문구) predict",
+"ko": "오히려 내려간다",
+"en": "It actually goes down",
+"tr": "反而会下降"
+},
+{
+"id": "d1165",
+"page": "(실행 중 문구) predict",
+"ko": "돌아온 비행기에는 날개와 동체에 총탄 자국이 가장 많아요. 철판을 어디에 덧대야 생존율이 가장 많이 오를까요?",
+"en": "The planes that came back have the most bullet holes in the wings and fuselage. Where should the armor go to raise survival the most?",
+"tr": "返航的飞机机翼和机身上的弹孔最多。把装甲加在哪里，才能最大程度提高生还率？"
+},
+{
+"id": "d1166",
+"page": "(실행 중 문구) predict",
+"ko": "엔진·조종석을 보강하면 생존율이 67.9%에서 83.3%로 올라요(구멍이 많은 곳을 보강하면 71.3%). 그곳에 맞은 비행기는 돌아오지 못했기 때문에 구멍이 안 보이는 거예요.",
+"en": "Armoring the engine and cockpit lifts survival from 67.9% to 83.3% (armoring where the holes are gives 71.3%). Planes hit there never came back, which is why no holes show.",
+"tr": "加固发动机和驾驶舱，生还率会从67.9%升到83.3%（加固弹孔多的地方则为71.3%）。在那里中弹的飞机都没能返航，所以才看不到弹孔。"
+},
+{
+"id": "d1167",
+"page": "(실행 중 문구) predict",
+"ko": "구멍이 많은 날개·동체",
+"en": "The wings and fuselage, where the holes are",
+"tr": "弹孔多的机翼和机身"
+},
+{
+"id": "d1168",
+"page": "(실행 중 문구) predict",
+"ko": "구멍이 거의 없는 엔진·조종석",
+"en": "The engine and cockpit, where there are almost no holes",
+"tr": "几乎没有弹孔的发动机和驾驶舱"
+},
+{
+"id": "d1169",
+"page": "(실행 중 문구) predict",
+"ko": "어디든 효과가 비슷하다",
+"en": "Anywhere, the effect is about the same",
+"tr": "加在哪里效果都差不多"
+},
+{
+"id": "d1170",
+"page": "(실행 중 문구) predict",
+"ko": "이 관계망에서 \"내 친구들은 나보다 친구가 더 많다\"에 해당하는 사람은 몇 %일까요?",
+"en": "In this network, what share of people have friends who, on average, have more friends than they do?",
+"tr": "在这个社交网络中，“朋友的朋友比自己多”的人占百分之几？"
+},
+{
+"id": "d1171",
+"page": "(실행 중 문구) predict",
+"ko": "약 83%예요. 인기 있는 사람은 많은 사람의 친구 목록에 오르기 때문에, 내 친구는 평균적으로 나보다 친구가 많아요.",
+"en": "About 83%. Popular people appear on many friend lists, so on average your friends have more friends than you.",
+"tr": "约83%。受欢迎的人会出现在很多人的好友列表里，所以平均来说，你的朋友比你的朋友多。"
+},
+{
+"id": "d1172",
+"page": "(실행 중 문구) predict",
+"ko": "약 20%",
+"en": "About 20%",
+"tr": "约20%"
+},
+{
+"id": "d1173",
+"page": "(실행 중 문구) predict",
+"ko": "약 80%",
+"en": "About 80%",
+"tr": "约80%"
+},
+{
+"id": "d1174",
+"page": "(실행 중 문구) predict",
+"ko": "버스가 평균 10분마다 오고 도착 시각이 무작위일 때, 아무 때나 정류장에 가면 평균 몇 분을 기다릴까요?",
+"en": "A bus comes every 10 minutes on average, with random arrival times. If you show up at any moment, how long do you wait on average?",
+"tr": "公交车平均每10分钟一班，到站时间是随机的。如果你随便什么时候去车站，平均要等多久？"
+},
+{
+"id": "d1175",
+"page": "(실행 중 문구) predict",
+"ko": "약 10분이에요(간격이 일정하다면 5분). 긴 간격에 걸릴 확률이 더 높아서, 승객이 만나는 간격은 평균보다 길어요.",
+"en": "About 10 minutes (it would be 5 if the gaps were even). You are more likely to land in a long gap, so the gap you meet is longer than the average.",
+"tr": "约10分钟（如果间隔固定则是5分钟）。你更可能碰上较长的间隔，所以乘客遇到的间隔比平均值更长。"
+},
+{
+"id": "d1176",
+"page": "(실행 중 문구) predict",
+"ko": "약 5분",
+"en": "About 5 minutes",
+"tr": "约5分钟"
+},
+{
+"id": "d1177",
+"page": "(실행 중 문구) predict",
+"ko": "약 7분",
+"en": "About 7 minutes",
+"tr": "约7分钟"
+},
+{
+"id": "d1178",
+"page": "(실행 중 문구) predict",
+"ko": "약 10분",
+"en": "About 10 minutes",
+"tr": "约10分钟"
+},
+{
+"id": "d1179",
+"page": "(실행 중 문구) predict",
+"ko": "23명이 모였을 때, 그중 두 사람 이상의 생일이 같을 확률은 얼마일까요?",
+"en": "With 23 people in a room, what is the chance that at least two share a birthday?",
+"tr": "23个人聚在一起时，其中至少有两人生日相同的概率是多少？"
+},
+{
+"id": "d1180",
+"page": "(실행 중 문구) predict",
+"ko": "약 50.7%예요. 23명이면 가능한 짝이 253쌍이나 되기 때문이에요. (내 생일과 같은 사람이 있을 확률은 5.9%뿐이에요.)",
+"en": "About 50.7%. With 23 people there are 253 possible pairs. (The chance that someone shares your own birthday is only 5.9%.)",
+"tr": "约50.7%。23个人可以组成253对。（而有人和你自己同一天生日的概率只有5.9%。）"
+},
+{
+"id": "d1181",
+"page": "(실행 중 문구) predict",
+"ko": "약 6%",
+"en": "About 6%",
+"tr": "约6%"
+},
+{
+"id": "d1182",
+"page": "(실행 중 문구) predict",
+"ko": "약 90%",
+"en": "About 90%",
+"tr": "约90%"
+},
+{
+"id": "d1183",
+"page": "(실행 중 문구) predict",
+"ko": "재능이 가장 높은 사람이 40년 뒤 가장 부자가 되는 경우는 얼마나 될까요? (300번 돌려 본 결과예요)",
+"en": "How often does the most talented person end up the richest after 40 years? (Based on 300 runs.)",
+"tr": "才能最高的人在40年后成为首富的情况有多常见？（基于运行300次的结果）"
+},
+{
+"id": "d1184",
+"page": "(실행 중 문구) predict",
+"ko": "300번 중 최고 재능자가 최고 부자가 된 경우는 0.3%뿐이었어요. 재능은 평균 근처에 모여 있어도, 운이 몇 번 겹친 사람이 크게 앞서가요.",
+"en": "Out of 300 runs, the most talented person became the richest only 0.3% of the time. Talent clusters near the average, but a few lucky breaks can put someone far ahead.",
+"tr": "在300次运行中，才能最高的人成为首富的情况只占0.3%。才能虽然集中在平均水平附近，但几次好运叠加的人会遥遥领先。"
+},
+{
+"id": "d1185",
+"page": "(실행 중 문구) predict",
+"ko": "대부분(70% 이상)",
+"en": "Most of the time (70% or more)",
+"tr": "绝大多数情况（70%以上）"
+},
+{
+"id": "d1186",
+"page": "(실행 중 문구) predict",
+"ko": "거의 없다(1% 미만)",
+"en": "Almost never (under 1%)",
+"tr": "几乎没有（不到1%）"
+},
+{
+"id": "d1187",
+"page": "(실행 중 문구) predict",
+"ko": "\"이웃의 30%만 나와 같은 편이면 만족\"이라는 약한 바람만 가진 사람들이 이사를 반복하면, 같은 편 이웃 비율은 처음 50%에서 얼마가 될까요?",
+"en": "If people only want \"at least 30% of my neighbors are like me\" and keep moving, what share of neighbors end up being like them, starting from 50%?",
+"tr": "如果人们只要求“至少30%的邻居和我是同类”，并不断搬家，同类邻居的比例会从最初的50%变成多少？"
+},
+{
+"id": "d1188",
+"page": "(실행 중 문구) predict",
+"ko": "약 75%까지 올라가요. 아무도 분리를 원하지 않았는데도, 작은 바람이 쌓여 동네가 크게 갈라져요.",
+"en": "It climbs to about 75%. Nobody wanted segregation, yet small preferences add up until the neighborhood splits apart.",
+"tr": "会上升到约75%。没有人想要隔离，但小小的偏好不断累积，社区最终被大幅分隔开。"
+},
+{
+"id": "d1189",
+"page": "(실행 중 문구) predict",
+"ko": "약 55%",
+"en": "About 55%",
+"tr": "约55%"
+},
+{
+"id": "d1190",
+"page": "(실행 중 문구) predict",
+"ko": "약 75%",
+"en": "About 75%",
+"tr": "约75%"
+},
+{
+"id": "d1191",
+"page": "(실행 중 문구) predict",
+"ko": "약 95%",
+"en": "About 95%",
+"tr": "约95%"
+},
+{
+"id": "d1192",
+"page": "(실행 중 문구) predict",
+"ko": "입찰자 10명, 추정 오차 20%일 때 모두가 자기 추정치 그대로 입찰하면, 낙찰자는 평균적으로 어떻게 될까요?",
+"en": "With 10 bidders and a 20% estimation error, if everyone bids exactly their own estimate, what happens to the winner on average?",
+"tr": "有10名竞拍者、估值误差为20%时，如果每个人都按自己的估值出价，中标者平均会怎样？"
+},
+{
+"id": "d1193",
+"page": "(실행 중 문구) predict",
+"ko": "평균 −30.9(가치 100 기준)로 손해예요. 이겼다는 것은 \"내 추정치가 가장 높게 틀렸다\"는 뜻이기 때문이에요.",
+"en": "An average of −30.9 (on a value of 100): a loss. Winning means \"my estimate was the most overestimated.\"",
+"tr": "平均为−30.9（以价值100计），是亏损。中标意味着“我的估值高估得最厉害”。"
+},
+{
+"id": "d1194",
+"page": "(실행 중 문구) predict",
+"ko": "이익을 본다",
+"en": "Makes a profit",
+"tr": "会盈利"
+},
+{
+"id": "d1195",
+"page": "(실행 중 문구) predict",
+"ko": "본전이다",
+"en": "Breaks even",
+"tr": "不赚不亏"
+},
+{
+"id": "d1196",
+"page": "(실행 중 문구) predict",
+"ko": "손해를 본다",
+"en": "Loses money",
+"tr": "会亏钱"
+},
+{
+"id": "d1197",
+"page": "(실행 중 문구) predict",
+"ko": "모든 거래가 동전 던지기처럼 공정해도, 300번째 거래 뒤 가장 부자인 10%는 전체 재산의 몇 %를 가질까요?",
+"en": "Even if every trade is as fair as a coin flip, after 300 rounds what share of all wealth does the richest 10% hold?",
+"tr": "即使每笔交易都像抛硬币一样公平，进行300轮之后，最富有的10%的人占有全部财富的百分之几？"
+},
+{
+"id": "d1198",
+"page": "(실행 중 문구) predict",
+"ko": "약 86%예요. 공정한 거래만으로도 작은 우연이 쌓여 부가 한쪽으로 쏠려요(지니계수 0.90).",
+"en": "About 86%. Even perfectly fair trades let small bits of luck pile up until wealth concentrates (Gini 0.90).",
+"tr": "约86%。即使只有公平的交易，小小的偶然不断累积，财富也会向一方集中（基尼系数0.90）。"
+},
+{
+"id": "d1199",
+"page": "(실행 중 문구) predict",
+"ko": "약 10%",
+"en": "About 10%",
+"tr": "约10%"
+},
+{
+"id": "d1200",
+"page": "(실행 중 문구) predict",
+"ko": "약 40%",
+"en": "About 40%",
+"tr": "约40%"
+},
+{
+"id": "d1201",
+"page": "(실행 중 문구) predict",
+"ko": "약 86%",
+"en": "About 86%",
+"tr": "约86%"
+},
+{
+"id": "d1202",
+"page": "(실행 중 문구) predict",
+"ko": "사고도 공사도 없는데 생긴 정체 덩어리는 어느 쪽으로 움직일까요?",
+"en": "A traffic jam forms with no accident or roadwork. Which way does the jam itself move?",
+"tr": "没有事故也没有施工，却出现了一段拥堵。这段拥堵本身会朝哪个方向移动？"
+},
+{
+"id": "d1203",
+"page": "(실행 중 문구) predict",
+"ko": "반대 방향으로(뒤로) 물러나요. 앞차가 출발해도 뒤차는 조금 늦게 출발해서, 정체의 앞쪽 끝은 풀리고 뒤쪽 끝은 계속 늘어나요.",
+"en": "It drifts backward. The front of the jam clears as cars pull away while the back keeps growing, so the whole jam moves against the traffic.",
+"tr": "会向相反方向（向后）退移。前车起步后，后车会稍晚才起步，所以拥堵的前端不断消散，后端却不断延长。"
+},
+{
+"id": "d1204",
+"page": "(실행 중 문구) predict",
+"ko": "차들이 가는 방향으로",
+"en": "The same direction the cars travel",
+"tr": "朝车辆行驶的方向"
+},
+{
+"id": "d1205",
+"page": "(실행 중 문구) predict",
+"ko": "제자리에 머문다",
+"en": "It stays put",
+"tr": "停在原地"
+},
+{
+"id": "d1206",
+"page": "(실행 중 문구) predict",
+"ko": "차들이 가는 반대 방향으로",
+"en": "Backward, against the traffic",
+"tr": "朝车辆行驶的反方向"
+},
+{
+"id": "d1207",
+"page": "(실행 중 문구) predict",
+"ko": "후보를 한 명씩 만나고 되돌아갈 수 없을 때, 처음 몇 %를 거절만 하며 지켜본 뒤 고르면 최고를 만날 확률이 가장 높을까요?",
+"en": "When you meet candidates one at a time and cannot go back, what share should you only watch before choosing to have the best chance of the very best?",
+"tr": "当你依次见到候选人且不能回头时，要想最有可能选中最好的那位，应该先只观察多大比例再做选择？"
+},
+{
+"id": "d1208",
+"page": "(실행 중 문구) predict",
+"ko": "후보 100명에서 37명(37%)을 관찰할 때 최고를 고를 확률이 37.1%로 가장 높았습니다. 후보 40명에서 4명(10%)은 24.2%, 24명(60%)은 31.2%, 32명(80%)은 18.1%였습니다.",
+"en": "With 100 candidates, watching 37 (37%) gave the highest chance of the best, 37.1%. With 40 candidates, watching 4 (10%) gave 24.2%, 24 (60%) gave 31.2% and 32 (80%) gave 18.1%.",
+"tr": "有100名候选人时，先观察37人（37%）选中最佳者的概率最高，为37.1%。有40名候选人时，观察4人（10%）为24.2%，观察24人（60%）为31.2%，观察32人（80%）为18.1%。"
+},
+{
+"id": "d1209",
+"page": "(실행 중 문구) predict",
+"ko": "약 37%",
+"en": "About 37%",
+"tr": "约37%"
+},
+{
+"id": "d1210",
+"page": "(실행 중 문구) predict",
+"ko": "약 70%",
+"en": "About 70%",
+"tr": "约70%"
+},
+{
+"id": "d1211",
+"page": "(실행 중 문구) predict",
+"ko": "원 위의 300명이 가까운 이웃 6명과만 이어져 있습니다. 먼 사람과 이은 선을 전체 연결의 2%(약 18개)만 보태면 소식이 90%에 퍼지는 데 걸리는 시간은 어떻게 될까요?",
+"en": "In a ring of 300 people tied only to 6 close neighbors, you add ties to far-away people for just 2% of all ties (about 18). What happens to the time for news to reach 90% of people?",
+"tr": "在一个300人的环中，每人只与身边6位近邻相连，现在只把全部连接的2%（约18条）换成与远处的人的连接。消息传到90%的人所需的时间会怎样？"
+},
+{
+"id": "d1212",
+"page": "(실행 중 문구) predict",
+"ko": "약한 연결이 없을 때 평균 58.1턴이던 것이 2%에서 16.2턴(3.6배 빠름)이 되었습니다(40번 평균). 평균 거리는 25.4걸음에서 33%로 줄었지만 친구 무리의 촘촘함은 94%로 거의 그대로였습니다.",
+"en": "Without weak ties it took 58.1 turns on average; with 2% it took 16.2 (3.6 times faster, 40-run average). The average distance fell to 33% of 25.4 steps while the tightness of friend circles stayed at 94%.",
+"tr": "没有弱连接时平均需要58.1轮，加入2%后只需16.2轮（快3.6倍，40次运行的平均值）。平均距离降到25.4步的33%，而朋友圈的紧密程度仍保持在94%。"
+},
+{
+"id": "d1213",
+"page": "(실행 중 문구) predict",
+"ko": "거의 그대로이다",
+"en": "Barely changes",
+"tr": "几乎不变"
+},
+{
+"id": "d1214",
+"page": "(실행 중 문구) predict",
+"ko": "약 3분의 1로 줄어든다",
+"en": "Falls to about a third",
+"tr": "降到大约三分之一"
+},
+{
+"id": "d1215",
+"page": "(실행 중 문구) predict",
+"ko": "절반 정도 줄어든다",
+"en": "Falls by about half",
+"tr": "降低大约一半"
+},
+{
+"id": "d1216",
+"page": "(실행 중 문구) predict",
+"ko": "계산대 4개, 붐비는 정도 90%에서 손님이 \"사람 수가 가장 적은 줄\"을 골라 따로 서면, 한 줄로 서는 가게보다 평균 대기시간은 어떻게 될까요?",
+"en": "With 4 cashiers at 90% busy, if customers join the line with the fewest people, how does the average wait compare with a single shared line?",
+"tr": "有4个收银台且繁忙程度为90%时，如果顾客都排到人最少的队，平均等待时间与共用单一队列相比如何？"
+},
+{
+"id": "d1217",
+"page": "(실행 중 문구) predict",
+"ko": "시뮬레이션에서 한 줄은 평균 6.1분, 사람 적은 줄은 6.9분(×1.13)이었습니다. 평균 차이는 작아도 손님의 44%는 뒤에 온 사람에게 추월당했고, 아무 줄이나 서면 29.9분(×4.9)이었습니다.",
+"en": "In the simulation the single line averaged 6.1 minutes and the fewest-people rule 6.9 (1.13 times). The average gap is small, but 44% of customers were overtaken by someone who came later, and joining any line averaged 29.9 minutes (4.9 times).",
+"tr": "在模拟中，单一队列平均6.1分钟，选人最少的队的规则为6.9分钟（1.13倍）。平均差距不大，但有44%的顾客被后到的人超过，而随便排任意一队平均为29.9分钟（4.9倍）。"
+},
+{
+"id": "d1218",
+"page": "(실행 중 문구) predict",
+"ko": "거의 같다 (5% 이내)",
+"en": "About the same (within 5%)",
+"tr": "差不多（相差5%以内）"
+},
+{
+"id": "d1219",
+"page": "(실행 중 문구) predict",
+"ko": "약 13% 길다",
+"en": "About 13% longer",
+"tr": "约长13%"
+},
+{
+"id": "d1220",
+"page": "(실행 중 문구) predict",
+"ko": "두 배 이상 길다",
+"en": "More than twice as long",
+"tr": "超过两倍"
+},
+{
+"id": "d1221",
+"page": "(실행 중 문구) predict",
+"ko": "버스 6대가 처음엔 똑같은 간격으로 달립니다. 승객이 많아 정차가 길어지는 규칙만 있을 때, 몇 시간 뒤 버스 간격은 어떻게 될까요?",
+"en": "Six buses start evenly spaced. If the only rule is that stops last longer when more passengers wait, what happens to the gaps after a few hours?",
+"tr": "六辆公交车等间隔发车。如果唯一的规则是等车的乘客越多停靠就越久，几个小时后间隔会怎样？"
+},
+{
+"id": "d1222",
+"page": "(실행 중 문구) predict",
+"ko": "처방이 없을 때 간격 변동계수가 0.04에서 2.10(360분)으로 커지고, 평균 기다림은 8.7분으로 간격이 고를 때(2.3분)의 약 3.8배였습니다.",
+"en": "With no remedy, the coefficient of variation of the gaps grew from 0.04 to 2.10 (minute 360), and the average wait was 8.7 minutes, about 3.8 times the 2.3 minutes of even spacing.",
+"tr": "在没有对策的情况下，间隔的变异系数从0.04增至2.10（第360分钟），平均等待为8.7分钟，约为间隔均匀时2.3分钟的3.8倍。"
+},
+{
+"id": "d1223",
+"page": "(실행 중 문구) predict",
+"ko": "계속 거의 고르다",
+"en": "They stay nearly even",
+"tr": "基本保持均匀"
+},
+{
+"id": "d1224",
+"page": "(실행 중 문구) predict",
+"ko": "몇 대씩 뭉치고 평균 기다림이 3배 넘게 늘어난다",
+"en": "Buses clump and the average wait grows more than threefold",
+"tr": "公交车扎堆，平均等待时间增加到三倍以上"
+},
+{
+"id": "d1225",
+"page": "(실행 중 문구) predict",
+"ko": "모두 정확히 두 대씩 짝이 된다",
+"en": "They pair up exactly in twos",
+"tr": "正好两辆两辆配成对"
+},
+{
+"id": "d1226",
+"page": "(실행 중 문구) predict",
+"ko": "서로 한 칸씩 띄우고 앉기로 한 사람들이 아주 긴 벤치에 무작위로 한 명씩 앉으면, 끝내 자리의 몇 %가 찰까요?",
+"en": "If people who agree to leave one empty seat between them sit one at a time at random on a very long bench, what share of the seats ends up filled?",
+"tr": "如果愿意彼此隔开一个空位的人，一个接一个随机坐到一条很长的长椅上，最终有多大比例的座位会被坐满？"
+},
+{
+"id": "d1227",
+"page": "(실행 중 문구) predict",
+"ko": "이론값은 (1−e^−2)/2≈43.2%이고 시뮬레이션은 43.3%였습니다. 한 칸씩 띄워 정돈해 앉으면 50%까지 가능하지만 무작위로 앉으면 그만큼 못 채웁니다.",
+"en": "Theory gives (1−e^−2)/2 ≈ 43.2% and the simulation 43.3%. Orderly seating could reach 50%, but random seating cannot.",
+"tr": "理论值为(1−e^−2)/2 ≈ 43.2%，模拟结果为43.3%。有序就座可以达到50%，随机就座则做不到。"
+},
+{
+"id": "d1228",
+"page": "(실행 중 문구) predict",
+"ko": "약 33%",
+"en": "About 33%",
+"tr": "约33%"
+},
+{
+"id": "d1229",
+"page": "(실행 중 문구) predict",
+"ko": "약 43%",
+"en": "About 43%",
+"tr": "约43%"
+},
+{
+"id": "d1230",
+"page": "(실행 중 문구) predict",
+"ko": "50% (모든 자리의 절반)",
+"en": "50% (every other seat)",
+"tr": "50%（隔一个座位坐一个）"
+},
+{
+"id": "d1231",
+"page": "(실행 중 문구) predict",
+"ko": "무작위로 떠돌던 입자가 덩어리에 닿으면 붙기만 하는 규칙으로 4,000개를 키우면, 덩어리는 반지름 안의 몇 %를 채울까요?",
+"en": "If 4,000 randomly wandering particles stick on touching a cluster, what share of the circle out to its farthest tip do they fill?",
+"tr": "如果4,000个随机游走的粒子碰到团就会粘住，它们会填满到最远末端的圆的多大部分？"
+},
+{
+"id": "d1232",
+"page": "(실행 중 문구) predict",
+"ko": "시뮬레이션에서 가장 먼 끝까지의 원(반지름 평균 123칸) 중 평균 8.6%만 채워졌습니다. 바깥 가지 끝이 안쪽 틈을 가리기 때문입니다.",
+"en": "In the simulation only 8.6% on average of the circle out to the farthest tip (mean radius 123 cells) was filled, because the outer branch tips shade the inner gaps.",
+"tr": "在模拟中，到最远末端的圆（平均半径123格）平均只被填满了8.6%，因为外侧的枝端挡住了内部的空隙。"
+},
+{
+"id": "d1233",
+"page": "(실행 중 문구) predict",
+"ko": "약 50% (꽉 찬 덩어리)",
+"en": "About 50% (a solid blob)",
+"tr": "约50%（实心的团）"
+},
+{
+"id": "d1234",
+"page": "(실행 중 문구) predict",
+"ko": "약 25%",
+"en": "About 25%",
+"tr": "约25%"
+},
+{
+"id": "d1235",
+"page": "(실행 중 문구) predict",
+"ko": "약 9% (대부분 빈틈)",
+"en": "About 9% (mostly gaps)",
+"tr": "约9%（大部分是空隙）"
+},
+{
+"id": "d1236",
+"page": "(실행 중 문구) predict",
+"ko": "모래를 한 알씩 쌓는 판(40×40)에서 안정기 이후 떨어뜨린 알 중, 아무 칸도 무너지지 않고 지나간 알은 몇 %일까요?",
+"en": "On a 40×40 board where grains are added one at a time, what share of grains dropped after the pile has settled cause no toppling at all?",
+"tr": "在40×40的棋盘上一粒一粒地加沙，沙堆稳定之后落下的沙粒中，完全不引起任何倒塌的占多大比例？"
+},
+{
+"id": "d1237",
+"page": "(실행 중 문구) predict",
+"ko": "시드 1~5 평균 57%였습니다. 무너짐이 있었던 눈사태의 중앙값은 20번인데 가장 큰 것은 3,778~4,760번(중앙값의 약 208배)까지 나왔습니다.",
+"en": "The average over seeds 1 to 5 was 57%. Among avalanches that did topple, the median was 20 topplings while the largest reached 3,778 to 4,760 (about 208 times the median).",
+"tr": "种子1到5的平均值为57%。在确实发生倒塌的雪崩中，中位数为20次倒塌，最大的达到3,778至4,760次（约为中位数的208倍）。"
+},
+{
+"id": "d1238",
+"page": "(실행 중 문구) predict",
+"ko": "약 57%",
+"en": "About 57%",
+"tr": "约57%"
+},
+{
+"id": "d1239",
+"page": "(실행 중 문구) predict",
+"ko": "작은 산불을 90% 꺼 주는 숲은, 그냥 두는 숲과 비교해 큰 불(숲의 10% 이상)이 얼마나 자주 날까요?",
+"en": "Compared with a forest left alone, how often do big fires (10% or more of the forest) occur in a forest where 90% of small fires are put out?",
+"tr": "与放任不管的森林相比，在90%的小火都被扑灭的森林里，大火（烧掉森林的10%或更多）发生得有多频繁？"
+},
+{
+"id": "d1240",
+"page": "(실행 중 문구) predict",
+"ko": "1만 단계당 21.4번에서 125.1번으로 약 6배 늘었습니다. 매 단계 타는 면적은 0.63%와 0.61%로 거의 같았고, 큰 불이 태운 면적의 비중이 4%에서 27%로 커졌습니다.",
+"en": "It rose about 6 times, from 21.4 to 125.1 per 10,000 steps. The area burning per step was almost the same, 0.63% versus 0.61%, but the big fires' share of the burned area grew from 4% to 27%.",
+"tr": "增加了约6倍，从每1万步21.4次升到125.1次。每步燃烧的面积几乎相同，分别为0.63%和0.61%，但大火在过火面积中所占比例从4%升到了27%。"
+},
+{
+"id": "d1241",
+"page": "(실행 중 문구) predict",
+"ko": "훨씬 줄어든다",
+"en": "Becomes much rarer",
+"tr": "变得少得多"
+},
+{
+"id": "d1242",
+"page": "(실행 중 문구) predict",
+"ko": "훨씬 늘어난다",
+"en": "Becomes much more frequent",
+"tr": "变得频繁得多"
+},
+{
+"id": "d1243",
+"page": "(실행 중 문구) predict",
+"ko": "빈 판에서 출발한 규칙 두 줄짜리 개미가 대각선으로 곧게 뻗는 길(고속도로)을 내기 시작하는 건 몇 걸음쯤일까요?",
+"en": "On a blank grid, about how many steps does a two-rule ant take before it starts building a straight diagonal road (the highway)?",
+"tr": "在空白网格上，遵循两条规则的蚂蚁大约走多少步后才开始修出笔直的对角线道路（高速公路）？"
+},
+{
+"id": "d1244",
+"page": "(실행 중 문구) predict",
+"ko": "이 시뮬레이션에서는 9,976걸음째부터 104걸음마다 같은 동작을 되풀이하며 대각선으로 나아갔고 40,000걸음까지 이어졌습니다. 처음 약 500걸음은 대칭 무늬, 그 뒤는 혼돈이었습니다. 항상 길이 생긴다는 것은 증명되지 않은 추측입니다.",
+"en": "In this simulation, from step 9,976 the ant repeated the same 104-step routine and moved diagonally, continuing to step 40,000. The first ~500 steps were symmetric patterns and the rest chaos. That it always builds a road is an unproved conjecture.",
+"tr": "在这次模拟中，从第9,976步起蚂蚁重复同一套104步的动作并沿对角线前进，一直持续到第40,000步。最初约500步是对称图案，其余是混沌。它是否总会修出这条路，是一个尚未证明的猜想。"
+},
+{
+"id": "d1245",
+"page": "(실행 중 문구) predict",
+"ko": "약 100걸음",
+"en": "About 100 steps",
+"tr": "约100步"
+},
+{
+"id": "d1246",
+"page": "(실행 중 문구) predict",
+"ko": "약 1만 걸음",
+"en": "About 10,000 steps",
+"tr": "约10,000步"
+},
+{
+"id": "d1247",
+"page": "(실행 중 문구) predict",
+"ko": "길을 내지 않는다",
+"en": "It never builds one",
+"tr": "永远不会修出来"
+},
+{
+"id": "d1248",
+"page": "(실행 중 문구) predict",
+"ko": "농사가 번지는 속도는 무엇으로 정해질까요?",
+"en": "What sets the speed at which farming spreads?",
+"tr": "是什么决定了农业扩散的速度？"
+},
+{
+"id": "d1249",
+"page": "(실행 중 문구) predict",
+"ko": "전선 속도는 2√(rD)로, 성장률 r과 확산 D만으로 정해집니다. 기본값에서 이론 1.00km/년, 시뮬레이션에서 잰 값 1.03km/년(토착민 흡수를 반영한 이론은 1.12)이었습니다.",
+"en": "The front speed is 2√(rD), set by growth rate r and dispersal D alone. With the defaults the theory gives 1.00 km/year and the simulation measured 1.03 km/year (1.12 for the theory with assimilation).",
+"tr": "前沿速度为2√(rD)，只由增长率r和扩散系数D决定。在默认设置下，理论值为1.00公里/年，模拟实测为1.03公里/年（含同化的理论值为1.12）。"
+},
+{
+"id": "d1250",
+"page": "(실행 중 문구) predict",
+"ko": "사람이 걷는 속도",
+"en": "How fast people walk",
+"tr": "人走路的快慢"
+},
+{
+"id": "d1251",
+"page": "(실행 중 문구) predict",
+"ko": "인구가 느는 속도와 이웃으로 흩어지는 정도",
+"en": "How fast the population grows and how far it scatters",
+"tr": "人口增长得多快、扩散得多远"
+},
+{
+"id": "d1252",
+"page": "(실행 중 문구) predict",
+"ko": "처음 농부가 몇 명이었는지",
+"en": "How many farmers there were at the start",
+"tr": "一开始有多少农民"
+},
+{
+"id": "d1253",
+"page": "(실행 중 문구) predict",
+"ko": "질이 같은 두 군대가 서로 겨누어 쏘며 싸웁니다. 파랑이 200명, 빨강이 100명이면 이긴 파랑에는 처음 병력의 얼마쯤이 남을까요?",
+"en": "Two armies of equal quality aim and fire at each other. With 200 blue and 100 red soldiers, about what share of its starting force does the winning blue army keep?",
+"tr": "两支质量相同的军队互相瞄准射击。蓝方200人、红方100人，获胜的蓝方大约会保留起始兵力的多大部分？"
+},
+{
+"id": "d1254",
+"page": "(실행 중 문구) predict",
+"ko": "사각 법칙에서는 α·A²−β·B²가 보존되어 남는 병력이 √(200²−100²)≈173명, 즉 87%입니다. 시뮬레이션 300회 평균은 약 172명(86%)이었습니다. 일대일로 맞붙는 선형 법칙이면 50%만 남습니다.",
+"en": "Under the square law, α·A²−β·B² is conserved, so the survivors number √(200²−100²)≈173, or 87%. The average of 300 simulated fights was about 172 (86%). Under the one-to-one linear law only 50% would be left.",
+"tr": "在平方律下，α·A²−β·B²保持不变，因此幸存者为√(200²−100²)≈173人，即87%。300次模拟战斗的平均值约为172人（86%）。若按一对一的线性律，只会剩下50%。"
+},
+{
+"id": "d1255",
+"page": "(실행 중 문구) predict",
+"ko": "약 87%",
+"en": "About 87%",
+"tr": "约87%"
+},
+{
+"id": "d1256",
+"page": "(실행 중 문구) predict",
+"ko": "단기금리가 1%p 뛰면, 이 모델에서 10년 금리는 얼마나 오를까요?",
+"en": "If the short rate jumps 1 percentage point, how much does the 10-year yield rise in this model?",
+"tr": "短期利率跳升1个百分点，在这个模型中10年期收益率会上升多少？"
+},
+{
+"id": "d1257",
+"page": "(실행 중 문구) predict",
+"ko": "회귀 속도 0.3일 때 닫힌 해와 시뮬레이션 모두 0.33%p였습니다. 10년 금리는 앞으로 10년 단기금리 예상 평균이라 단기금리 충격이 평균으로 돌아오면서 희석됩니다. 회귀 속도 0.05면 0.81%p, 1.2면 0.09%p입니다.",
+"en": "Both the closed form and the simulation gave 0.33 points at reversion speed 0.3. The 10-year yield is the expected average short rate, so a short-rate shock fades as it reverts. It is 0.81 points at speed 0.05 and 0.09 at 1.2.",
+"tr": "均值回归速度为0.3时，解析解和模拟结果都是0.33个百分点。10年期收益率是未来短期利率的预期平均值，所以短期利率的冲击会在回归均值的过程中被稀释。速度为0.05时是0.81个百分点，为1.2时是0.09个百分点。"
+},
+{
+"id": "d1258",
+"page": "(실행 중 문구) predict",
+"ko": "거의 1%p",
+"en": "Nearly 1 point",
+"tr": "接近1个百分点"
+},
+{
+"id": "d1259",
+"page": "(실행 중 문구) predict",
+"ko": "약 0.33%p",
+"en": "About 0.33 points",
+"tr": "约0.33个百分点"
+},
+{
+"id": "d1260",
+"page": "(실행 중 문구) predict",
+"ko": "거의 오르지 않는다(0.01%p 이하)",
+"en": "Hardly at all (0.01 points or less)",
+"tr": "几乎不涨（0.01个百分点以下）"
+},
+{
+"id": "d1261",
+"page": "(실행 중 문구) predict",
+"ko": "금리 차이가 크면 이자를 더 벌지만, 캐리 거래에서 가장 나쁜 한 주의 손실은 어떻게 될까요?",
+"en": "A bigger interest gap earns more interest. What happens to the loss in the carry trade's worst week?",
+"tr": "利差越大，赚到的利息越多，但套息交易中最差一周的亏损会怎样？"
+},
+{
+"id": "d1262",
+"page": "(실행 중 문구) predict",
+"ko": "금리 차이 0, 4, 10%p에서 연 평균 캐리는 0.20%, 3.06%, 7.70%로 늘었고 가장 나쁜 한 주의 평균 손실도 3.6%, 10.1%, 10.5%로 커졌습니다. 캐리가 매력적일수록 사람이 빨리 몰려 급락이 커지기 때문입니다.",
+"en": "With gaps of 0, 4 and 10 points the average yearly carry rose to 0.20%, 3.06% and 7.70%, and the average loss in the worst week also grew to 3.6%, 10.1% and 10.5%. The more attractive the carry, the faster the crowd piles in and the bigger the crash.",
+"tr": "利差为0、4、10个百分点时，年均套息收益升至0.20%、3.06%和7.70%，最差一周的平均亏损也扩大到3.6%、10.1%和10.5%。套息越有吸引力，人群涌入越快，暴跌也就越大。"
+},
+{
+"id": "d1263",
+"page": "(실행 중 문구) predict",
+"ko": "거의 그대로이거나 오히려 줄어든다",
+"en": "It stays about the same or even shrinks",
+"tr": "基本不变，甚至变小"
+},
+{
+"id": "d1264",
+"page": "(실행 중 문구) predict",
+"ko": "이자가 늘어난 만큼 함께 커진다(약 3.6% → 10.5%)",
+"en": "It grows along with the interest (about 3.6% to 10.5%)",
+"tr": "随利息一起增大（约3.6% → 10.5%）"
+},
+{
+"id": "d1265",
+"page": "(실행 중 문구) predict",
+"ko": "금리 차이와 상관없이 늘 3.5% 안팎이다",
+"en": "It is always around 3.5% whatever the gap",
+"tr": "无论利差多少，始终在3.5%左右"
+},
+{
+"id": "d1266",
+"page": "(실행 중 문구) predict",
+"ko": "전쟁이 양쪽 모두에게 비싸서 싸우지 않고 나누는 합의가 늘 있습니다. 그런데 상대 힘을 정확히 모르는 한쪽(불확실성 ±25%, 전쟁 비용 15%)이 가장 유리한 요구를 하면 분쟁의 몇 %가 전쟁이 될까요?",
+"en": "War is costly for both sides, so a deal that beats fighting always exists. If one side that cannot tell the other's strength exactly (uncertainty ±25%, war cost 15%) makes its best demand, what share of disputes become war?",
+"tr": "战争对双方都代价高昂，所以总存在比开战更好的协议。如果一方不能准确判断对方的实力（不确定性±25%，战争成本15%），提出对自己最有利的要求，会有百分之几的争端变成战争？"
+},
+{
+"id": "d1267",
+"page": "(실행 중 문구) predict",
+"ko": "이론 40.0%(시뮬레이션 39.8%). 합의 범위가 있어도 A가 기대 몫을 키우려 욕심 낸 요구가 힘센 상대에게 거절되기 때문입니다. 정보가 정확하면 0%였습니다.",
+"en": "Theory gives 40.0% (39.8% in simulation). Even with a deal range, A's greedy demand to raise its expected share gets rejected by stronger opponents. With accurate information it was 0%.",
+"tr": "理论值为40.0%（模拟中为39.8%）。即使存在协议区间，A为提高预期份额而提出的贪心要求也会被更强的对手拒绝。信息准确时为0%。"
+},
+{
+"id": "d1268",
+"page": "(실행 중 문구) predict",
+"ko": "0% (합의가 있으니 전쟁은 없다)",
+"en": "0% (a deal exists, so no war)",
+"tr": "0%（有协议，所以没有战争）"
+},
+{
+"id": "d1269",
+"page": "(실행 중 문구) predict",
+"ko": "모든 집이 학원을 한 개씩 더 보내면, 상대평가에서 평균 순위는 어떻게 될까?",
+"en": "If every family sends one more class, what happens to the average rank under relative grading?",
+"tr": "如果所有家庭都多报一个班，在相对评价下平均排名会怎样？"
+},
+{
+"id": "d1270",
+"page": "(실행 중 문구) predict",
+"ko": "모두가 같은 수준이면 모든 점수가 같은 만큼 올라 순위 변화는 최대 0입니다. 한 집만 보내면 +7.5%p이고, 기본 설정에서 학원비는 처음의 5.0배가 되었지만 평균 순위는 50% 그대로였습니다.",
+"en": "When everyone sends the same number, all scores shift equally, so the largest rank change is 0. One family alone gains 7.5 points, while in the default run the bill grew to 5.0 times the start and the average rank stayed at 50%.",
+"tr": "当所有人报的班数相同，所有得分同步上移，排名变化最大为 0。只有一个家庭多报时可提升 7.5 个百分点，而在默认运行中，费用涨到起点的 5.0 倍，平均排名仍是 50%。"
+},
+{
+"id": "d1271",
+"page": "(실행 중 문구) predict",
+"ko": "모두 올라간다",
+"en": "Everyone rises",
+"tr": "所有人都上升"
+},
+{
+"id": "d1272",
+"page": "(실행 중 문구) predict",
+"ko": "그대로이고 학원비만 는다",
+"en": "It stays the same and only the bill grows",
+"tr": "排名不变，只有费用增加"
+},
+{
+"id": "d1273",
+"page": "(실행 중 문구) predict",
+"ko": "모두 내려간다",
+"en": "Everyone falls",
+"tr": "所有人都下降"
+},
+{
+"id": "d1274",
+"page": "(실행 중 문구) predict",
+"ko": "어린이집에서 아프면 쉬는 아이의 비율을 0%에서 70%로 올리면 한 해 걸린 횟수는 어떻게 될까요? (반 20명, 예시 설정)",
+"en": "If the share of children staying home when sick rises from 0% to 70%, what happens to infections per year? (class of 20, example settings)",
+"tr": "如果生病时在家休息的孩子比例从 0% 提高到 70%，一年里的感染次数会怎样？（20 人一班，示例设置）"
+},
+{
+"id": "d1275",
+"page": "(실행 중 문구) predict",
+"ko": "시드 20개 평균으로 5.0회에서 3.5회였습니다. 100%가 쉬어도 2.5회로 절반쯤만 줄어듭니다. 증상이 나타나기 전 하루 동안 이미 퍼뜨리고 반 밖에서도 감염이 들어오기 때문입니다.",
+"en": "Averaged over 20 seeds it went from 5.0 to 3.5. Even at 100% staying home it was 2.5, about half, because children spread it the day before symptoms and infection also arrives from outside the class.",
+"tr": "取 20 个随机种子的平均，从 5.0 次降到 3.5 次。即便 100% 的孩子在家休息也有 2.5 次，只减少约一半，因为孩子在出现症状前一天就已传染，而且班外也会带来感染。"
+},
+{
+"id": "d1276",
+"page": "(실행 중 문구) predict",
+"ko": "거의 0회가 된다",
+"en": "Falls to almost zero",
+"tr": "降到几乎为 0 次"
+},
+{
+"id": "d1277",
+"page": "(실행 중 문구) predict",
+"ko": "절반 아래로 줄어든다",
+"en": "Falls by more than half",
+"tr": "减少一半以上"
+},
+{
+"id": "d1278",
+"page": "(실행 중 문구) predict",
+"ko": "5.0회에서 3.5회로 약 30% 준다",
+"en": "Falls about 30%, from 5.0 to 3.5",
+"tr": "减少约 30%，从 5.0 次降到 3.5 次"
+},
+{
+"id": "d1279",
+"page": "(실행 중 문구) predict",
+"ko": "아이들이 지망 순위를 솔직하게 적었을 때, 다른 집은 그대로 두고 한 아이만 순서를 바꿔 적어 더 나은 곳에 갈 수 있는 아이는 보스턴 방식과 지연 수락 방식에서 각각 얼마나 될까?",
+"en": "If one child alone reorders their ranking while everyone else is honest, how many can do better under the Boston method and under deferred acceptance?",
+"tr": "当其他人都如实填写、只有一个孩子调整志愿顺序时，在波士顿方式和延迟接受方式下，各有多少孩子能得到更好的结果？"
+},
+{
+"id": "d1280",
+"page": "(실행 중 문구) predict",
+"ko": "아이 60명 표본에서 보스턴은 43%(26명)가 이득을 봤고 지연 수락은 0%였습니다(시드 1~12 평균 보스턴 34.3%). 지연 수락은 솔직하게 적는 것이 최선인 구조입니다.",
+"en": "In a sample of 60 children, 43% (26) gained under Boston and 0% under deferred acceptance (Boston averaged 34.3% over seeds 1 to 12). Deferred acceptance makes honesty the best policy.",
+"tr": "在 60 名儿童的样本中，波士顿方式下有 43%（26 人）受益，延迟接受下为 0%（种子 1 至 12 的平均，波士顿为 34.3%）。延迟接受的结构使如实填写成为最佳做法。"
+},
+{
+"id": "d1281",
+"page": "(실행 중 문구) predict",
+"ko": "둘 다 비슷하게 40% 안팎",
+"en": "About 40% under both",
+"tr": "两者相近，都在 40% 左右"
+},
+{
+"id": "d1282",
+"page": "(실행 중 문구) predict",
+"ko": "보스턴 43%, 지연 수락 0%",
+"en": "Boston 43%, deferred acceptance 0%",
+"tr": "波士顿 43%，延迟接受 0%"
+},
+{
+"id": "d1283",
+"page": "(실행 중 문구) predict",
+"ko": "보스턴 0%, 지연 수락 43%",
+"en": "Boston 0%, deferred acceptance 43%",
+"tr": "波士顿 0%，延迟接受 43%"
+},
+{
+"id": "d1284",
+"page": "(실행 중 문구) predict",
+"ko": "🔮 먼저 예상해 보세요",
+"en": "🔮 Make a prediction first",
+"tr": "🔮 先来猜一猜"
+},
+{
+"id": "d1285",
+"page": "(실행 중 문구) predict",
+"ko": "내 예상: {0}",
+"en": "My prediction: {0}",
+"tr": "我的预测：{0}"
+},
+{
+"id": "d1286",
+"page": "(실행 중 문구) predict",
+"ko": "이제 아래 실험을 돌려 보세요. 결과를 본 뒤 정답을 확인할 수 있어요.",
+"en": "Now run the experiment below. After you see the result, check the answer.",
+"tr": "现在请运行下面的实验。看到结果后，就可以查看答案了。"
+},
+{
+"id": "d1287",
+"page": "(실행 중 문구) predict",
+"ko": "정답 보기",
+"en": "Show the answer",
+"tr": "查看答案"
+},
+{
+"id": "d1288",
+"page": "(실행 중 문구) predict",
+"ko": "건너뛰고 바로 보기",
+"en": "Skip and see it now",
+"tr": "跳过，直接看"
+},
+{
+"id": "d1289",
+"page": "(실행 중 문구) predict",
+"ko": "예상을 고르면 실험 결과가 열려요.",
+"en": "Pick an answer to unlock the results.",
+"tr": "选好答案，就能看到实验结果。"
+},
+{
+"id": "d1290",
+"page": "(실행 중 문구) predict",
+"ko": "건너뛰었어요. 지금 골라도 돼요.",
+"en": "You skipped ahead. You can still pick now.",
+"tr": "你已跳过，现在选也可以。"
+},
+{
+"id": "d1291",
+"page": "(실행 중 문구) predict",
+"ko": "정답: {0}",
+"en": "Answer: {0}",
+"tr": "答案：{0}"
+},
+{
+"id": "d1292",
+"page": "(실행 중 문구) predict",
+"ko": "🎯 맞혔어요!",
+"en": "🎯 You got it!",
+"tr": "🎯 猜对了！"
+},
+{
+"id": "d1293",
+"page": "(실행 중 문구) predict",
+"ko": "🤔 틀렸어도 괜찮아요. 이 반전이 바로 이 실험이에요.",
+"en": "🤔 Not quite, and that is the point. This twist is what the experiment is about.",
+"tr": "🤔 猜错也没关系，这个反转正是这个实验想说明的。"
+},
+{
+"id": "d1294",
+"page": "(실행 중 문구) predict",
+"ko": "다른 방문자 {#0}명의 예상",
+"en": "What {0} other visitors predicted",
+"tr": "其他{0}位访客的预测"
+},
+{
+"id": "d1295",
+"page": "(실행 중 문구) predict",
+"ko": "정답을 맞힌 사람: {%0}",
+"en": "Got it right: {0}",
+"tr": "答对的人：{0}"
+},
+{
+"id": "d1296",
+"page": "(실행 중 문구) predict",
+"ko": "예상 적중 {#0}/{#1}",
+"en": "Predictions right: {0}/{1}",
+"tr": "预测命中 {0}/{1}"
+},
+{
+"id": "d1363",
+"page": "(실행 중 문구) sandpile",
+"ko": "방금 떨어뜨린 알의 결과",
+"en": "Result of the grain just dropped",
+"tr": "刚落下的沙粒的结果"
+},
+{
+"id": "d1364",
+"page": "(실행 중 문구) sandpile",
+"ko": "아직 떨어뜨리지 않았어요",
+"en": "No grain dropped yet",
+"tr": "还没有沙粒落下"
+},
+{
+"id": "d1365",
+"page": "(실행 중 문구) sandpile",
+"ko": "아무 일 없었음",
+"en": "Nothing happened",
+"tr": "什么也没发生"
+},
+{
+"id": "d1366",
+"page": "(실행 중 문구) sandpile",
+"ko": "{#0}번 무너짐",
+"en": "{0} topplings",
+"tr": "{0}次倒塌"
+},
+{
+"id": "d1367",
+"page": "(실행 중 문구) sandpile",
+"ko": "지금까지 떨어뜨린 알 {#0}개",
+"en": "Grains dropped so far: {0}",
+"tr": "目前已落下沙粒：{0}"
+},
+{
+"id": "d1368",
+"page": "(실행 중 문구) sandpile",
+"ko": "높이별 칸 비율",
+"en": "Share of cells by height",
+"tr": "各高度格子的比例"
+},
+{
+"id": "d1369",
+"page": "(실행 중 문구) sandpile",
+"ko": "높이 {#0}",
+"en": "Height {0}",
+"tr": "高度 {0}"
+},
+{
+"id": "d1370",
+"page": "(실행 중 문구) sandpile",
+"ko": "높이 4가 되면 무너집니다",
+"en": "A cell topples at height 4",
+"tr": "格子在高度达到4时倒塌"
+},
+{
+"id": "d1371",
+"page": "(실행 중 문구) sandpile",
+"ko": "쌓는 중",
+"en": "Building up",
+"tr": "堆积中"
+},
+{
+"id": "d1372",
+"page": "(실행 중 문구) sandpile",
+"ko": "떨어뜨린 알 수",
+"en": "Grains dropped",
+"tr": "落下的沙粒"
+},
+{
+"id": "d1373",
+"page": "(실행 중 문구) sandpile",
+"ko": "눈사태 크기 (무너진 횟수)",
+"en": "Avalanche size (number of topplings)",
+"tr": "雪崩规模（倒塌次数）"
+},
+{
+"id": "d1374",
+"page": "(실행 중 문구) sandpile",
+"ko": "최대 {#0}번",
+"en": "Max {0}",
+"tr": "最大 {0}"
+},
+{
+"id": "d1375",
+"page": "(실행 중 문구) sandpile",
+"ko": "눈사태 크기 (무너진 횟수, 로그 눈금)",
+"en": "Avalanche size (number of topplings, log scale)",
+"tr": "雪崩规模（倒塌次数，对数刻度）"
+},
+{
+"id": "d1376",
+"page": "(실행 중 문구) sandpile",
+"ko": "더미가 안정기에 들어서면 분포가 그려져요",
+"en": "The distribution is drawn once the pile reaches its steady regime",
+"tr": "沙堆进入稳定状态后才会绘制分布"
+},
+{
+"id": "d1377",
+"page": "(실행 중 문구) sandpile",
+"ko": "비율 (크기 한 단위당)",
+"en": "Share (per unit of size)",
+"tr": "比例（每单位规模）"
+},
+{
+"id": "d1378",
+"page": "(실행 중 문구) sandpile",
+"ko": "기울기 {#0} (측정)",
+"en": "Slope {0} (measured)",
+"tr": "斜率 {0}（实测）"
+},
+{
+"id": "d1379",
+"page": "(실행 중 문구) sandpile",
+"ko": "칸당 평균 모래알 수",
+"en": "Average grains per cell",
+"tr": "每格平均沙粒数"
+},
+{
+"id": "d1380",
+"page": "(실행 중 문구) sandpile",
+"ko": "안정기 평균 {#0}",
+"en": "Steady-regime average {0}",
+"tr": "稳定状态平均值 {0}"
+},
+{
+"id": "d1381",
+"page": "(실행 중 문구) sandpile",
+"ko": "가장 큰 눈사태 ÷ 보통 눈사태",
+"en": "Largest avalanche ÷ typical avalanche",
+"tr": "最大雪崩 ÷ 典型雪崩"
+},
+{
+"id": "d1382",
+"page": "(실행 중 문구) sandpile",
+"ko": "최대 {#0}번 무너짐 · 보통(중앙값) {#1}번",
+"en": "Largest: {0} topplings · typical (median): {1}",
+"tr": "最大：{0}次倒塌 · 典型（中位数）：{1}"
+},
+{
+"id": "d1383",
+"page": "(실행 중 문구) sandpile",
+"ko": "안정기에 들어서면 계산돼요",
+"en": "Calculated once the pile is steady",
+"tr": "沙堆稳定后才会计算"
+},
+{
+"id": "d1384",
+"page": "(실행 중 문구) sandpile",
+"ko": "칸당 평균 높이",
+"en": "Average height per cell",
+"tr": "每格平均高度"
+},
+{
+"id": "d1385",
+"page": "(실행 중 문구) sandpile",
+"ko": "올라가다가 어느 값에서 멈춰요",
+"en": "Rises, then stops at some value",
+"tr": "先上升，然后停在某个值"
+},
+{
+"id": "d1386",
+"page": "(실행 중 문구) sandpile",
+"ko": "알을 떨어뜨렸는데 아무 일 없던 비율",
+"en": "Share of grains that caused nothing",
+"tr": "没有引起任何变化的沙粒比例"
+},
+{
+"id": "d1387",
+"page": "(실행 중 문구) sandpile",
+"ko": "안정기 이후 떨어뜨린 알 {#0}개 중",
+"en": "Out of {0} grains dropped after the pile settled",
+"tr": "在沙堆稳定后落下的{0}粒沙中"
+},
+{
+"id": "d1388",
+"page": "(실행 중 문구) sandpile",
+"ko": "눈사태 크기 분포의 기울기 (측정)",
+"en": "Slope of the avalanche size distribution (measured)",
+"tr": "雪崩规模分布的斜率（实测）"
+},
+{
+"id": "d1389",
+"page": "(실행 중 문구) sandpile",
+"ko": "로그-로그 직선을 맞춘 값 · 눈사태 {#0}개",
+"en": "Log-log line fit · {0} avalanches",
+"tr": "双对数直线拟合 · {0}次雪崩"
+},
+{
+"id": "d1390",
+"page": "(실행 중 문구) sandpile",
+"ko": "모래더미 번호",
+"en": "Sandpile number",
+"tr": "沙堆编号"
+},
+{
+"id": "d1391",
+"page": "(실행 중 문구) seating",
+"ko": "무작위로 앉기",
+"en": "Random seating",
+"tr": "随机就座"
+},
+{
+"id": "d1392",
+"page": "(실행 중 문구) seating",
+"ko": "가장 먼 자리로",
+"en": "Farthest seat",
+"tr": "最远的座位"
+},
+{
+"id": "d1393",
+"page": "(실행 중 문구) seating",
+"ko": "끝자리 먼저",
+"en": "Edge first",
+"tr": "先坐两端"
+},
+{
+"id": "d1394",
+"page": "(실행 중 문구) seating",
+"ko": "정돈해서 앉기",
+"en": "Orderly seating",
+"tr": "有序就座"
+},
+{
+"id": "d1395",
+"page": "(실행 중 문구) seating",
+"ko": "가장 먼 자리",
+"en": "Farthest seat",
+"tr": "最远的座位"
+},
+{
+"id": "d1396",
+"page": "(실행 중 문구) seating",
+"ko": "정돈",
+"en": "Orderly",
+"tr": "有序"
+},
+{
+"id": "d1397",
+"page": "(실행 중 문구) seating",
+"ko": "앉은 {#0}명 · 돌려보냄 {#1}명",
+"en": "{0} seated · {1} turned away",
+"tr": "已就座{0}人 · 被拒{1}人"
+},
+{
+"id": "d1398",
+"page": "(실행 중 문구) seating",
+"ko": "{#0}/{#1}번째 도착",
+"en": "Arrival {0}/{1}",
+"tr": "到达 {0}/{1}"
+},
+{
+"id": "d1399",
+"page": "(실행 중 문구) seating",
+"ko": "도착 순서 번호",
+"en": "Arrival order #",
+"tr": "到达顺序编号"
+},
+{
+"id": "d1400",
+"page": "(실행 중 문구) seating",
+"ko": "{#0}석",
+"en": "{0} seats",
+"tr": "{0}个座位"
+},
+{
+"id": "d1401",
+"page": "(실행 중 문구) seating",
+"ko": "{#0}칸",
+"en": "{0}",
+"tr": "{0}"
+},
+{
+"id": "d1402",
+"page": "(실행 중 문구) seating",
+"ko": "끝! 모두 {#0}명이 앉았고 {#1}명은 돌아갔습니다. 정돈했다면 {#2}명, 무작위로만 앉으면 평균 {#3}명이었습니다.",
+"en": "Done! {0} people sat and {1} went home. Orderly seating would have fit {2}; purely random seating averaged {3}.",
+"tr": "完成！{0}人坐下，{1}人回家了。有序就座可以坐下{2}人；纯随机就座平均为{3}人。"
+},
+{
+"id": "d1403",
+"page": "(실행 중 문구) seating",
+"ko": "나머지 {#0}명이 무작위로 들어오는 중…",
+"en": "The remaining {0} are arriving at random…",
+"tr": "其余{0}人随机到达中…"
+},
+{
+"id": "d1404",
+"page": "(실행 중 문구) seating",
+"ko": "직접 앉힌 {#0}명, 앞으로 도착할 사람 {#1}명. 자리를 눌러 앉혀 보세요 (칸을 비울 필요는 없습니다).",
+"en": "You seated {0}; {1} still to arrive. Click a seat to place someone (no gap needed).",
+"tr": "你已安排{0}人就座，还有{1}人未到。点击座位来安排一个人（不需要留空位）。"
+},
+{
+"id": "d1405",
+"page": "(실행 중 문구) seating",
+"ko": "직접 앉힌 {#0}명, 앞으로 도착할 사람 {#1}명. 자리를 눌러 앉혀 보세요 (앉은 사람 양옆 {#2}칸은 비워 둡니다).",
+"en": "You seated {0}; {1} still to arrive. Click a seat to place someone (keep {2} empty seats on each side of a seated person).",
+"tr": "你已安排{0}人就座，还有{1}人未到。点击座位来安排一个人（已就座者的两侧各留{2}个空位）。"
+},
+{
+"id": "d1406",
+"page": "(실행 중 문구) seating",
+"ko": "이미 누가 앉은 자리입니다.",
+"en": "Someone is already sitting there.",
+"tr": "那里已经有人坐了。"
+},
+{
+"id": "d1407",
+"page": "(실행 중 문구) seating",
+"ko": "그 자리는 앉은 사람과 너무 가깝습니다 (양옆 {#0}칸은 비워 둬야 해요).",
+"en": "That seat is too close to someone (keep {0} empty seats on each side).",
+"tr": "这个座位离别人太近了（两侧各要空出{0}个座位）。"
+},
+{
+"id": "d1408",
+"page": "(실행 중 문구) seating",
+"ko": "(정돈의 {#0}%)",
+"en": "({0}% of orderly)",
+"tr": "（有序排列的{0}%）"
+},
+{
+"id": "d1409",
+"page": "(실행 중 문구) seating",
+"ko": "긴 벤치 이론값 {#0}%",
+"en": "Long-bench theory {0}%",
+"tr": "长凳理论值 {0}%"
+},
+{
+"id": "d1410",
+"page": "(실행 중 문구) seating",
+"ko": "긴 벤치 이론값 {0}",
+"en": "Long-bench theory {0}",
+"tr": "长凳理论值 {0}"
+},
+{
+"id": "d1411",
+"page": "(실행 중 문구) seating",
+"ko": "벤치의 자리 수",
+"en": "Seats on the bench",
+"tr": "长凳座位数"
+},
+{
+"id": "d1412",
+"page": "(실행 중 문구) seating",
+"ko": "사이에 비워 두는 자리 수(g)",
+"en": "Empty seats kept between people (g)",
+"tr": "人与人之间空出的座位数（g）"
+},
+{
+"id": "d1413",
+"page": "(실행 중 문구) seating",
+"ko": "정돈했다면 앉았을 사람 중 놓친 비율",
+"en": "Share of the orderly capacity that is lost",
+"tr": "相对有序排列容量而损失的比例"
+},
+{
+"id": "d1414",
+"page": "(실행 중 문구) seating",
+"ko": "이번 판 (무작위 줄)",
+"en": "This run (random row)",
+"tr": "本轮（随机排列）"
+},
+{
+"id": "d1415",
+"page": "(실행 중 문구) seating",
+"ko": "돌려보낸 사람",
+"en": "People turned away",
+"tr": "被拒之门外的人"
+},
+{
+"id": "d1416",
+"page": "(실행 중 문구) seating",
+"ko": "긴 벤치 이론값",
+"en": "Long-bench theory value",
+"tr": "长凳理论值"
+},
+{
+"id": "d1417",
+"page": "(실행 중 문구) seating",
+"ko": "{#0} / {#1}명",
+"en": "{0} / {1}",
+"tr": "{0} / {1}"
+},
+{
+"id": "d1418",
+"page": "(실행 중 문구) seating",
+"ko": "무작위 평균 {#0}명 · 정돈하면 {#1}명 (자리 {#2}개, 비우는 칸 {#3}개)",
+"en": "Random average {0} · orderly fits {1} ({2} seats, gap {3})",
+"tr": "随机平均 {0} · 有序可坐 {1}（{2}个座位，间隔{3}）"
+},
+{
+"id": "d1419",
+"page": "(실행 중 문구) seating",
+"ko": "앉은 사람 / 정돈했을 때 최대 · 앉을 수 없는 빈 자리 {#0}개",
+"en": "Seated / orderly maximum · empty seats nobody may take: {0}",
+"tr": "已坐 / 有序最大值 · 无人能坐的空位：{0}"
+},
+{
+"id": "d1420",
+"page": "(실행 중 문구) seating",
+"ko": "도착한 {#0}명 중 앉을 곳이 없어 돌아간 사람 (무작위 줄)",
+"en": "Of the {0} who arrived, those who left for lack of a seat (random row)",
+"tr": "到达的{0}人中，因没有座位而离开的人（随机排列）"
+},
+{
+"id": "d1421",
+"page": "(실행 중 문구) seating",
+"ko": "시뮬레이션 평균 {#0}% (이 벤치 길이), 정돈 {#1}%",
+"en": "Simulation average {0}% (this bench length), orderly {1}%",
+"tr": "模拟平均 {0}%（此长凳长度），有序 {1}%"
+},
+{
+"id": "d1422",
+"page": "(실행 중 문구) secretary",
+"ko": "성공! 진짜 최고를 골랐습니다",
+"en": "Success! You picked the true best",
+"tr": "成功！你选中了真正的最佳人选"
+},
+{
+"id": "d1423",
+"page": "(실행 중 문구) secretary",
+"ko": "성공으로 칩니다: {#0}위를 골랐습니다 (기준: 상위 {#1}명)",
+"en": "Counts as success: you picked rank {0} (standard: top {1})",
+"tr": "算作成功：你选中了第{0}名（标准：前{1}名）"
+},
+{
+"id": "d1424",
+"page": "(실행 중 문구) secretary",
+"ko": "놓쳤습니다: 최고는 {#0}번째로 관찰 구간에서 이미 지나갔고, 기준을 넘는 사람이 없어 마지막 후보({#1}위)를 받았습니다",
+"en": "Missed: the best was candidate {0}, already passed in the observation phase, and nobody beat the standard, so you were stuck with the last candidate (rank {1})",
+"tr": "失败：最佳人选是第{0}位，已在观察阶段过去，而且没有人超过标准，所以只能选最后一位候选人（第{1}名）"
+},
+{
+"id": "d1425",
+"page": "(실행 중 문구) secretary",
+"ko": "놓쳤습니다: 최고는 {#0}번째로 관찰 구간에서 이미 지나갔습니다 ({#1}위를 골랐습니다)",
+"en": "Missed: the best was candidate {0}, already passed in the observation phase (you picked rank {1})",
+"tr": "失败：最佳人选是第{0}位，已在观察阶段过去（你选中了第{1}名）"
+},
+{
+"id": "d1426",
+"page": "(실행 중 문구) secretary",
+"ko": "놓쳤습니다: 더 좋은 후보가 {#0}번째에 있었는데 {#1}번째에서 먼저 멈췄습니다 ({#2}위)",
+"en": "Missed: a better candidate was number {0}, but you stopped earlier at number {1} (rank {2})",
+"tr": "失败：更好的候选人是第{0}位，但你在第{1}位就提前停下了（第{2}名）"
+},
+{
+"id": "d1427",
+"page": "(실행 중 문구) secretary",
+"ko": "{#0}번째에서 멈췄습니다: 지금까지 본 누구보다 좋아요",
+"en": "Stopped at candidate {0}: better than everyone seen so far",
+"tr": "在第{0}位停下：比目前见过的所有人都好"
+},
+{
+"id": "d1428",
+"page": "(실행 중 문구) secretary",
+"ko": "후보 {#0}명을 한 명씩 만납니다. 처음 {#1}명은 기준만 잡고 모두 거절합니다",
+"en": "You meet {0} candidates one by one. The first {1} only set the standard and are all rejected",
+"tr": "你将逐一见到{0}位候选人。前{1}位只用来确定标准，全部拒绝"
+},
+{
+"id": "d1429",
+"page": "(실행 중 문구) secretary",
+"ko": "후보 {#0}명을 한 명씩 만납니다. 관찰 없이 첫 사람을 바로 받습니다",
+"en": "You meet {0} candidates one by one. With no observation, you take the first one right away",
+"tr": "你将逐一见到{0}位候选人。不做观察，直接选第一位"
+},
+{
+"id": "d1430",
+"page": "(실행 중 문구) secretary",
+"ko": "관찰 중 {#0}/{#1}: 점수를 기억만 하고 모두 거절합니다",
+"en": "Observing {0}/{1}: just remember the scores and reject everyone",
+"tr": "观察中 {0}/{1}：只记住分数，全部拒绝"
+},
+{
+"id": "d1431",
+"page": "(실행 중 문구) secretary",
+"ko": "이제부터: 지금까지 본 누구보다 점수가 높으면 바로 선택합니다",
+"en": "From now on: take the first one who scores higher than everyone seen so far",
+"tr": "从现在起：选第一个分数高于此前所有人的候选人"
+},
+{
+"id": "d1432",
+"page": "(실행 중 문구) secretary",
+"ko": "지금까지 본 최고 점수: {0} · 본 후보 {#1}/{#2}명",
+"en": "Best score so far: {0} · candidates seen {1}/{2}",
+"tr": "目前最高分：{0} · 已见候选人 {1}/{2}位"
+},
+{
+"id": "d1433",
+"page": "(실행 중 문구) secretary",
+"ko": "처음에 거절만 하며 지켜보는 비율 (관찰 구간)",
+"en": "Share you only watch at first (observation phase)",
+"tr": "开始时只观察的比例（观察阶段）"
+},
+{
+"id": "d1434",
+"page": "(실행 중 문구) secretary",
+"ko": "후보가 많을 때의 한계 36.8%",
+"en": "Limit with many candidates: 36.8%",
+"tr": "候选人很多时的极限：36.8%"
+},
+{
+"id": "d1435",
+"page": "(실행 중 문구) secretary",
+"ko": "{#0}위 이하",
+"en": "Rank {0} or lower",
+"tr": "第{0}名及以后"
+},
+{
+"id": "d1436",
+"page": "(실행 중 문구) secretary",
+"ko": "{#0}~{#1}위",
+"en": "Ranks {0} to {1}",
+"tr": "第{0}至{1}名"
+},
+{
+"id": "d1437",
+"page": "(실행 중 문구) secretary",
+"ko": "최고 한 명을 고를 확률",
+"en": "Chance of picking the very best",
+"tr": "选中最佳一人的概率"
+},
+{
+"id": "d1438",
+"page": "(실행 중 문구) secretary",
+"ko": "상위 {#0}명 안에 들 확률",
+"en": "Chance of landing in the top {0}",
+"tr": "进入前{0}名的概率"
+},
+{
+"id": "d1439",
+"page": "(실행 중 문구) secretary",
+"ko": "가장 좋은 관찰 비율",
+"en": "Best observation share",
+"tr": "最佳观察比例"
+},
+{
+"id": "d1440",
+"page": "(실행 중 문구) secretary",
+"ko": "가장 좋은 관찰 비율 (상위 {#0}명 기준)",
+"en": "Best observation share (top {0} counts)",
+"tr": "最佳观察比例（以前{0}名为准）"
+},
+{
+"id": "d1441",
+"page": "(실행 중 문구) secretary",
+"ko": "{#0}명을 지켜본 뒤 선택 · 이때 {#1}%",
+"en": "Watch {0}, then choose · success {1}%",
+"tr": "先观察{0}位再选择 · 成功率 {1}%"
+},
+{
+"id": "d1442",
+"page": "(실행 중 문구) secretary",
+"ko": "지금 설정({#0}%, {#1}명 관찰) · 시뮬레이션 평균 {#2}%",
+"en": "Current setting ({0}%, watching {1}) · simulation average {2}%",
+"tr": "当前设置（{0}%，观察{1}位）· 模拟平均 {2}%"
+},
+{
+"id": "d1443",
+"page": "(실행 중 문구) secretary",
+"ko": "아무렇게나 고르면",
+"en": "Picking at random",
+"tr": "随便选"
+},
+{
+"id": "d1444",
+"page": "(실행 중 문구) secretary",
+"ko": "제비뽑기처럼 한 명을 고를 때",
+"en": "Like drawing lots",
+"tr": "就像抽签选一个人"
+},
+{
+"id": "d1445",
+"page": "(실행 중 문구) secretary",
+"ko": "직접 돌려 본 기록",
+"en": "Your runs so far",
+"tr": "你已运行的记录"
+},
+{
+"id": "d1446",
+"page": "(실행 중 문구) secretary",
+"ko": "자동 반복으로 쌓인 성공 횟수 (설정을 바꾸면 처음부터)",
+"en": "Successes counted over automatic repeats (restarts when settings change)",
+"tr": "自动重复累计的成功次数（更改设置后重新开始）"
+},
+{
+"id": "d1447",
+"page": "(실행 중 문구) secretary",
+"ko": "이번 판 번호",
+"en": "Round",
+"tr": "轮次"
+},
+{
+"id": "d1538",
+"page": "(실행 중 문구) treasury",
+"ko": "{#0}/{#1}개월",
+"en": "{0}/{1} months",
+"tr": "{0}/{1}个月"
+},
+{
+"id": "d1539",
+"page": "(실행 중 문구) treasury",
+"ko": "{#0}개월 뒤",
+"en": "After {0} months",
+"tr": "{0}个月后"
+},
+{
+"id": "d1540",
+"page": "(실행 중 문구) treasury",
+"ko": "장기 평균 {#0}%",
+"en": "Long-run average {0}%",
+"tr": "长期平均 {0}%"
+},
+{
+"id": "d1541",
+"page": "(실행 중 문구) treasury",
+"ko": "충격 +{#0}%p",
+"en": "Shock +{0} pts",
+"tr": "冲击 +{0}个百分点"
+},
+{
+"id": "d1542",
+"page": "(실행 중 문구) treasury",
+"ko": "단기금리 평균 {#0}%",
+"en": "Average short rate {0}%",
+"tr": "短期利率平均 {0}%"
+},
+{
+"id": "d1543",
+"page": "(실행 중 문구) treasury",
+"ko": "10년 금리 평균 {#0}%",
+"en": "Average 10-year yield {0}%",
+"tr": "10年期收益率平均 {0}%"
+},
+{
+"id": "d1544",
+"page": "(실행 중 문구) treasury",
+"ko": "10년 금리",
+"en": "10-year yield",
+"tr": "10年期收益率"
+},
+{
+"id": "d1545",
+"page": "(실행 중 문구) treasury",
+"ko": "채권 가격 (액면 100)",
+"en": "Bond price (face value 100)",
+"tr": "债券价格（面值100）"
+},
+{
+"id": "d1546",
+"page": "(실행 중 문구) treasury",
+"ko": "시작 {#0}% · 가격 100",
+"en": "Start {0}% · price 100",
+"tr": "起点 {0}% · 价格 100"
+},
+{
+"id": "d1547",
+"page": "(실행 중 문구) treasury",
+"ko": "지금 {#0}%",
+"en": "Now {0}%",
+"tr": "现在 {0}%"
+},
+{
+"id": "d1548",
+"page": "(실행 중 문구) treasury",
+"ko": "채권 가격 변화 (시작 가격 100 대비, 이자 제외)",
+"en": "Bond price change (vs. starting price 100, interest excluded)",
+"tr": "债券价格变化（相对起始价格100，不含利息）"
+},
+{
+"id": "d1549",
+"page": "(실행 중 문구) treasury",
+"ko": "평균:",
+"en": "Average:",
+"tr": "平均："
+},
+{
+"id": "d1550",
+"page": "(실행 중 문구) treasury",
+"ko": "하위 5%:",
+"en": "Bottom 5%:",
+"tr": "最低5%："
+},
+{
+"id": "d1551",
+"page": "(실행 중 문구) treasury",
+"ko": "상위 5%:",
+"en": "Top 5%:",
+"tr": "最高5%："
+},
+{
+"id": "d1552",
+"page": "(실행 중 문구) treasury",
+"ko": "10년 금리가 1%p 오르면 채권값은",
+"en": "If the 10-year yield rises 1 point, the bond falls by",
+"tr": "10年期收益率上升1个百分点，债券价格将下跌"
+},
+{
+"id": "d1553",
+"page": "(실행 중 문구) treasury",
+"ko": "-{#0}%",
+"en": "-{0}%",
+"tr": "-{0}%"
+},
+{
+"id": "d1554",
+"page": "(실행 중 문구) treasury",
+"ko": "+{#0}%",
+"en": "+{0}%",
+"tr": "+{0}%"
+},
+{
+"id": "d1555",
+"page": "(실행 중 문구) treasury",
+"ko": "반대로 1%p 내리면 +{#0}%. 내릴 때 이득이 오를 때 손해보다 큽니다(볼록성)",
+"en": "If it falls 1 point instead, +{0}%. The gain on a fall exceeds the loss on a rise (convexity)",
+"tr": "反之下降1个百分点则为+{0}%。下降时的收益大于上升时的损失（凸性）"
+},
+{
+"id": "d1556",
+"page": "(실행 중 문구) treasury",
+"ko": "모델이 정한 10년 금리 (예시 숫자)",
+"en": "The model's 10-year yield (example number)",
+"tr": "模型给出的10年期收益率（示例数字）"
+},
+{
+"id": "d1557",
+"page": "(실행 중 문구) treasury",
+"ko": "앞으로의 단기금리 예상 평균에 기간 프리미엄을 더한 값",
+"en": "Expected average short rate plus the term premium",
+"tr": "未来短期利率的预期平均值加上期限溢价"
+},
+{
+"id": "d1558",
+"page": "(실행 중 문구) treasury",
+"ko": "단기금리 +1%p일 때 10년 금리",
+"en": "10-year yield when the short rate rises 1 point",
+"tr": "短期利率上升1个百分点时的10年期收益率"
+},
+{
+"id": "d1559",
+"page": "(실행 중 문구) treasury",
+"ko": "+{#0}%p",
+"en": "+{0} pts",
+"tr": "+{0}个百分点"
+},
+{
+"id": "d1560",
+"page": "(실행 중 문구) treasury",
+"ko": "회귀가 빠를수록 장기 금리는 덜 움직입니다",
+"en": "The faster the reversion, the less the long yield moves",
+"tr": "回归越快，长期收益率变动越小"
+},
+{
+"id": "d1561",
+"page": "(실행 중 문구) treasury",
+"ko": "듀레이션(금리 민감도)",
+"en": "Duration (rate sensitivity)",
+"tr": "久期（利率敏感度）"
+},
+{
+"id": "d1562",
+"page": "(실행 중 문구) treasury",
+"ko": "금리 1%p당 가격이 약 {#0}% 움직이는 정도",
+"en": "Price moves about {0}% per 1 point of yield",
+"tr": "收益率每变动1个百分点，价格约变动{0}%"
+},
+{
+"id": "d1563",
+"page": "(실행 중 문구) treasury",
+"ko": "금리 경로 번호",
+"en": "Rate path",
+"tr": "利率路径"
+},
+{
+"id": "d1613",
+"page": "(실행 중 문구) war",
+"ko": "분쟁 {#0}건 · 그중 전쟁 {#1}%",
+"en": "Disputes: {0} · war in {1}%",
+"tr": "争端 {0} 起 · 其中战争 {1}%"
+},
+{
+"id": "d1614",
+"page": "(실행 중 문구) war",
+"ko": "A가 실제로 이길 가능성 (B는 정확히 알고, A는 범위만 짐작)",
+"en": "A's true chance of winning (B knows it exactly, A only guesses a range)",
+"tr": "A实际获胜的可能性（B确切知道，A只能猜一个范围）"
+}
+]

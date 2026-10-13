@@ -1,0 +1,394 @@
+[
+{
+"id": "s0664",
+"page": "checkout",
+"ko": "<b>말하는 것:</b> 계산대 4개, 붐빔 90%, 계산 시간 보통(들쭉날쭉함 1.0)에서 손님 10만 명을 5번 돌린 평균은 이렇습니다. 한 줄은 평균 6.1분, 90% 손님이 16.0분 안에 계산을 시작했습니다. 사람이 가장 적은 줄을 고르는 방식(B)은 평균 6.9분(한 줄의 1.13배), 90%는 18.3분이었고 손님의 44%가 뒤에 온 사람에게 추월당했습니다. 같은 손님을 한 줄과 비교하면 34%는 1분 넘게 더 기다리고 26%는 1분 넘게 덜 기다렸습니다. 아무 줄이나 서는 방식(C)은 평균 29.9분(4.9배)이었고, 물건이 가장 적은 줄을 고르는 방식(D)은 평균 6.5분(1.06배)이었습니다. 계산대가 놀고 있는데 다른 줄에 손님이 있는 시간은 B 11%, C 35%, D 5%였고, 한 줄은 0%입니다. 한 줄이 더 빠른 정도는 설정에 따라 달랐습니다. 덜 붐빌 때 상대적으로 더 컸고(붐빔 60%: B가 1.61배), 계산대가 많을수록 컸으며(2대 1.05배, 8대 1.28배), 계산 시간이 들쭉날쭉할수록 컸습니다(1.5에서 1.18배). 붐빔 95%에서는 1.06배로 줄었는데, 그때는 어느 방식이든 모두 크게 기다리기 때문입니다.",
+"en": "<b>What it shows:</b> Averages over five runs of 100,000 customers with 4 cashiers, 90% busy and typical checkout times (variability 1.0): the single line averaged 6.1 minutes, and 90% of customers started checking out within 16.0 minutes. Joining the line with the fewest people (B) averaged 6.9 minutes (1.13 times the single line), 90% within 18.3 minutes, and 44% of customers were overtaken by someone who arrived later. Compared with the single line for the same customers, 34% waited more than a minute longer and 26% waited more than a minute less. Choosing any line (C) averaged 29.9 minutes (4.9 times), and joining the line with the fewest items (D) averaged 6.5 minutes (1.06 times). The share of time a cashier was idle while someone waited in another line was 11% for B, 35% for C and 5% for D, and 0% for the single line. How much faster the single line was depended on the settings. The relative gap was larger when it was less busy (60% busy: B was 1.61 times), with more cashiers (2 cashiers 1.05 times, 8 cashiers 1.28 times) and with more variable checkout times (1.18 times at 1.5). At 95% busy it shrank to 1.06 times, because everyone waits a lot with any method.",
+"tr": "<b>Ce que cela montre :</b> Moyennes sur cinq exécutions de 100 000 clients avec 4 caissiers, 90 % d'affluence et des temps de passage typiques (variabilité 1,0) : la file unique a donné une moyenne de 6,1 minutes, et 90 % des clients ont commencé à payer en 16,0 minutes. Rejoindre la file avec le moins de personnes (B) a donné 6,9 minutes en moyenne (1,13 fois la file unique), 90 % en 18,3 minutes, et 44 % des clients ont été doublés par quelqu'un arrivé après eux. Par rapport à la file unique pour les mêmes clients, 34 % ont attendu plus d'une minute de plus et 26 % plus d'une minute de moins. Choisir n'importe quelle file (C) a donné 29,9 minutes en moyenne (4,9 fois), et rejoindre la file avec le moins d'articles (D) 6,5 minutes (1,06 fois). La part du temps où un caissier était libre pendant que quelqu'un attendait dans une autre file était de 11 % pour B, 35 % pour C et 5 % pour D, et 0 % pour la file unique. L'avantage de la file unique dépendait des réglages. L'écart relatif était plus grand quand c'était moins chargé (60 % d'affluence : B à 1,61 fois), avec plus de caissiers (2 caissiers 1,05 fois, 8 caissiers 1,28 fois) et avec des temps de passage plus variables (1,18 fois à 1,5). À 95 % d'affluence, il se réduisait à 1,06 fois, car tout le monde attend beaucoup quelle que soit la méthode."
+},
+{
+"id": "s0665",
+"page": "checkout",
+"ko": "줄을 하나로 세우면 반드시 이득이라는 뜻은 아닙니다. 줄 바꾸기와 전용 계산대는 이 모델에 없습니다.",
+"en": "It does not mean one line always wins; lane switching and express counters are not in this model.",
+"tr": "Cela ne veut pas dire qu'une file unique l'emporte toujours ; le changement de file et les caisses rapides ne sont pas dans ce modèle."
+},
+{
+"id": "s0666",
+"page": "checkout",
+"ko": "실제 가게에서는 손님이 기다린 시간과 빈 계산대가 생기는 순간을 재어 보고, 전용 계산대의 효과를 따로 비교해야 합니다.",
+"en": "A real store would need measured waits and idle-counter moments, and a separate comparison of express counters.",
+"tr": "Un vrai magasin demanderait de mesurer les attentes et les moments de caisse inactive, et de comparer séparément les caisses rapides."
+},
+{
+"id": "s0667",
+"page": "checkout",
+"ko": "<b>말하지 않는 것:</b> 실제 마트를 재현한 것이 아닙니다. 이 모델에서 손님은 한 번 줄을 고르면 바꾸지 않습니다(옆줄로 옮기는 행동은 넣지 않았으므로, 현실의 줄 바꾸기는 줄 따로의 불리함을 일부 줄여 줄 것입니다). 현실의 계산대에는 물건 적은 손님 전용 계산대, 셀프 계산대, 계산대가 닫히거나 열리는 일, 가격표를 확인하러 가는 일, 줄이 짧아 보이는 착시와 습관이 있지만 모두 넣지 않았습니다. 도착은 하루 내내 같은 속도의 무작위이고 계산 시간 분포는 이 프로젝트가 가정한 것으로 한국 마트의 실제 자료가 아닙니다. 따라서 '줄을 하나로 세우면 반드시 이득'이라는 뜻이 아니라, 이런 단순한 조건에서 줄을 합치는 것이 어떤 효과를 내는지 보여 주는 것입니다. 한 줄이 손님에게 늘 더 낫다고는 할 수 없으며(공간, 줄이 길어 보여 포기하는 손님 등) 매장이 줄 구조를 고르는 데는 이 모델에 없는 요인이 많습니다.",
+"en": "<b>What it doesn't show:</b> This is not a reproduction of a real store. In this model customers pick a line once and never switch (lane switching, or jockeying, is not modeled, so real-world line switching would soften some of the disadvantage of separate lines). Real stores also have express lanes, self-checkouts, cashiers opening and closing, price checks, and the habits and illusions that make a line look short, none of which are modeled. Arrivals are random at a constant rate all day and the checkout-time distribution is this project's assumption, not data from Korean supermarkets. So this does not say a single line is always better; it shows what merging lines does under these simple conditions. A single line is not always better for customers (space, customers who balk at a long line), and a store weighs many factors this model leaves out.",
+"tr": "<b>Ce que cela ne montre pas :</b> Ce n'est pas la reproduction d'un vrai magasin. Dans ce modèle, les clients choisissent une file une seule fois et n'en changent jamais (le changement de file, ou jockeying, n'est pas modélisé ; dans la réalité, changer de file atténuerait en partie l'inconvénient des files séparées). Les vrais magasins ont aussi des caisses rapides, des caisses automatiques, des caissiers qui ouvrent et ferment, des vérifications de prix, ainsi que les habitudes et illusions qui font paraître une file courte, rien de cela n'est modélisé. Les arrivées sont aléatoires à taux constant toute la journée et la distribution du temps de passage est une hypothèse de ce projet, pas des données de supermarchés coréens. Cela ne dit donc pas qu'une file unique est toujours meilleure ; cela montre ce que fait la fusion des files dans ces conditions simples. Une file unique n'est pas toujours meilleure pour les clients (espace, clients qui renoncent devant une longue file), et un magasin pèse de nombreux facteurs que ce modèle laisse de côté."
+},
+{
+"id": "s0668",
+"page": "checkout",
+"ko": "<b>모델의 뿌리:</b> 대기행렬 이론입니다. 덴마크의 A. K. Erlang이 전화 교환기에서 통화를 기다리는 문제를 풀며 만든 계산식(얼랑 C)이 계산대 여러 개에 한 줄로 서는 가게(M/M/c)의 기본 이론이고, 줄 따로는 계산대마다 따로 계산하는 줄(M/M/1)이 여러 개 있는 경우와 같습니다.",
+"en": "<b>Where the model comes from:</b> This is queueing theory. The Erlang C formula, worked out by the Danish engineer A. K. Erlang for calls waiting in telephone exchanges, is the basic result for a single shared line feeding several cashiers (M/M/c), and separate lines behave like several independent single-cashier queues (M/M/1).",
+"tr": "<b>D'où vient le modèle :</b> C'est de la théorie des files d'attente. La formule d'Erlang C, établie par l'ingénieur danois A. K. Erlang pour les appels en attente dans les centraux téléphoniques, est le résultat de base pour une file unique alimentant plusieurs caissiers (M/M/c), et des files séparées se comportent comme plusieurs files indépendantes à un seul caissier (M/M/1)."
+},
+{
+"id": "s0669",
+"page": "checkout",
+"ko": "<b>핵심 가정과 수식:</b> 붐빔 ρ = 도착률 × 평균 계산 시간 ÷ 계산대 수 (슬라이더 '붐비는 정도'). 계산대 c개, a = ρc일 때 손님이 도착해 기다려야 할 확률 C(c, a)를 얼랑 C 식으로 구하고, 평균 대기는 <code>Wq = C(c, a) × S / (c(1−ρ))</code> (S는 평균 계산 시간 3분), 기다림이 t를 넘을 확률은 <code>C × e<sup>−c(1−ρ)t/S</sup></code>입니다. 줄 따로이고 아무 줄이나 서면 계산대마다 M/M/1이 되어 <code>Wq = ρS / (1−ρ)</code>입니다.",
+"en": "<b>Key assumptions and formulas:</b> Utilization ρ = arrival rate × mean checkout time ÷ number of cashiers (the 'How busy' slider). With c cashiers and a = ρc, the Erlang C formula gives C(c, a), the probability that an arriving customer has to wait; the mean wait is <code>Wq = C(c, a) × S / (c(1−ρ))</code> with S the mean checkout time (3 minutes), and the chance of waiting longer than t is <code>C × e<sup>−c(1−ρ)t/S</sup></code>. With separate lines and random choice each cashier is an M/M/1 queue, <code>Wq = ρS / (1−ρ)</code>.",
+"tr": "<b>Hypothèses et formules clés :</b> Taux d'utilisation ρ = taux d'arrivée × temps moyen de passage ÷ nombre de caissiers (le curseur « Affluence »). Avec c caissiers et a = ρc, la formule d'Erlang C donne C(c, a), la probabilité qu'un client qui arrive doive attendre ; l'attente moyenne est <code>Wq = C(c, a) × S / (c(1−ρ))</code> avec S le temps moyen de passage (3 minutes), et la probabilité d'attendre plus de t est <code>C × e<sup>−c(1−ρ)t/S</sup></code>. Avec des files séparées et un choix au hasard, chaque caissier est une file M/M/1, <code>Wq = ρS / (1−ρ)</code>."
+},
+{
+"id": "s0670",
+"page": "checkout",
+"ko": "<b>이 프로젝트의 단순화:</b> 계산 시간을 평균 3분의 감마분포(슬라이더로 들쭉날쭉함 조절)로, 물건 수는 평균 10개로 두고 계산 시간에 비례하게 정한 것은 이 프로젝트의 설정입니다. 들쭉날쭉함이 1.0이 아닐 때의 한 줄 이론선은 평균 대기에 (1+cv²)/2를 곱하는 흔한 근사이고, 무작위 줄은 폴라체크-힌친 평균 대기 공식입니다. 줄 바꾸기, 포기하는 손님, 전용 계산대는 넣지 않았습니다.",
+"en": "<b>What this project simplifies:</b> Checkout time is a gamma distribution with a mean of 3 minutes (the variability slider), and items average 10 and are proportional to checkout time; these are this project's choices. When variability is not 1.0, the single-line theory line uses the common approximation of multiplying the mean wait by (1+cv²)/2, and the random-line one is the Pollaczek-Khinchine mean wait formula. Line switching, balking and express lanes are not modeled.",
+"tr": "<b>Ce que ce projet simplifie :</b> Le temps de passage suit une loi gamma de moyenne 3 minutes (le curseur de variabilité), et les articles sont en moyenne 10 et proportionnels au temps de passage ; ce sont des choix de ce projet. Quand la variabilité n'est pas 1,0, la courbe théorique de la file unique utilise l'approximation courante consistant à multiplier l'attente moyenne par (1+cv²)/2, et celle des files au hasard est la formule d'attente moyenne de Pollaczek-Khinchine. Le changement de file, le renoncement et les caisses rapides ne sont pas modélisés."
+},
+{
+"id": "s0671",
+"page": "checkout",
+"ko": "<b>이론값과 시뮬레이션:</b> <code>node tools/validate-checkout.js</code>의 결과(시드 5개 × 손님 10만 명 평균, 들쭉날쭉함 1.0)입니다. 계산대 4개 붐빔 60%에서 한 줄 평균 대기는 시뮬레이션 0.54분, 이론 0.54분이고, 붐빔 80%는 2.25분 대 2.24분, 90%는 6.11분 대 5.91분이었습니다. 90% 손님 기준은 붐빔 90%에서 16.0분 대 15.5분입니다. 계산대 2개 붐빔 70%는 2.88분 대 2.88분이었습니다. 무작위 줄은 붐빔 60%에서 4.55분 대 4.50분, 80%에서 12.46분 대 12.00분, 90%에서 29.9분 대 27.0분으로 붐빌수록 시뮬레이션이 이론보다 높게 나왔습니다(유한한 손님 수 때문으로 보임). 들쭉날쭉함 1.5, 붐빔 90%에서 한 줄 근사는 9.60분으로 시뮬레이션 9.03분보다 약 7% 높았습니다.",
+"en": "<b>Theory versus simulation:</b> From <code>node tools/validate-checkout.js</code> (average of 5 seeds × 100,000 customers, variability 1.0). With 4 cashiers at 60% busy the single line mean wait was 0.54 minutes in simulation and 0.54 in theory; at 80% it was 2.25 vs 2.24 and at 90% 6.11 vs 5.91. The 90th percentile at 90% busy was 16.0 vs 15.5 minutes. With 2 cashiers at 70% it was 2.88 vs 2.88. For random lines the simulation gave 4.55 vs 4.50 at 60% busy, 12.46 vs 12.00 at 80% and 29.9 vs 27.0 at 90%, so the simulation ran higher than theory as it got busier (likely due to the finite number of customers). With variability 1.5 and 90% busy the single-line approximation gave 9.60 minutes, about 7% above the simulated 9.03.",
+"tr": "<b>Théorie et simulation :</b> Résultats de <code>node tools/validate-checkout.js</code> (moyenne de 5 graines × 100 000 clients, variabilité 1,0). Avec 4 caissiers à 60 % d'affluence, l'attente moyenne en file unique était de 0,54 minute en simulation et 0,54 en théorie ; à 80 %, 2,25 contre 2,24, et à 90 %, 6,11 contre 5,91. Le 90e centile à 90 % d'affluence était de 16,0 contre 15,5 minutes. Avec 2 caissiers à 70 %, 2,88 contre 2,88. Pour les files au hasard, la simulation a donné 4,55 contre 4,50 à 60 %, 12,46 contre 12,00 à 80 % et 29,9 contre 27,0 à 90 %, la simulation dépassant donc la théorie à mesure que l'affluence augmentait (probablement à cause du nombre fini de clients). Avec une variabilité de 1,5 et 90 % d'affluence, l'approximation de la file unique a donné 9,60 minutes, soit environ 7 % de plus que les 9,03 simulées."
+},
+{
+"id": "s0672",
+"page": "checkout",
+"ko": "<b>더 읽을거리:</b> Leonard Kleinrock, 『Queueing Systems, Volume 1: Theory』(Wiley, 1975). Donald Gross와 Carl M. Harris, 『Fundamentals of Queueing Theory』(Wiley). 줄을 합치는 것이 항상 이로운 것은 아니라는 점은 Rothkopf &amp; Rech (1987), \"Perspectives on queues: combining queues is not always beneficial\", <i>Operations Research</i>에서 다룹니다.",
+"en": "<b>Further reading:</b> Leonard Kleinrock, <i>Queueing Systems, Volume 1: Theory</i> (Wiley, 1975). Donald Gross and Carl M. Harris, <i>Fundamentals of Queueing Theory</i> (Wiley). That combining queues is not always beneficial is discussed in Rothkopf &amp; Rech (1987), \"Perspectives on queues: combining queues is not always beneficial\", <i>Operations Research</i>.",
+"tr": "<b>Pour aller plus loin :</b> Leonard Kleinrock, <i>Queueing Systems, Volume 1: Theory</i> (Wiley, 1975). Donald Gross et Carl M. Harris, <i>Fundamentals of Queueing Theory</i> (Wiley). Le fait que fusionner des files ne soit pas toujours avantageux est discuté dans Rothkopf &amp; Rech (1987), « Perspectives on queues: combining queues is not always beneficial », <i>Operations Research</i>."
+},
+{
+"id": "s0673",
+"page": "checkout",
+"ko": "시뮬레이션은 손님 목록(도착 시각, 계산 시간, 물건 수, 무작위 줄 선택용 난수)을 한 번 만들어 모든 방식에 똑같이 넣는 공통 난수 방식입니다. 시드 난수(mulberry32)를 쓰므로 같은 시드면 같은 결과가 나옵니다. 화면의 가게는 두 방식의 시작·끝 시각을 미리 계산해 두고 시간에 따라 위치만 그립니다.",
+"en": "The simulation builds one customer list (arrival times, checkout times, items, and random numbers for the random choice) and feeds it identically to every method, a common random numbers design. It uses a seeded generator (mulberry32), so the same seed gives the same result. The store on screen precomputes each method's start and end times and just draws positions as time advances.",
+"tr": "La simulation construit une seule liste de clients (heures d'arrivée, temps de passage, articles et nombres aléatoires pour le choix au hasard) et la fournit à l'identique à chaque méthode, selon un plan à nombres aléatoires communs. Elle utilise un générateur à graine (mulberry32), donc une même graine donne le même résultat. Le magasin à l'écran précalcule les heures de début et de fin de chaque méthode et se contente de dessiner les positions à mesure que le temps avance."
+},
+{
+"id": "s0674",
+"page": "checkout",
+"ko": "추월당한 손님은 자기보다 늦게 도착한 사람이 더 먼저 계산을 시작한 손님입니다. 계산대가 놀면서 기다리는 사람이 있는 시간 비율은 시작과 끝 시각을 시간순으로 훑어 구했고, 처음 10% 손님은 가게가 비어 있던 시기라 통계에서 뺐습니다.",
+"en": "An overtaken customer is one for whom someone who arrived later started checkout earlier. The share of time with an idle cashier while someone waits was found by sweeping start and end times in order, and the first 10% of customers, from when the store was still empty, were left out of the statistics.",
+"tr": "Un client doublé est un client pour qui quelqu'un arrivé plus tard a commencé à payer plus tôt. La part du temps où un caissier est libre pendant que quelqu'un attend a été obtenue en parcourant dans l'ordre les heures de début et de fin, et les 10 % premiers clients, de la période où le magasin était encore vide, ont été exclus des statistiques."
+},
+{
+"id": "s0675",
+"page": "checkout",
+"ko": "카드 숫자는 손님 15만 명을 한 번 돌린 값이라 페이지 설명(10만 명 × 5번 평균)과 조금 다를 수 있습니다. 검증은 <code>node tools/validate-checkout.js</code>로 할 수 있습니다.",
+"en": "The numbers on the cards come from a single run of 150,000 customers, so they can differ slightly from the page text (an average of 5 runs of 100,000). You can verify with <code>node tools/validate-checkout.js</code>.",
+"tr": "Les chiffres des cartes proviennent d'une seule exécution de 150 000 clients, ils peuvent donc différer légèrement du texte de la page (une moyenne de 5 exécutions de 100 000). Vous pouvez le vérifier avec <code>node tools/validate-checkout.js</code>."
+},
+{
+"id": "s0676",
+"page": "checkout",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/checkout\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/checkout\">GitHub</a>.",
+"tr": "Le code est disponible sur <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/checkout\">GitHub</a>."
+},
+{
+"id": "s0707",
+"page": "coincidence",
+"ko": "23명이면 방 안 어딘가에서 생일이 같을 확률은 50.7%지만, 나와 같을 확률은 5.9%예요.",
+"en": "With 23 people, the chance that some pair shares a birthday is 50.7%, but the chance that someone shares mine is 5.9%.",
+"tr": "Avec 23 personnes, la probabilité qu'une paire partage un anniversaire est de 50,7 %, mais celle que quelqu'un partage le mien est de 5,9 %."
+},
+{
+"id": "s0708",
+"page": "coincidence",
+"ko": "사람이 늘면 가능한 짝이 거의 제곱으로 늘어서, '어딘가의 일치'는 빨리 흔해지고 '나와의 일치'는 천천히 늘어요.",
+"en": "As people grow, possible pairs grow almost as the square, so a match somewhere becomes common fast while a match with me grows slowly.",
+"tr": "Quand le nombre de personnes augmente, le nombre de paires possibles croît presque comme son carré : une coïncidence quelque part devient vite courante, alors qu'une avec moi progresse lentement."
+},
+{
+"id": "s0709",
+"page": "coincidence",
+"ko": "신기한 일치를 만나면 '내 경우'인지 '아무 경우나'인지, 몇 쌍을 비교했는지부터 따져 볼 만해요.",
+"en": "When you meet a striking match, it may help to ask whether it was about me or about anyone, and how many pairs were being compared.",
+"tr": "Face à une coïncidence frappante, il peut être utile de se demander si elle me concernait ou concernait n'importe qui, et combien de paires étaient comparées."
+},
+{
+"id": "s0711",
+"page": "coincidence",
+"ko": "모든 소름 돋는 우연이 그냥 우연이라는 뜻은 아니에요.",
+"en": "It does not mean every eerie coincidence is just chance.",
+"tr": "Cela ne veut pas dire que toute coïncidence troublante n'est que du hasard."
+},
+{
+"id": "s0712",
+"page": "coincidence",
+"ko": "생일과 취미가 고르고 독립이라는 가정이라, 실제 사건은 실제 분포와 비교하는 자료가 더 있어야 알 수 있어요.",
+"en": "It assumes birthdays and traits are even and independent, so judging a real event needs data on the real distributions.",
+"tr": "Il suppose que les anniversaires et les traits sont uniformes et indépendants ; juger un événement réel demande donc des données sur les distributions réelles."
+},
+{
+"id": "s0714",
+"page": "coincidence",
+"ko": "<b>모델의 뿌리:</b> 생일 문제(birthday problem)는 방 안 사람들 중 생일이 같은 쌍이 있을 확률을 묻는 확률론의 고전 문제로, Feller의 확률론 교과서 같은 입문서에도 실려 있습니다. \"소름 돋는 우연도 어딘가에서는 일어난다\"는 생각은 Diaconis와 Mosteller(1989)가 \"아주 큰 수의 법칙(law of truly large numbers)\", 곧 표본이 충분히 크면 아무리 드문 일도 일어날 법하다는 원리로 정리했습니다.",
+"en": "<b>Where the model comes from:</b> The birthday problem is a classic of probability that asks how likely it is that some pair in a room shares a birthday, and it is treated in introductory texts such as Feller's. The idea that \"even spooky coincidences happen somewhere\" was framed by Diaconis and Mosteller (1989) as the \"law of truly large numbers\": with a large enough sample, even very rare events are likely to occur.",
+"tr": "<b>D'où vient le modèle :</b> Le problème des anniversaires est un classique des probabilités qui demande quelle est la probabilité que deux personnes d'un groupe partagent leur date d'anniversaire ; il est traité dans des ouvrages d'introduction comme celui de Feller. L'idée que « même les coïncidences troublantes arrivent quelque part » a été formulée par Diaconis et Mosteller (1989) sous le nom de « loi des très grands nombres » : avec un échantillon assez grand, même des événements très rares ont de bonnes chances de se produire."
+},
+{
+"id": "s0715",
+"page": "coincidence",
+"ko": "<b>핵심 가정과 수식:</b> 한 특징이 c가지 값을 같은 확률로 가지면 N명이 모두 다를 확률은 <code>(1−1/c)(1−2/c)…(1−(N−1)/c)</code>이고, 특징들이 독립이면 특징별 확률을 곱한 값이 \"일치한 쌍이 하나도 없을 확률\"입니다. 나와 일치할 확률은 <code>1 − Π(1−1/c)<sup>N−1</sup></code>이고, 인원 슬라이더가 N, 특징 슬라이더가 k(생일은 c=365), 다른 특징의 값 개수가 c입니다.",
+"en": "<b>Key assumptions and formulas:</b> If a feature takes c values with equal chance, the probability that N people all differ is <code>(1−1/c)(1−2/c)…(1−(N−1)/c)</code>, and with independent features the product over features is the \"chance of no matching pair\". The chance of matching me is <code>1 − Π(1−1/c)<sup>N−1</sup></code>. The headcount slider is N, the feature slider is k (birthday has c=365) and the values slider sets c for the other features.",
+"tr": "<b>Hypothèses et formules clés :</b> Si une caractéristique prend c valeurs avec la même probabilité, la probabilité que N personnes soient toutes différentes est <code>(1−1/c)(1−2/c)…(1−(N−1)/c)</code>, et avec des caractéristiques indépendantes le produit sur les caractéristiques est la « probabilité de n'avoir aucune paire identique ». La probabilité de coïncider avec moi est <code>1 − Π(1−1/c)<sup>N−1</sup></code>. Le curseur d'effectif est N, celui des caractéristiques est k (l'anniversaire a c=365) et celui des valeurs fixe c pour les autres caractéristiques."
+},
+{
+"id": "s0716",
+"page": "coincidence",
+"ko": "<b>이 프로젝트의 단순화:</b> 모든 특징이 균등하고 서로 독립이라고 가정하고 윤일은 무시했습니다. 실제 생일은 연중 완전히 고르지 않고 고향·취미도 서로 얽혀 있습니다. 특징 개수와 \"다른 특징의 값 개수\"(기본 30)는 이 프로젝트가 정한 값이며 실제 분포를 반영하지 않습니다.",
+"en": "<b>What this project simplifies:</b> All features are assumed uniform and independent, and leap days are ignored. Real birthdays are not perfectly even through the year, and hometown and hobbies are tangled together. The number of features and the \"values per other feature\" (default 30) are set by this project and do not reflect real distributions.",
+"tr": "<b>Ce que ce projet simplifie :</b> Toutes les caractéristiques sont supposées uniformes et indépendantes, et les jours bissextiles sont ignorés. Les vrais anniversaires ne sont pas parfaitement répartis sur l'année, et la ville d'origine et les loisirs sont liés entre eux. Le nombre de caractéristiques et les « valeurs par autre caractéristique » (30 par défaut) sont fixés par ce projet et ne reflètent pas de vraies distributions."
+},
+{
+"id": "s0717",
+"page": "coincidence",
+"ko": "<b>이론값과 시뮬레이션:</b> 이 식은 정확한 닫힌 해라서 시뮬레이션과 바로 비교됩니다. 생일만 볼 때 \"어딘가 일치\"는 23명에서 이론 50.7%, 시뮬레이션 50.4%, 57명에서 99.0%와 99.0%였고, \"나와 일치\"는 23명에서 5.9%와 5.9%였습니다. 나와 일치할 확률이 50%를 넘는 최소 인원은 254명(나 말고 253명)입니다. 특징 2가지(값 30개), 23명에서는 나와 일치가 이론 55.3%, 시뮬레이션 55.7%였습니다.",
+"en": "<b>Theory versus simulation:</b> These formulas are exact closed forms, so they compare directly with the simulation. For birthday only, \"a match somewhere\" was 50.7% in theory and 50.4% simulated with 23 people, and 99.0% and 99.0% with 57; \"a match with me\" was 5.9% and 5.9% with 23. The smallest headcount where a match with me passes 50% is 254 (253 besides me). With 2 features (30 values) and 23 people, a match with me was 55.3% in theory and 55.7% simulated.",
+"tr": "<b>Théorie et simulation :</b> Ces formules sont des expressions fermées exactes, on peut donc les comparer directement à la simulation. Pour l'anniversaire seul, « une coïncidence quelque part » était de 50,7 % en théorie et de 50,4 % en simulation avec 23 personnes, et de 99,0 % et 99,0 % avec 57 ; « une coïncidence avec moi » était de 5,9 % et 5,9 % avec 23. Le plus petit effectif pour lequel coïncider avec moi dépasse 50 % est 254 (253 en plus de moi). Avec 2 caractéristiques (30 valeurs) et 23 personnes, coïncider avec moi donnait 55,3 % en théorie et 55,7 % en simulation."
+},
+{
+"id": "s0718",
+"page": "coincidence",
+"ko": "<b>더 읽을거리:</b> Diaconis, P. & Mosteller, F. (1989), 「Methods for Studying Coincidences」, <i>Journal of the American Statistical Association</i> 84. Feller, W. (1968), <i>An Introduction to Probability Theory and Its Applications</i>, Vol. 1 (3rd ed.), Wiley.",
+"en": "<b>Further reading:</b> Diaconis, P. & Mosteller, F. (1989), \"Methods for Studying Coincidences\", <i>Journal of the American Statistical Association</i> 84. Feller, W. (1968), <i>An Introduction to Probability Theory and Its Applications</i>, Vol. 1 (3rd ed.), Wiley.",
+"tr": "<b>Pour aller plus loin :</b> Diaconis, P. & Mosteller, F. (1989), « Methods for Studying Coincidences », <i>Journal of the American Statistical Association</i> 84. Feller, W. (1968), <i>An Introduction to Probability Theory and Its Applications</i>, Vol. 1 (3e éd.), Wiley."
+},
+{
+"id": "s0751",
+"page": "commons",
+"ko": "이 설정에서는 감시가 없으면 저량이 수용력의 1~2%까지 무너졌다가 평균 약 26%에 머물렀어요.",
+"en": "In this setup, without monitoring the stock fell to 1 to 2% of capacity, then settled around 26%.",
+"tr": "Dans ce cadre, sans surveillance, le stock est tombé à 1 à 2 % de la capacité, puis s'est stabilisé autour de 26 %."
+},
+{
+"id": "s0752",
+"page": "commons",
+"ko": "이 모델에서는 탐욕이 이득이 커 보여 퍼지는데, 감시와 벌금이 그 이득을 깎아야 절제가 버텨요.",
+"en": "In this model greed spreads because it pays more, and monitoring plus fines must cut that gain for restraint to hold.",
+"tr": "Dans ce modèle, l'avidité se propage parce qu'elle rapporte plus, et la surveillance et les amendes doivent réduire ce gain pour que la retenue tienne."
+},
+{
+"id": "s0753",
+"page": "commons",
+"ko": "적발 확률과 벌금의 크기가 함께 있어야 했으니, 규칙의 실제 집행력이 열쇠일 수 있어요.",
+"en": "Both catch rate and fine size were needed, so how firmly rules are enforced may be the key.",
+"tr": "Le taux de détection et le montant de l'amende étaient tous deux nécessaires ; la fermeté d'application des règles pourrait donc être la clé."
+},
+{
+"id": "s0755",
+"page": "commons",
+"ko": "하딘이나 오스트롬이 옳다는 증명은 아니에요. 비용·재생 속도는 이 모델이 정한 값이에요.",
+"en": "It does not prove Hardin or Ostrom right; cost and regrowth are values this model chose.",
+"tr": "Il ne prouve pas que Hardin ou Ostrom ont raison ; le coût et la régénération sont des valeurs choisies par ce modèle."
+},
+{
+"id": "s0756",
+"page": "commons",
+"ko": "소유권·신뢰·경계 같은 모델에 없는 조건이 실제 공동체에서 어떻게 작동하는지 사례로 확인해야 해요.",
+"en": "How ownership, trust and boundaries, all missing here, work in real communities needs case studies.",
+"tr": "Comment la propriété, la confiance et les frontières, toutes absentes ici, fonctionnent dans de vraies communautés demande des études de cas."
+},
+{
+"id": "s0758",
+"page": "commons",
+"ko": "<b>모델의 뿌리:</b> \"공유지의 비극\"은 Hardin(1968)이 『Science』에 실은 논문으로 널리 알려졌고, 각자의 이익을 좇으면 공유 자원이 망한다는 주장입니다. 이에 맞서 Ostrom(1990)은 『Governing the Commons』에서 공동체가 스스로 규칙과 감시·제재로 자원을 지켜 온 사례들을 분석했습니다. 자원 쪽은 Gordon(1954)의 어업 경제 모형(공유 자원은 이윤이 사라질 때까지 남획된다)과 로지스틱 재생 모형의 아이디어를 단순화했습니다.",
+"en": "<b>Where the model comes from:</b> \"The tragedy of the commons\" is best known from Hardin's (1968) paper in <i>Science</i>, which argues that individuals pursuing their own interest ruin a shared resource. In response, Ostrom (1990), in <i>Governing the Commons</i>, analyzed cases in which communities protected resources through their own rules, monitoring and sanctions. The resource side simplifies the fishery economics of Gordon (1954), in which a commons is fished until profit vanishes, together with logistic regrowth.",
+"tr": "<b>D'où vient le modèle :</b> « La tragédie des biens communs » est surtout connue par l'article de Hardin (1968) dans <i>Science</i>, qui soutient que des individus poursuivant leur propre intérêt ruinent une ressource partagée. En réponse, Ostrom (1990), dans <i>Governing the Commons</i>, a analysé des cas où des communautés ont protégé des ressources par leurs propres règles, leur surveillance et leurs sanctions. Le côté ressource simplifie l'économie de la pêche de Gordon (1954), où un bien commun est pêché jusqu'à ce que le profit disparaisse, avec une repousse logistique."
+},
+{
+"id": "s0759",
+"page": "commons",
+"ko": "<b>핵심 가정과 수식:</b> 저량 S는 <code>S ← S + r·S·(1 − S/K) − 수확</code>으로 자라고(r=0.4, K=100), 저량이 K/2일 때 지속 가능한 최대 수확 <code>rK/4 = 10</code>이 나옵니다. 이득은 수확에서 노력 비용을 뺀 값이고, 감시 슬라이더는 욕심낸 사람이 적발될 확률, 벌금은 그 라운드 수확의 몇 배를 내는지입니다. 전략은 모방 규칙(점수 차이의 로지스틱, 페르미 규칙)으로 퍼집니다.",
+"en": "<b>Key assumptions and formulas:</b> The stock S grows as <code>S ← S + r·S·(1 − S/K) − harvest</code> (r=0.4, K=100), and at S = K/2 the maximum sustainable harvest is <code>rK/4 = 10</code>. Payoff is the harvest minus the cost of effort; the monitoring slider is the chance a greedy user is caught and the fine is how many times that round's catch they pay. Strategies spread by a copying rule (a logistic function of the payoff difference, the Fermi rule).",
+"tr": "<b>Hypothèses et formules clés :</b> Le stock S croît selon <code>S ← S + r·S·(1 − S/K) − prélèvement</code> (r=0,4, K=100), et pour S = K/2 le prélèvement maximal soutenable est <code>rK/4 = 10</code>. Le gain est le prélèvement moins le coût de l'effort ; le curseur de surveillance est la probabilité qu'un utilisateur avide soit pris et l'amende correspond au nombre de fois que la prise du tour est payée. Les stratégies se diffusent par une règle de copie (une fonction logistique de la différence de gains, la règle de Fermi)."
+},
+{
+"id": "s0760",
+"page": "commons",
+"ko": "<b>이 프로젝트의 단순화:</b> 노력 비용(25), 재생 속도(0.4), 탐욕의 크기(지속 가능한 몫의 3배), 모방 확률(25%), 돌연변이(1%), 처음 절제 10%는 모두 이 프로젝트가 정한 값입니다. 이용자는 세 가지 전략 중 하나만 따르고, 소유권·외부인 진입·신뢰·국가의 역할은 없습니다. Ostrom이 정리한 성공 조건(명확한 경계, 지역에 맞는 규칙 등)도 모델에 들어 있지 않습니다.",
+"en": "<b>What this project simplifies:</b> The cost of effort (25), regrowth rate (0.4), strength of greed (3 times the sustainable share), copying probability (25%), mutation (1%) and the initial 10% restrained are all set by this project. Users follow one of three strategies, and ownership, outsiders' entry, trust and the role of the state are absent. The success conditions Ostrom identified, such as clear boundaries and locally suited rules, are not in the model either.",
+"tr": "<b>Ce que ce projet simplifie :</b> Le coût de l'effort (25), le taux de repousse (0,4), l'intensité de la cupidité (3 fois la part soutenable), la probabilité de copie (25 %), la mutation (1 %) et les 10 % initiaux de modérés sont tous fixés par ce projet. Les utilisateurs suivent l'une de trois stratégies, et la propriété, l'entrée d'étrangers, la confiance et le rôle de l'État sont absents. Les conditions de réussite identifiées par Ostrom, comme des limites claires et des règles adaptées au contexte local, ne figurent pas non plus dans le modèle."
+},
+{
+"id": "s0761",
+"page": "commons",
+"ko": "<b>이론값과 시뮬레이션:</b> 지속 가능한 최대 수확 10은 식과 시뮬레이션이 같은 값입니다. 감시 100%에서 평균 수확은 10.0이고 저량은 수용력의 약 48%로, 최대 수확을 주는 이론상 수준(50%)에 가깝습니다. 감시가 없으면 저량은 마지막 구간에서 평균 26%, 수확 7.0이었습니다. Gordon의 이윤 소멸 수준과는 숫자로 대조하지 않았고, 모방으로 퍼지는 전략 비율에도 닫힌 해가 없어 시뮬레이션만으로 확인했습니다.",
+"en": "<b>Theory versus simulation:</b> The maximum sustainable harvest of 10 is the same in the formula and the simulation. At 100% monitoring the average harvest was 10.0 and the stock about 48% of capacity, close to the theoretical level (50%) that gives the maximum harvest. With no monitoring the stock averaged 26% over the final stretch with a harvest of 7.0. I did not compare numerically with Gordon's zero-profit level, and the strategy shares spread by copying have no closed form, so those were checked by simulation alone.",
+"tr": "<b>Théorie et simulation :</b> Le prélèvement maximal soutenable de 10 est le même dans la formule et dans la simulation. Avec 100 % de surveillance, le prélèvement moyen était de 10,0 et le stock d'environ 48 % de la capacité, proche du niveau théorique (50 %) qui donne le prélèvement maximal. Sans surveillance, le stock était en moyenne de 26 % sur la dernière période avec un prélèvement de 7,0. Je n'ai pas comparé numériquement avec le niveau de profit nul de Gordon, et les parts de stratégies diffusées par copie n'ont pas de forme fermée, elles n'ont donc été vérifiées que par simulation."
+},
+{
+"id": "s0762",
+"page": "commons",
+"ko": "<b>더 읽을거리:</b> Hardin, G. (1968), 「The Tragedy of the Commons」, <i>Science</i> 162. Ostrom, E. (1990), <i>Governing the Commons: The Evolution of Institutions for Collective Action</i>, Cambridge University Press. Gordon, H. S. (1954), 「The Economic Theory of a Common-Property Resource: The Fishery」, <i>Journal of Political Economy</i> 62.",
+"en": "<b>Further reading:</b> Hardin, G. (1968), \"The Tragedy of the Commons\", <i>Science</i> 162. Ostrom, E. (1990), <i>Governing the Commons: The Evolution of Institutions for Collective Action</i>, Cambridge University Press. Gordon, H. S. (1954), \"The Economic Theory of a Common-Property Resource: The Fishery\", <i>Journal of Political Economy</i> 62.",
+"tr": "<b>Pour aller plus loin :</b> Hardin, G. (1968), « The Tragedy of the Commons », <i>Science</i> 162. Ostrom, E. (1990), <i>Governing the Commons: The Evolution of Institutions for Collective Action</i>, Cambridge University Press. Gordon, H. S. (1954), « The Economic Theory of a Common-Property Resource: The Fishery », <i>Journal of Political Economy</i> 62."
+},
+{
+"id": "s0794",
+"page": "cooperation",
+"ko": "다시 만나는 관계에서 협력은 퍼졌지만, 실수 10%에서는 12번 중 10번 무너졌어요.",
+"en": "Cooperation spread among repeat partners, but at 10% error it collapsed in 10 of 12 runs.",
+"tr": "La coopération s'est répandue entre partenaires récurrents, mais avec 10 % d'erreurs, elle s'est effondrée dans 10 simulations sur 12."
+},
+{
+"id": "s0795",
+"page": "cooperation",
+"ko": "이 모델에서는 다시 만날 가능성이 배신의 이득을 깎고, 실수가 잦으면 맞받아치기가 보복의 연쇄에 빠져요.",
+"en": "In this model, repeat meetings cut the payoff of betrayal, and frequent errors trap tit-for-tat in retaliation.",
+"tr": "Dans ce modèle, les rencontres répétées réduisent le gain de la trahison, et les erreurs fréquentes enferment le donnant-donnant dans la rétorsion."
+},
+{
+"id": "s0796",
+"page": "cooperation",
+"ko": "협력이 무너진다면 사람 탓보다 만남이 이어지는지, 실수를 넘길 여지가 있는지부터 살펴볼 만해요.",
+"en": "If cooperation breaks down, check whether meetings repeat and whether mistakes can be forgiven.",
+"tr": "Si la coopération se rompt, il faut vérifier si les rencontres se répètent et si les erreurs peuvent être pardonnées."
+},
+{
+"id": "s0798",
+"page": "cooperation",
+"ko": "착한 사람이 이긴다는 뜻은 아니고, 점수표와 모방 규칙은 이 모델이 정한 값이에요.",
+"en": "It doesn't mean nice people win; the payoffs and imitation rule are set by this model.",
+"tr": "Cela ne veut pas dire que les gentils gagnent ; les gains et la règle d'imitation sont fixés par ce modèle."
+},
+{
+"id": "s0799",
+"page": "cooperation",
+"ko": "현실의 평판·소문·제도가 협력을 얼마나 지키는지는 실제 사례를 관찰해 따로 확인해야 해요.",
+"en": "How much reputation, gossip and institutions sustain cooperation needs separate real-world checks.",
+"tr": "La mesure dans laquelle la réputation, les commérages et les institutions soutiennent la coopération demande des vérifications distinctes dans le monde réel."
+},
+{
+"id": "s0801",
+"page": "cooperation",
+"ko": "<b>모델의 뿌리:</b> \"죄수의 딜레마\"는 1950년경 RAND의 Flood와 Dresher가 만든 게임이고, 되풀이하면 협력이 가능한지는 Axelrod & Hamilton (1981)과 Axelrod (1984)가 대회와 진화 시뮬레이션으로 보였습니다. 이때 Anatol Rapoport가 낸 가장 단순한 전략 맞받아치기(Tit for Tat)가 우승했습니다.",
+"en": "<b>Where the model comes from:</b> The prisoner's dilemma is a game devised around 1950 by Flood and Dresher at RAND. Whether repetition allows cooperation was shown by Axelrod & Hamilton (1981) and Axelrod (1984) with tournaments and evolutionary simulation, where the simplest entry, Anatol Rapoport's Tit for Tat, won.",
+"tr": "<b>D'où vient le modèle :</b> Le dilemme du prisonnier est un jeu conçu vers 1950 par Flood et Dresher à la RAND. Le fait que la répétition permette la coopération a été montré par Axelrod et Hamilton (1981) et Axelrod (1984) avec des tournois et une simulation évolutive, où la participation la plus simple, le Tit for Tat d'Anatol Rapoport, l'a emporté."
+},
+{
+"id": "s0802",
+"page": "cooperation",
+"ko": "<b>핵심 가정과 수식:</b> 한 판의 점수는 배신 유혹 T &gt; 협력 R &gt; 서로 배신 P &gt; 당함 S이고, 되풀이에서 서로 번갈아 속이는 것보다 계속 협력하는 편이 낫도록 <code>2R &gt; T+S</code>를 둡니다(여기서는 3, 1, 0, T=5라 6 &gt; 5). 한 번뿐이면 배신이 늘 유리하지만, 만남이 이어질 확률이 충분히 크면 맞받아치기 같은 전략이 안정해집니다(Axelrod의 조건은 <code>w ≥ max((T−R)/(T−P), (T−R)/(R−S))</code>, 이 점수표에서는 w ≥ 2/3, 곧 평균 3판 정도). 슬라이더는 T, 판 수, 실수 확률, 처음 배신자 비율에 해당합니다.",
+"en": "<b>Key assumptions and formulas:</b> A single round pays temptation T &gt; reward R &gt; punishment P &gt; sucker S, and in repetition steady cooperation should beat taking turns exploiting each other, <code>2R &gt; T+S</code> (here 3, 1, 0 and T=5, so 6 &gt; 5). Defection always wins a one-shot game, but if the chance of meeting again is large enough, strategies like Tit for Tat become stable (Axelrod's condition is <code>w ≥ max((T−R)/(T−P), (T−R)/(R−S))</code>, which is w ≥ 2/3 for this payoff table, about 3 rounds on average). The sliders are T, the number of rounds, the mistake rate and the initial share of defectors.",
+"tr": "<b>Hypothèses et formules clés :</b> Un tour unique rapporte tentation T &gt; récompense R &gt; punition P &gt; dupe S, et dans la répétition une coopération constante devrait l'emporter sur l'exploitation à tour de rôle, <code>2R &gt; T+S</code> (ici 3, 1, 0 et T=5, donc 6 &gt; 5). La défection gagne toujours dans un jeu unique, mais si la probabilité de se revoir est assez grande, des stratégies comme Tit for Tat deviennent stables (la condition d'Axelrod est <code>w ≥ max((T−R)/(T−P), (T−R)/(R−S))</code>, soit w ≥ 2/3 pour cette table de gains, environ 3 tours en moyenne). Les curseurs sont T, le nombre de tours, le taux d'erreurs et la part initiale de déserteurs."
+},
+{
+"id": "s0803",
+"page": "cooperation",
+"ko": "<b>이 프로젝트의 단순화:</b> Axelrod의 대회는 사람들이 낸 전략이 모두와 한 번씩 겨루는 리그전이었고 진화 쪽은 점수에 비례해 늘어나게 했지만, 이 프로젝트는 전략 5개만 두고 무작위 상대 6명과 겨룬 뒤 페르미 규칙(Szabó & Tőke 1998)으로 모방하게 했습니다. 판 수는 확률이 아니라 고정된 횟수이고, 모방 온도 0.4와 돌연변이 1%는 이 프로젝트가 정한 값입니다.",
+"en": "<b>What this project simplifies:</b> Axelrod ran a round-robin of entries submitted by people and let strategies grow in proportion to their scores. This project has only five strategies, plays 6 random opponents, and copies with a Fermi rule (Szabó & Tőke 1998). The number of rounds is fixed rather than probabilistic, and the imitation temperature 0.4 and 1% mutation are values this project chose.",
+"tr": "<b>Ce que ce projet simplifie :</b> Axelrod a organisé un tournoi toutes rondes avec des participations soumises par des gens et a laissé les stratégies croître en proportion de leurs scores. Ce projet n'a que cinq stratégies, joue contre 6 adversaires au hasard et copie selon une règle de Fermi (Szabó & Tőke 1998). Le nombre de tours est fixe plutôt que probabiliste, et la température d'imitation 0,4 et la mutation de 1 % sont des valeurs choisies par ce projet."
+},
+{
+"id": "s0804",
+"page": "cooperation",
+"ko": "<b>이론값과 시뮬레이션:</b> 닫힌 해는 없어서 방향만 비교했습니다. 한 판·두 판일 때 협력률이 3%(거의 모두 배신)이고 5판부터 90%로 올라, 만남이 이어져야 협력이 선다는 이론과 같은 방향입니다. 실수가 없으면 99%, 10%이면 11%로 무너져, 잡음이 크면 맞받아치기가 보복을 되풀이한다는 알려진 이야기와 맞습니다. 다만 Axelrod 계열의 \"맞받아치기가 최고\"는 재현되지 않았고, 실수가 있으면 파블로프와 너그러운 맞받아치기가 앞서는 Nowak & Sigmund (1993) 쪽과 가깝습니다(<code>node tools/validate-cooperation.js</code>).",
+"en": "<b>Theory versus simulation:</b> There is no closed-form answer, so only the direction was compared. With 1 or 2 rounds cooperation is 3% (nearly all defect) and from 5 rounds it rises to 90%, in line with the theory that cooperation needs repeated meetings. With no mistakes it is 99% and at 10% mistakes it collapses to 11%, matching the known story that noise makes Tit for Tat trade endless retaliation. \"Tit for Tat is best\" was not reproduced; with mistakes Pavlov and Generous Tit for Tat lead, closer to Nowak & Sigmund (1993) (<code>node tools/validate-cooperation.js</code>).",
+"tr": "<b>Théorie et simulation :</b> Il n'existe pas de réponse sous forme fermée, seule la tendance a donc été comparée. Avec 1 ou 2 tours, la coopération est de 3 % (presque tous font défection) et dès 5 tours elle monte à 90 %, conformément à la théorie selon laquelle la coopération exige des rencontres répétées. Sans erreurs, elle est de 99 % et, à 10 % d'erreurs, elle s'effondre à 11 %, ce qui correspond à l'idée connue que le bruit pousse Tit for Tat à des représailles sans fin. « Tit for Tat est le meilleur » n'a pas été reproduit ; avec des erreurs, Pavlov et Tit for Tat généreux sont en tête, plus proche de Nowak & Sigmund (1993) (<code>node tools/validate-cooperation.js</code>)."
+},
+{
+"id": "s0805",
+"page": "cooperation",
+"ko": "<b>더 읽을거리:</b> Axelrod (1984), 『The Evolution of Cooperation』, Basic Books. Axelrod & Hamilton (1981), 「The Evolution of Cooperation」, Science 211. Nowak & Sigmund (1993), 「A strategy of win-stay, lose-shift that outperforms tit-for-tat in the Prisoner's Dilemma game」, Nature 364.",
+"en": "<b>Further reading:</b> Axelrod (1984), <i>The Evolution of Cooperation</i>, Basic Books. Axelrod & Hamilton (1981), \"The Evolution of Cooperation\", <i>Science</i> 211. Nowak & Sigmund (1993), \"A strategy of win-stay, lose-shift that outperforms tit-for-tat in the Prisoner's Dilemma game\", <i>Nature</i> 364.",
+"tr": "<b>Pour aller plus loin :</b> Axelrod (1984), <i>The Evolution of Cooperation</i>, Basic Books. Axelrod & Hamilton (1981), « The Evolution of Cooperation », <i>Science</i> 211. Nowak & Sigmund (1993), « A strategy of win-stay, lose-shift that outperforms tit-for-tat in the Prisoner's Dilemma game », <i>Nature</i> 364."
+},
+{
+"id": "s0806",
+"page": "cooperation",
+"ko": "이 프로젝트가 직접 짠 구현이며 논문의 수치를 재현한 것은 아닙니다. 출처는 위 \"이론적 근거\"를 보세요.",
+"en": "This is this project's own implementation and does not reproduce any paper's numbers. See the theory notes above for sources.",
+"tr": "Il s'agit de l'implémentation propre à ce projet, qui ne reproduit les chiffres d'aucun article. Voir les notes théoriques ci-dessus pour les sources."
+},
+{
+"id": "s0831",
+"page": "dating",
+"ko": "눈높이가 +10%p만 올라가도 짝을 찾는 평균 대기가 21.0라운드로 늘었어요.",
+"en": "Raising standards by just 10 points stretched the average wait to 21.0 rounds.",
+"tr": "Relever les critères de seulement 10 points a allongé l'attente moyenne à 21,0 tours."
+},
+{
+"id": "s0832",
+"page": "dating",
+"ko": "서로 상대가 자기 기준 이상이어야 맺어지는데, 둘 다 나보다 나은 사람을 원하면 기준이 내려오기 전엔 성립할 수 없어요.",
+"en": "A match needs both sides to clear each other's bar, so if both want someone better, no pair is possible until bars drop.",
+"tr": "Un appariement exige que chacun franchisse le seuil de l'autre ; si les deux veulent mieux, aucun couple n'est possible tant que les seuils ne baissent pas."
+},
+{
+"id": "s0833",
+"page": "dating",
+"ko": "기다림이 길다면 눈높이 자체보다 기준이 얼마나 빨리 바뀌는지부터 살펴볼 만해요.",
+"en": "If waits are long, how fast standards adjust may be worth examining before the standards themselves.",
+"tr": "Si les attentes sont longues, la vitesse d'ajustement des critères mérite peut-être d'être examinée avant les critères eux-mêmes."
+},
+{
+"id": "s0835",
+"page": "dating",
+"ko": "사랑이나 결혼이 이런 계산으로 이루어진다는 뜻이 아니고, 어떤 눈높이가 옳다는 판단도 아니에요.",
+"en": "It does not mean love or marriage works by such calculation, nor that any standard is right.",
+"tr": "Cela ne veut pas dire que l'amour ou le mariage fonctionnent par un tel calcul, ni qu'un critère soit le bon."
+},
+{
+"id": "s0836",
+"page": "dating",
+"ko": "성격, 거리, 타이밍처럼 모델에 없는 요소와 사람마다 다른 취향을 실제 관찰로 확인해야 해요.",
+"en": "Personality, distance, timing and differing tastes are missing and would need real observation.",
+"tr": "La personnalité, la distance, le moment et les goûts différents sont absents et demanderaient une observation réelle."
+},
+{
+"id": "s0838",
+"page": "dating",
+"ko": "<b>모델의 뿌리:</b> 양쪽이 모두 동의해야 맺어지는 시장은 Gale와 Shapley(1962, 「College Admissions and the Stability of Marriages」, <i>American Mathematical Monthly</i>)의 안정 결혼 문제에서, 기준이 시간에 따라 내려가는 탐색은 McCall(1970)의 유보 임금(reservation wage) 탐색 이론에서 왔습니다. 짝짓기 시장의 탐색 모델은 Burdett와 Coles(1997)가 발전시켰습니다.",
+"en": "<b>Where the model comes from:</b> The idea that both sides must agree comes from the stable marriage problem of Gale and Shapley (1962, \"College Admissions and the Stability of Marriages\", <i>American Mathematical Monthly</i>); the falling standard comes from McCall&#x27;s (1970) reservation-wage search theory. Search models of the marriage market were developed by Burdett and Coles (1997).",
+"tr": "<b>D'où vient le modèle :</b> L'idée que les deux parties doivent être d'accord vient du problème des mariages stables de Gale et Shapley (1962, « College Admissions and the Stability of Marriages », <i>American Mathematical Monthly</i>) ; l'exigence qui baisse vient de la théorie de la recherche du salaire de réservation de McCall&#x27;s (1970). Les modèles de recherche du marché matrimonial ont été développés par Burdett et Coles (1997)."
+},
+{
+"id": "s0839",
+"page": "dating",
+"ko": "<b>핵심 가정과 수식:</b> 모든 사람의 매력 <i>a</i>는 0~1이고 모두가 같게 평가합니다. 내 기준은 <i>a</i> + eye이고, 만난 두 사람 <i>i</i>, <i>j</i>는 <i>a</i><sub><i>j</i></sub> ≥ <i>a</i><sub><i>i</i></sub> + eye 그리고 <i>a</i><sub><i>i</i></sub> ≥ <i>a</i><sub><i>j</i></sub> + eye일 때만 맺어지며, 짝이 없는 사람은 라운드마다 기준을 drift만큼 낮춥니다.",
+"en": "<b>Key assumptions and formulas:</b> Each person has an attractiveness <i>a</i> in 0 to 1, rated the same by everyone. My standard is <i>a</i> + eye, and two people <i>i</i> and <i>j</i> who meet pair up only if <i>a</i><sub><i>j</i></sub> ≥ <i>a</i><sub><i>i</i></sub> + eye and <i>a</i><sub><i>i</i></sub> ≥ <i>a</i><sub><i>j</i></sub> + eye; unpaired people lower their standard by drift each round.",
+"tr": "<b>Hypothèses et formules clés :</b> Chaque personne a une attractivité <i>a</i> entre 0 et 1, évaluée de la même façon par tous. Mon exigence est <i>a</i> + eye, et deux personnes <i>i</i> et <i>j</i> qui se rencontrent ne forment un couple que si <i>a</i><sub><i>j</i></sub> ≥ <i>a</i><sub><i>i</i></sub> + eye et <i>a</i><sub><i>i</i></sub> ≥ <i>a</i><sub><i>j</i></sub> + eye ; les personnes seules baissent leur exigence de drift à chaque tour."
+},
+{
+"id": "s0840",
+"page": "dating",
+"ko": "<b>이 프로젝트의 단순화:</b> Gale–Shapley는 모두의 선호 순위를 알고 계산하는 알고리즘이고, 여기서는 아직 짝이 없는 사람끼리 무작위로 한 쌍씩 만납니다. 매력을 모두가 같게 평가한다는 가정(실제로는 취향이 갈립니다), 매력의 균등분포, 눈높이와 기준 하향의 값은 이 프로젝트가 정한 것입니다.",
+"en": "<b>What this project simplifies:</b> Gale–Shapley is an algorithm that works from everyone&#x27;s full preference rankings; here unpaired people simply meet one random partner per round. The assumption that everyone rates attractiveness alike (real tastes differ), the uniform distribution of attractiveness, and the values of eye and drift are this project&#x27;s own choices.",
+"tr": "<b>Ce que ce projet simplifie :</b> Gale–Shapley est un algorithme qui part des classements de préférences complets de chacun ; ici, les personnes seules rencontrent simplement un partenaire au hasard par tour. L'hypothèse que tout le monde juge l'attractivité de la même façon (les goûts réels diffèrent), la distribution uniforme de l'attractivité et les valeurs de eye et drift sont des choix propres à ce projet."
+},
+{
+"id": "s0841",
+"page": "dating",
+"ko": "<b>이론값과 시뮬레이션:</b> 닫힌 해는 없지만 한 가지는 손으로 확인됩니다. eye &gt; 0이면 두 부등식을 더해 0 ≥ 2·eye가 되어 기준을 낮추기 전에는 아무도 맺어질 수 없고, 기준이 eye 이상 내려가야(눈높이 ÷ 하향 속도 라운드 이상) 첫 커플이 가능합니다. 시뮬레이션에서 eye +0.1, 하향 1%일 때 첫 커플은 12라운드, eye +0.3은 32라운드에 나오고, 하향 0%이면 짝 0%입니다. 평균 대기는 눈높이 −0.3에서 2.7, +0.1에서 21.0, +0.3에서 40.7 라운드입니다(<code>node tools/validate-more.js dating</code>).",
+"en": "<b>Theory versus simulation:</b> There is no closed form, but one thing can be checked by hand. If eye &gt; 0, adding the two inequalities gives 0 ≥ 2·eye, so nobody can pair before standards fall; the first couple needs the standard to fall by at least eye (eye ÷ drift rounds). In the simulation with eye +0.1 and drift 1%, the first couple appears at round 12, and with eye +0.3 at round 32; with drift 0% nobody pairs. The mean wait is 2.7 rounds at eye −0.3, 21.0 at +0.1 and 40.7 at +0.3 (<code>node tools/validate-more.js dating</code>).",
+"tr": "<b>Théorie et simulation :</b> Il n'y a pas de forme fermée, mais une chose peut être vérifiée à la main. Si eye &gt; 0, l'addition des deux inégalités donne 0 ≥ 2·eye, donc personne ne peut former de couple avant que les exigences baissent ; le premier couple exige une baisse d'au moins eye (eye ÷ drift tours). Dans la simulation avec eye +0,1 et drift 1 %, le premier couple apparaît au tour 12, et avec eye +0,3 au tour 32 ; avec drift 0 %, personne ne se met en couple. L'attente moyenne est de 2,7 tours pour eye −0,3, de 21,0 pour +0,1 et de 40,7 pour +0,3 (<code>node tools/validate-more.js dating</code>)."
+},
+{
+"id": "s0842",
+"page": "dating",
+"ko": "<b>더 읽을거리:</b> Gale, D. &amp; Shapley, L. S. (1962), 「College Admissions and the Stability of Marriages」, <i>American Mathematical Monthly</i>. / Becker, G. S. (1973), 「A Theory of Marriage: Part I」, <i>Journal of Political Economy</i>. / Roth, A. E. &amp; Sotomayor, M. (1990), 『Two-Sided Matching』, Cambridge University Press.",
+"en": "<b>Further reading:</b> Gale, D. and Shapley, L. S. (1962), \"College Admissions and the Stability of Marriages\", <i>American Mathematical Monthly</i>. / Becker, G. S. (1973), \"A Theory of Marriage: Part I\", <i>Journal of Political Economy</i>. / Roth, A. E. and Sotomayor, M. (1990), <i>Two-Sided Matching</i>, Cambridge University Press.",
+"tr": "<b>Pour aller plus loin :</b> Gale, D. et Shapley, L. S. (1962), « College Admissions and the Stability of Marriages », <i>American Mathematical Monthly</i>. / Becker, G. S. (1973), « A Theory of Marriage: Part I », <i>Journal of Political Economy</i>. / Roth, A. E. et Sotomayor, M. (1990), <i>Two-Sided Matching</i>, Cambridge University Press."
+},
+{
+"id": "s0846",
+"page": "daycare",
+"ko": "어린이집 감기 · 시뮬라티오 랩",
+"en": "Daycare Colds · Simulatio Lab",
+"tr": "Les rhumes à la crèche · Simulatio Lab"
+},
+{
+"id": "s0847",
+"page": "daycare",
+"ko": "같은 반 아이 20명이 모여 있으면 감기 같은 감염은 한 해에 몇 번이나 돌까요? 반 크기, 접촉, 아프면 쉬기, 면역이 결과를 어떻게 바꾸는지 시뮬레이션으로 직접 돌려보세요.",
+"en": "In a class of 20 children, how often does a cold-like infection go around in a year? Run a simulation to see how class size, contact, staying home when sick and immunity change the result.",
+"tr": "Dans une classe de 20 enfants, à quelle fréquence une infection de type rhume circule-t-elle en un an ? Lancez une simulation pour voir comment la taille de la classe, les contacts, le repos à la maison en cas de maladie et l'immunité changent le résultat."
+}
+]

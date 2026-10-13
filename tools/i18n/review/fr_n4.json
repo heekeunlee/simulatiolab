@@ -1,0 +1,562 @@
+[
+{
+"id": "s0848",
+"page": "daycare",
+"ko": "어린이집에 다니기 시작하면 감기를 달고 산다고들 합니다. 아이가 약해서 그렇다고 생각하기 쉽지만, 이 단순한 모델에서는 아이가 특별히 약하지 않아도 같은 반 아이 20명 사이에서 한 해에 네 번 넘게 감염이 돕니다. 그리고 \"아프면 쉬기\"를 모두가 지켜도 횟수는 절반쯤만 줄어듭니다. 증상이 나타나기 전 하루 동안 이미 반에 퍼뜨리기 때문이에요. 누구의 잘못도 아니고, 아이들이 한 교실에서 가까이 지내는 구조가 만드는 일입니다.",
+"en": "People say children catch colds constantly once they start daycare. It is easy to blame weak children, but in this simple model, children with no special weakness still pass an infection around a class of 20 more than four times a year. And even if everyone stays home when sick, the count falls by only about half, because each child has already spread it to the class during the day before symptoms show. Nobody is at fault: this comes from the structure of children spending time close together in one room.",
+"tr": "On dit que les enfants attrapent des rhumes en permanence dès qu'ils entrent à la crèche. Il est facile d'accuser des enfants fragiles, mais dans ce modèle simple, des enfants sans aucune fragilité particulière se transmettent une infection dans une classe de 20 plus de quatre fois par an. Et même si tout le monde reste à la maison quand il est malade, le nombre ne diminue que d'environ la moitié, car chaque enfant l'a déjà transmise à la classe pendant la journée précédant les symptômes. Personne n'est en faute : cela tient à la structure d'enfants qui passent leur temps très proches les uns des autres dans une même pièce."
+},
+{
+"id": "s0849",
+"page": "daycare",
+"ko": "아이들은 <b>반</b>(교실)마다 모여 있고, 평일(월~금)에는 같은 반 아이끼리만 만납니다. 주말에는 반 안의 접촉이 없고, 반과 반 사이의 접촉도 없습니다. 아이는 <b>건강</b> → <b>잠복</b>(걸렸지만 아직 퍼뜨리지 않음, 평균 2일) → <b>아픔</b>(평균 5일 동안 퍼뜨림) → <b>회복 후 면역</b>(정해진 기간 동안 안 걸림) → 다시 건강으로 돌아갑니다.",
+"en": "Children sit in <b>classes</b> (rooms) and on weekdays (Monday to Friday) meet only classmates. There is no contact inside a class on weekends and none between classes. A child goes <b>healthy</b> → <b>incubating</b> (infected but not yet spreading, 2 days on average) → <b>sick</b> (spreading, 5 days on average) → <b>immune after recovery</b> (cannot be infected for a set time) → healthy again.",
+"tr": "Les enfants sont répartis en <b>classes</b> (salles) et, en semaine (du lundi au vendredi), ne rencontrent que leurs camarades de classe. Il n'y a pas de contact à l'intérieur d'une classe le week-end ni entre classes. Un enfant passe de <b>sain</b> → <b>en incubation</b> (infecté mais pas encore contagieux, 2 jours en moyenne) → <b>malade</b> (contagieux, 5 jours en moyenne) → <b>immunisé après guérison</b> (ne peut pas être infecté pendant une durée donnée) → de nouveau sain."
+},
+{
+"id": "s0850",
+"page": "daycare",
+"ko": "그날 등원한 아픈 아이가 한 명이면, 같은 반의 건강한 아이 한 명이 걸릴 확률은 하루 <b>접촉 강도 × 1%</b>(손씻기·환기를 하면 그만큼 줄어듦)입니다. 아픈 아이가 여럿이면 확률이 쌓입니다. 그래서 <b>반이 클수록</b> 만나는 짝이 많아져 퍼지는 속도가 빨라집니다.",
+"en": "If one sick child attends that day, a healthy classmate catches it with probability <b>contact level × 1%</b> per day (lower with handwashing and ventilation). With several sick children the chances add up. So <b>the bigger the class</b>, the more pairs there are, and the faster it spreads.",
+"tr": "Si un enfant malade est présent ce jour-là, un camarade sain l'attrape avec une probabilité de <b>niveau de contact × 1 %</b> par jour (moins avec le lavage des mains et l'aération). Avec plusieurs enfants malades, les probabilités s'additionnent. Donc <b>plus la classe est grande</b>, plus il y a de paires et plus la propagation est rapide."
+},
+{
+"id": "s0851",
+"page": "daycare",
+"ko": "<b>아프면 쉬기</b>: 아프기 시작한 첫날은 증상이 아직 없어 모두 등원합니다. 둘째 날부터는 정한 비율의 아이가 집에서 쉬고, 나머지는 계속 등원합니다. 쉬는 아이는 반을 감염시키지 못하지만, 그만큼 결석 일수가 늘어납니다.",
+"en": "<b>Staying home when sick</b>: on the first sick day there are no symptoms yet, so everyone attends. From the second day a set share of children rest at home and the rest keep attending. Children at home cannot infect the class, but absence days go up.",
+"tr": "<b>Rester à la maison quand on est malade</b> : le premier jour de maladie, il n'y a pas encore de symptômes, donc tout le monde est présent. À partir du deuxième jour, une part donnée des enfants se repose à la maison et les autres continuent de venir. Les enfants à la maison ne peuvent pas contaminer la classe, mais les jours d'absence augmentent."
+},
+{
+"id": "s0852",
+"page": "daycare",
+"ko": "반 밖(집·동네)에서 들어오는 감염은 아주 단순한 항 하나로만 넣었습니다(하루 0.15%에, 아픈 아이가 많을수록 조금 더). 나은 뒤에는 면역 지속 기간 동안 안 걸리고, 그 뒤에도 걸릴 때마다 면역이 쌓여 걸릴 확률이 낮아집니다(걸린 횟수가 1번이면 약 77%, 3번이면 약 53%). 한 해(365일)를 돌려 아이 한 명이 걸린 평균 횟수를 셉니다.",
+"en": "Infection arriving from outside the class (home, neighborhood) is included as one very simple term (0.15% a day, a little more when many children are sick). After recovery a child cannot be infected for the immunity period, and after that each infection builds more immunity, lowering the chance of catching it again (about 77% after 1 infection, 53% after 3). One year (365 days) is simulated and the average number of times a child caught it is counted.",
+"tr": "L'infection venant de l'extérieur de la classe (domicile, quartier) est incluse sous la forme d'un terme très simple (0,15 % par jour, un peu plus quand beaucoup d'enfants sont malades). Après la guérison, un enfant ne peut pas être infecté pendant la période d'immunité, puis chaque infection renforce l'immunité, ce qui réduit la chance de l'attraper de nouveau (environ 77 % après 1 infection, 53 % après 3). Une année (365 jours) est simulée et le nombre moyen de fois où un enfant l'a attrapé est compté."
+},
+{
+"id": "s0853",
+"page": "daycare",
+"ko": "반 크기 <output id=\"o-size\"></output>",
+"en": "Class size <output id=\"o-size\"></output>",
+"tr": "Taille de la classe <output id=\"o-size\"></output>"
+},
+{
+"id": "s0854",
+"page": "daycare",
+"ko": "한 반의 아이 수. 클수록 만나는 짝이 많아져 퍼지는 속도가 빨라져요",
+"en": "Children per class. Bigger classes have more pairs, so it spreads faster",
+"tr": "Enfants par classe. Les grandes classes ont plus de paires, donc la propagation est plus rapide"
+},
+{
+"id": "s0855",
+"page": "daycare",
+"ko": "접촉 강도 <output id=\"o-contact\"></output>",
+"en": "Contact level <output id=\"o-contact\"></output>",
+"tr": "Niveau de contact <output id=\"o-contact\"></output>"
+},
+{
+"id": "s0856",
+"page": "daycare",
+"ko": "붙어서 놀고 장난감을 같이 쓰는 정도. 높을수록 한 번 만날 때 퍼질 확률이 커요",
+"en": "How closely children play and share toys. Higher means a bigger chance of spreading per encounter",
+"tr": "À quel point les enfants jouent de près et partagent leurs jouets. Plus c'est élevé, plus la chance de transmission par rencontre est grande"
+},
+{
+"id": "s0857",
+"page": "daycare",
+"ko": "아프면 쉬는 비율 <output id=\"o-stay\"></output>",
+"en": "Share who stay home when sick <output id=\"o-stay\"></output>",
+"tr": "Part qui reste à la maison quand elle est malade <output id=\"o-stay\"></output>"
+},
+{
+"id": "s0858",
+"page": "daycare",
+"ko": "아프기 시작한 둘째 날부터 집에서 쉬는 아이의 비율. 쉬는 아이는 반에 퍼뜨리지 않아요",
+"en": "Share of children who rest at home from the second sick day. Children at home do not spread it in class",
+"tr": "Part des enfants qui se reposent à la maison à partir du deuxième jour de maladie. Les enfants à la maison ne transmettent pas en classe"
+},
+{
+"id": "s0859",
+"page": "daycare",
+"ko": "손씻기·환기로 줄인 전파 <output id=\"o-hyg\"></output>",
+"en": "Spread reduced by handwashing and ventilation <output id=\"o-hyg\"></output>",
+"tr": "Transmission réduite par le lavage des mains et l'aération <output id=\"o-hyg\"></output>"
+},
+{
+"id": "s0860",
+"page": "daycare",
+"ko": "한 번 만날 때 퍼질 확률을 이만큼 줄입니다(모델상의 가정값)",
+"en": "Cuts the chance of spreading per encounter by this much (an assumed value in the model)",
+"tr": "Réduit d'autant la chance de transmission par rencontre (une valeur supposée dans le modèle)"
+},
+{
+"id": "s0861",
+"page": "daycare",
+"ko": "면역 지속 <output id=\"o-imm\"></output>",
+"en": "Immunity duration <output id=\"o-imm\"></output>",
+"tr": "Durée de l'immunité <output id=\"o-imm\"></output>"
+},
+{
+"id": "s0862",
+"page": "daycare",
+"ko": "나은 뒤 이 기간(일) 동안은 다시 안 걸려요. 길수록 한 해 걸리는 횟수가 줄어요",
+"en": "Days after recovery during which a child cannot be reinfected. Longer means fewer infections a year",
+"tr": "Jours après la guérison pendant lesquels un enfant ne peut pas être réinfecté. Plus c'est long, moins il y a d'infections par an"
+},
+{
+"id": "s0863",
+"page": "daycare",
+"ko": "같은 설정, 다른 반",
+"en": "Same settings, different classes",
+"tr": "Mêmes réglages, autres classes"
+},
+{
+"id": "s0864",
+"page": "daycare",
+"ko": "① 여덟 반을 지켜보기",
+"en": "① Watching Eight Classes",
+"tr": "① Observer huit classes"
+},
+{
+"id": "s0865",
+"page": "daycare",
+"ko": "점 하나가 아이 한 명입니다. 파랑은 건강, 노랑은 잠복, 빨강 채움은 아파도 등원한 아이, 빨강 고리는 집에서 쉬는 아이, 초록은 막 나아서 면역이 있는 아이입니다. 한 반에서 시작한 감염이 번지고 다시 가라앉는 모습을 보세요. 주말에는 반이 회색으로 바뀝니다.",
+"en": "Each dot is one child. Blue is healthy, yellow incubating, solid red a sick child who still attended, a red ring a child resting at home, and green a recently recovered child with immunity. Watch an infection start in one class, spread, and fade. Classes turn gray on weekends.",
+"tr": "Chaque point est un enfant. Le bleu est sain, le jaune en incubation, le rouge plein un enfant malade qui est venu, un anneau rouge un enfant qui se repose à la maison et le vert un enfant récemment guéri et immunisé. Observez une infection démarrer dans une classe, se propager, puis s'éteindre. Les classes deviennent grises le week-end."
+},
+{
+"id": "s0866",
+"page": "daycare",
+"ko": "<i style=\"background:#8fb3e8\"></i>건강",
+"en": "<i style=\"background:#8fb3e8\"></i>Healthy",
+"tr": "<i style=\"background:#8fb3e8\"></i>Sain"
+},
+{
+"id": "s0867",
+"page": "daycare",
+"ko": "<i style=\"background:#f0b429\"></i>잠복",
+"en": "<i style=\"background:#f0b429\"></i>Incubating",
+"tr": "<i style=\"background:#f0b429\"></i>En incubation"
+},
+{
+"id": "s0868",
+"page": "daycare",
+"ko": "<i style=\"background:#e5484d\"></i>아픈데 등원",
+"en": "<i style=\"background:#e5484d\"></i>Sick, attending",
+"tr": "<i style=\"background:#e5484d\"></i>Malade, présent"
+},
+{
+"id": "s0869",
+"page": "daycare",
+"ko": "<i style=\"background:transparent;border:2px solid #e5484d;box-sizing:border-box\"></i>집에서 쉼",
+"en": "<i style=\"background:transparent;border:2px solid #e5484d;box-sizing:border-box\"></i>Resting at home",
+"tr": "<i style=\"background:transparent;border:2px solid #e5484d;box-sizing:border-box\"></i>Se repose à la maison"
+},
+{
+"id": "s0870",
+"page": "daycare",
+"ko": "<i style=\"background:#1fa463\"></i>면역 있음",
+"en": "<i style=\"background:#1fa463\"></i>Immune",
+"tr": "<i style=\"background:#1fa463\"></i>Immunisé"
+},
+{
+"id": "s0871",
+"page": "daycare",
+"ko": "② 주마다 아픈 아이는 얼마나 될까",
+"en": "② How Many Children Are Sick Each Week?",
+"tr": "② Combien d'enfants sont malades chaque semaine ?"
+},
+{
+"id": "s0872",
+"page": "daycare",
+"ko": "가로는 학기가 시작된 뒤 몇 주째인지, 세로는 그 주에 아팠던 아이의 비율입니다. 빨간 선이 이번에 돌린 결과, 짙은 선은 그 중 집에서 쉰 아이, 회색 선은 같은 설정에서 아무도 쉬지 않을 때의 평균입니다. 처음에는 모두 건강해서 크게 번지고, 면역이 쌓이면서 낮아집니다.",
+"en": "The horizontal axis is the week since the term began and the vertical axis the share of children sick that week. The red line is this run, the dark line the children among them resting at home, and the gray line the average when nobody stays home at the same settings. It spreads widely at first because everyone is susceptible, then falls as immunity builds.",
+"tr": "L'axe horizontal est la semaine depuis la rentrée et l'axe vertical la part d'enfants malades cette semaine-là. La ligne rouge est cette simulation, la ligne foncée les enfants parmi eux qui se reposent à la maison, et la ligne grise la moyenne quand personne ne reste à la maison avec les mêmes réglages. La propagation est forte au début car tout le monde est réceptif, puis elle diminue à mesure que l'immunité se constitue."
+},
+{
+"id": "s0873",
+"page": "daycare",
+"ko": "③ 한 해 동안 몇 번 걸렸을까",
+"en": "③ How Many Times Did Each Child Catch It?",
+"tr": "③ Combien de fois chaque enfant l'a-t-il attrapé ?"
+},
+{
+"id": "s0874",
+"page": "daycare",
+"ko": "아이마다 한 해 동안 걸린 횟수를 세어 비율로 쌓았습니다. 초록 막대는 한 번도 안 걸린 아이입니다. 점선은 평균입니다. 같은 반이라도 아이마다 운에 따라 몇 번씩 차이가 납니다.",
+"en": "Each child's number of infections in the year, shown as shares. The green bar is children who never caught it. The dashed line is the average. Even in the same class, luck makes the counts differ from child to child.",
+"tr": "Le nombre d'infections de chaque enfant dans l'année, présenté en proportions. La barre verte représente les enfants qui ne l'ont jamais attrapé. La ligne pointillée est la moyenne. Même dans une même classe, la chance fait que les chiffres diffèrent d'un enfant à l'autre."
+},
+{
+"id": "s0875",
+"page": "daycare",
+"ko": "④ 아프면 쉬는 아이가 늘어나면",
+"en": "④ If More Sick Children Stay Home",
+"tr": "④ Si plus d'enfants malades restent à la maison"
+},
+{
+"id": "s0876",
+"page": "daycare",
+"ko": "가로는 아프면 쉬는 아이의 비율, 세로는 한 해 아이 한 명이 걸린 횟수입니다(점은 여섯 번 돌린 각각, 선은 평균). 지금 설정에서 비율만 바꿔 훑은 것입니다. 비율이 100%여도 0회가 되지 않는 점을 보세요.",
+"en": "The horizontal axis is the share of children who stay home when sick and the vertical axis the times a child caught it in a year (dots are six separate runs, the line their average). Only this share is varied at your current settings. Notice that even at 100% the count does not reach zero.",
+"tr": "L'axe horizontal est la part des enfants qui restent à la maison quand ils sont malades et l'axe vertical le nombre de fois qu'un enfant l'a attrapé en un an (les points sont six simulations distinctes, la ligne leur moyenne). Seule cette part varie avec vos réglages actuels. Remarquez que même à 100 %, le nombre n'atteint pas zéro."
+},
+{
+"id": "s0877",
+"page": "daycare",
+"ko": "⑤ 반 크기를 바꾸면",
+"en": "⑤ If the Class Size Changes",
+"tr": "⑤ Si la taille de la classe change"
+},
+{
+"id": "s0878",
+"page": "daycare",
+"ko": "가로는 반 크기, 세로는 한 해 아이 한 명이 걸린 횟수입니다. 반이 작아지면 만나는 짝이 줄어 횟수도 줄지만, 반이 아주 작아져도 반 밖에서 들어오는 감염 때문에 0이 되지는 않습니다.",
+"en": "The horizontal axis is class size and the vertical axis the times a child caught it in a year. Smaller classes mean fewer pairs, so the count falls, but it never reaches zero because of infection arriving from outside the class.",
+"tr": "L'axe horizontal est la taille de la classe et l'axe vertical le nombre de fois qu'un enfant l'a attrapé en un an. Les petites classes ont moins de paires, donc le nombre diminue, mais il n'atteint jamais zéro à cause de l'infection venue de l'extérieur de la classe."
+},
+{
+"id": "s0879",
+"page": "daycare",
+"ko": "이 모델에서는 아프면 쉬는 비율이 100%일 때 한 해 감염이 5.0회에서 2.5회로 절반이 됐어요.",
+"en": "In this model, when 100% of sick children stay home, yearly infections fell from 5.0 to 2.5, half as many.",
+"tr": "Dans ce modèle, quand 100 % des enfants malades restent à la maison, les infections annuelles sont passées de 5,0 à 2,5, soit la moitié."
+},
+{
+"id": "s0880",
+"page": "daycare",
+"ko": "같은 반 안에서 아픈 아이가 나오는 만큼 퍼지기 때문에, 반 크기와 면역 기간도 쉬기만큼 결과를 바꿨어요.",
+"en": "Spread follows the sick children within a class, so class size and immunity length moved the result about as much as staying home.",
+"tr": "La propagation suit les enfants malades au sein d'une classe ; la taille de la classe et la durée de l'immunité ont donc fait varier le résultat presque autant que le maintien à la maison."
+},
+{
+"id": "s0881",
+"page": "daycare",
+"ko": "개별 선택보다 반의 크기, 접촉, 면역 같은 구조가 어떻게 겹치는지가 열쇠일 수 있어요.",
+"en": "Rather than individual choices, how class size, contact and immunity combine may be the key to look at.",
+"tr": "Plutôt que les choix individuels, la façon dont la taille de la classe, les contacts et l'immunité se combinent peut être la clé à examiner."
+},
+{
+"id": "s0882",
+"page": "daycare",
+"ko": "<b>말하는 것:</b> 반 20명, 접촉 5단계, 면역 30일, 손씻기·환기 0%인 설정에서 스무 번 돌린 평균입니다(예시 숫자). 아프면 쉬는 비율이 0%이면 한 해 아이 한 명이 5.0회 걸렸고, 30%이면 4.4회, 70%이면 3.5회(0%보다 30% 적음), 100%이면 2.5회(절반)였습니다. 대신 아파서 집에서 쉰 평일은 0일에서 70%일 때 6.9일, 100%일 때 7.0일로 늘었습니다. 100%여도 0이 되지 않는 이유는 증상 전 첫날의 등원과 반 밖에서 들어오는 감염입니다. 반 크기는 쉬기 30%에서 8명이면 2.5회, 10명이면 2.9회, 20명이면 4.4회, 30명이면 5.5회였고, 쉬기 0%→70%의 효과는 반 10명에서 3.3→2.3회, 20명에서 5.0→3.5회, 30명에서 6.0→4.3회였습니다. 손씻기·환기로 전파를 30% 줄이면 4.4→3.7회, 60%이면 2.9회였습니다. 접촉 강도 2단계는 2.9회, 8단계는 5.2회였고, 면역이 14일이면 6.0회, 90일이면 2.7회, 180일이면 1.8회였습니다. 면역이 쌓이는 효과는 첫 3개월에 아이 1명당 1.6회, 이후 3개월마다 1.0, 1.0, 0.9회로 줄어드는 모습에서 보입니다. 시드 1로 한 번 돌리면(기본 설정) 4.2회, 쉰 날 3.4일, 아픈 아이가 가장 많았던 때는 3주째였습니다. 쉬기 0%, 손씻기·환기 30%, 반 12명을 합치면 3.2회였습니다.",
+"en": "<b>What it shows:</b> These are averages of twenty runs at class size 20, contact level 5, immunity 30 days and 0% handwashing and ventilation (example numbers). With 0% of children staying home when sick, a child caught it 5.0 times a year; at 30% it was 4.4, at 70% 3.5 (30% fewer than at 0%), and at 100% 2.5 (half). In exchange, weekdays resting at home rose from 0 to 6.9 days at 70% and 7.0 at 100%. It does not reach zero even at 100% because of the first day before symptoms, when the child still attends, and infection arriving from outside. Class size at 30% staying home gave 2.5 times for 8 children, 2.9 for 10, 4.4 for 20 and 5.5 for 30, and the effect of going from 0% to 70% staying home was 3.3 → 2.3 at 10 children, 5.0 → 3.5 at 20 and 6.0 → 4.3 at 30. Cutting spread by 30% with handwashing and ventilation took 4.4 to 3.7, and 60% gave 2.9. Contact level 2 gave 2.9 times and level 8 gave 5.2; with immunity of 14 days it was 6.0, at 90 days 2.7 and at 180 days 1.8. Accumulating immunity shows in 1.6 infections per child in the first three months, then 1.0, 1.0 and 0.9 in each following three months. One run with seed 1 at the defaults gave 4.2 times, 3.4 rest days, and the week with the most sick children was week 3. Combining 0% staying home, 30% handwashing and ventilation, and 12 children gave 3.2.",
+"tr": "<b>Ce que cela montre :</b> Il s'agit de moyennes de vingt simulations avec une classe de 20, un niveau de contact de 5, une immunité de 30 jours et 0 % de lavage des mains et d'aération (chiffres d'exemple). Avec 0 % d'enfants restant à la maison quand ils sont malades, un enfant l'a attrapé 5,0 fois par an ; à 30 % c'était 4,4, à 70 % 3,5 (30 % de moins qu'à 0 %), et à 100 % 2,5 (la moitié). En contrepartie, les jours de semaine de repos à la maison sont passés de 0 à 6,9 jours à 70 % et 7,0 à 100 %. Cela n'atteint pas zéro même à 100 % à cause du premier jour avant les symptômes, où l'enfant vient encore, et de l'infection venue de l'extérieur. La taille de la classe avec 30 % à la maison a donné 2,5 fois pour 8 enfants, 2,9 pour 10, 4,4 pour 20 et 5,5 pour 30, et l'effet du passage de 0 % à 70 % à la maison était 3,3 → 2,3 à 10 enfants, 5,0 → 3,5 à 20 et 6,0 → 4,3 à 30. Réduire la transmission de 30 % par le lavage des mains et l'aération a fait passer 4,4 à 3,7, et 60 % a donné 2,9. Un niveau de contact de 2 a donné 2,9 fois et un niveau de 8 a donné 5,2 ; avec une immunité de 14 jours c'était 6,0, à 90 jours 2,7 et à 180 jours 1,8. L'accumulation d'immunité se voit dans 1,6 infection par enfant les trois premiers mois, puis 1,0, 1,0 et 0,9 pour chaque trimestre suivant. Une simulation avec la graine 1 et les valeurs par défaut a donné 4,2 fois, 3,4 jours de repos, et la semaine avec le plus d'enfants malades était la semaine 3. Combiner 0 % à la maison, 30 % de lavage des mains et d'aération et 12 enfants a donné 3,2."
+},
+{
+"id": "s0883",
+"page": "daycare",
+"ko": "실제 어린이집의 감염 횟수를 예측하거나, 아이를 어떻게 돌볼지 권하는 모델이 아니에요. 숫자는 예시예요.",
+"en": "It neither predicts real daycare infections nor advises how to care for a child; the numbers are examples.",
+"tr": "Il ne prédit ni les infections réelles en crèche ni ne conseille sur la façon de s'occuper d'un enfant ; les chiffres sont des exemples."
+},
+{
+"id": "s0884",
+"page": "daycare",
+"ko": "실제 판단은 소아과 의사·교사 등 전문가와 하고, 형제자매나 병원균별 차이 같은 빠진 요소는 따로 확인해야 해요.",
+"en": "Real decisions belong with pediatricians and teachers, and missing factors such as siblings or specific germs need separate checking.",
+"tr": "Les décisions réelles reviennent aux pédiatres et aux enseignants, et les facteurs absents, comme les frères et sœurs ou des germes précis, demandent une vérification distincte."
+},
+{
+"id": "s0885",
+"page": "daycare",
+"ko": "<b>말하지 않는 것:</b> 실제 어린이집의 감염 횟수를 예측하거나 재현한 것이 아닙니다. 병원균을 특정하지 않은 \"감기 같은 호흡기 감염\"을 가정한 이 프로젝트의 단순화된 모델이고, 기본값(접촉 강도, 면역 기간 등)은 예시 숫자입니다. 실제 감염 횟수나 결석 일수를 말해 주는 통계가 아닙니다. 어떻게 아이를 돌볼지, 아플 때 등원할지, 어떤 예방을 할지를 권하거나 판단하지 않으며, 쉬기를 선택하는 가정이든 등원을 선택하는 가정이든 각자 사정이 있습니다. 참고용 모델이며 실제 판단은 소아과 의사·교사 등 전문가와 하시기 바랍니다. 이 모델에는 형제자매와 부모를 거치는 감염, 병원균별 차이, 다른 반과의 접촉, 아이마다 다른 체질, 방학과 개학의 영향, 어린이집의 실제 운영 방식이 없습니다.",
+"en": "<b>What it doesn't show:</b> This does not predict or reproduce the number of infections at any real daycare. It is this project's simplified model of a \"cold-like respiratory infection\" with no specific pathogen, and the defaults (contact level, immunity period and so on) are example numbers, not statistics about real infection counts or absences. It does not recommend or judge how to care for a child, whether to attend when sick, or which precautions to take, and families who keep children home and families who send them each have their reasons. This is a reference model; for real decisions please consult professionals such as a pediatrician or a teacher. The model leaves out infection passing through siblings and parents, differences between pathogens, contact with other classes, differences between children, the effect of vacations, and how real daycares operate.",
+"tr": "<b>Ce que cela ne montre pas :</b> Ceci ne prédit ni ne reproduit le nombre d'infections dans aucune crèche réelle. C'est le modèle simplifié de ce projet d'une « infection respiratoire de type rhume » sans pathogène précis, et les valeurs par défaut (niveau de contact, période d'immunité, etc.) sont des chiffres d'exemple, pas des statistiques sur les infections ou les absences réelles. Il ne recommande ni ne juge la façon de s'occuper d'un enfant, la présence en cas de maladie ou les précautions à prendre, et les familles qui gardent leurs enfants à la maison comme celles qui les envoient ont chacune leurs raisons. C'est un modèle de référence ; pour les décisions réelles, consultez des professionnels comme un pédiatre ou un enseignant. Le modèle omet la transmission par les frères et sœurs et les parents, les différences entre pathogènes, le contact avec les autres classes, les différences entre enfants, l'effet des vacances et le fonctionnement réel des crèches."
+},
+{
+"id": "s0886",
+"page": "daycare",
+"ko": "<b>모델의 뿌리:</b> 감염병 구획 모델의 고전인 Kermack &amp; McKendrick (1927), 「A contribution to the mathematical theory of epidemics」(<i>Proceedings of the Royal Society A</i>)의 SIR 모델이 뿌리입니다. 집단을 걸릴 수 있는 사람(S), 감염된 사람(I), 회복한 사람(R)으로 나누고, 처음 한 명이 평균 R0명에게 퍼뜨리는지에 따라 유행이 커지거나 사라진다는 내용입니다.",
+"en": "<b>Where the model comes from:</b> The root is the SIR model of the classic compartment-model paper by Kermack &amp; McKendrick (1927), &quot;A contribution to the mathematical theory of epidemics&quot; (<i>Proceedings of the Royal Society A</i>). It splits a population into susceptible (S), infected (I) and recovered (R), and says an outbreak grows or dies out depending on whether one case infects more or fewer than R0 others on average.",
+"tr": "<b>D'où vient le modèle :</b> La racine est le modèle SIR de l'article classique sur les modèles compartimentaux de Kermack &amp; McKendrick (1927), &quot;A contribution to the mathematical theory of epidemics&quot; (<i>Proceedings of the Royal Society A</i>). Il répartit une population en sensibles (S), infectés (I) et guéris (R), et dit qu'une épidémie croît ou s'éteint selon qu'un cas infecte en moyenne plus ou moins de R0 autres personnes."
+},
+{
+"id": "s0887",
+"page": "daycare",
+"ko": "<b>핵심 가정과 수식:</b> 한 반 안은 모두가 서로 섞이는 균질 혼합으로 보고, 감염된 아이가 평균 <code>R0 = τ × (반 크기 − 1) × 등원하는 아픈 날수</code>명을 감염시킵니다. τ는 한 쌍이 하루에 만나 퍼질 확률(접촉 강도 × 1% × (1 − 줄인 전파))이고, 등원하는 아픈 날수는 <code>1 + (5 − 1) × (1 − 쉬는 비율)</code>입니다. 유행이 끝났을 때 걸린 비율 z는 <code>z = 1 − e<sup>−R0·z</sup></code>를 만족합니다. 슬라이더는 반 크기, 접촉 강도(τ), 쉬는 비율, 전파 감소(τ)입니다.",
+"en": "<b>Key assumptions and formulas:</b> A class is treated as fully mixed, and an infected child infects on average <code>R0 = τ × (class size − 1) × sick days attended</code> others. τ is the chance a pair spreads it in a day (contact level × 1% × (1 − reduced spread)) and the sick days attended are <code>1 + (5 − 1) × (1 − share staying home)</code>. When an outbreak ends, the share who caught it, z, satisfies <code>z = 1 − e<sup>−R0·z</sup></code>. The sliders are class size, contact level (τ), the share staying home and the spread reduction (τ).",
+"tr": "<b>Hypothèses et formules clés :</b> Une classe est traitée comme parfaitement mélangée, et un enfant infecté en infecte en moyenne <code>R0 = τ × (taille de la classe − 1) × jours de maladie en présence</code> autres. τ est la chance qu'une paire transmette l'infection en un jour (niveau de contact × 1 % × (1 − transmission réduite)) et les jours de maladie en présence sont <code>1 + (5 − 1) × (1 − part restant à la maison)</code>. Quand une épidémie s'achève, la part de ceux qui l'ont attrapée, z, vérifie <code>z = 1 − e<sup>−R0·z</sup></code>. Les curseurs sont la taille de la classe, le niveau de contact (τ), la part restant à la maison et la réduction de la transmission (τ)."
+},
+{
+"id": "s0888",
+"page": "daycare",
+"ko": "<b>이 프로젝트의 단순화:</b> 원래의 SIR에 이 프로젝트가 덧붙인 것이 많습니다: 잠복기(평균 2일), 평일과 주말, 겨울에 25% 더 잘 퍼지는 계절 효과, 반 밖에서 들어오는 단순한 감염 항, 면역 지속과 걸릴 때마다 쌓이는 면역(1/(1+0.3×걸린 횟수)), 증상 전 첫날의 등원. 이 값들은 모두 이 프로젝트가 정한 예시 숫자이고 실제 병원균을 맞춘 것이 아닙니다. 가정으로 퍼지는 2차 감염은 반 밖 감염 항(하루 0.15%에 전체 아픈 아이 비율의 20%를 더함) 하나로 뭉뚱그렸습니다.",
+"en": "<b>What this project simplifies:</b> This project adds many things to plain SIR: an incubation period (2 days on average), weekdays and weekends, a seasonal effect that spreads 25% more in winter, a simple term for infection arriving from outside the class, immunity duration with immunity that builds with each infection (1/(1+0.3×infections)), and attending on the first day before symptoms. All of these are example values set by this project, not fitted to a real pathogen. Secondary infection spreading through households is lumped into one outside term (0.15% a day plus 20% of the share of sick children overall).",
+"tr": "<b>Ce que ce projet simplifie :</b> Ce projet ajoute beaucoup de choses au SIR de base : une période d'incubation (2 jours en moyenne), des jours de semaine et de week-end, un effet saisonnier qui propage 25 % de plus en hiver, un terme simple pour l'infection venue de l'extérieur de la classe, une durée d'immunité avec une immunité qui se construit à chaque infection (1/(1+0,3×infections)), et la présence le premier jour avant les symptômes. Ce sont tous des valeurs d'exemple fixées par ce projet, non ajustées à un pathogène réel. L'infection secondaire transmise par les foyers est regroupée en un seul terme externe (0,15 % par jour plus 20 % de la part d'enfants malades au total)."
+},
+{
+"id": "s0889",
+"page": "daycare",
+"ko": "<b>이론값과 시뮬레이션:</b> 이론이 맞는 조건(한 반 500명, 주말·계절·바깥 감염·재감염 없음, 처음 5명 감염)에서 스무 번 돌린 평균과 비교했습니다. R0 1.5에서 이론 58.3%, 시뮬레이션 56.8%. R0 2에서 79.7%와 80.6%. R0 3에서 94.0%와 94.6%. 쉬는 비율 50%(R0 2)에서 79.7%와 77.7%, 70%(R0 3)에서 94.0%와 95.0%였습니다. R0 0.8에서는 이론상 큰 유행이 없고 시뮬레이션도 처음 5명에 더해 4.2%만 걸렸습니다. 기본 설정(주말·계절·반 밖 감염·재감염 포함)에는 닫힌 식이 없어 시뮬레이션만으로 확인했습니다.",
+"en": "<b>Theory versus simulation:</b> I compared against twenty-run averages under the conditions where the theory applies (one class of 500, no weekends, season, outside infection or reinfection, 5 initial cases). At R0 1.5 the theory gives 58.3% and the simulation 56.8%; at R0 2, 79.7% and 80.6%; at R0 3, 94.0% and 94.6%. With 50% staying home (R0 2) it was 79.7% and 77.7%, and with 70% (R0 3) 94.0% and 95.0%. At R0 0.8 the theory predicts no large outbreak and the simulation had only 4.2% infected including the first 5. The default settings (with weekends, season, outside infection and reinfection) have no closed form, so they were checked by simulation only.",
+"tr": "<b>Théorie et simulation :</b> J'ai comparé avec des moyennes de vingt simulations dans les conditions où la théorie s'applique (une classe de 500, sans week-ends, saison, infection externe ni réinfection, 5 cas initiaux). Pour R0 1,5, la théorie donne 58,3 % et la simulation 56,8 % ; pour R0 2, 79,7 % et 80,6 % ; pour R0 3, 94,0 % et 94,6 %. Avec 50 % à la maison (R0 2), c'était 79,7 % et 77,7 %, et avec 70 % (R0 3) 94,0 % et 95,0 %. Pour R0 0,8, la théorie prédit qu'il n'y a pas de grande épidémie et la simulation n'a eu que 4,2 % d'infectés, y compris les 5 premiers. Les réglages par défaut (avec week-ends, saison, infection externe et réinfection) n'ont pas de forme fermée, ils n'ont donc été vérifiés que par simulation."
+},
+{
+"id": "s0890",
+"page": "daycare",
+"ko": "<b>더 읽을거리:</b> Kermack &amp; McKendrick (1927), <i>Proceedings of the Royal Society A</i> / Anderson &amp; May (1991), <i>Infectious Diseases of Humans: Dynamics and Control</i>, Oxford University Press / Keeling &amp; Rohani (2008), <i>Modeling Infectious Diseases in Humans and Animals</i>, Princeton University Press.",
+"en": "<b>Further reading:</b> Kermack &amp; McKendrick (1927), <i>Proceedings of the Royal Society A</i> / Anderson &amp; May (1991), <i>Infectious Diseases of Humans: Dynamics and Control</i>, Oxford University Press / Keeling &amp; Rohani (2008), <i>Modeling Infectious Diseases in Humans and Animals</i>, Princeton University Press.",
+"tr": "<b>Pour aller plus loin :</b> Kermack &amp; McKendrick (1927), <i>Proceedings of the Royal Society A</i> / Anderson &amp; May (1991), <i>Infectious Diseases of Humans: Dynamics and Control</i>, Oxford University Press / Keeling &amp; Rohani (2008), <i>Modeling Infectious Diseases in Humans and Animals</i>, Princeton University Press."
+},
+{
+"id": "s0891",
+"page": "daycare",
+"ko": "시뮬레이션은 하루를 한 걸음으로 하고 시드 난수(mulberry32)를 써서 같은 시드면 같은 결과가 나옵니다. 통계 카드의 \"쉬기 0% → 70%\"는 지금 설정에서 시드 8개를 각각 돌려 평균한 값이고, ④·⑤번 그래프는 시드 6개씩입니다. 그래서 슬라이더를 바꾸면 잠시 뒤에 갱신됩니다.",
+"en": "The simulation advances one day per step and uses a seeded random generator (mulberry32), so the same seed gives the same result. The \"0% → 70% staying home\" card averages eight seeds at your current settings, and graphs ④ and ⑤ use six seeds per point, so they update a moment after you move a slider.",
+"tr": "La simulation avance d'un jour par pas et utilise un générateur aléatoire à graine (mulberry32), donc la même graine donne le même résultat. La carte « 0 % → 70 % à la maison » fait la moyenne de huit graines avec vos réglages actuels, et les graphiques ④ et ⑤ utilisent six graines par point, ils se mettent donc à jour un instant après le déplacement d'un curseur."
+},
+{
+"id": "s0892",
+"page": "daycare",
+"ko": "검증은 <code>node tools/validate-daycare.js</code>로 할 수 있습니다. 이 페이지의 숫자는 모두 이 출력과 같습니다.",
+"en": "You can verify with <code>node tools/validate-daycare.js</code>. Every number on this page matches its output.",
+"tr": "Vous pouvez le vérifier avec <code>node tools/validate-daycare.js</code>. Chaque chiffre de cette page correspond à sa sortie."
+},
+{
+"id": "s0893",
+"page": "daycare",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/daycare\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/daycare\">GitHub</a>.",
+"tr": "Le code est disponible sur <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/daycare\">GitHub</a>."
+},
+{
+"id": "s0894",
+"page": "dla",
+"ko": "번개·산호·눈송이는 왜 닮았을까 (DLA) · 시뮬라티오 랩",
+"en": "Why Lightning, Coral and Frost Look Alike (DLA) · Simulatio Lab",
+"tr": "Pourquoi la foudre, le corail et le givre se ressemblent (DLA) · Simulatio Lab"
+},
+{
+"id": "s0895",
+"page": "dla",
+"ko": "무작위로 떠도는 입자가 닿으면 붙기만 하는 아주 단순한 규칙이 번개·산호·서리를 닮은 가지 모양 프랙탈을 키웁니다. 붙는 확률과 씨앗 모양을 바꿔 직접 키워 보세요.",
+"en": "A very simple rule, particles that wander randomly and stick on contact, grows branching fractals that resemble lightning, coral and frost. Change the stickiness and seed shape and grow one yourself.",
+"tr": "Une règle très simple, des particules qui errent au hasard et collent au contact, fait croître des fractales ramifiées qui ressemblent à la foudre, au corail et au givre. Changez l'adhérence et la forme du germe et faites-en pousser une vous-même."
+},
+{
+"id": "s0896",
+"page": "dla",
+"ko": "번개, 산호, 서리, 강 하구의 가지는 재료도 크기도 전혀 다른데 모양은 이상하게 닮았습니다. 그러니 각각 복잡한 사정이 있을 거라고 생각하기 쉽습니다. 그런데 \"무작위로 떠돌던 입자가 덩어리에 닿으면 붙는다\"는 규칙 하나만 반복해도 이런 가지 모양이 저절로 자랍니다. 아무도 가지를 그리라고 시키지 않았는데, 바깥쪽 끝이 안쪽 틈을 가려 버리는 것만으로요. 아래 장면에서 입자 4,000개를 떨어뜨려 보세요.",
+"en": "Lightning, coral, frost and river branches are made of entirely different things at entirely different sizes, yet they look strangely alike. You might expect each to have its own complicated story. But repeat one rule, \"a particle wandering at random sticks when it touches the cluster\", and this kind of branching grows by itself. Nobody tells it to draw branches; the outer tips simply shade the inner gaps. Drop 4,000 particles in the scene below.",
+"tr": "La foudre, le corail, le givre et les ramifications d'une rivière sont faits de choses totalement différentes à des tailles totalement différentes, et pourtant ils se ressemblent étrangement. On pourrait s'attendre à ce que chacun ait sa propre histoire compliquée. Mais si l'on répète une seule règle, « une particule qui erre au hasard colle quand elle touche l'amas », ce type de ramification pousse tout seul. Personne ne lui demande de dessiner des branches ; les pointes extérieures font simplement de l'ombre aux creux intérieurs. Lâchez 4 000 particules dans la scène ci-dessous."
+},
+{
+"id": "s0897",
+"page": "dla",
+"ko": "격자 한가운데에 <b>씨앗</b>(점·선·고리)을 놓습니다. 덩어리를 감싸는 큰 원 위에서 입자를 하나씩 출발시키면, 입자는 상하좌우로 무작위로 한 칸씩 떠돕니다.",
+"en": "A <b>seed</b> (point, line or ring) sits in the middle of a grid. Particles are released one at a time on a big circle around the cluster and wander at random, one cell up, down, left or right.",
+"tr": "Un <b>germe</b> (point, ligne ou anneau) est placé au centre d'une grille. Les particules sont lâchées une par une sur un grand cercle autour de l'amas et errent au hasard, d'une case vers le haut, le bas, la gauche ou la droite."
+},
+{
+"id": "s0898",
+"page": "dla",
+"ko": "덩어리에 닿으면 <b>붙는 확률</b>만큼의 확률로 그 자리에 붙습니다. 안 붙으면 계속 떠돌고, 너무 멀리 가면 버리고 새 입자를 내보냅니다. 100%면 닿는 즉시 붙습니다.",
+"en": "On touching the cluster, a particle sticks with the <b>sticking probability</b>. If it does not, it keeps wandering, and if it strays too far it is discarded and a new one is released. At 100% it sticks on first touch.",
+"tr": "Au contact de l'amas, une particule colle avec la <b>probabilité d'adhérence</b>. Sinon, elle continue d'errer, et si elle s'éloigne trop, elle est écartée et une nouvelle est lâchée. À 100 %, elle colle dès le premier contact."
+},
+{
+"id": "s0899",
+"page": "dla",
+"ko": "이렇게 붙은 순서대로 색을 입혔습니다(금빛이 먼저, 하늘색이 나중). 바깥으로 뻗은 가지 끝은 입자가 먼저 닿고, 안쪽 틈은 가지에 가려 잘 닿지 못해서 가지가 갈라지며 뻗어 나갑니다.",
+"en": "Cells are colored by arrival order (gold first, sky blue last). Particles reach the outstretched tips first, while the inner gaps are shaded by the branches, so the cluster splits and reaches outward.",
+"tr": "Les cases sont colorées selon l'ordre d'arrivée (or en premier, bleu ciel en dernier). Les particules atteignent d'abord les pointes les plus avancées, tandis que les creux intérieurs sont à l'ombre des branches : l'amas se divise et s'étend vers l'extérieur."
+},
+{
+"id": "s0900",
+"page": "dla",
+"ko": "덩어리가 얼마나 성긴지는 <b>프랙탈 차원 D</b>로 재요. 반지름 r 안의 입자 수가 <i>r<sup>D</sup></i>에 비례한다고 보고 로그-로그 그래프의 기울기를 구합니다. 꽉 찬 면이면 2, 가는 선이면 1입니다.",
+"en": "How sparse the cluster is can be measured by its <b>fractal dimension D</b>: the number of particles within radius r grows like <i>r<sup>D</sup></i>, so D is the slope on a log-log graph. A solid area gives 2, a thin line gives 1.",
+"tr": "On peut mesurer le caractère clairsemé de l'amas par sa <b>dimension fractale D</b> : le nombre de particules dans un rayon r croît comme <i>r<sup>D</sup></i>, donc D est la pente sur un graphique log-log. Une surface pleine donne 2, une ligne fine donne 1."
+},
+{
+"id": "s0901",
+"page": "dla",
+"ko": "붙는 확률 <output id=\"o-stick\"></output>",
+"en": "Sticking probability <output id=\"o-stick\"></output>",
+"tr": "Probabilité d'adhérence <output id=\"o-stick\"></output>"
+},
+{
+"id": "s0902",
+"page": "dla",
+"ko": "낮을수록 닿고도 더 떠돌다 붙어, 틈 안쪽까지 채워 더 촘촘하고 뭉툭해져요. 100%는 가시 돋은 가지",
+"en": "Lower means particles keep wandering after touching and fill the inner gaps, so the cluster is denser and blobbier. 100% gives spiky branches",
+"tr": "Une valeur plus faible signifie que les particules continuent d'errer après le contact et comblent les creux intérieurs : l'amas est plus dense et plus compact. À 100 %, on obtient des branches pointues"
+},
+{
+"id": "s0903",
+"page": "dla",
+"ko": "입자 수 <output id=\"o-count\"></output>",
+"en": "Number of particles <output id=\"o-count\"></output>",
+"tr": "Nombre de particules <output id=\"o-count\"></output>"
+},
+{
+"id": "s0904",
+"page": "dla",
+"ko": "많을수록 크게 자라지만 시간이 더 걸려요",
+"en": "More particles grow a larger cluster but take longer",
+"tr": "Plus de particules font grandir un amas plus gros mais prennent plus de temps"
+},
+{
+"id": "s0905",
+"page": "dla",
+"ko": "씨앗 모양 <output id=\"o-shape\"></output>",
+"en": "Seed shape <output id=\"o-shape\"></output>",
+"tr": "Forme du germe <output id=\"o-shape\"></output>"
+},
+{
+"id": "s0906",
+"page": "dla",
+"ko": "점",
+"en": "Point",
+"tr": "Point"
+},
+{
+"id": "s0907",
+"page": "dla",
+"ko": "선",
+"en": "Line",
+"tr": "Ligne"
+},
+{
+"id": "s0908",
+"page": "dla",
+"ko": "고리 (바깥쪽으로 자람)",
+"en": "Ring (grows outward)",
+"tr": "Anneau (croît vers l'extérieur)"
+},
+{
+"id": "s0909",
+"page": "dla",
+"ko": "어디서 자라기 시작하는지. 선은 양 끝에서 가장 잘 자라요",
+"en": "Where growth starts. A line grows best from its ends",
+"tr": "Où commence la croissance. Une ligne croît mieux depuis ses extrémités"
+},
+{
+"id": "s0910",
+"page": "dla",
+"ko": "같은 설정, 다른 무작위",
+"en": "Same settings, new randomness",
+"tr": "Mêmes réglages, nouvel aléa"
+},
+{
+"id": "s0911",
+"page": "dla",
+"ko": "① 입자가 떠돌다 붙어 자라는 모습",
+"en": "① Particles Wandering, Sticking and Growing",
+"tr": "① Particules qui errent, collent et grandissent"
+},
+{
+"id": "s0912",
+"page": "dla",
+"ko": "흰 점이 지금 떠도는 입자이고 꼬리는 최근 경로입니다. 흐린 점선 원이 입자를 내보내는 곳입니다. 화면은 덩어리가 자라는 만큼 저절로 넓어집니다.",
+"en": "The white dot is the particle wandering now and its tail is its recent path. The faint dashed circle is where particles are released. The view widens by itself as the cluster grows.",
+"tr": "Le point blanc est la particule en train d'errer et sa queue est son trajet récent. Le cercle en pointillés discret est l'endroit où les particules sont lâchées. La vue s'élargit d'elle-même à mesure que l'amas grandit."
+},
+{
+"id": "s0913",
+"page": "dla",
+"ko": "② 프랙탈 차원: 질량 대 반지름",
+"en": "② Fractal Dimension: Mass versus Radius",
+"tr": "② Dimension fractale : masse en fonction du rayon"
+},
+{
+"id": "s0914",
+"page": "dla",
+"ko": "가로는 반지름, 세로는 그 안의 입자 수(둘 다 로그 눈금)입니다. 빨간 선의 기울기가 프랙탈 차원 D이고, 회색 점선(기울기 2)은 빈틈없이 꽉 찬 면일 때입니다. 점 씨앗은 중심에서, 선·고리 씨앗은 붙은 입자 150개 둘레에서 잰 평균이라 더 낮게 나오는 경향이 있어요.",
+"en": "The horizontal axis is radius and the vertical axis the number of particles inside it (both log scales). The slope of the red line is the fractal dimension D, and the gray dashed line (slope 2) is what a solid area would give. A point seed is measured from its center; for line and ring seeds, it is the average around 150 sampled particles, which tends to read lower.",
+"tr": "L'axe horizontal est le rayon et l'axe vertical le nombre de particules à l'intérieur (les deux en échelle logarithmique). La pente de la ligne rouge est la dimension fractale D, et la ligne grise en pointillés (pente 2) est ce que donnerait une surface pleine. Un germe ponctuel est mesuré depuis son centre ; pour les germes en ligne et en anneau, c'est la moyenne autour de 150 particules échantillonnées, qui tend à donner des valeurs plus basses."
+},
+{
+"id": "s0915",
+"page": "dla",
+"ko": "③ 새 입자는 어디에 붙을까",
+"en": "③ Where Do New Particles Land?",
+"tr": "③ Où atterrissent les nouvelles particules ?"
+},
+{
+"id": "s0916",
+"page": "dla",
+"ko": "가장 최근에 붙은 입자 300개가 중심에서 얼마나 떨어진 곳에 붙었는지입니다(가장 먼 끝까지의 거리를 1로). 대부분 바깥 가지 끝에 붙고 안쪽 틈은 거의 비어 있어요. 이것이 가지가 갈라지는 이유입니다.",
+"en": "How far from the center the 300 most recent particles landed (the distance to the farthest tip is 1). Most land on the outer branch tips while the inner gaps stay nearly empty, which is why the branches split.",
+"tr": "À quelle distance du centre se sont posées les 300 particules les plus récentes (la distance à la pointe la plus éloignée vaut 1). La plupart atterrissent sur les pointes extérieures des branches tandis que les creux intérieurs restent presque vides, ce qui explique que les branches se divisent."
+},
+{
+"id": "s0917",
+"page": "dla",
+"ko": "④ 붙는 확률별로 얼마나 촘촘해질까",
+"en": "④ How Dense Does It Get at Each Stickiness?",
+"tr": "④ Quelle densité obtient-on pour chaque adhérence ?"
+},
+{
+"id": "s0918",
+"page": "dla",
+"ko": "입자 1,200개를 키운 뒤, 가장 먼 끝까지를 반지름으로 하는 원 중 입자가 채운 비율입니다(점 하나가 한 번의 실행). 붙는 확률이 낮을수록 같은 입자 수로 더 작고 촘촘한 덩어리가 됩니다.",
+"en": "After growing 1,200 particles, the share of the circle (out to the farthest tip) that the particles fill; each dot is one run. With the same number of particles, lower stickiness gives a smaller, denser cluster.",
+"tr": "Après la croissance de 1 200 particules, la part du cercle (jusqu'à la pointe la plus éloignée) que remplissent les particules ; chaque point est une exécution. À nombre de particules égal, une adhérence plus faible donne un amas plus petit et plus dense."
+},
+{
+"id": "s0919",
+"page": "dla",
+"ko": "점 씨앗에서 입자 4,000개를 키운 덩어리의 프랙탈 차원 D는 평균 1.66이었습니다.",
+"en": "A cluster of 4,000 particles from a point seed had a fractal dimension D averaging 1.66.",
+"tr": "Un amas de 4 000 particules issu d'un germe ponctuel avait une dimension fractale D de 1,66 en moyenne."
+},
+{
+"id": "s0920",
+"page": "dla",
+"ko": "튀어나온 가지 끝에 입자가 먼저 닿고 안쪽 틈은 가려져, 가지가 갈라지며 성긴 모양이 됐을 수 있습니다.",
+"en": "Particles reach protruding tips first while inner gaps are shielded, so branches may split into a sparse shape.",
+"tr": "Les particules atteignent d'abord les pointes saillantes tandis que les creux intérieurs sont protégés ; les branches peuvent donc se diviser en une forme clairsemée."
+},
+{
+"id": "s0921",
+"page": "dla",
+"ko": "붙는 확률을 낮추면 촘촘해졌으니, 모양이 성기거나 촘촘한 이유는 성장 조건부터 살펴볼 만합니다.",
+"en": "Lower sticking probability made it denser, so growth conditions are worth checking to explain sparse or dense shapes.",
+"tr": "Une probabilité d'adhésion plus faible l'a rendu plus dense ; les conditions de croissance méritent donc d'être examinées pour expliquer les formes clairsemées ou denses."
+},
+{
+"id": "s0922",
+"page": "dla",
+"ko": "<b>말하는 것:</b> 점 씨앗, 붙는 확률 100%, 입자 4,000개를 무작위 8번 키우면 프랙탈 차원 D는 평균 1.66(범위 1.61~1.69)이었습니다. 가장 먼 끝까지의 반지름은 평균 123칸이고 그 원의 약 9%(8.6%)만 입자로 채워졌으며, 마지막에 붙은 300개 중 57%가 바깥 30%에, 안쪽 절반에는 9%만 붙었습니다. 붙는 확률을 낮추면 촘촘해졌습니다. 4,000개를 키웠을 때 채움 비율은 100%에서 9%, 20%에서 16%, 5%에서 26%였고 반지름은 120칸에서 71칸으로 줄었으며 D는 1.66에서 1.78로 올랐습니다. 입자 수를 늘려도 D는 500개에서 1.56, 2,000개에서 1.65, 4,000개와 8,000개에서 1.66이었습니다. 선 씨앗(입자 3,000개)은 D 1.59, 고리 씨앗은 1.52로 잰 값이 더 낮았는데, 이는 다른 방법(표본 둘레 평균)으로 잰 값이라 점 씨앗과 직접 비교하기 어렵습니다.",
+"en": "<b>What it shows:</b> Growing 4,000 particles from a point seed at 100% stickiness in 8 random runs gave a fractal dimension D averaging 1.66 (range 1.61 to 1.69). The radius to the farthest tip averaged 123 cells and only about 9% (8.6%) of that circle was filled; of the last 300 particles, 57% landed in the outer 30% and just 9% in the inner half. Lowering stickiness made the cluster denser. With 4,000 particles the filled share was 9% at 100%, 16% at 20% and 26% at 5%, the radius shrank from 120 to 71 cells, and D rose from 1.66 to 1.78. Adding particles barely moved D: 1.56 at 500, 1.65 at 2,000, 1.66 at both 4,000 and 8,000. A line seed (3,000 particles) read D 1.59 and a ring seed 1.52, but those come from a different method (average around sampled particles), so they are not directly comparable with the point seed.",
+"tr": "<b>Ce que cela montre :</b> Faire croître 4 000 particules à partir d'un germe ponctuel avec 100 % d'adhérence, sur 8 exécutions aléatoires, a donné une dimension fractale D de 1,66 en moyenne (de 1,61 à 1,69). Le rayon jusqu'à la pointe la plus éloignée était en moyenne de 123 cases et seulement environ 9 % (8,6 %) de ce cercle était rempli ; parmi les 300 dernières particules, 57 % ont atterri dans les 30 % extérieurs et seulement 9 % dans la moitié intérieure. Baisser l'adhérence a rendu l'amas plus dense. Avec 4 000 particules, la part remplie était de 9 % à 100 %, 16 % à 20 % et 26 % à 5 %, le rayon passait de 120 à 71 cases et D de 1,66 à 1,78. Ajouter des particules a à peine fait bouger D : 1,56 à 500, 1,65 à 2 000, 1,66 à 4 000 comme à 8 000. Un germe en ligne (3 000 particules) a donné D 1,59 et un germe en anneau 1,52, mais ces valeurs proviennent d'une autre méthode (moyenne autour de particules échantillonnées) et ne sont donc pas directement comparables avec le germe ponctuel."
+},
+{
+"id": "s0923",
+"page": "dla",
+"ko": "번개·눈송이·산호가 같은 원리로 생긴다는 뜻이 아닙니다. 이 모델은 격자와 입자 수가 유한합니다.",
+"en": "It does not mean lightning, snowflakes and coral form the same way; this model has a finite grid and particle count.",
+"tr": "Cela ne veut pas dire que la foudre, les flocons de neige et le corail se forment de la même façon ; ce modèle a une grille finie et un nombre fini de particules."
+},
+{
+"id": "s0924",
+"page": "dla",
+"ko": "실제 현상과 닮은 원리인지는 각각의 확산과 붙는 과정을 측정해 모양과 비교해야 확인할 수 있습니다.",
+"en": "Whether a real case shares the principle needs measuring its diffusion and sticking and comparing the shapes.",
+"tr": "Savoir si un cas réel partage le principe demande de mesurer sa diffusion et son adhésion et de comparer les formes."
+},
+{
+"id": "s0925",
+"page": "dla",
+"ko": "<b>말하지 않는 것:</b> 이 덩어리는 번개나 눈송이, 산호를 재현한 것이 아닙니다. 비슷한 모양이 같은 원리로 생긴다는 뜻도 아니고, 눈으로 닮았다는 시각적·통계적 유추일 뿐입니다. 진짜 눈송이는 얼음 결정이 표면에서 자라는 방식 때문에 여섯 방향 대칭이고 DLA와는 다른 메커니즘이 주로 작용합니다. 진짜 번개는 전기장과 공기의 절연 파괴 물리가 있고, 산호는 생물의 성장과 해류가 얽혀 있습니다. DLA는 장난감 모델이며, 이런 현상 중 일부(전기도금, 점성이 다른 유체의 손가락 모양 침투 등)에서 비슷한 모양이 관찰된다고 알려져 있을 뿐입니다. 또 \"붙는 확률이 낮으면 D가 올라간다\"는 이 페이지의 결과는 입자 수가 유한해서 생기는 효과가 섞여 있습니다. 아주 크게 키우면 어느 붙는 확률에서도 같은 D에 가까워질 것으로 알려져 있지만, 이 페이지에서 확인한 것은 아닙니다. 격자 위의 단순화이므로 모양에 격자의 영향(상하좌우 방향성)이 조금 남아 있습니다.",
+"en": "<b>What it doesn't show:</b> This does not reproduce lightning, snowflakes or coral. It does not mean look-alike shapes arise from the same cause; the resemblance is a visual, statistical analogy. A real snowflake is six-fold symmetric because of how ice crystals grow at their surfaces, and different mechanisms dominate over DLA. Real lightning involves electric fields and the breakdown of air, and coral involves biological growth and currents. DLA is a toy model, and similar shapes are reported in only some systems (electrodeposition, the fingering of one fluid pushing into another, and so on). Also, the finding here that lower stickiness raises D mixes in finite-size effects from a limited number of particles. For very large clusters D is expected to approach the same value at any stickiness, but I did not check that here. On a square grid, some influence of the grid directions (up, down, left, right) remains in the shapes.",
+"tr": "<b>Ce que cela ne montre pas :</b> Cela ne reproduit ni la foudre, ni les flocons de neige, ni le corail. Cela ne signifie pas que des formes semblables naissent de la même cause ; la ressemblance est une analogie visuelle et statistique. Un vrai flocon de neige a une symétrie d'ordre six à cause de la façon dont les cristaux de glace croissent à leur surface, et d'autres mécanismes l'emportent sur la DLA. La vraie foudre fait intervenir des champs électriques et le claquage de l'air, et le corail une croissance biologique et des courants. La DLA est un modèle jouet, et des formes similaires ne sont observées que dans certains systèmes (électrodéposition, digitation d'un fluide qui en repousse un autre, etc.). De plus, le résultat selon lequel une adhérence plus faible augmente D mêle des effets de taille finie dus au nombre limité de particules. Pour de très grands amas, D devrait tendre vers la même valeur quelle que soit l'adhérence, mais je ne l'ai pas vérifié ici. Sur une grille carrée, les formes gardent une certaine influence des directions de la grille (haut, bas, gauche, droite)."
+},
+{
+"id": "s0926",
+"page": "dla",
+"ko": "<b>모델의 뿌리:</b> Witten과 Sander(1981)가 \"Diffusion-Limited Aggregation, a Kinetic Critical Phenomenon\"(Physical Review Letters 47, 1400)에서 제안한 확산 제한 응집(DLA) 모델입니다. 무작위로 확산하는 입자가 덩어리에 닿으면 붙어, 단순한 규칙에서 프랙탈 덩어리가 생김을 보였습니다.",
+"en": "<b>Where the model comes from:</b> The diffusion-limited aggregation (DLA) model proposed by Witten and Sander (1981), \"Diffusion-Limited Aggregation, a Kinetic Critical Phenomenon\", Physical Review Letters 47, 1400. Randomly diffusing particles stick on contact, and a fractal cluster grows from this simple rule.",
+"tr": "<b>D'où vient le modèle :</b> Le modèle d'agrégation limitée par la diffusion (DLA) proposé par Witten et Sander (1981), « Diffusion-Limited Aggregation, a Kinetic Critical Phenomenon », Physical Review Letters 47, 1400. Des particules qui diffusent au hasard collent au contact, et un amas fractal grandit à partir de cette règle simple."
+},
+{
+"id": "s0927",
+"page": "dla",
+"ko": "<b>핵심 가정과 수식:</b> 덩어리는 한 번에 입자 하나가 무작위 걸음(확산)으로 닿아 붙으며 자랍니다. 입자가 덩어리 표면의 어느 곳에 닿을 확률은 그 둘레의 확산 농도장(라플라스 방정식의 해)이 정하는데, 튀어나온 끝일수록 닿기 쉬워 가지가 자랍니다. 크기는 <i>M ∝ R<sup>D</sup></i>(질량 M, 반지름 R, 프랙탈 차원 D)로 늘어납니다. 슬라이더의 \"붙는 확률\"은 닿았을 때 붙는 확률이고, \"입자 수\"는 키울 총량입니다.",
+"en": "<b>Key assumptions and formulas:</b> The cluster grows one particle at a time, each arriving by a random walk (diffusion). Where a particle lands on the surface is set by the diffusing concentration field around it (a solution of the Laplace equation), and protruding tips are easier to reach, so branches grow. Size scales as <i>M ∝ R<sup>D</sup></i> (mass M, radius R, fractal dimension D). The slider \"sticking probability\" is the chance of sticking on contact and \"number of particles\" is the total to grow.",
+"tr": "<b>Hypothèses et formules clés :</b> L'amas grandit une particule à la fois, chacune arrivant par une marche aléatoire (diffusion). L'endroit où une particule se pose à la surface est déterminé par le champ de concentration diffusif qui l'entoure (une solution de l'équation de Laplace), et les pointes saillantes sont plus faciles à atteindre, si bien que des branches se forment. La taille suit <i>M ∝ R<sup>D</sup></i> (masse M, rayon R, dimension fractale D). Le curseur « probabilité d'adhérence » est la probabilité de coller au contact et « nombre de particules » est le total à faire croître."
+}
+]

@@ -1,0 +1,828 @@
+[
+{
+"id": "s0860",
+"page": "daycare",
+"ko": "한 번 만날 때 퍼질 확률을 이만큼 줄입니다(모델상의 가정값)",
+"en": "Cuts the chance of spreading per encounter by this much (an assumed value in the model)",
+"tr": "使每次接触的传染概率降低这么多（模型中的假设值）"
+},
+{
+"id": "s0861",
+"page": "daycare",
+"ko": "면역 지속 <output id=\"o-imm\"></output>",
+"en": "Immunity duration <output id=\"o-imm\"></output>",
+"tr": "免疫持续时间 <output id=\"o-imm\"></output>"
+},
+{
+"id": "s0862",
+"page": "daycare",
+"ko": "나은 뒤 이 기간(일) 동안은 다시 안 걸려요. 길수록 한 해 걸리는 횟수가 줄어요",
+"en": "Days after recovery during which a child cannot be reinfected. Longer means fewer infections a year",
+"tr": "康复后孩子不会再次被感染的天数。越长，一年里的感染次数越少"
+},
+{
+"id": "s0863",
+"page": "daycare",
+"ko": "같은 설정, 다른 반",
+"en": "Same settings, different classes",
+"tr": "相同设置，换一批班级"
+},
+{
+"id": "s0864",
+"page": "daycare",
+"ko": "① 여덟 반을 지켜보기",
+"en": "① Watching Eight Classes",
+"tr": "① 观察八个班级"
+},
+{
+"id": "s0865",
+"page": "daycare",
+"ko": "점 하나가 아이 한 명입니다. 파랑은 건강, 노랑은 잠복, 빨강 채움은 아파도 등원한 아이, 빨강 고리는 집에서 쉬는 아이, 초록은 막 나아서 면역이 있는 아이입니다. 한 반에서 시작한 감염이 번지고 다시 가라앉는 모습을 보세요. 주말에는 반이 회색으로 바뀝니다.",
+"en": "Each dot is one child. Blue is healthy, yellow incubating, solid red a sick child who still attended, a red ring a child resting at home, and green a recently recovered child with immunity. Watch an infection start in one class, spread, and fade. Classes turn gray on weekends.",
+"tr": "每个点代表一个孩子。蓝色是健康，黄色是潜伏期，实心红色是仍来上学的患病孩子，红色圆环是在家休息的孩子，绿色是刚康复、具有免疫力的孩子。看看感染如何在一个班里开始、扩散，然后消退。周末班级会变成灰色。"
+},
+{
+"id": "s0866",
+"page": "daycare",
+"ko": "<i style=\"background:#8fb3e8\"></i>건강",
+"en": "<i style=\"background:#8fb3e8\"></i>Healthy",
+"tr": "<i style=\"background:#8fb3e8\"></i>健康"
+},
+{
+"id": "s0867",
+"page": "daycare",
+"ko": "<i style=\"background:#f0b429\"></i>잠복",
+"en": "<i style=\"background:#f0b429\"></i>Incubating",
+"tr": "<i style=\"background:#f0b429\"></i>潜伏期"
+},
+{
+"id": "s0868",
+"page": "daycare",
+"ko": "<i style=\"background:#e5484d\"></i>아픈데 등원",
+"en": "<i style=\"background:#e5484d\"></i>Sick, attending",
+"tr": "<i style=\"background:#e5484d\"></i>患病，仍上学"
+},
+{
+"id": "s0869",
+"page": "daycare",
+"ko": "<i style=\"background:transparent;border:2px solid #e5484d;box-sizing:border-box\"></i>집에서 쉼",
+"en": "<i style=\"background:transparent;border:2px solid #e5484d;box-sizing:border-box\"></i>Resting at home",
+"tr": "<i style=\"background:transparent;border:2px solid #e5484d;box-sizing:border-box\"></i>在家休息"
+},
+{
+"id": "s0870",
+"page": "daycare",
+"ko": "<i style=\"background:#1fa463\"></i>면역 있음",
+"en": "<i style=\"background:#1fa463\"></i>Immune",
+"tr": "<i style=\"background:#1fa463\"></i>有免疫力"
+},
+{
+"id": "s0871",
+"page": "daycare",
+"ko": "② 주마다 아픈 아이는 얼마나 될까",
+"en": "② How Many Children Are Sick Each Week?",
+"tr": "② 每周有多少孩子生病？"
+},
+{
+"id": "s0872",
+"page": "daycare",
+"ko": "가로는 학기가 시작된 뒤 몇 주째인지, 세로는 그 주에 아팠던 아이의 비율입니다. 빨간 선이 이번에 돌린 결과, 짙은 선은 그 중 집에서 쉰 아이, 회색 선은 같은 설정에서 아무도 쉬지 않을 때의 평균입니다. 처음에는 모두 건강해서 크게 번지고, 면역이 쌓이면서 낮아집니다.",
+"en": "The horizontal axis is the week since the term began and the vertical axis the share of children sick that week. The red line is this run, the dark line the children among them resting at home, and the gray line the average when nobody stays home at the same settings. It spreads widely at first because everyone is susceptible, then falls as immunity builds.",
+"tr": "横轴是开学后的第几周，纵轴是当周生病孩子的比例。红线是本次运行，深色线是其中在家休息的孩子，灰线是同样设置下没有人在家休息时的平均值。一开始所有人都易感，所以传播范围大，随着免疫力积累而下降。"
+},
+{
+"id": "s0873",
+"page": "daycare",
+"ko": "③ 한 해 동안 몇 번 걸렸을까",
+"en": "③ How Many Times Did Each Child Catch It?",
+"tr": "③ 每个孩子得了几次病？"
+},
+{
+"id": "s0874",
+"page": "daycare",
+"ko": "아이마다 한 해 동안 걸린 횟수를 세어 비율로 쌓았습니다. 초록 막대는 한 번도 안 걸린 아이입니다. 점선은 평균입니다. 같은 반이라도 아이마다 운에 따라 몇 번씩 차이가 납니다.",
+"en": "Each child's number of infections in the year, shown as shares. The green bar is children who never caught it. The dashed line is the average. Even in the same class, luck makes the counts differ from child to child.",
+"tr": "每个孩子一年中的感染次数，以比例显示。绿色柱是一次都没得过的孩子。虚线是平均值。即使在同一个班里，由于运气不同，每个孩子的次数也不一样。"
+},
+{
+"id": "s0875",
+"page": "daycare",
+"ko": "④ 아프면 쉬는 아이가 늘어나면",
+"en": "④ If More Sick Children Stay Home",
+"tr": "④ 如果更多生病的孩子在家休息"
+},
+{
+"id": "s0876",
+"page": "daycare",
+"ko": "가로는 아프면 쉬는 아이의 비율, 세로는 한 해 아이 한 명이 걸린 횟수입니다(점은 여섯 번 돌린 각각, 선은 평균). 지금 설정에서 비율만 바꿔 훑은 것입니다. 비율이 100%여도 0회가 되지 않는 점을 보세요.",
+"en": "The horizontal axis is the share of children who stay home when sick and the vertical axis the times a child caught it in a year (dots are six separate runs, the line their average). Only this share is varied at your current settings. Notice that even at 100% the count does not reach zero.",
+"tr": "横轴是生病时在家休息的孩子比例，纵轴是一个孩子一年中得病的次数（点是六次独立运行，线是它们的平均值）。在你当前的设置下，只改变这一个比例。请注意，即使达到 100%，次数也不会降到零。"
+},
+{
+"id": "s0877",
+"page": "daycare",
+"ko": "⑤ 반 크기를 바꾸면",
+"en": "⑤ If the Class Size Changes",
+"tr": "⑤ 如果班级规模改变"
+},
+{
+"id": "s0878",
+"page": "daycare",
+"ko": "가로는 반 크기, 세로는 한 해 아이 한 명이 걸린 횟수입니다. 반이 작아지면 만나는 짝이 줄어 횟수도 줄지만, 반이 아주 작아져도 반 밖에서 들어오는 감염 때문에 0이 되지는 않습니다.",
+"en": "The horizontal axis is class size and the vertical axis the times a child caught it in a year. Smaller classes mean fewer pairs, so the count falls, but it never reaches zero because of infection arriving from outside the class.",
+"tr": "横轴是班级规模，纵轴是一个孩子一年中得病的次数。班级越小，配对越少，次数就越低，但由于班外也会带来感染，次数永远不会降到零。"
+},
+{
+"id": "s0879",
+"page": "daycare",
+"ko": "이 모델에서는 아프면 쉬는 비율이 100%일 때 한 해 감염이 5.0회에서 2.5회로 절반이 됐어요.",
+"en": "In this model, when 100% of sick children stay home, yearly infections fell from 5.0 to 2.5, half as many.",
+"tr": "在这个模型中，当100%的生病孩子留在家里时，每年的感染次数从5.0降到2.5，减少了一半。"
+},
+{
+"id": "s0880",
+"page": "daycare",
+"ko": "같은 반 안에서 아픈 아이가 나오는 만큼 퍼지기 때문에, 반 크기와 면역 기간도 쉬기만큼 결과를 바꿨어요.",
+"en": "Spread follows the sick children within a class, so class size and immunity length moved the result about as much as staying home.",
+"tr": "传播跟着班里生病的孩子走，所以班级规模和免疫持续时间对结果的影响，与让孩子留在家里的影响不相上下。"
+},
+{
+"id": "s0881",
+"page": "daycare",
+"ko": "개별 선택보다 반의 크기, 접촉, 면역 같은 구조가 어떻게 겹치는지가 열쇠일 수 있어요.",
+"en": "Rather than individual choices, how class size, contact and immunity combine may be the key to look at.",
+"tr": "与其看个人的选择，不如看班级规模、接触和免疫是如何组合起作用的，这可能才是关键。"
+},
+{
+"id": "s0882",
+"page": "daycare",
+"ko": "<b>말하는 것:</b> 반 20명, 접촉 5단계, 면역 30일, 손씻기·환기 0%인 설정에서 스무 번 돌린 평균입니다(예시 숫자). 아프면 쉬는 비율이 0%이면 한 해 아이 한 명이 5.0회 걸렸고, 30%이면 4.4회, 70%이면 3.5회(0%보다 30% 적음), 100%이면 2.5회(절반)였습니다. 대신 아파서 집에서 쉰 평일은 0일에서 70%일 때 6.9일, 100%일 때 7.0일로 늘었습니다. 100%여도 0이 되지 않는 이유는 증상 전 첫날의 등원과 반 밖에서 들어오는 감염입니다. 반 크기는 쉬기 30%에서 8명이면 2.5회, 10명이면 2.9회, 20명이면 4.4회, 30명이면 5.5회였고, 쉬기 0%→70%의 효과는 반 10명에서 3.3→2.3회, 20명에서 5.0→3.5회, 30명에서 6.0→4.3회였습니다. 손씻기·환기로 전파를 30% 줄이면 4.4→3.7회, 60%이면 2.9회였습니다. 접촉 강도 2단계는 2.9회, 8단계는 5.2회였고, 면역이 14일이면 6.0회, 90일이면 2.7회, 180일이면 1.8회였습니다. 면역이 쌓이는 효과는 첫 3개월에 아이 1명당 1.6회, 이후 3개월마다 1.0, 1.0, 0.9회로 줄어드는 모습에서 보입니다. 시드 1로 한 번 돌리면(기본 설정) 4.2회, 쉰 날 3.4일, 아픈 아이가 가장 많았던 때는 3주째였습니다. 쉬기 0%, 손씻기·환기 30%, 반 12명을 합치면 3.2회였습니다.",
+"en": "<b>What it shows:</b> These are averages of twenty runs at class size 20, contact level 5, immunity 30 days and 0% handwashing and ventilation (example numbers). With 0% of children staying home when sick, a child caught it 5.0 times a year; at 30% it was 4.4, at 70% 3.5 (30% fewer than at 0%), and at 100% 2.5 (half). In exchange, weekdays resting at home rose from 0 to 6.9 days at 70% and 7.0 at 100%. It does not reach zero even at 100% because of the first day before symptoms, when the child still attends, and infection arriving from outside. Class size at 30% staying home gave 2.5 times for 8 children, 2.9 for 10, 4.4 for 20 and 5.5 for 30, and the effect of going from 0% to 70% staying home was 3.3 → 2.3 at 10 children, 5.0 → 3.5 at 20 and 6.0 → 4.3 at 30. Cutting spread by 30% with handwashing and ventilation took 4.4 to 3.7, and 60% gave 2.9. Contact level 2 gave 2.9 times and level 8 gave 5.2; with immunity of 14 days it was 6.0, at 90 days 2.7 and at 180 days 1.8. Accumulating immunity shows in 1.6 infections per child in the first three months, then 1.0, 1.0 and 0.9 in each following three months. One run with seed 1 at the defaults gave 4.2 times, 3.4 rest days, and the week with the most sick children was week 3. Combining 0% staying home, 30% handwashing and ventilation, and 12 children gave 3.2.",
+"tr": "<b>它说明了什么：</b>这是在班级规模 20、接触程度 5、免疫期 30 天、勤洗手和通风 0% 的条件下，二十次运行的平均值（示例数字）。当生病时在家休息的孩子占 0% 时，一个孩子一年得病 5.0 次；30% 时为 4.4 次，70% 时为 3.5 次（比 0% 少 30%），100% 时为 2.5 次（一半）。代价是，工作日在家休息的天数从 0 天增加到 70% 时的 6.9 天和 100% 时的 7.0 天。即使 100% 也降不到零，是因为症状出现前的第一天孩子仍会来上学，以及班外会带来感染。在 30% 的孩子在家休息时，班级规模为 8 人是 2.5 次，10 人是 2.9 次，20 人是 4.4 次，30 人是 5.5 次；而在家休息的比例从 0% 提高到 70% 的效果，10 人班是 3.3 → 2.3，20 人班是 5.0 → 3.5，30 人班是 6.0 → 4.3。通过勤洗手和通风使传播降低 30%，使 4.4 降到 3.7，降低 60% 则为 2.9。接触程度 2 时为 2.9 次，程度 8 时为 5.2 次；免疫期 14 天时为 6.0，90 天时为 2.7，180 天时为 1.8。免疫力的累积体现在：前三个月每个孩子感染 1.6 次，之后每三个月分别为 1.0、1.0 和 0.9 次。种子 1、默认设置的一次运行为 4.2 次，休息 3.4 天，生病孩子最多的是第 3 周。把在家休息 0%、勤洗手和通风 30% 与 12 个孩子结合起来，得到 3.2。"
+},
+{
+"id": "s0883",
+"page": "daycare",
+"ko": "실제 어린이집의 감염 횟수를 예측하거나, 아이를 어떻게 돌볼지 권하는 모델이 아니에요. 숫자는 예시예요.",
+"en": "It neither predicts real daycare infections nor advises how to care for a child; the numbers are examples.",
+"tr": "它既不预测真实托儿所里的感染情况，也不提供育儿建议；数字只是示例。"
+},
+{
+"id": "s0884",
+"page": "daycare",
+"ko": "실제 판단은 소아과 의사·교사 등 전문가와 하고, 형제자매나 병원균별 차이 같은 빠진 요소는 따로 확인해야 해요.",
+"en": "Real decisions belong with pediatricians and teachers, and missing factors such as siblings or specific germs need separate checking.",
+"tr": "实际的决定应由儿科医生和老师来做，而模型中缺少的因素（如兄弟姐妹或特定病菌）需要另行核实。"
+},
+{
+"id": "s0885",
+"page": "daycare",
+"ko": "<b>말하지 않는 것:</b> 실제 어린이집의 감염 횟수를 예측하거나 재현한 것이 아닙니다. 병원균을 특정하지 않은 \"감기 같은 호흡기 감염\"을 가정한 이 프로젝트의 단순화된 모델이고, 기본값(접촉 강도, 면역 기간 등)은 예시 숫자입니다. 실제 감염 횟수나 결석 일수를 말해 주는 통계가 아닙니다. 어떻게 아이를 돌볼지, 아플 때 등원할지, 어떤 예방을 할지를 권하거나 판단하지 않으며, 쉬기를 선택하는 가정이든 등원을 선택하는 가정이든 각자 사정이 있습니다. 참고용 모델이며 실제 판단은 소아과 의사·교사 등 전문가와 하시기 바랍니다. 이 모델에는 형제자매와 부모를 거치는 감염, 병원균별 차이, 다른 반과의 접촉, 아이마다 다른 체질, 방학과 개학의 영향, 어린이집의 실제 운영 방식이 없습니다.",
+"en": "<b>What it doesn't show:</b> This does not predict or reproduce the number of infections at any real daycare. It is this project's simplified model of a \"cold-like respiratory infection\" with no specific pathogen, and the defaults (contact level, immunity period and so on) are example numbers, not statistics about real infection counts or absences. It does not recommend or judge how to care for a child, whether to attend when sick, or which precautions to take, and families who keep children home and families who send them each have their reasons. This is a reference model; for real decisions please consult professionals such as a pediatrician or a teacher. The model leaves out infection passing through siblings and parents, differences between pathogens, contact with other classes, differences between children, the effect of vacations, and how real daycares operate.",
+"tr": "<b>它没有说明什么：</b>这并不预测或还原任何真实托儿所的感染次数。它是本项目对「类似感冒的呼吸道感染」所做的简化模型，不针对具体病原体，默认值（接触程度、免疫期等）都是示例数字，不是关于真实感染次数或缺勤的统计。它不推荐也不评判如何照顾孩子、生病时是否上学或应采取哪些预防措施，让孩子在家的家庭和送孩子去上学的家庭各有各的理由。这是一个参考模型；做真实决定时，请咨询儿科医生或教师等专业人士。该模型没有包括通过兄弟姐妹和父母的传播、不同病原体之间的差异、与其他班级的接触、孩子之间的个体差异、假期的影响，以及托儿所的实际运作方式。"
+},
+{
+"id": "s0886",
+"page": "daycare",
+"ko": "<b>모델의 뿌리:</b> 감염병 구획 모델의 고전인 Kermack &amp; McKendrick (1927), 「A contribution to the mathematical theory of epidemics」(<i>Proceedings of the Royal Society A</i>)의 SIR 모델이 뿌리입니다. 집단을 걸릴 수 있는 사람(S), 감염된 사람(I), 회복한 사람(R)으로 나누고, 처음 한 명이 평균 R0명에게 퍼뜨리는지에 따라 유행이 커지거나 사라진다는 내용입니다.",
+"en": "<b>Where the model comes from:</b> The root is the SIR model of the classic compartment-model paper by Kermack &amp; McKendrick (1927), &quot;A contribution to the mathematical theory of epidemics&quot; (<i>Proceedings of the Royal Society A</i>). It splits a population into susceptible (S), infected (I) and recovered (R), and says an outbreak grows or dies out depending on whether one case infects more or fewer than R0 others on average.",
+"tr": "<b>模型的来源：</b>其根源是经典仓室模型论文 Kermack &amp; McKendrick (1927)，&quot;A contribution to the mathematical theory of epidemics&quot;（<i>Proceedings of the Royal Society A</i>）中的 SIR 模型。它把人群分为易感者（S）、感染者（I）和康复者（R），并指出疫情是扩大还是消退，取决于一个病例平均传染的人数是多于还是少于 R0。"
+},
+{
+"id": "s0887",
+"page": "daycare",
+"ko": "<b>핵심 가정과 수식:</b> 한 반 안은 모두가 서로 섞이는 균질 혼합으로 보고, 감염된 아이가 평균 <code>R0 = τ × (반 크기 − 1) × 등원하는 아픈 날수</code>명을 감염시킵니다. τ는 한 쌍이 하루에 만나 퍼질 확률(접촉 강도 × 1% × (1 − 줄인 전파))이고, 등원하는 아픈 날수는 <code>1 + (5 − 1) × (1 − 쉬는 비율)</code>입니다. 유행이 끝났을 때 걸린 비율 z는 <code>z = 1 − e<sup>−R0·z</sup></code>를 만족합니다. 슬라이더는 반 크기, 접촉 강도(τ), 쉬는 비율, 전파 감소(τ)입니다.",
+"en": "<b>Key assumptions and formulas:</b> A class is treated as fully mixed, and an infected child infects on average <code>R0 = τ × (class size − 1) × sick days attended</code> others. τ is the chance a pair spreads it in a day (contact level × 1% × (1 − reduced spread)) and the sick days attended are <code>1 + (5 − 1) × (1 − share staying home)</code>. When an outbreak ends, the share who caught it, z, satisfies <code>z = 1 − e<sup>−R0·z</sup></code>. The sliders are class size, contact level (τ), the share staying home and the spread reduction (τ).",
+"tr": "<b>主要假设与公式：</b>把一个班看作完全混合，一个被感染的孩子平均会传染 <code>R0 = τ × (班级规模 − 1) × 带病上学的天数</code> 个其他孩子。τ 是一对孩子一天内传染的概率（接触程度 × 1% × (1 − 传播降低幅度)），带病上学的天数为 <code>1 + (5 − 1) × (1 − 在家休息的比例)</code>。疫情结束时得过病的比例 z 满足 <code>z = 1 − e<sup>−R0·z</sup></code>。滑块分别是班级规模、接触程度（τ）、在家休息的比例和传播降低幅度（τ）。"
+},
+{
+"id": "s0888",
+"page": "daycare",
+"ko": "<b>이 프로젝트의 단순화:</b> 원래의 SIR에 이 프로젝트가 덧붙인 것이 많습니다: 잠복기(평균 2일), 평일과 주말, 겨울에 25% 더 잘 퍼지는 계절 효과, 반 밖에서 들어오는 단순한 감염 항, 면역 지속과 걸릴 때마다 쌓이는 면역(1/(1+0.3×걸린 횟수)), 증상 전 첫날의 등원. 이 값들은 모두 이 프로젝트가 정한 예시 숫자이고 실제 병원균을 맞춘 것이 아닙니다. 가정으로 퍼지는 2차 감염은 반 밖 감염 항(하루 0.15%에 전체 아픈 아이 비율의 20%를 더함) 하나로 뭉뚱그렸습니다.",
+"en": "<b>What this project simplifies:</b> This project adds many things to plain SIR: an incubation period (2 days on average), weekdays and weekends, a seasonal effect that spreads 25% more in winter, a simple term for infection arriving from outside the class, immunity duration with immunity that builds with each infection (1/(1+0.3×infections)), and attending on the first day before symptoms. All of these are example values set by this project, not fitted to a real pathogen. Secondary infection spreading through households is lumped into one outside term (0.15% a day plus 20% of the share of sick children overall).",
+"tr": "<b>本项目做了哪些简化：</b>本项目在基本 SIR 模型之上加入了许多内容：潜伏期（平均 2 天）、工作日与周末、冬季传播增加 25% 的季节效应、代表班外感染的简单项、免疫持续时间以及随每次感染而累积的免疫力（1/(1+0.3×感染次数)），还有症状出现前第一天仍然上学。这些都是本项目设定的示例值，并未根据真实病原体拟合。通过家庭产生的二次感染被合并为一个外部项（每天 0.15%，再加上全体生病孩子占比的 20%）。"
+},
+{
+"id": "s0889",
+"page": "daycare",
+"ko": "<b>이론값과 시뮬레이션:</b> 이론이 맞는 조건(한 반 500명, 주말·계절·바깥 감염·재감염 없음, 처음 5명 감염)에서 스무 번 돌린 평균과 비교했습니다. R0 1.5에서 이론 58.3%, 시뮬레이션 56.8%. R0 2에서 79.7%와 80.6%. R0 3에서 94.0%와 94.6%. 쉬는 비율 50%(R0 2)에서 79.7%와 77.7%, 70%(R0 3)에서 94.0%와 95.0%였습니다. R0 0.8에서는 이론상 큰 유행이 없고 시뮬레이션도 처음 5명에 더해 4.2%만 걸렸습니다. 기본 설정(주말·계절·반 밖 감염·재감염 포함)에는 닫힌 식이 없어 시뮬레이션만으로 확인했습니다.",
+"en": "<b>Theory versus simulation:</b> I compared against twenty-run averages under the conditions where the theory applies (one class of 500, no weekends, season, outside infection or reinfection, 5 initial cases). At R0 1.5 the theory gives 58.3% and the simulation 56.8%; at R0 2, 79.7% and 80.6%; at R0 3, 94.0% and 94.6%. With 50% staying home (R0 2) it was 79.7% and 77.7%, and with 70% (R0 3) 94.0% and 95.0%. At R0 0.8 the theory predicts no large outbreak and the simulation had only 4.2% infected including the first 5. The default settings (with weekends, season, outside infection and reinfection) have no closed form, so they were checked by simulation only.",
+"tr": "<b>理论与模拟的对照：</b>我在理论适用的条件下（一个 500 人的班，没有周末、季节、外部感染和再感染，初始 5 个病例）与二十次运行的平均值作了对比。R0 为 1.5 时，理论值为 58.3%，模拟为 56.8%；R0 为 2 时，分别为 79.7% 和 80.6%；R0 为 3 时，分别为 94.0% 和 94.6%。50% 在家休息（R0 2）时为 79.7% 和 77.7%，70%（R0 3）时为 94.0% 和 95.0%。R0 为 0.8 时，理论预测不会出现大规模疫情，模拟中包括最初 5 人在内也只有 4.2% 被感染。默认设置（含周末、季节、外部感染和再感染）没有闭式解，所以只能通过模拟来检验。"
+},
+{
+"id": "s0890",
+"page": "daycare",
+"ko": "<b>더 읽을거리:</b> Kermack &amp; McKendrick (1927), <i>Proceedings of the Royal Society A</i> / Anderson &amp; May (1991), <i>Infectious Diseases of Humans: Dynamics and Control</i>, Oxford University Press / Keeling &amp; Rohani (2008), <i>Modeling Infectious Diseases in Humans and Animals</i>, Princeton University Press.",
+"en": "<b>Further reading:</b> Kermack &amp; McKendrick (1927), <i>Proceedings of the Royal Society A</i> / Anderson &amp; May (1991), <i>Infectious Diseases of Humans: Dynamics and Control</i>, Oxford University Press / Keeling &amp; Rohani (2008), <i>Modeling Infectious Diseases in Humans and Animals</i>, Princeton University Press.",
+"tr": "<b>延伸阅读：</b>Kermack &amp; McKendrick (1927), <i>Proceedings of the Royal Society A</i> / Anderson &amp; May (1991), <i>Infectious Diseases of Humans: Dynamics and Control</i>, Oxford University Press / Keeling &amp; Rohani (2008), <i>Modeling Infectious Diseases in Humans and Animals</i>, Princeton University Press。"
+},
+{
+"id": "s0891",
+"page": "daycare",
+"ko": "시뮬레이션은 하루를 한 걸음으로 하고 시드 난수(mulberry32)를 써서 같은 시드면 같은 결과가 나옵니다. 통계 카드의 \"쉬기 0% → 70%\"는 지금 설정에서 시드 8개를 각각 돌려 평균한 값이고, ④·⑤번 그래프는 시드 6개씩입니다. 그래서 슬라이더를 바꾸면 잠시 뒤에 갱신됩니다.",
+"en": "The simulation advances one day per step and uses a seeded random generator (mulberry32), so the same seed gives the same result. The \"0% → 70% staying home\" card averages eight seeds at your current settings, and graphs ④ and ⑤ use six seeds per point, so they update a moment after you move a slider.",
+"tr": "模拟每一步前进一天，并使用带随机种子的随机数生成器（mulberry32），因此相同的种子会得到相同的结果。「0% → 70% 在家休息」卡片在你当前设置下取八个随机种子的平均，图 ④ 和 ⑤ 每个点使用六个随机种子，所以移动滑块后会稍有延迟才更新。"
+},
+{
+"id": "s0892",
+"page": "daycare",
+"ko": "검증은 <code>node tools/validate-daycare.js</code>로 할 수 있습니다. 이 페이지의 숫자는 모두 이 출력과 같습니다.",
+"en": "You can verify with <code>node tools/validate-daycare.js</code>. Every number on this page matches its output.",
+"tr": "可以用 <code>node tools/validate-daycare.js</code> 进行验证。本页的每个数字都与其输出一致。"
+},
+{
+"id": "s0893",
+"page": "daycare",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/daycare\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/daycare\">GitHub</a>.",
+"tr": "代码可在 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/daycare\">GitHub</a> 上查看。"
+},
+{
+"id": "s0894",
+"page": "dla",
+"ko": "번개·산호·눈송이는 왜 닮았을까 (DLA) · 시뮬라티오 랩",
+"en": "Why Lightning, Coral and Frost Look Alike (DLA) · Simulatio Lab",
+"tr": "闪电、珊瑚和霜花为何如此相似（DLA） · Simulatio Lab"
+},
+{
+"id": "s0895",
+"page": "dla",
+"ko": "무작위로 떠도는 입자가 닿으면 붙기만 하는 아주 단순한 규칙이 번개·산호·서리를 닮은 가지 모양 프랙탈을 키웁니다. 붙는 확률과 씨앗 모양을 바꿔 직접 키워 보세요.",
+"en": "A very simple rule, particles that wander randomly and stick on contact, grows branching fractals that resemble lightning, coral and frost. Change the stickiness and seed shape and grow one yourself.",
+"tr": "一条非常简单的规则，即粒子随机游走、碰到就粘住，就能长出与闪电、珊瑚和霜花相似的分形分枝。改变粘附性和种子形状，亲手长一个吧。"
+},
+{
+"id": "s0896",
+"page": "dla",
+"ko": "번개, 산호, 서리, 강 하구의 가지는 재료도 크기도 전혀 다른데 모양은 이상하게 닮았습니다. 그러니 각각 복잡한 사정이 있을 거라고 생각하기 쉽습니다. 그런데 \"무작위로 떠돌던 입자가 덩어리에 닿으면 붙는다\"는 규칙 하나만 반복해도 이런 가지 모양이 저절로 자랍니다. 아무도 가지를 그리라고 시키지 않았는데, 바깥쪽 끝이 안쪽 틈을 가려 버리는 것만으로요. 아래 장면에서 입자 4,000개를 떨어뜨려 보세요.",
+"en": "Lightning, coral, frost and river branches are made of entirely different things at entirely different sizes, yet they look strangely alike. You might expect each to have its own complicated story. But repeat one rule, \"a particle wandering at random sticks when it touches the cluster\", and this kind of branching grows by itself. Nobody tells it to draw branches; the outer tips simply shade the inner gaps. Drop 4,000 particles in the scene below.",
+"tr": "闪电、珊瑚、霜花和河流的分支，构成它们的东西完全不同，尺度也完全不同，却奇怪地彼此相像。你也许以为它们各有各的复杂成因。但只要重复一条规则，“随机游走的粒子碰到团块就粘住”，这种分枝就会自己长出来。没有人要求它画出枝条，只是外侧的尖端遮住了内侧的缝隙。在下面的场景里投放4,000个粒子试试。"
+},
+{
+"id": "s0897",
+"page": "dla",
+"ko": "격자 한가운데에 <b>씨앗</b>(점·선·고리)을 놓습니다. 덩어리를 감싸는 큰 원 위에서 입자를 하나씩 출발시키면, 입자는 상하좌우로 무작위로 한 칸씩 떠돕니다.",
+"en": "A <b>seed</b> (point, line or ring) sits in the middle of a grid. Particles are released one at a time on a big circle around the cluster and wander at random, one cell up, down, left or right.",
+"tr": "一个<b>种子</b>（点、线或环）位于网格中央。粒子一次一个地从围绕团块的大圆上释放，并随机游走，每次向上、下、左或右移动一格。"
+},
+{
+"id": "s0898",
+"page": "dla",
+"ko": "덩어리에 닿으면 <b>붙는 확률</b>만큼의 확률로 그 자리에 붙습니다. 안 붙으면 계속 떠돌고, 너무 멀리 가면 버리고 새 입자를 내보냅니다. 100%면 닿는 즉시 붙습니다.",
+"en": "On touching the cluster, a particle sticks with the <b>sticking probability</b>. If it does not, it keeps wandering, and if it strays too far it is discarded and a new one is released. At 100% it sticks on first touch.",
+"tr": "粒子碰到团块后，按<b>粘附概率</b>粘住。若没有粘住，就继续游走，要是跑得太远就被丢弃，再释放一个新的。100%时，第一次接触就会粘住。"
+},
+{
+"id": "s0899",
+"page": "dla",
+"ko": "이렇게 붙은 순서대로 색을 입혔습니다(금빛이 먼저, 하늘색이 나중). 바깥으로 뻗은 가지 끝은 입자가 먼저 닿고, 안쪽 틈은 가지에 가려 잘 닿지 못해서 가지가 갈라지며 뻗어 나갑니다.",
+"en": "Cells are colored by arrival order (gold first, sky blue last). Particles reach the outstretched tips first, while the inner gaps are shaded by the branches, so the cluster splits and reaches outward.",
+"tr": "格子按到达顺序着色（最先到达的是金色，最后到达的是天蓝色）。粒子最先到达伸出去的尖端，而内侧的缝隙被枝条遮挡，所以团块会分叉并向外延伸。"
+},
+{
+"id": "s0900",
+"page": "dla",
+"ko": "덩어리가 얼마나 성긴지는 <b>프랙탈 차원 D</b>로 재요. 반지름 r 안의 입자 수가 <i>r<sup>D</sup></i>에 비례한다고 보고 로그-로그 그래프의 기울기를 구합니다. 꽉 찬 면이면 2, 가는 선이면 1입니다.",
+"en": "How sparse the cluster is can be measured by its <b>fractal dimension D</b>: the number of particles within radius r grows like <i>r<sup>D</sup></i>, so D is the slope on a log-log graph. A solid area gives 2, a thin line gives 1.",
+"tr": "团块有多稀疏，可以用它的<b>分形维数D</b>来衡量：半径r内的粒子数按<i>r<sup>D</sup></i>增长，所以D就是双对数图上的斜率。实心的面积给出2，细线给出1。"
+},
+{
+"id": "s0901",
+"page": "dla",
+"ko": "붙는 확률 <output id=\"o-stick\"></output>",
+"en": "Sticking probability <output id=\"o-stick\"></output>",
+"tr": "粘附概率 <output id=\"o-stick\"></output>"
+},
+{
+"id": "s0902",
+"page": "dla",
+"ko": "낮을수록 닿고도 더 떠돌다 붙어, 틈 안쪽까지 채워 더 촘촘하고 뭉툭해져요. 100%는 가시 돋은 가지",
+"en": "Lower means particles keep wandering after touching and fill the inner gaps, so the cluster is denser and blobbier. 100% gives spiky branches",
+"tr": "数值越低，粒子碰到后会继续游走并填满内侧缝隙，团块就越致密、越像一团。100%时会长出尖尖的枝条"
+},
+{
+"id": "s0903",
+"page": "dla",
+"ko": "입자 수 <output id=\"o-count\"></output>",
+"en": "Number of particles <output id=\"o-count\"></output>",
+"tr": "粒子数量 <output id=\"o-count\"></output>"
+},
+{
+"id": "s0904",
+"page": "dla",
+"ko": "많을수록 크게 자라지만 시간이 더 걸려요",
+"en": "More particles grow a larger cluster but take longer",
+"tr": "粒子越多，长出的团块越大，但耗时也越长"
+},
+{
+"id": "s0905",
+"page": "dla",
+"ko": "씨앗 모양 <output id=\"o-shape\"></output>",
+"en": "Seed shape <output id=\"o-shape\"></output>",
+"tr": "种子形状 <output id=\"o-shape\"></output>"
+},
+{
+"id": "s0906",
+"page": "dla",
+"ko": "점",
+"en": "Point",
+"tr": "点"
+},
+{
+"id": "s0907",
+"page": "dla",
+"ko": "선",
+"en": "Line",
+"tr": "线"
+},
+{
+"id": "s0908",
+"page": "dla",
+"ko": "고리 (바깥쪽으로 자람)",
+"en": "Ring (grows outward)",
+"tr": "环（向外生长）"
+},
+{
+"id": "s0909",
+"page": "dla",
+"ko": "어디서 자라기 시작하는지. 선은 양 끝에서 가장 잘 자라요",
+"en": "Where growth starts. A line grows best from its ends",
+"tr": "生长开始的位置。线从两端生长得最好"
+},
+{
+"id": "s0910",
+"page": "dla",
+"ko": "같은 설정, 다른 무작위",
+"en": "Same settings, new randomness",
+"tr": "相同设置，新的随机性"
+},
+{
+"id": "s0911",
+"page": "dla",
+"ko": "① 입자가 떠돌다 붙어 자라는 모습",
+"en": "① Particles Wandering, Sticking and Growing",
+"tr": "① 粒子游走、粘附并生长"
+},
+{
+"id": "s0912",
+"page": "dla",
+"ko": "흰 점이 지금 떠도는 입자이고 꼬리는 최근 경로입니다. 흐린 점선 원이 입자를 내보내는 곳입니다. 화면은 덩어리가 자라는 만큼 저절로 넓어집니다.",
+"en": "The white dot is the particle wandering now and its tail is its recent path. The faint dashed circle is where particles are released. The view widens by itself as the cluster grows.",
+"tr": "白点是当前正在游走的粒子，它的尾巴是最近的路径。淡淡的虚线圆是释放粒子的位置。随着团块变大，视野会自动变宽。"
+},
+{
+"id": "s0913",
+"page": "dla",
+"ko": "② 프랙탈 차원: 질량 대 반지름",
+"en": "② Fractal Dimension: Mass versus Radius",
+"tr": "② 分形维数：质量与半径"
+},
+{
+"id": "s0914",
+"page": "dla",
+"ko": "가로는 반지름, 세로는 그 안의 입자 수(둘 다 로그 눈금)입니다. 빨간 선의 기울기가 프랙탈 차원 D이고, 회색 점선(기울기 2)은 빈틈없이 꽉 찬 면일 때입니다. 점 씨앗은 중심에서, 선·고리 씨앗은 붙은 입자 150개 둘레에서 잰 평균이라 더 낮게 나오는 경향이 있어요.",
+"en": "The horizontal axis is radius and the vertical axis the number of particles inside it (both log scales). The slope of the red line is the fractal dimension D, and the gray dashed line (slope 2) is what a solid area would give. A point seed is measured from its center; for line and ring seeds, it is the average around 150 sampled particles, which tends to read lower.",
+"tr": "横轴是半径，纵轴是半径内的粒子数（均为对数刻度）。红线的斜率就是分形维数D，灰色虚线（斜率2）是实心面积会给出的结果。点状种子从中心起测量；线状和环状种子则取约150个抽样粒子周围的平均值，读数往往偏低。"
+},
+{
+"id": "s0915",
+"page": "dla",
+"ko": "③ 새 입자는 어디에 붙을까",
+"en": "③ Where Do New Particles Land?",
+"tr": "③ 新粒子落在哪里？"
+},
+{
+"id": "s0916",
+"page": "dla",
+"ko": "가장 최근에 붙은 입자 300개가 중심에서 얼마나 떨어진 곳에 붙었는지입니다(가장 먼 끝까지의 거리를 1로). 대부분 바깥 가지 끝에 붙고 안쪽 틈은 거의 비어 있어요. 이것이 가지가 갈라지는 이유입니다.",
+"en": "How far from the center the 300 most recent particles landed (the distance to the farthest tip is 1). Most land on the outer branch tips while the inner gaps stay nearly empty, which is why the branches split.",
+"tr": "最近的300个粒子落在离中心多远的位置（到最远尖端的距离为1）。大多数落在外侧的枝尖上，而内侧的缝隙几乎是空的，这就是枝条会分叉的原因。"
+},
+{
+"id": "s0917",
+"page": "dla",
+"ko": "④ 붙는 확률별로 얼마나 촘촘해질까",
+"en": "④ How Dense Does It Get at Each Stickiness?",
+"tr": "④ 不同粘附性下会变得多致密？"
+},
+{
+"id": "s0918",
+"page": "dla",
+"ko": "입자 1,200개를 키운 뒤, 가장 먼 끝까지를 반지름으로 하는 원 중 입자가 채운 비율입니다(점 하나가 한 번의 실행). 붙는 확률이 낮을수록 같은 입자 수로 더 작고 촘촘한 덩어리가 됩니다.",
+"en": "After growing 1,200 particles, the share of the circle (out to the farthest tip) that the particles fill; each dot is one run. With the same number of particles, lower stickiness gives a smaller, denser cluster.",
+"tr": "生长1,200个粒子之后，粒子填满的圆（直到最远尖端）所占的比例；每个点是一次运行。粒子数相同时，粘附性越低，团块越小、越致密。"
+},
+{
+"id": "s0919",
+"page": "dla",
+"ko": "점 씨앗에서 입자 4,000개를 키운 덩어리의 프랙탈 차원 D는 평균 1.66이었습니다.",
+"en": "A cluster of 4,000 particles from a point seed had a fractal dimension D averaging 1.66.",
+"tr": "从一个点状种子生长出的4,000个粒子的团簇，其分形维数D平均为1.66。"
+},
+{
+"id": "s0920",
+"page": "dla",
+"ko": "튀어나온 가지 끝에 입자가 먼저 닿고 안쪽 틈은 가려져, 가지가 갈라지며 성긴 모양이 됐을 수 있습니다.",
+"en": "Particles reach protruding tips first while inner gaps are shielded, so branches may split into a sparse shape.",
+"tr": "粒子首先到达突出的尖端，而内部的缝隙被遮挡，因此枝杈可能分叉成稀疏的形状。"
+},
+{
+"id": "s0921",
+"page": "dla",
+"ko": "붙는 확률을 낮추면 촘촘해졌으니, 모양이 성기거나 촘촘한 이유는 성장 조건부터 살펴볼 만합니다.",
+"en": "Lower sticking probability made it denser, so growth conditions are worth checking to explain sparse or dense shapes.",
+"tr": "降低附着概率后团簇变得更密，所以要解释形状是稀疏还是致密，值得检查生长条件。"
+},
+{
+"id": "s0922",
+"page": "dla",
+"ko": "<b>말하는 것:</b> 점 씨앗, 붙는 확률 100%, 입자 4,000개를 무작위 8번 키우면 프랙탈 차원 D는 평균 1.66(범위 1.61~1.69)이었습니다. 가장 먼 끝까지의 반지름은 평균 123칸이고 그 원의 약 9%(8.6%)만 입자로 채워졌으며, 마지막에 붙은 300개 중 57%가 바깥 30%에, 안쪽 절반에는 9%만 붙었습니다. 붙는 확률을 낮추면 촘촘해졌습니다. 4,000개를 키웠을 때 채움 비율은 100%에서 9%, 20%에서 16%, 5%에서 26%였고 반지름은 120칸에서 71칸으로 줄었으며 D는 1.66에서 1.78로 올랐습니다. 입자 수를 늘려도 D는 500개에서 1.56, 2,000개에서 1.65, 4,000개와 8,000개에서 1.66이었습니다. 선 씨앗(입자 3,000개)은 D 1.59, 고리 씨앗은 1.52로 잰 값이 더 낮았는데, 이는 다른 방법(표본 둘레 평균)으로 잰 값이라 점 씨앗과 직접 비교하기 어렵습니다.",
+"en": "<b>What it shows:</b> Growing 4,000 particles from a point seed at 100% stickiness in 8 random runs gave a fractal dimension D averaging 1.66 (range 1.61 to 1.69). The radius to the farthest tip averaged 123 cells and only about 9% (8.6%) of that circle was filled; of the last 300 particles, 57% landed in the outer 30% and just 9% in the inner half. Lowering stickiness made the cluster denser. With 4,000 particles the filled share was 9% at 100%, 16% at 20% and 26% at 5%, the radius shrank from 120 to 71 cells, and D rose from 1.66 to 1.78. Adding particles barely moved D: 1.56 at 500, 1.65 at 2,000, 1.66 at both 4,000 and 8,000. A line seed (3,000 particles) read D 1.59 and a ring seed 1.52, but those come from a different method (average around sampled particles), so they are not directly comparable with the point seed.",
+"tr": "<b>它说明了什么：</b>从点状种子出发，在100%粘附性下生长4,000个粒子，随机运行8次，得到的分形维数D平均为1.66（范围1.61到1.69）。到最远尖端的半径平均为123格，该圆中只有约9%（8.6%）被填满；最后300个粒子中，57%落在外侧30%，只有9%落在内侧一半。降低粘附性使团块更致密。粒子数为4,000时，填满的比例在100%时为9%，20%时为16%，5%时为26%，半径从120格缩小到71格，D从1.66升至1.78。增加粒子数几乎不改变D：500个时为1.56，2,000个时为1.65，4,000个和8,000个时都是1.66。线状种子（3,000个粒子）的D为1.59，环状种子为1.52，但它们来自另一种方法（取抽样粒子周围的平均值），因此不能直接与点状种子比较。"
+},
+{
+"id": "s0923",
+"page": "dla",
+"ko": "번개·눈송이·산호가 같은 원리로 생긴다는 뜻이 아닙니다. 이 모델은 격자와 입자 수가 유한합니다.",
+"en": "It does not mean lightning, snowflakes and coral form the same way; this model has a finite grid and particle count.",
+"tr": "这并不意味着闪电、雪花和珊瑚是以同样方式形成的；这个模型的网格和粒子数都是有限的。"
+},
+{
+"id": "s0924",
+"page": "dla",
+"ko": "실제 현상과 닮은 원리인지는 각각의 확산과 붙는 과정을 측정해 모양과 비교해야 확인할 수 있습니다.",
+"en": "Whether a real case shares the principle needs measuring its diffusion and sticking and comparing the shapes.",
+"tr": "要判断某个真实案例是否遵循同一原理，需要测量其扩散和附着情况，并比较形状。"
+},
+{
+"id": "s0925",
+"page": "dla",
+"ko": "<b>말하지 않는 것:</b> 이 덩어리는 번개나 눈송이, 산호를 재현한 것이 아닙니다. 비슷한 모양이 같은 원리로 생긴다는 뜻도 아니고, 눈으로 닮았다는 시각적·통계적 유추일 뿐입니다. 진짜 눈송이는 얼음 결정이 표면에서 자라는 방식 때문에 여섯 방향 대칭이고 DLA와는 다른 메커니즘이 주로 작용합니다. 진짜 번개는 전기장과 공기의 절연 파괴 물리가 있고, 산호는 생물의 성장과 해류가 얽혀 있습니다. DLA는 장난감 모델이며, 이런 현상 중 일부(전기도금, 점성이 다른 유체의 손가락 모양 침투 등)에서 비슷한 모양이 관찰된다고 알려져 있을 뿐입니다. 또 \"붙는 확률이 낮으면 D가 올라간다\"는 이 페이지의 결과는 입자 수가 유한해서 생기는 효과가 섞여 있습니다. 아주 크게 키우면 어느 붙는 확률에서도 같은 D에 가까워질 것으로 알려져 있지만, 이 페이지에서 확인한 것은 아닙니다. 격자 위의 단순화이므로 모양에 격자의 영향(상하좌우 방향성)이 조금 남아 있습니다.",
+"en": "<b>What it doesn't show:</b> This does not reproduce lightning, snowflakes or coral. It does not mean look-alike shapes arise from the same cause; the resemblance is a visual, statistical analogy. A real snowflake is six-fold symmetric because of how ice crystals grow at their surfaces, and different mechanisms dominate over DLA. Real lightning involves electric fields and the breakdown of air, and coral involves biological growth and currents. DLA is a toy model, and similar shapes are reported in only some systems (electrodeposition, the fingering of one fluid pushing into another, and so on). Also, the finding here that lower stickiness raises D mixes in finite-size effects from a limited number of particles. For very large clusters D is expected to approach the same value at any stickiness, but I did not check that here. On a square grid, some influence of the grid directions (up, down, left, right) remains in the shapes.",
+"tr": "<b>它没有说明什么：</b>它并不能重现闪电、雪花或珊瑚。形状相似也不意味着出于同一原因；这种相似只是视觉和统计上的类比。真实的雪花呈六重对称，是由冰晶在表面生长的方式决定的，起主导作用的机制与 DLA 不同。真实的闪电涉及电场和空气击穿，珊瑚则涉及生物生长和水流。DLA 是一个玩具模型，只有部分系统（电沉积、一种流体推入另一种流体时的指状图案等）报告过相似的形状。另外，这里“黏附性越低 D 越大”的结论混入了粒子数有限带来的有限尺寸效应。对于非常大的团簇，预计无论黏附性如何，D 都会趋近同一个值，但我在这里没有验证。在正方形网格上，形状中仍残留着一些网格方向（上、下、左、右）的影响。"
+},
+{
+"id": "s0926",
+"page": "dla",
+"ko": "<b>모델의 뿌리:</b> Witten과 Sander(1981)가 \"Diffusion-Limited Aggregation, a Kinetic Critical Phenomenon\"(Physical Review Letters 47, 1400)에서 제안한 확산 제한 응집(DLA) 모델입니다. 무작위로 확산하는 입자가 덩어리에 닿으면 붙어, 단순한 규칙에서 프랙탈 덩어리가 생김을 보였습니다.",
+"en": "<b>Where the model comes from:</b> The diffusion-limited aggregation (DLA) model proposed by Witten and Sander (1981), \"Diffusion-Limited Aggregation, a Kinetic Critical Phenomenon\", Physical Review Letters 47, 1400. Randomly diffusing particles stick on contact, and a fractal cluster grows from this simple rule.",
+"tr": "<b>模型的来源：</b>Witten 和 Sander（1981）提出的扩散限制聚集（DLA）模型，《Diffusion-Limited Aggregation, a Kinetic Critical Phenomenon》，Physical Review Letters 47, 1400。随机扩散的粒子一接触就黏附，由这条简单规则长出分形团簇。"
+},
+{
+"id": "s0927",
+"page": "dla",
+"ko": "<b>핵심 가정과 수식:</b> 덩어리는 한 번에 입자 하나가 무작위 걸음(확산)으로 닿아 붙으며 자랍니다. 입자가 덩어리 표면의 어느 곳에 닿을 확률은 그 둘레의 확산 농도장(라플라스 방정식의 해)이 정하는데, 튀어나온 끝일수록 닿기 쉬워 가지가 자랍니다. 크기는 <i>M ∝ R<sup>D</sup></i>(질량 M, 반지름 R, 프랙탈 차원 D)로 늘어납니다. 슬라이더의 \"붙는 확률\"은 닿았을 때 붙는 확률이고, \"입자 수\"는 키울 총량입니다.",
+"en": "<b>Key assumptions and formulas:</b> The cluster grows one particle at a time, each arriving by a random walk (diffusion). Where a particle lands on the surface is set by the diffusing concentration field around it (a solution of the Laplace equation), and protruding tips are easier to reach, so branches grow. Size scales as <i>M ∝ R<sup>D</sup></i> (mass M, radius R, fractal dimension D). The slider \"sticking probability\" is the chance of sticking on contact and \"number of particles\" is the total to grow.",
+"tr": "<b>主要假设和公式：</b>团簇一次增长一个粒子，每个粒子通过随机游走（扩散）到达。粒子落在表面的哪个位置，由其周围的扩散浓度场（拉普拉斯方程的解）决定，而突出的尖端更容易被碰到，所以会长出分支。尺寸满足 <i>M ∝ R<sup>D</sup></i>（质量 M、半径 R、分形维数 D）。滑块“黏附概率”是接触时黏附的概率，“粒子数”是要生长的总数。"
+},
+{
+"id": "s0928",
+"page": "dla",
+"ko": "<b>이 프로젝트의 단순화:</b> 이 프로젝트는 560×560 격자 위에서 상하좌우 한 칸 걸음을 쓰고, 입자를 덩어리를 감싸는 원에서 출발시켜 더 먼 곳에서 버립니다(원 논문의 설정을 그대로 재현한 것이 아닙니다). 선·고리 씨앗과 \"붙는 확률\" 슬라이더는 이 프로젝트가 더한 변형입니다. 격자 때문에 방향성이 조금 남고, 입자 수가 유한해서 D가 점근값보다 낮게 나옵니다.",
+"en": "<b>What this project simplifies:</b> This project uses a 560 × 560 grid with one-cell steps up, down, left and right, releases particles on a circle around the cluster, and discards them farther out (it does not reproduce the original paper's setup). The line and ring seeds and the sticking-probability slider are variations added by this project. The grid leaves some directional bias, and the finite particle count makes D read lower than the asymptotic value.",
+"tr": "<b>本项目简化了什么：</b>本项目使用 560 × 560 的网格，每步向上、下、左、右移动一格，在团簇周围的圆上释放粒子，飞得更远的则丢弃（并不复现原论文的设置）。线状和环状的种子以及黏附概率滑块，是本项目增加的变体。网格会留下一些方向偏差，而且粒子数有限，使 D 的读数低于渐近值。"
+},
+{
+"id": "s0929",
+"page": "dla",
+"ko": "<b>이론값과 시뮬레이션:</b> 2차원 DLA의 프랙탈 차원은 약 1.71로 널리 알려져 있습니다(이 값을 검증하려는 문헌 값으로만 사용했습니다). 시뮬레이션에서 점 씨앗, 붙는 확률 100%, 입자 4,000개를 8번 키워 잰 D는 평균 1.66(±0.03, 범위 1.61~1.69)으로 약 0.05 낮았고, 입자가 적을수록 더 낮았습니다(500개 1.56, 2,000개 1.65, 4,000개·8,000개 1.66). 크기가 유한하고 격자 효과가 있어 점근값에 못 미치는 것으로 보입니다.",
+"en": "<b>Theory versus simulation:</b> The fractal dimension of 2D DLA is widely quoted as about 1.71 (used here only as a literature value to compare against). In the simulation, a point seed at 100% stickiness with 4,000 particles, run 8 times, gave D averaging 1.66 (±0.03, range 1.61 to 1.69), about 0.05 below, and lower with fewer particles (1.56 at 500, 1.65 at 2,000, 1.66 at 4,000 and 8,000). Finite size and grid effects likely keep it short of the asymptotic value.",
+"tr": "<b>理论与模拟对比：</b>二维 DLA 的分形维数通常被引用为约 1.71（这里仅作为文献值用于对比）。在模拟中，黏附性 100%、粒子数 4,000 的点状种子运行 8 次，D 平均为 1.66（±0.03，范围 1.61 到 1.69），低约 0.05；粒子数更少时更低（500 个为 1.56，2,000 个为 1.65，4,000 和 8,000 个为 1.66）。有限尺寸和网格效应很可能使其达不到渐近值。"
+},
+{
+"id": "s0930",
+"page": "dla",
+"ko": "<b>더 읽을거리:</b> Witten &amp; Sander (1981), Physical Review Letters 47, 1400. Mandelbrot, 『The Fractal Geometry of Nature』(W. H. Freeman, 1982). Vicsek, 『Fractal Growth Phenomena』(World Scientific).",
+"en": "<b>Further reading:</b> Witten &amp; Sander (1981), Physical Review Letters 47, 1400. Mandelbrot, <i>The Fractal Geometry of Nature</i> (W. H. Freeman, 1982). Vicsek, <i>Fractal Growth Phenomena</i> (World Scientific).",
+"tr": "<b>延伸阅读：</b>Witten &amp; Sander (1981), Physical Review Letters 47, 1400。Mandelbrot, <i>The Fractal Geometry of Nature</i> (W. H. Freeman, 1982)。Vicsek, <i>Fractal Growth Phenomena</i> (World Scientific)。"
+},
+{
+"id": "s0931",
+"page": "dla",
+"ko": "시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 입자는 덩어리의 가장 먼 끝보다 6칸 바깥의 원에서 출발하고, 그 1.6배+20칸 바깥에서 버려지며, 덩어리가 반지름 160칸에 닿으면 성장을 멈춥니다.",
+"en": "The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. Particles start on a circle 6 cells beyond the farthest tip, are discarded beyond 1.6 times that radius plus 20 cells, and growth stops when the cluster reaches a radius of 160 cells.",
+"tr": "模拟使用带随机种子的随机数生成器（mulberry32），因此相同的种子会得到相同的结果。粒子从比最远尖端再远 6 格的圆上出发，超出该半径的 1.6 倍再加 20 格就被丢弃，团簇半径达到 160 格时生长停止。"
+},
+{
+"id": "s0932",
+"page": "dla",
+"ko": "프랙탈 차원은 반지름 r = 3부터 가장 먼 끝의 절반까지(1.25배씩 늘리며) 안쪽 입자 수를 세어, r ≥ 4인 점들에 최소제곱 직선을 맞춘 로그-로그 기울기입니다. 검증은 <code>node tools/validate-dla.js</code>로 할 수 있습니다.",
+"en": "The fractal dimension counts particles inside radii from r = 3 up to half the farthest tip (growing by a factor of 1.25) and fits a least-squares line to the log-log points with r ≥ 4. You can verify with <code>node tools/validate-dla.js</code>.",
+"tr": "分形维数统计半径从 r = 3 到最远尖端一半（以 1.25 倍递增）范围内的粒子数，并对 r ≥ 4 的双对数点做最小二乘直线拟合。可用 <code>node tools/validate-dla.js</code> 验证。"
+},
+{
+"id": "s0933",
+"page": "dla",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/dla\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/dla\">GitHub</a>.",
+"tr": "代码可在 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/dla\">GitHub</a> 上获取。"
+},
+{
+"id": "s0968",
+"page": "easter",
+"ko": "이 모델에서는 인구가 숲에 늦게 반응하고 빨리 늘수록 정점 뒤에 더 크게 줄어요.",
+"en": "In this model, the slower the population reacts to the forest and the faster it grows, the more it falls after its peak.",
+"tr": "在这个模型中，人口对森林的反应越慢、增长越快，达到峰值后下降得就越厉害。"
+},
+{
+"id": "s0969",
+"page": "easter",
+"ko": "아이가 자라는 시간 때문에 인구가 숲의 최근 평균에만 반응해서, 균형점을 지나쳐 늘다가 숲이 줄고 나서야 꺾이기 때문일 수 있어요.",
+"en": "Because it responds only to the recent forest average, it can overshoot the balance and turn down only after the forest has shrunk.",
+"tr": "由于它只对森林近期的平均状况作出反应，可能会冲过平衡点，直到森林缩小之后才开始下降。"
+},
+{
+"id": "s0970",
+"page": "easter",
+"ko": "자원이 사람에게 되먹임하는 곳이라면 정점의 높이보다 반응이 얼마나 늦는지를 살펴볼 만해요.",
+"en": "Where a resource feeds back on people, how late they respond may be worth examining as much as how high the peak goes.",
+"tr": "在资源会反过来影响人的情形中，人们的反应有多迟缓，可能与峰值有多高同样值得考察。"
+},
+{
+"id": "s0972",
+"page": "easter",
+"ko": "실제 이스터섬에서 무슨 일이 있었는지 설명하거나 판정하지는 않아요.",
+"en": "It does not explain or judge what actually happened on Easter Island.",
+"tr": "它并不解释或评判复活节岛上实际发生了什么。"
+},
+{
+"id": "s0973",
+"page": "easter",
+"ko": "쥐, 질병, 외부 접촉 등 연구자마다 해석이 갈리는 요인은 모델에 없어서, 고고학 자료와 따로 맞춰 봐야 해요.",
+"en": "Rats, disease and outside contact, which researchers interpret differently, are absent, so it would need checking against archaeological evidence.",
+"tr": "老鼠、疾病和外界接触（研究者对它们的解读各不相同）都没有包含在内，因此需要对照考古证据加以验证。"
+},
+{
+"id": "s0975",
+"page": "easter",
+"ko": "<b>모델의 뿌리:</b> 재생 가능한 자원과 인구가 서로 되먹임하는 포식자–피식자(Lotka–Volterra) 꼴의 모델입니다. Brander & Taylor (1998)가 이를 이스터섬에 적용해, 자원이 남아 있는 동안 인구가 늘다가 자원이 무너지며 따라서 줄어드는 과잉 성장과 붕괴가 나올 수 있음을 보였습니다.",
+"en": "<b>Where the model comes from:</b> This is a predator–prey (Lotka–Volterra) type model in which a renewable resource and a population feed back on each other. Brander & Taylor (1998) applied it to Easter Island and showed that overshoot and collapse can arise: the population grows while the resource lasts, then falls as the resource gives way.",
+"tr": "<b>模型的来源：</b>这是一个捕食者—猎物（Lotka–Volterra）类型的模型，可再生资源与人口相互反馈。Brander 和 Taylor（1998）将其应用于复活节岛，表明可能出现超载与崩溃：资源还在时人口增长，资源耗尽后人口随之下降。"
+},
+{
+"id": "s0976",
+"page": "easter",
+"ko": "<b>핵심 가정과 수식:</b> 숲은 로지스틱 성장(Verhulst 1838)에 사람의 벌채를 뺀 식이고, 인구는 숲이 온전할수록 빨리 늘고 기본 감소율 0.03이 있습니다. 균형은 <code>R* = 0.03 ÷ 증가속도</code>, <code>P* = 재생 × (1−R*) ÷ (벌채 × (1−보존))</code>입니다. 인구 증가 속도·재생 속도·벌채 강도·보존 슬라이더가 이 식의 계수이고, 반응 지연이 길수록 균형 주변에서 넘치고 꺼지는 진동이 커집니다.",
+"en": "<b>Key assumptions and formulas:</b> The forest follows logistic growth (Verhulst 1838) minus human logging, and the population grows faster the more intact the forest is, with a baseline decline of 0.03. The equilibrium is <code>R* = 0.03 ÷ growth rate</code> and <code>P* = regrowth × (1−R*) ÷ (harvest × (1−conservation))</code>. The growth, regrowth, harvest and conservation sliders are coefficients of these equations, and a longer reaction delay makes the swings around the equilibrium larger.",
+"tr": "<b>主要假设和公式：</b>森林按逻辑斯蒂增长（Verhulst 1838）减去人类砍伐来变化，森林越完整，人口增长越快，基准下降率为 0.03。平衡点为 <code>R* = 0.03 ÷ 增长率</code> 和 <code>P* = 再生 × (1−R*) ÷ (采伐 × (1−保护))</code>。增长、再生、采伐和保护滑块是这些方程的系数，反应延迟越长，围绕平衡点的波动越大。"
+},
+{
+"id": "s0977",
+"page": "easter",
+"ko": "<b>이 프로젝트의 단순화:</b> Brander & Taylor의 방정식과 값을 쓰지 않고 식량·농업·쥐·기후 같은 요소를 뺐으며, 인구가 숲의 최근 평균에 반응하도록 지연을 넣었습니다. 숲 최대치를 100%로 둔 것, 감소율 0.03, 기본 계수는 이 프로젝트가 정한 값이라 실제 이스터섬의 숫자가 아닙니다. 실제 붕괴의 원인(벌목, 쥐, 외부 접촉 등)은 연구자마다 해석이 갈리고, 이 모델은 어느 쪽도 증명하지 않습니다.",
+"en": "<b>What this project simplifies:</b> It does not use Brander & Taylor's equations or values, leaves out food, farming, rats and climate, and adds a delay so the population reacts to the recent average of the forest. Setting the forest maximum to 100%, the decline rate of 0.03 and the default coefficients are this project's own values, not real Easter Island numbers. What actually caused the real collapse (logging, rats, outside contact and so on) is interpreted differently by researchers, and this model proves none of them.",
+"tr": "<b>本项目简化了什么：</b>它没有使用 Brander 和 Taylor 的方程或数值，省略了食物、农业、老鼠和气候，并加入延迟，使人口对森林的近期平均状态做出反应。将森林上限设为 100%、下降率 0.03 以及默认系数，都是本项目自己的取值，并非复活节岛的真实数字。真实崩溃的原因（砍伐、老鼠、外部接触等）研究者的解释各不相同，本模型并不证明其中任何一种。"
+},
+{
+"id": "s0978",
+"page": "easter",
+"ko": "<b>이론값과 시뮬레이션:</b> 균형점은 기본 설정에서 손으로 계산하면 R* = 0.03 ÷ 0.05 = 0.60, P* = 0.01 × 0.4 ÷ 2×10<sup>-6</sup> = 2,000명이고 validate 출력과 같습니다. 그러나 실제 궤적은 지연 때문에 균형에 머물지 않고 최고 5,287명(P*의 약 2.6배)까지 넘친 뒤 600년째 696명으로 떨어집니다. 최고 인구는 P*에 비례해서, 벌채 강도 0.5/2/16에서 21,104/5,287/691명이고 (강도 × 최고 인구)는 약 10,550~11,060으로 거의 일정합니다.",
+"en": "<b>Theory versus simulation:</b> Calculated by hand with default settings, R* = 0.03 ÷ 0.05 = 0.60 and P* = 0.01 × 0.4 ÷ 2×10<sup>-6</sup> = 2,000 people, matching the validate output. The actual trajectory, because of the delay, does not stay at equilibrium but overshoots to a peak of 5,287 (about 2.6 times P*) and drops to 696 by year 600. The peak scales with P*: at harvest intensity 0.5/2/16 it is 21,104/5,287/691, so intensity × peak stays near-constant at about 10,550 to 11,060.",
+"tr": "<b>理论与模拟对比：</b>用默认设置手算，R* = 0.03 ÷ 0.05 = 0.60，P* = 0.01 × 0.4 ÷ 2×10<sup>-6</sup> = 2,000 人，与 validate 的输出一致。实际轨迹因为延迟而不会停在平衡点，而是冲过头，在峰值 5,287（约为 P* 的 2.6 倍）之后，到第 600 年降至 696。峰值随 P* 变化：采伐强度为 0.5/2/16 时分别是 21,104/5,287/691，所以强度 × 峰值几乎不变，约在 10,550 到 11,060 之间。"
+},
+{
+"id": "s0979",
+"page": "easter",
+"ko": "<b>더 읽을거리:</b> Brander & Taylor (1998), 「The Simple Economics of Easter Island: A Ricardo-Malthus Model of Renewable Resource Use」, American Economic Review 88(1). Diamond (2005), 『Collapse』, Viking(대중적이지만 해석에 논쟁이 있음). Hunt & Lipo (2011), 『The Statues That Walked』, Free Press(다른 해석).",
+"en": "<b>Further reading:</b> Brander & Taylor (1998), \"The Simple Economics of Easter Island: A Ricardo-Malthus Model of Renewable Resource Use\", <i>American Economic Review</i> 88(1). Diamond (2005), <i>Collapse</i>, Viking (popular, but its interpretation is disputed). Hunt & Lipo (2011), <i>The Statues That Walked</i>, Free Press (an alternative reading).",
+"tr": "<b>延伸阅读：</b>Brander &amp; Taylor (1998), \"The Simple Economics of Easter Island: A Ricardo-Malthus Model of Renewable Resource Use\", <i>American Economic Review</i> 88(1)。Diamond (2005), <i>Collapse</i>, Viking（通俗读物，但其解读存在争议）。Hunt &amp; Lipo (2011), <i>The Statues That Walked</i>, Free Press（另一种解读）。"
+},
+{
+"id": "s0980",
+"page": "easter",
+"ko": "이 프로젝트가 단순화해 직접 짠 구현이며 논문의 방정식과 값을 그대로 쓰지 않았습니다. 인구가 숲의 최근 평균에 반응하도록 지연을 넣었습니다.",
+"en": "This is this project's own simplified implementation; it does not use the paper's equations or values. A delay is added so the population reacts to the recent average of the forest.",
+"tr": "这是本项目自己的简化实现，没有使用论文中的方程或数值。加入了延迟，使人口对森林的近期平均状态做出反应。"
+},
+{
+"id": "s0985",
+"page": "farming",
+"ko": "농경의 전파 · 시뮬라티오 랩",
+"en": "The Spread of Farming · Simulatio Lab",
+"tr": "农业的传播 · Simulatio Lab"
+},
+{
+"id": "s0986",
+"page": "farming",
+"ko": "인구가 늘고 조금씩 흩어지는 두 가지 규칙만으로 농경이 한 해에 1킬로미터쯤의 속도로 대륙을 덮는 모습을, 지도 위에서 직접 돌려보세요.",
+"en": "Watch farming sweep across a map at roughly a kilometer a year from just two rules, population growth and slow dispersal, and change them yourself.",
+"tr": "看看仅凭人口增长和缓慢扩散这两条规则，农业如何以每年约一公里的速度扫过整张地图，并亲自改变它们。"
+},
+{
+"id": "s0987",
+"page": "farming",
+"ko": "농사가 번지는 속도는 걸음에 비하면 보잘것없습니다. 한 세대(약 25년)에 25킬로미터 남짓이니까요. 그런데 이 느린 걸음이 쉬지 않고 이어지면, 이 모델에서는 약 천 년 만에 지도 전체가 농지로 덮입니다. 더 이상한 것은 그 속도를 누가 정해 준 적이 없다는 점입니다. &#39;늘어나는 속도&#39;와 &#39;흩어지는 정도&#39; 두 숫자만 있으면 속도가 저절로 정해진다는데, 정말 그럴까요? 직접 두 값을 바꿔 보세요.",
+"en": "The speed at which farming spread looks pitiful next to a walking pace: a bit over 25 kilometers per generation of about 25 years. Yet if that slow march never stops, then in this model a whole map is farmland in about a thousand years. Odder still, nobody sets that speed. The claim is that two numbers, how fast a population grows and how far it scatters, fix it by themselves. Is that really so? Change the two values and see.",
+"tr": "农业传播的速度，与步行的速度相比慢得可怜：每代约 25 年，只有 25 多公里。然而，如果这种缓慢的推进从不停止，那么在这个模型里，整张地图大约一千年就会变成农田。更奇怪的是，没有人设定这个速度。说法是：仅由两个数——人口增长有多快、扩散有多远——就能自行决定它。真的是这样吗？改变这两个值，亲自看看。"
+},
+{
+"id": "s0988",
+"page": "farming",
+"ko": "지도는 10km 칸으로 나뉘어 있고, 칸마다 <b>농부 밀도</b>(땅이 감당하는 최대치를 1로)와 <b>수렵채집민 밀도</b>(처음에는 어디나 0.25)가 있습니다. 한 곳(왼쪽 가운데 &#39;기원지&#39;)에서만 농부가 시작합니다.",
+"en": "The map is a grid of 10 km cells. Each cell has a <b>farmer density</b> (1 is the most the land can carry) and a <b>hunter-gatherer density</b> (0.25 everywhere at first). Farmers start in only one place, the origin on the middle of the left edge.",
+"tr": "地图是由 10 公里见方的格子组成的网格。每个格子有<b>农耕者密度</b>（1 为土地能承载的最大值）和<b>狩猎采集者密度</b>（起初处处为 0.25）。农耕者只从一个地方出发，即左边缘中间的起点。"
+},
+{
+"id": "s0989",
+"page": "farming",
+"ko": "농부는 두 가지로 움직입니다. 한 칸 안에서 <b>늘어나고</b>(성장률 r, 가득 차면 멈춤), 이웃 칸으로 <b>조금씩 흩어집니다</b>(확산 계수 D). 두 값이 같이 정하는 속도가 전선의 속도입니다.",
+"en": "Farmers do two things. Inside a cell they <b>multiply</b> (growth rate r, stopping when the cell is full), and they <b>drift a little</b> into neighboring cells (dispersal coefficient D). Together the two values set the speed of the front.",
+"tr": "农耕者做两件事。在格子内部他们<b>繁殖</b>（增长率 r，直到格子被填满），并且<b>稍微向外迁移</b>到相邻格子（扩散系数 D）。这两个值共同决定前沿的速度。"
+},
+{
+"id": "s0990",
+"page": "farming",
+"ko": "수렵채집민은 제자리에 머뭅니다. 농부가 많아질수록 그 칸의 수렵채집민이 줄어드는데, 줄어든 몫 가운데 <b>섞이는 비율</b>만큼은 농부가 되고(동화), 나머지는 밀려나 사라집니다(대체).",
+"en": "Hunter-gatherers stay where they are. The more farmers a cell has, the fewer hunter-gatherers remain, and the share set by the <b>mixing</b> slider becomes farmers (assimilation) while the rest is pushed out (replacement).",
+"tr": "狩猎采集者留在原地。一个格子里的农耕者越多，剩下的狩猎采集者就越少，由<b>混合</b>滑块决定的那一部分会变成农耕者（同化），其余的则被挤走（替代）。"
+},
+{
+"id": "s0991",
+"page": "farming",
+"ko": "땅은 칸마다 기름짐이 조금씩 다릅니다(최대 ±25%). <b>해협</b>은 땅다리 하나만 남기고 바다로 막고, <b>산맥</b>은 성장과 확산이 느린 띠입니다. 지도의 색은 농부가 처음 들어선 시각이고, 100년마다 띠가 바뀝니다.",
+"en": "The land is slightly different in fertility from cell to cell (up to ±25%). The <b>strait</b> is sea except for one land bridge, and the <b>mountains</b> are a band where growth and dispersal are slow. Map colors show when farmers first arrived, with a new band every 100 years.",
+"tr": "各个格子的土地肥力略有差异（最多 ±25%）。<b>海峡</b>除了一座陆桥外都是海，<b>山地</b>是一条增长和扩散都很慢的地带。地图颜色表示农耕者最早到达的时间，每 100 年一条新色带。"
+},
+{
+"id": "s0992",
+"page": "farming",
+"ko": "인구 증가율 (r) <output id=\"o-r\"></output>",
+"en": "Population growth rate (r) <output id=\"o-r\"></output>",
+"tr": "人口增长率 (r) <output id=\"o-r\"></output>"
+},
+{
+"id": "s0993",
+"page": "farming",
+"ko": "클수록 인구가 빨리 늘어요. 연 2.5%면 약 28년마다 두 배",
+"en": "Higher means faster growth. At 2.5% a year the population doubles in about 28 years",
+"tr": "越高增长越快。年增长 2.5% 时，人口约 28 年翻一番"
+},
+{
+"id": "s0994",
+"page": "farming",
+"ko": "흩어지는 정도 (D) <output id=\"o-D\"></output>",
+"en": "Dispersal (D) <output id=\"o-D\"></output>",
+"tr": "扩散 (D) <output id=\"o-D\"></output>"
+},
+{
+"id": "s0995",
+"page": "farming",
+"ko": "클수록 이웃으로 더 넓게 퍼져요 (제곱킬로미터 / 년)",
+"en": "Higher means spreading wider into neighbors (square kilometers per year)",
+"tr": "越高向邻近格子扩散得越广（平方公里/年）"
+},
+{
+"id": "s0996",
+"page": "farming",
+"ko": "토착민과 섞이는 비율 <output id=\"o-mix\"></output>",
+"en": "Mixing with hunter-gatherers <output id=\"o-mix\"></output>",
+"tr": "与狩猎采集者的混合 <output id=\"o-mix\"></output>"
+},
+{
+"id": "s0997",
+"page": "farming",
+"ko": "0%면 토착민은 밀려나고, 100%면 모두 농부가 돼요",
+"en": "0% means locals are displaced, 100% means they all become farmers",
+"tr": "0% 表示当地人被挤走，100% 表示他们全部变成农耕者"
+},
+{
+"id": "s0998",
+"page": "farming",
+"ko": "지형 장벽 <output id=\"o-barrier\"></output>",
+"en": "Landscape barrier <output id=\"o-barrier\"></output>",
+"tr": "地形障碍 <output id=\"o-barrier\"></output>"
+},
+{
+"id": "s0999",
+"page": "farming",
+"ko": "해협 (땅다리 하나)",
+"en": "Strait (one land bridge)",
+"tr": "海峡（一座陆桥）"
+},
+{
+"id": "s1000",
+"page": "farming",
+"ko": "산맥 (느린 띠)",
+"en": "Mountains (slow band)",
+"tr": "山地（缓慢地带）"
+},
+{
+"id": "s1001",
+"page": "farming",
+"ko": "장벽을 켜면 전선이 돌아가거나 천천히 넘어가는 것을 볼 수 있어요",
+"en": "Turn a barrier on to see the front go around it or slowly across",
+"tr": "打开一种障碍，看前沿如何绕过它或缓慢穿过它"
+},
+{
+"id": "s1002",
+"page": "farming",
+"ko": "같은 설정, 다른 땅",
+"en": "Same settings, different land",
+"tr": "相同设置，不同土地"
+},
+{
+"id": "s1003",
+"page": "farming",
+"ko": "① 번져 가는 농경",
+"en": "① Farming Spreading",
+"tr": "① 农业的传播"
+},
+{
+"id": "s1004",
+"page": "farming",
+"ko": "별표가 농경의 시작점입니다. 색은 그 땅에 농부가 처음 들어선 시각(기원지를 떠난 뒤 지난 햇수)이고, 띠 사이의 짙은 선이 곧 등고선입니다. 선이 촘촘하면 빠르게 지나간 곳이 아니라 오히려 느리게 지나간 곳이에요.",
+"en": "The star marks where farming begins. Color shows when farmers first arrived in a place (years since leaving the origin), and the dark lines between bands are contours. Lines packed close together do not mean fast; the front was moving slowly there.",
+"tr": "星号标出农业的起点。颜色表示农耕者最早到达某处的时间（离开起点后的年数），色带之间的深色线是等值线。线条密集并不代表速度快；那里的前沿推进得很慢。"
+},
+{
+"id": "s1005",
+"page": "farming",
+"ko": "지도 보기",
+"en": "Map view",
+"tr": "地图视图"
+},
+{
+"id": "s1006",
+"page": "farming",
+"ko": "도착 시각 (등고선 띠)",
+"en": "Arrival time (contour bands)",
+"tr": "到达时间（等值色带）"
+},
+{
+"id": "s1007",
+"page": "farming",
+"ko": "농부의 혈통",
+"en": "Ancestry of the farmers",
+"tr": "农耕者的祖先"
+},
+{
+"id": "s1008",
+"page": "farming",
+"ko": "농부들이 이주민의 후손인지 토착민의 후손인지 바꿔 볼 수 있어요.",
+"en": "Switch to see whose descendants the farmers are: migrants or local hunter-gatherers.",
+"tr": "切换后可以看到农耕者是谁的后代：迁徙者，还是当地的狩猎采集者。"
+},
+{
+"id": "s1009",
+"page": "farming",
+"ko": "② 전선은 얼마나 멀리 갔을까",
+"en": "② How Far Has the Front Gone?",
+"tr": "② 前沿推进了多远？"
+},
+{
+"id": "s1010",
+"page": "farming",
+"ko": "파란 선은 기원지에서 가장 멀리 간 농부까지의 거리입니다. 초록 점선은 피셔-콜모고로프 이론 2√(rD)에서 나온 직선이고, 토착민을 흡수하면 빨간 점선처럼 조금 더 가팔라집니다. 처음 100여 년은 전선이 자리를 잡느라 이론선보다 늦지만 기울기는 이론과 나란해집니다. 장벽이 있으면 선이 꺾이는 곳을 보세요.",
+"en": "The blue line is the distance from the origin to the farthest farmers. The green dashed line comes from the Fisher-Kolmogorov theory, 2√(rD), and when locals are assimilated the front follows the slightly steeper red dashed line. The first hundred or so years lag behind the theory while the front settles in, after which the slope runs parallel to it. With a barrier, watch where the line bends.",
+"tr": "蓝线是从起点到最远农耕者的距离。绿色虚线来自 Fisher–Kolmogorov 理论 2√(rD)；当当地人被同化时，前沿沿着略陡的红色虚线前进。最初的一百年左右，前沿在稳定下来之前落后于理论，之后斜率与理论平行。有障碍时，请留意线在哪里弯折。"
+},
+{
+"id": "s1011",
+"page": "farming",
+"ko": "③ 칸마다 도착 시각",
+"en": "③ Arrival Time, Cell by Cell",
+"tr": "③ 逐格的到达时间"
+},
+{
+"id": "s1012",
+"page": "farming",
+"ko": "점 하나가 지도의 칸 하나입니다. 가로는 기원지에서의 거리, 세로는 농부가 처음 닿은 시각이에요. 점들이 이론의 직선을 따라 늘어서면 일정한 속도로 퍼졌다는 뜻이고, 직선 위로 솟은 곳은 장벽 때문에 늦어진 곳입니다.",
+"en": "Each dot is one cell of the map. The horizontal axis is distance from the origin and the vertical axis the time farmers first arrived. Dots lining up along the theory line mean a steady speed, and dots that rise above the line are places delayed by a barrier.",
+"tr": "每个点代表地图上的一个格子。横轴是离起点的距离，纵轴是农耕者最早到达的时间。点沿理论线排列表示速度稳定，高于该线的点则是被障碍延误的地方。"
+},
+{
+"id": "s1013",
+"page": "farming",
+"ko": "④ 성장률을 바꾸면 속도는",
+"en": "④ How Speed Changes with Growth",
+"tr": "④ 速度如何随增长率变化"
+},
+{
+"id": "s1014",
+"page": "farming",
+"ko": "지금의 흩어지는 정도와 섞이는 비율에서 성장률만 바꿔 가며 쟀습니다(한 줄로 펼친 평면 파동). 이론 곡선과 측정점이 거의 겹치면, 속도가 두 숫자로 정해진다는 말이 맞는다는 뜻입니다.",
+"en": "Keeping the current dispersal and mixing, only the growth rate was varied (a plane wave unrolled onto one strip). If the measured dots nearly sit on the theory curve, the claim that two numbers fix the speed holds up.",
+"tr": "保持当前的扩散和混合不变，只改变增长率（把平面波展开到一条带上）。如果测得的点几乎落在理论曲线上，那么“两个数决定速度”的说法就成立。"
+},
+{
+"id": "s1015",
+"page": "farming",
+"ko": "늘어나고 흩어지는 두 규칙만으로도 연 1km쯤의 일정한 속도의 파동이 생겼어요.",
+"en": "Growth plus dispersal alone produced a wave moving at a steady speed of about 1 km a year.",
+"tr": "仅凭增长加扩散，就产生了一道以每年约1公里的恒定速度推进的波。"
+},
+{
+"id": "s1016",
+"page": "farming",
+"ko": "앞쪽 끝에서는 늘어나는 속도와 흩어지는 속도가 전선의 속도를 정하고, 섞임이 많을수록 조금 빨라졌어요.",
+"en": "At the front, growth rate and dispersal rate set the speed, and more mixing made it a bit faster.",
+"tr": "在前沿处，增长率和扩散率决定了速度，混合越多，速度就稍快一些。"
+},
+{
+"id": "s1017",
+"page": "farming",
+"ko": "속도만으로는 이동인지 전파인지 가리기 어려우니, 누구의 후손이 퍼졌는지를 함께 볼 만해요.",
+"en": "Speed alone cannot separate migration from diffusion of ideas, so whose descendants spread is worth examining too.",
+"tr": "仅凭速度无法区分人口迁移与观念传播，所以也值得考察扩散开来的是谁的后代。"
+}
+]

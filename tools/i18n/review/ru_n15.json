@@ -1,0 +1,2718 @@
+[
+{
+"id": "d0461",
+"page": "(실행 중 문구) checkout",
+"ko": "짧은 줄",
+"en": "Shortest line",
+"tr": "Самая короткая очередь"
+},
+{
+"id": "d0462",
+"page": "(실행 중 문구) checkout",
+"ko": "무작위 줄",
+"en": "Random line",
+"tr": "Случайная очередь"
+},
+{
+"id": "d0463",
+"page": "(실행 중 문구) checkout",
+"ko": "물건 적은 줄",
+"en": "Fewest-items line",
+"tr": "Очередь с меньшим числом товаров"
+},
+{
+"id": "d0464",
+"page": "(실행 중 문구) checkout",
+"ko": "기다리는 사람 {#0}명",
+"en": "Waiting: {0}",
+"tr": "Ждут: {0}"
+},
+{
+"id": "d0465",
+"page": "(실행 중 문구) checkout",
+"ko": "놀고 있음",
+"en": "Idle",
+"tr": "Простаивает"
+},
+{
+"id": "d0467",
+"page": "(실행 중 문구) checkout",
+"ko": "나: 아직 도착 전",
+"en": "You: not arrived yet",
+"tr": "Вы: ещё не пришли"
+},
+{
+"id": "d0468",
+"page": "(실행 중 문구) checkout",
+"ko": "나: {#0}분째 · 뒤에 온 {#1}명이 먼저 계산",
+"en": "You: {0} min · {1} later arrivals served first",
+"tr": "Вы: {0} мин · {1} пришедших позже обслужены раньше"
+},
+{
+"id": "d0469",
+"page": "(실행 중 문구) checkout",
+"ko": "나: {#0}분째 기다리는 중 · 뒤에 온 {#1}명이 먼저 계산",
+"en": "You: waiting {0} min · {1} people who came after you got served first",
+"tr": "Вы: ждёте {0} мин · {1} человек, пришедших позже, обслужены раньше"
+},
+{
+"id": "d0470",
+"page": "(실행 중 문구) checkout",
+"ko": "나: {#0}분째 기다리는 중",
+"en": "You: waiting for {0} min",
+"tr": "Вы: ждёте {0} мин"
+},
+{
+"id": "d0471",
+"page": "(실행 중 문구) checkout",
+"ko": "나: {#0}분 기다리고 계산 시작",
+"en": "You: waited {0} min, checkout started",
+"tr": "Вы: прождали {0} мин, начался расчёт"
+},
+{
+"id": "d0472",
+"page": "(실행 중 문구) checkout",
+"ko": "나: 한 줄이면 {#0}분, 줄 따로면 {#1}분 ({#2}분 더 걸림)",
+"en": "You: {0} min in one line, {1} min in separate lines ({2} min longer)",
+"tr": "Вы: {0} мин в одной очереди, {1} мин в отдельных (на {2} мин дольше)"
+},
+{
+"id": "d0473",
+"page": "(실행 중 문구) checkout",
+"ko": "나: 한 줄이면 {#0}분, 줄 따로면 {#1}분 ({#2}분 덜 걸림)",
+"en": "You: {0} min in one line, {1} min in separate lines ({2} min shorter)",
+"tr": "Вы: {0} мин в одной очереди, {1} мин в отдельных (на {2} мин быстрее)"
+},
+{
+"id": "d0474",
+"page": "(실행 중 문구) checkout",
+"ko": "나: 한 줄이면 {#0}분, 줄 따로면 {#1}분 (차이 없음)",
+"en": "You: {0} min in one line, {1} min in separate lines (no difference)",
+"tr": "Вы: {0} мин в одной очереди, {1} мин в отдельных (разницы нет)"
+},
+{
+"id": "d0475",
+"page": "(실행 중 문구) checkout",
+"ko": "손님 점을 눌러 '나'를 바꿔 보세요 (점 크기 = 물건 수)",
+"en": "Click a dot to make that customer 'you' (dot size = number of items)",
+"tr": "Нажмите на точку, чтобы сделать этого покупателя «вами» (размер точки = число товаров)"
+},
+{
+"id": "d0476",
+"page": "(실행 중 문구) checkout",
+"ko": "가게 문 연 지 {#0}분",
+"en": "Store open for {0} min",
+"tr": "Магазин открыт {0} мин"
+},
+{
+"id": "d0477",
+"page": "(실행 중 문구) checkout",
+"ko": "뒤에 온 손님에게 추월당하는 손님",
+"en": "Customers overtaken by someone who came later",
+"tr": "Покупатели, которых обогнал пришедший позже"
+},
+{
+"id": "d0478",
+"page": "(실행 중 문구) checkout",
+"ko": "줄 따로일 때. 한 줄은 0% (먼저 온 순서대로 계산)",
+"en": "With separate lines. Single line: 0% (served in order of arrival)",
+"tr": "При отдельных очередях. Одна очередь: 0% (обслуживание по порядку прихода)"
+},
+{
+"id": "d0479",
+"page": "(실행 중 문구) checkout",
+"ko": "평균 기다림: 한 줄 → 줄 따로",
+"en": "Average wait: single line → separate lines",
+"tr": "Среднее ожидание: одна очередь → отдельные очереди"
+},
+{
+"id": "d0480",
+"page": "(실행 중 문구) checkout",
+"ko": "×{#0} · 손님 15만 명으로 낸 긴 시간 평균",
+"en": "×{0} · long-run average over 150,000 customers",
+"tr": "×{0} · долгосрочное среднее по 150 000 покупателей"
+},
+{
+"id": "d0481",
+"page": "(실행 중 문구) checkout",
+"ko": "10명 중 9명이 기다리는 시간 이내",
+"en": "Wait that 9 in 10 customers stay under",
+"tr": "Время ожидания, которое не превышают 9 из 10 покупателей"
+},
+{
+"id": "d0482",
+"page": "(실행 중 문구) checkout",
+"ko": "90% 대기시간 (한 줄 → 줄 따로)",
+"en": "90th-percentile wait (single line → separate lines)",
+"tr": "Ожидание 90-го процентиля (одна очередь → отдельные очереди)"
+},
+{
+"id": "d0483",
+"page": "(실행 중 문구) checkout",
+"ko": "놀고 있는 계산대 + 기다리는 사람",
+"en": "Idle cashier while someone waits",
+"tr": "Свободная касса, пока кто-то ждёт"
+},
+{
+"id": "d0484",
+"page": "(실행 중 문구) checkout",
+"ko": "계산대가 비었는데 다른 줄엔 손님이 있는 시간. 한 줄은 0%",
+"en": "Share of time a cashier is idle while another line has people. Single line: 0%",
+"tr": "Доля времени, когда касса простаивает, а в другой очереди есть люди. Одна очередь: 0%"
+},
+{
+"id": "d0485",
+"page": "(실행 중 문구) checkout",
+"ko": "계산대가 바쁜 정도 (붐빔)",
+"en": "How busy the cashiers are",
+"tr": "Загруженность касс (толчея)"
+},
+{
+"id": "d0486",
+"page": "(실행 중 문구) checkout",
+"ko": "기다린 시간 (마지막 칸은 그 이상)",
+"en": "Time waited (last bar = and more)",
+"tr": "Время ожидания (последний столбик — и больше)"
+},
+{
+"id": "d0487",
+"page": "(실행 중 문구) checkout",
+"ko": "{0}: 바로 계산 {#1}%",
+"en": "{0}: served immediately {1}%",
+"tr": "{0}: обслужены сразу {1}%"
+},
+{
+"id": "d0488",
+"page": "(실행 중 문구) checkout",
+"ko": "점선은 이론값 (얼랑 C 공식과 줄마다 M/M/1). 시뮬레이션과 거의 겹칩니다",
+"en": "Dashed lines are theory (Erlang C, and M/M/1 per line). They nearly overlap the simulation",
+"tr": "Пунктир — теория (формула Эрланга C и M/M/1 для каждой очереди). Он почти совпадает с симуляцией"
+},
+{
+"id": "d0489",
+"page": "(실행 중 문구) checkout",
+"ko": "점선은 이론 근사 (계산 시간이 지수분포가 아니라 한 줄은 근사, 무작위 줄은 폴라체크-힌친 공식)",
+"en": "Dashed lines are theory approximations (checkout time is not exponential: approximation for the single line, Pollaczek-Khinchine formula for random lines)",
+"tr": "Пунктир — теоретические приближения (время расчёта не экспоненциально: приближение для одной очереди, формула Поллачека — Хинчина для случайных очередей)"
+},
+{
+"id": "d0490",
+"page": "(실행 중 문구) checkout",
+"ko": "점선은 이론값 (계산 시간이 지수분포일 때 정확한 식)",
+"en": "Dashed lines are theory (exact when checkout time is exponential)",
+"tr": "Пунктир — теория (точна, когда время расчёта экспоненциально)"
+},
+{
+"id": "d0491",
+"page": "(실행 중 문구) checkout",
+"ko": "90% 이론식은 계산 시간이 지수분포(들쭉날쭉함 1.0)일 때만 정확해서, 지금은 그리지 않았습니다",
+"en": "The 90th-percentile formula is exact only for exponential checkout times (variability 1.0), so it is not drawn now",
+"tr": "Формула 90-го процентиля точна только для экспоненциального времени расчёта (изменчивость 1.0), поэтому сейчас она не рисуется"
+},
+{
+"id": "d0492",
+"page": "(실행 중 문구) checkout",
+"ko": "손님 번호",
+"en": "Customers",
+"tr": "Покупатели"
+},
+{
+"id": "d0563",
+"page": "(실행 중 문구) daily",
+"ko": "성공의 몇 %가 운 덕분이라고 생각하세요?",
+"en": "What share of success do you think is down to luck?",
+"tr": "Какая доля успеха, по-вашему, зависит от удачи?"
+},
+{
+"id": "d0564",
+"page": "(실행 중 문구) daily",
+"ko": "20% 이하",
+"en": "20% or less",
+"tr": "20% или меньше"
+},
+{
+"id": "d0565",
+"page": "(실행 중 문구) daily",
+"ko": "약 50%",
+"en": "About 50%",
+"tr": "Около 50 %"
+},
+{
+"id": "d0566",
+"page": "(실행 중 문구) daily",
+"ko": "80% 이상",
+"en": "80% or more",
+"tr": "80% или больше"
+},
+{
+"id": "d0567",
+"page": "(실행 중 문구) daily",
+"ko": "모두가 똑같이 시작해 공정하게 거래하면, 부는 고르게 남을까요?",
+"en": "If everyone starts equal and trades fairly, will wealth stay evenly spread?",
+"tr": "Если все начинают на равных и торгуют честно, останется ли богатство распределённым поровну?"
+},
+{
+"id": "d0568",
+"page": "(실행 중 문구) daily",
+"ko": "고르게 남는다",
+"en": "It stays even",
+"tr": "Остаётся поровну"
+},
+{
+"id": "d0569",
+"page": "(실행 중 문구) daily",
+"ko": "조금 쏠린다",
+"en": "It tilts a little",
+"tr": "Немного смещается"
+},
+{
+"id": "d0570",
+"page": "(실행 중 문구) daily",
+"ko": "크게 쏠린다",
+"en": "It piles up in a few hands",
+"tr": "Скапливается у немногих"
+},
+{
+"id": "d0571",
+"page": "(실행 중 문구) daily",
+"ko": "좋은 콘텐츠를 만들면 결국 뜰까요?",
+"en": "If you make great content, will it eventually take off?",
+"tr": "Если делать отличный контент, он в конце концов станет популярным?"
+},
+{
+"id": "d0572",
+"page": "(실행 중 문구) daily",
+"ko": "거의 뜬다",
+"en": "Almost always",
+"tr": "Почти всегда"
+},
+{
+"id": "d0573",
+"page": "(실행 중 문구) daily",
+"ko": "반반이다",
+"en": "It depends",
+"tr": "Пятьдесят на пятьдесят"
+},
+{
+"id": "d0574",
+"page": "(실행 중 문구) daily",
+"ko": "운이 더 크다",
+"en": "Luck matters more",
+"tr": "Удача важнее"
+},
+{
+"id": "d0575",
+"page": "(실행 중 문구) daily",
+"ko": "이웃의 몇 %가 나와 비슷해야 편안할까요?",
+"en": "How many of your neighbors need to be like you for you to feel comfortable?",
+"tr": "Какая доля соседей должна быть похожа на вас, чтобы вам было комфортно?"
+},
+{
+"id": "d0576",
+"page": "(실행 중 문구) daily",
+"ko": "전부",
+"en": "All of them",
+"tr": "Все"
+},
+{
+"id": "d0577",
+"page": "(실행 중 문구) daily",
+"ko": "절반 이상",
+"en": "More than half",
+"tr": "Больше половины"
+},
+{
+"id": "d0578",
+"page": "(실행 중 문구) daily",
+"ko": "3분의 1쯤",
+"en": "About a third",
+"tr": "Около трети"
+},
+{
+"id": "d0579",
+"page": "(실행 중 문구) daily",
+"ko": "단톡방에 퍼진 소문을 정정하면 효과가 있을까요?",
+"en": "Does correcting a rumor in a group chat help?",
+"tr": "Помогает ли опровержение слуха, который разошёлся в групповом чате?"
+},
+{
+"id": "d0580",
+"page": "(실행 중 문구) daily",
+"ko": "거의 없다",
+"en": "Almost none",
+"tr": "Почти нет"
+},
+{
+"id": "d0581",
+"page": "(실행 중 문구) daily",
+"ko": "절반쯤 막는다",
+"en": "It stops about half",
+"tr": "Останавливает примерно половину"
+},
+{
+"id": "d0582",
+"page": "(실행 중 문구) daily",
+"ko": "대부분 막는다",
+"en": "It stops most of it",
+"tr": "Останавливает большую часть"
+},
+{
+"id": "d0583",
+"page": "(실행 중 문구) daily",
+"ko": "눈높이를 낮추면 짝을 더 빨리 찾을까요?",
+"en": "If you lower your standards, will you find a match sooner?",
+"tr": "Если снизить планку, вы быстрее найдёте пару?"
+},
+{
+"id": "d0584",
+"page": "(실행 중 문구) daily",
+"ko": "더 빨리",
+"en": "Sooner",
+"tr": "Быстрее"
+},
+{
+"id": "d0585",
+"page": "(실행 중 문구) daily",
+"ko": "비슷하다",
+"en": "About the same",
+"tr": "Примерно такой же"
+},
+{
+"id": "d0586",
+"page": "(실행 중 문구) daily",
+"ko": "오히려 늦다",
+"en": "Actually later",
+"tr": "Наоборот, дольше"
+},
+{
+"id": "d0587",
+"page": "(실행 중 문구) daily",
+"ko": "일을 가장 잘하는 사람을 승진시키면 조직은 좋아질까요?",
+"en": "If you promote your best performer, does the organization get better?",
+"tr": "Если повысить лучшего работника, станет ли организация лучше?"
+},
+{
+"id": "d0588",
+"page": "(실행 중 문구) daily",
+"ko": "좋아진다",
+"en": "It gets better",
+"tr": "Станет лучше"
+},
+{
+"id": "d0589",
+"page": "(실행 중 문구) daily",
+"ko": "상관없다",
+"en": "No connection",
+"tr": "Не связано"
+},
+{
+"id": "d0590",
+"page": "(실행 중 문구) daily",
+"ko": "나빠질 수 있다",
+"en": "It can get worse",
+"tr": "Может стать хуже"
+},
+{
+"id": "d0591",
+"page": "(실행 중 문구) daily",
+"ko": "같은 표라도 개표 방식이 다르면 당선자가 바뀔 수 있을까요?",
+"en": "With the very same ballots, can a different counting method change the winner?",
+"tr": "При тех же бюллетенях может ли другой способ подсчёта изменить победителя?"
+},
+{
+"id": "d0592",
+"page": "(실행 중 문구) daily",
+"ko": "절대 아니다",
+"en": "Never",
+"tr": "Никогда"
+},
+{
+"id": "d0593",
+"page": "(실행 중 문구) daily",
+"ko": "가끔 바뀐다",
+"en": "Sometimes",
+"tr": "Иногда"
+},
+{
+"id": "d0594",
+"page": "(실행 중 문구) daily",
+"ko": "자주 바뀐다",
+"en": "Often",
+"tr": "Часто"
+},
+{
+"id": "d0595",
+"page": "(실행 중 문구) daily",
+"ko": "고속도로 정체는 대부분 사고나 공사 때문일까요?",
+"en": "Are most highway jams caused by accidents or roadwork?",
+"tr": "Большинство пробок на трассе вызвано авариями или ремонтом дорог?"
+},
+{
+"id": "d0596",
+"page": "(실행 중 문구) daily",
+"ko": "대부분 그렇다",
+"en": "Mostly, yes",
+"tr": "В основном да"
+},
+{
+"id": "d0597",
+"page": "(실행 중 문구) daily",
+"ko": "절반쯤",
+"en": "About half",
+"tr": "Примерно в половине случаев"
+},
+{
+"id": "d0598",
+"page": "(실행 중 문구) daily",
+"ko": "아니다, 운전 습관만으로도 생긴다",
+"en": "No, driving habits alone can cause them",
+"tr": "Нет, хватает и привычек водителей"
+},
+{
+"id": "d0599",
+"page": "(실행 중 문구) daily",
+"ko": "모두가 인기 식당에 가면 모두에게 좋을까요?",
+"en": "If everyone goes to the popular restaurant, is that good for everyone?",
+"tr": "Если все пойдут в популярный ресторан, будет ли это хорошо для всех?"
+},
+{
+"id": "d0600",
+"page": "(실행 중 문구) daily",
+"ko": "좋다",
+"en": "Yes",
+"tr": "Да"
+},
+{
+"id": "d0601",
+"page": "(실행 중 문구) daily",
+"ko": "그저 그렇다",
+"en": "So-so",
+"tr": "Так себе"
+},
+{
+"id": "d0602",
+"page": "(실행 중 문구) daily",
+"ko": "오히려 모두 손해",
+"en": "Everyone loses",
+"tr": "Наоборот, проигрывают все"
+},
+{
+"id": "d0603",
+"page": "(실행 중 문구) daily",
+"ko": "새치기하는 사람이 늘면 줄의 질서는 어떻게 될까요?",
+"en": "When more people cut in line, what happens to the order of the line?",
+"tr": "Что станет с порядком в очереди, если всё больше людей лезет без очереди?"
+},
+{
+"id": "d0604",
+"page": "(실행 중 문구) daily",
+"ko": "금방 무너진다",
+"en": "It collapses quickly",
+"tr": "Быстро рушится"
+},
+{
+"id": "d0605",
+"page": "(실행 중 문구) daily",
+"ko": "조금 흔들린다",
+"en": "It wobbles a bit",
+"tr": "Немного шатается"
+},
+{
+"id": "d0606",
+"page": "(실행 중 문구) daily",
+"ko": "그래도 유지된다",
+"en": "It holds anyway",
+"tr": "Всё равно держится"
+},
+{
+"id": "d0607",
+"page": "(실행 중 문구) daily",
+"ko": "지휘자 없이도 반딧불이가 같은 박자로 반짝일 수 있을까요?",
+"en": "Can fireflies flash in time without a conductor?",
+"tr": "Могут ли светлячки мигать в такт без дирижёра?"
+},
+{
+"id": "d0608",
+"page": "(실행 중 문구) daily",
+"ko": "불가능하다",
+"en": "Impossible",
+"tr": "Невозможно"
+},
+{
+"id": "d0609",
+"page": "(실행 중 문구) daily",
+"ko": "가끔 가능하다",
+"en": "Sometimes",
+"tr": "Иногда возможно"
+},
+{
+"id": "d0610",
+"page": "(실행 중 문구) daily",
+"ko": "대부분 가능하다",
+"en": "Usually",
+"tr": "Чаще всего возможно"
+},
+{
+"id": "d0611",
+"page": "(실행 중 문구) daily",
+"ko": "얼룩말 무늬는 유전자가 무늬 지도를 그려 둔 결과일까요?",
+"en": "Is a zebra's pattern drawn from a map written in its genes?",
+"tr": "Узор зебры — результат карты рисунка, заложенной в генах?"
+},
+{
+"id": "d0612",
+"page": "(실행 중 문구) daily",
+"ko": "그렇다",
+"en": "Yes",
+"tr": "Да"
+},
+{
+"id": "d0613",
+"page": "(실행 중 문구) daily",
+"ko": "일부만",
+"en": "Only partly",
+"tr": "Лишь отчасти"
+},
+{
+"id": "d0614",
+"page": "(실행 중 문구) daily",
+"ko": "간단한 화학 반응만으로도 생긴다",
+"en": "Simple chemistry alone can produce it",
+"tr": "Достаточно простой химии"
+},
+{
+"id": "d0615",
+"page": "(실행 중 문구) daily",
+"ko": "한 사람의 마음이 바뀌면 광장 전체가 달라질 수 있을까요?",
+"en": "Can one person changing their mind change a whole crowd?",
+"tr": "Может ли перемена мнения одного человека изменить всю площадь?"
+},
+{
+"id": "d0616",
+"page": "(실행 중 문구) daily",
+"ko": "가끔",
+"en": "Sometimes",
+"tr": "Иногда"
+},
+{
+"id": "d0617",
+"page": "(실행 중 문구) daily",
+"ko": "충분히 가능하다",
+"en": "Quite possible",
+"tr": "Вполне возможно"
+},
+{
+"id": "d0618",
+"page": "(실행 중 문구) daily",
+"ko": "한 사회가 스스로 숲을 다 베어 낼 수 있을까요?",
+"en": "Can a society cut down its own forest entirely?",
+"tr": "Может ли общество само вырубить весь свой лес?"
+},
+{
+"id": "d0619",
+"page": "(실행 중 문구) daily",
+"ko": "동맹이 많을수록 전쟁은 줄어들까요?",
+"en": "The more alliances there are, the fewer wars?",
+"tr": "Чем больше союзов, тем меньше войн?"
+},
+{
+"id": "d0620",
+"page": "(실행 중 문구) daily",
+"ko": "줄어든다",
+"en": "Yes, fewer",
+"tr": "Да, меньше"
+},
+{
+"id": "d0621",
+"page": "(실행 중 문구) daily",
+"ko": "오히려 더 번질 수 있다",
+"en": "A war may spread further",
+"tr": "Война может распространиться шире"
+},
+{
+"id": "d0622",
+"page": "(실행 중 문구) daily",
+"ko": "남을 믿는 착한 사람은 결국 손해를 볼까요?",
+"en": "Do trusting, nice people end up losing out?",
+"tr": "Доверчивые добрые люди в итоге остаются в проигрыше?"
+},
+{
+"id": "d0623",
+"page": "(실행 중 문구) daily",
+"ko": "손해 본다",
+"en": "They lose out",
+"tr": "Проигрывают"
+},
+{
+"id": "d0624",
+"page": "(실행 중 문구) daily",
+"ko": "결국 살아남는다",
+"en": "They survive in the end",
+"tr": "В итоге выживают"
+},
+{
+"id": "d0625",
+"page": "(실행 중 문구) daily",
+"ko": "내가 누구로 태어날지 모른다면 어떤 사회를 고르시겠어요?",
+"en": "If you did not know who you would be born as, which society would you choose?",
+"tr": "Если бы вы не знали, кем родитесь, какое общество вы бы выбрали?"
+},
+{
+"id": "d0626",
+"page": "(실행 중 문구) daily",
+"ko": "모두 똑같은 사회",
+"en": "A perfectly equal society",
+"tr": "Абсолютно равное общество"
+},
+{
+"id": "d0627",
+"page": "(실행 중 문구) daily",
+"ko": "안전망이 있는 사회",
+"en": "A society with a safety net",
+"tr": "Общество с системой социальной защиты"
+},
+{
+"id": "d0628",
+"page": "(실행 중 문구) daily",
+"ko": "승자독식 사회",
+"en": "A winner-take-all society",
+"tr": "Общество, где победитель получает всё"
+},
+{
+"id": "d0629",
+"page": "(실행 중 문구) daily",
+"ko": "모두의 목초지는 반드시 망할까요?",
+"en": "Is a shared pasture doomed to be ruined?",
+"tr": "Обречено ли общее пастбище на разорение?"
+},
+{
+"id": "d0630",
+"page": "(실행 중 문구) daily",
+"ko": "반드시 망한다",
+"en": "Always",
+"tr": "Всегда"
+},
+{
+"id": "d0631",
+"page": "(실행 중 문구) daily",
+"ko": "규칙이 있으면 지켜진다",
+"en": "Rules can save it",
+"tr": "Правила могут его спасти"
+},
+{
+"id": "d0632",
+"page": "(실행 중 문구) daily",
+"ko": "상황에 따라 다르다",
+"en": "It depends",
+"tr": "Зависит от ситуации"
+},
+{
+"id": "d0633",
+"page": "(실행 중 문구) daily",
+"ko": "원숭이가 무작위로 타자를 치면 햄릿 한 줄이라도 쓸 수 있을까요?",
+"en": "If a monkey types at random, can it write even one line of Hamlet?",
+"tr": "Если обезьяна печатает наугад, сможет ли она написать хотя бы одну строку «Гамлета»?"
+},
+{
+"id": "d0634",
+"page": "(실행 중 문구) daily",
+"ko": "아주 짧은 줄만",
+"en": "Only a very short line",
+"tr": "Только очень короткую строку"
+},
+{
+"id": "d0635",
+"page": "(실행 중 문구) daily",
+"ko": "충분히 쓸 수 있다",
+"en": "Easily",
+"tr": "Легко"
+},
+{
+"id": "d0636",
+"page": "(실행 중 문구) daily",
+"ko": "어느 언어든 소수의 단어가 글의 대부분을 차지할까요?",
+"en": "In any language, do a few words make up most of a text?",
+"tr": "В любом ли языке несколько слов составляют большую часть текста?"
+},
+{
+"id": "d0637",
+"page": "(실행 중 문구) daily",
+"ko": "아니다",
+"en": "No",
+"tr": "Нет"
+},
+{
+"id": "d0638",
+"page": "(실행 중 문구) daily",
+"ko": "조금",
+"en": "A little",
+"tr": "Немного"
+},
+{
+"id": "d0639",
+"page": "(실행 중 문구) daily",
+"ko": "이야기를 40번 전하면 원래 내용이 얼마나 남을까요?",
+"en": "After a story is retold 40 times, how much of the original is left?",
+"tr": "Сколько от оригинала останется после 40 пересказов истории?"
+},
+{
+"id": "d0640",
+"page": "(실행 중 문구) daily",
+"ko": "거의 그대로",
+"en": "Hardly changes",
+"tr": "Почти всё"
+},
+{
+"id": "d0641",
+"page": "(실행 중 문구) daily",
+"ko": "4분의 1쯤",
+"en": "About a quarter",
+"tr": "Около четверти"
+},
+{
+"id": "d0642",
+"page": "(실행 중 문구) daily",
+"ko": "유행은 따라 하는 사람 때문에 돌까요, 앞서가는 사람 때문에 돌까요?",
+"en": "Do fashions cycle because of the followers or because of the trendsetters?",
+"tr": "Мода циклична из-за подражателей или из-за тех, кто задаёт тренды?"
+},
+{
+"id": "d0643",
+"page": "(실행 중 문구) daily",
+"ko": "따라 하는 사람",
+"en": "The followers",
+"tr": "Подражатели"
+},
+{
+"id": "d0644",
+"page": "(실행 중 문구) daily",
+"ko": "앞서가는 사람",
+"en": "The trendsetters",
+"tr": "Законодатели моды"
+},
+{
+"id": "d0645",
+"page": "(실행 중 문구) daily",
+"ko": "둘 다",
+"en": "Both",
+"tr": "И те и другие"
+},
+{
+"id": "d0646",
+"page": "(실행 중 문구) daily",
+"ko": "서로 따라 그리면 화풍은 하나로 모일까요?",
+"en": "If artists keep copying each other, will styles converge into one?",
+"tr": "Если художники продолжают копировать друг друга, сольются ли стили в один?"
+},
+{
+"id": "d0647",
+"page": "(실행 중 문구) daily",
+"ko": "조건에 따라 다르다",
+"en": "It depends",
+"tr": "Зависит от условий"
+},
+{
+"id": "d0648",
+"page": "(실행 중 문구) daily",
+"ko": "해바라기 씨앗의 배열 각도를 조금만 바꿔도 모양이 확 달라질까요?",
+"en": "If you nudge the angle of the sunflower seeds slightly, does the pattern change a lot?",
+"tr": "Если чуть изменить угол расположения семечек подсолнуха, узор сильно изменится?"
+},
+{
+"id": "d0649",
+"page": "(실행 중 문구) daily",
+"ko": "확 달라진다",
+"en": "Dramatically",
+"tr": "Меняется кардинально"
+},
+{
+"id": "d0650",
+"page": "(실행 중 문구) daily",
+"ko": "경매에서 가장 높은 값을 부른 사람이 오히려 손해를 볼 수 있을까요?",
+"en": "Can the highest bidder in an auction actually end up losing?",
+"tr": "Может ли победитель аукциона, назвавший самую высокую цену, остаться в проигрыше?"
+},
+{
+"id": "d0651",
+"page": "(실행 중 문구) daily",
+"ko": "가끔 그렇다",
+"en": "Sometimes",
+"tr": "Иногда"
+},
+{
+"id": "d0652",
+"page": "(실행 중 문구) daily",
+"ko": "자주 그렇다",
+"en": "Often",
+"tr": "Часто"
+},
+{
+"id": "d0653",
+"page": "(실행 중 문구) daily",
+"ko": "출산율이 이대로라면 2070년 65세 이상 인구 비중은 어느 정도일까요?",
+"en": "If the birth rate stays this low, what share of people will be 65 or older in 2070?",
+"tr": "Если рождаемость останется такой же, какой будет доля людей 65 лет и старше в 2070 году?"
+},
+{
+"id": "d0654",
+"page": "(실행 중 문구) daily",
+"ko": "30% 안팎",
+"en": "Around 30%",
+"tr": "Около 30%"
+},
+{
+"id": "d0655",
+"page": "(실행 중 문구) daily",
+"ko": "40% 안팎",
+"en": "Around 40%",
+"tr": "Около 40%"
+},
+{
+"id": "d0656",
+"page": "(실행 중 문구) daily",
+"ko": "50% 이상",
+"en": "50% or more",
+"tr": "50% или больше"
+},
+{
+"id": "d0657",
+"page": "(실행 중 문구) daily",
+"ko": "이웃 동네 집값이 오르면 우리 동네도 따라 오를까요?",
+"en": "If prices rise in the next neighborhood, will yours follow?",
+"tr": "Если цены на жильё вырастут в соседнем районе, вырастут ли они и в вашем?"
+},
+{
+"id": "d0658",
+"page": "(실행 중 문구) daily",
+"ko": "조금 따라 오른다",
+"en": "A little",
+"tr": "Немного"
+},
+{
+"id": "d0659",
+"page": "(실행 중 문구) daily",
+"ko": "크게 따라 오른다",
+"en": "A lot",
+"tr": "Сильно"
+},
+{
+"id": "d0660",
+"page": "(실행 중 문구) daily",
+"ko": "길이 막히면 새 도로를 내는 것이 정답일까요?",
+"en": "When roads are jammed, is building a new road the answer?",
+"tr": "Когда дороги стоят в пробках, поможет ли строительство новой дороги?"
+},
+{
+"id": "d0661",
+"page": "(실행 중 문구) daily",
+"ko": "오히려 더 막힐 수 있다",
+"en": "It can make things worse",
+"tr": "Может стать только хуже"
+},
+{
+"id": "d0662",
+"page": "(실행 중 문구) daily",
+"ko": "칭찬이 효과가 없다고 느낀 적이 있나요?",
+"en": "Have you ever felt that praise did not work?",
+"tr": "Бывало ли у вас так, что похвала не срабатывала?"
+},
+{
+"id": "d0663",
+"page": "(실행 중 문구) daily",
+"ko": "있다",
+"en": "Yes",
+"tr": "Да"
+},
+{
+"id": "d0664",
+"page": "(실행 중 문구) daily",
+"ko": "없다",
+"en": "No",
+"tr": "Нет"
+},
+{
+"id": "d0665",
+"page": "(실행 중 문구) daily",
+"ko": "잘 모르겠다",
+"en": "Not sure",
+"tr": "Не уверен(а)"
+},
+{
+"id": "d0666",
+"page": "(실행 중 문구) daily",
+"ko": "성공한 사람들의 공통점은 곧 성공의 비결일까요?",
+"en": "Is what successful people have in common the secret of their success?",
+"tr": "Общие черты успешных людей — это и есть секрет их успеха?"
+},
+{
+"id": "d0667",
+"page": "(실행 중 문구) daily",
+"ko": "실패한 사람도 갖고 있을 수 있다",
+"en": "Failures may share it too",
+"tr": "Им могут обладать и неудачники"
+},
+{
+"id": "d0668",
+"page": "(실행 중 문구) daily",
+"ko": "내 친구들은 대체로 나보다 친구가 많은 것 같나요?",
+"en": "Do your friends seem to have more friends than you?",
+"tr": "Кажется ли вам, что у ваших друзей в основном больше друзей, чем у вас?"
+},
+{
+"id": "d0669",
+"page": "(실행 중 문구) daily",
+"ko": "버스는 왜 내가 기다릴 때만 늦게 오는 것 같을까요?",
+"en": "Why does the bus only seem to be late when you are the one waiting?",
+"tr": "Почему кажется, что автобус опаздывает только тогда, когда ждёте именно вы?"
+},
+{
+"id": "d0670",
+"page": "(실행 중 문구) daily",
+"ko": "내 운이 나빠서",
+"en": "Just bad luck",
+"tr": "Просто не везёт"
+},
+{
+"id": "d0671",
+"page": "(실행 중 문구) daily",
+"ko": "원래 그런 것",
+"en": "It really works that way",
+"tr": "Так оно и устроено"
+},
+{
+"id": "d0672",
+"page": "(실행 중 문구) daily",
+"ko": "착각이다",
+"en": "It is my imagination",
+"tr": "Мне это кажется"
+},
+{
+"id": "d0673",
+"page": "(실행 중 문구) daily",
+"ko": "\"어떻게 이런 우연이!\" 싶은 일은 드문 일일까요?",
+"en": "Are \"what a coincidence!\" moments actually rare?",
+"tr": "Редки ли на самом деле моменты вроде «какое совпадение!»?"
+},
+{
+"id": "d0674",
+"page": "(실행 중 문구) daily",
+"ko": "아주 드물다",
+"en": "Very rare",
+"tr": "Очень редки"
+},
+{
+"id": "d0675",
+"page": "(실행 중 문구) daily",
+"ko": "가끔 있다",
+"en": "Now and then",
+"tr": "Бывают время от времени"
+},
+{
+"id": "d0676",
+"page": "(실행 중 문구) daily",
+"ko": "생각보다 자주 생긴다",
+"en": "More common than you think",
+"tr": "Чаще, чем кажется"
+},
+{
+"id": "d0677",
+"page": "(실행 중 문구) daily",
+"ko": "집을 보러 다니는데 한 번 지나친 집은 다시 못 본다면, 몇 군데를 보고 나서 정하는 게 좋을까요?",
+"en": "You are viewing apartments and cannot return to one you passed. How many should you see before you decide?",
+"tr": "Вы осматриваете квартиры и не можете вернуться к той, что уже пропустили. Сколько стоит посмотреть, прежде чем решать?"
+},
+{
+"id": "d0678",
+"page": "(실행 중 문구) daily",
+"ko": "첫 집에서 바로",
+"en": "Right at the first one",
+"tr": "Сразу, на первой"
+},
+{
+"id": "d0679",
+"page": "(실행 중 문구) daily",
+"ko": "전체의 3분의 1쯤 보고 나서",
+"en": "After about a third of them",
+"tr": "Посмотрев примерно треть"
+},
+{
+"id": "d0680",
+"page": "(실행 중 문구) daily",
+"ko": "끝까지 다 보고 나서",
+"en": "After seeing nearly all",
+"tr": "Посмотрев почти все"
+},
+{
+"id": "d0681",
+"page": "(실행 중 문구) daily",
+"ko": "새 일자리 소식을 가장 먼저 알려 줄 사람은 누구일까요?",
+"en": "Who is most likely to tell you about a new job first?",
+"tr": "Кто с наибольшей вероятностью первым расскажет вам о новой работе?"
+},
+{
+"id": "d0682",
+"page": "(실행 중 문구) daily",
+"ko": "가장 친한 친구",
+"en": "My closest friend",
+"tr": "Мой самый близкий друг"
+},
+{
+"id": "d0683",
+"page": "(실행 중 문구) daily",
+"ko": "가끔 보는 얼굴만 아는 사람",
+"en": "An acquaintance I rarely see",
+"tr": "Знакомый, которого я редко вижу"
+},
+{
+"id": "d0684",
+"page": "(실행 중 문구) daily",
+"ko": "가족",
+"en": "Family",
+"tr": "Семья"
+},
+{
+"id": "d0685",
+"page": "(실행 중 문구) daily",
+"ko": "마트 계산대 앞에서 줄을 고를 때, 당신은 어떻게 하나요?",
+"en": "At a supermarket checkout, how do you pick a line?",
+"tr": "Как вы выбираете очередь на кассе в супермаркете?"
+},
+{
+"id": "d0686",
+"page": "(실행 중 문구) daily",
+"ko": "사람이 가장 적은 줄",
+"en": "The line with the fewest people",
+"tr": "Очередь с наименьшим числом людей"
+},
+{
+"id": "d0687",
+"page": "(실행 중 문구) daily",
+"ko": "물건이 가장 적어 보이는 줄",
+"en": "The line with the smallest carts",
+"tr": "Очередь с самыми маленькими тележками"
+},
+{
+"id": "d0688",
+"page": "(실행 중 문구) daily",
+"ko": "가까운 줄에 그냥 선다",
+"en": "Just the nearest line",
+"tr": "Просто ближайшая очередь"
+},
+{
+"id": "d0689",
+"page": "(실행 중 문구) daily",
+"ko": "버스 정류장에서 한참 기다렸더니 버스 세 대가 줄줄이 왔습니다. 가장 그럴듯한 이유는?",
+"en": "You waited ages at a stop and then three buses arrived in a row. What is the most likely reason?",
+"tr": "Вы долго ждали на остановке, а потом подряд пришли три автобуса. Какая причина наиболее вероятна?"
+},
+{
+"id": "d0690",
+"page": "(실행 중 문구) daily",
+"ko": "기사님들이 제멋대로 달려서",
+"en": "The drivers drove carelessly",
+"tr": "Водители ездят как попало"
+},
+{
+"id": "d0691",
+"page": "(실행 중 문구) daily",
+"ko": "늦은 버스가 승객을 더 태워 더 늦어지는 구조 때문에",
+"en": "Late buses load more passengers and fall further behind",
+"tr": "Опаздывающие автобусы берут больше пассажиров и отстают ещё сильнее"
+},
+{
+"id": "d0692",
+"page": "(실행 중 문구) daily",
+"ko": "그냥 운이 나빠서",
+"en": "Just bad luck",
+"tr": "Просто не повезло"
+},
+{
+"id": "d0693",
+"page": "(실행 중 문구) daily",
+"ko": "빈 벤치에 낯선 사람들이 한 명씩 와서 서로 한 칸 이상 띄우고 앉으면, 자리가 몇 개나 낭비될까요?",
+"en": "Strangers arrive one at a time at an empty bench and each leaves at least one seat between themselves and others. How many seats end up wasted?",
+"tr": "Незнакомцы по одному приходят на пустую скамейку, и каждый оставляет хотя бы одно свободное место между собой и другими. Сколько мест пропадёт зря?"
+},
+{
+"id": "d0694",
+"page": "(실행 중 문구) daily",
+"ko": "열 자리 중 한두 자리",
+"en": "One or two in ten",
+"tr": "Одно-два места из десяти"
+},
+{
+"id": "d0695",
+"page": "(실행 중 문구) daily",
+"ko": "호수 바닥에 떨어진 가루가 서로 닿으면 붙기만 한다면, 덩어리는 어떤 모양이 될까요?",
+"en": "If powder in a lake sticks only when it touches, what shape does the clump take?",
+"tr": "Если порошок на дне озера слипается только при касании, какую форму примет комок?"
+},
+{
+"id": "d0696",
+"page": "(실행 중 문구) daily",
+"ko": "둥글고 꽉 찬 공",
+"en": "A round, solid ball",
+"tr": "Круглый плотный шар"
+},
+{
+"id": "d0697",
+"page": "(실행 중 문구) daily",
+"ko": "가지가 뻗은 성긴 모양",
+"en": "A sparse, branching shape",
+"tr": "Редкая ветвистая форма"
+},
+{
+"id": "d0698",
+"page": "(실행 중 문구) daily",
+"ko": "납작한 판",
+"en": "A flat plate",
+"tr": "Плоская пластина"
+},
+{
+"id": "d0699",
+"page": "(실행 중 문구) daily",
+"ko": "만약 모래를 한 알씩 계속 쌓으면, 어느 순간 한 알이 일으키는 가장 큰 변화는 어떻게 될까요?",
+"en": "If you keep adding sand one grain at a time, what is the biggest change a single grain can cause?",
+"tr": "Если добавлять песок по одной песчинке, какое самое большое изменение может вызвать одна песчинка?"
+},
+{
+"id": "d0700",
+"page": "(실행 중 문구) daily",
+"ko": "늘 비슷하게 작은 변화만 일어난다",
+"en": "Always only a similarly small change",
+"tr": "Всегда лишь схожее небольшое изменение"
+},
+{
+"id": "d0701",
+"page": "(실행 중 문구) daily",
+"ko": "가끔 더미 전체가 무너질 수도 있다",
+"en": "Sometimes the whole pile can collapse",
+"tr": "Иногда может рухнуть вся куча"
+},
+{
+"id": "d0702",
+"page": "(실행 중 문구) daily",
+"ko": "쌓을수록 더 안 무너진다",
+"en": "The more you pile, the less it collapses",
+"tr": "Чем больше насыпаешь, тем реже обрушивается"
+},
+{
+"id": "d0703",
+"page": "(실행 중 문구) daily",
+"ko": "집 근처 숲에서 작은 불이 날 때마다 바로 꺼 왔다면, 10년 뒤 이 숲은 어떻게 될까요?",
+"en": "If every small fire near your home had been put out right away, what would this forest be like in 10 years?",
+"tr": "Если каждый небольшой пожар возле вашего дома тут же тушили, каким будет этот лес через 10 лет?"
+},
+{
+"id": "d0704",
+"page": "(실행 중 문구) daily",
+"ko": "더 안전해진다",
+"en": "Safer",
+"tr": "Станет безопаснее"
+},
+{
+"id": "d0705",
+"page": "(실행 중 문구) daily",
+"ko": "나무가 쌓여 큰 불 위험이 커진다",
+"en": "More trees pile up and big fires become likelier",
+"tr": "Деревья накапливаются, и крупные пожары становятся вероятнее"
+},
+{
+"id": "d0706",
+"page": "(실행 중 문구) daily",
+"ko": "별 차이 없다",
+"en": "No real difference",
+"tr": "Особой разницы нет"
+},
+{
+"id": "d0707",
+"page": "(실행 중 문구) daily",
+"ko": "아무 계획 없이 두 가지 규칙만 따르는 개미를 오래 풀어 두면 어떻게 될까요?",
+"en": "If you let an ant that follows just two rules and has no plan roam for a long time, what happens?",
+"tr": "Если долго не трогать муравья, который следует всего двум правилам и не имеет плана, что произойдёт?"
+},
+{
+"id": "d0708",
+"page": "(실행 중 문구) daily",
+"ko": "계속 제자리를 맴돈다",
+"en": "It keeps circling in place",
+"tr": "Он продолжает кружить на месте"
+},
+{
+"id": "d0709",
+"page": "(실행 중 문구) daily",
+"ko": "온 판을 어지럽게 채운다",
+"en": "It fills the whole grid messily",
+"tr": "Он беспорядочно заполняет всю сетку"
+},
+{
+"id": "d0710",
+"page": "(실행 중 문구) daily",
+"ko": "어느 순간 곧은 길을 낸다",
+"en": "At some point it builds a straight road",
+"tr": "В какой-то момент он прокладывает прямую дорогу"
+},
+{
+"id": "d0711",
+"page": "(실행 중 문구) daily",
+"ko": "낯선 땅으로 이사 간 이웃이 한 해에 1킬로미터씩만 퍼져도, 천 년 뒤면 얼마나 갈까요?",
+"en": "If a settlement spread just one kilometer a year, how far would it get in a thousand years?",
+"tr": "Если поселение расширялось всего на один километр в год, как далеко оно доберётся за тысячу лет?"
+},
+{
+"id": "d0712",
+"page": "(실행 중 문구) daily",
+"ko": "옆 도시까지",
+"en": "To the next town",
+"tr": "До соседнего города"
+},
+{
+"id": "d0713",
+"page": "(실행 중 문구) daily",
+"ko": "나라 한 바퀴쯤",
+"en": "About across a country",
+"tr": "Примерно через всю страну"
+},
+{
+"id": "d0714",
+"page": "(실행 중 문구) daily",
+"ko": "대륙 하나를 가로질러",
+"en": "Across a whole continent",
+"tr": "Через целый континент"
+},
+{
+"id": "d0715",
+"page": "(실행 중 문구) daily",
+"ko": "우리 편이 상대의 두 배인 사람으로 서로 겨누어 싸운다면, 우리 쪽의 힘은 상대의 몇 배일까요?",
+"en": "If your side has twice as many people as the other and both aim at each other, how many times stronger is your side?",
+"tr": "Если в вашем лагере вдвое больше людей, чем у противника, и обе стороны целятся друг в друга, во сколько раз ваша сторона сильнее?"
+},
+{
+"id": "d0716",
+"page": "(실행 중 문구) daily",
+"ko": "약 2배",
+"en": "About 2 times",
+"tr": "Примерно в 2 раза"
+},
+{
+"id": "d0717",
+"page": "(실행 중 문구) daily",
+"ko": "약 4배",
+"en": "About 4 times",
+"tr": "Примерно в 4 раза"
+},
+{
+"id": "d0718",
+"page": "(실행 중 문구) daily",
+"ko": "금리가 1%p 오르면, 지금 가진 10년 만기 채권의 값은?",
+"en": "If rates rise by 1 percentage point, what happens to the price of a 10-year bond you already hold?",
+"tr": "Если ставки вырастут на 1 процентный пункт, что произойдёт с ценой уже имеющейся у вас 10-летней облигации?"
+},
+{
+"id": "d0719",
+"page": "(실행 중 문구) daily",
+"ko": "약 1~2% 내린다",
+"en": "Falls about 1-2%",
+"tr": "Падает примерно на 1-2%"
+},
+{
+"id": "d0720",
+"page": "(실행 중 문구) daily",
+"ko": "약 8% 내린다",
+"en": "Falls about 8%",
+"tr": "Падает примерно на 8%"
+},
+{
+"id": "d0721",
+"page": "(실행 중 문구) daily",
+"ko": "이자를 더 주는 나라의 통화를 사 두면 어떻게 될까요?",
+"en": "What happens if you hold the currency of a country that pays higher interest?",
+"tr": "Что будет, если держать валюту страны с более высокой процентной ставкой?"
+},
+{
+"id": "d0722",
+"page": "(실행 중 문구) daily",
+"ko": "이자만큼 그냥 번다",
+"en": "You simply earn the interest",
+"tr": "Вы просто зарабатываете проценты"
+},
+{
+"id": "d0723",
+"page": "(실행 중 문구) daily",
+"ko": "환율이 이자를 깎아 먹어 별 이득이 없다",
+"en": "The exchange rate eats the interest and there is little gain",
+"tr": "Обменный курс съедает проценты, и выгоды почти нет"
+},
+{
+"id": "d0724",
+"page": "(실행 중 문구) daily",
+"ko": "오래 조금씩 벌다 한 번에 크게 잃을 수 있다",
+"en": "You may earn a little for years, then lose a lot at once",
+"tr": "Можно годами понемногу зарабатывать, а потом разом потерять много"
+},
+{
+"id": "d0725",
+"page": "(실행 중 문구) daily",
+"ko": "서로 전쟁을 원하지 않고 전쟁이 둘 다에게 손해라면, 전쟁은 어떻게 될까요?",
+"en": "If neither side wants war and war hurts both, what happens?",
+"tr": "Если ни одна сторона не хочет войны и война вредит обеим, что произойдёт?"
+},
+{
+"id": "d0726",
+"page": "(실행 중 문구) daily",
+"ko": "일어나지 않는다",
+"en": "It never happens",
+"tr": "Этого не произойдёт никогда"
+},
+{
+"id": "d0727",
+"page": "(실행 중 문구) daily",
+"ko": "상대를 정확히 모르면 그래도 일어날 수 있다",
+"en": "It can still happen if each side misjudges the other",
+"tr": "Это всё же возможно, если каждая сторона ошибается в оценке другой"
+},
+{
+"id": "d0728",
+"page": "(실행 중 문구) daily",
+"ko": "늘 일어난다",
+"en": "It always happens",
+"tr": "Это происходит всегда"
+},
+{
+"id": "d0729",
+"page": "(실행 중 문구) daily",
+"ko": "이웃 아이들이 다 학원을 하나씩 더 다니기 시작했어요. 우리 집은?",
+"en": "All the kids next door started going to one more class each. What would your family do?",
+"tr": "Все соседские дети стали ходить ещё на одно занятие. Что сделала бы ваша семья?"
+},
+{
+"id": "d0730",
+"page": "(실행 중 문구) daily",
+"ko": "우리도 하나 더 보낸다",
+"en": "Add one more class too",
+"tr": "Тоже добавить одно занятие"
+},
+{
+"id": "d0731",
+"page": "(실행 중 문구) daily",
+"ko": "지금 그대로 둔다",
+"en": "Keep things as they are",
+"tr": "Оставить как есть"
+},
+{
+"id": "d0732",
+"page": "(실행 중 문구) daily",
+"ko": "아이 의견을 듣고 정한다",
+"en": "Ask the child and decide",
+"tr": "Спросить ребёнка и решить"
+},
+{
+"id": "d0733",
+"page": "(실행 중 문구) daily",
+"ko": "같은 반 아이가 20명에서 10명으로 줄면 한 해 감기 횟수는 어떻게 될까요?",
+"en": "If a class shrinks from 20 children to 10, what happens to colds in a year?",
+"tr": "Если класс сокращается с 20 до 10 детей, что будет с простудами за год?"
+},
+{
+"id": "d0734",
+"page": "(실행 중 문구) daily",
+"ko": "거의 달라지지 않는다",
+"en": "Hardly changes",
+"tr": "Почти не меняется"
+},
+{
+"id": "d0735",
+"page": "(실행 중 문구) daily",
+"ko": "조금 줄어든다",
+"en": "Falls a little",
+"tr": "Немного снизится"
+},
+{
+"id": "d0736",
+"page": "(실행 중 문구) daily",
+"ko": "크게 줄어든다",
+"en": "Falls a lot",
+"tr": "Сильно снизится"
+},
+{
+"id": "d0737",
+"page": "(실행 중 문구) daily",
+"ko": "기관 배정에서 1지망이 인기 많은 곳이라면, 어떻게 적어 낼 것 같나요?",
+"en": "If your first choice is a very popular place, how would you fill in the list?",
+"tr": "Если ваш первый выбор — очень популярное место, как бы вы заполнили список?"
+},
+{
+"id": "d0738",
+"page": "(실행 중 문구) daily",
+"ko": "원하는 순서 그대로 적는다",
+"en": "Write my true order",
+"tr": "Написать свой настоящий порядок"
+},
+{
+"id": "d0739",
+"page": "(실행 중 문구) daily",
+"ko": "될 만한 곳을 앞에 적는다",
+"en": "Put a realistic place first",
+"tr": "Поставить первым реалистичное место"
+},
+{
+"id": "d0740",
+"page": "(실행 중 문구) daily",
+"ko": "다음에 만들 실험을 골라 주세요",
+"en": "Pick the next experiment we build",
+"tr": "Выберите следующий эксперимент, который мы сделаем"
+},
+{
+"id": "d0741",
+"page": "(실행 중 문구) daily",
+"ko": "몬티 홀 문제: 문을 바꾸면 왜 유리할까",
+"en": "The Monty Hall problem: why does switching doors win more often?",
+"tr": "Задача Монти Холла: почему выгоднее менять дверь?"
+},
+{
+"id": "d0742",
+"page": "(실행 중 문구) daily",
+"ko": "심슨의 역설: 병원마다 더 나은데 전체로는 왜 더 나쁠까",
+"en": "Simpson's paradox: better in every hospital, yet worse overall?",
+"tr": "Парадокс Симпсона: лучше в каждой больнице, но хуже в целом — почему?"
+},
+{
+"id": "d0743",
+"page": "(실행 중 문구) daily",
+"ko": "전염병과 거리두기: 모두가 조금씩 줄이면 어떻게 될까",
+"en": "Epidemics and distancing: what if everyone cuts back a little?",
+"tr": "Эпидемии и дистанция: что, если все немного сократят контакты?"
+},
+{
+"id": "d0744",
+"page": "(실행 중 문구) daily",
+"ko": "도박사의 오류: 앞면이 다섯 번 나오면 다음은 뒷면일까",
+"en": "The gambler's fallacy: after five heads in a row, is tails due?",
+"tr": "Ошибка игрока: после пяти «орлов» подряд следующей будет «решка»?"
+},
+{
+"id": "d0745",
+"page": "(실행 중 문구) daily",
+"ko": "🎯 내 직관, 맞을까?",
+"en": "🎯 Is My Intuition Right?",
+"tr": "🎯 Права ли моя интуиция?"
+},
+{
+"id": "d0746",
+"page": "(실행 중 문구) daily",
+"ko": "오늘의 질문은 하루에 하나, 날마다 바뀌어요.",
+"en": "One question a day, a new one every day.",
+"tr": "Один вопрос в день, и каждый день новый."
+},
+{
+"id": "d0747",
+"page": "(실행 중 문구) daily",
+"ko": "이 질문, 실험해 볼까요? →",
+"en": "Try this question as an experiment →",
+"tr": "Проверим этот вопрос экспериментом? →"
+},
+{
+"id": "d0748",
+"page": "(실행 중 문구) daily",
+"ko": "지금까지 {#0}명이 투표했어요",
+"en": "{0} people have voted so far",
+"tr": "Пока проголосовало человек: {0}"
+},
+{
+"id": "d0749",
+"page": "(실행 중 문구) daily",
+"ko": "투표해 주셔서 고마워요! 더 많이 모이면 결과가 보여요.",
+"en": "Thanks for voting! The results appear once more people join.",
+"tr": "Спасибо, что проголосовали! Результаты появятся, когда наберётся больше голосов."
+},
+{
+"id": "d0750",
+"page": "(실행 중 문구) daily",
+"ko": "이전 질문",
+"en": "Previous question",
+"tr": "Предыдущий вопрос"
+},
+{
+"id": "d0751",
+"page": "(실행 중 문구) daily",
+"ko": "다음 질문",
+"en": "Next question",
+"tr": "Следующий вопрос"
+},
+{
+"id": "d0752",
+"page": "(실행 중 문구) daily",
+"ko": "🗳 다음 실험 투표",
+"en": "🗳 Vote for the next experiment",
+"tr": "🗳 Голосование за следующий эксперимент"
+},
+{
+"id": "d0753",
+"page": "(실행 중 문구) daily",
+"ko": "📬 새 실험이 나오면 알려드릴게요",
+"en": "📬 Get notified when a new experiment arrives",
+"tr": "📬 Сообщим, когда выйдет новый эксперимент"
+},
+{
+"id": "d0754",
+"page": "(실행 중 문구) daily",
+"ko": "이메일 주소",
+"en": "Email address",
+"tr": "Адрес электронной почты"
+},
+{
+"id": "d0755",
+"page": "(실행 중 문구) daily",
+"ko": "새 실험 소식을 이메일로 받는 데 동의합니다",
+"en": "I agree to receive news of new experiments by email",
+"tr": "Я согласен на получение новостей о новых экспериментах по электронной почте"
+},
+{
+"id": "d0756",
+"page": "(실행 중 문구) daily",
+"ko": "알림 신청",
+"en": "Notify me",
+"tr": "Уведомлять меня"
+},
+{
+"id": "d0757",
+"page": "(실행 중 문구) daily",
+"ko": "이메일은 새 실험 소식을 보내는 데에만 쓰고, 받고 싶지 않으면 메일에 회신해 주시면 바로 지워요.",
+"en": "Your email is used only to announce new experiments. Reply to any message to be removed right away.",
+"tr": "Ваш адрес используется только для рассылки о новых экспериментах. Ответьте на любое письмо, и мы сразу удалим его."
+},
+{
+"id": "d0758",
+"page": "(실행 중 문구) daily",
+"ko": "신청했어요! 새 실험이 나오면 알려드릴게요.",
+"en": "You are on the list! We will let you know about new experiments.",
+"tr": "Готово, вы в списке! Мы сообщим вам о новых экспериментах."
+},
+{
+"id": "d0759",
+"page": "(실행 중 문구) daily",
+"ko": "이메일 주소를 확인해 주세요.",
+"en": "Please check your email address.",
+"tr": "Проверьте, пожалуйста, адрес электронной почты."
+},
+{
+"id": "d0760",
+"page": "(실행 중 문구) daily",
+"ko": "동의에 체크해 주세요.",
+"en": "Please tick the box to agree.",
+"tr": "Поставьте галочку в поле согласия."
+},
+{
+"id": "d0761",
+"page": "(실행 중 문구) daily",
+"ko": "지금은 신청할 수 없어요. 잠시 뒤에 다시 해 주세요.",
+"en": "We cannot sign you up right now. Please try again in a moment.",
+"tr": "Сейчас оформить подписку не получается. Попробуйте ещё раз чуть позже."
+},
+{
+"id": "d0762",
+"page": "(실행 중 문구) daily",
+"ko": "RSS로 받기",
+"en": "Get it by RSS",
+"tr": "Подписаться по RSS"
+},
+{
+"id": "d0763",
+"page": "(실행 중 문구) daily",
+"ko": "유튜브 구독",
+"en": "Subscribe on YouTube",
+"tr": "Подписаться на YouTube"
+},
+{
+"id": "d0764",
+"page": "(실행 중 문구) daily",
+"ko": "▶ 이 실험을 영상으로 보기",
+"en": "▶ Watch this experiment as a video",
+"tr": "▶ Смотреть этот эксперимент в видео"
+},
+{
+"id": "d0765",
+"page": "(실행 중 문구) daily",
+"ko": "영상 재생",
+"en": "Play the video",
+"tr": "Воспроизвести видео"
+},
+{
+"id": "d0766",
+"page": "(실행 중 문구) daycare",
+"ko": "{#0}반",
+"en": "Class {0}",
+"tr": "Класс {0}"
+},
+{
+"id": "d0767",
+"page": "(실행 중 문구) daycare",
+"ko": "{#0}반 · 아픈 아이 {#1}명",
+"en": "Class {0} · {1} sick",
+"tr": "Класс {0} · больных: {1}"
+},
+{
+"id": "d0768",
+"page": "(실행 중 문구) daycare",
+"ko": "{#0}주째 · {1}",
+"en": "Week {0} · {1}",
+"tr": "Неделя {0} · {1}"
+},
+{
+"id": "d0769",
+"page": "(실행 중 문구) daycare",
+"ko": "주말",
+"en": "Weekend",
+"tr": "Выходные"
+},
+{
+"id": "d0770",
+"page": "(실행 중 문구) daycare",
+"ko": "평일",
+"en": "Weekday",
+"tr": "Будни"
+},
+{
+"id": "d0771",
+"page": "(실행 중 문구) daycare",
+"ko": "학기 시작 후 몇 주째 (3월 시작을 가정)",
+"en": "Weeks since the term began (assuming a March start)",
+"tr": "Недель с начала семестра (при старте в марте)"
+},
+{
+"id": "d0772",
+"page": "(실행 중 문구) daycare",
+"ko": "이번에 돌린 결과: 아픈 아이",
+"en": "This run: sick children",
+"tr": "Этот запуск: больные дети"
+},
+{
+"id": "d0773",
+"page": "(실행 중 문구) daycare",
+"ko": "그 중 집에서 쉰 아이",
+"en": "Of those, children resting at home",
+"tr": "Из них отдыхают дома"
+},
+{
+"id": "d0774",
+"page": "(실행 중 문구) daycare",
+"ko": "비교: 아프면 쉬는 아이가 없을 때 (평균)",
+"en": "For comparison: nobody stays home when sick (average)",
+"tr": "Для сравнения: никто не остаётся дома при болезни (среднее)"
+},
+{
+"id": "d0775",
+"page": "(실행 중 문구) daycare",
+"ko": "한 해 동안 걸린 횟수 (아이 한 명 기준)",
+"en": "Times caught in a year (per child)",
+"tr": "Сколько раз заболел за год (на ребёнка)"
+},
+{
+"id": "d0776",
+"page": "(실행 중 문구) daycare",
+"ko": "{#0}회 이상",
+"en": "{0} or more",
+"tr": "{0} и более"
+},
+{
+"id": "d0777",
+"page": "(실행 중 문구) daycare",
+"ko": "평균 {#0}회",
+"en": "Mean {0}",
+"tr": "В среднем {0}"
+},
+{
+"id": "d0778",
+"page": "(실행 중 문구) daycare",
+"ko": "아프면 쉬는 아이의 비율",
+"en": "Share of sick children who stay home",
+"tr": "Доля больных детей, остающихся дома"
+},
+{
+"id": "d0779",
+"page": "(실행 중 문구) daycare",
+"ko": "반 크기 (한 반의 아이 수)",
+"en": "Class size (children per class)",
+"tr": "Размер класса (детей в классе)"
+},
+{
+"id": "d0780",
+"page": "(실행 중 문구) daycare",
+"ko": "아이 1명이 걸린 평균 횟수",
+"en": "Average times a child caught it",
+"tr": "Среднее число заболеваний на ребёнка"
+},
+{
+"id": "d0781",
+"page": "(실행 중 문구) daycare",
+"ko": "{#0}주째까지 · 가장 많이 걸린 아이 {#1}회",
+"en": "Through week {0} · most-infected child: {1}",
+"tr": "До недели {0} · чаще всех болел: {1}"
+},
+{
+"id": "d0782",
+"page": "(실행 중 문구) daycare",
+"ko": "아프면 쉬기 0% → 70%",
+"en": "Staying home when sick: 0% → 70%",
+"tr": "Оставаться дома при болезни: 0% → 70%"
+},
+{
+"id": "d0783",
+"page": "(실행 중 문구) daycare",
+"ko": "{#0} → {#1}회",
+"en": "{0} → {1} times",
+"tr": "{0} → {1} раз"
+},
+{
+"id": "d0784",
+"page": "(실행 중 문구) daycare",
+"ko": "지금 설정에서 한 해 걸린 횟수 (여러 번 돌린 평균)",
+"en": "Times caught in a year at the current settings (average of repeated runs)",
+"tr": "Сколько раз заболел за год при текущих настройках (среднее по нескольким запускам)"
+},
+{
+"id": "d0785",
+"page": "(실행 중 문구) daycare",
+"ko": "아파서 집에서 쉰 날",
+"en": "Days resting at home while sick",
+"tr": "Дни отдыха дома из-за болезни"
+},
+{
+"id": "d0786",
+"page": "(실행 중 문구) daycare",
+"ko": "{#0}일",
+"en": "{0} days",
+"tr": "{0} дн."
+},
+{
+"id": "d0787",
+"page": "(실행 중 문구) daycare",
+"ko": "아이 1명당, 평일 기준",
+"en": "Per child, weekdays only",
+"tr": "На ребёнка, только будни"
+},
+{
+"id": "d0788",
+"page": "(실행 중 문구) daycare",
+"ko": "가장 많이 아팠던 주",
+"en": "Week with the most sick children",
+"tr": "Неделя с наибольшим числом больных детей"
+},
+{
+"id": "d0789",
+"page": "(실행 중 문구) daycare",
+"ko": "아직 알 수 없음",
+"en": "Not known yet",
+"tr": "Пока неизвестно"
+},
+{
+"id": "d0790",
+"page": "(실행 중 문구) daycare",
+"ko": "반 아이 중 아픈 아이가 가장 많았던 때",
+"en": "When the largest share of children was sick",
+"tr": "Когда болела наибольшая доля детей"
+},
+{
+"id": "d0791",
+"page": "(실행 중 문구) daycare",
+"ko": "우리 반 번호",
+"en": "Class number",
+"tr": "Номер нашего класса"
+},
+{
+"id": "d0792",
+"page": "(실행 중 문구) dla",
+"ko": "붙은 입자 {#0}개 · 반지름 {#1}칸",
+"en": "{0} particles stuck · radius {1} cells",
+"tr": "Прилипло частиц: {0} · радиус {1} клеток"
+},
+{
+"id": "d0793",
+"page": "(실행 중 문구) dla",
+"ko": "먼저 붙음",
+"en": "Stuck first",
+"tr": "Прилипла раньше"
+},
+{
+"id": "d0794",
+"page": "(실행 중 문구) dla",
+"ko": "나중에 붙음",
+"en": "Stuck last",
+"tr": "Прилипла позже"
+},
+{
+"id": "d0795",
+"page": "(실행 중 문구) dla",
+"ko": "칸이 다 차서 여기서 멈춤",
+"en": "Grid limit reached, stopped here",
+"tr": "Сетка заполнена, остановлено здесь"
+},
+{
+"id": "d0796",
+"page": "(실행 중 문구) dla",
+"ko": "떠도는 입자",
+"en": "Wandering particle",
+"tr": "Блуждающая частица"
+},
+{
+"id": "d0797",
+"page": "(실행 중 문구) dla",
+"ko": "입자가 더 모이면 그려집니다",
+"en": "Drawn once more particles have stuck",
+"tr": "Будет нарисовано, когда прилипнет больше частиц"
+},
+{
+"id": "d0798",
+"page": "(실행 중 문구) dla",
+"ko": "둘레 반지름 r (칸)",
+"en": "Surrounding radius r (cells)",
+"tr": "Охватывающий радиус r (клетки)"
+},
+{
+"id": "d0799",
+"page": "(실행 중 문구) dla",
+"ko": "중심에서의 반지름 r (칸)",
+"en": "Radius r from the center (cells)",
+"tr": "Радиус r от центра (клетки)"
+},
+{
+"id": "d0800",
+"page": "(실행 중 문구) dla",
+"ko": "기울기 2: 빈틈없이 꽉 찬 면",
+"en": "Slope 2: a solid area with no gaps",
+"tr": "Наклон 2: сплошная область без пустот"
+},
+{
+"id": "d0801",
+"page": "(실행 중 문구) dla",
+"ko": "잰 기울기 D = {0}",
+"en": "Measured slope D = {0}",
+"tr": "Измеренный наклон D = {0}"
+},
+{
+"id": "d0802",
+"page": "(실행 중 문구) dla",
+"ko": "중심에서 거리 ÷ 가장 먼 끝까지 거리",
+"en": "Distance from center ÷ distance to farthest tip",
+"tr": "Расстояние от центра ÷ расстояние до самого дальнего кончика"
+},
+{
+"id": "d0803",
+"page": "(실행 중 문구) dla",
+"ko": "바깥 30%에 {%0}",
+"en": "{0} in the outer 30%",
+"tr": "{0} во внешних 30%"
+},
+{
+"id": "d0804",
+"page": "(실행 중 문구) dla",
+"ko": "안쪽 절반에는 {%0}",
+"en": "{0} in the inner half",
+"tr": "{0} во внутренней половине"
+},
+{
+"id": "d0805",
+"page": "(실행 중 문구) dla",
+"ko": "붙는 확률",
+"en": "Sticking probability",
+"tr": "Вероятность прилипания"
+},
+{
+"id": "d0806",
+"page": "(실행 중 문구) dla",
+"ko": "프랙탈 차원 D (질량 ∝ 반지름^D)",
+"en": "Fractal dimension D (mass ∝ radius^D)",
+"tr": "Фрактальная размерность D (масса ∝ радиус^D)"
+},
+{
+"id": "d0807",
+"page": "(실행 중 문구) dla",
+"ko": "2에 가까울수록 꽉 찬 면, 1에 가까울수록 가는 선. 고전 값은 약 1.71",
+"en": "Near 2 is a solid area, near 1 a thin line. The classic value is about 1.71",
+"tr": "Около 2 — сплошная область, около 1 — тонкая линия. Классическое значение около 1.71"
+},
+{
+"id": "d0808",
+"page": "(실행 중 문구) dla",
+"ko": "붙은 입자",
+"en": "Stuck particles",
+"tr": "Прилипшие частицы"
+},
+{
+"id": "d0809",
+"page": "(실행 중 문구) dla",
+"ko": "{#0} / {#1}개",
+"en": "{0} / {1}",
+"tr": "{0} / {1}"
+},
+{
+"id": "d0810",
+"page": "(실행 중 문구) dla",
+"ko": "가장 먼 끝까지 반지름 {#0}칸",
+"en": "Radius to the farthest tip: {0} cells",
+"tr": "Радиус до самого дальнего кончика: {0} клеток"
+},
+{
+"id": "d0811",
+"page": "(실행 중 문구) dla",
+"ko": "가장 먼 끝까지의 원 중 채운 비율",
+"en": "Share of the circle (to the farthest tip) that is filled",
+"tr": "Доля круга (до самого дальнего кончика), которая заполнена"
+},
+{
+"id": "d0812",
+"page": "(실행 중 문구) dla",
+"ko": "나머지는 빈틈. 크게 자랄수록 더 성겨집니다",
+"en": "The rest is gaps. The larger it grows, the sparser it gets",
+"tr": "Остальное — пустоты. Чем больше он растёт, тем реже становится"
+},
+{
+"id": "d0813",
+"page": "(실행 중 문구) dla",
+"ko": "입자 하나가 붙기까지 평균",
+"en": "Average steps before a particle sticks",
+"tr": "Среднее число шагов до прилипания частицы"
+},
+{
+"id": "d0814",
+"page": "(실행 중 문구) dla",
+"ko": "붙는 확률이 낮으면 닿고도 더 떠돌다 붙습니다",
+"en": "With low stickiness, particles keep wandering after touching",
+"tr": "При низкой липкости частицы продолжают блуждать и после касания"
+},
+{
+"id": "d0815",
+"page": "(실행 중 문구) dla",
+"ko": "{%0}",
+"en": "{0}",
+"tr": "{0}"
+},
+{
+"id": "d0816",
+"page": "(실행 중 문구) dla",
+"ko": "무작위 번호",
+"en": "Random run no.",
+"tr": "№ случайного запуска"
+},
+{
+"id": "d0844",
+"page": "(실행 중 문구) farming",
+"ko": "기원지",
+"en": "Origin",
+"tr": "Исходная точка"
+},
+{
+"id": "d0845",
+"page": "(실행 중 문구) farming",
+"ko": "해협",
+"en": "Strait",
+"tr": "Пролив"
+},
+{
+"id": "d0846",
+"page": "(실행 중 문구) farming",
+"ko": "땅다리",
+"en": "Land bridge",
+"tr": "Сухопутный мост"
+},
+{
+"id": "d0847",
+"page": "(실행 중 문구) farming",
+"ko": "산맥",
+"en": "Mountains",
+"tr": "Горы"
+},
+{
+"id": "d0848",
+"page": "(실행 중 문구) farming",
+"ko": "200 km",
+"en": "200 km",
+"tr": "200 км"
+},
+{
+"id": "d0849",
+"page": "(실행 중 문구) farming",
+"ko": "{#0}년째",
+"en": "Year {0}",
+"tr": "Год {0}"
+},
+{
+"id": "d0850",
+"page": "(실행 중 문구) farming",
+"ko": "이주해 온 농부의 후손",
+"en": "Descendants of migrant farmers",
+"tr": "Потомки пришлых земледельцев"
+},
+{
+"id": "d0851",
+"page": "(실행 중 문구) farming",
+"ko": "토착 수렵채집민의 후손",
+"en": "Descendants of local hunter-gatherers",
+"tr": "Потомки местных охотников-собирателей"
+},
+{
+"id": "d0852",
+"page": "(실행 중 문구) farming",
+"ko": "도착 시각: 기원지를 떠난 뒤 지난 햇수 (한 띠 = 100년)",
+"en": "Arrival time: years since leaving the origin (one band = 100 years)",
+"tr": "Время прибытия: лет с момента ухода из исходной точки (одна полоса = 100 лет)"
+},
+{
+"id": "d0853",
+"page": "(실행 중 문구) farming",
+"ko": "기원지를 떠난 뒤 지난 햇수 (년)",
+"en": "Years since leaving the origin",
+"tr": "Лет с момента ухода из исходной точки"
+},
+{
+"id": "d0854",
+"page": "(실행 중 문구) farming",
+"ko": "이론, 토착민 흡수 반영 {#0} km/년",
+"en": "Theory with assimilation: {0} km/yr",
+"tr": "Теория с ассимиляцией местных: {0} км/год"
+},
+{
+"id": "d0855",
+"page": "(실행 중 문구) farming",
+"ko": "이론 2√(rD) = {#0} km/년",
+"en": "Theory 2√(rD) = {0} km/yr",
+"tr": "Теория 2√(rD) = {0} км/год"
+},
+{
+"id": "d0856",
+"page": "(실행 중 문구) farming",
+"ko": "{#0} km",
+"en": "{0} km",
+"tr": "{0} км"
+},
+{
+"id": "d0857",
+"page": "(실행 중 문구) farming",
+"ko": "도착 시각 (년, 한 띠 = 100년)",
+"en": "Arrival time (years, one band = 100 years)",
+"tr": "Время прибытия (годы, одна полоса = 100 лет)"
+},
+{
+"id": "d0858",
+"page": "(실행 중 문구) farming",
+"ko": "기원지에서의 거리",
+"en": "Distance from the origin",
+"tr": "Расстояние от исходной точки"
+},
+{
+"id": "d0859",
+"page": "(실행 중 문구) farming",
+"ko": "도착 시각 (년)",
+"en": "Arrival time (years)",
+"tr": "Время прибытия (годы)"
+},
+{
+"id": "d0860",
+"page": "(실행 중 문구) farming",
+"ko": "이론의 직선 (기울기 = 1 ÷ 2√(rD))",
+"en": "Theory line (slope = 1 ÷ 2√(rD))",
+"tr": "Теоретическая прямая (наклон = 1 ÷ 2√(rD))"
+},
+{
+"id": "d0861",
+"page": "(실행 중 문구) farming",
+"ko": "인구 증가율 r (연)",
+"en": "Population growth rate r (per year)",
+"tr": "Темп роста населения r (в год)"
+},
+{
+"id": "d0862",
+"page": "(실행 중 문구) farming",
+"ko": "전선 속도 (km/년)",
+"en": "Front speed (km/yr)",
+"tr": "Скорость фронта (км/год)"
+},
+{
+"id": "d0863",
+"page": "(실행 중 문구) farming",
+"ko": "시뮬레이션에서 잰 값 (한 줄로 펼친 평면 파동)",
+"en": "Measured in simulation (plane wave on a single strip)",
+"tr": "Измерено в симуляции (плоская волна на одной полосе)"
+},
+{
+"id": "d0864",
+"page": "(실행 중 문구) farming",
+"ko": "이론 2√(rD)",
+"en": "Theory 2√(rD)",
+"tr": "Теория 2√(rD)"
+},
+{
+"id": "d0865",
+"page": "(실행 중 문구) farming",
+"ko": "토착민 흡수를 반영한 이론",
+"en": "Theory with assimilation",
+"tr": "Теория с ассимиляцией местных"
+},
+{
+"id": "d0866",
+"page": "(실행 중 문구) farming",
+"ko": "퍼지는 속도 (시뮬레이션에서 잰 값)",
+"en": "Spread speed (measured in the simulation)",
+"tr": "Скорость распространения (измерена в симуляции)"
+},
+{
+"id": "d0867",
+"page": "(실행 중 문구) farming",
+"ko": "재는 중…",
+"en": "Measuring…",
+"tr": "Измерение…"
+},
+{
+"id": "d0868",
+"page": "(실행 중 문구) farming",
+"ko": "{#0} km/년",
+"en": "{0} km/yr",
+"tr": "{0} км/год"
+},
+{
+"id": "d0869",
+"page": "(실행 중 문구) farming",
+"ko": "이론 2√(rD) = {#0} · 토착민 흡수를 반영하면 {#1} km/년",
+"en": "Theory 2√(rD) = {0} · with assimilation {1} km/yr",
+"tr": "Теория 2√(rD) = {0} · с ассимиляцией местных {1} км/год"
+},
+{
+"id": "d0870",
+"page": "(실행 중 문구) farming",
+"ko": "한 세대(25년)에 퍼지는 거리",
+"en": "Distance spread per generation (25 years)",
+"tr": "Расстояние распространения за поколение (25 лет)"
+},
+{
+"id": "d0871",
+"page": "(실행 중 문구) farming",
+"ko": "약 {#0} km",
+"en": "About {0} km",
+"tr": "Около {0} км"
+},
+{
+"id": "d0872",
+"page": "(실행 중 문구) farming",
+"ko": "한 세대를 25년으로 본 단순 환산",
+"en": "A simple conversion taking one generation as 25 years",
+"tr": "Простой пересчёт, где одно поколение равно 25 годам"
+},
+{
+"id": "d0873",
+"page": "(실행 중 문구) farming",
+"ko": "농사짓는 땅",
+"en": "Land under farming",
+"tr": "Земли под земледелием"
+},
+{
+"id": "d0874",
+"page": "(실행 중 문구) farming",
+"ko": "{#0}년 경과 · 기원지에서 전선까지 {#1} km",
+"en": "{0} years elapsed · {1} km from the origin to the front",
+"tr": "Прошло {0} лет · {1} км от исходной точки до фронта"
+},
+{
+"id": "d0875",
+"page": "(실행 중 문구) farming",
+"ko": "농부 가운데 토착 수렵채집민의 후손",
+"en": "Farmers descended from local hunter-gatherers",
+"tr": "Земледельцы, потомки местных охотников-собирателей"
+},
+{
+"id": "d0876",
+"page": "(실행 중 문구) farming",
+"ko": "수렵채집 인구의 남은 몫 {#0}% (흡수되거나 밀려남)",
+"en": "Hunter-gatherers remaining: {0}% (absorbed or displaced)",
+"tr": "Осталось охотников-собирателей: {0}% (ассимилированы или вытеснены)"
+},
+{
+"id": "d0877",
+"page": "(실행 중 문구) farming",
+"ko": "{#0}년째 · {1}",
+"en": "Year {0} · {1}",
+"tr": "Год {0} · {1}"
+},
+{
+"id": "d0878",
+"page": "(실행 중 문구) farming",
+"ko": "번지는 중",
+"en": "spreading",
+"tr": "распространяется"
+},
+{
+"id": "d0879",
+"page": "(실행 중 문구) farming",
+"ko": "연 {#0}%",
+"en": "{0}% per year",
+"tr": "{0}% в год"
+},
+{
+"id": "d0880",
+"page": "(실행 중 문구) farming",
+"ko": "{#0} km²/년",
+"en": "{0} km²/yr",
+"tr": "{0} км²/год"
+},
+{
+"id": "d0881",
+"page": "(실행 중 문구) farming",
+"ko": "땅의 번호",
+"en": "Land",
+"tr": "Земля"
+},
+{
+"id": "d0958",
+"page": "(실행 중 문구) fxrate",
+"ko": "높은 금리 통화의 가치 (시작 = 100)",
+"en": "Value of the high-rate currency (start = 100)",
+"tr": "Стоимость высокодоходной валюты (старт = 100)"
+},
+{
+"id": "d0959",
+"page": "(실행 중 문구) fxrate",
+"ko": "캐리 투자자 쏠림",
+"en": "Carry-investor crowding",
+"tr": "Скопление керри-инвесторов"
+},
+{
+"id": "d0960",
+"page": "(실행 중 문구) fxrate",
+"ko": "시간 (년)",
+"en": "Time (years)",
+"tr": "Время (годы)"
+},
+{
+"id": "d0961",
+"page": "(실행 중 문구) fxrate",
+"ko": "붉은 점 = 일제히 청산",
+"en": "Red dot = everyone unwinds at once",
+"tr": "Красная точка = все закрывают позиции одновременно"
+},
+{
+"id": "d0962",
+"page": "(실행 중 문구) fxrate",
+"ko": "{#0}년째 · 쏠림 {#1}% · 청산 {#2}번",
+"en": "Year {0} · crowding {1}% · {2} unwinds",
+"tr": "Год {0} · скопление {1}% · закрытий {2}"
+},
+{
+"id": "d0963",
+"page": "(실행 중 문구) fxrate",
+"ko": "UIP가 완전히 맞을 때의 기대: 0",
+"en": "Expectation if UIP held fully: 0",
+"tr": "Ожидание при полном выполнении UIP: 0"
+},
+{
+"id": "d0964",
+"page": "(실행 중 문구) fxrate",
+"ko": "이 설정의 평균 기대 (연 {#0}%)",
+"en": "Average expectation here ({0}% a year)",
+"tr": "Среднее ожидание здесь ({0}% в год)"
+},
+{
+"id": "d0965",
+"page": "(실행 중 문구) fxrate",
+"ko": "최대 낙폭 {#0}%p",
+"en": "Maximum drawdown {0} pts",
+"tr": "Максимальная просадка {0} п. п."
+},
+{
+"id": "d0966",
+"page": "(실행 중 문구) fxrate",
+"ko": "한 주의 캐리 수익률 (높이는 제곱근 눈금)",
+"en": "Carry profit in one week (bar height on a square-root scale)",
+"tr": "Доход от керри за неделю (высота в шкале квадратного корня)"
+},
+{
+"id": "d0967",
+"page": "(실행 중 문구) fxrate",
+"ko": "회색 선: 같은 평균·변동성의 종 모양(정규분포)",
+"en": "Gray line: bell curve (normal) with the same average and volatility",
+"tr": "Серая линия: колокол (нормальное распределение) с тем же средним и волатильностью"
+},
+{
+"id": "d0968",
+"page": "(실행 중 문구) fxrate",
+"ko": "-5% 아래 주: 실제 {#0}주 · 종 모양이라면 약 {#1}주",
+"en": "Weeks below -5%: actual {0} · about {1} if a bell curve",
+"tr": "Недель ниже -5%: фактически {0} · около {1} при колоколе"
+},
+{
+"id": "d0969",
+"page": "(실행 중 문구) fxrate",
+"ko": "두 나라의 금리 차이 (예시)",
+"en": "Interest gap between the two countries (example)",
+"tr": "Разница ставок между двумя странами (пример)"
+},
+{
+"id": "d0970",
+"page": "(실행 중 문구) fxrate",
+"ko": "최악의 한 주가 지운 이익",
+"en": "Profit erased by the worst week",
+"tr": "Прибыль, стёртая худшей неделей"
+},
+{
+"id": "d0971",
+"page": "(실행 중 문구) fxrate",
+"ko": "약 {#0}년치",
+"en": "about {0} years' worth",
+"tr": "примерно {0} лет прибыли"
+},
+{
+"id": "d0972",
+"page": "(실행 중 문구) fxrate",
+"ko": "최악의 한 주 {#0}% · 평소 한 주 평균 이익 {#1}%",
+"en": "Worst week {0}% · usual average weekly gain {1}%",
+"tr": "Худшая неделя {0}% · обычная средняя недельная прибыль {1}%"
+},
+{
+"id": "d0973",
+"page": "(실행 중 문구) fxrate",
+"ko": "이익 없음",
+"en": "No profit",
+"tr": "Нет прибыли"
+},
+{
+"id": "d0974",
+"page": "(실행 중 문구) fxrate",
+"ko": "계산 중",
+"en": "Calculating",
+"tr": "Идёт расчёт"
+},
+{
+"id": "d0975",
+"page": "(실행 중 문구) fxrate",
+"ko": "최악의 한 주 {#0}% · 아직 번 돈이 없어요",
+"en": "Worst week {0}% · nothing earned yet",
+"tr": "Худшая неделя {0}% · пока ничего не заработано"
+},
+{
+"id": "d0976",
+"page": "(실행 중 문구) fxrate",
+"ko": "시간이 조금 흐르면 나타나요",
+"en": "Appears after a little time",
+"tr": "Появится через некоторое время"
+},
+{
+"id": "d0977",
+"page": "(실행 중 문구) fxrate",
+"ko": "지금까지 연평균 캐리 수익",
+"en": "Average yearly carry profit so far",
+"tr": "Средний годовой доход от керри на данный момент"
+},
+{
+"id": "d0978",
+"page": "(실행 중 문구) fxrate",
+"ko": "이 설정의 평균 기대 연 {#0}% (UIP가 완전하면 0)",
+"en": "Average expectation here {0}% a year (0 if UIP held fully)",
+"tr": "Среднее ожидание здесь {0}% в год (0 при полном выполнении UIP)"
+},
+{
+"id": "d0979",
+"page": "(실행 중 문구) fxrate",
+"ko": "누적 손익의 최대 낙폭",
+"en": "Maximum drawdown of running profit",
+"tr": "Максимальная просадка накопленной прибыли"
+},
+{
+"id": "d0980",
+"page": "(실행 중 문구) fxrate",
+"ko": "꼭대기에서 바닥까지 가장 크게 빠진 폭",
+"en": "The largest fall from a peak to a trough",
+"tr": "Наибольшее падение от пика до минимума"
+},
+{
+"id": "d0981",
+"page": "(실행 중 문구) fxrate",
+"ko": "수익 분포의 기울기 (왜도, 40경로)",
+"en": "Tilt of the profit distribution (skewness, 40 paths)",
+"tr": "Наклон распределения доходов (асимметрия, 40 траекторий)"
+},
+{
+"id": "d0982",
+"page": "(실행 중 문구) fxrate",
+"ko": "0이면 좌우 대칭, 음수면 왼쪽(급락) 꼬리가 길어요",
+"en": "0 is symmetric; negative means a long left (crash) tail",
+"tr": "0 — симметрично; отрицательное значение — длинный левый хвост (резкие падения)"
+},
+{
+"id": "d0983",
+"page": "(실행 중 문구) fxrate",
+"ko": "{#0}%p",
+"en": "{0} pts",
+"tr": "{0} п. п."
+},
+{
+"id": "d0984",
+"page": "(실행 중 문구) hagwon",
+"ko": "학원 없이 얻을 점수 (실력과 운이 좋을수록 오른쪽)",
+"en": "Score without classes (further right = better ability and luck)",
+"tr": "Балл без занятий (правее = выше способности и удача)"
+},
+{
+"id": "d0985",
+"page": "(실행 중 문구) hagwon",
+"ko": "지금 점수",
+"en": "Score now",
+"tr": "Текущий балл"
+},
+{
+"id": "d0986",
+"page": "(실행 중 문구) hagwon",
+"ko": "위쪽 절반 선 (점수 {#0})",
+"en": "Upper-half line (score {0})",
+"tr": "Линия верхней половины (балл {0})"
+},
+{
+"id": "d0987",
+"page": "(실행 중 문구) hagwon",
+"ko": "합격선 (고정) {#0}",
+"en": "Pass line (fixed) {0}",
+"tr": "Проходной балл (фиксированный) {0}"
+},
+{
+"id": "d0988",
+"page": "(실행 중 문구) hagwon",
+"ko": "학원 없을 때",
+"en": "No classes",
+"tr": "Без занятий"
+},
+{
+"id": "d0989",
+"page": "(실행 중 문구) hagwon",
+"ko": "{#0}라운드 · 평균 학원 {#1}개",
+"en": "Round {0} · average {1} classes",
+"tr": "Раунд {0} · в среднем {1} занятий"
+},
+{
+"id": "d0990",
+"page": "(실행 중 문구) hagwon",
+"ko": "학원 수",
+"en": "Classes",
+"tr": "Занятия"
+},
+{
+"id": "d0991",
+"page": "(실행 중 문구) hagwon",
+"ko": "{#0}개까지",
+"en": "up to {0}",
+"tr": "до {0}"
+},
+{
+"id": "d0992",
+"page": "(실행 중 문구) hagwon",
+"ko": "상대평가",
+"en": "Relative grading",
+"tr": "Относительная оценка"
+},
+{
+"id": "d0993",
+"page": "(실행 중 문구) hagwon",
+"ko": "절대평가",
+"en": "Absolute grading",
+"tr": "Абсолютная оценка"
+},
+{
+"id": "d0994",
+"page": "(실행 중 문구) hagwon",
+"ko": "라운드 (가구들이 학원 수를 다시 정하는 차례)",
+"en": "Round (turns in which households re-decide their classes)",
+"tr": "Раунд (шаги, на которых семьи заново решают, сколько занятий выбрать)"
+},
+{
+"id": "d0995",
+"page": "(실행 중 문구) hagwon",
+"ko": "학원 없이 얻을 점수",
+"en": "Score without classes",
+"tr": "Балл без занятий"
+},
+{
+"id": "d0996",
+"page": "(실행 중 문구) hagwon",
+"ko": "평균 순위 {#0}%",
+"en": "Average rank {0}%",
+"tr": "Средний ранг {0}%"
+},
+{
+"id": "d0997",
+"page": "(실행 중 문구) hagwon",
+"ko": "평균 합격 가능성 {#0}%",
+"en": "Average chance of passing {0}%",
+"tr": "Средний шанс пройти {0}%"
+},
+{
+"id": "d0998",
+"page": "(실행 중 문구) hagwon",
+"ko": "학원비 {#0}%",
+"en": "Bill {0}%",
+"tr": "Расходы на занятия {0}%"
+},
+{
+"id": "d0999",
+"page": "(실행 중 문구) hagwon",
+"ko": "순이득 {#0}%",
+"en": "Net payoff {0}%",
+"tr": "Чистый выигрыш {0}%"
+},
+{
+"id": "d1000",
+"page": "(실행 중 문구) hagwon",
+"ko": "지금 평균",
+"en": "Average now",
+"tr": "Среднее сейчас"
+},
+{
+"id": "d1001",
+"page": "(실행 중 문구) hagwon",
+"ko": "합의 상한",
+"en": "Agreed cap",
+"tr": "Согласованный предел"
+},
+{
+"id": "d1002",
+"page": "(실행 중 문구) hagwon",
+"ko": "모든 집이 보내는 학원 수 (개)",
+"en": "Classes every household sends",
+"tr": "Сколько занятий выбирает каждая семья"
+},
+{
+"id": "d1003",
+"page": "(실행 중 문구) hagwon",
+"ko": "{#0}점",
+"en": "{0} pts",
+"tr": "{0} б."
+},
+{
+"id": "d1004",
+"page": "(실행 중 문구) hagwon",
+"ko": "순위 {#0}%p 가치",
+"en": "worth {0} rank pts",
+"tr": "стоит {0} п.п. ранга"
+},
+{
+"id": "d1005",
+"page": "(실행 중 문구) hagwon",
+"ko": "제한 없음",
+"en": "No limit",
+"tr": "Без ограничений"
+},
+{
+"id": "d1006",
+"page": "(실행 중 문구) hagwon",
+"ko": "한 집만 학원을 한 개 더 보내면",
+"en": "If one family alone sends one more class",
+"tr": "Если только одна семья добавит одно занятие"
+},
+{
+"id": "d1007",
+"page": "(실행 중 문구) hagwon",
+"ko": "내 순위가 오르는 폭 (평균, 이론값)",
+"en": "How far my rank rises (average, theory)",
+"tr": "На сколько вырастет мой ранг (среднее, теория)"
+},
+{
+"id": "d1008",
+"page": "(실행 중 문구) hagwon",
+"ko": "내 합격 가능성이 오르는 폭 (평균, 이론값)",
+"en": "How far my chance of passing rises (average, theory)",
+"tr": "На сколько вырастет мой шанс пройти (среднее, теория)"
+},
+{
+"id": "d1009",
+"page": "(실행 중 문구) hagwon",
+"ko": "모든 집이 한 개씩 더 보내면",
+"en": "If every family sends one more class",
+"tr": "Если все семьи добавят по одному занятию"
+},
+{
+"id": "d1010",
+"page": "(실행 중 문구) hagwon",
+"ko": "평균 순위 변화. 누가 오르면 누군가는 내려갑니다",
+"en": "Average rank change. If someone rises, someone falls",
+"tr": "Среднее изменение ранга. Если кто-то поднимается, кто-то опускается"
+},
+{
+"id": "d1011",
+"page": "(실행 중 문구) hagwon",
+"ko": "평균 합격 가능성 변화 (이론값)",
+"en": "Average change in chance of passing (theory)",
+"tr": "Среднее изменение шанса пройти (теория)"
+},
+{
+"id": "d1012",
+"page": "(실행 중 문구) hagwon",
+"ko": "학원비 총액",
+"en": "Total bill",
+"tr": "Общие расходы на занятия"
+},
+{
+"id": "d1013",
+"page": "(실행 중 문구) hagwon",
+"ko": "처음 대비 (평균 {#0}개 → {#1}개)",
+"en": "versus the start (average {0} → {1} classes)",
+"tr": "по сравнению с началом (в среднем {0} → {1} занятий)"
+},
+{
+"id": "d1014",
+"page": "(실행 중 문구) hagwon",
+"ko": "가구당 순이득",
+"en": "Net payoff per household",
+"tr": "Чистый выигрыш на семью"
+},
+{
+"id": "d1015",
+"page": "(실행 중 문구) hagwon",
+"ko": "결과 − 학원비 · 처음 {#0}% · 오른 집 {#1}% / 내린 집 {#2}%",
+"en": "result − bill · start {0}% · better off {1}% / worse off {2}%",
+"tr": "результат − расходы · начало {0}% · лучше {1}% / хуже {2}%"
+},
+{
+"id": "d1016",
+"page": "(실행 중 문구) hagwon",
+"ko": "가구 번호",
+"en": "Household set",
+"tr": "Набор семей"
+},
+{
+"id": "d1050",
+"page": "(실행 중 문구) lanchester",
+"ko": "막상막하 · 서로 전멸",
+"en": "Too close to call · both wiped out",
+"tr": "Слишком близко · оба уничтожены"
+},
+{
+"id": "d1051",
+"page": "(실행 중 문구) lanchester",
+"ko": "파랑 승 · {#0}% 남음",
+"en": "Blue wins · {0}% left",
+"tr": "Побеждают синие · осталось {0}%"
+},
+{
+"id": "d1052",
+"page": "(실행 중 문구) lanchester",
+"ko": "빨강 승 · {#0}% 남음",
+"en": "Red wins · {0}% left",
+"tr": "Побеждают красные · осталось {0}%"
+},
+{
+"id": "d1053",
+"page": "(실행 중 문구) lanchester",
+"ko": "파랑 {#0}명",
+"en": "Blue {0}",
+"tr": "Синие {0}"
+},
+{
+"id": "d1054",
+"page": "(실행 중 문구) lanchester",
+"ko": "빨강 {#0}명",
+"en": "Red {0}",
+"tr": "Красные {0}"
+},
+{
+"id": "d1055",
+"page": "(실행 중 문구) lanchester",
+"ko": "처음 {#0}명",
+"en": "Started with {0}",
+"tr": "Начали с {0}"
+}
+]

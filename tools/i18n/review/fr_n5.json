@@ -1,0 +1,527 @@
+[
+{
+"id": "s0928",
+"page": "dla",
+"ko": "<b>이 프로젝트의 단순화:</b> 이 프로젝트는 560×560 격자 위에서 상하좌우 한 칸 걸음을 쓰고, 입자를 덩어리를 감싸는 원에서 출발시켜 더 먼 곳에서 버립니다(원 논문의 설정을 그대로 재현한 것이 아닙니다). 선·고리 씨앗과 \"붙는 확률\" 슬라이더는 이 프로젝트가 더한 변형입니다. 격자 때문에 방향성이 조금 남고, 입자 수가 유한해서 D가 점근값보다 낮게 나옵니다.",
+"en": "<b>What this project simplifies:</b> This project uses a 560 × 560 grid with one-cell steps up, down, left and right, releases particles on a circle around the cluster, and discards them farther out (it does not reproduce the original paper's setup). The line and ring seeds and the sticking-probability slider are variations added by this project. The grid leaves some directional bias, and the finite particle count makes D read lower than the asymptotic value.",
+"tr": "<b>Ce que ce projet simplifie :</b> Ce projet utilise une grille de 560 × 560 avec des pas d'une cellule vers le haut, le bas, la gauche et la droite, lâche les particules sur un cercle autour de l'amas et les écarte plus loin (il ne reproduit pas la configuration de l'article original). Les germes en ligne et en anneau et le curseur de probabilité d'adhérence sont des variantes ajoutées par ce projet. La grille laisse un certain biais directionnel, et le nombre fini de particules fait que D se lit plus bas que la valeur asymptotique."
+},
+{
+"id": "s0929",
+"page": "dla",
+"ko": "<b>이론값과 시뮬레이션:</b> 2차원 DLA의 프랙탈 차원은 약 1.71로 널리 알려져 있습니다(이 값을 검증하려는 문헌 값으로만 사용했습니다). 시뮬레이션에서 점 씨앗, 붙는 확률 100%, 입자 4,000개를 8번 키워 잰 D는 평균 1.66(±0.03, 범위 1.61~1.69)으로 약 0.05 낮았고, 입자가 적을수록 더 낮았습니다(500개 1.56, 2,000개 1.65, 4,000개·8,000개 1.66). 크기가 유한하고 격자 효과가 있어 점근값에 못 미치는 것으로 보입니다.",
+"en": "<b>Theory versus simulation:</b> The fractal dimension of 2D DLA is widely quoted as about 1.71 (used here only as a literature value to compare against). In the simulation, a point seed at 100% stickiness with 4,000 particles, run 8 times, gave D averaging 1.66 (±0.03, range 1.61 to 1.69), about 0.05 below, and lower with fewer particles (1.56 at 500, 1.65 at 2,000, 1.66 at 4,000 and 8,000). Finite size and grid effects likely keep it short of the asymptotic value.",
+"tr": "<b>Théorie et simulation :</b> La dimension fractale de la DLA 2D est couramment citée comme environ 1,71 (utilisée ici seulement comme valeur de la littérature à titre de comparaison). Dans la simulation, un germe ponctuel à 100 % d'adhérence avec 4 000 particules, lancé 8 fois, a donné une D moyenne de 1,66 (±0,03, de 1,61 à 1,69), soit environ 0,05 de moins, et plus bas avec moins de particules (1,56 pour 500, 1,65 pour 2 000, 1,66 pour 4 000 et 8 000). Les effets de taille finie et de grille l'empêchent probablement d'atteindre la valeur asymptotique."
+},
+{
+"id": "s0930",
+"page": "dla",
+"ko": "<b>더 읽을거리:</b> Witten &amp; Sander (1981), Physical Review Letters 47, 1400. Mandelbrot, 『The Fractal Geometry of Nature』(W. H. Freeman, 1982). Vicsek, 『Fractal Growth Phenomena』(World Scientific).",
+"en": "<b>Further reading:</b> Witten &amp; Sander (1981), Physical Review Letters 47, 1400. Mandelbrot, <i>The Fractal Geometry of Nature</i> (W. H. Freeman, 1982). Vicsek, <i>Fractal Growth Phenomena</i> (World Scientific).",
+"tr": "<b>Pour aller plus loin :</b> Witten &amp; Sander (1981), Physical Review Letters 47, 1400. Mandelbrot, <i>The Fractal Geometry of Nature</i> (W. H. Freeman, 1982). Vicsek, <i>Fractal Growth Phenomena</i> (World Scientific)."
+},
+{
+"id": "s0931",
+"page": "dla",
+"ko": "시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 입자는 덩어리의 가장 먼 끝보다 6칸 바깥의 원에서 출발하고, 그 1.6배+20칸 바깥에서 버려지며, 덩어리가 반지름 160칸에 닿으면 성장을 멈춥니다.",
+"en": "The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. Particles start on a circle 6 cells beyond the farthest tip, are discarded beyond 1.6 times that radius plus 20 cells, and growth stops when the cluster reaches a radius of 160 cells.",
+"tr": "La simulation utilise un générateur aléatoire à graine (mulberry32), de sorte que la même graine donne le même résultat. Les particules partent d'un cercle situé 6 cellules au-delà de la pointe la plus éloignée, sont écartées au-delà de 1,6 fois ce rayon plus 20 cellules, et la croissance s'arrête quand l'amas atteint un rayon de 160 cellules."
+},
+{
+"id": "s0932",
+"page": "dla",
+"ko": "프랙탈 차원은 반지름 r = 3부터 가장 먼 끝의 절반까지(1.25배씩 늘리며) 안쪽 입자 수를 세어, r ≥ 4인 점들에 최소제곱 직선을 맞춘 로그-로그 기울기입니다. 검증은 <code>node tools/validate-dla.js</code>로 할 수 있습니다.",
+"en": "The fractal dimension counts particles inside radii from r = 3 up to half the farthest tip (growing by a factor of 1.25) and fits a least-squares line to the log-log points with r ≥ 4. You can verify with <code>node tools/validate-dla.js</code>.",
+"tr": "La dimension fractale compte les particules à l'intérieur de rayons allant de r = 3 jusqu'à la moitié de la pointe la plus éloignée (croissant d'un facteur 1,25) et ajuste par moindres carrés une droite aux points log-log avec r ≥ 4. Vous pouvez vérifier avec <code>node tools/validate-dla.js</code>."
+},
+{
+"id": "s0933",
+"page": "dla",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/dla\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/dla\">GitHub</a>.",
+"tr": "Le code est disponible sur <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/dla\">GitHub</a>."
+},
+{
+"id": "s0968",
+"page": "easter",
+"ko": "이 모델에서는 인구가 숲에 늦게 반응하고 빨리 늘수록 정점 뒤에 더 크게 줄어요.",
+"en": "In this model, the slower the population reacts to the forest and the faster it grows, the more it falls after its peak.",
+"tr": "Dans ce modèle, plus la population réagit lentement à la forêt et plus elle croît vite, plus elle chute après son pic."
+},
+{
+"id": "s0969",
+"page": "easter",
+"ko": "아이가 자라는 시간 때문에 인구가 숲의 최근 평균에만 반응해서, 균형점을 지나쳐 늘다가 숲이 줄고 나서야 꺾이기 때문일 수 있어요.",
+"en": "Because it responds only to the recent forest average, it can overshoot the balance and turn down only after the forest has shrunk.",
+"tr": "Comme elle ne réagit qu'à la moyenne récente de la forêt, elle peut dépasser l'équilibre et ne décliner qu'une fois la forêt réduite."
+},
+{
+"id": "s0970",
+"page": "easter",
+"ko": "자원이 사람에게 되먹임하는 곳이라면 정점의 높이보다 반응이 얼마나 늦는지를 살펴볼 만해요.",
+"en": "Where a resource feeds back on people, how late they respond may be worth examining as much as how high the peak goes.",
+"tr": "Là où une ressource rétroagit sur les gens, le retard de leur réaction mérite peut-être autant d'attention que la hauteur du pic."
+},
+{
+"id": "s0972",
+"page": "easter",
+"ko": "실제 이스터섬에서 무슨 일이 있었는지 설명하거나 판정하지는 않아요.",
+"en": "It does not explain or judge what actually happened on Easter Island.",
+"tr": "Il n'explique ni ne juge ce qui s'est réellement passé sur l'île de Pâques."
+},
+{
+"id": "s0973",
+"page": "easter",
+"ko": "쥐, 질병, 외부 접촉 등 연구자마다 해석이 갈리는 요인은 모델에 없어서, 고고학 자료와 따로 맞춰 봐야 해요.",
+"en": "Rats, disease and outside contact, which researchers interpret differently, are absent, so it would need checking against archaeological evidence.",
+"tr": "Les rats, les maladies et les contacts extérieurs, que les chercheurs interprètent différemment, sont absents ; il faudrait donc vérifier avec les preuves archéologiques."
+},
+{
+"id": "s0975",
+"page": "easter",
+"ko": "<b>모델의 뿌리:</b> 재생 가능한 자원과 인구가 서로 되먹임하는 포식자–피식자(Lotka–Volterra) 꼴의 모델입니다. Brander & Taylor (1998)가 이를 이스터섬에 적용해, 자원이 남아 있는 동안 인구가 늘다가 자원이 무너지며 따라서 줄어드는 과잉 성장과 붕괴가 나올 수 있음을 보였습니다.",
+"en": "<b>Where the model comes from:</b> This is a predator–prey (Lotka–Volterra) type model in which a renewable resource and a population feed back on each other. Brander & Taylor (1998) applied it to Easter Island and showed that overshoot and collapse can arise: the population grows while the resource lasts, then falls as the resource gives way.",
+"tr": "<b>D'où vient le modèle :</b> C'est un modèle de type prédateur-proie (Lotka-Volterra) dans lequel une ressource renouvelable et une population s'influencent mutuellement. Brander et Taylor (1998) l'ont appliqué à l'île de Pâques et ont montré qu'un dépassement suivi d'un effondrement peut se produire : la population croît tant que la ressource dure, puis décline quand celle-ci cède."
+},
+{
+"id": "s0976",
+"page": "easter",
+"ko": "<b>핵심 가정과 수식:</b> 숲은 로지스틱 성장(Verhulst 1838)에 사람의 벌채를 뺀 식이고, 인구는 숲이 온전할수록 빨리 늘고 기본 감소율 0.03이 있습니다. 균형은 <code>R* = 0.03 ÷ 증가속도</code>, <code>P* = 재생 × (1−R*) ÷ (벌채 × (1−보존))</code>입니다. 인구 증가 속도·재생 속도·벌채 강도·보존 슬라이더가 이 식의 계수이고, 반응 지연이 길수록 균형 주변에서 넘치고 꺼지는 진동이 커집니다.",
+"en": "<b>Key assumptions and formulas:</b> The forest follows logistic growth (Verhulst 1838) minus human logging, and the population grows faster the more intact the forest is, with a baseline decline of 0.03. The equilibrium is <code>R* = 0.03 ÷ growth rate</code> and <code>P* = regrowth × (1−R*) ÷ (harvest × (1−conservation))</code>. The growth, regrowth, harvest and conservation sliders are coefficients of these equations, and a longer reaction delay makes the swings around the equilibrium larger.",
+"tr": "<b>Hypothèses et formules clés :</b> La forêt suit une croissance logistique (Verhulst 1838) moins l'abattage humain, et la population croît d'autant plus vite que la forêt est intacte, avec un déclin de base de 0,03. L'équilibre est <code>R* = 0.03 ÷ taux de croissance</code> et <code>P* = repousse × (1−R*) ÷ (récolte × (1−conservation))</code>. Les curseurs de croissance, de repousse, de récolte et de conservation sont des coefficients de ces équations, et un délai de réaction plus long amplifie les oscillations autour de l'équilibre."
+},
+{
+"id": "s0977",
+"page": "easter",
+"ko": "<b>이 프로젝트의 단순화:</b> Brander & Taylor의 방정식과 값을 쓰지 않고 식량·농업·쥐·기후 같은 요소를 뺐으며, 인구가 숲의 최근 평균에 반응하도록 지연을 넣었습니다. 숲 최대치를 100%로 둔 것, 감소율 0.03, 기본 계수는 이 프로젝트가 정한 값이라 실제 이스터섬의 숫자가 아닙니다. 실제 붕괴의 원인(벌목, 쥐, 외부 접촉 등)은 연구자마다 해석이 갈리고, 이 모델은 어느 쪽도 증명하지 않습니다.",
+"en": "<b>What this project simplifies:</b> It does not use Brander & Taylor's equations or values, leaves out food, farming, rats and climate, and adds a delay so the population reacts to the recent average of the forest. Setting the forest maximum to 100%, the decline rate of 0.03 and the default coefficients are this project's own values, not real Easter Island numbers. What actually caused the real collapse (logging, rats, outside contact and so on) is interpreted differently by researchers, and this model proves none of them.",
+"tr": "<b>Ce que ce projet simplifie :</b> Il n'utilise ni les équations ni les valeurs de Brander et Taylor, laisse de côté la nourriture, l'agriculture, les rats et le climat, et ajoute un délai pour que la population réagisse à la moyenne récente de la forêt. Fixer le maximum de la forêt à 100 %, le taux de déclin à 0,03 et les coefficients par défaut relève des valeurs propres à ce projet, et non de chiffres réels de l'île de Pâques. Ce qui a réellement causé l'effondrement (abattage, rats, contacts extérieurs, etc.) est interprété différemment par les chercheurs, et ce modèle n'en prouve aucune."
+},
+{
+"id": "s0978",
+"page": "easter",
+"ko": "<b>이론값과 시뮬레이션:</b> 균형점은 기본 설정에서 손으로 계산하면 R* = 0.03 ÷ 0.05 = 0.60, P* = 0.01 × 0.4 ÷ 2×10<sup>-6</sup> = 2,000명이고 validate 출력과 같습니다. 그러나 실제 궤적은 지연 때문에 균형에 머물지 않고 최고 5,287명(P*의 약 2.6배)까지 넘친 뒤 600년째 696명으로 떨어집니다. 최고 인구는 P*에 비례해서, 벌채 강도 0.5/2/16에서 21,104/5,287/691명이고 (강도 × 최고 인구)는 약 10,550~11,060으로 거의 일정합니다.",
+"en": "<b>Theory versus simulation:</b> Calculated by hand with default settings, R* = 0.03 ÷ 0.05 = 0.60 and P* = 0.01 × 0.4 ÷ 2×10<sup>-6</sup> = 2,000 people, matching the validate output. The actual trajectory, because of the delay, does not stay at equilibrium but overshoots to a peak of 5,287 (about 2.6 times P*) and drops to 696 by year 600. The peak scales with P*: at harvest intensity 0.5/2/16 it is 21,104/5,287/691, so intensity × peak stays near-constant at about 10,550 to 11,060.",
+"tr": "<b>Théorie et simulation :</b> Calculé à la main avec les réglages par défaut, R* = 0,03 ÷ 0,05 = 0,60 et P* = 0,01 × 0,4 ÷ 2×10<sup>-6</sup> = 2 000 personnes, ce qui correspond à la sortie de validate. La trajectoire réelle, à cause du délai, ne reste pas à l'équilibre mais le dépasse jusqu'à un pic de 5 287 (environ 2,6 fois P*) et retombe à 696 vers l'an 600. Le pic suit P* : pour une intensité de récolte de 0,5/2/16 il vaut 21 104/5 287/691, de sorte que intensité × pic reste quasi constant, autour de 10 550 à 11 060."
+},
+{
+"id": "s0979",
+"page": "easter",
+"ko": "<b>더 읽을거리:</b> Brander & Taylor (1998), 「The Simple Economics of Easter Island: A Ricardo-Malthus Model of Renewable Resource Use」, American Economic Review 88(1). Diamond (2005), 『Collapse』, Viking(대중적이지만 해석에 논쟁이 있음). Hunt & Lipo (2011), 『The Statues That Walked』, Free Press(다른 해석).",
+"en": "<b>Further reading:</b> Brander & Taylor (1998), \"The Simple Economics of Easter Island: A Ricardo-Malthus Model of Renewable Resource Use\", <i>American Economic Review</i> 88(1). Diamond (2005), <i>Collapse</i>, Viking (popular, but its interpretation is disputed). Hunt & Lipo (2011), <i>The Statues That Walked</i>, Free Press (an alternative reading).",
+"tr": "<b>Pour aller plus loin :</b> Brander &amp; Taylor (1998), « The Simple Economics of Easter Island: A Ricardo-Malthus Model of Renewable Resource Use », <i>American Economic Review</i> 88(1). Diamond (2005), <i>Collapse</i>, Viking (grand public, mais son interprétation est contestée). Hunt &amp; Lipo (2011), <i>The Statues That Walked</i>, Free Press (une lecture alternative)."
+},
+{
+"id": "s0980",
+"page": "easter",
+"ko": "이 프로젝트가 단순화해 직접 짠 구현이며 논문의 방정식과 값을 그대로 쓰지 않았습니다. 인구가 숲의 최근 평균에 반응하도록 지연을 넣었습니다.",
+"en": "This is this project's own simplified implementation; it does not use the paper's equations or values. A delay is added so the population reacts to the recent average of the forest.",
+"tr": "Il s'agit d'une implémentation simplifiée propre à ce projet ; elle n'utilise ni les équations ni les valeurs de l'article. Un délai est ajouté pour que la population réagisse à la moyenne récente de la forêt."
+},
+{
+"id": "s0985",
+"page": "farming",
+"ko": "농경의 전파 · 시뮬라티오 랩",
+"en": "The Spread of Farming · Simulatio Lab",
+"tr": "La diffusion de l'agriculture · Simulatio Lab"
+},
+{
+"id": "s0986",
+"page": "farming",
+"ko": "인구가 늘고 조금씩 흩어지는 두 가지 규칙만으로 농경이 한 해에 1킬로미터쯤의 속도로 대륙을 덮는 모습을, 지도 위에서 직접 돌려보세요.",
+"en": "Watch farming sweep across a map at roughly a kilometer a year from just two rules, population growth and slow dispersal, and change them yourself.",
+"tr": "Regardez l'agriculture parcourir une carte à environ un kilomètre par an avec seulement deux règles, la croissance de la population et une lente dispersion, et modifiez-les vous-même."
+},
+{
+"id": "s0987",
+"page": "farming",
+"ko": "농사가 번지는 속도는 걸음에 비하면 보잘것없습니다. 한 세대(약 25년)에 25킬로미터 남짓이니까요. 그런데 이 느린 걸음이 쉬지 않고 이어지면, 이 모델에서는 약 천 년 만에 지도 전체가 농지로 덮입니다. 더 이상한 것은 그 속도를 누가 정해 준 적이 없다는 점입니다. &#39;늘어나는 속도&#39;와 &#39;흩어지는 정도&#39; 두 숫자만 있으면 속도가 저절로 정해진다는데, 정말 그럴까요? 직접 두 값을 바꿔 보세요.",
+"en": "The speed at which farming spread looks pitiful next to a walking pace: a bit over 25 kilometers per generation of about 25 years. Yet if that slow march never stops, then in this model a whole map is farmland in about a thousand years. Odder still, nobody sets that speed. The claim is that two numbers, how fast a population grows and how far it scatters, fix it by themselves. Is that really so? Change the two values and see.",
+"tr": "La vitesse à laquelle l'agriculture s'est diffusée paraît dérisoire à côté d'une allure de marche : un peu plus de 25 kilomètres par génération d'environ 25 ans. Pourtant, si cette lente progression ne s'arrête jamais, dans ce modèle toute une carte devient terre cultivée en un millier d'années environ. Plus étrange encore, personne ne fixe cette vitesse. Selon l'hypothèse, deux nombres, la vitesse de croissance d'une population et la distance sur laquelle elle se disperse, la déterminent à eux seuls. Est-ce vraiment le cas ? Modifiez les deux valeurs et voyez."
+},
+{
+"id": "s0988",
+"page": "farming",
+"ko": "지도는 10km 칸으로 나뉘어 있고, 칸마다 <b>농부 밀도</b>(땅이 감당하는 최대치를 1로)와 <b>수렵채집민 밀도</b>(처음에는 어디나 0.25)가 있습니다. 한 곳(왼쪽 가운데 &#39;기원지&#39;)에서만 농부가 시작합니다.",
+"en": "The map is a grid of 10 km cells. Each cell has a <b>farmer density</b> (1 is the most the land can carry) and a <b>hunter-gatherer density</b> (0.25 everywhere at first). Farmers start in only one place, the origin on the middle of the left edge.",
+"tr": "La carte est une grille de cellules de 10 km. Chaque cellule a une <b>densité d'agriculteurs</b> (1 est le maximum que la terre peut porter) et une <b>densité de chasseurs-cueilleurs</b> (0,25 partout au départ). Les agriculteurs ne commencent qu'à un seul endroit, l'origine, au milieu du bord gauche."
+},
+{
+"id": "s0989",
+"page": "farming",
+"ko": "농부는 두 가지로 움직입니다. 한 칸 안에서 <b>늘어나고</b>(성장률 r, 가득 차면 멈춤), 이웃 칸으로 <b>조금씩 흩어집니다</b>(확산 계수 D). 두 값이 같이 정하는 속도가 전선의 속도입니다.",
+"en": "Farmers do two things. Inside a cell they <b>multiply</b> (growth rate r, stopping when the cell is full), and they <b>drift a little</b> into neighboring cells (dispersal coefficient D). Together the two values set the speed of the front.",
+"tr": "Les agriculteurs font deux choses. Dans une cellule, ils <b>se multiplient</b> (taux de croissance r, jusqu'à ce que la cellule soit pleine), et ils <b>dérivent un peu</b> vers les cellules voisines (coefficient de dispersion D). Ensemble, ces deux valeurs fixent la vitesse du front."
+},
+{
+"id": "s0990",
+"page": "farming",
+"ko": "수렵채집민은 제자리에 머뭅니다. 농부가 많아질수록 그 칸의 수렵채집민이 줄어드는데, 줄어든 몫 가운데 <b>섞이는 비율</b>만큼은 농부가 되고(동화), 나머지는 밀려나 사라집니다(대체).",
+"en": "Hunter-gatherers stay where they are. The more farmers a cell has, the fewer hunter-gatherers remain, and the share set by the <b>mixing</b> slider becomes farmers (assimilation) while the rest is pushed out (replacement).",
+"tr": "Les chasseurs-cueilleurs restent où ils sont. Plus une cellule compte d'agriculteurs, moins il reste de chasseurs-cueilleurs, et la part fixée par le curseur de <b>mélange</b> devient agricultrice (assimilation) tandis que le reste est repoussé (remplacement)."
+},
+{
+"id": "s0991",
+"page": "farming",
+"ko": "땅은 칸마다 기름짐이 조금씩 다릅니다(최대 ±25%). <b>해협</b>은 땅다리 하나만 남기고 바다로 막고, <b>산맥</b>은 성장과 확산이 느린 띠입니다. 지도의 색은 농부가 처음 들어선 시각이고, 100년마다 띠가 바뀝니다.",
+"en": "The land is slightly different in fertility from cell to cell (up to ±25%). The <b>strait</b> is sea except for one land bridge, and the <b>mountains</b> are a band where growth and dispersal are slow. Map colors show when farmers first arrived, with a new band every 100 years.",
+"tr": "Le terrain diffère légèrement en fertilité d'une cellule à l'autre (jusqu'à ±25 %). Le <b>détroit</b> est de la mer, sauf un pont de terre, et les <b>montagnes</b> forment une bande où la croissance et la dispersion sont lentes. Les couleurs de la carte indiquent quand les agriculteurs sont arrivés pour la première fois, avec une nouvelle bande tous les 100 ans."
+},
+{
+"id": "s0992",
+"page": "farming",
+"ko": "인구 증가율 (r) <output id=\"o-r\"></output>",
+"en": "Population growth rate (r) <output id=\"o-r\"></output>",
+"tr": "Taux de croissance de la population (r) <output id=\"o-r\"></output>"
+},
+{
+"id": "s0993",
+"page": "farming",
+"ko": "클수록 인구가 빨리 늘어요. 연 2.5%면 약 28년마다 두 배",
+"en": "Higher means faster growth. At 2.5% a year the population doubles in about 28 years",
+"tr": "Plus élevé signifie une croissance plus rapide. À 2,5 % par an, la population double en environ 28 ans"
+},
+{
+"id": "s0994",
+"page": "farming",
+"ko": "흩어지는 정도 (D) <output id=\"o-D\"></output>",
+"en": "Dispersal (D) <output id=\"o-D\"></output>",
+"tr": "Dispersion (D) <output id=\"o-D\"></output>"
+},
+{
+"id": "s0995",
+"page": "farming",
+"ko": "클수록 이웃으로 더 넓게 퍼져요 (제곱킬로미터 / 년)",
+"en": "Higher means spreading wider into neighbors (square kilometers per year)",
+"tr": "Plus élevé signifie s'étendre plus largement vers les voisins (kilomètres carrés par an)"
+},
+{
+"id": "s0996",
+"page": "farming",
+"ko": "토착민과 섞이는 비율 <output id=\"o-mix\"></output>",
+"en": "Mixing with hunter-gatherers <output id=\"o-mix\"></output>",
+"tr": "Mélange avec les chasseurs-cueilleurs <output id=\"o-mix\"></output>"
+},
+{
+"id": "s0997",
+"page": "farming",
+"ko": "0%면 토착민은 밀려나고, 100%면 모두 농부가 돼요",
+"en": "0% means locals are displaced, 100% means they all become farmers",
+"tr": "0 % signifie que les populations locales sont repoussées, 100 % qu'elles deviennent toutes agricultrices"
+},
+{
+"id": "s0998",
+"page": "farming",
+"ko": "지형 장벽 <output id=\"o-barrier\"></output>",
+"en": "Landscape barrier <output id=\"o-barrier\"></output>",
+"tr": "Obstacle du paysage <output id=\"o-barrier\"></output>"
+},
+{
+"id": "s0999",
+"page": "farming",
+"ko": "해협 (땅다리 하나)",
+"en": "Strait (one land bridge)",
+"tr": "Détroit (un pont de terre)"
+},
+{
+"id": "s1000",
+"page": "farming",
+"ko": "산맥 (느린 띠)",
+"en": "Mountains (slow band)",
+"tr": "Montagnes (bande lente)"
+},
+{
+"id": "s1001",
+"page": "farming",
+"ko": "장벽을 켜면 전선이 돌아가거나 천천히 넘어가는 것을 볼 수 있어요",
+"en": "Turn a barrier on to see the front go around it or slowly across",
+"tr": "Activez un obstacle pour voir le front le contourner ou le traverser lentement"
+},
+{
+"id": "s1002",
+"page": "farming",
+"ko": "같은 설정, 다른 땅",
+"en": "Same settings, different land",
+"tr": "Mêmes réglages, autre terrain"
+},
+{
+"id": "s1003",
+"page": "farming",
+"ko": "① 번져 가는 농경",
+"en": "① Farming Spreading",
+"tr": "① La diffusion de l'agriculture"
+},
+{
+"id": "s1004",
+"page": "farming",
+"ko": "별표가 농경의 시작점입니다. 색은 그 땅에 농부가 처음 들어선 시각(기원지를 떠난 뒤 지난 햇수)이고, 띠 사이의 짙은 선이 곧 등고선입니다. 선이 촘촘하면 빠르게 지나간 곳이 아니라 오히려 느리게 지나간 곳이에요.",
+"en": "The star marks where farming begins. Color shows when farmers first arrived in a place (years since leaving the origin), and the dark lines between bands are contours. Lines packed close together do not mean fast; the front was moving slowly there.",
+"tr": "L'étoile marque le début de l'agriculture. La couleur indique quand les agriculteurs sont arrivés pour la première fois en un lieu (années depuis leur départ de l'origine), et les lignes sombres entre les bandes sont des courbes de niveau. Des lignes très serrées ne signifient pas la rapidité ; le front y avançait lentement."
+},
+{
+"id": "s1005",
+"page": "farming",
+"ko": "지도 보기",
+"en": "Map view",
+"tr": "Vue de la carte"
+},
+{
+"id": "s1006",
+"page": "farming",
+"ko": "도착 시각 (등고선 띠)",
+"en": "Arrival time (contour bands)",
+"tr": "Temps d'arrivée (bandes de niveau)"
+},
+{
+"id": "s1007",
+"page": "farming",
+"ko": "농부의 혈통",
+"en": "Ancestry of the farmers",
+"tr": "Ascendance des agriculteurs"
+},
+{
+"id": "s1008",
+"page": "farming",
+"ko": "농부들이 이주민의 후손인지 토착민의 후손인지 바꿔 볼 수 있어요.",
+"en": "Switch to see whose descendants the farmers are: migrants or local hunter-gatherers.",
+"tr": "Basculez pour voir de qui les agriculteurs sont les descendants : des migrants ou des chasseurs-cueilleurs locaux."
+},
+{
+"id": "s1009",
+"page": "farming",
+"ko": "② 전선은 얼마나 멀리 갔을까",
+"en": "② How Far Has the Front Gone?",
+"tr": "② Jusqu'où le front est-il allé ?"
+},
+{
+"id": "s1010",
+"page": "farming",
+"ko": "파란 선은 기원지에서 가장 멀리 간 농부까지의 거리입니다. 초록 점선은 피셔-콜모고로프 이론 2√(rD)에서 나온 직선이고, 토착민을 흡수하면 빨간 점선처럼 조금 더 가팔라집니다. 처음 100여 년은 전선이 자리를 잡느라 이론선보다 늦지만 기울기는 이론과 나란해집니다. 장벽이 있으면 선이 꺾이는 곳을 보세요.",
+"en": "The blue line is the distance from the origin to the farthest farmers. The green dashed line comes from the Fisher-Kolmogorov theory, 2√(rD), and when locals are assimilated the front follows the slightly steeper red dashed line. The first hundred or so years lag behind the theory while the front settles in, after which the slope runs parallel to it. With a barrier, watch where the line bends.",
+"tr": "La ligne bleue est la distance entre l'origine et les agriculteurs les plus éloignés. La ligne verte en pointillés vient de la théorie de Fisher-Kolmogorov, 2√(rD), et quand les populations locales sont assimilées, le front suit la ligne rouge en pointillés, un peu plus raide. Les cent premières années environ restent en retrait de la théorie le temps que le front s'installe, puis la pente devient parallèle à celle-ci. Avec un obstacle, observez où la ligne se courbe."
+},
+{
+"id": "s1011",
+"page": "farming",
+"ko": "③ 칸마다 도착 시각",
+"en": "③ Arrival Time, Cell by Cell",
+"tr": "③ Temps d'arrivée, cellule par cellule"
+},
+{
+"id": "s1012",
+"page": "farming",
+"ko": "점 하나가 지도의 칸 하나입니다. 가로는 기원지에서의 거리, 세로는 농부가 처음 닿은 시각이에요. 점들이 이론의 직선을 따라 늘어서면 일정한 속도로 퍼졌다는 뜻이고, 직선 위로 솟은 곳은 장벽 때문에 늦어진 곳입니다.",
+"en": "Each dot is one cell of the map. The horizontal axis is distance from the origin and the vertical axis the time farmers first arrived. Dots lining up along the theory line mean a steady speed, and dots that rise above the line are places delayed by a barrier.",
+"tr": "Chaque point est une cellule de la carte. L'axe horizontal est la distance à l'origine et l'axe vertical le moment où les agriculteurs sont arrivés pour la première fois. Des points alignés le long de la droite théorique indiquent une vitesse constante, et les points au-dessus de la droite sont des lieux retardés par un obstacle."
+},
+{
+"id": "s1013",
+"page": "farming",
+"ko": "④ 성장률을 바꾸면 속도는",
+"en": "④ How Speed Changes with Growth",
+"tr": "④ Comment la vitesse change avec la croissance"
+},
+{
+"id": "s1014",
+"page": "farming",
+"ko": "지금의 흩어지는 정도와 섞이는 비율에서 성장률만 바꿔 가며 쟀습니다(한 줄로 펼친 평면 파동). 이론 곡선과 측정점이 거의 겹치면, 속도가 두 숫자로 정해진다는 말이 맞는다는 뜻입니다.",
+"en": "Keeping the current dispersal and mixing, only the growth rate was varied (a plane wave unrolled onto one strip). If the measured dots nearly sit on the theory curve, the claim that two numbers fix the speed holds up.",
+"tr": "En gardant la dispersion et le mélange actuels, seul le taux de croissance a varié (une onde plane déroulée sur une seule bande). Si les points mesurés se placent presque sur la courbe théorique, l'affirmation selon laquelle deux nombres fixent la vitesse se vérifie."
+},
+{
+"id": "s1015",
+"page": "farming",
+"ko": "늘어나고 흩어지는 두 규칙만으로도 연 1km쯤의 일정한 속도의 파동이 생겼어요.",
+"en": "Growth plus dispersal alone produced a wave moving at a steady speed of about 1 km a year.",
+"tr": "La croissance et la dispersion seules ont produit une onde avançant à une vitesse constante d'environ 1 km par an."
+},
+{
+"id": "s1016",
+"page": "farming",
+"ko": "앞쪽 끝에서는 늘어나는 속도와 흩어지는 속도가 전선의 속도를 정하고, 섞임이 많을수록 조금 빨라졌어요.",
+"en": "At the front, growth rate and dispersal rate set the speed, and more mixing made it a bit faster.",
+"tr": "Sur le front, le taux de croissance et le taux de dispersion déterminent la vitesse, et plus de brassage l'a rendue un peu plus rapide."
+},
+{
+"id": "s1017",
+"page": "farming",
+"ko": "속도만으로는 이동인지 전파인지 가리기 어려우니, 누구의 후손이 퍼졌는지를 함께 볼 만해요.",
+"en": "Speed alone cannot separate migration from diffusion of ideas, so whose descendants spread is worth examining too.",
+"tr": "La vitesse seule ne permet pas de distinguer la migration de la diffusion des idées ; il vaut donc aussi la peine d'examiner les descendants de qui se sont répandus."
+},
+{
+"id": "s1018",
+"page": "farming",
+"ko": "<b>말하는 것:</b> 기본값(연 2.5% 성장, 흩어지는 정도 10km²/년, 섞이는 비율 50%, 장벽 없음, 땅 번호 1)에서 잰 전선 속도는 1.03km/년이고, 흡수가 없을 때의 이론 2√(rD)는 1.00km/년, 흡수를 반영한 이론은 1.12km/년입니다. 한 세대(25년)로 치면 약 26km이고, 땅의 99%가 덮이는 데 975년이 걸렸습니다. 장벽이 있으면 같은 설정에서 해협은 1,095년, 산맥은 1,130년으로 늦어졌습니다. 해협에서는 전선이 땅다리 쪽으로 휘어 들어가 건너편에서 부채꼴로 다시 퍼졌고, 산맥 안에서는 속도가 평지의 약 3분의 1(0.29 대 0.89km/년, 이론은 0.35배)로 줄었지만 멈추지는 않았습니다. 성장률을 바꿔 한 줄 파동으로 잰 속도는 이론의 94~100%였고, 섞이는 비율을 0%에서 100%로 올리면 속도가 0.97에서 1.19km/년으로 빨라져 흡수를 반영한 이론(1.00에서 1.22)과 4% 안에서 맞았습니다. 같은 설정에서 농부 가운데 토착 수렵채집민 후손의 몫은 섞이는 비율 50%일 때 87%, 100%일 때 95%였습니다. 속도는 거의 같은데 누구의 후손이 퍼졌는지는 크게 달랐습니다.",
+"en": "<b>What it shows:</b> With the defaults (2.5% growth a year, dispersal 10 km²/year, mixing 50%, no barrier, land number 1) the measured front speed is 1.03 km/year, against 1.00 km/year from the theory 2√(rD) without assimilation and 1.12 km/year with it. That is about 26 km per generation of 25 years, and 99% of the land was covered after 975 years. With the same settings a barrier slowed things: 1,095 years with the strait and 1,130 with the mountains. At the strait the front bent toward the land bridge and fanned out again on the far side, while inside the mountains speed fell to about a third of the lowland value (0.29 versus 0.89 km/year, theory 0.35 times) without stopping. Varying the growth rate on a single strip gave speeds 94 to 100% of the theory, and raising mixing from 0% to 100% raised the speed from 0.97 to 1.19 km/year, within 4% of the theory with assimilation (1.00 to 1.22). In the same runs the share of farmers descended from local hunter-gatherers was 87% at 50% mixing and 95% at 100%. The speed was nearly the same, yet whose descendants spread was very different.",
+"tr": "<b>Ce que cela montre :</b> Avec les valeurs par défaut (croissance de 2,5 % par an, dispersion de 10 km²/an, mélange de 50 %, sans obstacle, terrain numéro 1), la vitesse mesurée du front est de 1,03 km/an, contre 1,00 km/an selon la théorie 2√(rD) sans assimilation et 1,12 km/an avec. Cela fait environ 26 km par génération de 25 ans, et 99 % des terres étaient couvertes au bout de 975 ans. Avec les mêmes réglages, un obstacle a ralenti les choses : 1 095 ans avec le détroit et 1 130 avec les montagnes. Au détroit, le front s'est courbé vers le pont de terre puis s'est à nouveau déployé de l'autre côté, tandis que dans les montagnes la vitesse est tombée à environ un tiers de celle des plaines (0,29 contre 0,89 km/an, théorie 0,35 fois) sans s'arrêter. En faisant varier le taux de croissance sur une seule bande, les vitesses ont atteint 94 à 100 % de la théorie, et en faisant passer le mélange de 0 % à 100 %, la vitesse est passée de 0,97 à 1,19 km/an, à moins de 4 % de la théorie avec assimilation (1,00 à 1,22). Dans les mêmes exécutions, la part d'agriculteurs descendant de chasseurs-cueilleurs locaux était de 87 % à 50 % de mélange et de 95 % à 100 %. La vitesse était presque la même, mais les descendants de ceux qui se sont étendus étaient très différents."
+},
+{
+"id": "s1019",
+"page": "farming",
+"ko": "실제 유럽 농경 전파를 재현했다는 뜻은 아니에요. 지도와 수치는 추상적으로 정한 값이에요.",
+"en": "This is not a reconstruction of how farming really spread; the map and numbers are abstract.",
+"tr": "Ce n'est pas une reconstitution de la façon dont l'agriculture s'est réellement diffusée ; la carte et les chiffres sont abstraits."
+},
+{
+"id": "s1020",
+"page": "farming",
+"ko": "바닷길·기후 같은 현실 요소와 이동 여부는 고고학·유전자 증거로 따로 확인해야 해요.",
+"en": "Sea routes, climate and whether people actually moved need archaeological and genetic evidence.",
+"tr": "Les routes maritimes, le climat et le fait que les gens se soient réellement déplacés demandent des preuves archéologiques et génétiques."
+},
+{
+"id": "s1021",
+"page": "farming",
+"ko": "<b>말하지 않는 것:</b> 실제 유럽의 농경 전파를 재현한 것이 아닙니다. 고고학자들은 농경이 유럽에서 평균 연 1km 안팎의 속도로 퍼졌다고 추정했고, 이런 &#39;전진하는 파동&#39; 생각은 Ammerman과 Cavalli-Sforza(1971)가 농경 전파에 적용해 널리 알려졌지만, 추정값은 연구마다 다르며 퍼진 것이 사람(이주)인지 기술과 생각(문화 전파)인지는 지금도 논쟁 중입니다. 이 모델은 지도가 추상적이고 땅이 거의 균일하며, 바닷길 이동, 강과 해안의 길, 기후 변화, 마을 단위의 갑작스러운 도약 같은 현실의 요소가 없습니다. 섞이는 비율이나 토착민 후손의 몫(87%, 95%)도 이 프로젝트가 정한 값에 크게 의존하므로 실제 유럽 사람들의 혈통에 대한 주장으로 읽으면 안 됩니다. 이 실험은 &#39;늘어나고 흩어지는 두 규칙만으로도 일정한 속도의 파동이 만들어질 수 있다&#39;는 메커니즘을 보여 줄 뿐입니다.",
+"en": "<b>What it doesn't show:</b> This is not a reconstruction of the real spread of farming in Europe. Archaeologists have estimated that farming spread across Europe at roughly one kilometer a year on average, and the wave-of-advance idea was applied to farming by Ammerman and Cavalli-Sforza (1971), but estimates vary between studies and whether people (migration) or techniques and ideas (cultural diffusion) did the spreading is still debated. The map here is abstract, the land nearly uniform, and real factors such as sea voyages, river and coastal routes, climate change and sudden village-scale jumps are absent. The mixing ratio and the shares of local descendants (87%, 95%) depend strongly on values this project chose, so do not read them as a claim about real European ancestry. The experiment only shows a mechanism: growth plus slow dispersal alone can produce a wave moving at a steady speed.",
+"tr": "<b>Ce que cela ne montre pas :</b> Ce n'est pas une reconstitution de la diffusion réelle de l'agriculture en Europe. Les archéologues ont estimé que l'agriculture s'est répandue en Europe à environ un kilomètre par an en moyenne, et l'idée d'onde d'avancée a été appliquée à l'agriculture par Ammerman et Cavalli-Sforza (1971), mais les estimations varient selon les études et l'on débat encore de savoir si ce sont les gens (migration) ou les techniques et les idées (diffusion culturelle) qui se sont propagés. La carte ici est abstraite, le terrain presque uniforme, et des facteurs réels comme les traversées maritimes, les voies fluviales et côtières, le changement climatique et les sauts soudains à l'échelle d'un village sont absents. Le taux de mélange et les parts de descendants locaux (87 %, 95 %) dépendent fortement de valeurs choisies par ce projet, il ne faut donc pas les lire comme une affirmation sur l'ascendance européenne réelle. L'expérience ne montre qu'un mécanisme : la croissance associée à une lente dispersion suffit à produire une onde se déplaçant à vitesse constante."
+},
+{
+"id": "s1022",
+"page": "farming",
+"ko": "<b>모델의 뿌리:</b> Fisher (1937), &quot;The wave of advance of advantageous genes&quot;, <i>Annals of Eugenics</i> 7은 유리한 유전자가 공간에서 일정한 속도의 파동으로 퍼진다는 방정식을 다뤘고, 같은 해 Kolmogorov, Petrovsky, Piskunov도 독립적으로 같은 방정식을 연구해 피셔-콜모고로프(Fisher-KPP) 방정식이라 부릅니다. Ammerman &amp; Cavalli-Sforza (1971), <i>Man</i> 6이 이를 유럽의 농경 전파에 적용했습니다.",
+"en": "<b>Where the model comes from:</b> Fisher (1937), &quot;The wave of advance of advantageous genes&quot;, <i>Annals of Eugenics</i> 7, treated an equation in which an advantageous gene spreads through space as a wave of constant speed. Kolmogorov, Petrovsky and Piskunov studied the same equation independently that year, hence the name Fisher-KPP. Ammerman &amp; Cavalli-Sforza (1971), <i>Man</i> 6, applied it to the spread of farming in Europe.",
+"tr": "<b>D'où vient le modèle :</b> Fisher (1937), &quot;The wave of advance of advantageous genes&quot;, <i>Annals of Eugenics</i> 7, a étudié une équation dans laquelle un gène avantageux se propage dans l'espace comme une onde de vitesse constante. Kolmogorov, Petrovsky et Piskunov ont étudié la même équation indépendamment la même année, d'où le nom Fisher-KPP. Ammerman &amp; Cavalli-Sforza (1971), <i>Man</i> 6, l'ont appliquée à la diffusion de l'agriculture en Europe."
+},
+{
+"id": "s1023",
+"page": "farming",
+"ko": "<b>핵심 가정과 수식:</b> 농부 밀도 F(땅이 감당하는 최대치 = 1)는 <code>∂F/∂t = rF(1 − F) + D∇²F</code>를 따릅니다. 앞쪽 끝에서는 F가 작아 선형으로 늘기 때문에 전선은 <code>c = 2√(rD)</code>의 속도로 나아갑니다(r 증가율, D 확산 계수). 이 모델은 수렵채집민을 흡수하면 앞쪽의 증가율이 <code>r + mix·κ·h₀</code>로 커진다고 보아 <code>c = 2√((r + mix·κ·h₀)D)</code>를 함께 비교합니다(κ = 0.05/년, h₀ = 0.25는 이 프로젝트가 정한 값).",
+"en": "<b>Key assumptions and formulas:</b> Farmer density F (1 is the most the land can carry) follows <code>∂F/∂t = rF(1 − F) + D∇²F</code>. At the leading edge F is small and grows linearly, so the front advances at <code>c = 2√(rD)</code> (r growth rate, D dispersal coefficient). This model also compares <code>c = 2√((r + mix·κ·h₀)D)</code>, because assimilating hunter-gatherers raises the growth rate at the front to <code>r + mix·κ·h₀</code> (κ = 0.05 per year and h₀ = 0.25 are values this project chose).",
+"tr": "<b>Hypothèses et formules clés :</b> La densité d'agriculteurs F (1 est le maximum que la terre peut porter) suit <code>∂F/∂t = rF(1 − F) + D∇²F</code>. Au bord d'attaque, F est petit et croît linéairement, de sorte que le front avance à <code>c = 2√(rD)</code> (r taux de croissance, D coefficient de dispersion). Ce modèle compare aussi <code>c = 2√((r + mix·κ·h₀)D)</code>, car l'assimilation des chasseurs-cueilleurs porte le taux de croissance au front à <code>r + mix·κ·h₀</code> (κ = 0,05 par an et h₀ = 0,25 sont des valeurs choisies par ce projet)."
+},
+{
+"id": "s1024",
+"page": "farming",
+"ko": "<b>이 프로젝트의 단순화:</b> 지도는 추상적이고 땅은 거의 균일하며, 수렵채집민은 움직이지 않고 밀도가 0.25로 일정하다고 봅니다. 한 세대 = 25년과 위의 κ, h₀, 산맥(성장 0.5배, 확산 0.25배)은 이 프로젝트의 가정입니다. 농경이 사람의 이동으로 퍼졌는지 생각과 기술의 전파로 퍼졌는지는 지금도 논쟁 중이고, 이 모델은 &#39;섞이는 비율&#39; 하나로 둘 사이를 오가게 했을 뿐 어느 쪽이 맞는지 가리지 않습니다.",
+"en": "<b>What this project simplifies:</b> The map is abstract, the land nearly uniform, and hunter-gatherers neither move nor change from a constant density of 0.25. One generation = 25 years, κ and h₀ above, and the mountains (growth 0.5 times, dispersal 0.25 times) are this project's assumptions. Whether farming spread by people moving or by ideas and techniques spreading is still debated; the model only slides between the two with a single mixing parameter and does not decide which is right.",
+"tr": "<b>Ce que ce projet simplifie :</b> La carte est abstraite, le terrain presque uniforme, et les chasseurs-cueilleurs ne bougent pas et ne s'écartent pas d'une densité constante de 0,25. Une génération = 25 ans, κ et h₀ ci-dessus, et les montagnes (croissance 0,5 fois, dispersion 0,25 fois) sont des hypothèses de ce projet. Que l'agriculture se soit propagée par le déplacement de personnes ou par la diffusion d'idées et de techniques est encore débattu ; le modèle ne fait que glisser de l'un à l'autre avec un seul paramètre de mélange et ne tranche pas."
+},
+{
+"id": "s1025",
+"page": "farming",
+"ko": "<b>이론값과 시뮬레이션:</b> 흡수가 없을 때 한 줄 파동으로 잰 속도는 이론 2√(rD)의 94~100%였습니다(예: r=2.5%, D=10에서 0.97 대 1.00km/년). 섞이는 비율을 0, 25, 50, 75, 100%로 올리면 잰 값이 0.97, 1.03, 1.08, 1.14, 1.19km/년으로 흡수를 반영한 이론 1.00, 1.06, 1.12, 1.17, 1.22와 4% 안에서 맞았습니다. 둥근 전선이 있는 2차원에서는 휘어짐 때문에 장벽·잡음이 없을 때도 0.93으로 조금 느렸고, 산맥 안의 속도비는 0.32로 이론 0.35와 비슷했습니다. 모두 <code>node tools/validate-farming.js</code>의 출력입니다.",
+"en": "<b>Theory versus simulation:</b> With no assimilation, speeds measured on a one-dimensional wave were 94 to 100% of the theory 2√(rD) (for example 0.97 versus 1.00 km/year at r = 2.5%, D = 10). Raising mixing through 0, 25, 50, 75 and 100% gave 0.97, 1.03, 1.08, 1.14 and 1.19 km/year, within 4% of the theory with assimilation, 1.00, 1.06, 1.12, 1.17 and 1.22. In two dimensions the curved front made speed a little lower, 0.93, even with no barrier or noise, and the speed ratio inside the mountains was 0.32 against a theoretical 0.35. All of this is the output of <code>node tools/validate-farming.js</code>.",
+"tr": "<b>Théorie et simulation :</b> Sans assimilation, les vitesses mesurées sur une onde unidimensionnelle étaient de 94 à 100 % de la théorie 2√(rD) (par exemple 0,97 contre 1,00 km/an pour r = 2,5 %, D = 10). En augmentant le mélange à 0, 25, 50, 75 et 100 %, on a obtenu 0,97, 1,03, 1,08, 1,14 et 1,19 km/an, à moins de 4 % de la théorie avec assimilation, 1,00, 1,06, 1,12, 1,17 et 1,22. En deux dimensions, le front courbe a rendu la vitesse un peu plus faible, 0,93, même sans obstacle ni bruit, et le rapport de vitesse dans les montagnes était de 0,32 contre 0,35 en théorie. Tout cela est la sortie de <code>node tools/validate-farming.js</code>."
+},
+{
+"id": "s1026",
+"page": "farming",
+"ko": "<b>더 읽을거리:</b> Ammerman &amp; Cavalli-Sforza (1971), &quot;Measuring the rate of spread of early farming in Europe&quot;, <i>Man</i> 6. Fisher (1937), 위의 논문. J. D. Murray, 『Mathematical Biology』, Springer (퍼지는 파동 방정식의 개설).",
+"en": "<b>Further reading:</b> Ammerman &amp; Cavalli-Sforza (1971), &quot;Measuring the rate of spread of early farming in Europe&quot;, <i>Man</i> 6. Fisher (1937), cited above. J. D. Murray, <i>Mathematical Biology</i>, Springer (an introduction to traveling-wave equations).",
+"tr": "<b>Pour aller plus loin :</b> Ammerman &amp; Cavalli-Sforza (1971), &quot;Measuring the rate of spread of early farming in Europe&quot;, <i>Man</i> 6. Fisher (1937), cité ci-dessus. J. D. Murray, <i>Mathematical Biology</i>, Springer (une introduction aux équations d'ondes progressives)."
+},
+{
+"id": "s1027",
+"page": "farming",
+"ko": "지도는 100×60칸(칸 하나 10km)이고 시간은 0.5년 간격의 명시적 차분으로 나아갑니다. 확산은 칸 사이의 조화 평균 계수로 계산해 바다 칸으로는 흐르지 않고, 지도 가장자리는 막혀 있습니다. 칸마다 기름짐은 성긴 값 잡음을 이어 만들며(시드 난수 mulberry32, 같은 땅 번호면 같은 결과) 성장률에만 곱합니다.",
+"en": "The map is 100×60 cells of 10 km, advanced in 0.5-year explicit finite-difference steps. Diffusion uses a harmonic-mean coefficient between cells so nothing flows into sea cells, and the map edges are closed. Fertility comes from smoothly joined coarse noise (seeded mulberry32, so the same land number gives the same result) and multiplies only the growth rate.",
+"tr": "La carte compte 100×60 cellules de 10 km, avancées par pas explicites de différences finies de 0,5 an. La diffusion utilise un coefficient de moyenne harmonique entre cellules pour que rien ne s'écoule vers les cellules de mer, et les bords de la carte sont fermés. La fertilité vient d'un bruit grossier raccordé en douceur (mulberry32 à graine, de sorte que le même numéro de terrain donne le même résultat) et ne multiplie que le taux de croissance."
+},
+{
+"id": "s1028",
+"page": "farming",
+"ko": "전선 속도는 농부 밀도 0.5를 처음 넘은 시각을 칸의 도착 시각으로 삼고, 기원지에서 가장 먼 도착 지점의 거리 R(t)를 100~380km 구간에서 최소제곱으로 맞춘 기울기입니다. ④번 그래프는 같은 규칙을 250칸짜리 한 줄에서 돌려 도착 시각과 거리의 기울기로 구한 값입니다. 검증은 <code>node tools/validate-farming.js</code>로 할 수 있습니다.",
+"en": "Front speed takes the first time farmer density passes 0.5 as a cell's arrival time, and fits the distance R(t) of the farthest arrival from the origin by least squares over 100 to 380 km. Graph ④ runs the same rules on a strip of 250 cells and uses the slope of arrival time against distance. You can verify with <code>node tools/validate-farming.js</code>.",
+"tr": "La vitesse du front prend comme temps d'arrivée d'une cellule le premier instant où la densité d'agriculteurs dépasse 0,5, et ajuste par moindres carrés la distance R(t) de l'arrivée la plus éloignée à l'origine entre 100 et 380 km. Le graphique ④ applique les mêmes règles sur une bande de 250 cellules et utilise la pente du temps d'arrivée en fonction de la distance. Vous pouvez vérifier avec <code>node tools/validate-farming.js</code>."
+},
+{
+"id": "s1029",
+"page": "farming",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/farming\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/farming\">GitHub</a>.",
+"tr": "Le code est disponible sur <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/farming\">GitHub</a>."
+},
+{
+"id": "s1056",
+"page": "fashion",
+"ko": "모방과 차별화가 함께 있을 때만 유행이 색상환을 계속 돌아요.",
+"en": "Trends keep circling the color wheel only when imitation and differentiation both exist.",
+"tr": "Les tendances ne continuent de tourner autour du cercle chromatique que si l'imitation et la différenciation existent toutes les deux."
+},
+{
+"id": "s1057",
+"page": "fashion",
+"ko": "이 모델에서는 대중이 쫓고 트렌드세터가 한쪽으로 달아나는 구조라, 도는 속도는 둘 중 느린 쪽을 따라요.",
+"en": "In this model the masses chase and trendsetters flee one way, so the pace follows the slower of the two.",
+"tr": "Dans ce modèle, la masse poursuit et les précurseurs fuient dans le même sens, si bien que le rythme suit le plus lent des deux."
+},
+{
+"id": "s1058",
+"page": "fashion",
+"ko": "유행이 멈췄다면 따라 하는 힘과 달아나는 힘 중 어느 쪽이 약한지부터 살펴볼 만해요.",
+"en": "If a trend stalls, look first at which is weaker: the urge to follow or the urge to flee.",
+"tr": "Si une tendance stagne, regardez d'abord lequel est le plus faible : l'envie de suivre ou l'envie de fuir."
+},
+{
+"id": "s1060",
+"page": "fashion",
+"ko": "실제 유행이 이런 규칙으로 움직이거나 주기를 예측할 수 있다는 뜻은 아니에요.",
+"en": "It doesn't mean real fashion follows these rules or that its cycles can be predicted.",
+"tr": "Cela ne signifie pas que la mode réelle suive ces règles ni que ses cycles puissent être prédits."
+},
+{
+"id": "s1061",
+"page": "fashion",
+"ko": "산업·미디어·가격의 영향과 달아나는 방향이 하나가 아닌 점은 실제 유행을 관찰해 따로 봐야 해요.",
+"en": "Industry, media, price and non-single escape directions must be checked in real fashion data.",
+"tr": "L'industrie, les médias, le prix et les directions de fuite non uniques doivent être vérifiés dans de vraies données de mode."
+},
+{
+"id": "s1063",
+"page": "fashion",
+"ko": "<b>모델의 뿌리:</b> Georg Simmel의 「유행」(1904)은 윗사람은 남과 달라 보이려 하고 아랫사람은 따라 하다가, 모방이 퍼지면 윗사람이 다시 새 유행으로 옮겨 간다고 설명했습니다. 이 발상은 Veblen의 『유한계급론』(1899)에 닿아 있고, Blumer (1969)는 유행이 계층에서 아래로 흐르기만 하지 않는다고 비판했습니다.",
+"en": "<b>Where the model comes from:</b> Georg Simmel's \"Fashion\" (1904) argued that those on top try to look different while those below imitate them, and once imitation spreads those on top move on to a new fashion. The idea is related to Veblen's <i>The Theory of the Leisure Class</i> (1899), and Blumer (1969) criticized it, arguing that fashion does not simply trickle down from class to class.",
+"tr": "<b>D'où vient le modèle :</b> « La mode » (1904) de Georg Simmel soutenait que ceux d'en haut cherchent à se distinguer tandis que ceux d'en bas les imitent, et qu'une fois l'imitation répandue, ceux d'en haut passent à une nouvelle mode. L'idée est liée à la <i>Théorie de la classe de loisir</i> de Veblen (1899), et Blumer (1969) l'a critiquée, soutenant que la mode ne descend pas simplement d'une classe à l'autre."
+},
+{
+"id": "s1064",
+"page": "fashion",
+"ko": "<b>핵심 가정과 수식:</b> 스타일을 원 위의 각도 θ로 두고 두 규칙을 씁니다. 대중은 가장 가까운 트렌드세터 쪽으로 한 걸음에 α도 다가가고(모방), 트렌드세터는 주변 대중의 밀도에 따라 최대 β도까지 한 방향으로 달아납니다(차별화). 모방 속도 α, 도망 속도 β, 흔들림, 트렌드세터 비율이 슬라이더입니다.",
+"en": "<b>Key assumptions and formulas:</b> A style is an angle θ on a circle and two rules apply. The crowd steps α degrees toward the nearest trendsetter (imitation), and trendsetters run in one direction at up to β degrees depending on the density of the crowd near them (distinction). The imitation speed α, flight speed β, wobble and share of trendsetters are the sliders.",
+"tr": "<b>Hypothèses et formules clés :</b> Un style est un angle θ sur un cercle et deux règles s'appliquent. La foule avance de α degrés vers le créateur de tendance le plus proche (imitation), et les créateurs de tendance fuient dans une direction jusqu'à β degrés selon la densité de la foule à proximité (distinction). La vitesse d'imitation α, la vitesse de fuite β, l'agitation et la part de créateurs de tendance sont les curseurs."
+},
+{
+"id": "s1065",
+"page": "fashion",
+"ko": "<b>이 프로젝트의 단순화:</b> Simmel은 계층 간 이동과 사회적 신호를 다뤘지만 여기서는 계층, 가격, 매체를 모두 빼고 한 줄의 원만 둡니다. \"트렌드세터는 한 방향으로만 달아난다\", \"모두가 한 시즌의 유행 주위에서 시작한다\", 3배 밀도 기준, ±30도 범위는 순환이 보이도록 이 프로젝트가 정한 가정입니다. 방향을 고정하지 않으면 하나의 순환이 생기지 않았습니다.",
+"en": "<b>What this project simplifies:</b> Simmel dealt with movement between classes and social signals, but here class, price and media are all left out and there is only a single circle. \"Trendsetters flee in one direction only,\" \"everyone starts around one season's fashion,\" the 3x density threshold and the ±30° window are assumptions this project chose so that a cycle can appear. Without a fixed direction no single cycle formed.",
+"tr": "<b>Ce que ce projet simplifie :</b> Simmel traitait du mouvement entre classes et des signaux sociaux, mais ici la classe, le prix et les médias sont tous laissés de côté et il n'y a qu'un seul cercle. « Les créateurs de tendance fuient dans une seule direction », « tout le monde commence autour de la mode d'une saison », le seuil de densité de 3x et la fenêtre de ±30° sont des hypothèses que ce projet a choisies pour qu'un cycle puisse apparaître. Sans direction fixe, aucun cycle unique ne s'est formé."
+},
+{
+"id": "s1066",
+"page": "fashion",
+"ko": "<b>이론값과 시뮬레이션:</b> 닫힌 해는 없지만 간단한 추론이 있습니다. 흐름 전체는 느린 쪽 속도로 돕니다. 한 라운드에 도는 각도는 약 min(α, β)이므로 α=β=2도면 100라운드에 0.55바퀴(200도/100라운드)쯤이라는 예상에 실측 0.53바퀴가 맞고, α=0.5/1이면 0.13/0.27바퀴(예상 0.14/0.28), β=1이면 0.26바퀴(예상 0.28)입니다. β=0이면 6,000라운드까지 회전 0.00입니다.",
+"en": "<b>Theory versus simulation:</b> There is no closed-form solution, but a simple argument exists: the whole flow turns at the slower of the two speeds. The angle per round is about min(α, β), so with α=β=2° one expects around 0.55 turns per 100 rounds and the measured value is 0.53; α=0.5/1 gives 0.13/0.27 turns (expected 0.14/0.28), and β=1 gives 0.26 (expected 0.28). With β=0 there is zero rotation up to 6,000 rounds.",
+"tr": "<b>Théorie et simulation :</b> Il n'existe pas de solution analytique, mais un argument simple existe : tout le flux tourne à la plus lente des deux vitesses. L'angle par tour est d'environ min(α, β), donc avec α=β=2° on attend environ 0,55 tour par 100 tours et la valeur mesurée est 0,53 ; α=0,5/1 donne 0,13/0,27 tour (attendu 0,14/0,28), et β=1 donne 0,26 (attendu 0,28). Avec β=0, il n'y a aucune rotation jusqu'à 6 000 tours."
+},
+{
+"id": "s1067",
+"page": "fashion",
+"ko": "<b>더 읽을거리:</b> Simmel (1904), 「Fashion」, International Quarterly 10. Veblen (1899), 『The Theory of the Leisure Class』. Blumer (1969), 「Fashion: From Class Differentiation to Collective Selection」, The Sociological Quarterly 10(3). Acerbi, Ghirlanda & Enquist (2012), 「The Logic of Fashion Cycles」, PLoS ONE 7(3).",
+"en": "<b>Further reading:</b> Simmel (1904), \"Fashion\", <i>International Quarterly</i> 10. Veblen (1899), <i>The Theory of the Leisure Class</i>. Blumer (1969), \"Fashion: From Class Differentiation to Collective Selection\", <i>The Sociological Quarterly</i> 10(3). Acerbi, Ghirlanda & Enquist (2012), \"The Logic of Fashion Cycles\", <i>PLoS ONE</i> 7(3).",
+"tr": "<b>Pour aller plus loin :</b> Simmel (1904), « Fashion », <i>International Quarterly</i> 10. Veblen (1899), <i>The Theory of the Leisure Class</i>. Blumer (1969), « Fashion: From Class Differentiation to Collective Selection », <i>The Sociological Quarterly</i> 10(3). Acerbi, Ghirlanda &amp; Enquist (2012), « The Logic of Fashion Cycles », <i>PLoS ONE</i> 7(3)."
+},
+{
+"id": "s1068",
+"page": "fashion",
+"ko": "이 프로젝트가 직접 설계한 단순화 모델이며 특정 논문의 재현이 아닙니다.",
+"en": "A stylized model of this project's own design, not a reproduction of a paper.",
+"tr": "Un modèle stylisé conçu par ce projet, et non la reproduction d'un article."
+},
+{
+"id": "s1105",
+"page": "firefly",
+"ko": "서로 앞당기는 세기와 볼 수 있는 범위가 충분하면 중앙 지휘 없이 거의 한 박자로 맞춰졌어요.",
+"en": "With enough mutual nudging and viewing range, the fireflies synced up with no central leader.",
+"tr": "Avec assez d'influence mutuelle et de portée de vue, les lucioles se sont synchronisées sans aucun chef central."
+},
+{
+"id": "s1106",
+"page": "firefly",
+"ko": "반짝임을 본 이웃이 시계를 앞당기면 박자 차이가 줄어들지만, 개체마다 속도가 다르면 완전히 맞지는 않아요.",
+"en": "Neighbors that see a flash advance their clocks, shrinking timing gaps, but differing speeds keep sync from being perfect.",
+"tr": "Les voisines qui voient un éclair avancent leur horloge, ce qui réduit les écarts de timing, mais les vitesses différentes empêchent la synchronisation d'être parfaite."
+}
+]

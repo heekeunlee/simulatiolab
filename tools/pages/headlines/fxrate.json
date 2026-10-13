@@ -1,20 +1,20 @@
 {
  "says_ko": [
-  "캐리 거래는 연 3.1%를 벌었지만, 쏠림 때문에 최악의 한 주는 평균 -10.0%였습니다.",
-  "평균 이익이 있어도 쏠림이 있으면 큰 손실 쪽으로 꼬리가 긴 모양이 생길 수 있습니다.",
-  "평균 수익만 보면 이런 급락 위험이 가려질 수 있으니, 분포의 모양까지 살펴볼 만합니다."
+  "캐리 거래는 연 3.1%를 벌었지만, 최악의 한 주는 평균 -10.0%였습니다.",
+  "이 모델에서는 쏠림이 천천히 쌓이다 한 주에 일제히 풀리며 통화값이 밀려, 왼쪽 꼬리가 길어졌습니다.",
+  "평균 수익만이 아니라 쏠림이 얼마나 쌓였는지와 급락의 모양까지 살펴볼 만합니다."
  ],
  "says_en": [
-  "The carry trade earned 3.1% a year on average, but with crowding the worst week averaged a -10.0% crash.",
-  "Even with a positive average gain, crowding can create a long tail toward large losses.",
-  "Looking only at average returns can hide such crash risk, so the shape of the distribution is worth examining."
+  "Carry earned 3.1% a year, but the worst week averaged -10.0%.",
+  "In this model crowding builds slowly and unwinds in one week, pushing the currency down and making a long left tail.",
+  "Beyond average returns, how much crowding has built up and the shape of the drops are worth examining."
  ],
  "not_ko": [
-  "환율이나 이익을 맞히는 모델이 아닙니다. 투자 판단에 쓰지 마세요.",
-  "실제 급락의 원인이 쏠림이라고 증명하지 않으며, 메커니즘 하나를 보여 줄 뿐입니다."
+  "환율이나 이익을 맞히는 모델이 아닙니다. 투자 판단에 쓰지 마세요. 금리 차이와 쏠림 규칙은 예시 값입니다.",
+  "실제 급락에 쏠림이 얼마나 작용했는지는 이 모델로 알 수 없어, 실제 자료로 따로 확인해야 합니다."
  ],
  "not_en": [
-  "This model cannot predict exchange rates or profits, so do not use it for investment decisions.",
-  "It does not prove crowding causes real crashes; it only shows one possible mechanism."
+  "It does not predict exchange rates or profits and is not for investment decisions; the rate gap and crowding rules are examples.",
+  "How much crowding drove real crashes cannot be told from this model and must be checked against real data."
  ]
 }

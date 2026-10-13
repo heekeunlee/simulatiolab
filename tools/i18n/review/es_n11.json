@@ -1,0 +1,450 @@
+[
+{
+"id": "s1905",
+"page": "secretary",
+"ko": "<b>이 프로젝트의 단순화:</b> 이 페이지는 원 문제의 이상화된 가정(후보 수를 알고, 상대 순위만 알고, 되돌릴 수 없음)을 그대로 따르면서, 끝까지 고르지 못하면 마지막 후보를 받는다는 규칙을 둡니다. \"상위 2명, 3명까지 성공\" 보기는 이 프로젝트가 덧붙인 변형이며 같은 한 번의 컷오프 규칙을 쓰므로 그 기준의 최적 전략이 아닐 수 있습니다. 점수의 크기는 이 프로젝트가 정한 값입니다.",
+"en": "<b>What this project simplifies:</b> This page keeps the original idealized assumptions (known number of candidates, only relative ranks known, no going back) and adds the rule that if you never choose, you are stuck with the last candidate. The \"top 2 or top 3 counts\" option is a variant added by this project and uses the same single-cutoff rule, so it may not be the optimal strategy for that goal. The size of the scores is this project's own choice.",
+"tr": "<b>Qué simplifica este proyecto:</b> Esta página mantiene los supuestos idealizados originales (número de candidatos conocido, solo se conocen los puestos relativos, sin vuelta atrás) y añade la regla de que, si nunca eliges, te quedas con el último candidato. La opción de «cuentan los 2 o 3 mejores» es una variante añadida por este proyecto y usa la misma regla de un único punto de corte, por lo que puede no ser la estrategia óptima para ese objetivo. El tamaño de las puntuaciones es una elección propia de este proyecto."
+},
+{
+"id": "s1906",
+"page": "secretary",
+"ko": "<b>이론값과 시뮬레이션:</b> 정확한 값의 합은 모든 설정에서 1과 1e-14 안으로 맞았고, 1위 확률은 위 닫힌 식과 같았습니다. 30,000번씩 돌린 시뮬레이션은 정확한 값과 최대 0.71%p 차이였습니다. 최적 관찰 비율은 후보 100명에서 37%(37.1%), 1,000명에서 36.8%(36.8%)로 1/e와 맞았습니다.",
+"en": "<b>Theory versus simulation:</b> The exact probabilities summed to 1 within 1e-14 in every setting, and the chance of the best matched the closed formula above. Simulations of 30,000 runs differed from the exact values by at most 0.71 percentage points. The best observation share was 37% (37.1%) with 100 candidates and 36.8% (36.8%) with 1,000, matching 1/e.",
+"tr": "<b>Teoría frente a simulación:</b> Las probabilidades exactas sumaron 1 con un error inferior a 1e-14 en todos los ajustes, y la probabilidad del mejor coincidió con la fórmula cerrada de arriba. Las simulaciones de 30.000 ejecuciones difirieron de los valores exactos como máximo en 0,71 puntos porcentuales. La mejor proporción de observación fue 37 % (37,1 %) con 100 candidatos y 36,8 % (36,8 %) con 1.000, en concordancia con 1/e."
+},
+{
+"id": "s1907",
+"page": "secretary",
+"ko": "<b>더 읽을거리:</b> Ferguson (1989), \"Who Solved the Secretary Problem?\", <i>Statistical Science</i> 4(3)가 역사를 다룬 읽기 쉬운 개설입니다. 그 밖에 위의 Gilbert &amp; Mosteller (1966)와 Gardner의 1960년 칼럼을 보세요.",
+"en": "<b>Further reading:</b> Ferguson (1989), \"Who Solved the Secretary Problem?\", <i>Statistical Science</i> 4(3), is a readable overview of the history. See also Gilbert &amp; Mosteller (1966) above and Gardner's 1960 column.",
+"tr": "<b>Lecturas complementarias:</b> Ferguson (1989), «Who Solved the Secretary Problem?», <i>Statistical Science</i> 4(3), es un panorama legible de la historia. Véanse también Gilbert &amp; Mosteller (1966), citado arriba, y la columna de Gardner de 1960."
+},
+{
+"id": "s1908",
+"page": "secretary",
+"ko": "시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 점수는 전체 순위를 100점 만점으로 바꾼 값일 뿐이며 판단에는 순서만 쓰입니다. 컷오프 r은 후보 수 × 비율을 반올림한 값이고 1 이상 후보 수 - 1 이하로 맞춥니다.",
+"en": "The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. The score is just the overall rank converted to a 100-point scale; only the order is used in decisions. The cutoff r is the number of candidates × the share, rounded, and kept between 0 and n − 1.",
+"tr": "La simulación usa un generador aleatorio con semilla (mulberry32), así que la misma semilla da el mismo resultado. La puntuación es solo el puesto global convertido a una escala de 100 puntos; en las decisiones solo se usa el orden. El punto de corte r es el número de candidatos × la proporción, redondeado y mantenido entre 0 y n − 1."
+},
+{
+"id": "s1909",
+"page": "secretary",
+"ko": "정확한 값은 닫힌 식으로 계산하고(차트 ②~④의 선과 막대), 점은 시뮬레이션입니다. 검증은 <code>node tools/validate-secretary.js</code>로 할 수 있습니다.",
+"en": "Exact values come from closed-form formulas (the lines and bars in charts ② to ④), and the dots are simulations. You can verify with <code>node tools/validate-secretary.js</code>.",
+"tr": "Los valores exactos provienen de fórmulas cerradas (las líneas y barras de los gráficos ② a ④) y los puntos son simulaciones. Puedes comprobarlo con <code>node tools/validate-secretary.js</code>."
+},
+{
+"id": "s1910",
+"page": "secretary",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/secretary\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/secretary\">GitHub</a>.",
+"tr": "El código está disponible en <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/secretary\">GitHub</a>."
+},
+{
+"id": "s1962",
+"page": "sunflower",
+"ko": "씨앗 600개에서 황금각은 빈틈 평균 0.38로, 90~180도를 훑은 각도 중 더 낮은 건 0.3%뿐이었어요.",
+"en": "At 600 seeds the golden angle's mean gap was 0.38, and only 0.3% of angles from 90 to 180 degrees beat it.",
+"tr": "Con 600 semillas, la separación media del ángulo áureo fue 0,38, y solo el 0,3 % de los ángulos entre 90 y 180 grados lo superó."
+},
+{
+"id": "s1963",
+"page": "sunflower",
+"ko": "간단한 분수 각도는 같은 방향으로 겹쳐 쌓여 바큇살과 큰 빈틈이 생기고, 황금각은 그런 분수에서 가장 멀기 때문일 수 있어요.",
+"en": "Simple-fraction angles stack seeds in the same directions, leaving spokes and big gaps, and the golden angle is farthest from such fractions.",
+"tr": "Los ángulos de fracciones simples apilan las semillas en las mismas direcciones, dejando radios y grandes huecos, y el ángulo áureo es el más alejado de esas fracciones."
+},
+{
+"id": "s1964",
+"page": "sunflower",
+"ko": "고르게 채우는 배치를 찾는다면 특정 각도 자체보다 반복되는 규칙적 겹침을 피하는지부터 살펴볼 만해요.",
+"en": "In looking for even packing, avoiding repeated regular overlaps may matter more than any one angle.",
+"tr": "Al buscar un empaquetado uniforme, evitar superposiciones regulares repetidas puede importar más que cualquier ángulo concreto."
+},
+{
+"id": "s1966",
+"page": "sunflower",
+"ko": "실제 해바라기가 이 계산으로 만들어진다는 증명은 아니고, 황금각만 잘 채우는 것도 아니에요.",
+"en": "It does not prove real sunflowers are built this way, and the golden angle is not the only good packer.",
+"tr": "No demuestra que los girasoles reales se formen así, y el ángulo áureo no es el único buen empaquetador."
+},
+{
+"id": "s1967",
+"page": "sunflower",
+"ko": "실제 식물의 씨앗이 생기는 순서와 각도를 관찰해 새 씨앗이 빈자리에 생기는 과정과 비교해 봐야 해요.",
+"en": "Observing the order and angles of real seeds would test the idea that new seeds form in the emptiest spot.",
+"tr": "Observar el orden y los ángulos de las semillas reales permitiría contrastar la idea de que las nuevas semillas se forman en el lugar más vacío."
+},
+{
+"id": "s1969",
+"page": "sunflower",
+"ko": "<b>모델의 뿌리:</b> 식물의 잎·씨앗 배열(잎차례, phyllotaxis)을 설명하는 <b>Vogel의 나선</b>입니다. Vogel (1979, <i>Mathematical Biosciences</i>)은 <code>r = c√k</code>, <code>θ = k × 137.5°</code>로 해바라기 머리를 그릴 수 있음을 보였고, Douady, Couder (1992, <i>Physical Review Letters</i>)는 새 원기가 기존 것에서 가장 먼 빈자리에 생기는 과정이 황금각 배열로 이어짐을 실험과 모델로 보였습니다.",
+"en": "<b>Where the model comes from:</b> This is <b>Vogel's spiral</b>, a model of how leaves and seeds are arranged on plants (phyllotaxis). Vogel (1979, <i>Mathematical Biosciences</i>) showed that a sunflower head can be drawn with <code>r = c√k</code>, <code>θ = k × 137.5°</code>, and Douady and Couder (1992, <i>Physical Review Letters</i>) showed with experiments and a model that new primordia forming in the emptiest spot lead to the golden-angle arrangement.",
+"tr": "<b>De dónde viene el modelo:</b> Es la <b>espiral de Vogel</b>, un modelo de cómo se disponen las hojas y las semillas en las plantas (filotaxis). Vogel (1979, <i>Mathematical Biosciences</i>) mostró que la cabeza de un girasol puede dibujarse con <code>r = c√k</code>, <code>θ = k × 137.5°</code>, y Douady y Couder (1992, <i>Physical Review Letters</i>) mostraron con experimentos y un modelo que los nuevos primordios que se forman en el lugar más vacío llevan a la disposición del ángulo áureo."
+},
+{
+"id": "s1970",
+"page": "sunflower",
+"ko": "<b>핵심 가정과 수식:</b> 황금각은 <code>360°(1 − 1/φ) = 360°/φ<sup>2</sup> ≈ 137.508°</code> (<code>φ = (1+√5)/2</code>)입니다. 황금비는 연분수가 전부 1이라 유리수로 가장 근사하기 어려운 무리수여서(Hurwitz 정리), 어떤 방향으로도 씨앗이 겹쳐 쌓이지 않습니다. 슬라이더의 각도가 <code>θ</code>이고 씨앗 수가 <code>k</code>의 범위입니다.",
+"en": "<b>Key assumptions and formulas:</b> The golden angle is <code>360°(1 − 1/φ) = 360°/φ<sup>2</sup> ≈ 137.508°</code>, with <code>φ = (1+√5)/2</code>. Because all the terms of its continued fraction are 1, the golden ratio is the hardest irrational to approximate by fractions (Hurwitz's theorem), so seeds never stack along a few directions. The angle slider is <code>θ</code> and the seed count is the range of <code>k</code>.",
+"tr": "<b>Supuestos clave y fórmulas:</b> El ángulo áureo es <code>360°(1 − 1/φ) = 360°/φ<sup>2</sup> ≈ 137.508°</code>, con <code>φ = (1+√5)/2</code>. Como todos los términos de su fracción continua son 1, la razón áurea es el irracional más difícil de aproximar con fracciones (teorema de Hurwitz), de modo que las semillas nunca se apilan en unas pocas direcciones. El control deslizante del ángulo es <code>θ</code> y el número de semillas es el rango de <code>k</code>."
+},
+{
+"id": "s1971",
+"page": "sunflower",
+"ko": "<b>이 프로젝트의 단순화:</b> 이 구현은 씨앗의 위치만 계산하는 기하학 모델이고, 새 씨앗이 생기는 호르몬·억제 과정은 다루지 않습니다. 채움 품질의 정의(반지름 85% 안 점들에서 가장 가까운 씨앗까지 거리)와 씨앗 크기는 이 프로젝트가 정한 값이고, 논문 수치의 재현이 아닙니다.",
+"en": "<b>What this project simplifies:</b> This implementation is a geometric model that only computes seed positions and does not model the hormonal or inhibitory process that creates new seeds. The packing-quality definition (distance from probe points inside 85% of the radius to the nearest seed) and the seed size are this project's own choices, and no paper's numbers are reproduced.",
+"tr": "<b>Qué simplifica este proyecto:</b> Esta implementación es un modelo geométrico que solo calcula las posiciones de las semillas y no modela el proceso hormonal o inhibidor que crea las semillas nuevas. La definición de calidad de empaquetado (distancia desde puntos de sondeo dentro del 85 % del radio hasta la semilla más cercana) y el tamaño de las semillas son elecciones propias de este proyecto, y no se reproducen las cifras de ningún artículo."
+},
+{
+"id": "s1972",
+"page": "sunflower",
+"ko": "<b>이론값과 시뮬레이션:</b> 이론이 말하는 것은 \"황금각이 고르다\"는 것이고, 시뮬레이션에서 씨앗 1,000개의 빈틈 평균은 황금각 0.381, 137.7° 0.441, 144° 3.069, 90° 3.776, 180° 6.435였습니다. 이웃 거리의 변동계수도 황금각 0.011, 137° 0.117, 138° 0.157로, 0.5° 안팎만 어긋나도 한 자릿수 배 가까이 고르지 못했습니다. 다만 황금각만 잘 채우는 것은 아니고 가장 낮은 값을 다투는 각도가 가까이에 있습니다.",
+"en": "<b>Theory versus simulation:</b> Theory says the golden angle is even, and in the simulation with 1,000 seeds the average gap was 0.381 at the golden angle, 0.441 at 137.7°, 3.069 at 144°, 3.776 at 90° and 6.435 at 180°. The coefficient of variation of neighbor distances was 0.011 at the golden angle, 0.117 at 137° and 0.157 at 138°, so an error of about half a degree already made spacing roughly ten times less even. The golden angle is not the only good one, though; other angles come close.",
+"tr": "<b>Teoría frente a simulación:</b> La teoría dice que el ángulo áureo es uniforme, y en la simulación con 1.000 semillas el hueco medio fue 0,381 con el ángulo áureo, 0,441 a 137,7°, 3,069 a 144°, 3,776 a 90° y 6,435 a 180°. El coeficiente de variación de las distancias entre vecinas fue 0,011 con el ángulo áureo, 0,117 a 137° y 0,157 a 138°, de modo que un error de apenas medio grado ya hizo el espaciado unas diez veces menos uniforme. Sin embargo, el ángulo áureo no es el único bueno; otros ángulos se le acercan."
+},
+{
+"id": "s1973",
+"page": "sunflower",
+"ko": "<b>더 읽을거리:</b> Vogel (1979), \"A better way to construct the sunflower head\", <i>Mathematical Biosciences</i> 44. Douady, Couder (1992), \"Phyllotaxis as a physical self-organized growth process\", <i>Physical Review Letters</i> 68. Prusinkiewicz, Lindenmayer (1990), 『The Algorithmic Beauty of Plants』, Springer.",
+"en": "<b>Further reading:</b> Vogel (1979), \"A better way to construct the sunflower head\", <i>Mathematical Biosciences</i> 44. Douady, Couder (1992), \"Phyllotaxis as a physical self-organized growth process\", <i>Physical Review Letters</i> 68. Prusinkiewicz, Lindenmayer (1990), <i>The Algorithmic Beauty of Plants</i>, Springer.",
+"tr": "<b>Lecturas complementarias:</b> Vogel (1979), «A better way to construct the sunflower head», <i>Mathematical Biosciences</i> 44. Douady, Couder (1992), «Phyllotaxis as a physical self-organized growth process», <i>Physical Review Letters</i> 68. Prusinkiewicz, Lindenmayer (1990), <i>The Algorithmic Beauty of Plants</i>, Springer."
+},
+{
+"id": "s1975",
+"page": "sunflower",
+"ko": "씨앗 1,000개에서 황금각의 이웃 거리 변동계수는 0.011이고, 137°는 0.117, 138°는 0.157, 144°는 0.198로 모두 더 높았습니다. 검증은 <code>node tools/validate-sunflower.js</code>로 할 수 있습니다.",
+"en": "With 1,000 seeds the coefficient of variation of neighbor distances is 0.011 at the golden angle, versus 0.117 at 137°, 0.157 at 138° and 0.198 at 144°. You can verify with <code>node tools/validate-sunflower.js</code>.",
+"tr": "Con 1.000 semillas, el coeficiente de variación de las distancias entre vecinas es 0,011 con el ángulo áureo, frente a 0,117 a 137°, 0,157 a 138° y 0,198 a 144°. Puedes comprobarlo con <code>node tools/validate-sunflower.js</code>."
+},
+{
+"id": "s2015",
+"page": "survivor",
+"ko": "이 모델에서는 구멍이 빈 엔진·조종석을 보강하면 생존율이 67.9%에서 83.3%로 올랐어요.",
+"en": "In this model, reinforcing the engine and cockpit, where holes were absent, raised survival from 67.9% to 83.3%.",
+"tr": "En este modelo, reforzar el motor y la cabina, donde no había agujeros, elevó la supervivencia del 67,9 % al 83,3 %."
+},
+{
+"id": "s2016",
+"page": "survivor",
+"ko": "치명적인 곳에 맞은 비행기는 돌아오지 못해 증거가 사라지므로, 구멍이 적은 곳은 덜 맞은 곳이 아니라 맞으면 못 돌아오는 곳일 수 있어요.",
+"en": "Planes hit in fatal spots never return and their evidence vanishes, so few holes may mean hits that cannot be survived, not hits that never happened.",
+"tr": "Los aviones alcanzados en puntos letales nunca regresan y sus pruebas desaparecen, así que pocos agujeros pueden significar impactos que no se pueden sobrevivir, no impactos que nunca ocurrieron."
+},
+{
+"id": "s2017",
+"page": "survivor",
+"ko": "눈에 보이는 사례만 볼 때는 사라진 사례가 무엇인지, 어디서 걸러졌는지부터 물어볼 만해요.",
+"en": "When only visible cases are in front of you, asking what went missing and where it was filtered out is a good first step.",
+"tr": "Cuando solo se tienen delante los casos visibles, preguntar qué falta y dónde se filtró es un buen primer paso."
+},
+{
+"id": "s2019",
+"page": "survivor",
+"ko": "월드의 실제 보고서 내용도, 모든 상황에서 맞는 규칙도 아니에요. 부위별 치명률과 장갑 효과는 이 모델이 정한 값이에요.",
+"en": "It is neither Wald's actual report nor a rule that always holds; the per-part lethality and armor effect are values set by this model.",
+"tr": "No es el informe real de Wald ni una regla que siempre se cumpla; la letalidad por pieza y el efecto del blindaje son valores fijados por este modelo."
+},
+{
+"id": "s2020",
+"page": "survivor",
+"ko": "실제에서는 부위별 치명률을 모르니, 돌아오지 못한 사례를 포함해 그것을 추정하는 방법과 자료가 더 필요해요.",
+"en": "Real lethality per part is unknown, so methods and data that estimate it, including cases that never came back, are needed.",
+"tr": "Se desconoce la letalidad real por pieza, así que hacen falta métodos y datos que la estimen, incluidos los casos que nunca regresaron."
+},
+{
+"id": "s2022",
+"page": "survivor",
+"ko": "<b>모델의 뿌리:</b> 2차 세계대전 때 컬럼비아 대학 통계연구그룹의 Abraham Wald가 한 항공기 생존성 연구에 얽힌 이야기로, 생존자 편향의 고전 사례로 자주 인용됩니다. Wald의 연구는 돌아온 비행기의 피해만으로 부위별 &quot;맞았을 때 생존할 확률&quot;을 추정하는 통계 방법이었고(Mangel과 Samaniego, 1984가 해설), &quot;구멍 없는 곳을 보강하라&quot;는 한 줄 요약은 널리 퍼지면서 단순해진 것입니다.",
+"en": "<b>Where the model comes from:</b> A story tied to the aircraft survivability work of Abraham Wald at Columbia University's Statistical Research Group in the Second World War, often cited as a classic case of survivorship bias. Wald's work was a statistical method for estimating each section's chance of surviving a hit from the damage on returned planes alone (explained by Mangel and Samaniego, 1984); the one-line version &quot;armor where the holes are missing&quot; is a simplification that spread later.",
+"tr": "<b>De dónde viene el modelo:</b> Una historia vinculada al trabajo de Abraham Wald sobre la capacidad de supervivencia de los aviones en el Statistical Research Group de la Universidad de Columbia durante la Segunda Guerra Mundial, citada a menudo como caso clásico de sesgo de supervivencia. El trabajo de Wald fue un método estadístico para estimar la probabilidad de supervivencia de cada sección ante un impacto a partir solo de los daños de los aviones que regresaron (explicado por Mangel y Samaniego, 1984); la versión de una línea «blindaje donde faltan los agujeros» es una simplificación que se difundió después."
+},
+{
+"id": "s2023",
+"page": "survivor",
+"ko": "<b>핵심 가정과 수식:</b> 총탄 수는 평균 3인 푸아송 분포이고, 각 탄은 부위 s의 면적 비율 a<sub>s</sub>로 떨어져 치명률 l<sub>s</sub>로 비행기를 추락시킵니다. 장갑은 총탄을 70% 막으므로 치명률에 0.3을 곱합니다. 푸아송 분포에서 추락하는 탄만 솎아 내면 출격당 생존 확률은 <code>exp(−3 Σ a<sub>s</sub>·l<sub>s</sub>·m<sub>s</sub>)</code>(장갑이면 m = 0.3, 아니면 1)입니다. 치명적인 부위일수록 돌아온 비행기에서 구멍이 덜 보입니다. 슬라이더는 엔진 치명률, 보강 곳수, 출격 횟수입니다.",
+"en": "<b>Key assumptions and formulas:</b> The number of hits is Poisson with mean 3, and each bullet lands in section s with area share a<sub>s</sub> and brings the plane down with lethality l<sub>s</sub>. Armor stops 70% of bullets, so lethality is multiplied by 0.3. Thinning the Poisson count to the bullets that bring the plane down gives the survival chance per sortie <code>exp(−3 Σ a<sub>s</sub>·l<sub>s</sub>·m<sub>s</sub>)</code> (m = 0.3 if armored, else 1). The deadlier a section, the fewer holes show on returned planes. The sliders are engine lethality, the number of armored sections and the number of sorties.",
+"tr": "<b>Supuestos clave y fórmulas:</b> El número de impactos sigue una distribución de Poisson de media 3, y cada bala cae en la sección s con proporción de área a<sub>s</sub> y derriba el avión con letalidad l<sub>s</sub>. El blindaje detiene el 70 % de las balas, así que la letalidad se multiplica por 0,3. Al adelgazar el conteo de Poisson a las balas que derriban el avión, la probabilidad de supervivencia por salida es <code>exp(−3 Σ a<sub>s</sub>·l<sub>s</sub>·m<sub>s</sub>)</code> (m = 0,3 si está blindada, si no 1). Cuanto más letal es una sección, menos agujeros se ven en los aviones que regresan. Los controles deslizantes son la letalidad del motor, el número de secciones blindadas y el número de salidas."
+},
+{
+"id": "s2024",
+"page": "survivor",
+"ko": "<b>이 프로젝트의 단순화:</b> 부위 면적, 치명률(조종석 40%, 동체 5%, 날개 3%, 꼬리 5%), 장갑 효과 70%는 모두 이 프로젝트가 정한 값이며 Wald의 보고서 수치가 아닙니다. 총탄은 한 점에 독립적으로 떨어진다고 보았고, &quot;월드식 선택&quot;은 구멍 ÷ 넓이가 가장 작은 부위를 고르는 단순 규칙으로 흉내 낸 것이지 Wald의 추정 방법이 아닙니다.",
+"en": "<b>What this project simplifies:</b> The section areas, the lethalities (cockpit 40%, fuselage 5%, wings 3%, tail 5%) and the 70% armor effect are all this project's own values, not figures from Wald's report. Each bullet is taken to land independently at one point, and the &quot;Wald's way&quot; choice is imitated by a simple rule (pick the sections with the smallest holes ÷ area), not Wald's estimation method.",
+"tr": "<b>Qué simplifica este proyecto:</b> Las áreas de las secciones, las letalidades (cabina 40 %, fuselaje 5 %, alas 3 %, cola 5 %) y el efecto del blindaje del 70 % son todos valores propios de este proyecto, no cifras del informe de Wald. Se supone que cada bala cae de forma independiente en un punto, y la opción «a la manera de Wald» se imita con una regla simple (elegir las secciones con menos agujeros ÷ área), no con el método de estimación de Wald."
+},
+{
+"id": "s2025",
+"page": "survivor",
+"ko": "<b>이론값과 시뮬레이션:</b> 엔진 치명률 50%, 2곳 보강에서 생존율 이론값은 무장갑 68.0%, 구멍 많은 곳(동체+날개) 71.4%, 엔진+조종석 83.3%이고, 시드 100개 평균 시뮬레이션은 68.0%, 71.4%, 83.4%였습니다. 출격 500회 이상에서는 모든 시드에서 월드식이 최선(엔진+조종석)을 골랐고 직관식은 한 번도 고르지 못했으며, 출격 100회에서는 월드식이 85%였습니다.",
+"en": "<b>Theory versus simulation:</b> With engine lethality 50% and two armored sections, the theoretical survival is 68.0% unarmored, 71.4% for armor where the holes are (fuselage + wings) and 83.3% for engine + cockpit; the simulation averaged over 100 seeds gave 68.0%, 71.4% and 83.4%. From 500 sorties on, the Wald-style rule picked the best option (engine + cockpit) in every seed and the intuitive rule never did; at 100 sorties the Wald-style rule did so in 85%.",
+"tr": "<b>Teoría frente a simulación:</b> Con una letalidad del motor del 50 % y dos secciones blindadas, la supervivencia teórica es 68,0 % sin blindaje, 71,4 % con blindaje donde están los agujeros (fuselaje + alas) y 83,3 % con motor + cabina; la simulación promediada en 100 semillas dio 68,0 %, 71,4 % y 83,4 %. A partir de 500 salidas, la regla al estilo de Wald eligió la mejor opción (motor + cabina) en todas las semillas y la regla intuitiva nunca; con 100 salidas, la regla al estilo de Wald lo logró en el 85 %."
+},
+{
+"id": "s2026",
+"page": "survivor",
+"ko": "<b>더 읽을거리:</b> Mangel &amp; Samaniego (1984), Abraham Wald's work on aircraft survivability, <i>Journal of the American Statistical Association</i> / Wald, A., A method of estimating plane vulnerability based on damage of survivors (Statistical Research Group 보고서, 1980년 Center for Naval Analyses 재간행) / Ellenberg (2014), <i>How Not to Be Wrong</i>, Penguin.",
+"en": "<b>Further reading:</b> Mangel &amp; Samaniego (1984), Abraham Wald's work on aircraft survivability, <i>Journal of the American Statistical Association</i> / Wald, A., A method of estimating plane vulnerability based on damage of survivors (Statistical Research Group report, reprinted by the Center for Naval Analyses in 1980) / Ellenberg (2014), <i>How Not to Be Wrong</i>, Penguin.",
+"tr": "<b>Lecturas complementarias:</b> Mangel y Samaniego (1984), Abraham Wald's work on aircraft survivability, <i>Journal of the American Statistical Association</i> / Wald, A., A method of estimating plane vulnerability based on damage of survivors (informe del Statistical Research Group, reimpreso por el Center for Naval Analyses en 1980) / Ellenberg (2014), <i>How Not to Be Wrong</i>, Penguin."
+},
+{
+"id": "s2061",
+"page": "talent-vs-luck",
+"ko": "재능이 비슷해도 운이 몇 번 겹치면 부의 격차가 극단적으로 벌어질 수 있어요.",
+"en": "Even with similar talent, a few lucky breaks can open extreme wealth gaps.",
+"tr": "Incluso con un talento similar, unas pocas rachas de suerte pueden abrir enormes brechas de riqueza."
+},
+{
+"id": "s2062",
+"page": "talent-vs-luck",
+"ko": "이 모델에서는 자본이 2배, 절반으로 곱해져 쌓이고 재능은 기회를 살릴 확률에만 들어가, 작은 운이 크게 불어나요.",
+"en": "Here capital doubles or halves and talent only sets the chance of seizing luck, so small luck compounds hugely.",
+"tr": "Aquí el capital se duplica o se reduce a la mitad y el talento solo fija la probabilidad de aprovechar la suerte, así que una pequeña suerte se acumula enormemente."
+},
+{
+"id": "s2063",
+"page": "talent-vs-luck",
+"ko": "격차가 클 때는 재능 차이로 보기 전에, 운이 곱해져 쌓이는 구조인지부터 살펴볼 만해요.",
+"en": "When gaps are large, it is worth checking whether luck compounds before reading them as talent differences.",
+"tr": "Cuando las brechas son grandes, conviene comprobar si la suerte se acumula antes de atribuirlas a diferencias de talento."
+},
+{
+"id": "s2065",
+"page": "talent-vs-luck",
+"ko": "재능이 소용없다는 뜻은 아니에요. 이 모델은 교육, 상속, 제도가 없고 만남의 규칙도 이 프로젝트가 정했어요.",
+"en": "It does not mean talent is useless; the model has no education, inheritance or institutions, and its encounter rules are our own.",
+"tr": "No significa que el talento sea inútil; el modelo no tiene educación, herencia ni instituciones, y sus reglas de encuentro son propias."
+},
+{
+"id": "s2066",
+"page": "talent-vs-luck",
+"ko": "현실에서는 성공 경로에서 운이 어디에 얼마나 작용했는지 기록하고, 모델에 없는 요인을 넣어 비교해 봐야 해요.",
+"en": "In reality one would record where luck acted along success paths and add missing factors to compare.",
+"tr": "En la realidad habría que registrar dónde actuó la suerte a lo largo de los caminos al éxito y añadir los factores que faltan para comparar."
+},
+{
+"id": "s2068",
+"page": "talent-vs-luck",
+"ko": "<b>모델의 뿌리:</b> Pluchino, Biondo, Rapisarda (2018)의 논문 \"Talent vs Luck: the role of randomness in success and failure\"(<i>Advances in Complex Systems</i>)를 재현한 모델입니다. 재능이 정규분포라도 자본은 파레토형으로 쏠리고, 최고 부자가 최고 재능자인 경우는 드물다는 것이 요지입니다.",
+"en": "<b>Where the model comes from:</b> A reproduction of Pluchino, Biondo and Rapisarda (2018), \"Talent vs Luck: the role of randomness in success and failure\" (<i>Advances in Complex Systems</i>). Its point: even with normally distributed talent, capital becomes highly concentrated, and the richest person is rarely the most talented.",
+"tr": "<b>De dónde viene el modelo:</b> Una reproducción de Pluchino, Biondo y Rapisarda (2018), «Talent vs Luck: the role of randomness in success and failure» (<i>Advances in Complex Systems</i>). Su idea: incluso con un talento distribuido normalmente, el capital se concentra mucho, y la persona más rica rara vez es la más talentosa."
+},
+{
+"id": "s2069",
+"page": "talent-vs-luck",
+"ko": "<b>핵심 가정과 수식:</b> 재능 <i>T</i>는 정규분포(평균 0.6, 표준편차 0.1), 초기 자본은 10입니다. 행운 이벤트를 만나면 확률 <i>T</i>로 자본이 2배, 불운 이벤트를 만나면 자본이 절반이 됩니다(불운에는 재능이 작용하지 않음). 재능은 \"기회를 살리는 확률\"에만 들어가므로, 이벤트 수와 비율을 바꾸는 슬라이더가 운의 크기를 조절합니다.",
+"en": "<b>Key assumptions and formulas:</b> Talent <i>T</i> is normally distributed (mean 0.6, s.d. 0.1) and initial capital is 10. On meeting a lucky event, capital doubles with probability <i>T</i>; on meeting an unlucky event, capital is halved (talent plays no role against bad luck). Talent only enters as the chance of exploiting an opportunity, so the event sliders control how large the role of luck is.",
+"tr": "<b>Supuestos clave y fórmulas:</b> El talento <i>T</i> se distribuye normalmente (media 0,6, desviación típica 0,1) y el capital inicial es 10. Al encontrarse con un evento afortunado, el capital se duplica con probabilidad <i>T</i>; al encontrarse con uno desafortunado, el capital se reduce a la mitad (el talento no influye ante la mala suerte). El talento solo interviene como la probabilidad de aprovechar una oportunidad, así que los controles deslizantes de eventos regulan cuánto pesa la suerte."
+},
+{
+"id": "s2070",
+"page": "talent-vs-luck",
+"ko": "<b>이 프로젝트의 단순화:</b> 세계는 201×201 칸 토러스, 이벤트는 한 스텝에 2칸씩 임의 방향으로 이동하고 반경 1칸 안이면 만난 것으로 칩니다. 이 값들과, 한 스텝에 이벤트를 여러 개 만났을 때 만난 순서대로 모두 적용하는 처리는 이 프로젝트가 정한 것입니다(논문에 처리 방식이 없음).",
+"en": "<b>What this project simplifies:</b> The world is a 201×201 torus; events move 2 cells per step in a random direction and count as met within a radius of 1 cell. These values, and applying all events met in one step in the order met, are this project's own choices (the paper gives no rule for this).",
+"tr": "<b>Qué simplifica este proyecto:</b> El mundo es un toro de 201×201; los eventos se mueven 2 celdas por paso en una dirección aleatoria y se consideran encontrados dentro de un radio de 1 celda. Estos valores, y aplicar en el orden en que se encuentran todos los eventos hallados en un paso, son elecciones propias de este proyecto (el artículo no da ninguna regla para esto)."
+},
+{
+"id": "s2071",
+"page": "talent-vs-luck",
+"ko": "<b>이론값과 시뮬레이션:</b> 논문 보고값은 상위 20%가 자본의 약 80%를 가지고, 한 번의 실행에서 최고 부자의 재능이 0.61 정도(평균 근처)라는 것입니다. 기본 설정 300회 실행에서 상위 20% 몫은 평균 78.8%로 비슷하지만, 최고 부자 재능은 중앙값 0.665로 논문 값보다 다소 높습니다(재능 평균 0.6보다는 조금 높은 정도). 최고 부자가 최고 재능자였던 비율은 0.3%였습니다(<code>node tools/validate.js</code>).",
+"en": "<b>Theory versus simulation:</b> The paper reports that the top 20% hold about 80% of capital and that, in a single run, the richest agent's talent is about 0.61 (near the mean). Over 300 runs with default settings, the top-20% share averages 78.8%, close to the paper, but the richest agent's median talent is 0.665, somewhat higher than the paper's value (still only a little above the mean of 0.6). The richest agent was also the most talented in only 0.3% of runs (<code>node tools/validate.js</code>).",
+"tr": "<b>Teoría frente a simulación:</b> El artículo informa de que el 20 % más rico posee cerca del 80 % del capital y de que, en una sola ejecución, el talento del agente más rico es de unos 0,61 (cerca de la media). En 300 ejecuciones con los ajustes por defecto, la proporción del 20 % superior promedia 78,8 %, cerca del artículo, pero la mediana del talento del agente más rico es 0,665, algo mayor que el valor del artículo (aun así solo un poco por encima de la media de 0,6). El agente más rico fue además el más talentoso en solo el 0,3 % de las ejecuciones (<code>node tools/validate.js</code>)."
+},
+{
+"id": "s2072",
+"page": "talent-vs-luck",
+"ko": "<b>더 읽을거리:</b> Pluchino, Biondo, Rapisarda (2018), 위 논문(<a href=\"https://arxiv.org/abs/1802.07068\">arXiv:1802.07068</a>). Robert H. Frank (2016), 『Success and Luck』, Princeton University Press. Robert K. Merton (1968), \"The Matthew Effect in Science\", <i>Science</i> 159.",
+"en": "<b>Further reading:</b> Pluchino, Biondo and Rapisarda (2018), the paper above (<a href=\"https://arxiv.org/abs/1802.07068\">arXiv:1802.07068</a>). Robert H. Frank (2016), <i>Success and Luck</i>, Princeton University Press. Robert K. Merton (1968), \"The Matthew Effect in Science\", <i>Science</i> 159.",
+"tr": "<b>Lecturas complementarias:</b> Pluchino, Biondo y Rapisarda (2018), el artículo anterior (<a href=\"https://arxiv.org/abs/1802.07068\">arXiv:1802,07068</a>). Robert H. Frank (2016), <i>Success and Luck</i>, Princeton University Press. Robert K. Merton (1968), «The Matthew Effect in Science», <i>Science</i> 159."
+},
+{
+"id": "s2106",
+"page": "telephone",
+"ko": "이야기는 전해질수록 평범한 세부부터 사라지고 기억에 남는 세부가 살아남아요.",
+"en": "As a story is retold, ordinary details vanish first and memorable ones survive.",
+"tr": "Al volver a contar una historia, los detalles corrientes desaparecen primero y los memorables sobreviven."
+},
+{
+"id": "s2107",
+"page": "telephone",
+"ko": "기억용이성이 낮을수록 한 번 전할 때 잊힐 확률이 높고, 튀는 세부는 익숙한 것으로 바뀌어서 독립된 사슬도 비슷해질 수 있어요.",
+"en": "Less memorable details are more likely to be forgotten each telling and odd ones get normalized, so separate chains can come to resemble each other.",
+"tr": "Los detalles menos memorables tienen más probabilidades de olvidarse en cada relato y los extraños se normalizan, de modo que cadenas distintas pueden acabar pareciéndose."
+},
+{
+"id": "s2108",
+"page": "telephone",
+"ko": "이야기가 닮아 간다면 전하는 사람보다 어떤 세부가 잘 남고 바뀌는지 규칙부터 살펴볼 만해요.",
+"en": "If stories converge, it may help to look first at which details tend to stay or change, rather than at who is telling.",
+"tr": "Si las historias convergen, puede ayudar mirar primero qué detalles tienden a permanecer o cambiar, más que quién las cuenta."
+},
+{
+"id": "s2110",
+"page": "telephone",
+"ko": "사람의 기억이 이 모델처럼 작동한다는 뜻은 아니에요.",
+"en": "It does not mean human memory works like this model.",
+"tr": "No significa que la memoria humana funcione como este modelo."
+},
+{
+"id": "s2111",
+"page": "telephone",
+"ko": "기억용이성과 모티프 목록은 임의로 정한 값이라, 실제 이야기에서는 전달 실험으로 따로 확인해야 해요.",
+"en": "Memorability and the motif list are arbitrary choices, so real stories would need to be checked with retelling experiments.",
+"tr": "La memorabilidad y la lista de motivos son elecciones arbitrarias, así que las historias reales habría que comprobarlas con experimentos de reelaboración."
+},
+{
+"id": "s2113",
+"page": "telephone",
+"ko": "<b>모델의 뿌리:</b> Bartlett (1932), 『Remembering』(Cambridge University Press)의 \"연쇄 재현\" 실험에서 온 발상입니다. 영국 학자 바틀릿은 북미 원주민 설화 「유령들의 전쟁」을 사람에서 사람으로 거듭 다시 말하게 했고, 이야기가 짧아지고 낯선 세부가 익숙한 것으로 바뀐다고 보고했습니다. 다만 후속 재현 연구에서는 왜곡이 그만큼 크지 않았다는 결과도 있어 해석이 갈립니다.",
+"en": "<b>Where the model comes from:</b> The idea comes from the serial-reproduction experiments in Bartlett (1932), <i>Remembering</i> (Cambridge University Press). Bartlett had people retell the Native American tale \"The War of the Ghosts\" again and again, and reported that it became shorter and that unfamiliar details were replaced by familiar ones. Later replications found less distortion than he described, so the interpretation is debated.",
+"tr": "<b>De dónde viene el modelo:</b> La idea procede de los experimentos de reproducción en serie de Bartlett (1932), <i>Remembering</i> (Cambridge University Press). Bartlett hizo que la gente volviera a contar una y otra vez el cuento nativo americano «La guerra de los fantasmas», e informó de que se acortaba y de que los detalles desconocidos se sustituían por otros familiares. Réplicas posteriores hallaron menos distorsión de la que él describió, así que la interpretación se debate."
+},
+{
+"id": "s2114",
+"page": "telephone",
+"ko": "<b>핵심 가정과 수식:</b> 모티프 하나가 한 번의 전달에서 살아남을 확률은 <code>p = 1 − (1 − 기억력) × (1.5 × (1 − 기억용이성) + 0.1)</code>입니다. 기억력 슬라이더는 이 식의 앞부분이고, 기억용이성이 낮은 평범한 모티프일수록 p가 낮아 먼저 사라집니다. 낯선 세부가 익숙한 모티프로 바뀌는 확률이 관습화, 새 모티프가 붙는 확률이 덧붙이기입니다.",
+"en": "<b>Key assumptions and formulas:</b> The probability that a motif survives one retelling is <code>p = 1 − (1 − memory) × (1.5 × (1 − memorability) + 0.1)</code>. The memory slider is the first part of this formula, and plain motifs with low memorability have a lower p and vanish first. The chance that an odd detail is swapped for a familiar motif is conventionality, and the chance that a new motif is added is embellishment.",
+"tr": "<b>Supuestos clave y fórmulas:</b> La probabilidad de que un motivo sobreviva a un relato es <code>p = 1 − (1 − memory) × (1.5 × (1 − memorability) + 0.1)</code>. El control deslizante de memoria es la primera parte de esta fórmula, y los motivos corrientes con poca memorabilidad tienen una p menor y desaparecen primero. La probabilidad de que un detalle raro se cambie por un motivo familiar es la convencionalidad, y la de que se añada un motivo nuevo es el embellecimiento."
+},
+{
+"id": "s2115",
+"page": "telephone",
+"ko": "<b>이 프로젝트의 단순화:</b> 실제 이야기는 모티프의 목록이 아니고 의미와 맥락으로 이어져 있습니다. 이 프로젝트는 모티프 30개, 기억용이성 분포, 25%의 튀는 세부, 위의 확률식을 모두 임의로 정했고, 논문의 실험 결과를 재현한 것이 아닙니다. 실제 사람의 기억 연구가 아니라 \"이런 메커니즘이 이런 결과를 낼 수 있다\"는 장난감 모델입니다.",
+"en": "<b>What this project simplifies:</b> Real stories are not lists of motifs but are held together by meaning and context. This project chose the 30 motifs, the memorability distribution, the 25% share of odd details and the probability formula above by its own choice, and it does not reproduce results from any experiment. It is a toy model showing that such a mechanism can produce such results, not a study of real human memory.",
+"tr": "<b>Qué simplifica este proyecto:</b> Las historias reales no son listas de motivos, sino que se sostienen por el significado y el contexto. Este proyecto eligió por su cuenta los 30 motivos, la distribución de memorabilidad, la proporción del 25 % de detalles raros y la fórmula de probabilidad anterior, y no reproduce los resultados de ningún experimento. Es un modelo de juguete que muestra que un mecanismo así puede producir tales resultados, no un estudio de la memoria humana real."
+},
+{
+"id": "s2116",
+"page": "telephone",
+"ko": "<b>이론값과 시뮬레이션:</b> 이야기 전체에 대한 이론값은 없지만 손으로 확인되는 부분이 있습니다. 기억력 96%, 기억용이성 0.5인 모티프는 p = 1 − 0.04 × 0.85 = 0.966이라 40번 뒤 0.966<sup>40</sup> ≈ 0.25가 남고, 시뮬레이션의 원본 잔존율 0.25(8회 평균)와 같은 수준입니다. \"우연일 때의 겹침\"은 s / (2 − s)(s = 0.25면 0.14)이고 실측 사슬 간 겹침은 0.31로 약 2배였습니다.",
+"en": "<b>Theory versus simulation:</b> There is no closed-form value for the whole story, but a part can be checked by hand. A motif with memorability 0.5 at memory 96% has p = 1 − 0.04 × 0.85 = 0.966, so after 40 retellings 0.966<sup>40</sup> ≈ 0.25 remains, about the simulated original-motif survival of 0.25 (8-run average). The overlap expected by chance is s / (2 − s) (0.14 at s = 0.25), and the measured overlap between chains was 0.31, about twice that.",
+"tr": "<b>Teoría frente a simulación:</b> No hay un valor cerrado para toda la historia, pero una parte puede comprobarse a mano. Un motivo con memorabilidad 0,5 y memoria del 96 % tiene p = 1 − 0,04 × 0,85 = 0,966, así que tras 40 relatos quedan 0,966<sup>40</sup> ≈ 0,25, cerca de la supervivencia simulada del motivo original de 0,25 (promedio de 8 ejecuciones). El solapamiento esperado por azar es s / (2 − s) (0,14 con s = 0,25), y el solapamiento medido entre cadenas fue 0,31, unas dos veces más."
+},
+{
+"id": "s2117",
+"page": "telephone",
+"ko": "<b>더 읽을거리:</b> Bartlett (1932), 『Remembering』, Cambridge University Press. Kirby, Cornish &amp; Smith (2008), \"Cumulative cultural evolution in the laboratory\", <i>PNAS</i>. Norenzayan 외 (2006), \"Memory and mystery: the cultural selection of minimally counterintuitive narratives\", <i>Cognitive Science</i>.",
+"en": "<b>Further reading:</b> Bartlett (1932), <i>Remembering</i>, Cambridge University Press. Kirby, Cornish &amp; Smith (2008), \"Cumulative cultural evolution in the laboratory\", <i>PNAS</i>. Norenzayan et al. (2006), \"Memory and mystery: the cultural selection of minimally counterintuitive narratives\", <i>Cognitive Science</i>.",
+"tr": "<b>Lecturas complementarias:</b> Bartlett (1932), <i>Remembering</i>, Cambridge University Press. Kirby, Cornish &amp; Smith (2008), «Cumulative cultural evolution in the laboratory», <i>PNAS</i>. Norenzayan et al. (2006), «Memory and mystery: the cultural selection of minimally counterintuitive narratives», <i>Cognitive Science</i>."
+},
+{
+"id": "s2144",
+"page": "traffic",
+"ko": "도로가 어느 정도 차면, 규칙을 지켜도 작은 브레이크 하나가 유령 정체로 번져요.",
+"en": "On a reasonably full road, one small brake tap can grow into a phantom jam even if everyone follows the rules.",
+"tr": "En una carretera razonablemente llena, un pequeño toque de freno puede crecer hasta un atasco fantasma aunque todos cumplan las reglas."
+},
+{
+"id": "s2145",
+"page": "traffic",
+"ko": "이 모델에서는 뒤차가 앞차에 맞춰 감속하며 정체가 거꾸로 전해지고, 원인 차는 이미 떠나 이유가 안 보여요.",
+"en": "In this model followers brake for the car ahead, so the jam travels backward while the cause has long gone.",
+"tr": "En este modelo los coches frenan al ver el de delante, así que el atasco se desplaza hacia atrás mientras la causa ya desapareció hace tiempo."
+},
+{
+"id": "s2146",
+"page": "traffic",
+"ko": "정체를 볼 때 특정 운전자보다 밀도와 흔들림이 어떻게 증폭되는지 살펴볼 만해요.",
+"en": "Rather than a particular driver, how density and small disturbances get amplified is worth examining.",
+"tr": "Más que un conductor concreto, conviene examinar cómo se amplifican la densidad y las pequeñas perturbaciones."
+},
+{
+"id": "s2148",
+"page": "traffic",
+"ko": "실제 도로의 모든 정체가 이 때문이라는 뜻은 아니에요. 사고·병목·신호가 빠진 단순한 고리 도로예요.",
+"en": "It does not mean all real jams arise this way; this is a simple loop without accidents, bottlenecks or signals.",
+"tr": "No significa que todos los atascos reales surjan así; es un circuito simple sin accidentes, cuellos de botella ni semáforos."
+},
+{
+"id": "s2149",
+"page": "traffic",
+"ko": "실제 정체 중 이런 유형의 비중은 도로 관측 자료로 따로 확인해야 해요.",
+"en": "How much of real congestion is this type needs to be checked with road observation data.",
+"tr": "Cuánta de la congestión real es de este tipo hay que comprobarlo con datos de observación de las carreteras."
+},
+{
+"id": "s2151",
+"page": "traffic",
+"ko": "<b>모델의 뿌리:</b> 나겔(Nagel)과 슈레켄베르크(Schreckenberg)가 1992년 <i>Journal de Physique I</i>에 발표한 \"A cellular automaton model for freeway traffic\"의 셀룰러 오토마톤(칸과 단순한 규칙으로 이루어진 모델)입니다. 규칙 몇 개만으로 고속도로의 \"아무 이유 없는 정체\"를 만들 수 있음을 보인 고전 모델이에요.",
+"en": "<b>Where the model comes from:</b> This is the cellular automaton (a model of cells and simple rules) of Nagel and Schreckenberg, \"A cellular automaton model for freeway traffic\", <i>Journal de Physique I</i> (1992). It is a classic showing that a few rules can produce \"jams for no reason\" on a highway.",
+"tr": "<b>De dónde viene el modelo:</b> Es el autómata celular (un modelo de celdas y reglas simples) de Nagel y Schreckenberg, «A cellular automaton model for freeway traffic», <i>Journal de Physique I</i> (1992). Es un clásico que muestra cómo unas pocas reglas pueden producir «atascos sin motivo» en una autopista."
+},
+{
+"id": "s2152",
+"page": "traffic",
+"ko": "<b>핵심 가정과 수식:</b> 모든 차가 동시에 ① 가속(속도+1, 최고 속도 <i>v</i><sub>max</sub>까지) ② 앞차와의 빈칸 수만큼으로 감속 ③ 확률 <i>p</i>로 속도 1 줄이기 ④ 속도만큼 이동을 합니다. 슬라이더는 밀도 ρ(차가 차지한 칸의 비율)와 <i>p</i>예요. <i>p</i>=0이면 ρ&lt;1/(<i>v</i><sub>max</sub>+1)=1/6에서 모두 최고 속도로 달리고, 그 위에서는 평균 속도가 <code>(1−ρ)/ρ</code>칸/단계가 됩니다.",
+"en": "<b>Key assumptions and formulas:</b> All cars update at the same time: (1) accelerate (speed +1, up to <i>v</i><sub>max</sub>), (2) slow down to the number of empty cells ahead, (3) with probability <i>p</i> reduce speed by 1, (4) move by their speed. The sliders are the density ρ (share of cells occupied) and <i>p</i>. With <i>p</i>=0, every car runs at top speed when ρ&lt;1/(<i>v</i><sub>max</sub>+1)=1/6, and above that the mean speed is <code>(1−ρ)/ρ</code> cells per step.",
+"tr": "<b>Supuestos clave y fórmulas:</b> Todos los coches se actualizan a la vez: (1) aceleran (velocidad +1, hasta <i>v</i><sub>max</sub>), (2) frenan hasta el número de celdas vacías por delante, (3) con probabilidad <i>p</i> reducen la velocidad en 1, (4) avanzan según su velocidad. Los controles deslizantes son la densidad ρ (proporción de celdas ocupadas) y <i>p</i>. Con <i>p</i>=0, todos los coches van a la velocidad máxima cuando ρ&lt;1/(<i>v</i><sub>max</sub>+1)=1/6, y por encima de eso la velocidad media es <code>(1−ρ)/ρ</code> celdas por paso."
+},
+{
+"id": "s2153",
+"page": "traffic",
+"ko": "<b>이 프로젝트의 단순화:</b> 한 차선 고리 도로(길이 300칸)에 차종이 같은 차만 있고, 한 칸을 약 7.5m, 한 단계를 약 1초로 잡아 최고 속도 5칸을 시속 약 135km로 환산한 것은 원 논문의 관례를 따른 이 프로젝트의 환산입니다. 차선 변경, 신호, 합류, 운전자마다 다른 성격은 없고, 실제 교통량과 비교해 맞춘 모델이 아닙니다.",
+"en": "<b>What this project simplifies:</b> The road is a single-lane ring of 300 cells with identical cars. Reading one cell as about 7.5 m and one step as about 1 s (so a top speed of 5 cells is about 135 km/h) is this project's conversion, not a calibration. There are no lane changes, signals, merges, or differing drivers, and the model is not fitted to real traffic counts.",
+"tr": "<b>Qué simplifica este proyecto:</b> La carretera es un anillo de un solo carril con 300 celdas y coches idénticos. Leer una celda como unos 7,5 m y un paso como cerca de 1 s (de modo que una velocidad máxima de 5 celdas son unos 135 km/h) es una conversión de este proyecto, no una calibración. No hay cambios de carril, semáforos, incorporaciones ni conductores distintos, y el modelo no está ajustado a conteos de tráfico reales."
+},
+{
+"id": "s2154",
+"page": "traffic",
+"ko": "<b>이론값과 시뮬레이션:</b> <i>p</i>=0에서는 이론과 시뮬레이션이 정확히 맞습니다. 밀도 20%, 30%, 40%, 60%에서 평균 속도가 4.00, 2.33, 1.50, 0.67칸/단계로 <code>(1−ρ)/ρ</code>와 같고, 밀도 15%까지는 속도 5.00으로 정체가 없습니다. <i>p</i>=25%에는 이런 간단한 닫힌 해를 쓰지 않았고, 밀도 15%에서 속도 3.34, 정지한 차 13%로 정체가 생기는 것을 시뮬레이션으로만 확인했습니다 (<code>node tools/validate-more.js traffic</code>).",
+"en": "<b>Theory versus simulation:</b> At <i>p</i>=0 theory and simulation agree exactly: at densities 20%, 30%, 40% and 60% the mean speeds are 4.00, 2.33, 1.50 and 0.67 cells per step, equal to <code>(1−ρ)/ρ</code>, and up to 15% the speed is 5.00 with no jam. For <i>p</i>=25% no closed form was used here; that jams already appear at 15% density (speed 3.34, 13% of cars stopped) was confirmed by simulation only (<code>node tools/validate-more.js traffic</code>).",
+"tr": "<b>Teoría frente a simulación:</b> Con <i>p</i>=0 la teoría y la simulación coinciden exactamente: con densidades del 20 %, 30 %, 40 % y 60 % las velocidades medias son 4,00, 2,33, 1,50 y 0,67 celdas por paso, iguales a <code>(1−ρ)/ρ</code>, y hasta el 15 % la velocidad es 5,00 sin atasco. Para <i>p</i>=25 % aquí no se usó ninguna forma cerrada; que ya aparezcan atascos con una densidad del 15 % (velocidad 3,34, 13 % de los coches detenidos) se confirmó solo por simulación (<code>node tools/validate-more.js traffic</code>)."
+},
+{
+"id": "s2155",
+"page": "traffic",
+"ko": "<b>더 읽을거리:</b> Nagel, Schreckenberg (1992), \"A cellular automaton model for freeway traffic\", <i>Journal de Physique I</i>. / Chowdhury, Santen, Schadschneider (2000), \"Statistical physics of vehicular traffic and some related systems\", <i>Physics Reports</i> 329. / Sugiyama 외 (2008), \"Traffic jams without bottlenecks\", <i>New Journal of Physics</i> 10 (원형 도로 실험).",
+"en": "<b>Further reading:</b> Nagel, Schreckenberg (1992), \"A cellular automaton model for freeway traffic\", <i>Journal de Physique I</i>. / Chowdhury, Santen, Schadschneider (2000), \"Statistical physics of vehicular traffic and some related systems\", <i>Physics Reports</i> 329. / Sugiyama et al. (2008), \"Traffic jams without bottlenecks\", <i>New Journal of Physics</i> 10 (a ring-road experiment).",
+"tr": "<b>Lecturas complementarias:</b> Nagel, Schreckenberg (1992), «A cellular automaton model for freeway traffic», <i>Journal de Physique I</i>. / Chowdhury, Santen, Schadschneider (2000), «Statistical physics of vehicular traffic and some related systems», <i>Physics Reports</i> 329. / Sugiyama et al. (2008), «Traffic jams without bottlenecks», <i>New Journal of Physics</i> 10 (un experimento en carretera circular)."
+},
+{
+"id": "s2156",
+"page": "traffic",
+"ko": "구현: 길이 300칸 고리 도로, 최고 속도 5칸이고 모든 차에 규칙을 한꺼번에 적용합니다.",
+"en": "Implementation: a 300-cell ring road with a top speed of 5 cells. Rules are applied to all cars at once.",
+"tr": "Implementación: una carretera circular de 300 celdas con una velocidad máxima de 5 celdas. Las reglas se aplican a todos los coches a la vez."
+},
+{
+"id": "s2160",
+"page": "treasury",
+"ko": "10년 국채 금리와 채권 가격 · 시뮬라티오 랩",
+"en": "10-Year Yield and Bond Prices · Simulatio Lab",
+"tr": "Rentabilidad a 10 años y precios de bonos · Simulatio Lab"
+},
+{
+"id": "s2161",
+"page": "treasury",
+"ko": "단기금리를 흔들리는 경로로 시뮬레이션해 10년 금리가 무엇으로 정해지는지, 금리가 오르면 이미 산 채권값이 왜 그만큼 떨어지는지 직접 돌려보세요.",
+"en": "Simulate wandering short-term rates to see what sets the 10-year yield, and why a bond you already hold loses value when rates rise.",
+"tr": "Simula tipos a corto plazo que deambulan para ver qué fija la rentabilidad a 10 años y por qué un bono que ya tienes pierde valor cuando suben los tipos."
+},
+{
+"id": "s2162",
+"page": "treasury",
+"ko": "금리가 오르면 새로 나오는 채권은 이자를 더 주니 좋은 일 같습니다. 그런데 이미 사 둔 채권은 값이 떨어집니다. 이 예시 설정에서는 10년 금리가 1%p 오르면 10년 만기 채권값이 약 8% 내려가요. 더 묘한 것은 10년 금리를 정하는 힘입니다. 오늘의 단기금리가 아니라 \"앞으로 10년 동안 단기금리가 평균 어디쯤 있을까\"라는 기대가 정하기 때문에, 단기금리가 1%p 뛰어도 10년 금리는 0.3%p 남짓만 움직입니다. (모든 숫자는 예시이며, 실제 금리를 말하는 것이 아닙니다.)",
+"en": "When rates rise, newly issued bonds pay more interest, which sounds like good news. Yet a bond you already hold falls in value. In this example setting, when the 10-year yield rises by 1 percentage point, a 10-year bond drops about 8%. Stranger still is what sets the 10-year yield: not today's short-term rate but the expectation of \"where short-term rates will sit on average over the next 10 years\". So even if the short rate jumps by 1 percentage point, the 10-year yield moves only a little over 0.3. (All numbers are examples, not statements about real rates.)",
+"tr": "Cuando suben los tipos, los bonos recién emitidos pagan más interés, lo que suena a buena noticia. Sin embargo, un bono que ya tienes cae de valor. En este ajuste de ejemplo, cuando la rentabilidad a 10 años sube 1 punto porcentual, un bono a 10 años cae alrededor de un 8 %. Más extraño aún es lo que fija la rentabilidad a 10 años: no el tipo a corto plazo de hoy, sino la expectativa de \"dónde se situarán de media los tipos a corto plazo en los próximos 10 años\". Así, aunque el tipo a corto plazo salte 1 punto porcentual, la rentabilidad a 10 años se mueve solo algo más de 0,3. (Todas las cifras son ejemplos, no afirmaciones sobre tipos reales.)"
+},
+{
+"id": "s2163",
+"page": "treasury",
+"ko": "<b>단기금리</b>는 매달 <b>장기 평균</b> 쪽으로 끌려가면서(회귀 속도만큼) 변동성만큼 무작위로 흔들립니다. 높아졌으면 내려오려 하고 낮아졌으면 올라가려 하는 성질을 <b>평균회귀</b>라고 해요. 슬라이더로 시작 금리, 장기 평균, 회귀 속도, 변동성을 바꿉니다.",
+"en": "The <b>short-term rate</b> is pulled toward a <b>long-run average</b> each month (at the mean-reversion speed) while being shaken at random by the volatility. The tendency to come down when high and rise when low is called <b>mean reversion</b>. The sliders set the starting rate, the long-run average, the reversion speed and the volatility.",
+"tr": "El <b>tipo a corto plazo</b> es atraído cada mes hacia un <b>promedio a largo plazo</b> (a la velocidad de reversión a la media) mientras la volatilidad lo sacude al azar. La tendencia a bajar cuando está alto y a subir cuando está bajo se llama <b>reversión a la media</b>. Los controles deslizantes fijan el tipo inicial, el promedio a largo plazo, la velocidad de reversión y la volatilidad."
+},
+{
+"id": "s2164",
+"page": "treasury",
+"ko": "<b>10년 금리</b>는 \"앞으로 10년간 단기금리가 평균 어디에 있을지의 예상\"에 <b>기간 프리미엄</b>(오래 묶이는 대가로 더 얹는 금리)을 더해 정합니다. 이것을 기대가설이라고 부르고, 이 모델은 평균회귀 모델의 닫힌 해로 계산합니다. 한 경로가 정해지면 매달 10년 금리도 따라서 정해져요.",
+"en": "The <b>10-year yield</b> is the expected average short rate over the next 10 years plus a <b>term premium</b> (extra yield for tying money up for long). This is the expectations hypothesis, and the model computes it from the closed-form solution of the mean-reverting model. Once a path is drawn, the 10-year yield follows month by month.",
+"tr": "La <b>rentabilidad a 10 años</b> es el tipo a corto plazo medio esperado durante los próximos 10 años más una <b>prima por plazo</b> (rentabilidad extra por inmovilizar el dinero mucho tiempo). Esta es la hipótesis de las expectativas, y el modelo la calcula a partir de la solución cerrada del modelo con reversión a la media. Una vez trazada una trayectoria, la rentabilidad a 10 años la sigue mes a mes."
+},
+{
+"id": "s2165",
+"page": "treasury",
+"ko": "<b>채권</b>은 10년 만기, 1년에 한 번 이자를 주고, 시작 때의 10년 금리와 같은 이자율로 액면 100에 삽니다. 이후 금리가 오르면 새 채권이 더 높은 이자를 주기 때문에, 내 옛 채권은 값이 깎여야 팔립니다. 가격 변화만 보고 받은 이자는 계산하지 않아요.",
+"en": "The <b>bond</b> has a 10-year maturity, pays interest once a year, and is bought at face value 100 with a coupon equal to the 10-year yield at the start. If rates then rise, new bonds pay more, so my old bond must fall in price to sell. Only the price change is shown, not the interest received.",
+"tr": "El <b>bono</b> vence a 10 años, paga interés una vez al año y se compra a valor nominal 100 con un cupón igual a la rentabilidad a 10 años al inicio. Si luego suben los tipos, los bonos nuevos pagan más, así que mi bono antiguo debe bajar de precio para venderse. Solo se muestra la variación de precio, no el interés cobrado."
+}
+]

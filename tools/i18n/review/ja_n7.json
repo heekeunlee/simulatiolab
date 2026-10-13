@@ -1,0 +1,779 @@
+[
+{
+"id": "s1636",
+"page": "regression",
+"ko": "<b>핵심 가정과 수식:</b> 점수는 <code>50 + 10 × (√(1−L)·실력 + √L·운)</code>이고 실력과 운은 표준정규분포입니다(L = 운의 몫 슬라이더). 그러면 1회와 2회 점수의 상관은 ρ = 1−L이고, 1회 점수를 알 때 2회 점수의 기댓값은 <code>50 + ρ(1회 − 50)</code>입니다. 상위 20% 집단은 1회에 50보다 평균 10·φ(z)/0.2 ≈ 14점 높으므로(z ≈ 0.84) 기대 변화는 −L × 14점입니다. 슬라이더 중 &quot;칭찬·꾸중 대상&quot;이 꼬리의 크기, &quot;말의 진짜 효과&quot;가 ±e입니다.",
+"en": "<b>Key assumptions and formulas:</b> Scores are <code>50 + 10 × (√(1−L)·skill + √L·luck)</code> with standard normal skill and luck (L = the luck-share slider). The correlation between trials 1 and 2 is then ρ = 1−L, and the expected trial 2 score given trial 1 is <code>50 + ρ(trial 1 − 50)</code>. The top 20% scored on average 10·φ(z)/0.2 ≈ 14 points above 50 in trial 1 (z ≈ 0.84), so the expected change is −L × 14 points. The &quot;share praised / scolded&quot; slider sets the tail size and the &quot;true effect&quot; slider is ±e.",
+"tr": "<b>主な仮定と式：</b>得点は<code>50 + 10 × (√(1−L)·skill + √L·luck)</code>で、skillとluckは標準正規分布に従います（L＝運の割合のスライダー）。このとき1回目と2回目の相関はρ = 1−Lで、1回目の得点が分かっているときの2回目の期待得点は<code>50 + ρ(1回目 − 50)</code>です。上位20%は1回目に平均して50より10·φ(z)/0.2 ≈ 14点高く（z ≈ 0.84）、期待される変化は−L × 14点になります。「褒められる／叱られる割合」のスライダーで裾の大きさを、「本当の効果」のスライダーで±eを設定します。"
+},
+{
+"id": "s1637",
+"page": "regression",
+"ko": "<b>이 프로젝트의 단순화:</b> 실력은 변하지 않고 운은 시도마다 독립이며 점수는 정규분포라고 가정했습니다(현실의 연습, 피로, 사기는 없음). 칭찬과 꾸중의 효과는 대칭인 ±e로 단순화했습니다. 사람 수 400, 운의 몫 50%, 상위·하위 20%는 이 프로젝트가 정한 기본값이며 실제 교관이나 스포츠 자료가 아닙니다.",
+"en": "<b>What this project simplifies:</b> Skill never changes, luck is independent on each trial and scores are normal (no real practice, fatigue or morale). The effects of praise and scolding are simplified to a symmetric ±e. The defaults of 400 people, 50% luck and top/bottom 20% are this project's own choices, and no real instructor or sports data is used.",
+"tr": "<b>このプロジェクトでの単純化：</b>skillは変化せず、運は試行ごとに独立で、得点は正規分布に従います（実際の練習、疲労、士気はありません）。褒めることと叱ることの効果は、対称な±eに単純化しています。初期設定の400人、運50%、上位／下位20%はこのプロジェクト独自の選択で、実際の教官やスポーツのデータは使っていません。"
+},
+{
+"id": "s1638",
+"page": "regression",
+"ko": "<b>이론값과 시뮬레이션:</b> 운 50%, 상위·하위 20%, 진짜 효과 0에서 400번 반복 평균은 칭찬받은 쪽 −7.0, 혼난 쪽 +7.1점으로 이론값 ∓7.0과 맞았고, 회귀선 기울기는 0.50(이론 1−L = 0.50)이었습니다. 대상을 5%로 줄이면 약 ∓10.4(이론 ∓10.3), 50%로 늘리면 약 ∓4.0(이론 ∓4.0)이었습니다. 진짜 효과 e = 7이면 코치가 보는 차이가 0이 되어(이론 7.0) 시뮬레이션과 일치했습니다.",
+"en": "<b>Theory versus simulation:</b> With 50% luck, top/bottom 20% and a true effect of 0, the average of 400 repeats was −7.0 for the praised and +7.1 for the scolded, matching the theory of ∓7.0, and the regression slope was 0.50 (theory 1−L = 0.50). Narrowing the groups to 5% gave about ∓10.4 (theory ∓10.3) and widening to 50% about ∓4.0 (theory ∓4.0). With a true effect of e = 7 the difference the coach sees fell to 0 (theory 7.0), as the simulation showed.",
+"tr": "<b>理論とシミュレーションの比較：</b>運50%、上位／下位20%、本当の効果0のとき、400回の繰り返しの平均は、褒められた側が−7.0、叱られた側が+7.1で、理論値の∓7.0と一致し、回帰直線の傾きは0.50（理論値1−L = 0.50）でした。グループを5%に絞ると約∓10.4（理論値∓10.3）、50%に広げると約∓4.0（理論値∓4.0）でした。本当の効果がe = 7のとき、コーチに見える差は0に下がり（理論値7.0）、シミュレーションでもそのとおりになりました。"
+},
+{
+"id": "s1639",
+"page": "regression",
+"ko": "<b>더 읽을거리:</b> Galton (1886), Regression towards mediocrity in hereditary stature, <i>Journal of the Anthropological Institute</i> / Kahneman &amp; Tversky (1973), On the psychology of prediction, <i>Psychological Review</i> / Kahneman (2011), <i>Thinking, Fast and Slow</i>, Farrar, Straus and Giroux.",
+"en": "<b>Further reading:</b> Galton (1886), Regression towards mediocrity in hereditary stature, <i>Journal of the Anthropological Institute</i> / Kahneman &amp; Tversky (1973), On the psychology of prediction, <i>Psychological Review</i> / Kahneman (2011), <i>Thinking, Fast and Slow</i>, Farrar, Straus and Giroux.",
+"tr": "<b>参考文献：</b>Galton (1886), Regression towards mediocrity in hereditary stature, <i>Journal of the Anthropological Institute</i> / Kahneman &amp; Tversky (1973), On the psychology of prediction, <i>Psychological Review</i> / Kahneman (2011), <i>Thinking, Fast and Slow</i>, Farrar, Straus and Giroux."
+},
+{
+"id": "s1669",
+"page": "revolution",
+"ko": "문턱이 1%인 사람 한 명이 바뀌었을 뿐인데 100명이 나서던 광장이 1명에서 멈췄어요.",
+"en": "Changing one person's threshold to 1% turned a square of 100 into a stop at just 1 person.",
+"tr": "1人のしきい値を1%に変えただけで、100人の正方形が1人で止まってしまいました。"
+},
+{
+"id": "s1670",
+"page": "revolution",
+"ko": "이 모델에서는 문턱이 촘촘히 이어져야 한 명이 나서 다음 사람을 끌어내는 연쇄가 끊기지 않기 때문일 수 있어요.",
+"en": "In this model, thresholds must be closely spaced for each person to pull out the next, so one gap can break the chain.",
+"tr": "このモデルでは、一人ひとりが次の人を引き出すにはしきい値が近く並んでいる必要があるため、1か所の隙間で連鎖が途切れることがあります。"
+},
+{
+"id": "s1671",
+"page": "revolution",
+"ko": "결과가 갈릴 때는 평균 분위기보다 불씨가 있는지, 문턱 사이에 빈틈이 없는지부터 살펴볼 만해요.",
+"en": "When outcomes split, whether a spark exists and whether thresholds have gaps may matter more than the average mood.",
+"tr": "結果が分かれるときは、平均的な気分よりも、きっかけがあるかどうか、しきい値に隙間があるかどうかのほうが重要かもしれません。"
+},
+{
+"id": "s1673",
+"page": "revolution",
+"ko": "실제 시위가 이 숫자대로 일어난다는 뜻도, 어느 편을 들거나 예측하는 것도 아니에요.",
+"en": "It does not mean real protests follow these numbers, nor does it take sides or predict.",
+"tr": "現実の抗議行動がこの数字どおりになるという意味ではなく、特定の立場に立つものでも、予測するものでもありません。"
+},
+{
+"id": "s1674",
+"page": "revolution",
+"ko": "문턱은 눈에 보이지 않으니, 정보와 두려움, 연결망 같은 모델에 없는 것을 실제로 관찰해야 해요.",
+"en": "Thresholds are invisible, so information, fear and networks, absent here, would need real observation.",
+"tr": "しきい値は目に見えないため、ここにない情報や恐れ、人のつながりは、現実の観察が必要になります。"
+},
+{
+"id": "s1676",
+"page": "revolution",
+"ko": "<b>모델의 뿌리:</b> Granovetter (1978), \"Threshold Models of Collective Behavior\", <i>American Journal of Sociology</i> 83(6)의 <b>문턱 모델</b>입니다. 사람마다 \"몇 명이 이미 나서면 나도 나선다\"는 문턱이 다르면, 같은 평균이어도 한 명의 차이로 집단행동이 번지거나 멈출 수 있다는 것이 요지입니다. Schelling의 이진 선택 모델을 사회운동 설명으로 넓힌 것으로 알려져 있습니다.",
+"en": "<b>Where the model comes from:</b> This is the <b>threshold model</b> of Granovetter (1978), \"Threshold Models of Collective Behavior\", <i>American Journal of Sociology</i> 83(6). Its point is that when people differ in how many others must already have joined before they do, collective action can spread or stall because of a difference of a single person, even with the same average. It is generally described as extending Schelling's binary-choice models.",
+"tr": "<b>モデルの由来：</b>Granovetter（1978年）の<b>閾値モデル</b>、\"Threshold Models of Collective Behavior\"（<i>American Journal of Sociology</i> 83(6)）です。要点は、自分が加わる前に何人が加わっていてほしいかが人によって違うとき、平均が同じでも、たった一人の違いで集団行動が広がったり止まったりしうるということです。一般に、シェリングの二者択一モデルを拡張したものと説明されます。"
+},
+{
+"id": "s1677",
+"page": "revolution",
+"ko": "<b>핵심 가정과 수식:</b> 문턱의 누적분포를 <code>F(x)</code>라 하면 참여 비율은 <code>r<sub>t+1</sub> = F(r<sub>t</sub>)</code>로 갱신되고, <code>F(x) = x</code>가 처음 만나는 곳(균형)에서 멈춥니다. 슬라이더의 평균과 퍼짐은 <code>F</code>의 모양을, 선동가 비율은 <code>F(0)</code>(문턱 0인 사람)의 크기를 정합니다.",
+"en": "<b>Key assumptions and formulas:</b> If <code>F(x)</code> is the cumulative distribution of thresholds, the share participating updates as <code>r<sub>t+1</sub> = F(r<sub>t</sub>)</code> and stops where <code>F(x) = x</code> is first met (the equilibrium). The mean and spread sliders shape <code>F</code>, and the instigator share sets <code>F(0)</code>, the people with threshold 0.",
+"tr": "<b>主な仮定と式：</b><code>F(x)</code>を閾値の累積分布とすると、参加者の割合は<code>r<sub>t+1</sub> = F(r<sub>t</sub>)</code>で更新され、<code>F(x) = x</code>が最初に成り立つところ（均衡）で止まります。平均とばらつきのスライダーで<code>F</code>の形を決め、扇動者の割合で、閾値0の人にあたる<code>F(0)</code>を決めます。"
+},
+{
+"id": "s1678",
+"page": "revolution",
+"ko": "<b>이 프로젝트의 단순화:</b> 모두가 전체 참여 비율을 정확히 알고(연결망 없음), 문턱은 0~1로 자른 정규분포이며 평균 20%·퍼짐 15%·선동가 1%는 이 프로젝트가 정한 값입니다. 두려움, 조직, 정부 대응, 속마음을 숨기는 행동은 없습니다. 고전 예시는 Granovetter의 100명 예(문턱 0, 1, …, 99)를 따랐습니다.",
+"en": "<b>What this project simplifies:</b> Everyone knows the exact overall participation share (no network), thresholds are a normal distribution truncated to 0–1, and the mean 20%, spread 15% and 1% instigators are this project's values. Fear, organization, government response and hiding one's true preferences are absent. The classic example follows Granovetter's 100-person case (thresholds 0, 1, …, 99).",
+"tr": "<b>このプロジェクトでの単純化：</b>全員が全体の参加割合を正確に知っていて（ネットワークはなし）、閾値は0〜1に切り詰めた正規分布で、平均20%、ばらつき15%、扇動者1%はこのプロジェクトの値です。恐怖、組織、政府の対応、本心を隠すことは含まれていません。古典的な例は、Granovetterの100人のケース（閾値0、1、…、99）に従っています。"
+},
+{
+"id": "s1679",
+"page": "revolution",
+"ko": "<b>이론값과 시뮬레이션:</b> 고전 예시는 100명이 모두 나서고(101라운드), 한 명의 문턱만 바꾸면 1명에서 멈춥니다. 정규 문턱에서 <code>F(x) = x</code>의 고정점을 직접 계산하면 평균 25%·선동가 1%는 전원 참여, 평균 30%는 약 1.7%, 40%는 약 1.1%이고 시뮬레이션은 2%, 1%였습니다. 갈림길 근처(평균 25%)에서는 1,000명의 우연 때문에 실행마다 2~100%로 갈렸습니다.",
+"en": "<b>Theory versus simulation:</b> The classic example gives full participation of all 100 (101 rounds), and changing one person's threshold stops it at 1. For normal thresholds, computing the fixed point of <code>F(x) = x</code> directly gives full participation at mean 25% with 1% instigators, about 1.7% at mean 30% and about 1.1% at 40%, against simulated 2% and 1%. Right at the tipping zone (mean 25%), chance among 1,000 people split runs anywhere from 2% to 100%.",
+"tr": "<b>理論とシミュレーションの比較：</b>古典的な例では100人全員が参加し（101ラウンド）、一人の閾値を変えると参加は1人で止まります。閾値が正規分布の場合、<code>F(x) = x</code>の不動点を直接計算すると、扇動者1%では平均25%で全員参加、平均30%で約1.7%、40%で約1.1%となり、シミュレーションでは2%と1%でした。ちょうど転換点にあたる平均25%では、1,000人の中の偶然によって、実行結果が2%から100%までばらつきました。"
+},
+{
+"id": "s1680",
+"page": "revolution",
+"ko": "<b>더 읽을거리:</b> Granovetter (1978), \"Threshold Models of Collective Behavior\", <i>American Journal of Sociology</i> 83(6). Schelling (1978), 『Micromotives and Macrobehavior』, W. W. Norton. Kuran (1989), \"Sparks and Prairie Fires: A Theory of Unanticipated Political Revolution\", <i>Public Choice</i> 61.",
+"en": "<b>Further reading:</b> Granovetter (1978), \"Threshold Models of Collective Behavior\", <i>American Journal of Sociology</i> 83(6). Schelling (1978), <i>Micromotives and Macrobehavior</i>, W. W. Norton. Kuran (1989), \"Sparks and Prairie Fires: A Theory of Unanticipated Political Revolution\", <i>Public Choice</i> 61.",
+"tr": "<b>参考文献：</b>Granovetter (1978), \"Threshold Models of Collective Behavior\", <i>American Journal of Sociology</i> 83(6). Schelling (1978), <i>Micromotives and Macrobehavior</i>, W. W. Norton. Kuran (1989), \"Sparks and Prairie Fires: A Theory of Unanticipated Political Revolution\", <i>Public Choice</i> 61."
+},
+{
+"id": "s1681",
+"page": "revolution",
+"ko": "고전 예시(문턱이 0, 1, 2, …, 99)와 그중 한 명을 바꾼 경우는 <code>node tools/validate-revolution.js</code>로 확인할 수 있습니다.",
+"en": "The classic example (thresholds 0, 1, 2, …, 99) and the case with one person changed can be verified with <code>node tools/validate-revolution.js</code>.",
+"tr": "古典的な例（閾値0、1、2、…、99）と、一人だけ変えたケースは、<code>node tools/validate-revolution.js</code>で確かめられます。"
+},
+{
+"id": "s1720",
+"page": "rumor",
+"ko": "솔깃할 확률이 어느 문턱을 넘으면 소문이 갑자기 거의 모두에게 퍼져요.",
+"en": "Once the chance of being tempted crosses a threshold, a rumor suddenly reaches almost everyone.",
+"tr": "つられる確率がしきい値を超えると、うわさは突然ほぼ全員に届きます。"
+},
+{
+"id": "s1721",
+"page": "rumor",
+"ko": "퍼뜨리는 사람 한 명이 평균 한 명 넘게 옮기는 선을 넘으면 연쇄가 커지고, 여러 방에 걸친 사람이 방들을 이어 줘요.",
+"en": "Past the line where each spreader passes it on to more than one person the chain explodes, and people in several rooms link the rooms together.",
+"tr": "広める人が1人より多くに伝える境界を越えると連鎖が爆発的に広がり、複数のルームに参加している人がルーム同士をつなぎます。"
+},
+{
+"id": "s1722",
+"page": "rumor",
+"ko": "소문이 퍼지는 모양을 볼 때는 문턱 앞에서의 대응 시점과, 방 사이를 잇는 사람이 누구인지부터 살펴볼 만해요.",
+"en": "To understand a rumor's spread, the timing of a response before the threshold and who bridges the rooms are good places to look.",
+"tr": "うわさの広がりを理解するには、境界を越える前に対応するタイミングと、ルーム同士をつなぐ人が誰かに注目するとよいでしょう。"
+},
+{
+"id": "s1724",
+"page": "rumor",
+"ko": "실제 단톡방의 소문이 이 숫자대로 퍼진다는 뜻은 아니에요. 정정이 소문의 70%만큼 솔깃하다는 값도 가정이에요.",
+"en": "It does not mean real chat-room rumors spread by these numbers; the correction being 70% as tempting is an assumption.",
+"tr": "現実のチャットルームのうわさがこの数字どおりに広がるという意味ではありません。訂正が70%の魅力を持つというのは仮定です。"
+},
+{
+"id": "s1725",
+"page": "rumor",
+"ko": "소문의 내용, 보낸 사람에 대한 신뢰, 방 분위기가 빠져 있어, 실제 문턱은 현실의 퍼짐 기록을 관찰해 봐야 알 수 있어요.",
+"en": "Content, trust in the sender and room mood are missing, so real thresholds would need observation of how rumors actually spread.",
+"tr": "内容、送り手への信頼、ルームの雰囲気が含まれていないため、現実のしきい値を知るにはうわさが実際にどう広がるかの観察が必要です。"
+},
+{
+"id": "s1727",
+"page": "rumor",
+"ko": "<b>모델의 뿌리:</b> 소문 확산의 고전 모델은 Daley와 Kendall(1964, 「Epidemics and rumours」, <i>Nature</i>)과 Maki와 Thompson(1973)의 모름–퍼뜨림–멈춤(ignorant–spreader–stifler) 모델입니다. 전염병의 SIR 모델(Kermack–McKendrick, 1927)에서 구조를 빌려 왔습니다.",
+"en": "<b>Where the model comes from:</b> The classic rumor models are those of Daley and Kendall (1964, \"Epidemics and rumours\", <i>Nature</i>) and Maki and Thompson (1973): ignorant, spreader and stifler. Their structure is borrowed from the epidemic SIR model (Kermack and McKendrick, 1927).",
+"tr": "<b>モデルの由来：</b>古典的なうわさのモデルは、Daley and Kendall（1964年、\"Epidemics and rumours\"、<i>Nature</i>）とMaki and Thompson（1973年）のもので、知らない人、広める人、広めるのをやめた人の3つに分けます。構造は、感染症のSIRモデル（Kermack and McKendrick、1927年）から借りています。"
+},
+{
+"id": "s1728",
+"page": "rumor",
+"ko": "<b>핵심 가정과 수식:</b> 퍼뜨리는 사람이 방에 글을 올리면 그 방의 모르는 사람이 확률 <i>p</i>로 솔깃해 다음 라운드부터 퍼뜨리고, 퍼뜨리던 사람은 라운드마다 확률 <i>q</i>(70%)로 관심을 잃습니다. 평균 퍼뜨리는 기간이 1/<i>q</i> 라운드이므로 <i>R</i><sub>0</sub> ≈ <i>p</i>·<i>k</i>/<i>q</i> (<i>k</i>: 한 사람이 글을 올릴 때 보게 되는 방 사람 수)이고, 이 값이 1을 넘어야 크게 퍼집니다. 슬라이더 <i>p</i>와 방 설정이 <i>R</i><sub>0</sub>를 움직입니다.",
+"en": "<b>Key assumptions and formulas:</b> When a spreader posts in a room, each unaware member is taken in with probability <i>p</i> and spreads from the next round; a spreader loses interest each round with probability <i>q</i> (70%). The mean spreading time is 1/<i>q</i> rounds, so <i>R</i><sub>0</sub> ≈ <i>p</i>·<i>k</i>/<i>q</i> (<i>k</i>: number of room members who see a person&#x27;s posts), and a large outbreak needs it above 1. The <i>p</i> slider and the room settings move <i>R</i><sub>0</sub>.",
+"tr": "<b>主な仮定と式：</b>広める人がグループ内に投稿すると、知らないメンバーはそれぞれ確率<i>p</i>で信じ込み、次のラウンドから広め始めます。広める人は、ラウンドごとに確率<i>q</i>（70%）で関心を失います。平均して広める期間は1/<i>q</i>ラウンドなので、<i>R</i><sub>0</sub> ≈ <i>p</i>·<i>k</i>/<i>q</i>（<i>k</i>：ある人の投稿を見るグループのメンバー数）となり、大きな流行にはこれが1を超える必要があります。<i>p</i>のスライダーとグループの設定で<i>R</i><sub>0</sub>が変わります。"
+},
+{
+"id": "s1729",
+"page": "rumor",
+"ko": "<b>이 프로젝트의 단순화:</b> 이 페이지는 원래 &quot;SIR&quot;이라 불렀지만 정확히는 Daley–Kendall/Maki–Thompson 계열의 변형입니다. 그 모델에서는 퍼뜨리는 사람이 이미 아는 사람과 만나야 멈추는데, 여기서는 만남과 상관없이 확률 <i>q</i>로 멈춰서 SIR의 회복에 가깝습니다. 정정 글을 두 번째 전파로 넣은 것, 방 구조, 모든 확률 값은 이 프로젝트가 정한 것입니다.",
+"en": "<b>What this project simplifies:</b> This page used to call the model &quot;SIR&quot;, but it is more precisely a variant of the Daley–Kendall / Maki–Thompson family. In those models a spreader stops after meeting someone who already knows; here spreaders stop with probability <i>q</i> regardless of contact, which is closer to SIR recovery. The correction as a second spread, the room structure and all probability values are this project&#x27;s own choices.",
+"tr": "<b>このプロジェクトでの単純化：</b>このページはこれまでモデルを「SIR」と呼んでいましたが、より正確にはDaley–Kendall／Maki–Thompson系の変種です。それらのモデルでは、広める人はすでに知っている人に会うと止まりますが、ここでは接触に関係なく確率<i>q</i>で止まるため、SIRの回復に近くなっています。訂正を第二の拡散として扱うこと、グループの構造、すべての確率の値は、このプロジェクト独自の選択です。"
+},
+{
+"id": "s1730",
+"page": "rumor",
+"ko": "<b>이론값과 시뮬레이션:</b> 닫힌 해는 없지만, 모두가 비슷하게 섞인다는 SIR 근사(최종 도달 비율 <i>z</i> = 1 − e<sup>−<i>R</i><sub>0</sub><i>z</i></sup>)와 비교하면 이 설정의 평균 노출 수 <i>k</i>≈141에서 <i>p</i>=1%일 때 <i>R</i><sub>0</sub>≈2.0, 근사 80%, 시뮬레이션 63%이고, <i>p</i>=1.5%는 근사 94%, 시뮬레이션 89%입니다. <i>p</i>=0.5%는 <i>R</i><sub>0</sub>≈1.0 근처라 근사 2%인데 시작자 3명 때문에 시뮬레이션은 12%로, 같은 문턱 근처의 급변을 보입니다. 방 구조 때문에 근사보다 조금 덜 퍼집니다(<code>node tools/validate-rumor.js</code>, 20회 평균).",
+"en": "<b>Theory versus simulation:</b> There is no closed form, but the well-mixed SIR approximation (final reach <i>z</i> = 1 − e<sup>−<i>R</i><sub>0</sub><i>z</i></sup>) gives, with the mean exposure <i>k</i>≈141 of this setup: at <i>p</i>=1%, <i>R</i><sub>0</sub>≈2.0, approximation 80% versus simulation 63%; at <i>p</i>=1.5%, 94% versus 89%. At <i>p</i>=0.5%, <i>R</i><sub>0</sub> is near 1 and the approximation gives 2%, while the simulation gives 12% because of the 3 initial spreaders, showing the same sharp change near the threshold. The room structure makes the real spread a bit smaller than the approximation (<code>node tools/validate-rumor.js</code>, 20-run averages).",
+"tr": "<b>理論とシミュレーションの比較：</b>閉じた形はありませんが、よく混ざる集団を仮定したSIR近似（最終到達率<i>z</i> = 1 − e<sup>−<i>R</i><sub>0</sub><i>z</i></sup>）を、この設定の平均接触数<i>k</i>≈141で計算すると、次のようになります。<i>p</i>=1%では<i>R</i><sub>0</sub>≈2.0で、近似が80%、シミュレーションが63%。<i>p</i>=1.5%では94%対89%です。<i>p</i>=0.5%では<i>R</i><sub>0</sub>が1に近く、近似は2%ですが、最初の広める人が3人いるため、シミュレーションは12%になり、閾値付近での急な変化は同じように現れます。グループの構造のため、実際の広がりは近似よりやや小さくなります（<code>node tools/validate-rumor.js</code>、20回の平均）。"
+},
+{
+"id": "s1731",
+"page": "rumor",
+"ko": "<b>더 읽을거리:</b> Daley, D. J. &amp; Kendall, D. G. (1964), 「Epidemics and rumours」, <i>Nature</i> 204. / Maki, D. P. &amp; Thompson, M. (1973), 『Mathematical Models and Applications』, Prentice-Hall. / Kermack, W. O. &amp; McKendrick, A. G. (1927), 「A contribution to the mathematical theory of epidemics」, <i>Proc. R. Soc. A</i> 115.",
+"en": "<b>Further reading:</b> Daley, D. J. and Kendall, D. G. (1964), \"Epidemics and rumours\", <i>Nature</i> 204. / Maki, D. P. and Thompson, M. (1973), <i>Mathematical Models and Applications</i>, Prentice-Hall. / Kermack, W. O. and McKendrick, A. G. (1927), \"A contribution to the mathematical theory of epidemics\", <i>Proc. R. Soc. A</i> 115.",
+"tr": "<b>参考文献：</b>Daley, D. J. and Kendall, D. G. (1964), \"Epidemics and rumours\", <i>Nature</i> 204. / Maki, D. P. and Thompson, M. (1973), <i>Mathematical Models and Applications</i>, Prentice-Hall. / Kermack, W. O. and McKendrick, A. G. (1927), \"A contribution to the mathematical theory of epidemics\", <i>Proc. R. Soc. A</i> 115."
+},
+{
+"id": "s1735",
+"page": "sandpile",
+"ko": "모래 한 알과 산사태 · 시뮬라티오 랩",
+"en": "A Grain of Sand and a Landslide · Simulatio Lab",
+"tr": "一粒の砂と地すべり · Simulatio Lab"
+},
+{
+"id": "s1736",
+"page": "sandpile",
+"ko": "모래를 한 알씩 쌓기만 해도 더미가 스스로 임계 상태에 이르고, 대부분은 아무 일도 없다가 가끔 거대한 눈사태가 나는 모습을 모래더미 시뮬레이션으로 직접 돌려보세요.",
+"en": "Pile sand one grain at a time and watch the pile organize itself into a critical state, where most grains do nothing and a few trigger huge avalanches. Run the sandpile simulation yourself.",
+"tr": "砂を一粒ずつ積み上げ、山が自ら臨界状態へと組織化されるようすを見てみましょう。ほとんどの粒は何も起こさず、ごく一部が巨大な雪崩を引き起こします。砂山のシミュレーションを自分で実行してみてください。"
+},
+{
+"id": "s1737",
+"page": "sandpile",
+"ko": "모래 한 알은 너무 가벼워서 산사태 같은 큰일을 일으킬 리 없다고 생각하기 쉽습니다. 큰 사태에는 큰 원인이 있을 테니까요. 그런데 이 모래더미에서는 똑같은 한 알이 어떤 때는 아무 일도 일으키지 않고, 어떤 때는 판 전체를 뒤흔드는 산사태를 일으킵니다. 어느 쪽일지는 미리 알 수 없는데도, 사태 크기의 통계는 놀랍도록 질서정연합니다.",
+"en": "It is easy to think a single grain of sand is far too light to cause anything like a landslide: big events should have big causes. But on this sandpile, the very same grain sometimes does nothing and sometimes sets off an avalanche that shakes the whole board. You cannot tell in advance which, yet the statistics of avalanche sizes are strikingly orderly.",
+"tr": "一粒の砂は軽すぎて、地すべりのようなものを起こせるはずがないと考えがちです。大きな出来事には大きな原因があるはずだ、と。ところがこの砂山では、まったく同じ一粒が、何も起こさないこともあれば、盤面全体を揺るがす雪崩を引き起こすこともあります。どちらになるかは事前にはわかりませんが、雪崩の大きさの統計は驚くほど整っています。"
+},
+{
+"id": "s1738",
+"page": "sandpile",
+"ko": "판은 정사각형 격자이고 칸마다 모래알이 0~3개 쌓입니다. 한 번에 한 알을 무작위 칸(또는 가운데 칸)에 떨어뜨립니다.",
+"en": "The board is a square grid, and each cell holds 0 to 3 grains. One grain at a time is dropped on a random cell (or on the center cell).",
+"tr": "盤面は正方形の格子で、各マスには0〜3粒の砂が入ります。砂は一粒ずつ、ランダムなマス（または中央のマス）に落とされます。"
+},
+{
+"id": "s1739",
+"page": "sandpile",
+"ko": "한 칸에 모래알이 <b>4개 이상</b>이 되면 그 칸이 무너져, 위·아래·왼쪽·오른쪽 이웃 칸에 한 알씩 나눠 줍니다(4알이 줄어듭니다). 이웃이 4알이 되면 이어서 무너지는데, 이 연쇄가 <b>눈사태</b>입니다. 판 가장자리 밖으로 나간 알은 사라집니다.",
+"en": "When a cell reaches <b>4 or more grains</b> it topples, giving one grain to each of its up, down, left and right neighbors (losing 4 grains). A neighbor that reaches 4 topples in turn, and this chain reaction is an <b>avalanche</b>. Grains that cross the edge of the board are lost.",
+"tr": "マスの砂が<b>4粒以上</b>になると崩れ、上下左右の隣のマスに1粒ずつ渡します（4粒を失います）。4粒に達した隣のマスも今度は崩れ、この連鎖反応が<b>雪崩</b>です。盤面の端を越えた砂は失われます。"
+},
+{
+"id": "s1740",
+"page": "sandpile",
+"ko": "눈사태의 크기는 그 알 하나가 일으킨 무너짐의 총 횟수입니다. 아무 칸도 무너지지 않으면 0입니다. 아무것도 조절하지 않았는데도 더미가 알아서 이런 상태에 이르는지 지켜보세요.",
+"en": "The size of an avalanche is the total number of topplings that one grain set off; it is 0 if no cell topples. Watch whether the pile reaches this state on its own, without anyone tuning anything.",
+"tr": "雪崩の大きさは、一粒が引き起こした崩れの総数です。どのマスも崩れなければ0です。誰も何も調整しなくても、山が自分でこの状態に達するかどうかを見てみましょう。"
+},
+{
+"id": "s1741",
+"page": "sandpile",
+"ko": "판의 크기 <output id=\"o-size\"></output>",
+"en": "Board size <output id=\"o-size\"></output>",
+"tr": "盤面のサイズ <output id=\"o-size\"></output>"
+},
+{
+"id": "s1742",
+"page": "sandpile",
+"ko": "클수록 더 큰 눈사태가 가능하지만, 안정기에 이르는 데 더 오래 걸려요",
+"en": "Larger boards allow bigger avalanches but take longer to settle",
+"tr": "盤面が大きいほど大きな雪崩が起こりますが、落ち着くまで時間がかかります"
+},
+{
+"id": "s1743",
+"page": "sandpile",
+"ko": "알을 떨어뜨리는 곳 <output id=\"o-mode\"></output>",
+"en": "Where grains fall <output id=\"o-mode\"></output>",
+"tr": "砂を落とす場所 <output id=\"o-mode\"></output>"
+},
+{
+"id": "s1744",
+"page": "sandpile",
+"ko": "무작위 칸",
+"en": "Random cell",
+"tr": "ランダムなマス"
+},
+{
+"id": "s1745",
+"page": "sandpile",
+"ko": "가운데 칸",
+"en": "Center cell",
+"tr": "中央のマス"
+},
+{
+"id": "s1746",
+"page": "sandpile",
+"ko": "가운데에만 떨어뜨리면 대칭 무늬가 생겨요",
+"en": "Dropping only at the center builds a symmetric pattern",
+"tr": "中央だけに落とすと、対称な模様ができます"
+},
+{
+"id": "s1747",
+"page": "sandpile",
+"ko": "① 모래더미 지켜보기",
+"en": "① Watching the Sandpile",
+"tr": "① 砂山を観察する"
+},
+{
+"id": "s1748",
+"page": "sandpile",
+"ko": "색은 칸의 모래알 수입니다(남색 0, 청록 1, 노랑 2, 분홍 3). 눈사태가 나면 무너진 칸이 하얗게 번쩍입니다. 처음에는 알이 쌓이기만 하다가, 어느 순간부터 크고 작은 눈사태가 계속 일어나요. 회색 영역이 지나면 더미가 안정기에 들어선 것입니다.",
+"en": "Color shows how many grains a cell holds (navy 0, teal 1, yellow 2, pink 3). When an avalanche happens, the cells that toppled flash white. At first grains only pile up, then big and small avalanches keep happening. After the gray zone in the charts, the pile has settled into its steady regime.",
+"tr": "色はマスに入っている砂の数を表します（紺色が0、青緑が1、黄色が2、ピンクが3）。雪崩が起こると、崩れたマスが白く光ります。最初は砂が積もるだけですが、やがて大小の雪崩が続けて起こります。グラフの灰色の領域のあとは、山が定常状態に落ち着いています。"
+},
+{
+"id": "s1749",
+"page": "sandpile",
+"ko": "모래 한 알만 떨어뜨리기",
+"en": "Drop just one grain",
+"tr": "砂を一粒だけ落とす"
+},
+{
+"id": "s1750",
+"page": "sandpile",
+"ko": "더미를 멈추고 딱 한 알만 떨어뜨립니다. 계속 눌러 보세요. 같은 한 알인데 어떤 때는 아무 일도 없고, 어떤 때는 산사태가 납니다.",
+"en": "Pauses the pile and drops a single grain. Press it again and again: the same kind of grain does nothing one time and sets off a landslide the next.",
+"tr": "山を一時停止して、砂を一粒だけ落とします。何度も押してみてください。同じ一粒でも、ある時は何も起こさず、次の時には地すべりを引き起こします。"
+},
+{
+"id": "s1751",
+"page": "sandpile",
+"ko": "② 눈사태 크기의 시간 흐름",
+"en": "② Avalanche Size Over Time",
+"tr": "② 雪崩の大きさの時間変化"
+},
+{
+"id": "s1752",
+"page": "sandpile",
+"ko": "알을 하나 떨어뜨릴 때마다 눈사태 크기를 세로 막대로 그렸습니다(가까운 알끼리는 가장 큰 것만 보입니다). 대부분은 바닥에 붙어 있고, 가끔 하늘로 솟는 뾰족한 막대가 있습니다. 회색 영역은 아직 더미가 쌓이는 중인 구간입니다.",
+"en": "Each grain's avalanche size is drawn as a vertical bar (for grains close together, only the largest is visible). Most hug the floor, and now and then a spike shoots up. The gray zone is the stretch where the pile is still building up.",
+"tr": "各粒の雪崩の大きさを縦の棒で描いています（近い粒どうしでは最大のものだけが見えます）。ほとんどは底にとどまり、ときどき高いスパイクが立ち上がります。灰色の領域は、山がまだ積み上がっている区間です。"
+},
+{
+"id": "s1753",
+"page": "sandpile",
+"ko": "③ 눈사태 크기의 분포",
+"en": "③ Distribution of Avalanche Sizes",
+"tr": "③ 雪崩の大きさの分布"
+},
+{
+"id": "s1754",
+"page": "sandpile",
+"ko": "안정기 이후의 눈사태를 크기별로 세어 가로세로 모두 로그 눈금으로 그렸습니다(무너진 적 없는 0은 뺐습니다). 점들이 대체로 내려가는 직선을 이루면 작은 사태는 아주 흔하고 큰 사태는 드물지만 아예 없지는 않다는 뜻입니다. 빨간 점선은 표본 10개 이상인 점들에 맞춘 직선이고, 기울기는 이 판 크기에서 실제로 잰 값입니다.",
+"en": "Avalanches in the steady regime are counted by size and drawn with both axes on a log scale (avalanches of size 0 are left out). If the dots roughly follow a falling straight line, small avalanches are very common and large ones rare but far from absent. The red dashed line is fitted to dots backed by at least 10 avalanches, and its slope is the value actually measured at this board size.",
+"tr": "定常状態の雪崩を大きさ別に数え、両軸を対数目盛にして描いています（大きさ0の雪崩は除きます）。点がおおよそ右下がりの直線に沿っていれば、小さな雪崩はとても多く、大きな雪崩は少ないものの決してなくなりません。赤い破線は10回以上の雪崩に裏付けられた点に当てはめたもので、その傾きはこの盤面サイズで実際に測られた値です。"
+},
+{
+"id": "s1755",
+"page": "sandpile",
+"ko": "④ 칸당 평균 높이",
+"en": "④ Average Height per Cell",
+"tr": "④ マスあたりの平均の高さ"
+},
+{
+"id": "s1756",
+"page": "sandpile",
+"ko": "모래알이 쌓이면서 평균 높이가 오르다가, 어느 값에서 더는 오르지 않고 오르내리기만 합니다. 더 얹어도 가장자리로 흘러나가는 알과 새로 얹는 알이 균형을 이루기 때문입니다.",
+"en": "As grains accumulate the average height rises, then stops rising and only wobbles around a value. Grains added and grains lost over the edge balance out.",
+"tr": "砂が積もるにつれて平均の高さは上がり、やがて上がらなくなって、ある値のまわりで揺れるだけになります。加えられる砂と、端から失われる砂がつり合うためです。"
+},
+{
+"id": "s1757",
+"page": "sandpile",
+"ko": "작은 눈사태가 흔하고 큰 눈사태가 드문 분포가 나타나, 기울기는 평균 -1.22였습니다.",
+"en": "Small avalanches were common and huge ones rare, with a log-log slope averaging -1.22.",
+"tr": "小さな雪崩は多く、巨大なものはまれで、両対数グラフの傾きは平均-1.22でした。"
+},
+{
+"id": "s1758",
+"page": "sandpile",
+"ko": "한 알이 이웃 넷에게 나눠지며 연쇄하는 구조라, 같은 한 알이 아무 일도 없기도 수천 번 무너짐이 되기도 했습니다.",
+"en": "Because a grain spreads to four neighbors and chains on, the same single grain caused nothing or thousands of topples.",
+"tr": "砂粒は4つの隣に広がって連鎖していくため、同じ1粒でも崩れがまったく起きないこともあれば、数千回起きることもありました。"
+},
+{
+"id": "s1759",
+"page": "sandpile",
+"ko": "큰 사건에 큰 원인이 꼭 필요하지 않을 수 있으니, 특별한 이유를 찾기 전에 연결 구조부터 살펴볼 만합니다.",
+"en": "Big events may not need big causes, so the connection structure is worth examining before hunting for a special reason.",
+"tr": "大きな出来事に大きな原因が必要とは限らないので、特別な理由を探す前に、つながりの構造を調べてみる価値があります。"
+},
+{
+"id": "s1760",
+"page": "sandpile",
+"ko": "<b>말하는 것:</b> 판 크기 40×40, 무작위로 떨어뜨리기, 알 20,000개를 다섯 번(시드 1~5) 돌렸을 때, 알이 쌓인 지 약 4,800개(칸 수의 3배) 뒤부터 평균 높이는 2.1 안팎(2.07~2.11)에서 멈췄습니다. 이후 떨어뜨린 알의 57%는 아무 칸도 무너뜨리지 못했고, 무너짐이 있었던 눈사태의 중앙값은 20번인데 가장 큰 것은 3,778~4,760번(중앙값의 180~241배, 평균 약 208배)이었습니다. 눈사태 크기 분포를 로그-로그로 맞춘 기울기는 -1.17~-1.25(평균 -1.22)였습니다. 판 크기에 따라 기울기는 20×20에서 -1.35, 60×60에서 -1.20, 100×100에서 -1.18로 조금씩 달랐습니다. 같은 칸(가운데)에 같은 한 알을 3,000번 더해 보아도 56%는 아무 일이 없었고 592번은 100번 이상 무너졌으며 가장 큰 것은 3,889번이었습니다. 가운데에만 떨어뜨리면(20,000알) 아무 일 없는 비율이 68%, 기울기는 -1.18이었습니다(한 번 돌린 값).",
+"en": "<b>What it shows:</b> On a 40×40 board with random drops, running 20,000 grains five times (seeds 1 to 5), the average height stopped at about 2.1 (2.07 to 2.11) from roughly 4,800 grains (3 times the number of cells) on. After that, 57% of grains did not topple a single cell; among avalanches with at least one toppling the median was 20 topplings while the largest was 3,778 to 4,760 (180 to 241 times the median, about 208 on average). The log-log slope of the size distribution was -1.17 to -1.25 (average -1.22). The slope varied a little with board size: -1.35 at 20×20, -1.20 at 60×60 and -1.18 at 100×100. Adding the same grain 3,000 times to the same (center) cell, 56% did nothing, 592 caused 100 or more topplings, and the largest was 3,889. Dropping only at the center (20,000 grains), 68% did nothing and the slope was -1.18 (a single run).",
+"tr": "<b>言えること：</b>40×40の盤面でランダムに落とし、2万粒を5回（シード1〜5）実行したところ、平均の高さは約4,800粒（マスの数の3倍）あたりから約2.1（2.07〜2.11）で一定になりました。それ以降、57%の粒はどのマスも崩さず、1回以上崩れた雪崩の中央値は崩れ20回、最大は3,778〜4,760回（中央値の180〜241倍、平均で約208倍）でした。大きさの分布の両対数での傾きは-1.17〜-1.25（平均-1.22）でした。傾きは盤面サイズによって少し変わり、20×20では-1.35、60×60では-1.20、100×100では-1.18でした。同じ（中央の）マスに同じ砂を3,000回加えると、56%は何も起こさず、592回は100回以上の崩れを引き起こし、最大は3,889回でした。中央だけに落とした場合（2万粒）は、68%が何も起こさず、傾きは-1.18（1回の実行）でした。"
+},
+{
+"id": "s1761",
+"page": "sandpile",
+"ko": "실제 모래더미나 지진·산불·주가 폭락의 원인을 설명하는 것은 아닙니다. 기울기는 이 판에서 잰 값입니다.",
+"en": "It does not explain real sandpiles, quakes, fires or crashes; the slope is measured on these grids.",
+"tr": "現実の砂山や地震、火災、暴落を説明するものではありません。傾きはこの格子の上で測ったものです。"
+},
+{
+"id": "s1762",
+"page": "sandpile",
+"ko": "현실의 사건 크기를 모아 분포 모양을 비교하고, 이웃에게 전해지는 연결이 실제로 있는지 살펴야 합니다.",
+"en": "Real event sizes would need collecting to compare distributions, and whether such neighbor-to-neighbor links exist must be examined.",
+"tr": "現実の出来事の規模を集めて分布を比べるとともに、そのような隣同士のつながりが存在するかを調べる必要があります。"
+},
+{
+"id": "s1763",
+"page": "sandpile",
+"ko": "<b>말하지 않는 것:</b> 실제 모래더미나 산사태를 재현한 것이 아닙니다. 네 이웃에게 나눠 주는 규칙만 가진, 이 프로젝트의 단순화된 모델입니다. 지진, 산불, 주가 폭락 등에서도 작은 사건은 흔하고 큰 사건은 드문 비슷한 통계가 보고되었다는 이야기가 흔히 인용되지만, 이 시뮬레이션이 그 현상들의 원인을 설명하거나 증명한 것은 아닙니다. 닮았다는 것은 암시일 뿐입니다. 기울기는 판 크기와 표본이 한정된 이 실험에서 잰 값이며, 이론의 정확한 지수를 확인한 것이 아닙니다. 실제 모래더미 실험에서는 이 이상적 모델만큼 깔끔한 결과가 나오지 않는 경우가 많다고 알려져 있습니다.",
+"en": "<b>What it doesn't show:</b> This does not reproduce real sandpiles or landslides. It is this project's simplified model with nothing but a rule of passing grains to four neighbors. Similar statistics, with small events common and big ones rare, are often cited for earthquakes, wildfires and stock crashes, but this simulation neither explains nor proves the causes behind them; the resemblance is only suggestive. The slope is a value measured in this experiment with a limited board size and sample, and does not confirm the exact exponent of the theory. Real sand-pile experiments are often reported not to behave as cleanly as this idealized model.",
+"tr": "<b>言えないこと：</b>実際の砂山や地すべりを再現するものではありません。これは、砂を4つの隣のマスに渡すという規則だけの、このプロジェクトの簡略化したモデルです。小さな出来事は多く、大きな出来事は少ないという似た統計は、地震、山火事、株価の暴落でもよく引き合いに出されますが、このシミュレーションはその背後にある原因を説明も証明もしません。似ているというのは示唆にとどまります。傾きは、限られた盤面サイズとサンプルで、この実験で測った値であり、理論上の正確な指数を裏付けるものではありません。実際の砂山の実験は、この理想化されたモデルほどきれいには振る舞わないと報告されることも多いです。"
+},
+{
+"id": "s1764",
+"page": "sandpile",
+"ko": "<b>모델의 뿌리:</b> 1987년 Bak, Tang, Wiesenfeld가 제안한 모래더미 모델로, 아무것도 조절하지 않아도 계가 스스로 임계 상태에 이른다는 <b>자기조직화 임계성(self-organized criticality)</b>의 대표 예입니다. 출처: Bak, Tang &amp; Wiesenfeld (1987), \"Self-organized criticality: An explanation of the 1/f noise\", <i>Physical Review Letters</i> 59, 381.",
+"en": "<b>Where the model comes from:</b> The sandpile model proposed by Bak, Tang and Wiesenfeld in 1987, the standard example of <b>self-organized criticality</b>: a system that drives itself to a critical state without anyone tuning it. Source: Bak, Tang &amp; Wiesenfeld (1987), \"Self-organized criticality: An explanation of the 1/f noise\", <i>Physical Review Letters</i> 59, 381.",
+"tr": "<b>モデルの由来：</b>1987年にBak、Tang、Wiesenfeldが提案した砂山モデルで、<b>自己組織化臨界現象</b>の標準的な例です。誰も調整しなくても、系が自ら臨界状態へ向かいます。出典：Bak, Tang &amp; Wiesenfeld (1987), \"Self-organized criticality: An explanation of the 1/f noise\", <i>Physical Review Letters</i> 59, 381."
+},
+{
+"id": "s1765",
+"page": "sandpile",
+"ko": "<b>핵심 가정과 수식:</b> 칸 높이 <code>h</code>가 4 이상이면 <code>h → h − 4</code>로 줄고 상하좌우 이웃 네 칸의 높이가 각각 1 늘어납니다. 눈사태 크기 <code>s</code>는 이 무너짐의 총 횟수이고, 임계 상태에서는 큰 사태까지 <code>P(s) ~ s<sup>−τ</sup></code> 꼴의 거듭제곱 분포를 따를 것으로 봅니다. 슬라이더는 판의 한 변 길이(격자 크기)입니다.",
+"en": "<b>Key assumptions and formulas:</b> When a cell's height <code>h</code> reaches 4 or more it drops by 4 (<code>h → h − 4</code>) and each of its four neighbors gains 1. The avalanche size <code>s</code> is the total number of topplings, and at criticality it is expected to follow a power law <code>P(s) ~ s<sup>−τ</sup></code> over a wide range of sizes. The slider sets the side length of the grid.",
+"tr": "<b>主な仮定と式：</b>マスの高さ<code>h</code>が4以上になると4減り（<code>h → h − 4</code>）、4つの隣のマスがそれぞれ1増えます。雪崩の大きさ<code>s</code>は崩れの総数で、臨界状態では幅広い大きさにわたってべき乗則<code>P(s) ~ s<sup>−τ</sup></code>に従うと期待されます。スライダーで格子の一辺の長さを設定します。"
+},
+{
+"id": "s1766",
+"page": "sandpile",
+"ko": "<b>이 프로젝트의 단순화:</b> 이 프로젝트는 가장자리로 알이 빠져나가는 정사각형 격자, 임계 높이 4, 한 번에 한 알이라는 가장 단순한 형태만 구현했습니다. 알이 쌓이는 속도와 눈사태가 끝나는 속도를 분리한 것도 모델의 설정이며 실제 모래의 마찰과 관성은 없습니다. 판 크기 기본값 40과 안정기 기준(알 수의 3배)은 이 프로젝트가 정한 값입니다.",
+"en": "<b>What this project simplifies:</b> This project implements only the simplest form: a square grid with open edges, a threshold of 4 and one grain at a time. Treating grain arrival as much slower than the avalanche is a modeling assumption, and real sand's friction and inertia are absent. The default board size of 40 and the steady-regime cutoff (3 times the number of cells) are values chosen by this project.",
+"tr": "<b>このプロジェクトでの単純化：</b>このプロジェクトは最も単純な形だけを実装しています。端が開いた正方形の格子、閾値4、一度に一粒です。砂の到着が雪崩よりずっと遅いとみなすのはモデル化上の仮定で、実際の砂の摩擦や慣性はありません。初期の盤面サイズ40と、定常状態の区切り（マスの数の3倍）は、このプロジェクトが選んだ値です。"
+},
+{
+"id": "s1767",
+"page": "sandpile",
+"ko": "<b>이론값과 시뮬레이션:</b> 이 모델의 거듭제곱 지수에 대해 이 프로젝트가 직접 확인한 교과서 값은 없습니다. 보고된 값은 눈사태 크기를 무엇으로 재는지와 격자 크기에 따라 달라서 맞춰 보지 않았고, 시뮬레이션에서 잰 값만 적습니다. 40×40에서 기울기는 -1.17~-1.25(평균 -1.22)이고 판이 커질수록 -1.35(20×20), -1.20(60×60), -1.18(100×100)로 완만해졌습니다. 보존 검사(더한 알 = 남은 알 + 사라진 알)와 모든 칸이 3 이하로 안정되는지는 <code>node tools/validate-sandpile.js</code>에서 확인했습니다.",
+"en": "<b>Theory versus simulation:</b> This project has no textbook value for the exponent that it checked directly. Reported values depend on how avalanche size is measured and on the grid size, so none was matched here; only measured values are given. At 40×40 the slope was -1.17 to -1.25 (average -1.22), and it flattened with board size: -1.35 (20×20), -1.20 (60×60), -1.18 (100×100). Conservation (grains added = grains left + grains lost) and stability (every cell at most 3) were checked with <code>node tools/validate-sandpile.js</code>.",
+"tr": "<b>理論とシミュレーションの比較：</b>このプロジェクトでは、直接確かめた指数の教科書的な値はありません。報告されている値は雪崩の大きさの測り方や格子の大きさに左右されるため、ここでは一致させたものはなく、測定値だけを示しています。40×40では傾きは-1.17〜-1.25（平均-1.22）で、盤面が大きくなるほど平らになりました：-1.35（20×20）、-1.20（60×60）、-1.18（100×100）。保存則（加えた砂＝残った砂＋失われた砂）と安定性（すべてのマスが最大3）は、<code>node tools/validate-sandpile.js</code>で確かめました。"
+},
+{
+"id": "s1768",
+"page": "sandpile",
+"ko": "<b>더 읽을거리:</b> Bak, Tang &amp; Wiesenfeld (1987), <i>Physical Review Letters</i> 59, 381 (위 논문). Per Bak (1996), <i>How Nature Works: The Science of Self-Organized Criticality</i>, Copernicus.",
+"en": "<b>Further reading:</b> Bak, Tang &amp; Wiesenfeld (1987), <i>Physical Review Letters</i> 59, 381 (the paper above). Per Bak (1996), <i>How Nature Works: The Science of Self-Organized Criticality</i>, Copernicus.",
+"tr": "<b>参考文献：</b>Bak, Tang &amp; Wiesenfeld (1987), <i>Physical Review Letters</i> 59, 381（上記の論文）。Per Bak (1996), <i>How Nature Works: The Science of Self-Organized Criticality</i>, Copernicus."
+},
+{
+"id": "s1769",
+"page": "sandpile",
+"ko": "눈사태는 쌓인 칸을 스택에 넣어 처리하는데, 무너지는 순서는 최종 모양과 무너짐 횟수에 영향을 주지 않습니다. 분포는 크기를 약 1.5배씩 넓어지는 구간으로 묶어 구간 폭으로 나눈 비율을 그리고, 표본 10개 이상인 구간에 최소제곱으로 직선을 맞춥니다. 난수는 시드를 쓰는 mulberry32입니다.",
+"en": "Avalanches are processed with a stack of overfull cells; the order of toppling does not change the final shape or the number of topplings. The distribution groups sizes into bins about 1.5 times wider each and plots the share divided by bin width, with a least-squares line fitted to bins holding at least 10 avalanches. Random numbers come from a seeded mulberry32.",
+"tr": "雪崩は、あふれたマスのスタックで処理します。崩れる順序は、最終的な形や崩れの回数に影響しません。分布は、大きさを毎回約1.5倍ずつ広がる区間にまとめ、割合を区間の幅で割った値をプロットし、10回以上の雪崩を含む区間に最小二乗直線を当てはめています。乱数にはシード付きのmulberry32を使っています。"
+},
+{
+"id": "s1770",
+"page": "sandpile",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/sandpile\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/sandpile\">GitHub</a>.",
+"tr": "コードは<a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/sandpile\">GitHub</a>で公開しています。"
+},
+{
+"id": "s1798",
+"page": "schelling",
+"ko": "소수가 되기 싫다는 약한 바람만으로도 아무도 원하지 않은 강한 분리가 생길 수 있어요.",
+"en": "A weak wish not to be in the minority can produce strong segregation that nobody wanted.",
+"tr": "少数派になりたくないというわずかな思いが、誰も望んでいない強い分離を生むことがあります。"
+},
+{
+"id": "s1799",
+"page": "schelling",
+"ko": "불만족한 사람이 떠나면 남은 이웃의 비율이 바뀌어 또 다른 사람이 불만족해지는 연쇄가 이어지기 때문일 수 있어요.",
+"en": "When an unhappy person leaves, the neighbors' mix changes and makes others unhappy, which may set off a chain.",
+"tr": "不満を持つ人が引っ越すと、近隣の構成が変わって別の人が不満を抱くようになり、連鎖が始まることがあります。"
+},
+{
+"id": "s1800",
+"page": "schelling",
+"ko": "분리를 볼 때는 개인의 속마음보다 이사의 연쇄를 만드는 구조가 어디인지 살펴볼 만해요.",
+"en": "To read segregation, it may help to look for what starts the chain of moves rather than guessing at individuals' feelings.",
+"tr": "分離を読み解くには、一人ひとりの気持ちを推測するより、引っ越しの連鎖が何をきっかけに始まるかを探すほうが役立つかもしれません。"
+},
+{
+"id": "s1802",
+"page": "schelling",
+"ko": "현실의 주거 분리가 모두 이런 이유 때문이라는 뜻은 아니에요.",
+"en": "It does not mean all real residential segregation arises this way.",
+"tr": "現実の居住地の分離がすべてこのようにして生じるという意味ではありません。"
+},
+{
+"id": "s1803",
+"page": "schelling",
+"ko": "집값, 학군, 일자리, 제도는 모델에 없어서, 실제 이동 이유와 이웃 구성은 따로 관찰해야 알 수 있어요.",
+"en": "Housing prices, schools, jobs and institutions are absent, so real reasons for moving and neighborhood mix would have to be observed.",
+"tr": "住宅価格、学校、仕事、制度は含まれていないため、現実の引っ越しの理由や地域の構成は観察して確かめる必要があります。"
+},
+{
+"id": "s1805",
+"page": "schelling",
+"ko": "<b>모델의 뿌리:</b> Thomas C. Schelling(1971)의 \"Dynamic Models of Segregation\"(<i>Journal of Mathematical Sociology</i> 1(2))입니다. 개인은 \"내 이웃의 일정 비율은 나와 같았으면\"이라는 약한 선호만 가져도, 이사를 반복하면 전체는 크게 갈라질 수 있음을 보였습니다. 이후 책 『Micromotives and Macrobehavior』(1978)에서 널리 알려졌습니다.",
+"en": "<b>Where the model comes from:</b> This is Thomas C. Schelling (1971), \"Dynamic Models of Segregation\" (<i>Journal of Mathematical Sociology</i> 1(2)). It showed that even if each person has only a mild preference that some share of their neighbors resemble them, repeated moving can split the whole population sharply. It became widely known through his book <i>Micromotives and Macrobehavior</i> (1978).",
+"tr": "<b>モデルの由来：</b>トーマス・C・シェリング（1971年）の\"Dynamic Models of Segregation\"（<i>Journal of Mathematical Sociology</i> 1(2)）です。一人ひとりが、隣人の一定の割合は自分に似ていてほしいという穏やかな好みしか持っていなくても、引っ越しを繰り返すうちに、全体がはっきりと分かれうることを示しました。著書<i>ミクロ動機とマクロ行動</i>（1978年）で広く知られるようになりました。"
+},
+{
+"id": "s1806",
+"page": "schelling",
+"ko": "<b>핵심 가정과 수식:</b> 50×50 격자(가장자리가 이어짐)에 두 집단이 섞여 있고 빈 칸이 10%입니다. 둘레 8칸 이웃 중 같은 집단 비율이 <code>threshold</code> 이상이면 만족, 미만이면 불만족입니다. 불만족한 사람은 무작위 빈 칸으로 이사합니다. 슬라이더는 이 <code>threshold</code>(원하는 비율)입니다.",
+"en": "<b>Key assumptions and formulas:</b> Two groups are mixed on a 50×50 grid (edges wrap around) with 10% empty cells. A person is content if the share of the same group among the 8 surrounding neighbors is at least <code>threshold</code>, and unhappy otherwise. Unhappy people move to a random empty cell. The slider is this <code>threshold</code> (the desired share).",
+"tr": "<b>主な仮定と式：</b>2つのグループを50×50の格子（端はつながっています）に混ぜ、10%を空きマスにします。周囲8人の隣人のうち同じグループの割合が<code>閾値</code>以上なら満足、そうでなければ不満です。不満な人はランダムな空きマスへ引っ越します。スライダーはこの<code>閾値</code>（望む割合）です。"
+},
+{
+"id": "s1807",
+"page": "schelling",
+"ko": "<b>이 프로젝트의 단순화:</b> Schelling의 원 모델은 줄 위 또는 바둑판 위의 동전으로 설명되며 이사 규칙이 여러 가지입니다. 이 구현은 흔한 변형으로, 불만족한 사람이 무작위 순서로 한 명씩 무작위 빈 칸으로 이사합니다. 이웃이 한 명도 없으면 만족으로 봅니다. 격자 크기, 빈 칸 10%, 두 집단 50:50은 이 프로젝트가 정한 값입니다.",
+"en": "<b>What this project simplifies:</b> Schelling's original model is described with coins on a line or board and allows several moving rules. This implementation is a common variant: unhappy people move one at a time in random order to a random empty cell. A person with no neighbors counts as content. The grid size, 10% empty cells and 50:50 split are this project's own values.",
+"tr": "<b>このプロジェクトでの単純化：</b>シェリングの元のモデルは、直線や盤の上のコインで説明され、引っ越しのルールも複数あります。この実装は一般的な変種で、不満な人がランダムな順番で一人ずつ、ランダムな空きマスへ引っ越します。隣人のいない人は満足とみなします。格子のサイズ、10%の空きマス、50:50の割合は、このプロジェクト独自の値です。"
+},
+{
+"id": "s1808",
+"page": "schelling",
+"ko": "<b>이론값과 시뮬레이션:</b> 닫힌 해가 없어 시뮬레이션만으로 확인했습니다. 처음 같은 이웃 비율은 50%였고, 원하는 비율이 10%면 51%, 30%면 75%, 40%면 83%, 50%면 87%, 60%면 98%로 끝납니다(5회 평균). 원하는 비율 70%까지는 거의 완전히 갈라지지만 수렴에 100라운드 넘게 걸리고, 80%에서는 모두 만족하는 배치가 없어 300라운드에도 51%에 머뭅니다(<code>node tools/validate-schelling.js</code>).",
+"en": "<b>Theory versus simulation:</b> There is no closed-form result, so this was checked by simulation only. The initial same-neighbor share was 50%; it ends at 51% for a desired share of 10%, 75% for 30%, 83% for 40%, 87% for 50% and 98% for 60% (5-run averages). Up to 70% the population separates almost completely but takes over 100 rounds to settle, and at 80% no arrangement satisfies everyone, so it stays at 51% after 300 rounds (<code>node tools/validate-schelling.js</code>).",
+"tr": "<b>理論とシミュレーションの比較:</b> 閉じた形の解はないため、シミュレーションだけで確認しました。同じ隣人の初期割合は50%で、望む割合が10%なら51%、30%なら75%、40%なら83%、50%なら87%、60%なら98%に落ち着きます(5回の平均)。70%までは住民がほぼ完全に分かれますが、落ち着くまでに100ラウンド以上かかります。80%では全員が満足する配置が存在しないため、300ラウンド後も51%のままです(<code>node tools/validate-schelling.js</code>)。"
+},
+{
+"id": "s1809",
+"page": "schelling",
+"ko": "<b>더 읽을거리:</b> Thomas C. Schelling (1971), \"Dynamic Models of Segregation\", <i>Journal of Mathematical Sociology</i> 1(2). Thomas C. Schelling (1978), 『Micromotives and Macrobehavior』, W. W. Norton.",
+"en": "<b>Further reading:</b> Thomas C. Schelling (1971), \"Dynamic Models of Segregation\", <i>Journal of Mathematical Sociology</i> 1(2). Thomas C. Schelling (1978), <i>Micromotives and Macrobehavior</i>, W. W. Norton.",
+"tr": "<b>参考文献:</b> Thomas C. Schelling (1971), 「Dynamic Models of Segregation」, <i>Journal of Mathematical Sociology</i> 1(2). Thomas C. Schelling (1978), <i>Micromotives and Macrobehavior</i>, W. W. Norton."
+},
+{
+"id": "s1813",
+"page": "seating",
+"ko": "벤치 자리 앉기 · 시뮬라티오 랩",
+"en": "Bench Seating · Simulatio Lab",
+"tr": "ベンチの座り方 · Simulatio Lab"
+},
+{
+"id": "s1814",
+"page": "seating",
+"ko": "모두가 예의 바르게 옆 사람과 거리를 두고 앉았는데도 벤치 자리가 이만큼 남는 이유를, 앉는 방식 네 가지를 나란히 돌려보며 알아보세요.",
+"en": "Everyone sits politely, yet seats go unused. Run four ways of sitting side by side and see why a bench jams before it is full.",
+"tr": "みんな礼儀正しく座っているのに、席が余ってしまいます。4つの座り方を並べて実行し、ベンチが満席になる前に詰まってしまう理由を見てみましょう。"
+},
+{
+"id": "s1815",
+"page": "seating",
+"ko": "낯선 사람 옆에는 한두 칸 띄우고 앉는 것이 예의입니다. 모두가 그렇게 하면 벤치가 알맞게 채워질 것 같습니다. 그런데 한 명씩 마음 가는 대로 앉게 하면, 아직 빈 자리가 한가득인데도 \"앉을 곳이 없네\" 하며 돌아가는 사람이 생깁니다. 아무도 잘못하지 않았는데 자리가 이렇게 낭비되는 까닭은 무엇일까요?",
+"en": "When you sit next to a stranger, it is polite to leave a seat or two between you. If everyone does, the bench should fill up neatly. But let people sit one at a time wherever they like, and some turn away saying \"no room\" while plenty of seats are still empty. Nobody did anything wrong, so why are seats wasted?",
+"tr": "見知らぬ人の隣に座るときは、席を1つか2つ空けるのが礼儀です。全員がそうすれば、ベンチはきれいに埋まるはずです。ところが、一人ずつ好きな場所に座っていくと、空席がたくさんあるのに「座れない」と立ち去る人が出てきます。誰も悪いことはしていないのに、なぜ席が無駄になるのでしょうか。"
+},
+{
+"id": "s1816",
+"page": "seating",
+"ko": "벤치에 자리가 <b>n석</b> 한 줄로 있고, 낯선 사람이 한 명씩 도착합니다. 앉은 사람의 양옆 <b>g칸</b>은 비워 두어야 해서, 그 안의 빈 자리(빨간 ×)에는 앉을 수 없습니다.",
+"en": "A bench has <b>n seats</b> in a row and strangers arrive one at a time. Each seated person needs <b>g empty seats</b> on both sides, so those seats (red ×) are off limits.",
+"tr": "ベンチには<b>n席</b>が一列に並び、見知らぬ人が一人ずつやって来ます。座った人は両側に<b>g席の空き</b>が必要なので、その席(赤い×)は座れません。"
+},
+{
+"id": "s1817",
+"page": "seating",
+"ko": "같은 사람들이 <b>네 가지 방식</b>으로 앉습니다. 무작위(앉을 수 있는 자리 중 아무 곳), 가장 먼 자리(앉은 사람에게서 가장 먼 곳), 끝자리 먼저(끝이 비었으면 거기, 아니면 무작위), 정돈(왼쪽부터 g+1칸 간격으로 빽빽하게).",
+"en": "The same arrivals sit in <b>four ways</b>: random (any allowed seat), farthest (as far from everyone as possible), edge first (an end seat if free, else random), and orderly (from the left, every g+1 seats).",
+"tr": "同じ顔ぶれが<b>4通りの座り方</b>で座ります。ランダム(座れる席ならどこでも)、一番遠く(全員からできるだけ離れて)、端から(空いていれば端の席、なければランダム)、整然(左から、g+1席ごと)です。"
+},
+{
+"id": "s1818",
+"page": "seating",
+"ko": "앉을 곳이 없으면 그 사람은 돌아갑니다. 정돈해서 앉으면 최대 <b>⌈n÷(g+1)⌉명</b>이 앉을 수 있고, 이것이 기준선입니다. 아래 <b>직접 앉혀 보기</b>에서는 처음 몇 명을 여러분이 앉히고 나머지는 무작위로 들어옵니다.",
+"en": "A person with no allowed seat leaves. Orderly seating fits at most <b>⌈n ÷ (g+1)⌉ people</b>, which is the baseline. In <b>Seat them yourself</b> below you place the first few people and the rest arrive at random.",
+"tr": "座れる席がない人は立ち去ります。整然と座った場合の最大人数は<b>⌈n ÷ (g+1)⌉人</b>で、これが基準です。下の<b>自分で座らせる</b>では、最初の数人を自分で配置し、残りはランダムに到着します。"
+},
+{
+"id": "s1819",
+"page": "seating",
+"ko": "벤치의 자리 수 <output id=\"o-n\"></output>",
+"en": "Seats on the bench <output id=\"o-n\"></output>",
+"tr": "ベンチの席数 <output id=\"o-n\"></output>"
+},
+{
+"id": "s1820",
+"page": "seating",
+"ko": "길수록 이론값에 가까워지는 모습이 보여요",
+"en": "Longer benches approach the theory value",
+"tr": "ベンチが長いほど理論値に近づきます"
+},
+{
+"id": "s1821",
+"page": "seating",
+"ko": "비워 두는 칸 <output id=\"o-g\"></output>",
+"en": "Empty seats kept between people <output id=\"o-g\"></output>",
+"tr": "人と人の間に空ける席 <output id=\"o-g\"></output>"
+},
+{
+"id": "s1822",
+"page": "seating",
+"ko": "0이면 바짝 붙어 앉아 낭비가 없어요",
+"en": "0 means sitting shoulder to shoulder, with no waste",
+"tr": "0は肩を寄せ合って座ることで、無駄がありません"
+},
+{
+"id": "s1823",
+"page": "seating",
+"ko": "찾아오는 사람 <output id=\"o-arrivals\"></output>",
+"en": "People arriving <output id=\"o-arrivals\"></output>",
+"tr": "到着する人数 <output id=\"o-arrivals\"></output>"
+},
+{
+"id": "s1824",
+"page": "seating",
+"ko": "자리보다 훨씬 많이 오면 돌아가는 사람이 늘어요",
+"en": "More people than fit means more turn away",
+"tr": "入りきらない人数が多いほど、帰る人も増えます"
+},
+{
+"id": "s1825",
+"page": "seating",
+"ko": "같은 설정, 다른 도착 순서",
+"en": "Same settings, different arrival order",
+"tr": "同じ設定で、到着順を変える"
+},
+{
+"id": "s1826",
+"page": "seating",
+"ko": "① 같은 사람들, 네 가지 앉는 방식",
+"en": "① The Same People, Four Ways to Sit",
+"tr": "① 同じ人たち、4通りの座り方"
+},
+{
+"id": "s1827",
+"page": "seating",
+"ko": "위에서부터 무작위, 가장 먼 자리, 끝자리 먼저, 정돈입니다. 사람이 들어올 때마다 네 줄이 함께 움직입니다. 빨간 ×는 비어 있지만 앉을 수 없는 자리, 굵은 테두리는 방금 앉은 사람입니다.",
+"en": "From the top: random, farthest, edge first, and orderly. All four rows move with each arrival. A red × is an empty seat nobody may take, and a bold outline marks the person who just sat.",
+"tr": "上から順に、ランダム、一番遠く、端から、整然です。4つの列は到着のたびにすべて動きます。赤い×は誰も座れない空席、太い枠は今座ったばかりの人です。"
+},
+{
+"id": "s1828",
+"page": "seating",
+"ko": "<i style=\"background:var(--accent)\"></i>앉은 사람",
+"en": "<i style=\"background:var(--accent)\"></i>Seated person",
+"tr": "<i style=\"background:var(--accent)\"></i>座っている人"
+},
+{
+"id": "s1829",
+"page": "seating",
+"ko": "<i style=\"background:rgba(229,72,77,0.35)\"></i>앉을 수 없는 빈 자리",
+"en": "<i style=\"background:rgba(229,72,77,0.35)\"></i>Empty seat nobody may take",
+"tr": "<i style=\"background:rgba(229,72,77,0.35)\"></i>誰も座れない空席"
+},
+{
+"id": "s1830",
+"page": "seating",
+"ko": "<i style=\"background:#fff;border:1px solid #cfd6e4\"></i>앉을 수 있는 빈 자리",
+"en": "<i style=\"background:#fff;border:1px solid #cfd6e4\"></i>Empty seat still allowed",
+"tr": "<i style=\"background:#fff;border:1px solid #cfd6e4\"></i>まだ座れる空席"
+},
+{
+"id": "s1831",
+"page": "seating",
+"ko": "② 직접 앉혀 보기",
+"en": "② Seat Them Yourself",
+"tr": "② 自分で座らせる"
+},
+{
+"id": "s1832",
+"page": "seating",
+"ko": "자리를 눌러 처음 몇 명을 앉혀 보세요(초록은 앉을 수 있는 자리, 빨강은 너무 가까운 자리). 그다음 버튼을 누르면 나머지는 무작위로 들어옵니다. 처음 몇 명을 잘 앉히면 결과가 달라질까요?",
+"en": "Click seats to place the first few people (green means allowed, red too close). Then press the button and the rest arrive at random. Can placing the first few well change the outcome?",
+"tr": "席をクリックして最初の数人を配置します(緑は座れる席、赤は近すぎる席)。次にボタンを押すと、残りの人がランダムに到着します。最初の数人をうまく配置すると、結果は変わるでしょうか。"
+},
+{
+"id": "s1833",
+"page": "seating",
+"ko": "나머지는 무작위로 들어오게 하기",
+"en": "Let the rest arrive at random",
+"tr": "残りをランダムに到着させる"
+},
+{
+"id": "s1834",
+"page": "seating",
+"ko": "비우고 다시",
+"en": "Clear and retry",
+"tr": "クリアしてやり直す"
+},
+{
+"id": "s1835",
+"page": "seating",
+"ko": "자리를 눌러 앉혀 보세요.",
+"en": "Click a seat to place a person.",
+"tr": "席をクリックして人を配置してください。"
+},
+{
+"id": "s1836",
+"page": "seating",
+"ko": "③ 벤치가 길어지면",
+"en": "③ As the Bench Gets Longer",
+"tr": "③ ベンチが長くなると"
+},
+{
+"id": "s1837",
+"page": "seating",
+"ko": "가로는 벤치의 자리 수, 세로는 앉은 비율입니다. 파란 점은 시뮬레이션 평균, 초록 선은 정확한 기댓값, 빨간 점선은 아주 긴 벤치의 이론값, 회색은 정돈했을 때의 최대입니다.",
+"en": "The horizontal axis is the number of seats, the vertical axis the share seated. Blue dots are simulation averages, the green line is the exact expected value, the red dashed line is the theory value for a very long bench, and gray is the orderly maximum.",
+"tr": "横軸は席数、縦軸は座れた割合です。青い点はシミュレーションの平均、緑の線は正確な期待値、赤い破線は非常に長いベンチの理論値、灰色は整然と座った場合の最大値です。"
+},
+{
+"id": "s1838",
+"page": "seating",
+"ko": "<i style=\"background:var(--accent)\"></i>시뮬레이션 평균",
+"en": "<i style=\"background:var(--accent)\"></i>Simulation average",
+"tr": "<i style=\"background:var(--accent)\"></i>シミュレーションの平均"
+},
+{
+"id": "s1839",
+"page": "seating",
+"ko": "<i style=\"background:#1fa463\"></i>정확한 기댓값",
+"en": "<i style=\"background:#1fa463\"></i>Exact expected value",
+"tr": "<i style=\"background:#1fa463\"></i>正確な期待値"
+},
+{
+"id": "s1840",
+"page": "seating",
+"ko": "<i style=\"background:#e5484d\"></i>긴 벤치 이론값",
+"en": "<i style=\"background:#e5484d\"></i>Long-bench theory",
+"tr": "<i style=\"background:#e5484d\"></i>長いベンチの理論値"
+},
+{
+"id": "s1841",
+"page": "seating",
+"ko": "<i style=\"background:#8a93a6\"></i>정돈했을 때 최대",
+"en": "<i style=\"background:#8a93a6\"></i>Orderly maximum",
+"tr": "<i style=\"background:#8a93a6\"></i>整然の最大値"
+},
+{
+"id": "s1842",
+"page": "seating",
+"ko": "④ 앉는 방식에 따라",
+"en": "④ Depending on How People Sit",
+"tr": "④ 座り方による違い"
+},
+{
+"id": "s1843",
+"page": "seating",
+"ko": "지금 설정에서 방식마다 끝까지 채웠을 때 앉는 사람 수의 평균(수백 판)입니다. 초록 점선이 정돈했을 때의 최대입니다. 똑똑해 보이는 \"가장 먼 자리\"가 항상 더 낫지는 않습니다.",
+"en": "The average number seated under each way of sitting when filled to the end (hundreds of runs) at the current settings. The green dashed line is the orderly maximum. The clever-looking \"farthest seat\" is not always better.",
+"tr": "現在の設定で最後まで埋めたとき(数百回の実行)の、座り方ごとの平均着席人数です。緑の破線は整然の最大値です。賢そうに見える「一番遠い席」が、いつも良いとは限りません。"
+},
+{
+"id": "s1844",
+"page": "seating",
+"ko": "⑤ 간격을 넓히면 낭비도 늘까",
+"en": "⑤ Does a Wider Gap Waste More?",
+"tr": "⑤ 間隔を広げると無駄も増える?"
+},
+{
+"id": "s1845",
+"page": "seating",
+"ko": "가로는 비워 두는 칸 수, 세로는 무작위로 앉았을 때 정돈 대비 앉는 비율입니다. 초록은 지금 벤치 길이의 정확한 기댓값, 빨강은 아주 긴 벤치입니다. 간격이 있기만 하면 항상 정돈보다 덜 앉습니다.",
+"en": "The horizontal axis is the gap kept between people, the vertical axis the share of the orderly maximum that random seating reaches. Green is the exact value for the current bench length and red for a very long bench. Any gap at all leaves it below orderly.",
+"tr": "横軸は人と人の間に空ける間隔、縦軸はランダムに座ったときに整然の最大値の何割に届くかです。緑は現在のベンチの長さでの正確な値、赤は非常に長いベンチの値です。間隔が少しでもあれば、整然には届きません。"
+},
+{
+"id": "s1846",
+"page": "seating",
+"ko": "<i style=\"background:#1fa463\"></i>지금 벤치 길이",
+"en": "<i style=\"background:#1fa463\"></i>Current bench length",
+"tr": "<i style=\"background:#1fa463\"></i>現在のベンチの長さ"
+},
+{
+"id": "s1847",
+"page": "seating",
+"ko": "<i style=\"background:#e5484d\"></i>아주 긴 벤치",
+"en": "<i style=\"background:#e5484d\"></i>Very long bench",
+"tr": "<i style=\"background:#e5484d\"></i>非常に長いベンチ"
+},
+{
+"id": "s1848",
+"page": "seating",
+"ko": "아무도 규칙을 어기지 않아도, 무작위로 앉으면 정돈했을 때보다 자리가 14~20% 놓쳐져요.",
+"en": "Even with nobody breaking the rule, random seating wastes about 14 to 20% of the orderly capacity.",
+"tr": "誰もルールを破らなくても、ランダムに座ると整然とした場合の収容力の約14〜20%が無駄になります。"
+},
+{
+"id": "s1849",
+"page": "seating",
+"ko": "이 모델에서는 앉은 자리가 움직이지 않고 서로 모른 채 차례로 앉아, 애매한 빈틈이 쓰이지 못하고 남아요.",
+"en": "In this model seats never move and strangers sit one by one, so awkward gaps are left unused.",
+"tr": "このモデルでは席が動かず、知らない人どうしが一人ずつ座るため、気まずい隙間が使われずに残ります。"
+},
+{
+"id": "s1850",
+"page": "seating",
+"ko": "빈자리가 아쉽다면 사람 태도보다, 앉는 순서와 안내 방식이 틈을 만드는지부터 살펴볼 만해요.",
+"en": "If seats feel wasted, it is worth checking whether seating order and guidance create the gaps, not attitudes.",
+"tr": "席がむだになっていると感じたら、態度ではなく、座る順番や案内が隙間を生んでいないかを確認する価値があります。"
+},
+{
+"id": "s1851",
+"page": "seating",
+"ko": "<b>말하는 것:</b> 간격 1칸이면 아주 긴 벤치에서 무작위로 앉은 사람은 자리의 43.2%(이론 (1−e<sup>−2</sup>)/2)로, 정돈했을 때의 50%보다 적었습니다(시뮬레이션 43.3%). 간격 2칸이면 27.5%(정돈 33.3%), 3칸이면 20.1%(정돈 25.0%)였습니다. 자리 30개, 간격 2칸에서는 정돈하면 10명이 앉지만 무작위로는 평균 8.6명이었고(정확한 기댓값 8.61명), 가장 먼 자리는 8.9명, 끝자리 먼저는 8.9명이었습니다. 아무도 규칙을 어기지 않았는데도 정돈했을 때에 비해 약 14~20%의 자리가 놓쳐졌습니다(간격 1~3칸, 긴 벤치).",
+"en": "<b>What it shows:</b> With a one-seat gap, people seating themselves at random on a very long bench fill 43.2% of the seats (theory (1−e<sup>−2</sup>)/2), below the 50% of orderly seating (simulation 43.3%). With a two-seat gap it is 27.5% (orderly 33.3%), and with three 20.1% (orderly 25.0%). With 30 seats and a two-seat gap, orderly seating fits 10 people but random seating averaged 8.6 (exact expectation 8.61); farthest-seat averaged 8.9 and edge-first 8.9. Nobody broke the rule, yet about 14 to 20% of the orderly capacity was lost (gaps of 1 to 3 seats, long bench).",
+"tr": "<b>言えること：</b> 間隔が1席の場合、非常に長いベンチでランダムに座ると席の43.2%が埋まります(理論値 (1−e<sup>−2</sup>)/2)。これは整然と座った場合の50%を下回ります(シミュレーション43.3%)。間隔が2席なら27.5%(整然は33.3%)、3席なら20.1%(整然は25.0%)です。30席で間隔が2席のとき、整然なら10人座れますが、ランダムでは平均8.6人でした(正確な期待値8.61)。一番遠い席は平均8.9人、端からは8.9人でした。誰もルールを破っていないのに、整然の定員の約14〜20%が失われました(間隔1〜3席、長いベンチ)。"
+},
+{
+"id": "s1852",
+"page": "seating",
+"ko": "실제 대기실이나 지하철의 모든 것을 설명하지는 않아요. 간격은 모두 같다고 정한 값이에요.",
+"en": "It does not explain every real waiting room or subway car; equal spacing for all is an assumption.",
+"tr": "現実のあらゆる待合室や地下鉄車両を説明するものではありません。全員が同じ間隔をとるというのは仮定です。"
+}
+]

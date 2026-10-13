@@ -1,20 +1,20 @@
 {
  "says_ko": [
   "'이미 쓴 것을 더 자주 쓰는' 규칙 하나만으로 지프의 법칙 모양이 나올 수 있어요.",
-  "쏠린 분포가 보인다고 해서 그 뒤에 복잡한 설계나 의미가 있어야 하는 것은 아닐 수 있어요.",
-  "같은 모양을 만드는 설명이 여러 가지일 수 있으니, 모양만으로 원인을 단정하기는 어려워요."
+  "자주 쓰인 단어는 글에 많이 흩어져 있어 더 자주 베껴지니, 처음의 작은 차이가 계속 커져요.",
+  "쏠린 분포를 만나면 의미나 설계를 찾기 전에, 이런 부익부 되먹임이 있는지부터 살펴볼 만해요."
  ],
  "says_en": [
-  "A single rule, that what is used often gets used even more, can produce the shape of Zipf's law.",
-  "A skewed distribution does not necessarily require complex design or meaning behind it.",
-  "Several explanations can yield the same shape, so the shape alone makes it hard to pin down the cause."
+  "One rule, reusing what was already used more often, can produce a Zipf-like shape.",
+  "Frequent words are scattered through the text and get copied more, so early small differences keep growing.",
+  "When you see a skewed distribution, check for this kind of rich-get-richer feedback before looking for meaning or design."
  ],
  "not_ko": [
-  "실제 언어가 이렇게 만들어진다는 뜻은 아니에요.",
-  "이 실험은 부익부 규칙 하나로도 같은 모양이 나올 수 있다는 것만 보여 주고, 문법과 의미는 모델에 없어요."
+  "실제 언어가 이렇게 만들어진다는 뜻은 아니에요. 같은 모양을 만드는 설명은 여러 가지이고 문법·의미는 모델에 없어요.",
+  "실제 글에서 단어가 늘어나는 과정을 관찰하고, 다른 설명이 만드는 모양과 견주어 봐야 어느 쪽인지 알 수 있어요."
  ],
  "not_en": [
-  "It does not mean real language is produced this way.",
-  "This only shows one rich-get-richer rule can give the same shape; grammar and meaning are absent from the model."
+  "It does not mean real language forms this way; several explanations give the same shape and grammar and meaning are absent.",
+  "Observing how words accumulate in real texts and comparing with other explanations is needed to tell which fits."
  ]
 }

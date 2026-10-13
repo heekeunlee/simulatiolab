@@ -1,0 +1,625 @@
+[
+{
+"id": "s1018",
+"page": "farming",
+"ko": "<b>말하는 것:</b> 기본값(연 2.5% 성장, 흩어지는 정도 10km²/년, 섞이는 비율 50%, 장벽 없음, 땅 번호 1)에서 잰 전선 속도는 1.03km/년이고, 흡수가 없을 때의 이론 2√(rD)는 1.00km/년, 흡수를 반영한 이론은 1.12km/년입니다. 한 세대(25년)로 치면 약 26km이고, 땅의 99%가 덮이는 데 975년이 걸렸습니다. 장벽이 있으면 같은 설정에서 해협은 1,095년, 산맥은 1,130년으로 늦어졌습니다. 해협에서는 전선이 땅다리 쪽으로 휘어 들어가 건너편에서 부채꼴로 다시 퍼졌고, 산맥 안에서는 속도가 평지의 약 3분의 1(0.29 대 0.89km/년, 이론은 0.35배)로 줄었지만 멈추지는 않았습니다. 성장률을 바꿔 한 줄 파동으로 잰 속도는 이론의 94~100%였고, 섞이는 비율을 0%에서 100%로 올리면 속도가 0.97에서 1.19km/년으로 빨라져 흡수를 반영한 이론(1.00에서 1.22)과 4% 안에서 맞았습니다. 같은 설정에서 농부 가운데 토착 수렵채집민 후손의 몫은 섞이는 비율 50%일 때 87%, 100%일 때 95%였습니다. 속도는 거의 같은데 누구의 후손이 퍼졌는지는 크게 달랐습니다.",
+"en": "<b>What it shows:</b> With the defaults (2.5% growth a year, dispersal 10 km²/year, mixing 50%, no barrier, land number 1) the measured front speed is 1.03 km/year, against 1.00 km/year from the theory 2√(rD) without assimilation and 1.12 km/year with it. That is about 26 km per generation of 25 years, and 99% of the land was covered after 975 years. With the same settings a barrier slowed things: 1,095 years with the strait and 1,130 with the mountains. At the strait the front bent toward the land bridge and fanned out again on the far side, while inside the mountains speed fell to about a third of the lowland value (0.29 versus 0.89 km/year, theory 0.35 times) without stopping. Varying the growth rate on a single strip gave speeds 94 to 100% of the theory, and raising mixing from 0% to 100% raised the speed from 0.97 to 1.19 km/year, within 4% of the theory with assimilation (1.00 to 1.22). In the same runs the share of farmers descended from local hunter-gatherers was 87% at 50% mixing and 95% at 100%. The speed was nearly the same, yet whose descendants spread was very different.",
+"tr": "<b>它说明了什么：</b>在默认设置下（年增长 2.5%，扩散 10 km²/年，混合 50%，无障碍，土地编号 1），测得的前沿速度为 1.03 km/年，而理论 2√(rD) 在无同化时为 1.00 km/年，有同化时为 1.12 km/年。这相当于每代 25 年约 26 km，975 年后 99% 的土地被覆盖。同样的设置下，障碍会使过程变慢：有海峡需要 1,095 年，有山地需要 1,130 年。在海峡处，前沿朝陆桥弯曲，并在另一侧重新散开；在山地内，速度降到低地的约三分之一（0.29 对 0.89 km/年，理论为 0.35 倍），但并未停止。在单条带上改变增长率，得到的速度为理论的 94% 到 100%；把混合从 0% 提高到 100%，速度从 0.97 升至 1.19 km/年，与有同化的理论值（1.00 到 1.22）相差不超过 4%。在同样的运行中，源自当地狩猎采集者的农耕者比例，在混合 50% 时为 87%，在 100% 时为 95%。速度几乎相同，但扩散开来的人是谁的后代却大不相同。"
+},
+{
+"id": "s1019",
+"page": "farming",
+"ko": "실제 유럽 농경 전파를 재현했다는 뜻은 아니에요. 지도와 수치는 추상적으로 정한 값이에요.",
+"en": "This is not a reconstruction of how farming really spread; the map and numbers are abstract.",
+"tr": "这并不是对农业实际如何传播的重建；地图和数字都是抽象的。"
+},
+{
+"id": "s1020",
+"page": "farming",
+"ko": "바닷길·기후 같은 현실 요소와 이동 여부는 고고학·유전자 증거로 따로 확인해야 해요.",
+"en": "Sea routes, climate and whether people actually moved need archaeological and genetic evidence.",
+"tr": "海上路线、气候以及人群是否真的迁移，都需要考古学和遗传学的证据。"
+},
+{
+"id": "s1021",
+"page": "farming",
+"ko": "<b>말하지 않는 것:</b> 실제 유럽의 농경 전파를 재현한 것이 아닙니다. 고고학자들은 농경이 유럽에서 평균 연 1km 안팎의 속도로 퍼졌다고 추정했고, 이런 &#39;전진하는 파동&#39; 생각은 Ammerman과 Cavalli-Sforza(1971)가 농경 전파에 적용해 널리 알려졌지만, 추정값은 연구마다 다르며 퍼진 것이 사람(이주)인지 기술과 생각(문화 전파)인지는 지금도 논쟁 중입니다. 이 모델은 지도가 추상적이고 땅이 거의 균일하며, 바닷길 이동, 강과 해안의 길, 기후 변화, 마을 단위의 갑작스러운 도약 같은 현실의 요소가 없습니다. 섞이는 비율이나 토착민 후손의 몫(87%, 95%)도 이 프로젝트가 정한 값에 크게 의존하므로 실제 유럽 사람들의 혈통에 대한 주장으로 읽으면 안 됩니다. 이 실험은 &#39;늘어나고 흩어지는 두 규칙만으로도 일정한 속도의 파동이 만들어질 수 있다&#39;는 메커니즘을 보여 줄 뿐입니다.",
+"en": "<b>What it doesn't show:</b> This is not a reconstruction of the real spread of farming in Europe. Archaeologists have estimated that farming spread across Europe at roughly one kilometer a year on average, and the wave-of-advance idea was applied to farming by Ammerman and Cavalli-Sforza (1971), but estimates vary between studies and whether people (migration) or techniques and ideas (cultural diffusion) did the spreading is still debated. The map here is abstract, the land nearly uniform, and real factors such as sea voyages, river and coastal routes, climate change and sudden village-scale jumps are absent. The mixing ratio and the shares of local descendants (87%, 95%) depend strongly on values this project chose, so do not read them as a claim about real European ancestry. The experiment only shows a mechanism: growth plus slow dispersal alone can produce a wave moving at a steady speed.",
+"tr": "<b>它没有说明什么：</b>这不是对欧洲农业真实传播过程的重建。考古学家估计，农业平均以每年约一公里的速度传遍欧洲，而把推进波的思想用于农业的是 Ammerman 和 Cavalli-Sforza（1971），但不同研究的估计各不相同，究竟是人（迁徙）还是技术与观念（文化扩散）在传播，至今仍有争论。这里的地图是抽象的，土地近乎均匀，真实的因素如航海、河流和沿海路线、气候变化以及村落尺度的突然跳跃都不存在。混合比例和当地后代的比例（87%、95%）强烈依赖于本项目选定的数值，所以不要把它们当作关于欧洲人真实祖先的论断。这个实验只展示了一种机制：仅靠增长加上缓慢的扩散，就能产生以稳定速度前进的波。"
+},
+{
+"id": "s1022",
+"page": "farming",
+"ko": "<b>모델의 뿌리:</b> Fisher (1937), &quot;The wave of advance of advantageous genes&quot;, <i>Annals of Eugenics</i> 7은 유리한 유전자가 공간에서 일정한 속도의 파동으로 퍼진다는 방정식을 다뤘고, 같은 해 Kolmogorov, Petrovsky, Piskunov도 독립적으로 같은 방정식을 연구해 피셔-콜모고로프(Fisher-KPP) 방정식이라 부릅니다. Ammerman &amp; Cavalli-Sforza (1971), <i>Man</i> 6이 이를 유럽의 농경 전파에 적용했습니다.",
+"en": "<b>Where the model comes from:</b> Fisher (1937), &quot;The wave of advance of advantageous genes&quot;, <i>Annals of Eugenics</i> 7, treated an equation in which an advantageous gene spreads through space as a wave of constant speed. Kolmogorov, Petrovsky and Piskunov studied the same equation independently that year, hence the name Fisher-KPP. Ammerman &amp; Cavalli-Sforza (1971), <i>Man</i> 6, applied it to the spread of farming in Europe.",
+"tr": "<b>模型的来源：</b>Fisher（1937），&quot;The wave of advance of advantageous genes&quot;，<i>Annals of Eugenics</i> 7，研究了一个方程，其中有利基因以恒定速度的波在空间中传播。Kolmogorov、Petrovsky 和 Piskunov 同年各自独立研究了同一方程，因此称为 Fisher-KPP。Ammerman &amp; Cavalli-Sforza（1971），<i>Man</i> 6，把它应用于欧洲农业的传播。"
+},
+{
+"id": "s1023",
+"page": "farming",
+"ko": "<b>핵심 가정과 수식:</b> 농부 밀도 F(땅이 감당하는 최대치 = 1)는 <code>∂F/∂t = rF(1 − F) + D∇²F</code>를 따릅니다. 앞쪽 끝에서는 F가 작아 선형으로 늘기 때문에 전선은 <code>c = 2√(rD)</code>의 속도로 나아갑니다(r 증가율, D 확산 계수). 이 모델은 수렵채집민을 흡수하면 앞쪽의 증가율이 <code>r + mix·κ·h₀</code>로 커진다고 보아 <code>c = 2√((r + mix·κ·h₀)D)</code>를 함께 비교합니다(κ = 0.05/년, h₀ = 0.25는 이 프로젝트가 정한 값).",
+"en": "<b>Key assumptions and formulas:</b> Farmer density F (1 is the most the land can carry) follows <code>∂F/∂t = rF(1 − F) + D∇²F</code>. At the leading edge F is small and grows linearly, so the front advances at <code>c = 2√(rD)</code> (r growth rate, D dispersal coefficient). This model also compares <code>c = 2√((r + mix·κ·h₀)D)</code>, because assimilating hunter-gatherers raises the growth rate at the front to <code>r + mix·κ·h₀</code> (κ = 0.05 per year and h₀ = 0.25 are values this project chose).",
+"tr": "<b>主要假设和公式：</b>农耕者密度 F（1 为土地能承载的最大值）满足 <code>∂F/∂t = rF(1 − F) + D∇²F</code>。在最前沿 F 很小并线性增长，因此前沿以 <code>c = 2√(rD)</code> 推进（r 为增长率，D 为扩散系数）。本模型还对比 <code>c = 2√((r + mix·κ·h₀)D)</code>，因为同化狩猎采集者会把前沿的增长率提高到 <code>r + mix·κ·h₀</code>（κ = 0.05/年、h₀ = 0.25 是本项目选定的数值）。"
+},
+{
+"id": "s1024",
+"page": "farming",
+"ko": "<b>이 프로젝트의 단순화:</b> 지도는 추상적이고 땅은 거의 균일하며, 수렵채집민은 움직이지 않고 밀도가 0.25로 일정하다고 봅니다. 한 세대 = 25년과 위의 κ, h₀, 산맥(성장 0.5배, 확산 0.25배)은 이 프로젝트의 가정입니다. 농경이 사람의 이동으로 퍼졌는지 생각과 기술의 전파로 퍼졌는지는 지금도 논쟁 중이고, 이 모델은 &#39;섞이는 비율&#39; 하나로 둘 사이를 오가게 했을 뿐 어느 쪽이 맞는지 가리지 않습니다.",
+"en": "<b>What this project simplifies:</b> The map is abstract, the land nearly uniform, and hunter-gatherers neither move nor change from a constant density of 0.25. One generation = 25 years, κ and h₀ above, and the mountains (growth 0.5 times, dispersal 0.25 times) are this project's assumptions. Whether farming spread by people moving or by ideas and techniques spreading is still debated; the model only slides between the two with a single mixing parameter and does not decide which is right.",
+"tr": "<b>本项目简化了什么：</b>地图是抽象的，土地近乎均匀，狩猎采集者既不移动，密度也始终保持 0.25 不变。一代 = 25 年，上述 κ 和 h₀，以及山地（增长 0.5 倍、扩散 0.25 倍），都是本项目的假设。农业究竟是靠人的迁移还是靠观念和技术的传播而扩散，至今仍有争论；模型只是用一个混合参数在两者之间滑动，并不判定哪一种正确。"
+},
+{
+"id": "s1025",
+"page": "farming",
+"ko": "<b>이론값과 시뮬레이션:</b> 흡수가 없을 때 한 줄 파동으로 잰 속도는 이론 2√(rD)의 94~100%였습니다(예: r=2.5%, D=10에서 0.97 대 1.00km/년). 섞이는 비율을 0, 25, 50, 75, 100%로 올리면 잰 값이 0.97, 1.03, 1.08, 1.14, 1.19km/년으로 흡수를 반영한 이론 1.00, 1.06, 1.12, 1.17, 1.22와 4% 안에서 맞았습니다. 둥근 전선이 있는 2차원에서는 휘어짐 때문에 장벽·잡음이 없을 때도 0.93으로 조금 느렸고, 산맥 안의 속도비는 0.32로 이론 0.35와 비슷했습니다. 모두 <code>node tools/validate-farming.js</code>의 출력입니다.",
+"en": "<b>Theory versus simulation:</b> With no assimilation, speeds measured on a one-dimensional wave were 94 to 100% of the theory 2√(rD) (for example 0.97 versus 1.00 km/year at r = 2.5%, D = 10). Raising mixing through 0, 25, 50, 75 and 100% gave 0.97, 1.03, 1.08, 1.14 and 1.19 km/year, within 4% of the theory with assimilation, 1.00, 1.06, 1.12, 1.17 and 1.22. In two dimensions the curved front made speed a little lower, 0.93, even with no barrier or noise, and the speed ratio inside the mountains was 0.32 against a theoretical 0.35. All of this is the output of <code>node tools/validate-farming.js</code>.",
+"tr": "<b>理论与模拟对比：</b>无同化时，在一维波上测得的速度为理论值 2√(rD) 的 94% 到 100%（例如 r = 2.5%、D = 10 时为 0.97 对 1.00 km/年）。把混合提高到 0、25、50、75 和 100% 时，速度为 0.97、1.03、1.08、1.14 和 1.19 km/年，与有同化的理论值 1.00、1.06、1.12、1.17 和 1.22 相差不超过 4%。在二维中，即使没有障碍和噪声，弯曲的前沿也使速度略低，为 0.93，山地内的速度比为 0.32，理论值为 0.35。以上全部是 <code>node tools/validate-farming.js</code> 的输出。"
+},
+{
+"id": "s1026",
+"page": "farming",
+"ko": "<b>더 읽을거리:</b> Ammerman &amp; Cavalli-Sforza (1971), &quot;Measuring the rate of spread of early farming in Europe&quot;, <i>Man</i> 6. Fisher (1937), 위의 논문. J. D. Murray, 『Mathematical Biology』, Springer (퍼지는 파동 방정식의 개설).",
+"en": "<b>Further reading:</b> Ammerman &amp; Cavalli-Sforza (1971), &quot;Measuring the rate of spread of early farming in Europe&quot;, <i>Man</i> 6. Fisher (1937), cited above. J. D. Murray, <i>Mathematical Biology</i>, Springer (an introduction to traveling-wave equations).",
+"tr": "<b>延伸阅读：</b>Ammerman &amp; Cavalli-Sforza (1971), &quot;Measuring the rate of spread of early farming in Europe&quot;, <i>Man</i> 6。Fisher (1937)，见上文。J. D. Murray, <i>Mathematical Biology</i>, Springer（行波方程入门）。"
+},
+{
+"id": "s1027",
+"page": "farming",
+"ko": "지도는 100×60칸(칸 하나 10km)이고 시간은 0.5년 간격의 명시적 차분으로 나아갑니다. 확산은 칸 사이의 조화 평균 계수로 계산해 바다 칸으로는 흐르지 않고, 지도 가장자리는 막혀 있습니다. 칸마다 기름짐은 성긴 값 잡음을 이어 만들며(시드 난수 mulberry32, 같은 땅 번호면 같은 결과) 성장률에만 곱합니다.",
+"en": "The map is 100×60 cells of 10 km, advanced in 0.5-year explicit finite-difference steps. Diffusion uses a harmonic-mean coefficient between cells so nothing flows into sea cells, and the map edges are closed. Fertility comes from smoothly joined coarse noise (seeded mulberry32, so the same land number gives the same result) and multiplies only the growth rate.",
+"tr": "地图为 100×60 个 10 km 的格子，以 0.5 年为步长用显式有限差分推进。扩散在格子之间使用调和平均系数，因此不会有任何东西流入海洋格子，地图边缘是封闭的。肥力来自平滑拼接的粗粒度噪声（带种子的 mulberry32，因此相同的土地编号会得到相同的结果），并且只乘在增长率上。"
+},
+{
+"id": "s1028",
+"page": "farming",
+"ko": "전선 속도는 농부 밀도 0.5를 처음 넘은 시각을 칸의 도착 시각으로 삼고, 기원지에서 가장 먼 도착 지점의 거리 R(t)를 100~380km 구간에서 최소제곱으로 맞춘 기울기입니다. ④번 그래프는 같은 규칙을 250칸짜리 한 줄에서 돌려 도착 시각과 거리의 기울기로 구한 값입니다. 검증은 <code>node tools/validate-farming.js</code>로 할 수 있습니다.",
+"en": "Front speed takes the first time farmer density passes 0.5 as a cell's arrival time, and fits the distance R(t) of the farthest arrival from the origin by least squares over 100 to 380 km. Graph ④ runs the same rules on a strip of 250 cells and uses the slope of arrival time against distance. You can verify with <code>node tools/validate-farming.js</code>.",
+"tr": "前沿速度把农耕者密度首次超过 0.5 的时刻作为格子的到达时间，并在 100 到 380 km 范围内用最小二乘法拟合最远到达点离起点的距离 R(t)。图 ④ 在 250 个格子的条带上运行相同的规则，并使用到达时间随距离变化的斜率。可用 <code>node tools/validate-farming.js</code> 验证。"
+},
+{
+"id": "s1029",
+"page": "farming",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/farming\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/farming\">GitHub</a>.",
+"tr": "代码可在 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/farming\">GitHub</a> 上获取。"
+},
+{
+"id": "s1056",
+"page": "fashion",
+"ko": "모방과 차별화가 함께 있을 때만 유행이 색상환을 계속 돌아요.",
+"en": "Trends keep circling the color wheel only when imitation and differentiation both exist.",
+"tr": "只有模仿和求异同时存在，潮流才会在色轮上不断循环。"
+},
+{
+"id": "s1057",
+"page": "fashion",
+"ko": "이 모델에서는 대중이 쫓고 트렌드세터가 한쪽으로 달아나는 구조라, 도는 속도는 둘 중 느린 쪽을 따라요.",
+"en": "In this model the masses chase and trendsetters flee one way, so the pace follows the slower of the two.",
+"tr": "在这个模型中，大众追赶、引领者逃离，方向一致，所以节奏取决于两者中较慢的一方。"
+},
+{
+"id": "s1058",
+"page": "fashion",
+"ko": "유행이 멈췄다면 따라 하는 힘과 달아나는 힘 중 어느 쪽이 약한지부터 살펴볼 만해요.",
+"en": "If a trend stalls, look first at which is weaker: the urge to follow or the urge to flee.",
+"tr": "如果潮流停滞了，先看看哪一个更弱：是追随的冲动，还是逃离的冲动。"
+},
+{
+"id": "s1060",
+"page": "fashion",
+"ko": "실제 유행이 이런 규칙으로 움직이거나 주기를 예측할 수 있다는 뜻은 아니에요.",
+"en": "It doesn't mean real fashion follows these rules or that its cycles can be predicted.",
+"tr": "这并不意味着真实的时尚遵循这些规则，也不意味着它的循环可以预测。"
+},
+{
+"id": "s1061",
+"page": "fashion",
+"ko": "산업·미디어·가격의 영향과 달아나는 방향이 하나가 아닌 점은 실제 유행을 관찰해 따로 봐야 해요.",
+"en": "Industry, media, price and non-single escape directions must be checked in real fashion data.",
+"tr": "行业、媒体、价格以及并非单一的逃离方向，都必须用真实的时尚数据来检验。"
+},
+{
+"id": "s1063",
+"page": "fashion",
+"ko": "<b>모델의 뿌리:</b> Georg Simmel의 「유행」(1904)은 윗사람은 남과 달라 보이려 하고 아랫사람은 따라 하다가, 모방이 퍼지면 윗사람이 다시 새 유행으로 옮겨 간다고 설명했습니다. 이 발상은 Veblen의 『유한계급론』(1899)에 닿아 있고, Blumer (1969)는 유행이 계층에서 아래로 흐르기만 하지 않는다고 비판했습니다.",
+"en": "<b>Where the model comes from:</b> Georg Simmel's \"Fashion\" (1904) argued that those on top try to look different while those below imitate them, and once imitation spreads those on top move on to a new fashion. The idea is related to Veblen's <i>The Theory of the Leisure Class</i> (1899), and Blumer (1969) criticized it, arguing that fashion does not simply trickle down from class to class.",
+"tr": "<b>模型的来源：</b>格奥尔格·齐美尔的《时尚》（1904）认为，处于上层的人试图显得与众不同，下层的人则模仿他们，一旦模仿蔓延开来，上层就转向新的时尚。这一思想与凡勃伦的<i>有闲阶级论</i>（1899）相关，布鲁默（1969）对其提出批评，认为时尚并不是简单地从一个阶层向下渗透到另一个阶层。"
+},
+{
+"id": "s1064",
+"page": "fashion",
+"ko": "<b>핵심 가정과 수식:</b> 스타일을 원 위의 각도 θ로 두고 두 규칙을 씁니다. 대중은 가장 가까운 트렌드세터 쪽으로 한 걸음에 α도 다가가고(모방), 트렌드세터는 주변 대중의 밀도에 따라 최대 β도까지 한 방향으로 달아납니다(차별화). 모방 속도 α, 도망 속도 β, 흔들림, 트렌드세터 비율이 슬라이더입니다.",
+"en": "<b>Key assumptions and formulas:</b> A style is an angle θ on a circle and two rules apply. The crowd steps α degrees toward the nearest trendsetter (imitation), and trendsetters run in one direction at up to β degrees depending on the density of the crowd near them (distinction). The imitation speed α, flight speed β, wobble and share of trendsetters are the sliders.",
+"tr": "<b>主要假设和公式：</b>风格是圆上的一个角度 θ，适用两条规则。大众朝最近的引领者迈出 α 度（模仿），引领者则根据身边大众的密度，朝同一方向最多逃离 β 度（求异）。模仿速度 α、逃离速度 β、扰动和引领者比例就是各个滑块。"
+},
+{
+"id": "s1065",
+"page": "fashion",
+"ko": "<b>이 프로젝트의 단순화:</b> Simmel은 계층 간 이동과 사회적 신호를 다뤘지만 여기서는 계층, 가격, 매체를 모두 빼고 한 줄의 원만 둡니다. \"트렌드세터는 한 방향으로만 달아난다\", \"모두가 한 시즌의 유행 주위에서 시작한다\", 3배 밀도 기준, ±30도 범위는 순환이 보이도록 이 프로젝트가 정한 가정입니다. 방향을 고정하지 않으면 하나의 순환이 생기지 않았습니다.",
+"en": "<b>What this project simplifies:</b> Simmel dealt with movement between classes and social signals, but here class, price and media are all left out and there is only a single circle. \"Trendsetters flee in one direction only,\" \"everyone starts around one season's fashion,\" the 3x density threshold and the ±30° window are assumptions this project chose so that a cycle can appear. Without a fixed direction no single cycle formed.",
+"tr": "<b>本项目简化了什么：</b>齐美尔讨论的是阶层之间的流动和社会信号，而这里阶层、价格和媒体都被略去，只有一个圆。“引领者只朝一个方向逃离”“所有人都从某一季的时尚附近出发”、3 倍的密度阈值以及 ±30° 的窗口，都是本项目为了让周期出现而选定的假设。没有固定方向时，不会形成单一的周期。"
+},
+{
+"id": "s1066",
+"page": "fashion",
+"ko": "<b>이론값과 시뮬레이션:</b> 닫힌 해는 없지만 간단한 추론이 있습니다. 흐름 전체는 느린 쪽 속도로 돕니다. 한 라운드에 도는 각도는 약 min(α, β)이므로 α=β=2도면 100라운드에 0.55바퀴(200도/100라운드)쯤이라는 예상에 실측 0.53바퀴가 맞고, α=0.5/1이면 0.13/0.27바퀴(예상 0.14/0.28), β=1이면 0.26바퀴(예상 0.28)입니다. β=0이면 6,000라운드까지 회전 0.00입니다.",
+"en": "<b>Theory versus simulation:</b> There is no closed-form solution, but a simple argument exists: the whole flow turns at the slower of the two speeds. The angle per round is about min(α, β), so with α=β=2° one expects around 0.55 turns per 100 rounds and the measured value is 0.53; α=0.5/1 gives 0.13/0.27 turns (expected 0.14/0.28), and β=1 gives 0.26 (expected 0.28). With β=0 there is zero rotation up to 6,000 rounds.",
+"tr": "<b>理论与模拟对比：</b>没有闭式解，但有一个简单的论证：整个流动以两种速度中较慢的那个旋转。每轮转过的角度约为 min(α, β)，所以当 α=β=2° 时，预计每 100 轮约转 0.55 圈，测得为 0.53；α=0.5/1 时为 0.13/0.27 圈（预期 0.14/0.28），β=1 时为 0.26（预期 0.28）。β=0 时，直到 6,000 轮都没有旋转。"
+},
+{
+"id": "s1067",
+"page": "fashion",
+"ko": "<b>더 읽을거리:</b> Simmel (1904), 「Fashion」, International Quarterly 10. Veblen (1899), 『The Theory of the Leisure Class』. Blumer (1969), 「Fashion: From Class Differentiation to Collective Selection」, The Sociological Quarterly 10(3). Acerbi, Ghirlanda & Enquist (2012), 「The Logic of Fashion Cycles」, PLoS ONE 7(3).",
+"en": "<b>Further reading:</b> Simmel (1904), \"Fashion\", <i>International Quarterly</i> 10. Veblen (1899), <i>The Theory of the Leisure Class</i>. Blumer (1969), \"Fashion: From Class Differentiation to Collective Selection\", <i>The Sociological Quarterly</i> 10(3). Acerbi, Ghirlanda & Enquist (2012), \"The Logic of Fashion Cycles\", <i>PLoS ONE</i> 7(3).",
+"tr": "<b>延伸阅读：</b>Simmel (1904), \"Fashion\", <i>International Quarterly</i> 10。Veblen (1899), <i>The Theory of the Leisure Class</i>。Blumer (1969), \"Fashion: From Class Differentiation to Collective Selection\", <i>The Sociological Quarterly</i> 10(3)。Acerbi, Ghirlanda &amp; Enquist (2012), \"The Logic of Fashion Cycles\", <i>PLoS ONE</i> 7(3)。"
+},
+{
+"id": "s1068",
+"page": "fashion",
+"ko": "이 프로젝트가 직접 설계한 단순화 모델이며 특정 논문의 재현이 아닙니다.",
+"en": "A stylized model of this project's own design, not a reproduction of a paper.",
+"tr": "本项目自行设计的风格化模型，并非对某篇论文的复现。"
+},
+{
+"id": "s1105",
+"page": "firefly",
+"ko": "서로 앞당기는 세기와 볼 수 있는 범위가 충분하면 중앙 지휘 없이 거의 한 박자로 맞춰졌어요.",
+"en": "With enough mutual nudging and viewing range, the fireflies synced up with no central leader.",
+"tr": "只要相互推动和可视范围足够，萤火虫就能在没有中心领导者的情况下同步闪烁。"
+},
+{
+"id": "s1106",
+"page": "firefly",
+"ko": "반짝임을 본 이웃이 시계를 앞당기면 박자 차이가 줄어들지만, 개체마다 속도가 다르면 완전히 맞지는 않아요.",
+"en": "Neighbors that see a flash advance their clocks, shrinking timing gaps, but differing speeds keep sync from being perfect.",
+"tr": "看到闪光的邻居会把自己的时钟拨快，时间差因此缩小，但各自速度不同，使同步无法完美。"
+},
+{
+"id": "s1107",
+"page": "firefly",
+"ko": "동기화를 이해하려면 서로 얼마나 영향을 주는지와 개체 차이의 균형부터 살펴볼 만해요.",
+"en": "To understand synchrony, the balance between mutual influence and individual differences is a good place to start.",
+"tr": "要理解同步现象，相互影响与个体差异之间的平衡是个不错的切入点。"
+},
+{
+"id": "s1109",
+"page": "firefly",
+"ko": "실제 반딧불이가 이렇게 박자를 맞춘다는 증명은 아니고, 빛의 세기나 학습 같은 요소도 빠져 있어요.",
+"en": "It does not prove real fireflies sync this way, and factors like light intensity and learning are missing.",
+"tr": "它并不能证明真实的萤火虫就是这样同步的，而且没有包含光照强度和学习等因素。"
+},
+{
+"id": "s1110",
+"page": "firefly",
+"ko": "실제 종의 깜빡임 간격과 서로 보는 거리를 관찰해 모델의 가정과 맞는지 확인해야 해요.",
+"en": "Observing real species' flash timing and viewing distances would show whether the assumptions hold.",
+"tr": "观察真实物种的闪光时机和可视距离，就能知道这些假设是否成立。"
+},
+{
+"id": "s1112",
+"page": "firefly",
+"ko": "<b>모델의 뿌리:</b> Peskin (1975)이 심장 박동 세포를 모델로 처음 다룬 \"펄스 결합 진동자\"를 Mirollo & Strogatz (1990)가 수학적으로 분석했습니다. 서로 모두 연결되고 똑같은 진동자들이 신호 때 서로를 조금씩 앞당기면, 거의 모든 시작 상태에서 한꺼번에 반짝이게 된다는 정리입니다. 반딧불이의 동시 점멸은 Buck & Buck (1968) 등이 관찰·설명했습니다.",
+"en": "<b>Where the model comes from:</b> Mirollo & Strogatz (1990) analyzed mathematically the \"pulse-coupled oscillators\" that Peskin (1975) first considered as a model of heart pacemaker cells: if identical oscillators, all connected to each other, nudge one another ahead whenever one fires, they end up firing together from almost any starting state. Synchronous flashing of fireflies was described by Buck & Buck (1968) and others.",
+"tr": "<b>模型的来源：</b>Mirollo 和 Strogatz（1990）对“脉冲耦合振子”做了数学分析，这类振子最早由 Peskin（1975）作为心脏起搏细胞的模型提出：如果彼此全部相连的相同振子在其中一个发放时都相互向前推一把，那么几乎从任何初始状态出发，它们最终都会同时发放。萤火虫的同步闪烁由 Buck 和 Buck（1968）等人描述过。"
+},
+{
+"id": "s1113",
+"page": "firefly",
+"ko": "<b>핵심 가정과 수식:</b> 개체마다 위상이 1주기에 걸쳐 한 바퀴를 돌고, 1에 닿으면 반짝이며 범위 안의 이웃 위상을 결합 세기만큼 앞당깁니다. 동기화 정도는 위상을 원 위의 점으로 놓고 평균 화살표의 길이 <code>r = |평균 e<sup>iθ</sup>|</code>(Kuramoto의 질서 변수)로 잽니다. 결합 세기, 이웃 범위, 속도 차이가 슬라이더입니다.",
+"en": "<b>Key assumptions and formulas:</b> Each firefly's phase runs once around a cycle, and on reaching 1 it flashes and advances the phase of neighbors in range by the coupling strength. Synchrony is measured by putting the phases as points on a circle and taking the length of the mean arrow, <code>r = |mean e<sup>iθ</sup>|</code> (Kuramoto's order parameter). Coupling strength, neighbor range and speed spread are the sliders.",
+"tr": "<b>主要假设和公式：</b>每只萤火虫的相位绕一个周期运行一圈，到达 1 时闪光，并按耦合强度把范围内邻居的相位向前推进。同步程度的测量方法是把各相位作为点放在圆上，取平均箭头的长度，<code>r = |mean e<sup>iθ</sup>|</code>（Kuramoto 序参量）。耦合强度、邻居范围和速度差异就是各个滑块。"
+},
+{
+"id": "s1114",
+"page": "firefly",
+"ko": "<b>이 프로젝트의 단순화:</b> Mirollo–Strogatz 정리는 위상 곡선이 위로 오목하고 모두가 서로 보며 속도가 같다는 조건이 필요하지만, 여기서는 위상을 선형으로 밀고 이웃이 제한되며 속도도 개체마다 다릅니다. 그래서 정리를 그대로 적용하지 않고 시뮬레이션으로 확인합니다. 한 번 반짝임으로 전달되는 크기, 0.02씩 자라는 위상, 150마리는 이 프로젝트가 정한 값입니다.",
+"en": "<b>What this project simplifies:</b> The Mirollo–Strogatz theorem requires a concave-down phase curve, everyone seeing everyone, and equal speeds. Here the phase nudge is linear, neighbors are limited and speeds differ per firefly, so the theorem does not apply as is and the result is checked by simulation. The size of a flash's nudge, the 0.02 phase growth per step and 150 fireflies are this project's own values.",
+"tr": "<b>本项目简化了什么：</b>Mirollo–Strogatz 定理要求相位曲线向下凹、每个个体都能看到所有个体，并且速度相同。这里相位的推动是线性的，邻居有限，每只萤火虫的速度也不同，所以该定理不能直接适用，结果通过模拟来检验。一次闪光的推动幅度、每步 0.02 的相位增长以及 150 只萤火虫，都是本项目自己的取值。"
+},
+{
+"id": "s1115",
+"page": "firefly",
+"ko": "<b>이론값과 시뮬레이션:</b> 이론이 확실히 말하는 극단은 시뮬레이션과 맞습니다. 속도 차이가 0이면 최종 r은 1.00이고, 결합이 0이면 r은 0.06으로 무작위 위상의 기대 크기(1/√150, 약 0.07~0.08)와 같습니다. 기본 설정의 최종 r은 6회 평균 0.87이고, 결합 3% 이상에서 0.95 근처, 이웃 범위 40% 이상에서 0.96입니다(<code>node tools/validate-firefly.js</code>). 조건이 달라 임계 결합 세기의 이론값은 없습니다.",
+"en": "<b>Theory versus simulation:</b> The extremes that theory is sure about match the simulation. With zero speed spread the final r is 1.00, and with zero coupling r is 0.06, about the expected size for random phases (about 0.07 to 0.08, from 1/√150). The default final r is 0.87 averaged over 6 runs, about 0.95 at coupling of 3% or more and 0.96 at neighbor range of 40% or more (<code>node tools/validate-firefly.js</code>). Because the conditions differ there is no theoretical value for the critical coupling.",
+"tr": "<b>理论与模拟对比：</b>理论有把握的两个极端情形与模拟吻合。速度差异为零时最终 r 为 1.00，耦合为零时 r 为 0.06，与随机相位的预期大小（由 1/√150 得约 0.07 到 0.08）相当。默认设置下最终 r 为 6 次运行的平均 0.87，耦合达到 3% 以上时约为 0.95，邻居范围达到 40% 以上时为 0.96（<code>node tools/validate-firefly.js</code>）。由于条件不同，临界耦合没有理论值。"
+},
+{
+"id": "s1116",
+"page": "firefly",
+"ko": "<b>더 읽을거리:</b> Mirollo & Strogatz (1990), 「Synchronization of pulse-coupled biological oscillators」, SIAM Journal on Applied Mathematics 50(6). Strogatz (2003), 『Sync』, Hyperion(교양서). Buck & Buck (1968), 「Mechanism of rhythmic synchronous flashing of fireflies」, Science 159.",
+"en": "<b>Further reading:</b> Mirollo & Strogatz (1990), \"Synchronization of pulse-coupled biological oscillators\", <i>SIAM Journal on Applied Mathematics</i> 50(6). Strogatz (2003), <i>Sync</i>, Hyperion (popular account). Buck & Buck (1968), \"Mechanism of rhythmic synchronous flashing of fireflies\", <i>Science</i> 159.",
+"tr": "<b>延伸阅读：</b>Mirollo &amp; Strogatz (1990), \"Synchronization of pulse-coupled biological oscillators\", <i>SIAM Journal on Applied Mathematics</i> 50(6)。Strogatz (2003), <i>Sync</i>, Hyperion（通俗读物）。Buck &amp; Buck (1968), \"Mechanism of rhythmic synchronous flashing of fireflies\", <i>Science</i> 159。"
+},
+{
+"id": "s1117",
+"page": "firefly",
+"ko": "이 프로젝트가 직접 설계한 단순화 구현이며 논문 수치를 재현한 것은 아닙니다.",
+"en": "A simplified implementation of this project's own design; it does not reproduce any paper's numbers.",
+"tr": "本项目自行设计的简化实现，不复现任何论文中的数字。"
+},
+{
+"id": "s1119",
+"page": "firefly",
+"ko": "기본 설정(결합 2.5%, 범위 30%, 속도 차이 10%)으로 시드 10개를 돌리면 모두 동기화(r>0.9)에 닿고, 걸린 주기는 2~31주기(10개 중 7개는 2~6주기)입니다. 결합이 1% 이하면 r이 0.2 아래, 3% 이상이면 0.95 근처입니다 (<code>node tools/validate-firefly.js</code>로 확인).",
+"en": "With the default settings (coupling 2.5%, range 30%, speed spread 10%), 10 seeds all reach synchrony (r>0.9), taking 2 to 31 cycles (7 of the 10 within 2 to 6). At coupling of 1% or less r stays below 0.2, and at 3% or more it is near 0.95 (verify with <code>node tools/validate-firefly.js</code>).",
+"tr": "在默认设置下（耦合 2.5%，范围 30%，速度差异 10%），10 个随机种子全都达到同步（r>0.9），用时 2 到 31 个周期（10 个中有 7 个在 2 到 6 个周期内）。耦合为 1% 或更低时 r 保持在 0.2 以下，达到 3% 或更高时接近 0.95（可用 <code>node tools/validate-firefly.js</code> 验证）。"
+},
+{
+"id": "s1157",
+"page": "friendship",
+"ko": "이 관계망에서는 사람 82.6%가 자기 친구들이 평균적으로 자기보다 친구가 더 많았어요.",
+"en": "In this network, 82.6% of people had friends who, on average, had more friends than they did.",
+"tr": "在这个网络中，82.6%的人的朋友平均拥有比自己更多的朋友。"
+},
+{
+"id": "s1158",
+"page": "friendship",
+"ko": "친구 목록을 훑으면 친구가 많은 사람이 그만큼 더 자주 나오기 때문에, 친구 수가 다르기만 해도 이렇게 돼요.",
+"en": "Scanning friend lists, people with many friends show up more often, so merely having uneven friend counts produces this.",
+"tr": "翻看好友名单时，朋友多的人出现得更频繁，所以只要朋友数量不均，就会出现这种现象。"
+},
+{
+"id": "s1159",
+"page": "friendship",
+"ko": "내 친구가 더 많아 보일 때는 내 처지보다, 목록에 허브가 자주 등장하는 구조 탓은 아닌지 살펴볼 만해요.",
+"en": "When friends seem to have more friends, it may be worth checking whether hubs simply appear in many lists before blaming yourself.",
+"tr": "当朋友看起来比自己朋友更多时，在责怪自己之前，也许可以先看看是不是那些“枢纽”人物只是出现在很多人的名单里。"
+},
+{
+"id": "s1161",
+"page": "friendship",
+"ko": "내가 인기가 없다거나 친구 많은 사람이 더 행복하다는 뜻은 아니에요. 82.6%도 이 모델의 실험 결과예요.",
+"en": "It does not mean you are unpopular or that people with more friends are happier; the 82.6% is this model's experimental result.",
+"tr": "这并不意味着你不受欢迎，也不意味着朋友多的人更幸福；82.6%是这个模型的实验结果。"
+},
+{
+"id": "s1162",
+"page": "friendship",
+"ko": "모임·동네 같은 묶음 구조와 외톨이가 빠져 있어, 실제 친구 수와 관계망은 따로 조사해야 확인할 수 있어요.",
+"en": "Groups, neighborhoods and loners are missing, so real friend counts and networks need to be surveyed separately.",
+"tr": "模型中没有小团体、邻里和独行者，因此真实的朋友数量和人际网络需要另行调查。"
+},
+{
+"id": "s1164",
+"page": "friendship",
+"ko": "<b>모델의 뿌리:</b> Scott L. Feld가 1991년 「Why your friends have more friends than you do」(<i>American Journal of Sociology</i>)에서 정리한 &quot;친구의 역설&quot;입니다. 친구 목록을 훑으면 친구가 많은 사람이 그만큼 더 자주 나오기 때문에, 친구들의 친구 수는 평균적으로 전체 평균 이상이 됩니다. 이 페이지의 관계망 규칙에는 선호 연결(Barabási와 Albert, 1999)의 아이디어를 썼습니다.",
+"en": "<b>Where the model comes from:</b> The &quot;friendship paradox&quot; laid out by Scott L. Feld in &quot;Why your friends have more friends than you do&quot; (1991, <i>American Journal of Sociology</i>). Scanning friend lists, people with many friends show up more often, so on average friends have at least as many friends as the overall average. The network rule here borrows the idea of preferential attachment (Barabási and Albert, 1999).",
+"tr": "<b>模型的来源：</b>Scott L. Feld 在《Why your friends have more friends than you do》（1991，<i>American Journal of Sociology</i>）中阐述的“友谊悖论”。翻看好友名单时，朋友多的人出现得更频繁，所以平均而言，朋友拥有的朋友数至少不低于总体平均。这里的网络规则借用了优先连接的思想（Barabási 和 Albert，1999）。"
+},
+{
+"id": "s1165",
+"page": "friendship",
+"ko": "<b>핵심 가정과 수식:</b> 친구 목록 칸 하나를 무작위로 골랐을 때 그 사람의 친구 수 평균은 <code>⟨k²⟩/⟨k⟩ = ⟨k⟩ + Var(k)/⟨k⟩</code>이라서, 친구 수가 모두 같지 않으면 평균 ⟨k⟩보다 큽니다. 허브 쏠림 슬라이더가 클수록 Var(k)가 커집니다. 사람별 &quot;친구들의 평균&quot;을 다시 평균 낸 값도 친구 관계 하나마다 (이웃의 친구 수 ÷ 내 친구 수) + (내 친구 수 ÷ 이웃의 친구 수) ≥ 2이므로 항상 ⟨k⟩ 이상입니다.",
+"en": "<b>Key assumptions and formulas:</b> Picking one slot in the friend lists at random, the average number of friends of that person is <code>⟨k²⟩/⟨k⟩ = ⟨k⟩ + Var(k)/⟨k⟩</code>, which exceeds the mean ⟨k⟩ unless everyone has the same number. A larger hub-concentration slider raises Var(k). The average of each person's &quot;friends' average&quot; is also always at least ⟨k⟩, because each friendship contributes (neighbor's friends ÷ my friends) + (my friends ÷ neighbor's friends) ≥ 2.",
+"tr": "<b>主要假设和公式：</b>在好友名单中随机选一个位置，那个人的平均朋友数是 <code>⟨k²⟩/⟨k⟩ = ⟨k⟩ + Var(k)/⟨k⟩</code>，除非所有人的朋友数都相同，否则它高于平均值 ⟨k⟩。“枢纽集中度”滑块调大会提高 Var(k)。每个人的“朋友的平均朋友数”再取平均，也总是至少为 ⟨k⟩，因为每段友谊贡献（邻居的朋友数 ÷ 我的朋友数）+（我的朋友数 ÷ 邻居的朋友数）≥ 2。"
+},
+{
+"id": "s1166",
+"page": "friendship",
+"ko": "<b>이 프로젝트의 단순화:</b> 실제 사회 조사 자료가 아니라 이 프로젝트가 만든 가상 관계망입니다. 새로 온 사람이 기존 사람 중 균등하게, 또는 친구 수에 비례해 친구를 고르는 규칙이며, 외톨이도 모임·동네 같은 묶음 구조도 없습니다. 허브 쏠림 0%도 완전 무작위가 아니라 먼저 온 사람이 유리한 규칙입니다. 사람 수 150, 허브 80%, 평균 친구 6은 이 프로젝트가 정한 기본값입니다.",
+"en": "<b>What this project simplifies:</b> This is a synthetic network built by this project, not survey data. Each newcomer picks existing people uniformly or in proportion to their friend count; there are no loners and no clusters such as clubs or neighborhoods. Hub concentration of 0% is not fully random either, since early arrivals have an advantage. The defaults of 150 people, 80% hubs and 6 friends on average are this project's own choices.",
+"tr": "<b>本项目简化了什么：</b>这是本项目构建的合成网络，不是调查数据。每个新加入者按均匀方式或按现有人的朋友数比例来选择已有的人；没有孤立者，也没有俱乐部或街区之类的小团体。枢纽集中度为 0% 也并非完全随机，因为早到者占有优势。默认的 150 人、80% 枢纽和平均 6 个朋友，是本项目自己的选择。"
+},
+{
+"id": "s1167",
+"page": "friendship",
+"ko": "<b>이론값과 시뮬레이션:</b> 기본값 관계망 300개 평균에서 평균 친구 수는 5.92, ⟨k²⟩/⟨k⟩는 9.70, 사람별 친구들 평균의 평균은 10.17로 둘 다 5.92보다 컸고, 300개 모두에서 (친구들 평균 − 평균 친구 수)의 최솟값이 2.81(≥ 0)이었습니다. 관계망 하나에서 친구 목록 전체의 평균은 식값 ⟨k²⟩/⟨k⟩와 같았습니다(10.0856). 친구들이 더 많은 사람의 비율은 허브 0%에서 71.3%, 100%에서 85.4%였고, 이 비율은 법칙이 아니라 이 모델의 실험 결과입니다.",
+"en": "<b>Theory versus simulation:</b> Over 300 default networks the average number of friends was 5.92, ⟨k²⟩/⟨k⟩ was 9.70 and the average of per-person friends' averages was 10.17, both above 5.92, and in all 300 the minimum of (friends' average − average friend count) was 2.81 (≥ 0). In one network the average over all friend-list slots equaled the formula ⟨k²⟩/⟨k⟩ (10.0856). The share of people whose friends have more friends was 71.3% at 0% hubs and 85.4% at 100%; that share is a result of this model, not a law.",
+"tr": "<b>理论与模拟对比：</b>在 300 个默认网络中，平均朋友数为 5.92，⟨k²⟩/⟨k⟩ 为 9.70，每个人“朋友的平均朋友数”的平均值为 10.17，两者都高于 5.92，并且在全部 300 个网络中（朋友的平均 − 平均朋友数）的最小值为 2.81（≥ 0）。在一个网络中，所有好友名单位置上的平均值等于公式 ⟨k²⟩/⟨k⟩（10.0856）。朋友的朋友数更多的人所占比例，在枢纽 0% 时为 71.3%，在 100% 时为 85.4%；这个比例是本模型的结果，而不是定律。"
+},
+{
+"id": "s1168",
+"page": "friendship",
+"ko": "<b>더 읽을거리:</b> Feld (1991), Why your friends have more friends than you do, <i>American Journal of Sociology</i> / Barabási &amp; Albert (1999), Emergence of scaling in random networks, <i>Science</i> / Christakis &amp; Fowler (2010), Social network sensors for early detection of contagious outbreaks, <i>PLoS ONE</i> (이 성질을 감염병 조기 감지에 쓰자는 제안).",
+"en": "<b>Further reading:</b> Feld (1991), Why your friends have more friends than you do, <i>American Journal of Sociology</i> / Barabási &amp; Albert (1999), Emergence of scaling in random networks, <i>Science</i> / Christakis &amp; Fowler (2010), Social network sensors for early detection of contagious outbreaks, <i>PLoS ONE</i> (a proposal to use this property for early outbreak detection).",
+"tr": "<b>延伸阅读：</b>Feld (1991), Why your friends have more friends than you do, <i>American Journal of Sociology</i> / Barabási &amp; Albert (1999), Emergence of scaling in random networks, <i>Science</i> / Christakis &amp; Fowler (2010), Social network sensors for early detection of contagious outbreaks, <i>PLoS ONE</i>（提出利用这一性质进行疫情早期发现）。"
+},
+{
+"id": "s1169",
+"page": "friendship",
+"ko": "재생의 표본 추출은 \"무작위로 고른 사람이 말해 준 친구\"를 뽑는 방식이라 사람별 친구들 평균의 평균(10.17명)에 수렴합니다.",
+"en": "The sampling in the animation draws \"a friend named by a randomly chosen person\", so it converges to the average of per-person friend averages (10.17).",
+"tr": "动画中的抽样抽取的是“随机选中的一个人所说出的朋友”，因此会收敛到每个人“朋友的平均”的平均值（10.17）。"
+},
+{
+"id": "s1172",
+"page": "fxrate",
+"ko": "캐리 트레이드와 환율 · 시뮬라티오 랩",
+"en": "Carry Trade and Exchange Rates · Simulatio Lab",
+"tr": "套息交易与汇率 · Simulatio Lab"
+},
+{
+"id": "s1173",
+"page": "fxrate",
+"ko": "금리가 높은 나라의 통화를 사서 이자를 챙기는 캐리 트레이드가 왜 오래 조금씩 벌다 한 번에 크게 잃는지, 환율과 투자자 쏠림 시뮬레이션으로 직접 돌려보세요.",
+"en": "Run a simulation of exchange rates and investor crowding to see why the carry trade, buying a high-interest currency for its interest, tends to earn a little for years and then lose a lot at once.",
+"tr": "运行一次汇率与投资者拥挤的模拟，看看为什么套息交易（为了利息而买入高利率货币）往往多年小赚，随后一次性大亏。"
+},
+{
+"id": "s1174",
+"page": "fxrate",
+"ko": "금리가 높은 나라의 통화를 사서 이자를 받으면, 환율만 그대로라면 가만히 앉아서 버는 거래처럼 보입니다. 이론은 그 이자만큼 그 통화값이 떨어져서 결국 공짜 점심은 없다고 말하지만, 현실에서는 그렇지 않은 때가 많아 이 거래(캐리 트레이드)에 사람들이 몰립니다. 그런데 이 시뮬레이션에서는 사람들이 몰릴수록 통화값이 몇 해 동안 계단처럼 조용히 오르다가 어느 한 주에 일제히 빠져나가며 몇 년치 이익이 한꺼번에 사라집니다. 평균으로는 벌어도, 번 돈의 모양이 위험한 거래입니다.",
+"en": "Buy the currency of a high-interest country, collect the interest, and as long as the exchange rate stays put it looks like money for nothing. Theory says that currency should fall by about the interest gap, so there is no free lunch, yet in practice it often does not, and people pile into this trade (the carry trade). In this simulation, though, the more people pile in, the more the currency creeps up like a staircase for years, until one week everybody exits at once and years of gains vanish together. On average it pays, but the shape of the pay is dangerous.",
+"tr": "买入高利率国家的货币，收取利息，只要汇率不动，看上去就像白赚的钱。理论上，这种货币应该下跌大约相当于利差的幅度，因此没有免费的午餐；但现实中往往并非如此，于是人们蜂拥进入这种交易（套息交易）。在这个模拟中，涌入的人越多，货币就像爬楼梯一样一步步上涨多年，直到某一周所有人同时退出，多年的收益一起消失。平均来看它是赚钱的，但赚钱的形态很危险。"
+},
+{
+"id": "s1175",
+"page": "fxrate",
+"ko": "두 나라가 있습니다. 한 나라는 금리가 낮아 돈을 빌리기 좋고(자금 조달 통화), 다른 나라는 금리가 높습니다(<b>높은 금리 통화</b>, 원화 같은 신흥국 통화를 떠올려 보세요). 캐리 트레이드는 낮은 금리로 빌려 높은 금리 통화를 사서 이자 차이를 받는 거래입니다. 금리 차이(기본 4%p)는 <b>예시 숫자</b>이고 어느 시점의 실제 금리가 아닙니다.",
+"en": "There are two countries. One has low interest rates and is a cheap place to borrow (the funding currency); the other has high rates (the <b>high-rate currency</b>; think of an emerging-market currency such as the won). The carry trade borrows cheaply, buys the high-rate currency and pockets the interest gap. The gap (4 percentage points by default) is an <b>example number</b>, not any real rate at any date.",
+"tr": "有两个国家。一个利率低，是借钱的低成本地（融资货币）；另一个利率高（<b>高利率货币</b>，可以想成韩元这样的新兴市场货币）。套息交易就是低成本借入、买入高利率货币、赚取利差。利差（默认4个百分点）是<b>示例数字</b>，并非任何日期的真实利率。"
+},
+{
+"id": "s1176",
+"page": "fxrate",
+"ko": "이론(<b>비커버드 이자율 평가, UIP</b>)이 완전히 맞다면 높은 금리 통화는 평균적으로 금리 차이만큼 약해져서 캐리의 기대 수익은 0입니다. 슬라이더 <b>UIP가 맞는 정도</b>는 그 상쇄가 실제로 일어나는 비율입니다. 100%면 이론 그대로이고 0%면 환율이 그냥 제멋대로(임의보행) 움직입니다. 기본은 30%입니다. 현실에서는 상쇄가 이론에 못 미치는 경우가 많다고 알려져 있지만 이 값은 이 프로젝트가 정한 예시입니다.",
+"en": "If theory (<b>uncovered interest parity, UIP</b>) held fully, the high-rate currency would on average weaken by the interest gap, so the carry trade's expected profit would be zero. The slider <b>How much UIP holds</b> sets the share of that offsetting that actually happens: at 100% theory holds exactly, at 0% the exchange rate just wanders (a random walk). The default is 30%. The offset is often found to fall short of theory in real data, but this value is just this project's example.",
+"tr": "如果理论（<b>非抛补利率平价，UIP</b>）完全成立，高利率货币平均会贬值相当于利差的幅度，套息交易的预期利润就为零。滑块<b>UIP成立的程度</b>设定这种抵消实际发生的比例：100%时理论完全成立，0%时汇率只是随机游走。默认值为30%。在真实数据中常发现抵消幅度小于理论值，但这个数值只是本项目的示例。"
+},
+{
+"id": "s1177",
+"page": "fxrate",
+"ko": "환율은 매주 무작위로 흔들립니다(<b>변동성</b>). 여기에 <b>쏠림</b>이 더해집니다. 캐리가 매력적일수록(금리 차이가 크고 변동성이 작을수록) 캐리 투자자가 천천히 늘고, 늘 때마다 높은 금리 통화를 사 들여 가격을 조금씩 밀어 올립니다(계단). 쏠림이 커질수록 한 주에 일제히 청산할 확률도 커지고, 청산하면 쏠림이 한꺼번에 줄며 그만큼 통화값이 떨어집니다(엘리베이터). <b>쏠림의 힘</b>은 투자자 전체가 움직일 때 통화값이 밀리는 크기입니다.",
+"en": "The exchange rate shakes randomly every week (<b>volatility</b>). On top of that comes <b>crowding</b>. The more attractive the carry (a bigger gap and lower volatility), the more carry investors slowly join, and each time they buy the high-rate currency and nudge its price up (the stairs). The bigger the crowd, the higher the chance that everyone unwinds in a single week, and when they do the crowd shrinks at once and the currency falls by the same amount (the elevator). <b>Crowd power</b> is how far the currency is pushed when the whole crowd moves.",
+"tr": "汇率每周都会随机波动（<b>波动率</b>）。在此之上还有<b>拥挤</b>。套息越有吸引力（利差越大、波动率越低），就有越多套息投资者慢慢加入，每次买入高利率货币都会把它的价格推高一点（楼梯）。人群越大，所有人在同一周集体平仓的概率就越高；一旦发生，人群骤然缩小，货币也同样幅度下跌（电梯）。<b>人群力度</b>是整个人群行动时货币被推动的幅度。"
+},
+{
+"id": "s1178",
+"page": "fxrate",
+"ko": "한 주의 <b>캐리 수익</b>은 이자 차이의 주간 몫에 그 주의 환율 변화를 더한 값입니다(빌린 돈 1단위당, 레버리지 없음). 아래 차트는 이 수익을 쌓은 누적 손익, 한 주 수익의 분포, 금리 차이에 따른 변화입니다. 같은 설정에서 시장 번호만 바꿔 다른 운의 시장을 볼 수 있습니다.",
+"en": "A week's <b>carry profit</b> is the weekly share of the interest gap plus that week's exchange-rate change (per unit borrowed, no leverage). The charts below show the running total, the distribution of weekly profits, and how things change with the interest gap. Keep the settings and change only the market number to see a market with different luck.",
+"tr": "一周的<b>套息收益</b>是利差按周分摊的部分，加上该周的汇率变动（以每借入一单位计，无杠杆）。下方图表显示累计总额、每周收益的分布，以及随利差变化的情况。保持设置不变，只改变市场编号，就能看到运气不同的市场。"
+},
+{
+"id": "s1179",
+"page": "fxrate",
+"ko": "두 나라의 금리 차이 (예시) <output id=\"o-diff\"></output>",
+"en": "Interest gap between the two countries (example) <output id=\"o-diff\"></output>",
+"tr": "两国利差（示例） <output id=\"o-diff\"></output>"
+},
+{
+"id": "s1180",
+"page": "fxrate",
+"ko": "클수록 이자 수입이 크고 캐리가 매력적이라 사람이 빨리 몰려요",
+"en": "The bigger it is, the more interest you collect and the faster people pile in",
+"tr": "越大，收到的利息越多，人们涌入也越快"
+},
+{
+"id": "s1181",
+"page": "fxrate",
+"ko": "UIP가 맞는 정도 <output id=\"o-uip\"></output>",
+"en": "How much UIP holds <output id=\"o-uip\"></output>",
+"tr": "UIP成立的程度 <output id=\"o-uip\"></output>"
+},
+{
+"id": "s1182",
+"page": "fxrate",
+"ko": "100%면 높은 금리 통화가 금리 차이만큼 약해져 기대 수익이 0이에요",
+"en": "At 100% the high-rate currency weakens by the gap and expected profit is zero",
+"tr": "100%时高利率货币贬值相当于利差的幅度，预期利润为零"
+},
+{
+"id": "s1183",
+"page": "fxrate",
+"ko": "쏠림의 힘 <output id=\"o-imp\"></output>",
+"en": "Crowd power <output id=\"o-imp\"></output>",
+"tr": "人群力度 <output id=\"o-imp\"></output>"
+},
+{
+"id": "s1184",
+"page": "fxrate",
+"ko": "0이면 쏠림이 없는 순수한 임의보행. 크면 급락도 커요",
+"en": "0 means no crowding, a pure random walk. Higher means bigger crashes",
+"tr": "0表示没有拥挤，即纯粹的随机游走。数值越高，暴跌越大"
+},
+{
+"id": "s1185",
+"page": "fxrate",
+"ko": "환율 변동성 (연) <output id=\"o-vol\"></output>",
+"en": "Exchange-rate volatility (yearly) <output id=\"o-vol\"></output>",
+"tr": "汇率波动率（年化） <output id=\"o-vol\"></output>"
+},
+{
+"id": "s1186",
+"page": "fxrate",
+"ko": "클수록 환율이 요동쳐요. 캐리의 매력은 금리 차이÷변동성이에요",
+"en": "Higher means a wilder exchange rate. A carry's appeal is the gap divided by volatility",
+"tr": "越高，汇率越剧烈。套息的吸引力是利差除以波动率"
+},
+{
+"id": "s1187",
+"page": "fxrate",
+"ko": "기간 <output id=\"o-years\"></output>",
+"en": "Period <output id=\"o-years\"></output>",
+"tr": "期间 <output id=\"o-years\"></output>"
+},
+{
+"id": "s1188",
+"page": "fxrate",
+"ko": "길수록 쏠림과 청산이 여러 번 돌아요",
+"en": "Longer lets crowding and unwinding cycle several times",
+"tr": "越长，拥挤与平仓就能循环多次"
+},
+{
+"id": "s1189",
+"page": "fxrate",
+"ko": "같은 설정, 다른 운의 시장",
+"en": "Same settings, a market with different luck",
+"tr": "相同设置，运气不同的市场"
+},
+{
+"id": "s1190",
+"page": "fxrate",
+"ko": "① 통화값과 캐리 투자자의 쏠림",
+"en": "① The Currency and the Crowd of Carry Investors",
+"tr": "① 货币与套息投资者人群"
+},
+{
+"id": "s1191",
+"page": "fxrate",
+"ko": "위쪽 파란 선은 높은 금리 통화의 가치입니다(시작 = 100). 아래 주황 띠는 캐리 투자자가 얼마나 몰렸는지입니다. 쏠림이 차오르는 동안 통화값은 계단처럼 오르고, 붉은 점에서 일제히 청산하면 한 번에 떨어집니다. 지켜보세요.",
+"en": "The blue line on top is the value of the high-rate currency (start = 100). The orange band below shows how crowded the carry trade is. While the crowd builds, the currency climbs like a staircase, and at each red dot everybody unwinds and it drops at once. Watch.",
+"tr": "上方的蓝线是高利率货币的价值（起点 = 100）。下方的橙色带显示套息交易的拥挤程度。人群增加时，货币像爬楼梯一样上涨；在每个红点，所有人同时平仓，货币一下子跌落。请看。"
+},
+{
+"id": "s1192",
+"page": "fxrate",
+"ko": "② 캐리를 계속 들고 있었다면: 누적 손익",
+"en": "② If You Kept Holding the Carry: Running Profit",
+"tr": "② 如果一直持有套息：累计收益"
+},
+{
+"id": "s1193",
+"page": "fxrate",
+"ko": "매주 캐리 수익을 쌓은 선입니다(빌린 돈 1단위당, %p). 회색 점선은 UIP가 완전히 맞을 때의 기대(0), 초록 점선은 이 설정의 평균 기대입니다. 붉은 세로선은 청산한 주, 붉은 띠는 가장 크게 빠진 구간(최대 낙폭)입니다.",
+"en": "This line adds up each week's carry profit (per unit borrowed, in percentage points). The gray dashed line is the expectation when UIP holds fully (zero), the green dashed line the average expectation for these settings. Red vertical lines mark unwinding weeks and the red band the deepest fall (maximum drawdown).",
+"tr": "这条线累加每周的套息收益（以每借入一单位计，单位为百分点）。灰色虚线是UIP完全成立时的预期（零），绿色虚线是这组设置下的平均预期。红色竖线标出平仓的那几周，红色色带标出最深的下跌（最大回撤）。"
+},
+{
+"id": "s1194",
+"page": "fxrate",
+"ko": "<i style=\"background:var(--accent)\"></i>누적 캐리 손익",
+"en": "<i style=\"background:var(--accent)\"></i>Running carry profit",
+"tr": "<i style=\"background:var(--accent)\"></i>累计套息收益"
+},
+{
+"id": "s1195",
+"page": "fxrate",
+"ko": "<i style=\"background:#1fa463\"></i>이 설정의 평균 기대",
+"en": "<i style=\"background:#1fa463\"></i>Average expectation here",
+"tr": "<i style=\"background:#1fa463\"></i>此设置的平均预期"
+},
+{
+"id": "s1196",
+"page": "fxrate",
+"ko": "<i style=\"background:#8a93a6\"></i>UIP가 완전할 때(0)",
+"en": "<i style=\"background:#8a93a6\"></i>If UIP held fully (0)",
+"tr": "<i style=\"background:#8a93a6\"></i>UIP完全成立时（0）"
+},
+{
+"id": "s1197",
+"page": "fxrate",
+"ko": "③ 한 주의 손익은 어떻게 흩어질까",
+"en": "③ How Weekly Profits Scatter",
+"tr": "③ 每周收益的分布情况"
+},
+{
+"id": "s1198",
+"page": "fxrate",
+"ko": "경로 40개를 합쳐 한 주의 캐리 수익을 센 분포입니다. 회색 선은 같은 평균과 변동성을 가진 종 모양(정규분포)입니다. 쏠림이 있으면 왼쪽 꼬리(붉은 부분, 한 주에 -5% 아래)가 종 모양이 말하는 것보다 훨씬 두껍습니다. 쏠림의 힘을 0으로 내리면 꼬리가 사라집니다.",
+"en": "This counts weekly carry profits pooled over 40 paths. The gray line is a bell curve (normal distribution) with the same average and volatility. With crowding the left tail (red, below -5% in a week) is far thicker than the bell curve says. Set crowd power to 0 and the tail disappears.",
+"tr": "这里统计的是汇总40条路径的每周套息收益。灰线是均值和波动率相同的钟形曲线（正态分布）。存在拥挤时，左侧尾部（红色，一周内低于-5%）比钟形曲线所显示的要厚得多。把人群力度设为0，尾部就消失了。"
+},
+{
+"id": "s1199",
+"page": "fxrate",
+"ko": "<i style=\"background:var(--accent)\"></i>실제 주 수",
+"en": "<i style=\"background:var(--accent)\"></i>Actual weeks",
+"tr": "<i style=\"background:var(--accent)\"></i>实际周数"
+},
+{
+"id": "s1200",
+"page": "fxrate",
+"ko": "<i style=\"background:#e5484d\"></i>-5% 아래",
+"en": "<i style=\"background:#e5484d\"></i>Below -5%",
+"tr": "<i style=\"background:#e5484d\"></i>低于-5%"
+},
+{
+"id": "s1201",
+"page": "fxrate",
+"ko": "<i style=\"background:#8a93a6\"></i>종 모양(정규분포)",
+"en": "<i style=\"background:#8a93a6\"></i>Bell curve (normal)",
+"tr": "<i style=\"background:#8a93a6\"></i>钟形曲线（正态）"
+},
+{
+"id": "s1202",
+"page": "fxrate",
+"ko": "④ 금리 차이를 키우면",
+"en": "④ If the Interest Gap Grows",
+"tr": "④ 如果利差扩大"
+},
+{
+"id": "s1203",
+"page": "fxrate",
+"ko": "가로는 금리 차이, 세로는 평균입니다. 초록은 연 평균 캐리 수익, 빨강은 가장 나쁜 한 주의 평균 손실입니다. 금리 차이가 클수록 이자는 더 벌지만, 사람이 빨리 몰려 한 주의 급락도 커집니다. 경로 24개의 평균입니다.",
+"en": "The horizontal axis is the interest gap, the vertical axis an average. Green is the average yearly carry profit, red the average loss in the worst single week. A bigger gap earns more interest but also draws the crowd faster, so the worst week gets bigger. Each point averages 24 paths.",
+"tr": "横轴是利差，纵轴是平均值。绿色是年均套息收益，红色是最差单周的平均亏损。利差越大，利息越多，但人群也涌入得更快，所以最差的一周会更糟。每个点是24条路径的平均值。"
+},
+{
+"id": "s1204",
+"page": "fxrate",
+"ko": "<i style=\"background:#1fa463\"></i>연 평균 캐리 수익",
+"en": "<i style=\"background:#1fa463\"></i>Average yearly carry profit",
+"tr": "<i style=\"background:#1fa463\"></i>年均套息收益"
+},
+{
+"id": "s1205",
+"page": "fxrate",
+"ko": "<i style=\"background:#e5484d\"></i>가장 나쁜 한 주의 평균 손실",
+"en": "<i style=\"background:#e5484d\"></i>Average loss in the worst week",
+"tr": "<i style=\"background:#e5484d\"></i>最差一周的平均亏损"
+},
+{
+"id": "s1206",
+"page": "fxrate",
+"ko": "캐리 거래는 연 3.1%를 벌었지만, 최악의 한 주는 평균 -10.0%였습니다.",
+"en": "Carry earned 3.1% a year, but the worst week averaged -10.0%.",
+"tr": "套息交易每年赚取3.1%，但最糟糕的一周平均为-10.0%。"
+},
+{
+"id": "s1207",
+"page": "fxrate",
+"ko": "이 모델에서는 쏠림이 천천히 쌓이다 한 주에 일제히 풀리며 통화값이 밀려, 왼쪽 꼬리가 길어졌습니다.",
+"en": "In this model crowding builds slowly and unwinds in one week, pushing the currency down and making a long left tail.",
+"tr": "在这个模型中，拥挤度缓慢累积，却在一周内瓦解，使货币下跌，形成一条很长的左尾。"
+},
+{
+"id": "s1208",
+"page": "fxrate",
+"ko": "평균 수익만이 아니라 쏠림이 얼마나 쌓였는지와 급락의 모양까지 살펴볼 만합니다.",
+"en": "Beyond average returns, how much crowding has built up and the shape of the drops are worth examining.",
+"tr": "除了平均收益，还值得考察拥挤度累积了多少，以及下跌的形态。"
+},
+{
+"id": "s1209",
+"page": "fxrate",
+"ko": "<b>말하는 것:</b> 기본 설정(금리 차이 4%p, 변동성 연 8%, UIP 30%, 쏠림의 힘 12%, 20년)에서 시장 번호 1은 청산이 4번 있었고 연 평균 6.9%를 벌었지만, 최악의 한 주는 -11.5%로 평소 한 주 평균 이익의 87주치(약 1.7년치)를 날렸습니다. 같은 설정의 다른 시장은 운이 달라서 번호 3은 연 평균 -1.1%에 최대 낙폭 66.0%p였습니다. 200개 시장을 평균하면 연 3.1%를 벌었고 이는 이론값(쏠림이 없을 때 2.8%에 쏠림이 만드는 가격 밀림 0.3%를 더한 3.12%)과 맞았습니다. 하지만 최악의 한 주는 평균 -10.0%, 그 한 주가 지운 이익은 중앙값으로 155주치(약 3.0년치)였고 수익이 난 주는 53.7%뿐이었습니다. 쏠림이 없으면(힘 0) 같은 조건에서 최악의 주가 -3.5%이고 분포가 좌우 대칭(왜도 0.00)이었지만, 쏠림이 있으면 왜도가 -1.50으로 왼쪽 꼬리가 길어졌습니다. 쏠림의 힘을 5%, 20%, 25%로 바꾸면 왜도가 -0.16, -4.03, -5.53이고 최악의 주는 -4.8%, -16.2%, -20.1%였습니다. UIP가 100% 맞아도(평균 캐리 약 0) 쏠림이 있으면 왜도는 여전히 -1.50이었습니다. 즉 평균 이익이 없어도, 있어도 급락의 모양은 남았습니다. 경로 40개를 합친 41,600주 중 -5% 아래인 주는 249주(0.60%)였는데, 같은 평균과 변동성의 종 모양이라면 약 1.3주만 나올 정도입니다. 금리 차이를 0, 4, 10%p로 올리면 연 평균 캐리 수익이 0.20%, 3.06%, 7.70%로 늘었고, 가장 나쁜 한 주의 평균 손실도 3.6%, 10.1%, 10.5%로 커졌습니다.",
+"en": "<b>What it shows:</b> With the default settings (interest gap 4 points, volatility 8% a year, UIP 30%, crowd power 12%, 20 years), market number 1 had 4 unwinds and earned 6.9% a year on average, yet its worst week was -11.5%, wiping out 87 weeks (about 1.7 years) of the usual average weekly gain. Other markets with the same settings had different luck: number 3 averaged -1.1% a year with a maximum drawdown of 66.0 points. Averaged over 200 markets the trade earned 3.1% a year, matching the theory value (2.8% without crowding plus the 0.3% price push from the crowd, 3.12%). But the worst week averaged -10.0%, the profit that week erased was a median of 155 weeks (about 3.0 years), and only 53.7% of weeks made money. With no crowding (power 0) under the same conditions the worst week was -3.5% and the distribution was symmetric (skewness 0.00), whereas with crowding skewness was -1.50, a long left tail. With crowd power at 5%, 20% and 25%, skewness was -0.16, -4.03 and -5.53 and the worst week -4.8%, -16.2% and -20.1%. Even when UIP held 100% (average carry about zero) the skewness with crowding was still -1.50: with or without average profit, the shape of the crash remained. Among 41,600 weeks pooled from 40 paths, 249 (0.60%) fell below -5%, where a bell curve with the same average and volatility would give only about 1.3. Raising the interest gap to 0, 4 and 10 points lifted the average yearly carry profit to 0.20%, 3.06% and 7.70%, and also raised the average loss in the worst week to 3.6%, 10.1% and 10.5%.",
+"tr": "<b>它说明了什么：</b>在默认设置下（利差4个百分点，波动率每年8%，UIP 30%，人群力度12%，20年），1号市场发生了4次平仓，年均收益6.9%，但最差一周为-11.5%，抹去了87周（约1.7年）平常的每周平均收益。相同设置下的其他市场运气不同：3号市场年均-1.1%，最大回撤66.0个百分点。对200个市场取平均，这笔交易年均赚3.1%，与理论值相符（无拥挤时的2.8%加上人群推动的0.3%价格上涨，即3.12%）。但最差一周平均为-10.0%，那一周抹去的收益中位数为155周（约3.0年），只有53.7%的周份是赚钱的。同样条件下无拥挤（力度0）时，最差一周为-3.5%，分布是对称的（偏度0.00），而有拥挤时偏度为-1.50，左侧尾部很长。人群力度为5%、20%和25%时，偏度分别为-0.16、-4.03和-5.53，最差一周分别为-4.8%、-16.2%和-20.1%。即使UIP完全成立（平均套息收益约为零），有拥挤时偏度仍为-1.50：无论平均是否有利润，暴跌的形态依然存在。在汇总40条路径的41,600周中，有249周（0.60%）低于-5%，而均值和波动率相同的钟形曲线只会给出约1.3周。把利差提高到0、4和10个百分点，年均套息收益升至0.20%、3.06%和7.70%，最差一周的平均亏损也增至3.6%、10.1%和10.5%。"
+},
+{
+"id": "s1210",
+"page": "fxrate",
+"ko": "환율이나 이익을 맞히는 모델이 아닙니다. 투자 판단에 쓰지 마세요. 금리 차이와 쏠림 규칙은 예시 값입니다.",
+"en": "It does not predict exchange rates or profits and is not for investment decisions; the rate gap and crowding rules are examples.",
+"tr": "它不预测汇率或利润，也不能用于投资决策；利差和拥挤规则只是示例。"
+},
+{
+"id": "s1211",
+"page": "fxrate",
+"ko": "실제 급락에 쏠림이 얼마나 작용했는지는 이 모델로 알 수 없어, 실제 자료로 따로 확인해야 합니다.",
+"en": "How much crowding drove real crashes cannot be told from this model and must be checked against real data.",
+"tr": "拥挤在多大程度上引发了真实的暴跌，从这个模型中无法得知，必须对照真实数据来核实。"
+},
+{
+"id": "s1212",
+"page": "fxrate",
+"ko": "<b>말하지 않는 것:</b> 이 모델로 금리나 환율을 맞힐 수 없고, 어떤 거래가 이익일지 알려 주지도 않습니다. 투자 판단에 쓰지 마세요. 모든 숫자(금리 차이, 변동성, 쏠림의 힘, UIP가 맞는 정도, 쏠림이 늘고 청산하는 규칙)는 이 프로젝트가 정한 예시이고, 원화를 비롯한 특정 통화나 어느 시기의 실제 환율·금리를 나타내지 않습니다. 현실의 환율에는 경제 지표, 정책, 국제 자금의 이동, 위험 회피 같은 훨씬 많은 요인이 있고, 이 모델은 \"쏠림과 일제 청산이 이런 계단과 급락의 모양을 만들 수 있다\"는 메커니즘 하나만 보여 줄 뿐 실제 급락의 원인이 이것이라고 증명하지 않습니다. 거래 비용, 레버리지, 세금, 여러 통화의 조합도 빠져 있습니다.",
+"en": "<b>What it doesn't show:</b> This model cannot predict interest rates or exchange rates, and does not tell you which trade will make money. Do not use it for investment decisions. Every number (the interest gap, volatility, crowd power, how much UIP holds, and the rules for the crowd to grow and unwind) is an example chosen by this project and stands for no particular currency, including the won, and for no real exchange rate or interest rate at any date. Real exchange rates have many more drivers, such as economic data, policy, international capital flows and risk aversion, and this model shows only one mechanism, that crowding and a joint exit can create this staircase-and-crash shape, without proving that this is what causes real crashes. Trading costs, leverage, taxes and portfolios of several currencies are also left out.",
+"tr": "<b>它没有说明什么：</b>这个模型无法预测利率或汇率，也不能告诉你哪笔交易会赚钱。请勿用于投资决策。所有数字（利差、波动率、人群力度、UIP成立的程度，以及人群增长和平仓的规则）都是本项目选定的示例，并不代表任何特定货币（包括韩元），也不代表任何日期的真实汇率或利率。真实汇率还受经济数据、政策、国际资本流动和风险厌恶等更多因素影响；本模型只展示一种机制，即拥挤和集体退出可能造成这种“爬楼梯式上涨再暴跌”的形态，并不证明现实中的暴跌就是由此引起的。交易成本、杠杆、税收以及多种货币的组合也都没有考虑。"
+},
+{
+"id": "s1213",
+"page": "fxrate",
+"ko": "<b>모델의 뿌리:</b> 서로 다른 두 통화의 금리 차이와 환율의 관계를 말하는 <b>이자율 평가</b>가 뿌리입니다. 차익거래로 성립하는 <i>커버드</i> 이자율 평가와 달리, 환율을 미리 고정하지 않은 <i>비커버드</i>(UIP)는 기대되는 환율 변화가 금리 차이와 같다는 가설입니다. Fama(1984)는 「Forward and spot exchange rates」(<i>Journal of Monetary Economics</i>)에서 실제 자료가 이에 맞지 않는 점을 보였고(UIP 퍼즐), Meese와 Rogoff(1983)는 환율 모형이 임의보행보다 표본 밖에서 더 잘 맞히지 못한다고 보고했습니다. 쏠림과 급락은 Brunnermeier, Nagel, Pedersen(2009)의 「Carry Trades and Currency Crashes」가 다룬 주제입니다.",
+"en": "<b>Where the model comes from:</b> The root is <b>interest rate parity</b>, linking the interest gap between two currencies to the exchange rate. Unlike <i>covered</i> parity, which holds by arbitrage, <i>uncovered</i> parity (UIP) is the hypothesis that the expected change in the exchange rate equals the interest gap. Fama (1984), in &quot;Forward and spot exchange rates&quot; (<i>Journal of Monetary Economics</i>), showed real data do not fit it (the UIP puzzle), and Meese and Rogoff (1983) reported that exchange-rate models forecast out of sample no better than a random walk. Crowding and crashes are the theme of Brunnermeier, Nagel and Pedersen (2009), &quot;Carry Trades and Currency Crashes&quot;.",
+"tr": "<b>模型的来源：</b>根源是<b>利率平价</b>，它把两种货币的利差与汇率联系起来。与靠套利成立的<i>抛补</i>平价不同，<i>非抛补</i>平价（UIP）是一个假说，认为汇率的预期变动等于利差。Fama（1984）在&quot;Forward and spot exchange rates&quot;（<i>Journal of Monetary Economics</i>）中指出真实数据并不符合它（UIP之谜），Meese和Rogoff（1983）则报告，汇率模型的样本外预测并不比随机游走更好。拥挤与暴跌是Brunnermeier、Nagel和Pedersen（2009）&quot;Carry Trades and Currency Crashes&quot;的主题。"
+},
+{
+"id": "s1214",
+"page": "fxrate",
+"ko": "<b>핵심 가정과 수식:</b> 환율 x(높은 금리 통화 가치의 로그)는 주마다 <code>x ← x − u·d/52 + k·(c' − c) + (σ/√52)·ε</code>로 바뀝니다(d 금리 차이, u UIP가 맞는 정도, c 쏠림, k 쏠림의 힘, σ 연 변동성). 캐리 수익은 <code>d/52 + Δx</code>라서 쏠림이 없으면 기대치가 <code>(1−u)·d</code>이고 u=1이면 0입니다. 쏠림은 <code>c ← c + r·c(1−c)</code>(r = 0.06×d/σ에 약간의 무작위)로 늘고, 주마다 <code>0.0004 + 0.02·c³</code>의 확률로 일제히 청산해 c가 50~90% 줄어듭니다.",
+"en": "<b>Key assumptions and formulas:</b> The exchange rate x (log of the high-rate currency's value) changes each week as <code>x ← x − u·d/52 + k·(c' − c) + (σ/√52)·ε</code> (d interest gap, u how much UIP holds, c crowding, k crowd power, σ yearly volatility). The carry profit is <code>d/52 + Δx</code>, so without crowding its expectation is <code>(1−u)·d</code>, and zero when u=1. Crowding grows as <code>c ← c + r·c(1−c)</code> (r = 0.06×d/σ with some randomness), and each week with probability <code>0.0004 + 0.02·c³</code> everyone unwinds and c shrinks by 50 to 90%.",
+"tr": "<b>主要假设与公式：</b>汇率x（高利率货币价值的对数）每周按<code>x ← x − u·d/52 + k·(c' − c) + (σ/√52)·ε</code>变化（d为利差，u为UIP成立的程度，c为拥挤度，k为人群力度，σ为年化波动率）。套息收益为<code>d/52 + Δx</code>，所以无拥挤时其期望是<code>(1−u)·d</code>，u=1时为零。拥挤度按<code>c ← c + r·c(1−c)</code>增长（r = 0.06×d/σ，并带有一定随机性），每周以<code>0.0004 + 0.02·c³</code>的概率所有人同时平仓，c缩小50%到90%。"
+}
+]

@@ -1,0 +1,1248 @@
+[
+{
+"id": "s0005",
+"page": "index",
+"ko": "SIMULATIO LAB · 실험 51개 · 분야 13개",
+"en": "SIMULATIO LAB · 51 experiments · 13 fields",
+"tr": "SIMULATIO LAB · 51个实验 · 13个领域"
+},
+{
+"id": "s0010",
+"page": "index",
+"ko": "▶ 유튜브 구독",
+"en": "▶ Subscribe on YouTube",
+"tr": "▶ 在 YouTube 订阅"
+},
+{
+"id": "s0013",
+"page": "index",
+"ko": "51개의 실험을 13개 분야(열)로 묶었어요. 칸 위에 마우스를 올리면 아래 실험 노트에 내용이 나타납니다.",
+"en": "51 experiments in 13 fields (columns). Hover over a cell to see its details in the lab notebook below.",
+"tr": "13个领域（列）共51个实验。将鼠标悬停在单元格上，可在下方的实验笔记中查看详情。"
+},
+{
+"id": "s0027",
+"page": "index",
+"ko": "계산대 줄",
+"en": "Checkout Lines",
+"tr": "收银排队"
+},
+{
+"id": "s0028",
+"page": "index",
+"ko": "마트 계산대, 줄을 하나로 서면 왜 더 빠를까",
+"en": "Why Is One Shared Checkout Line Faster?",
+"tr": "为什么一条共用队伍更快？"
+},
+{
+"id": "s0029",
+"page": "index",
+"ko": "같은 계산대, 같은 손님인데 줄을 하나로 세우느냐 따로 세우느냐에 따라 대기시간과 공정함이 크게 달라져요.",
+"en": "Same cashiers, same customers: one shared line or many separate ones changes both waiting time and fairness.",
+"tr": "同样的收银员，同样的顾客：是排一条共用队伍还是分成多条，等待时间和公平性都会不同。"
+},
+{
+"id": "s0030",
+"page": "index",
+"ko": "대기행렬 모델 (M/M/c)",
+"en": "Queueing model (M/M/c)",
+"tr": "排队模型（M/M/c）"
+},
+{
+"id": "s0031",
+"page": "index",
+"ko": "버스 뭉침",
+"en": "Bus Bunching",
+"tr": "公交扎堆"
+},
+{
+"id": "s0032",
+"page": "index",
+"ko": "버스는 왜 꼭 두 대씩 몰려올까",
+"en": "Why Do Buses Always Come in Pairs?",
+"tr": "为什么公交车总是两辆一起来？"
+},
+{
+"id": "s0033",
+"page": "index",
+"ko": "같은 간격으로 출발한 버스가 왜 뭉쳐 다니게 될까요? 승객이 많을수록 늦어지는 되먹임을 돌려 보고 해결책도 시험해요.",
+"en": "Why do evenly spaced buses end up in clumps? Run the feedback where more passengers means more delay, and test remedies.",
+"tr": "为什么原本间隔均匀的公交车最后会扎堆？运行“乘客越多、延误越多”的反馈过程，并试试各种补救办法。"
+},
+{
+"id": "s0034",
+"page": "index",
+"ko": "버스 군집 모델",
+"en": "Bus-bunching model",
+"tr": "公交扎堆模型"
+},
+{
+"id": "s0035",
+"page": "index",
+"ko": "벤치 자리",
+"en": "Bench Seating",
+"tr": "长凳落座"
+},
+{
+"id": "s0036",
+"page": "index",
+"ko": "모르는 사람끼리 벤치에 앉으면 몇 명이나 앉을 수 있을까",
+"en": "How Many Strangers Can Fit on a Bench?",
+"tr": "一条长凳能坐下多少陌生人？"
+},
+{
+"id": "s0037",
+"page": "index",
+"ko": "모두가 예의 바르게 거리를 두고 앉았는데도 벤치가 이만큼 남는 이유를, 앉는 방식 네 가지를 나란히 돌려 알아봐요.",
+"en": "Everyone sat politely apart, yet seats go unused. Compare four ways of sitting side by side to see why.",
+"tr": "大家都礼貌地隔开坐，座位却还是有空余。比较四种并排落座的方式，看看原因是什么。"
+},
+{
+"id": "s0038",
+"page": "index",
+"ko": "무작위 순차 채우기 (렌니 주차 문제)",
+"en": "Random sequential filling (Rényi parking problem)",
+"tr": "随机顺序填充（Rényi停车问题）"
+},
+{
+"id": "s0039",
+"page": "index",
+"ko": "인간관계",
+"en": "Relationships",
+"tr": "人际关系"
+},
+{
+"id": "s0069",
+"page": "index",
+"ko": "경제",
+"en": "Economy",
+"tr": "经济"
+},
+{
+"id": "s0078",
+"page": "index",
+"ko": "국채 금리",
+"en": "Treasury Yield",
+"tr": "国债收益率"
+},
+{
+"id": "s0079",
+"page": "index",
+"ko": "금리가 오르면 내 채권값은 왜 떨어질까: 10년 국채 금리",
+"en": "Why Does My Bond Fall When Rates Rise? The 10-Year Treasury Yield",
+"tr": "利率上升时，我的债券为什么会下跌？10年期国债收益率"
+},
+{
+"id": "s0080",
+"page": "index",
+"ko": "단기금리 경로로 10년 금리가 정해지는 과정과, 금리가 1%p 오를 때 이미 산 채권값이 얼마나 떨어지는지 돌려 봐요. (예시 숫자, 예측 아님)",
+"en": "See how short-rate paths set the 10-year yield and how much a bond you already hold falls when rates rise one point. (Example numbers, not a forecast.)",
+"tr": "看看短期利率的走势如何决定10年期收益率，以及利率上升一个百分点时，你已持有的债券会下跌多少。（示例数字，并非预测。）"
+},
+{
+"id": "s0081",
+"page": "index",
+"ko": "평균회귀 금리 모델 (바시첵)",
+"en": "Mean-reverting rate model (Vasicek)",
+"tr": "均值回归利率模型（瓦西切克）"
+},
+{
+"id": "s0082",
+"page": "index",
+"ko": "환율과 캐리",
+"en": "FX Carry",
+"tr": "外汇套息"
+},
+{
+"id": "s0083",
+"page": "index",
+"ko": "금리 높은 통화를 샀더니: 계단으로 오르고 엘리베이터로 떨어지는 캐리 트레이드",
+"en": "Buying the High-Rate Currency: The Carry Trade That Takes the Stairs Up and the Elevator Down",
+"tr": "买入高利率货币：上楼梯、坐电梯下楼的套息交易"
+},
+{
+"id": "s0084",
+"page": "index",
+"ko": "이자를 더 주는 통화를 사면 오래 조금씩 벌다 한 번에 크게 잃을 수 있어요. 쏠림과 청산이 만드는 모양을 돌려 봐요. (예시 숫자, 투자 조언 아님)",
+"en": "Holding a higher-yield currency can earn a little for years and lose a lot at once. See the shape crowding and unwinding create. (Example numbers, not investment advice.)",
+"tr": "持有收益率更高的货币，可能多年小赚，然后一次性大亏。来看看人群涌入和集中平仓会造成怎样的形态。（示例数字，并非投资建议。）"
+},
+{
+"id": "s0085",
+"page": "index",
+"ko": "캐리 트레이드 쏠림 모델",
+"en": "Carry-trade crowding model",
+"tr": "套息交易拥挤模型"
+},
+{
+"id": "s0086",
+"page": "index",
+"ko": "육아",
+"en": "Parenting",
+"tr": "育儿"
+},
+{
+"id": "s0087",
+"page": "index",
+"ko": "학원 딜레마",
+"en": "Cram-School Dilemma",
+"tr": "课外班的困境"
+},
+{
+"id": "s0088",
+"page": "index",
+"ko": "모두가 학원을 하나 더 보내면 왜 아무도 순위가 안 오를까",
+"en": "Why Does Everyone Adding One More Class Move Nobody Up?",
+"tr": "为什么大家都多报一个班，却没有人排名上升？"
+},
+{
+"id": "s0089",
+"page": "index",
+"ko": "한 집만 하면 순위가 오르는데, 다 같이 하면 비용만 늘어요. 상대평가와 절대평가를 바꿔 구조를 비교해 봐요. (예시 숫자, 처방 아님)",
+"en": "One family alone climbs, but when all do it only the bill grows. Compare relative and absolute grading. (Example numbers, no advice.)",
+"tr": "只有一个家庭多报时排名会上升，但大家都这样做，增加的只有费用。对比相对评价与绝对评价。（示例数字，不构成建议。）"
+},
+{
+"id": "s0090",
+"page": "index",
+"ko": "순위재 경쟁 모델",
+"en": "Positional-goods race model",
+"tr": "地位物品竞争模型"
+},
+{
+"id": "s0091",
+"page": "index",
+"ko": "어린이집 감기",
+"en": "Daycare Colds",
+"tr": "托儿所里的感冒"
+},
+{
+"id": "s0092",
+"page": "index",
+"ko": "어린이집에 가면 왜 자꾸 아플까: 반 크기와 아프면 쉬기",
+"en": "Why Do Kids Keep Getting Sick at Daycare? Class Size and Staying Home",
+"tr": "孩子进了托儿所为什么总生病？班级规模与在家休息"
+},
+{
+"id": "s0093",
+"page": "index",
+"ko": "반 크기, 아프면 쉬는 비율, 면역이 쌓이는 정도에 따라 한 해 감기 횟수가 달라지는 모습을 돌려 봐요. (참고용 모델)",
+"en": "See how class size, staying home when sick and built-up immunity change the colds in a year. (Reference model only.)",
+"tr": "看看班级规模、生病在家休息和逐步积累的免疫力如何改变一年中的感冒次数。（仅为参考模型。）"
+},
+{
+"id": "s0094",
+"page": "index",
+"ko": "교실 감염 모델 (SEIR형)",
+"en": "Classroom infection model (SEIR-type)",
+"tr": "教室感染模型（SEIR 类型）"
+},
+{
+"id": "s0095",
+"page": "index",
+"ko": "입소 배정",
+"en": "Who Gets the Seat?",
+"tr": "谁能得到名额？"
+},
+{
+"id": "s0096",
+"page": "index",
+"ko": "입소 배정, 선착순·추첨·선호 반영 중 무엇이 공정할까",
+"en": "Who Gets the Seat? First-Come, Lottery or Preference-Based Matching",
+"tr": "谁能得到名额？先到先得、抽签与按志愿匹配"
+},
+{
+"id": "s0097",
+"page": "index",
+"ko": "지망 순위를 바꿔 적으면 이득일까? 네 가지 배정 방식을 나란히 돌려 봐요. (실제 입소 제도가 아님)",
+"en": "Does misreporting your ranking pay? Run four matching methods side by side. (Not the real admission system.)",
+"tr": "不如实填写志愿顺序会占便宜吗？并排运行四种分配方式。（并非真实的录取制度。）"
+},
+{
+"id": "s0098",
+"page": "index",
+"ko": "배정 방식 비교 (보스턴·지연 수락)",
+"en": "Matching mechanisms (Boston vs deferred acceptance)",
+"tr": "匹配机制（波士顿方式与延迟接受）"
+},
+{
+"id": "s0104",
+"page": "index",
+"ko": "37%의 법칙",
+"en": "The 37% Rule",
+"tr": "37%法则"
+},
+{
+"id": "s0105",
+"page": "index",
+"ko": "몇 명을 만나 보고 정해야 최고의 사람을 만날까: 37%의 법칙",
+"en": "How Many Should You Meet Before Choosing? The 37% Rule",
+"tr": "选择之前该见多少人？37%法则"
+},
+{
+"id": "s0106",
+"page": "index",
+"ko": "되돌아갈 수 없는 만남에서, 몇 %를 지켜본 뒤 고르면 최고를 만날 확률이 가장 높을까요? 약 37%라는 답을 직접 확인해요.",
+"en": "When you cannot go back, how much should you watch before choosing to have the best chance at the very best? Check the famous 37% answer yourself.",
+"tr": "当无法回头时，选择之前应该先观察多少，才最有可能选中最好的那一个？亲自验证著名的37%答案吧。"
+},
+{
+"id": "s0107",
+"page": "index",
+"ko": "최적 멈춤 모델 (비서 문제)",
+"en": "Optimal stopping model (secretary problem)",
+"tr": "最优停止模型（秘书问题）"
+},
+{
+"id": "s0108",
+"page": "index",
+"ko": "약한 유대",
+"en": "Weak Ties",
+"tr": "弱关系"
+},
+{
+"id": "s0109",
+"page": "index",
+"ko": "새 일자리 소식은 왜 친한 친구가 아니라 얼굴만 아는 사람에게서 올까: 약한 유대의 힘",
+"en": "Why Do Job Tips Come from Acquaintances, Not Close Friends? The Strength of Weak Ties",
+"tr": "为什么求职信息来自熟人而不是亲密朋友？弱关系的力量"
+},
+{
+"id": "s0110",
+"page": "index",
+"ko": "친한 친구 무리에 얼굴만 아는 사람 몇 명만 이어도 소식이 퍼지는 속도가 몇 배로 빨라져요.",
+"en": "Tie just a few acquaintances into tight friend circles and news spreads several times faster.",
+"tr": "只要把少数熟人连进紧密的朋友圈，消息的传播速度就会快好几倍。"
+},
+{
+"id": "s0111",
+"page": "index",
+"ko": "스몰월드 네트워크 (와츠–스트로가츠)",
+"en": "Small-world network (Watts–Strogatz)",
+"tr": "小世界网络（Watts–Strogatz）"
+},
+{
+"id": "s0121",
+"page": "index",
+"ko": "전쟁의 구조",
+"en": "How War Starts",
+"tr": "战争是如何开始的"
+},
+{
+"id": "s0122",
+"page": "index",
+"ko": "아무도 원하지 않는데 전쟁이 난다: 협상 실패와 군비 경쟁, 그리고 번짐",
+"en": "Nobody Wants It, Yet War Happens: Failed Bargains, Arms Races, and Spreading",
+"tr": "没人想要，战争却发生：谈判失败、军备竞赛与蔓延"
+},
+{
+"id": "s0123",
+"page": "index",
+"ko": "전쟁은 양쪽 모두에게 손해인데도 왜 일어날까요? 이름 없는 추상 국가들로 협상 실패, 군비 경쟁, 번짐을 돌려 봐요. (실제 전쟁을 설명하지 않아요)",
+"en": "War costs both sides, so why does it happen? Run failed bargaining, arms races and spreading among nameless abstract states. (It does not explain any real war.)",
+"tr": "战争对双方都有代价，那它为什么还会发生？在没有名字的抽象国家之间运行谈判失败、军备竞赛和蔓延。（它不能解释任何一场真实的战争。）"
+},
+{
+"id": "s0124",
+"page": "index",
+"ko": "협상 실패·군비 경쟁·번짐 모델",
+"en": "Bargaining failure, arms race and spread",
+"tr": "谈判失败、军备竞赛与蔓延"
+},
+{
+"id": "s0138",
+"page": "index",
+"ko": "농경 전파",
+"en": "Farming Spread",
+"tr": "农业传播"
+},
+{
+"id": "s0139",
+"page": "index",
+"ko": "농사는 어떻게 대륙을 건넜을까: 한 해에 1킬로미터씩 번진 농경",
+"en": "How Did Farming Cross a Continent? About One Kilometer a Year",
+"tr": "农业是如何跨越一个大陆的？每年大约一公里"
+},
+{
+"id": "s0140",
+"page": "index",
+"ko": "인구가 늘고 조금씩 흩어지는 두 규칙만으로 농경이 한 해 1킬로미터쯤의 속도로 땅을 덮는 모습을 지도 위에서 봐요.",
+"en": "Population growth plus a little dispersal is enough for farming to cover the land at about a kilometer a year. Watch it on a map.",
+"tr": "人口增长再加上一点扩散，就足以让农业以每年约一公里的速度覆盖土地。在地图上看看吧。"
+},
+{
+"id": "s0141",
+"page": "index",
+"ko": "진행파 모델 (피셔–콜모고로프)",
+"en": "Wave-of-advance model (Fisher–Kolmogorov)",
+"tr": "行波模型（Fisher–Kolmogorov）"
+},
+{
+"id": "s0142",
+"page": "index",
+"ko": "란체스터 법칙",
+"en": "Lanchester's Law",
+"tr": "兰彻斯特定律"
+},
+{
+"id": "s0143",
+"page": "index",
+"ko": "병력이 두 배면 왜 네 배 강할까: 나눠 싸우면 지는 이유",
+"en": "Why Double the Soldiers Is Four Times as Strong: Why Splitting Up Loses",
+"tr": "为什么兵力翻倍战力就翻四倍：为什么分兵会输"
+},
+{
+"id": "s0144",
+"page": "index",
+"ko": "병력이 두 배면 전투력은 네 배. 서로 병력을 깎는 두 군대로 제곱 법칙과, 힘을 나누면 지는 이유를 확인해요.",
+"en": "Twice the numbers means four times the strength. See the square law and why splitting your force loses, with two armies wearing each other down.",
+"tr": "兵力翻倍，战力就翻四倍。让两支军队互相消耗，看看平方定律，以及为什么分兵会输。"
+},
+{
+"id": "s0145",
+"page": "index",
+"ko": "란체스터 제곱 법칙",
+"en": "Lanchester's square law",
+"tr": "兰彻斯特平方定律"
+},
+{
+"id": "s0155",
+"page": "index",
+"ko": "가지 프랙탈",
+"en": "Branching",
+"tr": "分枝"
+},
+{
+"id": "s0156",
+"page": "index",
+"ko": "번개, 산호, 눈송이는 왜 서로 닮았을까",
+"en": "Why Do Lightning, Coral and Frost Look Alike?",
+"tr": "为什么闪电、珊瑚和霜花看起来很像？"
+},
+{
+"id": "s0157",
+"page": "index",
+"ko": "떠돌던 입자가 닿으면 붙기만 하는 규칙이 번개와 산호를 닮은 가지 모양을 키워요. 붙는 확률을 바꿔 직접 키워 보세요.",
+"en": "A rule as simple as \"stick on touch\" grows branching shapes like lightning and coral. Change the stickiness and grow your own.",
+"tr": "“一碰就粘住”这样简单的规则，就能长出像闪电和珊瑚一样的分枝形状。调整粘性，长出你自己的图案吧。"
+},
+{
+"id": "s0158",
+"page": "index",
+"ko": "확산 제한 응집 (DLA)",
+"en": "Diffusion-limited aggregation (DLA)",
+"tr": "扩散限制凝聚（DLA）"
+},
+{
+"id": "s0159",
+"page": "index",
+"ko": "모래더미",
+"en": "Sandpile",
+"tr": "沙堆"
+},
+{
+"id": "s0160",
+"page": "index",
+"ko": "모래 한 알이 산사태를 일으킬 수 있을까",
+"en": "Can a Single Grain of Sand Cause a Landslide?",
+"tr": "一粒沙子能引发崩塌吗？"
+},
+{
+"id": "s0161",
+"page": "index",
+"ko": "모래를 한 알씩 쌓기만 해도 더미가 스스로 임계 상태가 되어, 대부분은 조용하다가 가끔 거대한 눈사태가 나요.",
+"en": "Adding sand one grain at a time, the pile organizes itself to a critical state: mostly quiet, now and then a huge avalanche.",
+"tr": "一粒一粒地加沙，沙堆会自行组织到临界状态：大多时候平静，偶尔发生一次巨大的雪崩。"
+},
+{
+"id": "s0162",
+"page": "index",
+"ko": "모래더미 모델 (BTW)",
+"en": "Sandpile model (BTW)",
+"tr": "沙堆模型（BTW）"
+},
+{
+"id": "s0163",
+"page": "index",
+"ko": "산불",
+"en": "Wildfire",
+"tr": "森林火灾"
+},
+{
+"id": "s0164",
+"page": "index",
+"ko": "작은 산불을 다 끄면 왜 나중에 더 큰 불이 날까",
+"en": "Why Putting Out Every Small Fire Can Lead to Bigger Ones Later",
+"tr": "为什么扑灭每一场小火，反而可能引来后来的大火"
+},
+{
+"id": "s0165",
+"page": "index",
+"ko": "작은 불을 끄면 연료가 쌓여 큰 불이 늘어나는 과정을, 두 숲을 나란히 돌려 확인해요.",
+"en": "See how putting out small fires lets fuel pile up and big fires multiply, with two forests running side by side.",
+"tr": "让两片森林并排运行，看看扑灭小火如何让燃料不断堆积、大火越来越多。"
+},
+{
+"id": "s0166",
+"page": "index",
+"ko": "숲불 모델 (Drossel–Schwabl)",
+"en": "Forest-fire model (Drossel–Schwabl)",
+"tr": "森林火灾模型（Drossel–Schwabl）"
+},
+{
+"id": "s0167",
+"page": "index",
+"ko": "랭턴의 개미",
+"en": "Langton's Ant",
+"tr": "兰顿蚂蚁"
+},
+{
+"id": "s0168",
+"page": "index",
+"ko": "규칙 두 줄짜리 개미가 만 걸음 뒤 갑자기 길을 낸다: 랭턴의 개미",
+"en": "A Two-Rule Ant Suddenly Builds a Road After 10,000 Steps: Langton's Ant",
+"tr": "只有两条规则的蚂蚁在约10000步后突然修出一条路：兰顿蚂蚁"
+},
+{
+"id": "s0169",
+"page": "index",
+"ko": "규칙이 두 줄뿐인 개미가 대칭 무늬, 혼돈을 거쳐 약 만 걸음 뒤 갑자기 대각선 길을 내요.",
+"en": "An ant with just two rules makes symmetry, then chaos, then suddenly a diagonal road after about 10,000 steps.",
+"tr": "只有两条规则的蚂蚁先画出对称图案，然后陷入混沌，约10000步后突然修出一条斜向的路。"
+},
+{
+"id": "s0170",
+"page": "index",
+"ko": "랭턴의 개미 (세포 자동자)",
+"en": "Langton's ant (cellular automaton)",
+"tr": "兰顿蚂蚁（元胞自动机）"
+},
+{
+"id": "s0235",
+"page": "admission",
+"ko": "입소 배정 방식 비교 · 시뮬라티오 랩",
+"en": "Four Ways to Assign Seats · Simulatio Lab",
+"tr": "分配名额的四种方式 · Simulatio Lab"
+},
+{
+"id": "s0236",
+"page": "admission",
+"ko": "어린이집 같은 기관에 아이를 나누는 선착순, 추첨 순번, 보스턴, 지연 수락 방식을 비교하고, 지망 순위를 바꿔 적으면 이득을 보는지 직접 돌려보세요.",
+"en": "Compare first-come-first-served, lottery order, the Boston mechanism and deferred acceptance for assigning children to places, and see who gains by changing the ranking they submit.",
+"tr": "比较先到先得、抽签顺序、波士顿机制和延迟接受这几种把孩子分配到名额的方式，看看改变所提交的志愿顺序时谁会受益。"
+},
+{
+"id": "s0238",
+"page": "admission",
+"ko": "솔직하게 적으면 손해일까: 입소 배정 방식 네 가지",
+"en": "Does Honesty Pay? Four Ways to Assign Children to Daycares",
+"tr": "如实填写划算吗？把孩子分到托儿所的四种方式"
+},
+{
+"id": "s0239",
+"page": "admission",
+"ko": "아이를 기관에 나누는 일이라면, 원하는 순서를 있는 그대로 적어 내는 것이 가장 좋을 것 같습니다. 그런데 어떤 방식에서는 \"될 만한 곳\"을 앞에 적는 쪽이 이득이어서, 목록이 마음의 순서가 아니라 눈치 싸움이 됩니다. 같은 아이 200명을 네 가지 방식으로 나눠 보면, 보스턴 방식에서는 순위를 바꿔 적어 더 나은 곳에 가는 아이가 43%였고 지연 수락 방식에서는 0%였습니다. 누가 나쁜 것이 아니라 방식의 구조가 만드는 차이입니다.",
+"en": "When children are assigned to places, writing down your true order of preference seems like the best thing to do. In some systems, though, putting a \"realistic\" place first pays off, and the list becomes a guessing game rather than a statement of what you want. Assigning the same 200 children four different ways, 43% could do better by changing their ranking under the Boston method and 0% under deferred acceptance. Nobody is to blame: it is the structure of the method that makes the difference.",
+"tr": "给孩子分配名额时，按真实意愿的顺序填写看起来是最好的做法。但在某些制度下，把「更有希望」的地方放在前面反而占便宜，志愿表也就成了猜测游戏，而不再是对意愿的表达。用四种方式分配同样的 200 个孩子，通过改变志愿顺序而受益的比例，波士顿方式下为 43%，延迟接受下为 0%。这不是谁的错，而是方式本身的结构造成了差别。"
+},
+{
+"id": "s0241",
+"page": "admission",
+"ko": "아이 200명과 기관 8곳(A~H)이 있고, 기관마다 정원이 있습니다. 모든 아이는 8곳 모두에 지망 순위를 매깁니다. 기관에는 모두가 느끼는 \"인기\"가 있고 아이마다 취향도 다릅니다. <b>취향이 비슷한 정도</b>가 이 둘의 비중입니다. 높을수록 모두가 같은 곳을 원해 경쟁이 몰립니다.",
+"en": "There are 200 children and 8 places (labeled A to H), each with a limited capacity. Every child ranks all 8 places. Places have a \"popularity\" everyone feels, and children also have their own tastes. <b>How similar tastes are</b> sets the balance: the higher it is, the more everyone wants the same places and the more competition piles up.",
+"tr": "共有 200 个孩子和 8 个地点（标为 A 到 H），每个地点名额有限。每个孩子要对全部 8 个地点排序。地点有大家共同感受到的「热门程度」，孩子也有各自的偏好。<b>偏好的相似程度</b>决定两者的平衡：数值越高，大家越想去同样的地方，竞争也越集中。"
+},
+{
+"id": "s0242",
+"page": "admission",
+"ko": "기관은 아이들에게 우선순위를 매깁니다. 추첨 번호는 모든 기관이 같이 쓰고, 기관마다 따로 정한 순번을 얼마나 섞느냐가 <b>기관마다 순번이 다른 정도</b>입니다. 0%이면 모든 기관이 같은 추첨 번호로 줄을 세웁니다.",
+"en": "Each place ranks the children by priority. A lottery number is shared by all places, and <b>how much places differ in their own order</b> sets how much a place-specific random order is mixed in. At 0% every place lines children up by the same lottery number.",
+"tr": "每个地点按优先级给孩子排序。抽签号对所有地点通用，而<b>各地点排序的差异程度</b>决定混入多少各地点自己的随机顺序。为 0% 时，所有地点都按同一个抽签号排列孩子。"
+},
+{
+"id": "s0243",
+"page": "admission",
+"ko": "<b>① 선착순</b>: 접수한 순서대로 남은 곳 중 가장 원하는 곳을 고릅니다(일찍 접수할 수 있는 집이 앞섭니다). <b>② 추첨 순번</b>: 추첨 번호 순서대로 같은 방식으로 고릅니다. <b>③ 보스턴</b>: 모두 1지망에 접수하고 정원이 차면 그 자리는 바로 확정, 못 들어간 아이는 2지망에 접수하는 식으로 이어집니다. <b>④ 지연 수락</b>: 각 기관은 우선순위가 높은 아이를 임시로만 받아 두고, 더 높은 아이가 오면 밀어냅니다. 밀려난 아이는 다음 지망으로 가고, 더 움직일 아이가 없을 때 확정됩니다.",
+"en": "<b>① First come, first served</b>: in order of arrival, each child takes the place they like best among those left (families who can arrive early go first). <b>② Lottery order</b>: the same, but in lottery-number order. <b>③ Boston</b>: everyone applies to their 1st choice, a place that fills up is closed for good, and the rest apply to their 2nd choice, and so on. <b>④ Deferred acceptance</b>: each place only holds its highest-priority applicants tentatively and bumps them for a higher-priority child; bumped children move to the next choice, and everything is final only when nobody moves anymore.",
+"tr": "<b>① 先到先得</b>：按到达顺序，每个孩子在剩余地点中选自己最喜欢的（能提前到达的家庭先选）。<b>② 抽签顺序</b>：同样的做法，但按抽签号顺序。<b>③ 波士顿</b>：所有人申请第一志愿，名额一满即定、不再接收，其余的人再申请第二志愿，依此类推。<b>④ 延迟接受</b>：每个地点只是临时保留优先级最高的申请者，遇到优先级更高的孩子就把他们挤出；被挤出的孩子转向下一志愿，直到没有人再变动，结果才最终确定。"
+},
+{
+"id": "s0244",
+"page": "admission",
+"ko": "<b>순위를 바꿔 적어 보는 시험</b>: 한 아이만 지망 순서를 바꿔 적고 다른 아이는 모두 솔직하게 적었다고 합시다. 지망 하나를 다른 자리로 옮기는 56가지를 모두 해 보고, 진짜 원하는 순서로 봐서 더 좋은 곳에 가는 경우가 하나라도 있으면 그 아이는 \"이득\"을 봅니다. 다른 집의 목록과 추첨 결과를 모두 안다는 가정이라, 현실에서는 이만큼 알기 어렵습니다.",
+"en": "<b>The ranking-change test</b>: suppose one child changes the order they submit while all other children write honestly. All 56 ways of moving one choice to another position are tried, and if any of them lands the child in a place they truly prefer, that child \"gains\". This assumes knowing every other list and the lottery result, which is far more than a real family could know.",
+"tr": "<b>改变志愿顺序的测试</b>：假设只有一个孩子改变所提交的顺序，其余孩子都如实填写。把某个志愿挪到另一个位置共有 56 种方式，逐一尝试，只要有一种能让他进入自己真正更喜欢的地方，这个孩子就算「受益」。这一设定假定知道其他所有人的志愿表和抽签结果，远远超出真实家庭所能掌握的信息。"
+},
+{
+"id": "s0246",
+"page": "admission",
+"ko": "아이 수 <output id=\"o-n\"></output>",
+"en": "Number of children <output id=\"o-n\"></output>",
+"tr": "儿童人数 <output id=\"o-n\"></output>"
+},
+{
+"id": "s0247",
+"page": "admission",
+"ko": "기관 8곳이 정원을 나눠 가집니다",
+"en": "The 8 places share the seats between them",
+"tr": "8 个地点共同分摊名额"
+},
+{
+"id": "s0248",
+"page": "admission",
+"ko": "취향이 비슷한 정도 <output id=\"o-c\"></output>",
+"en": "How similar tastes are <output id=\"o-c\"></output>",
+"tr": "偏好相似程度 <output id=\"o-c\"></output>"
+},
+{
+"id": "s0249",
+"page": "admission",
+"ko": "높을수록 모두 같은 곳을 원해 경쟁이 몰립니다. 0이면 제각각입니다",
+"en": "The higher, the more everyone wants the same places. At 0 tastes are all different",
+"tr": "数值越高，大家越想去同样的地方。为 0 时每个人的偏好都不同"
+},
+{
+"id": "s0250",
+"page": "admission",
+"ko": "기관마다 순번이 다른 정도 <output id=\"o-rho\"></output>",
+"en": "How much places differ in order <output id=\"o-rho\"></output>",
+"tr": "各地点排序的差异 <output id=\"o-rho\"></output>"
+},
+{
+"id": "s0251",
+"page": "admission",
+"ko": "0%이면 모든 기관이 같은 추첨 번호로 줄을 세웁니다",
+"en": "At 0% every place uses the same lottery number",
+"tr": "为 0% 时，所有地点使用同一个抽签号"
+},
+{
+"id": "s0252",
+"page": "admission",
+"ko": "정원 ÷ 아이 수 <output id=\"o-ratio\"></output>",
+"en": "Seats ÷ children <output id=\"o-ratio\"></output>",
+"tr": "名额 ÷ 儿童 <output id=\"o-ratio\"></output>"
+},
+{
+"id": "s0253",
+"page": "admission",
+"ko": "100% 미만이면 자리가 모자라 배정받지 못하는 아이가 생깁니다",
+"en": "Below 100% there are not enough seats and some children get none",
+"tr": "低于 100% 时名额不足，有些孩子分不到名额"
+},
+{
+"id": "s0254",
+"page": "admission",
+"ko": "일찍 접수할 수 있는 집 <output id=\"o-early\"></output>",
+"en": "Families who can apply early <output id=\"o-early\"></output>",
+"tr": "能提前报名的家庭 <output id=\"o-early\"></output>"
+},
+{
+"id": "s0255",
+"page": "admission",
+"ko": "선착순에서만 앞섭니다. 다른 방식에서는 접수 순서가 상관없습니다",
+"en": "They lead only under first come, first served. In other methods arrival order does not matter",
+"tr": "只有先到先得时他们才排在前面。在其他方式中到达顺序没有影响"
+},
+{
+"id": "s0256",
+"page": "admission",
+"ko": "배정 방식 <output id=\"o-mech\"></output>",
+"en": "Assignment method <output id=\"o-mech\"></output>",
+"tr": "分配方式 <output id=\"o-mech\"></output>"
+},
+{
+"id": "s0257",
+"page": "admission",
+"ko": "선착순 고르기",
+"en": "First come, first served",
+"tr": "先到先得"
+},
+{
+"id": "s0258",
+"page": "admission",
+"ko": "추첨 순번대로 고르기",
+"en": "Lottery order",
+"tr": "抽签顺序"
+},
+{
+"id": "s0259",
+"page": "admission",
+"ko": "보스턴 방식 (바로 확정)",
+"en": "Boston (immediate)",
+"tr": "波士顿（即时确定）"
+},
+{
+"id": "s0260",
+"page": "admission",
+"ko": "지연 수락 방식 (게일-섀플리)",
+"en": "Deferred acceptance (Gale-Shapley)",
+"tr": "延迟接受（盖尔—沙普利）"
+},
+{
+"id": "s0261",
+"page": "admission",
+"ko": "위 그림과 \"내 아이 시험\"이 이 방식으로 바뀝니다. 아래 그래프는 네 방식을 모두 보여 줍니다",
+"en": "The animation and the \"my child\" test follow this method. The charts below always show all four",
+"tr": "动画和「我家孩子」测试都按这种方式进行。下方的图表始终显示全部四种"
+},
+{
+"id": "s0263",
+"page": "admission",
+"ko": "같은 설정, 다른 아이들",
+"en": "Same settings, different children",
+"tr": "相同设置，换一组孩子"
+},
+{
+"id": "s0265",
+"page": "admission",
+"ko": "① 배정 지켜보기",
+"en": "① Watching the Assignment",
+"tr": "① 观察分配过程"
+},
+{
+"id": "s0266",
+"page": "admission",
+"ko": "왼쪽은 아직 자리를 못 받은 아이들입니다(파란 점은 일찍 접수할 수 있는 집). 오른쪽은 인기 순서대로 A~H 기관의 자리이고, 색은 아이가 받은 지망입니다. 검은 동그라미는 아래에서 시험해 보는 아이입니다. 위에서 배정 방식을 바꿔 같은 아이들을 다른 방식으로 나눠 보세요.",
+"en": "On the left are children who have no place yet (blue dots are families who can apply early). On the right are the places A to H in order of popularity, and each color shows the choice number the child received. The black circle marks the child tested below. Change the method above to assign the same children another way.",
+"tr": "左侧是还没有名额的孩子（蓝点为能提前报名的家庭）。右侧按热门程度依次排列地点 A 到 H，颜色表示孩子分到的志愿序号。黑色圆圈标出下方正在测试的孩子。更改上方的方式，就能用另一种方法分配同一批孩子。"
+},
+{
+"id": "s0272",
+"page": "admission",
+"ko": "<i style=\"background:#1fa463\"></i>1지망",
+"en": "<i style=\"background:#1fa463\"></i>1st choice",
+"tr": "<i style=\"background:#1fa463\"></i>第1志愿"
+},
+{
+"id": "s0273",
+"page": "admission",
+"ko": "<i style=\"background:#a3c93a\"></i>2~3지망",
+"en": "<i style=\"background:#a3c93a\"></i>2nd-3rd choice",
+"tr": "<i style=\"background:#a3c93a\"></i>第2至3志愿"
+},
+{
+"id": "s0274",
+"page": "admission",
+"ko": "<i style=\"background:#e0a100\"></i>4~5지망",
+"en": "<i style=\"background:#e0a100\"></i>4th-5th choice",
+"tr": "<i style=\"background:#e0a100\"></i>第4至5志愿"
+},
+{
+"id": "s0275",
+"page": "admission",
+"ko": "<i style=\"background:#e5484d\"></i>6지망 이하",
+"en": "<i style=\"background:#e5484d\"></i>6th choice or lower",
+"tr": "<i style=\"background:#e5484d\"></i>第6志愿及以后"
+},
+{
+"id": "s0276",
+"page": "admission",
+"ko": "<i style=\"background:#8a93a6\"></i>배정 못 받음",
+"en": "<i style=\"background:#8a93a6\"></i>Not assigned",
+"tr": "<i style=\"background:#8a93a6\"></i>未分配"
+},
+{
+"id": "s0277",
+"page": "admission",
+"ko": "<i style=\"background:#3b6fd8\"></i>일찍 접수할 수 있는 집(대기 중)",
+"en": "<i style=\"background:#3b6fd8\"></i>Can apply early (waiting)",
+"tr": "<i style=\"background:#3b6fd8\"></i>可提前报名（等待中）"
+},
+{
+"id": "s0278",
+"page": "admission",
+"ko": "<i style=\"background:transparent;border:2px solid #111;box-sizing:border-box\"></i>시험해 보는 아이",
+"en": "<i style=\"background:transparent;border:2px solid #111;box-sizing:border-box\"></i>Child being tested",
+"tr": "<i style=\"background:transparent;border:2px solid #111;box-sizing:border-box\"></i>正在测试的孩子"
+},
+{
+"id": "s0279",
+"page": "admission",
+"ko": "② 네 방식, 아이들은 어디로 갔나",
+"en": "② Four Methods: Where Did the Children Go?",
+"tr": "② 四种方式：孩子们去了哪里？"
+},
+{
+"id": "s0280",
+"page": "admission",
+"ko": "같은 아이들, 같은 솔직한 목록으로 네 방식을 돌린 결과를 받은 지망별로 쌓았습니다. 굵은 이름은 지금 고른 방식입니다. 이 수치는 모두가 솔직하게 적었을 때의 것입니다.",
+"en": "The same children with the same honest lists, run through all four methods, stacked by the choice number received. The bold name is the method selected now. These figures assume everybody wrote honestly.",
+"tr": "同一批孩子带着同样的如实志愿表，经过全部四种方式，按分到的志愿序号堆叠显示。粗体名称为当前所选的方式。这些数字假设所有人都如实填写。"
+},
+{
+"id": "s0281",
+"page": "admission",
+"ko": "③ 순위를 바꿔 적으면 이득을 볼까",
+"en": "③ Does Changing Your Ranking Pay?",
+"tr": "③ 改变志愿顺序划算吗？"
+},
+{
+"id": "s0282",
+"page": "admission",
+"ko": "아이 60명을 한 명씩 골라, 그 아이만 지망 순서를 바꿔 쓰는 56가지를 모두 시험했습니다. 막대는 그중 솔직할 때보다 더 원하는 곳에 가는 방법이 하나라도 있었던 아이의 비율입니다.",
+"en": "For each of 60 children, only that child changed their order, in all 56 ways. The bar is the share of children for whom some change landed them in a place they prefer to the one they get by writing honestly.",
+"tr": "对 60 个孩子中的每一个，只让该孩子用全部 56 种方式改变顺序。柱子表示这样一类孩子的比例：存在某种改动，使他们进入比如实填写所得更喜欢的地方。"
+},
+{
+"id": "s0283",
+"page": "admission",
+"ko": "④ 언제 솔직함이 손해가 될까",
+"en": "④ When Does Honesty Cost You?",
+"tr": "④ 什么时候如实填写会吃亏？"
+},
+{
+"id": "s0284",
+"page": "admission",
+"ko": "가로는 아이들의 취향이 비슷한 정도(다른 설정은 지금 값 그대로), 세로는 보스턴에서 순위를 바꿔 적어 이득을 보는 아이의 비율입니다. 각 점은 서로 다른 아이들 3벌의 평균입니다. 모두가 같은 곳을 원할수록 눈치를 볼 이유가 커집니다. 초록 점선은 나머지 세 방식의 0%입니다.",
+"en": "The horizontal axis is how similar tastes are (other settings as they are now), and the vertical axis is the share of children who gain by changing their ranking under Boston. Each point averages three different sets of children. The more everyone wants the same places, the more reason there is to second-guess. The green dashed line is the 0% of the other three methods.",
+"tr": "横轴是偏好相似程度（其他设置保持当前值），纵轴是在波士顿方式下通过改变志愿顺序而受益的孩子比例。每个点是三组不同儿童的平均值。大家越想去同样的地方，就越有理由重新掂量。绿色虚线是其他三种方式的 0%。"
+},
+{
+"id": "s0286",
+"page": "admission",
+"ko": "<b>말하는 것:</b>",
+"en": "<b>What it shows:</b>",
+"tr": "<b>它说明了什么：</b>"
+},
+{
+"id": "s0287",
+"page": "admission",
+"ko": "모두가 솔직할 때 1지망을 가장 많이 받는 방식은 보스턴(43%)이었어요.",
+"en": "Boston gave the most 1st choices (43%) when everyone was honest.",
+"tr": "当所有人都如实填报时，波士顿方式满足的第一志愿最多（43%）。"
+},
+{
+"id": "s0288",
+"page": "admission",
+"ko": "보스턴은 1지망에서 정원이 차면 바로 확정해서, 순위를 바꿔 적어 이득 보는 아이가 보스턴에서만 나왔어요.",
+"en": "Boston locks seats in at the 1st round, so only under Boston did some children gain by misreporting.",
+"tr": "波士顿机制在第1轮就锁定名额，因此只有在波士顿机制下，才有一些孩子因虚报志愿而获益。"
+},
+{
+"id": "s0289",
+"page": "admission",
+"ko": "방식을 비교할 땐 결과 숫자와 함께 솔직하게 적어도 손해 없는 구조인지가 열쇠일 수 있어요.",
+"en": "When comparing methods, whether honest reporting is safe may matter as much as the outcome numbers.",
+"tr": "比较各种方法时，如实申报是否安全，可能与结果数字同样重要。"
+},
+{
+"id": "s0290",
+"page": "admission",
+"ko": "상세 설명",
+"en": "Details",
+"tr": "详情"
+},
+{
+"id": "s0291",
+"page": "admission",
+"ko": "<b>말하는 것:</b> 아이 200명, 기관 8곳(정원 25명씩), 취향 비슷한 정도 60%, 기관마다 순번이 다른 정도 50%, 먼저 접수 25%, 시드 1에서 솔직하게 적었을 때 1지망을 받은 아이는 선착순 28%, 추첨 순번 29%, 보스턴 43%, 지연 수락 23%였고 평균 지망은 3.02, 3.06, 2.83, 3.28이었습니다. 나보다 순번이 낮은 아이가 내가 더 원한 곳에 들어간 \"억울한 아이\"는 72%, 65%, 35%, 0%였습니다(지연 수락은 정의상 0). 순위를 바꿔 적으면 이득을 보는 아이는 아이 60명 표본에서 보스턴 43%(26명)였고 나머지 세 방식은 0%였습니다. 시드 1~12 평균으로는 보스턴 34.3%였고, 이득을 볼 때 평균 3.0지망 더 좋은 곳으로 갔습니다. 취향이 비슷한 정도가 0%이면 6%, 30%이면 16%, 60%이면 36%, 90%이면 70%로 올랐습니다(시드 1~3 평균). 정원이 아이 수의 80%이면 46%, 120%이면 27%였습니다. 일찍 접수할 수 있는 집은 선착순에서 나머지 집보다 평균 2.6지망(시드 1~12 평균) 더 좋은 곳에 갔고, 다른 방식에서는 0.1지망 안팎이었습니다. 보스턴은 모두가 솔직할 때 1지망 비율이 가장 높았지만, 그 숫자는 모두가 솔직하다는 가정에서만 성립합니다.",
+"en": "<b>What it shows:</b> With 200 children, 8 places of 25 seats, taste similarity 60%, place-order difference 50%, 25% early applicants, and seed 1, when everyone wrote honestly the share getting their 1st choice was 28% for first come first served, 29% for lottery order, 43% for Boston and 23% for deferred acceptance, with average choice numbers 3.02, 3.06, 2.83 and 3.28. The share of \"aggrieved\" children, those who would prefer a place where a lower-priority child got in, was 72%, 65%, 35% and 0% (zero for deferred acceptance by definition). Among the 60 sampled children, 43% (26 children) gained by changing their ranking under Boston and 0% under the other three. Averaged over seeds 1 to 12 the Boston figure was 34.3%, and those who gained moved up 3.0 choices on average. With taste similarity at 0% it was 6%, at 30% 16%, at 60% 36% and at 90% 70% (seeds 1 to 3). With seats at 80% of children it was 46% and at 120% it was 27%. Families who could apply early did 2.6 choices better than the others under first come first served (seeds 1 to 12 average) and about 0.1 choices in the other methods. Boston gave the highest 1st-choice share when everyone was honest, but that figure holds only under the assumption that everyone is honest.",
+"tr": "<b>它说明了什么：</b>在 200 个孩子、8 个各有 25 个名额的地点、偏好相似程度 60%、地点排序差异 50%、提前报名家庭 25%、随机种子 1 的设置下，当所有人都如实填写时，分到第一志愿的比例是：先到先得 28%，抽签顺序 29%，波士顿 43%，延迟接受 23%，平均志愿序号分别为 3.02、3.06、2.83 和 3.28。「感到吃亏」的孩子（即更想去某个地方，而该处录取了优先级比自己低的孩子）的比例分别为 72%、65%、35% 和 0%（延迟接受按定义为 0）。在抽样的 60 个孩子中，通过改变志愿顺序而受益的比例，波士顿方式下为 43%（26 人），其他三种方式为 0%。取种子 1 至 12 的平均，波士顿的数字为 34.3%，受益的孩子平均提升了 3.0 个志愿。偏好相似程度为 0% 时是 6%，30% 时是 16%，60% 时是 36%，90% 时是 70%（种子 1 至 3）。名额为孩子数的 80% 时是 46%，120% 时是 27%。在先到先得下，能提前报名的家庭比其他家庭平均好 2.6 个志愿（种子 1 至 12 的平均），在其他方式下约好 0.1 个志愿。当所有人都如实填写时，波士顿给出的第一志愿比例最高，但这个数字只在所有人都如实填写的假设下成立。"
+},
+{
+"id": "s0292",
+"page": "admission",
+"ko": "<b>말하지 않는 것:</b>",
+"en": "<b>What it doesn't show:</b>",
+"tr": "<b>它没有说明什么：</b>"
+},
+{
+"id": "s0293",
+"page": "admission",
+"ko": "실제 입소 제도를 재현한 것도, 어느 방식이 옳다는 뜻도 아니에요. 값은 모두 이 모델이 정했어요.",
+"en": "It does not reproduce a real admission system or say which method is right; all values are set by the model.",
+"tr": "它并不复现真实的招生系统，也不说明哪种方法才对；所有数值都由模型设定。"
+},
+{
+"id": "s0294",
+"page": "admission",
+"ko": "실제 규칙과 정보를 넣어 이득이 얼마나 되는지 따로 확인해야 하고, 판단은 해당 기관 안내를 따르세요.",
+"en": "How large any gain is needs checking with real rules and information; follow the institution's own guidance.",
+"tr": "收益有多大，需要结合真实的规则和信息来核实；请以相关机构自己的指引为准。"
+},
+{
+"id": "s0295",
+"page": "admission",
+"ko": "<b>말하지 않는 것:</b> 실제 어린이집·유치원의 입소 제도를 설명하거나 재현한 것이 아닙니다. 실제 제도에는 가산점, 형제 우선, 지원 가능한 곳 수 제한, 대기 순번처럼 이 모델에 없는 규칙이 많고 지역과 해마다 다릅니다. 아이 수, 정원, 취향은 모두 이 프로젝트가 정한 예시 값입니다. 어느 방식이 옳다거나 어떻게 적어 내라는 뜻이 아니고, 어느 가정도 비난하지 않습니다. 이 시험은 다른 집의 목록과 추첨 결과를 안다고 가정한 것이라 현실의 이득은 이보다 작을 수 있고, 한 아이만 바꿀 때를 본 것이어서 모두가 전략적으로 적은 결과는 계산하지 않았습니다. 참고용 모델이며 실제 판단은 해당 기관이나 지자체의 안내, 교사 같은 전문가와 함께 하세요.",
+"en": "<b>What it doesn't show:</b> This does not describe or reproduce any real daycare or kindergarten admission system. Real systems have rules this model leaves out, such as bonus points, sibling priority, limits on how many places you can list, and waiting numbers, and they differ by region and year. The number of children, capacities and tastes are all example values chosen by this project. It does not say which method is right or how anyone should fill in a form, and it blames no family. The test assumes knowing other families' lists and the lottery result, so real gains may be smaller, and it looks at one child changing alone, not at what happens when everyone plays strategically. This is a reference model; for real decisions, rely on the guidance of the institution or local government and on professionals such as teachers.",
+"tr": "<b>它没有说明什么：</b>这并不描述或还原任何真实的托儿所或幼儿园录取制度。真实制度有本模型省略的规则，比如加分、兄弟姐妹优先、可填志愿数的上限和等候号，并且因地区和年份而异。孩子人数、名额和偏好都是本项目选取的示例值。它不说明哪种方式才正确，也不说明谁应该怎样填表，更不指责任何家庭。该测试假设知道其他家庭的志愿表和抽签结果，所以现实中的收益可能更小；它考察的是一个孩子单独改变顺序，而不是所有人都采取策略时会怎样。这是一个参考模型；做真实决定时，请依据机构或地方政府的指引，以及教师等专业人士的意见。"
+},
+{
+"id": "s0296",
+"page": "admission",
+"ko": "이론적 근거와 구현 메모",
+"en": "Theory and implementation notes",
+"tr": "理论与实现说明"
+},
+{
+"id": "s0297",
+"page": "admission",
+"ko": "<b>모델의 뿌리:</b> Gale &amp; Shapley (1962), &quot;College Admissions and the Stability of Marriage&quot;(<i>American Mathematical Monthly</i>)가 지연 수락 방식을 만들었고, Abdulkadiroğlu &amp; Sönmez (2003), &quot;School Choice: A Mechanism Design Approach&quot;(<i>American Economic Review</i> 93(3))가 이를 학교 배정에 적용해 보스턴 방식과 비교했습니다. 요지는 보스턴 방식에서는 솔직하게 쓰는 것이 늘 최선이 아니지만, 지연 수락 방식에서는 솔직하게 쓰는 것이 최선이라는 것입니다.",
+"en": "<b>Where the model comes from:</b> Gale &amp; Shapley (1962), &quot;College Admissions and the Stability of Marriage&quot; (<i>American Mathematical Monthly</i>) created deferred acceptance, and Abdulkadiroğlu &amp; Sönmez (2003), &quot;School Choice: A Mechanism Design Approach&quot; (<i>American Economic Review</i> 93(3)) applied it to school assignment and compared it with the Boston mechanism. The gist: under Boston, writing honestly is not always best, while under deferred acceptance honest reporting is best.",
+"tr": "<b>模型的来源：</b>Gale &amp; Shapley (1962)，&quot;College Admissions and the Stability of Marriage&quot;（<i>American Mathematical Monthly</i>）提出了延迟接受算法；Abdulkadiroğlu &amp; Sönmez (2003)，&quot;School Choice: A Mechanism Design Approach&quot;（<i>American Economic Review</i> 93(3)）将其应用于学校分配，并与波士顿机制作了比较。要点：在波士顿机制下，如实填写不一定是最好的做法，而在延迟接受下，如实申报就是最好的做法。"
+},
+{
+"id": "s0298",
+"page": "admission",
+"ko": "<b>핵심 가정과 수식:</b> 아이의 선호는 <code>U<sub>ij</sub> = c·q<sub>j</sub> + (1−c)·e<sub>ij</sub></code>(q<sub>j</sub>는 모두가 느끼는 기관의 인기, e<sub>ij</sub>는 아이별 취향, 둘 다 표준정규분포)의 순서입니다. 기관의 우선순위 점수는 <code>s<sub>ij</sub> = (1−ρ)·u<sub>i</sub> + ρ·v<sub>ij</sub></code>(u<sub>i</sub>는 모든 기관 공통 추첨 번호, v<sub>ij</sub>는 기관별 무작위)이고 점수가 높은 아이가 앞섭니다. 슬라이더 c가 취향이 비슷한 정도, ρ가 기관마다 순번이 다른 정도입니다.",
+"en": "<b>Key assumptions and formulas:</b> A child's preference is the order of <code>U<sub>ij</sub> = c·q<sub>j</sub> + (1−c)·e<sub>ij</sub></code> (q<sub>j</sub> is the popularity everyone feels, e<sub>ij</sub> the child's own taste, both standard normal). A place's priority score is <code>s<sub>ij</sub> = (1−ρ)·u<sub>i</sub> + ρ·v<sub>ij</sub></code> (u<sub>i</sub> is a lottery number shared by all places, v<sub>ij</sub> is place-specific randomness) and a higher score goes first. The slider c is the taste similarity and ρ the difference in order between places.",
+"tr": "<b>主要假设与公式：</b>孩子的偏好是 <code>U<sub>ij</sub> = c·q<sub>j</sub> + (1−c)·e<sub>ij</sub></code> 的大小顺序（q<sub>j</sub> 是大家共同感受到的热门程度，e<sub>ij</sub> 是孩子自己的偏好，二者都服从标准正态分布）。地点的优先级得分为 <code>s<sub>ij</sub> = (1−ρ)·u<sub>i</sub> + ρ·v<sub>ij</sub></code>（u<sub>i</sub> 是所有地点通用的抽签号，v<sub>ij</sub> 是各地点自己的随机量），得分越高越靠前。滑块 c 是偏好相似程度，ρ 是各地点排序的差异。"
+},
+{
+"id": "s0299",
+"page": "admission",
+"ko": "<b>이 프로젝트의 단순화:</b> 모든 아이가 8곳 전부를 순서대로 적고, 우선순위는 추첨 번호뿐입니다(가산점, 형제 우선, 거주지는 없음). 취향 분포, 정원, 아이 수, 일찍 접수할 수 있는 집의 비율은 이 프로젝트가 정한 값입니다. 바꿔 적기 시험은 지망 하나를 옮기는 56가지만 해 보므로, 다른 바꿔 적기가 더 나을 가능성은 남습니다.",
+"en": "<b>What this project simplifies:</b> Every child ranks all 8 places, and priority is the lottery number only (no bonus points, siblings or residence). The taste distribution, capacities, number of children and share of early applicants are this project's own choices. The ranking-change test only tries the 56 moves of a single choice, so another way of changing the list could do better.",
+"tr": "<b>本项目做了哪些简化：</b>每个孩子对全部 8 个地点排序，优先级只看抽签号（没有加分、兄弟姐妹或居住地因素）。偏好分布、名额、孩子人数和提前报名家庭的比例都是本项目自己的选择。改变志愿顺序的测试只尝试了挪动单个志愿的 56 种做法，所以也许有别的修改方式会做得更好。"
+},
+{
+"id": "s0300",
+"page": "admission",
+"ko": "<b>이론값과 시뮬레이션:</b> 모두 같은 취향(c=100%)이고 정원이 아이 수와 같을 때 닫힌 식으로는 어느 방식이나 각 지망에 1/8씩 가므로 평균 4.50지망, 1지망 12.5%인데, 네 방식 모두 정확히 4.50과 12.5%였습니다. 기관 순번이 모두 같으면(ρ=0) 지연 수락과 추첨 순번 결과는 이론상 같고 시드 30개에서 30개가 모두 일치했습니다. 지연 수락의 억울한 아이는 12개 시드에서 모두 0이었고, 솔직하지 않게 적어 이득을 본 아이는 선착순·추첨 순번·지연 수락에서 0%, 보스턴에서 34.3%(시드 1~12 평균)였습니다. 애니메이션의 마지막 장면은 40번의 비교에서 모두 실제 배정과 같았습니다.",
+"en": "<b>Theory versus simulation:</b> With identical tastes (c=100%) and seats equal to children, the closed form gives every method 1/8 of children per choice, so an average of 4.50 and 12.5% first choices; all four methods gave exactly 4.50 and 12.5%. With identical place orders (ρ=0), deferred acceptance and lottery order should give the same result, and all 30 of 30 seeds matched. Deferred acceptance had zero aggrieved children in all 12 seeds, and the share who gained by changing their list was 0% for first come first served, lottery order and deferred acceptance and 34.3% for Boston (seeds 1 to 12 average). The final animation scene equaled the real assignment in all 40 comparisons.",
+"tr": "<b>理论与模拟的对照：</b>当所有人偏好相同（c=100%）且名额等于孩子数时，闭式解给出每种方式每个志愿各占孩子的 1/8，即平均志愿序号 4.50、第一志愿比例 12.5%；四种方式得到的恰好都是 4.50 和 12.5%。当各地点排序相同（ρ=0）时，延迟接受与抽签顺序应得到相同结果，30 个种子中 30 个都一致。延迟接受在全部 12 个种子中感到吃亏的孩子都为 0，通过改变志愿表而受益的比例在先到先得、抽签顺序和延迟接受下为 0%，波士顿为 34.3%（种子 1 至 12 的平均）。动画的最后一幕在全部 40 次对比中都与实际分配结果一致。"
+},
+{
+"id": "s0301",
+"page": "admission",
+"ko": "<b>더 읽을거리:</b> Gale &amp; Shapley (1962), <i>American Mathematical Monthly</i> 69 / Abdulkadiroğlu &amp; Sönmez (2003), <i>American Economic Review</i> 93(3) / Roth (1982), &quot;The Economics of Matching: Stability and Incentives&quot;, <i>Mathematics of Operations Research</i>.",
+"en": "<b>Further reading:</b> Gale &amp; Shapley (1962), <i>American Mathematical Monthly</i> 69 / Abdulkadiroğlu &amp; Sönmez (2003), <i>American Economic Review</i> 93(3) / Roth (1982), &quot;The Economics of Matching: Stability and Incentives&quot;, <i>Mathematics of Operations Research</i>.",
+"tr": "<b>延伸阅读：</b>Gale &amp; Shapley (1962), <i>American Mathematical Monthly</i> 69 / Abdulkadiroğlu &amp; Sönmez (2003), <i>American Economic Review</i> 93(3) / Roth (1982), &quot;The Economics of Matching: Stability and Incentives&quot;, <i>Mathematics of Operations Research</i>。"
+},
+{
+"id": "s0302",
+"page": "admission",
+"ko": "검증은 <code>node tools/validate-admission.js</code>로 할 수 있습니다. 시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다.",
+"en": "You can verify with <code>node tools/validate-admission.js</code>. The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result.",
+"tr": "可以用 <code>node tools/validate-admission.js</code> 进行验证。模拟使用带随机种子的随机数生成器（mulberry32），因此相同的种子会得到相同的结果。"
+},
+{
+"id": "s0303",
+"page": "admission",
+"ko": "억울한 아이는 \"더 원하는 기관에 자리가 남았거나, 그 기관에 들어간 아이 중 나보다 그 기관의 우선순위 점수가 낮은 아이가 있는\" 아이입니다. 바꿔 적기 시험은 처음 60명의 아이를 표본으로 하고, 아이들의 번호는 무작위로 섞인 것이라 표본이 치우치지 않습니다. 미배정 아이는 평균 지망을 셀 때 제외하고, 접수 시기별 이득을 셀 때는 9지망으로 칩니다.",
+"en": "An aggrieved child is one for whom a preferred place still has an empty seat, or where someone admitted has a lower priority score at that place. The ranking-change test samples the first 60 children; their numbering is random, so the sample is not biased. Unassigned children are left out of the average choice number, and counted as choice 9 when measuring the early-applicant advantage.",
+"tr": "感到吃亏的孩子，是指更想去的地方仍有空位，或该处被录取者的优先级得分低于自己的孩子。改变志愿顺序的测试抽取前 60 个孩子；他们的编号是随机的，所以样本没有偏差。未分配的孩子不计入平均志愿序号，而在衡量提前报名家庭的优势时按第 9 志愿计算。"
+},
+{
+"id": "s0304",
+"page": "admission",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/admission\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/admission\">GitHub</a>.",
+"tr": "代码可在 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/admission\">GitHub</a> 上查看。"
+},
+{
+"id": "s0338",
+"page": "alliance",
+"ko": "이 모델에서는 동맹이 평균 1~2개만 돼도 번졌고, 3개면 99%가 세계대전급이었어요.",
+"en": "In this model even 1-2 allies per country spread a clash, and at 3 allies 99% of runs reached world-war scale.",
+"tr": "在这个模型中，每国只要有1～2个盟友，冲突就会蔓延；盟友达到3个时，99%的运行达到了世界大战的规模。"
+},
+{
+"id": "s0339",
+"page": "alliance",
+"ko": "연결 하나하나가 확률로 충돌을 옮기는 구조라, 연결이 촘촘해지면 연쇄가 갑자기 커질 수 있어요.",
+"en": "Each link passes the conflict on with some probability, so once links get dense enough the chain can suddenly blow up.",
+"tr": "每条联系都以一定概率把冲突传下去，因此一旦联系足够密集，连锁反应就可能突然爆发。"
+},
+{
+"id": "s0340",
+"page": "alliance",
+"ko": "충돌의 크기를 볼 때는 나라 하나하나보다 동맹이 얼마나 촘촘하고 어떻게 묶였는지부터 살펴볼 만해요.",
+"en": "To judge how big a conflict can grow, the density and layout of alliances may be a better place to start than any single country.",
+"tr": "要判断冲突可能扩大到什么程度，从联盟的密度和布局入手，也许比盯着某一个国家更合适。"
+},
+{
+"id": "s0342",
+"page": "alliance",
+"ko": "실제 전쟁이나 1914년의 사건, 어느 나라의 책임을 말하지는 않아요. 나라가 모두 같은 장난감 모델이에요.",
+"en": "It says nothing about real wars, 1914, or any country's responsibility; all countries here are identical toys.",
+"tr": "它不涉及真实战争、1914年或任何国家的责任；这里的所有国家都是完全相同的玩具。"
+},
+{
+"id": "s0343",
+"page": "alliance",
+"ko": "정치·경제·판단이 빠져 있어, 실제 동맹의 내용과 역사 자료를 따로 살펴봐야 확인할 수 있어요.",
+"en": "Politics, economics and decisions are missing, so the content of real alliances and historical records must be checked separately.",
+"tr": "模型中没有政治、经济和决策，因此真实联盟的内容和历史记录需要另行核实。"
+},
+{
+"id": "s0345",
+"page": "alliance",
+"ko": "<b>모델의 뿌리:</b> 동맹을 따라 충돌이 번지는 구조는 네트워크 위의 \"연쇄(cascade)\" 모델에서 발상을 얻었습니다. Watts(2002)는 무작위 네트워크에서 작은 충격이 전체로 번지는 조건을 다뤘고, Kempe, Kleinberg, Tardos(2003)의 독립 연쇄(independent cascade) 모델은 \"연결마다 일정 확률로 전파된다\"는 점에서 이 페이지와 가장 닮았습니다. 무작위 동맹은 Erdős와 Rényi의 무작위 그래프와 같은 방식입니다.",
+"en": "<b>Where the model comes from:</b> The way a clash spreads along alliances draws on \"cascade\" models on networks. Watts (2002) studied when a small shock spreads across a whole random network, and the independent cascade model of Kempe, Kleinberg and Tardos (2003), where each link transmits with some probability, is the closest to this page. Random alliances work like the random graphs of Erdős and Rényi.",
+"tr": "<b>模型来源：</b>冲突沿着同盟传播的方式借鉴了网络上的“级联”模型。Watts（2002）研究了小冲击何时会扩散到整个随机网络，而 Kempe、Kleinberg 和 Tardos（2003）的独立级联模型（每条连接以一定概率传递）与本页最接近。随机同盟的运作方式类似于 Erdős 和 Rényi 的随机图。"
+},
+{
+"id": "s0346",
+"page": "alliance",
+"ko": "<b>핵심 가정과 수식:</b> 무작위 동맹에서는 어떤 두 나라든 같은 확률 <code>p = d/(N−1)</code>로 동맹이 됩니다(d가 \"나라마다 평균 동맹국 수\" 슬라이더, N=24). 이런 그래프는 평균 연결 수가 1을 넘을 즈음 큰 연결 덩어리가 생기고, 여기에 전파 확률 q(\"조약을 지킬 확률\")를 곱한 <code>q·d</code>가 1을 넘을 때 크게 번진다는 것이 대략적인 어림입니다.",
+"en": "<b>Key assumptions and formulas:</b> In random alliances any two countries are allied with the same probability <code>p = d/(N−1)</code> (d is the \"average allies per country\" slider, N=24). Such graphs grow a giant connected cluster around an average degree of 1, and a rough rule of thumb is that the spread becomes large when <code>q·d</code> exceeds 1, where q is the \"chance an ally honors the pact\".",
+"tr": "<b>主要假设与公式：</b>在随机同盟中，任意两个国家结盟的概率相同，为 <code>p = d/(N−1)</code>（d 是“每国平均盟友数”滑块，N=24）。这类图在平均度数约为1时会出现巨大连通簇，粗略的经验法则是：当 <code>q·d</code> 超过1时，扩散会变得很大，其中 q 是“盟友履行盟约的概率”。"
+},
+{
+"id": "s0347",
+"page": "alliance",
+"ko": "<b>이 프로젝트의 단순화:</b> 나라는 모두 같고 동맹은 대칭적인 단순 연결이며, 조약 이행은 라운드마다 다시 판정하는 확률 하나로만 정합니다(연결마다 한 번만 시도하는 표준 독립 연쇄 모델과 다릅니다). 양쪽에서 요청받을 때의 다수결 규칙, 나라 수 24, 평균 동맹 수와 이행 확률의 값, \"세계대전급\"의 기준(12개국)은 모두 이 프로젝트가 정했습니다.",
+"en": "<b>What this project simplifies:</b> All countries are identical, alliances are plain symmetric links, and honoring a pact is a single probability re-drawn each round (unlike the standard independent cascade, which tries each link once). The majority rule for conflicting calls, the 24 countries, the values of average allies and honor probability, and the \"world-war scale\" cutoff (12 countries) are all set by this project.",
+"tr": "<b>本项目的简化：</b>所有国家完全相同，同盟只是普通的对称连接，履行盟约则是每一轮重新抽取的单一概率（不同于标准独立级联中每条连接只尝试一次）。相互冲突的召唤所采用的多数规则、24个国家、平均盟友数和履约概率的取值，以及“世界大战规模”的界限（12个国家），都是本项目设定的。"
+},
+{
+"id": "s0348",
+"page": "alliance",
+"ko": "<b>이론값과 시뮬레이션:</b> 이 설정에는 정확한 닫힌 해가 없고, 위 어림은 방향을 가늠하는 용도라서 이론값과 숫자로 대조하지는 않았습니다. 시뮬레이션에서는 조약 70%일 때 평균 동맹 0, 1, 1.5, 2, 3개에서 평균 2.0, 6.3, 12.1, 17.4, 22.4개국이 전쟁에 들어갔고(세계대전급 0, 15, 56, 85, 99%), 어림한 문턱 근처인 1~2개에서 가파르게 올랐습니다. 나라가 24개뿐이라 문턱이 날카롭지 않고 완만하게 오릅니다.",
+"en": "<b>Theory versus simulation:</b> This setup has no exact closed form and the rule of thumb above is only a guide to direction, so I did not compare it numerically. In the simulation at a 70% honor chance, average allies of 0, 1, 1.5, 2 and 3 gave 2.0, 6.3, 12.1, 17.4 and 22.4 countries at war (world-war scale 0, 15, 56, 85 and 99%), rising steeply around 1–2 allies near the rough threshold. With only 24 countries the threshold is smooth rather than sharp.",
+"tr": "<b>理论与模拟对比：</b>这个设定没有精确的封闭解，上面的经验法则只能提示大致方向，因此我没有做数值比较。在履约概率为70%的模拟中，平均盟友数为0、1、1.5、2和3时，处于战争状态的国家分别为2.0、6.3、12.1、17.4和22.4个（世界大战规模为0、15、56、85和99%），在接近粗略阈值的1至2个盟友之间急剧上升。由于只有24个国家，阈值是平滑的，而不是尖锐的。"
+},
+{
+"id": "s0349",
+"page": "alliance",
+"ko": "<b>더 읽을거리:</b> Watts, D. J. (2002), 「A simple model of global cascades on random networks」, <i>Proceedings of the National Academy of Sciences</i> 99. Newman, M. E. J. (2010), <i>Networks: An Introduction</i>, Oxford University Press.",
+"en": "<b>Further reading:</b> Watts, D. J. (2002), \"A simple model of global cascades on random networks\", <i>Proceedings of the National Academy of Sciences</i> 99. Newman, M. E. J. (2010), <i>Networks: An Introduction</i>, Oxford University Press.",
+"tr": "<b>延伸阅读：</b>Watts, D. J.（2002），“A simple model of global cascades on random networks”，<i>Proceedings of the National Academy of Sciences</i> 99。Newman, M. E. J.（2010），<i>Networks: An Introduction</i>，Oxford University Press。"
+},
+{
+"id": "s0350",
+"page": "alliance",
+"ko": "나라는 A~X의 익명의 나라이고 실제 나라, 지도자, 날짜는 쓰지 않았습니다. 역사 연구가 아니고 어떤 논문의 모델이나 값을 재현한 것도 아닙니다.",
+"en": "The countries are anonymous A–X, with no real countries, leaders or dates. This is not historical research and does not reproduce the model or values of any paper.",
+"tr": "这些国家是匿名的A至X，没有真实的国家、领导人或日期。这不是历史研究，也没有复现任何论文的模型或数值。"
+},
+{
+"id": "s0354",
+"page": "ant",
+"ko": "랭턴의 개미 · 시뮬라티오 랩",
+"en": "Langton's Ant · Simulatio Lab",
+"tr": "兰顿蚂蚁 · Simulatio Lab"
+},
+{
+"id": "s0355",
+"page": "ant",
+"ko": "규칙이 두 줄뿐인 개미가 처음엔 대칭 무늬를, 다음엔 혼돈을 만들다가 약 만 걸음 뒤 갑자기 대각선 고속도로를 내는 랭턴의 개미를 직접 돌려보세요.",
+"en": "Run Langton's ant yourself: an ant with two rules draws symmetric patterns, then chaos, and after about 10,000 steps suddenly builds a diagonal highway.",
+"tr": "亲自运行兰顿蚂蚁：只有两条规则的蚂蚁先画出对称图案，再陷入混沌，约10000步后突然修出一条斜向的“高速公路”。"
+},
+{
+"id": "s0356",
+"page": "ant",
+"ko": "계획이 없는 것은 어지럽게만 움직일 거라고 생각하기 쉽습니다. 규칙이 두 줄뿐인 개미라면 더 그렇겠죠. 그런데 빈 판에서 출발한 이 개미는 한동안 질서와 혼돈을 오간 끝에 9,976걸음째부터 104걸음마다 똑같은 동작을 되풀이하며 곧은 대각선 길을 내기 시작합니다. 아무도 길을 설계하지 않았는데도요.",
+"en": "It is easy to assume that something with no plan will just wander randomly, and an ant with only two rules even more so. Yet this ant, started on a blank grid, drifts between order and chaos and then, from step 9,976, repeats the same 104-step routine and starts building a straight diagonal road. Nobody designed that road.",
+"tr": "人们很容易认为没有计划的东西只会随机游荡，只有两条规则的蚂蚁更是如此。然而，这只蚂蚁从空白网格出发，在有序与混沌之间游走，然后从第9,976步开始重复同一套104步的动作，并开始修出一条笔直的斜路。没有人设计过这条路。"
+},
+{
+"id": "s0357",
+"page": "ant",
+"ko": "판은 흰 칸과 검은 칸으로 된 격자이고, 개미는 한 칸 위에 서서 위·아래·좌·우 중 한 방향을 봅니다. 규칙은 두 줄입니다. <b>흰 칸이면</b> 오른쪽으로 90도 돌고, 칸을 검게 바꾸고, 한 칸 앞으로 갑니다. <b>검은 칸이면</b> 왼쪽으로 90도 돌고, 칸을 희게 바꾸고, 한 칸 앞으로 갑니다.",
+"en": "The world is a grid of white and black cells, and the ant stands on one cell facing up, down, left or right. There are two rules. <b>On a white cell</b> it turns 90 degrees right, flips the cell to black and steps forward. <b>On a black cell</b> it turns 90 degrees left, flips the cell to white and steps forward.",
+"tr": "这个世界是由白色和黑色格子组成的网格，蚂蚁站在其中一格上，朝向上、下、左或右。规则有两条。<b>在白色格子上</b>，它向右转90度，把格子翻成黑色，然后向前一步。<b>在黑色格子上</b>，它向左转90度，把格子翻成白色，然后向前一步。"
+},
+{
+"id": "s0358",
+"page": "ant",
+"ko": "빈 판에서 출발하면 처음 약 500걸음은 대칭 무늬가 되풀이되어 <b>질서</b>로 보이고, 이어 한참 어지러운 <b>혼돈</b>이 계속되다가, 끝내 104걸음짜리 동작이 되풀이되며 대각선으로 뻗는 <b>고속도로</b>가 됩니다. 고속도로가 시작된 걸음은 개미의 자리와 방향이 104걸음마다 (2,2)칸씩 옮겨 가며 세 번 이어서 되풀이되는 것으로 판정합니다.",
+"en": "From a blank grid, the first 500 steps or so repeatedly form symmetric shapes, which look like <b>order</b>. A long stretch of <b>chaos</b> follows, and finally a 104-step routine repeats and carries the ant diagonally: the <b>highway</b>. The highway start is detected when the ant's position and heading repeat every 104 steps, shifted by (2,2) cells, three times in a row.",
+"tr": "从空白网格出发，前500步左右会反复形成对称图形，看起来像是<b>有序</b>。随后是一长段<b>混沌</b>，最后一套104步的动作开始重复，带着蚂蚁沿对角线前进：这就是<b>高速公路</b>。当蚂蚁的位置和朝向每104步重复一次、平移(2,2)格并连续出现三次时，就判定高速公路开始。"
+},
+{
+"id": "s0359",
+"page": "ant",
+"ko": "<b>속도</b>는 1초에 몇 걸음을 돌릴지입니다. 고속도로를 보려면 초당 수천 걸음 이상으로 올려 보세요. <b>개미 수</b>를 2~4마리로 늘리면 개미들이 서로의 흔적을 밟고, <b>무작위 점으로 시작</b>하면 가운데 21×21칸 안에 검은 칸을 흩뿌려 놓고 출발합니다.",
+"en": "<b>Speed</b> is how many steps run per second; raise it to thousands per second to reach the highway. With 2 to 4 <b>ants</b> they walk on each other's trails, and a <b>random-dot start</b> scatters black cells in the central 21×21 cells before the ant starts.",
+"tr": "<b>速度</b>是每秒运行的步数；调到每秒数千步才能到达高速公路。有2到4只<b>蚂蚁</b>时，它们会走在彼此的足迹上；<b>随机点开局</b>会在蚂蚁出发前，在中央21×21格内撒下黑色格子。"
+},
+{
+"id": "s0360",
+"page": "ant",
+"ko": "개미 수 <output id=\"o-ants\"></output>",
+"en": "Number of ants <output id=\"o-ants\"></output>",
+"tr": "蚂蚁数量 <output id=\"o-ants\"></output>"
+},
+{
+"id": "s0361",
+"page": "ant",
+"ko": "여러 마리면 한 걸음마다 개미들이 차례로 한 번씩 움직이고, 서로의 흔적을 밟습니다",
+"en": "With several ants, each ant moves once per step in turn, and they walk on each other's trails",
+"tr": "有多只蚂蚁时，每一步各自按顺序移动一次，并走在彼此的足迹上"
+},
+{
+"id": "s0362",
+"page": "ant",
+"ko": "무작위 점의 비율 <output id=\"o-dens\"></output>",
+"en": "Random dot share <output id=\"o-dens\"></output>",
+"tr": "随机点比例 <output id=\"o-dens\"></output>"
+},
+{
+"id": "s0363",
+"page": "ant",
+"ko": "\"무작위 점으로 시작\"일 때만 쓰입니다. 가운데 21×21칸 중 처음부터 검은 칸의 비율",
+"en": "Used only for \"random dots\". The share of the central 21×21 cells that start black",
+"tr": "仅用于“随机点”。中央21×21格中一开始为黑色的比例"
+},
+{
+"id": "s0364",
+"page": "ant",
+"ko": "시작하는 판 <output id=\"o-start\"></output>",
+"en": "Starting grid <output id=\"o-start\"></output>",
+"tr": "初始网格 <output id=\"o-start\"></output>"
+},
+{
+"id": "s0365",
+"page": "ant",
+"ko": "빈 판",
+"en": "Blank grid",
+"tr": "空白网格"
+},
+{
+"id": "s0366",
+"page": "ant",
+"ko": "무작위 점으로 시작",
+"en": "Random dots",
+"tr": "随机点"
+},
+{
+"id": "s0367",
+"page": "ant",
+"ko": "빈 판은 고전적인 실험입니다. 무작위 점으로 시작하면 번호를 바꿔 가며 매번 다른 판을 볼 수 있어요",
+"en": "The blank grid is the classic experiment. With random dots, change the seed to see a different grid each time",
+"tr": "空白网格是经典实验。使用随机点时，更换随机种子，每次都会得到不同的网格"
+},
+{
+"id": "s0368",
+"page": "ant",
+"ko": "같은 설정, 다른 무작위 판",
+"en": "Same settings, different random grid",
+"tr": "设置相同，随机网格不同"
+},
+{
+"id": "s0369",
+"page": "ant",
+"ko": "① 개미가 길을 내는 모습",
+"en": "① Watching the Ant Build a Road",
+"tr": "① 观看蚂蚁修路"
+},
+{
+"id": "s0370",
+"page": "ant",
+"ko": "검은 칸은 짙은 남색, 개미가 지나갔다가 희게 돌아온 칸은 연한 파랑, 개미는 색 점입니다. 판은 지나간 곳이 모두 보이도록 저절로 넓어집니다. 속도를 올리면 초당 수십만 걸음까지 돌릴 수 있어요.",
+"en": "Black cells are dark navy, cells the ant crossed and left white are pale blue, and the ants are the coloured dots. The view widens by itself to show everywhere the ant has been. Raise the speed to run up to hundreds of thousands of steps per second.",
+"tr": "黑色格子为深海军蓝，蚂蚁走过后又变回白色的格子为浅蓝色，蚂蚁是彩色圆点。视野会自动扩大，显示蚂蚁到过的所有地方。提高速度，每秒最多可运行数十万步。"
+},
+{
+"id": "s0371",
+"page": "ant",
+"ko": "초당 100걸음",
+"en": "100 steps/s",
+"tr": "100步/秒"
+},
+{
+"id": "s0372",
+"page": "ant",
+"ko": "초당 1천걸음",
+"en": "1,000 steps/s",
+"tr": "1,000步/秒"
+},
+{
+"id": "s0373",
+"page": "ant",
+"ko": "초당 5천걸음",
+"en": "5,000 steps/s",
+"tr": "5,000步/秒"
+},
+{
+"id": "s0374",
+"page": "ant",
+"ko": "초당 3만걸음",
+"en": "30,000 steps/s",
+"tr": "30,000步/秒"
+},
+{
+"id": "s0375",
+"page": "ant",
+"ko": "초당 30만걸음",
+"en": "300,000 steps/s",
+"tr": "300,000步/秒"
+},
+{
+"id": "s0376",
+"page": "ant",
+"ko": "② 검은 칸의 수",
+"en": "② Number of Black Cells",
+"tr": "② 黑色格子数量"
+},
+{
+"id": "s0377",
+"page": "ant",
+"ko": "파란 바탕은 질서 있던 처음 약 500걸음(빈 판, 개미 1마리일 때)입니다. 혼돈 동안 불규칙하게 늘다가 고속도로가 시작되면 104걸음마다 12칸씩 일정하게 늘어납니다.",
+"en": "The blue band is the first ~500 ordered steps (blank grid, one ant). Black cells grow irregularly during the chaos, then by a steady 12 cells every 104 steps once the highway starts.",
+"tr": "蓝色带表示最初约500步的有序阶段（空白网格，一只蚂蚁）。混沌期间黑色格子不规则地增加，高速公路开始后则稳定地每104步增加12格。"
+},
+{
+"id": "s0378",
+"page": "ant",
+"ko": "③ 원점에서 개미까지의 거리",
+"en": "③ Distance of the Ant from the Start",
+"tr": "③ 蚂蚁与起点的距离"
+},
+{
+"id": "s0379",
+"page": "ant",
+"ko": "혼돈 동안은 출발점 근처를 맴돌아 거의 평평하다가, 고속도로가 시작되면 곧은 직선으로 멀어집니다. 걸음당 약 0.027칸(104걸음에 2√2칸)씩입니다.",
+"en": "During the chaos the ant stays near its starting point and the curve is nearly flat, then it grows as a straight line once the highway begins: about 0.027 cells per step (2√2 cells per 104 steps).",
+"tr": "混沌期间，蚂蚁停留在起点附近，曲线几乎是平的；高速公路开始后则呈直线增长：每步约0.027格（每104步2√2格）。"
+},
+{
+"id": "s0380",
+"page": "ant",
+"ko": "④ 무작위 점으로 시작하면 고속도로는 언제 생길까",
+"en": "④ When Does the Highway Appear from Random Dots?",
+"tr": "④ 从随机点开始，高速公路何时出现？"
+},
+{
+"id": "s0381",
+"page": "ant",
+"ko": "가로는 처음에 흩뿌린 검은 칸의 비율, 세로는 고속도로가 시작된 걸음입니다. 점은 무작위 판 10개 각각의 결과이고 선은 그 중앙값입니다. 이 화면에서 돌린 판에서는 모두 고속도로가 생겼습니다.",
+"en": "The horizontal axis is the share of black cells scattered at the start, the vertical axis the step where the highway began. Each dot is one of 10 random grids and the line is their median. Every grid run here produced a highway.",
+"tr": "横轴是开局时撒下的黑色格子比例，纵轴是高速公路开始的步数。每个点代表10个随机网格之一，线是它们的中位数。这里运行的每个网格都出现了高速公路。"
+},
+{
+"id": "s0382",
+"page": "ant",
+"ko": "빈 판의 개미는 9,976걸음째부터 104걸음 동작을 되풀이하며 대각선 고속도로를 만들었습니다.",
+"en": "Starting blank, the ant began a 104-step diagonal highway cycle at step 9,976.",
+"tr": "从空白网格开始，蚂蚁在第9,976步进入了周期为104步的对角线“高速公路”。"
+},
+{
+"id": "s0383",
+"page": "ant",
+"ko": "두 줄 규칙이 흔적을 남기고 그 흔적을 다시 밟기 때문에, 혼돈 끝에 질서가 나타났을 수 있습니다.",
+"en": "The two-line rule leaves marks that the ant steps on again, so order may emerge after chaos.",
+"tr": "这条两行规则会留下蚂蚁再次踩到的痕迹，所以混乱之后可能出现秩序。"
+},
+{
+"id": "s0384",
+"page": "ant",
+"ko": "왜 하필 고속도로인지는 아직 증명되지 않아, 규칙을 바꾸거나 시작 판을 달리해 보는 것이 열쇠일 수 있습니다.",
+"en": "Why a highway forms is unproven, so changing the rule or the starting grid may be the key.",
+"tr": "高速公路为何会形成尚未得到证明，因此改变规则或初始网格可能是关键。"
+},
+{
+"id": "s0385",
+"page": "ant",
+"ko": "<b>말하는 것:</b> 빈 판에서 출발한 개미 1마리는 9,976걸음째부터 104걸음마다 (2,2)칸씩 대각선으로 옮겨 가는 동작을 끝없이 되풀이했습니다(40,000걸음까지 확인). 그 뒤로는 104걸음마다 검은 칸이 12칸씩 늘고 걸음당 약 0.027칸씩 멀어집니다. 처음 약 500걸음은 대칭 모양이 되풀이되었고(마지막 대칭 모양은 473걸음), 그 뒤는 고속도로까지 혼돈이었습니다. 한 변 21칸 안에 5%에서 50%까지 검은 칸을 흩뿌려 시작한 판은 7가지 비율 각각 60판 모두, 개미를 2~4마리로 늘려도 비율 15%에서 60판 모두 60,000걸음 안에 고속도로가 생겼습니다. 시작 걸음은 200~50,000걸음으로 크게 달랐습니다. 사소한 규칙에서 설계 없이 질서 있는 구조가 나타나는 창발을 보여 줍니다.",
+"en": "<b>What it shows:</b> A single ant on a blank grid began, at step 9,976, a routine that moves it (2,2) cells diagonally every 104 steps and repeated it without end (checked to 40,000 steps). From then on black cells grow by 12 every 104 steps and the ant moves away at about 0.027 cells per step. The first ~500 steps kept returning to symmetric shapes (the last symmetric shape was at step 473), and the rest was chaos until the highway. Grids started with 5% to 50% black cells scattered in a 21-cell square all produced a highway within 60,000 steps in every one of 60 runs at each of the 7 shares, and so did 2 to 4 ants at 15%. The start step varied a great deal, from about 200 to 50,000. It shows emergence: orderly structure from trivial rules with no design.",
+"tr": "<b>它说明了什么：</b>空白网格上的一只蚂蚁在第9,976步开始了一套动作，每104步沿对角线移动(2,2)格，并且无休止地重复下去（已验证到40,000步）。从那以后，黑色格子每104步增加12个，蚂蚁以每步约0.027格的速度远离。最初约500步反复回到对称图形（最后一个对称图形出现在第473步），其余时间直到高速公路出现之前都是混沌。在21格见方的范围内撒下5%到50%黑色格子的开局，在7种比例下各运行60次，每一次都在60,000步内出现了高速公路，15%比例下2到4只蚂蚁也是如此。开始的步数相差很大，从约200到50,000不等。它展示了涌现：不经设计，简单规则就产生有序的结构。"
+},
+{
+"id": "s0386",
+"page": "ant",
+"ko": "고속도로가 늘 생긴다는 것은 증명되지 않았고, 시작 걸음이 언제인지 미리 구하는 식도 없습니다.",
+"en": "It is unproven that a highway always forms, and no formula predicts its start step.",
+"tr": "高速公路是否一定会形成尚未得到证明，也没有公式能预测它从哪一步开始。"
+},
+{
+"id": "s0387",
+"page": "ant",
+"ko": "실제 개미나 길 만들기에 쓰려면 규칙이 다른 모델과 비교하고, 어떤 단순한 규칙이 비슷한 질서를 만드는지 따로 확인해야 합니다.",
+"en": "Applying it to real ants or paths would need comparison with other rules and separate checks of which simple rules give similar order.",
+"tr": "要把它用于真实的蚂蚁或路径，需要与其他规则比较，并另行验证哪些简单规则会产生相似的秩序。"
+}
+]

@@ -86,7 +86,7 @@ TOPIC = {  # 다음 실험 주제 투표. 새 투표를 열 땐 id를 바꾼다.
        T('도박사의 오류: 앞면이 다섯 번 나오면 다음은 뒷면일까', "The gambler's fallacy: after five heads in a row, is tails due?")],
 }
 UI = [
- T('🌤 오늘의 만약에', '🌤 Today\'s What If'),
+ T('🎯 내 직관, 맞을까?', '🎯 Is My Intuition Right?'),
  T('오늘의 질문은 하루에 하나, 날마다 바뀌어요.', 'One question a day, a new one every day.'),
  T('이 질문, 실험해 볼까요? →', 'Try this question as an experiment →'),
  T('지금까지 {#0}명이 투표했어요', '{0} people have voted so far'),

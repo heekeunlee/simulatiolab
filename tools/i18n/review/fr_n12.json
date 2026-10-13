@@ -1,0 +1,485 @@
+[
+{
+"id": "s2153",
+"page": "traffic",
+"ko": "<b>이 프로젝트의 단순화:</b> 한 차선 고리 도로(길이 300칸)에 차종이 같은 차만 있고, 한 칸을 약 7.5m, 한 단계를 약 1초로 잡아 최고 속도 5칸을 시속 약 135km로 환산한 것은 원 논문의 관례를 따른 이 프로젝트의 환산입니다. 차선 변경, 신호, 합류, 운전자마다 다른 성격은 없고, 실제 교통량과 비교해 맞춘 모델이 아닙니다.",
+"en": "<b>What this project simplifies:</b> The road is a single-lane ring of 300 cells with identical cars. Reading one cell as about 7.5 m and one step as about 1 s (so a top speed of 5 cells is about 135 km/h) is this project's conversion, not a calibration. There are no lane changes, signals, merges, or differing drivers, and the model is not fitted to real traffic counts.",
+"tr": "<b>Ce que ce projet simplifie :</b> La route est un anneau à voie unique de 300 cellules avec des voitures identiques. Lire une cellule comme environ 7,5 m et un pas comme environ 1 s (une vitesse maximale de 5 cellules valant alors environ 135 km/h) est une conversion propre à ce projet, et non un calage. Il n'y a ni changements de voie, ni feux, ni insertions, ni conducteurs différents, et le modèle n'est pas ajusté sur des comptages de trafic réels."
+},
+{
+"id": "s2154",
+"page": "traffic",
+"ko": "<b>이론값과 시뮬레이션:</b> <i>p</i>=0에서는 이론과 시뮬레이션이 정확히 맞습니다. 밀도 20%, 30%, 40%, 60%에서 평균 속도가 4.00, 2.33, 1.50, 0.67칸/단계로 <code>(1−ρ)/ρ</code>와 같고, 밀도 15%까지는 속도 5.00으로 정체가 없습니다. <i>p</i>=25%에는 이런 간단한 닫힌 해를 쓰지 않았고, 밀도 15%에서 속도 3.34, 정지한 차 13%로 정체가 생기는 것을 시뮬레이션으로만 확인했습니다 (<code>node tools/validate-more.js traffic</code>).",
+"en": "<b>Theory versus simulation:</b> At <i>p</i>=0 theory and simulation agree exactly: at densities 20%, 30%, 40% and 60% the mean speeds are 4.00, 2.33, 1.50 and 0.67 cells per step, equal to <code>(1−ρ)/ρ</code>, and up to 15% the speed is 5.00 with no jam. For <i>p</i>=25% no closed form was used here; that jams already appear at 15% density (speed 3.34, 13% of cars stopped) was confirmed by simulation only (<code>node tools/validate-more.js traffic</code>).",
+"tr": "<b>Théorie et simulation :</b> Avec <i>p</i>=0, théorie et simulation concordent exactement : aux densités de 20 %, 30 %, 40 % et 60 %, les vitesses moyennes sont de 4,00, 2,33, 1,50 et 0,67 cellule par pas, égales à <code>(1−ρ)/ρ</code>, et jusqu'à 15 % la vitesse est de 5,00 sans bouchon. Pour <i>p</i>=25 %, aucune forme fermée n'a été utilisée ici ; le fait que des bouchons apparaissent dès une densité de 15 % (vitesse 3,34, 13 % des voitures arrêtées) n'a été confirmé que par simulation (<code>node tools/validate-more.js traffic</code>)."
+},
+{
+"id": "s2155",
+"page": "traffic",
+"ko": "<b>더 읽을거리:</b> Nagel, Schreckenberg (1992), \"A cellular automaton model for freeway traffic\", <i>Journal de Physique I</i>. / Chowdhury, Santen, Schadschneider (2000), \"Statistical physics of vehicular traffic and some related systems\", <i>Physics Reports</i> 329. / Sugiyama 외 (2008), \"Traffic jams without bottlenecks\", <i>New Journal of Physics</i> 10 (원형 도로 실험).",
+"en": "<b>Further reading:</b> Nagel, Schreckenberg (1992), \"A cellular automaton model for freeway traffic\", <i>Journal de Physique I</i>. / Chowdhury, Santen, Schadschneider (2000), \"Statistical physics of vehicular traffic and some related systems\", <i>Physics Reports</i> 329. / Sugiyama et al. (2008), \"Traffic jams without bottlenecks\", <i>New Journal of Physics</i> 10 (a ring-road experiment).",
+"tr": "<b>Pour aller plus loin :</b> Nagel, Schreckenberg (1992), « A cellular automaton model for freeway traffic », <i>Journal de Physique I</i>. / Chowdhury, Santen, Schadschneider (2000), « Statistical physics of vehicular traffic and some related systems », <i>Physics Reports</i> 329. / Sugiyama et al. (2008), « Traffic jams without bottlenecks », <i>New Journal of Physics</i> 10 (une expérience sur route circulaire)."
+},
+{
+"id": "s2156",
+"page": "traffic",
+"ko": "구현: 길이 300칸 고리 도로, 최고 속도 5칸이고 모든 차에 규칙을 한꺼번에 적용합니다.",
+"en": "Implementation: a 300-cell ring road with a top speed of 5 cells. Rules are applied to all cars at once.",
+"tr": "Implémentation : une route circulaire de 300 cellules avec une vitesse maximale de 5 cellules. Les règles s'appliquent à toutes les voitures en même temps."
+},
+{
+"id": "s2160",
+"page": "treasury",
+"ko": "10년 국채 금리와 채권 가격 · 시뮬라티오 랩",
+"en": "10-Year Yield and Bond Prices · Simulatio Lab",
+"tr": "Rendement à 10 ans et prix des obligations · Simulatio Lab"
+},
+{
+"id": "s2161",
+"page": "treasury",
+"ko": "단기금리를 흔들리는 경로로 시뮬레이션해 10년 금리가 무엇으로 정해지는지, 금리가 오르면 이미 산 채권값이 왜 그만큼 떨어지는지 직접 돌려보세요.",
+"en": "Simulate wandering short-term rates to see what sets the 10-year yield, and why a bond you already hold loses value when rates rise.",
+"tr": "Simulez des taux courts qui fluctuent pour voir ce qui fixe le rendement à 10 ans et pourquoi une obligation que vous détenez déjà perd de la valeur quand les taux montent."
+},
+{
+"id": "s2162",
+"page": "treasury",
+"ko": "금리가 오르면 새로 나오는 채권은 이자를 더 주니 좋은 일 같습니다. 그런데 이미 사 둔 채권은 값이 떨어집니다. 이 예시 설정에서는 10년 금리가 1%p 오르면 10년 만기 채권값이 약 8% 내려가요. 더 묘한 것은 10년 금리를 정하는 힘입니다. 오늘의 단기금리가 아니라 \"앞으로 10년 동안 단기금리가 평균 어디쯤 있을까\"라는 기대가 정하기 때문에, 단기금리가 1%p 뛰어도 10년 금리는 0.3%p 남짓만 움직입니다. (모든 숫자는 예시이며, 실제 금리를 말하는 것이 아닙니다.)",
+"en": "When rates rise, newly issued bonds pay more interest, which sounds like good news. Yet a bond you already hold falls in value. In this example setting, when the 10-year yield rises by 1 percentage point, a 10-year bond drops about 8%. Stranger still is what sets the 10-year yield: not today's short-term rate but the expectation of \"where short-term rates will sit on average over the next 10 years\". So even if the short rate jumps by 1 percentage point, the 10-year yield moves only a little over 0.3. (All numbers are examples, not statements about real rates.)",
+"tr": "Quand les taux montent, les obligations nouvellement émises paient plus d'intérêts, ce qui semble une bonne nouvelle. Pourtant, une obligation que vous détenez déjà perd de la valeur. Dans ce réglage d'exemple, quand le rendement à 10 ans monte de 1 point de pourcentage, une obligation à 10 ans baisse d'environ 8 %. Plus étrange encore, ce qui fixe le rendement à 10 ans : non pas le taux court d'aujourd'hui, mais l'anticipation de « là où se situeront en moyenne les taux courts durant les 10 prochaines années ». Ainsi, même si le taux court bondit de 1 point de pourcentage, le rendement à 10 ans ne bouge que d'un peu plus de 0,3. (Tous les chiffres sont des exemples, pas des affirmations sur les taux réels.)"
+},
+{
+"id": "s2163",
+"page": "treasury",
+"ko": "<b>단기금리</b>는 매달 <b>장기 평균</b> 쪽으로 끌려가면서(회귀 속도만큼) 변동성만큼 무작위로 흔들립니다. 높아졌으면 내려오려 하고 낮아졌으면 올라가려 하는 성질을 <b>평균회귀</b>라고 해요. 슬라이더로 시작 금리, 장기 평균, 회귀 속도, 변동성을 바꿉니다.",
+"en": "The <b>short-term rate</b> is pulled toward a <b>long-run average</b> each month (at the mean-reversion speed) while being shaken at random by the volatility. The tendency to come down when high and rise when low is called <b>mean reversion</b>. The sliders set the starting rate, the long-run average, the reversion speed and the volatility.",
+"tr": "Le <b>taux court</b> est attiré chaque mois vers une <b>moyenne de long terme</b> (à la vitesse de retour à la moyenne) tout en étant secoué au hasard par la volatilité. La tendance à baisser quand il est haut et à monter quand il est bas s'appelle le <b>retour à la moyenne</b>. Les curseurs règlent le taux initial, la moyenne de long terme, la vitesse de retour et la volatilité."
+},
+{
+"id": "s2164",
+"page": "treasury",
+"ko": "<b>10년 금리</b>는 \"앞으로 10년간 단기금리가 평균 어디에 있을지의 예상\"에 <b>기간 프리미엄</b>(오래 묶이는 대가로 더 얹는 금리)을 더해 정합니다. 이것을 기대가설이라고 부르고, 이 모델은 평균회귀 모델의 닫힌 해로 계산합니다. 한 경로가 정해지면 매달 10년 금리도 따라서 정해져요.",
+"en": "The <b>10-year yield</b> is the expected average short rate over the next 10 years plus a <b>term premium</b> (extra yield for tying money up for long). This is the expectations hypothesis, and the model computes it from the closed-form solution of the mean-reverting model. Once a path is drawn, the 10-year yield follows month by month.",
+"tr": "Le <b>rendement à 10 ans</b> est le taux court moyen attendu sur les 10 prochaines années plus une <b>prime de terme</b> (rendement supplémentaire pour immobiliser son argent longtemps). C'est l'hypothèse des anticipations, et le modèle la calcule à partir de la solution en forme fermée du modèle à retour vers la moyenne. Une fois une trajectoire tracée, le rendement à 10 ans la suit mois après mois."
+},
+{
+"id": "s2165",
+"page": "treasury",
+"ko": "<b>채권</b>은 10년 만기, 1년에 한 번 이자를 주고, 시작 때의 10년 금리와 같은 이자율로 액면 100에 삽니다. 이후 금리가 오르면 새 채권이 더 높은 이자를 주기 때문에, 내 옛 채권은 값이 깎여야 팔립니다. 가격 변화만 보고 받은 이자는 계산하지 않아요.",
+"en": "The <b>bond</b> has a 10-year maturity, pays interest once a year, and is bought at face value 100 with a coupon equal to the 10-year yield at the start. If rates then rise, new bonds pay more, so my old bond must fall in price to sell. Only the price change is shown, not the interest received.",
+"tr": "L'<b>obligation</b> a une échéance de 10 ans, verse un intérêt une fois par an et s'achète à la valeur nominale de 100 avec un coupon égal au rendement à 10 ans au départ. Si les taux montent ensuite, les nouvelles obligations paient plus, donc mon ancienne obligation doit baisser de prix pour se vendre. Seule la variation de prix est montrée, pas les intérêts perçus."
+},
+{
+"id": "s2166",
+"page": "treasury",
+"ko": "<b>듀레이션</b>은 원금과 이자를 받는 시점을 가중평균한 기간으로, 금리가 1%p 움직일 때 가격이 약 몇 % 움직이는지의 어림값이 됩니다(약 8이면 약 8%). 실제 가격은 직선이 아니라 휘어진 곡선이라 같은 1%p라도 내릴 때 이득이 오를 때 손해보다 큰데, 이 휘어짐을 <b>볼록성</b>이라고 합니다.",
+"en": "<b>Duration</b> is the weighted average time until the principal and interest are received, and it gives a rough guide to how many percent the price moves per percentage point of yield (about 8 means about 8%). The real price is a curve, not a line, so for the same 1 percentage point a fall in yield gains more than a rise loses; this bend is called <b>convexity</b>.",
+"tr": "La <b>duration</b> est le temps moyen pondéré jusqu'à la réception du principal et des intérêts, et elle donne une idée approximative du nombre de pour cent dont le prix bouge par point de pourcentage de rendement (environ 8 signifie environ 8 %). Le prix réel est une courbe et non une droite : pour le même point de pourcentage, une baisse du rendement rapporte plus qu'une hausse ne fait perdre ; cette courbure s'appelle la <b>convexité</b>."
+},
+{
+"id": "s2167",
+"page": "treasury",
+"ko": "시작 단기금리 <output id=\"o-r0\"></output>",
+"en": "Starting short rate <output id=\"o-r0\"></output>",
+"tr": "Taux court initial <output id=\"o-r0\"></output>"
+},
+{
+"id": "s2168",
+"page": "treasury",
+"ko": "처음 단기금리(예시 숫자). 장기 평균보다 낮으면 앞으로 올라갈 것으로 기대돼 10년 금리가 더 높아요",
+"en": "The short rate at the start (an example number). Below the long-run average, rates are expected to rise, lifting the 10-year yield",
+"tr": "Le taux court au départ (un chiffre d'exemple). En dessous de la moyenne de long terme, les taux devraient monter, ce qui fait monter le rendement à 10 ans"
+},
+{
+"id": "s2169",
+"page": "treasury",
+"ko": "장기 평균 <output id=\"o-b\"></output>",
+"en": "Long-run average <output id=\"o-b\"></output>",
+"tr": "Moyenne de long terme <output id=\"o-b\"></output>"
+},
+{
+"id": "s2170",
+"page": "treasury",
+"ko": "단기금리가 길게 보면 돌아가려는 수준(예시 숫자)",
+"en": "The level the short rate tends to return to over the long run (an example number)",
+"tr": "Le niveau vers lequel le taux court tend à revenir à long terme (un chiffre d'exemple)"
+},
+{
+"id": "s2171",
+"page": "treasury",
+"ko": "회귀 속도 <output id=\"o-a\"></output>",
+"en": "Reversion speed <output id=\"o-a\"></output>",
+"tr": "Vitesse de retour <output id=\"o-a\"></output>"
+},
+{
+"id": "s2172",
+"page": "treasury",
+"ko": "클수록 빨리 장기 평균으로 돌아와요. 작으면 단기금리 충격이 오래 가서 10년 금리도 많이 움직여요",
+"en": "The larger, the faster rates return to the average. If small, a short-rate shock lasts long and moves the 10-year yield a lot",
+"tr": "Plus elle est grande, plus vite les taux reviennent à la moyenne. Si elle est petite, un choc du taux court dure longtemps et fait beaucoup bouger le rendement à 10 ans"
+},
+{
+"id": "s2173",
+"page": "treasury",
+"ko": "금리 흔들림(변동성) <output id=\"o-sig\"></output>",
+"en": "Volatility of rates <output id=\"o-sig\"></output>",
+"tr": "Volatilité des taux <output id=\"o-sig\"></output>"
+},
+{
+"id": "s2174",
+"page": "treasury",
+"ko": "1년 동안 단기금리가 무작위로 흔들리는 크기(%p). 부채꼴이 넓어져요",
+"en": "How strongly the short rate is shaken at random per year (percentage points). The fan widens",
+"tr": "Avec quelle force le taux court est secoué au hasard par an (points de pourcentage). L'éventail s'élargit"
+},
+{
+"id": "s2175",
+"page": "treasury",
+"ko": "기간 프리미엄 <output id=\"o-tp\"></output>",
+"en": "Term premium <output id=\"o-tp\"></output>",
+"tr": "Prime de terme <output id=\"o-tp\"></output>"
+},
+{
+"id": "s2176",
+"page": "treasury",
+"ko": "오래 빌려주는 대가로 10년 금리에 얹는 금리(%p, 예시 숫자)",
+"en": "Extra yield added to the 10-year yield for lending long (percentage points, an example number)",
+"tr": "Rendement supplémentaire ajouté au rendement à 10 ans pour prêter à long terme (points de pourcentage, un chiffre d'exemple)"
+},
+{
+"id": "s2177",
+"page": "treasury",
+"ko": "같은 설정, 다른 금리 경로",
+"en": "Same settings, different rate paths",
+"tr": "Mêmes réglages, d'autres trajectoires de taux"
+},
+{
+"id": "s2178",
+"page": "treasury",
+"ko": "① 단기금리가 흘러가는 길",
+"en": "① Where the Short Rate Wanders",
+"tr": "① Où erre le taux court"
+},
+{
+"id": "s2179",
+"page": "treasury",
+"ko": "파란 선이 400개 경로의 평균 단기금리, 빨간 선이 그에 따른 평균 10년 금리입니다. 연한 선은 개별 경로 일부이고 옅은 띠는 90%와 50%의 경로가 들어오는 범위예요. 시작 금리가 장기 평균보다 낮으면 파란 선이 올라가는 모습이 보이는데, 10년 금리는 그 기대를 미리 반영해 처음부터 더 위에서 출발합니다.",
+"en": "The blue line is the average short rate over 400 paths and the red line the resulting average 10-year yield. Faint lines are some individual paths and the pale bands hold 90% and 50% of paths. If the starting rate is below the long-run average the blue line climbs, while the 10-year yield already prices in that expectation and starts higher.",
+"tr": "La ligne bleue est le taux court moyen sur 400 trajectoires et la ligne rouge le rendement moyen à 10 ans qui en résulte. Les lignes pâles sont quelques trajectoires individuelles et les bandes claires contiennent 90 % et 50 % des trajectoires. Si le taux initial est inférieur à la moyenne de long terme, la ligne bleue monte, tandis que le rendement à 10 ans intègre déjà cette anticipation et démarre plus haut."
+},
+{
+"id": "s2180",
+"page": "treasury",
+"ko": "언제든 눌러 보세요. 모든 경로의 단기금리가 한꺼번에 1%p 뛰고, 10년 금리가 얼마나 덜 움직이는지 볼 수 있어요.",
+"en": "Press anytime: every path's short rate jumps up by 1 percentage point, and watch how little the 10-year yield moves.",
+"tr": "Appuyez à tout moment : le taux court de chaque trajectoire bondit de 1 point de pourcentage, et observez le peu que bouge le rendement à 10 ans."
+},
+{
+"id": "s2181",
+"page": "treasury",
+"ko": "<i style=\"background:var(--accent)\"></i>단기금리 평균",
+"en": "<i style=\"background:var(--accent)\"></i>Average short rate",
+"tr": "<i style=\"background:var(--accent)\"></i>Taux court moyen"
+},
+{
+"id": "s2182",
+"page": "treasury",
+"ko": "<i style=\"background:#e5484d\"></i>10년 금리 평균",
+"en": "<i style=\"background:#e5484d\"></i>Average 10-year yield",
+"tr": "<i style=\"background:#e5484d\"></i>Rendement moyen à 10 ans"
+},
+{
+"id": "s2183",
+"page": "treasury",
+"ko": "② 10년 금리와 채권 가격",
+"en": "② The 10-Year Yield and the Bond Price",
+"tr": "② Le rendement à 10 ans et le prix de l'obligation"
+},
+{
+"id": "s2184",
+"page": "treasury",
+"ko": "가로는 10년 금리, 세로는 10년 만기 채권의 가격입니다. 금리가 오르면 가격이 내려가는 휘어진 곡선이에요. 회색 직선은 듀레이션으로 어림한 값이고, 초록 틈이 볼록성입니다. 주황 점은 지금 평균 10년 금리의 자리입니다.",
+"en": "The horizontal axis is the 10-year yield and the vertical axis the price of the 10-year bond. It is a curve that falls as yields rise. The gray line is the duration approximation and the green gap is convexity. The dot marks where the current average 10-year yield sits.",
+"tr": "L'axe horizontal est le rendement à 10 ans et l'axe vertical le prix de l'obligation à 10 ans. C'est une courbe qui baisse quand le rendement monte. La ligne grise est l'approximation par la duration et l'écart vert est la convexité. Le point marque où se situe le rendement moyen actuel à 10 ans."
+},
+{
+"id": "s2185",
+"page": "treasury",
+"ko": "<i style=\"background:var(--accent)\"></i>실제 가격 곡선",
+"en": "<i style=\"background:var(--accent)\"></i>Actual price curve",
+"tr": "<i style=\"background:var(--accent)\"></i>Courbe de prix réelle"
+},
+{
+"id": "s2186",
+"page": "treasury",
+"ko": "<i style=\"background:#8a93a6\"></i>듀레이션 직선",
+"en": "<i style=\"background:#8a93a6\"></i>Duration line",
+"tr": "<i style=\"background:#8a93a6\"></i>Droite de duration"
+},
+{
+"id": "s2187",
+"page": "treasury",
+"ko": "<i style=\"background:#1fa463\"></i>볼록성(곡선과 직선의 틈)",
+"en": "<i style=\"background:#1fa463\"></i>Convexity (gap between curve and line)",
+"tr": "<i style=\"background:#1fa463\"></i>Convexité (écart entre la courbe et la droite)"
+},
+{
+"id": "s2188",
+"page": "treasury",
+"ko": "③ 채권값은 얼마나 달라졌을까",
+"en": "③ How Much Did the Bond Price Change?",
+"tr": "③ De combien le prix de l'obligation a-t-il changé ?"
+},
+{
+"id": "s2189",
+"page": "treasury",
+"ko": "400개 경로 각각에서, 시작할 때 산 채권의 값이 지금(위 시간) 얼마로 바뀌었는지를 쌓았습니다(만기는 10년으로 일정하다고 보고 가격 변화만 봅니다). 빨강은 값이 떨어진 경로, 초록은 오른 경로예요. 금리 충격 버튼을 누르면 분포가 통째로 왼쪽으로 밀려요.",
+"en": "For each of the 400 paths, this stacks how much the bond bought at the start is now worth (at the time shown above; maturity is held at 10 years and only the price change is counted). Red marks paths where the price fell, green where it rose. Pressing the shock button pushes the whole distribution to the left.",
+"tr": "Pour chacune des 400 trajectoires, ceci empile la valeur actuelle de l'obligation achetée au départ (au moment indiqué ci-dessus ; l'échéance reste à 10 ans et seule la variation de prix est comptée). Le rouge marque les trajectoires où le prix a baissé, le vert celles où il a monté. Appuyer sur le bouton de choc pousse toute la distribution vers la gauche."
+},
+{
+"id": "s2190",
+"page": "treasury",
+"ko": "단기금리가 1%p 뛰어도 10년 금리는 0.33%p만 오르고, 이 값은 회귀 속도에 크게 달렸어요.",
+"en": "A 1pp jump in the short rate lifts the 10-year rate only 0.33pp, depending heavily on reversion speed.",
+"tr": "Une hausse de 1pp du taux court ne relève le taux à 10 ans que de 0,33pp, selon fortement la vitesse de retour à la moyenne."
+},
+{
+"id": "s2191",
+"page": "treasury",
+"ko": "이 모델에서는 단기금리가 평균으로 돌아온다고 보기에, 오래 갈수록 지금의 흔들림이 10년 금리에 덜 반영돼요.",
+"en": "In this model short rates return to their mean, so today's swings count for less the further out you look.",
+"tr": "Dans ce modèle, les taux courts reviennent à leur moyenne : les fluctuations d'aujourd'hui comptent donc d'autant moins que l'on regarde loin."
+},
+{
+"id": "s2192",
+"page": "treasury",
+"ko": "금리가 오를 때와 내릴 때 채권값이 어떻게 달라지는지까지 살펴볼 만해요.",
+"en": "It is worth looking at how bond prices differ when rates rise and when they fall.",
+"tr": "Il est utile de regarder en quoi les prix des obligations diffèrent quand les taux montent et quand ils baissent."
+},
+{
+"id": "s2193",
+"page": "treasury",
+"ko": "<b>말하는 것:</b> 시작 단기금리 2.5%, 장기 평균 3.5%, 회귀 속도 0.3, 변동성 1%p, 기간 프리미엄 0.5%p(모두 예시 숫자)에서 모델이 정한 10년 금리는 3.72%였습니다. 앞으로 10년 단기금리 예상 평균(3.18%)보다 높은 것은 기간 프리미엄 때문입니다. 이 금리로 산 10년 만기 채권의 수정 듀레이션은 8.22였고, 10년 금리가 1%p 오르면 가격은 7.83% 떨어지고 1%p 내리면 8.65% 올랐습니다(직선으로 어림하면 둘 다 8.22%). 단기금리가 1%p 뛰면 10년 금리는 0.33%p만 올랐습니다. 이 값은 회귀 속도에 크게 달렸습니다. 회귀 속도 0.05에서는 0.81%p, 0.3에서는 0.33%p, 1.2에서는 0.09%p였어요. 기간 프리미엄을 0, 0.5, 1.5%p로 두면 10년 금리는 3.20%, 3.72%, 4.76%였습니다. 이자율이 높은 채권일수록 듀레이션이 짧아서(이자율 2%일 때 8.98, 8%일 때 6.71) 금리에 덜 민감했습니다. 시작 때 산 채권의 가격 변화는 1년 뒤 평균 -0.7%, 하위 5% -4.5%, 상위 5% +3.2%로 퍼졌습니다(경로 2만 개, 이자 제외).",
+"en": "<b>What it shows:</b> At a starting short rate of 2.5%, a long-run average of 3.5%, reversion speed 0.3, volatility 1 percentage point and term premium 0.5 (all example numbers), the model's 10-year yield was 3.72%. It sits above the expected average short rate over the next 10 years (3.18%) because of the term premium. A 10-year bond bought at that yield had a modified duration of 8.22: if the 10-year yield rose by 1 percentage point the price fell 7.83%, and if it fell by 1 point the price rose 8.65% (a straight-line estimate gives 8.22% for both). When the short rate jumped by 1 percentage point, the 10-year yield rose only 0.33 points. That depends strongly on the reversion speed: 0.81 points at 0.05, 0.33 at 0.3 and 0.09 at 1.2. With term premiums of 0, 0.5 and 1.5 points the 10-year yield was 3.20%, 3.72% and 4.76%. Bonds with higher coupons had shorter durations (8.98 at a 2% coupon, 6.71 at 8%) and were less sensitive to yields. The price change of the bond bought at the start spread out to an average of -0.7% after 1 year, with -4.5% at the bottom 5% and +3.2% at the top 5% (20,000 paths, interest excluded).",
+"tr": "<b>Ce que cela montre :</b> Avec un taux court initial de 2,5 %, une moyenne de long terme de 3,5 %, une vitesse de retour de 0,3, une volatilité de 1 point de pourcentage et une prime de terme de 0,5 (tous des chiffres d'exemple), le rendement à 10 ans du modèle était de 3,72 %. Il se situe au-dessus du taux court moyen attendu sur les 10 prochaines années (3,18 %) à cause de la prime de terme. Une obligation à 10 ans achetée à ce rendement avait une duration modifiée de 8,22 : si le rendement à 10 ans montait de 1 point de pourcentage, le prix baissait de 7,83 %, et s'il baissait de 1 point, le prix montait de 8,65 % (une estimation linéaire donne 8,22 % dans les deux cas). Quand le taux court a bondi de 1 point de pourcentage, le rendement à 10 ans n'a monté que de 0,33 point. Cela dépend fortement de la vitesse de retour : 0,81 point à 0,05, 0,33 à 0,3 et 0,09 à 1,2. Avec des primes de terme de 0, 0,5 et 1,5 point, le rendement à 10 ans était de 3,20 %, 3,72 % et 4,76 %. Les obligations à coupon plus élevé avaient des durations plus courtes (8,98 avec un coupon de 2 %, 6,71 avec 8 %) et étaient moins sensibles au rendement. La variation de prix de l'obligation achetée au départ s'est étalée jusqu'à une moyenne de -0,7 % après 1 an, avec -4,5 % pour les 5 % du bas et +3,2 % pour les 5 % du haut (20 000 trajectoires, intérêts exclus)."
+},
+{
+"id": "s2194",
+"page": "treasury",
+"ko": "금리를 맞히는 모델이 아니고, 투자 판단에 쓰면 안 돼요. 기본값은 모두 예시 숫자예요.",
+"en": "This can't predict rates or guide investing; every default is an example number.",
+"tr": "Cela ne peut ni prédire les taux ni guider des investissements ; toutes les valeurs par défaut sont des chiffres d'exemple."
+},
+{
+"id": "s2195",
+"page": "treasury",
+"ko": "물가·통화정책·채권 수요 같은 빠진 요소와 기간 프리미엄의 변화는 실제 자료로 따로 확인해야 해요.",
+"en": "Missing factors like inflation, policy, bond demand and shifting term premia need real data.",
+"tr": "Des facteurs comme l'inflation, la politique, la demande d'obligations et l'évolution des primes de terme manquent ; il faut des données réelles."
+},
+{
+"id": "s2196",
+"page": "treasury",
+"ko": "<b>말하지 않는 것:</b> 이 모델로 금리나 환율을 맞힐 수 없고, 투자 판단에 써서는 안 됩니다. 기본값은 모두 이 프로젝트가 정한 예시 숫자이며 실제 금리 수준이나 전망이 아닙니다. 현실의 장기 금리에는 물가 기대, 통화정책, 채권의 수요와 공급, 경기 전망, 위험에 대한 태도처럼 이 모델에 없는 요소가 작용하고, 기간 프리미엄도 시간에 따라 바뀝니다. 이 모델은 단기금리의 흔들림이 10년 금리와 채권값에 어떤 구조로 전달되는지(기대의 평균, 듀레이션, 볼록성)를 보여 줄 뿐입니다.",
+"en": "<b>What it doesn't show:</b> This model cannot predict interest rates or exchange rates and must not be used for investment decisions. Every default is an example number chosen by this project, not a real rate level or a forecast. Real long-term yields also respond to inflation expectations, monetary policy, supply and demand for bonds, the economic outlook and attitudes toward risk, none of which is in this model, and the term premium itself changes over time. The model only shows how short-rate wobbles pass through to the 10-year yield and bond prices (averaging of expectations, duration and convexity).",
+"tr": "<b>Ce que cela ne montre pas :</b> Ce modèle ne peut prédire ni les taux d'intérêt ni les taux de change et ne doit pas servir à des décisions d'investissement. Toutes les valeurs par défaut sont des chiffres d'exemple choisis par ce projet, pas des niveaux de taux réels ni une prévision. Les rendements réels à long terme réagissent aussi aux anticipations d'inflation, à la politique monétaire, à l'offre et à la demande d'obligations, aux perspectives économiques et à l'attitude face au risque, dont rien ne figure dans ce modèle, et la prime de terme elle-même varie dans le temps. Le modèle montre seulement comment les oscillations du taux court se transmettent au rendement à 10 ans et aux prix des obligations (moyenne des anticipations, duration et convexité)."
+},
+{
+"id": "s2197",
+"page": "treasury",
+"ko": "<b>모델의 뿌리:</b> 단기금리가 평균으로 끌려가는 확률과정을 쓴 Oldřich Vasicek의 1977년 논문 「An equilibrium characterization of the term structure」(<i>Journal of Financial Economics</i> 5권)의 모델입니다. 장기 금리를 앞으로의 단기금리 경로에서 계산하는 틀이며, 기대가설의 아이디어(장기 금리는 앞으로 단기금리 예상의 평균)를 이어받았습니다. 채권 가격 민감도는 Macaulay(1938)의 듀레이션 개념을 씁니다.",
+"en": "<b>Where the model comes from:</b> This is the model of Oldřich Vasicek's 1977 paper &quot;An equilibrium characterization of the term structure&quot; (<i>Journal of Financial Economics</i>, vol. 5), which uses a stochastic process pulling the short rate toward an average. It computes long yields from the future path of the short rate and carries on the expectations hypothesis (a long yield is the average of expected short rates). Bond price sensitivity uses Macaulay's (1938) notion of duration.",
+"tr": "<b>D'où vient le modèle :</b> C'est le modèle de l'article d'Oldřich Vasicek de 1977 &quot;An equilibrium characterization of the term structure&quot; (<i>Journal of Financial Economics</i>, vol. 5), qui utilise un processus stochastique ramenant le taux court vers une moyenne. Il calcule les rendements longs à partir de la trajectoire future du taux court et reprend l'hypothèse des anticipations (un rendement long est la moyenne des taux courts attendus). La sensibilité du prix des obligations repose sur la notion de duration de Macaulay (1938)."
+},
+{
+"id": "s2198",
+"page": "treasury",
+"ko": "<b>핵심 가정과 수식:</b> 단기금리 <code>dr = a(b − r)dt + σdW</code>에서 a는 회귀 속도, b는 장기 평균, σ는 변동성입니다. 만기 τ년 무이표채 가격은 <code>exp(A − B·r)</code>, <code>B = (1 − e<sup>−aτ</sup>)/a</code>, <code>A = (b − σ²/2a²)(B − τ) − σ²B²/4a</code>이고 수익률은 <code>(B·r − A)/τ</code>입니다. 이 페이지는 여기에 기간 프리미엄을 수익률에 더해 10년 금리로 삼습니다. 단기금리가 1 움직일 때 10년 금리는 약 B/10만큼 움직입니다.",
+"en": "<b>Key assumptions and formulas:</b> The short rate follows <code>dr = a(b − r)dt + σdW</code>, where a is the reversion speed, b the long-run average and σ the volatility. The price of a zero-coupon bond of maturity τ years is <code>exp(A − B·r)</code> with <code>B = (1 − e<sup>−aτ</sup>)/a</code> and <code>A = (b − σ²/2a²)(B − τ) − σ²B²/4a</code>, and the yield is <code>(B·r − A)/τ</code>. This page adds the term premium to that yield to get the 10-year yield. When the short rate moves by 1, the 10-year yield moves by about B/10.",
+"tr": "<b>Hypothèses et formules clés :</b> Le taux court suit <code>dr = a(b − r)dt + σdW</code>, où a est la vitesse de retour, b la moyenne de long terme et σ la volatilité. Le prix d'une obligation zéro-coupon d'échéance τ années est <code>exp(A − B·r)</code> avec <code>B = (1 − e<sup>−aτ</sup>)/a</code> et <code>A = (b − σ²/2a²)(B − τ) − σ²B²/4a</code>, et le rendement est <code>(B·r − A)/τ</code>. Cette page ajoute la prime de terme à ce rendement pour obtenir le rendement à 10 ans. Quand le taux court bouge de 1, le rendement à 10 ans bouge d'environ B/10."
+},
+{
+"id": "s2199",
+"page": "treasury",
+"ko": "<b>이 프로젝트의 단순화:</b> 원 논문은 위험의 시장가격을 두지만 여기서는 0으로 두고 기간 프리미엄을 수익률에 따로 상수로 더했습니다. 요인은 단기금리 하나뿐이고 금리가 음수가 될 수도 있습니다. 채권은 연 1회 이자를 주고 시간이 지나도 만기가 10년으로 일정하다고 보며, 연속복리 수익률을 연 복리로 바꿔 채권 가격에 씁니다. 시작 금리, 장기 평균, 회귀 속도, 변동성, 기간 프리미엄의 기본값은 모두 이 프로젝트가 정한 예시 숫자입니다.",
+"en": "<b>What this project simplifies:</b> The original paper includes a market price of risk, but here it is set to 0 and a constant term premium is added to the yield separately. There is a single factor, the short rate, and rates can turn negative. The bond pays interest once a year, its maturity is held at 10 years as time passes, and the continuously compounded yield is converted to an annual yield for bond pricing. The defaults for starting rate, long-run average, reversion speed, volatility and term premium are example numbers chosen by this project.",
+"tr": "<b>Ce que ce projet simplifie :</b> L'article original inclut un prix de marché du risque, mais ici il est fixé à 0 et une prime de terme constante est ajoutée séparément au rendement. Il n'y a qu'un seul facteur, le taux court, et les taux peuvent devenir négatifs. L'obligation verse un intérêt une fois par an, son échéance reste à 10 ans au fil du temps, et le rendement en capitalisation continue est converti en rendement annuel pour évaluer l'obligation. Les valeurs par défaut du taux initial, de la moyenne de long terme, de la vitesse de retour, de la volatilité et de la prime de terme sont des chiffres d'exemple choisis par ce projet."
+},
+{
+"id": "s2200",
+"page": "treasury",
+"ko": "<b>이론값과 시뮬레이션:</b> 경로 2만 개의 시뮬레이션 평균은 닫힌 해와 맞았습니다. 10년 무이표채 가격은 시뮬레이션 0.7290(표준오차 0.0004), 닫힌 해 0.7295이고, 수익률은 3.161%와 3.154%였습니다. 단기금리 평균과 표준편차도 5년 뒤 3.284%·1.260%p(이론 3.277%·1.258%p)로 맞았습니다. 수정 듀레이션 공식 8.2246은 수치 미분과 같았고, 충격을 준 시뮬레이션의 10년 금리 변화는 0.329%p로 식(0.329%p)과 같았습니다. 월 단위 사다리꼴 적분의 작은 편향이 시뮬레이션 값이 조금 낮은 이유입니다.",
+"en": "<b>Theory versus simulation:</b> The 20,000-path simulation matched the closed form. The 10-year zero-coupon price was 0.7290 in the simulation (standard error 0.0004) against 0.7295 in closed form, and the yields were 3.161% and 3.154%. The short-rate mean and standard deviation after 5 years were 3.284% and 1.260 points (theory 3.277% and 1.258). The modified duration formula, 8.2246, equaled the numerical derivative, and the 10-year yield change in a shocked simulation was 0.329 points, the same as the formula (0.329). A small bias from monthly trapezoid integration is why the simulated price is slightly lower.",
+"tr": "<b>Théorie contre simulation :</b> La simulation de 20 000 trajectoires a coïncidé avec la forme fermée. Le prix de l'obligation zéro-coupon à 10 ans était de 0,7290 en simulation (erreur standard 0,0004) contre 0,7295 en forme fermée, et les rendements étaient de 3,161 % et 3,154 %. La moyenne et l'écart type du taux court après 5 ans étaient de 3,284 % et 1,260 point (théorie 3,277 % et 1,258). La formule de la duration modifiée, 8,2246, égalait la dérivée numérique, et la variation du rendement à 10 ans dans une simulation avec choc était de 0,329 point, identique à la formule (0,329). Un léger biais de l'intégration trapézoïdale mensuelle explique que le prix simulé soit un peu plus bas."
+},
+{
+"id": "s2201",
+"page": "treasury",
+"ko": "<b>더 읽을거리:</b> Vasicek (1977), &quot;An equilibrium characterization of the term structure&quot;, <i>Journal of Financial Economics</i> / Macaulay (1938), <i>Some Theoretical Problems Suggested by the Movements of Interest Rates, Bond Yields and Stock Prices in the United States since 1856</i>, NBER / Brigo &amp; Mercurio, <i>Interest Rate Models: Theory and Practice</i>, Springer.",
+"en": "<b>Further reading:</b> Vasicek (1977), &quot;An equilibrium characterization of the term structure&quot;, <i>Journal of Financial Economics</i> / Macaulay (1938), <i>Some Theoretical Problems Suggested by the Movements of Interest Rates, Bond Yields and Stock Prices in the United States since 1856</i>, NBER / Brigo &amp; Mercurio, <i>Interest Rate Models: Theory and Practice</i>, Springer.",
+"tr": "<b>Pour aller plus loin :</b> Vasicek (1977), &quot;An equilibrium characterization of the term structure&quot;, <i>Journal of Financial Economics</i> / Macaulay (1938), <i>Some Theoretical Problems Suggested by the Movements of Interest Rates, Bond Yields and Stock Prices in the United States since 1856</i>, NBER / Brigo &amp; Mercurio, <i>Interest Rate Models: Theory and Practice</i>, Springer."
+},
+{
+"id": "s2202",
+"page": "treasury",
+"ko": "단기금리는 오른스타인-울렌벡 과정의 정확한 전이분포로 한 달씩 진행하므로 이산화 오차가 없습니다. 경로는 400개이고 시드 난수(mulberry32)를 쓰며 같은 번호면 같은 결과가 나옵니다. 띠는 경로의 5·25·75·95% 분위수입니다.",
+"en": "The short rate advances one month at a time using the exact transition distribution of the Ornstein-Uhlenbeck process, so there is no discretization error. There are 400 paths drawn with a seeded generator (mulberry32), so the same number gives the same result. The bands are the 5th, 25th, 75th and 95th percentiles of the paths.",
+"tr": "Le taux court avance d'un mois à la fois en utilisant la distribution de transition exacte du processus d'Ornstein-Uhlenbeck, donc il n'y a pas d'erreur de discrétisation. Il y a 400 trajectoires tracées avec un générateur à graine (mulberry32), donc le même numéro donne le même résultat. Les bandes sont les 5e, 25e, 75e et 95e percentiles des trajectoires."
+},
+{
+"id": "s2203",
+"page": "treasury",
+"ko": "검증은 <code>node tools/validate-treasury.js</code>로 할 수 있습니다. 가격 변화 분포의 숫자(평균·분위수)는 같은 스크립트가 경로 2만 개로 계산한 값입니다.",
+"en": "You can verify with <code>node tools/validate-treasury.js</code>. The averages and percentiles of the price-change distribution come from the same script using 20,000 paths.",
+"tr": "Vous pouvez le vérifier avec <code>node tools/validate-treasury.js</code>. Les moyennes et percentiles de la distribution des variations de prix proviennent du même script avec 20 000 trajectoires."
+},
+{
+"id": "s2204",
+"page": "treasury",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/treasury\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/treasury\">GitHub</a>.",
+"tr": "Le code est disponible sur <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/treasury\">GitHub</a>."
+},
+{
+"id": "s2234",
+"page": "turing",
+"ko": "같은 규칙인데 F와 k 두 숫자만 바꿔도 점, 줄무늬, 미로, 산호 같은 무늬가 저절로 생겼어요.",
+"en": "With the same rules, changing just F and k produced spots, stripes, mazes and coral patterns by themselves.",
+"tr": "Avec les mêmes règles, changer seulement F et k a produit de lui-même des taches, des rayures, des labyrinthes et des motifs de corail."
+},
+{
+"id": "s2235",
+"page": "turing",
+"ko": "v는 u보다 느리게 퍼지고 u를 먹으며 늘어나, 퍼지는 속도 차이와 반응이 만나 무늬가 자리잡기 때문일 수 있어요.",
+"en": "Here v spreads slower than u and feeds on it, so the speed difference plus the reaction may let patterns settle.",
+"tr": "Ici, v se propage plus lentement que u et se nourrit de lui : la différence de vitesse et la réaction peuvent ainsi permettre aux motifs de se stabiliser."
+},
+{
+"id": "s2236",
+"page": "turing",
+"ko": "무늬가 달라진다면 규칙을 더하기보다 공급과 제거의 균형, 퍼지는 속도 차이부터 살펴볼 만해요.",
+"en": "When patterns differ, the balance of supply and removal and the spreading-speed gap may be better places to look than extra rules.",
+"tr": "Quand les motifs diffèrent, l'équilibre entre apport et retrait et l'écart de vitesse de diffusion sont peut-être de meilleurs endroits où regarder que l'ajout de règles."
+},
+{
+"id": "s2238",
+"page": "turing",
+"ko": "실제 얼룩말 줄무늬가 이 반응으로 생긴다는 증명이 아니고, F와 k는 생물학적 값이 아니에요.",
+"en": "It does not prove real zebra stripes arise this way, and F and k are mathematical, not biological, values.",
+"tr": "Cela ne prouve pas que les rayures des vrais zèbres naissent ainsi, et F et k sont des valeurs mathématiques, non biologiques."
+},
+{
+"id": "s2239",
+"page": "turing",
+"ko": "실제 동물에서는 유전자 활동과 성장, 몸 모양을 함께 관찰해 어떤 물질이 퍼지는지 확인해야 해요.",
+"en": "Real animals would need gene activity, growth and body shape observed to find what actually spreads.",
+"tr": "Chez les animaux réels, il faudrait observer l'activité des gènes, la croissance et la forme du corps pour trouver ce qui se diffuse réellement."
+},
+{
+"id": "s2241",
+"page": "turing",
+"ko": "<b>모델의 뿌리:</b> Turing (1952), \"The chemical basis of morphogenesis\", <i>Philosophical Transactions of the Royal Society B</i> 237에서, 퍼지고 반응하는 화학물질만으로 균일한 상태에서 무늬가 저절로 생길 수 있음을 수학으로 보였습니다. 이 페이지는 그 계열의 그레이-스콧(Gray–Scott) 모델을 쓰며, 다양한 무늬는 Pearson (1993), \"Complex patterns in a simple system\", <i>Science</i> 261로 널리 알려졌습니다.",
+"en": "<b>Where the model comes from:</b> Turing (1952), \"The chemical basis of morphogenesis\", <i>Philosophical Transactions of the Royal Society B</i> 237, showed mathematically that chemicals that diffuse and react can create patterns from a uniform state on their own. This page uses the Gray–Scott model from that family, whose variety of patterns became widely known through Pearson (1993), \"Complex patterns in a simple system\", <i>Science</i> 261.",
+"tr": "<b>D'où vient le modèle :</b> Turing (1952), « The chemical basis of morphogenesis », <i>Philosophical Transactions of the Royal Society B</i> 237, a montré mathématiquement que des substances chimiques qui diffusent et réagissent peuvent créer d'elles-mêmes des motifs à partir d'un état uniforme. Cette page utilise le modèle de Gray–Scott de cette famille, dont la variété de motifs est devenue largement connue grâce à Pearson (1993), « Complex patterns in a simple system », <i>Science</i> 261."
+},
+{
+"id": "s2242",
+"page": "turing",
+"ko": "<b>핵심 가정과 수식:</b> 식은 <code>∂u/∂t = D<sub>u</sub>∇²u − uv² + F(1 − u)</code>, <code>∂v/∂t = D<sub>v</sub>∇²v + uv² − (F + k)v</code>이고 여기서는 D<sub>u</sub> = 0.16, D<sub>v</sub> = 0.08입니다. 슬라이더 F는 u를 채우는 항, k는 v를 없애는 항입니다. v가 없는 u = 1, v = 0은 그대로 유지되는 상태라서 씨앗이 있어야 무늬가 시작됩니다.",
+"en": "<b>Key assumptions and formulas:</b> The equations are <code>∂u/∂t = D<sub>u</sub>∇²u − uv² + F(1 − u)</code> and <code>∂v/∂t = D<sub>v</sub>∇²v + uv² − (F + k)v</code>, here with D<sub>u</sub> = 0.16 and D<sub>v</sub> = 0.08. The F slider is the term that replenishes u and k is the term that removes v. The state u = 1, v = 0 stays as it is, so a seed is needed for a pattern to start.",
+"tr": "<b>Hypothèses clés et formules :</b> Les équations sont <code>∂u/∂t = D<sub>u</sub>∇²u − uv² + F(1 − u)</code> et <code>∂v/∂t = D<sub>v</sub>∇²v + uv² − (F + k)v</code>, ici avec D<sub>u</sub> = 0,16 et D<sub>v</sub> = 0,08. Le curseur F est le terme qui réapprovisionne u et k est le terme qui retire v. L'état u = 1, v = 0 reste tel quel, si bien qu'un germe est nécessaire pour qu'un motif démarre."
+},
+{
+"id": "s2243",
+"page": "turing",
+"ko": "<b>이 프로젝트의 단순화:</b> 실제 동물의 무늬는 유전자 활동, 성장, 몸 모양이 함께 만들고, 이 모델의 F와 k는 생물학적 값이 아닙니다. 격자는 96×96, 시간 간격 dt = 1, 가장자리는 반대편과 이어지게 하는 등 계산 편의를 위해 단순화했습니다. 점무늬와 줄무늬의 이름과 F, k 조합은 이 프로젝트가 고른 대표값입니다.",
+"en": "<b>What this project simplifies:</b> Real animal patterns come from gene activity, growth and body shape together, and F and k in this model are not biological values. The grid is 96×96 with time step dt = 1 and wrap-around edges, simplified for ease of computation. The names of the presets and their F, k pairs are representative values chosen by this project.",
+"tr": "<b>Ce que ce projet simplifie :</b> Les vrais motifs des animaux résultent à la fois de l'activité des gènes, de la croissance et de la forme du corps, et F et k dans ce modèle ne sont pas des valeurs biologiques. La grille est de 96×96 avec un pas de temps dt = 1 et des bords périodiques, simplifiée pour faciliter le calcul. Les noms des préréglages et leurs couples F, k sont des valeurs représentatives choisies par ce projet."
+},
+{
+"id": "s2244",
+"page": "turing",
+"ko": "<b>이론값과 시뮬레이션:</b> 무늬 전체에 대한 닫힌 해는 없어서 이론적 기준값 없이 시뮬레이션만으로 확인했습니다. 3개 시드로 20,000번 돌린 결과 값은 모두 유한했고, v가 차지한 면적은 점무늬 19%, 세포 분열 21%, 줄무늬 43%, 산호 53%였습니다. 점무늬는 독립된 점 50개 안팎으로, 줄무늬와 산호는 대개 하나로 이어진 모양으로 안정됐습니다.",
+"en": "<b>Theory versus simulation:</b> There is no closed-form solution for the whole pattern, so it was checked by simulation alone, without a theoretical reference value. Running 3 seeds for 20,000 iterations, all values stayed finite, and the area covered by v was 19% for spots, 21% for mitosis, 43% for stripes and 53% for coral. Spots settled as about 50 separate dots, and stripes and coral mostly as one connected shape.",
+"tr": "<b>Théorie et simulation :</b> Il n'existe pas de solution sous forme fermée pour l'ensemble du motif ; la vérification s'est donc faite uniquement par simulation, sans valeur théorique de référence. En exécutant 3 graines pendant 20 000 itérations, toutes les valeurs sont restées finies, et la surface couverte par v était de 19 % pour les taches, 21 % pour la mitose, 43 % pour les rayures et 53 % pour le corail. Les taches se sont stabilisées en environ 50 points séparés, et les rayures et le corail surtout en une seule forme connectée."
+},
+{
+"id": "s2245",
+"page": "turing",
+"ko": "<b>더 읽을거리:</b> Turing (1952), \"The chemical basis of morphogenesis\", <i>Phil. Trans. R. Soc. B</i>. Pearson (1993), \"Complex patterns in a simple system\", <i>Science</i>. Kondo &amp; Asai (1995), \"A reaction–diffusion wave on the skin of the marine angelfish <i>Pomacanthus</i>\", <i>Nature</i>: 실제 물고기 무늬가 반응-확산과 비슷하게 움직인다고 보고한 연구입니다.",
+"en": "<b>Further reading:</b> Turing (1952), \"The chemical basis of morphogenesis\", <i>Phil. Trans. R. Soc. B</i>. Pearson (1993), \"Complex patterns in a simple system\", <i>Science</i>. Kondo &amp; Asai (1995), \"A reaction–diffusion wave on the skin of the marine angelfish <i>Pomacanthus</i>\", <i>Nature</i>, a study reporting that the pattern on a real fish changes in a way consistent with reaction–diffusion.",
+"tr": "<b>Pour aller plus loin :</b> Turing (1952), « The chemical basis of morphogenesis », <i>Phil. Trans. R. Soc. B</i>. Pearson (1993), « Complex patterns in a simple system », <i>Science</i>. Kondo &amp; Asai (1995), « A reaction–diffusion wave on the skin of the marine angelfish <i>Pomacanthus</i> », <i>Nature</i>, une étude rapportant que le motif d'un vrai poisson change d'une manière cohérente avec la réaction-diffusion."
+},
+{
+"id": "s2246",
+"page": "turing",
+"ko": "식: du = 0.16·lap(u) − u·v² + F(1 − u), dv = 0.08·lap(v) + u·v² − (F + k)·v. 한 단계에 dt = 1, 라플라시안은 상하좌우 4칸으로 계산했고 가장자리는 반대편과 이어집니다. 화면의 한 단계는 계산 40번입니다. 확산 계수의 비(2:1)는 Pearson의 설정과 같지만 격자와 시간 단위가 달라 모양이 똑같지는 않습니다.",
+"en": "Equations: du = 0.16·lap(u) − u·v² + F(1 − u), dv = 0.08·lap(v) + u·v² − (F + k)·v. Each step uses dt = 1, the Laplacian is computed from the four neighbors, and the edges wrap around. One step on screen is 40 calculations. The ratio of the diffusion coefficients (2:1) is the same as in Pearson’s setup, but the grid and time units differ, so the shapes are not identical.",
+"tr": "Équations : du = 0,16·lap(u) − u·v² + F(1 − u), dv = 0,08·lap(v) + u·v² − (F + k)·v. Chaque pas utilise dt = 1, le laplacien est calculé à partir des quatre voisins et les bords sont périodiques. Un pas à l'écran correspond à 40 calculs. Le rapport des coefficients de diffusion (2:1) est le même que dans la configuration de Pearson, mais la grille et les unités de temps diffèrent, de sorte que les formes ne sont pas identiques."
+},
+{
+"id": "s2286",
+"page": "veil",
+"ko": "이 가정에서는 위험을 싫어하는 정도 γ가 커질수록 승자독식에서 평등 사회로 선택이 차례로 바뀌었어요.",
+"en": "Under these assumptions, as risk aversion γ grew, the choice shifted step by step from winner-take-all to an equal society.",
+"tr": "Sous ces hypothèses, à mesure que l'aversion au risque γ augmentait, le choix est passé peu à peu du « le gagnant rafle tout » à une société égalitaire."
+},
+{
+"id": "s2287",
+"page": "veil",
+"ko": "평등할수록 평균이 낮다는 소득 가정 아래, γ가 커지면 가장 가난한 자리를 더 크게 보기 때문이에요.",
+"en": "With incomes assumed to be lower in more equal societies, a larger γ weighs the poorest seat more heavily.",
+"tr": "En supposant que les revenus sont plus faibles dans les sociétés plus égalitaires, un γ plus grand donne plus de poids à la place la plus pauvre."
+},
+{
+"id": "s2288",
+"page": "veil",
+"ko": "같은 베일 뒤에서도 갈리는 것은 규칙 자체보다 위험을 어떻게 보는지와 어떤 가정을 두는지일 수 있어요.",
+"en": "Even behind the same veil, what divides choices may be how risk is viewed and which assumptions are made, more than the rule itself.",
+"tr": "Même derrière le même voile, ce qui divise les choix peut être la façon de voir le risque et les hypothèses retenues, plus que la règle elle-même."
+},
+{
+"id": "s2290",
+"page": "veil",
+"ko": "어느 사회가 정의로운지에 답하거나 롤스나 하사니 중 한쪽을 편드는 모델이 아니에요. 결과는 소득 숫자와 효용 함수에 달려 있어요.",
+"en": "It does not say which society is just or side with Rawls or Harsanyi; results depend on the assumed incomes and utility function.",
+"tr": "Cela ne dit pas quelle société est juste ni ne prend parti pour Rawls ou Harsanyi ; les résultats dépendent des revenus et de la fonction d'utilité supposés."
+},
+{
+"id": "s2291",
+"page": "veil",
+"ko": "다른 소득 가정이나 확률 가정에서도 같은지, 노력·책임·권리 같은 다른 쟁점은 어떤지는 따로 살펴봐야 해요.",
+"en": "Whether the same holds under other income or probability assumptions, and what effort, responsibility and rights add, must be examined separately.",
+"tr": "Il faut examiner séparément si la même chose vaut avec d'autres hypothèses de revenus ou de probabilités, et ce qu'apportent l'effort, la responsabilité et les droits."
+},
+{
+"id": "s2293",
+"page": "veil",
+"ko": "<b>모델의 뿌리:</b> Rawls (1971), 『A Theory of Justice』(Harvard University Press)는 자기 자리를 모르는 \"원초적 입장\"에서 고른 규칙이 공정하다고 보고 차등 원칙(가장 불리한 사람의 처지를 최대로)을 이끌었습니다. 같은 장치에서 Harsanyi (1953, 1955), 『Journal of Political Economy』는 자리를 같은 확률로 보고 기대효용(평균 효용)을 극대화해야 한다고 주장했습니다.",
+"en": "<b>Where the model comes from:</b> Rawls (1971), <i>A Theory of Justice</i> (Harvard University Press), held that rules chosen in an \"original position\" where one does not know one’s place are fair, and drew from it the difference principle (maximize the position of the worst-off). Using the same device, Harsanyi (1953, 1955), <i>Journal of Political Economy</i>, assumed equal probabilities for the positions and argued for maximizing expected (average) utility.",
+"tr": "<b>D'où vient le modèle :</b> Rawls (1971), <i>Théorie de la justice</i> (Harvard University Press), soutenait que les règles choisies dans une « position originelle » où l'on ignore sa place sont équitables, et en tirait le principe de différence (maximiser la situation des plus défavorisés). Avec le même dispositif, Harsanyi (1953, 1955), <i>Journal of Political Economy</i>, supposait des probabilités égales pour les positions et défendait la maximisation de l'utilité espérée (moyenne)."
+},
+{
+"id": "s2294",
+"page": "veil",
+"ko": "<b>핵심 가정과 수식:</b> 소득 y의 효용을 <code>u(y) = y<sup>1−γ</sup> / (1−γ)</code>(γ = 1이면 ln y)로 두고, 다섯 자리의 기댓값이 가장 큰 사회를 고릅니다. 이것이 상대적 위험 회피가 일정한(CRRA) 효용이고 슬라이더 γ가 위험 회피 정도입니다. 확실성 등가 소득은 <code>(E[y<sup>1−γ</sup>])<sup>1/(1−γ)</sup></code>이며 γ = 0이면 평균, γ가 아주 커지면 최솟값(롤스의 최소 극대화)에 가까워집니다.",
+"en": "<b>Key assumptions and formulas:</b> The utility of income y is <code>u(y) = y<sup>1−γ</sup> / (1−γ)</code> (ln y when γ = 1), and the society with the highest expected value over the five positions is chosen. This is constant relative risk aversion (CRRA) utility, and the γ slider is the degree of risk aversion. The certainty-equivalent income is <code>(E[y<sup>1−γ</sup>])<sup>1/(1−γ)</sup></code>, which equals the average at γ = 0 and approaches the minimum (Rawls’s maximin) as γ grows very large.",
+"tr": "<b>Hypothèses clés et formules :</b> L'utilité d'un revenu y est <code>u(y) = y<sup>1−γ</sup> / (1−γ)</code> (ln y quand γ = 1), et l'on choisit la société dont la valeur espérée sur les cinq positions est la plus élevée. C'est l'utilité à aversion relative au risque constante (CRRA), et le curseur γ représente le degré d'aversion au risque. Le revenu équivalent certain est <code>(E[y<sup>1−γ</sup>])<sup>1/(1−γ)</sup></code> ; il est égal à la moyenne pour γ = 0 et tend vers le minimum (le maximin de Rawls) quand γ devient très grand."
+},
+{
+"id": "s2295",
+"page": "veil",
+"ko": "<b>이 프로젝트의 단순화:</b> 다섯 사회의 소득 숫자, \"평등할수록 평균이 낮다\"는 가정, CRRA 효용, 자리가 같은 확률이라는 가정은 모두 이 프로젝트가 정한 것이고 두 학자의 논문 수치를 재현한 것이 아닙니다. 롤스는 확률을 알 수 없다고 보았고 기대효용 극대화를 그대로 받아들이지 않았으므로, 여기서 γ로 두 입장을 한 다이얼에 놓은 것은 비교를 위한 단순화입니다.",
+"en": "<b>What this project simplifies:</b> The income numbers of the five societies, the assumption that \"more equal means a lower average\", the CRRA utility and the equal-probability assumption were all chosen by this project, and they do not reproduce figures from either author. Rawls held that probabilities cannot be known and did not accept expected-utility maximization as such, so putting the two views on one γ dial is a simplification for comparison.",
+"tr": "<b>Ce que ce projet simplifie :</b> Les revenus des cinq sociétés, l'hypothèse que « plus d'égalité signifie une moyenne plus basse », l'utilité CRRA et l'hypothèse d'équiprobabilité ont tous été choisis par ce projet et ne reproduisent les chiffres d'aucun des deux auteurs. Rawls tenait que les probabilités ne peuvent pas être connues et n'acceptait pas la maximisation de l'utilité espérée en tant que telle ; réunir les deux points de vue sur un même réglage γ est donc une simplification destinée à la comparaison."
+},
+{
+"id": "s2296",
+"page": "veil",
+"ko": "<b>이론값과 시뮬레이션:</b> 식으로 직접 확인되는 값이 시뮬레이션과 맞습니다. γ = 1이면 확실성 등가는 기하평균이라 안전망 사회는 (40·48·58·72·96)<sup>1/5</sup> ≈ 59.9이고 스크립트 값도 59.9입니다. 추첨 20,000번의 평균은 110.2(이론 110.4), 최소 극대화 사회는 50.0(이론 50)이었습니다. 선택이 바뀌는 γ는 0.7, 1.0, 2.15, 6.1이었습니다.",
+"en": "<b>Theory versus simulation:</b> Values that can be computed by hand match the script. At γ = 1 the certainty equivalent is the geometric mean, so the safety-net society gives (40·48·58·72·96)<sup>1/5</sup> ≈ 59.9, and the script also gives 59.9. The mean of 20,000 draws was 110.2 (theory 110.4), and the maximin society gave 50.0 (theory 50). The choice switched at γ = 0.7, 1.0, 2.15 and 6.1.",
+"tr": "<b>Théorie et simulation :</b> Les valeurs calculables à la main concordent avec le script. Pour γ = 1, l'équivalent certain est la moyenne géométrique ; la société à filet de sécurité donne donc (40·48·58·72·96)<sup>1/5</sup> ≈ 59,9, et le script donne aussi 59,9. La moyenne de 20 000 tirages était de 110,2 (théorie 110,4), et la société maximin a donné 50,0 (théorie 50). Le choix a changé à γ = 0,7, 1,0, 2,15 et 6,1."
+}
+]

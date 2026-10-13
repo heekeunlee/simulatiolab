@@ -1,0 +1,478 @@
+[
+{
+"id": "s1107",
+"page": "firefly",
+"ko": "동기화를 이해하려면 서로 얼마나 영향을 주는지와 개체 차이의 균형부터 살펴볼 만해요.",
+"en": "To understand synchrony, the balance between mutual influence and individual differences is a good place to start.",
+"tr": "Pour comprendre la synchronie, l'équilibre entre l'influence mutuelle et les différences individuelles est un bon point de départ."
+},
+{
+"id": "s1109",
+"page": "firefly",
+"ko": "실제 반딧불이가 이렇게 박자를 맞춘다는 증명은 아니고, 빛의 세기나 학습 같은 요소도 빠져 있어요.",
+"en": "It does not prove real fireflies sync this way, and factors like light intensity and learning are missing.",
+"tr": "Il ne prouve pas que de vraies lucioles se synchronisent ainsi, et des facteurs comme l'intensité lumineuse et l'apprentissage sont absents."
+},
+{
+"id": "s1110",
+"page": "firefly",
+"ko": "실제 종의 깜빡임 간격과 서로 보는 거리를 관찰해 모델의 가정과 맞는지 확인해야 해요.",
+"en": "Observing real species' flash timing and viewing distances would show whether the assumptions hold.",
+"tr": "Observer le moment des éclairs et les distances de vue d'espèces réelles montrerait si les hypothèses tiennent."
+},
+{
+"id": "s1112",
+"page": "firefly",
+"ko": "<b>모델의 뿌리:</b> Peskin (1975)이 심장 박동 세포를 모델로 처음 다룬 \"펄스 결합 진동자\"를 Mirollo & Strogatz (1990)가 수학적으로 분석했습니다. 서로 모두 연결되고 똑같은 진동자들이 신호 때 서로를 조금씩 앞당기면, 거의 모든 시작 상태에서 한꺼번에 반짝이게 된다는 정리입니다. 반딧불이의 동시 점멸은 Buck & Buck (1968) 등이 관찰·설명했습니다.",
+"en": "<b>Where the model comes from:</b> Mirollo & Strogatz (1990) analyzed mathematically the \"pulse-coupled oscillators\" that Peskin (1975) first considered as a model of heart pacemaker cells: if identical oscillators, all connected to each other, nudge one another ahead whenever one fires, they end up firing together from almost any starting state. Synchronous flashing of fireflies was described by Buck & Buck (1968) and others.",
+"tr": "<b>D'où vient le modèle :</b> Mirollo et Strogatz (1990) ont analysé mathématiquement les « oscillateurs à impulsions couplées » que Peskin (1975) avait d'abord envisagés comme modèle des cellules pacemaker du cœur : si des oscillateurs identiques, tous reliés entre eux, s'avancent mutuellement chaque fois que l'un s'allume, ils finissent par s'allumer ensemble à partir de presque n'importe quel état de départ. Le clignotement synchrone des lucioles a été décrit par Buck et Buck (1968) et d'autres."
+},
+{
+"id": "s1113",
+"page": "firefly",
+"ko": "<b>핵심 가정과 수식:</b> 개체마다 위상이 1주기에 걸쳐 한 바퀴를 돌고, 1에 닿으면 반짝이며 범위 안의 이웃 위상을 결합 세기만큼 앞당깁니다. 동기화 정도는 위상을 원 위의 점으로 놓고 평균 화살표의 길이 <code>r = |평균 e<sup>iθ</sup>|</code>(Kuramoto의 질서 변수)로 잽니다. 결합 세기, 이웃 범위, 속도 차이가 슬라이더입니다.",
+"en": "<b>Key assumptions and formulas:</b> Each firefly's phase runs once around a cycle, and on reaching 1 it flashes and advances the phase of neighbors in range by the coupling strength. Synchrony is measured by putting the phases as points on a circle and taking the length of the mean arrow, <code>r = |mean e<sup>iθ</sup>|</code> (Kuramoto's order parameter). Coupling strength, neighbor range and speed spread are the sliders.",
+"tr": "<b>Hypothèses et formules clés :</b> La phase de chaque luciole parcourt une fois un cycle, et en atteignant 1 elle clignote et avance la phase des voisines à portée selon la force de couplage. La synchronie se mesure en plaçant les phases comme des points sur un cercle et en prenant la longueur de la flèche moyenne, <code>r = |mean e<sup>iθ</sup>|</code> (paramètre d'ordre de Kuramoto). La force de couplage, la portée de voisinage et la dispersion des vitesses sont les curseurs."
+},
+{
+"id": "s1114",
+"page": "firefly",
+"ko": "<b>이 프로젝트의 단순화:</b> Mirollo–Strogatz 정리는 위상 곡선이 위로 오목하고 모두가 서로 보며 속도가 같다는 조건이 필요하지만, 여기서는 위상을 선형으로 밀고 이웃이 제한되며 속도도 개체마다 다릅니다. 그래서 정리를 그대로 적용하지 않고 시뮬레이션으로 확인합니다. 한 번 반짝임으로 전달되는 크기, 0.02씩 자라는 위상, 150마리는 이 프로젝트가 정한 값입니다.",
+"en": "<b>What this project simplifies:</b> The Mirollo–Strogatz theorem requires a concave-down phase curve, everyone seeing everyone, and equal speeds. Here the phase nudge is linear, neighbors are limited and speeds differ per firefly, so the theorem does not apply as is and the result is checked by simulation. The size of a flash's nudge, the 0.02 phase growth per step and 150 fireflies are this project's own values.",
+"tr": "<b>Ce que ce projet simplifie :</b> Le théorème de Mirollo–Strogatz exige une courbe de phase concave vers le bas, que chacun voie tout le monde et des vitesses égales. Ici, la poussée de phase est linéaire, les voisines sont limitées et les vitesses diffèrent d'une luciole à l'autre, donc le théorème ne s'applique pas tel quel et le résultat est vérifié par simulation. La taille de la poussée d'un éclair, la croissance de phase de 0,02 par pas et les 150 lucioles sont des valeurs propres à ce projet."
+},
+{
+"id": "s1115",
+"page": "firefly",
+"ko": "<b>이론값과 시뮬레이션:</b> 이론이 확실히 말하는 극단은 시뮬레이션과 맞습니다. 속도 차이가 0이면 최종 r은 1.00이고, 결합이 0이면 r은 0.06으로 무작위 위상의 기대 크기(1/√150, 약 0.07~0.08)와 같습니다. 기본 설정의 최종 r은 6회 평균 0.87이고, 결합 3% 이상에서 0.95 근처, 이웃 범위 40% 이상에서 0.96입니다(<code>node tools/validate-firefly.js</code>). 조건이 달라 임계 결합 세기의 이론값은 없습니다.",
+"en": "<b>Theory versus simulation:</b> The extremes that theory is sure about match the simulation. With zero speed spread the final r is 1.00, and with zero coupling r is 0.06, about the expected size for random phases (about 0.07 to 0.08, from 1/√150). The default final r is 0.87 averaged over 6 runs, about 0.95 at coupling of 3% or more and 0.96 at neighbor range of 40% or more (<code>node tools/validate-firefly.js</code>). Because the conditions differ there is no theoretical value for the critical coupling.",
+"tr": "<b>Théorie et simulation :</b> Les cas extrêmes dont la théorie est sûre concordent avec la simulation. Avec une dispersion de vitesses nulle, le r final vaut 1,00, et avec un couplage nul r vaut 0,06, à peu près la taille attendue pour des phases aléatoires (environ 0,07 à 0,08, d'après 1/√150). Le r final par défaut est de 0,87 en moyenne sur 6 exécutions, environ 0,95 pour un couplage de 3 % ou plus et 0,96 pour une portée de voisinage de 40 % ou plus (<code>node tools/validate-firefly.js</code>). Les conditions étant différentes, il n'existe pas de valeur théorique pour le couplage critique."
+},
+{
+"id": "s1116",
+"page": "firefly",
+"ko": "<b>더 읽을거리:</b> Mirollo & Strogatz (1990), 「Synchronization of pulse-coupled biological oscillators」, SIAM Journal on Applied Mathematics 50(6). Strogatz (2003), 『Sync』, Hyperion(교양서). Buck & Buck (1968), 「Mechanism of rhythmic synchronous flashing of fireflies」, Science 159.",
+"en": "<b>Further reading:</b> Mirollo & Strogatz (1990), \"Synchronization of pulse-coupled biological oscillators\", <i>SIAM Journal on Applied Mathematics</i> 50(6). Strogatz (2003), <i>Sync</i>, Hyperion (popular account). Buck & Buck (1968), \"Mechanism of rhythmic synchronous flashing of fireflies\", <i>Science</i> 159.",
+"tr": "<b>Pour aller plus loin :</b> Mirollo &amp; Strogatz (1990), « Synchronization of pulse-coupled biological oscillators », <i>SIAM Journal on Applied Mathematics</i> 50(6). Strogatz (2003), <i>Sync</i>, Hyperion (grand public). Buck &amp; Buck (1968), « Mechanism of rhythmic synchronous flashing of fireflies », <i>Science</i> 159."
+},
+{
+"id": "s1117",
+"page": "firefly",
+"ko": "이 프로젝트가 직접 설계한 단순화 구현이며 논문 수치를 재현한 것은 아닙니다.",
+"en": "A simplified implementation of this project's own design; it does not reproduce any paper's numbers.",
+"tr": "Une implémentation simplifiée conçue par ce projet ; elle ne reproduit les chiffres d'aucun article."
+},
+{
+"id": "s1119",
+"page": "firefly",
+"ko": "기본 설정(결합 2.5%, 범위 30%, 속도 차이 10%)으로 시드 10개를 돌리면 모두 동기화(r>0.9)에 닿고, 걸린 주기는 2~31주기(10개 중 7개는 2~6주기)입니다. 결합이 1% 이하면 r이 0.2 아래, 3% 이상이면 0.95 근처입니다 (<code>node tools/validate-firefly.js</code>로 확인).",
+"en": "With the default settings (coupling 2.5%, range 30%, speed spread 10%), 10 seeds all reach synchrony (r>0.9), taking 2 to 31 cycles (7 of the 10 within 2 to 6). At coupling of 1% or less r stays below 0.2, and at 3% or more it is near 0.95 (verify with <code>node tools/validate-firefly.js</code>).",
+"tr": "Avec les réglages par défaut (couplage 2,5 %, portée 30 %, dispersion des vitesses 10 %), 10 graines atteignent toutes la synchronie (r>0,9), en 2 à 31 cycles (7 sur 10 entre 2 et 6). À un couplage de 1 % ou moins, r reste sous 0,2, et à 3 % ou plus il est proche de 0,95 (vérifiez avec <code>node tools/validate-firefly.js</code>)."
+},
+{
+"id": "s1157",
+"page": "friendship",
+"ko": "이 관계망에서는 사람 82.6%가 자기 친구들이 평균적으로 자기보다 친구가 더 많았어요.",
+"en": "In this network, 82.6% of people had friends who, on average, had more friends than they did.",
+"tr": "Dans ce réseau, 82,6 % des personnes avaient des amis qui, en moyenne, avaient plus d'amis qu'elles."
+},
+{
+"id": "s1158",
+"page": "friendship",
+"ko": "친구 목록을 훑으면 친구가 많은 사람이 그만큼 더 자주 나오기 때문에, 친구 수가 다르기만 해도 이렇게 돼요.",
+"en": "Scanning friend lists, people with many friends show up more often, so merely having uneven friend counts produces this.",
+"tr": "En parcourant les listes d'amis, les personnes qui ont beaucoup d'amis apparaissent plus souvent ; le simple fait que le nombre d'amis soit inégal produit donc cet effet."
+},
+{
+"id": "s1159",
+"page": "friendship",
+"ko": "내 친구가 더 많아 보일 때는 내 처지보다, 목록에 허브가 자주 등장하는 구조 탓은 아닌지 살펴볼 만해요.",
+"en": "When friends seem to have more friends, it may be worth checking whether hubs simply appear in many lists before blaming yourself.",
+"tr": "Quand les amis semblent avoir plus d'amis, il peut être utile de vérifier si les hubs apparaissent simplement dans beaucoup de listes avant de se blâmer."
+},
+{
+"id": "s1161",
+"page": "friendship",
+"ko": "내가 인기가 없다거나 친구 많은 사람이 더 행복하다는 뜻은 아니에요. 82.6%도 이 모델의 실험 결과예요.",
+"en": "It does not mean you are unpopular or that people with more friends are happier; the 82.6% is this model's experimental result.",
+"tr": "Cela ne veut pas dire que vous êtes impopulaire ni que les gens qui ont plus d'amis sont plus heureux ; les 82,6 % sont le résultat expérimental de ce modèle."
+},
+{
+"id": "s1162",
+"page": "friendship",
+"ko": "모임·동네 같은 묶음 구조와 외톨이가 빠져 있어, 실제 친구 수와 관계망은 따로 조사해야 확인할 수 있어요.",
+"en": "Groups, neighborhoods and loners are missing, so real friend counts and networks need to be surveyed separately.",
+"tr": "Les groupes, les quartiers et les solitaires sont absents ; le nombre d'amis et les réseaux réels doivent donc être étudiés séparément."
+},
+{
+"id": "s1164",
+"page": "friendship",
+"ko": "<b>모델의 뿌리:</b> Scott L. Feld가 1991년 「Why your friends have more friends than you do」(<i>American Journal of Sociology</i>)에서 정리한 &quot;친구의 역설&quot;입니다. 친구 목록을 훑으면 친구가 많은 사람이 그만큼 더 자주 나오기 때문에, 친구들의 친구 수는 평균적으로 전체 평균 이상이 됩니다. 이 페이지의 관계망 규칙에는 선호 연결(Barabási와 Albert, 1999)의 아이디어를 썼습니다.",
+"en": "<b>Where the model comes from:</b> The &quot;friendship paradox&quot; laid out by Scott L. Feld in &quot;Why your friends have more friends than you do&quot; (1991, <i>American Journal of Sociology</i>). Scanning friend lists, people with many friends show up more often, so on average friends have at least as many friends as the overall average. The network rule here borrows the idea of preferential attachment (Barabási and Albert, 1999).",
+"tr": "<b>D'où vient le modèle :</b> Le « paradoxe de l'amitié » exposé par Scott L. Feld dans « Why your friends have more friends than you do » (1991, <i>American Journal of Sociology</i>). En parcourant les listes d'amis, les personnes ayant beaucoup d'amis apparaissent plus souvent, si bien qu'en moyenne les amis ont au moins autant d'amis que la moyenne générale. La règle de réseau utilisée ici emprunte l'idée de l'attachement préférentiel (Barabási et Albert, 1999)."
+},
+{
+"id": "s1165",
+"page": "friendship",
+"ko": "<b>핵심 가정과 수식:</b> 친구 목록 칸 하나를 무작위로 골랐을 때 그 사람의 친구 수 평균은 <code>⟨k²⟩/⟨k⟩ = ⟨k⟩ + Var(k)/⟨k⟩</code>이라서, 친구 수가 모두 같지 않으면 평균 ⟨k⟩보다 큽니다. 허브 쏠림 슬라이더가 클수록 Var(k)가 커집니다. 사람별 &quot;친구들의 평균&quot;을 다시 평균 낸 값도 친구 관계 하나마다 (이웃의 친구 수 ÷ 내 친구 수) + (내 친구 수 ÷ 이웃의 친구 수) ≥ 2이므로 항상 ⟨k⟩ 이상입니다.",
+"en": "<b>Key assumptions and formulas:</b> Picking one slot in the friend lists at random, the average number of friends of that person is <code>⟨k²⟩/⟨k⟩ = ⟨k⟩ + Var(k)/⟨k⟩</code>, which exceeds the mean ⟨k⟩ unless everyone has the same number. A larger hub-concentration slider raises Var(k). The average of each person's &quot;friends' average&quot; is also always at least ⟨k⟩, because each friendship contributes (neighbor's friends ÷ my friends) + (my friends ÷ neighbor's friends) ≥ 2.",
+"tr": "<b>Hypothèses et formules clés :</b> En choisissant au hasard une place dans les listes d'amis, le nombre moyen d'amis de cette personne est <code>⟨k²⟩/⟨k⟩ = ⟨k⟩ + Var(k)/⟨k⟩</code>, ce qui dépasse la moyenne ⟨k⟩ sauf si tout le monde a le même nombre d'amis. Un curseur de concentration sur les hubs plus élevé augmente Var(k). La moyenne des « moyennes des amis » de chaque personne est elle aussi toujours au moins égale à ⟨k⟩, car chaque amitié apporte (amis du voisin ÷ mes amis) + (mes amis ÷ amis du voisin) ≥ 2."
+},
+{
+"id": "s1166",
+"page": "friendship",
+"ko": "<b>이 프로젝트의 단순화:</b> 실제 사회 조사 자료가 아니라 이 프로젝트가 만든 가상 관계망입니다. 새로 온 사람이 기존 사람 중 균등하게, 또는 친구 수에 비례해 친구를 고르는 규칙이며, 외톨이도 모임·동네 같은 묶음 구조도 없습니다. 허브 쏠림 0%도 완전 무작위가 아니라 먼저 온 사람이 유리한 규칙입니다. 사람 수 150, 허브 80%, 평균 친구 6은 이 프로젝트가 정한 기본값입니다.",
+"en": "<b>What this project simplifies:</b> This is a synthetic network built by this project, not survey data. Each newcomer picks existing people uniformly or in proportion to their friend count; there are no loners and no clusters such as clubs or neighborhoods. Hub concentration of 0% is not fully random either, since early arrivals have an advantage. The defaults of 150 people, 80% hubs and 6 friends on average are this project's own choices.",
+"tr": "<b>Ce que ce projet simplifie :</b> C'est un réseau synthétique construit par ce projet, et non des données d'enquête. Chaque nouvel arrivant choisit des personnes existantes de façon uniforme ou proportionnellement à leur nombre d'amis ; il n'y a ni solitaires ni regroupements comme des clubs ou des quartiers. Une concentration sur les hubs de 0 % n'est pas non plus entièrement aléatoire, puisque les premiers arrivés ont un avantage. Les valeurs par défaut de 150 personnes, 80 % de hubs et 6 amis en moyenne sont des choix propres à ce projet."
+},
+{
+"id": "s1167",
+"page": "friendship",
+"ko": "<b>이론값과 시뮬레이션:</b> 기본값 관계망 300개 평균에서 평균 친구 수는 5.92, ⟨k²⟩/⟨k⟩는 9.70, 사람별 친구들 평균의 평균은 10.17로 둘 다 5.92보다 컸고, 300개 모두에서 (친구들 평균 − 평균 친구 수)의 최솟값이 2.81(≥ 0)이었습니다. 관계망 하나에서 친구 목록 전체의 평균은 식값 ⟨k²⟩/⟨k⟩와 같았습니다(10.0856). 친구들이 더 많은 사람의 비율은 허브 0%에서 71.3%, 100%에서 85.4%였고, 이 비율은 법칙이 아니라 이 모델의 실험 결과입니다.",
+"en": "<b>Theory versus simulation:</b> Over 300 default networks the average number of friends was 5.92, ⟨k²⟩/⟨k⟩ was 9.70 and the average of per-person friends' averages was 10.17, both above 5.92, and in all 300 the minimum of (friends' average − average friend count) was 2.81 (≥ 0). In one network the average over all friend-list slots equaled the formula ⟨k²⟩/⟨k⟩ (10.0856). The share of people whose friends have more friends was 71.3% at 0% hubs and 85.4% at 100%; that share is a result of this model, not a law.",
+"tr": "<b>Théorie et simulation :</b> Sur 300 réseaux par défaut, le nombre moyen d'amis était de 5,92, ⟨k²⟩/⟨k⟩ de 9,70 et la moyenne des moyennes d'amis par personne de 10,17, tous deux au-dessus de 5,92, et dans les 300 réseaux le minimum de (moyenne des amis − nombre moyen d'amis) était de 2,81 (≥ 0). Dans un réseau, la moyenne sur toutes les places des listes d'amis égalait la formule ⟨k²⟩/⟨k⟩ (10,0856). La part de personnes dont les amis ont plus d'amis était de 71,3 % à 0 % de hubs et de 85,4 % à 100 % ; cette part est un résultat de ce modèle, et non une loi."
+},
+{
+"id": "s1168",
+"page": "friendship",
+"ko": "<b>더 읽을거리:</b> Feld (1991), Why your friends have more friends than you do, <i>American Journal of Sociology</i> / Barabási &amp; Albert (1999), Emergence of scaling in random networks, <i>Science</i> / Christakis &amp; Fowler (2010), Social network sensors for early detection of contagious outbreaks, <i>PLoS ONE</i> (이 성질을 감염병 조기 감지에 쓰자는 제안).",
+"en": "<b>Further reading:</b> Feld (1991), Why your friends have more friends than you do, <i>American Journal of Sociology</i> / Barabási &amp; Albert (1999), Emergence of scaling in random networks, <i>Science</i> / Christakis &amp; Fowler (2010), Social network sensors for early detection of contagious outbreaks, <i>PLoS ONE</i> (a proposal to use this property for early outbreak detection).",
+"tr": "<b>Pour aller plus loin :</b> Feld (1991), Why your friends have more friends than you do, <i>American Journal of Sociology</i> / Barabási &amp; Albert (1999), Emergence of scaling in random networks, <i>Science</i> / Christakis &amp; Fowler (2010), Social network sensors for early detection of contagious outbreaks, <i>PLoS ONE</i> (une proposition d'utiliser cette propriété pour la détection précoce des épidémies)."
+},
+{
+"id": "s1169",
+"page": "friendship",
+"ko": "재생의 표본 추출은 \"무작위로 고른 사람이 말해 준 친구\"를 뽑는 방식이라 사람별 친구들 평균의 평균(10.17명)에 수렴합니다.",
+"en": "The sampling in the animation draws \"a friend named by a randomly chosen person\", so it converges to the average of per-person friend averages (10.17).",
+"tr": "L'échantillonnage dans l'animation tire « un ami cité par une personne choisie au hasard », il converge donc vers la moyenne des moyennes d'amis par personne (10,17)."
+},
+{
+"id": "s1172",
+"page": "fxrate",
+"ko": "캐리 트레이드와 환율 · 시뮬라티오 랩",
+"en": "Carry Trade and Exchange Rates · Simulatio Lab",
+"tr": "Carry trade et taux de change · Simulatio Lab"
+},
+{
+"id": "s1173",
+"page": "fxrate",
+"ko": "금리가 높은 나라의 통화를 사서 이자를 챙기는 캐리 트레이드가 왜 오래 조금씩 벌다 한 번에 크게 잃는지, 환율과 투자자 쏠림 시뮬레이션으로 직접 돌려보세요.",
+"en": "Run a simulation of exchange rates and investor crowding to see why the carry trade, buying a high-interest currency for its interest, tends to earn a little for years and then lose a lot at once.",
+"tr": "Lancez une simulation de taux de change et d'afflux d'investisseurs pour voir pourquoi le carry trade, qui consiste à acheter une devise à taux élevé pour son intérêt, tend à rapporter un peu pendant des années, puis à faire perdre beaucoup d'un coup."
+},
+{
+"id": "s1174",
+"page": "fxrate",
+"ko": "금리가 높은 나라의 통화를 사서 이자를 받으면, 환율만 그대로라면 가만히 앉아서 버는 거래처럼 보입니다. 이론은 그 이자만큼 그 통화값이 떨어져서 결국 공짜 점심은 없다고 말하지만, 현실에서는 그렇지 않은 때가 많아 이 거래(캐리 트레이드)에 사람들이 몰립니다. 그런데 이 시뮬레이션에서는 사람들이 몰릴수록 통화값이 몇 해 동안 계단처럼 조용히 오르다가 어느 한 주에 일제히 빠져나가며 몇 년치 이익이 한꺼번에 사라집니다. 평균으로는 벌어도, 번 돈의 모양이 위험한 거래입니다.",
+"en": "Buy the currency of a high-interest country, collect the interest, and as long as the exchange rate stays put it looks like money for nothing. Theory says that currency should fall by about the interest gap, so there is no free lunch, yet in practice it often does not, and people pile into this trade (the carry trade). In this simulation, though, the more people pile in, the more the currency creeps up like a staircase for years, until one week everybody exits at once and years of gains vanish together. On average it pays, but the shape of the pay is dangerous.",
+"tr": "Achetez la devise d'un pays à taux élevé, encaissez l'intérêt, et tant que le taux de change ne bouge pas, cela ressemble à de l'argent facile. La théorie dit que cette devise devrait baisser d'environ l'écart de taux, donc il n'y a pas de repas gratuit ; pourtant, dans la pratique, ce n'est souvent pas le cas, et les gens se ruent sur cette opération (le carry trade). Dans cette simulation, plus il y a de monde, plus la devise grimpe comme par un escalier pendant des années, jusqu'à ce qu'une semaine tout le monde sorte d'un coup et que des années de gains disparaissent ensemble. En moyenne, cela rapporte, mais la forme de ce gain est dangereuse."
+},
+{
+"id": "s1175",
+"page": "fxrate",
+"ko": "두 나라가 있습니다. 한 나라는 금리가 낮아 돈을 빌리기 좋고(자금 조달 통화), 다른 나라는 금리가 높습니다(<b>높은 금리 통화</b>, 원화 같은 신흥국 통화를 떠올려 보세요). 캐리 트레이드는 낮은 금리로 빌려 높은 금리 통화를 사서 이자 차이를 받는 거래입니다. 금리 차이(기본 4%p)는 <b>예시 숫자</b>이고 어느 시점의 실제 금리가 아닙니다.",
+"en": "There are two countries. One has low interest rates and is a cheap place to borrow (the funding currency); the other has high rates (the <b>high-rate currency</b>; think of an emerging-market currency such as the won). The carry trade borrows cheaply, buys the high-rate currency and pockets the interest gap. The gap (4 percentage points by default) is an <b>example number</b>, not any real rate at any date.",
+"tr": "Il y a deux pays. L'un a des taux bas et c'est un endroit peu coûteux pour emprunter (la devise de financement) ; l'autre a des taux élevés (la <b>devise à taux élevé</b> ; pensez à une devise émergente comme le won). Le carry trade emprunte à bas coût, achète la devise à taux élevé et empoche l'écart de taux. L'écart (4 points de pourcentage par défaut) est un <b>chiffre d'exemple</b>, pas un taux réel à une date donnée."
+},
+{
+"id": "s1176",
+"page": "fxrate",
+"ko": "이론(<b>비커버드 이자율 평가, UIP</b>)이 완전히 맞다면 높은 금리 통화는 평균적으로 금리 차이만큼 약해져서 캐리의 기대 수익은 0입니다. 슬라이더 <b>UIP가 맞는 정도</b>는 그 상쇄가 실제로 일어나는 비율입니다. 100%면 이론 그대로이고 0%면 환율이 그냥 제멋대로(임의보행) 움직입니다. 기본은 30%입니다. 현실에서는 상쇄가 이론에 못 미치는 경우가 많다고 알려져 있지만 이 값은 이 프로젝트가 정한 예시입니다.",
+"en": "If theory (<b>uncovered interest parity, UIP</b>) held fully, the high-rate currency would on average weaken by the interest gap, so the carry trade's expected profit would be zero. The slider <b>How much UIP holds</b> sets the share of that offsetting that actually happens: at 100% theory holds exactly, at 0% the exchange rate just wanders (a random walk). The default is 30%. The offset is often found to fall short of theory in real data, but this value is just this project's example.",
+"tr": "Si la théorie (<b>parité des taux d'intérêt non couverte, UIP</b>) se vérifiait pleinement, la devise à taux élevé se déprécierait en moyenne de l'écart de taux, et le gain espéré du carry trade serait nul. Le curseur <b>Dans quelle mesure l'UIP se vérifie</b> règle la part de cette compensation qui se produit réellement : à 100 % la théorie est exacte, à 0 % le taux de change erre simplement (marche aléatoire). La valeur par défaut est 30 %. On constate souvent dans les données réelles que la compensation est inférieure à la théorie, mais cette valeur n'est qu'un exemple de ce projet."
+},
+{
+"id": "s1177",
+"page": "fxrate",
+"ko": "환율은 매주 무작위로 흔들립니다(<b>변동성</b>). 여기에 <b>쏠림</b>이 더해집니다. 캐리가 매력적일수록(금리 차이가 크고 변동성이 작을수록) 캐리 투자자가 천천히 늘고, 늘 때마다 높은 금리 통화를 사 들여 가격을 조금씩 밀어 올립니다(계단). 쏠림이 커질수록 한 주에 일제히 청산할 확률도 커지고, 청산하면 쏠림이 한꺼번에 줄며 그만큼 통화값이 떨어집니다(엘리베이터). <b>쏠림의 힘</b>은 투자자 전체가 움직일 때 통화값이 밀리는 크기입니다.",
+"en": "The exchange rate shakes randomly every week (<b>volatility</b>). On top of that comes <b>crowding</b>. The more attractive the carry (a bigger gap and lower volatility), the more carry investors slowly join, and each time they buy the high-rate currency and nudge its price up (the stairs). The bigger the crowd, the higher the chance that everyone unwinds in a single week, and when they do the crowd shrinks at once and the currency falls by the same amount (the elevator). <b>Crowd power</b> is how far the currency is pushed when the whole crowd moves.",
+"tr": "Le taux de change s'agite au hasard chaque semaine (<b>volatilité</b>). S'y ajoute l'<b>afflux</b>. Plus le carry est attractif (écart plus grand et volatilité plus faible), plus des investisseurs carry rejoignent lentement le mouvement, et à chaque fois ils achètent la devise à taux élevé et font monter son prix (l'escalier). Plus la foule est grande, plus il est probable que tout le monde dénoue en une seule semaine ; alors la foule fond d'un coup et la devise baisse d'autant (l'ascenseur). La <b>force de la foule</b> est l'ampleur du mouvement de la devise quand toute la foule bouge."
+},
+{
+"id": "s1178",
+"page": "fxrate",
+"ko": "한 주의 <b>캐리 수익</b>은 이자 차이의 주간 몫에 그 주의 환율 변화를 더한 값입니다(빌린 돈 1단위당, 레버리지 없음). 아래 차트는 이 수익을 쌓은 누적 손익, 한 주 수익의 분포, 금리 차이에 따른 변화입니다. 같은 설정에서 시장 번호만 바꿔 다른 운의 시장을 볼 수 있습니다.",
+"en": "A week's <b>carry profit</b> is the weekly share of the interest gap plus that week's exchange-rate change (per unit borrowed, no leverage). The charts below show the running total, the distribution of weekly profits, and how things change with the interest gap. Keep the settings and change only the market number to see a market with different luck.",
+"tr": "Le <b>gain du carry</b> d'une semaine est la part hebdomadaire de l'écart de taux plus la variation du taux de change de cette semaine (par unité empruntée, sans effet de levier). Les graphiques ci-dessous montrent le total cumulé, la distribution des gains hebdomadaires et l'évolution selon l'écart de taux. Gardez les réglages et changez seulement le numéro de marché pour voir un marché avec une autre chance."
+},
+{
+"id": "s1179",
+"page": "fxrate",
+"ko": "두 나라의 금리 차이 (예시) <output id=\"o-diff\"></output>",
+"en": "Interest gap between the two countries (example) <output id=\"o-diff\"></output>",
+"tr": "Écart de taux entre les deux pays (exemple) <output id=\"o-diff\"></output>"
+},
+{
+"id": "s1180",
+"page": "fxrate",
+"ko": "클수록 이자 수입이 크고 캐리가 매력적이라 사람이 빨리 몰려요",
+"en": "The bigger it is, the more interest you collect and the faster people pile in",
+"tr": "Plus il est grand, plus vous touchez d'intérêts et plus les gens affluent vite"
+},
+{
+"id": "s1181",
+"page": "fxrate",
+"ko": "UIP가 맞는 정도 <output id=\"o-uip\"></output>",
+"en": "How much UIP holds <output id=\"o-uip\"></output>",
+"tr": "Dans quelle mesure l'UIP se vérifie <output id=\"o-uip\"></output>"
+},
+{
+"id": "s1182",
+"page": "fxrate",
+"ko": "100%면 높은 금리 통화가 금리 차이만큼 약해져 기대 수익이 0이에요",
+"en": "At 100% the high-rate currency weakens by the gap and expected profit is zero",
+"tr": "À 100 %, la devise à taux élevé se déprécie de l'écart et le gain espéré est nul"
+},
+{
+"id": "s1183",
+"page": "fxrate",
+"ko": "쏠림의 힘 <output id=\"o-imp\"></output>",
+"en": "Crowd power <output id=\"o-imp\"></output>",
+"tr": "Force de la foule <output id=\"o-imp\"></output>"
+},
+{
+"id": "s1184",
+"page": "fxrate",
+"ko": "0이면 쏠림이 없는 순수한 임의보행. 크면 급락도 커요",
+"en": "0 means no crowding, a pure random walk. Higher means bigger crashes",
+"tr": "0 signifie aucun afflux, une marche aléatoire pure. Plus c'est élevé, plus les chutes sont fortes"
+},
+{
+"id": "s1185",
+"page": "fxrate",
+"ko": "환율 변동성 (연) <output id=\"o-vol\"></output>",
+"en": "Exchange-rate volatility (yearly) <output id=\"o-vol\"></output>",
+"tr": "Volatilité du taux de change (annuelle) <output id=\"o-vol\"></output>"
+},
+{
+"id": "s1186",
+"page": "fxrate",
+"ko": "클수록 환율이 요동쳐요. 캐리의 매력은 금리 차이÷변동성이에요",
+"en": "Higher means a wilder exchange rate. A carry's appeal is the gap divided by volatility",
+"tr": "Plus elle est élevée, plus le taux de change est agité. L'attrait d'un carry est l'écart divisé par la volatilité"
+},
+{
+"id": "s1187",
+"page": "fxrate",
+"ko": "기간 <output id=\"o-years\"></output>",
+"en": "Period <output id=\"o-years\"></output>",
+"tr": "Période <output id=\"o-years\"></output>"
+},
+{
+"id": "s1188",
+"page": "fxrate",
+"ko": "길수록 쏠림과 청산이 여러 번 돌아요",
+"en": "Longer lets crowding and unwinding cycle several times",
+"tr": "Plus long, l'afflux et le dénouement peuvent se répéter plusieurs fois"
+},
+{
+"id": "s1189",
+"page": "fxrate",
+"ko": "같은 설정, 다른 운의 시장",
+"en": "Same settings, a market with different luck",
+"tr": "Mêmes réglages, un marché avec une autre chance"
+},
+{
+"id": "s1190",
+"page": "fxrate",
+"ko": "① 통화값과 캐리 투자자의 쏠림",
+"en": "① The Currency and the Crowd of Carry Investors",
+"tr": "① La devise et la foule des investisseurs carry"
+},
+{
+"id": "s1191",
+"page": "fxrate",
+"ko": "위쪽 파란 선은 높은 금리 통화의 가치입니다(시작 = 100). 아래 주황 띠는 캐리 투자자가 얼마나 몰렸는지입니다. 쏠림이 차오르는 동안 통화값은 계단처럼 오르고, 붉은 점에서 일제히 청산하면 한 번에 떨어집니다. 지켜보세요.",
+"en": "The blue line on top is the value of the high-rate currency (start = 100). The orange band below shows how crowded the carry trade is. While the crowd builds, the currency climbs like a staircase, and at each red dot everybody unwinds and it drops at once. Watch.",
+"tr": "La ligne bleue du haut est la valeur de la devise à taux élevé (départ = 100). La bande orange du bas montre l'affluence dans le carry trade. Tant que la foule grossit, la devise monte comme par un escalier, et à chaque point rouge tout le monde dénoue et elle chute d'un coup. Regardez."
+},
+{
+"id": "s1192",
+"page": "fxrate",
+"ko": "② 캐리를 계속 들고 있었다면: 누적 손익",
+"en": "② If You Kept Holding the Carry: Running Profit",
+"tr": "② Si vous gardiez le carry : gain cumulé"
+},
+{
+"id": "s1193",
+"page": "fxrate",
+"ko": "매주 캐리 수익을 쌓은 선입니다(빌린 돈 1단위당, %p). 회색 점선은 UIP가 완전히 맞을 때의 기대(0), 초록 점선은 이 설정의 평균 기대입니다. 붉은 세로선은 청산한 주, 붉은 띠는 가장 크게 빠진 구간(최대 낙폭)입니다.",
+"en": "This line adds up each week's carry profit (per unit borrowed, in percentage points). The gray dashed line is the expectation when UIP holds fully (zero), the green dashed line the average expectation for these settings. Red vertical lines mark unwinding weeks and the red band the deepest fall (maximum drawdown).",
+"tr": "Cette ligne additionne le gain du carry de chaque semaine (par unité empruntée, en points de pourcentage). La ligne grise en pointillés est l'espérance quand l'UIP se vérifie pleinement (zéro), la verte en pointillés l'espérance moyenne avec ces réglages. Les lignes rouges verticales marquent les semaines de dénouement et la bande rouge la baisse la plus profonde (perte maximale)."
+},
+{
+"id": "s1194",
+"page": "fxrate",
+"ko": "<i style=\"background:var(--accent)\"></i>누적 캐리 손익",
+"en": "<i style=\"background:var(--accent)\"></i>Running carry profit",
+"tr": "<i style=\"background:var(--accent)\"></i>Gain cumulé du carry"
+},
+{
+"id": "s1195",
+"page": "fxrate",
+"ko": "<i style=\"background:#1fa463\"></i>이 설정의 평균 기대",
+"en": "<i style=\"background:#1fa463\"></i>Average expectation here",
+"tr": "<i style=\"background:#1fa463\"></i>Espérance moyenne ici"
+},
+{
+"id": "s1196",
+"page": "fxrate",
+"ko": "<i style=\"background:#8a93a6\"></i>UIP가 완전할 때(0)",
+"en": "<i style=\"background:#8a93a6\"></i>If UIP held fully (0)",
+"tr": "<i style=\"background:#8a93a6\"></i>Si l'UIP se vérifiait pleinement (0)"
+},
+{
+"id": "s1197",
+"page": "fxrate",
+"ko": "③ 한 주의 손익은 어떻게 흩어질까",
+"en": "③ How Weekly Profits Scatter",
+"tr": "③ Comment se dispersent les gains hebdomadaires"
+},
+{
+"id": "s1198",
+"page": "fxrate",
+"ko": "경로 40개를 합쳐 한 주의 캐리 수익을 센 분포입니다. 회색 선은 같은 평균과 변동성을 가진 종 모양(정규분포)입니다. 쏠림이 있으면 왼쪽 꼬리(붉은 부분, 한 주에 -5% 아래)가 종 모양이 말하는 것보다 훨씬 두껍습니다. 쏠림의 힘을 0으로 내리면 꼬리가 사라집니다.",
+"en": "This counts weekly carry profits pooled over 40 paths. The gray line is a bell curve (normal distribution) with the same average and volatility. With crowding the left tail (red, below -5% in a week) is far thicker than the bell curve says. Set crowd power to 0 and the tail disappears.",
+"tr": "On compte ici les gains hebdomadaires du carry regroupés sur 40 trajectoires. La ligne grise est une courbe en cloche (loi normale) de même moyenne et même volatilité. Avec l'afflux, la queue de gauche (rouge, sous -5 % en une semaine) est bien plus épaisse que ne le dit la courbe en cloche. Mettez la force de la foule à 0 et la queue disparaît."
+},
+{
+"id": "s1199",
+"page": "fxrate",
+"ko": "<i style=\"background:var(--accent)\"></i>실제 주 수",
+"en": "<i style=\"background:var(--accent)\"></i>Actual weeks",
+"tr": "<i style=\"background:var(--accent)\"></i>Semaines réelles"
+},
+{
+"id": "s1200",
+"page": "fxrate",
+"ko": "<i style=\"background:#e5484d\"></i>-5% 아래",
+"en": "<i style=\"background:#e5484d\"></i>Below -5%",
+"tr": "<i style=\"background:#e5484d\"></i>Sous -5 %"
+},
+{
+"id": "s1201",
+"page": "fxrate",
+"ko": "<i style=\"background:#8a93a6\"></i>종 모양(정규분포)",
+"en": "<i style=\"background:#8a93a6\"></i>Bell curve (normal)",
+"tr": "<i style=\"background:#8a93a6\"></i>Courbe en cloche (normale)"
+},
+{
+"id": "s1202",
+"page": "fxrate",
+"ko": "④ 금리 차이를 키우면",
+"en": "④ If the Interest Gap Grows",
+"tr": "④ Si l'écart de taux grandit"
+},
+{
+"id": "s1203",
+"page": "fxrate",
+"ko": "가로는 금리 차이, 세로는 평균입니다. 초록은 연 평균 캐리 수익, 빨강은 가장 나쁜 한 주의 평균 손실입니다. 금리 차이가 클수록 이자는 더 벌지만, 사람이 빨리 몰려 한 주의 급락도 커집니다. 경로 24개의 평균입니다.",
+"en": "The horizontal axis is the interest gap, the vertical axis an average. Green is the average yearly carry profit, red the average loss in the worst single week. A bigger gap earns more interest but also draws the crowd faster, so the worst week gets bigger. Each point averages 24 paths.",
+"tr": "L'axe horizontal est l'écart de taux, l'axe vertical une moyenne. Le vert est le gain annuel moyen du carry, le rouge la perte moyenne de la pire semaine. Un écart plus grand rapporte plus d'intérêts mais attire aussi la foule plus vite, donc la pire semaine est plus lourde. Chaque point est la moyenne de 24 trajectoires."
+},
+{
+"id": "s1204",
+"page": "fxrate",
+"ko": "<i style=\"background:#1fa463\"></i>연 평균 캐리 수익",
+"en": "<i style=\"background:#1fa463\"></i>Average yearly carry profit",
+"tr": "<i style=\"background:#1fa463\"></i>Gain annuel moyen du carry"
+},
+{
+"id": "s1205",
+"page": "fxrate",
+"ko": "<i style=\"background:#e5484d\"></i>가장 나쁜 한 주의 평균 손실",
+"en": "<i style=\"background:#e5484d\"></i>Average loss in the worst week",
+"tr": "<i style=\"background:#e5484d\"></i>Perte moyenne de la pire semaine"
+},
+{
+"id": "s1206",
+"page": "fxrate",
+"ko": "캐리 거래는 연 3.1%를 벌었지만, 최악의 한 주는 평균 -10.0%였습니다.",
+"en": "Carry earned 3.1% a year, but the worst week averaged -10.0%.",
+"tr": "Le carry a rapporté 3,1 % par an, mais la pire semaine a donné en moyenne -10,0 %."
+},
+{
+"id": "s1207",
+"page": "fxrate",
+"ko": "이 모델에서는 쏠림이 천천히 쌓이다 한 주에 일제히 풀리며 통화값이 밀려, 왼쪽 꼬리가 길어졌습니다.",
+"en": "In this model crowding builds slowly and unwinds in one week, pushing the currency down and making a long left tail.",
+"tr": "Dans ce modèle, l'encombrement s'accumule lentement et se dénoue en une semaine, ce qui fait chuter la devise et crée une longue queue gauche."
+},
+{
+"id": "s1208",
+"page": "fxrate",
+"ko": "평균 수익만이 아니라 쏠림이 얼마나 쌓였는지와 급락의 모양까지 살펴볼 만합니다.",
+"en": "Beyond average returns, how much crowding has built up and the shape of the drops are worth examining.",
+"tr": "Au-delà des rendements moyens, il vaut la peine d'examiner l'ampleur de l'encombrement accumulé et la forme des chutes."
+},
+{
+"id": "s1209",
+"page": "fxrate",
+"ko": "<b>말하는 것:</b> 기본 설정(금리 차이 4%p, 변동성 연 8%, UIP 30%, 쏠림의 힘 12%, 20년)에서 시장 번호 1은 청산이 4번 있었고 연 평균 6.9%를 벌었지만, 최악의 한 주는 -11.5%로 평소 한 주 평균 이익의 87주치(약 1.7년치)를 날렸습니다. 같은 설정의 다른 시장은 운이 달라서 번호 3은 연 평균 -1.1%에 최대 낙폭 66.0%p였습니다. 200개 시장을 평균하면 연 3.1%를 벌었고 이는 이론값(쏠림이 없을 때 2.8%에 쏠림이 만드는 가격 밀림 0.3%를 더한 3.12%)과 맞았습니다. 하지만 최악의 한 주는 평균 -10.0%, 그 한 주가 지운 이익은 중앙값으로 155주치(약 3.0년치)였고 수익이 난 주는 53.7%뿐이었습니다. 쏠림이 없으면(힘 0) 같은 조건에서 최악의 주가 -3.5%이고 분포가 좌우 대칭(왜도 0.00)이었지만, 쏠림이 있으면 왜도가 -1.50으로 왼쪽 꼬리가 길어졌습니다. 쏠림의 힘을 5%, 20%, 25%로 바꾸면 왜도가 -0.16, -4.03, -5.53이고 최악의 주는 -4.8%, -16.2%, -20.1%였습니다. UIP가 100% 맞아도(평균 캐리 약 0) 쏠림이 있으면 왜도는 여전히 -1.50이었습니다. 즉 평균 이익이 없어도, 있어도 급락의 모양은 남았습니다. 경로 40개를 합친 41,600주 중 -5% 아래인 주는 249주(0.60%)였는데, 같은 평균과 변동성의 종 모양이라면 약 1.3주만 나올 정도입니다. 금리 차이를 0, 4, 10%p로 올리면 연 평균 캐리 수익이 0.20%, 3.06%, 7.70%로 늘었고, 가장 나쁜 한 주의 평균 손실도 3.6%, 10.1%, 10.5%로 커졌습니다.",
+"en": "<b>What it shows:</b> With the default settings (interest gap 4 points, volatility 8% a year, UIP 30%, crowd power 12%, 20 years), market number 1 had 4 unwinds and earned 6.9% a year on average, yet its worst week was -11.5%, wiping out 87 weeks (about 1.7 years) of the usual average weekly gain. Other markets with the same settings had different luck: number 3 averaged -1.1% a year with a maximum drawdown of 66.0 points. Averaged over 200 markets the trade earned 3.1% a year, matching the theory value (2.8% without crowding plus the 0.3% price push from the crowd, 3.12%). But the worst week averaged -10.0%, the profit that week erased was a median of 155 weeks (about 3.0 years), and only 53.7% of weeks made money. With no crowding (power 0) under the same conditions the worst week was -3.5% and the distribution was symmetric (skewness 0.00), whereas with crowding skewness was -1.50, a long left tail. With crowd power at 5%, 20% and 25%, skewness was -0.16, -4.03 and -5.53 and the worst week -4.8%, -16.2% and -20.1%. Even when UIP held 100% (average carry about zero) the skewness with crowding was still -1.50: with or without average profit, the shape of the crash remained. Among 41,600 weeks pooled from 40 paths, 249 (0.60%) fell below -5%, where a bell curve with the same average and volatility would give only about 1.3. Raising the interest gap to 0, 4 and 10 points lifted the average yearly carry profit to 0.20%, 3.06% and 7.70%, and also raised the average loss in the worst week to 3.6%, 10.1% and 10.5%.",
+"tr": "<b>Ce que cela montre :</b> Avec les réglages par défaut (écart de taux 4 points, volatilité 8 % par an, UIP 30 %, force de la foule 12 %, 20 ans), le marché numéro 1 a connu 4 dénouements et gagné en moyenne 6,9 % par an, mais sa pire semaine a été de -11,5 %, effaçant 87 semaines (environ 1,7 an) du gain hebdomadaire moyen habituel. D'autres marchés aux mêmes réglages ont eu une autre chance : le numéro 3 a fait en moyenne -1,1 % par an avec une perte maximale de 66,0 points. Moyenné sur 200 marchés, le trade a rapporté 3,1 % par an, conforme à la valeur théorique (2,8 % sans afflux plus 0,3 % de poussée de prix due à la foule, soit 3,12 %). Mais la pire semaine a atteint en moyenne -10,0 %, le gain effacé cette semaine-là était de 155 semaines en médiane (environ 3,0 ans), et seules 53,7 % des semaines étaient gagnantes. Sans afflux (force 0) dans les mêmes conditions, la pire semaine était de -3,5 % et la distribution symétrique (asymétrie 0,00), alors qu'avec l'afflux l'asymétrie était de -1,50, avec une longue queue à gauche. Avec une force de la foule de 5 %, 20 % et 25 %, l'asymétrie était de -0,16, -4,03 et -5,53 et la pire semaine de -4,8 %, -16,2 % et -20,1 %. Même quand l'UIP se vérifiait à 100 % (carry moyen proche de zéro), l'asymétrie avec afflux restait de -1,50 : avec ou sans gain moyen, la forme du krach demeurait. Sur 41 600 semaines regroupées à partir de 40 trajectoires, 249 (0,60 %) sont passées sous -5 %, là où une courbe en cloche de même moyenne et même volatilité n'en donnerait qu'environ 1,3. Porter l'écart de taux à 0, 4 et 10 points a fait passer le gain annuel moyen du carry à 0,20 %, 3,06 % et 7,70 %, et la perte moyenne de la pire semaine à 3,6 %, 10,1 % et 10,5 %."
+},
+{
+"id": "s1210",
+"page": "fxrate",
+"ko": "환율이나 이익을 맞히는 모델이 아닙니다. 투자 판단에 쓰지 마세요. 금리 차이와 쏠림 규칙은 예시 값입니다.",
+"en": "It does not predict exchange rates or profits and is not for investment decisions; the rate gap and crowding rules are examples.",
+"tr": "Il ne prédit ni les taux de change ni les profits et ne doit pas servir à des décisions d'investissement ; l'écart de taux et les règles d'encombrement sont des exemples."
+},
+{
+"id": "s1211",
+"page": "fxrate",
+"ko": "실제 급락에 쏠림이 얼마나 작용했는지는 이 모델로 알 수 없어, 실제 자료로 따로 확인해야 합니다.",
+"en": "How much crowding drove real crashes cannot be told from this model and must be checked against real data.",
+"tr": "Dans quelle mesure l'encombrement a provoqué de vrais krachs ne peut pas être déduit de ce modèle et doit être vérifié avec des données réelles."
+},
+{
+"id": "s1212",
+"page": "fxrate",
+"ko": "<b>말하지 않는 것:</b> 이 모델로 금리나 환율을 맞힐 수 없고, 어떤 거래가 이익일지 알려 주지도 않습니다. 투자 판단에 쓰지 마세요. 모든 숫자(금리 차이, 변동성, 쏠림의 힘, UIP가 맞는 정도, 쏠림이 늘고 청산하는 규칙)는 이 프로젝트가 정한 예시이고, 원화를 비롯한 특정 통화나 어느 시기의 실제 환율·금리를 나타내지 않습니다. 현실의 환율에는 경제 지표, 정책, 국제 자금의 이동, 위험 회피 같은 훨씬 많은 요인이 있고, 이 모델은 \"쏠림과 일제 청산이 이런 계단과 급락의 모양을 만들 수 있다\"는 메커니즘 하나만 보여 줄 뿐 실제 급락의 원인이 이것이라고 증명하지 않습니다. 거래 비용, 레버리지, 세금, 여러 통화의 조합도 빠져 있습니다.",
+"en": "<b>What it doesn't show:</b> This model cannot predict interest rates or exchange rates, and does not tell you which trade will make money. Do not use it for investment decisions. Every number (the interest gap, volatility, crowd power, how much UIP holds, and the rules for the crowd to grow and unwind) is an example chosen by this project and stands for no particular currency, including the won, and for no real exchange rate or interest rate at any date. Real exchange rates have many more drivers, such as economic data, policy, international capital flows and risk aversion, and this model shows only one mechanism, that crowding and a joint exit can create this staircase-and-crash shape, without proving that this is what causes real crashes. Trading costs, leverage, taxes and portfolios of several currencies are also left out.",
+"tr": "<b>Ce que cela ne montre pas :</b> Ce modèle ne peut prédire ni les taux d'intérêt ni les taux de change, et ne dit pas quelle opération rapportera de l'argent. Ne l'utilisez pas pour des décisions d'investissement. Chaque chiffre (l'écart de taux, la volatilité, la force de la foule, la mesure dans laquelle l'UIP se vérifie, et les règles de croissance et de dénouement de la foule) est un exemple choisi par ce projet et ne représente aucune devise en particulier, y compris le won, ni aucun taux de change ou taux d'intérêt réel à une date donnée. Les taux de change réels ont bien d'autres moteurs, comme les données économiques, la politique, les flux internationaux de capitaux et l'aversion au risque, et ce modèle ne montre qu'un seul mécanisme, à savoir que l'afflux et une sortie collective peuvent créer cette forme d'escalier suivi d'un krach, sans prouver que c'est ce qui cause les krachs réels. Les coûts de transaction, l'effet de levier, les impôts et les portefeuilles de plusieurs devises sont également exclus."
+},
+{
+"id": "s1213",
+"page": "fxrate",
+"ko": "<b>모델의 뿌리:</b> 서로 다른 두 통화의 금리 차이와 환율의 관계를 말하는 <b>이자율 평가</b>가 뿌리입니다. 차익거래로 성립하는 <i>커버드</i> 이자율 평가와 달리, 환율을 미리 고정하지 않은 <i>비커버드</i>(UIP)는 기대되는 환율 변화가 금리 차이와 같다는 가설입니다. Fama(1984)는 「Forward and spot exchange rates」(<i>Journal of Monetary Economics</i>)에서 실제 자료가 이에 맞지 않는 점을 보였고(UIP 퍼즐), Meese와 Rogoff(1983)는 환율 모형이 임의보행보다 표본 밖에서 더 잘 맞히지 못한다고 보고했습니다. 쏠림과 급락은 Brunnermeier, Nagel, Pedersen(2009)의 「Carry Trades and Currency Crashes」가 다룬 주제입니다.",
+"en": "<b>Where the model comes from:</b> The root is <b>interest rate parity</b>, linking the interest gap between two currencies to the exchange rate. Unlike <i>covered</i> parity, which holds by arbitrage, <i>uncovered</i> parity (UIP) is the hypothesis that the expected change in the exchange rate equals the interest gap. Fama (1984), in &quot;Forward and spot exchange rates&quot; (<i>Journal of Monetary Economics</i>), showed real data do not fit it (the UIP puzzle), and Meese and Rogoff (1983) reported that exchange-rate models forecast out of sample no better than a random walk. Crowding and crashes are the theme of Brunnermeier, Nagel and Pedersen (2009), &quot;Carry Trades and Currency Crashes&quot;.",
+"tr": "<b>D'où vient le modèle :</b> La racine est la <b>parité des taux d'intérêt</b>, qui relie l'écart de taux entre deux devises au taux de change. Contrairement à la parité <i>couverte</i>, qui tient par arbitrage, la parité <i>non couverte</i> (UIP) est l'hypothèse selon laquelle la variation attendue du taux de change égale l'écart de taux. Fama (1984), dans &quot;Forward and spot exchange rates&quot; (<i>Journal of Monetary Economics</i>), a montré que les données réelles ne s'y conforment pas (le puzzle de l'UIP), et Meese et Rogoff (1983) ont rapporté que les modèles de taux de change ne prévoient pas mieux hors échantillon qu'une marche aléatoire. L'afflux et les krachs sont le thème de Brunnermeier, Nagel et Pedersen (2009), &quot;Carry Trades and Currency Crashes&quot;."
+},
+{
+"id": "s1214",
+"page": "fxrate",
+"ko": "<b>핵심 가정과 수식:</b> 환율 x(높은 금리 통화 가치의 로그)는 주마다 <code>x ← x − u·d/52 + k·(c' − c) + (σ/√52)·ε</code>로 바뀝니다(d 금리 차이, u UIP가 맞는 정도, c 쏠림, k 쏠림의 힘, σ 연 변동성). 캐리 수익은 <code>d/52 + Δx</code>라서 쏠림이 없으면 기대치가 <code>(1−u)·d</code>이고 u=1이면 0입니다. 쏠림은 <code>c ← c + r·c(1−c)</code>(r = 0.06×d/σ에 약간의 무작위)로 늘고, 주마다 <code>0.0004 + 0.02·c³</code>의 확률로 일제히 청산해 c가 50~90% 줄어듭니다.",
+"en": "<b>Key assumptions and formulas:</b> The exchange rate x (log of the high-rate currency's value) changes each week as <code>x ← x − u·d/52 + k·(c' − c) + (σ/√52)·ε</code> (d interest gap, u how much UIP holds, c crowding, k crowd power, σ yearly volatility). The carry profit is <code>d/52 + Δx</code>, so without crowding its expectation is <code>(1−u)·d</code>, and zero when u=1. Crowding grows as <code>c ← c + r·c(1−c)</code> (r = 0.06×d/σ with some randomness), and each week with probability <code>0.0004 + 0.02·c³</code> everyone unwinds and c shrinks by 50 to 90%.",
+"tr": "<b>Hypothèses et formules clés :</b> Le taux de change x (logarithme de la valeur de la devise à taux élevé) évolue chaque semaine selon <code>x ← x − u·d/52 + k·(c' − c) + (σ/√52)·ε</code> (d écart de taux, u mesure dans laquelle l'UIP se vérifie, c afflux, k force de la foule, σ volatilité annuelle). Le gain du carry est <code>d/52 + Δx</code>, donc sans afflux son espérance est <code>(1−u)·d</code>, et nulle quand u=1. L'afflux croît selon <code>c ← c + r·c(1−c)</code> (r = 0,06×d/σ avec un peu d'aléa), et chaque semaine, avec la probabilité <code>0.0004 + 0.02·c³</code>, tout le monde dénoue et c diminue de 50 à 90 %."
+},
+{
+"id": "s1215",
+"page": "fxrate",
+"ko": "<b>이 프로젝트의 단순화:</b> 쏠림이 늘고 청산하는 규칙과 그 상수(0.06, 0.0004, 0.02, 청산 때 50~90% 감소), 시작 쏠림 10%, 변동성이 일정한 점, 이자 차이가 일정한 점은 이 프로젝트가 정한 값입니다. 실제 시장의 위험 회피, 유동성, 레버리지, 중앙은행 개입, 거래 비용은 없습니다. Fama의 퍼즐과 Brunnermeier 등의 분석을 재현한 것이 아니라 그 직관을 보여 주는 장난감 모델입니다.",
+"en": "<b>What this project simplifies:</b> The rules for the crowd to grow and unwind and their constants (0.06, 0.0004, 0.02, a 50 to 90% drop at an unwind), the 10% starting crowd, the constant volatility and the constant interest gap are this project's own choices. Real-market risk aversion, liquidity, leverage, central-bank intervention and trading costs are absent. It does not reproduce Fama's puzzle or the analysis of Brunnermeier et al.; it is a toy model that shows their intuition.",
+"tr": "<b>Ce que ce projet simplifie :</b> Les règles de croissance et de dénouement de la foule et leurs constantes (0,06, 0,0004, 0,02, une baisse de 50 à 90 % lors d'un dénouement), l'afflux initial de 10 %, la volatilité constante et l'écart de taux constant sont des choix propres à ce projet. L'aversion au risque, la liquidité, l'effet de levier, les interventions des banques centrales et les coûts de transaction des marchés réels sont absents. Il ne reproduit ni le puzzle de Fama ni l'analyse de Brunnermeier et al. ; c'est un modèle jouet qui en montre l'intuition."
+},
+{
+"id": "s1216",
+"page": "fxrate",
+"ko": "<b>이론값과 시뮬레이션:</b> 쏠림이 없을 때 평균 연 캐리 수익의 이론값 <code>(1−u)·d</code>는 UIP 30%에서 2.80%, 100%에서 0이고, 3,000개 시장×20년 시뮬레이션은 2.84%와 0.04%였습니다(표준오차 약 0.03). 쏠림이 있으면 환율 밀림의 합이 k×(끝 쏠림−처음 쏠림)이라 이론 2.80%에 0.32%를 더한 3.12%이고 시뮬레이션도 3.12%였습니다. 쏠림이 없을 때 주간 변동성은 이론 1.109%에 시뮬레이션 1.108%, 1주 자기상관은 -0.001이었습니다. 52주 뒤 환율 변화를 맞히는 오차(제곱평균제곱근)는 쏠림이 없을 때 변화 없음 예측이 7.82%p, 금리 차이만큼 약해진다는 UIP 예측이 8.36%p로, 이 모델은 UIP가 30%만 맞도록 만들어서 Meese–Rogoff식 결과가 나오게 되어 있으므로 실제 증거가 아닙니다.",
+"en": "<b>Theory versus simulation:</b> Without crowding, the theoretical average yearly carry profit <code>(1−u)·d</code> is 2.80% at UIP 30% and 0 at 100%, and the simulation of 3,000 markets × 20 years gave 2.84% and 0.04% (standard error about 0.03). With crowding the total price push is k×(final crowd − starting crowd), so theory is 2.80% plus 0.32% = 3.12%, and the simulation also gave 3.12%. Without crowding, weekly volatility was 1.108% in the simulation against a theoretical 1.109%, and one-week autocorrelation was -0.001. For guessing the exchange-rate change 52 weeks ahead, the root-mean-square error without crowding was 7.82 points for a no-change forecast and 8.36 points for the UIP forecast (the currency weakens by the gap); since this model makes UIP hold only 30%, a Meese–Rogoff-style result is built in and is not real evidence.",
+"tr": "<b>Théorie contre simulation :</b> Sans afflux, le gain annuel moyen théorique du carry <code>(1−u)·d</code> est de 2,80 % avec une UIP à 30 % et de 0 à 100 %, et la simulation de 3 000 marchés × 20 ans a donné 2,84 % et 0,04 % (erreur standard d'environ 0,03). Avec l'afflux, la poussée totale du prix est k×(foule finale − foule initiale), donc la théorie donne 2,80 % plus 0,32 % = 3,12 %, et la simulation a aussi donné 3,12 %. Sans afflux, la volatilité hebdomadaire était de 1,108 % en simulation contre 1,109 % en théorie, et l'autocorrélation à une semaine de -0,001. Pour deviner la variation du taux de change à 52 semaines, l'erreur quadratique moyenne sans afflux était de 7,82 points pour une prévision d'absence de changement et de 8,36 points pour la prévision UIP (la devise se déprécie de l'écart) ; comme ce modèle ne fait vérifier l'UIP qu'à 30 %, un résultat de type Meese–Rogoff est intégré d'office et ne constitue pas une preuve réelle."
+},
+{
+"id": "s1217",
+"page": "fxrate",
+"ko": "<b>더 읽을거리:</b> Fama (1984), 「Forward and spot exchange rates」, <i>Journal of Monetary Economics</i> / Meese &amp; Rogoff (1983), 「Empirical exchange rate models of the seventies: Do they fit out of sample?」, <i>Journal of International Economics</i> / Brunnermeier, Nagel &amp; Pedersen (2009), 「Carry Trades and Currency Crashes」, <i>NBER Macroeconomics Annual</i>.",
+"en": "<b>Further reading:</b> Fama (1984), &quot;Forward and spot exchange rates&quot;, <i>Journal of Monetary Economics</i> / Meese &amp; Rogoff (1983), &quot;Empirical exchange rate models of the seventies: Do they fit out of sample?&quot;, <i>Journal of International Economics</i> / Brunnermeier, Nagel &amp; Pedersen (2009), &quot;Carry Trades and Currency Crashes&quot;, <i>NBER Macroeconomics Annual</i>.",
+"tr": "<b>Pour aller plus loin :</b> Fama (1984), &quot;Forward and spot exchange rates&quot;, <i>Journal of Monetary Economics</i> / Meese &amp; Rogoff (1983), &quot;Empirical exchange rate models of the seventies: Do they fit out of sample?&quot;, <i>Journal of International Economics</i> / Brunnermeier, Nagel &amp; Pedersen (2009), &quot;Carry Trades and Currency Crashes&quot;, <i>NBER Macroeconomics Annual</i>."
+},
+{
+"id": "s1218",
+"page": "fxrate",
+"ko": "검증은 <code>node tools/validate-fxrate.js</code>로 할 수 있습니다. 시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시장 번호면 같은 결과가 나옵니다. 위 통계 카드의 왜도는 같은 설정으로 40개 경로를 따로 돌린 평균이고, ④의 점은 경로 24개 평균입니다.",
+"en": "You can verify with <code>node tools/validate-fxrate.js</code>. The simulation uses a seeded random generator (mulberry32), so the same market number gives the same result. The skewness in the statistics cards is the average over 40 separate paths with the same settings, and each point in chart ④ averages 24 paths.",
+"tr": "Vous pouvez le vérifier avec <code>node tools/validate-fxrate.js</code>. La simulation utilise un générateur aléatoire à graine (mulberry32), donc le même numéro de marché donne le même résultat. L'asymétrie des cartes de statistiques est la moyenne de 40 trajectoires distinctes avec les mêmes réglages, et chaque point du graphique ④ est la moyenne de 24 trajectoires."
+}
+]

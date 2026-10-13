@@ -1,0 +1,646 @@
+[
+{
+"id": "s1166",
+"page": "friendship",
+"ko": "<b>이 프로젝트의 단순화:</b> 실제 사회 조사 자료가 아니라 이 프로젝트가 만든 가상 관계망입니다. 새로 온 사람이 기존 사람 중 균등하게, 또는 친구 수에 비례해 친구를 고르는 규칙이며, 외톨이도 모임·동네 같은 묶음 구조도 없습니다. 허브 쏠림 0%도 완전 무작위가 아니라 먼저 온 사람이 유리한 규칙입니다. 사람 수 150, 허브 80%, 평균 친구 6은 이 프로젝트가 정한 기본값입니다.",
+"en": "<b>What this project simplifies:</b> This is a synthetic network built by this project, not survey data. Each newcomer picks existing people uniformly or in proportion to their friend count; there are no loners and no clusters such as clubs or neighborhoods. Hub concentration of 0% is not fully random either, since early arrivals have an advantage. The defaults of 150 people, 80% hubs and 6 friends on average are this project's own choices.",
+"tr": "<b>Что упрощено в этом проекте:</b> Это синтетическая сеть, построенная проектом, а не данные опроса. Каждый новичок выбирает уже существующих людей равномерно или пропорционально числу их друзей; нет одиночек и скоплений вроде клубов или районов. Концентрация на хабах 0 % тоже не вполне случайна, так как пришедшие раньше имеют преимущество. Значения по умолчанию — 150 человек, 80 % хабов и 6 друзей в среднем — собственный выбор проекта."
+},
+{
+"id": "s1167",
+"page": "friendship",
+"ko": "<b>이론값과 시뮬레이션:</b> 기본값 관계망 300개 평균에서 평균 친구 수는 5.92, ⟨k²⟩/⟨k⟩는 9.70, 사람별 친구들 평균의 평균은 10.17로 둘 다 5.92보다 컸고, 300개 모두에서 (친구들 평균 − 평균 친구 수)의 최솟값이 2.81(≥ 0)이었습니다. 관계망 하나에서 친구 목록 전체의 평균은 식값 ⟨k²⟩/⟨k⟩와 같았습니다(10.0856). 친구들이 더 많은 사람의 비율은 허브 0%에서 71.3%, 100%에서 85.4%였고, 이 비율은 법칙이 아니라 이 모델의 실험 결과입니다.",
+"en": "<b>Theory versus simulation:</b> Over 300 default networks the average number of friends was 5.92, ⟨k²⟩/⟨k⟩ was 9.70 and the average of per-person friends' averages was 10.17, both above 5.92, and in all 300 the minimum of (friends' average − average friend count) was 2.81 (≥ 0). In one network the average over all friend-list slots equaled the formula ⟨k²⟩/⟨k⟩ (10.0856). The share of people whose friends have more friends was 71.3% at 0% hubs and 85.4% at 100%; that share is a result of this model, not a law.",
+"tr": "<b>Теория и симуляция:</b> По 300 сетям с настройками по умолчанию среднее число друзей было 5,92, ⟨k²⟩/⟨k⟩ — 9,70, а среднее по средним числам друзей друзей — 10,17, оба выше 5,92, и во всех 300 сетях минимум (среднее у друзей − среднее число друзей) составил 2,81 (≥ 0). В одной сети среднее по всем позициям в списках друзей совпало с формулой ⟨k²⟩/⟨k⟩ (10,0856). Доля людей, у чьих друзей друзей больше, составила 71,3 % при 0 % хабов и 85,4 % при 100 %; эта доля — результат данной модели, а не закон."
+},
+{
+"id": "s1168",
+"page": "friendship",
+"ko": "<b>더 읽을거리:</b> Feld (1991), Why your friends have more friends than you do, <i>American Journal of Sociology</i> / Barabási &amp; Albert (1999), Emergence of scaling in random networks, <i>Science</i> / Christakis &amp; Fowler (2010), Social network sensors for early detection of contagious outbreaks, <i>PLoS ONE</i> (이 성질을 감염병 조기 감지에 쓰자는 제안).",
+"en": "<b>Further reading:</b> Feld (1991), Why your friends have more friends than you do, <i>American Journal of Sociology</i> / Barabási &amp; Albert (1999), Emergence of scaling in random networks, <i>Science</i> / Christakis &amp; Fowler (2010), Social network sensors for early detection of contagious outbreaks, <i>PLoS ONE</i> (a proposal to use this property for early outbreak detection).",
+"tr": "<b>Что почитать дальше:</b> Feld (1991), Why your friends have more friends than you do, <i>American Journal of Sociology</i> / Barabási &amp; Albert (1999), Emergence of scaling in random networks, <i>Science</i> / Christakis &amp; Fowler (2010), Social network sensors for early detection of contagious outbreaks, <i>PLoS ONE</i> (предложение использовать это свойство для раннего обнаружения вспышек)."
+},
+{
+"id": "s1169",
+"page": "friendship",
+"ko": "재생의 표본 추출은 \"무작위로 고른 사람이 말해 준 친구\"를 뽑는 방식이라 사람별 친구들 평균의 평균(10.17명)에 수렴합니다.",
+"en": "The sampling in the animation draws \"a friend named by a randomly chosen person\", so it converges to the average of per-person friend averages (10.17).",
+"tr": "Выборка в анимации берёт «друга, названного случайно выбранным человеком», поэтому сходится к среднему по средним значениям числа друзей друзей (10,17)."
+},
+{
+"id": "s1172",
+"page": "fxrate",
+"ko": "캐리 트레이드와 환율 · 시뮬라티오 랩",
+"en": "Carry Trade and Exchange Rates · Simulatio Lab",
+"tr": "Керри-трейд и обменные курсы · Simulatio Lab"
+},
+{
+"id": "s1173",
+"page": "fxrate",
+"ko": "금리가 높은 나라의 통화를 사서 이자를 챙기는 캐리 트레이드가 왜 오래 조금씩 벌다 한 번에 크게 잃는지, 환율과 투자자 쏠림 시뮬레이션으로 직접 돌려보세요.",
+"en": "Run a simulation of exchange rates and investor crowding to see why the carry trade, buying a high-interest currency for its interest, tends to earn a little for years and then lose a lot at once.",
+"tr": "Запустите симуляцию обменных курсов и скопления инвесторов, чтобы увидеть, почему керри-трейд — покупка высокодоходной валюты ради процентов — склонен годами приносить понемногу, а затем разом приводить к крупным потерям."
+},
+{
+"id": "s1174",
+"page": "fxrate",
+"ko": "금리가 높은 나라의 통화를 사서 이자를 받으면, 환율만 그대로라면 가만히 앉아서 버는 거래처럼 보입니다. 이론은 그 이자만큼 그 통화값이 떨어져서 결국 공짜 점심은 없다고 말하지만, 현실에서는 그렇지 않은 때가 많아 이 거래(캐리 트레이드)에 사람들이 몰립니다. 그런데 이 시뮬레이션에서는 사람들이 몰릴수록 통화값이 몇 해 동안 계단처럼 조용히 오르다가 어느 한 주에 일제히 빠져나가며 몇 년치 이익이 한꺼번에 사라집니다. 평균으로는 벌어도, 번 돈의 모양이 위험한 거래입니다.",
+"en": "Buy the currency of a high-interest country, collect the interest, and as long as the exchange rate stays put it looks like money for nothing. Theory says that currency should fall by about the interest gap, so there is no free lunch, yet in practice it often does not, and people pile into this trade (the carry trade). In this simulation, though, the more people pile in, the more the currency creeps up like a staircase for years, until one week everybody exits at once and years of gains vanish together. On average it pays, but the shape of the pay is dangerous.",
+"tr": "Купите валюту страны с высокой процентной ставкой, получайте проценты — и пока обменный курс стоит на месте, это выглядит как деньги из ничего. По теории эта валюта должна подешеветь примерно на разницу ставок, так что бесплатных обедов не бывает, однако на практике этого часто не происходит, и люди бросаются в такую сделку (керри-трейд). В этой симуляции чем больше людей заходит, тем выше валюта годами ползёт вверх, как по лестнице, пока в одну неделю все не выходят разом, и многолетняя прибыль исчезает целиком. В среднем это приносит доход, но форма этого дохода опасна."
+},
+{
+"id": "s1175",
+"page": "fxrate",
+"ko": "두 나라가 있습니다. 한 나라는 금리가 낮아 돈을 빌리기 좋고(자금 조달 통화), 다른 나라는 금리가 높습니다(<b>높은 금리 통화</b>, 원화 같은 신흥국 통화를 떠올려 보세요). 캐리 트레이드는 낮은 금리로 빌려 높은 금리 통화를 사서 이자 차이를 받는 거래입니다. 금리 차이(기본 4%p)는 <b>예시 숫자</b>이고 어느 시점의 실제 금리가 아닙니다.",
+"en": "There are two countries. One has low interest rates and is a cheap place to borrow (the funding currency); the other has high rates (the <b>high-rate currency</b>; think of an emerging-market currency such as the won). The carry trade borrows cheaply, buys the high-rate currency and pockets the interest gap. The gap (4 percentage points by default) is an <b>example number</b>, not any real rate at any date.",
+"tr": "Есть две страны. В одной ставки низкие, и там дёшево занимать (валюта фондирования); в другой ставки высокие (<b>высокодоходная валюта</b>; представьте валюту развивающейся страны, например вону). Керри-трейд занимает дёшево, покупает высокодоходную валюту и забирает разницу ставок. Разница (по умолчанию 4 процентных пункта) — это <b>условное число</b>, а не реальная ставка на какую-либо дату."
+},
+{
+"id": "s1176",
+"page": "fxrate",
+"ko": "이론(<b>비커버드 이자율 평가, UIP</b>)이 완전히 맞다면 높은 금리 통화는 평균적으로 금리 차이만큼 약해져서 캐리의 기대 수익은 0입니다. 슬라이더 <b>UIP가 맞는 정도</b>는 그 상쇄가 실제로 일어나는 비율입니다. 100%면 이론 그대로이고 0%면 환율이 그냥 제멋대로(임의보행) 움직입니다. 기본은 30%입니다. 현실에서는 상쇄가 이론에 못 미치는 경우가 많다고 알려져 있지만 이 값은 이 프로젝트가 정한 예시입니다.",
+"en": "If theory (<b>uncovered interest parity, UIP</b>) held fully, the high-rate currency would on average weaken by the interest gap, so the carry trade's expected profit would be zero. The slider <b>How much UIP holds</b> sets the share of that offsetting that actually happens: at 100% theory holds exactly, at 0% the exchange rate just wanders (a random walk). The default is 30%. The offset is often found to fall short of theory in real data, but this value is just this project's example.",
+"tr": "Если бы теория (<b>непокрытый паритет процентных ставок, UIP</b>) выполнялась полностью, высокодоходная валюта в среднем дешевела бы на разницу ставок, и ожидаемая прибыль керри-трейда была бы нулевой. Ползунок <b>Насколько выполняется UIP</b> задаёт долю этой компенсации, которая действительно происходит: при 100% теория выполняется точно, при 0% обменный курс просто блуждает (случайное блуждание). По умолчанию 30%. В реальных данных компенсация нередко оказывается меньше теоретической, но это значение — лишь пример данного проекта."
+},
+{
+"id": "s1177",
+"page": "fxrate",
+"ko": "환율은 매주 무작위로 흔들립니다(<b>변동성</b>). 여기에 <b>쏠림</b>이 더해집니다. 캐리가 매력적일수록(금리 차이가 크고 변동성이 작을수록) 캐리 투자자가 천천히 늘고, 늘 때마다 높은 금리 통화를 사 들여 가격을 조금씩 밀어 올립니다(계단). 쏠림이 커질수록 한 주에 일제히 청산할 확률도 커지고, 청산하면 쏠림이 한꺼번에 줄며 그만큼 통화값이 떨어집니다(엘리베이터). <b>쏠림의 힘</b>은 투자자 전체가 움직일 때 통화값이 밀리는 크기입니다.",
+"en": "The exchange rate shakes randomly every week (<b>volatility</b>). On top of that comes <b>crowding</b>. The more attractive the carry (a bigger gap and lower volatility), the more carry investors slowly join, and each time they buy the high-rate currency and nudge its price up (the stairs). The bigger the crowd, the higher the chance that everyone unwinds in a single week, and when they do the crowd shrinks at once and the currency falls by the same amount (the elevator). <b>Crowd power</b> is how far the currency is pushed when the whole crowd moves.",
+"tr": "Обменный курс случайно колеблется каждую неделю (<b>волатильность</b>). Сверх этого действует <b>скопление</b>. Чем привлекательнее керри (больше разница и ниже волатильность), тем больше керри-инвесторов постепенно присоединяется, и каждый раз они покупают высокодоходную валюту и подталкивают её цену вверх (лестница). Чем больше толпа, тем выше вероятность, что все закроют позиции за одну неделю; тогда толпа разом сокращается, а валюта падает на ту же величину (лифт). <b>Сила толпы</b> — это то, насколько сдвигается валюта, когда двигается вся толпа."
+},
+{
+"id": "s1178",
+"page": "fxrate",
+"ko": "한 주의 <b>캐리 수익</b>은 이자 차이의 주간 몫에 그 주의 환율 변화를 더한 값입니다(빌린 돈 1단위당, 레버리지 없음). 아래 차트는 이 수익을 쌓은 누적 손익, 한 주 수익의 분포, 금리 차이에 따른 변화입니다. 같은 설정에서 시장 번호만 바꿔 다른 운의 시장을 볼 수 있습니다.",
+"en": "A week's <b>carry profit</b> is the weekly share of the interest gap plus that week's exchange-rate change (per unit borrowed, no leverage). The charts below show the running total, the distribution of weekly profits, and how things change with the interest gap. Keep the settings and change only the market number to see a market with different luck.",
+"tr": "<b>Доход от керри</b> за неделю — это недельная доля разницы ставок плюс изменение обменного курса за эту неделю (на единицу заёмных средств, без плеча). Графики ниже показывают накопленный итог, распределение недельных доходов и то, как всё меняется с разницей ставок. Оставьте настройки и меняйте только номер рынка, чтобы увидеть рынок с другой удачей."
+},
+{
+"id": "s1179",
+"page": "fxrate",
+"ko": "두 나라의 금리 차이 (예시) <output id=\"o-diff\"></output>",
+"en": "Interest gap between the two countries (example) <output id=\"o-diff\"></output>",
+"tr": "Разница ставок между двумя странами (пример) <output id=\"o-diff\"></output>"
+},
+{
+"id": "s1180",
+"page": "fxrate",
+"ko": "클수록 이자 수입이 크고 캐리가 매력적이라 사람이 빨리 몰려요",
+"en": "The bigger it is, the more interest you collect and the faster people pile in",
+"tr": "Чем он больше, тем больше процентов и тем быстрее приходят люди"
+},
+{
+"id": "s1181",
+"page": "fxrate",
+"ko": "UIP가 맞는 정도 <output id=\"o-uip\"></output>",
+"en": "How much UIP holds <output id=\"o-uip\"></output>",
+"tr": "Насколько выполняется UIP <output id=\"o-uip\"></output>"
+},
+{
+"id": "s1182",
+"page": "fxrate",
+"ko": "100%면 높은 금리 통화가 금리 차이만큼 약해져 기대 수익이 0이에요",
+"en": "At 100% the high-rate currency weakens by the gap and expected profit is zero",
+"tr": "При 100% высокодоходная валюта дешевеет на разницу ставок, и ожидаемая прибыль равна нулю"
+},
+{
+"id": "s1183",
+"page": "fxrate",
+"ko": "쏠림의 힘 <output id=\"o-imp\"></output>",
+"en": "Crowd power <output id=\"o-imp\"></output>",
+"tr": "Сила толпы <output id=\"o-imp\"></output>"
+},
+{
+"id": "s1184",
+"page": "fxrate",
+"ko": "0이면 쏠림이 없는 순수한 임의보행. 크면 급락도 커요",
+"en": "0 means no crowding, a pure random walk. Higher means bigger crashes",
+"tr": "0 — без скопления, чистое случайное блуждание. Чем выше, тем сильнее обвалы"
+},
+{
+"id": "s1185",
+"page": "fxrate",
+"ko": "환율 변동성 (연) <output id=\"o-vol\"></output>",
+"en": "Exchange-rate volatility (yearly) <output id=\"o-vol\"></output>",
+"tr": "Волатильность обменного курса (годовая) <output id=\"o-vol\"></output>"
+},
+{
+"id": "s1186",
+"page": "fxrate",
+"ko": "클수록 환율이 요동쳐요. 캐리의 매력은 금리 차이÷변동성이에요",
+"en": "Higher means a wilder exchange rate. A carry's appeal is the gap divided by volatility",
+"tr": "Чем выше, тем беспокойнее обменный курс. Привлекательность керри — это разница ставок, делённая на волатильность"
+},
+{
+"id": "s1187",
+"page": "fxrate",
+"ko": "기간 <output id=\"o-years\"></output>",
+"en": "Period <output id=\"o-years\"></output>",
+"tr": "Период <output id=\"o-years\"></output>"
+},
+{
+"id": "s1188",
+"page": "fxrate",
+"ko": "길수록 쏠림과 청산이 여러 번 돌아요",
+"en": "Longer lets crowding and unwinding cycle several times",
+"tr": "Чем дольше, тем больше раз могут повториться скопление и закрытие позиций"
+},
+{
+"id": "s1189",
+"page": "fxrate",
+"ko": "같은 설정, 다른 운의 시장",
+"en": "Same settings, a market with different luck",
+"tr": "Те же настройки, рынок с другой удачей"
+},
+{
+"id": "s1190",
+"page": "fxrate",
+"ko": "① 통화값과 캐리 투자자의 쏠림",
+"en": "① The Currency and the Crowd of Carry Investors",
+"tr": "① Валюта и толпа керри-инвесторов"
+},
+{
+"id": "s1191",
+"page": "fxrate",
+"ko": "위쪽 파란 선은 높은 금리 통화의 가치입니다(시작 = 100). 아래 주황 띠는 캐리 투자자가 얼마나 몰렸는지입니다. 쏠림이 차오르는 동안 통화값은 계단처럼 오르고, 붉은 점에서 일제히 청산하면 한 번에 떨어집니다. 지켜보세요.",
+"en": "The blue line on top is the value of the high-rate currency (start = 100). The orange band below shows how crowded the carry trade is. While the crowd builds, the currency climbs like a staircase, and at each red dot everybody unwinds and it drops at once. Watch.",
+"tr": "Синяя линия сверху — стоимость высокодоходной валюты (старт = 100). Оранжевая полоса снизу показывает, насколько переполнен керри-трейд. Пока толпа растёт, валюта поднимается как по лестнице, а в каждой красной точке все закрывают позиции, и она сразу падает. Смотрите."
+},
+{
+"id": "s1192",
+"page": "fxrate",
+"ko": "② 캐리를 계속 들고 있었다면: 누적 손익",
+"en": "② If You Kept Holding the Carry: Running Profit",
+"tr": "② Если держать керри: накопленная прибыль"
+},
+{
+"id": "s1193",
+"page": "fxrate",
+"ko": "매주 캐리 수익을 쌓은 선입니다(빌린 돈 1단위당, %p). 회색 점선은 UIP가 완전히 맞을 때의 기대(0), 초록 점선은 이 설정의 평균 기대입니다. 붉은 세로선은 청산한 주, 붉은 띠는 가장 크게 빠진 구간(최대 낙폭)입니다.",
+"en": "This line adds up each week's carry profit (per unit borrowed, in percentage points). The gray dashed line is the expectation when UIP holds fully (zero), the green dashed line the average expectation for these settings. Red vertical lines mark unwinding weeks and the red band the deepest fall (maximum drawdown).",
+"tr": "Эта линия суммирует доход от керри за каждую неделю (на единицу заёмных средств, в процентных пунктах). Серая пунктирная линия — ожидание при полном выполнении UIP (ноль), зелёная пунктирная — среднее ожидание при этих настройках. Красные вертикальные линии отмечают недели закрытия позиций, красная полоса — наибольшее падение (максимальную просадку)."
+},
+{
+"id": "s1194",
+"page": "fxrate",
+"ko": "<i style=\"background:var(--accent)\"></i>누적 캐리 손익",
+"en": "<i style=\"background:var(--accent)\"></i>Running carry profit",
+"tr": "<i style=\"background:var(--accent)\"></i>Накопленная прибыль от керри"
+},
+{
+"id": "s1195",
+"page": "fxrate",
+"ko": "<i style=\"background:#1fa463\"></i>이 설정의 평균 기대",
+"en": "<i style=\"background:#1fa463\"></i>Average expectation here",
+"tr": "<i style=\"background:#1fa463\"></i>Среднее ожидание здесь"
+},
+{
+"id": "s1196",
+"page": "fxrate",
+"ko": "<i style=\"background:#8a93a6\"></i>UIP가 완전할 때(0)",
+"en": "<i style=\"background:#8a93a6\"></i>If UIP held fully (0)",
+"tr": "<i style=\"background:#8a93a6\"></i>При полном выполнении UIP (0)"
+},
+{
+"id": "s1197",
+"page": "fxrate",
+"ko": "③ 한 주의 손익은 어떻게 흩어질까",
+"en": "③ How Weekly Profits Scatter",
+"tr": "③ Как рассеиваются недельные доходы"
+},
+{
+"id": "s1198",
+"page": "fxrate",
+"ko": "경로 40개를 합쳐 한 주의 캐리 수익을 센 분포입니다. 회색 선은 같은 평균과 변동성을 가진 종 모양(정규분포)입니다. 쏠림이 있으면 왼쪽 꼬리(붉은 부분, 한 주에 -5% 아래)가 종 모양이 말하는 것보다 훨씬 두껍습니다. 쏠림의 힘을 0으로 내리면 꼬리가 사라집니다.",
+"en": "This counts weekly carry profits pooled over 40 paths. The gray line is a bell curve (normal distribution) with the same average and volatility. With crowding the left tail (red, below -5% in a week) is far thicker than the bell curve says. Set crowd power to 0 and the tail disappears.",
+"tr": "Здесь подсчитаны недельные доходы от керри, собранные по 40 траекториям. Серая линия — колокол (нормальное распределение) с тем же средним и волатильностью. При скоплении левый хвост (красный, ниже -5% за неделю) намного толще, чем показывает колокол. Установите силу толпы на 0 — и хвост исчезнет."
+},
+{
+"id": "s1199",
+"page": "fxrate",
+"ko": "<i style=\"background:var(--accent)\"></i>실제 주 수",
+"en": "<i style=\"background:var(--accent)\"></i>Actual weeks",
+"tr": "<i style=\"background:var(--accent)\"></i>Фактические недели"
+},
+{
+"id": "s1200",
+"page": "fxrate",
+"ko": "<i style=\"background:#e5484d\"></i>-5% 아래",
+"en": "<i style=\"background:#e5484d\"></i>Below -5%",
+"tr": "<i style=\"background:#e5484d\"></i>Ниже -5%"
+},
+{
+"id": "s1201",
+"page": "fxrate",
+"ko": "<i style=\"background:#8a93a6\"></i>종 모양(정규분포)",
+"en": "<i style=\"background:#8a93a6\"></i>Bell curve (normal)",
+"tr": "<i style=\"background:#8a93a6\"></i>Колокол (нормальное)"
+},
+{
+"id": "s1202",
+"page": "fxrate",
+"ko": "④ 금리 차이를 키우면",
+"en": "④ If the Interest Gap Grows",
+"tr": "④ Если разница ставок растёт"
+},
+{
+"id": "s1203",
+"page": "fxrate",
+"ko": "가로는 금리 차이, 세로는 평균입니다. 초록은 연 평균 캐리 수익, 빨강은 가장 나쁜 한 주의 평균 손실입니다. 금리 차이가 클수록 이자는 더 벌지만, 사람이 빨리 몰려 한 주의 급락도 커집니다. 경로 24개의 평균입니다.",
+"en": "The horizontal axis is the interest gap, the vertical axis an average. Green is the average yearly carry profit, red the average loss in the worst single week. A bigger gap earns more interest but also draws the crowd faster, so the worst week gets bigger. Each point averages 24 paths.",
+"tr": "По горизонтальной оси — разница ставок, по вертикальной — среднее значение. Зелёный — средний годовой доход от керри, красный — средний убыток худшей недели. Большая разница даёт больше процентов, но и быстрее привлекает толпу, так что худшая неделя становится хуже. Каждая точка — среднее по 24 траекториям."
+},
+{
+"id": "s1204",
+"page": "fxrate",
+"ko": "<i style=\"background:#1fa463\"></i>연 평균 캐리 수익",
+"en": "<i style=\"background:#1fa463\"></i>Average yearly carry profit",
+"tr": "<i style=\"background:#1fa463\"></i>Средний годовой доход от керри"
+},
+{
+"id": "s1205",
+"page": "fxrate",
+"ko": "<i style=\"background:#e5484d\"></i>가장 나쁜 한 주의 평균 손실",
+"en": "<i style=\"background:#e5484d\"></i>Average loss in the worst week",
+"tr": "<i style=\"background:#e5484d\"></i>Средний убыток худшей недели"
+},
+{
+"id": "s1206",
+"page": "fxrate",
+"ko": "캐리 거래는 연 3.1%를 벌었지만, 최악의 한 주는 평균 -10.0%였습니다.",
+"en": "Carry earned 3.1% a year, but the worst week averaged -10.0%.",
+"tr": "Керри-трейд приносил 3,1% в год, но худшая неделя в среднем давала -10,0%."
+},
+{
+"id": "s1207",
+"page": "fxrate",
+"ko": "이 모델에서는 쏠림이 천천히 쌓이다 한 주에 일제히 풀리며 통화값이 밀려, 왼쪽 꼬리가 길어졌습니다.",
+"en": "In this model crowding builds slowly and unwinds in one week, pushing the currency down and making a long left tail.",
+"tr": "В этой модели скученность нарастает медленно и разряжается за одну неделю, толкая валюту вниз и создавая длинный левый хвост."
+},
+{
+"id": "s1208",
+"page": "fxrate",
+"ko": "평균 수익만이 아니라 쏠림이 얼마나 쌓였는지와 급락의 모양까지 살펴볼 만합니다.",
+"en": "Beyond average returns, how much crowding has built up and the shape of the drops are worth examining.",
+"tr": "Помимо средней доходности, стоит изучить, насколько накопилась скученность, и форму падений."
+},
+{
+"id": "s1209",
+"page": "fxrate",
+"ko": "<b>말하는 것:</b> 기본 설정(금리 차이 4%p, 변동성 연 8%, UIP 30%, 쏠림의 힘 12%, 20년)에서 시장 번호 1은 청산이 4번 있었고 연 평균 6.9%를 벌었지만, 최악의 한 주는 -11.5%로 평소 한 주 평균 이익의 87주치(약 1.7년치)를 날렸습니다. 같은 설정의 다른 시장은 운이 달라서 번호 3은 연 평균 -1.1%에 최대 낙폭 66.0%p였습니다. 200개 시장을 평균하면 연 3.1%를 벌었고 이는 이론값(쏠림이 없을 때 2.8%에 쏠림이 만드는 가격 밀림 0.3%를 더한 3.12%)과 맞았습니다. 하지만 최악의 한 주는 평균 -10.0%, 그 한 주가 지운 이익은 중앙값으로 155주치(약 3.0년치)였고 수익이 난 주는 53.7%뿐이었습니다. 쏠림이 없으면(힘 0) 같은 조건에서 최악의 주가 -3.5%이고 분포가 좌우 대칭(왜도 0.00)이었지만, 쏠림이 있으면 왜도가 -1.50으로 왼쪽 꼬리가 길어졌습니다. 쏠림의 힘을 5%, 20%, 25%로 바꾸면 왜도가 -0.16, -4.03, -5.53이고 최악의 주는 -4.8%, -16.2%, -20.1%였습니다. UIP가 100% 맞아도(평균 캐리 약 0) 쏠림이 있으면 왜도는 여전히 -1.50이었습니다. 즉 평균 이익이 없어도, 있어도 급락의 모양은 남았습니다. 경로 40개를 합친 41,600주 중 -5% 아래인 주는 249주(0.60%)였는데, 같은 평균과 변동성의 종 모양이라면 약 1.3주만 나올 정도입니다. 금리 차이를 0, 4, 10%p로 올리면 연 평균 캐리 수익이 0.20%, 3.06%, 7.70%로 늘었고, 가장 나쁜 한 주의 평균 손실도 3.6%, 10.1%, 10.5%로 커졌습니다.",
+"en": "<b>What it shows:</b> With the default settings (interest gap 4 points, volatility 8% a year, UIP 30%, crowd power 12%, 20 years), market number 1 had 4 unwinds and earned 6.9% a year on average, yet its worst week was -11.5%, wiping out 87 weeks (about 1.7 years) of the usual average weekly gain. Other markets with the same settings had different luck: number 3 averaged -1.1% a year with a maximum drawdown of 66.0 points. Averaged over 200 markets the trade earned 3.1% a year, matching the theory value (2.8% without crowding plus the 0.3% price push from the crowd, 3.12%). But the worst week averaged -10.0%, the profit that week erased was a median of 155 weeks (about 3.0 years), and only 53.7% of weeks made money. With no crowding (power 0) under the same conditions the worst week was -3.5% and the distribution was symmetric (skewness 0.00), whereas with crowding skewness was -1.50, a long left tail. With crowd power at 5%, 20% and 25%, skewness was -0.16, -4.03 and -5.53 and the worst week -4.8%, -16.2% and -20.1%. Even when UIP held 100% (average carry about zero) the skewness with crowding was still -1.50: with or without average profit, the shape of the crash remained. Among 41,600 weeks pooled from 40 paths, 249 (0.60%) fell below -5%, where a bell curve with the same average and volatility would give only about 1.3. Raising the interest gap to 0, 4 and 10 points lifted the average yearly carry profit to 0.20%, 3.06% and 7.70%, and also raised the average loss in the worst week to 3.6%, 10.1% and 10.5%.",
+"tr": "<b>Что это показывает:</b> При настройках по умолчанию (разница ставок 4 пункта, волатильность 8% в год, UIP 30%, сила толпы 12%, 20 лет) рынок номер 1 пережил 4 закрытия позиций и в среднем заработал 6,9% в год, но худшая неделя составила -11,5% и стёрла 87 недель (около 1,7 года) обычной средней недельной прибыли. Другие рынки с теми же настройками показали иную удачу: номер 3 в среднем дал -1,1% в год при максимальной просадке 66,0 пункта. В среднем по 200 рынкам сделка приносила 3,1% в год, что совпадает с теоретическим значением (2,8% без скопления плюс 0,3% ценового толчка от толпы, то есть 3,12%). Но худшая неделя в среднем составила -10,0%, стёртая ею прибыль в медиане равнялась 155 неделям (около 3,0 лет), а прибыльными были лишь 53,7% недель. Без скопления (сила 0) в тех же условиях худшая неделя была -3,5%, а распределение — симметричным (асимметрия 0,00), тогда как со скоплением асимметрия составила -1,50, то есть длинный левый хвост. При силе толпы 5%, 20% и 25% асимметрия была -0,16, -4,03 и -5,53, а худшая неделя — -4,8%, -16,2% и -20,1%. Даже когда UIP выполнялся на 100% (средний керри около нуля), асимметрия со скоплением оставалась -1,50: с средней прибылью или без неё форма обвала сохранялась. Из 41 600 недель, собранных по 40 траекториям, 249 (0,60%) оказались ниже -5%, тогда как колокол с тем же средним и волатильностью дал бы лишь около 1,3. Увеличение разницы ставок до 0, 4 и 10 пунктов подняло средний годовой доход от керри до 0,20%, 3,06% и 7,70%, а средний убыток худшей недели — до 3,6%, 10,1% и 10,5%."
+},
+{
+"id": "s1210",
+"page": "fxrate",
+"ko": "환율이나 이익을 맞히는 모델이 아닙니다. 투자 판단에 쓰지 마세요. 금리 차이와 쏠림 규칙은 예시 값입니다.",
+"en": "It does not predict exchange rates or profits and is not for investment decisions; the rate gap and crowding rules are examples.",
+"tr": "Он не предсказывает курсы валют или прибыль и не предназначен для инвестиционных решений; разница ставок и правила скученности — это примеры."
+},
+{
+"id": "s1211",
+"page": "fxrate",
+"ko": "실제 급락에 쏠림이 얼마나 작용했는지는 이 모델로 알 수 없어, 실제 자료로 따로 확인해야 합니다.",
+"en": "How much crowding drove real crashes cannot be told from this model and must be checked against real data.",
+"tr": "Насколько скученность вызвала реальные обвалы, по этой модели узнать нельзя, и это нужно проверять по реальным данным."
+},
+{
+"id": "s1212",
+"page": "fxrate",
+"ko": "<b>말하지 않는 것:</b> 이 모델로 금리나 환율을 맞힐 수 없고, 어떤 거래가 이익일지 알려 주지도 않습니다. 투자 판단에 쓰지 마세요. 모든 숫자(금리 차이, 변동성, 쏠림의 힘, UIP가 맞는 정도, 쏠림이 늘고 청산하는 규칙)는 이 프로젝트가 정한 예시이고, 원화를 비롯한 특정 통화나 어느 시기의 실제 환율·금리를 나타내지 않습니다. 현실의 환율에는 경제 지표, 정책, 국제 자금의 이동, 위험 회피 같은 훨씬 많은 요인이 있고, 이 모델은 \"쏠림과 일제 청산이 이런 계단과 급락의 모양을 만들 수 있다\"는 메커니즘 하나만 보여 줄 뿐 실제 급락의 원인이 이것이라고 증명하지 않습니다. 거래 비용, 레버리지, 세금, 여러 통화의 조합도 빠져 있습니다.",
+"en": "<b>What it doesn't show:</b> This model cannot predict interest rates or exchange rates, and does not tell you which trade will make money. Do not use it for investment decisions. Every number (the interest gap, volatility, crowd power, how much UIP holds, and the rules for the crowd to grow and unwind) is an example chosen by this project and stands for no particular currency, including the won, and for no real exchange rate or interest rate at any date. Real exchange rates have many more drivers, such as economic data, policy, international capital flows and risk aversion, and this model shows only one mechanism, that crowding and a joint exit can create this staircase-and-crash shape, without proving that this is what causes real crashes. Trading costs, leverage, taxes and portfolios of several currencies are also left out.",
+"tr": "<b>Чего это не показывает:</b> Эта модель не может предсказывать процентные ставки или обменные курсы и не говорит, какая сделка принесёт деньги. Не используйте её для инвестиционных решений. Все числа (разница ставок, волатильность, сила толпы, степень выполнения UIP и правила роста и закрытия позиций толпой) — это примеры, выбранные этим проектом; они не относятся ни к какой конкретной валюте, включая вону, и ни к какому реальному курсу или ставке на какую-либо дату. У реальных обменных курсов гораздо больше факторов: экономические данные, политика, международные потоки капитала, неприятие риска. Эта модель показывает лишь один механизм — что скопление и совместный выход могут создавать форму «лестница и обвал», — не доказывая, что именно это вызывает реальные обвалы. Торговые издержки, кредитное плечо, налоги и портфели из нескольких валют тоже не учтены."
+},
+{
+"id": "s1213",
+"page": "fxrate",
+"ko": "<b>모델의 뿌리:</b> 서로 다른 두 통화의 금리 차이와 환율의 관계를 말하는 <b>이자율 평가</b>가 뿌리입니다. 차익거래로 성립하는 <i>커버드</i> 이자율 평가와 달리, 환율을 미리 고정하지 않은 <i>비커버드</i>(UIP)는 기대되는 환율 변화가 금리 차이와 같다는 가설입니다. Fama(1984)는 「Forward and spot exchange rates」(<i>Journal of Monetary Economics</i>)에서 실제 자료가 이에 맞지 않는 점을 보였고(UIP 퍼즐), Meese와 Rogoff(1983)는 환율 모형이 임의보행보다 표본 밖에서 더 잘 맞히지 못한다고 보고했습니다. 쏠림과 급락은 Brunnermeier, Nagel, Pedersen(2009)의 「Carry Trades and Currency Crashes」가 다룬 주제입니다.",
+"en": "<b>Where the model comes from:</b> The root is <b>interest rate parity</b>, linking the interest gap between two currencies to the exchange rate. Unlike <i>covered</i> parity, which holds by arbitrage, <i>uncovered</i> parity (UIP) is the hypothesis that the expected change in the exchange rate equals the interest gap. Fama (1984), in &quot;Forward and spot exchange rates&quot; (<i>Journal of Monetary Economics</i>), showed real data do not fit it (the UIP puzzle), and Meese and Rogoff (1983) reported that exchange-rate models forecast out of sample no better than a random walk. Crowding and crashes are the theme of Brunnermeier, Nagel and Pedersen (2009), &quot;Carry Trades and Currency Crashes&quot;.",
+"tr": "<b>Откуда взялась модель:</b> Основа — <b>паритет процентных ставок</b>, связывающий разницу ставок двух валют с обменным курсом. В отличие от <i>покрытого</i> паритета, который держится за счёт арбитража, <i>непокрытый</i> паритет (UIP) — это гипотеза о том, что ожидаемое изменение обменного курса равно разнице ставок. Фама (1984) в работе &quot;Forward and spot exchange rates&quot; (<i>Journal of Monetary Economics</i>) показал, что реальные данные ей не соответствуют (загадка UIP), а Мис и Рогофф (1983) сообщили, что модели обменных курсов вне выборки прогнозируют не лучше случайного блуждания. Скопление и обвалы — тема работы Brunnermeier, Nagel и Pedersen (2009), &quot;Carry Trades and Currency Crashes&quot;."
+},
+{
+"id": "s1214",
+"page": "fxrate",
+"ko": "<b>핵심 가정과 수식:</b> 환율 x(높은 금리 통화 가치의 로그)는 주마다 <code>x ← x − u·d/52 + k·(c' − c) + (σ/√52)·ε</code>로 바뀝니다(d 금리 차이, u UIP가 맞는 정도, c 쏠림, k 쏠림의 힘, σ 연 변동성). 캐리 수익은 <code>d/52 + Δx</code>라서 쏠림이 없으면 기대치가 <code>(1−u)·d</code>이고 u=1이면 0입니다. 쏠림은 <code>c ← c + r·c(1−c)</code>(r = 0.06×d/σ에 약간의 무작위)로 늘고, 주마다 <code>0.0004 + 0.02·c³</code>의 확률로 일제히 청산해 c가 50~90% 줄어듭니다.",
+"en": "<b>Key assumptions and formulas:</b> The exchange rate x (log of the high-rate currency's value) changes each week as <code>x ← x − u·d/52 + k·(c' − c) + (σ/√52)·ε</code> (d interest gap, u how much UIP holds, c crowding, k crowd power, σ yearly volatility). The carry profit is <code>d/52 + Δx</code>, so without crowding its expectation is <code>(1−u)·d</code>, and zero when u=1. Crowding grows as <code>c ← c + r·c(1−c)</code> (r = 0.06×d/σ with some randomness), and each week with probability <code>0.0004 + 0.02·c³</code> everyone unwinds and c shrinks by 50 to 90%.",
+"tr": "<b>Ключевые допущения и формулы:</b> Обменный курс x (логарифм стоимости высокодоходной валюты) меняется каждую неделю по формуле <code>x ← x − u·d/52 + k·(c' − c) + (σ/√52)·ε</code> (d — разница ставок, u — степень выполнения UIP, c — скопление, k — сила толпы, σ — годовая волатильность). Доход от керри равен <code>d/52 + Δx</code>, поэтому без скопления его ожидание составляет <code>(1−u)·d</code>, а при u=1 — ноль. Скопление растёт по правилу <code>c ← c + r·c(1−c)</code> (r = 0,06×d/σ с некоторой случайностью), и каждую неделю с вероятностью <code>0.0004 + 0.02·c³</code> все закрывают позиции, а c сокращается на 50–90%."
+},
+{
+"id": "s1215",
+"page": "fxrate",
+"ko": "<b>이 프로젝트의 단순화:</b> 쏠림이 늘고 청산하는 규칙과 그 상수(0.06, 0.0004, 0.02, 청산 때 50~90% 감소), 시작 쏠림 10%, 변동성이 일정한 점, 이자 차이가 일정한 점은 이 프로젝트가 정한 값입니다. 실제 시장의 위험 회피, 유동성, 레버리지, 중앙은행 개입, 거래 비용은 없습니다. Fama의 퍼즐과 Brunnermeier 등의 분석을 재현한 것이 아니라 그 직관을 보여 주는 장난감 모델입니다.",
+"en": "<b>What this project simplifies:</b> The rules for the crowd to grow and unwind and their constants (0.06, 0.0004, 0.02, a 50 to 90% drop at an unwind), the 10% starting crowd, the constant volatility and the constant interest gap are this project's own choices. Real-market risk aversion, liquidity, leverage, central-bank intervention and trading costs are absent. It does not reproduce Fama's puzzle or the analysis of Brunnermeier et al.; it is a toy model that shows their intuition.",
+"tr": "<b>Что упрощено в этом проекте:</b> Правила роста и закрытия позиций толпой и их константы (0,06, 0,0004, 0,02, падение на 50–90% при закрытии), начальная толпа 10%, постоянная волатильность и постоянная разница ставок — собственный выбор этого проекта. Неприятие риска, ликвидность, кредитное плечо, интервенции центральных банков и торговые издержки реального рынка отсутствуют. Модель не воспроизводит загадку Фамы и анализ Brunnermeier и соавторов; это игрушечная модель, показывающая их интуицию."
+},
+{
+"id": "s1216",
+"page": "fxrate",
+"ko": "<b>이론값과 시뮬레이션:</b> 쏠림이 없을 때 평균 연 캐리 수익의 이론값 <code>(1−u)·d</code>는 UIP 30%에서 2.80%, 100%에서 0이고, 3,000개 시장×20년 시뮬레이션은 2.84%와 0.04%였습니다(표준오차 약 0.03). 쏠림이 있으면 환율 밀림의 합이 k×(끝 쏠림−처음 쏠림)이라 이론 2.80%에 0.32%를 더한 3.12%이고 시뮬레이션도 3.12%였습니다. 쏠림이 없을 때 주간 변동성은 이론 1.109%에 시뮬레이션 1.108%, 1주 자기상관은 -0.001이었습니다. 52주 뒤 환율 변화를 맞히는 오차(제곱평균제곱근)는 쏠림이 없을 때 변화 없음 예측이 7.82%p, 금리 차이만큼 약해진다는 UIP 예측이 8.36%p로, 이 모델은 UIP가 30%만 맞도록 만들어서 Meese–Rogoff식 결과가 나오게 되어 있으므로 실제 증거가 아닙니다.",
+"en": "<b>Theory versus simulation:</b> Without crowding, the theoretical average yearly carry profit <code>(1−u)·d</code> is 2.80% at UIP 30% and 0 at 100%, and the simulation of 3,000 markets × 20 years gave 2.84% and 0.04% (standard error about 0.03). With crowding the total price push is k×(final crowd − starting crowd), so theory is 2.80% plus 0.32% = 3.12%, and the simulation also gave 3.12%. Without crowding, weekly volatility was 1.108% in the simulation against a theoretical 1.109%, and one-week autocorrelation was -0.001. For guessing the exchange-rate change 52 weeks ahead, the root-mean-square error without crowding was 7.82 points for a no-change forecast and 8.36 points for the UIP forecast (the currency weakens by the gap); since this model makes UIP hold only 30%, a Meese–Rogoff-style result is built in and is not real evidence.",
+"tr": "<b>Теория и симуляция:</b> Без скопления теоретический средний годовой доход от керри <code>(1−u)·d</code> составляет 2,80% при UIP 30% и 0 при 100%, а симуляция 3 000 рынков × 20 лет дала 2,84% и 0,04% (стандартная ошибка около 0,03). Со скоплением суммарный ценовой толчок равен k×(конечная толпа − начальная толпа), поэтому теория даёт 2,80% плюс 0,32% = 3,12%, и симуляция тоже дала 3,12%. Без скопления недельная волатильность в симуляции составила 1,108% против теоретических 1,109%, а автокорреляция на одну неделю — -0,001. При прогнозе изменения обменного курса на 52 недели вперёд среднеквадратичная ошибка без скопления составила 7,82 пункта для прогноза «без изменений» и 8,36 пункта для прогноза по UIP (валюта дешевеет на разницу ставок); так как в этой модели UIP выполняется лишь на 30%, результат в духе Миса–Рогоффа заложен заранее и не является реальным доказательством."
+},
+{
+"id": "s1217",
+"page": "fxrate",
+"ko": "<b>더 읽을거리:</b> Fama (1984), 「Forward and spot exchange rates」, <i>Journal of Monetary Economics</i> / Meese &amp; Rogoff (1983), 「Empirical exchange rate models of the seventies: Do they fit out of sample?」, <i>Journal of International Economics</i> / Brunnermeier, Nagel &amp; Pedersen (2009), 「Carry Trades and Currency Crashes」, <i>NBER Macroeconomics Annual</i>.",
+"en": "<b>Further reading:</b> Fama (1984), &quot;Forward and spot exchange rates&quot;, <i>Journal of Monetary Economics</i> / Meese &amp; Rogoff (1983), &quot;Empirical exchange rate models of the seventies: Do they fit out of sample?&quot;, <i>Journal of International Economics</i> / Brunnermeier, Nagel &amp; Pedersen (2009), &quot;Carry Trades and Currency Crashes&quot;, <i>NBER Macroeconomics Annual</i>.",
+"tr": "<b>Дополнительное чтение:</b> Fama (1984), &quot;Forward and spot exchange rates&quot;, <i>Journal of Monetary Economics</i> / Meese &amp; Rogoff (1983), &quot;Empirical exchange rate models of the seventies: Do they fit out of sample?&quot;, <i>Journal of International Economics</i> / Brunnermeier, Nagel &amp; Pedersen (2009), &quot;Carry Trades and Currency Crashes&quot;, <i>NBER Macroeconomics Annual</i>."
+},
+{
+"id": "s1218",
+"page": "fxrate",
+"ko": "검증은 <code>node tools/validate-fxrate.js</code>로 할 수 있습니다. 시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시장 번호면 같은 결과가 나옵니다. 위 통계 카드의 왜도는 같은 설정으로 40개 경로를 따로 돌린 평균이고, ④의 점은 경로 24개 평균입니다.",
+"en": "You can verify with <code>node tools/validate-fxrate.js</code>. The simulation uses a seeded random generator (mulberry32), so the same market number gives the same result. The skewness in the statistics cards is the average over 40 separate paths with the same settings, and each point in chart ④ averages 24 paths.",
+"tr": "Проверить можно командой <code>node tools/validate-fxrate.js</code>. Симуляция использует генератор случайных чисел с зерном (seed) (mulberry32), поэтому один и тот же номер рынка даёт один и тот же результат. Асимметрия на карточках статистики — это среднее по 40 отдельным траекториям с теми же настройками, а каждая точка на графике ④ — среднее по 24 траекториям."
+},
+{
+"id": "s1219",
+"page": "fxrate",
+"ko": "코드는 <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/fxrate\">GitHub</a>에서 볼 수 있습니다.",
+"en": "The code is available on <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/fxrate\">GitHub</a>.",
+"tr": "Код доступен на <a href=\"https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/fxrate\">GitHub</a>."
+},
+{
+"id": "s1220",
+"page": "hagwon",
+"ko": "선행학습 딜레마 · 시뮬라티오 랩",
+"en": "The Cram-School Dilemma · Simulatio Lab",
+"tr": "Дилемма репетиторских занятий · Simulatio Lab"
+},
+{
+"id": "s1221",
+"page": "hagwon",
+"ko": "한 집만 학원을 한 개 더 보내면 순위가 오르지만, 모두가 보내면 순위는 그대로이고 비용만 늘어나는 이유를 시뮬레이션으로 직접 돌려보세요.",
+"en": "Run it yourself: why sending one more class helps a single family climb the ranking, yet when everyone does it the ranking stays put and only the bills grow.",
+"tr": "Запустите сами: почему ещё одно занятие помогает одной семье подняться в рейтинге, а когда так делают все, рейтинг остаётся на месте и растут только расходы."
+},
+{
+"id": "s1222",
+"page": "hagwon",
+"ko": "모두 학원을 한 개 더 보내면 왜 아무도 앞서지 못할까: 선행학습 딜레마",
+"en": "If Everyone Adds One More Class, Why Does No One Get Ahead? The Cram-School Dilemma",
+"tr": "Если все добавляют ещё одно занятие, почему никто не вырывается вперёд? Дилемма репетиторских занятий"
+},
+{
+"id": "s1223",
+"page": "hagwon",
+"ko": "옆집이 학원을 하나 더 보내면 우리도 보내야 할 것 같고, 보내면 우리 아이 순위가 오를 것 같습니다. 실제로 이 모델에서 한 집만 한 개 더 보내면 순위가 평균 7.5%p 오릅니다. 그런데 모든 집이 그렇게 하면 순위는 한 칸도 바뀌지 않고, 기본 설정에서 학원비 총액만 처음의 약 5배가 됩니다. 어느 집도 잘못 고른 것이 아닙니다. 순위는 누가 오르면 누군가는 내려가야 하는 값이기 때문입니다. 반대로 합격선이 고정된 방식에서는 모두가 함께 오를 수 있습니다.",
+"en": "When the family next door adds one more class, it feels like we should too, and that it would lift our child's ranking. In this model, if a single family sends one more class, its ranking really does rise, by 7.5 percentage points on average. But if every family does it, no one's rank changes at all, and in the default setting only the total bill grows, to about 5 times where it started. No family chose wrongly: a ranking is the kind of value where someone can rise only if someone else falls. With a fixed pass line, by contrast, everyone can rise together.",
+"tr": "Когда соседская семья добавляет ещё одно занятие, кажется, что и нам стоит так сделать и что это поднимет ранг нашего ребёнка. В этой модели, если одна семья в одиночку добавляет одно занятие, её ранг действительно растёт — в среднем на 7,5 процентного пункта. Но если так делают все семьи, ранг не меняется ни у кого, а при настройке по умолчанию растёт только общий счёт — примерно до 5 раз от исходного. Ни одна семья не ошиблась в выборе: ранг — это такая ценность, при которой кто-то может подняться, только если кто-то другой опустится. При фиксированном проходном балле, напротив, подняться могут все вместе."
+},
+{
+"id": "s1224",
+"page": "hagwon",
+"ko": "가구 300개가 있고, 아이마다 학원 없이 얻을 점수(<b>기본 실력 + 운</b>)가 정해져 있습니다. 가구는 학원을 0~5개 보내고, 학원 한 개마다 점수가 <b>효과</b>(기본 0.30점, 기본 실력의 퍼짐을 1점으로 본 값)만큼 오릅니다. 처음에는 0~2개(평균 약 1개)로 시작합니다.",
+"en": "There are 300 households. Each child has a score they would get without classes (<b>basic ability + luck</b>). A household sends 0 to 5 classes, and each class adds the <b>effect</b> to the score (0.30 points by default, where the spread of basic ability counts as 1 point). Everyone starts with 0 to 2 classes (about 1 on average).",
+"tr": "Есть 300 семей. У каждого ребёнка есть балл, который он получил бы без занятий (<b>базовые способности + удача</b>). Семья выбирает от 0 до 5 занятий, и каждое занятие добавляет к баллу <b>эффект</b> (по умолчанию 0,30 балла, при этом разброс базовых способностей принят за 1 балл). Все начинают с 0–2 занятий (в среднем около 1)."
+},
+{
+"id": "s1225",
+"page": "hagwon",
+"ko": "결과는 평가 방식에 따라 다릅니다. <b>상대평가</b>에서는 결과가 <b>순위</b>(나보다 점수가 낮은 아이의 비율)이고, <b>절대평가</b>에서는 고정된 합격선(0.6점)을 넘을 가능성입니다. 가구의 이득은 <code>결과 − 비용 × 학원 수</code>이며, 비용은 1등 순위의 가치를 100%로 본 비율(기본 4%p)입니다.",
+"en": "The result depends on how work is graded. With <b>relative grading</b> the result is the child's <b>rank</b> (the share of children scoring lower), and with <b>absolute grading</b> it is the chance of clearing a fixed pass line (0.6 points). A household's payoff is <code>result − cost × number of classes</code>, with cost measured as a share of the value of the top rank (4 percentage points by default).",
+"tr": "Результат зависит от того, как оценивается работа. При <b>относительной оценке</b> результат — это <b>ранг</b> ребёнка (доля детей с более низким баллом), а при <b>абсолютной оценке</b> — шанс преодолеть фиксированный проходной балл (0,6 балла). Выигрыш семьи равен <code>результат − стоимость × число занятий</code>, где стоимость измеряется как доля ценности наивысшего ранга (по умолчанию 4 процентных пункта)."
+},
+{
+"id": "s1226",
+"page": "hagwon",
+"ko": "매 라운드 가구의 25%가 학원 수를 다시 정합니다. 그중 40%는 <b>따라 하기</b>(나보다 결과가 좋은 이웃이 학원을 더 보내면 한 단계 올림)를, 60%는 <b>시도해 보기</b>(한 단계 바꿔 보고 이득이 늘면 그대로 둠)를 합니다. 모두 직전 라운드의 상태를 보고 동시에 정합니다.",
+"en": "Each round 25% of households reconsider. Of those, 40% <b>imitate</b> (if a neighbor with a better result sends more classes, they go up one step) and 60% <b>experiment</b> (they try one step up or down and keep it if their payoff improves). All decisions are made together from the previous round's state.",
+"tr": "В каждом раунде 25% семей пересматривают решение. Из них 40% <b>подражают</b> (если сосед с лучшим результатом выбирает больше занятий, они повышают на один шаг) и 60% <b>экспериментируют</b> (пробуют повысить или понизить на один шаг и сохраняют, если выигрыш улучшился). Все решения принимаются одновременно на основе состояния предыдущего раунда."
+},
+{
+"id": "s1227",
+"page": "hagwon",
+"ko": "<b>투입 상한 합의</b> 슬라이더는 모든 집이 \"최대 몇 개까지만 보내자\"고 정했다고 가정합니다. 합의가 지켜지는지, 어떻게 지키게 하는지는 이 모델 밖의 문제입니다.",
+"en": "The <b>agreed cap</b> slider assumes every household agreed to send at most that many classes. Whether the agreement holds, and how it would be kept, is outside this model.",
+"tr": "Ползунок <b>согласованного предела</b> предполагает, что все семьи договорились выбирать не больше этого числа занятий. Будет ли договорённость выполняться и как её будут соблюдать — за рамками этой модели."
+},
+{
+"id": "s1228",
+"page": "hagwon",
+"ko": "학원 한 개의 효과 <output id=\"o-beta\"></output>",
+"en": "Effect of one class <output id=\"o-beta\"></output>",
+"tr": "Эффект одного занятия <output id=\"o-beta\"></output>"
+},
+{
+"id": "s1229",
+"page": "hagwon",
+"ko": "학원 한 개가 점수를 올리는 크기(점). 클수록 한 집만 보냈을 때의 이득이 커져요",
+"en": "How much one class raises the score (points). The larger it is, the bigger the gain for a single family",
+"tr": "На сколько одно занятие повышает балл (в баллах). Чем больше, тем выше выигрыш одной семьи"
+},
+{
+"id": "s1230",
+"page": "hagwon",
+"ko": "학원 한 개의 비용 <output id=\"o-cost\"></output>",
+"en": "Cost of one class <output id=\"o-cost\"></output>",
+"tr": "Стоимость одного занятия <output id=\"o-cost\"></output>"
+},
+{
+"id": "s1231",
+"page": "hagwon",
+"ko": "1등 순위의 가치를 100%로 볼 때 학원 한 개의 값. 이득보다 커지면 아무도 안 보내요",
+"en": "The price of one class as a share of the value of the top rank. When it exceeds the gain, nobody sends",
+"tr": "Цена одного занятия как доля ценности наивысшего ранга. Когда она превышает выигрыш, никто не выбирает занятия"
+},
+{
+"id": "s1232",
+"page": "hagwon",
+"ko": "투입 상한 합의 <output id=\"o-cap\"></output>",
+"en": "Agreed cap <output id=\"o-cap\"></output>",
+"tr": "Согласованный предел <output id=\"o-cap\"></output>"
+},
+{
+"id": "s1233",
+"page": "hagwon",
+"ko": "모든 집이 최대 몇 개까지만 보내기로 했는지. 5는 합의 없음",
+"en": "The maximum number of classes every household agreed to. 5 means no agreement",
+"tr": "Максимальное число занятий, о котором договорились все семьи. 5 означает отсутствие договорённости"
+},
+{
+"id": "s1234",
+"page": "hagwon",
+"ko": "평가 방식 <output id=\"o-mode\"></output>",
+"en": "Grading <output id=\"o-mode\"></output>",
+"tr": "Оценка <output id=\"o-mode\"></output>"
+},
+{
+"id": "s1235",
+"page": "hagwon",
+"ko": "상대평가 (순위)",
+"en": "Relative (rank)",
+"tr": "Относительная (ранг)"
+},
+{
+"id": "s1236",
+"page": "hagwon",
+"ko": "절대평가 (합격선 고정)",
+"en": "Absolute (fixed pass line)",
+"tr": "Абсолютная (фиксированный проходной балл)"
+},
+{
+"id": "s1237",
+"page": "hagwon",
+"ko": "결과를 순위로 볼지, 고정된 합격선을 넘을 가능성으로 볼지 골라요",
+"en": "Choose whether the result is a rank or the chance of clearing a fixed pass line",
+"tr": "Выберите, чем будет результат: рангом или шансом преодолеть фиксированный проходной балл"
+},
+{
+"id": "s1238",
+"page": "hagwon",
+"ko": "같은 설정, 다른 가구들",
+"en": "Same settings, different households",
+"tr": "Те же настройки, другие семьи"
+},
+{
+"id": "s1239",
+"page": "hagwon",
+"ko": "① 학원 경쟁 지켜보기",
+"en": "① Watching the Class Race",
+"tr": "① Наблюдаем за гонкой занятий"
+},
+{
+"id": "s1240",
+"page": "hagwon",
+"ko": "점 하나가 가구 하나입니다. 가로는 학원 없이 얻을 점수, 세로는 지금 점수이고, 진할수록 학원을 많이 보냅니다. 점들이 점선(학원 없을 때)보다 위로 올라가는데, 상대평가에서는 위쪽 절반 선도 함께 올라가서 그 선 위에 있는 집의 비율은 그대로입니다. 절대평가의 합격선은 제자리에 있습니다.",
+"en": "Each dot is one household. The horizontal axis is the score without classes and the vertical axis the score now; darker dots send more classes. Dots rise above the dashed line (no classes). With relative grading the upper-half line rises with them, so the share above it never changes; the pass line of absolute grading stays where it is.",
+"tr": "Каждая точка — одна семья. По горизонтальной оси — балл без занятий, по вертикальной — текущий балл; более тёмные точки выбирают больше занятий. Точки поднимаются выше пунктирной линии (без занятий). При относительной оценке линия верхней половины поднимается вместе с ними, поэтому доля выше неё никогда не меняется; проходной балл абсолютной оценки остаётся на месте."
+},
+{
+"id": "s1241",
+"page": "hagwon",
+"ko": "<i style=\"background:#e5484d\"></i>위쪽 절반 선 (상대평가)",
+"en": "<i style=\"background:#e5484d\"></i>Upper-half line (relative)",
+"tr": "<i style=\"background:#e5484d\"></i>Линия верхней половины (относительная)"
+},
+{
+"id": "s1242",
+"page": "hagwon",
+"ko": "<i style=\"background:#1fa463\"></i>합격선 (절대평가, 고정)",
+"en": "<i style=\"background:#1fa463\"></i>Pass line (absolute, fixed)",
+"tr": "<i style=\"background:#1fa463\"></i>Проходной балл (абсолютный, фиксированный)"
+},
+{
+"id": "s1243",
+"page": "hagwon",
+"ko": "② 결과는 그대로, 학원비만 오른다",
+"en": "② The Result Stays, the Bill Grows",
+"tr": "② Результат остаётся, счёт растёт"
+},
+{
+"id": "s1244",
+"page": "hagwon",
+"ko": "회색은 평균 결과, 빨강은 가구당 학원비, 파랑은 둘의 차이인 순이득입니다. 상대평가에서는 평균 순위가 늘 50%라서 학원비가 오른 만큼 순이득이 줄어듭니다. 절대평가로 바꾸면 회색 선이 함께 올라갑니다.",
+"en": "Gray is the average result, red the bill per household, and blue their difference, the net payoff. With relative grading the average rank is always 50%, so the net payoff falls by exactly what the bill rises. Switch to absolute grading and the gray line rises too.",
+"tr": "Серый — средний результат, красный — расходы на семью, синий — их разность, чистый выигрыш. При относительной оценке средний ранг всегда равен 50%, поэтому чистый выигрыш падает ровно на столько, на сколько растут расходы. Переключитесь на абсолютную оценку — и серая линия тоже поднимется."
+},
+{
+"id": "s1245",
+"page": "hagwon",
+"ko": "<i style=\"background:#8a93a6\"></i>평균 결과",
+"en": "<i style=\"background:#8a93a6\"></i>Average result",
+"tr": "<i style=\"background:#8a93a6\"></i>Средний результат"
+},
+{
+"id": "s1246",
+"page": "hagwon",
+"ko": "<i style=\"background:#e5484d\"></i>학원비 (가구당)",
+"en": "<i style=\"background:#e5484d\"></i>Bill (per household)",
+"tr": "<i style=\"background:#e5484d\"></i>Расходы (на семью)"
+},
+{
+"id": "s1247",
+"page": "hagwon",
+"ko": "<i style=\"background:var(--accent)\"></i>순이득",
+"en": "<i style=\"background:var(--accent)\"></i>Net payoff",
+"tr": "<i style=\"background:var(--accent)\"></i>Чистый выигрыш"
+},
+{
+"id": "s1248",
+"page": "hagwon",
+"ko": "③ 몇 개씩 보내는 집이 몇 퍼센트일까",
+"en": "③ How Many Classes Does Each Household Send?",
+"tr": "③ Сколько занятий выбирает каждая семья?"
+},
+{
+"id": "s1249",
+"page": "hagwon",
+"ko": "라운드마다 학원 수별 가구 비율을 쌓았습니다. 연한 색에서 진한 색으로 바뀌면서 처음의 0~2개가 점점 많은 개수로 옮겨 갑니다.",
+"en": "The share of households by number of classes in every round, stacked. The mix shifts from the initial 0 to 2 classes toward larger numbers, from light to dark.",
+"tr": "Доля семей по числу занятий в каждом раунде, в виде накопленных столбцов. Состав смещается от исходных 0–2 занятий к большим числам, от светлого к тёмному."
+},
+{
+"id": "s1250",
+"page": "hagwon",
+"ko": "<i style=\"background:rgb(196,211,238)\"></i>0개",
+"en": "<i style=\"background:rgb(196,211,238)\"></i>0",
+"tr": "<i style=\"background:rgb(196,211,238)\"></i>0"
+},
+{
+"id": "s1251",
+"page": "hagwon",
+"ko": "<i style=\"background:rgb(160,178,213)\"></i>1개",
+"en": "<i style=\"background:rgb(160,178,213)\"></i>1",
+"tr": "<i style=\"background:rgb(160,178,213)\"></i>1"
+},
+{
+"id": "s1252",
+"page": "hagwon",
+"ko": "<i style=\"background:rgb(124,144,188)\"></i>2개",
+"en": "<i style=\"background:rgb(124,144,188)\"></i>2",
+"tr": "<i style=\"background:rgb(124,144,188)\"></i>2"
+},
+{
+"id": "s1253",
+"page": "hagwon",
+"ko": "<i style=\"background:rgb(88,111,162)\"></i>3개",
+"en": "<i style=\"background:rgb(88,111,162)\"></i>3",
+"tr": "<i style=\"background:rgb(88,111,162)\"></i>3"
+},
+{
+"id": "s1254",
+"page": "hagwon",
+"ko": "<i style=\"background:rgb(52,77,137)\"></i>4개",
+"en": "<i style=\"background:rgb(52,77,137)\"></i>4",
+"tr": "<i style=\"background:rgb(52,77,137)\"></i>4"
+},
+{
+"id": "s1255",
+"page": "hagwon",
+"ko": "<i style=\"background:rgb(16,44,112)\"></i>5개",
+"en": "<i style=\"background:rgb(16,44,112)\"></i>5",
+"tr": "<i style=\"background:rgb(16,44,112)\"></i>5"
+},
+{
+"id": "s1256",
+"page": "hagwon",
+"ko": "④ 한 집만 더 보내면 이득일까",
+"en": "④ Does One Family Gain by Sending One More?",
+"tr": "④ Выигрывает ли одна семья, добавив одно занятие?"
+},
+{
+"id": "s1257",
+"page": "hagwon",
+"ko": "가로는 모든 집이 보내는 학원 수, 세로는 그 상태에서 한 집만 한 개 더 보낼 때 오르는 평균 폭(이론값)입니다. 파란 선이 빨간 점선(비용)보다 위인 초록 구간에서는 혼자 더 보내는 쪽이 이득이라, 모두가 같은 판단을 하게 됩니다.",
+"en": "The horizontal axis is the number of classes every household sends, and the vertical axis the average rise when just one household sends one more (theory). In the green zone, where the blue line is above the red dashed cost line, sending more alone pays, so everyone makes the same call.",
+"tr": "По горизонтальной оси — число занятий, которое выбирает каждая семья, по вертикальной — средний рост, когда только одна семья добавляет ещё одно (теория). В зелёной зоне, где синяя линия выше красной пунктирной линии стоимости, добавить занятие в одиночку выгодно, поэтому все принимают одно и то же решение."
+},
+{
+"id": "s1258",
+"page": "hagwon",
+"ko": "<i style=\"background:#2f6fed\"></i>혼자 한 개 더 보냈을 때의 이득",
+"en": "<i style=\"background:#2f6fed\"></i>Gain from sending one more alone",
+"tr": "<i style=\"background:#2f6fed\"></i>Выигрыш от добавления одного занятия в одиночку"
+},
+{
+"id": "s1259",
+"page": "hagwon",
+"ko": "<i style=\"background:#e5484d\"></i>학원 한 개 비용",
+"en": "<i style=\"background:#e5484d\"></i>Cost of one class",
+"tr": "<i style=\"background:#e5484d\"></i>Стоимость одного занятия"
+}
+]
