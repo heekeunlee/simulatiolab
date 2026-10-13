@@ -81,7 +81,8 @@
 
   // ---------- ③ 특별한 각도 비교 ----------
   function drawBars() {
-    const c = L.chart($('c-bars'), 0.7, { b: 44, t: 24 }), { ctx, m, pw, ph } = c;
+    const bItems = [{ kind: 'box', color: '#d19200', label: '황금각' }, { kind: 'box', color: mix(css('--accent'), 0.7), label: '다른 각도' }], bsp = L.belowSpace($('c-bars'), bItems);
+    const c = L.chart($('c-bars'), 0.7 + (bsp.b - 44) / ($('c-bars').clientWidth || 400), { b: bsp.b, t: 24 }), { ctx, m, pw, ph } = c;
     const ymax = 6, Y = (v) => m.t + ph - (Math.min(v, ymax) / ymax) * ph;
     L.axes(c, { X: () => 0, Y, yTicks: [0, 1, 2, 3, 4, 5, 6], yFmt: (v) => String(v), xLabel: '씨앗 사이의 각도 (°)', yLabel: '빈틈 평균 (이상 간격 = 1)' });
     const gw = pw / BARS.length, bw = Math.min(30, gw * 0.62);
@@ -93,8 +94,7 @@
       ctx.fillStyle = gold ? '#d19200' : css('--muted'); ctx.font = (gold ? '700 ' : '') + '12px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillText(label, x + bw / 2, m.t + ph + 17);
       ctx.font = '12px -apple-system, "Apple SD Gothic Neo", sans-serif';
     });
-    const tops = []; BARS.forEach(([a], i) => { const d = barRows.find((r) => r.a === a); if (d) tops.push([m.l + gw * (i + 0.5), Y(d.gap) - 16]); });
-    L.legend(c, [{ kind: 'box', color: '#d19200', label: '황금각' }, { kind: 'box', color: mix(css('--accent'), 0.7), label: '다른 각도' }], pickPos(c, tops, 2, true));
+    L.drawLegendBelow(c, bItems);
   }
 
   // ---------- ④ 이웃 거리 분포 ----------

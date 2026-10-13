@@ -60,7 +60,9 @@
   }
 
   function drawMap() {
-    const c = L.chart($('c-map'), 0.85, { l: 40, b: 40 }), { ctx, m, pw, ph } = c;
+    const litems = [{ kind: 'dot', color: '#8a93a6', label: '화가 한 명 (클수록 인기)' }, { kind: 'dot', color: '#d19200', label: '가장 인기 있는 화풍(금색 원)' }];
+    const sp = L.belowSpace($('c-map'), litems);
+    const c = L.chart($('c-map'), 0.85 + sp.extra / ($('c-map').clientWidth || 400), { l: 40, b: sp.b }), { ctx, m, pw, ph } = c;
     const X = (v) => m.l + v * pw, Y = (v) => m.t + ph - v * ph, tk = [0, 0.25, 0.5, 0.75, 1];
     L.axes(c, { X, Y, yTicks: tk, yFmt: pct, xTicks: [0, 0.25, 0.5, 0.75, 1], xFmt: (v) => Math.round(v * 360) + '°', xLabel: '색조 (도)', yLabel: '복잡도 (%)' });
     const mt = sim.metrics();
@@ -69,7 +71,7 @@
       ctx.fillStyle = hsl(st[0], 0.7, 0.5, 0.55); ctx.beginPath(); ctx.arc(X(st[0]), Y(st[2]), r, 0, 7); ctx.fill();
     }
     const t = sim.style[mt.top]; ctx.strokeStyle = '#d19200'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(X(t[0]), Y(t[2]), 12, 0, 7); ctx.stroke(); ctx.lineWidth = 1;
-    L.legend(c, [{ kind: 'dot', color: '#8a93a6', label: '화가 한 명 (클수록 인기)' }, { kind: 'dot', color: '#d19200', label: '가장 인기 있는 화풍(금색 원)' }], 'tr');
+    L.drawLegendBelow(c, litems);
   }
 
   function drawSweep() {

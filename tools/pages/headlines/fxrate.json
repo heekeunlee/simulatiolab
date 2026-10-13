@@ -1,17 +1,17 @@
 {
  "says_ko": [
-  "캐리 거래는 연 3.1%를 벌었지만, 최악의 한 주는 평균 -10.0%였습니다.",
-  "이 모델에서는 쏠림이 천천히 쌓이다 한 주에 일제히 풀리며 통화값이 밀려, 왼쪽 꼬리가 길어졌습니다.",
-  "평균 수익만이 아니라 쏠림이 얼마나 쌓였는지와 급락의 모양까지 살펴볼 만합니다."
+  "이자 높은 나라의 돈을 사는 거래는 평균으로는 벌어도, 한 주에 크게 잃는 위험한 모양이 될 수 있어요.",
+  "이 모델에서는 사람이 몰릴수록 돈값이 계단처럼 오르다가, 어느 주에 일제히 빠져나가며 한꺼번에 떨어져요.",
+  "그래서 평균 수익만 보지 않고, 얼마나 몰렸는지와 급락의 모양까지 함께 보게 돼요. 기본 설정에서 연 3.1% 대 최악의 주 -10.0%였어요."
  ],
  "says_en": [
-  "Carry earned 3.1% a year, but the worst week averaged -10.0%.",
-  "In this model crowding builds slowly and unwinds in one week, pushing the currency down and making a long left tail.",
-  "Beyond average returns, how much crowding has built up and the shape of the drops are worth examining."
+  "Buying a high-interest currency can earn on average yet carry a risky shape, with rare big losses in one week.",
+  "In this model, as people pile in the currency climbs like stairs, then everyone exits in one week and it drops all at once.",
+  "So you look beyond average returns to how crowded it is and how sharp the drops are: 3.1% a year versus -10.0% in the worst week."
  ],
  "not_ko": [
-  "환율이나 이익을 맞히는 모델이 아닙니다. 투자 판단에 쓰지 마세요. 금리 차이와 쏠림 규칙은 예시 값입니다.",
-  "실제 급락에 쏠림이 얼마나 작용했는지는 이 모델로 알 수 없어, 실제 자료로 따로 확인해야 합니다."
+  "환율이나 이익을 맞히는 모델이 아니고, 투자 판단에 쓰지 마세요. 금리 차이와 쏠림 규칙은 예시 값이에요.",
+  "실제 급락에 쏠림이 얼마나 작용했는지는 이 모델로 알 수 없어서, 실제 자료로 따로 확인해야 해요."
  ],
  "not_en": [
   "It does not predict exchange rates or profits and is not for investment decisions; the rate gap and crowding rules are examples.",

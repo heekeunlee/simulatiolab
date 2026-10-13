@@ -36,7 +36,8 @@
   }
   function drawField() {
     const cw = $('c-field').clientWidth || 600, asp = THUMB ? 1 : cw < 560 ? 1.0 : 0.46;
-    const c = L.chart($('c-field'), asp, { l: 10, r: 10, t: THUMB ? 8 : 62, b: THUMB ? 8 : 30 }), { ctx, w, h, m, pw, ph } = c;
+    const fItems = [{ kind: 'dot', color: DEAD, label: '쓰러진 병사' }, { kind: 'dot', color: mix(BLUE, 0.4), label: '아직 도착하지 않은 무리' }], fsp = L.belowSpace($('c-field'), fItems);
+    const c = L.chart($('c-field'), THUMB ? asp : asp + (fsp.b - 30) / cw, { l: 10, r: 10, t: THUMB ? 8 : 62, b: THUMB ? 8 : fsp.b }), { ctx, w, h, m, pw, ph } = c;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
     const P = sim.params, S = sim.armies, cnt = sim.counts(), cy = m.t + ph / 2, mid = m.l + pw / 2, gap = Math.max(16, pw * 0.09);
     const sizes = (s, n, sp) => (sp ? [Math.floor(n / 2), n - Math.floor(n / 2)] : [n]);
@@ -71,7 +72,7 @@
       }
     }
     if (THUMB) return;
-    L.legend(c, [{ kind: 'dot', color: DEAD, label: '쓰러진 병사' }, { kind: 'dot', color: mix(BLUE, 0.4), label: '아직 도착하지 않은 무리' }], 'br');
+    L.drawLegendBelow(c, fItems);
     // 글자
     ctx.font = '700 15px ' + FONT; ctx.textAlign = 'left'; ctx.fillStyle = BLUE; ctx.fillText(`파랑 ${cnt[0]}명`, m.l, 24);
     ctx.textAlign = 'right'; ctx.fillStyle = RED; ctx.fillText(`빨강 ${cnt[1]}명`, w - m.r, 24);
@@ -91,8 +92,9 @@
   }
 
   // ---------- 차트 공통 ----------
-  function stepChart(id, ymax, yTicks, yFmt, yLabel) {
-    const c = L.chart($(id), 0.58, { l: 50, b: 40, r: 14, t: 24 }), { m, pw, ph } = c, X0 = Math.max(30, Math.ceil(ghost.step / 10) * 10);
+  function stepChart(id, ymax, yTicks, yFmt, yLabel, items) {
+    const sp = items ? L.belowSpace($(id), items) : null;
+    const c = L.chart($(id), 0.58 + (sp ? sp.extra / ($(id).clientWidth || 400) : 0), { l: 50, b: sp ? sp.b : 40, r: 14, t: 24 }), { m, pw, ph } = c, X0 = Math.max(30, Math.ceil(ghost.step / 10) * 10);
     const X = (v) => m.l + (v / X0) * pw, Y = (v) => m.t + ph - (v / ymax) * ph, xt = [];
     const stepv = X0 <= 60 ? 10 : X0 <= 150 ? 25 : 50; for (let t = 0; t <= X0; t += stepv) xt.push(t);
     L.axes(c, { X, Y, yTicks, yFmt, xTicks: xt, xFmt: String, xLabel: '시간 (단계)', yLabel });
@@ -101,7 +103,8 @@
   // ---------- ② 남은 병력 ----------
   function drawCount() {
     const P = sim.params, ymax = Math.max(P.a, P.b);
-    const { c, X, Y } = stepChart('c-count', ymax, [0, 0.25, 0.5, 0.75, 1].map((v) => v * ymax), (v) => String(Math.round(v)), '남은 병사 (명)');
+    const cItems = [{ kind: 'line', color: BLUE, label: '파랑' }, { kind: 'line', color: RED, label: '빨강' }].concat(P.split === 'none' ? [{ kind: 'dash', color: GRAY, label: '점선: 기대 곡선' }] : []);
+    const { c, X, Y } = stepChart('c-count', ymax, [0, 0.25, 0.5, 0.75, 1].map((v) => v * ymax), (v) => String(Math.round(v)), '남은 병사 (명)', cItems);
     const { ctx } = c, H = sim.hist;
     if (P.split === 'none') { // 평균 곡선 (점선)
       const mf = LC.meanField(P, ghost.step + 10);
@@ -111,7 +114,7 @@
     L.line(ctx, H.map((d, i) => [X(i), Y(d.b)]), RED, 2.8);
     const e = H[H.length - 1], i = H.length - 1;
     [[e.a, BLUE], [e.b, RED]].forEach(([v, col]) => { ctx.fillStyle = col; ctx.beginPath(); ctx.arc(X(i), Y(v), 4, 0, 7); ctx.fill(); });
-    L.legend(c, [{ kind: 'line', color: BLUE, label: '파랑' }, { kind: 'line', color: RED, label: '빨강' }].concat(P.split === 'none' ? [{ kind: 'dash', color: GRAY, label: '점선: 기대 곡선' }] : []), 'bl');
+    L.drawLegendBelow(c, cItems);
   }
   // ---------- ③ 전투력 ----------
   function drawPower() {
@@ -152,7 +155,8 @@
   // ---------- ⑤ 누가 이기나: 병력 비율 × 질 비율 ----------
   const XR = 3, YR = 2; // 2의 거듭제곱: 병력 1/8~8배, 질 1/4~4배
   function drawPhase() {
-    const P = sim.params, c = L.chart($('c-phase'), $('c-phase').clientWidth < 560 ? 0.9 : 0.62, { l: 52, b: 46, r: 14, t: 24 }), { ctx, m, pw, ph } = c;
+    const pItems = [{ kind: 'line', color: css('--text'), label: '사각 법칙 균형선' }, { kind: 'dash', color: css('--text'), label: '선형 법칙 균형선' }], psp = L.belowSpace($('c-phase'), pItems);
+    const P = sim.params, c = L.chart($('c-phase'), ($('c-phase').clientWidth < 560 ? 0.9 : 0.62) + psp.extra / ($('c-phase').clientWidth || 400), { l: 52, b: psp.b, r: 14, t: 24 }), { ctx, m, pw, ph } = c;
     const X = (e) => m.l + ((e + XR) / (2 * XR)) * pw, Y = (e) => m.t + ph - ((e + YR) / (2 * YR)) * ph;
     const NX = 72, NY = 48;
     for (let i = 0; i < NX; i++) for (let j = 0; j < NY; j++) {
@@ -184,7 +188,7 @@
     ctx.fillStyle = '#fff'; ctx.strokeStyle = css('--text'); ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(X(ex), Y(ey), 7, 0, 7); ctx.fill(); ctx.stroke(); ctx.lineWidth = 1;
     ctx.font = '600 12px ' + FONT; ctx.fillStyle = css('--text');
     ctx.textAlign = ex > 0 ? 'right' : 'left'; L.label(ctx, '지금 설정', X(ex) + (ex > 0 ? -12 : 12), Y(ey) + (ey > 0 ? 20 : -12), ex > 0 ? 'right' : 'left');
-    L.legend(c, [{ kind: 'line', color: css('--text'), label: '사각 법칙 균형선' }, { kind: 'dash', color: css('--text'), label: '선형 법칙 균형선' }], 'br');
+    L.drawLegendBelow(c, pItems);
     const r = P.a / P.b;
     $('note-p').innerHTML = `<span>파랑 병력이 빨강의 ${f2(r)}배일 때 막상막하가 되려면 빨강의 질이 파랑의</span> <span>사각 법칙</span> <b>${f2(r * r)}배</b> · <span>선형 법칙</span> <b>${f2(r)}배</b>`;
   }

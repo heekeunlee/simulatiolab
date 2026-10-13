@@ -91,8 +91,9 @@
 
   // ---------- 로그 눈금 틀 ----------
   const XA = 0.0005, XB = 1;
-  function logChart(id, y0, y1, yTicks, yFmt, aspect, yLabel) {
-    const c = L.chart($(id), aspect, { l: 50, b: 44, r: 16 }), { m, pw, ph } = c;
+  function logChart(id, y0, y1, yTicks, yFmt, aspect, yLabel, litems) {
+    const sp = litems ? L.belowSpace($(id), litems) : null;
+    const c = L.chart($(id), sp ? aspect + sp.extra / ($(id).clientWidth || 400) : aspect, { l: 50, b: sp ? sp.b : 44, r: 16 }), { m, pw, ph } = c;
     const X = (p) => m.l + ((Math.log10(p) - Math.log10(XA)) / (Math.log10(XB) - Math.log10(XA))) * pw, Y = (v) => m.t + ph - ((v - y0) / (y1 - y0)) * ph;
     L.axes(c, { X, Y, yTicks, yFmt, xTicks: [0.001, 0.01, 0.1, 1], xFmt: (v) => pctText(v), xLabel: '약한 연결의 비율 p (%, 로그 눈금)', yLabel });
     const p = sim.params.p;
@@ -103,12 +104,13 @@
 
   // ---------- ② 작은 세상 그래프 ----------
   function drawSmall() {
+    const SMALL_LEG = [{ kind: 'line', color: css('--accent'), label: '평균 거리' }, { kind: 'line', color: RICH, label: '친구 무리의 촘촘함' }];
     if (!sw) return;
-    const { c, X, Y } = logChart('c-small', 0, 1, [0, 0.25, 0.5, 0.75, 1], (v) => Math.round(v * 100) + '%', 0.62, '없을 때를 100%로 한 값 (%)'), { ctx } = c;
+    const { c, X, Y } = logChart('c-small', 0, 1, [0, 0.25, 0.5, 0.75, 1], (v) => Math.round(v * 100) + '%', 0.62, '없을 때를 100%로 한 값 (%)', SMALL_LEG), { ctx } = c;
     const Lp = sw.pts.map((d) => [X(d.x), Y(d.Lr)]), Cp = sw.pts.map((d) => [X(d.x), Y(d.Cr)]);
     L.line(ctx, Lp, css('--accent'), 2.8); L.line(ctx, Cp, RICH, 2.8);
     sw.pts.forEach((d) => { ctx.fillStyle = css('--accent'); ctx.beginPath(); ctx.arc(X(d.x), Y(d.Lr), 3.2, 0, 7); ctx.fill(); ctx.fillStyle = RICH; ctx.beginPath(); ctx.arc(X(d.x), Y(d.Cr), 3.2, 0, 7); ctx.fill(); });
-    L.legend(c, [{ kind: 'line', color: css('--accent'), label: '평균 거리' }, { kind: 'line', color: RICH, label: '친구 무리의 촘촘함' }], 'bl');
+    L.drawLegendBelow(c, SMALL_LEG);
   }
 
   // ---------- ③ 소식이 퍼지는 속도 ----------

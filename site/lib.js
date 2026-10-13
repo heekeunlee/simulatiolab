@@ -90,6 +90,10 @@ window.Lab = (function () {
       } catch (e) { /* getImageData를 못 쓰면 요청한 구석 그대로 */ }
     }
     const x0 = spot(pos).x, y0 = spot(pos).y;
+    if (window.__legendAudit) {   // 점검용: 범례 상자 밑에 깔린 데이터(밝지 않은 색 픽셀) 비율을 기록한다 (tools/browser/legend_audit.js)
+      try { const dpr = ctx.canvas.width / w, d = ctx.getImageData(Math.round(x0 * dpr), Math.round(y0 * dpr), Math.max(1, Math.round(bw * dpr)), Math.max(1, Math.round(bh * dpr))).data; let n = 0; for (let i = 0; i < d.length; i += 4) if (d[i + 3] > 60 && d[i] + d[i + 1] + d[i + 2] < 690) n++;
+        (window.__lgLog = window.__lgLog || []).push({ id: ctx.canvas.id, pos, ratio: n / (d.length / 4), w, narrow }); } catch (e) {}
+    }
     ctx.fillStyle = 'rgba(255,255,255,0.9)'; ctx.strokeStyle = css('--line'); ctx.lineWidth = 1;
     roundRect(ctx, x0, y0, bw, bh, 6); ctx.fill(); ctx.stroke();
     list.forEach((it, i) => {
@@ -99,6 +103,34 @@ window.Lab = (function () {
       else if (it.kind === 'box' || it.kind === 'bar') { ctx.fillRect(cx + 3, cy - 5, sw - 6, 10); }
       else { ctx.lineWidth = 2.5; if (it.kind === 'dash') ctx.setLineDash([4, 3]); ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + sw, cy); ctx.stroke(); ctx.setLineDash([]); ctx.lineWidth = 1; }
       ctx.fillStyle = css('--text'); ctx.textAlign = 'left'; ctx.fillText(it.label, cx + sw + 6, cy + 4);
+    });
+    ctx.restore();
+  }
+
+  // 그래프 아래에 가로로 줄바꿈해서 쓰는 범례: 결과(선·막대·색 면)를 전혀 가리지 않는다.
+  //   const sp = Lab.belowSpace(canvas, items);                       // 범례 줄 수에 맞는 아래 여백
+  //   const c = Lab.chart(canvas, aspect + sp.extra / (canvas.clientWidth || 400), { …, b: sp.b });
+  //   … 그래프를 다 그린 뒤 …   Lab.drawLegendBelow(c, items);       // (xLabel은 맨 아래 오른쪽에 따로 써진다)
+  const LEG_FONT = '11.5px -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif';
+  function legendRows(width, items) {
+    const t = document.createElement('canvas').getContext('2d'); t.font = LEG_FONT;
+    const tr = (x) => (window.I18N && window.I18N.lang !== 'ko' ? window.I18N.t(x) : x);
+    let x = 10, rows = 1;
+    (items || []).forEach((it) => { const need = 16 + 5 + t.measureText(tr(it.label)).width + 14; if (x + need > width - 6 && x > 10) { x = 10; rows++; } x += need; });
+    return rows;
+  }
+  function belowSpace(canvas, items) { const rows = legendRows(canvas.clientWidth || 400, items), b = 62 + (rows - 1) * 17; return { rows, b, extra: b - 36 }; }
+  function drawLegendBelow(c, items) {
+    const { ctx, w, h, m } = c; ctx.save(); ctx.font = LEG_FONT; ctx.textAlign = 'left';
+    let x = 10, y = h - m.b + 40; const sw = 16, gap = 14;
+    (items || []).forEach((it) => {
+      const tw = ctx.measureText(it.label).width, need = sw + 5 + tw + gap;
+      if (x + need > w - 6 && x > 10) { x = 10; y += 17; }
+      ctx.fillStyle = it.color; ctx.strokeStyle = it.color;
+      if (it.kind === 'box' || it.kind === 'bar') ctx.fillRect(x + 1, y - 9, sw - 2, 10);
+      else if (it.kind === 'dot') { ctx.beginPath(); ctx.arc(x + sw / 2, y - 4, 4.5, 0, 7); ctx.fill(); }
+      else { ctx.lineWidth = 2.5; if (it.kind === 'dash') ctx.setLineDash([4, 3]); ctx.beginPath(); ctx.moveTo(x, y - 4); ctx.lineTo(x + sw, y - 4); ctx.stroke(); ctx.setLineDash([]); ctx.lineWidth = 1; }
+      ctx.fillStyle = css('--text'); ctx.fillText(it.label, x + sw + 5, y); x += need;
     });
     ctx.restore();
   }
@@ -209,5 +241,5 @@ window.Lab = (function () {
     return { seed: () => seed };
   }
 
-  return { css, setup, mix, roundRect, pct, mean, chart, axes, axisNames, legend, line, vline, label, dots, jobs, harness };
+  return { css, setup, mix, roundRect, pct, mean, chart, axes, axisNames, legend, belowSpace, drawLegendBelow, line, vline, label, dots, jobs, harness };
 })();

@@ -1,20 +1,20 @@
 {
  "says_ko": [
-  "점 씨앗에서 입자 4,000개를 키운 덩어리의 프랙탈 차원 D는 평균 1.66이었습니다.",
-  "튀어나온 가지 끝에 입자가 먼저 닿고 안쪽 틈은 가려져, 가지가 갈라지며 성긴 모양이 됐을 수 있습니다.",
-  "붙는 확률을 낮추면 촘촘해졌으니, 모양이 성기거나 촘촘한 이유는 성장 조건부터 살펴볼 만합니다."
+  "번개, 산호, 눈송이가 닮은 건 가지가 갈라지는 성장 방식이 같기 때문일 수 있다는 설명이 있어요(DLA 모델).",
+  "떠돌던 입자가 닿으면 붙는데, 튀어나온 끝에 먼저 닿고 안쪽 틈은 가려져서 가지가 갈라지며 성긴 모양이 돼요.",
+  "재료가 달라도 모양을 같은 원리로 설명해 볼 수 있고, 붙는 확률을 낮추면 더 촘촘해져 모양이 달라져요."
  ],
  "says_en": [
-  "A cluster of 4,000 particles from a point seed had a fractal dimension D averaging 1.66.",
-  "Particles reach protruding tips first while inner gaps are shielded, so branches may split into a sparse shape.",
-  "Lower sticking probability made it denser, so growth conditions are worth checking to explain sparse or dense shapes."
+  "One explanation (the DLA model) says lightning, coral and snowflakes look alike because they grow branches in a similar way.",
+  "Drifting particles stick on contact; tips are hit first and inner gaps are shielded, so branches split into a sparse shape.",
+  "Different materials can be explained by one principle, and lowering the sticking probability makes the shape denser."
  ],
  "not_ko": [
-  "번개·눈송이·산호가 같은 원리로 생긴다는 뜻이 아닙니다. 이 모델은 격자와 입자 수가 유한합니다.",
-  "실제 현상과 닮은 원리인지는 각각의 확산과 붙는 과정을 측정해 모양과 비교해야 확인할 수 있습니다."
+  "번개, 눈송이, 산호가 실제로 이렇게 생긴다는 걸 증명하지 않아요. 눈으로 닮았다는 것뿐이에요.",
+  "실제 현상은 각자 다른 물리나 생물 과정이 있어서, 확산과 붙는 과정을 재서 모양과 견주어 봐야 해요."
  ],
  "not_en": [
-  "It does not mean lightning, snowflakes and coral form the same way; this model has a finite grid and particle count.",
-  "Whether a real case shares the principle needs measuring its diffusion and sticking and comparing the shapes."
+  "It does not prove these things really form this way; the likeness is only visual and statistical.",
+  "Real cases have their own physics or biology, so their diffusion and sticking must be measured and compared with the shapes."
  ]
 }

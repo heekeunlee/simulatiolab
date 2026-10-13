@@ -1,20 +1,20 @@
 {
  "says_ko": [
-  "빈 판의 개미는 9,976걸음째부터 104걸음 동작을 되풀이하며 대각선 고속도로를 만들었습니다.",
-  "두 줄 규칙이 흔적을 남기고 그 흔적을 다시 밟기 때문에, 혼돈 끝에 질서가 나타났을 수 있습니다.",
-  "왜 하필 고속도로인지는 아직 증명되지 않아, 규칙을 바꾸거나 시작 판을 달리해 보는 것이 열쇠일 수 있습니다."
+  "두 줄짜리 규칙만 따르는 개미가, 한참 어지럽게 헤매다 9,976걸음째부터 곧은 대각선 길을 내기 시작해요.",
+  "자기가 색을 바꿔 둔 칸을 다시 밟으며 움직이다 보니, 어느 순간 104걸음짜리 동작이 되풀이되고 길이 쭉 뻗어요.",
+  "계획한 사람이 없어도 단순한 규칙에서 질서가 나올 수 있으니, 질서를 보면 복잡한 설계부터 찾지 않아도 돼요."
  ],
  "says_en": [
-  "Starting blank, the ant began a 104-step diagonal highway cycle at step 9,976.",
-  "The two-line rule leaves marks that the ant steps on again, so order may emerge after chaos.",
-  "Why a highway forms is unproven, so changing the rule or the starting grid may be the key."
+  "A two-rule ant wanders chaotically, then from step 9,976 starts carving a straight diagonal road.",
+  "It keeps stepping on squares whose colour it changed itself, until a 104-step move repeats and the road runs on.",
+  "Order can come from simple rules with no planner, so when you see order you need not assume a complicated design."
  ],
  "not_ko": [
-  "고속도로가 늘 생긴다는 것은 증명되지 않았고, 시작 걸음이 언제인지 미리 구하는 식도 없습니다.",
-  "실제 개미나 길 만들기에 쓰려면 규칙이 다른 모델과 비교하고, 어떤 단순한 규칙이 비슷한 질서를 만드는지 따로 확인해야 합니다."
+  "늘 길이 생긴다는 건 증명되지 않았어요. 돌려 본 판에서는 모두 생겼다는 것만 확인했어요.",
+  "이 개미는 수학 장난감이라 실제 개미나 길 만들기를 설명하지 않아요. 닮은 점은 실제 관찰로 따로 확인해야 해요."
  ],
  "not_en": [
-  "It is unproven that a highway always forms, and no formula predicts its start step.",
-  "Applying it to real ants or paths would need comparison with other rules and separate checks of which simple rules give similar order."
+  "It is unproven that a road always forms; we only checked that it did on every grid we ran.",
+  "This ant is a mathematical toy and does not explain real ants or path-making; any resemblance needs separate real observation."
  ]
 }

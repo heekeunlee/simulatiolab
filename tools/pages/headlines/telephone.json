@@ -1,1 +1,20 @@
-{"says_ko": ["이야기는 전해질수록 평범한 세부부터 사라지고 기억에 남는 세부가 살아남아요.", "기억용이성이 낮을수록 한 번 전할 때 잊힐 확률이 높고, 튀는 세부는 익숙한 것으로 바뀌어서 독립된 사슬도 비슷해질 수 있어요.", "이야기가 닮아 간다면 전하는 사람보다 어떤 세부가 잘 남고 바뀌는지 규칙부터 살펴볼 만해요."], "says_en": ["As a story is retold, ordinary details vanish first and memorable ones survive.", "Less memorable details are more likely to be forgotten each telling and odd ones get normalized, so separate chains can come to resemble each other.", "If stories converge, it may help to look first at which details tend to stay or change, rather than at who is telling."], "not_ko": ["사람의 기억이 이 모델처럼 작동한다는 뜻은 아니에요.", "기억용이성과 모티프 목록은 임의로 정한 값이라, 실제 이야기에서는 전달 실험으로 따로 확인해야 해요."], "not_en": ["It does not mean human memory works like this model.", "Memorability and the motif list are arbitrary choices, so real stories would need to be checked with retelling experiments."]}
+{
+ "says_ko": [
+  "이 모델에서 이야기가 전해지며 변하는 건, 기억에 잘 남는 세부는 살아남고 평범하거나 튀는 세부는 잊히거나 바뀌기 때문이에요.",
+  "전달할 때마다 세부마다 잊힐 확률이 달라서 오래 갈수록 잘 남는 것만 쌓이고, 튀는 세부는 익숙한 것으로 바뀌어요.",
+  "그래서 서로 모르게 전한 이야기들도 비슷해질 수 있어요. 이야기가 닮아 간다면 전하는 사람보다 어떤 세부가 남는지 볼 수 있어요."
+ ],
+ "says_en": [
+  "In this model, a story changes as it is passed on because memorable details survive while plain or odd ones are forgotten or altered.",
+  "Each detail has its own chance of being forgotten at every retelling, so over time mostly the memorable ones remain and odd ones turn familiar.",
+  "So stories passed on independently can come to resemble each other. If stories converge, one can look at which details survive, not at who tells them."
+ ],
+ "not_ko": [
+  "사람의 기억이 이 모델처럼 작동한다는 뜻은 아니에요. 아주 단순한 장난감 모델이에요.",
+  "기억용이성과 모티프 목록은 임의로 정한 값이라, 실제 이야기에서는 전달 실험으로 따로 확인해야 해요."
+ ],
+ "not_en": [
+  "It does not mean human memory works like this model; it is a very simple toy model.",
+  "Memorability and the motif list are arbitrary values, so real stories would need retelling experiments to check."
+ ]
+}

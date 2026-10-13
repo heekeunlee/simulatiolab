@@ -1,1 +1,20 @@
-{"says_ko": ["다시 만나는 관계에서 협력은 퍼졌지만, 실수 10%에서는 12번 중 10번 무너졌어요.", "이 모델에서는 다시 만날 가능성이 배신의 이득을 깎고, 실수가 잦으면 맞받아치기가 보복의 연쇄에 빠져요.", "협력이 무너진다면 사람 탓보다 만남이 이어지는지, 실수를 넘길 여지가 있는지부터 살펴볼 만해요."], "says_en": ["Cooperation spread among repeat partners, but at 10% error it collapsed in 10 of 12 runs.", "In this model, repeat meetings cut the payoff of betrayal, and frequent errors trap tit-for-tat in retaliation.", "If cooperation breaks down, check whether meetings repeat and whether mistakes can be forgiven."], "not_ko": ["착한 사람이 이긴다는 뜻은 아니고, 점수표와 모방 규칙은 이 모델이 정한 값이에요.", "현실의 평판·소문·제도가 협력을 얼마나 지키는지는 실제 사례를 관찰해 따로 확인해야 해요."], "not_en": ["It doesn't mean nice people win; the payoffs and imitation rule are set by this model.", "How much reputation, gossip and institutions sustain cooperation needs separate real-world checks."]}
+{
+ "says_ko": [
+  "착한 사람이 살아남는지는 '다시 만나는가'와 '실수를 넘겨 주는가'에 달렸어요. 이 모델에서 한두 번만 보는 사이에서는 배신이 거의 전부를 차지했어요.",
+  "같은 사람을 여러 번 만나면 배신해서 얻는 이득이 다음 만남에서 깎여요. 그런데 실수가 잦으면 서로 보복하는 연쇄에 빠지고, 용서하는 쪽이 더 많이 남아요.",
+  "그래서 협력은 착한 마음만의 문제가 아니라 만남이 이어지는 구조와 서로의 실수를 넘기는 여유로 지켜질 수 있다고 볼 수 있어요."
+ ],
+ "says_en": [
+  "Whether nice people survive depends on meeting again and on forgiving mistakes. In this model, in one- or two-time encounters, betrayal took almost everything.",
+  "When you meet the same person repeatedly, betraying gets punished later. But frequent mistakes trigger chains of retaliation, and the forgiving strategies lasted longer.",
+  "So cooperation can be kept alive not only by good hearts but by relationships that continue and by room to forgive each other's slips."
+ ],
+ "not_ko": [
+  "착한 사람이 항상 이긴다는 뜻은 아니에요. 점수표와 따라 하는 규칙은 이 모델이 정한 값이에요.",
+  "현실의 평판·소문·법과 제도가 협력을 얼마나 지키는지는 실제 사례를 관찰해 따로 확인해야 해요."
+ ],
+ "not_en": [
+  "It doesn't mean nice people always win; the payoff table and imitation rule are set by the model.",
+  "How much reputation, gossip, laws and institutions protect cooperation in reality must be checked against real cases."
+ ]
+}

@@ -1,1 +1,20 @@
-{"says_ko": ["모든 집이 학원을 늘리면 비용은 5배가 되는데, 상대평가에서는 평균 순위가 그대로예요.", "상대평가는 모두가 같이 오르면 순위가 안 변하니, 한 집에게 이득인 선택이 모이면 비용만 남는 구조일 수 있어요.", "절대평가에서는 함께 오를 수 있었으니, 개별 선택보다 평가 방식이 열쇠일 수 있어요."], "says_en": ["If every household adds classes, cost rises fivefold but the average rank stays the same under relative grading.", "Under relative grading ranks do not change when everyone rises together, so choices that help one household can add up to cost alone.", "Under absolute grading everyone could rise together, so the grading method, rather than individual choices, may be the key."], "not_ko": ["학원이 좋다거나 나쁘다는 뜻도, 어느 집의 선택이 잘못됐다는 뜻도 아니에요.", "흥미·돌봄·친구 같은 가치는 모델에 없어서, 실제 가정이 무엇을 얻는지는 따로 살펴봐야 해요."], "not_en": ["It does not say tutoring is good or bad, or that any household chose wrongly.", "Interest, care and friendships are absent from the model, so what real families gain would have to be looked at separately."]}
+{
+ "says_ko": [
+  "이 모델에서 모두가 학원을 늘려도 상대평가 순위는 그대로이고, 학원비만 처음의 약 5배가 돼요.",
+  "한 집만 늘리면 순위가 오르지만, 모두가 같은 판단을 하면 누가 오른 만큼 누군가는 내려가서 서로 맞바꾼 셈이 돼요.",
+  "그래서 개별 집의 선택보다 평가 방식이 열쇠일 수 있어요. 절대평가에서는 합격선이 고정이라 함께 오를 수 있었어요."
+ ],
+ "says_en": [
+  "In this model, if every family adds classes, rank under relative grading stays the same while tuition rises to about 5 times.",
+  "One family adding a class gains rank, but when all do it, someone must fall for each one who rises, so it is just a swap.",
+  "So the grading method may matter more than any one family's choice. Under absolute grading, with a fixed cutoff, everyone could rise together."
+ ],
+ "not_ko": [
+  "학원이 좋다거나 나쁘다는 뜻도, 어느 집의 선택이 잘못됐다는 뜻도 아니에요.",
+  "흥미·돌봄·친구 같은 가치와 실제 한국의 사교육 효과는 모델에 없어서, 실제 가정이 무엇을 얻는지는 따로 살펴봐야 해요."
+ ],
+ "not_en": [
+  "It does not say classes are good or bad, or that any family chose wrongly.",
+  "Interest, care, friends and real Korean tutoring effects are not in the model, so what real families gain must be examined separately."
+ ]
+}

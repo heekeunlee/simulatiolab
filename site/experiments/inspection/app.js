@@ -86,15 +86,17 @@
     };
     vl(ma, css('--accent'), o.labelA(ma), 1); vl(mb, GOLD, o.labelB(mb), 2);
     ctx.font = FONT;
-    L.legend(c, o.legend, 'br');
+    if (o.legend && o.legend.length) L.drawLegendBelow(c, o.legend);
   }
 
   // ---------- ② 간격 분포: 버스 vs 승객 ----------
   function drawHist() {
-    const c = L.chart($('c-hist'), THUMB ? 1 : 0.7, THUMB ? { b: 34, l: 10, r: 10, t: 44 } : { b: 40, l: 14 });
+    const itemsH = THUMB ? [] : [{ kind: 'box', color: mix(css('--accent'), 0.5), label: '버스 간격 (하나씩 센 값)' }, { kind: 'line', color: '#e0a100', label: '승객이 본 간격' }];
+    const spH = L.belowSpace($('c-hist'), itemsH);
+    const c = THUMB ? L.chart($('c-hist'), 1, { b: 34, l: 10, r: 10, t: 44 }) : L.chart($('c-hist'), 0.7 + spH.extra / ($('c-hist').clientWidth || 400), { b: spH.b, l: 14 });
     overlay(c, Array.from(sim.heads), sim.seen(), {
       bins: 30, minMax: sim.params.mean * 2, xLabel: '버스 간격 (분)',
-      legend: THUMB ? [] : [{ kind: 'box', color: mix(css('--accent'), 0.5), label: '버스 간격 (하나씩 센 값)' }, { kind: 'line', color: '#e0a100', label: '승객이 본 간격' }],
+      legend: itemsH,
       labelA: (v) => `버스를 센 평균 ${f1(v)}분`, labelB: (v) => `승객이 본 평균 ${f1(v)}분`,
     });
   }
@@ -113,11 +115,13 @@
 
   // ---------- ④ 학급 인원 ----------
   function drawClass() {
-    const c = L.chart($('c-class'), 0.7, { b: 40, l: 14 });
+    const itemsC = [{ kind: 'box', color: mix(css('--accent'), 0.5), label: '학급 인원 (하나씩 센 값)' }, { kind: 'line', color: '#e0a100', label: '학생이 말한 자기 반 인원' }];
+    const spC = L.belowSpace($('c-class'), itemsC);
+    const c = L.chart($('c-class'), 0.7 + spC.extra / ($('c-class').clientWidth || 400), { b: spC.b, l: 14 });
     const stu = []; cls.sizes.forEach((s) => { for (let i = 0; i < s; i++) stu.push(s); });
     overlay(c, cls.sizes, stu, {
       bins: 30, minMax: 40, xLabel: '학급 인원 (명)',
-      legend: [{ kind: 'box', color: mix(css('--accent'), 0.5), label: '학급 인원 (하나씩 센 값)' }, { kind: 'line', color: '#e0a100', label: '학생이 말한 자기 반 인원' }],
+      legend: itemsC,
       labelA: (v) => `학급을 센 평균 ${f1(v)}명`, labelB: (v) => `학생이 말한 평균 ${f1(v)}명`,
     });
     $('note-c').innerHTML = `들쭉날쭉한 정도(변동계수)가 ${P_cv().toFixed(1)}이면 학급 평균 ${f1(cls.perClass)}명이 학생이 겪는 평균 ${f1(cls.perStudent)}명이 됩니다 (이론 ${f1(cls.theoryPerStudent)}명). 현실적인 편차(변동계수 0.3)라면 ${f1(cls3.perClass)}명이 ${f1(cls3.perStudent)}명입니다.`;

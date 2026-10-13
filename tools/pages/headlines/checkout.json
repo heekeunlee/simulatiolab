@@ -1,20 +1,20 @@
 {
  "says_ko": [
-  "계산대 4개, 붐빔 90%에서 한 줄은 평균 6.1분, 줄 따로 서기는 최대 4.9배 기다렸습니다.",
-  "줄을 나누면 한쪽 계산대가 놀아도 다른 줄 손님은 옮기지 못해, 일하는 능력이 낭비되기 때문일 수 있습니다.",
-  "기다림이 길다면 계산대 수보다 줄이 어떻게 나뉘고 어떻게 배정되는지부터 살펴볼 만합니다."
+  "줄을 하나로 서면 더 빠른 건, 한 줄이 놀고 있는 계산대 없이 빈 곳부터 손님을 받기 때문이에요.",
+  "줄을 계산대마다 나누면 옆 계산대가 놀아도 내 줄 손님은 못 옮겨서, 일할 수 있는 힘이 낭비돼요.",
+  "계산대 4개, 붐빔 90%에서 한 줄은 평균 6.1분이었고 줄 따로는 방식에 따라 1.06배에서 4.9배까지 더 기다렸어요."
  ],
  "says_en": [
-  "With 4 counters at 90% load, one line averaged 6.1 minutes; separate lines waited up to 4.9 times longer.",
-  "Splitting lines lets a counter sit idle while others queue and customers cannot move, which can waste capacity.",
-  "If waits run long, how lines are split and assigned may be worth checking before adding counters."
+  "One line is faster because a free counter always takes the next customer, so no counter sits idle.",
+  "With separate lines, a neighbouring counter can idle while your line waits, since customers cannot move; capacity is wasted.",
+  "With 4 counters at 90% load one line averaged 6.1 minutes; separate lines waited 1.06 to 4.9 times longer depending on how people chose."
  ],
  "not_ko": [
-  "줄을 하나로 세우면 반드시 이득이라는 뜻은 아닙니다. 줄 바꾸기와 전용 계산대는 이 모델에 없습니다.",
-  "실제 가게에서는 손님이 기다린 시간과 빈 계산대가 생기는 순간을 재어 보고, 전용 계산대의 효과를 따로 비교해야 합니다."
+  "줄을 하나로 하면 늘 이득이라는 뜻은 아니에요. 줄 바꾸기, 전용 계산대, 셀프 계산대는 이 모델에 없어요.",
+  "실제 가게에서 확인하려면 손님이 기다린 시간과 계산대가 비는 순간을 재서 비교해 봐야 해요."
  ],
  "not_en": [
-  "It does not mean one line always wins; lane switching and express counters are not in this model.",
-  "A real store would need measured waits and idle-counter moments, and a separate comparison of express counters."
+  "It does not mean one line always wins; lane switching, express and self-checkout counters are not in this model.",
+  "To check in a real store, measure customers' waits and the moments counters sit idle, then compare."
  ]
 }

@@ -37,7 +37,9 @@
   }
 
   function drawScatter() {
-    const c = L.chart($('c-scatter'), 0.7, { l: 48 });
+    const itemsS = [{ kind: 'dot', color: '#8a93a6', label: '채널 하나 (색은 품질)' }, { kind: 'dot', color: '#d19200', label: '현재 1위 (금색 테두리)' }, { kind: 'dot', color: '#7c5cff', label: '품질 1위 (보라 테두리)' }];
+    const spS = L.belowSpace($('c-scatter'), itemsS);
+    const c = L.chart($('c-scatter'), 0.7 + spS.extra / ($('c-scatter').clientWidth || 400), { l: 48, b: spS.b });
     const { ctx, m, pw, ph } = c;
     const qmin = Math.min(...sim.q), qmax = Math.max(...sim.q), lq0 = Math.log(qmin) - 0.05, lq1 = Math.log(qmax) + 0.05;
     const smax = Math.max(10, ...sim.subs), ymax = Math.ceil(Math.log10(smax));
@@ -50,7 +52,7 @@
       const x = X(sim.q[i]), y = Y(sim.subs[i] + 0.6 * (sim.subs[i] === 0));
       ctx.strokeStyle = col; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(x, y, 7, 0, 7); ctx.stroke(); ctx.lineWidth = 1;
     });
-    L.legend(c, [{ kind: 'dot', color: '#8a93a6', label: '채널 하나 (색은 품질)' }, { kind: 'dot', color: '#d19200', label: '현재 1위 (금색 테두리)' }, { kind: 'dot', color: '#7c5cff', label: '품질 1위 (보라 테두리)' }], 'tl');
+    L.drawLegendBelow(c, itemsS);
   }
 
   function drawWorlds() {

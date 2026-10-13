@@ -146,7 +146,11 @@
 
   // ---------- ④ 성장률을 바꾸면 ----------
   function drawSweep() {
-    const P = sim.params, R0 = 10, R1 = 40, c = L.chart($('c-sweep'), 0.62, { l: 52, b: 40, r: 16, t: 24 }), { ctx, m, pw, ph } = c;
+    const P = sim.params, R0 = 10, R1 = 40;
+    const lg = [{ kind: 'dot', color: css('--accent'), label: '시뮬레이션에서 잰 값' }, { kind: P.mix > 0.04 ? 'dash' : 'line', color: GREEN, label: '이론 2√(rD)' }];
+    if (P.mix > 0.04) lg.push({ kind: 'line', color: RED, label: '토착민 흡수를 반영한 이론' });
+    lg.push({ kind: 'dash', color: css('--rich'), label: '지금 설정' });
+    const sp = L.belowSpace($('c-sweep'), lg), c = L.chart($('c-sweep'), 0.62 + sp.extra / ($('c-sweep').clientWidth || 400), { l: 52, b: sp.b, r: 16, t: 24 }), { ctx, m, pw, ph } = c;
     const mxv = Math.max(4.0, ...sweep.map((d) => d.v || 0)), YM = Math.ceil(mxv * 2) / 2;
     const X = (v) => m.l + ((v - R0) / (R1 - R0)) * pw, Y = (v) => m.t + ph - (v / YM) * ph, yt = []; for (let v = 0; v <= YM + 1e-9; v += 0.5) yt.push(v);
     L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => v.toFixed(1), xTicks: [10, 15, 20, 25, 30, 35, 40], xFmt: (v) => (v / 10).toFixed(1), xLabel: '인구 증가율 r (% / 년)', yLabel: '전선 속도 (km/년)' });
@@ -156,10 +160,7 @@
     ctx.fillStyle = css('--accent');
     sweep.forEach((d) => { if (d.v == null) return; ctx.beginPath(); ctx.arc(X(d.r * 1000), Y(d.v), 4.5, 0, 7); ctx.fill(); });
     L.vline(c, X(P.r * 1000), css('--rich'), '', 'left');
-    const lg = [{ kind: 'dot', color: css('--accent'), label: '시뮬레이션에서 잰 값' }, { kind: P.mix > 0.04 ? 'dash' : 'line', color: GREEN, label: '이론 2√(rD)' }];
-    if (P.mix > 0.04) lg.push({ kind: 'line', color: RED, label: '토착민 흡수를 반영한 이론' });
-    lg.push({ kind: 'dash', color: css('--rich'), label: '지금 설정' });
-    L.legend(c, lg, 'tr');
+    L.drawLegendBelow(c, lg);
   }
 
   function renderStats() {

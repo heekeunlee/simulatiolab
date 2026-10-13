@@ -38,11 +38,13 @@
 
   // ---------- ① 부의 계단 ----------
   function drawBars() {
-    const { ctx, w, h } = setup($('c-bars'), THUMB ? 1 : 0.5);
+    const litems = [{ kind: 'box', color: '#b9c3da', label: '평균 이하' }, { kind: 'box', color: css('--accent'), label: '평균 이상' }, { kind: 'box', color: css('--rich'), label: '상위 10%' }, { kind: 'dash', color: css('--text'), label: '평균 (모두 같았을 때)' }];
+    const sp = THUMB ? null : window.Lab.belowSpace($('c-bars'), litems);
+    const { ctx, w, h } = setup($('c-bars'), THUMB ? 1 : 0.5 + sp.extra / ($('c-bars').clientWidth || 400));
     const q = sim.current(), s = q.sorted, n = sim.n, B = 100, per = n / B;
     const bins = [];
     for (let b = 0; b < B; b++) { let t = 0; for (let i = b * per; i < (b + 1) * per; i++) t += s[i]; bins.push(t / per); }
-    const m = { l: 44, r: 10, t: 24, b: 36 };
+    const m = { l: 44, r: 10, t: 24, b: THUMB ? 36 : sp.b };
     const pw = w - m.l - m.r, ph = h - m.t - m.b;
     const ymax = Math.max(2, ...bins) * 1.08;
     const Y = (v) => m.t + ph - (v / ymax) * ph;
@@ -60,7 +62,7 @@
     ctx.setLineDash([5, 3]); ctx.strokeStyle = css('--text'); ctx.lineWidth = 1.2;
     ctx.beginPath(); ctx.moveTo(m.l, Y(1)); ctx.lineTo(w - m.r, Y(1)); ctx.stroke(); ctx.setLineDash([]); ctx.lineWidth = 1;
     axisNames({ ctx, w, h, m, pw, ph }, '재산 순서 (가난 → 부자)', '재산 (평균의 배수)');
-    if (!THUMB) legend({ ctx, w, h, m, pw, ph }, [{ kind: 'box', color: '#b9c3da', label: '평균 이하' }, { kind: 'box', color: css('--accent'), label: '평균 이상' }, { kind: 'box', color: css('--rich'), label: '상위 10%' }, { kind: 'dash', color: css('--text'), label: '평균 (모두 같았을 때)' }], 'tl');
+    if (!THUMB) window.Lab.drawLegendBelow({ ctx, w, h, m, pw, ph }, litems);
     $('when').textContent = `${sim.round}/${sim.params.rounds} 라운드 · 상위 10%의 몫 ${pct(q.top10)}`;
   }
 

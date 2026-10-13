@@ -1,20 +1,20 @@
 {
-"says_ko": [
-"단기금리가 1%p 뛰어도 10년 금리는 0.33%p만 오르고, 이 값은 회귀 속도에 크게 달렸어요.",
-"이 모델에서는 단기금리가 평균으로 돌아온다고 보기에, 오래 갈수록 지금의 흔들림이 10년 금리에 덜 반영돼요.",
-"금리가 오를 때와 내릴 때 채권값이 어떻게 달라지는지까지 살펴볼 만해요."
-],
-"says_en": [
-"A 1pp jump in the short rate lifts the 10-year rate only 0.33pp, depending heavily on reversion speed.",
-"In this model short rates return to their mean, so today's swings count for less the further out you look.",
-"It is worth looking at how bond prices differ when rates rise and when they fall."
-],
-"not_ko": [
-"금리를 맞히는 모델이 아니고, 투자 판단에 쓰면 안 돼요. 기본값은 모두 예시 숫자예요.",
-"물가·통화정책·채권 수요 같은 빠진 요소와 기간 프리미엄의 변화는 실제 자료로 따로 확인해야 해요."
-],
-"not_en": [
-"This can't predict rates or guide investing; every default is an example number.",
-"Missing factors like inflation, policy, bond demand and shifting term premia need real data."
-]
+ "says_ko": [
+  "단기금리가 갑자기 뛰어도 10년 금리는 훨씬 덜 오르는 이유는, 단기금리가 결국 평균으로 돌아올 거라고 보기 때문이에요. 이 모델에서는 1%p 뛰면 10년 금리는 0.33%p만 올랐어요.",
+  "10년 동안의 평균을 예상해서 정하니, 지금의 흔들림은 앞으로의 긴 기간에 조금만 반영돼요. 돌아오는 속도가 느릴수록 더 많이 따라 올라요.",
+  "그래서 금리가 오르면 이미 가진 옛 채권은 값이 깎이고 내리면 오른다는 걸, 같은 이자율의 새 채권과 비교해 이해할 수 있어요. 오를 때 깎이는 폭보다 내릴 때 오르는 폭이 조금 더 커요."
+ ],
+ "says_en": [
+  "Even when the short rate jumps, the 10-year rate rises much less because the short rate is expected to drift back to its average. Here a 1 point jump moved the 10-year rate only 0.33 points.",
+  "The 10-year rate reflects the expected average over a decade, so today's wobble counts for little of it. The slower the return to average, the more it follows.",
+  "So you can see why an old bond loses value when rates rise and gains when they fall, compared with new bonds. The gain from a fall is a bit larger than the loss from a rise."
+ ],
+ "not_ko": [
+  "금리를 맞히는 모델이 아니고 투자 판단에 쓰면 안 돼요. 기본값은 모두 예시 숫자예요.",
+  "물가·통화정책·채권 수요 같은 빠진 요소는 실제 금리 자료와 따로 대조해 봐야 해요."
+ ],
+ "not_en": [
+  "It isn't a rate-forecasting model and shouldn't guide investing; all defaults are example numbers.",
+  "Missing factors like inflation, monetary policy and bond demand must be compared with real rate data."
+ ]
 }

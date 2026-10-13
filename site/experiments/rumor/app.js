@@ -76,9 +76,11 @@
 
   // ---------- ① 네트워크 그리기 ----------
   function drawNet() {
-    const { ctx, w, h } = setup($('c-net'), 0.78);
+    const nItems = [{ kind: 'dot', color: COL.unknown, label: '소문을 아직 모름' }, { kind: 'dot', color: COL.spread, label: '소문 퍼뜨리는 중' }, { kind: 'dot', color: COL.done, label: '알지만 멈춤' }, { kind: 'dot', color: COL.cspread, label: '정정 퍼뜨리는 중' }, { kind: 'dot', color: COL.cdone, label: '정정을 본 사람' }];
+    const nLegH = THUMB ? 0 : window.Lab.belowSpace($('c-net'), nItems).rows * 17 + 8;
+    const { ctx, w, h } = setup($('c-net'), 0.78 + nLegH / ($('c-net').clientWidth || 400));
     const n = sim.n, R = sim.rooms, pad = 26;
-    const X = (v) => pad + v * (w - pad * 2), Y = (v) => pad + v * (h - pad * 2);
+    const X = (v) => pad + v * (w - pad * 2), Y = (v) => pad + v * (h - nLegH - pad * 2);
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
 
     // 평소엔 거의 안 보이는 연결선, 이번 차례에 글이 올라온 방에서는 멤버에게 색 선이 뻗는다
@@ -138,7 +140,7 @@
       });
     });
 
-    if (!THUMB) legend({ ctx, w, h, m: { l: 0, r: 0, t: 0, b: 0 }, pw: w, ph: h }, [{ kind: 'dot', color: COL.unknown, label: '소문을 아직 모름' }, { kind: 'dot', color: COL.spread, label: '소문 퍼뜨리는 중' }, { kind: 'dot', color: COL.done, label: '알지만 멈춤' }, { kind: 'dot', color: COL.cspread, label: '정정 퍼뜨리는 중' }, { kind: 'dot', color: COL.cdone, label: '정정을 본 사람' }], 'bl');
+    if (!THUMB) window.Lab.drawLegendBelow({ ctx, w, h, m: { l: 0, r: 0, t: 0, b: nLegH + 28 } }, nItems);
     const c = sim.history[sim.history.length - 1];
     const tag = sim.params.correctionDelay > 0 && !sim.correctionStarted ? ` · 정정은 ${sim.params.correctionDelay + 1}차례째에 시작` : sim.correctionStarted ? ' · 정정 퍼지는 중' : '';
     $('when').textContent = `${sim.round}차례 · 소문을 아는 사람 ${pct(c.heard / sim.n)}${tag}`;
@@ -146,9 +148,10 @@
 
   // ---------- ② 쌓인 영역 그래프 ----------
   function drawArea() {
-    const { ctx, w, h } = setup($('c-area'), 0.7);
+    const aItems = [{ kind: 'box', color: '#cfd5e3', label: '모름' }, { kind: 'box', color: '#9ec1ff', label: '정정 덕에 안 속음' }, { kind: 'box', color: '#e5484d', label: '퍼뜨리는 중' }, { kind: 'box', color: '#f2a3a6', label: '알고 멈춤' }], asp = window.Lab.belowSpace($('c-area'), aItems);
+    const { ctx, w, h } = setup($('c-area'), 0.7 + asp.extra / ($('c-area').clientWidth || 400));
     const H = sim.history, T = Math.max(H.length - 1, 8), n = sim.n;
-    const m = { l: 44, r: 12, t: 24, b: 36 };
+    const m = { l: 44, r: 12, t: 24, b: asp.b };
     const pw = w - m.l - m.r, ph = h - m.t - m.b;
     const X = (t) => m.l + (t / T) * pw, Y = (v) => m.t + ph - (v / n) * ph;
     const layers = [
@@ -181,13 +184,14 @@
       ctx.beginPath(); ctx.moveTo(X(t), m.t); ctx.lineTo(X(t), m.t + ph); ctx.stroke(); ctx.setLineDash([]);
       ctx.fillStyle = css('--accent'); ctx.textAlign = 'left'; ctx.fillText('정정 시작', X(t) + 4, m.t + 12);
     }
-    legend({ ctx, w, h, m, pw, ph }, [{ kind: 'box', color: '#cfd5e3', label: '모름' }, { kind: 'box', color: '#9ec1ff', label: '정정 덕에 안 속음' }, { kind: 'box', color: '#e5484d', label: '퍼뜨리는 중' }, { kind: 'box', color: '#f2a3a6', label: '알고 멈춤' }], 'tr');
+    window.Lab.drawLegendBelow({ ctx, w, h, m }, aItems);
   }
 
   // ---------- ③④ 점 그래프 ----------
   function drawDots(canvasId, data, xs, xLabel, xFmt, opts) {
-    const { ctx, w, h } = setup($(canvasId), 0.7);
-    const m = { l: 44, r: 14, t: 24, b: 40 };
+    const dItems = [{ kind: 'dot', color: mix(css('--accent'), 0.5), label: '한 번의 실행' }, { kind: 'line', color: css('--accent'), label: '평균' }], dsp = window.Lab.belowSpace($(canvasId), dItems);
+    const { ctx, w, h } = setup($(canvasId), 0.7 + dsp.extra / ($(canvasId).clientWidth || 400));
+    const m = { l: 44, r: 14, t: 24, b: dsp.b };
     const pw = w - m.l - m.r, ph = h - m.t - m.b;
     const x0 = xs[0], x1 = xs[xs.length - 1];
     const X = (v) => m.l + ((v - x0) / (x1 - x0 || 1)) * pw, Y = (v) => m.t + ph - v * ph;
@@ -221,7 +225,7 @@
       ctx.fillStyle = css('--rich'); ctx.textAlign = opts.current > (x0 + x1) / 2 ? 'right' : 'left';
       ctx.fillText('지금 설정', X(opts.current) + (opts.current > (x0 + x1) / 2 ? -5 : 5), m.t + 11);
     }
-    legend({ ctx, w, h, m, pw, ph }, [{ kind: 'dot', color: mix(css('--accent'), 0.5), label: '한 번의 실행' }, { kind: 'line', color: css('--accent'), label: '평균' }], 'br');
+    window.Lab.drawLegendBelow({ ctx, w, h, m }, dItems);
   }
 
   const mean = (a) => a.reduce((x, y) => x + y, 0) / a.length;

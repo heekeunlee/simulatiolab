@@ -151,7 +151,8 @@
     L.legend(c, [{ kind: 'dot', color: css('--accent'), label: '시뮬레이션 평균' }, { kind: 'line', color: GREEN, label: '정확한 기댓값' }, { kind: 'dash', color: RED, label: '긴 벤치 이론값' }, { kind: 'line', color: GRAY, label: '정돈했을 때 최대' }], 'tr');
   }
   function drawRules() {
-    const P = sim.params, c = L.chart($('c-rules'), 0.62, { l: 46, b: 52, r: 16, t: 20 }), { ctx, m, pw, ph } = c, cols = RULE_COLORS();
+    const litems = [{ kind: 'dash', color: GREEN, label: '정돈했을 때 최대' }], cvr = $('c-rules'), sp = L.belowSpace(cvr, litems);
+    const P = sim.params, c = L.chart(cvr, 0.62 + (sp.extra + 16) / (cvr.clientWidth || 400), { l: 46, b: sp.b + 16, r: 16, t: 20 }), { ctx, m, pw, ph } = c, cols = RULE_COLORS();
     const top = Math.ceil(sim.cap * 1.4), step = top > 12 ? 4 : top > 6 ? 2 : 1;
     const Y = (v) => m.t + ph - (v / top) * ph, yt = []; for (let v = 0; v <= top; v += step) yt.push(v);
     L.axes(c, { X: () => 0, Y, yTicks: yt, yFmt: (v) => String(v), yLabel: '앉은 사람 (명)' });
@@ -164,7 +165,7 @@
       ctx.fillText(`(정돈의 ${Math.round((100 * v) / sim.cap)}%)`, x + w / 2, c.h - m.b + 31);
     });
     ctx.setLineDash([5, 3]); ctx.strokeStyle = GREEN; ctx.beginPath(); ctx.moveTo(m.l, Y(sim.cap)); ctx.lineTo(m.l + pw, Y(sim.cap)); ctx.stroke(); ctx.setLineDash([]);
-    L.legend(c, [{ kind: 'dash', color: GREEN, label: '정돈했을 때 최대' }], 'tl');
+    L.drawLegendBelow(Object.assign({}, c, { m: Object.assign({}, m, { b: m.b - 16 }) }), litems);
   }
   function drawG() {
     const P = sim.params, c = L.chart($('c-g'), 0.55, { l: 50, b: 40, r: 20, t: 24 }), { ctx, m, pw, ph } = c;

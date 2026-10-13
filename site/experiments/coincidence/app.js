@@ -22,7 +22,9 @@
     const cv = $('c-room'), cw = cv.clientWidth || 600, cols = 50, cell = Math.min(14, (cw - 28) / cols);
     const wh = THUMB ? 0 : Math.ceil(sim.params.rounds / cols) * cell + 30; // 아래: 지금까지 모임 기록 (칸 하나 = 모임 하나)
     const ringH = THUMB ? cw : Math.min(cw * 0.78, 560);
-    const c = L.chart(cv, (ringH + wh + (THUMB ? 0 : 82)) / cw, { l: 14, r: 14, t: THUMB ? 8 : 34, b: THUMB ? 8 : wh + 48 }), { ctx, w, h, m, pw, ph } = c;
+    const litems = [{ kind: 'line', color: '#b3b9c7', label: '가능한 모든 짝 (옅은 실)' }, { kind: 'line', color: css('--accent'), label: '일치한 쌍' }, { kind: 'line', color: css('--unlucky'), label: '나와 일치' }, { kind: 'box', color: css('--accent'), label: '일치가 있던 모임 (아래 칸)' }, { kind: 'box', color: '#c3cad6', label: '일치가 없던 모임 (아래 칸)' }].slice(0, cw < 440 ? 3 : 5);
+    const sp = THUMB ? { b: 0 } : L.belowSpace(cv, litems);
+    const c = L.chart(cv, (ringH + wh + (THUMB ? 0 : 82 + sp.b)) / cw, { l: 14, r: 14, t: THUMB ? 8 : 34, b: THUMB ? 8 : wh + 48 + sp.b }), { ctx, w, h, m, pw, ph } = c;
     const P = sim.params, a = sim.last;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
     ctx.textAlign = 'left'; ctx.fillStyle = css('--text'); ctx.font = '600 13px ' + FONT;
@@ -81,7 +83,7 @@
         }
       }
     }
-    if (!THUMB && a) L.legend(c, [{ kind: 'line', color: '#b3b9c7', label: '가능한 모든 짝 (옅은 실)' }, { kind: 'line', color: css('--accent'), label: '일치한 쌍' }, { kind: 'line', color: css('--unlucky'), label: '나와 일치' }, { kind: 'box', color: css('--accent'), label: '일치가 있던 모임 (아래 칸)' }, { kind: 'box', color: '#c3cad6', label: '일치가 없던 모임 (아래 칸)' }].slice(0, w < 440 ? 3 : 5), 'bl');
+    if (!THUMB && a) L.drawLegendBelow(Object.assign({}, c, { m: Object.assign({}, m, { b: sp.b }) }), litems);
     $('when').textContent = `${sim.round}/${P.rounds}번 · 일치가 있던 모임 ${pc(sim.anyShare())}`;
   }
 

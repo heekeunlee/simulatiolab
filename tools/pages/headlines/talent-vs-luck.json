@@ -1,20 +1,20 @@
 {
  "says_ko": [
-  "재능이 비슷해도 운이 몇 번 겹치면 부의 격차가 극단적으로 벌어질 수 있어요.",
-  "이 모델에서는 자본이 2배, 절반으로 곱해져 쌓이고 재능은 기회를 살릴 확률에만 들어가, 작은 운이 크게 불어나요.",
-  "격차가 클 때는 재능 차이로 보기 전에, 운이 곱해져 쌓이는 구조인지부터 살펴볼 만해요."
+  "재능이 비슷한데도 부의 격차가 극단적으로 벌어지는 건, 운이 곱해져 쌓이기 때문일 수 있어요.",
+  "이 모델에서는 행운이 오면 자본이 2배, 불운이면 절반이 되고 재능은 행운을 살릴 확률에만 들어가서, 운이 몇 번 겹치면 크게 불어요.",
+  "그래서 큰 격차를 보면 재능 차이로 읽기 전에, 운이 곱해져 쌓이는 구조였는지 먼저 살펴볼 수 있어요."
  ],
  "says_en": [
-  "Even with similar talent, a few lucky breaks can open extreme wealth gaps.",
-  "Here capital doubles or halves and talent only sets the chance of seizing luck, so small luck compounds hugely.",
-  "When gaps are large, it is worth checking whether luck compounds before reading them as talent differences."
+  "Wealth gaps can grow extreme among similarly talented people because luck compounds multiplicatively.",
+  "Here luck doubles capital, bad luck halves it, and talent only sets the chance of seizing luck, so a few lucky breaks grow hugely.",
+  "So when you see a big gap, you can first ask whether luck compounded before reading it as a talent difference."
  ],
  "not_ko": [
-  "재능이 소용없다는 뜻은 아니에요. 이 모델은 교육, 상속, 제도가 없고 만남의 규칙도 이 프로젝트가 정했어요.",
-  "현실에서는 성공 경로에서 운이 어디에 얼마나 작용했는지 기록하고, 모델에 없는 요인을 넣어 비교해 봐야 해요."
+  "재능이 소용없다는 뜻이 아니에요. 이 모델에는 교육, 상속, 제도가 없고 만남의 규칙도 이 프로젝트가 정했어요.",
+  "현실에서 확인하려면 성공의 경로에서 운이 어디에 얼마나 작용했는지 기록하고, 모델에 없는 요인을 넣어 비교해 봐야 해요."
  ],
  "not_en": [
   "It does not mean talent is useless; the model has no education, inheritance or institutions, and its encounter rules are our own.",
-  "In reality one would record where luck acted along success paths and add missing factors to compare."
+  "To check in reality, record where luck acted along success paths and add the missing factors to compare."
  ]
 }

@@ -20,9 +20,12 @@
   // ---------- ① 순환 노선 ----------
   function drawRing() {
     const cw = $('c-ring').clientWidth || 600, asp = THUMB ? 1 : cw < 560 ? 1.0 : 0.62;
-    const c = L.chart($('c-ring'), asp, { l: 8, r: 8, t: 8, b: 8 }), { ctx, w, h } = c;
+    const litems = [{ kind: 'box', color: mix(AMBER, 0.9), label: '주황 막대: 정류장에 줄 선 승객' }, { kind: 'dot', color: '#111', label: '검은 테두리: 승객을 태우는 중' }];
+    const sp = THUMB ? { b: 8, extra: 0 } : L.belowSpace($('c-ring'), litems);
+    const c = L.chart($('c-ring'), asp + sp.extra / ($('c-ring').clientWidth || 400), { l: 8, r: 8, t: 8, b: sp.b }), { ctx, w, h } = c;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
-    const P = sim.p, S = sim.S, n = sim.n, cx = w / 2, cy = h / 2, R = Math.min(w, h) / 2 - 52;
+    const ah = h - (sp.b - 8);
+    const P = sim.p, S = sim.S, n = sim.n, cx = w / 2, cy = ah / 2, R = Math.min(w, ah) / 2 - 52;
     const ang = (x) => -Math.PI / 2 + (2 * Math.PI * x) / S, pt = (x, r) => [cx + r * Math.cos(ang(x)), cy + r * Math.sin(ang(x))];
     // 길
     ctx.strokeStyle = '#dfe5f0'; ctx.lineWidth = 22; ctx.beginPath(); ctx.arc(cx, cy, R, 0, 7); ctx.stroke();
@@ -51,7 +54,7 @@
     ctx.font = '13px ' + FONT; ctx.fillStyle = css('--muted');
     ctx.fillText(`달리는 덩어리 수: ${groups(g)}`, cx, cy + 6);
     ctx.fillText(`가장 붙은 두 버스 간격 ${f1(mn)}분 (이상적 ${f1(H)}분)`, cx, cy + 26);
-    L.legend(c, [{ kind: 'box', color: mix(AMBER, 0.9), label: '주황 막대: 정류장에 줄 선 승객' }, { kind: 'dot', color: '#111', label: '검은 테두리: 승객을 태우는 중' }], 'bl');
+    L.drawLegendBelow(c, litems);
     $('when').textContent = `${Math.round(sim.t)}/${P.minutes}분`;
   }
 

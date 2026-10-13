@@ -1,1 +1,20 @@
-{"says_ko": ["같은 규칙인데 F와 k 두 숫자만 바꿔도 점, 줄무늬, 미로, 산호 같은 무늬가 저절로 생겼어요.", "v는 u보다 느리게 퍼지고 u를 먹으며 늘어나, 퍼지는 속도 차이와 반응이 만나 무늬가 자리잡기 때문일 수 있어요.", "무늬가 달라진다면 규칙을 더하기보다 공급과 제거의 균형, 퍼지는 속도 차이부터 살펴볼 만해요."], "says_en": ["With the same rules, changing just F and k produced spots, stripes, mazes and coral patterns by themselves.", "Here v spreads slower than u and feeds on it, so the speed difference plus the reaction may let patterns settle.", "When patterns differ, the balance of supply and removal and the spreading-speed gap may be better places to look than extra rules."], "not_ko": ["실제 얼룩말 줄무늬가 이 반응으로 생긴다는 증명이 아니고, F와 k는 생물학적 값이 아니에요.", "실제 동물에서는 유전자 활동과 성장, 몸 모양을 함께 관찰해 어떤 물질이 퍼지는지 확인해야 해요."], "not_en": ["It does not prove real zebra stripes arise this way, and F and k are mathematical, not biological, values.", "Real animals would need gene activity, growth and body shape observed to find what actually spreads."]}
+{
+"says_ko": [
+"얼룩말 무늬는 '무늬를 만드는 물질'과 그 '재료'가 피부 속에서 퍼지는 속도가 달라서 저절로 생긴다는 설명이 있어요(튜링의 아이디어). 이 모델은 그 원리로 비슷한 무늬가 생김을 보여 줘요.",
+"무늬 물질은 재료를 먹고 늘어나지만 천천히 퍼지고, 재료는 더 빨리 퍼져요. 그래서 한곳에 생긴 무늬는 번지다 재료가 모자라 멈추고, 재료가 넉넉한 먼 곳에 다음 무늬가 생겨 일정한 간격의 점이나 줄이 남아요.",
+"그래서 공급 속도 같은 숫자 두 개만 바꿔도 점·줄무늬·미로 무늬가 달라져, 서로 다른 동물의 무늬를 한 가지 원리로 설명해 볼 수 있어요."
+],
+"says_en": [
+"One explanation (Turing's idea) is that zebra stripes form by themselves because a pattern-making substance and its raw material spread through the skin at different speeds. This model shows that the same principle makes similar patterns.",
+"The pattern substance feeds on the raw material and grows but spreads slowly, while the material spreads faster. So a spot spreads until the material runs short and stops, and the next spot appears far away where material is plentiful, leaving evenly spaced dots or stripes.",
+"So changing just two numbers, like the supply rate, turns spots into stripes or mazes, letting one principle account for the patterns of different animals."
+],
+"not_ko": [
+"실제 얼룩말 피부에서 이 물질들이 정말 이렇게 움직이는지는 이 시뮬레이션이 증명하지 않아요. 여기 숫자도 생물학적 값이 아니에요.",
+"실제 동물은 유전자와 몸이 자라는 과정까지 얽혀 있어서, 확인하려면 실제 피부의 물질 분포를 관찰해 봐야 해요."
+],
+"not_en": [
+"This simulation does not prove such substances really move this way in zebra skin, and its numbers are not biological values.",
+"Real animals involve genes and growth too, so checking needs observing how substances are actually distributed in skin."
+]
+}

@@ -76,12 +76,36 @@
     L.legend(c, [{ kind: 'box', color: css('--accent'), label: '1~10위' }, { kind: 'box', color: mix(css('--accent'), 0.45), label: '11~20위' }], 'br');
   }
 
+  // L.dots와 같지만 범례를 그래프 아래 가로로 둔다 (결과를 가리지 않게)
+  function dotsBelow(canvas, o) {
+    const sp = L.belowSpace(canvas, o.legend || []);
+    const c = L.chart(canvas, (o.aspect || 0.7) + sp.extra / (canvas.clientWidth || 400), { b: sp.b, r: 14, t: 24 });
+    const { ctx, m, pw, ph } = c;
+    const y0 = o.y0 == null ? 0 : o.y0, y1 = o.y1 == null ? 1 : o.y1;
+    const X = (v) => m.l + ((v - o.x0) / (o.x1 - o.x0 || 1)) * pw, Y = (v) => m.t + ph - ((v - y0) / (y1 - y0)) * ph;
+    const yt = []; for (let i = 0; i <= 4; i++) yt.push(y0 + ((y1 - y0) * i) / 4);
+    L.axes(c, { X, Y, yTicks: yt, yFmt: o.yFmt || L.pct, xTicks: o.xTicks, xFmt: o.xFmt, xLabel: o.xLabel, yLabel: o.yLabel });
+    (o.refs || []).forEach((r) => {
+      ctx.setLineDash([5, 3]); ctx.strokeStyle = r.color; ctx.beginPath(); ctx.moveTo(m.l, Y(r.y)); ctx.lineTo(m.l + pw, Y(r.y)); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = r.color; ctx.textAlign = 'left'; L.label(ctx, r.label, m.l + 6, Y(r.y) - 6, 'left');
+    });
+    const all = [{ data: o.data, color: o.color || css('--accent') }].concat(o.series || []);
+    all.forEach((s, k) => {
+      if (!s.data || !s.data.length) return;
+      if (k === 0 || s.dots) { ctx.fillStyle = mix(s.color, 0.22); s.data.forEach((d) => (d.runs || []).forEach((r) => { ctx.beginPath(); ctx.arc(X(d.x), Y(r), 2.6, 0, 7); ctx.fill(); })); }
+      L.line(ctx, s.data.map((d) => [X(d.x), Y(d.mean)]), s.color, 2.5);
+      ctx.fillStyle = s.color; s.data.forEach((d) => { ctx.beginPath(); ctx.arc(X(d.x), Y(d.mean), 3.3, 0, 7); ctx.fill(); });
+    });
+    if (o.marker && o.marker.x >= o.x0 && o.marker.x <= o.x1) L.vline(c, X(o.marker.x), css('--rich'), o.marker.label || '지금 설정', o.marker.x > (o.x0 + o.x1) / 2 ? 'right' : 'left');
+    L.drawLegendBelow(c, o.legend || []);
+    return c;
+  }
   function drawSweep() {
     const mk = (rows) => rows.map((d) => ({ x: d.x, runs: d.runs, mean: L.mean(d.runs) }));
-    L.dots($('c-sweep'), {
+    dotsBelow($('c-sweep'), {
       data: mk(sweepCopy), series: [{ data: mk(sweepUni), color: '#8a93a6', dots: true }],
       x0: 0.005, x1: 0.1, y0: 0, y1: 1.4, xTicks: [0.005, 0.02, 0.04, 0.06, 0.08, 0.1], xFmt: (v) => (v * 100).toFixed(v < 0.01 ? 1 : 0) + '%', yFmt: (v) => v.toFixed(1),
-      xLabel: '새 단어 확률 (%)', yLabel: '기울기 크기 (절댓값)', legend: [{ kind: 'line', color: css('--accent'), label: '복사 모드' }, { kind: 'line', color: '#8a93a6', label: '균등 선택' }], legendPos: 'br', refs: [{ y: 1, label: '기울기 -1 (지프의 법칙)', color: css('--rich') }], marker: { x: sim.params.novelty },
+      xLabel: '새 단어 확률 (%)', yLabel: '기울기 크기 (절댓값)', legend: [{ kind: 'line', color: css('--accent'), label: '복사 모드' }, { kind: 'line', color: '#8a93a6', label: '균등 선택' }], refs: [{ y: 1, label: '기울기 -1 (지프의 법칙)', color: css('--rich') }], marker: { x: sim.params.novelty },
     });
   }
 

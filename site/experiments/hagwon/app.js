@@ -95,7 +95,8 @@
   // ---------- ④, ⑤ 모두가 같은 수준을 쓸 때 (이론값) ----------
   const grid = []; for (let e = 0; e <= K + 1e-9; e += 0.1) grid.push(+e.toFixed(1));
   function sweepChart(id, y1, yTicks, yFmt, series, fills, extra, yLabel, legendItems, legendPos) {
-    const c = L.chart($(id), $(id).clientWidth < 560 ? 0.85 : 0.62, { l: 46, b: 40, r: 18 }), { ctx, m, pw, ph } = c;
+    const sp = legendItems ? L.belowSpace($(id), legendItems) : null, asp0 = $(id).clientWidth < 560 ? 0.85 : 0.62;
+    const c = L.chart($(id), sp ? asp0 + sp.extra / ($(id).clientWidth || 400) : asp0, { l: 46, b: sp ? sp.b : 40, r: 18 }), { ctx, m, pw, ph } = c;
     const X = (v) => m.l + (v / K) * pw, Y = (v) => m.t + ph - (v / y1) * ph;
     L.axes(c, { X, Y, yTicks, yFmt, xTicks: [0, 1, 2, 3, 4, 5], xFmt: (v) => v + '개', xLabel: '모든 집이 보내는 학원 수 (개)', yLabel });
     if (fills) fills(ctx, X, Y);
@@ -103,7 +104,7 @@
     if (extra) extra(c, X, Y);
     const ce = mean(sim.e);
     L.vline(c, X(ce), css('--rich'), '지금 평균', ce > K / 2 ? 'right' : 'left');
-    if (legendItems) L.legend(c, legendItems, legendPos);
+    if (legendItems) L.drawLegendBelow(c, legendItems);
     return c;
   }
   function drawGain() {

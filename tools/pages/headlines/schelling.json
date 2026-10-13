@@ -1,1 +1,20 @@
-{"says_ko": ["소수가 되기 싫다는 약한 바람만으로도 아무도 원하지 않은 강한 분리가 생길 수 있어요.", "불만족한 사람이 떠나면 남은 이웃의 비율이 바뀌어 또 다른 사람이 불만족해지는 연쇄가 이어지기 때문일 수 있어요.", "분리를 볼 때는 개인의 속마음보다 이사의 연쇄를 만드는 구조가 어디인지 살펴볼 만해요."], "says_en": ["A weak wish not to be in the minority can produce strong segregation that nobody wanted.", "When an unhappy person leaves, the neighbors' mix changes and makes others unhappy, which may set off a chain.", "To read segregation, it may help to look for what starts the chain of moves rather than guessing at individuals' feelings."], "not_ko": ["현실의 주거 분리가 모두 이런 이유 때문이라는 뜻은 아니에요.", "집값, 학군, 일자리, 제도는 모델에 없어서, 실제 이동 이유와 이웃 구성은 따로 관찰해야 알 수 있어요."], "not_en": ["It does not mean all real residential segregation arises this way.", "Housing prices, schools, jobs and institutions are absent, so real reasons for moving and neighborhood mix would have to be observed."]}
+{
+ "says_ko": [
+  "이 모델에서 동네가 갈라지는 건 '소수가 되기 싫다'는 약한 바람이 이사를 연쇄로 불러서예요. 아무도 갈라지길 원하지 않아도요.",
+  "불만족한 사람이 떠나면 남은 이웃의 비율이 바뀌고, 그래서 또 다른 사람이 불만족해져 떠나는 일이 이어져요.",
+  "그래서 분리를 볼 때 개인의 속마음보다, 작은 선택이 연쇄로 커지는 구조가 어디인지 살펴볼 수 있어요."
+ ],
+ "says_en": [
+  "In this model, neighborhoods split because a weak wish not to be in the minority sets off a chain of moves, though nobody wants a split.",
+  "When an unhappy person leaves, the neighbors' mix changes, which makes someone else unhappy and leads to yet another move.",
+  "So when looking at segregation, one can look less at personal motives and more at where small choices snowball into a chain."
+ ],
+ "not_ko": [
+  "현실의 주거 분리가 모두 이런 이유 때문이라는 뜻은 아니에요.",
+  "집값, 학군, 일자리, 제도는 모델에 없어서, 실제 이동 이유와 이웃 구성은 따로 관찰해야 알 수 있어요."
+ ],
+ "not_en": [
+  "It does not mean all real residential segregation comes from this cause.",
+  "House prices, schools, jobs and institutions are absent, so real reasons for moving and real neighbor mixes must be observed separately."
+ ]
+}

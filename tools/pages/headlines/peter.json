@@ -1,20 +1,20 @@
 {
  "says_ko": [
-  "승진 뒤 능력이 이어지지 않으면 최고 능력자만 올리는 방식은 평균 이하의 결과를 냅니다.",
-  "이 모델에서는 승진하면 새 직무 능력이 다시 정해져, 현재 성과가 새 일의 적합성을 보장하지 않기 때문입니다.",
-  "승진 기준이 현재 성과인지 새 일의 적합성인지, 능력이 얼마나 이어지는지부터 살펴볼 만합니다."
+  "무능한 상사가 생기는 건, 지금 일을 잘하는 사람을 올려도 새 자리에서 잘할지는 별개일 수 있기 때문이에요.",
+  "이 모델에서는 승진하면 새 직무의 능력이 다시 정해져서, 가장 잘하던 사람이 평범한 사람으로 바뀌어 자리를 채워요.",
+  "그래서 승진 기준을 지금의 성과로 할지 새 일의 적합성으로 할지에 따라 조직 전체의 효율이 달라져요."
  ],
  "says_en": [
-  "If ability does not carry over after promotion, promoting only the top performer gives below-average results.",
-  "In this model ability is redrawn in the new job, so current performance does not guarantee fit for the new role.",
-  "Whether promotion rests on current performance or new-role fit, and how much ability carries over, is worth checking first."
+  "Weak bosses can appear because promoting the best performer does not mean they will do well in the new job.",
+  "In this model ability is redrawn in the new role, so a star performer is replaced by an ordinary one in the higher seat.",
+  "So whether promotion rests on current performance or new-role fit changes how efficient the whole organization is."
  ],
  "not_ko": [
-  "피터의 원리가 현실의 모든 조직에 해당한다는 뜻은 아닙니다. 논문과 달리 최저 능력자 승진이 가장 높게 나온 원인도 확인하지 못했습니다.",
-  "직무별로 승진 전후의 성과를 비교해 능력이 이어지는 정도를 재고, 교육과 팀워크 같은 요소를 넣어 봐야 합니다."
+  "모든 조직이 그렇다는 뜻은 아니에요. 교육·팀워크는 모델에 없고, 논문과 달리 최저 능력자 승진이 가장 높게 나온 이유도 몰라요.",
+  "현실에서는 직무별로 승진 전후의 성과를 비교해 능력이 얼마나 이어지는지 재 봐야 알 수 있어요."
  ],
  "not_en": [
-  "It does not mean the Peter principle holds in every organization, and why promoting the weakest scored highest, unlike the paper, is unconfirmed.",
-  "Compare performance before and after promotion by role to measure carry-over, and add factors like training and teamwork."
+  "It does not mean every organization works this way; training and teamwork are absent, and why promoting the weakest scored highest, unlike the paper, is unknown.",
+  "Only by comparing performance before and after promotion by role can we tell how much ability really carries over."
  ]
 }

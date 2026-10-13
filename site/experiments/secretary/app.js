@@ -102,9 +102,9 @@
   }
 
   // 공통: 가로가 컷오프(%)인 차트의 좌표
-  function cutChart(id, y1, yt, yfmt, yLabel) {
-    const mobile = ($(id).clientWidth || 600) < 560;
-    const c = L.chart($(id), mobile ? 1.0 : 0.6, { l: 44, r: 16, t: 24, b: 42 }), { m, pw, ph } = c;
+  function cutChart(id, y1, yt, yfmt, yLabel, items) {
+    const mobile = ($(id).clientWidth || 600) < 560, sp = items ? L.belowSpace($(id), items) : null;
+    const c = L.chart($(id), (mobile ? 1.0 : 0.6) + (sp ? sp.extra / ($(id).clientWidth || 400) : 0), { l: 44, r: 16, t: 24, b: sp ? sp.b : 42 }), { m, pw, ph } = c;
     const X = (v) => m.l + (v / 100) * pw, Y = (v) => m.t + ph - (v / y1) * ph;
     L.axes(c, { X, Y, yTicks: yt, yFmt: yfmt, xTicks: [0, 20, 40, 60, 80, 100], xFmt: (v) => v + '%', xLabel: '관찰 구간 (%)', yLabel });
     return { c, X, Y };
@@ -128,7 +128,8 @@
   }
 
   function drawFail() {
-    const ex = cache.exact1, { c, X, Y } = cutChart('c-fail', 1, [0, 0.25, 0.5, 0.75, 1], (v) => Math.round(v * 100) + '%', '비율 (%)');
+    const fItems = [{ kind: 'box', color: GREEN, label: '최고를 골랐다' }, { kind: 'box', color: AMBER, label: '최고가 오기 전에 먼저 멈췄다' }, { kind: 'box', color: RED, label: '최고를 이미 지나쳐 보냈다' }];
+    const ex = cache.exact1, { c, X, Y } = cutChart('c-fail', 1, [0, 0.25, 0.5, 0.75, 1], (v) => Math.round(v * 100) + '%', '비율 (%)', fItems);
     const { ctx } = c, E = ex;
     const layers = [[GREEN, (d) => d.best], [AMBER, (d) => d.settled], [RED, (d) => d.passed]]; // 아래부터 쌓는다
     for (let k = 2; k >= 0; k--) {
@@ -139,7 +140,7 @@
       ctx.closePath(); ctx.fill();
     }
     nowLine(c, X);
-    L.legend(c, [{ kind: 'box', color: GREEN, label: '최고를 골랐다' }, { kind: 'box', color: AMBER, label: '최고가 오기 전에 먼저 멈췄다' }, { kind: 'box', color: RED, label: '최고를 이미 지나쳐 보냈다' }], 'tr');
+    L.drawLegendBelow(c, fItems);
   }
 
   function binsOf(n) {

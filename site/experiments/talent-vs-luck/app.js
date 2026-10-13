@@ -35,7 +35,8 @@
 
   // ---------- ② 히스토그램 ----------
   function drawHist() {
-    const { ctx, w, h } = setup($('c-hist'), 0.95);
+    const lgItems = [{ kind: 'box', color: css('--accent'), label: '시작보다 늘어남' }, { kind: 'box', color: css('--muted'), label: '시작과 같음' }, { kind: 'box', color: mix(css('--muted'), 0.55), label: '시작보다 줄어듦' }], lgSp = Lab.belowSpace($('c-hist'), lgItems);
+    const { ctx, w, h } = setup($('c-hist'), 0.95 + lgSp.extra / ($('c-hist').clientWidth || 400));
     const c0 = sim.params.c0;
     const ks = Array.from(sim.capital, (c) => Math.round(Math.log2(c / c0)));
     const kmin = Math.min(...ks), kmax = Math.max(...ks);
@@ -45,8 +46,8 @@
     const mag = Math.pow(10, Math.floor(Math.log10(rawMax / 4))), r0 = rawMax / 4 / mag;
     const gstep = (r0 <= 1 ? 1 : r0 <= 2 ? 2 : r0 <= 5 ? 5 : 10) * mag;
     const cmax = Math.ceil(rawMax / gstep) * gstep;
-    const m = { l: 40, r: 8, t: 34, b: 36 };
-    const cc = { ctx, w, h, m, pw: w - 40 - 8, ph: h - 34 - 36 };
+    const m = { l: 40, r: 8, t: 34, b: lgSp.b };
+    const cc = { ctx, w, h, m, pw: w - 40 - 8, ph: h - 34 - m.b };
     const pw = w - m.l - m.r, ph = h - m.t - m.b;
     const bw = pw / counts.length;
     const text = css('--muted'), line = css('--line');
@@ -86,17 +87,18 @@
     ctx.textAlign = 'left'; ctx.fillStyle = css('--accent');
     ctx.fillText(`시작보다 늘어난 사람 ${Math.round(up / sim.n * 100)}% (파랑)`, m.l, 14);
     ctx.font = '12px -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif';
-    Lab.legend(cc, [{ kind: 'box', color: css('--accent'), label: '시작보다 늘어남' }, { kind: 'box', color: css('--muted'), label: '시작과 같음' }, { kind: 'box', color: mix(css('--muted'), 0.55), label: '시작보다 줄어듦' }], 'tr');
+    Lab.drawLegendBelow(cc, lgItems);
   }
 
   // ---------- ③ 산점도 ----------
   function drawScatter() {
-    const { ctx, w, h } = setup($('c-scatter'), 0.7);
+    const lgItems = [{ kind: 'dot', color: mix(css('--accent'), 0.6), label: '보통 사람' }, { kind: 'dot', color: css('--rich'), label: '최고 부자' }, { kind: 'dot', color: css('--talent'), label: '최고 재능자' }], lgSp = Lab.belowSpace($('c-scatter'), lgItems);
+    const { ctx, w, h } = setup($('c-scatter'), 0.7 + lgSp.extra / ($('c-scatter').clientWidth || 400));
     const c0 = sim.params.c0, n = sim.n;
     const ks = Array.from(sim.capital, (c) => Math.log2(c / c0));
     const kmin = Math.min(...ks) - 0.8, kmax = Math.max(...ks) + 0.8;
     const tmin = Math.min(...sim.talent) - 0.02, tmax = Math.max(...sim.talent) + 0.02;
-    const m = { l: 48, r: 10, t: 24, b: 36 };
+    const m = { l: 48, r: 10, t: 24, b: lgSp.b };
     const pw = w - m.l - m.r, ph = h - m.t - m.b, cc = { ctx, w, h, m, pw, ph };
     const X = (t) => m.l + ((t - tmin) / (tmax - tmin)) * pw;
     const Y = (k) => m.t + ph - ((k - kmin) / (kmax - kmin)) * ph;
@@ -128,13 +130,14 @@
     };
     mark(st.richest, css('--rich'), '최고 부자 ' + fmtCap(sim.capital[st.richest]), x(st.richest) > m.l + pw * 0.6 ? -10 : 10);
     mark(st.mostTalented, css('--talent'), '최고 재능자 ' + fmtCap(sim.capital[st.mostTalented]), -10);
-    Lab.legend(cc, [{ kind: 'dot', color: mix(css('--accent'), 0.6), label: '보통 사람' }, { kind: 'dot', color: css('--rich'), label: '최고 부자' }, { kind: 'dot', color: css('--talent'), label: '최고 재능자' }], 'tl');
+    Lab.drawLegendBelow(cc, lgItems);
     function x(i) { return X(sim.talent[i]); }
   }
 
   // ---------- ④ 타임라인 ----------
   function drawTimeline() {
-    const { ctx, w, h } = setup($('c-time'), 0.7);
+    const lgItems = [{ kind: 'line', color: css('--rich'), label: '최고 부자' }, { kind: 'line', color: css('--talent'), label: '최고 재능자' }, { kind: 'dot', color: css('--lucky'), label: '행운을 잡음' }, { kind: 'dot', color: css('--unlucky'), label: '불운' }], lgSp = Lab.belowSpace($('c-time'), lgItems);
+    const { ctx, w, h } = setup($('c-time'), 0.7 + lgSp.extra / ($('c-time').clientWidth || 400));
     const c0 = sim.params.c0, n = sim.n, T = sim.steps;
     const k = (t, i) => Math.log2(sim.history[t * n + i] / c0);
     const others = st.byCap.slice(1, 5);
@@ -142,7 +145,7 @@
     let kmin = 0, kmax = 0;
     series.forEach((i) => { for (let t = 0; t <= T; t++) { const v = k(t, i); kmin = Math.min(kmin, v); kmax = Math.max(kmax, v); } });
     kmin -= 0.8; kmax += 0.8;
-    const m = { l: 48, r: 10, t: 24, b: 36 };
+    const m = { l: 48, r: 10, t: 24, b: lgSp.b };
     const pw = w - m.l - m.r, ph = h - m.t - m.b, cc = { ctx, w, h, m, pw, ph };
     const X = (t) => m.l + (t / T) * pw;
     const Y = (v) => m.t + ph - ((v - kmin) / (kmax - kmin)) * ph;
@@ -175,7 +178,7 @@
       else if (code === TL.UNLUCKY) { ctx.fillStyle = css('--unlucky'); ctx.fill(); }
       else { ctx.strokeStyle = css('--lucky'); ctx.lineWidth = 1.5; ctx.stroke(); ctx.lineWidth = 1; }
     }
-    Lab.legend(cc, [{ kind: 'line', color: css('--rich'), label: '최고 부자' }, { kind: 'line', color: css('--talent'), label: '최고 재능자' }, { kind: 'dot', color: css('--lucky'), label: '행운을 잡음' }, { kind: 'dot', color: css('--unlucky'), label: '불운' }], 'tl');
+    Lab.drawLegendBelow(cc, lgItems);
   }
 
   // ---------- ① 애니메이션 ----------

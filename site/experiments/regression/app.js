@@ -101,15 +101,36 @@
   }
 
   // ---------- ④ 운의 몫에 따라 ----------
+  // L.dots와 같지만 범례를 그래프 아래 칸에 둔다 (결과를 가리지 않게)
+  function dotsBelow(canvas, o, items) {
+    const sp = L.belowSpace(canvas, items), c = L.chart(canvas, (o.aspect || 0.7) + sp.extra / (canvas.clientWidth || 400), { b: sp.b, r: 14, t: 24 });
+    const { ctx, m, pw, ph } = c, y0 = o.y0 == null ? 0 : o.y0, y1 = o.y1 == null ? 1 : o.y1;
+    const X = (v) => m.l + ((v - o.x0) / (o.x1 - o.x0 || 1)) * pw, Y = (v) => m.t + ph - ((v - y0) / (y1 - y0)) * ph;
+    const yt = []; for (let i = 0; i <= 4; i++) yt.push(y0 + ((y1 - y0) * i) / 4);
+    L.axes(c, { X, Y, yTicks: yt, yFmt: o.yFmt || L.pct, xTicks: o.xTicks, xFmt: o.xFmt, xLabel: o.xLabel, yLabel: o.yLabel });
+    (o.refs || []).forEach((r) => {
+      ctx.setLineDash([5, 3]); ctx.strokeStyle = r.color; ctx.beginPath(); ctx.moveTo(m.l, Y(r.y)); ctx.lineTo(m.l + pw, Y(r.y)); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = r.color; ctx.textAlign = 'left'; L.label(ctx, r.label, m.l + 6, Y(r.y) - 6, 'left');
+    });
+    const all = [{ data: o.data, color: o.color || css('--accent') }].concat(o.series || []);
+    all.forEach((s, k) => {
+      if (!s.data || !s.data.length) return;
+      if (k === 0 || s.dots) { ctx.fillStyle = L.mix(s.color, 0.22); s.data.forEach((d) => (d.runs || []).forEach((r) => { ctx.beginPath(); ctx.arc(X(d.x), Y(r), 2.6, 0, 7); ctx.fill(); })); }
+      L.line(ctx, s.data.map((d) => [X(d.x), Y(d.mean)]), s.color, 2.5);
+      ctx.fillStyle = s.color; s.data.forEach((d) => { ctx.beginPath(); ctx.arc(X(d.x), Y(d.mean), 3.3, 0, 7); ctx.fill(); });
+    });
+    if (o.marker && o.marker.x >= o.x0 && o.marker.x <= o.x1) L.vline(c, X(o.marker.x), css('--rich'), o.marker.label || '지금 설정', o.marker.x > (o.x0 + o.x1) / 2 ? 'right' : 'left');
+    L.drawLegendBelow(c, items);
+    return c;
+  }
   function drawLuck() {
     const lim = (() => { let mx = 10; sweep.forEach((s) => s.pts.forEach((d) => d.runs.forEach((v) => { mx = Math.max(mx, Math.abs(v)); }))); return Math.ceil(mx / 4) * 4; })();
-    const c = L.dots($('c-luck'), {
+    const c = dotsBelow($('c-luck'), {
       data: [], y0: -lim, y1: lim, yFmt: (v) => (v > 0 ? '+' : '') + Math.round(v),
       series: sweep.map((s) => ({ data: s.pts, color: s.color, dots: true })),
       x0: 0, x1: 100, xTicks: [0, 20, 40, 60, 80, 100], xFmt: (v) => v + '%', xLabel: '운이 차지하는 몫 (%)', yLabel: '다음 점수의 평균 변화 (점)',
-      legend: [{ kind: 'dot', color: '#1fa463', label: W().top }, { kind: 'dot', color: '#e5484d', label: W().bot }], legendPos: 'tl',
       refs: [{ y: 0, label: '', color: '#8a93a6' }], marker: { x: sim.params.luck * 100, label: '지금 설정' },
-    });
+    }, [{ kind: 'dot', color: '#1fa463', label: W().top }, { kind: 'dot', color: '#e5484d', label: W().bot }]);
     const { ctx, m, pw, ph } = c, y0 = m.t + ph / 2; // 0 선은 가운데
     ctx.font = FONT; ctx.textAlign = 'right'; ctx.fillStyle = '#8a93a6'; ctx.fillText('변화 없음', m.l + pw - 4, y0 - 6);
   }

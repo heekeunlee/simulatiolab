@@ -118,7 +118,8 @@
     return { cnt, norm, b0, b1, W, nb, n, mu, sd, tail, tailNorm: n * Phi((TAIL - mu) / sd) };
   }
   function drawHist() {
-    const H = histData(), c = L.chart($('c-hist'), 0.62, { l: 52, b: 40 }), { ctx, m, pw, ph } = c;
+    const hItems = [{ kind: 'box', color: mix(css('--accent'), 0.65), label: '실제 주 수' }, { kind: 'box', color: mix(RED, 0.8), label: '-5% 아래' }, { kind: 'line', color: GRAY, label: '종 모양 (정규분포)' }], hsp = L.belowSpace($('c-hist'), hItems);
+    const H = histData(), c = L.chart($('c-hist'), 0.62 + hsp.extra / ($('c-hist').clientWidth || 400), { l: 52, b: hsp.b }), { ctx, m, pw, ph } = c;
     const mxc = Math.max(...H.cnt, ...H.norm), X = (v) => m.l + ((v - H.b0) / (H.b1 - H.b0)) * pw, Y = (v) => m.t + ph - Math.sqrt(Math.max(0, v) / mxc) * ph;
     const yt = [0]; for (let v = 1; v < mxc; v *= 10) yt.push(v);
     const xt = []; for (let v = Math.ceil(H.b0 / 0.05) * 0.05; v <= H.b1 + 1e-9; v += 0.05) xt.push(+v.toFixed(2));
@@ -128,10 +129,7 @@
     ctx.setLineDash([3, 3]); ctx.strokeStyle = RED; ctx.beginPath(); ctx.moveTo(X(TAIL), m.t); ctx.lineTo(X(TAIL), m.t + ph); ctx.stroke(); ctx.setLineDash([]);
     const tn = H.tailNorm < 0.5 ? '0' : String(Math.round(H.tailNorm));
     ctx.fillStyle = RED; ctx.textAlign = 'left'; L.label(ctx, `-5% 아래 주: 실제 ${H.tail}주 · 종 모양이라면 약 ${tn}주`, m.l + 6, m.t + 14, 'left');
-    const lc = Object.assign({}, c, { m: Object.assign({}, m, { t: m.t + 24 }), ph: ph - 24 }), bars = [];
-    H.cnt.forEach((v, i) => { if (v) bars.push([X(H.b0 + (i + 0.5) * H.W), Y(v)]); });
-    H.norm.forEach((v, i) => bars.push([X(H.b0 + (i + 0.5) * H.W), Y(v)]));
-    L.legend(lc, [{ kind: 'box', color: mix(css('--accent'), 0.65), label: '실제 주 수' }, { kind: 'box', color: mix(RED, 0.8), label: '-5% 아래' }, { kind: 'line', color: GRAY, label: '종 모양 (정규분포)' }], pickPos(lc, bars, 3, true));
+    L.drawLegendBelow(c, hItems);
     return H;
   }
 
@@ -139,16 +137,15 @@
   function drawSweep() {
     if (!sweep.length) return;
     const hi = Math.max(...sweep.map((d) => Math.max(d.mean, d.loss)), 10), y1 = Math.ceil((hi + 2) / 10) * 10, yt = []; for (let v = 0; v <= y1; v += 10) yt.push(v);
-    const c = L.chart($('c-sweep'), 0.66, { l: 46, b: 40, r: 24 }), { ctx, m, pw, ph } = c;
+    const sItems = [{ kind: 'line', color: GREEN, label: '연 평균 캐리 수익' }, { kind: 'line', color: RED, label: '가장 나쁜 한 주의 평균 손실' }], ssp = L.belowSpace($('c-sweep'), sItems);
+    const c = L.chart($('c-sweep'), 0.66 + ssp.extra / ($('c-sweep').clientWidth || 400), { l: 46, b: ssp.b, r: 24 }), { ctx, m, pw, ph } = c;
     const X = (v) => m.l + (v / 10) * pw, Y = (v) => m.t + ph - (v / y1) * ph;
     L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => String(v), xTicks: [0, 2, 4, 6, 8, 10], xFmt: (v) => String(v), xLabel: '두 나라의 금리 차이 (%p, 예시)', yLabel: '평균 수익·손실 (%p)' });
     L.line(ctx, sweep.map((d) => [X(d.x), Y(d.loss)]), RED, 2.8);
     L.line(ctx, sweep.map((d) => [X(d.x), Y(d.mean)]), GREEN, 2.8);
     sweep.forEach((d) => { ctx.fillStyle = RED; ctx.beginPath(); ctx.arc(X(d.x), Y(d.loss), 3, 0, 7); ctx.fill(); ctx.fillStyle = GREEN; ctx.beginPath(); ctx.arc(X(d.x), Y(d.mean), 3, 0, 7); ctx.fill(); });
     L.vline(c, X(sim.params.diff), css('--rich'), '지금 설정', sim.params.diff > 5 ? 'right' : 'left');
-    const lc = Object.assign({}, c, { m: Object.assign({}, m, { t: m.t + 20 }), ph: ph - 20 });
-    L.legend(lc, [{ kind: 'line', color: GREEN, label: '연 평균 캐리 수익' }, { kind: 'line', color: RED, label: '가장 나쁜 한 주의 평균 손실' }],
-      pickPos(lc, sweep.map((d) => [X(d.x), Y(d.loss)]).concat(sweep.map((d) => [X(d.x), Y(d.mean)])), 2, false));
+    L.drawLegendBelow(c, sItems);
   }
 
   function renderStats() {

@@ -86,16 +86,35 @@
     const last = H.length - 1; ctx.fillStyle = css('--accent'); ctx.beginPath(); ctx.arc(X(last), Y(H[last]), 4.5, 0, 7); ctx.fill();
   }
 
+  // L.dots와 같지만 범례를 그래프 아래 칸에 둔다 (결과를 가리지 않게)
+  function dotsBelow(canvas, o, items) {
+    const sp = L.belowSpace(canvas, items), c = L.chart(canvas, (o.aspect || 0.7) + sp.extra / (canvas.clientWidth || 400), { b: sp.b, r: 14, t: 24 });
+    const { ctx, m, pw, ph } = c, y0 = o.y0 == null ? 0 : o.y0, y1 = o.y1 == null ? 1 : o.y1;
+    const X = (v) => m.l + ((v - o.x0) / (o.x1 - o.x0 || 1)) * pw, Y = (v) => m.t + ph - ((v - y0) / (y1 - y0)) * ph;
+    const yt = []; for (let i = 0; i <= 4; i++) yt.push(y0 + ((y1 - y0) * i) / 4);
+    L.axes(c, { X, Y, yTicks: yt, yFmt: o.yFmt || L.pct, xTicks: o.xTicks, xFmt: o.xFmt, xLabel: o.xLabel, yLabel: o.yLabel });
+    (o.refs || []).forEach((r) => {
+      ctx.setLineDash([5, 3]); ctx.strokeStyle = r.color; ctx.beginPath(); ctx.moveTo(m.l, Y(r.y)); ctx.lineTo(m.l + pw, Y(r.y)); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = r.color; ctx.textAlign = 'left'; L.label(ctx, r.label, m.l + 6, Y(r.y) - 6, 'left');
+    });
+    const all = [{ data: o.data, color: o.color || css('--accent') }].concat(o.series || []);
+    all.forEach((s, k) => {
+      if (!s.data || !s.data.length) return;
+      if (k === 0 || s.dots) { ctx.fillStyle = L.mix(s.color, 0.22); s.data.forEach((d) => (d.runs || []).forEach((r) => { ctx.beginPath(); ctx.arc(X(d.x), Y(r), 2.6, 0, 7); ctx.fill(); })); }
+      L.line(ctx, s.data.map((d) => [X(d.x), Y(d.mean)]), s.color, 2.5);
+      ctx.fillStyle = s.color; s.data.forEach((d) => { ctx.beginPath(); ctx.arc(X(d.x), Y(d.mean), 3.3, 0, 7); ctx.fill(); });
+    });
+    if (o.marker && o.marker.x >= o.x0 && o.marker.x <= o.x1) L.vline(c, X(o.marker.x), css('--rich'), o.marker.label || '지금 설정', o.marker.x > (o.x0 + o.x1) / 2 ? 'right' : 'left');
+    L.drawLegendBelow(c, items);
+    return c;
+  }
   function drawSweep() {
-    const c = L.dots($('c-sweep'), {
+    const c = dotsBelow($('c-sweep'), {
       data: sweep.map((d) => ({ x: d.x, runs: d.matched, mean: L.mean(d.matched) })),
       series: [{ data: sweep.map((d) => ({ x: d.x, runs: d.wait, mean: L.mean(d.wait) })), color: css('--rich') }],
       x0: -0.3, x1: 0.4, xTicks: [-0.3, -0.2, -0.1, 0, 0.1, 0.2, 0.3, 0.4], xFmt: (v) => (v > 0 ? '+' : '') + Math.round(v * 100), xLabel: '눈높이 (내 매력 대비 %p)',
       marker: { x: sim.params.eye }, yFmt: (v) => String(Math.round(v * 100)), yLabel: '비율 (%)',
-    });
-    const lc = Object.assign({}, c, { m: Object.assign({}, c.m, { t: c.m.t + 20 }), ph: c.ph - 20 }), pts = [];
-    sweep.forEach((d) => { const x = c.m.l + ((d.x + 0.3) / 0.7) * c.pw; pts.push([x, c.m.t + c.ph - L.mean(d.matched) * c.ph], [x, c.m.t + c.ph - L.mean(d.wait) * c.ph]); });
-    L.legend(lc, [{ kind: 'line', color: css('--accent'), label: '짝을 찾은 사람의 비율' }, { kind: 'line', color: css('--rich'), label: '짝 찾기까지 걸린 시간 (전체 기간 대비)' }], pickPos(lc, pts, 2));
+    }, [{ kind: 'line', color: css('--accent'), label: '짝을 찾은 사람의 비율' }, { kind: 'line', color: css('--rich'), label: '짝 찾기까지 걸린 시간 (전체 기간 대비)' }]);
   }
 
   function renderStats() {

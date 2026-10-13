@@ -109,20 +109,41 @@
 
   const yLimit = (rows) => { let mx = 20; rows.forEach((s) => s.forEach((d) => d.runs.forEach((v) => { mx = Math.max(mx, Math.abs(v)); }))); return Math.ceil(mx / 10) * 10; };
   // ---------- ③ 입찰자 수에 따라 ----------
+  // L.dots와 같지만 범례를 그래프 아래 가로로 둔다 (결과를 가리지 않게)
+  function dotsBelow(canvas, o) {
+    const sp = L.belowSpace(canvas, o.legend || []);
+    const c = L.chart(canvas, (o.aspect || 0.7) + sp.extra / (canvas.clientWidth || 400), { b: sp.b, r: 14, t: 24 });
+    const { ctx, m, pw, ph } = c;
+    const y0 = o.y0 == null ? 0 : o.y0, y1 = o.y1 == null ? 1 : o.y1;
+    const X = (v) => m.l + ((v - o.x0) / (o.x1 - o.x0 || 1)) * pw, Y = (v) => m.t + ph - ((v - y0) / (y1 - y0)) * ph;
+    const yt = []; for (let i = 0; i <= 4; i++) yt.push(y0 + ((y1 - y0) * i) / 4);
+    L.axes(c, { X, Y, yTicks: yt, yFmt: o.yFmt || L.pct, xTicks: o.xTicks, xFmt: o.xFmt, xLabel: o.xLabel, yLabel: o.yLabel });
+    (o.refs || []).forEach((r) => {
+      ctx.setLineDash([5, 3]); ctx.strokeStyle = r.color; ctx.beginPath(); ctx.moveTo(m.l, Y(r.y)); ctx.lineTo(m.l + pw, Y(r.y)); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = r.color; ctx.textAlign = 'left'; L.label(ctx, r.label, m.l + 6, Y(r.y) - 6, 'left');
+    });
+    const all = [{ data: o.data, color: o.color || css('--accent') }].concat(o.series || []);
+    all.forEach((s, k) => {
+      if (!s.data || !s.data.length) return;
+      if (k === 0 || s.dots) { ctx.fillStyle = mix(s.color, 0.22); s.data.forEach((d) => (d.runs || []).forEach((r) => { ctx.beginPath(); ctx.arc(X(d.x), Y(r), 2.6, 0, 7); ctx.fill(); })); }
+      L.line(ctx, s.data.map((d) => [X(d.x), Y(d.mean)]), s.color, 2.5);
+      ctx.fillStyle = s.color; s.data.forEach((d) => { ctx.beginPath(); ctx.arc(X(d.x), Y(d.mean), 3.3, 0, 7); ctx.fill(); });
+    });
+    if (o.marker && o.marker.x >= o.x0 && o.marker.x <= o.x1) L.vline(c, X(o.marker.x), css('--rich'), o.marker.label || '지금 설정', o.marker.x > (o.x0 + o.x1) / 2 ? 'right' : 'left');
+    L.drawLegendBelow(c, o.legend || []);
+    return c;
+  }
   function drawN() {
     const lim = yLimit(nRows.map((r) => r.pts));
-    const c = L.dots($('c-n'), {
-      data: nRows[0] ? nRows[0].pts : [], y0: -lim, y1: lim, yFmt: (v) => String(Math.round(v)),
+    const items = [{ kind: 'line', color: css('--accent'), label: '입찰 그대로 · 첫째값' }];
+    if (sim.params.shade > 0) items.push({ kind: 'line', color: '#1fa463', label: '지금 낮춤 · 첫째값' });
+    items.push({ kind: 'line', color: '#e0a100', label: '입찰 그대로 · 둘째값' });
+    dotsBelow($('c-n'), {
+      legend: items, data: nRows[0] ? nRows[0].pts : [], y0: -lim, y1: lim, yFmt: (v) => String(Math.round(v)),
       series: nRows.slice(1).map((r) => ({ data: r.pts, color: r.color })),
       x0: 2, x1: 30, xTicks: [2, 5, 10, 15, 20, 25, 30], xFmt: (v) => String(v), xLabel: '입찰자 수 (명)', yLabel: '낙찰자 평균 손익 (점)',
       refs: [{ y: 0, label: '손익 0', color: '#8a93a6' }], marker: { x: sim.params.n, label: '지금 설정' },
     });
-    const items = [{ kind: 'line', color: css('--accent'), label: '입찰 그대로 · 첫째값' }];
-    if (sim.params.shade > 0) items.push({ kind: 'line', color: '#1fa463', label: '지금 낮춤 · 첫째값' });
-    items.push({ kind: 'line', color: '#e0a100', label: '입찰 그대로 · 둘째값' });
-    const lc = Object.assign({}, c, { m: Object.assign({}, c.m, { t: c.m.t + 20 }), ph: c.ph - 20 }), pts = [[c.m.l + 24, c.m.t + c.ph / 2 - 6]];
-    nRows.forEach((r) => r.pts.forEach((d) => pts.push([c.m.l + ((d.x - 2) / 28) * c.pw, c.m.t + c.ph - ((d.mean + lim) / (2 * lim)) * c.ph])));
-    L.legend(lc, items, pickPos(lc, pts, items.length, false));
   }
   // ---------- ④ 입찰가를 낮추면 ----------
   function drawS() {

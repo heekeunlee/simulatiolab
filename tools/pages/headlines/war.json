@@ -1,1 +1,20 @@
-{"says_ko": ["전쟁 비용 15%, 불확실성 ±25%에서 양쪽이 선호할 합의가 늘 있어도 분쟁의 40.0%가 전쟁이 돼요.", "A가 상대 힘을 몰라 요구를 한 번만 내밀면, 비용이 작을수록 거절되는 구간이 커져 합의가 있어도 전쟁이 날 수 있어요.", "구조를 보면 정보의 불확실성과 반응의 세기가 어디서 문턱을 넘는지가 중요한 부분일 수 있어요."], "says_en": ["At war cost 15% and uncertainty +/-25%, 40.0% of disputes become wars even though a deal both prefer always exists.", "If A cannot see B's strength and makes one demand, lower costs widen the range that gets refused, so war can occur despite a possible deal.", "Structurally, where information gaps and reaction strengths cross a threshold may be the important part."], "not_ko": ["실제 전쟁의 원인을 설명하거나 예측하지는 않아요.", "국내 정치, 이념, 동맹, 약속을 믿지 못하는 문제는 모델에 없고, 이런 구조가 가능하다는 것만 보여 줘요."], "not_en": ["It does not explain or predict the causes of real wars.", "Domestic politics, ideology, alliances and commitment problems are absent; it only shows that such a structure is possible."]}
+{
+ "says_ko": [
+  "이 모델에서 양쪽이 모두 합의를 선호해도 전쟁이 나는 건, 한쪽이 상대 힘을 정확히 몰라서예요. 기본 설정에서 분쟁의 40%가 전쟁이 돼요.",
+  "모르는 쪽이 자기에게 가장 좋은 요구를 한 번 내밀었다가, 상대 힘이 생각보다 강하면 그 요구가 거절되어 전쟁이 나요.",
+  "그래서 전쟁의 이유를 찾을 때 서로 미워하는 마음만이 아니라 정보가 얼마나 부족한지도 살펴볼 수 있어요."
+ ],
+ "says_en": [
+  "In this model, war breaks out even when both sides prefer a deal, because one side does not know the other's strength. By default 40% of disputes end in war.",
+  "The uninformed side makes the demand best for itself once, and if the other side is stronger than guessed, the demand is rejected and war follows.",
+  "So when looking for why wars happen, one can look at how little each side knows, not only at hostility between them."
+ ],
+ "not_ko": [
+  "실제 어느 전쟁의 원인을 설명하거나 앞으로의 전쟁을 예측하는 것이 아니고, 특정 입장을 지지하지도 않아요.",
+  "이름 없는 추상 국가와 임의의 숫자라서, 실제 사례에 적용하려면 당시의 정보와 사정을 따로 확인해야 해요."
+ ],
+ "not_en": [
+  "It does not explain the cause of any real war, predict future wars, or support any position.",
+  "It uses nameless abstract states and arbitrary numbers, so applying it to a real case needs the actual information and circumstances."
+ ]
+}

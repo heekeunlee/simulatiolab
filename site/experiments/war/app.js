@@ -37,7 +37,7 @@
       L.axisNames(c, 'A가 실제로 이길 가능성 (%)', null);
       ctx.textAlign = 'left'; ctx.fillStyle = RED; if (thr > b.lo + 0.06) ctx.fillText('거절 → 전쟁', X(b.lo) + 6, yTop + 14);
       ctx.fillStyle = GREEN; ctx.textAlign = 'right'; ctx.fillText('수락 → 합의', X(b.hi) - 6, yTop + 14);
-      L.legend(c, [{ kind: 'dot', color: mix(GREEN, 0.72), label: cw < 560 ? '합의' : '합의로 끝난 분쟁' }, { kind: 'dot', color: mix(RED, 0.72), label: cw < 560 ? '전쟁' : '전쟁이 된 분쟁' }], 'tr');
+      L.drawLegendBelow(Object.assign({}, c, { h: yBot + 30, m: { b: 40 } }), [{ kind: 'dot', color: mix(GREEN, 0.72), label: cw < 560 ? '합의' : '합의로 끝난 분쟁' }, { kind: 'dot', color: mix(RED, 0.72), label: cw < 560 ? '전쟁' : '전쟁이 된 분쟁' }]);
     }
     // 가장 최근 분쟁: 협상 범위와 A의 요구
     const d = sim.disputes[sim.disputes.length - 1], ay = h - 62;
@@ -116,7 +116,9 @@
 
   // ---------- ⑤ 번짐 확률에 따른 규모 ----------
   function drawQ() {
-    const c = L.chart($('c-q'), $('c-q').clientWidth < 560 ? 0.85 : 0.62, { l: 46, b: 40, r: 18 }), { ctx, m, pw, ph } = c, P = sim.params;
+    const itemsQ = [{ kind: 'line', color: css('--accent'), label: '평균 참전국 비율' }, { kind: 'line', color: RED, label: '25% 이상으로 번진 전쟁' }, { kind: 'dash', color: GRAY, label: '이론상 한계선 50%' }];
+    const spQ = L.belowSpace($('c-q'), itemsQ), cwQ = $('c-q').clientWidth || 400;
+    const c = L.chart($('c-q'), ($('c-q').clientWidth < 560 ? 0.85 : 0.62) + spQ.extra / cwQ, { l: 46, b: spQ.b, r: 18 }), { ctx, m, pw, ph } = c, P = sim.params;
     const X = (v) => m.l + v * pw, Y = (v) => m.t + ph - v * ph;
     L.axes(c, { X, Y, yTicks: [0, 0.25, 0.5, 0.75, 1], yFmt: (v) => pc0(v) + '%', xTicks: [0, 0.2, 0.4, 0.6, 0.8, 1], xFmt: (v) => pc0(v) + '%', xLabel: '이웃을 끌어들일 확률 (%)', yLabel: '비율 (%)' });
     ctx.setLineDash([5, 3]); ctx.strokeStyle = GRAY; ctx.beginPath(); ctx.moveTo(X(0.5), m.t); ctx.lineTo(X(0.5), m.t + ph); ctx.stroke(); ctx.setLineDash([]);
@@ -125,7 +127,7 @@
     ctx.fillStyle = css('--accent'); curveQ.forEach((d) => { ctx.beginPath(); ctx.arc(X(d.x), Y(d.mean), 3, 0, 7); ctx.fill(); });
     ctx.fillStyle = RED; curveQ.forEach((d) => { ctx.beginPath(); ctx.arc(X(d.x), Y(d.big), 3, 0, 7); ctx.fill(); });
     L.vline(c, X(P.q), css('--rich'), '지금 설정', P.q > 0.5 ? 'right' : 'left');
-    L.legend(c, [{ kind: 'line', color: css('--accent'), label: '평균 참전국 비율' }, { kind: 'line', color: RED, label: '25% 이상으로 번진 전쟁' }, { kind: 'dash', color: GRAY, label: '이론상 한계선 50%' }], 'br');
+    L.drawLegendBelow(c, itemsQ);
   }
 
   function renderStats() {

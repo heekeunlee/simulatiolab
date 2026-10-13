@@ -135,7 +135,10 @@
   function timeChart(id, ys, color, yLabel) {
     const H = sim.hist, tmax = [12000, 20000, 30000, 40000, 60000].find((v) => v >= sim.steps) || 60000;
     const ymax0 = Math.max(10, ...ys), st = niceStep(ymax0, 4), ymax = Math.ceil(ymax0 / st) * st;
-    const c = L.chart($(id), 0.62, { l: 52, b: 40, r: 26 }), { ctx, m, pw, ph } = c;
+    const leg = [];
+    if (sim.params.ants === 1 && !sim.params.noise) leg.push({ kind: 'box', color: L.mix('#2f6fed', 0.3), label: '질서 구간 (대칭 무늬)' });
+    const sp = leg.length ? L.belowSpace($(id), leg) : null;
+    const c = L.chart($(id), sp ? 0.62 + sp.extra / ($(id).clientWidth || 400) : 0.62, { l: 52, b: sp ? sp.b : 40, r: 26 }), { ctx, m, pw, ph } = c;
     const X = (t) => m.l + (t / tmax) * pw, Y = (v) => m.t + ph - (v / ymax) * ph;
     const yt = []; for (let v = 0; v <= ymax + 1e-9; v += st) yt.push(v);
     const xs = niceStep(tmax, 5), xt = []; for (let v = 0; v <= tmax; v += xs) xt.push(v);
@@ -144,12 +147,10 @@
     if (sim.params.ants === 1 && !sim.params.noise) { // 대칭 구간
       ctx.fillStyle = L.mix('#2f6fed', 0.12); ctx.fillRect(m.l, m.t, X(ORDER_END) - m.l, ph);
     }
-    const leg = [];
-    if (sim.params.ants === 1 && !sim.params.noise) leg.push({ kind: 'box', color: L.mix('#2f6fed', 0.3), label: '질서 구간 (대칭 무늬)' });
     const pts = H.t.map((t, i) => [X(t), Y(ys[i])]);
     L.line(ctx, pts, color, 2.6);
     if (pts.length) { ctx.fillStyle = color; ctx.beginPath(); ctx.arc(pts[pts.length - 1][0], pts[pts.length - 1][1], 4, 0, 7); ctx.fill(); }
-    L.legend(c, leg, 'tl'); // 질서 구간이 있을 때만
+    if (leg.length) L.drawLegendBelow(c, leg); // 질서 구간이 있을 때만
     return c;
   }
   function drawBlack() { timeChart('c-black', sim.hist.black, css('--accent'), '검은 칸 수 (칸)'); }

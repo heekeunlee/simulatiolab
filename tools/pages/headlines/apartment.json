@@ -1,20 +1,20 @@
 {
-"says_ko": [
-"이 모델에서 전염 세기가 0.4면 거의 안 번지다 0.5에서 약 90%, 0.6 이상이면 모든 동네로 번져요.",
-"이웃의 상승을 따라가는 되먹임이 일정 세기를 넘으면 동네 사정과 상관없이 번질 수 있고, 대출 한도가 오를 높이의 상한을 정해요.",
-"번짐을 볼 때는 한 동네의 가격보다 서로 따라가는 정도와 대출 여건이 어디서 달라지는지 살펴볼 만해요."
-],
-"says_en": [
-"In this model, spread is minimal at contagion 0.4, about 90% of areas are affected at 0.5, and all areas from 0.6.",
-"Once following neighbors' rises is strong enough, it can spread regardless of local conditions, and the loan limit caps how high prices climb.",
-"To read a spread, it may help to look at how strongly areas follow one another and where lending conditions differ, not just one area's price."
-],
-"not_ko": [
-"실제 지역의 가격 전망이나 부동산 투자·거래 조언이 아니에요.",
-"공급, 인구, 세금, 정책이 없고 계수는 임의로 정한 값이라, 실제 시장의 자료로 따로 확인해야 해요."
-],
-"not_en": [
-"This is not a price forecast for any real area, nor investing or property advice.",
-"Supply, population, taxes and policy are absent and the coefficients are arbitrary, so real market data would be needed to check anything."
-]
+ "says_ko": [
+  "이 모델에서 집값은 이웃을 따라 오르는 힘이 일정 선을 넘으면 한 동네에서 시작해 모든 동네로 번져요.",
+  "오른 동네를 보고 이웃도 오르고, 그 이웃이 다시 다음 이웃을 끌어올려요. 대출 한도는 얼마나 높이 오를지의 천장을 정해요.",
+  "그래서 한 동네의 사정보다 서로 따라 하는 정도와 대출 여건을 함께 보면 번짐을 다르게 읽을 수 있어요."
+ ],
+ "says_en": [
+  "In this model, once the pull to follow neighbors passes a threshold, a rise that starts in one area spreads to every area.",
+  "A rising area pulls its neighbors up, and they pull the next ones in turn. The loan limit sets the ceiling on how high prices can climb.",
+  "So to read a spread, it helps to look at how strongly areas follow one another and at lending conditions, not just one area's story."
+ ],
+ "not_ko": [
+  "실제 지역의 가격 전망이나 부동산 투자·거래 조언이 아니에요.",
+  "공급, 인구, 세금, 정책이 빠져 있고 숫자는 임의로 정한 값이라, 실제 시장은 따로 자료로 확인해야 해요."
+ ],
+ "not_en": [
+  "This is not a price forecast for any real area, nor investing or property advice.",
+  "Supply, population, taxes and policy are left out and the numbers are arbitrary, so the real market must be checked against real data."
+ ]
 }

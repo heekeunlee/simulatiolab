@@ -22,10 +22,14 @@
 
   function drawIsland() {
     const narrow = ($('c-island').clientWidth || 400) < 560;
-    const c = L.chart($('c-island'), THUMB ? 1 : narrow ? 0.8 : 0.62, { l: 0, r: 0, t: 0, b: 0 });
-    const { ctx, w, h } = c, cur = sim.current();
+    const scale = Math.max(10, (sim.Pstar * 3) / 260);
+    const itemsI = [{ kind: 'dot', color: '#23793f', label: '서 있는 나무' }, { kind: 'dot', color: 'rgba(122,80,42,.8)', label: '베어진 자리' }, { kind: 'dot', color: '#1e2a78', label: `사람 (점 하나 ≈ ${fmt(scale)}명)` }];
+    const spI = THUMB ? { b: 0, extra: 0 } : L.belowSpace($('c-island'), itemsI), strip = THUMB ? 0 : spI.b - 30;
+    const c = L.chart($('c-island'), (THUMB ? 1 : narrow ? 0.8 : 0.62) + strip / ($('c-island').clientWidth || 400), THUMB ? { l: 0, r: 0, t: 0, b: 0 } : { l: 0, r: 0, t: 0, b: spI.b });
+    const { ctx, w } = c, h = c.h - strip, cur = sim.current();
     const g = ctx.createLinearGradient(0, 0, 0, h); g.addColorStop(0, '#dcecff'); g.addColorStop(1, '#eef6ff');
     ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+    if (strip) { ctx.fillStyle = '#eef6ff'; ctx.fillRect(0, h, w, strip); }
     const cx = w / 2, cy = h / 2, rx = w * 0.36, ry = h * 0.36;
     const shape = (k) => { ctx.beginPath(); for (let i = 0; i <= 64; i++) { const a = (i / 64) * 6.2832, r = k * (1 + 0.08 * Math.sin(3 * a + 1) + 0.05 * Math.sin(5 * a)); const x = cx + Math.cos(a) * rx * r, y = cy + Math.sin(a) * ry * r; i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); } ctx.closePath(); };
     shape(1.1); ctx.fillStyle = '#f6e7bf'; ctx.fill();
@@ -40,7 +44,7 @@
       else if (cur.R < 0.995) { ctx.fillStyle = 'rgba(122,80,42,.8)'; ctx.beginPath(); ctx.arc(x, y, 2.4 * u, 0, 7); ctx.fill(); }
     });
     // 사람: 점 하나가 scale명
-    const scale = Math.max(10, (sim.Pstar * 3) / 260), k = Math.min(FOLK.length, Math.ceil(cur.P / scale));
+    const k = Math.min(FOLK.length, Math.ceil(cur.P / scale));
     for (let i = 0; i < k; i++) { const f = FOLK[i]; ctx.fillStyle = '#1e2a78'; ctx.beginPath(); ctx.arc(cx + f.x * rx * 0.95, cy + f.y * ry * 0.95, 2.8 * u, 0, 7); ctx.fill(); }
     $('when').textContent = `${sim.year()}년째 · 인구 ${fmt(cur.P)}명 · 숲 ${pct(cur.R)}`;
     if (THUMB) return;
@@ -48,7 +52,7 @@
     ctx.fillText(`${sim.year()}년`, 16, 40);
     ctx.font = '12.5px -apple-system, "Apple SD Gothic Neo", sans-serif'; ctx.fillStyle = css('--muted');
     ctx.fillText(`인구 ${fmt(cur.P)}명 · 숲 ${pct(cur.R)}`, 16, 60);
-    L.legend(c, [{ kind: 'dot', color: '#23793f', label: '서 있는 나무' }, { kind: 'dot', color: 'rgba(122,80,42,.8)', label: '베어진 자리' }, { kind: 'dot', color: '#1e2a78', label: `사람 (점 하나 ≈ ${fmt(scale)}명)` }], 'br');
+    L.drawLegendBelow(c, itemsI);
   }
 
   function drawTime() {

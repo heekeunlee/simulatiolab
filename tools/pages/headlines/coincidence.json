@@ -1,1 +1,20 @@
-{"says_ko": ["23명이면 방 안 어딘가에서 생일이 같을 확률은 50.7%지만, 나와 같을 확률은 5.9%예요.", "사람이 늘면 가능한 짝이 거의 제곱으로 늘어서, '어딘가의 일치'는 빨리 흔해지고 '나와의 일치'는 천천히 늘어요.", "신기한 일치를 만나면 '내 경우'인지 '아무 경우나'인지, 몇 쌍을 비교했는지부터 따져 볼 만해요."], "says_en": ["With 23 people, the chance that some pair shares a birthday is 50.7%, but the chance that someone shares mine is 5.9%.", "As people grow, possible pairs grow almost as the square, so a match somewhere becomes common fast while a match with me grows slowly.", "When you meet a striking match, it may help to ask whether it was about me or about anyone, and how many pairs were being compared."], "not_ko": ["모든 소름 돋는 우연이 그냥 우연이라는 뜻은 아니에요.", "생일과 취미가 고르고 독립이라는 가정이라, 실제 사건은 실제 분포와 비교하는 자료가 더 있어야 알 수 있어요."], "not_en": ["It does not mean every eerie coincidence is just chance.", "It assumes birthdays and traits are even and independent, so judging a real event needs data on the real distributions."]}
+{
+ "says_ko": [
+  "우연의 일치는 신기하지만, 이 모델에서는 사람이 모이면 '누군가 어딘가에서의 일치'가 거의 늘 생겨요. 23명이면 50.7%예요.",
+  "사람이 늘면 가능한 짝은 거의 제곱으로 늘어요. 하지만 '나와의 일치'는 나를 낀 짝만 세니까, 같은 23명에서 5.9%에 그쳐요.",
+  "그래서 신기한 일치를 만나면 '나에게 생긴 일'인지 '아무에게나 생긴 일'인지, 몇 쌍을 비교했는지 따져 볼 수 있어요."
+ ],
+ "says_en": [
+  "Coincidences feel striking, but in this model a gathering almost always has some match somewhere. With 23 people, it is 50.7%.",
+  "More people means pairs grow almost as the square. A match with me only counts pairs including me, so the same 23 people give just 5.9%.",
+  "So when you meet a striking match, you can ask whether it happened to me or to anyone, and how many pairs were being compared."
+ ],
+ "not_ko": [
+  "모든 소름 돋는 우연이 그냥 우연이라는 뜻은 아니에요. 어떤 특정한 일이 우연인지는 이 모델이 판정하지 못해요.",
+  "생일과 취미가 고르고 서로 독립이라는 가정이라, 실제로 확인하려면 실제 분포 자료와 비교해야 해요."
+ ],
+ "not_en": [
+  "This does not mean every eerie coincidence is just chance. The model cannot judge whether any particular event was chance.",
+  "It assumes traits are even and independent, so checking a real case would need real distribution data."
+ ]
+}

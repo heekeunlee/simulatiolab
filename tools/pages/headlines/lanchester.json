@@ -1,1 +1,20 @@
-{"says_ko": ["겨누어 쏘는 싸움에서는 병력 2배가 전투력 4배가 되고, 나뉘면 130 대 100도 져요.", "이 모델에서는 병력 전체가 서로를 쏘기 때문에 수가 제곱으로 작용하고, 나뉜 쪽은 차례로 각개격파돼요.", "숫자만 볼 것이 아니라 싸움이 일대일인지 전체가 맞붙는지, 힘이 모이는지 나뉘는지가 열쇠일 수 있어요."], "says_en": ["With aimed fire, double the force is four times the power, and a split force loses even 130 to 100.", "In this model all units shoot at each other, so numbers act squared and a split force is beaten piece by piece.", "Whether combat is one-on-one or all-against-all, and whether force is massed or split, may be the key."], "not_ko": ["실제 전투를 재현하거나 승패를 예측한 것은 아니고, 파랑과 빨강은 어떤 실제 집단도 가리키지 않아요.", "지형·사기·보급 같은 빠진 요소와 역사 사례는 자료를 따로 대조해야 확인할 수 있어요."], "not_en": ["It neither recreates real battles nor predicts outcomes; blue and red are no real groups.", "Missing factors like terrain, morale and supply, and historical cases, need separate sources."]}
+{
+ "says_ko": [
+  "겨누어 쏘는 싸움에서는 병력이 2배면 힘이 4배가 된다는 게 이 법칙의 결과예요. 이 모델에서도 그렇게 나왔어요.",
+  "병력 전체가 상대 아무에게나 쏘면 수가 많을수록 상대가 더 빨리 줄고, 상대가 줄수록 내가 덜 맞아요. 그래서 힘이 모이면 제곱으로 커지고, 반씩 나뉘어 차례로 오면 하나씩 각개격파돼요.",
+  "그래서 숫자만 볼 게 아니라 싸움이 일대일인지 전체가 맞붙는지, 힘이 모이는지 나뉘는지를 같이 봐야 한다고 볼 수 있어요. 일대일 맞붙기로 바꾸면 2배는 2배일 뿐이에요."
+ ],
+ "says_en": [
+  "In aimed-fire combat, doubling the force quadruples its strength; that is the law's result, and this model reproduces it.",
+  "When the whole force shoots at anyone on the other side, more numbers shrink the enemy faster, so you get hit less. Concentrated force grows by the square; a force split in two arrives piecemeal and is beaten one half at a time.",
+  "So it's not just the headcount: whether the fight is one-on-one or all-against-all, and whether forces concentrate or split, matters too. In one-on-one fighting, double is just double."
+ ],
+ "not_ko": [
+  "실제 전투를 재현하거나 승패를 예측한 것이 아니고, 파랑과 빨강은 어떤 실제 집단도 가리키지 않아요.",
+  "지형·사기·보급 같은 빠진 요소와 역사 사례에 이 법칙이 얼마나 맞는지는 자료를 따로 대조해야 하고, 역사가들 사이에서도 논쟁이 있어요."
+ ],
+ "not_en": [
+  "It doesn't reproduce real battles or predict outcomes, and blue and red stand for no real group.",
+  "How well the law fits history, with terrain, morale and supply left out, needs separate checking against records, and historians debate it."
+ ]
+}

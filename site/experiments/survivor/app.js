@@ -104,7 +104,9 @@
   }
 
   function drawVisible() {
-    const c = L.chart($('c-vis'), ($('c-vis').clientWidth || 600) < 480 ? 0.8 : 0.55, { l: 54, r: ($('c-vis').clientWidth || 600) < 480 ? 24 : 46, t: 28, b: 36 }), { ctx, m, pw, ph, w, h } = c;
+    const items = [{ kind: 'box', color: mix(css('--unlucky'), 0.85), label: '절반 미만' }, { kind: 'box', color: mix(css('--accent'), 0.75), label: '절반 이상 보임' }];
+    const sp = L.belowSpace($('c-vis'), items), vw = $('c-vis').clientWidth || 600;
+    const c = L.chart($('c-vis'), (vw < 480 ? 0.8 : 0.55) + sp.extra / (vw || 400), { l: 54, r: vw < 480 ? 24 : 46, t: 28, b: sp.b }), { ctx, m, pw, ph, w, h } = c;
     const X = (v) => m.l + v * pw, row = ph / 5;
     ctx.strokeStyle = css('--line'); ctx.fillStyle = css('--muted'); ctx.textAlign = 'center';
     [0, 0.25, 0.5, 0.75, 1].forEach((v) => { ctx.beginPath(); ctx.moveTo(X(v), m.t); ctx.lineTo(X(v), m.t + ph); ctx.stroke(); ctx.fillText(Math.round(v * 100) + '%', X(v), h - m.b + 16); });
@@ -119,7 +121,7 @@
       }
     });
     if (!sim.round) { ctx.textAlign = 'center'; ctx.fillStyle = css('--muted'); ctx.fillText('재생을 누르면 채워져요', m.l + pw / 2, m.t + ph / 2); }
-    else L.legend(c, [{ kind: 'box', color: mix(css('--unlucky'), 0.85), label: '절반 미만' }, { kind: 'box', color: mix(css('--accent'), 0.75), label: '절반 이상 보임' }], 'tr');
+    else L.drawLegendBelow(c, items);
   }
 
   function strategyRows() {

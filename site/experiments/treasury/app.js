@@ -31,8 +31,10 @@
   // ---------- ① 단기금리 경로 부채꼴 ----------
   function drawFan() {
     const cw = $('c-fan').clientWidth || 600, asp = THUMB ? 1 : cw < 560 ? 0.85 : 0.56;
-    const c = L.chart($('c-fan'), asp, { l: 44, r: 14, t: THUMB ? 16 : 24, b: THUMB ? 12 : 40 }), { ctx, w, h, m, pw, ph } = c;
-    const q = sim.q, M = sim.months(), sr = series();
+    const q = sim.q, M = sim.months(), sr = series(), e0 = sr.mean.length - 1;
+    const litems = [{ kind: 'line', color: css('--accent'), label: `단기금리 평균 ${f2(sr.mean[e0] * 100)}%` }, { kind: 'line', color: RED, label: `10년 금리 평균 ${f2(sr.y10[e0] * 100)}%` }, { kind: 'dash', color: GRAY, label: `장기 평균 ${f1(q.b * 100)}%` }];
+    const sp = THUMB ? { b: 12, extra: 0 } : L.belowSpace($('c-fan'), litems);
+    const c = L.chart($('c-fan'), asp + sp.extra / cw, { l: 44, r: 14, t: THUMB ? 16 : 24, b: sp.b }), { ctx, w, h, m, pw, ph } = c;
     // 세로 범위: 이론상 넓게 펼쳐질 범위(평균 ± 2.7 표준편차)와 지금까지 그려진 값을 모두 담는다
     let lo = Infinity, hi = -Infinity;
     for (let k = 0; k <= 20; k++) {
@@ -73,7 +75,7 @@
     const e = sr.mean.length - 1;
     ctx.fillStyle = css('--accent'); ctx.beginPath(); ctx.arc(X(e), Y(sr.mean[e]), 4, 0, 7); ctx.fill();
     ctx.fillStyle = RED; ctx.beginPath(); ctx.arc(X(e), Y(sr.y10[e]), 4, 0, 7); ctx.fill();
-    if (!THUMB) L.legend(c, [{ kind: 'line', color: css('--accent'), label: `단기금리 평균 ${f2(sr.mean[e] * 100)}%` }, { kind: 'line', color: RED, label: `10년 금리 평균 ${f2(sr.y10[e] * 100)}%` }, { kind: 'dash', color: GRAY, label: `장기 평균 ${f1(q.b * 100)}%` }], 'tl');
+    if (!THUMB) L.drawLegendBelow(c, litems);
     $('when').textContent = `${sim.month}/${M}개월`;
     return sr;
   }
@@ -112,7 +114,9 @@
   // ---------- ③ 가격 변화 분포 ----------
   const HB = 2, HLO = -24, HN = 24; // 2% 칸, -24%~+24%
   function drawHist() {
-    const c = L.chart($('c-hist'), 0.6, { l: 46, r: 14, t: 24, b: 40 }), { ctx, m, pw, ph } = c;
+    const litems = [{ kind: 'box', color: mix(RED, 0.75), label: '값이 떨어진 경로' }, { kind: 'box', color: mix(GREEN, 0.75), label: '값이 오른 경로' }];
+    const sp = L.belowSpace($('c-hist'), litems);
+    const c = L.chart($('c-hist'), 0.6 + sp.extra / ($('c-hist').clientWidth || 400), { l: 46, r: 14, t: 24, b: sp.b }), { ctx, m, pw, ph } = c;
     const v = sim.priceChangeAt(sim.month).map((x) => x * 100), N = v.length;
     const cnt = new Array(HN).fill(0);
     v.forEach((x) => { cnt[Math.max(0, Math.min(HN - 1, Math.floor((x - HLO) / HB)))]++; });
@@ -130,7 +134,7 @@
     const mean = v.reduce((a, b) => a + b, 0) / N;
     ctx.font = '12px ' + FONT; ctx.fillStyle = css('--muted'); ctx.textAlign = 'left';
     ctx.fillText(`${sim.month}개월 뒤`, m.l + 6, m.t + 12);
-    L.legend(c, [{ kind: 'box', color: mix(RED, 0.75), label: '값이 떨어진 경로' }, { kind: 'box', color: mix(GREEN, 0.75), label: '값이 오른 경로' }], 'tr');
+    L.drawLegendBelow(c, litems);
     const sg = (x) => (x >= 0 ? '+' : '-') + Math.abs(x).toFixed(1);
     $('note-3').innerHTML = `<span>평균:</span> <b>${sg(mean)}%</b> · <span>하위 5%:</span> <b>${sg(g(0.05))}%</b> · <span>상위 5%:</span> <b>${sg(g(0.95))}%</b>`;
   }

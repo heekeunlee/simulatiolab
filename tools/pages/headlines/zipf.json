@@ -1,17 +1,17 @@
 {
  "says_ko": [
-  "'이미 쓴 것을 더 자주 쓰는' 규칙 하나만으로 지프의 법칙 모양이 나올 수 있어요.",
-  "자주 쓰인 단어는 글에 많이 흩어져 있어 더 자주 베껴지니, 처음의 작은 차이가 계속 커져요.",
-  "쏠린 분포를 만나면 의미나 설계를 찾기 전에, 이런 부익부 되먹임이 있는지부터 살펴볼 만해요."
+  "소수의 단어만 자주 쓰이는 건, 이미 많이 쓴 말이 더 자주 쓰이는 습관만으로도 생길 수 있어요(사이먼의 설명).",
+  "자주 쓴 단어는 글 곳곳에 흩어져 있어 베껴질 기회가 많고, 그러면 더 늘어서, 처음의 작은 차이가 계속 커져요.",
+  "그래서 쏠린 분포를 보면 뜻이나 설계를 찾기 전에, 이런 부익부 되먹임이 있는지 먼저 살펴볼 수 있어요."
  ],
  "says_en": [
-  "One rule, reusing what was already used more often, can produce a Zipf-like shape.",
-  "Frequent words are scattered through the text and get copied more, so early small differences keep growing.",
-  "When you see a skewed distribution, check for this kind of rich-get-richer feedback before looking for meaning or design."
+  "Few words dominate because a habit of reusing what was already used often can produce it (Simon's explanation).",
+  "Frequent words are scattered through the text and get copied more, which makes them more frequent, so small early differences keep growing.",
+  "So when you see a skewed distribution, check for this rich-get-richer feedback before looking for meaning or design."
  ],
  "not_ko": [
-  "실제 언어가 이렇게 만들어진다는 뜻은 아니에요. 같은 모양을 만드는 설명은 여러 가지이고 문법·의미는 모델에 없어요.",
-  "실제 글에서 단어가 늘어나는 과정을 관찰하고, 다른 설명이 만드는 모양과 견주어 봐야 어느 쪽인지 알 수 있어요."
+  "실제 언어가 이렇게 만들어진다는 뜻이 아니에요. 같은 모양을 만드는 설명이 여러 가지이고 문법과 의미는 모델에 없어요.",
+  "실제 글에서 단어가 늘어나는 과정을 관찰하고 다른 설명이 만드는 모양과 견주어 봐야 어느 쪽인지 알 수 있어요."
  ],
  "not_en": [
   "It does not mean real language forms this way; several explanations give the same shape and grammar and meaning are absent.",
