@@ -11,6 +11,12 @@ CATS = [
   ('wealth', T('야드세일 교환 모델', 'Yard-sale exchange model'), T('부의 쏠림', 'Wealth Concentration'), T('모든 거래가 동전 던지기처럼 공정해도 부는 쏠릴까? 얼마나 나누면 막을 수 있을까?', 'Even if every trade is as fair as a coin flip, does wealth concentrate? How much sharing does it take to stop it?')),
   ('youtube', T('선호적 연결 모델', 'Preferential attachment model'), T('유튜브는 왜 상위 1%만 뜰까', 'Why Do Only the Top 1% of YouTubers Break Through?'), T('좋은 콘텐츠가 이길까, 먼저 뜬 채널이 이길까? 같은 채널로 시작한 평행우주를 비교해요.', 'Does good content win, or do channels that broke out first keep winning? Compare parallel universes that start with the same channels.')),
  ]),
+ ('economy', '#0369a1', '💹', T('경제', 'Economy'), T('경매, 집값, 금리, 환율은 왜 그렇게 움직일까?', 'Why do auctions, home prices, interest rates and exchange rates move the way they do?'), [
+  ('auction', T('승자의 저주 모델', "Winner's curse model"), T('경매에서 이기면 왜 손해일까', 'Why Does Winning an Auction Cost You?'), T('가장 높게 쓴 사람이 이기는데, 왜 이긴 사람이 평균적으로 손해일까요? 얼마나 깎아 써야 본전일까요?', 'The highest bidder wins, so why does the winner lose on average? How much should you shade your bid to break even?')),
+  ('apartment', T('공간 확산 모델', 'Spatial contagion model'), T('아파트 가격은 어떻게 번질까', 'How Do Apartment Prices Spread?'), T('한 동네의 상승이 이웃으로 번지는 과정과, 대출 규제·금리가 미치는 영향을 장난감 모델로 봐요.', 'See, in a toy model, how a rise in one neighborhood spreads to the next, and what lending limits and interest rates do.')),
+  ('treasury', T('평균회귀 금리 모델 (바시첵)', 'Mean-reverting rate model (Vasicek)'), T('금리가 오르면 내 채권값은 왜 떨어질까: 10년 국채 금리', 'Why Does My Bond Fall When Rates Rise? The 10-Year Treasury Yield'), T('단기금리 경로로 10년 금리가 정해지는 과정과, 금리가 1%p 오를 때 이미 산 채권값이 얼마나 떨어지는지 돌려 봐요. (예시 숫자, 예측 아님)', 'See how short-rate paths set the 10-year yield and how much a bond you already hold falls when rates rise one point. (Example numbers, not a forecast.)')),
+  ('fxrate', T('캐리 트레이드 쏠림 모델', 'Carry-trade crowding model'), T('금리 높은 통화를 샀더니: 계단으로 오르고 엘리베이터로 떨어지는 캐리 트레이드', 'Buying the High-Rate Currency: The Carry Trade That Takes the Stairs Up and the Elevator Down'), T('이자를 더 주는 통화를 사면 오래 조금씩 벌다 한 번에 크게 잃을 수 있어요. 쏠림과 청산이 만드는 모양을 돌려 봐요. (예시 숫자, 투자 조언 아님)', 'Holding a higher-yield currency can earn a little for years and lose a lot at once. See the shape crowding and unwinding create. (Example numbers, not investment advice.)')),
+ ]),
  ('people', '#2f6fed', '🧑‍🤝‍🧑', T('인간관계', 'Relationships'), T('소문, 편견, 만남은 어떻게 퍼지고 갈라질까?', 'How do rumors, bias and encounters spread and split us apart?'), [
   ('schelling', T('셸링 분리 모델', 'Schelling segregation model'), T('끼리끼리 모이는 이유', 'Why Birds of a Feather Flock Together'), T('"소수가 되기 싫다" 정도의 약한 바람만으로도 동네가 완전히 갈라질까?', 'Can a mild wish like "I don\'t want to be a minority" split a neighborhood completely apart?')),
   ('rumor', T('소문 전파 모델 (SIR)', 'Rumor spreading model (SIR)'), T('단톡방 소문 확산', 'Rumor Spread in Group Chats'), T('소문은 얼마나 빨리, 누구를 거쳐 퍼질까? 정정 글은 언제까지 올려야 소용이 있을까?', 'How fast does a rumor spread, and through whom? How late can a correction come and still matter?')),
@@ -46,6 +52,11 @@ CATS = [
   ('lanchester', T('란체스터 제곱 법칙', "Lanchester's square law"), T('병력이 두 배면 왜 네 배 강할까: 나눠 싸우면 지는 이유', 'Why Double the Soldiers Is Four Times as Strong: Why Splitting Up Loses'), T('병력이 두 배면 전투력은 네 배. 서로 병력을 깎는 두 군대로 제곱 법칙과, 힘을 나누면 지는 이유를 확인해요.', 'Twice the numbers means four times the strength. See the square law and why splitting your force loses, with two armies wearing each other down.')),
   ('war', T('협상 실패·군비 경쟁·번짐 모델', 'Bargaining failure, arms race and spread'), T('아무도 원하지 않는데 전쟁이 난다: 협상 실패와 군비 경쟁, 그리고 번짐', 'Nobody Wants It, Yet War Happens: Failed Bargains, Arms Races, and Spreading'), T('전쟁은 양쪽 모두에게 손해인데도 왜 일어날까요? 이름 없는 추상 국가들로 협상 실패, 군비 경쟁, 번짐을 돌려 봐요. (실제 전쟁을 설명하지 않아요)', 'War costs both sides, so why does it happen? Run failed bargaining, arms races and spreading among nameless abstract states. (It does not explain any real war.)')),
  ]),
+ ('parenting', '#e0527a', '🍼', T('육아', 'Parenting'), T('아이를 키우며 마주치는 경쟁, 감기, 줄서기의 구조', 'The structures behind the races, colds and waiting lists parents run into'), [
+  ('hagwon', T('순위재 경쟁 모델', 'Positional-goods race model'), T('모두가 학원을 하나 더 보내면 왜 아무도 순위가 안 오를까', 'Why Does Everyone Adding One More Class Move Nobody Up?'), T('한 집만 하면 순위가 오르는데, 다 같이 하면 비용만 늘어요. 상대평가와 절대평가를 바꿔 구조를 비교해 봐요. (예시 숫자, 처방 아님)', 'One family alone climbs, but when all do it only the bill grows. Compare relative and absolute grading. (Example numbers, no advice.)')),
+  ('daycare', T('교실 감염 모델 (SEIR형)', 'Classroom infection model (SEIR-type)'), T('어린이집에 가면 왜 자꾸 아플까: 반 크기와 아프면 쉬기', 'Why Do Kids Keep Getting Sick at Daycare? Class Size and Staying Home'), T('반 크기, 아프면 쉬는 비율, 면역이 쌓이는 정도에 따라 한 해 감기 횟수가 달라지는 모습을 돌려 봐요. (참고용 모델)', 'See how class size, staying home when sick and built-up immunity change the colds in a year. (Reference model only.)')),
+  ('admission', T('배정 방식 비교 (보스턴·지연 수락)', 'Matching mechanisms (Boston vs deferred acceptance)'), T('입소 배정, 선착순·추첨·선호 반영 중 무엇이 공정할까', 'Who Gets the Seat? First-Come, Lottery or Preference-Based Matching'), T('지망 순위를 바꿔 적으면 이득일까? 네 가지 배정 방식을 나란히 돌려 봐요. (실제 입소 제도가 아님)', 'Does misreporting your ranking pay? Run four matching methods side by side. (Not the real admission system.)')),
+ ]),
  ('philosophy', '#be185d', '🧠', T('철학', 'Philosophy'), T('도덕과 신뢰는 어떻게 살아남을까', 'How do morality and trust survive?'), [
   ('cooperation', T('반복 죄수의 딜레마', "Iterated prisoner's dilemma"), T('착한 사람은 살아남을까', 'Do Nice People Survive?'), T('배신하는 사람이 많은 세상에서 협력과 신뢰는 어떻게 되살아날까? 실수가 끼어들면 어떻게 될까?', 'In a world full of defectors, how do cooperation and trust come back? What changes when mistakes creep in?')),
   ('veil', T('롤스·하사니 선택 모델', 'Rawls–Harsanyi choice model'), T('무지의 베일 뒤에서 어떤 사회를 고를까', 'Which Society Would You Choose Behind the Veil of Ignorance?'), T('내가 누구로 태어날지 모른다면 어떤 사회를 고를까요? 위험을 싫어하는 정도에 따라 선택이 뒤집혀요.', "If you didn't know who you'd be, which society would you pick? The choice flips with how much you dislike risk.")),
@@ -60,9 +71,6 @@ CATS = [
   ('fashion', T('모방과 차별화 모델', 'Imitation–distinction model'), T('유행은 왜 돌고 돌까', 'Why Does Fashion Go in Cycles?'), T('따라 하는 대중과 도망가는 선두가 만드는 색의 순환을 색상환 위에서 봐요.', 'On a color wheel, watch the cycle created by a copying crowd and trendsetters running away.')),
   ('painters', T('문화 전파 모델', 'Cultural transmission model'), T('AI 화가 100명이 서로 따라 그리면', 'What If 100 AI Painters Copy Each Other?'), T('모방이 늘수록 화풍은 하나로 수렴할까? 100점의 그림이 어떻게 달라지는지 지켜봐요.', 'Does imitation collapse styles into one? Watch 100 paintings change.')),
   ('sunflower', T('황금각 잎차례 모델', 'Golden-angle phyllotaxis'), T('해바라기 씨는 왜 그 각도로 배열될까', 'Why Do Sunflower Seeds Sit at That Angle?'), T('씨앗을 137.5°씩 돌려 놓으면 틈 없이 빽빽해져요. 각도를 조금만 바꿔도 무늬가 무너지는 걸 보세요.', 'Turn each seed by 137.5° and they pack with no gaps. Nudge the angle and watch the pattern fall apart.')),
-  ('auction', T('승자의 저주 모델', "Winner's curse model"), T('경매에서 이기면 왜 손해일까', 'Why Does Winning an Auction Cost You?'), T('가장 높게 쓴 사람이 이기는데, 왜 이긴 사람이 평균적으로 손해일까요? 얼마나 깎아 써야 본전일까요?', 'The highest bidder wins, so why does the winner lose on average? How much should you shade your bid to break even?')),
-  ('treasury', T('평균회귀 금리 모델 (바시첵)', 'Mean-reverting rate model (Vasicek)'), T('금리가 오르면 내 채권값은 왜 떨어질까: 10년 국채 금리', 'Why Does My Bond Fall When Rates Rise? The 10-Year Treasury Yield'), T('단기금리 경로로 10년 금리가 정해지는 과정과, 금리가 1%p 오를 때 이미 산 채권값이 얼마나 떨어지는지 돌려 봐요. (예시 숫자, 예측 아님)', 'See how short-rate paths set the 10-year yield and how much a bond you already hold falls when rates rise one point. (Example numbers, not a forecast.)')),
-  ('fxrate', T('캐리 트레이드 쏠림 모델', 'Carry-trade crowding model'), T('금리 높은 통화를 샀더니: 계단으로 오르고 엘리베이터로 떨어지는 캐리 트레이드', 'Buying the High-Rate Currency: The Carry Trade That Takes the Stairs Up and the Elevator Down'), T('이자를 더 주는 통화를 사면 오래 조금씩 벌다 한 번에 크게 잃을 수 있어요. 쏠림과 청산이 만드는 모양을 돌려 봐요. (예시 숫자, 투자 조언 아님)', 'Holding a higher-yield currency can earn a little for years and lose a lot at once. See the shape crowding and unwinding create. (Example numbers, not investment advice.)')),
  ]),
  ('paradox', '#4d7c0f', '🔄', T('뒤집어 보기', 'Flip the View'), T('"이렇게도 해석할 수 있구나" 싶은 직관의 반전', 'Counterintuitive twists that make you say "oh, so that\'s how to read it"'), [
   ('braess', T('브라에스 네트워크 모델', 'Braess network model'), T('새 길을 뚫었더니 모두가 느려졌다', 'A New Road Made Everyone Slower'), T('지름길을 열었더니 모두의 출근 시간이 늘어난다? 운전자들이 스스로 길을 고르게 두고 확인해요.', 'Open a shortcut and everyone\'s commute gets longer? Let drivers pick their own routes and see.')),
@@ -74,7 +82,6 @@ CATS = [
  ]),
  ('society', '#475569', '🏙️', T('사회 현안', 'Society Today'), T('수치로 따져 보는 우리 사회의 큰 흐름', 'Big trends in society, worked through with numbers'), [
   ('population', T('코호트 인구 모델', 'Cohort-component model'), T('저출산이 계속되면 2070년 인구 구조는?', "What If Korea's Birth Rate Stays This Low Until 2070?"), T('출산율이 이대로면 인구 피라미드는 어떻게 바뀔까? 출산율과 이민을 바꿔 보세요.', 'If fertility stays as it is, how does the population pyramid change? Try other fertility and migration levels.')),
-  ('apartment', T('공간 확산 모델', 'Spatial contagion model'), T('아파트 가격은 어떻게 번질까', 'How Do Apartment Prices Spread?'), T('한 동네의 상승이 이웃으로 번지는 과정과, 대출 규제·금리가 미치는 영향을 장난감 모델로 봐요.', 'See, in a toy model, how a rise in one neighborhood spreads to the next, and what lending limits and interest rates do.')),
  ]),
 ]
 
@@ -90,6 +97,9 @@ def thumb(slug):
 
 # 주제로 이어지는 "이게 흥미로웠다면" 추천 (앞의 것이 더 가까운 주제)
 RELATED = {
+ 'hagwon': ['cooperation','commons','war'],
+ 'daycare': ['rumor','weakties','schelling'],
+ 'admission': ['dating','secretary','queue'],
  'war': ['alliance','cooperation','lanchester'],
  'treasury': ['fxrate','regression','wealth'],
  'fxrate': ['treasury','bar','braess'],
@@ -119,7 +129,7 @@ RELATED = {
 }
 # 새 실험을 추가한 날 (NEW 표시는 이 날짜부터 7일 동안, 그리고 "지난 방문 이후 새 실험" 계산에 쓴다). 새 실험을 만들면 한 줄 추가.
 ADDED = {s: '2026-10-12' for s in ['braess', 'regression', 'survivor', 'friendship', 'inspection', 'coincidence']}
-ADDED.update({s: '2026-10-13' for s in ['secretary', 'weakties', 'checkout', 'bunching', 'seating', 'dla', 'sandpile', 'wildfire', 'ant', 'farming', 'lanchester', 'treasury', 'fxrate', 'war']})
+ADDED.update({s: '2026-10-13' for s in ['secretary', 'weakties', 'checkout', 'bunching', 'seating', 'dla', 'sandpile', 'wildfire', 'ant', 'farming', 'lanchester', 'treasury', 'fxrate', 'war', 'hagwon', 'daycare', 'admission']})
 
 # slug -> (기호, 짧은 이름 T, 미니 애니메이션 종류)
 META = {
@@ -157,6 +167,9 @@ META = {
  'friendship': ('Fp', T('친구의 역설', 'Friend Paradox'), 'net'),
  'inspection': ('Ip', T('대기 시간', 'Waiting'), 'stripes'),
  'coincidence': ('Ci', T('우연의 일치', 'Coincidence'), 'ring'),
+ 'hagwon': ('Hg', T('학원 딜레마', 'Cram-School Dilemma'), 'rise'),
+ 'daycare': ('Dc', T('어린이집 감기', 'Daycare Colds'), 'heat'),
+ 'admission': ('Ad', T('입소 배정', 'Who Gets the Seat?'), 'grid2'),
  'war': ('Wa', T('전쟁의 구조', 'How War Starts'), 'net'),
  'treasury': ('Ty', T('국채 금리', 'Treasury Yield'), 'rise'),
  'fxrate': ('Fx', T('환율과 캐리', 'FX Carry'), 'stairs'),

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="The Cram-School Dilemma · Simulatio Lab">선행학습 딜레마 · 시뮬라티오 랩</title>
+<meta name="description" content="한 집만 학원을 한 개 더 보내면 순위가 오르지만, 모두가 보내면 순위는 그대로이고 비용만 늘어나는 이유를 시뮬레이션으로 직접 돌려보세요." data-en-content="Run it yourself: why sending one more class helps a single family climb the ranking, yet when everyone does it the ranking stays put and only the bills grow.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="theme-color" content="#2f6fed">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1 data-en="If Everyone Adds One More Class, Why Does No One Get Ahead? The Cram-School Dilemma">모두 학원을 한 개 더 보내면 왜 아무도 앞서지 못할까: 선행학습 딜레마</h1>
+  <p class="lead" data-en="When the family next door adds one more class, it feels like we should too, and that it would lift our child&#x27;s ranking. In this model, if a single family sends one more class, its ranking really does rise, by 7.5 percentage points on average. But if every family does it, no one&#x27;s rank changes at all, and in the default setting only the total bill grows, to about 5 times where it started. No family chose wrongly: a ranking is the kind of value where someone can rise only if someone else falls. With a fixed pass line, by contrast, everyone can rise together.">옆집이 학원을 하나 더 보내면 우리도 보내야 할 것 같고, 보내면 우리 아이 순위가 오를 것 같습니다. 실제로 이 모델에서 한 집만 한 개 더 보내면 순위가 평균 7.5%p 오릅니다. 그런데 모든 집이 그렇게 하면 순위는 한 칸도 바뀌지 않고, 기본 설정에서 학원비 총액만 처음의 약 5배가 됩니다. 어느 집도 잘못 고른 것이 아닙니다. 순위는 누가 오르면 누군가는 내려가야 하는 값이기 때문입니다. 반대로 합격선이 고정된 방식에서는 모두가 함께 오를 수 있습니다.</p>
+
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li data-en="There are 300 households. Each child has a score they would get without classes (&lt;b&gt;basic ability + luck&lt;/b&gt;). A household sends 0 to 5 classes, and each class adds the &lt;b&gt;effect&lt;/b&gt; to the score (0.30 points by default, where the spread of basic ability counts as 1 point). Everyone starts with 0 to 2 classes (about 1 on average).">가구 300개가 있고, 아이마다 학원 없이 얻을 점수(<b>기본 실력 + 운</b>)가 정해져 있습니다. 가구는 학원을 0~5개 보내고, 학원 한 개마다 점수가 <b>효과</b>(기본 0.30점, 기본 실력의 퍼짐을 1점으로 본 값)만큼 오릅니다. 처음에는 0~2개(평균 약 1개)로 시작합니다.</li>
+    <li data-en="The result depends on how work is graded. With &lt;b&gt;relative grading&lt;/b&gt; the result is the child&#x27;s &lt;b&gt;rank&lt;/b&gt; (the share of children scoring lower), and with &lt;b&gt;absolute grading&lt;/b&gt; it is the chance of clearing a fixed pass line (0.6 points). A household&#x27;s payoff is &lt;code&gt;result − cost × number of classes&lt;/code&gt;, with cost measured as a share of the value of the top rank (4 percentage points by default).">결과는 평가 방식에 따라 다릅니다. <b>상대평가</b>에서는 결과가 <b>순위</b>(나보다 점수가 낮은 아이의 비율)이고, <b>절대평가</b>에서는 고정된 합격선(0.6점)을 넘을 가능성입니다. 가구의 이득은 <code>결과 − 비용 × 학원 수</code>이며, 비용은 1등 순위의 가치를 100%로 본 비율(기본 4%p)입니다.</li>
+    <li data-en="Each round 25% of households reconsider. Of those, 40% &lt;b&gt;imitate&lt;/b&gt; (if a neighbor with a better result sends more classes, they go up one step) and 60% &lt;b&gt;experiment&lt;/b&gt; (they try one step up or down and keep it if their payoff improves). All decisions are made together from the previous round&#x27;s state.">매 라운드 가구의 25%가 학원 수를 다시 정합니다. 그중 40%는 <b>따라 하기</b>(나보다 결과가 좋은 이웃이 학원을 더 보내면 한 단계 올림)를, 60%는 <b>시도해 보기</b>(한 단계 바꿔 보고 이득이 늘면 그대로 둠)를 합니다. 모두 직전 라운드의 상태를 보고 동시에 정합니다.</li>
+    <li data-en="The &lt;b&gt;agreed cap&lt;/b&gt; slider assumes every household agreed to send at most that many classes. Whether the agreement holds, and how it would be kept, is outside this model."><b>투입 상한 합의</b> 슬라이더는 모든 집이 "최대 몇 개까지만 보내자"고 정했다고 가정합니다. 합의가 지켜지는지, 어떻게 지키게 하는지는 이 모델 밖의 문제입니다.</li>
+  </ul>
+
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="beta" data-en="Effect of one class &lt;output id=&quot;o-beta&quot;&gt;&lt;/output&gt;">학원 한 개의 효과 <output id="o-beta"></output></label>
+        <input type="range" id="beta" min="0.1" max="0.5" step="0.05" value="0.3">
+        <span class="hint" data-en="How much one class raises the score (points). The larger it is, the bigger the gain for a single family">학원 한 개가 점수를 올리는 크기(점). 클수록 한 집만 보냈을 때의 이득이 커져요</span></div>
+<div class="ctl"><label for="cost" data-en="Cost of one class &lt;output id=&quot;o-cost&quot;&gt;&lt;/output&gt;">학원 한 개의 비용 <output id="o-cost"></output></label>
+        <input type="range" id="cost" min="0.01" max="0.12" step="0.01" value="0.04">
+        <span class="hint" data-en="The price of one class as a share of the value of the top rank. When it exceeds the gain, nobody sends">1등 순위의 가치를 100%로 볼 때 학원 한 개의 값. 이득보다 커지면 아무도 안 보내요</span></div>
+<div class="ctl"><label for="cap" data-en="Agreed cap &lt;output id=&quot;o-cap&quot;&gt;&lt;/output&gt;">투입 상한 합의 <output id="o-cap"></output></label>
+        <input type="range" id="cap" min="0" max="5" step="1" value="5">
+        <span class="hint" data-en="The maximum number of classes every household agreed to. 5 means no agreement">모든 집이 최대 몇 개까지만 보내기로 했는지. 5는 합의 없음</span></div>
+<div class="ctl"><label for="mode" data-en="Grading &lt;output id=&quot;o-mode&quot;&gt;&lt;/output&gt;">평가 방식 <output id="o-mode"></output></label>
+        <select id="mode" class="sel"><option value="rel" selected data-en="Relative (rank)">상대평가 (순위)</option><option value="abs" data-en="Absolute (fixed pass line)">절대평가 (합격선 고정)</option></select>
+        <span class="hint" data-en="Choose whether the result is a rank or the chance of clearing a fixed pass line">결과를 순위로 볼지, 고정된 합격선을 넘을 가능성으로 볼지 골라요</span></div>
+    </div>
+    <div class="btns">
+      <button class=primary id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Same settings, different households">같은 설정, 다른 가구들</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3 data-en="① Watching the Class Race">① 학원 경쟁 지켜보기</h3>
+    <p data-en="Each dot is one household. The horizontal axis is the score without classes and the vertical axis the score now; darker dots send more classes. Dots rise above the dashed line (no classes). With relative grading the upper-half line rises with them, so the share above it never changes; the pass line of absolute grading stays where it is.">점 하나가 가구 하나입니다. 가로는 학원 없이 얻을 점수, 세로는 지금 점수이고, 진할수록 학원을 많이 보냅니다. 점들이 점선(학원 없을 때)보다 위로 올라가는데, 상대평가에서는 위쪽 절반 선도 함께 올라가서 그 선 위에 있는 집의 비율은 그대로입니다. 절대평가의 합격선은 제자리에 있습니다.</p>
+    <canvas id="c-race" class="rounded" data-thumb aria-label="① Watching the Class Race"></canvas>
+    <div class="anim-bar">
+      <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
+      <button id="stepbtn" data-en="Step">한 단계</button>
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="speed"><option value="3" data-en="Slow">느리게</option><option value="8" selected data-en="Normal">보통</option><option value="18" data-en="Fast">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Upper-half line (relative)"><i style="background:#e5484d"></i>위쪽 절반 선 (상대평가)</span><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Pass line (absolute, fixed)"><i style="background:#1fa463"></i>합격선 (절대평가, 고정)</span></div>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3 data-en="② The Result Stays, the Bill Grows">② 결과는 그대로, 학원비만 오른다</h3>
+    <p data-en="Gray is the average result, red the bill per household, and blue their difference, the net payoff. With relative grading the average rank is always 50%, so the net payoff falls by exactly what the bill rises. Switch to absolute grading and the gray line rises too.">회색은 평균 결과, 빨강은 가구당 학원비, 파랑은 둘의 차이인 순이득입니다. 상대평가에서는 평균 순위가 늘 50%라서 학원비가 오른 만큼 순이득이 줄어듭니다. 절대평가로 바꾸면 회색 선이 함께 올라갑니다.</p>
+    <canvas id="c-time" class="" aria-label="② The Result Stays, the Bill Grows"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#8a93a6&quot;&gt;&lt;/i&gt;Average result"><i style="background:#8a93a6"></i>평균 결과</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Bill (per household)"><i style="background:#e5484d"></i>학원비 (가구당)</span><span data-en="&lt;i style=&quot;background:var(--accent)&quot;&gt;&lt;/i&gt;Net payoff"><i style="background:var(--accent)"></i>순이득</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ How Many Classes Does Each Household Send?">③ 몇 개씩 보내는 집이 몇 퍼센트일까</h3>
+    <p data-en="The share of households by number of classes in every round, stacked. The mix shifts from the initial 0 to 2 classes toward larger numbers, from light to dark.">라운드마다 학원 수별 가구 비율을 쌓았습니다. 연한 색에서 진한 색으로 바뀌면서 처음의 0~2개가 점점 많은 개수로 옮겨 갑니다.</p>
+    <canvas id="c-shares" class="" aria-label="③ How Many Classes Does Each Household Send?"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:rgb(196,211,238)&quot;&gt;&lt;/i&gt;0"><i style="background:rgb(196,211,238)"></i>0개</span><span data-en="&lt;i style=&quot;background:rgb(160,178,213)&quot;&gt;&lt;/i&gt;1"><i style="background:rgb(160,178,213)"></i>1개</span><span data-en="&lt;i style=&quot;background:rgb(124,144,188)&quot;&gt;&lt;/i&gt;2"><i style="background:rgb(124,144,188)"></i>2개</span><span data-en="&lt;i style=&quot;background:rgb(88,111,162)&quot;&gt;&lt;/i&gt;3"><i style="background:rgb(88,111,162)"></i>3개</span><span data-en="&lt;i style=&quot;background:rgb(52,77,137)&quot;&gt;&lt;/i&gt;4"><i style="background:rgb(52,77,137)"></i>4개</span><span data-en="&lt;i style=&quot;background:rgb(16,44,112)&quot;&gt;&lt;/i&gt;5"><i style="background:rgb(16,44,112)"></i>5개</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="④ Does One Family Gain by Sending One More?">④ 한 집만 더 보내면 이득일까</h3>
+    <p data-en="The horizontal axis is the number of classes every household sends, and the vertical axis the average rise when just one household sends one more (theory). In the green zone, where the blue line is above the red dashed cost line, sending more alone pays, so everyone makes the same call.">가로는 모든 집이 보내는 학원 수, 세로는 그 상태에서 한 집만 한 개 더 보낼 때 오르는 평균 폭(이론값)입니다. 파란 선이 빨간 점선(비용)보다 위인 초록 구간에서는 혼자 더 보내는 쪽이 이득이라, 모두가 같은 판단을 하게 됩니다.</p>
+    <canvas id="c-gain" class="" aria-label="④ Does One Family Gain by Sending One More?"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#2f6fed&quot;&gt;&lt;/i&gt;Gain from sending one more alone"><i style="background:#2f6fed"></i>혼자 한 개 더 보냈을 때의 이득</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Cost of one class"><i style="background:#e5484d"></i>학원 한 개 비용</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="⑤ If Everyone Sends the Same Number, What Is the Net Payoff?">⑤ 모두가 같은 수준이면 순이득은</h3>
+    <p data-en="The horizontal axis is the number of classes every household sends, and the vertical axis the net payoff per household (theory). Under relative grading (red) it falls straight with each extra class, while under absolute grading (green) it rises as the chance of passing grows. An agreed cap stops things at the vertical dashed line.">가로는 모든 집이 보내는 학원 수, 세로는 가구당 순이득(이론값)입니다. 상대평가(빨강)는 늘어난 학원 수만큼 곧장 줄어들고, 절대평가(초록)는 합격 가능성이 오르는 동안 함께 오릅니다. 합의 상한을 두면 세로 점선에서 멈춥니다.</p>
+    <canvas id="c-net" class="" aria-label="⑤ If Everyone Sends the Same Number, What Is the Net Payoff?"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;Relative grading"><i style="background:#e5484d"></i>상대평가</span><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;Absolute grading"><i style="background:#1fa463"></i>절대평가</span></div>
+    </section>
+  </div>
+
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout" data-en="&lt;b&gt;What it shows:&lt;/b&gt; In the default setting (300 households, effect 0.30, cost 4 points, relative grading) the average number of classes started at 0.87, passed 2 by round 15, 3 by round 30 and 4 by round 55, and reached 4.39 by round 100 (74% of households sending 5). The total bill grew to 5.0 times the start, yet the average rank stayed at 50%, and the net payoff per household fell from 47% to 32%. 40% of households ended with a better rank than at the start and 47% with a worse one: ranks were simply swapped. In theory, when everyone sends the same number, one household sending one more gains 7.5 percentage points on average (7.6 in the simulation), more than the 4-point cost, so it always pays. Yet when every household sent the same number, the largest rank change was 0, and the net payoff drops from 50% with everyone at 0 classes to 30% with everyone at 5. When the cost was above 7.5 points, theory said that nobody sending was the equilibrium (from 8 points), and in the simulation the average fell to 0.70 at a cost of 10 points. Households of middling children sent the most, 5.0 on average, versus 2.9 for the bottom 10% and 3.9 for the top 10%. With an agreed cap of 2, the average was 1.81 classes, the total bill 2.1 times the start and the net payoff 43%; with a cap of 0 the ranks were the same and the net payoff was 50%. Under absolute grading the average chance of passing rose from 43% to 73% (3.48 classes on average), with 78% of households better off and 7% worse off, and the net payoff went from 39% to 59%."><b>말하는 것:</b> 기본 설정(가구 300개, 효과 0.30점, 비용 4%p, 상대평가)에서 평균 학원 수는 0.87개로 시작해 15라운드에 2개, 30라운드에 3개, 55라운드에 4개를 넘었고 100라운드에는 4.39개가 되었습니다(74%의 집이 5개). 학원비 총액은 처음의 5.0배가 되었지만 평균 순위는 그대로 50%였고, 가구당 순이득은 47%에서 32%로 줄었습니다. 처음보다 순위가 오른 집은 40%, 내린 집은 47%로 서로 맞바꾼 셈입니다. 이론으로는 모든 집이 같은 수준일 때 한 집만 한 개 더 보내면 평균 7.5%p 오르고(시뮬레이션 7.6%p) 비용 4%p보다 커서 늘 이득입니다. 그런데 모든 집이 같은 수준이면 순위 변화는 최대 0이었고, 모두 0개일 때 순이득 50%가 모두 5개일 때 30%로 내려갑니다. 비용이 7.5%p보다 크면 이론상 아무도 안 보내는 쪽이 균형이었고(8%p부터), 시뮬레이션에서도 비용 10%p일 때 평균이 0.70개로 내려갔습니다. 점수가 중간쯤인 아이의 집이 평균 5.0개로 가장 많이 보냈고 맨 아래 10%는 2.9개, 맨 위 10%는 3.9개였습니다. 합의 상한을 2개로 두면 평균 1.81개, 학원비 총액은 처음의 2.1배, 순이득은 43%였고, 0개로 두면 순위는 그대로 순이득 50%였습니다. 절대평가로 바꾸면 평균 합격 가능성이 43%에서 73%로 올랐고(평균 3.48개), 오른 집 78%, 내린 집 7%, 순이득은 39%에서 59%로 늘었습니다.</div>
+  <div class="callout" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; This does not reproduce real private-tutoring spending or the effect of any class, and every number is an example chosen by this project. It does not say that sending children to classes is good or bad, or that any family chose wrongly: the model only shows a structure. Real classes can offer things beyond scores, such as interest, care and friends, but this model looks only at rank (or the chance of passing). Nor does it say that relative grading is bad and absolute grading good: it only shows that everyone can rise when the pass line is fixed, while how the line is set and any other side effects are not in the model. It neither supports nor criticizes any particular system or policy. This is a reference model; please make real decisions together with experts such as pediatricians and teachers."><b>말하지 않는 것:</b> 실제 한국의 사교육비나 학원의 효과를 재현한 것이 아니며, 모든 숫자는 이 프로젝트가 정한 예시입니다. 학원을 보내는 것이 좋다거나 나쁘다는 뜻도, 어느 집의 선택이 잘못됐다는 뜻도 아닙니다. 모델은 구조만 보여 줍니다. 실제 학원에는 점수 말고도 흥미, 돌봄, 친구 같은 가치가 있을 수 있는데 이 모델은 순위(또는 합격 가능성)만 봅니다. 상대평가가 나쁘고 절대평가가 좋다는 뜻도 아닙니다. 합격선이 고정되면 모두가 오를 수 있다는 점을 보여 줄 뿐, 합격선을 어떻게 정하는지나 다른 부작용은 모델에 없습니다. 특정 제도나 정책을 지지하거나 비판하지 않습니다. 이것은 참고용 모델이며 실제 판단은 소아과 의사·교사 등 전문가와 함께 하세요.</div>
+
+  <h2 data-en="Theory and implementation notes">이론적 근거와 구현 메모</h2>
+  <ul class="small">
+    <li class="memo theory" data-en="&lt;b&gt;Where the model comes from:&lt;/b&gt; Fred Hirsch discussed &amp;quot;positional goods&amp;quot;, where the rank itself is the value, in his 1976 book &lt;i&gt;Social Limits to Growth&lt;/i&gt; (Harvard University Press), and Robert H. Frank developed it into a theory of status competition in &lt;i&gt;Choosing the Right Pond&lt;/i&gt; (1985, Oxford University Press). A structure in which everyone making the same choice cancels everyone&#x27;s gain is a symmetric game of the prisoner&#x27;s-dilemma kind, and a state where nobody has a reason to change is a Nash equilibrium (John Nash, 1950)."><b>모델의 뿌리:</b> 순위 자체가 가치인 '순위재(positional goods)' 개념은 Fred Hirsch가 1976년 책 『Social Limits to Growth』(Harvard University Press)에서 다루었고, Robert H. Frank가 『Choosing the Right Pond』(1985, Oxford University Press)에서 지위 경쟁으로 발전시켰습니다. 모두가 같은 선택을 하면 서로의 이득이 상쇄되는 구조는 죄수의 딜레마와 같은 대칭 게임으로, 모두가 선택을 바꿀 이유가 없는 상태를 John Nash(1950)의 내쉬균형이라 부릅니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Key assumptions and formulas:&lt;/b&gt; The score is &lt;code&gt;s = a + β·e&lt;/code&gt; (a is basic ability plus luck, e the number of classes, β the effect). Under relative grading the result is the rank, and when everyone has the same e all scores shift by the same amount, so ranks do not change. Then the average rank gain of one household sending one more class is &lt;code&gt;Φ(β/(σ√2)) − 1/2&lt;/code&gt; (σ is the standard deviation of the score without classes, √1.25 = 1.118, and Φ the standard normal distribution function); if this exceeds the cost c, sending more is a dominant strategy. The sliders are β, c, the agreed cap (the maximum of e) and the grading method."><b>핵심 가정과 수식:</b> 점수는 <code>s = a + β·e</code>(a는 기본 실력과 운, e는 학원 수, β는 효과)입니다. 상대평가의 결과는 순위이고, 모두가 같은 e이면 모든 점수가 같은 만큼 올라 순위가 그대로입니다. 이때 한 집만 한 개 더 보내면 평균 순위 이득은 <code>Φ(β/(σ√2)) − 1/2</code>(σ는 학원 없을 때 점수의 표준편차 √1.25 = 1.118, Φ는 표준정규 분포함수)로, 이 값이 비용 c보다 크면 더 보내는 것이 우월전략입니다. 슬라이더는 β, c, 합의 상한(e의 최댓값), 평가 방식입니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;What this project simplifies:&lt;/b&gt; A class adds a constant amount to the score (no diminishing returns) and a household can choose only 0 to 5 classes. The standard deviation of basic ability (1), of luck (0.5), the effect (0.30), the pass line (0.6), the 4-point cost and the slope of the chance of passing (0.4) are all example values set by this project. There are 300 households, the imitating and experimenting rules are this project&#x27;s simplification, and the agreed cap is assumed to be kept by everyone."><b>이 프로젝트의 단순화:</b> 학원의 효과는 점수에 일정하게 더해지고(수확체감 없음) 한 가구는 0~5개만 고를 수 있습니다. 기본 실력의 표준편차 1, 운의 표준편차 0.5, 효과 0.30, 합격선 0.6, 비용 4%p와 합격 가능성의 기울기 0.4는 모두 이 프로젝트가 정한 예시 값입니다. 가구 수는 300개이고, 따라 하기와 시도해 보기 규칙도 이 프로젝트의 단순화이며, 합의 상한은 모두가 지킨다고 가정합니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Theory versus simulation:&lt;/b&gt; Against the theoretical 7.52 points, a simulation with 20,000 children gave 7.56 (average of 3 seeds), and with effects of 0.1, 0.2, 0.4 and 0.5 points the theory of 2.52, 5.03, 9.99 and 12.41 points matched the simulated 2.53, 5.05, 10.03 and 12.46. When everyone had the same level, the largest rank change was 0. Absolute grading has no closed form, so it was computed by numerical integration. The end state of the dynamics, an average of 4.39 classes, is below the theoretical equilibrium (everyone at 5) because households whose children sit at either end of the ranking send fewer."><b>이론값과 시뮬레이션:</b> 이론 7.52%p에 대해 아이 20,000명의 시뮬레이션은 7.56%p(시드 3개 평균)였고, 효과 0.1, 0.2, 0.4, 0.5점에서도 이론 2.52, 5.03, 9.99, 12.41%p에 시뮬레이션 2.53, 5.05, 10.03, 12.46%p로 맞았습니다. 모두가 같은 수준이면 순위 변화의 최댓값은 0이었습니다. 절대평가에는 닫힌 식이 없어 수치 적분으로 계산했습니다. 학원 수가 늘어나는 동역학의 끝 상태는 이론상 균형(모두 5개)보다 낮은 평균 4.39개로, 순위가 양쪽 끝에 있는 아이의 집이 덜 보내기 때문입니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Further reading:&lt;/b&gt; Hirsch (1976), &lt;i&gt;Social Limits to Growth&lt;/i&gt;, Harvard University Press / Frank (1985), &lt;i&gt;Choosing the Right Pond: Human Behavior and the Quest for Status&lt;/i&gt;, Oxford University Press / Nash (1950), &amp;quot;Equilibrium points in n-person games&amp;quot;, &lt;i&gt;Proceedings of the National Academy of Sciences&lt;/i&gt;."><b>더 읽을거리:</b> Hirsch (1976), 『Social Limits to Growth』, Harvard University Press / Frank (1985), 『Choosing the Right Pond: Human Behavior and the Quest for Status』, Oxford University Press / Nash (1950), &quot;Equilibrium points in n-person games&quot;, <i>Proceedings of the National Academy of Sciences</i>.</li>
+    <li  data-en="You can verify with &lt;code&gt;node tools/validate-hagwon.js&lt;/code&gt;. The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. Theory values for the case where everyone sends the same number are computed by summing over the normal distribution, and the rank gain uses an error-function approximation.">검증은 <code>node tools/validate-hagwon.js</code>로 할 수 있습니다. 시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 모두가 같은 수준일 때의 이론값은 정규분포 구간 합으로, 순위 이득은 오차함수 근사로 계산합니다.</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/hagwon&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/hagwon">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap" data-en="Simulatio Lab · Run by Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
+<script src="../../exps.js"></script>
+<script src="../../layout.js"></script>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../counter.js"></script>
+<script src="../../engage.js"></script>
+</body>
+</html>

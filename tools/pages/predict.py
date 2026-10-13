@@ -138,6 +138,16 @@ PRED.update({
   T('전쟁이 양쪽 모두에게 비싸서 싸우지 않고 나누는 합의가 늘 있습니다. 그런데 상대 힘을 정확히 모르는 한쪽(불확실성 ±25%, 전쟁 비용 15%)이 가장 유리한 요구를 하면 분쟁의 몇 %가 전쟁이 될까요?','War is costly for both sides, so a deal that beats fighting always exists. If one side that cannot tell the other\'s strength exactly (uncertainty ±25%, war cost 15%) makes its best demand, what share of disputes become war?'), [T('0% (합의가 있으니 전쟁은 없다)','0% (a deal exists, so no war)'), T('약 40%','About 40%'), T('약 90%','About 90%')], 1, T('이론 40.0%(시뮬레이션 39.8%). 합의 범위가 있어도 A가 기대 몫을 키우려 욕심 낸 요구가 힘센 상대에게 거절되기 때문입니다. 정보가 정확하면 0%였습니다.','Theory gives 40.0% (39.8% in simulation). Even with a deal range, A\'s greedy demand to raise its expected share gets rejected by stronger opponents. With accurate information it was 0%.')),
 })
 
+
+PRED.update({
+ 'hagwon': (
+  T('모든 집이 학원을 한 개씩 더 보내면, 상대평가에서 평균 순위는 어떻게 될까?', 'If every family sends one more class, what happens to the average rank under relative grading?'), [T('모두 올라간다', 'Everyone rises'), T('그대로이고 학원비만 는다', 'It stays the same and only the bill grows'), T('모두 내려간다', 'Everyone falls')], 1, T('모두가 같은 수준이면 모든 점수가 같은 만큼 올라 순위 변화는 최대 0입니다. 한 집만 보내면 +7.5%p이고, 기본 설정에서 학원비는 처음의 5.0배가 되었지만 평균 순위는 50% 그대로였습니다.', 'When everyone sends the same number, all scores shift equally, so the largest rank change is 0. One family alone gains 7.5 points, while in the default run the bill grew to 5.0 times the start and the average rank stayed at 50%.')),
+ 'daycare': (
+  T('어린이집에서 아프면 쉬는 아이의 비율을 0%에서 70%로 올리면 한 해 걸린 횟수는 어떻게 될까요? (반 20명, 예시 설정)','If the share of children staying home when sick rises from 0% to 70%, what happens to infections per year? (class of 20, example settings)'), [T('거의 0회가 된다','Falls to almost zero'), T('절반 아래로 줄어든다','Falls by more than half'), T('5.0회에서 3.5회로 약 30% 준다','Falls about 30%, from 5.0 to 3.5')], 2, T('시드 20개 평균으로 5.0회에서 3.5회였습니다. 100%가 쉬어도 2.5회로 절반쯤만 줄어듭니다. 증상이 나타나기 전 하루 동안 이미 퍼뜨리고 반 밖에서도 감염이 들어오기 때문입니다.','Averaged over 20 seeds it went from 5.0 to 3.5. Even at 100% staying home it was 2.5, about half, because children spread it the day before symptoms and infection also arrives from outside the class.')),
+ 'admission': (
+  T('아이들이 지망 순위를 솔직하게 적었을 때, 다른 집은 그대로 두고 한 아이만 순서를 바꿔 적어 더 나은 곳에 갈 수 있는 아이는 보스턴 방식과 지연 수락 방식에서 각각 얼마나 될까?','If one child alone reorders their ranking while everyone else is honest, how many can do better under the Boston method and under deferred acceptance?'), [T('둘 다 비슷하게 40% 안팎','About 40% under both'), T('보스턴 43%, 지연 수락 0%','Boston 43%, deferred acceptance 0%'), T('보스턴 0%, 지연 수락 43%','Boston 0%, deferred acceptance 43%')], 1, T('아이 60명 표본에서 보스턴은 43%(26명)가 이득을 봤고 지연 수락은 0%였습니다(시드 1~12 평균 보스턴 34.3%). 지연 수락은 솔직하게 적는 것이 최선인 구조입니다.','In a sample of 60 children, 43% (26) gained under Boston and 0% under deferred acceptance (Boston averaged 34.3% over seeds 1 to 12). Deferred acceptance makes honesty the best policy.')),
+})
+
 # 카드에 쓰는 문구 (한국어 → 영어)
 UI = [
  (T('🔮 먼저 예상해 보세요', '🔮 Make a prediction first')),

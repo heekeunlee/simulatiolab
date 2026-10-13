@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Four Ways to Assign Seats · Simulatio Lab">입소 배정 방식 비교 · 시뮬라티오 랩</title>
+<meta name="description" content="어린이집 같은 기관에 아이를 나누는 선착순, 추첨 순번, 보스턴, 지연 수락 방식을 비교하고, 지망 순위를 바꿔 적으면 이득을 보는지 직접 돌려보세요." data-en-content="Compare first-come-first-served, lottery order, the Boston mechanism and deferred acceptance for assigning children to places, and see who gains by changing the ranking they submit.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="theme-color" content="#2f6fed">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1 data-en="Does Honesty Pay? Four Ways to Assign Children to Daycares">솔직하게 적으면 손해일까: 입소 배정 방식 네 가지</h1>
+  <p class="lead" data-en="When children are assigned to places, writing down your true order of preference seems like the best thing to do. In some systems, though, putting a &quot;realistic&quot; place first pays off, and the list becomes a guessing game rather than a statement of what you want. Assigning the same 200 children four different ways, 43% could do better by changing their ranking under the Boston method and 0% under deferred acceptance. Nobody is to blame: it is the structure of the method that makes the difference.">아이를 기관에 나누는 일이라면, 원하는 순서를 있는 그대로 적어 내는 것이 가장 좋을 것 같습니다. 그런데 어떤 방식에서는 "될 만한 곳"을 앞에 적는 쪽이 이득이어서, 목록이 마음의 순서가 아니라 눈치 싸움이 됩니다. 같은 아이 200명을 네 가지 방식으로 나눠 보면, 보스턴 방식에서는 순위를 바꿔 적어 더 나은 곳에 가는 아이가 43%였고 지연 수락 방식에서는 0%였습니다. 누가 나쁜 것이 아니라 방식의 구조가 만드는 차이입니다.</p>
+
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li data-en="There are 200 children and 8 places (labeled A to H), each with a limited capacity. Every child ranks all 8 places. Places have a &quot;popularity&quot; everyone feels, and children also have their own tastes. &lt;b&gt;How similar tastes are&lt;/b&gt; sets the balance: the higher it is, the more everyone wants the same places and the more competition piles up.">아이 200명과 기관 8곳(A~H)이 있고, 기관마다 정원이 있습니다. 모든 아이는 8곳 모두에 지망 순위를 매깁니다. 기관에는 모두가 느끼는 "인기"가 있고 아이마다 취향도 다릅니다. <b>취향이 비슷한 정도</b>가 이 둘의 비중입니다. 높을수록 모두가 같은 곳을 원해 경쟁이 몰립니다.</li>
+    <li data-en="Each place ranks the children by priority. A lottery number is shared by all places, and &lt;b&gt;how much places differ in their own order&lt;/b&gt; sets how much a place-specific random order is mixed in. At 0% every place lines children up by the same lottery number.">기관은 아이들에게 우선순위를 매깁니다. 추첨 번호는 모든 기관이 같이 쓰고, 기관마다 따로 정한 순번을 얼마나 섞느냐가 <b>기관마다 순번이 다른 정도</b>입니다. 0%이면 모든 기관이 같은 추첨 번호로 줄을 세웁니다.</li>
+    <li data-en="&lt;b&gt;① First come, first served&lt;/b&gt;: in order of arrival, each child takes the place they like best among those left (families who can arrive early go first). &lt;b&gt;② Lottery order&lt;/b&gt;: the same, but in lottery-number order. &lt;b&gt;③ Boston&lt;/b&gt;: everyone applies to their 1st choice, a place that fills up is closed for good, and the rest apply to their 2nd choice, and so on. &lt;b&gt;④ Deferred acceptance&lt;/b&gt;: each place only holds its highest-priority applicants tentatively and bumps them for a higher-priority child; bumped children move to the next choice, and everything is final only when nobody moves anymore."><b>① 선착순</b>: 접수한 순서대로 남은 곳 중 가장 원하는 곳을 고릅니다(일찍 접수할 수 있는 집이 앞섭니다). <b>② 추첨 순번</b>: 추첨 번호 순서대로 같은 방식으로 고릅니다. <b>③ 보스턴</b>: 모두 1지망에 접수하고 정원이 차면 그 자리는 바로 확정, 못 들어간 아이는 2지망에 접수하는 식으로 이어집니다. <b>④ 지연 수락</b>: 각 기관은 우선순위가 높은 아이를 임시로만 받아 두고, 더 높은 아이가 오면 밀어냅니다. 밀려난 아이는 다음 지망으로 가고, 더 움직일 아이가 없을 때 확정됩니다.</li>
+    <li data-en="&lt;b&gt;The ranking-change test&lt;/b&gt;: suppose one child changes the order they submit while all other children write honestly. All 56 ways of moving one choice to another position are tried, and if any of them lands the child in a place they truly prefer, that child &quot;gains&quot;. This assumes knowing every other list and the lottery result, which is far more than a real family could know."><b>순위를 바꿔 적어 보는 시험</b>: 한 아이만 지망 순서를 바꿔 적고 다른 아이는 모두 솔직하게 적었다고 합시다. 지망 하나를 다른 자리로 옮기는 56가지를 모두 해 보고, 진짜 원하는 순서로 봐서 더 좋은 곳에 가는 경우가 하나라도 있으면 그 아이는 "이득"을 봅니다. 다른 집의 목록과 추첨 결과를 모두 안다는 가정이라, 현실에서는 이만큼 알기 어렵습니다.</li>
+  </ul>
+
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="n" data-en="Number of children &lt;output id=&quot;o-n&quot;&gt;&lt;/output&gt;">아이 수 <output id="o-n"></output></label>
+        <input type="range" id="n" min="100" max="400" step="20" value="200">
+        <span class="hint" data-en="The 8 places share the seats between them">기관 8곳이 정원을 나눠 가집니다</span></div>
+<div class="ctl"><label for="c" data-en="How similar tastes are &lt;output id=&quot;o-c&quot;&gt;&lt;/output&gt;">취향이 비슷한 정도 <output id="o-c"></output></label>
+        <input type="range" id="c" min="0" max="100" step="5" value="60">
+        <span class="hint" data-en="The higher, the more everyone wants the same places. At 0 tastes are all different">높을수록 모두 같은 곳을 원해 경쟁이 몰립니다. 0이면 제각각입니다</span></div>
+<div class="ctl"><label for="rho" data-en="How much places differ in order &lt;output id=&quot;o-rho&quot;&gt;&lt;/output&gt;">기관마다 순번이 다른 정도 <output id="o-rho"></output></label>
+        <input type="range" id="rho" min="0" max="100" step="10" value="50">
+        <span class="hint" data-en="At 0% every place uses the same lottery number">0%이면 모든 기관이 같은 추첨 번호로 줄을 세웁니다</span></div>
+<div class="ctl"><label for="ratio" data-en="Seats ÷ children &lt;output id=&quot;o-ratio&quot;&gt;&lt;/output&gt;">정원 ÷ 아이 수 <output id="o-ratio"></output></label>
+        <input type="range" id="ratio" min="70" max="130" step="5" value="100">
+        <span class="hint" data-en="Below 100% there are not enough seats and some children get none">100% 미만이면 자리가 모자라 배정받지 못하는 아이가 생깁니다</span></div>
+<div class="ctl"><label for="early" data-en="Families who can apply early &lt;output id=&quot;o-early&quot;&gt;&lt;/output&gt;">일찍 접수할 수 있는 집 <output id="o-early"></output></label>
+        <input type="range" id="early" min="0" max="60" step="5" value="25">
+        <span class="hint" data-en="They lead only under first come, first served. In other methods arrival order does not matter">선착순에서만 앞섭니다. 다른 방식에서는 접수 순서가 상관없습니다</span></div>
+<div class="ctl"><label for="mech" data-en="Assignment method &lt;output id=&quot;o-mech&quot;&gt;&lt;/output&gt;">배정 방식 <output id="o-mech"></output></label>
+        <select id="mech" class="sel"><option value="queue" data-en="First come, first served">선착순 고르기</option><option value="rsd" data-en="Lottery order">추첨 순번대로 고르기</option><option value="boston" selected data-en="Boston (immediate)">보스턴 방식 (바로 확정)</option><option value="da" data-en="Deferred acceptance (Gale-Shapley)">지연 수락 방식 (게일-섀플리)</option></select>
+        <span class="hint" data-en="The animation and the &quot;my child&quot; test follow this method. The charts below always show all four">위 그림과 "내 아이 시험"이 이 방식으로 바뀝니다. 아래 그래프는 네 방식을 모두 보여 줍니다</span></div>
+    </div>
+    <div class="btns">
+      <button class=primary id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Same settings, different children">같은 설정, 다른 아이들</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3 data-en="① Watching the Assignment">① 배정 지켜보기</h3>
+    <p data-en="On the left are children who have no place yet (blue dots are families who can apply early). On the right are the places A to H in order of popularity, and each color shows the choice number the child received. The black circle marks the child tested below. Change the method above to assign the same children another way.">왼쪽은 아직 자리를 못 받은 아이들입니다(파란 점은 일찍 접수할 수 있는 집). 오른쪽은 인기 순서대로 A~H 기관의 자리이고, 색은 아이가 받은 지망입니다. 검은 동그라미는 아래에서 시험해 보는 아이입니다. 위에서 배정 방식을 바꿔 같은 아이들을 다른 방식으로 나눠 보세요.</p>
+    <canvas id="c-anim" class="rounded" data-thumb aria-label="① Watching the Assignment"></canvas>
+    <div class="anim-bar">
+      <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
+      
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="speed"><option value="4" data-en="Slow">느리게</option><option value="8" selected data-en="Normal">보통</option><option value="20" data-en="Fast">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+    <div id="focus" class="small" style="margin-top:8px"></div>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;1st choice"><i style="background:#1fa463"></i>1지망</span><span data-en="&lt;i style=&quot;background:#a3c93a&quot;&gt;&lt;/i&gt;2nd-3rd choice"><i style="background:#a3c93a"></i>2~3지망</span><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;4th-5th choice"><i style="background:#e0a100"></i>4~5지망</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;6th choice or lower"><i style="background:#e5484d"></i>6지망 이하</span><span data-en="&lt;i style=&quot;background:#8a93a6&quot;&gt;&lt;/i&gt;Not assigned"><i style="background:#8a93a6"></i>배정 못 받음</span><span data-en="&lt;i style=&quot;background:#3b6fd8&quot;&gt;&lt;/i&gt;Can apply early (waiting)"><i style="background:#3b6fd8"></i>일찍 접수할 수 있는 집(대기 중)</span><span data-en="&lt;i style=&quot;background:transparent;border:2px solid #111;box-sizing:border-box&quot;&gt;&lt;/i&gt;Child being tested"><i style="background:transparent;border:2px solid #111;box-sizing:border-box"></i>시험해 보는 아이</span></div>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3 data-en="② Four Methods: Where Did the Children Go?">② 네 방식, 아이들은 어디로 갔나</h3>
+    <p data-en="The same children with the same honest lists, run through all four methods, stacked by the choice number received. The bold name is the method selected now. These figures assume everybody wrote honestly.">같은 아이들, 같은 솔직한 목록으로 네 방식을 돌린 결과를 받은 지망별로 쌓았습니다. 굵은 이름은 지금 고른 방식입니다. 이 수치는 모두가 솔직하게 적었을 때의 것입니다.</p>
+    <canvas id="c-dist" class="" aria-label="② Four Methods: Where Did the Children Go?"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#1fa463&quot;&gt;&lt;/i&gt;1st choice"><i style="background:#1fa463"></i>1지망</span><span data-en="&lt;i style=&quot;background:#a3c93a&quot;&gt;&lt;/i&gt;2nd-3rd choice"><i style="background:#a3c93a"></i>2~3지망</span><span data-en="&lt;i style=&quot;background:#e0a100&quot;&gt;&lt;/i&gt;4th-5th choice"><i style="background:#e0a100"></i>4~5지망</span><span data-en="&lt;i style=&quot;background:#e5484d&quot;&gt;&lt;/i&gt;6th choice or lower"><i style="background:#e5484d"></i>6지망 이하</span><span data-en="&lt;i style=&quot;background:#8a93a6&quot;&gt;&lt;/i&gt;Not assigned"><i style="background:#8a93a6"></i>배정 못 받음</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ Does Changing Your Ranking Pay?">③ 순위를 바꿔 적으면 이득을 볼까</h3>
+    <p data-en="For each of 60 children, only that child changed their order, in all 56 ways. The bar is the share of children for whom some change landed them in a place they prefer to the one they get by writing honestly.">아이 60명을 한 명씩 골라, 그 아이만 지망 순서를 바꿔 쓰는 56가지를 모두 시험했습니다. 막대는 그중 솔직할 때보다 더 원하는 곳에 가는 방법이 하나라도 있었던 아이의 비율입니다.</p>
+    <canvas id="c-lie" class="" aria-label="③ Does Changing Your Ranking Pay?"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="④ When Does Honesty Cost You?">④ 언제 솔직함이 손해가 될까</h3>
+    <p data-en="The horizontal axis is how similar tastes are (other settings as they are now), and the vertical axis is the share of children who gain by changing their ranking under Boston. Each point averages three different sets of children. The more everyone wants the same places, the more reason there is to second-guess. The green dashed line is the 0% of the other three methods.">가로는 아이들의 취향이 비슷한 정도(다른 설정은 지금 값 그대로), 세로는 보스턴에서 순위를 바꿔 적어 이득을 보는 아이의 비율입니다. 각 점은 서로 다른 아이들 3벌의 평균입니다. 모두가 같은 곳을 원할수록 눈치를 볼 이유가 커집니다. 초록 점선은 나머지 세 방식의 0%입니다.</p>
+    <canvas id="c-sweep" class="" aria-label="④ When Does Honesty Cost You?"></canvas>
+    </section>
+  </div>
+
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout" data-en="&lt;b&gt;What it shows:&lt;/b&gt; With 200 children, 8 places of 25 seats, taste similarity 60%, place-order difference 50%, 25% early applicants, and seed 1, when everyone wrote honestly the share getting their 1st choice was 28% for first come first served, 29% for lottery order, 43% for Boston and 23% for deferred acceptance, with average choice numbers 3.02, 3.06, 2.83 and 3.28. The share of &quot;aggrieved&quot; children, those who would prefer a place where a lower-priority child got in, was 72%, 65%, 35% and 0% (zero for deferred acceptance by definition). Among the 60 sampled children, 43% (26 children) gained by changing their ranking under Boston and 0% under the other three. Averaged over seeds 1 to 12 the Boston figure was 34.3%, and those who gained moved up 3.0 choices on average. With taste similarity at 0% it was 6%, at 30% 16%, at 60% 36% and at 90% 70% (seeds 1 to 3). With seats at 80% of children it was 46% and at 120% it was 27%. Families who could apply early did 2.6 choices better than the others under first come first served (seeds 1 to 12 average) and about 0.1 choices in the other methods. Boston gave the highest 1st-choice share when everyone was honest, but that figure holds only under the assumption that everyone is honest."><b>말하는 것:</b> 아이 200명, 기관 8곳(정원 25명씩), 취향 비슷한 정도 60%, 기관마다 순번이 다른 정도 50%, 먼저 접수 25%, 시드 1에서 솔직하게 적었을 때 1지망을 받은 아이는 선착순 28%, 추첨 순번 29%, 보스턴 43%, 지연 수락 23%였고 평균 지망은 3.02, 3.06, 2.83, 3.28이었습니다. 나보다 순번이 낮은 아이가 내가 더 원한 곳에 들어간 "억울한 아이"는 72%, 65%, 35%, 0%였습니다(지연 수락은 정의상 0). 순위를 바꿔 적으면 이득을 보는 아이는 아이 60명 표본에서 보스턴 43%(26명)였고 나머지 세 방식은 0%였습니다. 시드 1~12 평균으로는 보스턴 34.3%였고, 이득을 볼 때 평균 3.0지망 더 좋은 곳으로 갔습니다. 취향이 비슷한 정도가 0%이면 6%, 30%이면 16%, 60%이면 36%, 90%이면 70%로 올랐습니다(시드 1~3 평균). 정원이 아이 수의 80%이면 46%, 120%이면 27%였습니다. 일찍 접수할 수 있는 집은 선착순에서 나머지 집보다 평균 2.6지망(시드 1~12 평균) 더 좋은 곳에 갔고, 다른 방식에서는 0.1지망 안팎이었습니다. 보스턴은 모두가 솔직할 때 1지망 비율이 가장 높았지만, 그 숫자는 모두가 솔직하다는 가정에서만 성립합니다.</div>
+  <div class="callout" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; This does not describe or reproduce any real daycare or kindergarten admission system. Real systems have rules this model leaves out, such as bonus points, sibling priority, limits on how many places you can list, and waiting numbers, and they differ by region and year. The number of children, capacities and tastes are all example values chosen by this project. It does not say which method is right or how anyone should fill in a form, and it blames no family. The test assumes knowing other families&#x27; lists and the lottery result, so real gains may be smaller, and it looks at one child changing alone, not at what happens when everyone plays strategically. This is a reference model; for real decisions, rely on the guidance of the institution or local government and on professionals such as teachers."><b>말하지 않는 것:</b> 실제 어린이집·유치원의 입소 제도를 설명하거나 재현한 것이 아닙니다. 실제 제도에는 가산점, 형제 우선, 지원 가능한 곳 수 제한, 대기 순번처럼 이 모델에 없는 규칙이 많고 지역과 해마다 다릅니다. 아이 수, 정원, 취향은 모두 이 프로젝트가 정한 예시 값입니다. 어느 방식이 옳다거나 어떻게 적어 내라는 뜻이 아니고, 어느 가정도 비난하지 않습니다. 이 시험은 다른 집의 목록과 추첨 결과를 안다고 가정한 것이라 현실의 이득은 이보다 작을 수 있고, 한 아이만 바꿀 때를 본 것이어서 모두가 전략적으로 적은 결과는 계산하지 않았습니다. 참고용 모델이며 실제 판단은 해당 기관이나 지자체의 안내, 교사 같은 전문가와 함께 하세요.</div>
+
+  <h2 data-en="Theory and implementation notes">이론적 근거와 구현 메모</h2>
+  <ul class="small">
+    <li class="memo theory" data-en="&lt;b&gt;Where the model comes from:&lt;/b&gt; Gale &amp;amp; Shapley (1962), &amp;quot;College Admissions and the Stability of Marriage&amp;quot; (&lt;i&gt;American Mathematical Monthly&lt;/i&gt;) created deferred acceptance, and Abdulkadiroğlu &amp;amp; Sönmez (2003), &amp;quot;School Choice: A Mechanism Design Approach&amp;quot; (&lt;i&gt;American Economic Review&lt;/i&gt; 93(3)) applied it to school assignment and compared it with the Boston mechanism. The gist: under Boston, writing honestly is not always best, while under deferred acceptance honest reporting is best."><b>모델의 뿌리:</b> Gale &amp; Shapley (1962), &quot;College Admissions and the Stability of Marriage&quot;(<i>American Mathematical Monthly</i>)가 지연 수락 방식을 만들었고, Abdulkadiroğlu &amp; Sönmez (2003), &quot;School Choice: A Mechanism Design Approach&quot;(<i>American Economic Review</i> 93(3))가 이를 학교 배정에 적용해 보스턴 방식과 비교했습니다. 요지는 보스턴 방식에서는 솔직하게 쓰는 것이 늘 최선이 아니지만, 지연 수락 방식에서는 솔직하게 쓰는 것이 최선이라는 것입니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Key assumptions and formulas:&lt;/b&gt; A child&#x27;s preference is the order of &lt;code&gt;U&lt;sub&gt;ij&lt;/sub&gt; = c·q&lt;sub&gt;j&lt;/sub&gt; + (1−c)·e&lt;sub&gt;ij&lt;/sub&gt;&lt;/code&gt; (q&lt;sub&gt;j&lt;/sub&gt; is the popularity everyone feels, e&lt;sub&gt;ij&lt;/sub&gt; the child&#x27;s own taste, both standard normal). A place&#x27;s priority score is &lt;code&gt;s&lt;sub&gt;ij&lt;/sub&gt; = (1−ρ)·u&lt;sub&gt;i&lt;/sub&gt; + ρ·v&lt;sub&gt;ij&lt;/sub&gt;&lt;/code&gt; (u&lt;sub&gt;i&lt;/sub&gt; is a lottery number shared by all places, v&lt;sub&gt;ij&lt;/sub&gt; is place-specific randomness) and a higher score goes first. The slider c is the taste similarity and ρ the difference in order between places."><b>핵심 가정과 수식:</b> 아이의 선호는 <code>U<sub>ij</sub> = c·q<sub>j</sub> + (1−c)·e<sub>ij</sub></code>(q<sub>j</sub>는 모두가 느끼는 기관의 인기, e<sub>ij</sub>는 아이별 취향, 둘 다 표준정규분포)의 순서입니다. 기관의 우선순위 점수는 <code>s<sub>ij</sub> = (1−ρ)·u<sub>i</sub> + ρ·v<sub>ij</sub></code>(u<sub>i</sub>는 모든 기관 공통 추첨 번호, v<sub>ij</sub>는 기관별 무작위)이고 점수가 높은 아이가 앞섭니다. 슬라이더 c가 취향이 비슷한 정도, ρ가 기관마다 순번이 다른 정도입니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;What this project simplifies:&lt;/b&gt; Every child ranks all 8 places, and priority is the lottery number only (no bonus points, siblings or residence). The taste distribution, capacities, number of children and share of early applicants are this project&#x27;s own choices. The ranking-change test only tries the 56 moves of a single choice, so another way of changing the list could do better."><b>이 프로젝트의 단순화:</b> 모든 아이가 8곳 전부를 순서대로 적고, 우선순위는 추첨 번호뿐입니다(가산점, 형제 우선, 거주지는 없음). 취향 분포, 정원, 아이 수, 일찍 접수할 수 있는 집의 비율은 이 프로젝트가 정한 값입니다. 바꿔 적기 시험은 지망 하나를 옮기는 56가지만 해 보므로, 다른 바꿔 적기가 더 나을 가능성은 남습니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Theory versus simulation:&lt;/b&gt; With identical tastes (c=100%) and seats equal to children, the closed form gives every method 1/8 of children per choice, so an average of 4.50 and 12.5% first choices; all four methods gave exactly 4.50 and 12.5%. With identical place orders (ρ=0), deferred acceptance and lottery order should give the same result, and all 30 of 30 seeds matched. Deferred acceptance had zero aggrieved children in all 12 seeds, and the share who gained by changing their list was 0% for first come first served, lottery order and deferred acceptance and 34.3% for Boston (seeds 1 to 12 average). The final animation scene equaled the real assignment in all 40 comparisons."><b>이론값과 시뮬레이션:</b> 모두 같은 취향(c=100%)이고 정원이 아이 수와 같을 때 닫힌 식으로는 어느 방식이나 각 지망에 1/8씩 가므로 평균 4.50지망, 1지망 12.5%인데, 네 방식 모두 정확히 4.50과 12.5%였습니다. 기관 순번이 모두 같으면(ρ=0) 지연 수락과 추첨 순번 결과는 이론상 같고 시드 30개에서 30개가 모두 일치했습니다. 지연 수락의 억울한 아이는 12개 시드에서 모두 0이었고, 솔직하지 않게 적어 이득을 본 아이는 선착순·추첨 순번·지연 수락에서 0%, 보스턴에서 34.3%(시드 1~12 평균)였습니다. 애니메이션의 마지막 장면은 40번의 비교에서 모두 실제 배정과 같았습니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Further reading:&lt;/b&gt; Gale &amp;amp; Shapley (1962), &lt;i&gt;American Mathematical Monthly&lt;/i&gt; 69 / Abdulkadiroğlu &amp;amp; Sönmez (2003), &lt;i&gt;American Economic Review&lt;/i&gt; 93(3) / Roth (1982), &amp;quot;The Economics of Matching: Stability and Incentives&amp;quot;, &lt;i&gt;Mathematics of Operations Research&lt;/i&gt;."><b>더 읽을거리:</b> Gale &amp; Shapley (1962), <i>American Mathematical Monthly</i> 69 / Abdulkadiroğlu &amp; Sönmez (2003), <i>American Economic Review</i> 93(3) / Roth (1982), &quot;The Economics of Matching: Stability and Incentives&quot;, <i>Mathematics of Operations Research</i>.</li>
+    <li  data-en="You can verify with &lt;code&gt;node tools/validate-admission.js&lt;/code&gt;. The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result.">검증은 <code>node tools/validate-admission.js</code>로 할 수 있습니다. 시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다.</li>
+    <li  data-en="An aggrieved child is one for whom a preferred place still has an empty seat, or where someone admitted has a lower priority score at that place. The ranking-change test samples the first 60 children; their numbering is random, so the sample is not biased. Unassigned children are left out of the average choice number, and counted as choice 9 when measuring the early-applicant advantage.">억울한 아이는 "더 원하는 기관에 자리가 남았거나, 그 기관에 들어간 아이 중 나보다 그 기관의 우선순위 점수가 낮은 아이가 있는" 아이입니다. 바꿔 적기 시험은 처음 60명의 아이를 표본으로 하고, 아이들의 번호는 무작위로 섞인 것이라 표본이 치우치지 않습니다. 미배정 아이는 평균 지망을 셀 때 제외하고, 접수 시기별 이득을 셀 때는 9지망으로 칩니다.</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/admission&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/admission">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap" data-en="Simulatio Lab · Run by Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
+<script src="../../exps.js"></script>
+<script src="../../layout.js"></script>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../counter.js"></script>
+<script src="../../engage.js"></script>
+</body>
+</html>
