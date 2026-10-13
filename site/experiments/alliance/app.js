@@ -27,10 +27,11 @@
   }
 
   function drawNet() {
-    const narrow = ($('c-net').clientWidth || 400) < 560;
-    const c = L.chart($('c-net'), THUMB || narrow ? 1 : 0.66, { l: 0, r: 0, t: 0, b: 0 });
-    const { ctx, w, h } = c, pts = layout(w, h), side = sim.side, k = THUMB ? w / 360 : 1;   // 썸네일은 굵고 크게
-    ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, h);
+    const W0 = $('c-net').clientWidth || 400, narrow = W0 < 560;
+    const strip = THUMB ? 0 : (narrow ? 58 : 32);   // 그림 아래에 범례 칸을 따로 둔다(나라와 선을 가리지 않게)
+    const c = L.chart($('c-net'), (THUMB || narrow ? 1 : 0.66) + strip / W0, { l: 0, r: 0, t: 0, b: 0 });
+    const { ctx, w } = c, h = c.h - strip, pts = layout(w, h), side = sim.side, k = THUMB ? w / 360 : 1;   // 썸네일은 굵고 크게
+    ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, c.h);
     sim.edges().forEach(([i, j]) => {
       const same = side[i] && side[i] === side[j], opp = side[i] && side[j] && side[i] !== side[j];
       ctx.beginPath(); ctx.moveTo(pts[i][0], pts[i][1]); ctx.lineTo(pts[j][0], pts[j][1]);
@@ -58,22 +59,61 @@
       ctx.fillStyle = 'rgba(255,255,255,.92)'; L.roundRect(ctx, Math.max(2, Math.min(w - tw - 2, x - tw / 2)), ty - 12, tw, 17, 5); ctx.fill();
       ctx.fillStyle = '#1b1f2a'; ctx.fillText(txt, Math.max(2 + tw / 2, Math.min(w - tw / 2 - 2, x)), ty); };
     tag('첫 공격', ax, ay); tag('공격받음', dx, dy);
-    L.legend(c, [{ kind: 'dot', color: NEUTRAL, label: '중립국' }, { kind: 'dot', color: RED, label: '붉은 편' }, { kind: 'dot', color: BLUE, label: '푸른 편' }, { kind: 'dash', color: '#d97706', label: '양쪽에 걸친 동맹(점선)' }], 'bl');
+    // 범례: 그림 아래 칸에 가로로 줄바꿈해서 그린다
+    { const items = [{ kind: 'dot', color: NEUTRAL, label: '중립국' }, { kind: 'dot', color: RED, label: '붉은 편' }, { kind: 'dot', color: BLUE, label: '푸른 편' }, { kind: 'dash', color: '#d97706', label: '양쪽에 걸친 동맹(점선)' }];
+      ctx.font = '11.5px -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif'; ctx.textAlign = 'left';
+      let x = 10, y = h + 18; const sw = 16, gap = 14;
+      items.forEach((it) => {
+        const t = it.label, tw = ctx.measureText(t).width, need = sw + 5 + tw + gap;
+        if (x + need > w - 6 && x > 10) { x = 10; y += 17; }
+        ctx.fillStyle = it.color; ctx.strokeStyle = it.color;
+        if (it.kind === 'dot') { ctx.beginPath(); ctx.arc(x + sw / 2, y - 4, 4.5, 0, 7); ctx.fill(); }
+        else { ctx.lineWidth = 2.5; ctx.setLineDash([4, 3]); ctx.beginPath(); ctx.moveTo(x, y - 4); ctx.lineTo(x + sw, y - 4); ctx.stroke(); ctx.setLineDash([]); ctx.lineWidth = 1; }
+        ctx.fillStyle = '#1b1f2a'; ctx.fillText(t, x + sw + 5, y); x += need;
+      }); }
+  }
+
+  // 그래프 아래에 가로로 줄바꿈해서 쓰는 범례(결과를 가리지 않는다). legendLayout으로 줄 수를 먼저 재서 아래 여백을 정한다.
+  const LEG_FONT = '11.5px -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif';
+  function legendLayout(width, items) {
+    const t = document.createElement('canvas').getContext('2d'); t.font = LEG_FONT;
+    const tr = (x) => (window.I18N && window.I18N.lang !== 'ko' ? window.I18N.t(x) : x);
+    let x = 10, rows = 1;
+    items.forEach((it) => { const need = 16 + 5 + t.measureText(tr(it.label)).width + 14; if (x + need > width - 6 && x > 10) { x = 10; rows++; } x += need; });
+    return rows;
+  }
+  function drawLegendBelow(c, items) {
+    const { ctx, w, h, m } = c; ctx.save(); ctx.font = LEG_FONT; ctx.textAlign = 'left';
+    let x = 10, y = h - m.b + 40; const sw = 16, gap = 14;
+    items.forEach((it) => {
+      const tw = ctx.measureText(it.label).width, need = sw + 5 + tw + gap;
+      if (x + need > w - 6 && x > 10) { x = 10; y += 17; }
+      ctx.fillStyle = it.color; ctx.strokeStyle = it.color;
+      if (it.kind === 'box') ctx.fillRect(x + 1, y - 9, sw - 2, 10);
+      else if (it.kind === 'dot') { ctx.beginPath(); ctx.arc(x + sw / 2, y - 4, 4.5, 0, 7); ctx.fill(); }
+      else { ctx.lineWidth = 2.5; if (it.kind === 'dash') ctx.setLineDash([4, 3]); ctx.beginPath(); ctx.moveTo(x, y - 4); ctx.lineTo(x + sw, y - 4); ctx.stroke(); ctx.setLineDash([]); ctx.lineWidth = 1; }
+      ctx.fillStyle = '#1b1f2a'; ctx.fillText(it.label, x + sw + 5, y); x += need;
+    });
+    ctx.restore();
   }
 
   function drawTime() {
-    const c = L.chart($('c-time'), 0.7), { ctx, m, pw, ph } = c, H = sim.history, T = Math.max(H.length - 1, 6), n = sim.n;
+    const TL = [{ kind: 'line', color: '#1b1f2a', label: '전쟁에 들어간 나라 전체' }, { kind: 'line', color: RED, label: '붉은 편' }, { kind: 'line', color: BLUE, label: '푸른 편' }, { kind: 'dash', color: css('--muted'), label: '전체의 절반' }];
+    const W1 = $('c-time').clientWidth || 400, r1 = legendLayout(W1, TL), b1 = 60 + (r1 - 1) * 17;
+    const c = L.chart($('c-time'), 0.7 + (b1 - 36) / W1, { b: b1 }), { ctx, m, pw, ph } = c, H = sim.history, T = Math.max(H.length - 1, 6), n = sim.n;
     const X = (t) => m.l + (t / T) * pw, Y = (v) => m.t + ph - (v / n) * ph, xt = []; for (let t = 0; t <= T; t += Math.max(1, Math.ceil(T / 6))) xt.push(t);
     L.axes(c, { X, Y, yTicks: [0, 6, 12, 18, 24].map((v) => (v / 24) * n), yFmt: (v) => Math.round(v), xTicks: xt, xFmt: (t) => String(t), xLabel: '시간 (라운드)', yLabel: '전쟁에 들어간 나라 (개국)' });
     ctx.setLineDash([4, 3]); ctx.strokeStyle = css('--muted'); ctx.beginPath(); ctx.moveTo(m.l, Y(n / 2)); ctx.lineTo(m.l + pw, Y(n / 2)); ctx.stroke(); ctx.setLineDash([]);
         L.line(ctx, H.map((v, t) => [X(t), Y(v.a + v.b)]), '#1b1f2a', 2.5);
     L.line(ctx, H.map((v, t) => [X(t), Y(v.a)]), RED, 2);
     L.line(ctx, H.map((v, t) => [X(t), Y(v.b)]), BLUE, 2);
-    L.legend(c, [{ kind: 'line', color: '#1b1f2a', label: '전쟁에 들어간 나라 전체' }, { kind: 'line', color: RED, label: '붉은 편' }, { kind: 'line', color: BLUE, label: '푸른 편' }, { kind: 'dash', color: css('--muted'), label: '전체의 절반' }], 'tl');
+    drawLegendBelow(c, TL);
   }
 
   function drawHist() {
-    const n = sim.n, c = L.chart($('c-hist'), 0.7, { l: 44, b: 40 }), { ctx, m, pw, ph } = c;
+    const HL = [{ kind: 'box', color: '#9aa8c7', label: '작게 끝남 (4개국 이하)' }, { kind: 'box', color: '#f59e42', label: '그 사이' }, { kind: 'box', color: RED, label: '세계대전급 (절반 이상)' }];
+    const W2 = $('c-hist').clientWidth || 400, r2 = legendLayout(W2, HL), b2 = 60 + (r2 - 1) * 17;
+    const n = sim.n, c = L.chart($('c-hist'), 0.7 + (b2 - 40) / W2, { l: 44, b: b2 }), { ctx, m, pw, ph } = c;
     const counts = new Array(n + 1).fill(0); (hist || []).forEach((s) => { counts[s]++; });
     const total = (hist || []).length || 1, cmax = Math.max(1, ...counts), top = niceMax(cmax / total);
     const X = (s) => m.l + ((s - 2) / (n - 1)) * pw, Y = (v) => m.t + ph - (v / top) * ph;
@@ -85,7 +125,7 @@
       ctx.fillRect(X(s) - bw / 2, Y(v), bw, m.t + ph - Y(v));
     }
     ctx.setLineDash([4, 3]); ctx.strokeStyle = css('--muted'); ctx.beginPath(); ctx.moveTo(X(n / 2 - 0.5), m.t); ctx.lineTo(X(n / 2 - 0.5), m.t + ph); ctx.stroke(); ctx.setLineDash([]);
-    L.legend(c, [{ kind: 'box', color: '#9aa8c7', label: '작게 끝남 (4개국 이하)' }, { kind: 'box', color: '#f59e42', label: '그 사이' }, { kind: 'box', color: RED, label: '세계대전급 (절반 이상)' }], 'tr');
+    drawLegendBelow(c, HL);
   }
   function niceMax(v) { const p = Math.pow(10, Math.floor(Math.log10(Math.max(v, 0.01)))); const r = v / p; return Math.min(1, (r <= 1 ? 1 : r <= 2 ? 2 : r <= 5 ? 5 : 10) * p); }
 
