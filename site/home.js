@@ -27,7 +27,7 @@
     const centers = () => {
       const { w, h } = fit(hero);
       return fields.map((f, i) => {
-        if (w >= 1060) { const n = Math.max(1, fields.length - 1); return { x: w * (0.58 + 0.34 * i / n), y: h * (0.5 + 0.27 * Math.sin(i * 1.7)) }; }   // 넓은 화면: 오른쪽 빈 자리에 물결 모양으로 펼친다
+        if (w >= 1060) { const n = Math.max(1, fields.length - 1); return { x: w * (0.07 + 0.86 * i / n), y: h * (0.5 + 0.3 * Math.sin(i * 1.9 + 0.6)) }; }   // 넓은 화면: 소개 영역 전체에 물결 모양으로 펼친다 (글·카드 뒤로 겹쳐 보임)
         const a = -0.55 + (i / Math.max(1, fields.length - 1)) * 1.1;
         const R = Math.min(w, h) * 0.72;
         return { x: w * 0.72 + Math.sin(a) * R * 0.5, y: h * 0.5 - Math.cos(a) * R * 0.42 };
@@ -55,7 +55,7 @@
         px += d.vx; py += d.vy;
         px = Math.max(4, Math.min(w - 4, px)); py = Math.max(4, Math.min(h - 4, py));
         d.x = px / w; d.y = py / h;
-        ctx.fillStyle = d.f.color; ctx.globalAlpha = 0.72;
+        ctx.fillStyle = d.f.color; ctx.globalAlpha = (w >= 1060 ? 0.5 : 0.72);
         ctx.beginPath(); ctx.arc(px, py, d.r, 0, 7); ctx.fill();
       }
       ctx.globalAlpha = 1;
