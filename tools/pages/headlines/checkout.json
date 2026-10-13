@@ -1,1 +1,20 @@
-{"says_ko": "계산대 4개, 붐빔 90%에서 한 줄은 평균 6.1분, 줄 따로 서기는 최대 4.9배였습니다.", "says_en": "At 4 cashiers and 90% busy, a single line averaged 6.1 minutes; separate lines took up to 4.9 times as long.", "not_ko": "줄을 하나로 세우면 반드시 이득이라는 뜻은 아니에요. 단순한 조건에서의 효과일 뿐입니다.", "not_en": "It does not mean a single line is always better; it shows the effect under these simple conditions."}
+{
+ "says_ko": [
+  "계산대 4개, 붐빔 90%에서 한 줄은 평균 6.1분, 줄 따로 서기는 최대 4.9배였습니다.",
+  "같은 계산대라도 줄을 나누면 놀고 있는 계산대가 생겨 기다림이 늘어날 수 있습니다.",
+  "합치는 효과는 덜 붐비고 계산대가 많을수록 커졌으니, 효과는 조건에 따라 달라지는 것으로 보입니다."
+ ],
+ "says_en": [
+  "At 4 cashiers and 90% busy, a single line averaged 6.1 minutes; separate lines took up to 4.9 times as long.",
+  "Splitting the same cashiers into separate lines can leave some idle while others queue, which adds waiting.",
+  "The gain from pooling grew when stores were less busy and had more cashiers, so it depends on conditions."
+ ],
+ "not_ko": [
+  "줄을 하나로 세우면 반드시 이득이라는 뜻은 아닙니다. 단순한 조건에서의 효과일 뿐입니다.",
+  "줄 바꾸기, 전용 계산대, 줄을 보고 포기하는 손님 등은 이 모델에 없어 실제 확인이 더 필요합니다."
+ ],
+ "not_en": [
+  "It does not mean a single line is always better; it shows the effect under these simple conditions.",
+  "Lane switching, express lanes and customers who balk at long lines are missing, so real stores need separate checking."
+ ]
+}

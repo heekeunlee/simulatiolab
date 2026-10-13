@@ -1,1 +1,20 @@
-{"says_ko": "승진 뒤 능력이 이어지지 않으면 최고 능력자만 올리는 방식은 평균 이하의 결과를 냅니다.", "says_en": "If competence doesn't carry over, promoting only the top performers gives below-average results.", "not_ko": "피터의 원리가 현실의 모든 조직에 해당한다는 뜻은 아니에요.", "not_en": "It does not mean the Peter principle applies to every real organization."}
+{
+ "says_ko": [
+  "승진 뒤 능력이 이어지지 않으면 최고 능력자만 올리는 방식은 평균 이하의 결과를 냅니다.",
+  "승진은 지금 일을 잘한 것에 대한 보상이 되기 쉽지만, 새 일에 맞는지는 별개의 문제일 수 있습니다.",
+  "이 모델에서는 승진 기준이 현재 성과인지 새 일의 적합성인지에 따라 결과가 크게 달라집니다."
+ ],
+ "says_en": [
+  "If competence doesn't carry over, promoting only the top performers gives below-average results.",
+  "Promotion easily becomes a reward for doing the current job well, yet fit for the new job can be a separate matter.",
+  "In this model, results differ greatly depending on whether promotion rests on current performance or fit for the new role."
+ ],
+ "not_ko": [
+  "피터의 원리가 현실의 모든 조직에 해당한다는 뜻은 아닙니다.",
+  "교육, 팀워크, 동기가 없는 단순 모델이라, 능력이 실제로 얼마나 이어지는지는 직무별로 확인해야 합니다."
+ ],
+ "not_en": [
+  "It does not mean the Peter principle applies to every real organization.",
+  "The model lacks training, teamwork and motivation, so how much competence carries over must be checked job by job."
+ ]
+}

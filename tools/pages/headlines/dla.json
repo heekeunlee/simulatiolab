@@ -1,1 +1,20 @@
-{"says_ko": "점 씨앗에서 입자 4,000개를 키운 덩어리의 프랙탈 차원 D는 평균 1.66이었습니다.", "says_en": "A cluster grown from a point seed with 4,000 particles had a fractal dimension D averaging 1.66.", "not_ko": "번개·눈송이·산호가 같은 원리로 생긴다는 뜻은 아니에요. 닮은 모양일 뿐입니다.", "not_en": "It does not mean lightning, snowflakes or coral form by the same cause; the resemblance is only visual."}
+{
+ "says_ko": [
+  "점 씨앗에서 입자 4,000개를 키운 덩어리의 프랙탈 차원 D는 평균 1.66이었습니다.",
+  "가지 끝이 입자를 먼저 받아 더 길어지는 단순한 되먹임만으로 성긴 가지 모양이 생길 수 있습니다.",
+  "이 모델에서는 붙는 확률을 낮추면 덩어리가 촘촘해졌으니, 모양은 성장 조건에도 달려 있습니다."
+ ],
+ "says_en": [
+  "A cluster grown from a point seed with 4,000 particles had a fractal dimension D averaging 1.66.",
+  "A simple feedback, where branch tips catch particles first and grow longer, can build a sparse branching shape.",
+  "In this model, lowering the sticking probability made clusters denser, so shape also depends on growth conditions."
+ ],
+ "not_ko": [
+  "번개·눈송이·산호가 같은 원리로 생긴다는 뜻은 아닙니다. 닮은 모양일 뿐입니다.",
+  "실제 현상과 같은 원리인지는 각각의 물리와 생물학으로 따로 확인해야 합니다."
+ ],
+ "not_en": [
+  "It does not mean lightning, snowflakes or coral form by the same cause; the resemblance is only visual.",
+  "Whether a real phenomenon shares this mechanism must be checked separately with its own physics or biology."
+ ]
+}
