@@ -27,6 +27,7 @@
     const centers = () => {
       const { w, h } = fit(hero);
       return fields.map((f, i) => {
+        if (w >= 1060) { const n = Math.max(1, fields.length - 1); return { x: w * (0.58 + 0.34 * i / n), y: h * (0.5 + 0.27 * Math.sin(i * 1.7)) }; }   // 넓은 화면: 오른쪽 빈 자리에 물결 모양으로 펼친다
         const a = -0.55 + (i / Math.max(1, fields.length - 1)) * 1.1;
         const R = Math.min(w, h) * 0.72;
         return { x: w * 0.72 + Math.sin(a) * R * 0.5, y: h * 0.5 - Math.cos(a) * R * 0.42 };
@@ -141,3 +142,6 @@
     requestAnimationFrame(glyphLoop);
   }
 })();
+
+// 넓은 화면에서는 제목의 줄바꿈(<br>)을 CSS로 없애 한 줄로 보이게 한다. 이때 낱말이 붙지 않도록 <br> 뒤에 공백을 넣어 둔다.
+(function () { const fix = () => document.querySelectorAll('.mega br').forEach((b) => { if (!(b.nextSibling && b.nextSibling.nodeType === 3 && /^\s/.test(b.nextSibling.nodeValue))) b.after(document.createTextNode(' ')); }); fix(); window.addEventListener('load', fix); })();
