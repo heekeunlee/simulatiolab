@@ -266,12 +266,15 @@
     for (const it of view.items) {
       if (it.born > view.t) continue;
       const a = Math.min(1, (view.t - it.born) / 0.4), pop = 0.4 + 0.6 * (1 - Math.exp(-(view.t - it.born) * 6));
-      const col = it.lucky ? '#1fa463' : '#e5484d', R = base * 2.6 * pop, x = px(it.x), y = px(it.y);
+      const col = it.lucky ? '#1fa463' : '#e5484d', R = base * 2.6 * pop, x = px(it.x), y = px(it.y), ar = Math.max(2.8, base * 0.22) * pop;
       ctx.globalAlpha = Math.max(0.15, a);
       const gr = ctx.createRadialGradient(x, y, 0, x, y, R);   // 번지는 빛: 행운은 초록빛, 불운은 붉은빛
-      gr.addColorStop(0, mix(col, 0.55)); gr.addColorStop(0.45, mix(col, 0.26)); gr.addColorStop(1, mix(col, 0));
+      gr.addColorStop(0, mix(col, 0.30)); gr.addColorStop(1, mix(col, 0));
       ctx.fillStyle = gr; ctx.beginPath(); ctx.arc(x, y, R, 0, 7); ctx.fill();
-      ctx.fillStyle = it.lucky ? '#168a52' : '#d6232a'; ctx.beginPath(); ctx.arc(x, y, base * 0.2 * pop, 0, 7); ctx.fill();
+      ctx.lineWidth = 1.8; ctx.lineCap = 'round'; ctx.strokeStyle = it.lucky ? '#168a52' : '#d6232a'; ctx.beginPath();   // 중심: 행운 +, 불운 ×
+      if (it.lucky) { ctx.moveTo(x - ar, y); ctx.lineTo(x + ar, y); ctx.moveTo(x, y - ar); ctx.lineTo(x, y + ar); }
+      else { ctx.moveTo(x - ar, y - ar); ctx.lineTo(x + ar, y + ar); ctx.moveTo(x + ar, y - ar); ctx.lineTo(x - ar, y + ar); }
+      ctx.stroke(); ctx.lineCap = 'butt';
     }
     ctx.globalAlpha = 1;
 

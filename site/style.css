@@ -380,4 +380,4 @@ span.popt { cursor: default; }
 .wlegend .pi { width: 16px; height: 19px; flex: none; }
 
 .wlegend .dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px var(--line); flex: none; }
-.wlegend .glow { width: 20px; height: 20px; border-radius: 50%; flex: none; background: radial-gradient(circle, rgba(var(--c),.95) 0 22%, rgba(var(--c),.5) 38%, rgba(var(--c),0) 72%); }
+.wlegend .glow { width: 20px; height: 20px; border-radius: 50%; flex: none; background: radial-gradient(circle, rgba(var(--c),.34) 0, rgba(var(--c),0) 72%); display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; line-height: 1; }
