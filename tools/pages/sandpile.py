@@ -26,7 +26,7 @@ page(dict(
        p=T('색은 칸의 모래알 수입니다(남색 0, 청록 1, 노랑 2, 분홍 3). 눈사태가 나면 무너진 칸이 하얗게 번쩍입니다. 처음에는 알이 쌓이기만 하다가, 어느 순간부터 크고 작은 눈사태가 계속 일어나요. 회색 영역이 지나면 더미가 안정기에 들어선 것입니다.',
            'Color shows how many grains a cell holds (navy 0, teal 1, yellow 2, pink 3). When an avalanche happens, the cells that toppled flash white. At first grains only pile up, then big and small avalanches keep happening. After the gray zone in the charts, the pile has settled into its steady regime.'),
        id='c-pile', rounded=True, anim=True, extra=ONE, thumb=True,
-       speeds=[('60', T('느리게', 'Slow')), ('2000', T('보통', 'Normal')), ('10000', T('빠르게', 'Fast'))], speed_default='2000'),
+       speeds=[('12', T('느리게', 'Slow')), ('2000', T('보통', 'Normal')), ('10000', T('빠르게', 'Fast'))], speed_default='12'),
   dict(title=T('② 3D로 보기: 무너지기 직전의 모래 지형 <span class="badge3d">3D</span>', '② See It in 3D: A Landscape on the Edge of Collapse <span class="badge3d">3D</span>'),
        p=T('①과 같은 모래더미를 칸마다 쌓인 모래알 수만큼의 기둥으로 세웠습니다. 위에서 재생·일시정지·한 알 떨어뜨리기를 하면 여기서도 똑같이 움직입니다. 빨간 기둥은 이미 3알이 쌓여 한 알만 더 오면 무너지는 칸입니다. 안정기에 들어서면 빨간 기둥이 판 곳곳에 이어져 있어서, 그 위에 떨어진 한 알이 이웃의 빨간 기둥을 줄줄이 무너뜨립니다. 무너진 칸은 하얗게 번쩍이며 낮아집니다.',
            'The same sandpile as ①, with each cell raised into a column as tall as the grains it holds. Play, pause or drop one grain above and it moves here in exactly the same way. Red columns already hold 3 grains, so one more grain makes them topple. Once the pile is steady, red columns link up across the board, and a grain landing on one can bring down its red neighbors one after another. Cells that topple flash white and drop lower.'),
