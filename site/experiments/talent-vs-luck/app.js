@@ -198,6 +198,13 @@
     ctx.lineWidth = 1;
   }
 
+  function personPath(ctx, x, y, h) {   // 사람 픽토그램: 머리 + 어깨/몸통 (발 끝이 y)
+    const r = h * 0.22, bw = h * 0.62;
+    ctx.beginPath(); ctx.arc(x, y - h + r, r, 0, 7);
+    ctx.moveTo(x - bw / 2, y); ctx.lineTo(x - bw / 2, y - h * 0.34); ctx.quadraticCurveTo(x - bw / 2, y - h * 0.58, x, y - h * 0.58);
+    ctx.quadraticCurveTo(x + bw / 2, y - h * 0.58, x + bw / 2, y - h * 0.34); ctx.lineTo(x + bw / 2, y); ctx.closePath();
+  }
+
   function drawWorld() {
     const { ctx, w } = setup($('c-world'), 1);
     const W = anim.params.world, s = w / W, c0 = anim.params.c0;
@@ -240,8 +247,11 @@
       if (v > 0) { r = Math.min(2 + v * 0.7, 8) * (THUMB ? 1.35 : 1); col = mix('#2f6fed', Math.min(0.5 + v * 0.07, 0.95)); }
       else if (v === 0) { r = 2; col = 'rgba(99,106,122,.55)'; }
       else { r = 1.5; col = 'rgba(99,106,122,.28)'; }
-      ctx.fillStyle = col;
-      ctx.beginPath(); ctx.arc(PX(anim.ax[i]), PY(anim.ay[i]), r, 0, 7); ctx.fill();
+      // 점 대신 작은 사람 픽토그램(머리+몸). 키는 이전 점 지름의 약 2.4배
+      const hh = Math.max(7, r * 2.9), x0 = PX(anim.ax[i]), y0 = PY(anim.ay[i]);
+      personPath(ctx, x0, y0 + hh / 2, hh);
+      if (v > 0) { ctx.lineWidth = 1; ctx.strokeStyle = 'rgba(255,255,255,.9)'; ctx.stroke(); }
+      ctx.fillStyle = col; ctx.fill();
     }
 
     // 방금 이벤트를 만난 사람: 하얀 바탕 배지 + 굵은 테두리 + 삼각형(자본이 늘었으면 초록 ▲, 줄었으면 빨강 ▼)
