@@ -250,8 +250,17 @@
       ctx.strokeStyle = color; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + 12, y - 19); ctx.stroke();
       chip(ctx, `${label} · 자본 ${fmtCap(anim.capital[i])}`, x, y, color, w);
     };
-    mark(st.byCap[st.byCap.length - 1], '#7c5cff', '불행왕');   // 40년 뒤 자본이 가장 적은 사람
-    mark(st.richest, '#d19200', '성공왕');   // 40년 뒤 자본이 가장 많은 사람
+    // 지금 이 순간의 성공왕(자본 1위)과 불행왕(자본 꼴찌). 처음부터 정답을 달아 두지 않고, 격차가 눈에 띄게 벌어진 뒤(4배 이상 / 4분의 1 이하)에 붙는다.
+    // 동점일 때는 먼저 붙은 사람을 그대로 두고, 더 앞선 사람이 생기면 이름표가 넘어간다.
+    if (!THUMB) {
+      let mx = 0, mn = 0;
+      for (let i = 1; i < anim.n; i++) { if (anim.capital[i] > anim.capital[mx]) mx = i; if (anim.capital[i] < anim.capital[mn]) mn = i; }
+      if (anim.king == null) anim.king = { rich: mx, poor: mn };
+      if (anim.capital[mx] > anim.capital[anim.king.rich]) anim.king.rich = mx;
+      if (anim.capital[mn] < anim.capital[anim.king.poor]) anim.king.poor = mn;
+      if (anim.capital[anim.king.rich] >= c0 * 4) mark(anim.king.rich, '#d19200', '성공왕');
+      if (anim.capital[anim.king.poor] <= c0 / 4) mark(anim.king.poor, '#7c5cff', '불행왕');
+    }
     ctx.lineWidth = 1;
 
     // 지금 상위 20%의 몫
