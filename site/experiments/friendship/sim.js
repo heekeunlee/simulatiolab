@@ -101,12 +101,13 @@
     const p = Object.assign({}, DEFAULTS, opts), rng = mulberry32(p.seed * 8191 + 3);
     const adj = network(p, rng), M = measure(adj), lay = layout(adj, p.seed, p.layoutIters), n = p.n;
     const sim = {
-      params: p, adj, M, lay, round: 0, sumSelf: 0, sumFriend: 0, lastSelf: -1, lastFriend: -1, sampler: mulberry32(p.seed * 31 + 7),
+      params: p, adj, M, lay, round: 0, sumSelf: 0, sumFriend: 0, lastSelf: -1, lastFriend: -1, picks: [], sampler: mulberry32(p.seed * 31 + 7),
       // 표본 한 번: 무작위로 한 사람을 고르고, 또 무작위로 고른 다른 사람이 말해 준 친구 한 명을 고른다
       advance() {
         if (sim.round >= p.rounds) return false;
         const s = sim.sampler, a = Math.floor(s() * n), b = Math.floor(s() * n), f = adj[b][Math.floor(s() * adj[b].length)];
-        sim.lastSelf = a; sim.lastFriend = f; sim.sumSelf += M.deg[a]; sim.sumFriend += M.deg[f]; sim.round++;
+        sim.lastSelf = a; sim.lastFriend = f; sim.picks.push(a);   // 뽑힌 사람(그래프가 지금까지 뽑힌 사람만 쌓아 그리도록 기록)
+        sim.sumSelf += M.deg[a]; sim.sumFriend += M.deg[f]; sim.round++;
         return true;
       },
       done() { return sim.round >= p.rounds; },

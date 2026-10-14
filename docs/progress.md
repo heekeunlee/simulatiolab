@@ -386,5 +386,5 @@
 
 ### 54차 (2026-10-14) 재생과 아래 그래프 동기화
 - 성공 실험(`talent-vs-luck`)처럼 ①이 재생되는 동안 아래 그래프·통계 카드가 정답(최종값)을 미리 보여 주지 않게 고침. 50개 실험을 점검(`tools/pages/BRIEF_SYNC_AUDIT.md`, 결과 `tools/pages/sync_audit/<slug>.json`)한 결과 42개는 이미 재생과 함께 자라거나 정적(집계·이론) 그래프라 그대로 두었고, 8개 중 7개를 고침(`BRIEF_SYNC_FIX.md`): admission, auction, bunching, inspection, population, sunflower, survivor(+`sim.js`의 `totals/survival/picks`에 `upTo` 인자).
-- 보류: friendship(③④가 관계망 전체 분포라 재생(표본 300번)과 단위가 달라 '뽑힌 사람만 쌓아 그리기'로 의미를 바꿔야 함).
+- friendship(후속): 재생(표본 300번) 중 ②③과 카드 3장은 "지금까지 뽑힌 사람"만으로 그리고(`sim.picks`), 다 뽑으면 관계망 전체의 실제 분포가 나타난다(축은 전체 범위로 고정).
 - 주의: 숫자 패턴(`{#0}`) 안에 '–'를 끼우면 번역이 안 됨 → 값이 없을 땐 부제 전체를 빈 문자열로.

@@ -14,6 +14,8 @@
   const FONT = '12px -apple-system, "Apple SD Gothic Neo", sans-serif', FONTB = '600 13px -apple-system, "Apple SD Gothic Neo", sans-serif';
   const f1 = (v) => v.toFixed(1);
   const pc = (v) => Math.round(v * 100) + '%';
+  // 재생 중(표본을 뽑는 동안)에는 ②③과 카드가 '지금까지 뽑힌 사람'만으로 그려지고, 다 뽑고 나면 관계망 전체의 실제 분포가 나타난다
+  const sampling = () => !sim.done();
 
   // ---------- ① 친구 관계망 ----------
   function drawNet() {
@@ -67,11 +69,12 @@
   // ---------- ② 친구들 평균 − 내 친구 수 ----------
   function drawHist() {
     const c = L.chart($('c-hist'), 0.62, { b: 40 }), { ctx, m, pw, ph } = c, M = sim.M, n = M.n;
-    const d = Array.from({ length: n }, (_, i) => M.fr[i] - M.deg[i]), srt = d.slice().sort((a, b) => a - b);
+    const all = Array.from({ length: n }, (_, i) => M.fr[i] - M.deg[i]), srt = all.slice().sort((a, b) => a - b);   // 축 범위는 전체 기준으로 고정
+    const live = sampling(), d = live ? Array.from(sim.picks, (i) => all[i]) : all, nd = d.length || 1;
     let lo = Math.min(-10, Math.floor(srt[Math.floor(n * 0.01)])), hi = Math.max(10, Math.ceil(srt[Math.floor(n * 0.97)]));
     const nb = 32, bw = (hi - lo) / nb, counts = new Array(nb).fill(0);
     d.forEach((v) => { counts[Math.max(0, Math.min(nb - 1, Math.floor((v - lo) / bw)))]++; });
-    const cmax = Math.max(...counts), X = (v) => m.l + ((v - lo) / (hi - lo)) * pw, Y = (v) => m.t + ph - (v / cmax) * ph;
+    const cmax = Math.max(live ? 4 : 1, ...counts), X = (v) => m.l + ((v - lo) / (hi - lo)) * pw, Y = (v) => m.t + ph - (v / cmax) * ph;
     const step = (hi - lo) > 80 ? 20 : (hi - lo) > 40 ? 10 : 5, xt = []; for (let t = Math.ceil(lo / step) * step; t <= hi; t += step) xt.push(t);
     L.axes(c, { X, Y, yTicks: [0, 0.5, 1].map((q) => q * cmax), yFmt: (v) => String(Math.round(v)), xTicks: xt, xFmt: (v) => (v > 0 ? '+' : '') + v, xLabel: '친구들의 평균 − 내 친구 수 (명)', yLabel: '사람 수 (명)' });
     counts.forEach((v, i) => {
@@ -81,8 +84,11 @@
     });
     L.vline(c, X(0), css('--text'), '같음', 'right');
     ctx.font = FONTB; ctx.textAlign = 'right'; ctx.fillStyle = css('--unlucky');
-    ctx.fillText(`친구들이 더 많음 ${pc(M.fewerShare)}`, m.l + pw, m.t + 30);
-    ctx.fillStyle = css('--lucky'); ctx.textAlign = 'left'; ctx.fillText(`내가 더 많음 ${pc(M.moreShare)}`, m.l + 4, m.t + 30);
+    const fw = live ? d.filter((v) => v > 0).length / nd : M.fewerShare, mo = live ? d.filter((v) => v < 0).length / nd : M.moreShare;
+    if (!live || d.length) {
+      ctx.fillText(`친구들이 더 많음 ${pc(fw)}`, m.l + pw, m.t + 30);
+      ctx.fillStyle = css('--lucky'); ctx.textAlign = 'left'; ctx.fillText(`내가 더 많음 ${pc(mo)}`, m.l + 4, m.t + 30);
+    }
     ctx.font = FONT;
   }
 
@@ -94,8 +100,8 @@
     const tk = [1, 2, 5, 10, 20, 50, 100, 200].filter((v) => v <= mx * 1.1);
     L.axes(c, { X, Y, yTicks: tk, yFmt: String, xTicks: tk, xFmt: String, xLabel: '내 친구 수 (명)', yLabel: '친구들의 평균 친구 수 (명)' });
     ctx.strokeStyle = css('--text'); ctx.setLineDash([5, 4]); ctx.beginPath(); ctx.moveTo(X(1), Y(1)); ctx.lineTo(X(Math.exp(top)), Y(Math.exp(top))); ctx.stroke(); ctx.setLineDash([]);
-    const jit = FR.mulberry32(5);
-    for (let i = 0; i < n; i++) {
+    const jit = FR.mulberry32(5), who = sampling() ? sim.picks : Array.from({ length: n }, (_, i) => i);
+    for (const i of who) {
       const up = M.fr[i] > M.deg[i], x = X(M.deg[i]) + (jit() - 0.5) * 7;
       ctx.fillStyle = mix(up ? css('--unlucky') : css('--lucky'), 0.45);
       ctx.beginPath(); ctx.arc(x, Y(Math.max(1, M.fr[i])), 3, 0, 7); ctx.fill();
@@ -117,17 +123,19 @@
 
   function renderStats() {
     const M = sim.M;
+    const live = sampling(), k = sim.picks.length;   // 재생 중에는 지금까지 뽑힌 사람으로 계산한 값
+    const sFew = k ? sim.picks.filter((i) => M.fr[i] > M.deg[i]).length / k : 0;
     const cards = [
-      ['한 사람의 평균 친구 수', f1(M.meanDeg), `무작위로 고른 사람 기준 · ${M.n}명`],
-      ['그 친구들의 평균 친구 수', f1(M.meanFriendDeg), `내 친구들 평균을 사람마다 구해 평균 낸 값 · ${(M.meanFriendDeg / M.meanDeg).toFixed(1)}배`],
-      ['친구들이 더 많은 사람', pc(M.fewerShare), '내 친구들의 평균이 내 친구 수보다 높은 사람의 비율'],
+      ['한 사람의 평균 친구 수', live ? (k ? f1(sim.selfMean()) : '-') : f1(M.meanDeg), `무작위로 고른 사람 기준 · ${M.n}명`],
+      ['그 친구들의 평균 친구 수', live ? (k ? f1(sim.friendMean()) : '-') : f1(M.meanFriendDeg), live ? (k ? `내 친구들 평균을 사람마다 구해 평균 낸 값 · ${(sim.friendMean() / sim.selfMean()).toFixed(1)}배` : '') : `내 친구들 평균을 사람마다 구해 평균 낸 값 · ${(M.meanFriendDeg / M.meanDeg).toFixed(1)}배`],
+      ['친구들이 더 많은 사람', live ? (k ? pc(sFew) : '-') : pc(M.fewerShare), '내 친구들의 평균이 내 친구 수보다 높은 사람의 비율'],
       ['선택한 사람', sel >= 0 ? `${M.deg[sel]} : ${f1(M.fr[sel])}` : '-', '내 친구 수 : 친구들의 평균 (사람을 눌러 바꾸기)'],
     ];
     $('stats').innerHTML = cards.map(([k, v, s]) => `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join('');
   }
 
   function drawStatic() { drawHist(); drawScat(); staticDirty = false; }
-  function draw() { renderStats(); drawNet(); if (staticDirty) drawStatic(); }
+  function draw() { renderStats(); drawNet(); if (staticDirty || sampling() || sim.round > 0) drawStatic(); }
 
   function after() {
     const P = params(); rows = []; drawSweep(); $('note-s').textContent = '계산 중…';
