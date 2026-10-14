@@ -150,9 +150,25 @@
     show(today, true);
     tiles.forEach((el) => {
       el.addEventListener('mouseenter', () => show(el, el === today && !pinned));
-      el.addEventListener('focus', () => show(el, el === today && !pinned));
+      el.addEventListener('focus', () => { hovering = true; show(el, el === today && !pinned); });
+      el.addEventListener('blur', () => { hovering = false; });
     });
-    document.querySelector('.ptable').addEventListener('mouseleave', () => show(pinned || today, !pinned));
+    // 마우스가 표 위에 없을 때는 실험 노트가 덤으로 여러 주제를 빠르게 넘겨 보여 준다 (칸 위에 올리면 멈추고 그 주제를 보여 준다)
+    const ROTATE_MS = 1800;
+    let hovering = false, nbVisible = true, rot = null, order = [], oi = 0;
+    const shuffled = () => { const a = tiles.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+    const preload = (el) => { const th = el && el.dataset.thumb; if (th) { const im = new Image(); im.src = th; } };
+    const tick = () => {
+      if (hovering || pinned || !nbVisible || document.hidden) return;
+      if (oi >= order.length) { order = shuffled(); oi = 0; }
+      show(order[oi++], false); preload(order[oi]);
+    };
+    const startRot = () => { if (reduce || rot) return; order = shuffled(); oi = 0; rot = setInterval(tick, ROTATE_MS); };
+    const nbEl = document.getElementById('nb');
+    if (nbEl && 'IntersectionObserver' in window) new IntersectionObserver((es) => es.forEach((e) => { nbVisible = e.isIntersecting; })).observe(nbEl);
+    setTimeout(startRot, 3000);   // 처음에는 오늘의 실험을 잠깐 보여 준 뒤 시작
+    document.querySelector('.ptable').addEventListener('mouseenter', () => { hovering = true; });
+    document.querySelector('.ptable').addEventListener('mouseleave', () => { hovering = false; if (pinned) show(pinned, false); });
     const rand = document.getElementById('rand');
     if (rand) rand.addEventListener('click', () => { pinned = tiles[Math.floor(Math.random() * tiles.length)]; show(pinned, false); document.getElementById('nb').scrollIntoView({ behavior: 'smooth', block: 'center' }); });
     requestAnimationFrame(glyphLoop);
