@@ -1,0 +1,42 @@
+{
+ "slug": "daycare",
+ "main_anim": true,
+ "progress": "sim.day (일 단위, 주=7일), sim.advance()마다 draw()",
+ "charts": [
+  {
+   "id": "c-week",
+   "title": "② 주별 아픈 아이",
+   "kind": "run-trajectory",
+   "spoils": false,
+   "syncable": true,
+   "how": "sim.weekly()가 현재 일까지의 기록만 반환. 회색 기준선(ref, 8회 평균)은 비교용 집계라 전체 길이로 그려져도 무방"
+  },
+  {
+   "id": "c-dist",
+   "title": "③ 한 해 동안 몇 번 걸렸을까",
+   "kind": "run-distribution",
+   "spoils": false,
+   "syncable": true,
+   "how": "sim.dist()·meanInf()가 현재 시점 값이라 이미 동기화됨"
+  },
+  {
+   "id": "c-stay",
+   "title": "④ 아프면 쉬는 아이가 늘어나면",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "쉬는 비율별 6회 반복 집계"
+  },
+  {
+   "id": "c-size",
+   "title": "⑤ 반 크기를 바꾸면",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "반 크기별 6회 반복 집계"
+  }
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "카드 중 '쉬기 0%→70%'는 여러 번 돌린 평균(ref)이라 이번 실행의 정답이 아님. 나머지 카드는 현재 시점 값."
+}

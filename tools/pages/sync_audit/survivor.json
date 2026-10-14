@@ -1,0 +1,34 @@
+{
+ "slug": "survivor",
+ "main_anim": true,
+ "progress": "sim.round (출격 횟수, sim.advance()마다 +1, 총 params.n)",
+ "charts": [
+  {
+   "id": "c-vis",
+   "title": "② 맞은 총탄 중 눈에 보이는 비율",
+   "kind": "run-distribution",
+   "spoils": false,
+   "syncable": true,
+   "how": "sim.holesRet/holesAll가 라운드마다 누적되어 이미 동기"
+  },
+  {
+   "id": "c-bar",
+   "title": "③ 어디에 보강하면 살아 돌아올까",
+   "kind": "run-summary",
+   "spoils": true,
+   "syncable": true,
+   "how": "full(survival 4종)과 picks(구멍 많은 곳/빈 곳 선택)가 n회 전체 기준이라 처음부터 최종값. sim.survival(arm)과 sim.totals()에 upTo=sim.round 인자를 추가해 i<round만 세고 재생마다 재계산. 내 선택(mine) 막대도 같은 방식"
+  },
+  {
+   "id": "c-sweep",
+   "title": "④ 엔진을 맞으면 더 잘 추락할수록",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "치명률 0~90%를 3시드씩 별도 실행한 집계"
+  }
+ ],
+ "stat_cards": true,
+ "effort": "medium",
+ "notes": "sim.js 수정 필요(survival/totals/picks에 upTo). 초반 round가 작으면 picks가 흔들리고 survival이 1에 가까워 이상하게 보일 수 있어 최소 출격 수 이전엔 '-'. 카드 3개+note-s 문장+'최선(이론)' 막대(theory는 round 무관 -> 유지 가능)도 함께 처리. ①②는 이미 동기"
+}

@@ -1,0 +1,34 @@
+{
+ "slug": "telephone",
+ "main_anim": true,
+ "progress": "sim.gen (전달 횟수, 최대 sim.params.gens=40), sim.advance()마다 draw()",
+ "charts": [
+  {
+   "id": "c-surv",
+   "title": "② 원래 모티프는 얼마나 남을까",
+   "kind": "run-trajectory",
+   "spoils": false,
+   "syncable": true,
+   "how": "sim.history만큼만 그려짐(이미 동기화). x축은 전체 전달 횟수로 고정"
+  },
+  {
+   "id": "c-mem",
+   "title": "③ 남은 이야기는 더 기억에 남는 쪽으로",
+   "kind": "run-trajectory",
+   "spoils": false,
+   "syncable": true,
+   "how": "sim.history만큼만 그려짐. y범위는 현재 값 기준이라 약간 변하나 스포일러 아님"
+  },
+  {
+   "id": "c-sweep",
+   "title": "④ 기억력을 바꾸면",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "기억력별 3회 반복 집계"
+  }
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "카드·사슬 격자(①)는 현재 전달 횟수 기준(sim.current()). 이미 동기화됨."
+}

@@ -98,18 +98,38 @@
   }
 
   // ---------- ④ 이웃 거리 분포 ----------
+  // 재생 중에는 지금까지 놓인 씨앗(sim.placed)만으로 계산한 값을 쓴다 (끝나면 최종 mt)
+  let mtCache = null, mtKey = -1, mtSim = null;
+  function mtNow() {
+    if (!sim || sim.placed >= sim.n) return mt;
+    if (sim.placed < 30) return null;
+    if (mtSim !== sim || sim.placed - mtKey >= sim.per * 2 || sim.placed < mtKey) {
+      mtCache = SF.metrics(sim.placed, sim.params.angle, true); mtKey = sim.placed; mtSim = sim;
+    }
+    return mtCache;
+  }
+
   function drawHist() {
+    const mt = mtNow(), live = sim && sim.placed < sim.n;
     const c = L.chart($('c-hist'), 0.7, { b: 40 }), { ctx, m, pw, ph } = c;
     const nb = 40, hi = 2, counts = new Array(nb).fill(0);
-    mt.nn.forEach((d) => { counts[Math.min(nb - 1, Math.floor((d / hi) * nb))]++; });
-    const cmax = Math.max(...counts), X = (v) => m.l + (v / hi) * pw, Y = (v) => m.t + ph - (v / cmax) * ph;
+    if (mt) mt.nn.forEach((d) => { counts[Math.min(nb - 1, Math.floor((d / hi) * nb))]++; });
+    let cmax = Math.max(...counts);
+    if (live) cmax = Math.max(cmax, Math.round(sim.n * 0.6 * 0.3)); // 재생 중 세로축 고정(넘치면 늘림)
+    const X = (v) => m.l + (v / hi) * pw, Y = (v) => m.t + ph - (v / cmax) * ph;
     L.axes(c, { X, Y, yTicks: [0, 0.5, 1].map((q) => q * cmax), yFmt: (v) => String(Math.round(v)), xTicks: [0, 0.5, 1, 1.5, 2], xFmt: (v) => v.toFixed(1), xLabel: '가장 가까운 이웃까지의 거리 (이상 간격 = 1)', yLabel: '씨앗 수 (개)' });
     const bw = pw / nb;
     counts.forEach((v, i) => { ctx.fillStyle = mix('#d19200', 0.85); ctx.fillRect(m.l + i * bw + 0.5, Y(v), Math.max(1, bw - 1), m.t + ph - Y(v)); });
-    L.vline(c, X(mt.nnMean), css('--text'), `평균 ${mt.nnMean.toFixed(2)}`, mt.nnMean > 1 ? 'right' : 'left');
+    if (mt) L.vline(c, X(mt.nnMean), css('--text'), `평균 ${mt.nnMean.toFixed(2)}`, mt.nnMean > 1 ? 'right' : 'left');
   }
 
   function renderStats() {
+    const mt = mtNow();
+    if (!mt) {
+      const dash = [['빈틈 평균', '이상 간격 대비, 작을수록 고르게 채워짐'], ['가장 큰 빈틈', '씨앗이 없는 가장 넓은 자리'], ['이웃 거리의 들쭉날쭉함', '변동계수, 작을수록 간격이 일정'], ['가까운 이웃의 번호 차이', '가장 흔한 두 값 (황금각이면 피보나치 수)']];
+      $('stats').innerHTML = dash.map(([k, s]) => `<div class="stat"><div class="k">${k}</div><div class="v">–</div><div class="s">${s}</div></div>`).join('');
+      return;
+    }
     const d = mt.topDiffs.slice(0, 2).map((x) => x[0]).join(', ');
     const cards = [
       ['빈틈 평균', mt.gap.toFixed(2), '이상 간격 대비, 작을수록 고르게 채워짐'],

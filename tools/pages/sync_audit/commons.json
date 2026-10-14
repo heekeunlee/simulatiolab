@@ -1,0 +1,34 @@
+{
+ "slug": "commons",
+ "main_anim": true,
+ "progress": "sim.round (라운드, 최대 params.rounds) / stockHist.length",
+ "charts": [
+  {
+   "id": "c-stock",
+   "title": "② 저량과 수확의 변화",
+   "kind": "run-trajectory",
+   "spoils": false,
+   "syncable": true,
+   "how": "stockHist/harvestHist가 재생과 함께 자라며 x축은 전체 라운드로 고정됨"
+  },
+  {
+   "id": "c-share",
+   "title": "③ 전략 비율의 변화",
+   "kind": "run-trajectory",
+   "spoils": false,
+   "syncable": true,
+   "how": "shareHist가 재생과 함께 자람"
+  },
+  {
+   "id": "c-sweep",
+   "title": "④ 감시가 강해질수록",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "적발 확률별 반복 실행(CM.measure) 마지막 저량"
+  }
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "카드도 현재 라운드 값(sim.S, 마지막 harvestHist, sim.fined)이라 이미 동기화됨."
+}

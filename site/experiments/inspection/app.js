@@ -63,11 +63,14 @@
   // 두 분포를 같은 칸에 겹쳐 그리는 히스토그램. A: 하나씩 센 값, B: 사람이 겪은 값
   function overlay(c, A, B, o) {
     const { ctx, m, pw, ph } = c;
-    const sorted = B.slice().sort((a, b) => a - b);
+    const full = o.fullB || B, sorted = full.slice().sort((a, b) => a - b);
     const xmax = Math.max(o.minMax, Math.ceil(sorted[Math.floor(sorted.length * 0.99)] * 1.05));
     const nb = o.bins, bw = xmax / nb, ca = new Array(nb).fill(0), cb = new Array(nb).fill(0);
     A.forEach((v) => { const i = Math.floor(v / bw); if (i < nb) ca[i] += 1; }); B.forEach((v) => { const i = Math.floor(v / bw); if (i < nb) cb[i] += 1; });
-    const da = ca.map((v) => v / A.length / bw), db = cb.map((v) => v / B.length / bw), ymax = Math.max(...da, ...db) * 1.08 || 1;
+    const da = ca.map((v) => v / A.length / bw), db = cb.map((v) => (B.length ? v / B.length / bw : 0));
+    let ymax = Math.max(...da, ...db);
+    if (o.fullB) { const cf = new Array(nb).fill(0); o.fullB.forEach((v) => { const i = Math.floor(v / bw); if (i < nb) cf[i] += 1; }); ymax = Math.max(Math.max(...da), ...cf.map((v) => v / o.fullB.length / bw)); } // 재생 중 세로축 고정
+    ymax = ymax * 1.08 || 1;
     const X = (v) => m.l + (v / xmax) * pw, Y = (v) => m.t + ph - (v / ymax) * ph;
     const step = xmax > 120 ? 40 : xmax > 60 ? 20 : xmax > 25 ? 10 : xmax > 12 ? 5 : 2, xt = []; for (let t = 0; t <= xmax; t += step) xt.push(t);
     L.axes(c, { X, Y, yTicks: [], xTicks: xt, xFmt: (v) => String(v), xLabel: o.xLabel, yLabel: '빈도 (상대)' });
@@ -78,9 +81,9 @@
     ctx.fillStyle = mix(css('--accent'), 0.5); da.forEach((v, i) => { if (v > 0) ctx.fillRect(m.l + i * px + 0.5, Y(v), Math.max(1, px - 1), m.t + ph - Y(v)); });
     ctx.strokeStyle = '#e0a100'; ctx.lineWidth = THUMB ? 3 : 2; ctx.beginPath();
     db.forEach((v, i) => { const x0 = m.l + i * px, x1 = x0 + px; if (i === 0) ctx.moveTo(x0, Y(v)); else ctx.lineTo(x0, Y(v)); ctx.lineTo(x1, Y(v)); }); ctx.stroke(); ctx.lineWidth = 1;
-    const ma = A.reduce((s, v) => s + v, 0) / A.length, mb = B.reduce((s, v) => s + v, 0) / B.length;
+    const ma = A.reduce((s, v) => s + v, 0) / A.length, mb = B.length ? B.reduce((s, v) => s + v, 0) / B.length : NaN;
     const vl = (v, col, label, row) => {
-      if (v > xmax) return;
+      if (!(v <= xmax)) return;
       ctx.setLineDash([4, 3]); ctx.strokeStyle = col; ctx.beginPath(); ctx.moveTo(X(v), m.t + 16 * row); ctx.lineTo(X(v), m.t + ph); ctx.stroke(); ctx.setLineDash([]);
       const right = v > xmax * 0.6; ctx.fillStyle = col; ctx.textAlign = right ? 'right' : 'left'; ctx.font = FONT_B; ctx.fillText(label, X(v) + (right ? -5 : 5), m.t + 12 + 16 * (row - 1) + 4);
     };
@@ -94,8 +97,9 @@
     const itemsH = THUMB ? [] : [{ kind: 'box', color: mix(css('--accent'), 0.5), label: '버스 간격 (하나씩 센 값)' }, { kind: 'line', color: '#e0a100', label: '승객이 본 간격' }];
     const spH = L.belowSpace($('c-hist'), itemsH);
     const c = THUMB ? L.chart($('c-hist'), 1, { b: 34, l: 10, r: 10, t: 44 }) : L.chart($('c-hist'), 0.7 + spH.extra / ($('c-hist').clientWidth || 400), { b: spH.b, l: 14 });
-    overlay(c, Array.from(sim.heads), sim.seen(), {
-      bins: 30, minMax: sim.params.mean * 2, xLabel: '버스 간격 (분)',
+    const allSeen = sim.seen(); // 재생이 도달한 승객까지만 그린다 (축은 전체 기준으로 고정)
+    overlay(c, Array.from(sim.heads), allSeen.slice(0, sim.round), {
+      fullB: allSeen, bins: 30, minMax: sim.params.mean * 2, xLabel: '버스 간격 (분)',
       legend: itemsH,
       labelA: (v) => `버스를 센 평균 ${f1(v)}분`, labelB: (v) => `승객이 본 평균 ${f1(v)}분`,
     });
@@ -130,11 +134,14 @@
 
   function renderStats() {
     const P = sim.params, th = sim.theory;
+    const part = sim.round < 5; // 재생 중에는 지금까지의 값
+    const mSeen = sim.done() ? sim.meanSeen : part ? NaN : sim.sumSeen / sim.round, mWait = sim.done() ? sim.meanWait : part ? NaN : sim.sumWait / sim.round;
+    const fv = (v) => (isFinite(v) ? f1(v) + '분' : '–');
     const cards = [
       ['평균 버스 간격', f1(sim.busMean) + '분', `버스를 하나씩 센 평균 (설정 ${P.mean}분)`],
-      ['승객이 본 평균 간격', f1(sim.meanSeen) + '분', `이론 ${f1(th.seen)}분 · 버스 평균의 ${(sim.meanSeen / sim.busMean).toFixed(1)}배`],
-      ['평균 대기 시간', f1(sim.meanWait) + '분', `이론 ${f1(th.wait)}분 · ${P.n}명 기준`],
-      ['단순 계산 (간격의 절반)', f1(sim.busMean / 2) + '분', `실제 대기는 이 값의 ${(sim.meanWait / (sim.busMean / 2)).toFixed(1)}배`],
+      ['승객이 본 평균 간격', fv(mSeen), (isFinite(mSeen) ? `이론 ${f1(th.seen)}분 · 버스 평균의 ${(mSeen / sim.busMean).toFixed(1)}배` : '')],
+      ['평균 대기 시간', fv(mWait), `이론 ${f1(th.wait)}분 · ${P.n}명 기준`],
+      ['단순 계산 (간격의 절반)', f1(sim.busMean / 2) + '분', (isFinite(mWait) ? `실제 대기는 이 값의 ${(mWait / (sim.busMean / 2)).toFixed(1)}배` : '')],
     ];
     $('stats').innerHTML = cards.map(([k, v, s]) => `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join('');
   }

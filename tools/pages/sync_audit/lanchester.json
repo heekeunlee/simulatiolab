@@ -1,0 +1,42 @@
+{
+ "slug": "lanchester",
+ "main_anim": true,
+ "progress": "sim.step (전투 단계), sim.hist[i]가 단계별 병력 기록",
+ "charts": [
+  {
+   "id": "c-count",
+   "title": "② 남은 병력의 변화",
+   "kind": "run-trajectory",
+   "spoils": false,
+   "syncable": true,
+   "how": "sim.hist만큼만 그려짐. 단, x축 길이를 ghost(미리 끝까지 돌린 sim)로 정해 전투 길이를 미리 알려 주고, 점선 기대곡선은 전체 길이로 그려짐(이론 평균장 곡선)"
+  },
+  {
+   "id": "c-power",
+   "title": "③ 전투력 = 질 × 병력²",
+   "kind": "run-trajectory",
+   "spoils": false,
+   "syncable": true,
+   "how": "sim.hist만큼만 그려짐(이미 동기화)"
+  },
+  {
+   "id": "c-cmp",
+   "title": "④ 모이면 이기고 나뉘면 지는가",
+   "kind": "theory",
+   "spoils": false,
+   "syncable": false,
+   "how": "이론 결과 5가지 비교 막대. 재생 결과와 무관"
+  },
+  {
+   "id": "c-phase",
+   "title": "⑤ 누가 이기나: 병력 비율 × 질 비율",
+   "kind": "theory",
+   "spoils": false,
+   "syncable": false,
+   "how": "이론 승패 지도. 재생 결과와 무관"
+  }
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "카드 '이론상 결과'·'선형이었다면'은 이론(연속 근사)값이라 승자를 미리 알려 주지만 이번 실행 결과가 아님. x축 길이가 ghost 기준이라 전투 길이가 보이는 점만 사소한 누설(원하면 low)."
+}

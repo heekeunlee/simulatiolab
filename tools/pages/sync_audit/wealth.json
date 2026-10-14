@@ -1,0 +1,15 @@
+{
+ "slug": "wealth",
+ "main_anim": true,
+ "progress": "sim.round (라운드, advance()마다 1씩, 0~params.rounds; sim.history[t*n+i], sim.stats[t]에 라운드별 기록)",
+ "charts": [
+  {"id": "c-bars", "title": "① 부의 계단", "kind": "run-distribution", "spoils": false, "syncable": true, "how": "sim.current()가 현재 라운드의 재산 분포라 재생과 함께 변함(메인 화면)"},
+  {"id": "c-lorenz", "title": "② 로렌츠 곡선", "kind": "run-distribution", "spoils": false, "syncable": true, "how": "sim.current() 기준으로 이미 재생과 함께 변함"},
+  {"id": "c-time", "title": "③ 시간에 따른 불평등", "kind": "run-trajectory", "spoils": false, "syncable": true, "how": "sim.stats가 라운드마다 push되어 재생과 함께 자람, x축은 전체 rounds로 고정"},
+  {"id": "c-track", "title": "④ 같은 출발선의 8명", "kind": "run-trajectory", "spoils": false, "syncable": true, "how": "t<=sim.round까지만 history에서 그리므로 이미 재생과 함께 자람(y축 상한만 현재 최대 재산에 따라 변함)"},
+  {"id": "c-sweep", "title": "⑤ 얼마나 나눠 가지면 막을 수 있을까", "kind": "sweep", "spoils": false, "syncable": false, "how": "나눠 갖는 비율 9가지를 5번씩 최종 지니계수로 집계(WL.finalGini)"}
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "talent-vs-luck과 달리 이미 모든 run 그래프와 카드가 현재 라운드 기준; 자체 rAF 루프(공용 harness 아님)"
+}

@@ -1,0 +1,34 @@
+{
+ "slug": "sandpile",
+ "main_anim": true,
+ "progress": "sim.t (떨어뜨린 모래알 수, sim.drop() 1회=1알, 상한 CAP 100000)",
+ "charts": [
+  {
+   "id": "c-size",
+   "title": "② 눈사태는 얼마나 컸을까",
+   "kind": "run-trajectory",
+   "spoils": false,
+   "syncable": true,
+   "how": "sim.sizes[0..t)만 그리고 x축이 max(t, burnAt*1.3)로 자람. 이미 동기"
+  },
+  {
+   "id": "c-dist",
+   "title": "③ 작은 눈사태와 큰 눈사태는 얼마나 자주 날까",
+   "kind": "run-distribution",
+   "spoils": false,
+   "syncable": true,
+   "how": "sim.dist()가 지금까지의 눈사태로 계산, 이미 동기 (안정기 전에는 안내 문구)"
+  },
+  {
+   "id": "c-height",
+   "title": "④ 쌓을수록 높이는 계속 오를까",
+   "kind": "run-trajectory",
+   "spoils": false,
+   "syncable": true,
+   "how": "sim.means[0..t)만 그림, 이미 동기"
+  }
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "차트는 100ms마다 다시 그림(drawCharts), 카드도 현재 값(nz>=30 전에는 '–')"
+}

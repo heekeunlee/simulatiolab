@@ -1,0 +1,14 @@
+{
+ "slug": "turing",
+ "main_anim": true,
+ "progress": "sim.iter (반응-확산 진행 횟수, advance()마다 PER_STEP=40씩, 최대 MAX_ITER=30000; sim.history[i]=iter 40*i 시점의 {area,vMean})",
+ "charts": [
+  {"id": "c-world", "title": "① 무늬가 자라는 모습", "kind": "run-distribution", "spoils": false, "syncable": true, "how": "메인 재생 화면 자체(현재 sim.v)"},
+  {"id": "c-3d", "title": "② 3D로 보기: 농도의 지형", "kind": "run-distribution", "spoils": false, "syncable": true, "how": "TuringLab.rev가 바뀔 때마다 현재 sim.v로 갱신되어 재생과 함께 자람"},
+  {"id": "c-time", "title": "③ 시간에 따른 변화", "kind": "run-trajectory", "spoils": false, "syncable": true, "how": "sim.history가 단계마다 push되어 재생과 함께 자람, x축은 MAX_ITER로 고정"},
+  {"id": "c-map", "title": "④ F-k 지도", "kind": "theory", "spoils": false, "syncable": false, "how": "무늬 종류 4개의 (F,k) 위치와 지금 설정 표시. 실행 결과가 아닌 정적 지도"}
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "카드는 history 마지막 값(현재 면적/농도/진행 횟수)이라 재생과 함께 변함; 캔버스 클릭으로 씨앗 추가 가능"
+}

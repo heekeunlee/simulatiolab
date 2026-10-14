@@ -1,0 +1,34 @@
+{
+ "slug": "bar",
+ "main_anim": true,
+ "progress": "sim.weeks (주, 최대 params.weeks) / sim.hist.length",
+ "charts": [
+  {
+   "id": "c-weeks",
+   "title": "② 주마다 손님 수",
+   "kind": "run-trajectory",
+   "spoils": false,
+   "syncable": true,
+   "how": "이미 sim.hist.slice(-80)로 재생된 주까지만 그림"
+  },
+  {
+   "id": "c-cap",
+   "title": "③ 정원을 바꿔도 손님은 정원 근처",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "정원별 반복 실행 평균(EF.measure)"
+  },
+  {
+   "id": "c-strat",
+   "title": "④ 똑똑해져도 소용없다",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "예측법 수별 반복 실행 평균"
+  }
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "통계 카드는 sim.summary(hist 뒤쪽 절반)로 지금까지의 기록만 쓰므로 이미 동기화됨."
+}

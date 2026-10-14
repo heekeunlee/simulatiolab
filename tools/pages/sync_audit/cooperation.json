@@ -1,0 +1,14 @@
+{
+ "slug": "cooperation",
+ "main_anim": true,
+ "progress": "sim.gen (세대, 0~params.generations=150; sim.history[g], sim.coopHistory[g-1])",
+ "charts": [
+  {"id": "c-pop", "title": "① 마을이 바뀌는 모습", "kind": "run-distribution", "spoils": false, "syncable": true, "how": "메인 재생 화면 자체(현재 sim.strat)"},
+  {"id": "c-area", "title": "② 어떤 행동 방식이 늘어날까", "kind": "run-trajectory", "spoils": false, "syncable": true, "how": "sim.history가 세대마다 push되어 재생과 함께 자람, x축은 전체 세대로 고정"},
+  {"id": "c-coop", "title": "③ 협력하는 비율", "kind": "run-trajectory", "spoils": false, "syncable": true, "how": "sim.coopHistory가 세대마다 push되어 재생과 함께 자람, x축 고정"},
+  {"id": "c-sweep", "title": "④ 실수가 잦아지면", "kind": "sweep", "spoils": false, "syncable": false, "how": "실수 확률을 바꿔 가며 4번씩 반복한 집계(CO.measure)"}
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "카드(renderStats)는 sim.history 마지막 값이라 재생 중 현재 세대 값; THUMB은 run() 후 그림"
+}

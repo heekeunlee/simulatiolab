@@ -90,7 +90,7 @@
     const X = (t) => m.l + (t / M) * pw, Y = (v) => m.t + ph - (v / cmax) * ph, yt = []; for (let v = 0; v <= cmax + 1e-9; v += 0.5) yt.push(v);
     const xt = []; for (let t = 0; t <= M; t += 60) xt.push(t);
     L.axes(c, { X, Y, yTicks: yt, yFmt: (v) => v.toFixed(1), xTicks: xt, xFmt: (v) => String(v), xLabel: '시간 (분)', yLabel: '간격 흐트러짐 (CV)' });
-    REM.forEach((k) => { ctx.globalAlpha = k === sim.p.remedy ? 0.45 : 0.9; L.line(ctx, refs[k].rec.cv.map((v, i) => [X(i), Y(v)]), REM_COL[k], 2); ctx.globalAlpha = 1; });
+    REM.forEach((k) => { ctx.globalAlpha = k === sim.p.remedy ? 0.45 : 0.9; L.line(ctx, refs[k].rec.cv.slice(0, sim.rec.cv.length).map((v, i) => [X(i), Y(v)]), REM_COL[k], 2); ctx.globalAlpha = 1; });
     const cv = sim.rec.cv;
     L.line(ctx, cv.map((v, i) => [X(i), Y(v)]), css('--text'), 3.2);
     if (cv.length) { ctx.fillStyle = css('--text'); ctx.beginPath(); ctx.arc(X(cv.length - 1), Y(cv[cv.length - 1]), 4.5, 0, 7); ctx.fill(); }
@@ -133,7 +133,7 @@
         ? ['평균 기다림 (뒤쪽 절반)', `${f1(a.wait)}분`, `이상적 간격이면 ${f1(a.even)}분 · 한 바퀴 ${f1(a.lap)}분`]
         : ['평균 기다림: 처방 없음 → 처방', `${f1(a.wait)} → ${f1(b.wait)}분`, `한 바퀴 시간 ${f1(a.lap)} → ${f1(b.lap)}분`],
     ];
-    $('stats').innerHTML = cards.map(([k, v, s]) => `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join('');
+    $('stats').innerHTML = cards.map(([k, v, s], i) => `<div class="stat"${i === 3 && !sim.done() ? ' style="opacity:.55"' : ''}><div class="k">${k}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join('');
   }
 
   let heatLen = -1;

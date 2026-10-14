@@ -1,0 +1,34 @@
+{
+ "slug": "fxrate",
+ "main_anim": true,
+ "progress": "sim.week (주, 최대 sim.N = years*52)",
+ "charts": [
+  {
+   "id": "c-pnl",
+   "title": "② 계속 들고 있었다면: 쌓인 손익",
+   "kind": "run-trajectory",
+   "spoils": false,
+   "syncable": true,
+   "how": "곡선은 sim.pnl.slice(0,k+1)까지만, 최대 낙폭도 k까지. 단 y축 범위와 범례 위치는 full(전체 실행)에서 잡아 축만 고정(허용 범위)"
+  },
+  {
+   "id": "c-hist",
+   "title": "③ 한 주의 손익은 어떻게 흩어질까",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "ens(40개 경로 앙상블)의 주간 수익률 분포라 이번 실행과 무관한 집계"
+  },
+  {
+   "id": "c-sweep",
+   "title": "④ 금리 차이를 키우면",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "금리차별 24경로 앙상블"
+  }
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "c-fx(①)도 k까지만 그리고 카드도 ret.slice(0,k)로 계산됨. 단 '수익 분포의 기울기' 카드는 ens.skew(앙상블)라 재생과 무관."
+}

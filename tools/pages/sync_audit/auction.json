@@ -1,0 +1,16 @@
+{
+ "slug": "auction",
+ "main_anim": true,
+ "progress": "sim.round (경매 횟수, 0~400); sim.history[i]=i+1번째까지의 평균 손익, sim.profits[i]=i번째 경매 낙찰자 손익",
+ "charts": [
+  {"id": "c-hist", "title": "② 이긴 사람은 얼마나 벌고 잃을까", "kind": "run-distribution", "spoils": true, "syncable": true,
+   "how": "지금은 build()에서 AU.profits(P,3000,seed)로 따로 3000번을 미리 돌린 hist를 그림(재생 400번과 별개 표본, 처음부터 완성된 모양). hist 대신 sim.profits(재생 중 누적 낙찰자 손익)를 쓰면 재생과 함께 자라난다. x축 범위(lo/hi)는 고정 필요(지금은 데이터로 계산)"},
+  {"id": "c-n", "title": "③ 입찰자가 많아지면 어떻게 될까", "kind": "sweep", "spoils": false, "syncable": false,
+   "how": "입찰자 수 2~30별로 3000번씩 반복한 집계(after()에서 비동기 계산). 재생과 무관한 비교 그래프"},
+  {"id": "c-s", "title": "④ 입찰가를 깎으면", "kind": "sweep", "spoils": false, "syncable": false,
+   "how": "깎는 정도 0~3σ별 반복 집계. 재생과 무관"}
+ ],
+ "stat_cards": true,
+ "effort": "low",
+ "notes": "통계 카드 중 평균 손익/손해 비율은 이미 sim.round 기준으로 재생과 함께 자람. 손익분기 낮춤(breakEven)은 20000번 사전 계산값이라 이론값 성격(spoil 아님). 고칠 곳은 c-hist 하나뿐."
+}

@@ -1,0 +1,20 @@
+{
+ "slug": "war",
+ "main_anim": true,
+ "progress": "sim.round (라운드, 0~params.rounds=160); sim.disputes/x/y/cross/spread가 라운드마다 누적",
+ "charts": [
+  {"id": "c-bar", "title": "① 합의가 있었는데도 전쟁이 나는 분쟁들", "kind": "run-distribution", "spoils": false, "syncable": true,
+   "how": "메인 캔버스. sim.disputes가 라운드마다 쌓이는 만큼만 점을 찍음"},
+  {"id": "c-u", "title": "② 불확실성이 커질수록 전쟁이 늘어난다", "kind": "sweep", "spoils": false, "syncable": false,
+   "how": "불확실성 0~50%별 4000번 분쟁(W.curveU) + 이론값. 재생과 무관한 집계"},
+  {"id": "c-arms", "title": "③ 군비 경쟁: 멈출까, 폭주할까", "kind": "run-trajectory", "spoils": false, "syncable": true,
+   "how": "sim.x/sim.y가 라운드마다 push되어 이미 재생과 함께 자람(x축은 전체 라운드 수로 고정). 점선 이론 안정 수준은 설정값에서 나오는 이론값"},
+  {"id": "c-grid", "title": "④ 한 나라의 전쟁이 이웃으로 번지는 모습", "kind": "run-trajectory", "spoils": false, "syncable": true,
+   "how": "sim.spread가 라운드마다 한 층씩 번지고, 끝난 전쟁은 sim.sizes에 쌓임. 이미 동기화"},
+  {"id": "c-q", "title": "⑤ 번질 확률이 어느 선을 넘으면", "kind": "sweep", "spoils": false, "syncable": false,
+   "how": "이웃 끌어들일 확률 0~100%별 300번 반복(W.curveQ). 재생과 무관"}
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "통계 카드: 전쟁 비율은 sim.warRate()로 라이브, 나머지(합의 몫, 안정 군비 수준, 평균 참전국 1000번 집계)는 이론/집계값이라 spoil 아님."
+}

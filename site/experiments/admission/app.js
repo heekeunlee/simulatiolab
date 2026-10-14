@@ -111,17 +111,24 @@
       html += honest ? `<span>아이 ${focus + 1}번은 솔직하게 적으면 ${t.truthRank + 1}지망 '${nm(t.truthAssign)}'에 배정됩니다.</span> ` : `<span>아이 ${focus + 1}번은 솔직하게 적으면 배정받지 못합니다.</span> `;
       html += `<span>순서를 ${t.cand}가지로 바꿔 적어 봐도 더 나은 곳은 얻지 못합니다.</span>`;
     }
-    el.innerHTML = html;
+    el.innerHTML = html; el.style.opacity = sim.done() ? '' : '0.55';
   }
 
   // ---------- ② 어디로 갔나 ----------
+  // 재생 중 선택한 방식의 지금까지 배정 현황 (지망 순위별 인원, 마지막 칸 = 아직 배정 전/못 받음)
+  function liveDist() {
+    const M = S.M, a = sim.current().a, dist = new Array(M + 1).fill(0);
+    for (let i = 0; i < S.N; i++) dist[a[i] < 0 ? M : S.trueRank[i * M + a[i]]]++;
+    return dist;
+  }
   function drawDist() {
     const cv = $('c-dist'), cw = cv.clientWidth || 600, mobile = cw < 560;
     const tmp = L.chart(cv, 1, {}); const lh = hLegend(tmp.ctx, LEG5, 0, 0, tmp.w - 16, false);
     const c = L.chart(cv, mobile ? 0.8 : 0.42, { l: mobile ? 92 : 84, r: 12, t: 24, b: 40 + lh + 4 }), { ctx, m, pw, ph } = c, N = S.N, M = S.M;
-    const rowH = ph / 4, bh = rowH * 0.62;
+    const rowH = ph / 4, bh = rowH * 0.62, playing = !sim.done();
     A.MECHS.forEach((mech, k) => {
-      const dist = cmp[mech].dist, y = m.t + k * rowH + (rowH - bh) / 2, sel = mech === sim.mech;
+      const sel = mech === sim.mech, dist = sel && playing ? liveDist() : cmp[mech].dist, y = m.t + k * rowH + (rowH - bh) / 2;
+      ctx.globalAlpha = playing && !sel ? 0.45 : 1;
       ctx.textAlign = 'right'; ctx.fillStyle = css('--text'); ctx.font = (sel ? '700 ' : '') + '12px ' + FONT; ctx.fillText(MN[mech], m.l - 8, y + bh / 2 + 4);
       const g = [0, 0, 0, 0, 0]; dist.forEach((v, r) => { g[bucket(r, M)] += v; });
       let x = m.l;
@@ -132,6 +139,7 @@
         x += wv;
       });
       if (sel) { ctx.strokeStyle = css('--text'); ctx.lineWidth = 1.5; ctx.strokeRect(m.l - 0.5, y - 0.5, pw + 1, bh + 1); ctx.lineWidth = 1; }
+      ctx.globalAlpha = 1;
     });
     ctx.fillStyle = css('--muted'); ctx.textAlign = 'center'; ctx.font = '12px ' + FONT;
     [0, 0.25, 0.5, 0.75, 1].forEach((v) => ctx.fillText(pc(v), m.l + v * pw, m.t + ph + 16));
@@ -181,12 +189,18 @@
   }
 
   function renderStats() {
-    const m = sim.mech, r = cmp[m], b = lies.boston, d = lies.da, M = S.M;
+    let r; const m = sim.mech, b = lies.boston, d = lies.da, M = S.M;
+    const playing = !sim.done();
+    r = cmp[m];
+    if (playing) { // 재생 중에는 지금까지 배정된 값으로
+      const dd = liveDist(), n = dd.reduce((p, q) => p + q, 0) - dd[M]; let sr = 0; for (let k = 0; k < M; k++) sr += dd[k] * k;
+      r = { first: dd[0] / S.N, avgRank: n ? sr / n + 1 : NaN, unassigned: dd[M], envy: NaN, gap: NaN };
+    }
     const cards = [
       ['순위를 바꿔 적어 이득 보는 아이: 보스턴 / 지연 수락', b && d ? `${pc(b.share)} / ${pc(d.share)}` : '…', '다른 집은 솔직하게 적고 이 아이만 순서를 바꿔 본 시험 (아이 60명 표본)'],
-      [`1지망으로 간 아이 (${MN[m]})`, pc(r.first), `평균 ${f1(r.avgRank)}지망 · 미배정 ${r.unassigned}명`],
-      [`억울한 아이 (${MN[m]})`, pc(r.envy), '더 원하는 곳에 자리가 남았거나, 나보다 순번이 낮은 아이가 들어간 아이'],
-      [`먼저 접수한 집의 이득 (${MN[m]})`, `${Math.abs(r.gap) < 0.05 ? '' : r.gap > 0 ? '+' : '-'}${Math.abs(r.gap).toFixed(1)}지망`, `일찍 접수할 수 있는 집이 나머지보다 평균 몇 지망 더 좋은 곳에 갔는지 (미배정은 ${M + 1}지망으로 계산)`],
+      [`1지망으로 간 아이 (${MN[m]})`, pc(r.first), (isNaN(r.avgRank) ? '' : `평균 ${f1(r.avgRank)}지망 · 미배정 ${r.unassigned}명`)],
+      [`억울한 아이 (${MN[m]})`, isNaN(r.envy) ? '–' : pc(r.envy), '더 원하는 곳에 자리가 남았거나, 나보다 순번이 낮은 아이가 들어간 아이'],
+      [`먼저 접수한 집의 이득 (${MN[m]})`, isNaN(r.gap) ? '–' : `${Math.abs(r.gap) < 0.05 ? '' : r.gap > 0 ? '+' : '-'}${Math.abs(r.gap).toFixed(1)}지망`, `일찍 접수할 수 있는 집이 나머지보다 평균 몇 지망 더 좋은 곳에 갔는지 (미배정은 ${M + 1}지망으로 계산)`],
     ];
     $('stats').innerHTML = cards.map(([k, v, s]) => `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join('');
   }

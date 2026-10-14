@@ -1,0 +1,16 @@
+{
+ "slug": "zipf",
+ "main_anim": true,
+ "progress": "sim.n (지금까지 쓴 단어 수, 최대 10만); draw()마다 S = sim.summary()로 현재 시점 요약을 새로 계산",
+ "charts": [
+  {"id": "c-loglog", "title": "② 순위와 쓰인 횟수 (로그-로그)", "kind": "run-distribution", "spoils": false, "syncable": true,
+   "how": "S.ranked(현재 sim.n 기준)로 그려서 이미 재생과 함께 자람. 축 범위는 현재 어휘/최다 빈도에 맞춰 자동 확장"},
+  {"id": "c-top", "title": "③ 가장 자주 쓰인 20개 단어", "kind": "run-distribution", "spoils": false, "syncable": true,
+   "how": "S.ranked.slice(0,20)이 현재 시점 기준이라 이미 동기화"},
+  {"id": "c-sweep", "title": "④ 새 단어 확률을 바꾸면", "kind": "sweep", "spoils": false, "syncable": false,
+   "how": "새 단어 확률 7가지 x 복사/균등 모드 x 4회 반복(ZP.slopes) 집계. 재생과 무관"}
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "통계 카드 5개 모두 sim.n 기준 S에서 계산돼 이미 라이브('쓴 단어 수'만 목표 10만 안내)."
+}

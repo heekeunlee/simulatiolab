@@ -1,0 +1,15 @@
+{
+ "slug": "sunflower",
+ "main_anim": true,
+ "progress": "sim.placed (씨앗 개수, advance()마다 per=round(n/150)개씩 증가, 0~sim.n)",
+ "charts": [
+  {"id": "c-flower", "title": "① 해바라기가 자라는 모습", "kind": "run-distribution", "spoils": false, "syncable": true, "how": "sim.placed까지의 씨앗만 그려 이미 재생과 함께 자람"},
+  {"id": "c-3d", "title": "② 3D로 보기: 볼록한 꽃판과 솔방울", "kind": "run-distribution", "spoils": false, "syncable": true, "how": "app3d.js가 sim.placed 비율로 seeds.count를 맞춰 이미 같이 자람"},
+  {"id": "c-sweep", "title": "③ 각도마다 빈틈은 얼마나 될까", "kind": "sweep", "spoils": false, "syncable": false, "how": "각도 90~180°를 훑은 집계(SF.metrics(n, angle), 최종 n 기준)"},
+  {"id": "c-bars", "title": "④ 특별한 각도 비교", "kind": "sweep", "spoils": false, "syncable": false, "how": "특별한 각도 8개의 비교 집계"},
+  {"id": "c-hist", "title": "⑤ 이웃까지의 거리", "kind": "run-distribution", "spoils": true, "syncable": true, "how": "build()에서 mt=SF.metrics(sim.n, angle, true)를 최종 n으로 한 번만 계산 -> 재생 중엔 SF.metrics(sim.placed, angle, true)로 다시 계산(2~3프레임에 한 번, placed>=수십일 때부터)"}
+ ],
+ "stat_cards": true,
+ "effort": "low",
+ "notes": "스포일러는 ⑤ 히스토그램과 통계 카드 4장(빈틈 평균/최대 빈틈/변동계수/번호 차이)뿐이며 모두 최종 n 기준 mt에서 나옴; metrics는 순수 함수라 placed로 재계산 가능(n=600에서 수 ms). ③④ 스윕은 전 기간 고정 값이라 유지. 씨앗이 너무 적을 때(nn 구간 20~80%) 빈 배열 주의"
+}

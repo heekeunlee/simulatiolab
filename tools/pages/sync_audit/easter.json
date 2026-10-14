@@ -1,0 +1,50 @@
+{
+ "slug": "easter",
+ "main_anim": true,
+ "progress": "sim.year() (년, 최대 600; sim.P.length-1 스텝 x yearsPerStep)",
+ "charts": [
+  {
+   "id": "c-time",
+   "title": "② 인구와 숲의 변화",
+   "kind": "run-trajectory",
+   "spoils": false,
+   "syncable": true,
+   "how": "sim.P/sim.R가 재생과 함께 자람(x축은 전체 years 고정). 단 y축 최대값이 Math.max(...sim.P)라 재생 중 눈금이 바뀜"
+  },
+  {
+   "id": "c-phase",
+   "title": "③ 숲과 인구의 궤적 (위상도)",
+   "kind": "run-trajectory",
+   "spoils": false,
+   "syncable": true,
+   "how": "궤적은 sim.P/sim.R 길이만큼만 그려지고 '지금' 점이 끝을 따라감; 두 영년선(nullcline)은 이론 곡선"
+  },
+  {
+   "id": "c-growth",
+   "title": "④ 인구가 빨리 늘수록",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "증가 속도별 전체 기간 결과(ES.outcomeOf)"
+  },
+  {
+   "id": "c-regrow",
+   "title": "⑤ 숲이 천천히 자랄수록",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "회복 속도별 결과"
+  },
+  {
+   "id": "c-cons",
+   "title": "⑥ 벌채를 줄이면 (보존)",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "보존율별 결과"
+  }
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "카드는 sim.current()/peakP/minR 등 지금까지 값이고 '결과'도 done일 때만 표시. 선택 개선: y축 pmax를 전체 실행 최대로 고정하면 눈금 덜컹임 제거(스포일 아님)."
+}

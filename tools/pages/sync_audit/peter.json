@@ -1,0 +1,14 @@
+{
+ "slug": "peter",
+ "main_anim": true,
+ "progress": "sim.year (년, advance()마다 1씩; sim.history[year]=조직 효율)",
+ "charts": [
+  {"id": "c-pyramid", "title": "① 조직이 바뀌는 모습", "kind": "run-distribution", "spoils": false, "syncable": true, "how": "메인 재생 화면 자체(현재 sim.levels)"},
+  {"id": "c-eff", "title": "② 조직 효율의 변화", "kind": "run-trajectory", "spoils": false, "syncable": true, "how": "sim.history가 해마다 push되어 재생과 함께 자람, x축은 전체 years로 고정(y축 범위만 값에 따라 조금 변함)"},
+  {"id": "c-levels", "title": "③ 단계별 평균 능력", "kind": "run-distribution", "spoils": false, "syncable": true, "how": "sim.levelMeans()가 현재 시점 값이라 재생과 함께 변함"},
+  {"id": "c-cmp", "title": "④ 승진 방식 비교", "kind": "sweep", "spoils": false, "syncable": false, "how": "승진 방식 4가지 x 가설 2가지를 12번씩 돌린 집계(PT.finalEfficiency)"}
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "카드(renderStats)도 현재 year 기준이라 재생과 함께 변함"
+}

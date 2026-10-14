@@ -1,0 +1,34 @@
+{
+ "slug": "admission",
+ "main_anim": true,
+ "progress": "sim.current() (배정 단계: fr.n, fr.a[i]=아이별 현재 배정, sim.advance()/sim.done()) - 단위는 접수 순서/지망 라운드",
+ "charts": [
+  {
+   "id": "c-dist",
+   "title": "② 네 방식, 아이들은 어디로 갔나",
+   "kind": "run-distribution",
+   "spoils": true,
+   "syncable": true,
+   "how": "선택된 방식 행만 cmp[mech].dist 대신 sim.current().a와 S.trueRank로 지금까지 배정된 아이의 지망 버킷을 세고(미배정은 '배정 못 받음'), 나머지 3개 행은 비교용 최종값이라 그대로 두거나 재생 중 흐리게"
+  },
+  {
+   "id": "c-lie",
+   "title": "③ 순위를 바꿔 적으면 이득을 볼까",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "4가지 방식 각각을 최종 배정에서 60명 표본으로 시험한 비교 집계라 재생 시점과 무관"
+  },
+  {
+   "id": "c-sweep",
+   "title": "④ 언제 솔직함이 손해가 될까",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "취향 유사도를 바꿔 가며 여러 번 돌린 sweep"
+  }
+ ],
+ "stat_cards": true,
+ "effort": "medium",
+ "notes": "카드 4개 중 3개(1지망 비율, 억울한 아이, 먼저 접수한 집의 이득)가 cmp[선택 방식]의 최종값이라 spoil; 재생 중 값은 sim.current().a로 계산해야 함. '내 아이 시험'(drawFocus)도 최종 배정 기준 문장이라 재생 중에는 숨기거나 흐리게. 보스턴/지연수락은 임시 배정(tentative)이 바뀌므로 최종 전 값은 잠정치."
+}

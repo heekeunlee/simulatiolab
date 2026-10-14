@@ -1,0 +1,34 @@
+{
+ "slug": "inspection",
+ "main_anim": true,
+ "progress": "sim.round (도착한 승객 수, sim.advance()마다 +1, 총 params.n)",
+ "charts": [
+  {
+   "id": "c-hist",
+   "title": "② 버스를 센 간격과 승객이 본 간격",
+   "kind": "run-distribution",
+   "spoils": true,
+   "syncable": true,
+   "how": "sim.seen()이 승객 전원(n명)의 값이라 재생 전부터 최종 분포. sim.pass.slice(0, sim.round).map(q=>q.gap)로 자르고 평균선도 같이. (버스 간격 heads는 미리 만든 세계라 그대로 둠)"
+  },
+  {
+   "id": "c-cv",
+   "title": "③ 들쭉날쭉할수록 오래 기다린다",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "변동계수 0~2를 별도 3000명 실행한 집계 + 이론 곡선"
+  },
+  {
+   "id": "c-class",
+   "title": "④ 같은 착시: 내 반은 왜 늘 붐빌까",
+   "kind": "theory",
+   "spoils": false,
+   "syncable": false,
+   "how": "승객 재생과 무관한 별도 학급 데이터(IN.classes). 재생과 엮을 대상 아님"
+  }
+ ],
+ "stat_cards": true,
+ "effort": "low",
+ "notes": "카드 중 승객이 본 평균 간격(meanSeen)·평균 대기(meanWait)는 n명 최종값 -> sumSeen/round, sumWait/round로 바꾸면 됨(이미 sim에 누적값 있음). 버스 평균(busMean)은 사전 생성이라 유지. ①의 '지금까지 평균 대기'는 이미 동기"
+}

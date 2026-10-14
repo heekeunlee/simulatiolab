@@ -86,24 +86,28 @@
   // ---------- ② 낙찰자 손익 분포 ----------
   function drawHist() {
     const c = L.chart($('c-hist'), THUMB ? 1 : 0.7, { b: 40 }), { ctx, m, pw, ph } = c;
-    let lo = Infinity, hi = -Infinity, sum = 0; hist.forEach((v) => { if (v < lo) lo = v; if (v > hi) hi = v; sum += v; });
+    // 축 범위는 미리 계산한 표본(hist)으로 고정하고, 막대·평균은 재생이 도달한 경매(sim.profits)까지만 그린다
+    let lo = Infinity, hi = -Infinity, sum = 0; hist.forEach((v) => { if (v < lo) lo = v; if (v > hi) hi = v; });
     lo = Math.min(lo, -5); hi = Math.max(hi, 5); const pad = (hi - lo) * 0.04; lo -= pad; hi += pad;
-    const nb = 40, counts = new Array(nb).fill(0); hist.forEach((v) => { counts[Math.min(nb - 1, Math.floor(((v - lo) / (hi - lo)) * nb))]++; });
-    const cmax = Math.max(...counts), X = (v) => m.l + ((v - lo) / (hi - lo)) * pw, Y = (v) => m.t + ph - (v / cmax) * ph;
+    const cur = sim.profits.slice(0, sim.round), nb = 40, counts = new Array(nb).fill(0), fc = new Array(nb).fill(0);
+    cur.forEach((v) => { sum += v; counts[Math.max(0, Math.min(nb - 1, Math.floor(((v - lo) / (hi - lo)) * nb)))]++; });
+    hist.forEach((v) => { fc[Math.max(0, Math.min(nb - 1, Math.floor(((v - lo) / (hi - lo)) * nb)))]++; });
+    const total = sim.params.rounds, cmax = Math.max(Math.ceil((Math.max(...fc) * total) / hist.length * 1.25), 4, ...counts), X = (v) => m.l + ((v - lo) / (hi - lo)) * pw, Y = (v) => m.t + ph - (v / cmax) * ph;
     const step = (hi - lo) > 120 ? 40 : (hi - lo) > 60 ? 20 : 10, xt = []; for (let t = Math.ceil(lo / step) * step; t <= hi; t += step) xt.push(t);
     L.axes(c, { X, Y, yTicks: [0, 0.5, 1].map((q) => q * cmax), yFmt: (v) => String(Math.round(v)), xTicks: xt, xFmt: (v) => String(v), xLabel: '낙찰자 손익 (가치 100 기준)', yLabel: '경매 횟수 (번)' });
     const bw = pw / nb;
     counts.forEach((v, i) => { const mid = lo + ((i + 0.5) / nb) * (hi - lo); ctx.fillStyle = mid < 0 ? mix(css('--unlucky'), 0.8) : mix(css('--lucky'), 0.8); ctx.fillRect(m.l + i * bw + 0.5, Y(v), Math.max(1, bw - 1), m.t + ph - Y(v)); });
     L.vline(c, X(0), css('--text'), '손익 0', 'right');
-    const mean = sum / hist.length; ctx.setLineDash([4, 3]); ctx.strokeStyle = '#d19200'; ctx.beginPath(); ctx.moveTo(X(mean), m.t + 18); ctx.lineTo(X(mean), m.t + ph); ctx.stroke(); ctx.setLineDash([]);
+    const mean = cur.length ? sum / cur.length : null;
+    if (mean != null) { ctx.setLineDash([4, 3]); ctx.strokeStyle = '#d19200'; ctx.beginPath(); ctx.moveTo(X(mean), m.t + 18); ctx.lineTo(X(mean), m.t + ph); ctx.stroke(); ctx.setLineDash([]);
     // 평균 라벨: 막대 위에서도 읽히게 흰 테두리를 두르고 굵게
     const ml = `평균 ${f1(mean)}`, mx = X(mean) + (mean > (lo + hi) / 2 ? -6 : 6);
     ctx.textAlign = mean > (lo + hi) / 2 ? 'right' : 'left'; ctx.font = '600 12px -apple-system, "Apple SD Gothic Neo", sans-serif';
     ctx.lineWidth = 4; ctx.lineJoin = 'round'; ctx.strokeStyle = 'rgba(255,255,255,.95)'; ctx.strokeText(ml, mx, m.t + 30); ctx.lineWidth = 1;
-    ctx.fillStyle = '#b07a00'; ctx.fillText(ml, mx, m.t + 30);
+    ctx.fillStyle = '#b07a00'; ctx.fillText(ml, mx, m.t + 30); }
     const lc = Object.assign({}, c, { m: Object.assign({}, m, { t: m.t + 40 }), ph: ph - 40 });
     const bars = counts.map((v, i) => [m.l + (i + 0.5) * bw, Y(v)]).filter((q, i) => counts[i] > 0);
-    for (let dx = -60; dx <= 60; dx += 10) bars.push([X(mean) + dx, m.t + 24]);
+    if (mean != null) for (let dx = -60; dx <= 60; dx += 10) bars.push([X(mean) + dx, m.t + 24]);
     L.legend(lc, [{ kind: 'box', color: mix(css('--unlucky'), 0.8), label: '손해 본 경매' }, { kind: 'box', color: mix(css('--lucky'), 0.8), label: '이익 본 경매' }], pickPos(lc, bars, 2, true));
   }
 

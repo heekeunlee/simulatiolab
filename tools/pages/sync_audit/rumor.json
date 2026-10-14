@@ -1,0 +1,14 @@
+{
+ "slug": "rumor",
+ "main_anim": true,
+ "progress": "sim.round (차례, advance()마다 1씩; sim.history[t]에 차례별 상태 수 기록)",
+ "charts": [
+  {"id": "c-net", "title": "① 소문이 퍼지는 모습", "kind": "run-distribution", "spoils": false, "syncable": true, "how": "메인 재생 화면 자체(현재 sim.rumor/corr 상태)"},
+  {"id": "c-area", "title": "② 시간에 따른 변화", "kind": "run-trajectory", "spoils": false, "syncable": true, "how": "sim.history가 차례마다 push되어 재생과 함께 자람. x축 T=max(len-1,8)이라 재생 중 x축이 늘어나며 눈금이 변함(전체 기간 고정 아님)"},
+  {"id": "c-p", "title": "③ 솔깃할 확률의 문턱", "kind": "sweep", "spoils": false, "syncable": false, "how": "p를 바꿔 8번씩 돌린 집계(RM.reach)"},
+  {"id": "c-corr", "title": "④ 정정이 늦으면 소용없다", "kind": "sweep", "spoils": false, "syncable": false, "how": "정정 시점을 바꿔 10번씩 돌린 집계"}
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "카드는 history 마지막 값이라 재생과 함께 변함; 선택적 개선은 ② x축을 총 차례(미리 모름)로 고정할 수 없어 그대로 두는 것이 낫다. 자체 rAF 루프(공용 harness 아님)"
+}

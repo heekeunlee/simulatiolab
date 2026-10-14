@@ -1,0 +1,34 @@
+{
+ "slug": "apartment",
+ "main_anim": true,
+ "progress": "sim.step (분기 단위), sim.advance()마다 draw() 재호출",
+ "charts": [
+  {
+   "id": "c-price",
+   "title": "② 평균 집값과 오를 수 있는 한계",
+   "kind": "run-trajectory",
+   "spoils": false,
+   "syncable": true,
+   "how": "재생 중 sim 기록(history)이 쌓이는 만큼만 그려져 이미 동기화됨 (sim.history)"
+  },
+  {
+   "id": "c-hot",
+   "title": "③ 얼마나 많은 동네가 너무 비싸졌나",
+   "kind": "run-trajectory",
+   "spoils": false,
+   "syncable": true,
+   "how": "재생 중 sim 기록(history)이 쌓이는 만큼만 그려져 이미 동기화됨"
+  },
+  {
+   "id": "c-sweep",
+   "title": "④ 이웃을 더 따라 할수록, 대출이 쉬울수록",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "전염 세기별 5회 반복 집계라 본질적으로 집계. 재생과 무관"
+  }
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "통계 카드(renderStats)도 history 마지막 값이라 재생 시점과 일치함. 이미 동기화된 구조."
+}

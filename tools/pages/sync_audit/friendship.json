@@ -1,0 +1,18 @@
+{
+ "slug": "friendship",
+ "main_anim": true,
+ "progress": "sim.round (표본 뽑은 횟수, 0~300); sim.sumSelf/sumFriend로 누적 평균. 관계망 자체는 시작부터 고정",
+ "charts": [
+  {"id": "c-3d", "title": "② 입체로 본 관계망 (3D)", "kind": "theory", "spoils": false, "syncable": false,
+   "how": "고정된 관계망의 입체 보기. 시간에 따라 변하는 결과가 아님(app3d.js)"},
+  {"id": "c-hist", "title": "③ 내 친구들은 나보다 친구가 많을까", "kind": "run-distribution", "spoils": true, "syncable": false,
+   "how": "관계망 전체 n명의 (친구들 평균 - 내 친구 수) 분포를 시작부터 그림(M.fr, M.deg). 재생은 '무작위 사람+그 사람이 말한 친구'를 300번 표본 뽑는 것이라 그래프 데이터와 재생 데이터가 다른 단위. 맞추려면 sim.advance에 뽑힌 (a,f) 기록을 남기고 그 표본의 deg 분포로 그리도록 의미를 바꿔야 함(설계 판단 필요)"},
+  {"id": "c-scat", "title": "④ 사람마다 비교하기", "kind": "run-distribution", "spoils": true, "syncable": false,
+   "how": "관계망 전체 n명의 점을 시작부터 모두 그림. 위와 같은 이유로 표본 기록(sim.lastSelf 등을 누적)을 새로 남겨 그 사람들만 점으로 찍어야 함"},
+  {"id": "c-sweep", "title": "⑤ 인기인에게 더 몰릴수록", "kind": "sweep", "spoils": false, "syncable": false,
+   "how": "인기인 쏠림 0~100% x 평균 친구 수 3가지별 6개 관계망 반복 집계. 재생과 무관"}
+ ],
+ "stat_cards": true,
+ "effort": "medium",
+ "notes": "관계망 구조는 재생 전에 이미 완성된 '주어진 세계'라 ③④는 시간에 따른 결과가 아니라 모집단 전체 분포. 통계 카드(평균 친구 수, 친구들의 평균, 더 많은 사람 비율)가 표본 평균이 수렴할 정답을 처음부터 보여 줌(재생 중 변하는 값은 ①의 when 텍스트뿐). 동기화는 '표본으로 뽑힌 사람만 쌓아 그리기'로 의미를 바꾸는 설계 결정이 필요해 보류 권장."
+}

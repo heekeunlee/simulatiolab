@@ -1,0 +1,34 @@
+{
+ "slug": "youtube",
+ "main_anim": true,
+ "progress": "sim.round (라운드, 최대 sim.params.rounds=150), sim.advance()마다 draw()",
+ "charts": [
+  {
+   "id": "c-scatter",
+   "title": "② 품질 vs 구독자",
+   "kind": "run-distribution",
+   "spoils": false,
+   "syncable": true,
+   "how": "sim.subs 현재 값으로 그려짐(이미 동기화). 금색(현재 1위) 표시도 현재 기준"
+  },
+  {
+   "id": "c-worlds",
+   "title": "③ 평행우주 8개",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "같은 설정을 다른 시드로 8번 끝까지 돌린 집계. 이번 실행의 정답이 아님"
+  },
+  {
+   "id": "c-sweep",
+   "title": "④ 인기 순 추천이 늘수록",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "추천 비율별 8회 반복 집계"
+  }
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "카드(1위 구독자, 품질 순위, 상관 등)는 sim.summary() 현재 값이라 이미 동기화됨. 단 ③은 계산이 끝나면 표시되어 재생과 별개로 평행우주 결과를 보여 줌(다른 시드라 스포일러는 아님)."
+}

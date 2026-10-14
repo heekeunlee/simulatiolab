@@ -1,0 +1,26 @@
+{
+ "slug": "schelling",
+ "main_anim": true,
+ "progress": "sim.round (이사 라운드), stepOnce()마다 renderStats·drawGrid·drawLine 호출",
+ "charts": [
+  {
+   "id": "c-line",
+   "title": "② 라운드마다 높아지는 분리도",
+   "kind": "run-trajectory",
+   "spoils": false,
+   "syncable": true,
+   "how": "sim.history가 라운드마다 자람(이미 동기화). x축은 현재 길이에 맞춰 늘어남"
+  },
+  {
+   "id": "c-sweep",
+   "title": "③ 조금만 바라도 크게 갈라진다",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "원하는 비율 0~80%별로 각각 끝까지 돌린 결과 집계"
+  }
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "카드(지금 분리도 등)는 현재 라운드 값. 왼쪽 '처음' 격자는 시작 상태라 문제 없음."
+}

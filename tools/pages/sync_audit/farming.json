@@ -1,0 +1,14 @@
+{
+ "slug": "farming",
+ "main_anim": true,
+ "progress": "sim.t (년, sim.advance(5)로 5년씩 진행; sim.hist.t/R/cover/gShare/hLeft에 시점별 기록)",
+ "charts": [
+  {"id": "c-map", "title": "① 번져 가는 농경", "kind": "run-distribution", "spoils": false, "syncable": true, "how": "메인 재생 화면 자체(현재 F/T 격자)"},
+  {"id": "c-front", "title": "② 전선은 얼마나 멀리 갔을까", "kind": "run-trajectory", "spoils": false, "syncable": true, "how": "sim.hist.t/R이 진행과 함께 자람, x축은 xmaxYears()로 고정. 이론 직선 2개는 처음부터 보이나 비교 기준선"},
+  {"id": "c-arrive", "title": "③ 칸마다 도착 시각", "kind": "run-distribution", "spoils": false, "syncable": true, "how": "sim.T[k]가 도착한 칸만 점으로 찍혀(Infinity는 제외) 재생과 함께 점이 늘어남"},
+  {"id": "c-sweep", "title": "④ 성장률을 바꾸면 속도는", "kind": "sweep", "spoils": false, "syncable": false, "how": "r을 바꿔 가며 1D 시뮬레이션을 따로 돌린 집계(W.speed1D)"}
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "카드는 현재 sim.t 기준(속도는 '재는 중…'으로 시작); 재생 중 무거운 차트는 3프레임에 한 번 그림"
+}

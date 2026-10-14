@@ -1,0 +1,18 @@
+{
+ "slug": "regression",
+ "main_anim": true,
+ "progress": "sim.shown (지금까지 나타난 사람 수, 0~params.n); sim.summary()가 shown 기준으로 계산",
+ "charts": [
+  {"id": "c-scatter", "title": "① 1회 점수와 2회 점수", "kind": "run-distribution", "spoils": false, "syncable": true,
+   "how": "메인 캔버스 그 자체. sim.shown명까지만 점·집단 평균 화살표·회귀선을 그림"},
+  {"id": "c-bars", "title": "② 칭찬받은 쪽과 혼난 쪽의 평균 변화", "kind": "run-summary", "spoils": false, "syncable": true,
+   "how": "sim.summary()(shown 기준)로 이미 재생과 함께 자람. 점선 '진짜 효과'와 이론값 글자는 설정값이라 spoil 아님"},
+  {"id": "c-coach", "title": "③ 코치가 얻는 결론", "kind": "run-summary", "spoils": false, "syncable": true,
+   "how": "S.gap이 shown 기준이라 이미 동기화. 진짜 차이 마름모는 이론값"},
+  {"id": "c-luck", "title": "④ 운이 클수록 어떻게 달라질까", "kind": "sweep", "spoils": false, "syncable": false,
+   "how": "운의 몫 0~100%별 3회 반복 집계(RG.study). 재생과 무관"}
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "이미 shown 기준으로 모두 동기화됨. 사소한 점: 통계 카드 부제의 '1회 상위 N명/하위 N명'은 RG.summarize(sim.data, P.n)로 전체 n명 기준(재생 중 값이 미리 완성돼 있음) - 원하면 sim.summary().nTop/nBot으로 한 줄 교체."
+}

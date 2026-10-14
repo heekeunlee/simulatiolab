@@ -1,0 +1,26 @@
+{
+ "slug": "treasury",
+ "main_anim": true,
+ "progress": "sim.month (개월, 최대 sim.months()) - sim.R[i][0..month]",
+ "charts": [
+  {
+   "id": "c-curve",
+   "title": "② 10년 금리와 채권 가격",
+   "kind": "theory",
+   "spoils": false,
+   "syncable": false,
+   "how": "채권 가격-금리 곡선(볼록성)은 이론 곡선이고 '지금 금리' 점만 sr.y10의 현재 값을 따라감"
+  },
+  {
+   "id": "c-hist",
+   "title": "③ 채권값은 얼마나 달라졌을까",
+   "kind": "run-distribution",
+   "spoils": false,
+   "syncable": true,
+   "how": "이미 sim.priceChangeAt(sim.month)로 지금 개월 시점의 경로별 분포를 그려 재생과 함께 변함; 칸 범위 -24~+24%는 고정"
+  }
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "① 부채꼴(c-fan)도 월 m<=sim.month까지 평균/분위수를 계산해 자람(y축 범위만 이론 기대값으로 미리 고정). 카드 4개는 모두 초기 설정 기준 이론/요약(T.summary)이라 시점과 무관."
+}

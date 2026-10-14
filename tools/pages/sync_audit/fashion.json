@@ -1,0 +1,42 @@
+{
+ "slug": "fashion",
+ "main_anim": true,
+ "progress": "sim.round (라운드, sim.advance()마다 +1)",
+ "charts": [
+  {
+   "id": "c-strip",
+   "title": "② 시간에 따른 유행의 흐름",
+   "kind": "run-trajectory",
+   "spoils": false,
+   "syncable": true,
+   "how": "sim.strip이 라운드마다 push되어 이미 동기"
+  },
+  {
+   "id": "c-div",
+   "title": "③ 스타일의 다양성",
+   "kind": "run-trajectory",
+   "spoils": false,
+   "syncable": true,
+   "how": "sim.history가 라운드마다 push되어 이미 동기"
+  },
+  {
+   "id": "c-beta",
+   "title": "④ 달아나는 속도와 유행의 속도",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "beta 0~5를 별도 300라운드 실행한 집계"
+  },
+  {
+   "id": "c-alpha",
+   "title": "⑤ 따라 하는 속도와 유행의 속도",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "alpha를 바꿔 별도 실행한 집계"
+  }
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "카드는 현재 값(followerMean/diversity/rotation/gap). 썸네일(THUMB)만 끝까지 돌린 상태"
+}

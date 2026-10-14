@@ -1,0 +1,34 @@
+{
+ "slug": "checkout",
+ "main_anim": true,
+ "progress": "T (가게 연 지 경과 분, 120~240분), advance()에서 T+=0.1",
+ "charts": [
+  {
+   "id": "c-mean",
+   "title": "② 붐비는 정도에 따른 평균 대기",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "붐빔 정도별 30000명 시뮬+이론 곡선 집계. 재생과 무관"
+  },
+  {
+   "id": "c-p90",
+   "title": "③ 90% 손님이 기다리는 시간",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "붐빔 정도별 집계+이론값"
+  },
+  {
+   "id": "c-hist",
+   "title": "④ 기다림의 분포",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "longRun(손님 15만 명, 별도 시드)의 장기 평균 분포라 화면 속 한 장면의 결과가 아님. 이를 T까지 자르면 의미가 바뀜"
+  }
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "통계 카드와 ④도 15만 명 장기 평균이라 화면의 재생 결과를 미리 보여 주지 않음(화면은 두 가게 비교용 장면일 뿐)."
+}

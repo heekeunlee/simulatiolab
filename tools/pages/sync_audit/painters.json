@@ -1,0 +1,34 @@
+{
+ "slug": "painters",
+ "main_anim": true,
+ "progress": "sim.round (라운드, 최대 params.rounds) / sim.history.length",
+ "charts": [
+  {
+   "id": "c-time",
+   "title": "② 다양성과 쏠림의 변화",
+   "kind": "run-trajectory",
+   "spoils": false,
+   "syncable": true,
+   "how": "sim.history가 재생과 함께 자람, x축은 전체 라운드로 고정"
+  },
+  {
+   "id": "c-map",
+   "title": "③ 화풍 지도",
+   "kind": "run-distribution",
+   "spoils": false,
+   "syncable": true,
+   "how": "sim.style의 현재 상태를 그려 재생과 함께 변함"
+  },
+  {
+   "id": "c-sweep",
+   "title": "④ 따라 그리는 비율이 높아지면",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "따라 그리기 비율별 80라운드 반복 실행 최종값(PA.final)"
+  }
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "카드는 history 마지막 값과 현재 라운드 act라 이미 동기화됨."
+}

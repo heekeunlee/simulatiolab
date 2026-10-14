@@ -1,0 +1,18 @@
+{
+ "slug": "seating",
+ "main_anim": true,
+ "progress": "sim.t (도착한 사람 수, 0~params.arrivals); sim.rows[k].seated/turned/occ는 규칙 4가지 각각의 현재 상태",
+ "charts": [
+  {"id": "c-play", "title": "② 직접 앉혀 보기", "kind": "run-summary", "spoils": false, "syncable": false,
+   "how": "사용자가 직접 클릭해 앉히는 별도 장치(man). 재생과 무관"},
+  {"id": "c-n", "title": "③ 벤치가 길어지면", "kind": "sweep", "spoils": false, "syncable": false,
+   "how": "자리 수 5~200별 150회 평균 + 정확한 기댓값/이론값. 집계라 재생과 무관"},
+  {"id": "c-rules", "title": "④ 앉는 방식에 따라", "kind": "sweep", "spoils": false, "syncable": false,
+   "how": "규칙 4가지 x 300회 평균(S.meanFill). 이번 한 판이 아니라 평균 막대이므로 재생과 동기화 대상 아님"},
+  {"id": "c-g", "title": "⑤ 간격을 넓히면 낭비도 늘까", "kind": "sweep", "spoils": false, "syncable": false,
+   "how": "비우는 칸 0~5별 정확한 기댓값 비교. 재생과 무관"}
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "재생되는 ①(c-rows)은 sim.rows가 도착 순서대로 채워져 이미 라이브이고, 아래 그래프는 전부 집계/이론이라 이번 판의 결과를 미리 보여 주지 않음. 통계 카드 1,4번(놓친 비율, 긴 벤치 이론값)은 300회 평균/이론이라 집계 성격, 2,3번은 이미 sim.t 기준 라이브."
+}

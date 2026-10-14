@@ -1,0 +1,34 @@
+{
+ "slug": "voting",
+ "main_anim": false,
+ "progress": "없음 (선거 한 번을 build()에서 한 번에 계산해 정적으로 표시, play 버튼 없음)",
+ "charts": [
+  {
+   "id": "c-results",
+   "title": "② 같은 표, 네 가지 결과",
+   "kind": "run-summary",
+   "spoils": false,
+   "syncable": false,
+   "how": "재생이 없으므로 동기화 대상 아님"
+  },
+  {
+   "id": "c-agg",
+   "title": "③ 중도 후보를 뽑아 주는 비율",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "같은 설정 선거 200번 집계"
+  },
+  {
+   "id": "c-sweep",
+   "title": "④ 후보가 많아질수록",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "후보 수 2~6별 집계"
+  }
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "시간에 따라 재생되는 화면이 없고 지도(①)도 정적임. 동기화 불필요."
+}

@@ -1,0 +1,34 @@
+{
+ "slug": "ant",
+ "main_anim": true,
+ "progress": "sim.steps (걸음 수, sim.step()으로 1걸음씩)",
+ "charts": [
+  {
+   "id": "c-black",
+   "title": "② 검은 칸의 수",
+   "kind": "run-trajectory",
+   "spoils": false,
+   "syncable": true,
+   "how": "이미 sim.hist.black이 재생과 함께 자람 (x축만 12000~60000으로 고정). 손댈 필요 없음"
+  },
+  {
+   "id": "c-dist",
+   "title": "③ 원점에서 개미까지의 거리",
+   "kind": "run-trajectory",
+   "spoils": false,
+   "syncable": true,
+   "how": "이미 sim.hist.dist가 재생과 함께 자람"
+  },
+  {
+   "id": "c-sweep",
+   "title": "④ 무작위 점으로 시작하면 고속도로는 언제 생길까",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "비율별 10번 반복 집계(별도 실행)라 재생과 무관"
+  }
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "카드(걸음·검은 칸·거리·고속도로 시작)가 모두 sim의 현재 값이라 재생과 함께 변함"
+}

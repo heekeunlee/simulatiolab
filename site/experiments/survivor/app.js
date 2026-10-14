@@ -124,14 +124,29 @@
     else L.drawLegendBelow(c, items);
   }
 
+  // 재생이 도달한 출격 횟수까지만 센 값 (끝까지 가면 최종값과 같다). 너무 적을 때는 ready=false
+  const MIN_ROUNDS = 40;
+  let liveKey = -1, liveVal = null;
+  function live() {
+    if (liveKey === sim.round && liveVal && liveVal.sim === sim) return liveVal;
+    const R = sim.round, P = sim.params;
+    if (R >= P.n) liveVal = { sim, ready: true, picks, full };
+    else if (R < MIN_ROUNDS) liveVal = { sim, ready: false, picks, full: null };
+    else {
+      const pk = sim.picks(P.budget, R);
+      liveVal = { sim, ready: true, picks: pk, full: { none: sim.survival([], R), intuitive: sim.survival(pk.intuitive, R), wald: sim.survival(pk.wald, R), best: sim.survival(pk.best, R) } };
+    }
+    liveKey = R; return liveVal;
+  }
   function strategyRows() {
+    const lv = live(), f = lv.full, pk = lv.picks, rd = lv.ready, R = sim.round;
     const rows = [
-      { k: '보강 없음', arm: [], v: full.none, color: '#8a93a6' },
-      { k: '구멍 많은 곳', arm: picks.intuitive, v: full.intuitive, color: '#e0a100' },
-      { k: '빈 곳 (월드)', arm: picks.wald, v: full.wald, color: css('--accent') },
+      { k: '보강 없음', arm: [], v: rd ? f.none : null, color: '#8a93a6' },
+      { k: '구멍 많은 곳', arm: rd ? pk.intuitive : [], v: rd ? f.intuitive : null, color: '#e0a100' },
+      { k: '빈 곳 (월드)', arm: rd ? pk.wald : [], v: rd ? f.wald : null, color: css('--accent') },
     ];
-    if (mine.length) rows.push({ k: '내 선택', arm: sortNum(mine), v: sim.survival(mine), color: '#1fa463' });
-    rows.push({ k: '최선 (모든 조합 비교)', arm: picks.best, v: full.best, color: '#7c5cff' });
+    if (mine.length) rows.push({ k: '내 선택', arm: sortNum(mine), v: rd ? sim.survival(mine, R) : null, color: '#1fa463' });
+    rows.push({ k: '최선 (모든 조합 비교)', arm: rd ? pk.best : [], v: rd ? f.best : null, color: '#7c5cff' });
     return rows;
   }
   function drawBars() {
@@ -144,8 +159,9 @@
       const y = m.t + i * row + row / 2;
       ctx.textAlign = 'right'; ctx.fillStyle = css('--text'); ctx.font = `600 12px ${FONT}`; ctx.fillText(r.k, m.l - 8, y - 1);
       ctx.fillStyle = css('--muted'); ctx.font = `11px ${FONT}`; ctx.fillText(nameList(r.arm), m.l - 8, y + 12);
-      ctx.fillStyle = r.color; ctx.fillRect(X(0), y - row * 0.28, r.v * pw, row * 0.56);
-      ctx.textAlign = 'left'; ctx.fillStyle = css('--text'); ctx.font = `600 12px ${FONT}`; ctx.fillText(pc(r.v), X(r.v) + 5, y + 4);
+      const v = r.v == null ? 0 : r.v;
+      if (r.v != null) { ctx.fillStyle = r.color; ctx.fillRect(X(0), y - row * 0.28, v * pw, row * 0.56); }
+      ctx.textAlign = 'left'; ctx.fillStyle = css('--text'); ctx.font = `600 12px ${FONT}`; ctx.fillText(r.v == null ? '–' : pc(r.v), X(v) + 5, y + 4);
       ctx.font = `12px ${FONT}`;
     });
   }
@@ -161,15 +177,17 @@
   }
 
   function renderStats() {
-    const P = sim.params, mineV = mine.length ? sim.survival(mine) : null;
+    const P = sim.params, lv = live(), rd = lv.ready, f = lv.full, pk = lv.picks, R = sim.round;
+    const mineV = mine.length && rd ? sim.survival(mine, R) : null;
     const cards = [
-      ['보강 없을 때 생존율', pc(full.none), `${P.n}회 출격 중 ${Math.round(full.none * P.n)}회 귀환`],
-      ['구멍 많은 곳에 보강', pc(full.intuitive), nameList(picks.intuitive)],
-      ['빈 곳에 보강 (월드)', pc(full.wald), nameList(picks.wald)],
-      ['내 선택', mineV == null ? '-' : pc(mineV), mineV == null ? '그림의 부위를 눌러 고르세요' : nameList(sortNum(mine))],
+      ['보강 없을 때 생존율', rd ? pc(f.none) : '-', rd ? `${R}회 출격 중 ${Math.round(f.none * R)}회 귀환` : ''],
+      ['구멍 많은 곳에 보강', rd ? pc(f.intuitive) : '-', rd ? nameList(pk.intuitive) : ''],
+      ['빈 곳에 보강 (월드)', rd ? pc(f.wald) : '-', rd ? nameList(pk.wald) : ''],
+      ['내 선택', mineV == null ? '-' : pc(mineV), mineV == null ? (mine.length ? '' : '그림의 부위를 눌러 고르세요') : nameList(sortNum(mine))],
     ];
     $('stats').innerHTML = cards.map(([k, v, s]) => `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join('');
-    const d = full.wald - full.intuitive;
+    if (!rd) { $('note-s').textContent = ''; return; }
+    const d = f.wald - f.intuitive;
     const dd = Math.abs(d * 100).toFixed(1) + '%p';
     $('note-s').textContent = d >= 0 ? `빈 곳에 보강하면 구멍 많은 곳에 보강할 때보다 생존율이 ${dd} 높아요` : `빈 곳에 보강하면 구멍 많은 곳에 보강할 때보다 생존율이 ${dd} 낮아요`;
   }
@@ -230,7 +248,7 @@
     }
   });
   NAMES.forEach((nm, s) => { const b = $('tg-' + s); if (b) b.addEventListener('click', () => toggle(s)); });
-  $('pick-int').addEventListener('click', () => setMine(picks.intuitive));
-  $('pick-wald').addEventListener('click', () => setMine(picks.wald));
+  $('pick-int').addEventListener('click', () => setMine(live().picks.intuitive));
+  $('pick-wald').addEventListener('click', () => setMine(live().picks.wald));
   $('pick-clear').addEventListener('click', () => setMine([]));
 })();

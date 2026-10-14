@@ -1,0 +1,16 @@
+{
+ "slug": "coincidence",
+ "main_anim": true,
+ "progress": "sim.round (모임 횟수, 0~300); sim.log[k]=k번째 모임 결과 비트, sim.history[i]=일치 비율",
+ "charts": [
+  {"id": "c-a", "title": "② 어딘가에서 일치할 확률", "kind": "sweep", "spoils": false, "syncable": false,
+   "how": "인원 수별로 800번씩 돌린 점 + 이론 곡선. 재생과 무관한 집계"},
+  {"id": "c-b", "title": "③ \"어딘가에서\"와 \"나와\"", "kind": "sweep", "spoils": false, "syncable": false,
+   "how": "인원 수별 400번 반복 점 + 이론 곡선. 재생과 무관"},
+  {"id": "c-c", "title": "④ 사람은 N명, 짝은 N(N−1)/2쌍", "kind": "theory", "spoils": false, "syncable": false,
+   "how": "순수 이론 곡선"}
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "아래 그래프 셋 다 이론/집계라 재생 결과를 미리 보여 주지 않음. 재생 중 변하는 기록(칸 격자, 누적 일치율)은 이미 메인 캔버스 안에 있고 sim.round까지만 그려짐. 통계 카드의 계산값은 이론값이고 '직접 돌린 N번' 부분은 이미 라이브."
+}

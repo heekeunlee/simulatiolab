@@ -1,0 +1,15 @@
+{
+ "slug": "alliance",
+ "main_anim": true,
+ "progress": "sim.round (라운드, sim.advance()로 1씩 증가; sim.history[t]={a,b} 라운드별 기록)",
+ "charts": [
+  {"id": "c-net", "title": "① 동맹을 따라 번지는 모습", "kind": "run-distribution", "spoils": false, "syncable": true, "how": "메인 재생 화면 자체(현재 sim.side 상태)"},
+  {"id": "c-time", "title": "② 라운드별 전쟁에 들어간 나라", "kind": "run-trajectory", "spoils": false, "syncable": true, "how": "sim.history가 advance()마다 한 칸씩 늘어 이미 재생과 함께 자람(축 T=max(len-1,6)이라 x축이 조금 늘어나는 정도)"},
+  {"id": "c-hist", "title": "③ 같은 설정에서 총성이 300번 울리면", "kind": "sweep", "spoils": false, "syncable": false, "how": "300개 세계 집계(AL.sizes)라 이번 실행과 무관"},
+  {"id": "c-allies", "title": "④ 동맹이 촘촘해질수록", "kind": "sweep", "spoils": false, "syncable": false, "how": "동맹 수를 바꿔 가며 반복한 비교 그래프"},
+  {"id": "c-commit", "title": "⑤ 조약을 더 잘 지킬수록", "kind": "sweep", "spoils": false, "syncable": false, "how": "조약 준수 확률을 바꿔 가며 반복한 비교 그래프"}
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "통계 카드(renderStats)도 현재 sim 상태(size/counts/round)라 재생과 함께 변하고 '진행 중/끝'까지 표시함; 고칠 것 없음"
+}

@@ -1,0 +1,34 @@
+{
+ "slug": "weakties",
+ "main_anim": true,
+ "progress": "sim.sp.step (턴) / sim.t90 (90% 도달 턴, 미도달 -1)",
+ "charts": [
+  {
+   "id": "c-small",
+   "title": "② 거리는 급히 줄고 무리는 그대로",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "약한 연결 비율별 그래프 지표(W.sweep) 비교"
+  },
+  {
+   "id": "c-spread",
+   "title": "③ 소식이 퍼지는 속도 비교",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "고정 비율 5개와 '지금 설정'의 8회 평균 전파 곡선(W.curve)으로 이번 실행 한 번이 아니라 집계이며 sim.sp.step 위치에 세로선만 더하면 진행 표시 가능(선택)"
+  },
+  {
+   "id": "c-t90",
+   "title": "④ 약한 연결이 얼마나 필요할까",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "비율별 90% 도달 평균 턴(W.sweep)"
+  }
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "카드 중 '소식이 90%에 퍼지는 속도'(base0/baseCur)와 '약한 연결' 개수는 사전 계산한 평균/설정값으로 이번 실행의 정답이 아님; 이번 실행 값(알고 있는 사람, 90% 도달)은 현재 턴까지만 표시됨."
+}

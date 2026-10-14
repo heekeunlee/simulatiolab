@@ -1,0 +1,15 @@
+{
+ "slug": "braess",
+ "main_anim": true,
+ "progress": "sim.round (라운드, 0~params.rounds=180; sim.avg[r], sim.shares[r]에 라운드별 기록)",
+ "charts": [
+  {"id": "c-net", "title": "① 출근길 지켜보기", "kind": "run-distribution", "spoils": false, "syncable": true, "how": "메인 재생 화면 자체(현재 cnt/route 상태)"},
+  {"id": "c-time", "title": "② 평균 출근 시간의 변화", "kind": "run-trajectory", "spoils": false, "syncable": true, "how": "sim.avg가 라운드마다 push되어 재생과 함께 자람, x축은 전체 rounds로 고정. 다만 y축 범위가 avg 값에 따라 변하고 이론 균형선(S.closed/open/opt)이 처음부터 그려짐"},
+  {"id": "c-shares", "title": "③ 어느 길을 고르게 될까", "kind": "run-trajectory", "spoils": false, "syncable": true, "how": "sim.shares가 라운드마다 push되어 재생과 함께 자람, x축 고정"},
+  {"id": "c-n", "title": "④ 지름길은 언제 도움이 되고 언제 해로울까", "kind": "theory", "spoils": false, "syncable": false, "how": "운전자 수를 훑은 이론 균형 곡선(B.curveN)이라 실행과 무관"},
+  {"id": "c-c", "title": "⑤ 지름길 비용을 올리면", "kind": "theory", "spoils": false, "syncable": false, "how": "지름길 비용을 훑은 이론 균형 곡선(B.curveC)이라 실행과 무관"}
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "②의 점선과 카드 2~4번은 이론 균형값(정답)이 처음부터 보이지만 이는 시뮬레이션이 수렴하는 목표선으로 의도된 비교 기준; 카드 1번만 현재 라운드 값. 굳이 숨기려면 low"
+}

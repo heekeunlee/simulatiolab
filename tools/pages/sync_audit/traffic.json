@@ -1,0 +1,18 @@
+{
+ "slug": "traffic",
+ "main_anim": true,
+ "progress": "sim.step (경과 초, 끝 없이 계속 진행); sim.pos/vel가 현재 차 위치·속도, sim.rows가 최근 160초 기록",
+ "charts": [
+  {"id": "c-space", "title": "② 시간에 따라 변하는 도로 (시간-위치 그림)", "kind": "run-trajectory", "spoils": false, "syncable": true,
+   "how": "sim.rows(최근 160초)를 위에서부터 쌓아 그려서 이미 재생과 함께 자람"},
+  {"id": "c-fd", "title": "③ 도로가 차면 통과 대수는 어떻게 될까", "kind": "sweep", "spoils": false, "syncable": false,
+   "how": "밀도 5~60%별 별도 도로를 돌려 구한 통과 대수 곡선(TR.measure). 재생과 무관한 집계"},
+  {"id": "c-p", "title": "④ 작은 브레이크의 큰 효과", "kind": "sweep", "spoils": false, "syncable": false,
+   "how": "브레이크 확률 0~50%별 3개 도로 평균 속도. 재생과 무관"},
+  {"id": "c-3d", "title": "⑤ 3D로 보기: 시간을 높이로 쌓은 도로", "kind": "run-trajectory", "spoils": false, "syncable": true,
+   "how": "app3d.js가 TrafficView(sim.rows 등)를 그대로 읽어 그림 - 이미 재생과 함께 자람"}
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "정해진 끝이 없는 연속 시뮬레이션이고 통계 카드(평균 속도, 멈춘 차, 통과 대수)도 매 단계 sim.stats()로 갱신. 미리 보여 주는 최종 결과 없음."
+}

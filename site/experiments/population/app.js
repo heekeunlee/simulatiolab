@@ -52,7 +52,8 @@
     const Y = (v) => m.t + ph - ((v / 1e6 - lo) / (hi - lo)) * ph;
     L.axes(c, { X, Y: (v) => Y(v * 1e6), yTicks: [0, 10, 20, 30, 40, 50, 60, 70], yFmt: (v) => String(v), xTicks: [2024, 2035, 2045, 2055, 2070], xFmt: (v) => String(v), xLabel: '시간 (연도)', yLabel: '총인구 (백만 명)' });
     const series = (h, color, width, dash) => { ctx.setLineDash(dash || []); L.line(ctx, h.map((d) => [X(d.year), Y(d.total)]), color, width); ctx.setLineDash([]); };
-    series(refHigh, css('--lucky'), 2, [5, 3]); series(refLow, '#8a93a6', 2, [5, 3]);
+    const upto = (h) => h.filter((d) => d.year <= sim.year);
+    series(upto(refHigh), css('--lucky'), 2, [5, 3]); series(upto(refLow), '#8a93a6', 2, [5, 3]);
     series(sim.history, css('--accent'), 3);
     const last = sim.history[sim.history.length - 1]; ctx.fillStyle = css('--accent'); ctx.beginPath(); ctx.arc(X(last.year), Y(last.total), 4.5, 0, 7); ctx.fill();
     L.legend(c, [{ kind: 'line', color: css('--accent'), label: '지금 설정' }, { kind: 'dash', color: css('--lucky'), label: '합계출산율 1.5' }, { kind: 'dash', color: '#8a93a6', label: '합계출산율 0.7' }], 'tr');

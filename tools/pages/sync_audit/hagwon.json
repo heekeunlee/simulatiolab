@@ -1,0 +1,15 @@
+{
+ "slug": "hagwon",
+ "main_anim": true,
+ "progress": "sim.round (라운드, 0~params.rounds; sim.outcome/net/meanE/shares[r]에 라운드별 기록)",
+ "charts": [
+  {"id": "c-race", "title": "① 학원 경쟁 지켜보기", "kind": "run-distribution", "spoils": false, "syncable": true, "how": "메인 재생 화면 자체(현재 sim.e/score)"},
+  {"id": "c-time", "title": "② 결과는 그대로, 학원비만 오른다", "kind": "run-trajectory", "spoils": false, "syncable": true, "how": "sim.outcome/net/meanE가 라운드마다 push되어 재생과 함께 자람, x축은 전체 rounds로 고정"},
+  {"id": "c-shares", "title": "③ 몇 개씩 보내는 집이 몇 퍼센트일까", "kind": "run-trajectory", "spoils": false, "syncable": true, "how": "sim.shares가 라운드마다 push되어 재생과 함께 자람, x축 고정"},
+  {"id": "c-gain", "title": "④ 우리 집만 하나 더 보내면 이득일까", "kind": "theory", "spoils": false, "syncable": false, "how": "모두가 같은 학원 수일 때의 이론 곡선(H.symmetric), 세로선 '지금 평균'만 현재값(sim.e 평균)과 연동 안 됨(after/redrawExtra에서만 다시 그림)"},
+  {"id": "c-net", "title": "⑤ 모두가 같은 수만큼 보내면 남는 이득은", "kind": "theory", "spoils": false, "syncable": false, "how": "상대/절대평가 이론 곡선, 실행과 무관"}
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "카드는 sim.round 시점 값(meanE[R], net[R])이라 재생 따라감; ④⑤의 '지금 평균' 세로선은 재생 중 갱신되지 않아 최종값 쪽을 가리킬 수 있는지 확인 가치만 있음(정답 노출은 아님)"
+}

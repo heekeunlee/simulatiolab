@@ -94,25 +94,27 @@
       done() { return sim.round >= N; },
       run() { while (sim.advance()); return sim; },
       // 전체 출격 기준 결과 (애니메이션 진행과 무관)
-      totals() {
+      totals(upTo) {
+        const M = upTo == null ? N : Math.min(N, upTo);
         const all = [0, 0, 0, 0, 0], ret = [0, 0, 0, 0, 0]; let r = 0;
-        for (let i = 0; i < N; i++) { if (!down[i]) r++; for (let q = start[i]; q < start[i + 1]; q++) { all[hs[q]]++; if (!down[i]) ret[hs[q]]++; } }
+        for (let i = 0; i < M; i++) { if (!down[i]) r++; for (let q = start[i]; q < start[i + 1]; q++) { all[hs[q]]++; if (!down[i]) ret[hs[q]]++; } }
         return { all, ret, returned: r };
       },
       // 장갑을 댄 부위 arm에서의 생존율 (같은 총탄, 같은 운)
-      survival(arm) {
+      survival(arm, upTo) {
+        const M = upTo == null ? N : Math.min(N, upTo);
         const a = [0, 0, 0, 0, 0]; arm.forEach((s) => { a[s] = 1; });
         let ok = 0;
-        for (let i = 0; i < N; i++) {
+        for (let i = 0; i < M; i++) {
           let dead = false;
           for (let q = start[i]; q < start[i + 1]; q++) { const s = hs[q]; if (hu[q] < L[s] && !(a[s] && hv[q] < p.armor)) { dead = true; break; } }
           if (!dead) ok++;
         }
-        return ok / N;
+        return M ? ok / M : 0;
       },
       // 직관: 구멍이 가장 많은 부위, 월드: 넓이 대비 구멍이 가장 적은 부위, 최선: 모든 조합 중 이론 생존율이 가장 높은 조합
-      picks(k) {
-        const t = sim.totals(), idx = [0, 1, 2, 3, 4];
+      picks(k, upTo) {
+        const t = sim.totals(upTo), idx = [0, 1, 2, 3, 4];
         const intuitive = idx.slice().sort((a, b) => t.ret[b] - t.ret[a] || a - b).slice(0, k).sort();
         const wald = idx.slice().sort((a, b) => t.ret[a] / AREA[a] - t.ret[b] / AREA[b] || a - b).slice(0, k).sort();
         let best = null, bv = -1; combos(k).forEach((c) => { const v = theory(p, c); if (v > bv) { bv = v; best = c; } });

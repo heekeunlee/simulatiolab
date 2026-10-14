@@ -1,0 +1,34 @@
+{
+ "slug": "wildfire",
+ "main_anim": true,
+ "progress": "A.step / B.step (단계, advance()마다 +1, 끝없이 진행)",
+ "charts": [
+  {
+   "id": "c-dens",
+   "title": "② 숲에 나무가 얼마나 찰까",
+   "kind": "run-trajectory",
+   "spoils": false,
+   "syncable": true,
+   "how": "A.dens/B.dens가 단계마다 push되어 이미 동기 (x축은 max(len,60)로 자람)"
+  },
+  {
+   "id": "c-size",
+   "title": "③ 불의 크기 분포",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "화면 숲과 다른 시드로 14000+단계를 별도 선계산(precompute)한 장기 통계, 화면 숲을 미리 보여 주지 않음"
+  },
+  {
+   "id": "c-area",
+   "title": "④ 탄 면적은 어떤 불이 태웠나",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "위 선계산 결과(pre.sA/sB)"
+  }
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "카드 4개도 선계산 장기 통계('계산 중…' 표시 후 채움)라 보이는 숲과 분리됨. 오히려 장기 통계 vs 지금 숲을 설명하는 문구만 확인하면 충분"
+}

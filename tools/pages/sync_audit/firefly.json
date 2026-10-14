@@ -1,0 +1,50 @@
+{
+ "slug": "firefly",
+ "main_anim": true,
+ "progress": "sim.step (스텝, 주기=step*dt), sim.advance()마다 draw()",
+ "charts": [
+  {
+   "id": "c-clock",
+   "title": "② 위상 시계",
+   "kind": "run-distribution",
+   "spoils": false,
+   "syncable": true,
+   "how": "현재 위상(sim.phase)으로 그림. 이미 현재 상태"
+  },
+  {
+   "id": "c-time",
+   "title": "③ 시간에 따른 동기화",
+   "kind": "run-trajectory",
+   "spoils": false,
+   "syncable": true,
+   "how": "sim.history가 재생과 함께 자람. x축은 전체 주기 고정"
+  },
+  {
+   "id": "c-coupling",
+   "title": "④ 서로 앞당겨 주는 정도를 바꾸면",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "결합 세기별 3회 반복 30주기 뒤 r 집계"
+  },
+  {
+   "id": "c-radius",
+   "title": "⑤ 볼 수 있는 범위를 바꾸면",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "범위별 3회 반복 집계"
+  },
+  {
+   "id": "c-3d",
+   "title": "⑥ 입체 숲에서 보기",
+   "kind": "run-distribution",
+   "spoils": false,
+   "syncable": true,
+   "how": "app3d.js가 같은 설정으로 따로 재생되는 3D 화면(메인 애니의 변형)"
+  }
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "카드(동기화 r, 지난 주기, 최대 동시 반짝임)는 현재 시점 값. 이미 동기화됨."
+}

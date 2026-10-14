@@ -1,0 +1,16 @@
+{
+ "slug": "monkey",
+ "main_anim": true,
+ "progress": "sim.step (단계, 0~params.maxSteps); sim.chanceAttempts / sim.selGen는 누적 시도·세대",
+ "charts": [
+  {"id": "c-race", "title": "② 시도 횟수와 맞은 글자 수", "kind": "run-trajectory", "spoils": false, "syncable": true,
+   "how": "sim.chanceHist / sim.selHist가 재생 중 쌓인 만큼만 그려지고 x축은 전체 범위로 고정되어 있어 이미 동기화됨"},
+  {"id": "c-expect", "title": "③ 문장이 길어지면", "kind": "sweep", "spoils": false, "syncable": false,
+   "how": "문장 길이별 6회 반복 평균(selectionAttempts) + 우연 이론값 27^L. 재생과 무관한 집계"},
+  {"id": "c-mut", "title": "④ 돌연변이율을 바꾸면", "kind": "sweep", "spoils": false, "syncable": false,
+   "how": "돌연변이율 8가지별 6회 반복 집계. 재생과 무관"}
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "통계 카드 1,2번은 sim.chanceBestMatch/selMatch로 이미 라이브. 3,4번(27^L 기대 시도, 우주 나이 비교)은 이론값이라 spoil 아님."
+}

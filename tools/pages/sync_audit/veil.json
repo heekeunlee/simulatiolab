@@ -1,0 +1,34 @@
+{
+ "slug": "veil",
+ "main_anim": true,
+ "progress": "sim.step (추첨 횟수, sim.advance()마다 +1, 총 params.draws=120)",
+ "charts": [
+  {
+   "id": "c-ce",
+   "title": "② 위험이 싫을수록 달라지는 점수",
+   "kind": "theory",
+   "spoils": false,
+   "syncable": false,
+   "how": "γ별 확실성 등가 소득 곡선(결정적 이론값), 추첨 결과와 무관"
+  },
+  {
+   "id": "c-pop",
+   "title": "③ 1,000명이 각자 고르면",
+   "kind": "sweep",
+   "spoils": false,
+   "syncable": false,
+   "how": "위험 회피 분포 1,000명의 선택 집계, 추첨 재생과 무관"
+  },
+  {
+   "id": "c-sweep",
+   "title": "④ 고른 사회의 평균과 가장 가난한 자리",
+   "kind": "theory",
+   "spoils": false,
+   "syncable": false,
+   "how": "γ 스윕 이론 곡선"
+  }
+ ],
+ "stat_cards": true,
+ "effort": "none",
+ "notes": "아래 그래프는 전부 이론/집계라 재생 결과를 미리 보여 주지 않음. 카드 중 '지금까지 뽑힌 내 소득'은 이미 동기, 나머지는 선택한 사회의 고정 속성"
+}
