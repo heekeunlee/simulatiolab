@@ -198,6 +198,7 @@ window.I18N && window.I18N.add({
  "원하는 비율이 30%일 때 결과는 {%0}": "When people want 30%, the result is {0}",
  "배치 번호 #{#0}": "Layout #{0}",
  "최종 자본 (시작값 {#0})": "Final capital (starting value {0})",
+ "자본 (시작값 {#0})": "Capital (starting value {0})",
  "노력": "Effort",
  "최고 부자 {0}": "Richest {0}",
  "최고 노력자 {0}": "Top effort {0}",

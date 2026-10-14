@@ -11,6 +11,11 @@
   let seed = 1;
   let sim = null, st = null, anim = null;
   let playing = false, acc = 0, lastTs = 0;
+  let chartT = null;      // 아래 그래프가 보여 주는 시점(6개월 단위). null = 40년 끝(최종)
+  let kRange = [0, 0];    // 전체 기간 동안 사람들의 log2(자본/시작) 최소·최대: 시간이 가도 축이 흔들리지 않게
+  const stepNow = () => (chartT == null ? sim.steps : chartT);
+  const capNow = () => sim.history.subarray(stepNow() * sim.n, (stepNow() + 1) * sim.n);   // 지금 시점의 모두의 자본
+  const statsNow = () => (chartT == null ? st : TL.stats({ n: sim.n, talent: sim.talent, capital: capNow(), params: sim.params }));
   let batchResult = null;
 
   // ---------- 공통 그리기 도구 ----------
@@ -38,8 +43,9 @@
     const lgItems = [{ kind: 'box', color: css('--accent'), label: '시작보다 늘어남' }, { kind: 'box', color: css('--muted'), label: '시작과 같음' }, { kind: 'box', color: mix(css('--muted'), 0.55), label: '시작보다 줄어듦' }], lgSp = Lab.belowSpace($('c-hist'), lgItems);
     const { ctx, w, h } = setup($('c-hist'), 0.95 + lgSp.extra / ($('c-hist').clientWidth || 400));
     const c0 = sim.params.c0;
-    const ks = Array.from(sim.capital, (c) => Math.round(Math.log2(c / c0)));
-    const kmin = Math.min(...ks), kmax = Math.max(...ks);
+    const capT = capNow(), sn = statsNow();
+    const ks = Array.from(capT, (c) => Math.round(Math.log2(c / c0)));
+    const kmin = Math.floor(kRange[0]), kmax = Math.ceil(kRange[1]);
     const counts = new Array(kmax - kmin + 1).fill(0);
     ks.forEach((k) => counts[k - kmin]++);
     const rawMax = Math.max(...counts);
@@ -72,17 +78,17 @@
       ctx.fillStyle = k === 0 ? css('--text') : text;
       ctx.fillText(fmtCap(c0 * Math.pow(2, k)), m.l + i * bw + bw / 2, h - m.b + 16);
     });
-    Lab.axisNames(cc, '최종 자본 (시작값 ' + c0 + ')', '사람 수 (명)');
+    Lab.axisNames(cc, '자본 (시작값 ' + c0 + ')', '사람 수 (명)');
 
     // 최고 부자가 있는 막대 위에 금색 표시
-    const kr = Math.round(Math.log2(sim.capital[st.richest] / c0)) - kmin;
+    const kr = Math.round(Math.log2(capT[sn.richest] / c0)) - kmin;
     const rx = m.l + kr * bw + bw / 2, ry = m.t + ph - (ph * counts[kr]) / cmax - 6;
     ctx.fillStyle = css('--rich');
     ctx.beginPath(); ctx.moveTo(rx, ry); ctx.lineTo(rx - 5, ry - 8); ctx.lineTo(rx + 5, ry - 8); ctx.closePath(); ctx.fill();
     ctx.textAlign = rx > m.l + pw * 0.75 ? 'right' : 'center';
     ctx.fillText('최고 부자', rx + (rx > m.l + pw * 0.75 ? 6 : 0), ry - 12);
     // 핵심 한 줄: 시작값보다 늘어난(파랑) 사람과 그들이 가진 몫
-    const up = Array.from(sim.capital).filter((c) => c > c0 * 1.0001).length;
+    const up = Array.from(capT).filter((c) => c > c0 * 1.0001).length;
     ctx.font = '600 13px -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif';
     ctx.textAlign = 'left'; ctx.fillStyle = css('--accent');
     ctx.fillText(`시작보다 늘어난 사람 ${Math.round(up / sim.n * 100)}% (파랑)`, m.l, 14);
@@ -95,8 +101,9 @@
     const lgItems = [{ kind: 'dot', color: mix(css('--accent'), 0.6), label: '보통 사람' }, { kind: 'dot', color: css('--rich'), label: '최고 부자' }, { kind: 'dot', color: css('--talent'), label: '최고 노력자' }], lgSp = Lab.belowSpace($('c-scatter'), lgItems);
     const { ctx, w, h } = setup($('c-scatter'), 0.7 + lgSp.extra / ($('c-scatter').clientWidth || 400));
     const c0 = sim.params.c0, n = sim.n;
-    const ks = Array.from(sim.capital, (c) => Math.log2(c / c0));
-    const kmin = Math.min(...ks) - 0.8, kmax = Math.max(...ks) + 0.8;
+    const capT = capNow(), sn = statsNow();
+    const ks = Array.from(capT, (c) => Math.log2(c / c0));
+    const kmin = kRange[0] - 0.8, kmax = kRange[1] + 0.8;
     const tmin = Math.min(...sim.talent) - 0.02, tmax = Math.max(...sim.talent) + 0.02;
     const m = { l: 48, r: 10, t: 24, b: lgSp.b };
     const pw = w - m.l - m.r, ph = h - m.t - m.b, cc = { ctx, w, h, m, pw, ph };
@@ -111,7 +118,7 @@
     });
     ctx.textAlign = 'center';
     for (let t = Math.ceil(tmin * 10) / 10; t <= tmax; t += 0.1) ctx.fillText(t.toFixed(1), X(t), h - m.b + 16);
-    Lab.axisNames(cc, '노력', '최종 자본');
+    Lab.axisNames(cc, '노력', '자본');
     // 시작 자본선
     ctx.setLineDash([5, 3]); ctx.strokeStyle = css('--muted'); ctx.beginPath();
     ctx.moveTo(m.l, Y(0)); ctx.lineTo(w - m.r, Y(0)); ctx.stroke(); ctx.setLineDash([]);
@@ -128,8 +135,8 @@
       ctx.textAlign = dx < 0 ? 'right' : 'left'; ctx.fillStyle = color;
       ctx.fillText(label, x + dx, y + 4);
     };
-    mark(st.richest, css('--rich'), '최고 부자 ' + fmtCap(sim.capital[st.richest]), x(st.richest) > m.l + pw * 0.6 ? -10 : 10);
-    mark(st.mostTalented, css('--talent'), '최고 노력자 ' + fmtCap(sim.capital[st.mostTalented]), -10);
+    mark(sn.richest, css('--rich'), '최고 부자 ' + fmtCap(capT[sn.richest]), x(sn.richest) > m.l + pw * 0.6 ? -10 : 10);
+    mark(sn.mostTalented, css('--talent'), '최고 노력자 ' + fmtCap(capT[sn.mostTalented]), -10);
     Lab.drawLegendBelow(cc, lgItems);
     function x(i) { return X(sim.talent[i]); }
   }
@@ -138,7 +145,7 @@
   function drawTimeline() {
     const lgItems = [{ kind: 'line', color: css('--rich'), label: '최고 부자' }, { kind: 'line', color: css('--talent'), label: '최고 노력자' }, { kind: 'up', color: css('--lucky'), label: '행운을 잡음' }, { kind: 'down', color: css('--unlucky'), label: '불운' }, { kind: 'ring', color: '#7a8699', label: '행운이 왔지만 놓침' }], lgSp = Lab.belowSpace($('c-time'), lgItems);
     const { ctx, w, h } = setup($('c-time'), 0.7 + lgSp.extra / ($('c-time').clientWidth || 400));
-    const c0 = sim.params.c0, n = sim.n, T = sim.steps;
+    const c0 = sim.params.c0, n = sim.n, T = sim.steps, tNow = stepNow();
     const k = (t, i) => Math.log2(sim.history[t * n + i] / c0);
     const others = st.byCap.slice(1, 5);
     const series = [st.richest, st.mostTalented, ...others];
@@ -163,7 +170,7 @@
 
     const path = (i, color, width) => {
       ctx.strokeStyle = color; ctx.lineWidth = width; ctx.beginPath(); ctx.moveTo(X(0), Y(k(0, i)));
-      for (let t = 1; t <= T; t++) { ctx.lineTo(X(t), Y(k(t - 1, i))); ctx.lineTo(X(t), Y(k(t, i))); }
+      for (let t = 1; t <= tNow; t++) { ctx.lineTo(X(t), Y(k(t - 1, i))); ctx.lineTo(X(t), Y(k(t, i))); }
       ctx.stroke(); ctx.lineWidth = 1;
     };
     others.forEach((i) => path(i, mix(css('--rich'), 0.3), 1));
@@ -172,7 +179,9 @@
 
     const L = sim.log[st.richest];
     for (let j = 0; j < L.length; j += 2) {
-      const t = L[j], code = L[j + 1], x = X(t), y = Y(k(t, st.richest));
+      const t = L[j], code = L[j + 1];
+      if (t > tNow) break;   // 아직 오지 않은 사건은 그리지 않는다
+      const x = X(t), y = Y(k(t, st.richest));
       // 모양으로도 구분: 행운을 잡음 ▲(초록), 불운 ▼(빨강), 놓친 행운 ◯(회색 속 빈 원)
       const tri = (dir, col) => { ctx.beginPath(); ctx.moveTo(x, y + dir * 5.5); ctx.lineTo(x - 5.5, y - dir * 4.2); ctx.lineTo(x + 5.5, y - dir * 4.2); ctx.closePath(); ctx.lineWidth = 2; ctx.strokeStyle = '#fff'; ctx.stroke(); ctx.fillStyle = col; ctx.fill(); ctx.lineWidth = 1; };
       if (code === TL.LUCKY_USED) tri(-1, css('--lucky'));
@@ -280,11 +289,15 @@
     const bar = $('prog'); if (bar) bar.style.width = (step / anim.steps * 100) + '%';
   }
 
+  // 아래 그래프(②③④)와 통계 카드를 지금 시점(chartT)에 맞춰 다시 그린다
+  function drawCharts() { drawHist(); drawScatter(); drawTimeline(); renderStats(); }
+
   function resetAnim() {
     anim = TL.create(Object.assign({}, sim.params));
     playing = false; acc = 0;
+    chartT = THUMB ? null : 0;   // 재생을 처음부터 하면 그래프도 시작 모습(모두 같은 자본)에서 시작한다
     $('play').textContent = '▶ 재생';
-    drawWorld();
+    drawWorld(); drawCharts();
   }
 
   function tick(ts) {
@@ -293,10 +306,10 @@
       let moved = false;
       while (acc >= 1) {
         acc -= 1;
-        if (!anim.advance()) { playing = false; $('play').textContent = '▶ 다시 재생'; break; }
-        moved = true;
+        if (!anim.advance()) { playing = false; $('play').textContent = '▶ 다시 재생'; chartT = null; moved = true; break; }
+        moved = true; chartT = anim.step;
       }
-      if (moved) drawWorld();
+      if (moved) { drawWorld(); drawCharts(); }   // 위 화면이 한 칸 갈 때마다 아래 그래프도 같은 시점까지만 그린다
     }
     lastTs = ts;
     requestAnimationFrame(tick);
@@ -304,7 +317,7 @@
 
   // ---------- 통계 카드 ----------
   function renderStats() {
-    const c0 = sim.params.c0;
+    const c0 = sim.params.c0, st = statsNow();   // (바깥 st를 가리는 같은 이름: 지금 시점의 값)
     const talRank = st.byTal.indexOf(st.richest) + 1;
     const cards = [
       ['최고 부자의 노력', st.richestTalent.toFixed(2), `평균 ${st.meanTalent.toFixed(2)} · 노력 순위 ${talRank}위 / ${sim.n}명`],
@@ -313,6 +326,7 @@
       ['시작값보다 줄어든 사람', (st.belowInitial * 100).toFixed(0) + '%', '운이 나쁘면 노력해도 줄어요'],
       ['부자 상위 10명 중 노력 상위 10%', st.richInTopDecile + '명', '노력만으로 정해진다면 10명'],
     ];
+    $('stats').classList.toggle('live', chartT != null);
     $('stats').innerHTML = cards.map(([k, v, s]) =>
       `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join('');
   }
@@ -343,11 +357,10 @@
   function run() {
     sim = TL.create(readParams()).run();
     st = TL.stats(sim);
+    { let lo = 0, hi = 0; const c0 = sim.params.c0; for (let i = 0; i < sim.history.length; i++) { const v = Math.log2(sim.history[i] / c0); if (v < lo) lo = v; if (v > hi) hi = v; } kRange = [lo, hi]; }
     $('seedinfo').textContent = `운의 번호 #${seed}`;
-    renderStats();
     resetAnim();
     if (!THUMB) { playing = true; $('play').textContent = '⏸ 일시정지'; } // 실행하면 바로 40년을 재생
-    drawHist(); drawScatter(); drawTimeline();
   }
 
   // ---------- ⑤ 100번 반복 ----------
@@ -437,6 +450,6 @@
 
   showOutputs();
   run();
-  if (THUMB) { anim.run(); drawWorld(); }
+  if (THUMB) { anim.run(); chartT = null; drawWorld(); drawCharts(); }
   requestAnimationFrame((ts) => { lastTs = ts; tick(ts); });
 })();

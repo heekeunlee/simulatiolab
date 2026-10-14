@@ -383,3 +383,7 @@ span.popt { cursor: default; }
 .wlegend .glow { width: 20px; height: 20px; border-radius: 50%; flex: none; background: radial-gradient(circle, rgba(var(--c),.34) 0, rgba(var(--c),0) 72%); }
 
 .wlegend .glow { background: radial-gradient(circle, rgba(var(--c),.55) 0, rgba(var(--c),0) 72%); }
+
+/* 재생 중에는 통계 카드가 '지금까지의 값'이라 살짝 흐리게 */
+#stats { transition: opacity .25s; }
+#stats.live { opacity: .55; }

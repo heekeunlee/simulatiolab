@@ -208,6 +208,7 @@ DYN = {
 '배치 번호 #{#0}': 'Layout #{0}',
 # ---- talent-vs-luck ----
 '최종 자본 (시작값 {#0})': 'Final capital (starting value {0})',
+'자본 (시작값 {#0})': 'Capital (starting value {0})',
 '노력': 'Effort',
 '최고 부자 {0}': 'Richest {0}',
 '최고 노력자 {0}': 'Top effort {0}',
