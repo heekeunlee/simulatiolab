@@ -247,7 +247,7 @@
       tiles.forEach((el) => {
         const s = slugOf(el), x = byId[s]; if (!x) return;
         el.classList.toggle('is-done', isDone(s)); el.classList.toggle('is-star', isStar(s));
-        let nw = el.querySelector('.new-pill'); const want = isNew(x);
+        let nw = el.querySelector('.new-pill'); const want = false;   // (주기율표 칸의 NEW 표시는 사용자 요청으로 뺐다)
         if (want && !nw) { nw = document.createElement('span'); nw.className = 'new-pill'; nw.textContent = T('NEW', 'NEW'); el.appendChild(nw); } else if (!want && nw) nw.remove();
         // (주기율표 칸의 초록 ✓ 표시는 사용자 요청으로 뺐다. 진행 막대의 '해 본 개수'는 그대로 센다)
         const ck = el.querySelector('.done-mark'); if (ck) ck.remove();
