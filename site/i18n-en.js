@@ -204,6 +204,8 @@ window.I18N && window.I18N.add({
  "{0} · 자본 {1}": "{0} · capital {1}",
  "최고 노력자 · 자본 {0}": "Top effort · capital {0}",
  "최고 부자 · 자본 {0}": "Richest · capital {0}",
+ "성공왕 · 자본 {0}": "Success king · capital {0}",
+ "불행왕 · 자본 {0}": "Misfortune king · capital {0}",
  "최고 노력자": "Top effort",
  "최고 부자": "Richest",
  "{#0}년 {#1}개월 · 상위 20%의 몫 {#2}%": "{0} yr {1} mo · top 20% share {2}%",
