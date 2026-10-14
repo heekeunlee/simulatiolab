@@ -67,22 +67,34 @@
       <span class="when" id="when"></span>
     </div>
   </section>
+  <section class="panel chart" style="margin-top:16px">
+    <style>@media (max-width: 640px) { #c-3d { aspect-ratio: 1 / 1; } }</style>
+    <h3 data-en="② See It in 3D: the Moment a Built-Up Forest Goes Up All at Once &lt;span class=&quot;badge3d&quot;&gt;3D&lt;/span&gt;">② 3D로 보기: 쌓이고 쌓인 숲이 한꺼번에 타오르는 순간 <span class="badge3d">3D</span></h3>
+    <p data-en="The forest from the experiment above, stood up in 3D. Each tree is one cone, and the longer a tree has grown, the taller and darker it is. A clump that catches fire shoots up as orange columns of flame and then sinks into dark gray burnt ground. The forest that puts out small fires grows into a dense, connected clump of tall trees, until a single lightning strike turns the whole clump into a wall of flame. Switch between the two forests below.">위 실험의 숲을 그대로 입체로 세웠습니다. 나무 한 그루가 원뿔 하나이고, 오래 자란 나무일수록 키가 크고 색이 짙습니다. 불이 붙은 덩어리는 주황 불기둥으로 솟았다가 짙은 회색 탄 땅으로 내려앉아요. 작은 불을 끄는 숲은 키 큰 나무가 빽빽하게 이어진 덩어리로 자라다가, 번개 한 번에 그 덩어리 전체가 불기둥 벽으로 바뀝니다. 아래에서 두 숲을 바꿔 가며 보세요.</p>
+    <canvas id="c-3d" class="view3d" data-thumb aria-label="② See It in 3D: the Moment a Built-Up Forest Goes Up All at Once"></canvas>
+    <div class="anim-bar">
+      <select id="wf3-forest" aria-label="forest"><option value="sup" selected data-en="Forest that puts out small fires">작은 불 끄기 숲</option><option value="free" data-en="Forest left to burn">그냥 두기 숲</option></select>
+      <span class="when" id="wf3-info"></span>
+    </div>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#2f8f3e&quot;&gt;&lt;/i&gt;Green cone: a tree (taller = grown longer)"><i style="background:#2f8f3e"></i>초록 원뿔: 나무 (키가 클수록 오래 자란 나무)</span><span data-en="&lt;i style=&quot;background:#ff8a1f&quot;&gt;&lt;/i&gt;Orange column: fire burning now"><i style="background:#ff8a1f"></i>주황 기둥: 지금 타는 불</span><span data-en="&lt;i style=&quot;background:#4a4a4f&quot;&gt;&lt;/i&gt;Dark gray ground: just burned (light ground is empty land)"><i style="background:#4a4a4f"></i>짙은 회색 바닥: 방금 탄 땅 (밝은 바닥은 빈 땅)</span></div>
+    <p class="hint3d" data-en="The same forest at the same moment as the experiment above, seen in 3D (nothing new is calculated). Play, pause, restart and the sliders follow the forest above. Drag to rotate, scroll or pinch to zoom; on a phone, swipe vertically to scroll the page.">위 실험과 같은 숲, 같은 순간을 입체로 본 것이에요(새로 계산한 값은 없어요). 재생·일시정지·처음부터·슬라이더는 위 숲을 따라갑니다. 드래그로 회전, 휠·핀치로 확대, 휴대폰에서는 세로로 쓸면 페이지가 내려가요.</p>
+  </section>
 
   <div class="charts">
     <section class="panel chart">
-      <h3 data-en="② How Full Does the Forest Get?">② 숲에 나무가 얼마나 찰까</h3>
+      <h3 data-en="③ How Full Does the Forest Get?">③ 숲에 나무가 얼마나 찰까</h3>
     <p data-en="The tree density (share of cells holding a tree) of both forests over time. The dotted line is the density (about 59%) above which randomly placed trees can form a connected clump spanning the whole forest. The forest that puts out small fires climbs toward the line and then crashes in a big fire.">두 숲의 나무 밀도(칸 중 나무가 있는 비율)가 시간에 따라 변하는 모습입니다. 점선은 칸에 나무가 무작위로 이 정도 있으면 이어진 덩어리가 숲 전체로 커질 수 있는 밀도(약 59%)입니다. 작은 불을 끄는 숲은 점선 가까이까지 올라갔다가 큰 불로 떨어집니다.</p>
-    <canvas id="c-dens" class="" aria-label="② How Full Does the Forest Get?"></canvas>
+    <canvas id="c-dens" class="" aria-label="③ How Full Does the Forest Get?"></canvas>
     </section>
     <section class="panel chart">
-      <h3 data-en="③ How Big Are the Fires?">③ 불의 크기 분포</h3>
+      <h3 data-en="④ How Big Are the Fires?">④ 불의 크기 분포</h3>
     <p data-en="After running both forests separately for a long time, this shows how many fires of at least a given size occurred per 1,000 steps (both axes logarithmic). Putting out small fires removes the small fires at upper left, while the big fires on the right actually become more frequent. The red zone marks big fires.">두 숲을 따로 오래 돌렸을 때, 어떤 크기 이상의 불이 1,000단계에 몇 번 났는지입니다(양쪽 로그 눈금). 작은 불을 끄면 왼쪽 위의 작은 불이 사라지고, 오른쪽의 큰 불은 오히려 늘어납니다. 붉은 영역이 큰 불입니다.</p>
-    <canvas id="c-size" class="" aria-label="③ How Big Are the Fires?"></canvas>
+    <canvas id="c-size" class="" aria-label="④ How Big Are the Fires?"></canvas>
     </section>
     <section class="panel chart">
-      <h3 data-en="④ Which Fires Burned the Area?">④ 탄 면적은 어떤 불이 태웠나</h3>
+      <h3 data-en="⑤ Which Fires Burned the Area?">⑤ 탄 면적은 어떤 불이 태웠나</h3>
     <p data-en="The bar length is the share of the forest burning per step, and the colors show the size of the fires that burned it. The total is about the same in both forests, because only as many trees as grow can burn. What changes is whether it burns a little at a time in small fires or all at once in big ones.">막대의 길이는 매 단계 타는 숲의 비율이고, 색은 그 면적을 태운 불의 크기입니다. 총량은 두 숲이 비슷합니다. 나무가 자라는 만큼만 탈 수 있기 때문이에요. 달라지는 것은 작은 불로 조금씩 타느냐, 큰 불로 한꺼번에 타느냐입니다.</p>
-    <canvas id="c-area" class="" aria-label="④ Which Fires Burned the Area?"></canvas>
+    <canvas id="c-area" class="" aria-label="⑤ Which Fires Burned the Area?"></canvas>
     </section>
   </div>
 
@@ -121,6 +133,7 @@
 <script src="../../lib.js"></script>
 <script src="sim.js"></script>
 <script src="app.js"></script>
+<script src="../../lazy3d.js" data-module="app3d.js"></script>
 <script src="../../counter.js"></script>
 <script src="../../engage.js"></script>
 </body>

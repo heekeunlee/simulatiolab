@@ -165,6 +165,7 @@
     build() {
       sim = D.create(params()); prepare();
       if (THUMB) { sim.run(); updateDim(true); }
+      window.DLAState = { sim, lut: LUT, thumb: THUMB }; // 3D 보기(app3d.js)가 같은 덩어리를 따라 그린다
     },
     autoplay: !THUMB,
     advance() { if (sim.done()) return false; sim.addParticles(6); sim.stepLive(150); return true; },

@@ -58,7 +58,7 @@
   <section class="panel chart" style="margin-top:16px">
     <h3 data-en="① How Prices Spread">① 집값이 번지는 모습</h3>
     <p data-en="Each cell is a neighborhood, and color shows how expensive it is relative to the income line. Watch whether the rise spreads out from the dashed square in the middle, and whether it cools after the rate shock.">한 칸이 한 동네이고, 색은 소득에 비해 집값이 얼마나 비싼지입니다. 가운데 점선 네모에서 시작해 이웃으로 번지는지, 금리 충격 뒤에 식는지 지켜보세요.</p>
-    <canvas id="c-map" class="rounded" data-thumb aria-label="① How Prices Spread"></canvas>
+    <canvas id="c-map" class="rounded" aria-label="① How Prices Spread"></canvas>
     <div class="anim-bar">
       <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
       <button id="stepbtn" data-en="Step">한 단계</button>
@@ -67,22 +67,31 @@
       <span class="when" id="when"></span>
     </div>
   </section>
+  <section class="panel chart" style="margin-top:16px">
+    <style>@media (max-width: 640px) { #c-3d { aspect-ratio: 1 / 1; } }</style>
+    <h3 data-en="② See It in 3D: Prices Rising Like a Hill and Spreading &lt;span class=&quot;badge3d&quot;&gt;3D&lt;/span&gt;">② 3D로 보기: 집값이 언덕처럼 솟아 번지는 지형 <span class="badge3d">3D</span></h3>
+    <p data-en="This is the same simulation as the map above, seen in 3D. Each of the 900 neighborhoods is one bar: &lt;b&gt;the bar height is its price index&lt;/b&gt;, and the color is the same &quot;how expensive relative to the income line&quot; as on the map. Watch whether the hill rising in the middle spreads outward like a wave, and whether it sinks after the rate shock. Play, pause, restart and the sliders all follow the map above.">위 지도와 같은 시뮬레이션을 입체로 본 것입니다. 동네 900곳이 막대 하나씩이고, <b>막대 높이가 그 동네의 가격지수</b>, 색은 위 지도와 같은 "소득 기준선에 비해 비싼 정도"입니다. 가운데에서 솟은 언덕이 파도처럼 바깥으로 번지는지, 금리 충격 뒤에 내려앉는지 보세요. 재생, 일시정지, 처음부터, 슬라이더는 위 지도를 그대로 따라갑니다.</p>
+    <canvas id="c-3d" class="view3d" data-thumb aria-label="② See It in 3D: Prices Rising Like a Hill and Spreading"></canvas>
+    <p class="hint3d" id="when3d" style="text-align:right"></p>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:linear-gradient(90deg,rgb(199,224,250),rgb(255,244,204) 7%,rgb(245,158,66) 27%,rgb(214,49,59) 53%,rgb(122,16,32))&quot;&gt;&lt;/i&gt;Color: cheaper → very expensive relative to the income line (same as the map)"><i style="background:linear-gradient(90deg,rgb(199,224,250),rgb(255,244,204) 7%,rgb(245,158,66) 27%,rgb(214,49,59) 53%,rgb(122,16,32))"></i>색: 소득 기준선에 비해 싼 편 → 매우 비쌈 (위 지도와 같음)</span><span data-en="&lt;i style=&quot;background:rgba(90,110,150,.25);border:1px solid rgba(60,80,120,.6)&quot;&gt;&lt;/i&gt;Faint plane: height of the income line"><i style="background:rgba(90,110,150,.25);border:1px solid rgba(60,80,120,.6)"></i>옅은 판: 소득 기준선 높이</span></div>
+    <p class="hint3d" data-en="It is the same result seen in 3D; no new numbers are calculated. Height = price index (ticks on the corner pole: 100, 200, 300, 400). Drag to rotate · scroll (or pinch) to zoom · on a phone, swiping up and down scrolls the page.">같은 결과를 입체로 본 것일 뿐 새로 계산한 숫자는 없어요. 높이 = 가격지수(모서리 기둥의 눈금 100·200·300·400). 드래그로 회전 · 휠(두 손가락)로 확대 · 휴대폰에서 세로로 쓸면 페이지가 내려갑니다.</p>
+  </section>
 
   <div class="charts">
     <section class="panel chart">
-      <h3 data-en="② Average Price and Its Limit">② 평균 집값과 오를 수 있는 한계</h3>
+      <h3 data-en="③ Average Price and Its Limit">③ 평균 집값과 오를 수 있는 한계</h3>
     <p data-en="The blue line is the average price index. The gray dashed line is the income line and the gold dashed line is the ceiling allowed by the loan cap. Prices rise toward the ceiling, then fall after the rate shock.">파란 선이 평균 집값 지수예요. 회색 점선은 소득 기준선, 금색 점선은 대출 한도가 허락하는 한계선입니다. 집값은 한계선 근처까지 오르다가 금리 충격 뒤 내려옵니다.</p>
-    <canvas id="c-price" class="" aria-label="② Average Price and Its Limit"></canvas>
+    <canvas id="c-price" class="" aria-label="③ Average Price and Its Limit"></canvas>
     </section>
     <section class="panel chart">
-      <h3 data-en="③ How Many Neighborhoods Get Too Pricey">③ 얼마나 많은 동네가 너무 비싸졌나</h3>
+      <h3 data-en="④ How Many Neighborhoods Get Too Pricey">④ 얼마나 많은 동네가 너무 비싸졌나</h3>
     <p data-en="An overvalued neighborhood is one priced more than 30% above the income line. The red line is their share, and the gray line is the price gap between neighborhoods (standard deviation divided by the mean).">너무 비싼 동네는 소득 기준선보다 30% 넘게 비싼 동네예요. 빨간 선은 그 비율, 회색 선은 동네끼리 집값이 벌어진 정도(표준편차를 평균으로 나눈 값)입니다.</p>
-    <canvas id="c-hot" class="" aria-label="③ How Many Neighborhoods Get Too Pricey"></canvas>
+    <canvas id="c-hot" class="" aria-label="④ How Many Neighborhoods Get Too Pricey"></canvas>
     </section>
     <section class="panel chart">
-      <h3 data-en="④ More Copying, Easier Loans">④ 이웃을 더 따라 할수록, 대출이 쉬울수록</h3>
+      <h3 data-en="⑤ More Copying, Easier Loans">⑤ 이웃을 더 따라 할수록, 대출이 쉬울수록</h3>
     <p data-en="The horizontal axis is price contagion; the vertical axis is the highest share of overvalued neighborhoods during the run. Compare what changes when only the loan cap is lowered to 40% at the same contagion. Dots are 5 runs.">가로는 이웃 따라 오르기의 세기, 세로는 기간 중 너무 비싼 동네가 가장 많았을 때의 비율입니다. 같은 전염 세기에서 대출 한도만 40%로 낮추면 어떻게 달라지는지 비교해 보세요. 점은 5번의 실행이에요.</p>
-    <canvas id="c-sweep" class="" aria-label="④ More Copying, Easier Loans"></canvas>
+    <canvas id="c-sweep" class="" aria-label="⑤ More Copying, Easier Loans"></canvas>
       <div class="legend"><span id="note-sweep" data-en="Calculating…">계산 중…</span></div>
     </section>
   </div>
@@ -110,7 +119,7 @@
     <li class="memo theory" data-en="&lt;b&gt;Further reading:&lt;/b&gt; Shiller, R. J. (2000), &lt;i&gt;Irrational Exuberance&lt;/i&gt;, Princeton University Press. Case, K. E. &amp; Shiller, R. J. (1989), &quot;The Efficiency of the Market for Single-Family Homes&quot;, &lt;i&gt;American Economic Review&lt;/i&gt;. Geanakoplos, J. (2010), &quot;The Leverage Cycle&quot;, &lt;i&gt;NBER Macroeconomics Annual 2009&lt;/i&gt;."><b>더 읽을거리:</b> Shiller, R. J. (2000), <i>Irrational Exuberance</i>, Princeton University Press. Case, K. E. & Shiller, R. J. (1989), 「The Efficiency of the Market for Single-Family Homes」, <i>American Economic Review</i>. Geanakoplos, J. (2010), 「The Leverage Cycle」, <i>NBER Macroeconomics Annual 2009</i>.</li>
     <li  data-en="Growth = 0.30 × (own previous growth) + contagion × (average of 8 neighbors) + 0.004 × optimism + a random shock (SD 0.6%). The ceiling = income line × (loan cap ÷ 0.4)&lt;sup&gt;1.5&lt;/sup&gt;; above the ceiling growth is reduced by 25% of the log gap, and below the income line it is raised by the same amount. Income grows 0.5% per quarter.">상승률 = 0.30×(내 직전 상승률) + 전염×(8 이웃 평균) + 0.004×기대 + 무작위 충격(표준편차 0.6%). 감당 상한 = 소득 기준선×(대출 한도÷0.4)<sup>1.5</sup>이고, 상한 위에서는 상한과의 로그 차이의 25%만큼, 소득 기준선 아래에서는 같은 크기만큼 상승률이 조정됩니다. 소득은 분기마다 0.5%씩 늘어납니다.</li>
     <li  data-en="A rate shock cuts the ceiling by 30% from that quarter, reduces optimism to a quarter, and adds a downward pressure (up to −1.2%) that fades over 12 quarters. All these constants were chosen arbitrarily.">금리 충격은 그 분기부터 감당 상한을 30% 낮추고, 기대를 4분의 1로 줄이고, 12분기에 걸쳐 사라지는 하락 압력(최대 -1.2%)을 더합니다. 이 상수들은 모두 임의로 정했습니다.</li>
-    <li  data-en="&quot;Overvalued&quot; in graphs ③ and ④ means priced more than 30% above the income line. Graph ④ runs 80 quarters 5 times each without a rate shock. You can verify with &lt;code&gt;node tools/validate-apartment.js&lt;/code&gt;.">③, ④번 그래프의 "고평가"는 소득 기준선보다 30% 넘게 비싼 동네입니다. ④번은 금리 충격 없이 80분기를 5번씩 돌린 결과입니다. 검증은 <code>node tools/validate-apartment.js</code>로 할 수 있습니다.</li>
+    <li  data-en="&quot;Overvalued&quot; in graphs ④ and ⑤ means priced more than 30% above the income line. Graph ⑤ runs 80 quarters 5 times each without a rate shock. You can verify with &lt;code&gt;node tools/validate-apartment.js&lt;/code&gt;.">④, ⑤번 그래프의 "고평가"는 소득 기준선보다 30% 넘게 비싼 동네입니다. ⑤번은 금리 충격 없이 80분기를 5번씩 돌린 결과입니다. 검증은 <code>node tools/validate-apartment.js</code>로 할 수 있습니다.</li>
     <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/apartment&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/apartment">GitHub</a>에서 볼 수 있습니다.</li>
   </ul>
 </main>
@@ -123,6 +132,7 @@
 <script src="../../lib.js"></script>
 <script src="sim.js"></script>
 <script src="app.js"></script>
+<script src="../../lazy3d.js" data-module="app3d.js"></script>
 <script src="../../counter.js"></script>
 <script src="../../engage.js"></script>
 </body>

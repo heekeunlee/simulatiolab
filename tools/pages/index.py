@@ -264,7 +264,7 @@ def build(only_existing=True):
     cta3 = T('▶ 유튜브 구독', '▶ Subscribe on YouTube')
     hint = T('점들을 만져 보세요. 마우스를 피하고, 클릭하면 "만약에!" 하고 흩어졌다가 다시 모입니다.', 'Play with the dots. They dodge your cursor, and a click asks "what if?": they scatter, then sort themselves out again.')
     h_tab = T('실험 주기율표', 'The Periodic Table of Experiments')
-    p_tab = T(f'{total}개의 실험을 {len(cats)}개 분야(열)로 묶었어요. 칸 위에 마우스를 올리면 아래 실험 노트에 내용이 나타납니다.', f'{total} experiments in {len(cats)} fields (columns). Hover over a cell to see its details in the lab notebook below.')
+    p_tab = T(f'{total}개의 실험을 {len(cats)}개 분야(열)로 묶었어요. 칸 위에 마우스를 올리면 아래 실험 노트에 내용이 나타납니다. 화학 원소 주기율표와는 무관함!', f'{total} experiments in {len(cats)} fields (columns). Hover over a cell to see its details in the lab notebook below. Not related to the chemical periodic table!')
     nb_today = T('오늘의 실험', 'Experiment of the day'); nb_sel = T('실험 노트', 'Lab notebook')
     nb_go = T('직접 돌려보기 →', 'Try it yourself →')
     desc = T("세상이 그렇게 돌아가는 이유를 AI 시뮬레이션으로 돌려봅니다. 변수를 바꿔 직접 확인해 보세요.", 'We rerun the world in AI-designed simulations to see why things happen. Change the variables and check for yourself.')

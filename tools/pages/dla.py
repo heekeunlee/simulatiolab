@@ -2,7 +2,32 @@ import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from mk2 import *
 
+def _opt(v, t, sel=False): return f'<option value="{v}"{" selected" if sel else ""}{da(t)}>{t[0]}</option>'
+# 3D 섹션: 첫 섹션(①) 바로 아래에 전체 너비로 넣기 위해 ①의 extra에서 섹션을 닫고 새로 연다
+_T3 = T('② 3D로 보기: 시간을 높이로 쌓은 가지 탑 <span class="badge3d">3D</span>', '② See It in 3D: a Tower of Branches Stacked by Time <span class="badge3d">3D</span>')
+_P3 = T('위 덩어리를 그대로 가져와, 입자마다 <b>붙은 순서만큼 높이</b> 올려 쌓았습니다. 맨 아래가 처음 붙은 입자, 맨 위가 방금 붙은 입자입니다. 돌려 보면 탑이 위로 갈수록 바깥으로 벌어지는 깔때기 모양이에요. 나중에 온 입자일수록 안쪽 틈이 아니라 바깥 가지 끝에 붙었다는 뜻입니다. 안쪽 높은 곳이 텅 빈 것이 "바깥 끝이 안쪽 틈을 가린다"는 모습입니다. "납작하게"를 고르면 높이가 0으로 내려와 위 그림과 같은 모양이 됩니다.',
+        'This takes the cluster above as it is and lifts each particle <b>by the order in which it stuck</b>. The bottom is the first particle to stick, the top the one that just stuck. Rotate it and the tower flares outward as it rises, like a funnel: the later a particle arrived, the more likely it stuck to an outer branch tip rather than an inner gap. The empty space high up in the middle is what "the outer tips shade the inner gaps" looks like. Choose "Flatten" and the heights drop to zero, giving the same shape as the picture above.')
+_H3 = T('위 그림과 같은 결과를 입체로 본 것입니다(새로 계산한 값 없음) · 드래그로 회전 · 휠(두 손가락)로 확대 · 위 실험의 재생·일시정지·처음부터를 따라갑니다',
+        'The same result as the picture above, seen in 3D (nothing new is calculated) · drag to rotate · scroll (or pinch) to zoom · follows the play, pause and restart of the experiment above')
+_L3 = T('색과 높이: 붙은 순서 (아래·금빛 = 먼저, 위·하늘색 = 나중) · 흰 점: 지금 떠도는 입자',
+        'Color and height: order of sticking (bottom, gold = first; top, sky blue = last) · white dot: the particle wandering now')
+SEC3D = f'''
+  </section>
+  <section class="panel chart" style="margin-top:16px">
+    <style>@media (max-width: 640px) {{ #c-3d {{ aspect-ratio: 1 / 1; }} }}</style>
+    <h3{da(_T3)}>{_T3[0]}</h3>
+    <p{da(_P3)}>{_P3[0]}</p>
+    <canvas id="c-3d" class="view3d" data-thumb aria-label="{esc(_T3[1].split(' <')[0])}"></canvas>
+    <div class="legend"><span data-en="{esc('<i style="background:linear-gradient(90deg,#ffe27a,#ff8a3d,#e63e8a,#7a4dff,#35d0ff)"></i>' + _L3[1])}"><i style="background:linear-gradient(90deg,#ffe27a,#ff8a3d,#e63e8a,#7a4dff,#35d0ff)"></i>{_L3[0]}</span></div>
+    <div class="anim-bar">
+      <select id="mode3d" aria-label="view">{_opt('tower', T('시간 탑: 높이 = 붙은 순서', 'Time tower: height = order of sticking'), True)}{_opt('flat', T('납작하게: 위 그림과 같은 모양', 'Flatten: same shape as above'))}</select>
+      <button id="grow3d"{da(T('▶ 처음부터 자라기', '▶ Grow from the start'))}>▶ 처음부터 자라기</button>
+      <span class="when" id="info3d"></span>
+    </div>
+    <p class="hint3d"{da(_H3)}>{_H3[0]}</p>'''
+
 page(dict(
+ three=True,
  slug='dla',
  title=T('번개, 산호, 눈송이는 왜 서로 닮았을까', 'Why Do Lightning, Coral and Snowflakes Look Alike?'),
  title_tag=T('번개·산호·눈송이는 왜 닮았을까 (DLA) · 시뮬라티오 랩', 'Why Lightning, Coral and Snowflakes Look Alike (DLA) · Simulatio Lab'),
@@ -27,16 +52,17 @@ page(dict(
        p=T('흰 점이 지금 떠도는 입자이고 꼬리는 최근 경로입니다. 흐린 점선 원이 입자를 내보내는 곳입니다. 화면은 덩어리가 자라는 만큼 저절로 넓어집니다.',
            'The white dot is the particle wandering now and its tail is its recent path. The faint dashed circle is where particles are released. The view widens by itself as the cluster grows.'),
        id='c-grow', rounded=True, anim=True, thumb=True,
-       speeds=[('40', T('느리게', 'Slow')), ('100', T('보통', 'Normal')), ('300', T('빠르게', 'Fast'))], speed_default='100'),
-  dict(title=T('② 가지가 얼마나 성긴지 재기', '② Measuring How Sparse the Branches Are'),
+       speeds=[('40', T('느리게', 'Slow')), ('100', T('보통', 'Normal')), ('300', T('빠르게', 'Fast'))], speed_default='100',
+       extra=SEC3D),
+  dict(title=T('③ 가지가 얼마나 성긴지 재기', '③ Measuring How Sparse the Branches Are'),
        p=T('가로는 반지름, 세로는 그 안의 입자 수(둘 다 로그 눈금)입니다. 빨간 선의 기울기가 프랙탈 차원 D이고, 회색 점선(기울기 2)은 빈틈없이 꽉 찬 면일 때입니다. 점 씨앗은 중심에서, 선·고리 씨앗은 붙은 입자 150개 둘레에서 잰 평균이라 더 낮게 나오는 경향이 있어요.',
            'The horizontal axis is radius and the vertical axis the number of particles inside it (both log scales). The slope of the red line is the fractal dimension D, and the gray dashed line (slope 2) is what a solid area would give. A point seed is measured from its center; for line and ring seeds, it is the average around 150 sampled particles, which tends to read lower.'),
        id='c-mr'),
-  dict(title=T('③ 새 입자는 어디에 붙을까', '③ Where Do New Particles Land?'),
+  dict(title=T('④ 새 입자는 어디에 붙을까', '④ Where Do New Particles Land?'),
        p=T('가장 최근에 붙은 입자 300개가 중심에서 얼마나 떨어진 곳에 붙었는지입니다(가장 먼 끝까지의 거리를 1로). 대부분 바깥 가지 끝에 붙고 안쪽 틈은 거의 비어 있어요. 이것이 가지가 갈라지는 이유입니다.',
            'How far from the center the 300 most recent particles landed (the distance to the farthest tip is 1). Most land on the outer branch tips while the inner gaps stay nearly empty, which is why the branches split.'),
        id='c-land'),
-  dict(title=T('④ 붙는 확률별로 얼마나 촘촘해질까', '④ How Dense Does It Get at Each Stickiness?'),
+  dict(title=T('⑤ 붙는 확률별로 얼마나 촘촘해질까', '⑤ How Dense Does It Get at Each Stickiness?'),
        p=T('입자 1,200개를 키운 뒤, 가장 먼 끝까지를 반지름으로 하는 원 중 입자가 채운 비율입니다(점 하나가 한 번의 실행). 붙는 확률이 낮을수록 같은 입자 수로 더 작고 촘촘한 덩어리가 됩니다.',
            'After growing 1,200 particles, the share of the circle (out to the farthest tip) that the particles fill; each dot is one run. With the same number of particles, lower stickiness gives a smaller, denser cluster.'),
        id='c-sweep'),

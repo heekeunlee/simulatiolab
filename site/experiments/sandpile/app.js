@@ -25,7 +25,10 @@
     const sp = Number(($('speed') || { value: 10 }).value) * 0.7;
     return Math.max(3, Math.min(40, Math.round(sp * 0.012)));
   }
+  // 3D 보기(app3d.js)가 따라가는 상태: 같은 sim을 그대로 보여 준다(3D는 따로 계산하지 않음)
+  function share() { window.SandpileState = { sim, flashF, isPaused, thumb: THUMB }; }
   function drawPile() {
+    share();
     const cw = $('c-pile').clientWidth || 600, mobile = cw < 640, N = sim.N, m = 12;
     let side, asp;
     if (THUMB) { side = cw; asp = 1; }

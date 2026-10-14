@@ -68,14 +68,23 @@
     </div>
   </section>
 
+  <section class="panel chart" style="margin-top:16px">
+    <style>@media (max-width: 640px) { #c-3d { aspect-ratio: 1 / 1; } }</style>
+    <h3><span data-en="② Viewing in 3D: The Town Where Like Rises Beside Like">② 3D로 보기: 끼리끼리 솟아오르는 블록 도시</span><span class="badge3d">3D</span></h3>
+    <p data-en="This is ①&#x27;s neighborhood right now, with each house as a small building. A building&#x27;s height is the share of its 8 surrounding neighbors who belong to the same group: the more a house is surrounded by its own kind, the taller it stands. Pale, low buildings are the unhappy ones. When someone moves, the old building sinks and a new one rises in the empty lot. As rounds go by, tall blocks of one color bunch together and the low ones remain only along the borders.">①의 지금 동네를 집 한 채 = 작은 건물 하나로 세운 모습입니다. 건물 높이는 둘레 8칸 이웃 중 같은 집단의 비율이에요. 같은 편에 둘러싸일수록 높이 솟습니다. 색이 연하고 낮은 건물은 불만족한 집이고, 이사하면 원래 자리 건물이 내려앉고 빈 땅에 새 건물이 올라옵니다. 라운드가 지날수록 같은 색의 높은 건물이 덩어리로 모이고, 낮은 건물은 경계에만 남아요.</p>
+    <canvas id="c-3d" class="view3d" data-thumb aria-label="3D 블록 도시"></canvas>
+    <div class="legend"><span data-en="&lt;b style=&quot;color:var(--ga)&quot;&gt;■&lt;/b&gt; Blue group · &lt;b style=&quot;color:var(--gb)&quot;&gt;■&lt;/b&gt; Orange group · pale = unhappy · height = share of same-group neighbors (0–100%)"><b style="color:var(--ga)">■</b> 파랑 집단 · <b style="color:var(--gb)">■</b> 주황 집단 · 연한 색 = 불만족 · 높이 = 이웃 중 같은 집단 비율(0~100%)</span></div>
+    <p class="hint3d" data-en="The same result as ① seen in 3D, with no new numbers · drag to rotate · scroll or pinch to zoom · it follows the play/pause controls in ①">①과 같은 결과를 입체로 본 것이에요(새 숫자 없음) · 드래그로 회전 · 휠이나 두 손가락으로 확대 · ①의 재생/일시정지와 함께 움직입니다</p>
+  </section>
+
   <div class="charts">
     <section class="panel chart">
-      <h3 data-en="② Segregation Rising Each Round">② 라운드마다 높아지는 분리도</h3>
+      <h3 data-en="③ Segregation Rising Each Round">③ 라운드마다 높아지는 분리도</h3>
       <p data-en="Segregation is &quot;the average share of same-group people among one&#x27;s neighbors.&quot; A mixed neighborhood sits near 50%.">분리도는 "내 이웃 중 같은 집단의 평균 비율"입니다. 섞여 있으면 50% 근처예요.</p>
       <canvas id="c-line" aria-label="라운드별 분리도"></canvas>
     </section>
     <section class="panel chart">
-      <h3 data-en="③ A Mild Preference Leads to Strong Separation">③ 조금만 바라도 크게 갈라진다</h3>
+      <h3 data-en="④ A Mild Preference Leads to Strong Separation">④ 조금만 바라도 크게 갈라진다</h3>
       <p data-en="The horizontal axis is the share people want, the vertical axis is the resulting segregation. The higher above the dashed line (y=x), the more separated it ended up than people wanted.">가로는 사람들이 원하는 비율, 세로는 결과로 나온 분리도입니다. 점선(y=x)보다 위에 있을수록 원한 것보다 더 갈라졌다는 뜻이에요.</p>
       <canvas id="c-sweep" aria-label="원하는 비율과 결과 분리도"></canvas>
       <div class="legend"><span id="sweepnote" data-en="Calculating…">계산 중…</span></div>
@@ -104,7 +113,7 @@
     <li class="memo theory" data-en="&lt;b&gt;Theory versus simulation:&lt;/b&gt; There is no closed-form result, so this was checked by simulation only. The initial same-neighbor share was 50%; it ends at 51% for a desired share of 10%, 75% for 30%, 83% for 40%, 87% for 50% and 98% for 60% (5-run averages). Up to 70% the population separates almost completely but takes over 100 rounds to settle, and at 80% no arrangement satisfies everyone, so it stays at 51% after 300 rounds (&lt;code&gt;node tools/validate-schelling.js&lt;/code&gt;)."><b>이론값과 시뮬레이션:</b> 닫힌 해가 없어 시뮬레이션만으로 확인했습니다. 처음 같은 이웃 비율은 50%였고, 원하는 비율이 10%면 51%, 30%면 75%, 40%면 83%, 50%면 87%, 60%면 98%로 끝납니다(5회 평균). 원하는 비율 70%까지는 거의 완전히 갈라지지만 수렴에 100라운드 넘게 걸리고, 80%에서는 모두 만족하는 배치가 없어 300라운드에도 51%에 머뭅니다(<code>node tools/validate-schelling.js</code>).</li>
     <li class="memo theory" data-en="&lt;b&gt;Further reading:&lt;/b&gt; Thomas C. Schelling (1971), &quot;Dynamic Models of Segregation&quot;, &lt;i&gt;Journal of Mathematical Sociology&lt;/i&gt; 1(2). Thomas C. Schelling (1978), &lt;i&gt;Micromotives and Macrobehavior&lt;/i&gt;, W. W. Norton."><b>더 읽을거리:</b> Thomas C. Schelling (1971), "Dynamic Models of Segregation", <i>Journal of Mathematical Sociology</i> 1(2). Thomas C. Schelling (1978), 『Micromotives and Macrobehavior』, W. W. Norton.</li>
     <li data-en="A person with no neighbors at all counts as content. In each round, unhappy people move one at a time in random order.">이웃이 한 명도 없는 사람은 만족한 것으로 봅니다. 한 라운드에서는 불만족한 사람들이 무작위 순서로 한 명씩 이사합니다.</li>
-    <li data-en="Graph ③ changes only the desired share on the same layout and runs up to 100 rounds; if no arrangement satisfies everyone, it measures the state at that point.">③번 그래프는 같은 배치로 원하는 비율만 바꿔 최대 100라운드까지 돌린 결과이고, 끝까지 만족하는 배치를 못 찾으면 그 상태에서 측정합니다.</li>
+    <li data-en="Graph ④ changes only the desired share on the same layout and runs up to 100 rounds; if no arrangement satisfies everyone, it measures the state at that point.">④번 그래프는 같은 배치로 원하는 비율만 바꿔 최대 100라운드까지 돌린 결과이고, 끝까지 만족하는 배치를 못 찾으면 그 상태에서 측정합니다.</li>
     <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/schelling&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/schelling">GitHub</a>에서 볼 수 있습니다.</li>
   </ul>
 </main>
@@ -117,6 +126,7 @@
 <script src="../../lib.js"></script>
 <script src="sim.js"></script>
 <script src="app.js"></script>
+<script src="../../lazy3d.js" data-module="app3d.js"></script>
 <script src="../../counter.js"></script>
 <script src="../../engage.js"></script>
 </body>

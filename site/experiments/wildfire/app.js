@@ -137,7 +137,9 @@
     $('stats').innerHTML = cards.map(([k, v, s], i) => `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join('');
   }
 
-  function draw() { drawForest(); drawDens(); }
+  // 3D 보기(app3d.js)가 같은 두 숲을 따라 그리도록 내보낸다 (3D는 따로 계산하지 않음)
+  function share() { window.WildfireState = { A, B, thumb: THUMB }; }
+  function draw() { share(); drawForest(); drawDens(); }
 
   // ---------- 오래 돌려서 통계 내기 (화면은 잠깐씩 쉬며) ----------
   function precompute(P) {

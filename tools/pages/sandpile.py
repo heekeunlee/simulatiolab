@@ -5,7 +5,7 @@ from mk2 import *
 ONE = '\n    <div class="anim-bar"><button id="one" class="primary" data-en="Drop just one grain">모래 한 알만 떨어뜨리기</button><span class="muted small" data-en="Pauses the pile and drops a single grain. Press it again and again: the same kind of grain does nothing one time and sets off an avalanche the next.">더미를 멈추고 딱 한 알만 떨어뜨립니다. 계속 눌러 보세요. 같은 한 알인데 어떤 때는 아무 일도 없고, 어떤 때는 눈사태가 납니다.</span></div>'
 
 page(dict(
- slug='sandpile',
+ slug='sandpile', three=True,
  title=T('모래 한 알이 눈사태를 일으킬 수 있을까', 'Can a Single Grain of Sand Cause an Avalanche?'),
  title_tag=T('모래 한 알과 눈사태 · 시뮬라티오 랩', 'A Grain of Sand and an Avalanche · Simulatio Lab'),
  desc=T('모래를 한 알씩 쌓기만 해도 더미가 스스로 무너지기 직전의 상태가 됩니다. 대부분은 아무 일도 없다가 가끔 거대한 눈사태가 나는 모습을 직접 돌려보세요.',
@@ -27,15 +27,21 @@ page(dict(
            'Color shows how many grains a cell holds (navy 0, teal 1, yellow 2, pink 3). When an avalanche happens, the cells that toppled flash white. At first grains only pile up, then big and small avalanches keep happening. After the gray zone in the charts, the pile has settled into its steady regime.'),
        id='c-pile', rounded=True, anim=True, extra=ONE, thumb=True,
        speeds=[('60', T('느리게', 'Slow')), ('2000', T('보통', 'Normal')), ('10000', T('빠르게', 'Fast'))], speed_default='2000'),
-  dict(title=T('② 눈사태는 얼마나 컸을까', '② How Big Were the Avalanches?'),
+  dict(title=T('② 3D로 보기: 무너지기 직전의 모래 지형 <span class="badge3d">3D</span>', '② See It in 3D: A Landscape on the Edge of Collapse <span class="badge3d">3D</span>'),
+       p=T('①과 같은 모래더미를 칸마다 쌓인 모래알 수만큼의 기둥으로 세웠습니다. 위에서 재생·일시정지·한 알 떨어뜨리기를 하면 여기서도 똑같이 움직입니다. 빨간 기둥은 이미 3알이 쌓여 한 알만 더 오면 무너지는 칸입니다. 안정기에 들어서면 빨간 기둥이 판 곳곳에 이어져 있어서, 그 위에 떨어진 한 알이 이웃의 빨간 기둥을 줄줄이 무너뜨립니다. 무너진 칸은 하얗게 번쩍이며 낮아집니다.',
+           'The same sandpile as ①, with each cell raised into a column as tall as the grains it holds. Play, pause or drop one grain above and it moves here in exactly the same way. Red columns already hold 3 grains, so one more grain makes them topple. Once the pile is steady, red columns link up across the board, and a grain landing on one can bring down its red neighbors one after another. Cells that topple flash white and drop lower.'),
+       id='c-3d', three=True, wide=True, thumb=True,
+       after_canvas='\n    <style>@media (max-width: 640px) { #c-3d { aspect-ratio: 1 / 1; } }</style>' + legend(leg('background:#d9b77e', '기둥 높이 = 칸의 모래알 수 (0~3)', 'Column height = grains in the cell (0 to 3)'), leg('background:#e2384f', '3알: 한 알만 더 오면 무너짐', '3 grains: one more and it topples'), leg('background:#ffffff;border:1px solid #999;box-sizing:border-box', '흰색: 방금 떨어진 알(구슬)과 무너진 칸', 'White: the grain just dropped (ball) and cells that just toppled'))
+                    + '\n    <p class="hint3d" data-en="This is the same pile as above, shown in 3D (no new calculation). Drag to rotate · scroll or pinch to zoom · on a phone, swiping up and down scrolls the page">위 모래더미를 입체로 본 것입니다(새로 계산하지 않음). 드래그로 회전 · 휠이나 두 손가락으로 확대 · 휴대폰에서 세로로 쓸면 페이지가 내려갑니다</p>'),
+  dict(title=T('③ 눈사태는 얼마나 컸을까', '③ How Big Were the Avalanches?'),
        p=T('알을 하나 떨어뜨릴 때마다 눈사태 크기를 세로 막대로 그렸습니다(가까운 알끼리는 가장 큰 것만 보입니다). 대부분은 바닥에 붙어 있고, 가끔 하늘로 솟는 뾰족한 막대가 있습니다. 회색 영역은 아직 더미가 쌓이는 중인 구간입니다.',
            'Each grain\'s avalanche size is drawn as a vertical bar (for grains close together, only the largest is visible). Most hug the floor, and now and then a spike shoots up. The gray zone is the stretch where the pile is still building up.'),
        id='c-size'),
-  dict(title=T('③ 작은 눈사태와 큰 눈사태는 얼마나 자주 날까', '③ How Often Do Small and Big Avalanches Happen?'),
+  dict(title=T('④ 작은 눈사태와 큰 눈사태는 얼마나 자주 날까', '④ How Often Do Small and Big Avalanches Happen?'),
        p=T('안정기 이후의 눈사태를 크기별로 세어 가로세로 모두 로그 눈금으로 그렸습니다(무너진 적 없는 0은 뺐습니다). 점들이 대체로 내려가는 직선을 이루면 작은 사태는 아주 흔하고 큰 사태는 드물지만 아예 없지는 않다는 뜻입니다. 빨간 점선은 표본 10개 이상인 점들에 맞춘 직선이고, 기울기는 이 판 크기에서 실제로 잰 값입니다.',
            'Avalanches in the steady regime are counted by size and drawn with both axes on a log scale (avalanches of size 0 are left out). If the dots roughly follow a falling straight line, small avalanches are very common and large ones rare but far from absent. The red dashed line is fitted to dots backed by at least 10 avalanches, and its slope is the value actually measured at this board size.'),
        id='c-dist'),
-  dict(title=T('④ 쌓을수록 높이는 계속 오를까', '④ Does the Height Keep Rising?'),
+  dict(title=T('⑤ 쌓을수록 높이는 계속 오를까', '⑤ Does the Height Keep Rising?'),
        p=T('모래알이 쌓이면서 평균 높이가 오르다가, 어느 값에서 더는 오르지 않고 오르내리기만 합니다. 더 얹어도 가장자리로 흘러나가는 알과 새로 얹는 알이 균형을 이루기 때문입니다.',
            'As grains accumulate the average height rises, then stops rising and only wobbles around a value. Grains added and grains lost over the edge balance out.'),
        id='c-height'),

@@ -90,6 +90,10 @@
     $('stats').innerHTML = cards.map(([k, v, t]) => `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div><div class="s">${t}</div></div>`).join('');
   }
 
+  // ② 3D 보기(app3d.js)가 읽는 상태: 같은 sim 객체를 그대로 넘긴다 (3D는 따로 계산하지 않고 sim.price와 sim.step만 읽음)
+  let ver = 0;
+  function share() { window.ApartmentState = { sim, ver: ++ver, thumb: THUMB }; }
+
   function draw() { renderStats(); drawMap(); drawPrice(); drawHot(); }
 
   function after() {
@@ -107,7 +111,7 @@
     controls: ['contagion', 'ltv', 'optimism', 'rateStep'],
     format: { contagion: (v) => Number(v).toFixed(2), ltv: (v) => v + '%', optimism: (v) => v + '%', rateStep: () => '' },
     defaults: { contagion: 0.6, ltv: 60, optimism: 50, rateStep: '50' },
-    build() { sim = AP.create(params()); if (THUMB) for (let k = 0; k < 20; k++) sim.advance(); }, // 썸네일: 가운데서 시작된 상승이 번져 나가는 중
+    build() { sim = AP.create(params()); if (THUMB) for (let k = 0; k < 20; k++) sim.advance(); share(); }, // 썸네일: 가운데서 시작된 상승이 번져 나가는 중
     autoplay: !THUMB,
     advance() { return sim.advance(); },
     isDone() { return sim.done; },

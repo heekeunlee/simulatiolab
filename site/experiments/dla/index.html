@@ -64,22 +64,35 @@
       <span class="when" id="when"></span>
     </div>
   </section>
+  <section class="panel chart" style="margin-top:16px">
+    <style>@media (max-width: 640px) { #c-3d { aspect-ratio: 1 / 1; } }</style>
+    <h3 data-en="② See It in 3D: a Tower of Branches Stacked by Time &lt;span class=&quot;badge3d&quot;&gt;3D&lt;/span&gt;">② 3D로 보기: 시간을 높이로 쌓은 가지 탑 <span class="badge3d">3D</span></h3>
+    <p data-en="This takes the cluster above as it is and lifts each particle &lt;b&gt;by the order in which it stuck&lt;/b&gt;. The bottom is the first particle to stick, the top the one that just stuck. Rotate it and the tower flares outward as it rises, like a funnel: the later a particle arrived, the more likely it stuck to an outer branch tip rather than an inner gap. The empty space high up in the middle is what &quot;the outer tips shade the inner gaps&quot; looks like. Choose &quot;Flatten&quot; and the heights drop to zero, giving the same shape as the picture above.">위 덩어리를 그대로 가져와, 입자마다 <b>붙은 순서만큼 높이</b> 올려 쌓았습니다. 맨 아래가 처음 붙은 입자, 맨 위가 방금 붙은 입자입니다. 돌려 보면 탑이 위로 갈수록 바깥으로 벌어지는 깔때기 모양이에요. 나중에 온 입자일수록 안쪽 틈이 아니라 바깥 가지 끝에 붙었다는 뜻입니다. 안쪽 높은 곳이 텅 빈 것이 "바깥 끝이 안쪽 틈을 가린다"는 모습입니다. "납작하게"를 고르면 높이가 0으로 내려와 위 그림과 같은 모양이 됩니다.</p>
+    <canvas id="c-3d" class="view3d" data-thumb aria-label="② See It in 3D: a Tower of Branches Stacked by Time"></canvas>
+    <div class="legend"><span data-en="&lt;i style=&quot;background:linear-gradient(90deg,#ffe27a,#ff8a3d,#e63e8a,#7a4dff,#35d0ff)&quot;&gt;&lt;/i&gt;Color and height: order of sticking (bottom, gold = first; top, sky blue = last) · white dot: the particle wandering now"><i style="background:linear-gradient(90deg,#ffe27a,#ff8a3d,#e63e8a,#7a4dff,#35d0ff)"></i>색과 높이: 붙은 순서 (아래·금빛 = 먼저, 위·하늘색 = 나중) · 흰 점: 지금 떠도는 입자</span></div>
+    <div class="anim-bar">
+      <select id="mode3d" aria-label="view"><option value="tower" selected data-en="Time tower: height = order of sticking">시간 탑: 높이 = 붙은 순서</option><option value="flat" data-en="Flatten: same shape as above">납작하게: 위 그림과 같은 모양</option></select>
+      <button id="grow3d" data-en="▶ Grow from the start">▶ 처음부터 자라기</button>
+      <span class="when" id="info3d"></span>
+    </div>
+    <p class="hint3d" data-en="The same result as the picture above, seen in 3D (nothing new is calculated) · drag to rotate · scroll (or pinch) to zoom · follows the play, pause and restart of the experiment above">위 그림과 같은 결과를 입체로 본 것입니다(새로 계산한 값 없음) · 드래그로 회전 · 휠(두 손가락)로 확대 · 위 실험의 재생·일시정지·처음부터를 따라갑니다</p>
+  </section>
 
   <div class="charts">
     <section class="panel chart">
-      <h3 data-en="② Measuring How Sparse the Branches Are">② 가지가 얼마나 성긴지 재기</h3>
+      <h3 data-en="③ Measuring How Sparse the Branches Are">③ 가지가 얼마나 성긴지 재기</h3>
     <p data-en="The horizontal axis is radius and the vertical axis the number of particles inside it (both log scales). The slope of the red line is the fractal dimension D, and the gray dashed line (slope 2) is what a solid area would give. A point seed is measured from its center; for line and ring seeds, it is the average around 150 sampled particles, which tends to read lower.">가로는 반지름, 세로는 그 안의 입자 수(둘 다 로그 눈금)입니다. 빨간 선의 기울기가 프랙탈 차원 D이고, 회색 점선(기울기 2)은 빈틈없이 꽉 찬 면일 때입니다. 점 씨앗은 중심에서, 선·고리 씨앗은 붙은 입자 150개 둘레에서 잰 평균이라 더 낮게 나오는 경향이 있어요.</p>
-    <canvas id="c-mr" class="" aria-label="② Measuring How Sparse the Branches Are"></canvas>
+    <canvas id="c-mr" class="" aria-label="③ Measuring How Sparse the Branches Are"></canvas>
     </section>
     <section class="panel chart">
-      <h3 data-en="③ Where Do New Particles Land?">③ 새 입자는 어디에 붙을까</h3>
+      <h3 data-en="④ Where Do New Particles Land?">④ 새 입자는 어디에 붙을까</h3>
     <p data-en="How far from the center the 300 most recent particles landed (the distance to the farthest tip is 1). Most land on the outer branch tips while the inner gaps stay nearly empty, which is why the branches split.">가장 최근에 붙은 입자 300개가 중심에서 얼마나 떨어진 곳에 붙었는지입니다(가장 먼 끝까지의 거리를 1로). 대부분 바깥 가지 끝에 붙고 안쪽 틈은 거의 비어 있어요. 이것이 가지가 갈라지는 이유입니다.</p>
-    <canvas id="c-land" class="" aria-label="③ Where Do New Particles Land?"></canvas>
+    <canvas id="c-land" class="" aria-label="④ Where Do New Particles Land?"></canvas>
     </section>
     <section class="panel chart">
-      <h3 data-en="④ How Dense Does It Get at Each Stickiness?">④ 붙는 확률별로 얼마나 촘촘해질까</h3>
+      <h3 data-en="⑤ How Dense Does It Get at Each Stickiness?">⑤ 붙는 확률별로 얼마나 촘촘해질까</h3>
     <p data-en="After growing 1,200 particles, the share of the circle (out to the farthest tip) that the particles fill; each dot is one run. With the same number of particles, lower stickiness gives a smaller, denser cluster.">입자 1,200개를 키운 뒤, 가장 먼 끝까지를 반지름으로 하는 원 중 입자가 채운 비율입니다(점 하나가 한 번의 실행). 붙는 확률이 낮을수록 같은 입자 수로 더 작고 촘촘한 덩어리가 됩니다.</p>
-    <canvas id="c-sweep" class="" aria-label="④ How Dense Does It Get at Each Stickiness?"></canvas>
+    <canvas id="c-sweep" class="" aria-label="⑤ How Dense Does It Get at Each Stickiness?"></canvas>
     </section>
   </div>
 
@@ -118,6 +131,7 @@
 <script src="../../lib.js"></script>
 <script src="sim.js"></script>
 <script src="app.js"></script>
+<script src="../../lazy3d.js" data-module="app3d.js"></script>
 <script src="../../counter.js"></script>
 <script src="../../engage.js"></script>
 </body>

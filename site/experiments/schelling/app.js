@@ -215,6 +215,9 @@
     resizeTimer = setTimeout(() => { drawBoards(); drawLine(); drawSweep(); }, 150);
   });
 
+  // 3D 보기(app3d.js)가 같은 sim을 읽어 따라간다 (따로 시뮬레이션을 돌리지 않음)
+  window.SchellingState = { sim: () => sim, thumb: THUMB };
+
   showOutputs();
   newExperiment();
   if (THUMB) { while (!sim.done && sim.round < 200) sim.advance(); renderStats(); drawBoards(); drawLine(); }

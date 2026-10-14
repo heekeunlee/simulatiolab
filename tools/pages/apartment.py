@@ -1,6 +1,24 @@
 import sys; sys.path.insert(0, '.')
 from mk2 import *
+# ② 3D 보기: 첫 섹션(①) 바로 아래에 전체 너비로 넣기 위해 ①의 extra에서 섹션을 닫고 새로 연다 (sunflower.py와 같은 방식)
+_T3 = T('② 3D로 보기: 집값이 언덕처럼 솟아 번지는 지형 <span class="badge3d">3D</span>', '② See It in 3D: Prices Rising Like a Hill and Spreading <span class="badge3d">3D</span>')
+_P3 = T('위 지도와 같은 시뮬레이션을 입체로 본 것입니다. 동네 900곳이 막대 하나씩이고, <b>막대 높이가 그 동네의 가격지수</b>, 색은 위 지도와 같은 "소득 기준선에 비해 비싼 정도"입니다. 가운데에서 솟은 언덕이 파도처럼 바깥으로 번지는지, 금리 충격 뒤에 내려앉는지 보세요. 재생, 일시정지, 처음부터, 슬라이더는 위 지도를 그대로 따라갑니다.',
+        'This is the same simulation as the map above, seen in 3D. Each of the 900 neighborhoods is one bar: <b>the bar height is its price index</b>, and the color is the same "how expensive relative to the income line" as on the map. Watch whether the hill rising in the middle spreads outward like a wave, and whether it sinks after the rate shock. Play, pause, restart and the sliders all follow the map above.')
+_H3 = T('같은 결과를 입체로 본 것일 뿐 새로 계산한 숫자는 없어요. 높이 = 가격지수(모서리 기둥의 눈금 100·200·300·400). 드래그로 회전 · 휠(두 손가락)로 확대 · 휴대폰에서 세로로 쓸면 페이지가 내려갑니다.',
+        'It is the same result seen in 3D; no new numbers are calculated. Height = price index (ticks on the corner pole: 100, 200, 300, 400). Drag to rotate · scroll (or pinch) to zoom · on a phone, swiping up and down scrolls the page.')
+_GRAD = 'background:linear-gradient(90deg,rgb(199,224,250),rgb(255,244,204) 7%,rgb(245,158,66) 27%,rgb(214,49,59) 53%,rgb(122,16,32))'
+SEC3D = f'''
+  </section>
+  <section class="panel chart" style="margin-top:16px">
+    <style>@media (max-width: 640px) {{ #c-3d {{ aspect-ratio: 1 / 1; }} }}</style>
+    <h3{da(_T3)}>{_T3[0]}</h3>
+    <p{da(_P3)}>{_P3[0]}</p>
+    <canvas id="c-3d" class="view3d" data-thumb aria-label="{esc(_T3[1].split(' <')[0])}"></canvas>
+    <p class="hint3d" id="when3d" style="text-align:right"></p>{legend(leg(_GRAD, '색: 소득 기준선에 비해 싼 편 → 매우 비쌈 (위 지도와 같음)', 'Color: cheaper → very expensive relative to the income line (same as the map)'), leg('background:rgba(90,110,150,.25);border:1px solid rgba(60,80,120,.6)', '옅은 판: 소득 기준선 높이', 'Faint plane: height of the income line'))}
+    <p class="hint3d"{da(_H3)}>{_H3[0]}</p>'''
+
 page(dict(
+ three=True,
  slug='apartment',
  title=T('아파트 가격은 어떻게 번질까', 'How Do Apartment Prices Spread?'),
  title_tag=T('아파트 가격은 어떻게 번질까 · 시뮬라티오 랩', 'How Do Apartment Prices Spread? · Simulatio Lab'),
@@ -26,16 +44,16 @@ page(dict(
   dict(title=T('① 집값이 번지는 모습', '① How Prices Spread'),
        p=T('한 칸이 한 동네이고, 색은 소득에 비해 집값이 얼마나 비싼지입니다. 가운데 점선 네모에서 시작해 이웃으로 번지는지, 금리 충격 뒤에 식는지 지켜보세요.',
            'Each cell is a neighborhood, and color shows how expensive it is relative to the income line. Watch whether the rise spreads out from the dashed square in the middle, and whether it cools after the rate shock.'),
-       id='c-map', rounded=True, anim=True, thumb=True, speeds=[('4', T('느리게', 'Slow')), ('8', T('보통', 'Normal')), ('25', T('빠르게', 'Fast'))], speed_default='8'),
-  dict(title=T('② 평균 집값과 오를 수 있는 한계', '② Average Price and Its Limit'),
+       id='c-map', rounded=True, anim=True, speeds=[('4', T('느리게', 'Slow')), ('8', T('보통', 'Normal')), ('25', T('빠르게', 'Fast'))], speed_default='8', extra=SEC3D),
+  dict(title=T('③ 평균 집값과 오를 수 있는 한계', '③ Average Price and Its Limit'),
        p=T('파란 선이 평균 집값 지수예요. 회색 점선은 소득 기준선, 금색 점선은 대출 한도가 허락하는 한계선입니다. 집값은 한계선 근처까지 오르다가 금리 충격 뒤 내려옵니다.',
            'The blue line is the average price index. The gray dashed line is the income line and the gold dashed line is the ceiling allowed by the loan cap. Prices rise toward the ceiling, then fall after the rate shock.'),
        id='c-price'),
-  dict(title=T('③ 얼마나 많은 동네가 너무 비싸졌나', '③ How Many Neighborhoods Get Too Pricey'),
+  dict(title=T('④ 얼마나 많은 동네가 너무 비싸졌나', '④ How Many Neighborhoods Get Too Pricey'),
        p=T('너무 비싼 동네는 소득 기준선보다 30% 넘게 비싼 동네예요. 빨간 선은 그 비율, 회색 선은 동네끼리 집값이 벌어진 정도(표준편차를 평균으로 나눈 값)입니다.',
            'An overvalued neighborhood is one priced more than 30% above the income line. The red line is their share, and the gray line is the price gap between neighborhoods (standard deviation divided by the mean).'),
        id='c-hot'),
-  dict(title=T('④ 이웃을 더 따라 할수록, 대출이 쉬울수록', '④ More Copying, Easier Loans'),
+  dict(title=T('⑤ 이웃을 더 따라 할수록, 대출이 쉬울수록', '⑤ More Copying, Easier Loans'),
        p=T('가로는 이웃 따라 오르기의 세기, 세로는 기간 중 너무 비싼 동네가 가장 많았을 때의 비율입니다. 같은 전염 세기에서 대출 한도만 40%로 낮추면 어떻게 달라지는지 비교해 보세요. 점은 5번의 실행이에요.',
            'The horizontal axis is price contagion; the vertical axis is the highest share of overvalued neighborhoods during the run. Compare what changes when only the loan cap is lowered to 40% at the same contagion. Dots are 5 runs.'),
        id='c-sweep', note='sweep'),
@@ -56,6 +74,6 @@ page(dict(
     'Growth = 0.30 × (own previous growth) + contagion × (average of 8 neighbors) + 0.004 × optimism + a random shock (SD 0.6%). The ceiling = income line × (loan cap ÷ 0.4)<sup>1.5</sup>; above the ceiling growth is reduced by 25% of the log gap, and below the income line it is raised by the same amount. Income grows 0.5% per quarter.'),
   T('금리 충격은 그 분기부터 감당 상한을 30% 낮추고, 기대를 4분의 1로 줄이고, 12분기에 걸쳐 사라지는 하락 압력(최대 -1.2%)을 더합니다. 이 상수들은 모두 임의로 정했습니다.',
     'A rate shock cuts the ceiling by 30% from that quarter, reduces optimism to a quarter, and adds a downward pressure (up to −1.2%) that fades over 12 quarters. All these constants were chosen arbitrarily.'),
-  T('③, ④번 그래프의 "고평가"는 소득 기준선보다 30% 넘게 비싼 동네입니다. ④번은 금리 충격 없이 80분기를 5번씩 돌린 결과입니다. 검증은 <code>node tools/validate-apartment.js</code>로 할 수 있습니다.',
-    '"Overvalued" in graphs ③ and ④ means priced more than 30% above the income line. Graph ④ runs 80 quarters 5 times each without a rate shock. You can verify with <code>node tools/validate-apartment.js</code>.')],
+  T('④, ⑤번 그래프의 "고평가"는 소득 기준선보다 30% 넘게 비싼 동네입니다. ⑤번은 금리 충격 없이 80분기를 5번씩 돌린 결과입니다. 검증은 <code>node tools/validate-apartment.js</code>로 할 수 있습니다.',
+    '"Overvalued" in graphs ④ and ⑤ means priced more than 30% above the income line. Graph ⑤ runs 80 quarters 5 times each without a rate shock. You can verify with <code>node tools/validate-apartment.js</code>.')],
 ))

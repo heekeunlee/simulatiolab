@@ -2,7 +2,30 @@ import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from mk2 import *
 
+def _opt(v, t, sel=False): return f'<option value="{v}"{" selected" if sel else ""}{da(t)}>{t[0]}</option>'
+# 3D 섹션: 첫 섹션(①) 바로 아래에 전체 너비로 넣기 위해 ①의 extra에서 섹션을 닫고 새로 연다 (sunflower.py와 같은 방식)
+_T3 = T('② 3D로 보기: 쌓이고 쌓인 숲이 한꺼번에 타오르는 순간 <span class="badge3d">3D</span>', '② See It in 3D: the Moment a Built-Up Forest Goes Up All at Once <span class="badge3d">3D</span>')
+_P3 = T('위 실험의 숲을 그대로 입체로 세웠습니다. 나무 한 그루가 원뿔 하나이고, 오래 자란 나무일수록 키가 크고 색이 짙습니다. 불이 붙은 덩어리는 주황 불기둥으로 솟았다가 짙은 회색 탄 땅으로 내려앉아요. 작은 불을 끄는 숲은 키 큰 나무가 빽빽하게 이어진 덩어리로 자라다가, 번개 한 번에 그 덩어리 전체가 불기둥 벽으로 바뀝니다. 아래에서 두 숲을 바꿔 가며 보세요.',
+        'The forest from the experiment above, stood up in 3D. Each tree is one cone, and the longer a tree has grown, the taller and darker it is. A clump that catches fire shoots up as orange columns of flame and then sinks into dark gray burnt ground. The forest that puts out small fires grows into a dense, connected clump of tall trees, until a single lightning strike turns the whole clump into a wall of flame. Switch between the two forests below.')
+_H3 = T('위 실험과 같은 숲, 같은 순간을 입체로 본 것이에요(새로 계산한 값은 없어요). 재생·일시정지·처음부터·슬라이더는 위 숲을 따라갑니다. 드래그로 회전, 휠·핀치로 확대, 휴대폰에서는 세로로 쓸면 페이지가 내려가요.',
+        'The same forest at the same moment as the experiment above, seen in 3D (nothing new is calculated). Play, pause, restart and the sliders follow the forest above. Drag to rotate, scroll or pinch to zoom; on a phone, swipe vertically to scroll the page.')
+SEC3D = f'''
+  </section>
+  <section class="panel chart" style="margin-top:16px">
+    <style>@media (max-width: 640px) {{ #c-3d {{ aspect-ratio: 1 / 1; }} }}</style>
+    <h3{da(_T3)}>{_T3[0]}</h3>
+    <p{da(_P3)}>{_P3[0]}</p>
+    <canvas id="c-3d" class="view3d" data-thumb aria-label="{esc(_T3[1].split(' <')[0])}"></canvas>
+    <div class="anim-bar">
+      <select id="wf3-forest" aria-label="forest">{_opt('sup', T('작은 불 끄기 숲', 'Forest that puts out small fires'), True)}{_opt('free', T('그냥 두기 숲', 'Forest left to burn'))}</select>
+      <span class="when" id="wf3-info"></span>
+    </div>{legend(leg('background:#2f8f3e', '초록 원뿔: 나무 (키가 클수록 오래 자란 나무)', 'Green cone: a tree (taller = grown longer)'),
+               leg('background:#ff8a1f', '주황 기둥: 지금 타는 불', 'Orange column: fire burning now'),
+               leg('background:#4a4a4f', '짙은 회색 바닥: 방금 탄 땅 (밝은 바닥은 빈 땅)', 'Dark gray ground: just burned (light ground is empty land)'))}
+    <p class="hint3d"{da(_H3)}>{_H3[0]}</p>'''
+
 page(dict(
+ three=True,
  slug='wildfire',
  title=T('작은 산불을 다 끄면 왜 나중에 더 큰 불이 날까', 'Why Putting Out Every Small Fire Can Lead to Bigger Ones Later'),
  title_tag=T('산불 억제의 역설 · 시뮬라티오 랩', 'The Fire Suppression Paradox · Simulatio Lab'),
@@ -29,16 +52,16 @@ page(dict(
        p=T('초록은 나무(어릴수록 연하고 오래될수록 짙음), 주황은 번지는 불꽃, 어두운 색은 방금 탄 자리와 빈 땅입니다. 왼쪽은 불을 그냥 두고, 오른쪽은 작은 불을 끕니다. 오른쪽 숲이 점점 짙어지다가 한꺼번에 타오르는 순간을 기다려 보세요.',
            'Green is trees (lighter when young, darker when old), orange is spreading flame, and the dark colors are freshly burnt ground and empty land. The left forest lets fires burn, and the right one puts out small fires. Wait for the moment the right forest, growing darker and darker, goes up all at once.'),
        id='c-forest', rounded=True, anim=True, thumb=True,
-       speeds=[('6', T('느리게', 'Slow')), ('15', T('보통', 'Normal')), ('40', T('빠르게', 'Fast'))], speed_default='15'),
-  dict(title=T('② 숲에 나무가 얼마나 찰까', '② How Full Does the Forest Get?'),
+       speeds=[('6', T('느리게', 'Slow')), ('15', T('보통', 'Normal')), ('40', T('빠르게', 'Fast'))], speed_default='15', extra=SEC3D),
+  dict(title=T('③ 숲에 나무가 얼마나 찰까', '③ How Full Does the Forest Get?'),
        p=T('두 숲의 나무 밀도(칸 중 나무가 있는 비율)가 시간에 따라 변하는 모습입니다. 점선은 칸에 나무가 무작위로 이 정도 있으면 이어진 덩어리가 숲 전체로 커질 수 있는 밀도(약 59%)입니다. 작은 불을 끄는 숲은 점선 가까이까지 올라갔다가 큰 불로 떨어집니다.',
            'The tree density (share of cells holding a tree) of both forests over time. The dotted line is the density (about 59%) above which randomly placed trees can form a connected clump spanning the whole forest. The forest that puts out small fires climbs toward the line and then crashes in a big fire.'),
        id='c-dens'),
-  dict(title=T('③ 불의 크기 분포', '③ How Big Are the Fires?'),
+  dict(title=T('④ 불의 크기 분포', '④ How Big Are the Fires?'),
        p=T('두 숲을 따로 오래 돌렸을 때, 어떤 크기 이상의 불이 1,000단계에 몇 번 났는지입니다(양쪽 로그 눈금). 작은 불을 끄면 왼쪽 위의 작은 불이 사라지고, 오른쪽의 큰 불은 오히려 늘어납니다. 붉은 영역이 큰 불입니다.',
            'After running both forests separately for a long time, this shows how many fires of at least a given size occurred per 1,000 steps (both axes logarithmic). Putting out small fires removes the small fires at upper left, while the big fires on the right actually become more frequent. The red zone marks big fires.'),
        id='c-size'),
-  dict(title=T('④ 탄 면적은 어떤 불이 태웠나', '④ Which Fires Burned the Area?'),
+  dict(title=T('⑤ 탄 면적은 어떤 불이 태웠나', '⑤ Which Fires Burned the Area?'),
        p=T('막대의 길이는 매 단계 타는 숲의 비율이고, 색은 그 면적을 태운 불의 크기입니다. 총량은 두 숲이 비슷합니다. 나무가 자라는 만큼만 탈 수 있기 때문이에요. 달라지는 것은 작은 불로 조금씩 타느냐, 큰 불로 한꺼번에 타느냐입니다.',
            'The bar length is the share of the forest burning per step, and the colors show the size of the fires that burned it. The total is about the same in both forests, because only as many trees as grow can burn. What changes is whether it burns a little at a time in small fires or all at once in big ones.'),
        id='c-area'),

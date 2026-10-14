@@ -63,20 +63,28 @@
   </section>
 
   <div class="charts">
+    <section class="panel chart wide">
+      <h3 data-en="② See It in 3D: A Landscape on the Edge of Collapse &lt;span class=&quot;badge3d&quot;&gt;3D&lt;/span&gt;">② 3D로 보기: 무너지기 직전의 모래 지형 <span class="badge3d">3D</span></h3>
+    <p data-en="The same sandpile as ①, with each cell raised into a column as tall as the grains it holds. Play, pause or drop one grain above and it moves here in exactly the same way. Red columns already hold 3 grains, so one more grain makes them topple. Once the pile is steady, red columns link up across the board, and a grain landing on one can bring down its red neighbors one after another. Cells that topple flash white and drop lower.">①과 같은 모래더미를 칸마다 쌓인 모래알 수만큼의 기둥으로 세웠습니다. 위에서 재생·일시정지·한 알 떨어뜨리기를 하면 여기서도 똑같이 움직입니다. 빨간 기둥은 이미 3알이 쌓여 한 알만 더 오면 무너지는 칸입니다. 안정기에 들어서면 빨간 기둥이 판 곳곳에 이어져 있어서, 그 위에 떨어진 한 알이 이웃의 빨간 기둥을 줄줄이 무너뜨립니다. 무너진 칸은 하얗게 번쩍이며 낮아집니다.</p>
+    <canvas id="c-3d" class="view3d" data-thumb aria-label="② See It in 3D: A Landscape on the Edge of Collapse 3D"></canvas>
+    <style>@media (max-width: 640px) { #c-3d { aspect-ratio: 1 / 1; } }</style>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#d9b77e&quot;&gt;&lt;/i&gt;Column height = grains in the cell (0 to 3)"><i style="background:#d9b77e"></i>기둥 높이 = 칸의 모래알 수 (0~3)</span><span data-en="&lt;i style=&quot;background:#e2384f&quot;&gt;&lt;/i&gt;3 grains: one more and it topples"><i style="background:#e2384f"></i>3알: 한 알만 더 오면 무너짐</span><span data-en="&lt;i style=&quot;background:#ffffff;border:1px solid #999;box-sizing:border-box&quot;&gt;&lt;/i&gt;White: the grain just dropped (ball) and cells that just toppled"><i style="background:#ffffff;border:1px solid #999;box-sizing:border-box"></i>흰색: 방금 떨어진 알(구슬)과 무너진 칸</span></div>
+    <p class="hint3d" data-en="This is the same pile as above, shown in 3D (no new calculation). Drag to rotate · scroll or pinch to zoom · on a phone, swiping up and down scrolls the page">위 모래더미를 입체로 본 것입니다(새로 계산하지 않음). 드래그로 회전 · 휠이나 두 손가락으로 확대 · 휴대폰에서 세로로 쓸면 페이지가 내려갑니다</p>
+    </section>
     <section class="panel chart">
-      <h3 data-en="② How Big Were the Avalanches?">② 눈사태는 얼마나 컸을까</h3>
+      <h3 data-en="③ How Big Were the Avalanches?">③ 눈사태는 얼마나 컸을까</h3>
     <p data-en="Each grain&#x27;s avalanche size is drawn as a vertical bar (for grains close together, only the largest is visible). Most hug the floor, and now and then a spike shoots up. The gray zone is the stretch where the pile is still building up.">알을 하나 떨어뜨릴 때마다 눈사태 크기를 세로 막대로 그렸습니다(가까운 알끼리는 가장 큰 것만 보입니다). 대부분은 바닥에 붙어 있고, 가끔 하늘로 솟는 뾰족한 막대가 있습니다. 회색 영역은 아직 더미가 쌓이는 중인 구간입니다.</p>
-    <canvas id="c-size" class="" aria-label="② How Big Were the Avalanches?"></canvas>
+    <canvas id="c-size" class="" aria-label="③ How Big Were the Avalanches?"></canvas>
     </section>
     <section class="panel chart">
-      <h3 data-en="③ How Often Do Small and Big Avalanches Happen?">③ 작은 눈사태와 큰 눈사태는 얼마나 자주 날까</h3>
+      <h3 data-en="④ How Often Do Small and Big Avalanches Happen?">④ 작은 눈사태와 큰 눈사태는 얼마나 자주 날까</h3>
     <p data-en="Avalanches in the steady regime are counted by size and drawn with both axes on a log scale (avalanches of size 0 are left out). If the dots roughly follow a falling straight line, small avalanches are very common and large ones rare but far from absent. The red dashed line is fitted to dots backed by at least 10 avalanches, and its slope is the value actually measured at this board size.">안정기 이후의 눈사태를 크기별로 세어 가로세로 모두 로그 눈금으로 그렸습니다(무너진 적 없는 0은 뺐습니다). 점들이 대체로 내려가는 직선을 이루면 작은 사태는 아주 흔하고 큰 사태는 드물지만 아예 없지는 않다는 뜻입니다. 빨간 점선은 표본 10개 이상인 점들에 맞춘 직선이고, 기울기는 이 판 크기에서 실제로 잰 값입니다.</p>
-    <canvas id="c-dist" class="" aria-label="③ How Often Do Small and Big Avalanches Happen?"></canvas>
+    <canvas id="c-dist" class="" aria-label="④ How Often Do Small and Big Avalanches Happen?"></canvas>
     </section>
     <section class="panel chart">
-      <h3 data-en="④ Does the Height Keep Rising?">④ 쌓을수록 높이는 계속 오를까</h3>
+      <h3 data-en="⑤ Does the Height Keep Rising?">⑤ 쌓을수록 높이는 계속 오를까</h3>
     <p data-en="As grains accumulate the average height rises, then stops rising and only wobbles around a value. Grains added and grains lost over the edge balance out.">모래알이 쌓이면서 평균 높이가 오르다가, 어느 값에서 더는 오르지 않고 오르내리기만 합니다. 더 얹어도 가장자리로 흘러나가는 알과 새로 얹는 알이 균형을 이루기 때문입니다.</p>
-    <canvas id="c-height" class="" aria-label="④ Does the Height Keep Rising?"></canvas>
+    <canvas id="c-height" class="" aria-label="⑤ Does the Height Keep Rising?"></canvas>
     </section>
   </div>
 
@@ -114,6 +122,7 @@
 <script src="../../lib.js"></script>
 <script src="sim.js"></script>
 <script src="app.js"></script>
+<script src="../../lazy3d.js" data-module="app3d.js"></script>
 <script src="../../counter.js"></script>
 <script src="../../engage.js"></script>
 </body>

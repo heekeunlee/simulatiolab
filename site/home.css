@@ -43,8 +43,8 @@ main.wide { max-width: 1320px; }
 .el.has-thumb .num, .el.has-thumb .sym { text-shadow: 0 0 6px #fff, 0 0 2px #fff; }
 .el.has-thumb:hover .thumb, .el.has-thumb.active .thumb { transform: scale(1.08); }
 .nb-visual.has-thumb .nb-sym { color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,.45); }
-.el .num { position: absolute; top: 8px; left: 10px; font-size: 11px; font-weight: 800; color: var(--c); letter-spacing: .04em; z-index: 1; }
-.el .sym { position: absolute; top: 4px; right: 9px; font-size: 20px; font-weight: 800; color: var(--c); letter-spacing: -0.02em; z-index: 1; opacity: .9; }
+.el .num { position: absolute; top: 6px; left: 9px; font-size: 9px; font-weight: 800; color: var(--c); letter-spacing: .04em; z-index: 1; }
+.el .sym { position: absolute; top: 4px; left: 23px; font-size: 20px; font-weight: 800; color: var(--c); letter-spacing: -0.02em; z-index: 1; opacity: .9; }
 .el .nm { position: absolute; left: 9px; right: 7px; bottom: 8px; font-size: 12px; font-weight: 700; line-height: 1.2; z-index: 1; word-break: keep-all; }
 .el .hid { display: none; }
 
@@ -211,8 +211,8 @@ html:not([lang="ko"]) .el .new-pill, html:not([lang="ko"]) .el .done-mark { bott
   .fh i { order: 2; font-size: 13px; padding: 2px 9px; }
   .fh .fcomp { position: static; order: 1; }
   .el { aspect-ratio: 1 / 0.9; border-radius: 16px; }
-  .el .num { font-size: 12px; top: 10px; left: 12px; }
-  .el .sym { font-size: 26px; top: 6px; right: 12px; }
+  .el .num { font-size: 11px; top: 9px; left: 12px; }
+  .el .sym { font-size: 26px; top: 6px; left: 29px; }
   .el .nm, html:not([lang="ko"]) .el .nm { left: 12px; right: 10px; bottom: 10px; font-size: 14.5px; height: 2.5em; line-height: 1.25; }
   .el .new-pill, html:not([lang="ko"]) .el .new-pill { left: 12px; bottom: 56px; font-size: 11px; }
   .el .done-mark, html:not([lang="ko"]) .el .done-mark { right: 10px; bottom: 54px; width: 24px; height: 24px; font-size: 14px; }
