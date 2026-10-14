@@ -80,6 +80,10 @@ PRED = {
 
 # ---- 2026-10-13 새 실험 11개 (정답·해설의 숫자는 각 validate 출력 기준) ----
 PRED.update({
+ 'murmuration': (
+  T('새 떼 시뮬레이션에서 \'이웃과 방향 맞추기\' 규칙 하나만 끄면 어떻게 될까요? (붙기·피하기는 그대로, 이 모델)', 'In the flock simulation, what happens if you switch off only the \'line up with neighbors\' rule? (sticking together and keeping apart stay on, this model)'),
+  [T('거의 그대로 한 몸처럼 난다', 'It still flies as one, almost unchanged'), T('모여 있긴 해도 새마다 제각각 방향으로 난다', 'The birds stay around, but each flies its own way'), T('더 빽빽한 한 덩어리가 된다', 'It becomes one even denser mass')], 1,
+  T('이 모델에서 세 규칙을 다 켜면 방향이 맞은 정도가 91(100이면 모두 같은 방향)이었지만, 맞추기만 끄면 3으로 떨어져 제각각 날았고 가장 큰 덩어리에 든 새도 95%에서 1%로 줄었어요.', 'In this model, with all three rules on the line-up score was 91 (100 = all the same way), but switching off only lining up dropped it to 3, with each bird going its own way, and the share in the largest group fell from 95% to 1%.')),
  'secretary': (  # validate-secretary: n=100, r=37 → 37.1%; n=40: r=4 24.2%, r=24 31.2%, r=32 18.1%
   T('후보를 한 명씩 만나고 지나간 사람은 다시 못 고를 때, 처음 몇 %는 일단 거절만 하며 지켜본 뒤 골라야 최고를 만날 확률이 가장 높을까요?',
     'You meet candidates one at a time and cannot go back. How many should you just watch and turn down first to have the best chance of picking the very best?'),

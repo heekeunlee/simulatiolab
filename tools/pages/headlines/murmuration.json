@@ -1,0 +1,22 @@
+{
+ "says_ko": [
+  "세 규칙을 다 켜면 리더 없이도 한 몸처럼 날고, 맞추기를 끄면 모여 있어도 제각각, 피하기를 끄면 작은 뭉치들로 갈라졌어요.",
+  "새마다 가까운 몇 마리의 방향만 따라 해도 그 방향이 이웃의 이웃으로 번져 전체가 한쪽으로 돌아요. 이 모델에선 처음 방향이 맞은 정도 44가 50걸음 만에 90이 됐어요.",
+  "이웃을 1마리만 보면 작은 무리로 흩어지고, 7마리부터는 95% 넘게 한 덩어리였어요. 떼의 절반을 퍼뜨려도 가까운 몇 마리를 보는 쪽이 일정 거리 안을 보는 쪽보다 잘 버텼어요."
+ ],
+ "says_en": [
+  "With all three rules on, the flock flies as one with no leader; without lining up, birds stay around but go every which way; without keeping apart, it breaks into small clumps.",
+  "Each bird copies only a few nearest birds, but that direction passes from neighbor to neighbor until the whole flock turns. Here the line-up score rose from 44 to 90 in 50 steps.",
+  "Watching 1 neighbor scattered birds into small bunches; from 7 on, over 95% stayed in one group. With half the flock spread out, watching the nearest few held up better than a fixed distance."
+ ],
+ "not_ko": [
+  "규칙 끄기와 이웃 수의 차이는 이 시뮬레이션이 직접 보여 준 거예요. 다만 단순 모델이라 실제 찌르레기 군무가 이렇게 일어난다는 증명이 아니고, \"7마리가 정답\"이란 뜻도 아니에요.",
+  "날갯짓과 공기 흐름, 시야각, 매의 실제 사냥 전략, 에너지, 바람, 장애물, 새마다 다른 성질은 빠져 있어요. 숫자는 모두 이 모델의 무차원 설정에서 나온 예시예요.",
+  "현실에서 확인하려면 실제 떼를 여러 카메라로 3D 촬영해 새마다 누구를 따라 움직이는지 재 봐야 해요. 그런 현장 연구가 가까운 6~7마리를 본다고 보고했지만, 이 모델이 그걸 증명하진 않아요."
+ ],
+ "not_en": [
+  "The effects of switching rules and neighbor counts are what this simulation showed directly. It is a simple model, so it does not prove real murmurations work this way, nor that \"7 is the answer.\"",
+  "Wingbeats and airflow, field of view, real hawk tactics, energy, wind, obstacles and differences between birds are left out. Every number is an example from this model's dimensionless settings.",
+  "To check in reality, film real flocks in 3D with several cameras and measure whom each bird follows. A field study like that reported about 6 to 7 nearest neighbors; this model does not prove it."
+ ]
+}

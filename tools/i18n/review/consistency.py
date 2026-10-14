@@ -4,7 +4,8 @@
 #  3) es/fr/ru 정적 문구의 숫자 표기를 그 언어 관습으로 (1,000 → 1.000 / 1 000, 0.5 → 0,5). 태그 안·<code> 안은 건드리지 않음
 import json, os, re
 R = os.path.dirname(os.path.abspath(__file__)); MEM = os.path.join(R, '..', 'tr', 'memory.json')
-mem = json.load(open(MEM, encoding='utf-8'))
+import sys; sys.path.insert(0, os.path.join(R, '..')); import memio
+mem = memio.load()
 HEAD = {
   'es': ('Qué muestra:', 'Qué no muestra:'),
   'fr': ('Ce que cela montre :', 'Ce que cela ne montre pas :'),
@@ -64,5 +65,5 @@ for ko, tr in mem['d'].items():
             new = v
             for a, b in rules: new = new.replace(a, b)
             if new != v: tr[lang] = new; n['term'] += 1
-json.dump(mem, open(MEM, 'w', encoding='utf-8'), ensure_ascii=False)
+memio.save(mem)
 print(n)

@@ -18,7 +18,8 @@ items = sorted(seen, key=lambda v: seen[v])
 ALL_LANGS = ['es', 'fr', 'ja', 'ru', 'zh']
 LANGS = sys.argv[1:] or ALL_LANGS
 MEM = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tr', 'memory.json')
-mem = json.load(open(MEM, encoding='utf-8')) if os.path.exists(MEM) else {'s': {}, 'd': {}}
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import memio
+mem = memio.load()
 json.dump(items, open(os.path.join(SRC, 'all_static.json'), 'w', encoding='utf-8'), ensure_ascii=False)
 def chunk(lst, size, key):
     out, cur, n = [], [], 0

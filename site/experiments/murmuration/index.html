@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Starling Murmuration · Simulatio Lab">찌르레기 떼 군무 · 시뮬라티오 랩</title>
+<meta name="description" content="대장 새도 계획도 없는데 수천 마리가 한 덩어리로 휘어지고 갈라졌다 다시 모입니다. 새마다 이웃 몇 마리만 보고 세 규칙만 따르는 3D 모델로 직접 돌려 보세요." data-en-content="No lead bird and no plan, yet thousands bend, split and regroup as one mass. Run a 3D model where each bird watches only a few neighbors and follows three rules.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="theme-color" content="#2f6fed">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1 data-en="With No Leader, How Does a Flock Fly as One?">리더도 없는 새 떼는 어떻게 한 몸처럼 날까?</h1>
+  <p class="lead" data-en="At dusk, thousands of starlings bend, split and come back together as if they were one huge body. Surely a lead bird is steering? Yet the birds in this model watch only &lt;b&gt;a few of their nearest neighbors&lt;/b&gt; and follow three rules. A field study has reported that real starlings, too, pay attention to about their 6 or 7 nearest neighbors, however far away they are. Is that really enough to fly as one? Switch the rules off one at a time, and send in a hawk.">해 질 녘 하늘에서 찌르레기 수천 마리가 거대한 한 덩어리처럼 휘어지고, 갈라졌다가, 다시 모입니다. 방향을 정해 주는 대장 새가 있을 것 같지요. 그런데 이 모델의 새들은 <b>가장 가까운 이웃 몇 마리</b>만 보고 세 가지 규칙만 따릅니다. 실제 찌르레기도 거리와 상관없이 가장 가까운 6~7마리쯤을 본다고 보고한 현장 연구가 있어요. 정말 이것만으로 한 몸처럼 날 수 있을까요? 규칙을 하나씩 꺼 보고, 매도 보내 보세요.</p>
+
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li data-en="1,500 birds (700 from the start on a phone) fly inside a flattened ball of sky. They never stop, keep roughly the same speed, and can only turn so far in one step. At the start they face roughly one way, but each in its own direction.">새 1,500마리(휴대폰에서는 처음부터 700마리)가 납작한 공 모양의 하늘 안을 납니다. 새는 멈추지 않고 거의 같은 빠르기로 날며, 한 걸음에 돌 수 있는 각도가 정해져 있습니다. 처음에는 대체로 한쪽을 향하지만 방향이 제각각입니다.</li>
+    <li data-en="Each bird watches only &lt;b&gt;its 7 nearest neighbors&lt;/b&gt; (or &quot;everyone within a set distance&quot;). There is no leader and no plan that sees the whole. Each follows just three rules: ① &lt;b&gt;Stick together&lt;/b&gt;: move toward the middle of its neighbors. ② &lt;b&gt;Line up&lt;/b&gt;: turn toward the way its neighbors are flying. ③ &lt;b&gt;Keep apart&lt;/b&gt;: veer away from a neighbor that is too close.">새는 <b>가장 가까운 이웃 7마리</b>(또는 "일정 거리 안의 모두")만 봅니다. 리더도, 전체를 내려다보는 계획도 없습니다. 그리고 세 규칙만 따릅니다. ① <b>붙기</b>: 이웃들의 가운데 쪽으로 다가간다. ② <b>맞추기</b>: 이웃들이 나는 방향으로 고개를 돌린다. ③ <b>피하기</b>: 너무 가까이 붙은 이웃에게서 비켜난다.</li>
+    <li data-en="A weak pull toward the middle of the sky (toward the roost) keeps the flock from flying off, so it circles the sky. Every bird also gets a small random wobble at every step.">하늘 가운데(잠자리 쪽)로 약하게 끌리는 힘이 있어서 떼가 멀리 날아가 버리지 않고 하늘을 크게 돕니다. 새마다 걸음마다 작은 흔들림이 더해집니다.</li>
+    <li data-en="Press &lt;b&gt;Send a hawk&lt;/b&gt; and a hawk dives toward the middle of the flock. Birds near it (within 12) gain rule ④ &lt;b&gt;Flee&lt;/b&gt;: they swerve away from the hawk and speed up a little. The hawk catches nothing; it only passes through."><b>매 보내기</b>를 누르면 매 한 마리가 떼의 가운데를 향해 돌진합니다. 매에서 가까운(12 거리 안) 새는 ④ <b>도망가기</b> 규칙이 더해져 매 반대쪽으로 꺾고 조금 빨라집니다. 매는 사냥하지 않고 지나가기만 합니다.</li>
+    <li data-en="There are three measures. &lt;b&gt;How well directions line up&lt;/b&gt; (0–100): the length of the average of every bird&#x27;s heading (an arrow of length 1) × 100, so 100 if all fly the same way and near 0 if each goes its own way. &lt;b&gt;How tightly packed&lt;/b&gt; (0–100): how much shorter the average distance from the flock&#x27;s center is than if the birds were spread evenly over the whole sky (0 = as spread out as that, 100 = all at one point). &lt;b&gt;Number of groups&lt;/b&gt;: birds within 3 of each other count as linked, and linked groups are counted; groups smaller than 3% of all birds (at least 10) are not counted. Distance and time (steps) are this model&#x27;s own units.">지표는 세 가지입니다. <b>방향이 맞은 정도</b>(0~100): 모든 새의 나는 방향(길이 1인 화살표)을 평균 낸 화살표의 길이 × 100이라, 모두 같은 쪽이면 100, 제각각이면 0에 가깝습니다. <b>뭉친 정도</b>(0~100): 무리 중심에서 새까지의 평균 거리가, 새들이 하늘 전체에 고르게 흩어졌을 때보다 얼마나 짧은지(0 = 고르게 흩어진 만큼, 100 = 한 점에 모임). <b>덩어리 수</b>: 서로 3 거리 안에 있으면 이어진 것으로 보고 이어진 무리를 셉니다. 전체의 3%(최소 10마리)보다 작은 무리는 세지 않습니다. 거리와 시간(걸음)은 이 모델의 단위입니다.</li>
+  </ul>
+
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="n" data-en="Number of birds &lt;output id=&quot;o-n&quot;&gt;&lt;/output&gt;">새 수 <output id="o-n"></output></label>
+        <input type="range" id="n" min="200" max="3000" step="100" value="1500">
+        <span class="hint" data-en="More birds, bigger flock. Phones use at most 700">많을수록 큰 떼. 휴대폰은 700마리까지만 써요</span></div>
+<div class="ctl"><label for="k" data-en="Neighbors each bird watches &lt;output id=&quot;o-k&quot;&gt;&lt;/output&gt;">한 마리가 보는 이웃 수 <output id="o-k"></output></label>
+        <input type="range" id="k" min="1" max="20" step="1" value="7">
+        <span class="hint" data-en="How many of the nearest birds it watches. Not used with &quot;within a set distance&quot;">가까운 몇 마리를 볼지. "일정 거리 안"을 고르면 쓰지 않아요</span></div>
+<div class="ctl"><label for="coh" data-en="Stick-together strength &lt;output id=&quot;o-coh&quot;&gt;&lt;/output&gt;">붙기 세기 <output id="o-coh"></output></label>
+        <input type="range" id="coh" min="0" max="200" step="10" value="100">
+        <span class="hint" data-en="At 0, birds do not move toward their neighbors">0이면 이웃 쪽으로 다가가지 않아요</span></div>
+<div class="ctl"><label for="ali" data-en="Line-up strength &lt;output id=&quot;o-ali&quot;&gt;&lt;/output&gt;">맞추기 세기 <output id="o-ali"></output></label>
+        <input type="range" id="ali" min="0" max="200" step="10" value="100">
+        <span class="hint" data-en="At 0, birds do not match their neighbors&#x27; direction">0이면 이웃과 방향을 맞추지 않아요</span></div>
+<div class="ctl"><label for="sep" data-en="Keep-apart strength &lt;output id=&quot;o-sep&quot;&gt;&lt;/output&gt;">피하기 세기 <output id="o-sep"></output></label>
+        <input type="range" id="sep" min="0" max="200" step="10" value="100">
+        <span class="hint" data-en="At 0, birds do not veer away even when too close">0이면 너무 가까워도 비키지 않아요</span></div>
+<div class="ctl"><label for="mode" data-en="How neighbors are chosen &lt;output id=&quot;o-mode&quot;&gt;&lt;/output&gt;">이웃을 보는 방식 <output id="o-mode"></output></label>
+        <select id="mode" class="sel"><option value="topo" selected data-en="Only the nearest few">가까운 몇 마리만</option><option value="metric" data-en="Everyone within a set distance">일정 거리 안의 모두</option></select>
+        <span class="hint" data-en="With distance, a bird sees fewer neighbors when the flock thins out">거리 방식은 떼가 퍼지면 보이는 이웃이 줄어요</span></div>
+    </div>
+    <div class="btns">
+      <button class=primary id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Same settings, another evening">같은 설정, 다른 날</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3 data-en="① A Flock in the Evening Sky &lt;span class=&quot;badge3d&quot;&gt;3D&lt;/span&gt;">① 저녁 하늘의 새 떼 <span class="badge3d">3D</span></h3>
+    <p data-en="Each bird is a small wedge, its point showing the way it flies. Birds in the middle of the flock are dark and birds at the edge are blue (the color only shows where a bird is in the flock). The faint dots on the ground are the flock&#x27;s shadow. Try &quot;Send a hawk&quot; below.">새 한 마리가 작은 쐐기 하나이고, 뾰족한 쪽이 나는 방향입니다. 무리 한가운데 새는 진하게, 가장자리 새는 파랗게 칠했어요(색은 무리 안 위치만 나타냅니다). 땅 위의 옅은 점은 떼의 그림자입니다. 아래 "매 보내기"를 눌러 보세요.</p>
+    <canvas id="c-3d" class="view3d" data-thumb aria-label="① A Flock in the Evening Sky 3D"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#10131f&quot;&gt;&lt;/i&gt;Bird in the middle of the flock"><i style="background:#10131f"></i>무리 가운데 새</span><span data-en="&lt;i style=&quot;background:#3f7cff&quot;&gt;&lt;/i&gt;Bird at the edge"><i style="background:#3f7cff"></i>가장자리 새</span><span data-en="&lt;i style=&quot;background:#e8590c&quot;&gt;&lt;/i&gt;Hawk (large orange wedge)"><i style="background:#e8590c"></i>매 (큰 주황 쐐기)</span></div>
+    <div class="anim-bar">
+      <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
+      
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="speed"><option value="15" data-en="Slow">느리게</option><option value="30" selected data-en="Normal">보통</option><option value="60" data-en="Fast">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+    <div class="anim-bar">
+      <button id="hawk" data-en="Send a hawk">매 보내기</button>
+      <select id="mm-rotate" aria-label="camera"><option value="on" selected data-en="Camera turns slowly">카메라 천천히 돌기</option><option value="off" data-en="Camera stays still">카메라 멈춤</option></select>
+    </div>
+    <p class="hint3d" data-en="Drag to turn the view · scroll or pinch to zoom · left alone, the camera circles slowly (you can switch it off) · on a phone, swiping up and down scrolls the page. If the screen gets slow, the number of birds is reduced automatically.">드래그로 돌려 보기 · 휠이나 두 손가락으로 확대 · 가만히 두면 카메라가 천천히 돕니다(끌 수 있어요) · 휴대폰에서 세로로 쓸면 페이지가 내려갑니다. 화면이 느려지면 새 수를 자동으로 줄입니다.</p>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3 data-en="② How Well Lined Up, How Tightly Packed">② 방향이 얼마나 맞았나, 얼마나 뭉쳤나</h3>
+    <p data-en="Drawn only up to where the playback has reached. The blue line is how well directions line up, the orange line how tightly packed the flock is. The red band marks when the hawk was in the sky, the green dashed line when the flock came back together.">재생이 지난 시점까지만 그립니다. 파란 선은 방향이 맞은 정도, 주황 선은 뭉친 정도입니다. 붉은 띠는 매가 하늘에 있던 때, 초록 점선은 다시 모인 때예요.</p>
+    <canvas id="c-time" class="" aria-label="② How Well Lined Up, How Tightly Packed"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ How Many Groups Has the Flock Split Into?">③ 떼가 몇 덩어리로 갈라졌나</h3>
+    <p data-en="Drawn only up to where the playback has reached. 1 means one single flock. Watch whether a passing hawk splits it into several groups for a while and whether they join up again.">재생이 지난 시점까지만 그립니다. 1이면 한 덩어리입니다. 매가 지나가면 잠깐 여러 덩어리로 갈라졌다가 다시 붙는지 보세요.</p>
+    <canvas id="c-clu" class="" aria-label="③ How Many Groups Has the Flock Split Into?"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="④ How Many Neighbors Are Enough? (Summary: 16 Runs in Advance)">④ 이웃을 몇 마리 보면 될까 (집계: 미리 돌린 16판)</h3>
+    <p data-en="With default settings, only the number of neighbors each bird watches is changed to 1, 3, 7 or 15; each is run 4 times to 2,000 steps and the last 400 steps are averaged. This is a summary computed in advance, independent of the playback. Blue bars show how well directions line up, gray bars the share of birds in the largest group, and the number under the bars the average number of groups.">기본 설정에서 한 마리가 보는 이웃 수만 1·3·7·15마리로 바꿔 각각 4판씩 2,000걸음까지 돌리고 마지막 400걸음을 평균했습니다. 재생과 상관없이 미리 계산한 집계입니다. 파란 막대는 방향이 맞은 정도, 회색 막대는 가장 큰 덩어리에 든 새의 비율, 막대 아래 숫자는 덩어리 수 평균입니다.</p>
+    <canvas id="c-k" class="" aria-label="④ How Many Neighbors Are Enough? (Summary: 16 Runs in Advance)"></canvas>
+      <div class="legend"><span id="note-k" data-en="Calculating…">계산 중…</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="⑤ Switching Off One Rule at a Time (Summary: 16 Runs in Advance)">⑤ 규칙을 하나씩 끄면 (집계: 미리 돌린 16판)</h3>
+    <p data-en="The same kind of summary with 7 neighbors, switching off just one rule (set to 0). See how the flock falls apart when each piece is missing.">같은 방식으로, 이웃 7마리에서 규칙 하나만 0으로 끈 집계입니다. 무엇이 빠지면 떼가 어떻게 무너지는지 보세요.</p>
+    <canvas id="c-rules" class="" aria-label="⑤ Switching Off One Rule at a Time (Summary: 16 Runs in Advance)"></canvas>
+      <div class="legend"><span id="note-r" data-en="Calculating…">계산 중…</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="⑥ Suddenly Spreading Out Half the Flock (Summary: 8 Runs in Advance)">⑥ 떼의 절반을 갑자기 퍼뜨리면 (집계: 미리 돌린 8판)</h3>
+    <p data-en="At step 600, one half of the flock is moved three times farther from its center, suddenly widening the gaps between those birds; steps 1,100–1,400 are then averaged (4 runs per method). The distance for &quot;within a set distance&quot; (2.9) was chosen so that birds normally see a similar number of neighbors (6.3 versus 7 on average).">600걸음에 떼의 한쪽 절반을 무리 중심에서 3배 멀리 옮겨 그쪽 새 사이 간격을 갑자기 크게 벌린 뒤, 1,100~1,400걸음을 평균했습니다(방식마다 4판). "일정 거리 안" 방식의 거리(2.9)는 보통 때 보이는 이웃 수가 비슷해지도록 맞췄습니다(평균 6.3마리 대 7마리).</p>
+    <canvas id="c-dens" class="" aria-label="⑥ Suddenly Spreading Out Half the Flock (Summary: 8 Runs in Advance)"></canvas>
+      <div class="legend"><span id="note-d" data-en="Calculating…">계산 중…</span></div>
+    </section>
+  </div>
+
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout cl-says">
+    <p class="clabel" data-en="&lt;b&gt;What it shows:&lt;/b&gt;"><b>말하는 것:</b></p>
+    <ul class="chead"><li data-en="With all three rules on, the flock flies as one with no leader; without lining up, birds stay around but go every which way; without keeping apart, it breaks into small clumps.">세 규칙을 다 켜면 리더 없이도 한 몸처럼 날고, 맞추기를 끄면 모여 있어도 제각각, 피하기를 끄면 작은 뭉치들로 갈라졌어요.</li><li data-en="Each bird copies only a few nearest birds, but that direction passes from neighbor to neighbor until the whole flock turns. Here the line-up score rose from 44 to 90 in 50 steps.">새마다 가까운 몇 마리의 방향만 따라 해도 그 방향이 이웃의 이웃으로 번져 전체가 한쪽으로 돌아요. 이 모델에선 처음 방향이 맞은 정도 44가 50걸음 만에 90이 됐어요.</li><li data-en="Watching 1 neighbor scattered birds into small bunches; from 7 on, over 95% stayed in one group. With half the flock spread out, watching the nearest few held up better than a fixed distance.">이웃을 1마리만 보면 작은 무리로 흩어지고, 7마리부터는 95% 넘게 한 덩어리였어요. 떼의 절반을 퍼뜨려도 가까운 몇 마리를 보는 쪽이 일정 거리 안을 보는 쪽보다 잘 버텼어요.</li></ul>
+    <details class="cmore"><summary data-en="Details">상세 설명</summary>
+      <p class="cfull" data-en="&lt;b&gt;What it shows:&lt;/b&gt; In the first run with default settings (1,500 birds, 7 nearest neighbors, all three rules at 100%), the line-up score started at 44 and reached 90 after 50 steps. Averaged over 4 runs (the last 400 of 2,000 steps), the line-up score was 91, the packing score 72, and 95% of birds were in the largest group. Changing the number of neighbors: 1 gave a line-up score of 29 with 1% in the largest group (scattered into small bunches), 3 gave 81 and 70%, 7 gave 91 and 95%, 15 gave 93 and 99%. Switching rules off one at a time: without &lt;b&gt;lining up&lt;/b&gt;, the score was 3, packing 25 and 1% in the largest group, so the birds stayed around but went every which way; without &lt;b&gt;keeping apart&lt;/b&gt;, the score was 78 with 53% in the largest group and 3.2 groups, as the flock broke into small clumps; without &lt;b&gt;sticking together&lt;/b&gt;, the birds still flew together (91) but a little more loosely (packing 65, 87% in the largest group). When half the flock was suddenly spread out threefold, the largest group fell from 93% to 78% when birds watched their 7 nearest, and from 73% to 54% when they watched everyone within a set distance. In 4 runs with a hawk, the line-up score dropped to between 20 and 43, and regrouping after the hawk left took 4 to 616 steps."><b>말하는 것:</b> 기본 설정(새 1,500마리, 가까운 이웃 7마리, 세 규칙 100%)의 첫 판에서 처음 방향이 맞은 정도는 44였고 50걸음 뒤 90이 됐습니다. 4판 평균(2,000걸음 중 마지막 400걸음)으로 방향이 맞은 정도 91, 뭉친 정도 72, 가장 큰 덩어리에 든 새 95%였습니다. 이웃 수를 바꾸면 1마리일 때 방향 29·가장 큰 덩어리 1%(작은 무리로 흩어짐), 3마리 81·70%, 7마리 91·95%, 15마리 93·99%였습니다. 규칙을 하나씩 끄면, <b>맞추기</b>가 없을 때 방향 3·뭉친 정도 25·가장 큰 덩어리 1%로 모여 있어도 제각각 흩어졌고, <b>피하기</b>가 없을 때 방향 78·가장 큰 덩어리 53%·덩어리 3.2개로 작은 뭉치들로 갈라졌으며, <b>붙기</b>가 없을 때는 방향 91로 같이 날았지만 뭉친 정도 65·가장 큰 덩어리 87%로 조금 느슨해졌습니다. 떼의 절반을 갑자기 3배로 퍼뜨리면 가까운 7마리를 보는 방식은 가장 큰 덩어리가 93%에서 78%로, 일정 거리 안을 보는 방식은 73%에서 54%로 줄었습니다. 매를 보낸 4판에서 방향이 맞은 정도는 20~43까지 떨어졌고, 매가 떠난 뒤 다시 모이기까지 4~616걸음이 걸렸습니다.</p></details>
+  </div>
+  <div class="callout cl-not">
+    <p class="clabel" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt;"><b>말하지 않는 것:</b></p>
+    <ul class="chead"><li data-en="The effects of switching rules and neighbor counts are what this simulation showed directly. It is a simple model, so it does not prove real murmurations work this way, nor that &quot;7 is the answer.&quot;">규칙 끄기와 이웃 수의 차이는 이 시뮬레이션이 직접 보여 준 거예요. 다만 단순 모델이라 실제 찌르레기 군무가 이렇게 일어난다는 증명이 아니고, "7마리가 정답"이란 뜻도 아니에요.</li><li data-en="Wingbeats and airflow, field of view, real hawk tactics, energy, wind, obstacles and differences between birds are left out. Every number is an example from this model&#x27;s dimensionless settings.">날갯짓과 공기 흐름, 시야각, 매의 실제 사냥 전략, 에너지, 바람, 장애물, 새마다 다른 성질은 빠져 있어요. 숫자는 모두 이 모델의 무차원 설정에서 나온 예시예요.</li><li data-en="To check in reality, film real flocks in 3D with several cameras and measure whom each bird follows. A field study like that reported about 6 to 7 nearest neighbors; this model does not prove it.">현실에서 확인하려면 실제 떼를 여러 카메라로 3D 촬영해 새마다 누구를 따라 움직이는지 재 봐야 해요. 그런 현장 연구가 가까운 6~7마리를 본다고 보고했지만, 이 모델이 그걸 증명하진 않아요.</li></ul>
+    <details class="cmore"><summary data-en="Details">상세 설명</summary>
+      <p class="cfull" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; This is a simple boids model, and it does not claim that real starling murmurations happen this way. Wingbeats and airflow, field of view and the structure of the eye, real hawk hunting tactics, stamina and energy, wind, obstacles such as buildings and trees, and differences in character and size between birds are all left out. Nor does it mean &quot;7 is the right answer&quot;: in this model 7 and 15 neighbors simply differed little, and the results depend on the strengths, distances and sky size chosen by this project. The birds kept flying together even without sticking together, possibly because they started out facing roughly the same way and still lined up. Distance, time and strength are all dimensionless units of this model, and every number is an example from this model."><b>말하지 않는 것:</b> 이 모델은 단순한 보이드 모델이며, 실제 찌르레기 떼 군무가 이렇게 일어난다고 단정하지 않습니다. 날갯짓과 공기의 흐름, 시야각과 눈의 구조, 매의 실제 사냥 전략, 새의 체력과 에너지, 바람, 건물·나무 같은 장애물, 새마다 다른 성격과 크기는 모두 빠져 있습니다. "7마리가 정답"이라는 뜻도 아닙니다. 이 모델에서는 7마리와 15마리의 차이가 작았을 뿐이고, 결과는 이 프로젝트가 정한 세기·거리·하늘 크기에 따라 달라집니다. 붙기를 꺼도 같이 날았던 것은 처음에 새들이 대체로 같은 쪽을 보고 맞추기가 남아 있었기 때문일 수 있습니다. 거리·시간·세기는 모두 이 모델의 무차원 단위이고, 숫자는 모두 이 모델에서 나온 예시입니다.</p></details>
+  </div>
+
+  <h2 data-en="Theory and implementation notes">이론적 근거와 구현 메모</h2>
+  <ul class="small">
+    <li class="memo theory" data-en="&lt;b&gt;Where the model comes from:&lt;/b&gt; &lt;b&gt;Boids&lt;/b&gt;, created by Reynolds (1987) to animate flocks in computer graphics, has each bird follow only three rules (stick together, line up, keep apart), and the motion of the whole flock emerges from them. Ballerini et al. (2008) filmed starling flocks over Rome in 3D with several cameras and reported that each bird interacts with about 6 to 7 nearest neighbors on average regardless of their distance (topological neighbors), explaining that this can make a flock robust when its density changes."><b>모델의 뿌리:</b> Reynolds (1987)가 컴퓨터 그래픽에서 새 떼를 그리려고 만든 <b>보이드(boids)</b>는 새마다 붙기·맞추기·피하기 세 규칙만 따르게 해서 떼 전체의 움직임이 생겨나게 한 모델입니다. Ballerini 외(2008)는 로마의 찌르레기 떼를 여러 대의 카메라로 3D로 촬영해, 새 한 마리가 거리와 상관없이 평균 6~7마리 가까운 이웃과 영향을 주고받는다고(위상 이웃) 보고했고, 이런 방식이 떼의 밀도가 변해도 잘 버틸 수 있다고 설명했습니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Key assumptions and formulas:&lt;/b&gt; Bird i turns from its current heading &lt;code&gt;h&lt;/code&gt; toward &lt;code&gt;h + s&lt;/code&gt;, with &lt;code&gt;s = w&lt;sub&gt;stick&lt;/sub&gt;·0.09·(neighbors&#x27; center − me)/4 + w&lt;sub&gt;line up&lt;/sub&gt;·0.22·(neighbors&#x27; mean heading − h) + w&lt;sub&gt;apart&lt;/sub&gt;·0.55·Σ(me − neighbor)(1 − d/1.6)/d + pull + flee + wobble&lt;/code&gt;, by at most 0.11 radians per step (the distance to the neighbors&#x27; center is capped at 4, and keeping apart only uses neighbors within 1.6). Speed stays near 0.35 and rises up to 1.6 times when frightened by the hawk. The sky is a flattened ball with horizontal radius 70 and vertical radius 30; a pull of &lt;code&gt;0.01 × (position/radius)&lt;/code&gt; toward the middle is added, plus &lt;code&gt;0.5 × (how far outside)&lt;/code&gt; outside the sky. The wobble is a uniform random number within ±0.2 on each axis. Topological neighbors are the nearest k (within at most 24); metric neighbors are everyone within 2.9. The line-up score is &lt;code&gt;100 × |mean h|&lt;/code&gt; (called &quot;polarization&quot; in physics); the packing score is &lt;code&gt;100 × (1 − mean distance/44.1)&lt;/code&gt;, where 44.1 is the mean distance to the center when birds are spread evenly over the whole sky."><b>핵심 가정과 수식:</b> 새 i의 다음 방향은 지금 방향 <code>h</code>에 <code>s = w<sub>붙기</sub>·0.09·(이웃 중심 − 나)/4 + w<sub>맞추기</sub>·0.22·(이웃 평균 방향 − h) + w<sub>피하기</sub>·0.55·Σ(나 − 이웃)(1 − d/1.6)/d + 끌림 + 도망 + 흔들림</code>을 더한 쪽으로, 한 걸음에 최대 0.11라디안까지만 돕니다(이웃 중심까지 거리는 4에서 자름, 피하기는 1.6 거리 안 이웃만). 속도는 0.35로 거의 일정하고 매에게 놀라면 최대 1.6배까지 빨라집니다. 하늘은 가로 반지름 70, 세로 30인 납작한 공이며, 가운데로 끄는 힘 <code>0.01 × (위치/반지름)</code>, 하늘 밖에서는 <code>0.5 × (밖으로 나간 정도)</code>를 더합니다. 흔들림은 축마다 ±0.2 안의 고른 난수입니다. 위상 이웃은 가장 가까운 k마리(최대 24 거리 안), 거리 이웃은 2.9 거리 안의 모두입니다. 방향이 맞은 정도는 <code>100 × |평균 h|</code>(물리학에서 말하는 "정렬도(polarization)"), 뭉친 정도는 <code>100 × (1 − 평균 거리/44.1)</code>(44.1 = 하늘 전체에 고르게 흩어졌을 때 중심까지 평균 거리)입니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;What this project simplifies:&lt;/b&gt; Birds are points with no size, and speed, turning angle, strengths and distances are all dimensionless values chosen by this project. Wingbeats, aerodynamics, field of view (not seeing behind) and eye structure, hawk hunting tactics and kills, energy and fatigue, wind, obstacles and differences between individuals are not included. The pull toward the middle of the sky is a setting added to keep the flock on screen, and starting with headings tilted slightly one way is also this project&#x27;s choice (starting from fully random headings often split the birds into several flocks flying separately)."><b>이 프로젝트의 단순화:</b> 새는 크기 없는 점이고 속도·회전각·세기·거리는 모두 이 프로젝트가 정한 무차원 값입니다. 날갯짓, 공기역학, 시야각(뒤는 못 보는 것)과 눈의 구조, 매의 사냥 전략과 사냥 성공, 에너지·피로, 바람, 장애물, 개체마다 다른 성질은 넣지 않았습니다. 하늘 가운데로 끄는 힘은 떼가 화면 밖으로 날아가지 않게 하려고 넣은 설정이고, 처음 방향을 한쪽으로 살짝 치우치게 둔 것도 이 프로젝트의 선택입니다(완전히 제각각에서 시작하면 여러 떼로 나뉘어 따로 나는 일이 많았습니다).</li>
+    <li class="memo theory" data-en="&lt;b&gt;Theory versus simulation:&lt;/b&gt; There is no theoretical value to match for boids, so only simulated values are given (&lt;code&gt;node tools/validate-murmuration.js&lt;/code&gt;, fixed seeds). The extremes behave as expected: without lining up the score is 3, close to random headings, and with only 1 neighbor it is 29 and the flock does not hold together. Against the field study&#x27;s explanation (watching a few nearest neighbors copes better with density changes): here too, after spreading half the flock, the largest group held 78% with the 7-nearest method and 54% with the set-distance method, pointing the same way. However, the set-distance method was already lower before the spread (73% versus 93%), and both methods dropped."><b>이론값과 시뮬레이션:</b> 보이드에는 맞춰 볼 이론값이 없어 시뮬레이션 값만 적습니다(<code>node tools/validate-murmuration.js</code>, 시드 고정). 극단은 예상과 맞습니다. 맞추기를 끄면 방향이 맞은 정도가 3으로 무작위 방향에 가깝고, 이웃이 1마리뿐이면 29로 떼가 이어지지 않습니다. 현장 연구의 설명(가까운 몇 마리를 보는 방식이 밀도 변화에 더 잘 버틴다)과의 방향: 이 모델에서도 절반을 퍼뜨린 뒤 가장 큰 덩어리가 가까운 7마리 방식은 78%, 일정 거리 방식은 54%로 같은 방향이었습니다. 다만 일정 거리 방식은 퍼뜨리기 전에도 73%로 이미 낮았고(가까운 7마리 93%), 두 방식 모두 줄어들었습니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Further reading:&lt;/b&gt; Reynolds (1987), &quot;Flocks, herds and schools: A distributed behavioral model&quot;, &lt;i&gt;Computer Graphics&lt;/i&gt; (SIGGRAPH &#x27;87) 21(4). Ballerini et al. (2008), &quot;Interaction ruling animal collective behavior depends on topological rather than metric distance: Evidence from a field study&quot;, &lt;i&gt;PNAS&lt;/i&gt; 105(4)."><b>더 읽을거리:</b> Reynolds (1987), 「Flocks, herds and schools: A distributed behavioral model」, Computer Graphics(SIGGRAPH '87) 21(4). Ballerini 외 (2008), 「Interaction ruling animal collective behavior depends on topological rather than metric distance: Evidence from a field study」, PNAS 105(4).</li>
+    <li  data-en="A simplified implementation of this project&#x27;s own design; it does not reproduce any paper&#x27;s numbers. Neighbors are found with a spatial grid (cells of 3) fitted to where the birds are, and the nearest k are found by widening the search one layer of cells at a time. All birds move at once, based on the previous step. ① The 3D view draws the computed result as is; it joins each bird&#x27;s previous and current positions so motion looks smooth, which does not affect the results. Phones use at most 700 birds from the start, and if the screen stays below 24 frames per second for more than 3 seconds the number of birds is cut by 25% (shown on the stat card). ④–⑥ are summaries run in advance with default settings, so they do not change with the sliders. The hawk example (4 runs, hawk at step 600) is only in the validation script. This page shows a single 3D view instead of a 2D map (the slowly turning camera makes the depth readable, and phones are spared drawing a second view).">이 프로젝트가 직접 설계한 단순화 구현이며 논문 수치를 재현한 것은 아닙니다. 이웃 찾기는 새들이 있는 범위에 맞춘 공간 격자(칸 3)로 하고, 가까운 k마리는 칸을 한 겹씩 넓혀 가며 찾습니다. 모든 새는 같은 걸음의 이전 상태를 보고 동시에 움직입니다. ① 3D는 계산 결과를 그대로 그리며, 한 걸음 전과 지금 위치 사이를 이어 그려 부드럽게 보일 뿐 결과에 영향이 없습니다. 휴대폰에서는 처음부터 새를 700마리까지만 쓰고, 화면이 초당 24프레임 아래로 3초 넘게 느려지면 새 수를 25%씩 줄입니다(통계 카드에 표시). ④~⑥은 기본 설정으로 미리 돌린 집계라 슬라이더를 바꿔도 달라지지 않습니다. 매 예시(4판, 600걸음에 매)는 검증 스크립트에만 있습니다. 이 페이지는 2D 지도 대신 3D 화면 하나로 보여 줍니다(카메라가 천천히 돌아 입체가 읽히고, 휴대폰에서 화면을 하나 더 그리지 않으려는 것).</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/murmuration&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/murmuration">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap" data-en="Simulatio Lab · Run by Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
+<script src="../../exps.js"></script>
+<script src="../../layout.js"></script>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../lazy3d.js" data-module="app3d.js"></script>
+<script src="../../counter.js"></script>
+<script src="../../engage.js"></script>
+</body>
+</html>

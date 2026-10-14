@@ -5,7 +5,8 @@ import glob, html, importlib.util, json, os, re, subprocess, sys
 R = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.join(R, '..', '..', '..')
 MEM = os.path.join(R, '..', 'tr', 'memory.json'); SRC = os.path.join(R, '..', 'tr', 'src')
 LANGS = ['es', 'fr', 'ja', 'ru', 'zh']; SIZE = int(os.environ.get('SIZE', 90000))
-mem = json.load(open(MEM, encoding='utf-8'))
+import sys; sys.path.insert(0, os.path.join(R, '..')); import memio
+mem = memio.load()
 old = json.loads(subprocess.check_output(['git', '-C', ROOT, 'show', '4e94a7f:tools/i18n/tr/memory.json']))
 subprocess.run([sys.executable, os.path.join(R, '..', 'tr_extract.py')], capture_output=True)   # all_static/all_dyn 갱신
 allst = json.load(open(os.path.join(SRC, 'all_static.json'), encoding='utf-8')); alld = json.load(open(os.path.join(SRC, 'all_dyn.json'), encoding='utf-8'))

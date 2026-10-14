@@ -9,7 +9,8 @@ HAN = re.compile('[ㄱ-ㆎ가-힣]')
 tag = lambda s: Counter(re.findall(r'<[^>]+>', s))
 ph = lambda s: Counter(re.findall(r'\{[#%]?\d+\}', s))
 MEM = os.path.join(D, 'memory.json')   # 지금까지 검증을 통과한 번역 전체 (s: 영어 HTML→번역, d: 한국어 키→번역)
-mem = json.load(open(MEM, encoding='utf-8')) if os.path.exists(MEM) else {'s': {}, 'd': {}}
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import memio
+mem = memio.load()
 tr = {}
 outs = sorted(glob.glob(os.path.join(D, 'out/*.json')))
 for f in outs:
@@ -46,6 +47,6 @@ for l, (st, dy) in out.items():
 for b in bad[:60]: print('불량', b)
 print('불량 총', len(bad))
 json.dump([b[0] for b in bad], open(os.path.join(D, 'bad.json'), 'w'))
-json.dump(mem, open(MEM, 'w', encoding='utf-8'), ensure_ascii=False)
+memio.save(mem)
 if not bad:
     for f in outs: os.remove(f)   # 번호 체계가 다음 추출 때 바뀌므로 흡수한 조각은 지운다

@@ -2,7 +2,8 @@
 import json, glob, os, re
 from collections import Counter
 R = os.path.dirname(os.path.abspath(__file__)); MEM = os.path.join(R, '..', 'tr', 'memory.json')
-mem = json.load(open(MEM, encoding='utf-8'))
+import sys; sys.path.insert(0, os.path.join(R, '..')); import memio
+mem = memio.load()
 HAN = re.compile('[ㄱ-ㆎ가-힣]'); tag = lambda s: Counter(re.findall(r'</?\w+', s)); ph = lambda s: Counter(re.findall(r'\{\d+\}', s))
 log, n, bad = [], 0, 0
 for f in sorted(glob.glob(os.path.join(R, 'out', '*_[0-9].json')) + glob.glob(os.path.join(R, 'out', '*_n[0-9]*.json'))):
@@ -17,7 +18,7 @@ for f in sorted(glob.glob(os.path.join(R, 'out', '*_[0-9].json')) + glob.glob(os
         if store[key].get(lang) != new:
             store[key][lang] = new; n += 1
             log.append(f"- {lang} `{x['page']}` {x['ko'][:40]!r}: {x['tr'][:70]!r} → {new[:70]!r} ({v.get('why', '')})")
-json.dump(mem, open(MEM, 'w', encoding='utf-8'), ensure_ascii=False)
+memio.save(mem)
 import datetime
 _hdr = '# 번역 검수 반영 기록\n\n' if not os.path.exists(os.path.join(R, 'applied.md')) else ''
 open(os.path.join(R, 'applied.md'), 'a', encoding='utf-8').write(_hdr + f'\n## {datetime.date.today()} 반영 {n}개, 검사 실패 {bad}개\n\n' + '\n'.join(log) + '\n')   # 이전 기록은 지우지 않고 덧붙인다

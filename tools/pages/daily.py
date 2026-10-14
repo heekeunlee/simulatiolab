@@ -86,6 +86,7 @@ DAILY += [  # 2026-10-14 예술 분야 새 실험 6개 (정답 없는 가벼운 
  ('mereexposure', T('최애 노래를 오래 좋아하고 싶다면 나는?', 'If I want to keep loving my favorite song, I would…'), [T('질릴 때까지 매일 듣는다', 'Play it every day until I tire of it'), T('아껴 두고 가끔 듣는다', 'Save it and play it now and then'), T('질리면 새 노래로 갈아탄다', 'Switch to a new song once I tire of it')]),
  ('tariff', T('옆 가게가 먼저 나에게 불리한 일을 벌이면, 나는?', 'The shop next door makes the first move against you. What do you do?'), [T('똑같이 맞받아친다', 'Hit back the same way'), T('한 번은 참고 대화해 본다', 'Hold off once and try talking'), T('아무것도 안 하고 기다린다', 'Do nothing and wait')]),
  ('ventilation', T('방이 답답할 때 나는 주로?', 'When your room feels stuffy, what do you usually do?'), [T('창문 하나만 활짝 연다', 'Open one window wide'), T('맞은편 창이나 방문까지 같이 연다', 'Also open the window or door on the other side'), T('선풍기나 환풍기를 켠다', 'Turn on a fan or the vent')]),
+ ('murmuration', T('사람 많은 길을 걸을 때 나는 주로?', 'When you walk down a crowded street, what do you usually do?'), [T('앞사람만 보고 따라간다', 'Follow the person in front'), T('주변 몇 사람의 흐름에 맞춘다', 'Match the flow of the few people around me'), T('내 길만 보고 간다', 'Just keep to my own path')]),
 ]
 
 TOPIC = {  # 다음 실험 주제 투표. 새 투표를 열 땐 id를 바꾼다.
@@ -127,7 +128,7 @@ for s, q, opts in DAILY:
 dyn[TOPIC['q'][0]] = TOPIC['q'][1]
 for o in TOPIC['o']: dyn[o[0]] = o[1]
 for t in UI: dyn[t[0]] = t[1]
-assert len(DAILY) == 59 and all(len(d[2]) == 3 for d in DAILY)
+assert len(DAILY) == 60 and all(len(d[2]) == 3 for d in DAILY)
 open(os.path.join(SITE, 'daily.js'), 'w', encoding='utf-8').write('// 오늘의 만약에 · 주제 투표 데이터 (tools/pages/daily.py 가 만든다)\nwindow.LAB_DAILY = ' + json.dumps(data, ensure_ascii=False) + ';\n')
 open(os.path.join(HERE, 'dyn_daily.py'), 'w', encoding='utf-8').write('# tools/pages/daily.py 가 만든다 (직접 고치지 말 것)\nDYN = ' + json.dumps(dyn, ensure_ascii=False, indent=1) + '\n')
 print(len(DAILY), '개 질문,', len(dyn), '개 문구')

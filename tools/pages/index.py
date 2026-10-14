@@ -57,6 +57,7 @@ CATS = [
  ]),
  ('science', '#0ea5a5', '🔬', T('과학', 'Science'), T('자연이 스스로 질서와 무늬를 만드는 방식', 'How nature makes order and pattern by itself'), [
   ('firefly', T('펄스 결합 진동자', 'Pulse-coupled oscillators'), T('반딧불이는 왜 동시에 깜빡일까', 'Why Do Fireflies Flash in Unison?'), T('지휘자 없이도 수백 마리가 같은 박자로 빛나는 과정을 지켜봐요.', 'Watch hundreds of fireflies fall into the same rhythm with no conductor.')),
+  ('murmuration', T('3D 보이드 모델', '3D boids model'), T('리더도 없는 새 떼는 어떻게 한 몸처럼 날까?', 'With No Leader, How Does a Flock Fly as One?'), T('우두머리 없이 붙기·맞추기·피하기 세 규칙만으로 수천 마리가 한 몸처럼 나는 3D 하늘이에요. 규칙을 하나씩 꺼 보고 매도 보내 보세요.', 'Thousands of birds fly as one in a 3D sky using just three rules: stick, line up, keep apart. Switch rules off one by one and send in a hawk.')),
   ('turing', T('튜링 반응-확산 (Gray–Scott)', 'Turing reaction–diffusion (Gray–Scott)'), T('얼룩말 무늬는 어떻게 생길까', 'How Does a Zebra Get Its Stripes?'), T('두 물질의 단순한 반응만으로 점, 줄무늬, 미로 무늬가 저절로 생겨요. 직접 씨앗을 뿌려 보세요.', 'Two simple reacting chemicals can form spots, stripes and mazes by themselves. Drop your own seeds.')),
   ('dla', T('확산 제한 응집 (DLA)', 'Diffusion-limited aggregation (DLA)'), T('번개, 산호, 눈송이는 왜 서로 닮았을까', 'Why Do Lightning, Coral and Snowflakes Look Alike?'), T('떠돌던 입자가 닿으면 붙기만 하는 규칙이 번개와 산호를 닮은 가지 모양을 키워요. 붙는 확률을 바꿔 직접 키워 보세요.', 'A rule as simple as "stick on touch" grows branching shapes like lightning and coral. Change the stickiness and grow your own.')),
   ('sandpile', T('모래더미 모델 (BTW)', 'Sandpile model (BTW)'), T('모래 한 알이 눈사태를 일으킬 수 있을까', 'Can a Single Grain of Sand Cause an Avalanche?'), T('모래를 한 알씩 쌓기만 해도 더미가 스스로 임계 상태가 되어, 대부분은 조용하다가 가끔 거대한 눈사태가 나요.', 'Adding sand one grain at a time, the pile organizes itself to a critical state: mostly quiet, now and then a huge avalanche.')),
@@ -126,6 +127,7 @@ RELATED = {
  'dla': ['turing', 'sunflower', 'sandpile'],
  'seating': ['queue', 'schelling', 'bar'],
  'ventilation': ['braess', 'wildfire', 'daycare'],
+ 'murmuration': ['firefly', 'traffic', 'friendship'],
  'bunching': ['traffic', 'braess', 'inspection'],
  'checkout': ['queue', 'inspection', 'bar'],
  'weakties': ['rumor', 'friendship', 'schelling'],
@@ -149,6 +151,7 @@ ADDED.update({s: '2026-10-13' for s in ['secretary', 'weakties', 'checkout', 'bu
 ADDED.update({s: '2026-10-14' for s in ['hitsong', 'harmony', 'pollock', 'ovation', 'halftone', 'mereexposure']})
 ADDED['tariff'] = '2026-10-14'
 ADDED['ventilation'] = '2026-10-14'
+ADDED['murmuration'] = '2026-10-15'
 
 # slug -> (기호, 짧은 이름 T, 미니 애니메이션 종류)
 # 쉬운 말로 다듬은 칸 제목·설명(tools/pages/simple/<slug>.json)이 있으면 그것을 쓴다
@@ -215,6 +218,7 @@ META = {
  'bunching': ('Bu', T('버스 뭉침', 'Bus Bunching'), 'ring'),
  'seating': ('Bn', T('벤치 자리', 'Bench Seating'), 'grid2'),
  'ventilation': ('Vt', T('창문과 환기', 'Window Ventilation'), 'drift'),
+ 'murmuration': ('Mm', T('찌르레기 떼 군무', 'Starling Murmuration'), 'drift'),
  'dla': ('Dl', T('가지 프랙탈', 'Branching'), 'spread'),
  'sandpile': ('Sp', T('모래더미', 'Sandpile'), 'grid'),
  'wildfire': ('Wf', T('산불', 'Wildfire'), 'heat'),
