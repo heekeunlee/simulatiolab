@@ -77,6 +77,15 @@ DAILY += [
  ('admission', T('1지망이 인기 많은 곳이라면, 지망 순서를 어떻게 적을까요?','If your first choice is very popular, how do you rank your list?'), [T('원하는 순서대로 적는다','My true order'), T('될 만한 곳을 앞에 적는다','A safer pick first'), T('잘 모르겠다','Not sure')]),
 ]
 
+DAILY += [  # 2026-10-14 예술 분야 새 실험 6개 (정답 없는 가벼운 3지선다)
+ ('hitsong', T('만약 음원 차트에 순위가 사라지고 곡이 무작위 순서로만 보인다면, 1등 곡은 어떻게 될까요?', 'What if music charts dropped their rankings and showed songs only in random order: what would happen to the number one?'), [T('더 좋은 곡이 1등을 할 것 같다', 'Better songs would come first'), T('지금과 별로 다르지 않을 것 같다', 'Not much would change'), T('1등이라는 게 의미가 없어질 것 같다', 'Being number one would stop meaning much')]),
+ ('harmony', T('도와 솔이 함께 울릴 때 편안하게 들리는 이유는 무엇이 클까요?', 'When C and G sound together, what mostly makes it feel calm?'), [T('소리 속 배음이 서로 덜 부딪쳐서', 'The overtones in the sound clash less'), T('어릴 때부터 자주 들어 익숙해서', 'We have heard it often since childhood'), T('그 음악이 원래 좋은 곡이라서', 'The music is simply good')]),
+ ('pollock', T('아이가 물감을 마구 뿌린 그림과 유명 화가의 추상화, 숫자 하나로 구별할 수 있을까?', "Could a single number tell a child's random paint splatter from a famous painter's abstract work?"), [T('숫자로 충분히 가릴 수 있다', 'Yes, a number can tell them apart'), T('숫자로는 어렵고 눈으로 봐야 한다', 'Hard by number, you have to look'), T('둘 다 잘 모르겠다', 'Not sure either way')]),
+ ('ovation', T('공연이 끝나고 앞쪽 사람들이 하나둘 일어서기 시작하면, 나는?', 'The show ends and people in front start standing one by one. What do you do?'), [T('바로 따라 일어선다', 'Stand right away with them'), T('정말 좋았을 때만 일어선다', 'Stand only if I truly loved it'), T('앉은 채로 박수만 친다', 'Stay seated and just clap')]),
+ ('halftone', T('모자이크처럼 뭉개진 사진 속 얼굴, 어떻게 보면 가장 잘 알아볼 것 같나요?', 'A face in a blocky, pixelated photo: how would you recognize it best?'), [T('바짝 다가가서 자세히 본다', 'Look up close, in detail'), T('몇 걸음 물러나서 본다', 'Step back a few paces'), T('눈을 가늘게 뜨고 흐리게 본다', 'Squint so it looks blurry')]),
+ ('mereexposure', T('최애 노래를 오래 좋아하고 싶다면 나는?', 'If I want to keep loving my favorite song, I would…'), [T('질릴 때까지 매일 듣는다', 'Play it every day until I tire of it'), T('아껴 두고 가끔 듣는다', 'Save it and play it now and then'), T('질리면 새 노래로 갈아탄다', 'Switch to a new song once I tire of it')]),
+]
+
 TOPIC = {  # 다음 실험 주제 투표. 새 투표를 열 땐 id를 바꾼다.
  'id': 'topic-2026-10',
  'q': T('다음에 만들 실험을 골라 주세요', 'Pick the next experiment we build'),
@@ -116,7 +125,7 @@ for s, q, opts in DAILY:
 dyn[TOPIC['q'][0]] = TOPIC['q'][1]
 for o in TOPIC['o']: dyn[o[0]] = o[1]
 for t in UI: dyn[t[0]] = t[1]
-assert len(DAILY) == 51 and all(len(d[2]) == 3 for d in DAILY)
+assert len(DAILY) == 57 and all(len(d[2]) == 3 for d in DAILY)
 open(os.path.join(SITE, 'daily.js'), 'w', encoding='utf-8').write('// 오늘의 만약에 · 주제 투표 데이터 (tools/pages/daily.py 가 만든다)\nwindow.LAB_DAILY = ' + json.dumps(data, ensure_ascii=False) + ';\n')
 open(os.path.join(HERE, 'dyn_daily.py'), 'w', encoding='utf-8').write('# tools/pages/daily.py 가 만든다 (직접 고치지 말 것)\nDYN = ' + json.dumps(dyn, ensure_ascii=False, indent=1) + '\n')
 print(len(DAILY), '개 질문,', len(dyn), '개 문구')

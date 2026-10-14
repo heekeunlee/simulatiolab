@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="How Many Dots Make a Face? (Pointillism and Halftone) · Simulatio Lab">점 몇 개면 얼굴이 보일까 (점묘·하프톤) · 시뮬라티오 랩</title>
+<meta name="description" content="어두운 곳에 더 자주 떨어지는 점을 하나씩 찍어, 멀리서 본 점 그림이 원래 그림과 얼마나 닮아 가는지 직접 재 보세요. 점묘화와 신문 인쇄를 단순하게 흉내 낸 실험입니다." data-en-content="Drop dots one at a time, more often where the picture is dark, and measure how closely the dot picture seen from afar comes to match the original. A simple imitation of pointillist painting and newspaper printing.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="theme-color" content="#2f6fed">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1 data-en="How Many Dots Before a Face Starts to Appear?">점 몇 개면 얼굴이 보이기 시작할까?</h1>
+  <p class="lead" data-en="Drawing a face with dots sounds like it would take a huge number of them, and you might expect the picture to get a little closer to the face with every dot. But try it and that is not how it goes. The first few dozen dots are meaningless smudges, then somewhere along the way a face suddenly emerges, and after that even several times more dots barely change anything. With big dots, adding more can even ruin the picture. Watch the dots land one at a time below.">얼굴 하나를 점으로 그리려면 점이 아주 많이 필요할 것 같습니다. 점을 찍을수록 조금씩, 꾸준히 얼굴에 가까워질 것 같고요. 그런데 직접 찍어 보면 그렇게 흘러가지 않습니다. 처음 수십 개는 아무 의미 없는 얼룩인데, 어느 구간에서 갑자기 얼굴이 떠오르고, 그 뒤로는 점을 몇 배 더 찍어도 별로 달라지지 않습니다. 점이 크면 더 찍을수록 오히려 그림이 망가지기도 하고요. 아래에서 점이 하나씩 찍히는 모습을 지켜보세요.</p>
+
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li data-en="There is a black-and-white picture drawn in code (a &lt;b&gt;face&lt;/b&gt; or a &lt;b&gt;landscape&lt;/b&gt;, 160 × 160 cells). Each cell has a darkness value, from 0 for white paper to 1 for solid black. It is not a real photo or artwork, just shapes and gradients made by this page.">코드로 직접 그린 흑백 그림(<b>얼굴</b> 또는 <b>풍경</b>, 가로세로 160칸)이 있습니다. 칸마다 얼마나 어두운지(흰 종이 0 ~ 새까만 곳 1) 값이 있어요. 실제 사진이나 작품이 아니라 이 페이지가 도형과 그라디언트로 만든 그림입니다.</li>
+    <li data-en="Each dot lands at a random spot in the picture and is kept with a probability equal to that spot&#x27;s darkness (80% where the darkness is 0.8), so dots gather where the picture is dark. Overlapping dots just make that area blacker; darkness never goes above 1.">점은 그림 안의 아무 곳에나 무작위로 떨어지는데, 그 자리가 어두울수록 받아들여질 확률이 높습니다(어둠이 0.8이면 80%). 그래서 어두운 곳에 점이 더 많이 모입니다. 점끼리 겹치면 그냥 더 까매질 뿐 어둠은 1을 넘지 않습니다.</li>
+    <li data-en="&lt;b&gt;Viewing distance&lt;/b&gt;: from far away you cannot see individual dots; they blur together. To imitate that, the original and the dot picture are &lt;b&gt;blurred by the same amount&lt;/b&gt; before they are compared. The farther the view, the stronger the blur."><b>멀리서 보기</b>: 멀리서 보면 점 하나하나가 안 보이고 뭉개져 보이죠. 이것을 흉내 내려고 원래 그림과 점 그림을 <b>똑같이 흐리게</b> 만든 뒤 비교합니다. 멀리 볼수록 더 많이 흐리게 합니다.</li>
+    <li data-en="&lt;b&gt;Likeness&lt;/b&gt; says, from 0 to 100%, how well the light and dark places of the two blurred pictures line up (a correlation coefficient). 100% means the layout of light and dark is identical. Dots are added one at a time at first, then 5% of the current count at a time."><b>닮은 정도</b>는 흐리게 한 두 그림이 밝고 어두운 자리가 얼마나 같은지를 0~100%로 나타낸 값입니다(상관계수). 100%면 밝은 곳·어두운 곳의 배치가 똑같다는 뜻이에요. 점은 처음엔 하나씩, 많아지면 한 번에 지금 개수의 5%씩 찍습니다.</li>
+  </ul>
+
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="count" data-en="Dots to drop &lt;output id=&quot;o-count&quot;&gt;&lt;/output&gt;">찍을 점 개수 <output id="o-count"></output></label>
+        <input type="range" id="count" min="500" max="20000" step="500" value="6000">
+        <span class="hint" data-en="More dots means a longer run. With big dots, too many can make the likeness drop">늘리면 더 오래 찍어요. 점이 크면 너무 많이 찍을 때 오히려 덜 닮아져요</span></div>
+<div class="ctl"><label for="size" data-en="Dot size &lt;output id=&quot;o-size&quot;&gt;&lt;/output&gt;">점 크기 <output id="o-size"></output></label>
+        <input type="range" id="size" min="0.5" max="3" step="0.25" value="1">
+        <span class="hint" data-en="Higher means each dot covers more. The number is the dot diameter as a share of the picture width">올리면 점 하나가 더 넓게 덮어요. 숫자는 점 지름이 그림 폭의 몇 %인지</span></div>
+<div class="ctl"><label for="blur" data-en="Viewing distance &lt;output id=&quot;o-blur&quot;&gt;&lt;/output&gt;">멀리서 보기 <output id="o-blur"></output></label>
+        <input type="range" id="blur" min="1" max="6" step="1" value="3">
+        <span class="hint" data-en="Higher compares the pictures as if from farther away, so fewer dots already look alike">올릴수록 더 멀리서 보듯 흐리게 비교해서, 적은 점으로도 닮아 보여요</span></div>
+<div class="ctl"><label for="pic" data-en="Picture &lt;output id=&quot;o-pic&quot;&gt;&lt;/output&gt;">그림 <output id="o-pic"></output></label>
+        <select id="pic" class="sel"><option value="face" selected data-en="Face">얼굴</option><option value="land" data-en="Landscape (mountains and sun)">풍경 (산과 해)</option></select>
+        <span class="hint" data-en="The landscape has softer contrast, so it needs more dots">풍경은 밝고 어두운 차이가 덜 뚜렷해서 점이 더 많이 필요해요</span></div>
+    </div>
+    <div class="btns">
+      <button class=primary id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Same settings, new dots">같은 설정, 다른 점</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3 data-en="① A Picture Built Dot by Dot">① 점이 하나씩 찍혀 가는 그림</h3>
+    <p data-en="The largest picture shows the dots so far up close, and &amp;#39;Seen from afar&amp;#39; is the same dots blurred. The big blue number is the likeness to the original picture. Dots appear one at a time at first and several at a time as they multiply.">가장 큰 그림이 지금까지 찍힌 점을 가까이서 본 모습이고, &#39;멀리서 본 모습&#39;은 그것을 흐리게 한 것입니다. 큰 파란 숫자가 원래 그림과 닮은 정도예요. 처음엔 점이 하나씩, 점이 많아질수록 한꺼번에 여러 개씩 찍힙니다.</p>
+    <canvas id="c-art" class="rounded" data-thumb aria-label="① A Picture Built Dot by Dot"></canvas>
+    <div class="anim-bar">
+      <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
+      <button id="stepbtn" data-en="Step">한 단계</button>
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="speed"><option value="8" data-en="Slow">느리게</option><option value="16" selected data-en="Normal">보통</option><option value="32" data-en="Fast">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3 data-en="② How Likeness Grows as Dots Pile Up">② 점이 늘면 얼마나 닮아 갈까</h3>
+    <p data-en="Horizontal: dots dropped (each step is 10 times more). Vertical: likeness. Only the part the playback has reached is drawn. The dashed line marks 80% likeness, and the gray vertical line is the dot count set by the slider.">가로는 찍은 점 개수(한 칸마다 10배), 세로는 닮은 정도입니다. 재생이 지나온 곳까지만 그려집니다. 점선은 닮은 정도 80%, 세로 회색 선은 슬라이더로 정한 점 개수의 끝이에요.</p>
+    <canvas id="c-curve" class="" aria-label="② How Likeness Grows as Dots Pile Up"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ Do You Need Fewer Dots From Farther Away? (8 runs per setting)">③ 멀리서 볼수록 점이 덜 필요할까 (설정마다 8번 돌린 비교)</h3>
+    <p data-en="With the current picture and dot size, the number of dots needed to reach 80% likeness at each viewing distance (median of 8 runs, up to 20,000 dots). The dark blue bar is the current setting.">지금 그림과 점 크기로, 멀리서 보는 정도마다 닮은 정도 80%에 닿을 때까지 필요했던 점 개수입니다(8번 돌린 가운데 값, 최대 20,000개). 파란 진한 막대가 지금 설정이에요.</p>
+    <canvas id="c-blur" class="" aria-label="③ Do You Need Fewer Dots From Farther Away? (8 runs per setting)"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="④ Do More Dots Always Look More Alike? (by dot size, precomputed)">④ 점을 계속 찍으면 계속 닮아질까 (점 크기별, 미리 돌린 비교)</h3>
+    <p data-en="With the current picture and viewing distance, the likeness for four dot sizes dropped up to 20,000 dots. The thick line is the current dot size. Big dots look alike quickly, but with many of them the whole sheet turns black and the likeness falls again.">지금 그림과 멀리서 보기 설정으로, 점 크기 네 가지를 20,000개까지 찍었을 때의 닮은 정도입니다. 굵은 선이 지금 점 크기예요. 큰 점은 금방 닮지만, 많이 찍으면 종이 전체가 까매져서 다시 덜 닮아집니다.</p>
+    <canvas id="c-size" class="" aria-label="④ Do More Dots Always Look More Alike? (by dot size, precomputed)"></canvas>
+    </section>
+  </div>
+
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout cl-says">
+    <p class="clabel" data-en="&lt;b&gt;What it shows:&lt;/b&gt;"><b>말하는 것:</b></p>
+    <ul class="chead"><li data-en="With few dots it is a smudge, but around a few hundred a face suddenly appears, and past a few thousand more dots barely matter. Here about 480 dots gave 80% likeness and 3,000 gave 96%.">점이 적을 땐 얼룩이지만, 수백 개쯤에서 갑자기 얼굴이 떠오르고, 수천 개를 넘으면 더 찍어도 거의 그대로예요. 이 모델에선 약 480개에 닮은 정도 80%, 3,000개에 96%였어요.</li><li data-en="Dots fall at random, so at first chance blotches hide the picture. More dots bury them fast, but once it looks alike little is left to fix: 10→1,000 dots added 69 points, 3,000→6,000 added 1.">점은 무작위로 떨어져 처음엔 우연한 얼룩이 그림을 가려요. 점이 늘면 얼룩은 빨리 묻히지만 거의 닮은 뒤엔 고칠 게 적어요. 10→1,000개는 69%p, 3,000→6,000개는 1%p 올랐어요.</li><li data-en="The farther you look, the fewer dots you need (for 80%: about 2,660 right in front, about 140 very far). Big dots look alike quickly, but too many blacken the paper and likeness falls again.">멀리서 볼수록 적은 점으로 충분해요(80%까지 바로 앞 약 2,660개, 아주 멀리 약 140개). 큰 점은 금방 닮지만 너무 많이 찍으면 종이가 까매져 다시 덜 닮아요.</li></ul>
+    <details class="cmore"><summary data-en="Details">상세 설명</summary>
+      <p class="cfull" data-en="&lt;b&gt;What it shows:&lt;/b&gt; For the face picture, dot size 1.3% (diameter relative to picture width), viewing distance &quot;a few steps&quot;, averaged over 8 runs, likeness was 19% at 10 dots, 48% at 100, 72% at 300, 88% at 1,000, 96% at 3,000 and 97% at 6,000. The median first reached 50% at about 100 dots, 80% at about 480 and 90% at about 1,100. Going from 10 to 1,000 dots (100 times more) raised likeness by 69 points, while doubling from 3,000 to 6,000 added only 1 point. The landscape, with softer contrast, needed about 1,410 dots to reach 80%. From farther away, fewer dots were enough (to reach 80%: about 2,660 dots &quot;right in front&quot;, about 480 &quot;a few steps&quot; away, about 140 &quot;very far&quot;). With 0.6% dots, likeness held at 98% even at 20,000 dots, but with 3.8% dots it peaked at 86% around 900 dots and fell to 20% at 20,000, when ink covered 99% of the sheet."><b>말하는 것:</b> 얼굴 그림, 점 크기 1.3%(그림 폭 대비 지름), 멀리서 보기 "몇 걸음"으로 8번 돌린 평균에서, 닮은 정도는 점 10개일 때 19%, 100개 48%, 300개 72%, 1,000개 88%, 3,000개 96%, 6,000개 97%였습니다. 닮은 정도 50%에 처음 닿은 것은 가운데 값으로 점 약 100개, 80%는 약 480개, 90%는 약 1,100개였습니다. 점이 10개에서 1,000개로 100배 늘 때 닮은 정도는 69%p 올랐지만, 3,000개에서 6,000개로 두 배 늘 때는 1%p만 올랐습니다. 풍경 그림은 밝고 어두운 차이가 덜 뚜렷해 80%까지 약 1,410개가 필요했습니다. 멀리서 볼수록 적은 점으로 충분했습니다(80%까지 "바로 앞" 약 2,660개, "몇 걸음" 약 480개, "아주 멀리" 약 140개). 점 크기가 0.6%면 20,000개까지 찍어도 닮은 정도가 98%로 유지됐지만, 3.8%로 키우면 점 약 900개 근처에서 86%로 가장 닮았다가 20,000개에서는 종이의 99%가 잉크로 덮이며 20%까지 떨어졌습니다.</p></details>
+  </div>
+  <div class="callout cl-not">
+    <p class="clabel" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt;"><b>말하지 않는 것:</b></p>
+    <ul class="chead"><li data-en="This page does not measure when a person feels &#x27;I see a face&#x27;. It uses how alike two blurred pictures are (a correlation); numbers like 480 dots or 80% hold only for this picture and yardstick.">이 페이지는 사람이 '얼굴이 보인다'고 느끼는 순간을 잰 게 아니에요. 흐리게 한 두 그림의 닮음(상관계수)으로 대신했고, 480개·80% 같은 숫자는 이 그림과 잣대에서만 나온 예시예요.</li><li data-en="Real pointillists chose the color and place of each dot, and newspaper halftone puts dots of different sizes on a regular grid. This model only imitates them simply and does not reproduce either.">실제 점묘화는 화가가 색과 자리를 골라 찍고, 신문 하프톤은 규칙적인 격자에 크기가 다른 점을 놓아요. 이 모델은 둘을 단순히 흉내 낼 뿐 재현하지 않아요.</li><li data-en="The model does not judge which picture is more beautiful or whether pointillism is a good technique. It only shows how closely dots follow the light and dark layout of the original.">이 모델은 어떤 그림이 더 아름다운지, 점묘가 좋은 기법인지를 가리지 않아요. 점이 원래 그림의 밝고 어두운 배치를 얼마나 따라가는지만 보여 줘요.</li></ul>
+    <details class="cmore"><summary data-en="Details">상세 설명</summary>
+      <p class="cfull" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; This page does not measure the moment a person actually feels &quot;I see a face&quot;. How the eye recognizes faces is far more complex; here it is replaced, very simply, by the correlation between two blurred pictures. So numbers like &quot;80%&quot; or &quot;480 dots&quot; are examples that come only from this project&#x27;s picture, blur and yardstick, and they change with a different picture or yardstick. It also does not reproduce pointillist painting (Seurat and others) or newspaper halftone printing. Real pointillists chose the color and place of every dot, and real halftone printing places dots of different sizes on a regular grid rather than at random. And the model does not judge which picture is more beautiful or whether pointillism is a good technique. It only shows how closely dots follow the light and dark layout of the original."><b>말하지 않는 것:</b> 이 페이지는 사람이 실제로 "얼굴이 보인다"고 느끼는 순간을 잰 것이 아닙니다. 눈이 얼굴을 알아보는 과정은 훨씬 복잡하고, 여기서는 그것을 흐리게 한 두 그림의 상관계수로 아주 단순하게 대신했습니다. 그래서 "80%"나 "점 480개" 같은 숫자는 이 프로젝트가 정한 그림·흐림·잣대에서만 나온 예시이며, 다른 그림이나 다른 잣대에서는 달라집니다. 점묘화(쇠라 등)나 신문 인쇄의 하프톤을 재현한 것도 아닙니다. 실제 점묘화는 화가가 색과 위치를 골라 찍고, 실제 하프톤 인쇄는 무작위가 아니라 규칙적인 격자 위에 크기가 다른 점을 놓습니다. 또 이 모델은 어떤 그림이 더 아름다운지, 점묘가 좋은 기법인지를 판단하지 않습니다. 점이 원래 그림의 밝고 어두운 배치를 얼마나 따라가는지만 보여 줍니다.</p></details>
+  </div>
+
+  <h2 data-en="Theory and implementation notes">이론적 근거와 구현 메모</h2>
+  <ul class="small">
+    <li class="memo theory" data-en="&lt;b&gt;Where the model comes from:&lt;/b&gt; Pointillism is a painting technique of placing small dots of color side by side so that they blend when seen from a distance (Seurat and others), and halftone is the way newspapers and magazines create shades from a single ink by varying the size or density of dots. This experiment only imitates, in a simple way, the idea the two share: darkness is shown by how densely dots gather, and from a distance they look continuous."><b>모델의 뿌리:</b> 점묘화는 작은 색 점을 나란히 찍어 멀리서 보면 섞여 보이게 하는 그림 기법이고(쇠라 등), 하프톤은 신문·잡지 인쇄에서 잉크 한 가지로 점의 크기나 빽빽함을 바꿔 밝고 어두운 단계를 내는 방법입니다. 이 실험은 두 가지의 공통된 아이디어, "점이 모이는 정도로 어두움을 나타내고 멀리서 보면 이어져 보인다"만 단순하게 흉내 냅니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Key assumptions and formulas:&lt;/b&gt; A dot proposed at a random position (x, y) is kept with probability d(x, y), the darkness there, so with many dots their density becomes proportional to darkness. The original O and the dot picture I are blurred with the same Gaussian width σ, and likeness = max(0, correlation(O&lt;sub&gt;σ&lt;/sub&gt;, I&lt;sub&gt;σ&lt;/sub&gt;)). The random blotchiness (noise) with n dots shrinks as dots are added, so likeness rises fast at first and then creeps toward 1. With big dots, though, overlapping areas saturate to black and the light-dark difference disappears, so likeness can fall again."><b>핵심 가정과 수식:</b> 점은 그림 위의 무작위 위치 (x, y)에서 확률 d(x, y)(그 자리의 어두움)로 받아들여집니다. 그래서 점이 많으면 점의 밀도가 어두움에 비례하게 됩니다. 원래 그림 O와 점 그림 I를 같은 폭 σ의 가우스 흐림으로 뭉갠 뒤, 닮은 정도 = max(0, 상관계수(O<sub>σ</sub>, I<sub>σ</sub>))로 잽니다. 점이 n개일 때 무작위로 생기는 얼룩(잡음)은 점이 늘수록 줄어서, 닮은 정도는 처음엔 빠르게 오르다 차츰 1에 가까워집니다. 다만 점이 크면 겹친 곳이 까맣게 포화해 밝고 어두운 차이가 사라지므로 다시 떨어질 수 있습니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;What this project simplifies:&lt;/b&gt; The picture is a single 160 × 160 black-and-white image with no color. Every dot is a round black dot of the same size, placed at random (no regular grid as in real halftone, no artist choosing). Viewing distances from &quot;right in front&quot; to &quot;very far&quot; are Gaussian standard deviations of 1 to 6 cells. &quot;Likeness&quot; is not a measure of human perception but one yardstick chosen by this project."><b>이 프로젝트의 단순화:</b> 그림은 160×160칸의 흑백 한 장이고, 색은 쓰지 않습니다. 점은 모두 같은 크기의 둥근 검은 점이며 무작위로 떨어집니다(실제 하프톤의 규칙적인 격자나 화가의 선택이 없음). 흐림 정도 "바로 앞"~"아주 멀리"는 가우스 표준편차 1~6칸입니다. "닮은 정도"는 사람의 지각을 잰 값이 아니라 이 프로젝트가 고른 하나의 잣대입니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Theory versus simulation:&lt;/b&gt; If the noise shrinks in inverse proportion to the number of dots, likeness should behave roughly like 1/√(1 + c/n): on a log scale of dot count it rises like an S and then flattens. In the simulation (face, 1.3% dots, &quot;a few steps&quot;, average of 8 runs) it flattened just so, 48% at 100 → 88% at 1,000 → 96% at 3,000 → 97% at 6,000, and with 3.8% dots it fell as expected from overlap, from 86% around 900 dots to 20% at 20,000. The same seed gives the same result."><b>이론값과 시뮬레이션:</b> 잡음이 점 개수에 반비례해 줄어든다고 보면 닮은 정도는 대략 1/√(1 + c/n) 꼴로, 점 개수를 로그 눈금으로 놓았을 때 S자처럼 오르다 평평해질 것으로 예상할 수 있습니다. 시뮬레이션(얼굴, 점 크기 1.3%, "몇 걸음", 8번 평균)에서 100개 48% → 1,000개 88% → 3,000개 96% → 6,000개 97%로 그렇게 평평해졌고, 점 크기 3.8%에서는 예상대로 겹침 때문에 900개 근처 86%에서 20,000개 20%로 떨어졌습니다. 같은 시드는 같은 결과를 냅니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Further reading:&lt;/b&gt; Pointillism and halftone printing are covered in introductory books on art history and printing. This page does not reproduce any specific study."><b>더 읽을거리:</b> 점묘화와 하프톤 인쇄는 미술사·인쇄 입문서에서 쉽게 찾아볼 수 있습니다. 이 페이지는 특정 연구를 재현하지 않습니다.</li>
+    <li  data-en="This is a simplified model made for this project and the numbers are examples. The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. How much of each cell a dot covers is computed from 4 × 4 samples per cell, and overlaps stop at 1.">이 프로젝트의 단순화된 모델이며 숫자는 예시입니다. 시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 점 하나가 칸을 덮는 비율은 칸마다 4×4 표본으로 계산하고, 겹치면 1에서 멈춥니다.</li>
+    <li  data-en="Likeness is measured again each time dots are added. Chart ③ is the median over 8 seeds (the same seeds as the validation), each run until it reaches 80%, and chart ④ is one seed run to 20,000 dots. You can verify with &lt;code&gt;node tools/validate-halftone.js&lt;/code&gt;.">닮은 정도는 점을 더 찍을 때마다 다시 잽니다. ③은 멀리서 보는 정도마다 시드 8개(검증과 같은 시드)로 80%에 닿을 때까지 돌린 가운데 값, ④는 시드 하나로 20,000개까지 돌린 결과입니다. 검증은 <code>node tools/validate-halftone.js</code>로 할 수 있습니다.</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/halftone&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/halftone">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap" data-en="Simulatio Lab · Run by Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
+<script src="../../exps.js"></script>
+<script src="../../layout.js"></script>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../counter.js"></script>
+<script src="../../engage.js"></script>
+</body>
+</html>

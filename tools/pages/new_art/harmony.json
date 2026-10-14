@@ -1,0 +1,29 @@
+{"slug": "harmony",
+ "title_ko": "어떤 두 음은 왜 편하고, 어떤 두 음은 왜 거슬릴까?",
+ "title_en": "Why Do Some Pairs of Notes Sound Smooth and Others Grate?",
+ "symbol": "Hm", "name_ko": "두 음의 어울림", "name_en": "Harmony", "icon": "wave",
+ "global": "window.Harmony",
+ "related": ["firefly", "painters", "fashion"],
+ "predict": {"q_ko": "배음이 6개인 악기 소리로 '도'와 함께 칠 때, 다음 중 가장 덜 거친(편한) 음은?",
+             "q_en": "With an instrument-like sound of 6 overtones played together with C, which note is least rough (calmest)?",
+             "opts_ko": ["솔 (도-솔)", "미 (도-미)", "시 (도-시)"],
+             "opts_en": ["G (C–G)", "E (C–E)", "B (C–B)"],
+             "answer": 0,
+             "expl_ko": "이 모델에서 거칠기는 도-솔 16, 도-시 47, 도-미 49였어요(가장 거친 곳 = 100). 진동수 비 3:2가 단순해 배음들이 딱 겹치기 때문이에요. 배음 없는 맑은 소리로 바꾸면 도-시가 0으로 오히려 더 편해져요.",
+             "expl_en": "In this model roughness was 16 for C–G, 47 for C–B and 49 for C–E (roughest point = 100). The simple 3:2 ratio lets the overtones line up exactly. With a pure tone and no overtones, C–B drops to 0 and is actually calmer."},
+ "daily": {"q_ko": "도와 솔이 함께 울릴 때 편안하게 들리는 이유는 무엇이 클까요?",
+           "q_en": "When C and G sound together, what mostly makes it feel calm?",
+           "opts_ko": ["소리 속 배음이 서로 덜 부딪쳐서", "어릴 때부터 자주 들어 익숙해서", "그 음악이 원래 좋은 곡이라서"],
+           "opts_en": ["The overtones in the sound clash less", "We have heard it often since childhood", "The music is simply good"]},
+ "facts": [
+  "기본값(배음 6개): 반음 자리 거칠기 도-솔 16, 도-라 29, 도-파 33, 도-레 68, 도-도# 96 (가장 거친 곳 = 100)",
+  "배음 6개에서 한 옥타브 안의 편한 골 6개: 6:5, 5:4, 4:3, 3:2, 5:3, 2:1 (316, 386, 498, 702, 884, 1200센트, 단순한 비와 1센트 안), 3:2 골 바닥 13.8",
+  "배음 1개(순음): 골 0개, 가장 거친 곳 142센트, 도-시 0 · 도-솔 6",
+  "편한 골의 수: 배음 1개 0개, 3개 2개, 6개 6개, 10개 10개",
+  "무작위 음색 5개(#2~#6)에서도 골은 같은 비 자리(한 음색은 6:5가 사라져 5개)"
+ ],
+ "caveats": [
+  "이 프로젝트의 단순화된 모델, 숫자는 예시. 배음 세기 0.88^(k-1), 기준음 261.63Hz, 골의 판정 기준은 이 프로젝트가 정한 값",
+  "거칠기(맥놀이) 하나만 계산: 익숙함·문화·곡의 맥락·취향은 다루지 않고 어떤 음정·곡이 더 좋다고 가리지 않음",
+  "출처는 Plomp & Levelt (1965) JASA 38, Sethares (1993) JASA 94, Helmholtz (1863), Sethares 책(Springer)만 권호까지 확인된 수준으로 인용(쪽수 생략). 피타고라스는 '흔히 돌려지는' 오랜 설명으로만"
+ ]}

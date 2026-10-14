@@ -249,14 +249,13 @@
         el.classList.toggle('is-done', isDone(s)); el.classList.toggle('is-star', isStar(s));
         let nw = el.querySelector('.new-pill'); const want = isNew(x);
         if (want && !nw) { nw = document.createElement('span'); nw.className = 'new-pill'; nw.textContent = T('NEW', 'NEW'); el.appendChild(nw); } else if (!want && nw) nw.remove();
-        let ck = el.querySelector('.done-mark');
-        if (isDone(s) && !ck) { ck = document.createElement('span'); ck.className = 'done-mark'; ck.textContent = '✓'; ck.title = T('해 봤어요', 'Tried'); el.appendChild(ck); } else if (!isDone(s) && ck) ck.remove();
+        // (주기율표 칸의 초록 ✓ 표시는 사용자 요청으로 뺐다. 진행 막대의 '해 본 개수'는 그대로 센다)
+        const ck = el.querySelector('.done-mark'); if (ck) ck.remove();
       });
       table.querySelectorAll('.col').forEach((col) => {
         const ts = [...col.querySelectorAll('.el')], all = ts.length && ts.every((el) => isDone(slugOf(el)));
-        col.classList.toggle('complete', !!all);
-        let b = col.querySelector('.fh .fcomp');
-        if (all && !b) { b = document.createElement('em'); b.className = 'fcomp'; b.textContent = T('✓ 모두 완료', '✓ All done'); col.querySelector('.fh').appendChild(b); } else if (!all && b) b.remove();
+        // ('✓ 모두 완료' 표시도 뺐다)
+        const b = col.querySelector('.fh .fcomp'); if (b) b.remove();
       });
       const fresh = prevVisit ? EXPS.filter((x) => x.a && Date.parse(x.a) > prevVisit && !isDone(x.s)).length : 0;
       const msg = n === total ? T('🎉 모든 실험을 해 봤어요!', '🎉 You tried every experiment!') : T('{1}개 중 {0}개 해 봤어요', '{0} of {1} experiments tried', n, total);

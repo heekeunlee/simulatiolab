@@ -82,6 +82,12 @@ CATS = [
   ('fashion', T('모방과 차별화 모델', 'Imitation–distinction model'), T('유행은 왜 돌고 돌까', 'Why Does Fashion Go in Cycles?'), T('따라 하는 대중과 도망가는 선두가 만드는 색의 순환을 색상환 위에서 봐요.', 'On a color wheel, watch the cycle created by a copying crowd and trendsetters running away.')),
   ('painters', T('문화 전파 모델', 'Cultural transmission model'), T('AI 화가 100명이 서로 따라 그리면', 'What If 100 AI Painters Copy Each Other?'), T('모방이 늘수록 화풍은 하나로 수렴할까? 100점의 그림이 어떻게 달라지는지 지켜봐요.', 'Does imitation collapse styles into one? Watch 100 paintings change.')),
   ('sunflower', T('황금각 잎차례 모델', 'Golden-angle phyllotaxis'), T('해바라기 씨는 왜 그 각도로 배열될까', 'Why Do Sunflower Seeds Sit at That Angle?'), T('씨앗을 137.5°씩 돌려 놓으면 틈 없이 빽빽해져요. 각도를 조금만 바꿔도 무늬가 무너지는 걸 보세요.', 'Turn each seed by 137.5° and they pack with no gaps. Nudge the angle and watch the pattern fall apart.')),
+  ('hitsong', T('히트곡 평행 세계', 'Hit Song Worlds'), T('같은 노래 48곡, 세계가 바뀌면 1등 곡도 바뀔까?', 'Same 48 Songs: Would Another World Crown Another Hit?'), T('똑같은 노래를 서로 모르는 8개 세계에 내놓아 봅니다. 사람들이 순위표를 보고 고르면 세계마다 1등 곡이 달라질까요?', 'Release the same songs in 8 worlds that know nothing of each other. If people choose from the chart, does each world crown a different hit?')),
+  ('harmony', T('두 음의 어울림', 'Harmony'), T('어떤 두 음은 왜 편하고, 어떤 두 음은 왜 거슬릴까?', 'Why Do Some Pairs of Notes Sound Smooth and Others Grate?'), T('두 번째 음을 천천히 올리며 소리 속 배음이 얼마나 부딪치는지 재 보면, 도-솔 같은 자리에 편안한 골이 나타나요. 직접 듣고 확인해 보세요.', 'Raise a second note slowly and measure how much the hidden overtones clash: calm valleys appear at spots like C–G. Listen and check for yourself.')),
+  ('pollock', T('물감 뿌리기', 'Paint flinging'), T('물감을 마구 뿌리면 폴록이 될까?', 'If You Fling Paint at Random, Do You Get a Pollock?'), T('붓이 무작위로 걸으며 물감을 뿌리고, 그림이 얼마나 복잡한지 칸을 세어 잽니다. 자로 그은 직선과 견주면 뜻밖의 결과가 나와요.', 'A brush wanders at random flinging paint, and boxes are counted to measure how complex the picture is. Compare it with ruled straight lines for a surprise.')),
+  ('ovation', T('기립박수', 'Standing Ovation'), T('한 사람이 일어서면 왜 모두 일어설까?', 'When One Person Stands, Why Does Everyone Stand?'), T('같은 몇 명이 먼저 일어서도 앞줄이면 객석 전체가, 뒷줄이면 거의 아무도 따라 일어서지 않아요. 왜 그럴까요?', 'When the same few stand first, the whole audience follows if they sit in front, and almost nobody if they sit in the back. Why?')),
+  ('halftone', T('점묘·하프톤', 'Halftone dots'), T('점 몇 개면 얼굴이 보이기 시작할까?', 'How Many Dots Before a Face Starts to Appear?'), T('어두운 곳에 점을 하나씩 찍어 봐요. 처음엔 얼룩인데, 어느 순간 얼굴이 떠오릅니다. 몇 개쯤일까요?', 'Drop dots one by one where it is dark. First a smudge, then suddenly a face. How many does it take?')),
+  ('mereexposure', T('듣고 또 듣기', 'Again and Again'), T('좋아하는 노래도 100번 들으면 왜 질릴까?', 'Why Does Even a Favorite Song Get Old by the 100th Listen?'), T('자꾸 들으면 좋아지던 노래가 어느 날 질립니다. 단순한 곡과 복잡한 곡, 매일 듣기와 가끔 듣기를 비교해 보세요.', 'A song that grew on you gets old one day. Compare simple and complex songs, heard daily or now and then.')),
  ]),
 ]
 
@@ -97,6 +103,12 @@ def thumb(slug):
 
 # 주제로 이어지는 "이게 흥미로웠다면" 추천 (앞의 것이 더 가까운 주제)
 RELATED = {
+ 'hitsong': ['youtube', 'painters', 'talent-vs-luck'],
+ 'harmony': ['firefly', 'painters', 'fashion'],
+ 'pollock': ['dla', 'painters', 'turing'],
+ 'ovation': ['revolution', 'rumor', 'fashion'],
+ 'halftone': ['painters', 'dla', 'turing'],
+ 'mereexposure': ['fashion', 'painters', 'youtube'],
  'hagwon': ['cooperation','commons','war'],
  'daycare': ['rumor','weakties','schelling'],
  'admission': ['dating','secretary','queue'],
@@ -130,6 +142,7 @@ RELATED = {
 # 새 실험을 추가한 날 (NEW 표시는 이 날짜부터 7일 동안, 그리고 "지난 방문 이후 새 실험" 계산에 쓴다). 새 실험을 만들면 한 줄 추가.
 ADDED = {s: '2026-10-12' for s in ['braess', 'regression', 'survivor', 'friendship', 'inspection', 'coincidence']}
 ADDED.update({s: '2026-10-13' for s in ['secretary', 'weakties', 'checkout', 'bunching', 'seating', 'dla', 'sandpile', 'wildfire', 'ant', 'farming', 'lanchester', 'treasury', 'fxrate', 'war', 'hagwon', 'daycare', 'admission']})
+ADDED.update({s: '2026-10-14' for s in ['hitsong', 'harmony', 'pollock', 'ovation', 'halftone', 'mereexposure']})
 
 # slug -> (기호, 짧은 이름 T, 미니 애니메이션 종류)
 # 쉬운 말로 다듬은 칸 제목·설명(tools/pages/simple/<slug>.json)이 있으면 그것을 쓴다
@@ -143,6 +156,12 @@ for _cat in CATS:
             _items[_k] = (_slug, _m, T(_j['title_ko'], _j['title_en']) if 'title_ko' in _j else _t, T(_j['desc_ko'], _j['desc_en']) if 'desc_ko' in _j else _d)
 
 META = {
+ 'hitsong': ('Hs', T('히트곡 평행 세계', 'Hit Song Worlds'), 'bars'),
+ 'harmony': ('Hm', T('두 음의 어울림', 'Harmony'), 'wave'),
+ 'pollock': ('Jp', T('물감 뿌리기', 'Paint flinging'), 'drift'),
+ 'ovation': ('Ov', T('기립박수', 'Standing Ovation'), 'grid'),
+ 'halftone': ('Ht', T('점묘·하프톤', 'Halftone dots'), 'spread'),
+ 'mereexposure': ('Me', T('듣고 또 듣기', 'Again and Again'), 'pulse'),
  'talent-vs-luck': ('Tl', T('노력 vs 운', 'Effort vs Luck'), 'bars'),
  'wealth': ('Ws', T('부의 쏠림', 'Wealth'), 'stairs'),
  'youtube': ('Yt', T('유튜브 쏠림', 'Creators'), 'rise'),

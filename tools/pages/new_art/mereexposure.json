@@ -1,0 +1,38 @@
+{
+ "slug": "mereexposure",
+ "title_ko": "좋아하는 노래도 100번 들으면 왜 질릴까?",
+ "title_en": "Why Does Even a Favorite Song Get Old by the 100th Listen?",
+ "symbol": "Me",
+ "name_ko": "듣고 또 듣기",
+ "name_en": "Again and Again",
+ "icon": "pulse",
+ "related": ["fashion", "painters", "youtube"],
+ "predict": {
+  "q_ko": "100명이 같은 노래를 매일 100번 듣습니다(이 모델의 기본 설정). 평균 호감이 가장 높은 때는 언제일까요?",
+  "q_en": "100 people hear the same song daily, 100 times (this model's default). When is average liking highest?",
+  "opts_ko": ["10번째쯤", "50번째쯤", "100번째 (들을수록 계속 오른다)"],
+  "opts_en": ["Around the 10th listen", "Around the 50th listen", "The 100th (it keeps rising)"],
+  "answer": 0,
+  "expl_ko": "익숙함은 금방 차오르고 멈추지만 질림은 계속 쌓여서, 평균 호감은 11번째에 57점으로 가장 높았다가 100번째에는 1점으로 내려왔어요. 100명 중 41명은 듣기 전보다 싫어졌어요.",
+  "expl_en": "Familiarity fills up fast and stops, but boredom keeps building, so average liking peaked at 57 points at the 11th listen and fell to 1 point by the 100th. 41 of the 100 people ended up liking it less than before."
+ },
+ "daily": {
+  "q_ko": "최애 노래를 오래 좋아하고 싶다면 나는?",
+  "q_en": "If I want to keep loving my favorite song, I would…",
+  "opts_ko": ["질릴 때까지 매일 듣는다", "아껴 두고 가끔 듣는다", "질리면 새 노래로 갈아탄다"],
+  "opts_en": ["Play it every day until I tire of it", "Save it and play it now and then", "Switch to a new song once I tire of it"]
+ },
+ "facts": [
+  "기본 설정(복잡도 30, 매일): 평균 호감 11번째에 57점으로 최고, 100번째 1점, 100명 중 41명이 듣기 전보다 싫어짐",
+  "가장 단순한 곡(복잡도 0): 4번째에 75점으로 최고, 100번째 -36점, 68명 싫어짐",
+  "가장 복잡한 곡(복잡도 100): 10번째 49점, 70번째에 88점으로 최고, 100번째 88점, 싫어진 사람 0명",
+  "기본 곡의 100번째 호감: 매일 1점, 3일마다 65점, 7일마다 84점(7일마다는 100번째까지 계속 오름)",
+  "질림 닫힌 식과 시뮬레이션 차이 최대 4×10^-13점 (민감도 모두 1일 때)"
+ ],
+ "caveats": [
+  "익숙함과 질림 두 힘을 단순히 더한 이 프로젝트의 모델이며 모든 파라미터는 예시 값(실제 측정값 아님)",
+  "단순 노출 효과(Zajonc)·역U자(Berlyne)는 이름만 '알려진 설명'으로 썼고 연도·학술지는 쓰지 않음, 연구 재현 아님",
+  "어떤 곡이 더 좋은지 가리지 않음(단순한 곡이 나쁘다는 뜻 아님), 실제 취향 예측·청취 조언 아님",
+  "익숙함은 쉬어도 줄지 않고, 사람은 듣기를 그만두지 않는다고 가정"
+ ]
+}

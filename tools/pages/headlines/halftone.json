@@ -1,0 +1,22 @@
+{
+ "says_ko": [
+  "점이 적을 땐 얼룩이지만, 수백 개쯤에서 갑자기 얼굴이 떠오르고, 수천 개를 넘으면 더 찍어도 거의 그대로예요. 이 모델에선 약 480개에 닮은 정도 80%, 3,000개에 96%였어요.",
+  "점은 무작위로 떨어져 처음엔 우연한 얼룩이 그림을 가려요. 점이 늘면 얼룩은 빨리 묻히지만 거의 닮은 뒤엔 고칠 게 적어요. 10→1,000개는 69%p, 3,000→6,000개는 1%p 올랐어요.",
+  "멀리서 볼수록 적은 점으로 충분해요(80%까지 바로 앞 약 2,660개, 아주 멀리 약 140개). 큰 점은 금방 닮지만 너무 많이 찍으면 종이가 까매져 다시 덜 닮아요."
+ ],
+ "says_en": [
+  "With few dots it is a smudge, but around a few hundred a face suddenly appears, and past a few thousand more dots barely matter. Here about 480 dots gave 80% likeness and 3,000 gave 96%.",
+  "Dots fall at random, so at first chance blotches hide the picture. More dots bury them fast, but once it looks alike little is left to fix: 10→1,000 dots added 69 points, 3,000→6,000 added 1.",
+  "The farther you look, the fewer dots you need (for 80%: about 2,660 right in front, about 140 very far). Big dots look alike quickly, but too many blacken the paper and likeness falls again."
+ ],
+ "not_ko": [
+  "이 페이지는 사람이 '얼굴이 보인다'고 느끼는 순간을 잰 게 아니에요. 흐리게 한 두 그림의 닮음(상관계수)으로 대신했고, 480개·80% 같은 숫자는 이 그림과 잣대에서만 나온 예시예요.",
+  "실제 점묘화는 화가가 색과 자리를 골라 찍고, 신문 하프톤은 규칙적인 격자에 크기가 다른 점을 놓아요. 이 모델은 둘을 단순히 흉내 낼 뿐 재현하지 않아요.",
+  "이 모델은 어떤 그림이 더 아름다운지, 점묘가 좋은 기법인지를 가리지 않아요. 점이 원래 그림의 밝고 어두운 배치를 얼마나 따라가는지만 보여 줘요."
+ ],
+ "not_en": [
+  "This page does not measure when a person feels 'I see a face'. It uses how alike two blurred pictures are (a correlation); numbers like 480 dots or 80% hold only for this picture and yardstick.",
+  "Real pointillists chose the color and place of each dot, and newspaper halftone puts dots of different sizes on a regular grid. This model only imitates them simply and does not reproduce either.",
+  "The model does not judge which picture is more beautiful or whether pointillism is a good technique. It only shows how closely dots follow the light and dark layout of the original."
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "says_ko": [
+  "물감을 마구 뿌려도 '선과 면 사이' 숫자는 쉽게 나와요. 물감이 적으면 선 쪽(1.24), 많으면 면 쪽(1.96)이고, 같은 양의 자로 그은 직선도 거의 같아요(1.74 대 1.75).",
+  "같은 물감 양이라도 붓이 천천히 방향을 틀면 화면 전체로 퍼진 얽힌 선이 되어 숫자가 높고(1.74), 걸음마다 크게 틀면 한곳에 뭉친 덩어리가 되어 숫자가 낮아요(120°에서 1.41).",
+  "그래서 이 복잡도 숫자는 '얼마나 넓게, 얼마나 많이 덮었나'를 주로 알려 주는 눈금으로 보면 돼요. 숫자가 비슷해도 붓질의 모양과 그림의 느낌은 전혀 다를 수 있어요."
+ ],
+ "says_en": [
+  "Random flinging easily scores 'between a line and an area': little paint leans to the line end (1.24), lots to the area end (1.96), and ruled lines with equal paint score about the same (1.74 vs 1.75).",
+  "With equal paint, a brush that turns slowly spreads tangled lines over the whole canvas and scores high (1.74); one that turns sharply every step bunches into clumps and scores low (1.41 at 120°).",
+  "So read this complexity number mainly as a gauge of how widely and how much the canvas is covered. Pictures with similar numbers can have completely different brushwork and feel."
+ ],
+ "not_ko": [
+  "이 결과는 이 프로젝트의 단순한 붓 걷기에서 나온 거예요. 폴록 그림의 프랙탈 성격을 둘러싼 주장과 반론 중 어느 쪽이 맞는지 가리지 않고, 폴록이 이렇게 그렸다는 뜻도 아니에요.",
+  "이 숫자는 인기나 아름다움, 작품의 좋고 나쁨을 재지 않아요. 같은 숫자라도 예술적 가치는 전혀 다를 수 있고, 이 모델은 그것을 판단하지 않아요.",
+  "숫자는 캔버스 크기, 붓 굵기, 기울기를 잰 칸 크기 범위에 따라서도 달라져요. 실제 그림을 재려면 사진 해상도와 잴 범위를 어떻게 정했는지부터 봐야 해요."
+ ],
+ "not_en": [
+  "This comes from this project's simple wandering brush. It does not settle the claim and rebuttals about a fractal character in Pollock's paintings, nor does it mean Pollock painted this way.",
+  "This number does not measure popularity, beauty, or whether a work is good. Pictures with the same number can differ entirely in artistic value, and this model makes no judgment on that.",
+  "The number also shifts with canvas size, brush thickness and the box sizes used for the slope. To measure a real painting, first check how photo resolution and measuring range were chosen."
+ ]
+}
