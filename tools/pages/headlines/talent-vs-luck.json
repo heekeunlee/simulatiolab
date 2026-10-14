@@ -1,20 +1,22 @@
 {
  "says_ko": [
-  "재능이 비슷한데도 부의 격차가 극단적으로 벌어지는 건, 운이 곱해져 쌓이기 때문일 수 있어요.",
-  "이 모델에서는 행운이 오면 자본이 2배, 불운이면 절반이 되고 재능은 행운을 살릴 확률에만 들어가서, 운이 몇 번 겹치면 크게 불어요.",
-  "그래서 큰 격차를 보면 재능 차이로 읽기 전에, 운이 곱해져 쌓이는 구조였는지 먼저 살펴볼 수 있어요."
+  "성공은 재능이냐 운이냐 둘 중 하나가 아니에요. 둘 다 필요한데, 가장 크게 성공한 쪽으로 갈수록 운의 몫이 커 보여요.",
+  "운은 곱하기로 쌓여요. 한 번 2배가 되면 다음 기회에도 그만큼 더 커져서, 비슷한 사람들 사이에서도 몇 번의 운이 큰 격차를 만들어요.",
+  "재능(노력처럼 내가 가진 몫)은 운을 만들진 못해도, 찾아온 행운을 붙잡을 확률을 높여 줘요. 준비된 사람이 운을 더 잘 살리는 셈이에요."
  ],
  "says_en": [
-  "Wealth gaps can grow extreme among similarly talented people because luck compounds multiplicatively.",
-  "Here luck doubles capital, bad luck halves it, and talent only sets the chance of seizing luck, so a few lucky breaks grow hugely.",
-  "So when you see a big gap, you can first ask whether luck compounded before reading it as a talent difference."
+  "Success is not either talent or luck. Both are needed, but the further toward the very top you look, the bigger luck's share seems to be.",
+  "Luck piles up by multiplication. Once your money has doubled, the next break doubles a bigger amount, so a few lucky breaks open a big gap even among similar people.",
+  "Talent (or effort, something like the share you bring yourself) cannot create luck, but it raises your chance of seizing the luck that arrives. A prepared person makes more of it."
  ],
  "not_ko": [
-  "재능이 소용없다는 뜻이 아니에요. 이 모델에는 교육, 상속, 제도가 없고 만남의 규칙도 이 프로젝트가 정했어요.",
-  "현실에서 확인하려면 성공의 경로에서 운이 어디에 얼마나 작용했는지 기록하고, 모델에 없는 요인을 넣어 비교해 봐야 해요."
+  "재능이나 노력이 소용없다는 뜻이 아니에요. 이 모델에는 교육, 상속, 제도, 연습해서 실력이 느는 과정이 없어요.",
+  "운과 재능이 정확히 몇 대 몇인지는 알려 주지 않아요. 숫자는 이 프로젝트가 정한 규칙에서 나온 예시예요.",
+  "누군가의 성공이나 실패를 '운 탓' 또는 '노력 탓'으로 단정할 근거도 아니에요. 현실에서는 그 사람의 경로에서 운이 어디에 있었는지를 따로 살펴봐야 해요."
  ],
  "not_en": [
-  "It does not mean talent is useless; the model has no education, inheritance or institutions, and its encounter rules are our own.",
-  "To check in reality, record where luck acted along success paths and add the missing factors to compare."
+  "It does not mean talent or effort is useless. The model has no education, inheritance, institutions, or practice that builds skill.",
+  "It does not tell you exactly how much is luck and how much is talent. The numbers are examples from rules this project chose.",
+  "Nor is it grounds for blaming someone's success or failure on luck, or on effort. In reality you would have to look separately at where luck sat along that person's path."
  ]
 }
