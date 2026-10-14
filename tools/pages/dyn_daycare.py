@@ -35,5 +35,5 @@ DYN = {
 '가장 많이 아팠던 주': 'Week with the most sick children',
 '아직 알 수 없음': 'Not known yet',
 '반 아이 중 아픈 아이가 가장 많았던 때': 'When the largest share of children was sick',
-'우리 반 번호': 'Class number',
+'우리 반 번호': 'Class',
 }

@@ -43,5 +43,5 @@ DYN = {
 '처음 대비 (평균 {#0}개 → {#1}개)': 'versus the start (average {0} → {1} classes)',
 '가구당 순이득': 'Net payoff per household',
 '결과 − 학원비 · 처음 {#0}% · 오른 집 {#1}% / 내린 집 {#2}%': 'result − bill · start {0}% · better off {1}% / worse off {2}%',
-'가구 번호': 'Household set',
+'가구 번호': 'Household sample',
 }

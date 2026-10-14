@@ -85,7 +85,7 @@
       ctx.fillText(win ? `${win === 'a' ? '파랑' : '빨강'} 승 · ${left}명 남음 (${Math.round((100 * left) / start)}%)` : '서로 전멸', mid, 24 + (cw < 560 ? 36 : 0));
     }
     ctx.font = '12px ' + FONT; ctx.fillStyle = css('--muted');
-    const capL = P.law === 'square' ? '사각 법칙: 병력 모두가 상대 아무에게나 겨눈다' : '선형 법칙: 일대일로 맞붙는다';
+    const capL = P.law === 'square' ? '제곱 법칙: 병력 모두가 상대 아무에게나 겨눈다' : '선형 법칙: 일대일로 맞붙는다';
     const cap = P.split === 'none' ? capL : P.split === 'a' ? capL + ' · 파랑은 둘로 나뉘어 차례로 도착' : capL + ' · 빨강은 둘로 나뉘어 차례로 도착';
     ctx.fillText(cap, mid, h - 10);
     $('when').textContent = `${sim.step}단계 · ${sim.done() ? '전투 끝' : '전투 중'}`;
@@ -132,7 +132,7 @@
   function drawCompare() {
     const P = sim.params, big = P.a >= P.b ? 'a' : 'b', small = big === 'a' ? 'b' : 'a';
     const rows = [
-      ['사각 법칙 · 모여서', 'square', 'none'], ['사각 법칙 · 큰 쪽이 나뉘면', 'square', big], ['사각 법칙 · 작은 쪽이 나뉘면', 'square', small],
+      ['제곱 법칙 · 모여서', 'square', 'none'], ['제곱 법칙 · 큰 쪽이 나뉘면', 'square', big], ['제곱 법칙 · 작은 쪽이 나뉘면', 'square', small],
       ['선형 법칙 · 모여서', 'linear', 'none'], ['선형 법칙 · 큰 쪽이 나뉘면', 'linear', big],
     ];
     const cw = $('c-cmp').clientWidth || 600, mob = cw < 560, rh = mob ? 52 : 40;
@@ -155,7 +155,7 @@
   // ---------- ⑤ 누가 이기나: 병력 비율 × 질 비율 ----------
   const XR = 3, YR = 2; // 2의 거듭제곱: 병력 1/8~8배, 질 1/4~4배
   function drawPhase() {
-    const pItems = [{ kind: 'line', color: css('--text'), label: '사각 법칙 균형선' }, { kind: 'dash', color: css('--text'), label: '선형 법칙 균형선' }], psp = L.belowSpace($('c-phase'), pItems);
+    const pItems = [{ kind: 'line', color: css('--text'), label: '제곱 법칙 균형선' }, { kind: 'dash', color: css('--text'), label: '선형 법칙 균형선' }], psp = L.belowSpace($('c-phase'), pItems);
     const P = sim.params, c = L.chart($('c-phase'), ($('c-phase').clientWidth < 560 ? 0.9 : 0.62) + psp.extra / ($('c-phase').clientWidth || 400), { l: 52, b: psp.b, r: 14, t: 24 }), { ctx, m, pw, ph } = c;
     const X = (e) => m.l + ((e + XR) / (2 * XR)) * pw, Y = (e) => m.t + ph - ((e + YR) / (2 * YR)) * ph;
     const NX = 72, NY = 48;
@@ -175,7 +175,7 @@
     ctx.textAlign = 'right'; [-2, -1, 0, 1, 2].forEach((e) => ctx.fillText(tl(e), m.l - 6, Y(e) + 4));
     L.axisNames(c, '병력 비율 (파랑 : 빨강)', '질 비율 (파랑 : 빨강)');
     ctx.strokeStyle = css('--line'); ctx.strokeRect(m.l + 0.5, m.t + 0.5, pw - 1, ph - 1);
-    // 균형선: 사각 법칙 qr²=1 (실선), 선형 법칙 qr=1 (점선)
+    // 균형선: 제곱 법칙 qr²=1 (실선), 선형 법칙 qr=1 (점선)
     const curve = (k, dash, col) => {
       ctx.setLineDash(dash); ctx.strokeStyle = col; ctx.lineWidth = 2.2; ctx.beginPath();
       let on = false; for (let e = -XR; e <= XR + 1e-9; e += 0.05) { const y = -k * e; if (y < -YR || y > YR) { on = false; continue; } on ? ctx.lineTo(X(e), Y(y)) : ctx.moveTo(X(e), Y(y)); on = true; }
@@ -190,7 +190,7 @@
     ctx.textAlign = ex > 0 ? 'right' : 'left'; L.label(ctx, '지금 설정', X(ex) + (ex > 0 ? -12 : 12), Y(ey) + (ey > 0 ? 20 : -12), ex > 0 ? 'right' : 'left');
     L.drawLegendBelow(c, pItems);
     const r = P.a / P.b;
-    $('note-p').innerHTML = `<span>파랑 병력이 빨강의 ${f2(r)}배일 때 막상막하가 되려면 빨강의 질이 파랑의</span> <span>사각 법칙</span> <b>${f2(r * r)}배</b> · <span>선형 법칙</span> <b>${f2(r)}배</b>`;
+    $('note-p').innerHTML = `<span>파랑 병력이 빨강의 ${f2(r)}배일 때 막상막하가 되려면 빨강의 질이 파랑의</span> <span>제곱 법칙</span> <b>${f2(r * r)}배</b> · <span>선형 법칙</span> <b>${f2(r)}배</b>`;
   }
 
   function renderStats() {
@@ -200,7 +200,7 @@
       ['전투력 비율 (파랑 ÷ 빨강)', `×${f1(ratio)}`, P.law === 'square' ? `병력 ${f1(P.a / P.b)}배 × 질 ${f2(P.q)}배 → 병력은 제곱으로 작용` : `병력 ${f1(P.a / P.b)}배 × 질 ${f2(P.q)}배 → 병력은 그대로 작용`],
       ['지금 남은 병력', `${cnt[0]} : ${cnt[1]}`, '파랑 : 빨강'],
       ['이론상 결과 (이 설정)', resText(o, P.a, P.b), '연속 근사로 계산한 값'],
-      [P.law === 'square' ? '선형 법칙이었다면' : '사각 법칙이었다면', resText(other, P.a, P.b), '같은 설정, 법칙만 바꿔서'],
+      [P.law === 'square' ? '선형 법칙이었다면' : '제곱 법칙이었다면', resText(other, P.a, P.b), '같은 설정, 법칙만 바꿔서'],
     ];
     $('stats').innerHTML = cards.map(([k, v, s], i) => `<div class="stat"><div class="k">${k}</div><div class="v"${i === 2 || i === 3 ? ' style="font-size:1.25rem"' : ''}>${v}</div><div class="s">${s}</div></div>`).join('');
   }

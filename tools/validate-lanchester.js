@@ -19,7 +19,7 @@ function row(name, o) {
 }
 const base = { a: 200, b: 100, q: 1, law: 'square', split: 'none' };
 console.log('--- 기본값 (파랑 200 대 빨강 100, 질 같음)');
-row('사각 법칙, 모여서', base);
+row('제곱 법칙, 모여서', base);
 row('선형 법칙, 모여서', Object.assign({}, base, { law: 'linear' }));
 row('사각, 파랑(큰 쪽)이 둘로 나뉨', Object.assign({}, base, { split: 'a' }));
 console.log('--- 130 대 100 (큰 쪽이 나뉘면 지는 예)');

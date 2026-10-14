@@ -4,7 +4,7 @@
  * 브라우저와 Node.js 양쪽에서 같은 파일을 사용한다.
  *
  * 병사는 점으로, 질(quality)은 병사 한 명의 명중률이다. 두 군대 이름은 추상적인 파랑(a)과 빨강(b)이다.
- *  - 사각 법칙(square): 멀리서 겨누어 쏜다. 누구나 상대 아무에게나 쏠 수 있어 병력이 많을수록 손실도 빨리 준다.
+ *  - 제곱 법칙(square): 멀리서 겨누어 쏜다. 누구나 상대 아무에게나 쏠 수 있어 병력이 많을수록 손실도 빨리 준다.
  *      dA/dt = -β·B,  dB/dt = -α·A   =>  α·A² - β·B² 가 변하지 않는다 (전투력 = 질 × 병력²)
  *  - 선형 법칙(linear): 일대일로 맞붙는다. 동시에 싸우는 쌍은 min(A, B)쌍뿐이다.
  *      dA/dt = -β·min(A,B),  dB/dt = -α·min(A,B)   =>  α·A - β·B 가 변하지 않는다 (전투력 = 질 × 병력)
@@ -56,7 +56,7 @@ const rates = (q, rate, law) => { const r = rate * (law === 'linear' ? 5 : 1); r
     const winner = aLeft > 1e-9 ? 'a' : bLeft > 1e-9 ? 'b' : null;
     return { winner, aLeft, bLeft };
   }
-  // 전투력: 사각 법칙은 질 × 병력², 선형 법칙은 질 × 병력
+  // 전투력: 제곱 법칙은 질 × 병력², 선형 법칙은 질 × 병력
   function strength(law, n, quality) { return quality * (law === 'linear' ? n : n * n); }
   // 파랑의 전투력 ÷ 빨강의 전투력 (처음 상태, 한곳에 모였을 때)
   function strengthRatio(law, a, b, q) { return strength(law, a, Math.sqrt(q)) / strength(law, b, 1 / Math.sqrt(q)); }

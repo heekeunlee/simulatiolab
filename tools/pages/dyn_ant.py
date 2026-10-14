@@ -40,6 +40,6 @@ DYN = {
 '{#0}칸 떨어짐': '{0} cells away',
 '이제 걸음마다 일정하게 멀어집니다': 'Now moving away at a constant rate each step',
 '혼돈 속에서는 거의 제자리를 맴돕니다': 'During the chaos it circles near where it started',
-'시작 번호': 'Start',
+'시작 번호': 'Starting point',
 '{#0}%': '{0}%',
 }

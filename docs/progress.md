@@ -360,3 +360,9 @@
 
 - **범례 가림 점검 도구** `tools/browser/legend_audit.js`: 51개 실험을 데스크톱(1280px)·휴대폰(390px)으로 열어 기본값과 슬라이더 양 끝값에서 범례 상자 밑에 깔린 데이터 픽셀 비율을 잼(`Lab.legend`에 `window.__legendAudit` 기록 코드가 있음). 1차 점검 517개 중 69개 의심 → 24개 실험의 약 45개 그래프 범례를 **그래프 아래 가로 범례**(`Lab.belowSpace` + `Lab.drawLegendBelow`, `site/lib.js`)로 옮김. 재점검 결과 5% 넘는 곳 0개(farming 1곳은 추가로 수정). 앞으로 그래프를 만들 때는 결과가 크게 변하는 그래프(막대·선·색 면·지도)의 범례를 아래 가로 범례로.
 - **"말하는 것/말하지 않는 것" 4차**(`tools/pages/BRIEF_HEADLINES4.md`): 베타 테스터 피드백("그래서 얼룩말 무늬는 어떻게 생긴다는 거야?")을 반영해, 51개 모두 ① 제목 질문에 대한 한 줄 답 ② 일상의 비유로 푼 원인 ③ 그래서 얻는 것 / 말하지 않는 것(한계, 현실에서 확인할 것)으로 다시 씀. 변수 이름·전문 용어 금지.
+
+### 51차 (2026-10-14) 남은 다듬기
+- 시드 라벨 영어/번역 정리: 중복 "N.º/N° … #1" 제거와 어색한 표현 교체(Children set→Admission draw, Household set→Household sample, Land→Plot, 화단 zh 画坛→花坛 등 8개 실험 + es/fr/ru/ja/zh).
+- 용어 통일: 란체스터 "사각 법칙"→"제곱 법칙", 모래더미 "산사태"→"눈사태"(en Landslide→Avalanche, 5개 언어 재번역).
+- seating 슬라이더 단위 누락(d1401 `{#0}칸`) → "{0} seats" 등 5개 언어 추가.
+- 범례 재점검(lanchester, secretary, 3% 기준): 의심 0개. 관련 11페이지 7개 언어 check 통과.

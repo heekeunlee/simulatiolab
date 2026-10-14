@@ -1,11 +1,11 @@
 {
  "says_ko": [
-  "모래 한 알이 산사태를 일으킬 수 있는 건, 쌓인 더미가 한 알에도 연쇄로 무너질 만한 상태가 되기 때문이에요.",
+  "모래 한 알이 눈사태를 일으킬 수 있는 건, 쌓인 더미가 한 알에도 연쇄로 무너질 만한 상태가 되기 때문이에요.",
   "한 칸이 무너지면 이웃 넷에게 알이 넘어가 그 이웃도 무너지는데, 같은 한 알이 아무 일 없기도 수천 번 무너짐이 되기도 해요.",
   "그래서 큰 사건에 꼭 큰 원인이 있는 건 아닐 수 있어요. 이 모델에서는 작은 사태가 흔하고 큰 사태는 드물게 나왔어요."
  ],
  "says_en": [
-  "One grain can start a landslide because the pile gets into a state where a single grain can set off a chain of collapses.",
+  "One grain can start an avalanche because the pile gets into a state where a single grain can set off a chain of collapses.",
   "When a cell topples it passes grains to its four neighbours, who may topple too; the same grain can do nothing or cause thousands of topples.",
   "So a big event may not need a big cause. In this model small avalanches were common and huge ones rare."
  ],

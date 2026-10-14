@@ -15,7 +15,7 @@ DYN = {
 '순위-빈도 기울기': 'Rank–frequency slope',
 '지프의 법칙은 -1 근처 · 순위 {0}~{1}에서 측정': "Zipf's law is near -1 · measured over ranks {0} to {1}",
 '새 단어 확률을 0.5%~10%로 바꿔도 복사 모드의 기울기는 {#0}~{#1}, 균등 선택은 {#2}~{#3}입니다': 'Across new-word probabilities from 0.5% to 10%, the slope size is {0} to {1} in copy mode and {2} to {3} with uniform choice',
-'글 번호': 'Text',
+'글 번호': 'Sample text',
 '← 1위: 맨 처음 생긴 단어': '← Rank 1: the very first word',
 '단어 순위 (위, 로그 눈금)': 'Word rank (log scale)',
 '쓰인 횟수 (번, 로그 눈금)': 'Times used (log scale)',

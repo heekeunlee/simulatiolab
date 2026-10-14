@@ -39,7 +39,7 @@ DYN = {
 '번지는 중': 'spreading',
 '연 {#0}%': '{0}% per year',
 '{#0} km²/년': '{0} km²/yr',
-'땅의 번호': 'Land',
+'땅의 번호': 'Plot',
 '지난 햇수 (년)': 'Years elapsed',
 '기원지에서 전선까지 거리 (km)': 'Distance from origin to front (km)',
 '시뮬레이션에서 잰 전선': 'Front measured in simulation',
