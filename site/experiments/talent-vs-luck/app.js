@@ -98,7 +98,7 @@
 
   // ---------- ③ 산점도 ----------
   function drawScatter() {
-    const lgItems = [{ kind: 'dot', color: mix(css('--accent'), 0.6), label: '보통 사람' }, { kind: 'dot', color: css('--rich'), label: '최고 부자' }, { kind: 'dot', color: css('--talent'), label: '최고 노력자' }], lgSp = Lab.belowSpace($('c-scatter'), lgItems);
+    const lgItems = [{ kind: 'dot', color: mix(css('--accent'), 0.6), label: '보통 사람' }, { kind: 'dot', color: css('--rich'), label: '최고 부자' }, { kind: 'dot', color: css('--talent'), label: '불행왕' }], lgSp = Lab.belowSpace($('c-scatter'), lgItems);
     const { ctx, w, h } = setup($('c-scatter'), 0.7 + lgSp.extra / ($('c-scatter').clientWidth || 400));
     const c0 = sim.params.c0, n = sim.n;
     const capT = capNow(), sn = statsNow();
@@ -136,19 +136,21 @@
       ctx.fillText(label, x + dx, y + 4);
     };
     mark(sn.richest, css('--rich'), '최고 부자 ' + fmtCap(capT[sn.richest]), x(sn.richest) > m.l + pw * 0.6 ? -10 : 10);
-    mark(sn.mostTalented, css('--talent'), '최고 노력자 ' + fmtCap(capT[sn.mostTalented]), -10);
+    const poor = sn.byCap[sn.byCap.length - 1];   // 지금 자본이 가장 적은 사람(불행왕)
+    mark(poor, css('--talent'), '불행왕 ' + fmtCap(capT[poor]), -10);
     Lab.drawLegendBelow(cc, lgItems);
     function x(i) { return X(sim.talent[i]); }
   }
 
   // ---------- ④ 타임라인 ----------
   function drawTimeline() {
-    const lgItems = [{ kind: 'line', color: css('--rich'), label: '최고 부자' }, { kind: 'line', color: css('--talent'), label: '최고 노력자' }, { kind: 'up', color: css('--lucky'), label: '행운을 잡음' }, { kind: 'down', color: css('--unlucky'), label: '불운' }, { kind: 'ring', color: '#7a8699', label: '행운이 왔지만 놓침' }], lgSp = Lab.belowSpace($('c-time'), lgItems);
+    const lgItems = [{ kind: 'line', color: css('--rich'), label: '최고 부자' }, { kind: 'line', color: css('--talent'), label: '불행왕' }, { kind: 'up', color: css('--lucky'), label: '행운을 잡음' }, { kind: 'down', color: css('--unlucky'), label: '불운' }, { kind: 'ring', color: '#7a8699', label: '행운이 왔지만 놓침' }], lgSp = Lab.belowSpace($('c-time'), lgItems);
     const { ctx, w, h } = setup($('c-time'), 0.7 + lgSp.extra / ($('c-time').clientWidth || 400));
     const c0 = sim.params.c0, n = sim.n, T = sim.steps, tNow = stepNow();
     const k = (t, i) => Math.log2(sim.history[t * n + i] / c0);
     const others = st.byCap.slice(1, 5);
-    const series = [st.richest, st.mostTalented, ...others];
+    const poorest = st.byCap[st.byCap.length - 1];   // 40년 뒤 자본이 가장 적은 사람(불행왕)의 지금까지 변화
+    const series = [st.richest, poorest, ...others];
     let kmin = 0, kmax = 0;
     series.forEach((i) => { for (let t = 0; t <= T; t++) { const v = k(t, i); kmin = Math.min(kmin, v); kmax = Math.max(kmax, v); } });
     kmin -= 0.8; kmax += 0.8;
@@ -174,7 +176,7 @@
       ctx.stroke(); ctx.lineWidth = 1;
     };
     others.forEach((i) => path(i, mix(css('--rich'), 0.3), 1));
-    path(st.mostTalented, css('--talent'), 2);
+    path(poorest, css('--talent'), 2);
     path(st.richest, css('--rich'), 2.5);
 
     const L = sim.log[st.richest];
@@ -321,7 +323,7 @@
     const talRank = st.byTal.indexOf(st.richest) + 1;
     const cards = [
       ['최고 부자의 노력', st.richestTalent.toFixed(2), `평균 ${st.meanTalent.toFixed(2)} · 노력 순위 ${talRank}위 / ${sim.n}명`],
-      ['최고 노력자의 최종 자본', fmtCap(st.mostTalentedCapital), `노력 ${st.mostTalentedTalent.toFixed(2)} (1위) · 시작은 ${c0}`],
+      ['불행왕의 최종 자본', fmtCap(capNow()[st.byCap[st.byCap.length - 1]]), `노력 ${sim.talent[st.byCap[st.byCap.length - 1]].toFixed(2)} · 시작은 ${c0}`],
       ['상위 20%가 가진 자본', (st.top20Share * 100).toFixed(0) + '%', '파레토 법칙(80/20)과 비교해 보세요'],
       ['시작값보다 줄어든 사람', (st.belowInitial * 100).toFixed(0) + '%', '운이 나쁘면 노력해도 줄어요'],
       ['부자 상위 10명 중 노력 상위 10%', st.richInTopDecile + '명', '노력만으로 정해진다면 10명'],
