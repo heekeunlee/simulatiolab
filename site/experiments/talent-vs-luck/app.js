@@ -198,10 +198,10 @@
     ctx.lineWidth = 1;
   }
 
-  // ---------- ① 100명이 걸어 다니기 ----------
-  // 화면 속 세계는 가로세로 100칸, 사람 100명. 모델과 같은 규칙(행운은 노력만큼의 확률, 불운은 무조건 절반)을 눈에 보이게 옮긴 그림이고,
+  // ---------- ① 1,000명이 걸어 다니기 ----------
+  // 화면 속 세계는 가로세로 100칸, 사람 1,000명. 모델과 같은 규칙(행운은 노력만큼의 확률, 불운은 무조건 절반)을 눈에 보이게 옮긴 그림이고,
   // 사람당 만남 빈도(6개월에 약 0.04번)도 같게 맞췄다. 아래 통계·그래프는 1,000명 모델의 계산이다.
-  const VIEW_N = 100, VIEW_W = 100, V_SPEED = 3, HIT_R = 2.5;
+  const VIEW_N = 1000, VIEW_W = 100, V_SPEED = 3, HIT_R = 2.5;
   const EMOJI = '"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif';
   const lerpHex = (a, b, t) => { const pa = [1, 3, 5].map((i) => parseInt(a.substr(i, 2), 16)), pb = [1, 3, 5].map((i) => parseInt(b.substr(i, 2), 16)); return '#' + pa.map((v, i) => Math.round(v + (pb[i] - v) * t).toString(16).padStart(2, '0')).join(''); };
   function rng32(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
@@ -255,7 +255,7 @@
   let lastDraw = 0;
   function drawWorld(dtSec) {
     const { ctx, w } = setup($('c-world'), 1);
-    const s = w / VIEW_W, base = Math.max(12, w / 42); sizeCap = w < 500 ? 4 : 5.5;   // 좁은 화면에서는 너무 겹치지 않게 상한을 낮춤
+    const s = w / VIEW_W, base = Math.max(12, w / 42), pb = Math.max(5, w / 105);   // base: 빛·효과 크기, pb: 사람 크기(1,000명이라 작게) sizeCap = w < 500 ? 4 : 5.5;   // 좁은 화면에서는 너무 겹치지 않게 상한을 낮춤
     const px = (v) => v * s;
     ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, w);
     ctx.fillStyle = 'rgba(99,106,122,.10)';
@@ -283,27 +283,27 @@
     view.people.forEach((q) => { q.kd += (q.k - q.kd) * (dtSec == null ? 1 : k); });
     const order = view.people.map((q, i) => i).sort((a, b) => Math.abs(view.people[a].kd) - Math.abs(view.people[b].kd));
     for (const i of order) {
-      const q = view.people[i], f = sizeF(q.kd), h = base * 0.95 * f;
+      const q = view.people[i], f = sizeF(q.kd), h = pb * 0.95 * f;
       personPath(ctx, px(q.x), px(q.y) + h * 0.5, h);
-      ctx.lineWidth = 1.6; ctx.strokeStyle = 'rgba(255,255,255,.95)'; ctx.stroke();
+      ctx.lineWidth = Math.max(0.8, pb / 7); ctx.strokeStyle = 'rgba(255,255,255,.95)'; ctx.stroke();
       ctx.fillStyle = personColor(q.kd); ctx.fill();
     }
 
     // 만난 순간의 물결: 파랑(붙잡음) / 빨강(불운) / 회색(놓침)
-    view.fx = view.fx.filter((e) => view.t - e.at < 0.9);
+    view.fx = view.fx.filter((e) => view.t - e.at < 0.6);   // 1,000명이라 만남이 많으니 물결은 작고 짧게
     for (const e of view.fx) {
-      const u = (view.t - e.at) / 0.9;
-      ctx.globalAlpha = 1 - u; ctx.lineWidth = 3; ctx.strokeStyle = e.kind === 'up' ? '#2f6fed' : e.kind === 'down' ? '#d6232a' : '#8b93a5';
-      ctx.beginPath(); ctx.arc(px(e.x), px(e.y), base * (0.8 + u * 2.4), 0, 7); ctx.stroke();
+      const u = (view.t - e.at) / 0.6;
+      ctx.globalAlpha = 0.9 * (1 - u); ctx.lineWidth = 2; ctx.strokeStyle = e.kind === 'up' ? '#2f6fed' : e.kind === 'down' ? '#d6232a' : '#8b93a5';
+      ctx.beginPath(); ctx.arc(px(e.x), px(e.y), pb * (1.0 + u * 2.6), 0, 7); ctx.stroke();
     }
     ctx.globalAlpha = 1;
 
     if (!THUMB) {
       // 노력 1등에게 보라색 고리, 지금 가장 부자(파랑이 가장 큰 사람)에게 왕관
-      const t = view.people[view.topT]; ctx.strokeStyle = '#7c5cff'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(px(t.x), px(t.y), base * 0.95 * sizeF(t.kd) * 0.6 + 4, 0, 7); ctx.stroke();
-      chip(ctx, '최고 노력자', px(t.x), px(t.y) - base * 0.95 * sizeF(t.kd) * 0.4, '#7c5cff', w);
+      const t = view.people[view.topT]; ctx.strokeStyle = '#7c5cff'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(px(t.x), px(t.y), pb * 0.95 * sizeF(t.kd) * 0.6 + 5, 0, 7); ctx.stroke();
+      chip(ctx, '최고 노력자', px(t.x), px(t.y) - pb * 0.95 * sizeF(t.kd) * 0.4, '#7c5cff', w);
       let rich = 0; view.people.forEach((q, i) => { if (q.k > view.people[rich].k) rich = i; });
-      const r = view.people[rich]; if (r.k >= 2) { ctx.font = `${Math.round(base * 1.5)}px ${EMOJI}`; ctx.fillStyle = '#000'; ctx.fillText('👑', px(r.x), px(r.y) - base * 0.95 * sizeF(r.kd) * 0.5 - base * 0.7); }
+      const r = view.people[rich]; if (r.k >= 3) { ctx.font = `${Math.round(base * 1.5)}px ${EMOJI}`; ctx.fillStyle = '#000'; ctx.fillText('👑', px(r.x), px(r.y) - pb * 0.95 * sizeF(r.kd) * 0.5 - base * 0.7); }
     }
 
     // 요약: 시간, 상위 20%의 몫, 색별 인원
