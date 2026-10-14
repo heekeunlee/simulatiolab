@@ -36,7 +36,7 @@
   jump.innerHTML = `<a href="#model">${labels[0]}</a><a href="#insight">${labels[1]}</a><a href="#notes">${labels[2]}</a>`;
   lead.after(jump); jump.after(bench);
 
-  // 읽을거리: 모델 설명 → 결과 해석(말하는 것 | 말하지 않는 것 나란히) → 구현 메모(접어 둠)
+  // 읽을거리: 모델 설명 → 결과 해석(말하는 것 | 말하지 않는 것 나란히) → 구현 메모(펼쳐 둠)
   let anchor = bench;
   if (modelH2) {
     const sec = document.createElement('section'); sec.className = 'story'; sec.id = 'model';
@@ -55,7 +55,7 @@
     const det = document.createElement('details'); det.className = 'notes'; det.id = 'notes';
     const sum = document.createElement('summary'); sum.innerHTML = implH2.innerHTML;
     const ul = nextOf(implH2); implH2.remove();
-    det.appendChild(sum); det.appendChild(ul);
+    det.appendChild(sum); det.appendChild(ul); det.open = true;   // 이론적 근거와 구현 메모는 처음부터 펼쳐 둔다 (접을 수는 있다)
     anchor.after(det);
     jump.querySelector('a[href="#notes"]').addEventListener('click', () => { det.open = true; });
   }
