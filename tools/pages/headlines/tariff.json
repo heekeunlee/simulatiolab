@@ -1,0 +1,22 @@
+{
+ "says_ko": [
+  "상대가 가만히 있으면 먼저 올린 쪽이 앞서고, 상대가 되갚으면 둘 다 손해예요. 혼자 20%면 한 분기 이득이 1→1.10, 둘 다 20%면 각자 0.78이에요.",
+  "되갚기가 약하면 갈등이 가라앉고, 세면 서로 계속 올려요. 100판 평균 두 나라 합계는 보복 0%일 때 93, 100%일 때 65, 150%일 때 22였어요.",
+  "먼저 내린 쪽은 상대가 따라올 때까지 0.76으로 상대(0.94)보다 덜 벌어 멈추기 어려워요. 하지만 둘 다 내리면 각자 0.92로 함께 회복해요."
+ ],
+ "says_en": [
+  "If the other side does nothing, whoever raised first gets ahead; if it hits back, both lose. Raising alone to 20% lifts a quarter's gain from 1 to 1.10; both at 20% gives 0.78 each.",
+  "Mild retaliation lets the dispute fade; harsh retaliation keeps both raising. Over 100 runs the combined gain was 93 at 0% retaliation, 65 at 100% and 22 at 150% (no tariffs = 100).",
+  "Whoever cuts first earns 0.76 versus the other's 0.94 until the other follows, so stopping is hard. But once both cut, each gets 0.92 and both recover."
+ ],
+ "not_ko": [
+  "A국·B국은 가상의 나라예요. 어떤 나라의 정책이 옳은지 판정하거나 앞으로의 무역 갈등을 예측하지 않고, 숫자는 모두 이 프로젝트의 예시예요.",
+  "환율, 공급망 이전, 선거·정치, 제3국이 빠져 있어요. 현실에선 이것들이 결과를 크게 바꿀 수 있어 실제 무역 자료로 따로 확인해야 해요.",
+  "먼저 내린 쪽의 손해는 그동안만이에요. 100판 전체로는 먼저 내린 나라(64.7)와 다른 나라(65.1)의 쌓인 이득이 거의 같았어요."
+ ],
+ "not_en": [
+  "A and B are imaginary. This does not judge whether any country's policy is right, nor predict future trade disputes. All numbers are this project's examples.",
+  "Exchange rates, moving supply chains, elections and politics, and third countries are left out. In reality they can change the outcome a lot, so real trade data is needed to check.",
+  "The first to cut loses only in the meantime. Over 100 full runs, the first to cut (64.7) and the other country (65.1) piled up almost the same gains."
+ ]
+}

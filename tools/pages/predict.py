@@ -193,6 +193,10 @@ PRED.update({
   T('100명이 같은 노래를 매일 100번 듣습니다(이 모델의 기본 설정). 평균 호감이 가장 높은 때는 언제일까요?', "100 people hear the same song daily, 100 times (this model's default). When is average liking highest?"),
   [T('10번째쯤', 'Around the 10th listen'), T('50번째쯤', 'Around the 50th listen'), T('100번째 (들을수록 계속 오른다)', 'The 100th (it keeps rising)')], 0,
   T('익숙함은 금방 차오르고 멈추지만 질림은 계속 쌓여서, 평균 호감은 11번째에 57점으로 가장 높았다가 100번째에는 1점으로 내려왔어요. 100명 중 41명은 듣기 전보다 싫어졌어요.', 'Familiarity fills up fast and stops, but boredom keeps building, so average liking peaked at 57 points at the 11th listen and fell to 1 point by the 100th. 41 of the 100 people ended up liking it less than before.')),
+ 'tariff': (  # 2026-10-14 새 실험
+  T('두 나라가 서로 관세를 올릴 때, 상대가 올린 것보다 더 세게(150%) 되갚으면 100판 평균 두 나라 합계 이득은 어떻게 될까요? (서로 안 올렸을 때 = 100)', 'When two countries raise tariffs on each other and each hits back harder than it was hit (150%), what happens to their combined gain averaged over 100 runs? (never raising = 100)'),
+  [T('약 90 (거의 그대로)', 'About 90 (barely changes)'), T('약 65 (똑같이 되갚을 때와 비슷)', 'About 65 (same as matching)'), T('약 22 (크게 줄어듦)', 'About 22 (falls sharply)')], 2,
+  T('이 모델에서 보복 0%면 합계 93, 똑같이 되갚는 100%면 65였지만, 더 세게 되갚는 150%면 서로 계속 올려 관세가 평균 40%에 머물고 합계는 22로 떨어졌어요. 갈등이 끝난 판도 5%뿐이었어요.', 'In this model the combined gain was 93 with no retaliation and 65 when matching (100%), but hitting back harder (150%) kept both raising, tariffs averaged 40% and the combined gain fell to 22. Only 5% of runs saw the dispute end.')),
 })
 
 

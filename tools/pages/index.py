@@ -30,6 +30,7 @@ CATS = [
   ('apartment', T('공간 확산 모델', 'Spatial contagion model'), T('아파트 가격은 어떻게 번질까', 'How Do Apartment Prices Spread?'), T('한 동네의 상승이 이웃으로 번지는 과정과, 대출 규제·금리가 미치는 영향을 장난감 모델로 봐요.', 'See, in a toy model, how a rise in one neighborhood spreads to the next, and what lending limits and interest rates do.')),
   ('treasury', T('평균회귀 금리 모델 (바시첵)', 'Mean-reverting rate model (Vasicek)'), T('금리가 오르면 내 채권값은 왜 떨어질까: 10년 국채 금리', 'Why Does My Bond Fall When Rates Rise? The 10-Year Treasury Yield'), T('단기금리 경로로 10년 금리가 정해지는 과정과, 금리가 1%p 오를 때 이미 산 채권값이 얼마나 떨어지는지 돌려 봐요. (예시 숫자, 예측 아님)', 'See how short-rate paths set the 10-year yield and how much a bond you already hold falls when rates rise one point. (Example numbers, not a forecast.)')),
   ('fxrate', T('캐리 트레이드 쏠림 모델', 'Carry-trade crowding model'), T('금리 높은 통화를 샀더니: 계단으로 오르고 엘리베이터로 떨어지는 캐리 트레이드', 'Buying the High-Rate Currency: The Carry Trade That Takes the Stairs Up and the Elevator Down'), T('이자를 더 주는 통화를 사면 오래 조금씩 벌다 한 번에 크게 잃을 수 있어요. 쏠림과 청산이 만드는 모양을 돌려 봐요. (예시 숫자, 투자 조언 아님)', 'Holding a higher-yield currency can earn a little for years and lose a lot at once. See the shape crowding and unwinding create. (Example numbers, not investment advice.)')),
+  ('tariff', T('반복 보복 모델', 'Repeated retaliation model'), T('관세 보복을 서로 주고받으면 왜 둘 다 손해일까?', 'When Two Countries Trade Tariff Blows, Why Do Both Lose?'), T('혼자 올리면 이득인데, 서로 되갚으면 둘 다 손해예요. 두 가상의 나라가 관세를 주고받는 모습을 돌려 보세요.', 'Raising alone pays, but trading blows makes both lose. Watch two imaginary countries swap tariffs.')),
  ]),
  ('parenting', '#e0527a', '🍼', T('육아', 'Parenting'), T('아이를 키우며 마주치는 경쟁, 감기, 줄서기의 구조', 'The structures behind the races, colds and waiting lists parents run into'), [
   ('hagwon', T('순위재 경쟁 모델', 'Positional-goods race model'), T('모두가 학원을 하나 더 보내면 왜 아무도 순위가 안 오를까', 'Why Does Everyone Adding One More Class Move Nobody Up?'), T('한 집만 하면 순위가 오르는데, 다 같이 하면 비용만 늘어요. 상대평가와 절대평가를 바꿔 구조를 비교해 봐요. (예시 숫자, 처방 아님)', 'One family alone climbs, but when all do it only the bill grows. Compare relative and absolute grading. (Example numbers, no advice.)')),
@@ -109,6 +110,7 @@ RELATED = {
  'ovation': ['revolution', 'rumor', 'fashion'],
  'halftone': ['painters', 'dla', 'turing'],
  'mereexposure': ['fashion', 'painters', 'youtube'],
+ 'tariff': ['cooperation', 'commons', 'braess'],
  'hagwon': ['cooperation','commons','war'],
  'daycare': ['rumor','weakties','schelling'],
  'admission': ['dating','secretary','queue'],
@@ -143,6 +145,7 @@ RELATED = {
 ADDED = {s: '2026-10-12' for s in ['braess', 'regression', 'survivor', 'friendship', 'inspection', 'coincidence']}
 ADDED.update({s: '2026-10-13' for s in ['secretary', 'weakties', 'checkout', 'bunching', 'seating', 'dla', 'sandpile', 'wildfire', 'ant', 'farming', 'lanchester', 'treasury', 'fxrate', 'war', 'hagwon', 'daycare', 'admission']})
 ADDED.update({s: '2026-10-14' for s in ['hitsong', 'harmony', 'pollock', 'ovation', 'halftone', 'mereexposure']})
+ADDED['tariff'] = '2026-10-14'
 
 # slug -> (기호, 짧은 이름 T, 미니 애니메이션 종류)
 # 쉬운 말로 다듬은 칸 제목·설명(tools/pages/simple/<slug>.json)이 있으면 그것을 쓴다
@@ -162,6 +165,7 @@ META = {
  'ovation': ('Ov', T('기립박수', 'Standing Ovation'), 'grid'),
  'halftone': ('Ht', T('점묘·하프톤', 'Halftone dots'), 'spread'),
  'mereexposure': ('Me', T('듣고 또 듣기', 'Again and Again'), 'pulse'),
+ 'tariff': ('Tf', T('관세 보복', 'Tariff Retaliation'), 'handshake'),
  'talent-vs-luck': ('Tl', T('노력 vs 운', 'Effort vs Luck'), 'bars'),
  'wealth': ('Ws', T('부의 쏠림', 'Wealth'), 'stairs'),
  'youtube': ('Yt', T('유튜브 쏠림', 'Creators'), 'rise'),
