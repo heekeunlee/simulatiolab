@@ -245,6 +245,7 @@ DYN = {
 '행운을 잡음': 'Caught a lucky break',
 '불운': 'Bad luck',
 '행운이 왔지만 놓침': 'Lucky break missed',
+'파랑 {#0}명 · 회색 {#1}명 · 빨강 {#2}명': 'Blue {0} · gray {1} · red {2}',
 '반복 횟수 (번)': 'Number of runs',
 # ---- traffic ----
 '평균 속도': 'Average speed',

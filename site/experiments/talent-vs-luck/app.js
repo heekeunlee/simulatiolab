@@ -9,7 +9,7 @@
   const SPEED = 0.7; // 2026-10-12: 전체 애니메이션을 30% 느리게
 
   let seed = 1;
-  let sim = null, st = null, anim = null;
+  let sim = null, st = null, view = null;
   let playing = false, acc = 0, lastTs = 0;
   let batchResult = null;
 
@@ -198,114 +198,129 @@
     ctx.lineWidth = 1;
   }
 
-  function drawWorld() {
-    const { ctx, w } = setup($('c-world'), 1);
-    const W = anim.params.world, s = w / W, c0 = anim.params.c0;
-    // 세계는 토러스(끝과 끝이 이어짐)라서, 썸네일에서는 최고 부자가 가운데 오도록 화면을 돌려 본다
-    const ox = THUMB ? W / 2 - anim.ax[st.richest] : 0, oy = THUMB ? W / 2 - anim.ay[st.richest] : 0;
-    const PX = (v) => ((((v + ox) % W) + W) % W + 0.5) * s, PY = (v) => ((((v + oy) % W) + W) % W + 0.5) * s;
-
-    // 바탕: 아주 옅은 점 격자
-    ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, w);
-    ctx.fillStyle = 'rgba(99,106,122,.12)';
-    for (let g = 20; g < W; g += 20) for (let h = 20; h < W; h += 20) {
-      ctx.beginPath(); ctx.arc(g * s, h * s, 1, 0, 7); ctx.fill();
-    }
-
-    // 이벤트: 번지는 빛 (행운=초록, 불운=빨강)
-    const R = Math.max(10, s * 7);
-    for (let k = 0; k < anim.ex.length; k++) {
-      const x = PX(anim.ex[k]), y = PY(anim.ey[k]);
-      const col = anim.lucky[k] ? '#1fa463' : '#e5484d';
-      const gr = ctx.createRadialGradient(x, y, 0, x, y, R);
-      gr.addColorStop(0, mix(col, THUMB ? 0.14 : 0.20)); gr.addColorStop(1, mix(col, 0));
-      ctx.fillStyle = gr; ctx.beginPath(); ctx.arc(x, y, R, 0, 7); ctx.fill();
-    }
-    // 이벤트 중심: 행운은 초록 + , 불운은 빨강 ×  (색을 못 가려도 모양으로 구분)
-    ctx.lineWidth = THUMB ? 1.2 : 1.6;
-    for (let k = 0; k < anim.ex.length; k++) {
-      const x = PX(anim.ex[k]), y = PY(anim.ey[k]), a = THUMB ? 2.2 : 2.8;
-      ctx.beginPath();
-      if (anim.lucky[k]) { ctx.strokeStyle = '#168a52'; ctx.moveTo(x - a, y); ctx.lineTo(x + a, y); ctx.moveTo(x, y - a); ctx.lineTo(x, y + a); }
-      else { ctx.strokeStyle = '#d6232a'; ctx.moveTo(x - a, y - a); ctx.lineTo(x + a, y + a); ctx.moveTo(x + a, y - a); ctx.lineTo(x - a, y + a); }
-      ctx.stroke();
-    }
-    ctx.lineWidth = 1;
-
-    // 사람: 자본이 클수록 크고 진한 파랑, 줄었으면 작고 옅은 회색
-    const order = Array.from({ length: anim.n }, (_, i) => i).sort((a, b) => anim.capital[a] - anim.capital[b]);
-    for (const i of order) {
-      const v = Math.log2(anim.capital[i] / c0);
-      let r, col;
-      if (v > 0) { r = Math.min(2 + v * 0.7, 8) * (THUMB ? 1.35 : 1); col = mix('#2f6fed', Math.min(0.5 + v * 0.07, 0.95)); }
-      else if (v === 0) { r = 2; col = 'rgba(99,106,122,.55)'; }
-      else { r = 1.5; col = 'rgba(99,106,122,.28)'; }
-      ctx.fillStyle = col;
-      ctx.beginPath(); ctx.arc(PX(anim.ax[i]), PY(anim.ay[i]), r, 0, 7); ctx.fill();
-    }
-
-    // 방금 이벤트를 만난 사람: 하얀 바탕 배지 + 굵은 테두리 + 삼각형(자본이 늘었으면 초록 ▲, 줄었으면 빨강 ▼)
-    //  → 번지는 빛이나 × 표시와 겹쳐도 한눈에 구별된다
-    if (anim.step > 0 && !THUMB) {
-      const prev = (anim.step - 1) * anim.n;
-      for (let i = 0; i < anim.n; i++) {
-        const a = anim.history[prev + i], b = anim.capital[i];
-        if (a === b) continue;
-        const up = b > a, col = up ? '#168a52' : '#d6232a', x = PX(anim.ax[i]), y = PY(anim.ay[i]);
-        const v = Math.log2(b / c0), rr = (v > 0 ? Math.min(2 + v * 0.7, 8) : 2) + 4;
-        ctx.fillStyle = 'rgba(255,255,255,.92)'; ctx.beginPath(); ctx.arc(x, y, rr, 0, 7); ctx.fill();
-        ctx.lineWidth = 2.6; ctx.strokeStyle = col; ctx.beginPath(); ctx.arc(x, y, rr, 0, 7); ctx.stroke();
-        ctx.fillStyle = v > 0 ? mix('#2f6fed', Math.min(0.5 + v * 0.07, 0.95)) : 'rgba(99,106,122,.55)';
-        ctx.beginPath(); ctx.arc(x, y, Math.max(1.8, rr - 4.5), 0, 7); ctx.fill();
-        const ty = y - rr - 5, d = up ? -1 : 1;   // 테두리 위의 작은 삼각형
-        ctx.fillStyle = col; ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.5;
-        ctx.beginPath(); ctx.moveTo(x, ty + d * 3.6); ctx.lineTo(x - 3.6, ty - d * 2.8); ctx.lineTo(x + 3.6, ty - d * 2.8); ctx.closePath(); ctx.stroke(); ctx.fill();
+  // ---------- ① 100명이 걸어 다니기 ----------
+  // 화면 속 세계는 가로세로 100칸, 사람 100명. 모델과 같은 규칙(행운은 노력만큼의 확률, 불운은 무조건 절반)을 눈에 보이게 옮긴 그림이고,
+  // 사람당 만남 빈도(6개월에 약 0.04번)도 같게 맞췄다. 아래 통계·그래프는 1,000명 모델의 계산이다.
+  const VIEW_N = 100, VIEW_W = 100, V_SPEED = 3, HIT_R = 2.5;
+  const EMOJI = '"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif';
+  const lerpHex = (a, b, t) => { const pa = [1, 3, 5].map((i) => parseInt(a.substr(i, 2), 16)), pb = [1, 3, 5].map((i) => parseInt(b.substr(i, 2), 16)); return '#' + pa.map((v, i) => Math.round(v + (pb[i] - v) * t).toString(16).padStart(2, '0')).join(''); };
+  function rng32(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+  function createView(p, sd) {
+    const rnd = rng32(sd * 7919 + 13), W = VIEW_W;
+    const gauss = () => { let u = 0, v = 0; while (!u) u = rnd(); while (!v) v = rnd(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(6.2831853 * v); };
+    const nItems = Math.max(2, Math.round(p.events * 26 / 500)), nLucky = Math.round(nItems * p.pLucky);
+    const people = Array.from({ length: VIEW_N }, () => { let t; do { t = (p.meanT || 0.6) + p.sdT * gauss(); } while (t < 0 || t > 1); return { x: rnd() * W, y: rnd() * W, ang: rnd() * 6.2832, tal: t, k: 0, kd: 0 }; });
+    const items = Array.from({ length: nItems }, (_, i) => ({ x: rnd() * W, y: rnd() * W, lucky: i < nLucky, born: 0 }));
+    let topT = 0; people.forEach((q, i) => { if (q.tal > people[topT].tal) topT = i; });
+    const v = { t: 0, steps: p.years * 2, people, items, fx: [], topT, rnd, W };
+    v.advance = function (dt) {   // dt = 지난 시간(6개월 단위)
+      let left = dt;
+      while (left > 1e-9) {
+        const d = Math.min(left, 0.2); left -= d; v.t += d;
+        for (const q of people) {
+          q.ang += (rnd() - 0.5) * 1.1 * Math.sqrt(d);
+          q.x = (q.x + Math.cos(q.ang) * V_SPEED * d + W) % W; q.y = (q.y + Math.sin(q.ang) * V_SPEED * d + W) % W;
+          for (const it of items) {
+            if (it.born > v.t) continue;
+            let dx = Math.abs(it.x - q.x), dy = Math.abs(it.y - q.y); if (dx > W / 2) dx = W - dx; if (dy > W / 2) dy = W - dy;
+            if (dx * dx + dy * dy > HIT_R * HIT_R) continue;
+            let kind;
+            if (it.lucky) { if (rnd() < q.tal) { q.k++; kind = 'up'; } else kind = 'miss'; } else { q.k--; kind = 'down'; }
+            v.fx.push({ x: it.x, y: it.y, kind, at: v.t });
+            it.x = rnd() * W; it.y = rnd() * W; it.born = v.t + 0.5;   // 다른 곳에 새로 놓인다
+          }
+        }
+        if (v.t >= v.steps) { v.t = v.steps; return false; }
       }
-      ctx.lineWidth = 1;
+      return true;
+    };
+    v.run = function () { while (v.advance(0.2)) { /* 끝까지 */ } };
+    return v;
+  }
+
+  function personPath(ctx, x, y, h) {   // 사람 픽토그램: 머리 + 어깨/몸통 (발 끝이 y)
+    const r = h * 0.22, bw = h * 0.62;
+    ctx.beginPath(); ctx.arc(x, y - h + r, r, 0, 7);
+    ctx.moveTo(x - bw / 2, y); ctx.lineTo(x - bw / 2, y - h * 0.34); ctx.quadraticCurveTo(x - bw / 2, y - h * 0.58, x, y - h * 0.58);
+    ctx.quadraticCurveTo(x + bw / 2, y - h * 0.58, x + bw / 2, y - h * 0.34); ctx.lineTo(x + bw / 2, y); ctx.closePath();
+  }
+  function personColor(k) {
+    if (k > 0.05) return lerpHex('#9cbcf6', '#0b2a86', Math.min(k / 6, 1));
+    if (k < -0.05) return lerpHex('#f4a3a6', '#7d0a12', Math.min(-k / 6, 1));
+    return '#a3a9b8';
+  }
+
+  let lastDraw = 0;
+  function drawWorld(dtSec) {
+    const { ctx, w } = setup($('c-world'), 1);
+    const s = w / VIEW_W, base = Math.max(12, w / 42);
+    const px = (v) => v * s;
+    ctx.fillStyle = '#f7f9fd'; ctx.fillRect(0, 0, w, w);
+    ctx.fillStyle = 'rgba(99,106,122,.10)';
+    for (let g = 10; g < VIEW_W; g += 10) for (let h = 10; h < VIEW_W; h += 10) { ctx.beginPath(); ctx.arc(px(g), px(h), 1, 0, 7); ctx.fill(); }
+
+    // 행운(네잎클로버)과 불운(똥)
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = '#000';   // 이모지는 칠하는 색의 투명도를 따라가므로 불투명 검정으로
+    for (const it of view.items) {
+      if (it.born > view.t) continue;
+      const a = Math.min(1, (view.t - it.born) / 0.4 + 0.0), pop = Math.min(1, 0.4 + 0.6 * (1 - Math.exp(-(view.t - it.born) * 6)));
+      ctx.globalAlpha = Math.max(0.15, a); ctx.font = `${Math.round(base * 1.75 * pop)}px ${EMOJI}`;
+      ctx.fillText(it.lucky ? '🍀' : '💩', px(it.x), px(it.y));
+    }
+    ctx.globalAlpha = 1;
+
+    // 사람: 행운을 만나면 파랑으로 커지고 짙어지고, 불운을 만나면 빨강으로 커지고 짙어진다 (서로 상쇄)
+    const k = Math.min(1, (dtSec || 0) * 5);
+    view.people.forEach((q) => { q.kd += (q.k - q.kd) * (dtSec == null ? 1 : k); });
+    const order = view.people.map((q, i) => i).sort((a, b) => Math.abs(view.people[a].kd) - Math.abs(view.people[b].kd));
+    for (const i of order) {
+      const q = view.people[i], f = Math.min(1 + 0.2 * Math.abs(q.kd), 3.1), h = base * 0.95 * f;
+      personPath(ctx, px(q.x), px(q.y) + h * 0.5, h);
+      ctx.lineWidth = 1.6; ctx.strokeStyle = 'rgba(255,255,255,.95)'; ctx.stroke();
+      ctx.fillStyle = personColor(q.kd); ctx.fill();
     }
 
-    // 최고 노력자 / 최고 부자 (최종 결과 기준으로 계속 따라다니며 표시)
-    const mark = (i, color, label) => {
-      const x = PX(anim.ax[i]), y = PY(anim.ay[i]);
-      const R0 = THUMB ? 13 : 9;
-      ctx.strokeStyle = '#fff'; ctx.lineWidth = 5;
-      ctx.beginPath(); ctx.arc(x, y, R0, 0, 7); ctx.stroke();
-      ctx.strokeStyle = color; ctx.lineWidth = THUMB ? 4 : 2.5;
-      ctx.beginPath(); ctx.arc(x, y, R0, 0, 7); ctx.stroke();
-      ctx.fillStyle = color; ctx.beginPath(); ctx.arc(x, y, 3, 0, 7); ctx.fill();
-      if (!THUMB) chip(ctx, `${label} · 자본 ${fmtCap(anim.capital[i])}`, x, y, color, w);
-    };
-    mark(st.mostTalented, '#7c5cff', '최고 노력자');
-    mark(st.richest, '#d19200', '최고 부자');
-    ctx.lineWidth = 1;
+    // 만난 순간의 물결: 파랑(붙잡음) / 빨강(불운) / 회색(놓침)
+    view.fx = view.fx.filter((e) => view.t - e.at < 0.9);
+    for (const e of view.fx) {
+      const u = (view.t - e.at) / 0.9;
+      ctx.globalAlpha = 1 - u; ctx.lineWidth = 3; ctx.strokeStyle = e.kind === 'up' ? '#2f6fed' : e.kind === 'down' ? '#d6232a' : '#8b93a5';
+      ctx.beginPath(); ctx.arc(px(e.x), px(e.y), base * (0.8 + u * 2.4), 0, 7); ctx.stroke();
+      if (e.kind === 'miss') { ctx.font = `${Math.round(base * 1.3)}px ${EMOJI}`; ctx.fillStyle = '#000'; ctx.fillText('💨', px(e.x), px(e.y) - base * (0.8 + u * 1.6)); }
+    }
+    ctx.globalAlpha = 1;
 
-    // 지금 상위 20%의 몫
-    const caps = Array.from(anim.capital).sort((a, b) => b - a);
-    const total = caps.reduce((x, y) => x + y, 0);
-    const top20 = caps.slice(0, Math.round(anim.n * 0.2)).reduce((x, y) => x + y, 0);
-    const step = anim.step;
+    if (!THUMB) {
+      // 노력 1등에게 보라색 고리, 지금 가장 부자(파랑이 가장 큰 사람)에게 왕관
+      const t = view.people[view.topT]; ctx.strokeStyle = '#7c5cff'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(px(t.x), px(t.y) - base * 0.3, base * (0.85 + Math.min(Math.abs(t.kd), 6) * 0.14), 0, 7); ctx.stroke();
+      chip(ctx, '최고 노력자', px(t.x), px(t.y) - base * 0.3, '#7c5cff', w);
+      let rich = 0; view.people.forEach((q, i) => { if (q.k > view.people[rich].k) rich = i; });
+      const r = view.people[rich]; if (r.k >= 2) { ctx.font = `${Math.round(base * 1.5)}px ${EMOJI}`; ctx.fillStyle = '#000'; ctx.fillText('👑', px(r.x), px(r.y) - base * (1.0 + Math.min(r.kd, 6) * 0.2) - base * 0.9); }
+    }
+
+    // 요약: 시간, 상위 20%의 몫, 색별 인원
+    const caps = view.people.map((q) => 10 * Math.pow(2, q.k)).sort((a, b) => b - a);
+    const total = caps.reduce((x, y) => x + y, 0), top20 = caps.slice(0, Math.round(VIEW_N * 0.2)).reduce((x, y) => x + y, 0);
+    const step = Math.floor(view.t);
     $('when').textContent = `${Math.floor(step / 2)}년 ${step % 2 ? 6 : 0}개월 · 상위 20%의 몫 ${(top20 / total * 100).toFixed(0)}%`;
-    const bar = $('prog'); if (bar) bar.style.width = (step / anim.steps * 100) + '%';
+    const nb = view.people.filter((q) => q.k > 0).length, nr = view.people.filter((q) => q.k < 0).length;
+    const wc = $('wcount'); if (wc) wc.textContent = `파랑 ${nb}명 · 회색 ${VIEW_N - nb - nr}명 · 빨강 ${nr}명`;
+    const bar = $('prog'); if (bar) bar.style.width = (view.t / view.steps * 100) + '%';
   }
 
   function resetAnim() {
-    anim = TL.create(Object.assign({}, sim.params));
+    view = createView(readParams(), seed);
     playing = false; acc = 0;
     $('play').textContent = '▶ 재생';
     drawWorld();
   }
 
   function tick(ts) {
+    const dtSec = Math.min(0.25, (ts - lastTs) / 1000);
     if (playing) {
-      acc += Math.min(0.25, (ts - lastTs) / 1000) * Number($('speed').value) * SPEED;
-      let moved = false;
-      while (acc >= 1) {
-        acc -= 1;
-        if (!anim.advance()) { playing = false; $('play').textContent = '▶ 다시 재생'; break; }
-        moved = true;
-      }
-      if (moved) drawWorld();
-    }
+      if (!view.advance(dtSec * Number($('speed').value) * SPEED * 0.6)) { playing = false; $('play').textContent = '▶ 다시 재생'; }
+      drawWorld(dtSec);
+    } else if (view && view.people.some((q) => Math.abs(q.kd - q.k) > 0.01)) drawWorld(dtSec);
     lastTs = ts;
     requestAnimationFrame(tick);
   }
@@ -434,7 +449,7 @@
   });
   $('batch').addEventListener('click', runBatch);
   $('play').addEventListener('click', () => {
-    if (anim.step >= anim.steps) resetAnim();
+    if (view.t >= view.steps) resetAnim();
     playing = !playing;
     $('play').textContent = playing ? '⏸ 일시정지' : '▶ 재생';
   });
@@ -445,6 +460,6 @@
 
   showOutputs();
   run();
-  if (THUMB) { anim.run(); drawWorld(); }
+  if (THUMB) { view.run(); view.people.forEach((q) => { q.kd = q.k; }); drawWorld(); }
   requestAnimationFrame((ts) => { lastTs = ts; tick(ts); });
 })();
