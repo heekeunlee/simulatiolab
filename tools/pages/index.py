@@ -246,7 +246,7 @@ def build(only_existing=True):
             tiles += f"""
         <a class="el{' has-thumb' if th else ''}" href="experiments/{slug}/" data-field="{k}" data-kind="{kind}"{f' data-thumb="{th}"' if th else ''} style="--c:{col}">
           {vis}
-          <span class="num">{n:02d}</span><span class="sym">{sym}</span>
+          <span class="num">{n:02d}</span><span class="sym">{sym}</span>{'<span class="b3d" title="3D">3D</span>' if os.path.exists(os.path.join(EXP, slug, 'app3d.js')) else ''}
           <span class="nm"{da(short)}>{short[0]}</span>
           <span class="hid t-title"{da(title)}>{title[0]}</span><span class="hid t-desc"{da(desc)}>{desc[0]}</span><span class="hid t-model"{da(method)}>{method[0]}</span>
         </a>"""
