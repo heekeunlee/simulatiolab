@@ -316,14 +316,14 @@
       row.innerHTML = '<div class="dcard" id="daily"></div><div class="dcard" id="topic"></div>';
       // 첫 화면에는 주기율표가 보이도록, 오늘의 만약에·투표는 주기율표와 실험 노트 아래에 둔다
       const nbEl = document.getElementById('nb'); if (nbEl) nbEl.after(row); else (document.querySelector('main') || document.body).prepend(row);
-      // 넓은 화면에서는 오늘의 만약에 카드를 소개 영역 오른쪽(빈 자리)에 둔다. 좁은 화면에서는 표 아래에 둔다.
-      const heroIn = document.querySelector('.hero-in'), dcard = row.querySelector('#daily');
-      if (heroIn && dcard && window.matchMedia) {
+      // 넓은 화면에서는 '오늘의 실험'(실험 노트) 카드를 소개 영역 오른쪽(빈 자리)에 올리고, 내 직관 카드는 표 아래에 둔다. 좁은 화면에서는 원래대로 표 아래.
+      const heroIn = document.querySelector('.hero-in');
+      if (heroIn && nbEl && window.matchMedia) {
         const mq = matchMedia('(min-width: 1060px)'), mqs = matchMedia('(max-width: 760px)');
         const place = () => {
-          if (mq.matches) { heroIn.appendChild(dcard); dcard.classList.add('hero-daily'); dcard.classList.remove('mob-daily'); }
-          else { row.prepend(dcard); dcard.classList.remove('hero-daily', 'mob-daily'); }
-          row.classList.toggle('solo', mq.matches || mqs.matches);
+          if (mq.matches) { heroIn.appendChild(nbEl); nbEl.classList.add('hero-nb'); }
+          else { row.before(nbEl); nbEl.classList.remove('hero-nb'); }
+          row.classList.toggle('solo', mqs.matches);
           const sk = document.getElementById('daily-sk'); if (sk) sk.remove();
         };
         place(); [mq, mqs].forEach((q) => (q.addEventListener ? q.addEventListener('change', place) : q.addListener(place)));

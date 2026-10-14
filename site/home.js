@@ -30,7 +30,7 @@
       if (gapCache && gapW === w + ':' + h) return gapCache;
       let cx = w * 0.5, rx = w * 0.14; const ry = h * 0.36, cy = h * 0.5;
       try {
-        const heroEl = hero.parentElement.getBoundingClientRect(), h1 = document.querySelector('.mega'), card = document.querySelector('.hero-daily');
+        const heroEl = hero.parentElement.getBoundingClientRect(), h1 = document.querySelector('.mega'), card = document.querySelector('.hero-nb');
         if (h1 && card) {
           const r = document.createRange(); r.selectNodeContents(h1); const tr = r.getBoundingClientRect(), cr = card.getBoundingClientRect();
           const L = tr.right - heroEl.left + 28, R = cr.left - heroEl.left - 28;
