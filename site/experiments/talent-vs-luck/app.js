@@ -183,12 +183,17 @@
   }
 
   // ---------- ① 애니메이션 ----------
-  function chip(ctx, text, x, y, color, w) {
+  function chipLayout(ctx, text, x, y, w) {   // 글상자의 위치와 크기 (사람 위치 x,y 기준)
     ctx.font = '600 12px -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif';
     const tw = ctx.measureText(text).width + 16, th = 22;
     let cx = x + 12, cy = y - 30;
     if (cx + tw > w - 6) cx = x - 12 - tw;
+    cx = Math.max(6, cx);
     if (cy < 6) cy = y + 10;
+    return { cx, cy, tw, th };
+  }
+  function chip(ctx, text, x, y, color, w) {
+    const { cx, cy, tw, th } = chipLayout(ctx, text, x, y, w);
     ctx.save();
     ctx.shadowColor = 'rgba(20,30,60,.18)'; ctx.shadowBlur = 8; ctx.shadowOffsetY = 2;
     ctx.fillStyle = '#fff'; roundRect(ctx, cx, cy, tw, th, 11); ctx.fill();
@@ -244,11 +249,14 @@
     }
 
     // 불행왕 / 성공왕 (최종 결과 기준으로 계속 따라다니며 이름표 표시)
-    const mark = (i, color, label) => {   // 고리 없이 이름표만 (사람까지 가는 가는 선으로 가리킨다)
+    const mark = (i, color, label) => {   // 고리 없이 이름표만. 가는 선은 글상자의 가장 가까운 가장자리에서 그 사람까지 곧게 이어진다
       const x = PX(anim.ax[i]), y = PY(anim.ay[i]);
       if (THUMB) return;
-      ctx.strokeStyle = color; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + 12, y - 19); ctx.stroke();
-      chip(ctx, `${label} · 자본 ${fmtCap(anim.capital[i])}`, x, y, color, w);
+      const text = `${label} · 자본 ${fmtCap(anim.capital[i])}`, L = chipLayout(ctx, text, x, y, w);
+      const tx = Math.min(Math.max(x, L.cx + 12), L.cx + L.tw - 12), ty = (L.cy + L.th / 2 < y) ? L.cy + L.th : L.cy;
+      ctx.strokeStyle = color; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(x, y); ctx.stroke();
+      ctx.fillStyle = color; ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(x, y, 3, 0, 7); ctx.fill(); ctx.stroke();   // 사람 위치의 작은 점
+      chip(ctx, text, x, y, color, w);
     };
     // 지금 이 순간의 성공왕(자본 1위)과 불행왕(자본 꼴찌). 처음부터 정답을 달아 두지 않고, 격차가 눈에 띄게 벌어진 뒤(4배 이상 / 4분의 1 이하)에 붙는다.
     // 동점일 때는 먼저 붙은 사람을 그대로 두고, 더 앞선 사람이 생기면 이름표가 넘어간다.
