@@ -234,7 +234,7 @@
       const x = PX(anim.ex[k]), y = PY(anim.ey[k]), a = THUMB ? 2.2 : 2.8;
       ctx.beginPath();
       if (anim.lucky[k]) { ctx.strokeStyle = '#168a52'; ctx.moveTo(x - a, y); ctx.lineTo(x + a, y); ctx.moveTo(x, y - a); ctx.lineTo(x, y + a); }
-      else { ctx.strokeStyle = '#d6232a'; ctx.moveTo(x - a, y - a); ctx.lineTo(x + a, y + a); ctx.moveTo(x + a, y - a); ctx.lineTo(x - a, y + a); }
+      else { ctx.strokeStyle = '#ea8a8e'; ctx.moveTo(x - a, y - a); ctx.lineTo(x + a, y + a); ctx.moveTo(x + a, y - a); ctx.lineTo(x - a, y + a); }
       ctx.stroke();
     }
     ctx.lineWidth = 1;
@@ -244,7 +244,7 @@
     for (const i of order) {
       const v = Math.log2(anim.capital[i] / c0);
       let r, col;
-      if (v > 0) { r = Math.min(2 + v * 0.7, 8) * (THUMB ? 1.35 : 1); col = mix('#2f6fed', Math.min(0.5 + v * 0.07, 0.95)); }
+      if (v > 0) { r = Math.min(2 + v * 0.95, 10.5) * (THUMB ? 1.35 : 1); col = mix('#2f6fed', Math.min(0.5 + v * 0.07, 0.95)); }
       else if (v === 0) { r = 2; col = 'rgba(99,106,122,.55)'; }
       else { r = 1.5; col = 'rgba(99,106,122,.28)'; }
       // 점 대신 작은 사람 픽토그램(머리+몸). 키는 이전 점 지름의 약 2.4배
@@ -262,11 +262,11 @@
         const a = anim.history[prev + i], b = anim.capital[i];
         if (a === b) continue;
         const up = b > a, col = up ? '#168a52' : '#d6232a', x = PX(anim.ax[i]), y = PY(anim.ay[i]);
-        const v = Math.log2(b / c0), rr = (v > 0 ? Math.min(2 + v * 0.7, 8) : 2) + 4;
+        const v = Math.log2(b / c0), pr = v > 0 ? Math.min(2 + v * 0.95, 10.5) : 2, hh = Math.max(7, pr * 2.9), rr = hh * 0.62 + 4;
         ctx.fillStyle = 'rgba(255,255,255,.92)'; ctx.beginPath(); ctx.arc(x, y, rr, 0, 7); ctx.fill();
         ctx.lineWidth = 2.6; ctx.strokeStyle = col; ctx.beginPath(); ctx.arc(x, y, rr, 0, 7); ctx.stroke();
         ctx.fillStyle = v > 0 ? mix('#2f6fed', Math.min(0.5 + v * 0.07, 0.95)) : 'rgba(99,106,122,.55)';
-        ctx.beginPath(); ctx.arc(x, y, Math.max(1.8, rr - 4.5), 0, 7); ctx.fill();
+        personPath(ctx, x, y + hh / 2, hh); ctx.fill();
         const ty = y - rr - 5, d = up ? -1 : 1;   // 테두리 위의 작은 삼각형
         ctx.fillStyle = col; ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.5;
         ctx.beginPath(); ctx.moveTo(x, ty + d * 3.6); ctx.lineTo(x - 3.6, ty - d * 2.8); ctx.lineTo(x + 3.6, ty - d * 2.8); ctx.closePath(); ctx.stroke(); ctx.fill();
