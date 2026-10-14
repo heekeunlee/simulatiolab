@@ -1,0 +1,22 @@
+{
+ "says_ko": [
+  "창을 마주 보는 벽에 열면 바람이 방을 가로질러 빨리 바뀌고, 같은 벽에 나란히 열면 창가만 바뀌고 방 대부분은 오래 탁하게 남아요.",
+  "공기는 두 창의 바람 압력 차로 흘러요. 마주 보는 벽은 한쪽이 밀고 한쪽이 빨아 절반까지 30이 걸렸지만, 같은 벽 두 창은 압력이 같아 시간 60 안에 절반이 안 됐어요.",
+  "창 개수보다 '어느 벽에 냈나'와 '두 창 사이 길이 트였나'를 보면 돼요. 바람이 두 창의 벽과 나란히 불거나 방문을 닫으면 마주 보는 창도 흐름이 끊겼어요."
+ ],
+ "says_en": [
+  "Windows on opposite walls let the wind sweep across and change the air fast; side by side on the same wall, only the air by the windows changes and most of the room stays stale.",
+  "Air moves on the wind-pressure gap between windows. On opposite walls one side pushes, the other sucks, halving in 30; two windows on one wall feel equal pressure and never halved within 60.",
+  "Look less at how many windows and more at which walls they are on and whether the path between them is open. Wind parallel to both walls, or a closed door, cut the flow even for opposite windows."
+ ],
+ "not_ko": [
+  "마주 보는 벽과 같은 벽의 차이는 이 시뮬레이션이 직접 보여 준 거예요. 다만 벽마다 바람에 밀리는 정도는 이 프로젝트가 정한 단순한 규칙이라, 실제 집의 '옆 벽' 결과는 달라질 수 있어요.",
+  "위에서 본 2D 모델이라 높이, 온도 차로 생기는 흐름, 가구, 난류, 건물 규정과 건강 기준이 빠져 있어요. 어떤 배치가 충분하다고 단정하거나 처방하지 않아요.",
+  "현실에서 확인하려면 창 배치를 바꿔 가며 방 곳곳의 이산화탄소 농도를 실제로 재서 비교해 봐야 해요."
+ ],
+ "not_en": [
+  "The gap between opposite walls and the same wall is what this simulation showed directly. How hard each wall is pushed is a simple rule set by this project, so real 'adjacent walls' results may vary.",
+  "As a 2D view from above, it leaves out height, flows from temperature differences, furniture, turbulence, building codes and health standards. It does not claim or prescribe that any layout is enough.",
+  "To check in reality, you would measure carbon dioxide around a real room while changing which windows are open."
+ ]
+}

@@ -197,6 +197,10 @@ PRED.update({
   T('두 나라가 서로 관세를 올릴 때, 상대가 올린 것보다 더 세게(150%) 되갚으면 100판 평균 두 나라 합계 이득은 어떻게 될까요? (서로 안 올렸을 때 = 100)', 'When two countries raise tariffs on each other and each hits back harder than it was hit (150%), what happens to their combined gain averaged over 100 runs? (never raising = 100)'),
   [T('약 90 (거의 그대로)', 'About 90 (barely changes)'), T('약 65 (똑같이 되갚을 때와 비슷)', 'About 65 (same as matching)'), T('약 22 (크게 줄어듦)', 'About 22 (falls sharply)')], 2,
   T('이 모델에서 보복 0%면 합계 93, 똑같이 되갚는 100%면 65였지만, 더 세게 되갚는 150%면 서로 계속 올려 관세가 평균 40%에 머물고 합계는 22로 떨어졌어요. 갈등이 끝난 판도 5%뿐이었어요.', 'In this model the combined gain was 93 with no retaliation and 65 when matching (100%), but hitting back harder (150%) kept both raising, tariffs averaged 40% and the combined gain fell to 22. Only 5% of runs saw the dispute end.')),
+ 'ventilation': (  # 2026-10-14 새 실험
+  T('같은 크기의 창 두 개를 열 때, 같은 벽에 나란히 열면 마주 보는 벽에 하나씩 열 때보다 방 공기가 어떻게 바뀔까요? (이 모델, 정면 바람)', 'Opening two windows of the same size: compared with one on each of two opposite walls, how does the room\'s air change if both are side by side on the same wall? (this model, head-on wind)'),
+  [T('거의 똑같이 바뀐다', 'About the same'), T('같은 벽이 더 빨리 바뀐다', 'The same wall clears faster'), T('같은 벽은 창가만 바뀌고 방 대부분은 탁하게 남는다', 'The same wall changes only near the windows; most of the room stays stale')], 2,
+  T('이 모델에서 마주 보는 벽은 방 평균 탁함이 절반이 되기까지 30이 걸렸고 끝에 아직 탁한 곳은 6%였어요. 같은 벽 두 창은 바람 압력이 같아 방을 가로지르는 흐름이 0이라, 시간 60 안에 절반이 되지 않았고 72%가 탁하게 남았어요.', 'In this model, opposite walls took 30 to halve the room\'s average staleness, with 6% still stale at the end. Two windows on the same wall feel the same wind pressure, so no flow crosses the room: it never halved within time 60 and 72% stayed stale.')),
 })
 
 

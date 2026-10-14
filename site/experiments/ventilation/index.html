@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Window Placement and Airflow · Simulatio Lab">창문 배치와 환기 · 시뮬라티오 랩</title>
+<meta name="description" content="창을 열면 방 공기가 바뀐다고 생각하지만, 어느 벽에 열었느냐에 따라 공기가 방을 가로지르기도 하고 창가에서만 맴돌기도 합니다. 위에서 내려다본 방에서 직접 돌려 보세요." data-en-content="Opening a window seems to refresh the air, but depending on which walls the openings are on, the air either sweeps across the room or just swirls by the window. Try it in a room seen from above.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="theme-color" content="#2f6fed">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1 data-en="Why Doesn&#x27;t the Air Change When You Open Just One Window?">창문을 하나만 열면 왜 공기가 안 바뀔까?</h1>
+  <p class="lead" data-en="When a room feels stuffy, it is easy to think that opening a window will change the air, and that opening a second one will work twice as well. But in this model, even &lt;b&gt;two windows of the same size&lt;/b&gt; behave very differently: put them side by side on the same wall and the air only swirls near the windows while most of the room stays as it was; put one on each of two opposite walls and the wind sweeps straight across the room. What makes the difference? We run it in a single room seen from above.">답답할 때 창문을 열면 방 공기가 바뀐다고 생각하기 쉽습니다. 창을 하나 더 열면 두 배로 잘 바뀔 것 같고요. 그런데 이 모델에서는 <b>같은 크기의 창 두 개</b>라도, 같은 벽에 나란히 열면 공기가 창가에서만 맴돌고 방 대부분은 그대로 남습니다. 마주 보는 벽에 하나씩 열면 바람이 방을 가로질러 지나가고요. 무엇이 이 차이를 만들까요? 위에서 내려다본 방 한 칸으로 돌려 봅니다.</p>
+
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li data-en="A single room seen from above (60×40 cells), with walls and openings (window gaps) and no furniture. At the start the air in the room has a staleness of 100 (an index from 0 to 100 for pollution such as exhaled carbon dioxide), and the air outside the windows is 0. One person keeps breathing out at a fixed spot.">위에서 내려다본 방 한 칸(60×40칸)입니다. 벽과 열린 곳(창 틈)이 있고 가구는 없습니다. 처음에 방 안 공기의 탁함(이산화탄소 같은 오염 정도를 0~100으로 나타낸 지수)은 100, 창 바깥 공기는 0입니다. 사람 한 명이 정해진 자리에서 계속 숨을 내쉽니다.</li>
+    <li data-en="The wind blows from one direction. Each opening is pushed (+1 on a wall facing the wind) or sucked (−1 on a wall facing away, 0 on a wall parallel to the wind) &lt;b&gt;according to how squarely its wall faces the wind&lt;/b&gt;. This rule is a simple setting chosen by this project.">바람은 한 방향에서 붑니다. 열린 곳마다 <b>그 벽이 바람을 얼마나 마주 보는지</b>만큼 바람이 밀어 넣거나(정면 +1) 빨아냅니다(등진 벽 −1, 바람과 나란한 벽 0). 이 규칙은 이 프로젝트가 정한 단순한 설정입니다.</li>
+    <li data-en="If the openings feel different pressures, air enters through the higher-pressure window and leaves through the lower one. The flow inside is computed as a 2D flow that cannot pass through walls and where air is never created or destroyed. &lt;b&gt;If every window feels the same pressure (a single window, or windows side by side on one wall), no flow crosses the room.&lt;/b&gt;">열린 곳끼리 압력이 다르면 공기가 압력이 높은 창으로 들어와 낮은 창으로 나갑니다. 방 안 흐름은 벽을 뚫지 않고 어디서도 공기가 새로 생기거나 사라지지 않는 2D 흐름으로 계산합니다. <b>모든 창의 압력이 같으면(창 하나, 또는 같은 벽에 나란한 창) 방을 가로지르는 흐름은 생기지 않습니다.</b></li>
+    <li data-en="Stale air is carried by the flow and slowly mixes. Near a window, the wind puffing in and out mixes in more outside air; the flow above cannot produce this by itself, so a separate &lt;b&gt;&quot;window-side mixing&quot; that is strongest close to the window&lt;/b&gt; is added (stronger in stronger wind).">탁한 공기는 흐름에 실려 움직이고 조금씩 섞입니다. 창가에서는 바람이 들락거리며 바깥 공기와 더 많이 섞이는데, 이 효과는 위 흐름이 직접 만들지 못해서 <b>창에서 가까울수록 크게 섞이는 "창가 섞임"</b>을 따로 넣었습니다(바람이 셀수록 큼).</li>
+    <li data-en="There are two measures. ① &lt;b&gt;Time to clear by half&lt;/b&gt;: until the room&#x27;s average staleness falls from 100 to 50. ② &lt;b&gt;Still-stale area&lt;/b&gt;: the share of the floor still above 50 at the end (time 60), i.e. how much of the room the fresh air failed to reach. Time is in this model&#x27;s own units, not real minutes or seconds.">지표는 두 가지입니다. ① <b>절반으로 맑아지는 데 걸린 시간</b>: 방 평균 탁함이 100에서 50이 될 때까지. ② <b>아직 탁한 곳</b>: 끝(시간 60)에 탁함이 50을 넘는 바닥의 비율, 즉 공기가 잘 안 바뀐 구석의 넓이. 시간은 실제 분·초가 아닌 이 모델의 단위입니다.</li>
+  </ul>
+
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="count" data-en="Number of open windows &lt;output id=&quot;o-count&quot;&gt;&lt;/output&gt;">열린 창의 개수 <output id="o-count"></output></label>
+        <input type="range" id="count" min="1" max="3" step="1" value="2">
+        <span class="hint" data-en="With 1, only the window in the middle of the left wall is open, so the layout below does not matter">1개면 왼쪽 벽 가운데 창 하나만 열려 아래 배치는 상관없어요</span></div>
+<div class="ctl"><label for="gap" data-en="Size of each opening &lt;output id=&quot;o-gap&quot;&gt;&lt;/output&gt;">열린 틈의 크기 <output id="o-gap"></output></label>
+        <input type="range" id="gap" min="2" max="12" step="1" value="6">
+        <span class="hint" data-en="Wider lets more air through at once">넓힐수록 한 번에 더 많은 공기가 드나들어요</span></div>
+<div class="ctl"><label for="wind" data-en="Wind strength outside &lt;output id=&quot;o-wind&quot;&gt;&lt;/output&gt;">바깥 바람 세기 <output id="o-wind"></output></label>
+        <input type="range" id="wind" min="1" max="5" step="1" value="3">
+        <span class="hint" data-en="Stronger wind widens the pressure difference between windows">세게 불수록 창끼리 압력 차가 커져요</span></div>
+<div class="ctl"><label for="layout" data-en="Where the windows are &lt;output id=&quot;o-layout&quot;&gt;&lt;/output&gt;">창을 낸 자리 <output id="o-layout"></output></label>
+        <select id="layout" class="sel"><option value="same" data-en="Same wall (side by side on the left)">같은 벽 (왼쪽 벽에 나란히)</option><option value="opposite" selected data-en="Opposite walls (left ↔ right)">마주 보는 벽 (왼쪽 ↔ 오른쪽)</option><option value="adjacent" data-en="Adjacent walls (left + top, around a corner)">옆 벽 (왼쪽 + 위쪽, 모서리를 끼고)</option></select>
+        <span class="hint" data-en="A third window goes: same wall, left middle; opposite, upper right; adjacent, bottom wall">창이 3개면 세 번째는 같은 벽: 왼쪽 가운데, 마주 보는 벽: 오른쪽 위, 옆 벽: 아래쪽</span></div>
+<div class="ctl"><label for="dir" data-en="Where the wind comes from &lt;output id=&quot;o-dir&quot;&gt;&lt;/output&gt;">바람이 오는 방향 <output id="o-dir"></output></label>
+        <select id="dir" class="sel"><option value="front" selected data-en="Head-on (from the left)">정면 (왼쪽에서)</option><option value="diag" data-en="At an angle (from the upper left)">비스듬히 (왼쪽 위에서)</option><option value="side" data-en="From the side (from the top)">옆 (위쪽에서)</option></select>
+        <span class="hint" data-en="Changes how squarely each window wall faces the wind">창이 있는 벽이 바람을 얼마나 마주 보는지가 바뀌어요</span></div>
+<div class="ctl"><label for="door" data-en="A wall splitting the room &lt;output id=&quot;o-door&quot;&gt;&lt;/output&gt;">방을 나누는 벽 <output id="o-door"></output></label>
+        <select id="door" class="sel"><option value="none" selected data-en="None (one open room)">없음 (한 칸 방)</option><option value="open" data-en="Yes, with the door open">있음, 방문 열림</option><option value="closed" data-en="Yes, with the door closed">있음, 방문 닫힘</option></select>
+        <span class="hint" data-en="Closing the door cuts the path between the two windows">방문을 닫으면 두 창 사이 길이 끊겨요</span></div>
+<div class="ctl"><label for="src" data-en="Where the person sits &lt;output id=&quot;o-src&quot;&gt;&lt;/output&gt;">숨 쉬는 사람의 자리 <output id="o-src"></output></label>
+        <select id="src" class="sel"><option value="center" selected data-en="Middle of the room">방 한가운데</option><option value="corner" data-en="In a corner">구석</option></select>
+        <span class="hint" data-en="The farther from the airflow&#x27;s path, the staler the air around the person">흐름이 지나가는 길에서 먼 자리일수록 사람 둘레가 탁해요</span></div>
+    </div>
+    <div class="btns">
+      <button class=primary id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Same settings, move the person">같은 설정, 사람 자리만 바꾸기</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3 data-en="① The Room From Above: Where Does the Air Go?">① 위에서 내려다본 방: 공기는 어디로 흐를까</h3>
+    <p data-en="The floor color is the state of the air (light sky blue = fresh, brown = stale). Blue dots with tails show which way and how fast the air in the room is moving. The faint stripes outside only show the wind direction; the outside flow is not computed. Each window label says whether air comes in or goes out through it.">방 바닥의 색이 공기 상태입니다(밝은 하늘색 = 맑음, 갈색 = 탁함). 파란 점과 꼬리는 방 안 공기가 흐르는 방향과 빠르기입니다. 바깥의 옅은 줄무늬는 바람 방향을 보여 주는 그림일 뿐 바깥 흐름을 계산한 것은 아닙니다. 창 이름표는 그 창으로 공기가 들어오는지 나가는지 알려 줍니다.</p>
+    <canvas id="c-room" class="rounded" data-thumb aria-label="① The Room From Above: Where Does the Air Go?"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#e2f4ff;border:1px solid #9fb6c8;box-sizing:border-box&quot;&gt;&lt;/i&gt;Fresh air (0)"><i style="background:#e2f4ff;border:1px solid #9fb6c8;box-sizing:border-box"></i>맑은 공기 (0)</span><span data-en="&lt;i style=&quot;background:#8c6846&quot;&gt;&lt;/i&gt;Stale air (100)"><i style="background:#8c6846"></i>탁한 공기 (100)</span><span data-en="&lt;i style=&quot;background:#1e3a8a;border-radius:50%&quot;&gt;&lt;/i&gt;Airflow (tail = direction)"><i style="background:#1e3a8a;border-radius:50%"></i>공기 흐름 (꼬리 = 흐르는 방향)</span><span data-en="&lt;i style=&quot;background:#111827&quot;&gt;&lt;/i&gt;Person breathing out"><i style="background:#111827"></i>숨 쉬는 사람</span></div>
+    <div class="anim-bar">
+      <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
+      <button id="stepbtn" data-en="Step">한 단계</button>
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="speed"><option value="12" data-en="Slow">느리게</option><option value="45" selected data-en="Normal">보통</option><option value="120" data-en="Fast">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart wide">
+      <h3 data-en="② See It in 3D: Where Does Stale Air Pool? &lt;span class=&quot;badge3d&quot;&gt;3D&lt;/span&gt;">② 3D로 보기: 탁한 공기는 어디에 고여 있을까 <span class="badge3d">3D</span></h3>
+    <p data-en="The same room as ①, raised in 3D with its walls, and the staler the air above each patch of floor, the higher it rises. Play, pause or restart above and it moves here in exactly the same way. Where the wind passes, the surface sinks low; corners the flow never reaches stay up like hills. The walls are see-through, with gaps where the windows are.">①과 같은 방을 벽이 선 입체로 세우고, 바닥의 공기가 탁할수록 높이 솟게 했습니다. 재생·일시정지·처음부터를 하면 여기서도 똑같이 움직입니다. 바람이 지나가는 길은 낮게 꺼지고, 흐름이 닿지 않는 구석은 언덕처럼 남아 있는 모습이 한눈에 보입니다. 벽은 반투명하고, 창 자리는 벽이 뚫려 있습니다.</p>
+    <canvas id="c-3d" class="view3d" aria-label="② See It in 3D: Where Does Stale Air Pool? 3D"></canvas>
+    <style>@media (max-width: 640px) { #c-3d { aspect-ratio: 1 / 0.9; } }</style>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#8c6846&quot;&gt;&lt;/i&gt;Height and brown = staleness (higher is staler)"><i style="background:#8c6846"></i>높이·갈색 = 탁함 (높을수록 탁함)</span><span data-en="&lt;i style=&quot;background:#e2f4ff;border:1px solid #9fb6c8;box-sizing:border-box&quot;&gt;&lt;/i&gt;Low and light = fresh"><i style="background:#e2f4ff;border:1px solid #9fb6c8;box-sizing:border-box"></i>낮고 밝음 = 맑음</span><span data-en="&lt;i style=&quot;background:#1e3a8a;border-radius:50%&quot;&gt;&lt;/i&gt;Airflow"><i style="background:#1e3a8a;border-radius:50%"></i>공기 흐름</span></div>
+    <p class="hint3d" data-en="This is the same room as ① shown in 3D (no new calculation). Height is not real air height: it only shows how stale the air is. Drag to rotate · scroll or pinch to zoom · on a phone, swiping up and down scrolls the page">①과 같은 방을 입체로 본 것입니다(새로 계산하지 않음). 높이는 실제 공기의 높이가 아니라 탁한 정도를 나타낸 것입니다. 드래그로 회전 · 휠이나 두 손가락으로 확대 · 휴대폰에서 세로로 쓸면 페이지가 내려갑니다</p>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ How Fast Does the Room Clear?">③ 방 공기는 얼마나 빨리 맑아질까</h3>
+    <p data-en="Drawn only up to the moment the playback has reached. The brown line is the room&#x27;s average staleness, the blue line the air around the person (a 5×5 patch). The time it takes to come down to the dashed line (50) is the &quot;time to clear by half&quot;. The air around the person can go above 100 because of their breath.">재생이 지난 시점까지만 그립니다. 갈색 선은 방 전체의 평균 탁함, 파란 선은 숨 쉬는 사람 둘레(5×5칸)의 공기입니다. 점선(50)까지 내려오는 데 걸린 시간이 "절반으로 맑아지는 시간"입니다. 사람 둘레는 숨 때문에 100을 넘을 수 있습니다.</p>
+    <canvas id="c-time" class="" aria-label="③ How Fast Does the Room Clear?"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="④ Layouts Compared (Summary: 4 Runs Played to the End in the Same Wind)">④ 배치별 비교 (집계: 같은 바람에서 끝까지 돌린 4판)</h3>
+    <p data-en="Each layout run separately to the end (time 60) at the current wind strength, direction, opening size and person spot; only the window layout changes. This is a precomputed summary, independent of the playback. Left: time to clear by half (shorter is faster). Right: share of the floor still more than half stale at the end (smaller means the air changed in more of the room).">지금의 바람 세기·방향·틈 크기·사람 자리에서 창 배치만 바꿔 각각 끝(시간 60)까지 따로 돌린 결과입니다. 재생과 상관없이 미리 계산한 집계입니다. 왼쪽은 절반으로 맑아지는 데 걸린 시간(짧을수록 빠름), 오른쪽은 끝에 아직 절반 넘게 탁한 바닥의 비율(작을수록 구석구석 바뀜)입니다.</p>
+    <canvas id="c-layout" class="" aria-label="④ Layouts Compared (Summary: 4 Runs Played to the End in the Same Wind)"></canvas>
+      <div class="legend"><span id="note-l" data-en="Calculating…">계산 중…</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="⑤ By Wind Strength (Summary)">⑤ 바람 세기별 비교 (집계)</h3>
+    <p data-en="A summary with only the wind strength changed from 1 to 5, each layout run to the end. Hollow circles in the gray band at the top mean the room did not clear by half within time 60.">지금 설정에서 바람 세기만 1~5로 바꿔 배치마다 끝까지 돌린 집계입니다. 위쪽 회색 띠의 빈 동그라미는 시간 60 안에 절반으로 맑아지지 못한 경우입니다.</p>
+    <canvas id="c-wind" class="" aria-label="⑤ By Wind Strength (Summary)"></canvas>
+      <div class="legend"><span id="note-w" data-en="Calculating…">계산 중…</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="⑥ By Wind Direction (Summary)">⑥ 바람 방향별 비교 (집계)</h3>
+    <p data-en="A summary with only the wind direction changed, comparing the still-stale share at the end for each layout. Even opposite walls lose their flow when the wind blows parallel to both window walls (from the side), because the two windows then feel the same pressure.">지금 설정에서 바람이 오는 방향만 바꿔 배치마다 끝에 아직 탁한 곳의 비율을 비교한 집계입니다. 마주 보는 벽도 바람이 두 창의 벽과 나란히 불면(옆) 두 창의 압력이 같아져 흐름이 끊깁니다.</p>
+    <canvas id="c-dir" class="" aria-label="⑥ By Wind Direction (Summary)"></canvas>
+      <div class="legend"><span id="note-d" data-en="Calculating…">계산 중…</span></div>
+    </section>
+  </div>
+
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout cl-says">
+    <p class="clabel" data-en="&lt;b&gt;What it shows:&lt;/b&gt;"><b>말하는 것:</b></p>
+    <ul class="chead"><li data-en="Windows on opposite walls let the wind sweep across and change the air fast; side by side on the same wall, only the air by the windows changes and most of the room stays stale.">창을 마주 보는 벽에 열면 바람이 방을 가로질러 빨리 바뀌고, 같은 벽에 나란히 열면 창가만 바뀌고 방 대부분은 오래 탁하게 남아요.</li><li data-en="Air moves on the wind-pressure gap between windows. On opposite walls one side pushes, the other sucks, halving in 30; two windows on one wall feel equal pressure and never halved within 60.">공기는 두 창의 바람 압력 차로 흘러요. 마주 보는 벽은 한쪽이 밀고 한쪽이 빨아 절반까지 30이 걸렸지만, 같은 벽 두 창은 압력이 같아 시간 60 안에 절반이 안 됐어요.</li><li data-en="Look less at how many windows and more at which walls they are on and whether the path between them is open. Wind parallel to both walls, or a closed door, cut the flow even for opposite windows.">창 개수보다 '어느 벽에 냈나'와 '두 창 사이 길이 트였나'를 보면 돼요. 바람이 두 창의 벽과 나란히 불거나 방문을 닫으면 마주 보는 창도 흐름이 끊겼어요.</li></ul>
+    <details class="cmore"><summary data-en="Details">상세 설명</summary>
+      <p class="cfull" data-en="&lt;b&gt;What it shows:&lt;/b&gt; Running to the end (time 60) with a head-on wind of normal strength and 6-cell openings (validation script): with two windows on &lt;b&gt;opposite walls&lt;/b&gt;, the room&#x27;s average staleness took 30 to fall by half, and 6% of the floor was still more than half stale at the end. &lt;b&gt;Adjacent walls&lt;/b&gt; (left + top) gave 53 and 43%. By contrast, two windows side by side on the &lt;b&gt;same wall&lt;/b&gt; (72%) or a &lt;b&gt;single window&lt;/b&gt; (82%) never cleared by half within time 60, ending at averages of 75 and 83: the windows feel the same pressure, so no flow crosses the room and only window-side mixing changes the air near the windows. Varying wind strength from 1 to 5, opposite walls did not clear by half within 60 in a very weak wind (1, 66%), and took 45 at 2, 22 at 4 and 18 at 5. With the wind at an angle, opposite walls took 40 (29%); with the wind from the side (the top), even opposite walls had zero flow and never cleared by half (64%). With a wall splitting the room between the opposite windows, an open door gave 39 (23%) and a closed door zero flow (60%). With the person in a corner, the room average was about the same (30), but the air around the person ended at 81, much staler than in the middle (14). Narrowing the openings to 2 cells gave 45 (35%); widening them to 12 gave 22 (0%)."><b>말하는 것:</b> 정면 바람·보통 세기·틈 6칸에서 끝(시간 60)까지 돌렸을 때(검증 스크립트), <b>마주 보는 벽</b>에 창 2개를 열면 방 평균 탁함이 절반이 되기까지 30이 걸렸고 끝에 아직 절반 넘게 탁한 바닥은 6%였습니다. <b>옆 벽</b>(왼쪽+위쪽)은 53과 43%였습니다. 반면 <b>같은 벽</b>에 나란히 2개(72%)나 <b>창 1개</b>(82%)는 시간 60 안에 절반이 되지 않았고, 끝 평균은 75와 83이었습니다. 두 창의 압력이 같아 방을 가로지르는 흐름이 0이고, 창가 섞임만으로 창 근처만 바뀌었기 때문입니다. 바람 세기를 1~5로 바꾸면 마주 보는 벽은 아주 약한 바람(1)에서 60 안에 절반이 안 됐고(66%), 2에서 45, 4에서 22, 5에서 18이었습니다. 바람이 비스듬하면 마주 보는 벽 40(29%), 옆(위쪽)에서 불면 마주 보는 벽도 흐름이 0이 되어 절반이 안 됐습니다(64%). 마주 보는 벽 사이에 방을 나누는 벽을 두면 방문을 열었을 때 39(23%), 닫으면 흐름이 0(60%)이었습니다. 사람을 구석에 두면 방 평균은 거의 같아도(30) 사람 둘레 공기는 끝에 81로, 가운데(14)보다 훨씬 탁했습니다. 틈을 2칸으로 좁히면 45(35%), 12칸으로 넓히면 22(0%)였습니다.</p></details>
+  </div>
+  <div class="callout cl-not">
+    <p class="clabel" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt;"><b>말하지 않는 것:</b></p>
+    <ul class="chead"><li data-en="The gap between opposite walls and the same wall is what this simulation showed directly. How hard each wall is pushed is a simple rule set by this project, so real &#x27;adjacent walls&#x27; results may vary.">마주 보는 벽과 같은 벽의 차이는 이 시뮬레이션이 직접 보여 준 거예요. 다만 벽마다 바람에 밀리는 정도는 이 프로젝트가 정한 단순한 규칙이라, 실제 집의 '옆 벽' 결과는 달라질 수 있어요.</li><li data-en="As a 2D view from above, it leaves out height, flows from temperature differences, furniture, turbulence, building codes and health standards. It does not claim or prescribe that any layout is enough.">위에서 본 2D 모델이라 높이, 온도 차로 생기는 흐름, 가구, 난류, 건물 규정과 건강 기준이 빠져 있어요. 어떤 배치가 충분하다고 단정하거나 처방하지 않아요.</li><li data-en="To check in reality, you would measure carbon dioxide around a real room while changing which windows are open.">현실에서 확인하려면 창 배치를 바꿔 가며 방 곳곳의 이산화탄소 농도를 실제로 재서 비교해 봐야 해요.</li></ul>
+    <details class="cmore"><summary data-en="Details">상세 설명</summary>
+      <p class="cfull" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; This is a simple 2D model seen from above. Vertical flow, warm air escaping upward because of indoor-outdoor temperature differences (the stack effect), furniture and moving people, turbulence, door gaps and vents, and real building codes and health standards are all left out. How hard each wall is pushed by the wind follows a simple rule set by this project, so in a real home results may differ, for example if side walls or the wall facing away are sucked harder (the &quot;adjacent walls&quot; result depends heavily on this rule). The zero flow for a single window or same-wall windows also comes from this simplification; in reality wind gusts and temperature differences still give some ventilation. Time and staleness are this model&#x27;s units, not real minutes or ppm. It does not say or prescribe that any layout is legally or medically sufficient."><b>말하지 않는 것:</b> 이 모델은 위에서 내려다본 2D 단순 모델입니다. 높이 방향의 흐름, 실내외 온도 차로 더운 공기가 위로 빠지는 흐름(굴뚝 효과), 가구와 사람의 움직임, 난류, 문틈·환기구, 실제 건물 규정과 건강 기준은 모두 빠져 있습니다. 벽마다 바람에 밀리는 정도는 이 프로젝트가 정한 단순한 규칙이라, 실제 집에서는 옆 벽이나 등진 벽이 더 세게 빨리는 등 결과가 달라질 수 있습니다(특히 "옆 벽" 결과는 이 규칙에 크게 좌우됩니다). 창 하나·같은 벽 창에서 흐름이 0인 것도 이 단순화 때문이며, 실제로는 바람의 흔들림과 온도 차로 어느 정도 환기가 됩니다. 시간과 탁함은 실제 분·ppm이 아닌 이 모델의 단위입니다. 어떤 배치가 법적·의학적으로 충분하다고 말하거나 처방하지 않습니다.</p></details>
+  </div>
+
+  <h2 data-en="Theory and implementation notes">이론적 근거와 구현 메모</h2>
+  <ul class="small">
+    <li class="memo theory" data-en="&lt;b&gt;Where the model comes from:&lt;/b&gt; It is generally known that &lt;b&gt;cross ventilation&lt;/b&gt;, where wind enters through openings on different walls (especially opposite ones) and leaves the other side, moves more air than &lt;b&gt;single-sided ventilation&lt;/b&gt;, where the openings are on one wall only. This page does not reproduce any particular paper; it runs this general idea in a simple model to check whether the result points the same way."><b>모델의 뿌리:</b> 서로 다른 벽(특히 마주 보는 벽)에 낸 열린 곳으로 바람이 들어와 반대쪽으로 빠지는 <b>맞통풍(cross ventilation)</b>은, 한쪽 벽에만 열린 곳이 있는 <b>단측 환기(single-sided ventilation)</b>보다 일반적으로 환기량이 크다고 알려져 있어요. 이 페이지는 특정 논문을 재현하지 않았고, 이 일반적인 설명을 단순한 모델로 직접 돌려 같은 방향이 나오는지 확인했습니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Key assumptions and formulas:&lt;/b&gt; The wind pressure on opening k is &lt;code&gt;p&lt;sub&gt;k&lt;/sub&gt; = −n&lt;sub&gt;k&lt;/sub&gt;·w&lt;/code&gt; (&lt;code&gt;n&lt;/code&gt;: the wall&#x27;s outward direction, &lt;code&gt;w&lt;/code&gt;: unit wind direction). The pressure &lt;code&gt;φ&lt;/code&gt; in the room solves &lt;code&gt;∇²φ = 0&lt;/code&gt; iteratively (no flow through walls, &lt;code&gt;φ = p&lt;sub&gt;k&lt;/sub&gt;&lt;/code&gt; at openings), and the flow between cells is &lt;code&gt;F = 0.5 × (wind strength/3) × (φ&lt;sub&gt;a&lt;/sub&gt; − φ&lt;sub&gt;b&lt;/sub&gt;)&lt;/code&gt;. Staleness &lt;code&gt;c&lt;/code&gt; follows &lt;code&gt;∂c/∂t + ∇·(c u) = ∇·(D∇c) + breath&lt;/code&gt;, solved with a finite-volume upwind scheme. &lt;code&gt;D = 0.01 + 0.2 × (wind strength/3) × e&lt;sup&gt;−d/5&lt;/sup&gt;&lt;/code&gt; (&lt;code&gt;d&lt;/code&gt;: cells to the nearest opening) is the window-side mixing. The person adds 0.12 per step to a 3×3 patch. Instead of the commonly used &quot;air changes per hour (ACH)&quot;, this page uses dimensionless time (100 steps = 1)."><b>핵심 가정과 수식:</b> 열린 곳 k의 바람 압력은 <code>p<sub>k</sub> = −n<sub>k</sub>·w</code>(<code>n</code>: 벽의 바깥쪽 방향, <code>w</code>: 바람 방향 단위 벡터)입니다. 방 안 압력 <code>φ</code>는 <code>∇²φ = 0</code>(벽에서는 벽을 뚫는 흐름 없음, 열린 곳에서는 <code>φ = p<sub>k</sub></code>)을 반복법으로 풀고, 칸 사이 흐름은 <code>F = 0.5 × (바람 세기/3) × (φ<sub>a</sub> − φ<sub>b</sub>)</code>입니다. 탁함 <code>c</code>는 <code>∂c/∂t + ∇·(c u) = ∇·(D∇c) + 숨</code>을 유한 체적 풍상 차분으로 풉니다. <code>D = 0.01 + 0.2 × (바람 세기/3) × e<sup>−d/5</sup></code>(<code>d</code>: 가장 가까운 열린 곳까지의 칸 수)이 창가 섞임입니다. 사람은 3×3칸에 걸음마다 0.12씩 더합니다. 흔히 쓰는 "환기 횟수(ACH, 한 시간에 방 공기가 몇 번 바뀌는가)" 대신 이 페이지는 무차원 시간(100걸음 = 1)을 씁니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;What this project simplifies:&lt;/b&gt; The flow is an inviscid steady potential flow, so there are no jets from the windows, no eddies and no turbulence; the flow may therefore spread more evenly and leave fewer stale corners than in reality. The pressure rule (a cosine from +1 through 0 to −1), the flow factor 0.5, the mixing values 0.01, 0.2 and 5 cells, the breath 0.12, the 60×40 room and the time span of 60 are all values chosen by this project, not measurements of real buildings. Outside air is always taken as fresh (0)."><b>이 프로젝트의 단순화:</b> 흐름은 점성이 없는 정상 퍼텐셜 흐름이라 창에서 뿜어 나오는 제트, 소용돌이, 난류가 없습니다. 그래서 실제보다 흐름이 방에 고르게 퍼지고 구석이 덜 남을 수 있습니다. 바람 압력 규칙(+1/0/−1의 코사인), 흐름 세기 0.5, 섞임 0.01·0.2·5칸, 숨 0.12, 방 크기 60×40칸, 시간 60은 모두 이 프로젝트가 정한 값이며 실제 건물의 측정값이 아닙니다. 바깥 공기는 늘 맑다고(0) 둡니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Theory versus simulation:&lt;/b&gt; There is no theoretical value to match in this model, so only simulated values are given. &lt;code&gt;node tools/validate-ventilation.js&lt;/code&gt; checks that the flow into and out of every cell in the room sums to zero (largest error about 5×10&lt;sup&gt;−10&lt;/sup&gt;) and that staleness never goes negative. Against general knowledge: with a head-on wind, opposite walls (inflow 0.37, half in 30) cleared faster and more thoroughly than the same wall (zero flow, not halved within 60), pointing the same way. When the wind blows parallel to both window walls, however, even opposite walls get zero flow; that comes from this model&#x27;s pressure rule."><b>이론값과 시뮬레이션:</b> 이 모델에는 맞춰 볼 이론값이 없어 시뮬레이션 값만 적습니다. <code>node tools/validate-ventilation.js</code>에서 방 안 칸마다 들고 나는 흐름의 합이 0(최대 오차 약 5×10<sup>−10</sup>)이고 탁함이 음수가 되지 않음을 확인했습니다. 일반 지식과의 방향: 정면 바람에서 마주 보는 벽(들어오는 흐름 0.37, 절반 30)이 같은 벽(흐름 0, 60 안에 절반 안 됨)보다 빠르고 구석구석 바뀌어 같은 방향이었습니다. 다만 바람이 두 창의 벽과 나란히 불면 마주 보는 벽도 흐름이 0이 되는데, 이는 이 모델의 압력 규칙에서 나온 결과입니다.</li>
+    <li  data-en="Pressure is solved by SOR iteration (factor 1.9, until changes fall below 10&lt;sup&gt;−9&lt;/sup&gt;); the flow and mixing across each face are computed once and the same amount is subtracted from one cell and added to the other (air is conserved). If more than 0.9 of a cell would leave in one step, the step is split into smaller ones. The blue dots in ① and ② just move along the computed flow and do not affect the results. The summaries ④–⑥ run the same model to the end, separately from the playback. A part of the room with no opening (such as behind a closed door) has zero flow.">압력은 SOR 반복(가속 1.9, 변화량 10<sup>−9</sup> 이하까지)으로 풀고, 칸 사이 흐름과 섞임을 면마다 한 번씩 계산해 양쪽 칸에 같은 양을 빼고 더합니다(공기 양이 보존됨). 한 걸음에서 칸 밖으로 나가는 양이 0.9를 넘지 않도록 필요하면 한 걸음을 더 잘게 나눕니다. ①·② 의 파란 점은 계산된 흐름을 따라 움직이는 그림일 뿐 결과에 영향을 주지 않습니다. ④~⑥ 집계는 재생과 따로 같은 모델을 끝까지 돌린 값입니다. 바람이 없는 쪽 방(방문 닫힘)처럼 열린 곳이 없는 칸은 흐름이 0입니다.</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/ventilation&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/ventilation">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap" data-en="Simulatio Lab · Run by Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
+<script src="../../exps.js"></script>
+<script src="../../layout.js"></script>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../lazy3d.js" data-module="app3d.js"></script>
+<script src="../../counter.js"></script>
+<script src="../../engage.js"></script>
+</body>
+</html>

@@ -13,6 +13,7 @@ CATS = [
   ('checkout', T('대기행렬 모델 (M/M/c)', 'Queueing model (M/M/c)'), T('마트 계산대, 줄을 하나로 서면 왜 더 빠를까', 'Why Is One Shared Checkout Line Faster?'), T('같은 계산대, 같은 손님인데 줄을 하나로 세우느냐 따로 세우느냐에 따라 대기시간과 공정함이 크게 달라져요.', 'Same cashiers, same customers: one shared line or many separate ones changes both waiting time and fairness.')),
   ('bunching', T('버스 군집 모델', 'Bus-bunching model'), T('버스는 왜 꼭 두 대씩 몰려올까', 'Why Do Buses Always Come in Pairs?'), T('같은 간격으로 출발한 버스가 왜 뭉쳐 다니게 될까요? 승객이 많을수록 늦어지는 되먹임을 돌려 보고 해결책도 시험해요.', 'Why do evenly spaced buses end up in clumps? Run the feedback where more passengers means more delay, and test remedies.')),
   ('seating', T('무작위 순차 채우기 (렌니 주차 문제)', 'Random sequential filling (Rényi parking problem)'), T('모르는 사람끼리 벤치에 앉으면 몇 명이나 앉을 수 있을까', 'How Many Strangers Can Fit on a Bench?'), T('모두가 예의 바르게 거리를 두고 앉았는데도 벤치가 이만큼 남는 이유를, 앉는 방식 네 가지를 나란히 돌려 알아봐요.', 'Everyone sat politely apart, yet seats go unused. Compare four ways of sitting side by side to see why.')),
+  ('ventilation', T('단순 환기 흐름 모델', 'Simple ventilation flow model'), T('창문을 하나만 열면 왜 공기가 안 바뀔까?', 'Why Doesn\'t the Air Change When You Open Just One Window?'), T('같은 창 두 개라도 마주 보는 벽에 열면 바람이 방을 가로지르고, 같은 벽에 열면 창가에서만 맴돌아요. 위에서 내려다본 방에서 돌려 보세요.', 'Two identical windows on opposite walls let wind sweep the room; on the same wall the air just swirls by the windows. Try it in a room seen from above.')),
  ]),
  ('people', '#2f6fed', '🧑‍🤝‍🧑', T('인간관계', 'Relationships'), T('소문, 편견, 만남은 어떻게 퍼지고 갈라질까?', 'How do rumors, bias and encounters spread and split us apart?'), [
   ('schelling', T('셸링 분리 모델', 'Schelling segregation model'), T('끼리끼리 모이는 이유', 'Why Birds of a Feather Flock Together'), T('"소수가 되기 싫다" 정도의 약한 바람만으로도 동네가 완전히 갈라질까?', 'Can a mild wish like "I don\'t want to be a minority" split a neighborhood completely apart?')),
@@ -124,6 +125,7 @@ RELATED = {
  'sandpile': ['wildfire', 'dla', 'revolution'],
  'dla': ['turing', 'sunflower', 'sandpile'],
  'seating': ['queue', 'schelling', 'bar'],
+ 'ventilation': ['braess', 'wildfire', 'daycare'],
  'bunching': ['traffic', 'braess', 'inspection'],
  'checkout': ['queue', 'inspection', 'bar'],
  'weakties': ['rumor', 'friendship', 'schelling'],
@@ -146,6 +148,7 @@ ADDED = {s: '2026-10-12' for s in ['braess', 'regression', 'survivor', 'friendsh
 ADDED.update({s: '2026-10-13' for s in ['secretary', 'weakties', 'checkout', 'bunching', 'seating', 'dla', 'sandpile', 'wildfire', 'ant', 'farming', 'lanchester', 'treasury', 'fxrate', 'war', 'hagwon', 'daycare', 'admission']})
 ADDED.update({s: '2026-10-14' for s in ['hitsong', 'harmony', 'pollock', 'ovation', 'halftone', 'mereexposure']})
 ADDED['tariff'] = '2026-10-14'
+ADDED['ventilation'] = '2026-10-14'
 
 # slug -> (기호, 짧은 이름 T, 미니 애니메이션 종류)
 # 쉬운 말로 다듬은 칸 제목·설명(tools/pages/simple/<slug>.json)이 있으면 그것을 쓴다
@@ -211,6 +214,7 @@ META = {
  'checkout': ('Lq', T('계산대 줄', 'Checkout Lines'), 'stripes'),
  'bunching': ('Bu', T('버스 뭉침', 'Bus Bunching'), 'ring'),
  'seating': ('Bn', T('벤치 자리', 'Bench Seating'), 'grid2'),
+ 'ventilation': ('Vt', T('창문과 환기', 'Window Ventilation'), 'drift'),
  'dla': ('Dl', T('가지 프랙탈', 'Branching'), 'spread'),
  'sandpile': ('Sp', T('모래더미', 'Sandpile'), 'grid'),
  'wildfire': ('Wf', T('산불', 'Wildfire'), 'heat'),
