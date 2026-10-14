@@ -1,1 +1,20 @@
-{"says_ko": ["서로 나보다 나은 사람을 바라면 짝 찾기가 오래 걸려요. 이 모델에서 눈높이가 +10%p만 올라가도 평균 대기가 21.0라운드로 늘었어요.", "맺어지려면 둘 다 상대가 자기 기준 이상이어야 해요. 서로 나보다 나은 사람을 원하면 둘 다 만족할 수 없어서, 기준이 내려올 때까지 아무도 맺어지지 못해요.", "그래서 기다림이 길다면 눈높이 숫자만큼이나 기준이 얼마나 빨리 바뀌는지가 중요해 보여요. 기준을 전혀 안 바꾸면 이 모델에서는 짝이 0%였어요."], "says_en": ["When everyone wants someone better than themselves, finding a match takes long. Raising the bar by just 10 points lifted the average wait to 21.0 rounds in this model.", "A match needs both people to find the other above their own bar. If both want someone better than themselves, neither can be satisfied, so no one pairs until bars come down.", "So a long wait depends on how fast standards shift as much as on the bar itself. With no lowering at all, no one found a partner in this model."], "not_ko": ["사랑이나 결혼이 이런 계산으로 이루어진다는 뜻이 아니고, 어떤 눈높이가 옳다는 판단도 아니에요. 성격·거리·타이밍은 이 모델에 없어요.", "사람마다 취향이 다른데 여기서는 모두가 매력을 똑같이 평가한다고 가정했어요. 실제로는 사람들의 만남과 기준 변화를 관찰해야 알 수 있어요."], "not_en": ["This does not say love or marriage works by such calculation, nor that any bar is right. Personality, distance and timing are not in the model.", "Tastes differ in reality, but here everyone rates attractiveness the same way. Real meetings and changing standards would need observing."]}
+{
+ "says_ko": [
+  "눈을 낮추면 금방 짝을 찾고, 눈을 높이면 오래 걸려요. 평균 대기는 눈을 30%p 낮췄을 때 2.7라운드, 10%p 높였을 때 21.0라운드, 30%p 높였을 때 40.7라운드였어요.",
+  "서로 나보다 나은 사람을 원하면 둘 다 만족할 수 없어서, 기준이 내려올 때까지 아무도 맺어지지 못해요. 눈을 10%p 높이고 기준을 조금씩 내리면 첫 커플이 12라운드째에야 나왔어요.",
+  "기준을 서서히 내리는 사람은 결국 짝을 찾지만, 끝까지 안 바꾸는 사람은 짝이 0%였어요. 그래서 기다림은 눈높이만큼 기준이 얼마나 바뀌느냐로 갈려요."
+ ],
+ "says_en": [
+  "Lower your sights and you match quickly; raise them and it takes long. The average wait was 2.7 rounds with bars 30 points lower, 21.0 with 10 points higher, and 40.7 with 30 points higher.",
+  "If both want someone better than themselves, neither can be satisfied, so no one pairs until bars come down. With bars 10 points higher and a slow lowering, the first couple appeared only at round 12.",
+  "Those who lower their bar gradually do end up matched, but with no lowering at all, 0% matched. So the wait splits on how much standards shift, as much as on the bar itself."
+ ],
+ "not_ko": [
+  "사랑이나 결혼이 이런 계산으로 이루어진다는 뜻이 아니고, 어떤 눈높이가 옳다는 판단도 아니에요. 성격·거리·타이밍은 이 모델에 없어요.",
+  "사람마다 취향이 다른데 여기서는 모두가 매력을 똑같이 평가한다고 가정했어요. 실제 만남과 기준 변화는 관찰해야 알 수 있어요."
+ ],
+ "not_en": [
+  "This does not say love or marriage works by such calculation, nor that any bar is right. Personality, distance and timing are not in the model.",
+  "Tastes differ in reality, but here everyone rates attractiveness the same way. Real meetings and changing standards would need observing."
+ ]
+}

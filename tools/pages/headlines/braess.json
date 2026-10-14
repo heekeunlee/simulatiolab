@@ -1,1 +1,20 @@
-{"says_ko": ["새 길을 뚫었는데 모두가 느려진 건, 각자 더 빠른 길을 고르다 다 같이 막히는 길로 몰렸기 때문이에요. 이 모델에서 평균 출근 시간이 65분에서 80분이 됐어요.", "지름길이 열리면 모두에게 그 길이 더 빨라 보여서 한 명씩 옮겨 가요. 결국 모두가 막히는 길을 함께 지나게 돼, 혼자 바꿔도 이득이 없는데 다 같이 느려져요.", "그래서 길을 늘리는 것만으로 막힘이 풀린다고 볼 수는 없어요. 이 모델에서는 길 하나를 막으면 오히려 빨라지기도 해서, 전체 흐름을 함께 봐야 해요."], "says_en": ["A new road made everyone slower because each driver switched to whatever looked faster until all crowded the same congested links. Average commute rose from 65 to 80 minutes here.", "Once the shortcut opens it looks faster to everyone, so drivers move one by one. In the end all share the congested roads; no one gains by switching, yet everyone is slower.", "So adding roads does not by itself ease traffic. In this model closing one road can even speed things up, so the whole flow needs looking at."], "not_ko": ["실제 도시는 이렇게 작고 대칭인 도로망이 아니고, 새 길이 늘 해롭다는 뜻도 아니에요. 대중교통이나 출발 시각 조정도 이 모델에는 없어요.", "실제로 확인하려면 새 길이 생기기 전후의 도로별 통행 시간과 교통량 변화를 관찰해야 해요."], "not_en": ["Real cities are not small symmetric networks, and this does not mean new roads are always harmful. Transit and shifting departure times are not in the model.", "To check, you would observe travel times and traffic on each road before and after a new road opens."]}
+{
+ "says_ko": [
+  "한적한 길에서는 새 길이 모두를 빠르게 하고, 붐비는 길에서는 오히려 모두를 느리게 할 수 있어요. 이 모델에서 갈리는 지점은 운전자 3,000명 근처였어요.",
+  "운전자 2,000명일 땐 평균 55분에서 40분으로 줄었어요. 4,500명일 땐 67.5분에서 90분으로 늘었어요. 붐빌수록 모두가 지름길로 몰려 그 길이 막히기 때문이에요.",
+  "그래서 길을 늘린 효과는 평소 얼마나 붐비는지에 따라 달라요. 이 모델에서는 지름길을 막으면 5라운드 만에 평균이 79.7분에서 65분으로 내려오기도 했어요."
+ ],
+ "says_en": [
+  "On a quiet network a new road speeds everyone up; on a crowded one it can slow everyone down. In this model the switch came near 3,000 drivers.",
+  "With 2,000 drivers the average fell from 55 to 40 minutes. With 4,500 it rose from 67.5 to 90 minutes. The more crowded it is, the more all pile onto the shortcut and clog it.",
+  "So a new road's effect depends on how crowded things already are. In this model closing the shortcut brought the average from 79.7 down to 65 minutes within 5 rounds."
+ ],
+ "not_ko": [
+  "실제 도시는 이렇게 작고 대칭인 도로망이 아니고, 새 길이 늘 해롭다는 뜻도 아니에요. 도로를 짓지 말자는 뜻은 더더욱 아니에요.",
+  "대중교통, 출발 시각 조정, 새 길이 부르는 새 수요가 이 모델에 없어요. 실제로는 길이 생기기 전후의 도로별 통행 시간을 관찰해야 해요."
+ ],
+ "not_en": [
+  "A real city is not a small symmetric network, and a new road is not always harmful. This is certainly not an argument against building roads.",
+  "Public transit, shifting departure times and new demand drawn by new roads are not in the model. In reality you would observe road-by-road travel times before and after."
+ ]
+}

@@ -1,20 +1,22 @@
 {
  "says_ko": [
-  "우연의 일치는 신기하지만, 이 모델에서는 사람이 모이면 '누군가 어딘가에서의 일치'가 거의 늘 생겨요. 23명이면 50.7%예요.",
-  "사람이 늘면 가능한 짝은 거의 제곱으로 늘어요. 하지만 '나와의 일치'는 나를 낀 짝만 세니까, 같은 23명에서 5.9%에 그쳐요.",
-  "그래서 신기한 일치를 만나면 '나에게 생긴 일'인지 '아무에게나 생긴 일'인지, 몇 쌍을 비교했는지 따져 볼 수 있어요."
+  "'나와 같은' 일치는 드물지만, '누군가 어딘가에서'의 일치는 흔해요. 같은 23명인데 나와 생일이 같은 사람이 있을 확률은 5.9%, 방 안 어딘가에 같은 쌍이 있을 확률은 50.7%예요.",
+  "23명 사이엔 가능한 짝이 253쌍이나 되는데, 나와의 일치는 나를 낀 짝만 세기 때문이에요. 57명이면 어딘가의 일치는 99.0%, 나와의 일치는 14.2%예요.",
+  "신기한 일치를 만나면 '나에게 생긴 일'인지 '모인 사람 중 아무에게나 생긴 일'인지로 갈라 보면 돼요. 특징을 늘리면 나와의 일치도 55.3%까지 올라가요(23명, 특징 2가지)."
  ],
  "says_en": [
-  "Coincidences feel striking, but in this model a gathering almost always has some match somewhere. With 23 people, it is 50.7%.",
-  "More people means pairs grow almost as the square. A match with me only counts pairs including me, so the same 23 people give just 5.9%.",
-  "So when you meet a striking match, you can ask whether it happened to me or to anyone, and how many pairs were being compared."
+  "A match with me is rare, but a match somewhere in the group is common. Among the same 23 people, the chance someone shares my birthday is 5.9%, yet some pair shares one 50.7% of the time.",
+  "With 23 people there are 253 possible pairs, while a match with me counts only pairs that include me. At 57 people, a match somewhere is 99.0% and a match with me is 14.2%.",
+  "When you meet a striking match, you can split it into 'happened to me' versus 'happened to anyone in the group'. Adding more traits lifts a match with me to 55.3% (23 people, 2 traits)."
  ],
  "not_ko": [
-  "모든 소름 돋는 우연이 그냥 우연이라는 뜻은 아니에요. 어떤 특정한 일이 우연인지는 이 모델이 판정하지 못해요.",
-  "생일과 취미가 고르고 서로 독립이라는 가정이라, 실제로 확인하려면 실제 분포 자료와 비교해야 해요."
+  "이 시뮬레이션이 직접 보여 준 건 확률의 차이(5.9% 대 50.7%)예요. 특정한 소름 돋는 일이 우연이었는지는 판정하지 못해요.",
+  "나에게 일어난 일이 드물게 느껴지는 마음이 틀렸다는 뜻도 아니에요. 나와의 일치는 실제로 드물어요.",
+  "생일과 취미가 고르고 서로 독립이라는 가정이라, 실제 사례를 따지려면 실제 분포 자료와 비교해야 해요."
  ],
  "not_en": [
-  "This does not mean every eerie coincidence is just chance. The model cannot judge whether any particular event was chance.",
+  "What this simulation showed directly is the difference in probability (5.9% versus 50.7%). It cannot judge whether any particular eerie event was chance.",
+  "It does not mean the feeling that something happened to me is rare is wrong. A match with me really is rare.",
   "It assumes traits are even and independent, so checking a real case would need real distribution data."
  ]
 }

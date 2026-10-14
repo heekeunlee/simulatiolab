@@ -1,20 +1,22 @@
 {
  "says_ko": [
-  "이 모델에서 양쪽이 모두 합의를 선호해도 전쟁이 나는 건, 한쪽이 상대 힘을 정확히 몰라서예요. 기본 설정에서 분쟁의 40%가 전쟁이 돼요.",
-  "모르는 쪽이 자기에게 가장 좋은 요구를 한 번 내밀었다가, 상대 힘이 생각보다 강하면 그 요구가 거절되어 전쟁이 나요.",
-  "그래서 전쟁의 이유를 찾을 때 서로 미워하는 마음만이 아니라 정보가 얼마나 부족한지도 살펴볼 수 있어요."
+  "서로 상대 힘을 잘 알면 합의로 끝나지만, 한쪽이 잘 모를수록 합의가 가능한데도 전쟁이 늘어요. 모르는 정도 0이면 전쟁 0%, 20%면 25.0%, 50%면 70.0%였어요.",
+  "전쟁이 싸게 느껴질수록 더 잘 일어나요. 모르는 정도가 같을 때 전쟁 비용이 5%면 분쟁의 80.0%가, 20%면 20.0%가, 25% 이상이면 0%가 전쟁이 됐어요.",
+  "그래서 전쟁의 이유를 볼 때, 서로 미워하는 정도와는 따로 정보가 얼마나 모자랐는지, 전쟁이 얼마나 비싸 보였는지를 살펴볼 수 있어요."
  ],
  "says_en": [
-  "In this model, war breaks out even when both sides prefer a deal, because one side does not know the other's strength. By default 40% of disputes end in war.",
-  "The uninformed side makes the demand best for itself once, and if the other side is stronger than guessed, the demand is rejected and war follows.",
-  "So when looking for why wars happen, one can look at how little each side knows, not only at hostility between them."
+  "If both sides know each other's strength, a deal holds; the less one side knows, the more disputes end in war. Uncertainty 0 gave 0% war, 20% gave 25.0%, 50% gave 70.0%.",
+  "The cheaper war feels, the likelier it is. At the same uncertainty, a war cost of 5% sent 80.0% of disputes to war, 20% sent 20.0%, and 25% or more sent 0%.",
+  "So when asking why a war happened, one can look separately at hostility, at how little each side knew, and at how costly war seemed."
  ],
  "not_ko": [
-  "실제 어느 전쟁의 원인을 설명하거나 앞으로의 전쟁을 예측하는 것이 아니고, 특정 입장을 지지하지도 않아요.",
-  "이름 없는 추상 국가와 임의의 숫자라서, 실제 사례에 적용하려면 당시의 정보와 사정을 따로 확인해야 해요."
+  "실제 어느 전쟁의 원인을 설명하거나 앞으로의 전쟁을 예측하는 것이 아니고, 특정 입장을 지지하지도 않아요. 이름 없는 추상 국가의 구조만 보여 줘요.",
+  "이 모델은 서로 미워하는 마음이 전쟁에 미치는 영향은 다루지 않았어요. 그쪽과 대비한 건 생각해 볼 점이고, 이 시뮬레이션이 직접 보여 준 건 정보 부족과 전쟁 비용의 효과예요.",
+  "국내 정치, 동맹, 약속을 믿지 못하는 문제는 빠져 있어요. 실제 사례에 적용하려면 당시의 정보와 사정을 따로 확인해야 해요."
  ],
  "not_en": [
-  "It does not explain the cause of any real war, predict future wars, or support any position.",
-  "It uses nameless abstract states and arbitrary numbers, so applying it to a real case needs the actual information and circumstances."
+  "It does not explain the cause of any real war, predict future wars, or support any position. It only shows the structure among nameless abstract states.",
+  "The model does not cover the effect of mutual hatred. That contrast is a point to think about; what this simulation showed directly is the effect of missing information and of war cost.",
+  "Domestic politics, alliances and distrust of promises are absent. Applying it to a real case needs the actual information and circumstances."
  ]
 }

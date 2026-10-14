@@ -1,1 +1,20 @@
-{"says_ko": ["같은 사람들인데도 광장이 가득 차거나 텅 비는 건, 불씨가 있는지와 사람들의 문턱이 촘촘히 이어져 있는지에 달려 있다는 걸 이 모델이 보여 줘요.", "나서는 기준이 낮은 사람이 먼저 나오면 그걸 본 다음 사람이 나서고, 또 그다음 사람이 나서요. 문턱 사이에 빈틈이 있으면 연쇄가 거기서 끊겨요.", "그래서 결과가 갈릴 때 평균 분위기만 볼 게 아니라 불씨가 있는지, 중간에 빈틈이 없는지도 봐야 해요. 고전 예시에서 한 명만 바뀌어도 100명이 1명으로 줄었어요."], "says_en": ["This model shows that a square can fill or stay empty with the same people, depending on whether there is a spark and whether thresholds link up without gaps.", "Someone with a low bar steps out first, the next person sees that and joins, then the next. A gap between thresholds breaks the chain right there.", "So when outcomes split, look beyond the average mood to whether a spark exists and the chain has no gaps. In the classic example, changing one person cut 100 down to 1."], "not_ko": ["실제 시위가 이 숫자대로 일어난다는 뜻이 아니고, 어느 편을 들거나 예측하는 것도 아니에요. 정보·두려움·조직·연결망은 이 모델에 없어요.", "사람들의 문턱은 눈에 보이지 않아서, 현실에서는 알기 어려워요."], "not_en": ["It does not mean real protests follow these numbers, take sides, or predict anything. Information, fear, organization and networks are not in the model.", "People's thresholds are invisible, so they are hard to know in reality."]}
+{
+ "says_ko": [
+  "불씨가 있고 문턱이 빈틈없이 이어지면 광장이 가득 차고, 불씨가 없거나 중간에 빈틈이 있으면 거기서 멈춰요.",
+  "낮은 사람이 먼저 나서면 그걸 본 다음 사람이 나서며 이어져요. 불씨가 0명이면 평균 문턱이 낮아도 아무 일 없고, 문턱이 제각각일수록 쉽게 이어져요.",
+  "그래서 평균 분위기만 보지 말고 불씨와 빈틈을 봐야 해요. 고전 예시에서 한 명만 바뀌어도 100명이 1명으로 줄었어요."
+ ],
+ "says_en": [
+  "With a spark and thresholds linked without gaps the square fills; with no spark, or a gap midway, it stops right there.",
+  "Someone with a low bar steps out first, the next sees that and follows, and it chains on. With zero sparks nothing happens even at a low average bar, and varied thresholds chain more easily.",
+  "So look beyond the average mood to the spark and the gaps. In the classic example, changing just one person cut 100 down to 1."
+ ],
+ "not_ko": [
+  "실제 시위가 이 숫자대로 일어난다는 뜻이 아니고, 어느 편을 들거나 예측하는 것도 아니에요. 정보·두려움·조직·연결망은 이 모델에 없어요.",
+  "사람들의 문턱은 눈에 보이지 않아서 현실에서는 알기 어렵고, 여기 쓴 숫자는 설명을 위한 설정이에요."
+ ],
+ "not_en": [
+  "It does not mean real protests follow these numbers, take sides or predict anything. Information, fear, organization and networks are absent.",
+  "People's thresholds are invisible and hard to know in reality; the numbers here are settings for explanation."
+ ]
+}

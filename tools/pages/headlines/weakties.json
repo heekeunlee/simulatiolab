@@ -1,1 +1,22 @@
-{"says_ko": ["새 소식이 얼굴만 아는 사람에게서 오는 건, 먼 사람과 이은 선 몇 개가 소식의 지름길이 되기 때문이라는 설명이 있어요.", "친한 무리 안에서는 같은 소식만 돌지만, 먼 사람과 이은 선 하나가 소식을 무리 밖으로 한 번에 건너게 해요.", "이 모델에서는 연결의 2%만 먼 사람으로 바꿔도 소식이 90%에 닿는 시간이 58턴에서 16턴으로 줄고 친구 무리는 그대로였어요."], "says_en": ["There is an explanation that news comes from acquaintances because a few links to distant people act as shortcuts for it.", "Inside a close circle the same news just circulates, but one link to a distant person carries the news across to a whole new group at once.", "In this model rewiring only 2% of links to distant people cut the time for news to reach 90% from 58 turns to 16, with friend circles intact."], "not_ko": ["약한 연결이 일자리를 얻는 데 더 낫다는 것까지 증명하지는 않아요. 이 모델은 모든 연결의 힘이 같다고 가정했어요.", "실제 약한 연결은 덜 믿고 덜 전할 수 있어서, 실제 관계망에서 소식이 얼마나 전해지는지 조사해 봐야 해요."], "not_en": ["It does not prove weak ties are better for getting a job; this model assumes every link is equally strong.", "Real weak ties may be trusted less and pass on less, so how much news travels in real networks must be surveyed."]}
+{
+ "says_ko": [
+  "친한 무리 안에서는 같은 소식만 돌고, 먼 사람과 이은 선이 몇 개만 있어도 소식이 무리 밖으로 훨씬 빨리 퍼져요.",
+  "연결의 2%만 먼 사람으로 바꿔도 소식이 90%에 닿는 시간이 58턴에서 16턴으로 줄었는데, 친구 무리의 촘촘함은 94%로 거의 그대로였어요.",
+  "그래서 친한 사이는 무리 안을 채우고 먼 연결은 무리 밖으로 건너 주는 역할로 나눠 볼 수 있어요. 새 소식이 얼굴만 아는 사람에게서 오는 이유로 설명되곤 해요."
+ ],
+ "says_en": [
+  "Inside a close circle the same news just circulates, but even a few links to distant people spread it far faster beyond the circle.",
+  "Rewiring just 2% of links to distant people cut the time for news to reach 90% from 58 turns to 16, while friend circles stayed 94% as tight.",
+  "So close ties can be seen as filling the circle and distant links as carrying news across to other groups. That is often given as why news comes from acquaintances."
+ ],
+ "not_ko": [
+  "직접 보여 준 쪽은 먼 연결이 소식을 빨리 퍼뜨린다는 거예요. 약한 연결이 일자리를 얻는 데 더 낫다는 건 생각해 볼 점이고, 이 시뮬레이션이 보여 준 건 아니에요.",
+  "이 모델은 모든 연결의 힘이 같다고 가정해요. 실제 약한 연결은 덜 믿고 덜 전할 수 있고, 친한 친구가 더 적극적으로 도와주는 경우도 있어요.",
+  "실제 관계망에서 소식과 일자리 정보가 얼마나 전해지는지는 조사로 확인해야 해요."
+ ],
+ "not_en": [
+  "What it showed directly is that distant links spread news faster. That weak ties are better for getting a job is a point to think about, not something this simulation showed.",
+  "The model assumes every link is equally strong. Real weak ties may be trusted less and pass on less, and sometimes close friends help more actively.",
+  "How much news and job information travels in real networks must be checked by surveys."
+ ]
+}

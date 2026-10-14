@@ -1,1 +1,20 @@
-{"says_ko": ["빈자리가 남아도 앉을 곳이 없는 건, 사람들이 한 명씩 마음대로 앉으면 자리가 듬성듬성 낭비되기 때문이에요.", "아무도 규칙을 어기지 않아도, 먼저 앉은 사람 옆 빈칸은 못 쓰는 자리가 되고 그 틈은 한 사람이 앉기엔 모자라요.", "그래서 무작위로 앉으면 차곡차곡 앉았을 때보다 이 모델에서는 약 14~20% 자리가 덜 쓰이고, 나쁜 마음 없이도 낭비가 생겨요."], "says_en": ["Seats go unused while people turn away because strangers sitting one by one wherever they like leave scattered, wasted gaps.", "Nobody breaks a rule, yet the empty seats beside each sitter are off limits and the leftover gaps are too small for one more person.", "So in this model random seating wastes about 14-20% of the seats compared with packing them neatly, with no one at fault."], "not_ko": ["실제 대기실이나 지하철의 모든 것을 설명하지는 않아요. 한 줄 벤치, 모두 같은 간격이라고 정한 단순한 모델이에요.", "일행과 붙어 앉거나 사람마다 간격이 다른 경우가 자리 활용에 얼마나 영향을 주는지는 실제로 관찰해 봐야 해요."], "not_en": ["It does not explain everything about real waiting rooms or subways; this is a simple one-row bench with the same gap for everyone.", "How groups sitting together or different personal gaps affect seat use must be observed in real places."]}
+{
+ "says_ko": [
+  "모두가 협력해 차곡차곡 앉으면 더 많이 앉고, 각자 마음대로 앉으면 같은 벤치에서도 덜 앉아요. 간격이 1칸이면 정돈은 50%, 무작위는 43.2%예요.",
+  "먼저 앉은 사람 옆 빈칸은 못 쓰고, 남은 틈은 한 사람이 앉기엔 모자라요. 30석에 간격 2칸이면 정돈하면 10명, 무작위로는 평균 8.6명이 앉았어요.",
+  "간격이 넓을수록 앉는 비율 자체가 줄어요. 2칸이면 27.5%, 3칸이면 20.1%예요. 빈자리가 있는데도 못 앉는 건 누구의 잘못이 아니라 앉는 방식에서 생기는 낭비일 수 있어요."
+ ],
+ "says_en": [
+  "When everyone cooperates and packs in neatly, more people sit; when each picks a seat freely, fewer sit on the same bench. With a 1-seat gap, neat packing fills 50% and random seating 43.2%.",
+  "The empty seats beside each sitter are off limits, and the leftover gaps are too small for one more. With 30 seats and a 2-seat gap, neat packing seats 10 but random seating averaged 8.6.",
+  "The wider the gap, the lower the share seated: 27.5% at 2 seats and 20.1% at 3. Empty seats with nowhere to sit may be waste from how people sit, not anyone's fault."
+ ],
+ "not_ko": [
+  "'정돈'은 모두가 도착 순서를 알고 협력할 때만 가능한 이상적인 기준선이에요. 현실에서 이렇게 앉을 수 있다는 뜻이 아니에요.",
+  "한 줄 벤치, 모두 같은 간격, 한 명씩 차례로 도착한다는 단순한 모델이에요. 일행과 붙어 앉거나 간격이 사람마다 다른 경우는 실제로 관찰해 봐야 해요."
+ ],
+ "not_en": [
+  "'Neat packing' is an ideal baseline possible only if everyone knows the arrival order and cooperates. It does not mean people can sit that way in reality.",
+  "This is a simple model: one-row bench, same gap for everyone, people arriving one by one. Groups sitting together or different personal gaps must be observed in real places."
+ ]
+}

@@ -1,20 +1,20 @@
 {
  "says_ko": [
-  "이 모델에서 모두가 학원을 늘려도 상대평가 순위는 그대로이고, 학원비만 처음의 약 5배가 돼요.",
-  "한 집만 늘리면 순위가 오르지만, 모두가 같은 판단을 하면 누가 오른 만큼 누군가는 내려가서 서로 맞바꾼 셈이 돼요.",
-  "그래서 개별 집의 선택보다 평가 방식이 열쇠일 수 있어요. 절대평가에서는 합격선이 고정이라 함께 오를 수 있었어요."
+  "한 집만 학원을 늘리면 순위가 오르지만, 모든 집이 늘리면 순위는 제자리이고 학원비만 늘어요. 이 모델에서 평균 순위는 50% 그대로, 학원비는 처음의 5.0배가 됐어요.",
+  "한 집이 학원을 하나 더 보내면 순위가 평균 7.6%p 올라요. 하지만 모두가 같은 판단을 하면 누가 오른 만큼 누군가 내려가서, 순위가 오른 집은 40%, 내린 집은 47%였어요.",
+  "상대평가에서는 서로 맞바꾸지만, 합격선이 정해진 절대평가에서는 함께 오를 수 있었어요. 합격 가능성이 평균 43%에서 73%로, 가구당 순이득이 39%에서 59%로 올랐어요."
  ],
  "says_en": [
-  "In this model, if every family adds classes, rank under relative grading stays the same while tuition rises to about 5 times.",
-  "One family adding a class gains rank, but when all do it, someone must fall for each one who rises, so it is just a swap.",
-  "So the grading method may matter more than any one family's choice. Under absolute grading, with a fixed cutoff, everyone could rise together."
+  "If one family adds classes its rank rises, but if every family does, rank stays put and only tuition grows. In this model average rank stayed at 50% while tuition rose to 5.0 times.",
+  "One family adding a class gains about 7.6 points of rank. But when all decide alike, someone falls for each one who rises: 40% of families rose and 47% fell.",
+  "Under relative grading it is a swap, but under absolute grading with a fixed cutoff, everyone could rise together. Average pass chance rose from 43% to 73%, and net gain per family from 39% to 59%."
  ],
  "not_ko": [
-  "학원이 좋다거나 나쁘다는 뜻도, 어느 집의 선택이 잘못됐다는 뜻도 아니에요.",
-  "흥미·돌봄·친구 같은 가치와 실제 한국의 사교육 효과는 모델에 없어서, 실제 가정이 무엇을 얻는지는 따로 살펴봐야 해요."
+  "학원이 좋다거나 나쁘다는 뜻도, 어느 집의 선택이 잘못됐다는 뜻도 아니에요. 상대평가가 나쁘고 절대평가가 좋다거나 특정 제도를 지지한다는 뜻도 아니에요.",
+  "흥미·돌봄·친구 같은 가치와 실제 한국의 사교육 효과는 모델에 없어요. 모든 숫자는 예시이고, 실제 판단은 교사·교육 전문가와 함께 해야 해요."
  ],
  "not_en": [
-  "It does not say classes are good or bad, or that any family chose wrongly.",
-  "Interest, care, friends and real Korean tutoring effects are not in the model, so what real families gain must be examined separately."
+  "It does not say classes are good or bad, or that any family chose wrongly. Nor does it say relative grading is bad and absolute grading good, or back any system.",
+  "Interest, care, friends and real Korean tutoring effects are not in the model. All numbers are examples, and real decisions should be made with teachers or education experts."
  ]
 }

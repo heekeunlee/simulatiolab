@@ -1,1 +1,20 @@
-{"says_ko": ["버스가 두 대씩 몰려오는 건 운이나 기사 탓이 아니라, 노선 구조 때문에 저절로 생긴다는 걸 이 모델이 보여 줘요. 처방이 없으면 기다림이 약 3.8배가 됐어요.", "간격이 벌어진 버스는 승객이 쌓여 정차가 길어져 더 늦어지고, 뒤차는 승객이 적어 빨리 출발해 따라붙어요. 이렇게 작은 어긋남이 스스로 커져요.", "그래서 뭉침은 기사 개인을 탓하기보다 간격을 지키게 하는 구조를 보아야 풀린다는 눈이 생겨요. 다만 이 모델에서는 그 대가로 한 바퀴가 약 19% 길어졌어요."], "says_en": ["Buses arriving in pairs is not bad luck or bad drivers but the route's structure; with no remedy the average wait grew about 3.8 times.", "A bus that falls behind finds more passengers, stops longer and falls further behind, while the bus behind catches up. A small gap feeds on itself.", "So bunching is better fixed by keeping spacing than by blaming drivers, though here that made each loop about 19% longer."], "not_ko": ["실제 노선을 재현한 게 아니라서 숫자는 이 가상 노선에서만 맞아요. 신호, 정체, 환승은 빠져 있어요.", "실제 노선의 뭉침은 운행 기록과 승객 수요를 모아 보고, 처방이 실제로 통하는지 따로 시험해 봐야 알 수 있어요."], "not_en": ["It does not reproduce a real route, so the numbers hold only for this virtual line; signals, traffic and transfers are missing.", "Bunching on a real route needs trip logs and passenger demand, and any remedy would have to be tested there."]}
+{
+ "says_ko": [
+  "승객이 적은 노선은 버스가 고르게 달리지만, 승객이 많은 노선은 두 대씩 몰려요. 정류장당 시간당 10명이면 기다림이 거의 그대로(약 1.0배), 60명이면 약 5.7배였어요.",
+  "앞차가 늦으면 승객이 쌓여 더 오래 서서 더 늦어지고, 뒤차는 줄이 짧아 빨리 따라붙어요. 승객이 많을수록 이 쏠림이 세져요.",
+  "간격 유지는 뭉침을 막는 대신 한 바퀴가 약 19% 길어지고, 승차 제한은 덜 느려지는 대신 뭉침을 늦출 뿐이었어요. 뭉침은 기사 탓보다 구조 탓으로 보면 돼요."
+ ],
+ "says_en": [
+  "A line with few passengers runs evenly, while a busy line sends buses in pairs. At 10 passengers per hour per stop the wait barely changed (about 1.0 times); at 60 it was about 5.7 times.",
+  "When a bus runs late, passengers pile up, it stops longer and falls further behind, while the bus behind finds a short queue and catches up. More passengers make this stronger.",
+  "Holding spacing prevented bunching but made each loop about 19% longer; capping boarding cost less time but only delayed bunching. Read bunching as the route's structure more than the drivers' fault."
+ ],
+ "not_ko": [
+  "실제 노선을 재현한 게 아니라서 숫자는 이 가상 노선에서만 맞아요. 신호, 정체, 환승은 빠져 있어요.",
+  "처방은 이 모델의 단순한 규칙이에요. 실제 노선에서 통하는지는 운행 기록과 승객 수요로 따로 시험해 봐야 알 수 있어요."
+ ],
+ "not_en": [
+  "It does not reproduce a real route, so the numbers hold only for this virtual line; signals, traffic and transfers are missing.",
+  "The remedies are simple rules in this model. Whether they work on a real route needs trip logs and passenger demand to test."
+ ]
+}

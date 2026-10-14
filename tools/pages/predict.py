@@ -46,12 +46,12 @@ PRED = {
   [T('약 6%', 'About 6%'), T('약 50%', 'About 50%'), T('약 90%', 'About 90%')], 1,
   T('약 50.7%예요. 23명이면 둘씩 짝지을 수 있는 경우가 253쌍이나 되기 때문이에요. (나와 생일이 같은 사람이 있을 확률은 5.9%뿐이에요.)',
     'About 50.7%. With 23 people there are 253 possible pairs. (The chance that someone shares your own birthday is only 5.9%.)')),
- 'talent-vs-luck': (  # validate.js: 300회 반복에서 최고 부자가 최고 재능자였던 비율 0.3%
-  T('재능이 가장 높은 사람이 40년 뒤 가장 부자가 되는 경우는 얼마나 될까요? (300번 돌려 본 결과예요)',
-    'How often is the most talented person the richest after 40 years? (Based on 300 runs.)'),
+ 'talent-vs-luck': (  # validate.js: 300회 반복에서 최고 부자가 최고 노력자였던 비율 0.3%
+  T('노력이 가장 높은 사람이 40년 뒤 가장 부자가 되는 경우는 얼마나 될까요? (300번 돌려 본 결과예요)',
+    'How often is the highest-effort person the richest after 40 years? (Based on 300 runs.)'),
   [T('대부분(70% 이상)', 'Most of the time (70%+)'), T('절반쯤', 'About half the time'), T('거의 없다(1% 미만)', 'Almost never (under 1%)')], 2,
-  T('300번 중 0.3%뿐이었어요. 재능은 다들 비슷비슷해도, 운이 몇 번 겹친 사람이 크게 앞서가요.',
-    'Only 0.3% of the 300 runs. Most people have similar talent, but a few lucky breaks can put someone far ahead.')),
+  T('300번 중 0.3%뿐이었어요. 노력은 다들 비슷비슷해도, 운이 몇 번 겹친 사람이 크게 앞서가요.',
+    'Only 0.3% of the 300 runs. Most people have similar effort, but a few lucky breaks can put someone far ahead.')),
  'schelling': (  # validate-schelling: 원하는 비율 30% → 같은 이웃 비율 50% → 75%
   T('"이웃의 30%만 나와 같은 편이면 만족"이라는 작은 바람을 가진 사람들이 계속 이사하면, 같은 편 이웃 비율은 처음 50%에서 얼마가 될까요?',
     'People only want "at least 30% of my neighbors are like me" and keep moving. Starting from 50%, what share of neighbors end up like them?'),

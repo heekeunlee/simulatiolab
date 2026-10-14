@@ -1,20 +1,20 @@
 {
-"says_ko": [
-"얼룩말 무늬는 '무늬를 만드는 물질'과 그 '재료'가 피부 속에서 퍼지는 속도가 달라서 저절로 생긴다는 설명이 있어요(튜링의 아이디어). 이 모델은 그 원리로 비슷한 무늬가 생김을 보여 줘요.",
-"무늬 물질은 재료를 먹고 늘어나지만 천천히 퍼지고, 재료는 더 빨리 퍼져요. 그래서 한곳에 생긴 무늬는 번지다 재료가 모자라 멈추고, 재료가 넉넉한 먼 곳에 다음 무늬가 생겨 일정한 간격의 점이나 줄이 남아요.",
-"그래서 공급 속도 같은 숫자 두 개만 바꿔도 점·줄무늬·미로 무늬가 달라져, 서로 다른 동물의 무늬를 한 가지 원리로 설명해 볼 수 있어요."
-],
-"says_en": [
-"One explanation (Turing's idea) is that zebra stripes form by themselves because a pattern-making substance and its raw material spread through the skin at different speeds. This model shows that the same principle makes similar patterns.",
-"The pattern substance feeds on the raw material and grows but spreads slowly, while the material spreads faster. So a spot spreads until the material runs short and stops, and the next spot appears far away where material is plentiful, leaving evenly spaced dots or stripes.",
-"So changing just two numbers, like the supply rate, turns spots into stripes or mazes, letting one principle account for the patterns of different animals."
-],
-"not_ko": [
-"실제 얼룩말 피부에서 이 물질들이 정말 이렇게 움직이는지는 이 시뮬레이션이 증명하지 않아요. 여기 숫자도 생물학적 값이 아니에요.",
-"실제 동물은 유전자와 몸이 자라는 과정까지 얽혀 있어서, 확인하려면 실제 피부의 물질 분포를 관찰해 봐야 해요."
-],
-"not_en": [
-"This simulation does not prove such substances really move this way in zebra skin, and its numbers are not biological values.",
-"Real animals involve genes and growth too, so checking needs observing how substances are actually distributed in skin."
-]
+ "says_ko": [
+  "무늬 물질은 천천히, 그 재료는 빨리 퍼지면 일정한 간격의 점이나 줄이 저절로 생겨요(튜링의 아이디어). 한곳의 무늬는 재료를 먹고 번지다 멈추고, 재료가 넉넉한 먼 곳에 다음 무늬가 생기기 때문이에요.",
+  "같은 규칙인데 숫자 두 개만 바꿔도 점무늬는 줄무늬로, 줄무늬는 미로로 갈려요. 이 모델에서 점무늬는 독립된 점 50개 안팎, 줄무늬와 산호는 하나로 이어진 모양이 됐어요.",
+  "무늬 물질이 차지한 면적은 점무늬 19%, 줄무늬 43%, 산호 53%였어요. 그래서 서로 다른 무늬를 규칙을 바꾸지 않고 두 숫자의 차이로 설명해 볼 수 있어요."
+ ],
+ "says_en": [
+  "When the pattern substance spreads slowly and its material spreads fast, evenly spaced dots or stripes arise by themselves (Turing's idea). A spot eats material and grows until it stops, and the next spot forms far away where material is plentiful.",
+  "With the same rule, changing just two numbers turns spots into stripes and stripes into mazes. In this model spots became about 50 separate dots, while stripes and coral became connected shapes.",
+  "The pattern substance covered 19% for spots, 43% for stripes and 53% for coral. So different patterns can be accounted for by a difference in two numbers rather than a different rule."
+ ],
+ "not_ko": [
+  "'실제 얼룩말 줄무늬가 이 원리로 생긴다'는 건 생각해 볼 점이고, 이 시뮬레이션이 직접 보여 준 건 아니에요. 모델이 보여 준 건 단순한 규칙에서 점·줄무늬·미로가 저절로 생긴다는 쪽이에요.",
+  "실제 동물의 무늬에는 유전자 활동, 몸의 성장, 몸 모양이 함께 관여해요. 여기의 두 숫자는 생물학적 값이 아니라 수학적 설정이에요."
+ ],
+ "not_en": [
+  "'Real zebra stripes form by this principle' is a point to think about, not shown directly by this simulation. What it showed is that simple rules make spots, stripes and mazes by themselves.",
+  "Real animal patterns also involve gene activity, body growth and body shape. The two numbers here are mathematical settings, not biological values."
+ ]
 }

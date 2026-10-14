@@ -69,7 +69,13 @@ window.Lab = (function () {
     if (o.xLabel || o.yLabel) axisNames(c, o.xLabel, o.yLabel);
   }
 
-  // 그래프 안 범례. items = [{ kind:'line'|'dash'|'dot'|'box'|'bar', color, label }], pos = 'tr'(기본)|'tl'|'br'|'bl'
+  // 범례 기호 하나 그리기(모양으로도 구분되게: 'up' ▲, 'down' ▼, 'ring' ◯). cx,cy = 기호 중심
+  function glyph(ctx, kind, cx, cy, r) {
+    if (kind === 'up' || kind === 'down') { const d = kind === 'up' ? -1 : 1; ctx.beginPath(); ctx.moveTo(cx, cy + d * r); ctx.lineTo(cx - r * 1.05, cy - d * r * 0.8); ctx.lineTo(cx + r * 1.05, cy - d * r * 0.8); ctx.closePath(); ctx.fill(); }
+    else if (kind === 'ring') { ctx.lineWidth = 1.8; ctx.beginPath(); ctx.arc(cx, cy, r, 0, 7); ctx.stroke(); ctx.lineWidth = 1; }
+  }
+
+  // 그래프 안 범례. items = [{ kind:'line'|'dash'|'dot'|'box'|'bar'|'up'|'down'|'ring', color, label }], pos = 'tr'(기본)|'tl'|'br'|'bl'
   // 그래프 그리는 맨 마지막에 부른다(반투명 흰 바탕이라 선·점 위에 얹어도 읽힌다). 범례 글자는 번역 대상이므로 dyn_<slug>.py에 영어를 넣는다.
   function legend(c, items, pos) {
     const list = (items || []).filter((it) => it && it.label); if (!list.length) return;
@@ -100,6 +106,7 @@ window.Lab = (function () {
       const cy = y0 + padY + i * rowH + 6, cx = x0 + padX;
       ctx.strokeStyle = it.color; ctx.fillStyle = it.color;
       if (it.kind === 'dot') { ctx.beginPath(); ctx.arc(cx + sw / 2, cy, 4, 0, 7); ctx.fill(); }
+      else if (it.kind === 'up' || it.kind === 'down' || it.kind === 'ring') glyph(ctx, it.kind, cx + sw / 2, cy, 4.5);
       else if (it.kind === 'box' || it.kind === 'bar') { ctx.fillRect(cx + 3, cy - 5, sw - 6, 10); }
       else { ctx.lineWidth = 2.5; if (it.kind === 'dash') ctx.setLineDash([4, 3]); ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + sw, cy); ctx.stroke(); ctx.setLineDash([]); ctx.lineWidth = 1; }
       ctx.fillStyle = css('--text'); ctx.textAlign = 'left'; ctx.fillText(it.label, cx + sw + 6, cy + 4);
@@ -129,6 +136,7 @@ window.Lab = (function () {
       ctx.fillStyle = it.color; ctx.strokeStyle = it.color;
       if (it.kind === 'box' || it.kind === 'bar') ctx.fillRect(x + 1, y - 9, sw - 2, 10);
       else if (it.kind === 'dot') { ctx.beginPath(); ctx.arc(x + sw / 2, y - 4, 4.5, 0, 7); ctx.fill(); }
+      else if (it.kind === 'up' || it.kind === 'down' || it.kind === 'ring') glyph(ctx, it.kind, x + sw / 2, y - 4, 5);
       else { ctx.lineWidth = 2.5; if (it.kind === 'dash') ctx.setLineDash([4, 3]); ctx.beginPath(); ctx.moveTo(x, y - 4); ctx.lineTo(x + sw, y - 4); ctx.stroke(); ctx.setLineDash([]); ctx.lineWidth = 1; }
       ctx.fillStyle = css('--text'); ctx.fillText(it.label, x + sw + 5, y); x += need;
     });

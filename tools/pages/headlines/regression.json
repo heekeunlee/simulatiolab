@@ -1,20 +1,20 @@
 {
  "says_ko": [
-  "칭찬받은 사람이 다음에 못하고 혼난 사람이 나아지는 건, 말의 효과가 아니라 점수에 섞인 운이 빠지기 때문일 수 있어요. 이 모델에서는 말에 아무 효과가 없는데도 그렇게 나왔어요.",
-  "아주 잘한 날엔 실력에 좋은 운이 얹혀 있고, 아주 못한 날엔 나쁜 운이 얹혀 있어요. 다음엔 운이 새로 뽑히니 두 쪽 모두 평균 쪽으로 돌아와요.",
-  "그래서 칭찬 뒤 하락과 꾸중 뒤 상승을 볼 때, 말의 효과를 따지기 전에 점수에 운이 얼마나 섞여 있는지부터 떠올려 볼 수 있어요."
+  "점수에 운이 거의 없으면 칭찬 뒤에도 꾸중 뒤에도 점수가 그대로지만, 운이 많이 섞일수록 칭찬 뒤엔 떨어지고 꾸중 뒤엔 오르는 것처럼 보여요.",
+  "아주 잘한 날엔 좋은 운이, 아주 못한 날엔 나쁜 운이 얹혀 있다가 다음엔 운이 새로 뽑혀요. 말에 효과가 없어도 운 50%에선 칭찬받은 쪽이 −7.0점, 혼난 쪽이 +7.1점 변했어요.",
+  "운의 몫이 0%면 변화가 0, 10%면 ∓1.4, 90%면 ∓12.6이었어요. 변화가 클수록 말의 효과보다 운이 빠진 몫을 먼저 의심해 볼 수 있어요."
  ],
  "says_en": [
-  "People praised often do worse next time and those scolded improve, which can come from luck fading rather than from what was said. Here the words had no effect at all, yet it still appeared.",
-  "A very good day is skill plus good luck; a very bad day is skill plus bad luck. Luck is redrawn next time, so both groups drift back toward average.",
-  "So when you see a drop after praise or a rise after scolding, you can first ask how much luck is mixed into the scores before judging the words."
+  "When scores contain almost no luck, nothing changes after praise or scolding, but the more luck is mixed in, the more it looks as if scores fall after praise and rise after scolding.",
+  "A very good day carries good luck and a very bad day bad luck, and luck is redrawn next time. With words having no effect and 50% luck, the praised dropped 7.0 points and the scolded rose 7.1.",
+  "At 0% luck the change was 0, at 10% about 1.4, at 90% about 12.6. The bigger the change, the more you can suspect luck draining away before crediting the words."
  ],
  "not_ko": [
-  "칭찬이 소용없거나 꾸중이 낫다는 뜻은 아니에요. 이 모델은 말의 진짜 효과를 0으로 맞춘 것이에요.",
+  "칭찬이 소용없거나 꾸중이 낫다는 뜻은 아니에요. 이 모델은 말의 진짜 효과를 0으로 맞춘 것이라, 말에 효과가 있는 경우를 보여 준 게 아니에요.",
   "실제 칭찬과 꾸중의 효과는 비교 집단을 둔 실험으로, 실력이 변하는 점까지 넣어 확인해야 해요."
  ],
  "not_en": [
-  "It doesn't mean praise is useless or scolding is better; the model sets the true effect of words to zero.",
+  "It doesn't mean praise is useless or scolding is better. The model sets the true effect of words to zero, so it did not show cases where words do have an effect.",
   "Real effects of praise and scolding need experiments with comparison groups that also allow skill to change."
  ]
 }

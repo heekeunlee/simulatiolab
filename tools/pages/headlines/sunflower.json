@@ -1,1 +1,20 @@
-{"says_ko": ["해바라기 씨가 약 137.5도씩 돌아가며 놓이는 건 씨앗이 빈틈 없이 고르게 차기 때문이라는 설명이 있어요. 이 모델에서 황금각은 훑은 각도 중 상위 0.3% 안이었어요.", "90도나 120도처럼 간단한 분수 각도는 씨앗이 같은 방향으로 겹쳐 쌓여 바큇살과 큰 빈틈이 생겨요. 황금각은 그런 분수에서 가장 멀어서 어느 방향으로도 겹치지 않아요.", "그래서 고르게 채우려면 특정 숫자를 외우기보다 반복되는 겹침을 피하는 게 핵심이고, 0.2도만 어긋나도 간격이 9배쯤 들쭉날쭉해졌어요."], "says_en": ["One explanation for sunflower seeds turning about 137.5 degrees each is that it packs them evenly. In this model the golden angle ranked within the best 0.3% of angles tried.", "Simple-fraction angles like 90 or 120 degrees stack seeds in the same directions, leaving spokes and big gaps. The golden angle is farthest from such fractions, so seeds never line up.", "So even packing is less about one magic number than about avoiding repeated overlaps; being off by just 0.2 degrees made spacing about 9 times more uneven."], "not_ko": ["실제 해바라기가 이 계산으로 만들어진다는 증명은 아니고, 황금각만 잘 채우는 것도 아니에요. 가까운 각도 중에도 비슷하게 좋은 것이 있어요.", "실제 식물에서는 새 씨앗이 빈자리에 생기는 과정이 각도를 정한다는 설명이 있어서, 씨앗이 생기는 순서와 각도를 관찰해 비교해 봐야 해요."], "not_en": ["It does not prove real sunflowers are built by this calculation, and the golden angle is not the only good packer; nearby angles do about as well.", "For real plants, one explanation is that new seeds form in the emptiest spot, which would need checking by observing the order and angles of seeds."]}
+{
+ "says_ko": [
+  "씨앗을 돌려 놓는 각도가 황금각이면 빈틈 없이 고르게 차고, 90도나 120도 같은 간단한 분수 각도면 바큇살과 큰 빈틈이 생겨요. 이 모델에서 빈틈 평균이 0.38 대 2.4~5.0이었어요.",
+  "간단한 분수 각도는 씨앗이 같은 방향으로 겹쳐 쌓여요. 황금각은 그런 분수에서 가장 멀어서 어느 방향으로도 겹치지 않아요. 0.2도만 어긋나도 이웃과의 간격이 약 9배 들쭉날쭉해졌어요.",
+  "고르게 채우는 열쇠는 특정 숫자를 외우는 것보다 반복되는 겹침을 피하는 거예요. 황금각 근처에서는 빈틈 평균은 비슷해도 간격의 균일함은 크게 달랐어요."
+ ],
+ "says_en": [
+  "If seeds turn by the golden angle they pack evenly; at simple-fraction angles like 90 or 120 degrees they leave spokes and big gaps. Here the mean gap was 0.38 versus 2.4 to 5.0.",
+  "Simple-fraction angles stack seeds in the same directions. The golden angle is farthest from them, so seeds never line up. Off by just 0.2 degrees, neighbour spacing got about 9 times more uneven.",
+  "So even packing is about avoiding repeated overlaps more than memorizing one number. Near the golden angle the mean gap was almost the same, yet the evenness of spacing differed greatly."
+ ],
+ "not_ko": [
+  "실제 해바라기가 이 계산으로 만들어진다는 증명은 아니에요. 실제 식물에서는 새 씨앗이 빈자리에 생기는 과정이 각도를 정한다는 설명이 있고, 이 모델은 씨앗의 위치만 계산해요.",
+  "황금각만 잘 채우는 것도 아니에요. 600개일 때 빈틈 평균이 0.5 미만인 각도가 전체의 73%였고, 황금각은 그중에서도 가장 낮은 편이었어요."
+ ],
+ "not_en": [
+  "It does not prove real sunflowers are built by this calculation. One explanation says new seeds form in the emptiest gaps and that sets the angle; this model only computes seed positions.",
+  "The golden angle is not the only good packer. With 600 seeds, 73% of angles had a mean gap under 0.5, and the golden angle was among the lowest of them."
+ ]
+}

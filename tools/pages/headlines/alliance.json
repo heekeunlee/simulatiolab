@@ -1,1 +1,22 @@
-{"says_ko": ["한 발의 총성은 동맹이 어느 만큼 촘촘해지는 순간 갑자기 세계대전급으로 커져요. 이 모델에서는 나라마다 동맹 1~2개부터였어요.", "동맹국이 전쟁에 들어가면 나도 확률로 끌려 들어가고, 새로 들어온 나라의 동맹국이 또 끌려 들어가며 연쇄가 이어져요. 연결이 모자라면 두세 나라에서 끊겨요.", "그래서 충돌이 클지 작을지는 어느 나라가 먼저 쏘았는지보다 동맹이 얼마나 촘촘히 엮였는지에 크게 달려 있을 수 있어요."], "says_en": ["In this model a single shot blows up to world-war scale once alliances get dense enough, starting at about 1-2 allies per country.", "When an ally enters the war, a country may be pulled in by chance, then its allies in turn; with too few links the chain stops after a couple of countries.", "So how big a clash grows may depend more on how tightly alliances are knotted than on which country fired first."], "not_ko": ["실제 전쟁이나 1914년의 사건이 이렇게 일어났다는 뜻도, 어느 나라의 책임을 말하는 것도 아니에요. 나라가 모두 같은 장난감 모델이에요.", "정치·경제·판단이 빠져 있어서, 실제 동맹이 어떻게 작동했는지는 역사 자료로 따로 확인해야 해요."], "not_en": ["It does not say real wars or 1914 happened this way, nor assign responsibility to any country; all countries here are identical toys.", "Politics, economics and decisions are missing, so how real alliances worked must be checked in historical records."]}
+{
+ "says_ko": [
+  "동맹이 성긴 세상에서는 총성이 두세 나라에서 멈추고, 촘촘한 세상에서는 거의 모든 나라로 번져요. 그 사이 어딘가에서 급격히 갈려요.",
+  "나라마다 동맹이 평균 0개면 늘 2개국, 1개면 6.3개국, 2개면 17.4개국, 3개면 22.4개국에서 끝났어요. 한 칸만 넘으면 연쇄가 이어지기 때문이에요.",
+  "같은 동맹 수라도 조약을 약하게 지키면 작게, 잘 지키면 크게 번져요. 누가 먼저 쏘았는지보다 동맹이 얼마나 엮였는지를 먼저 봐야 해요."
+ ],
+ "says_en": [
+  "Where alliances are sparse, a shot stops after two or three countries; where they are dense, it spreads to nearly all. The shift between the two is steep.",
+  "With 0 allies per country on average the war always ended at 2 countries, with 1 it reached 6.3, with 2 it reached 17.4, and with 3 it reached 22.4. Once chains keep going, they run on.",
+  "At the same alliance count, weakly honored treaties keep wars small and well-honored ones let them grow. Look first at how tightly countries are knotted, not at who fired first."
+ ],
+ "not_ko": [
+  "동맹이 얼마나 촘촘해야 커지는지, 조약을 얼마나 지켜야 커지는지는 이 장난감 모델이 정한 숫자예요. 실제 전쟁의 문턱을 알려 주지 않아요.",
+  "실제 전쟁이나 1914년의 사건이 이렇게 일어났다는 뜻도, 어느 나라의 책임을 말하는 것도 아니에요. 나라가 모두 같은 익명의 모델이에요.",
+  "정치·경제·판단이 빠져 있어서, 실제 동맹이 어떻게 작동했는지는 역사 자료로 따로 확인해야 해요."
+ ],
+ "not_en": [
+  "How dense alliances must be, and how well treaties must be honored, to grow a war are numbers this toy model chose. It does not tell the real threshold of any war.",
+  "It does not say real wars or 1914 happened this way, nor assign responsibility to any country; all countries are identical and anonymous.",
+  "Politics, economics and judgment are missing, so how real alliances worked must be checked in historical sources."
+ ]
+}

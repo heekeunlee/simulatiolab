@@ -1,20 +1,22 @@
 {
  "says_ko": [
-  "소수의 단어만 자주 쓰이는 건, 이미 많이 쓴 말이 더 자주 쓰이는 습관만으로도 생길 수 있어요(사이먼의 설명).",
-  "자주 쓴 단어는 글 곳곳에 흩어져 있어 베껴질 기회가 많고, 그러면 더 늘어서, 처음의 작은 차이가 계속 커져요.",
-  "그래서 쏠린 분포를 보면 뜻이나 설계를 찾기 전에, 이런 부익부 되먹임이 있는지 먼저 살펴볼 수 있어요."
+  "이미 쓴 말을 더 베끼면 소수의 단어가 글을 거의 다 채우고, 모든 단어를 똑같이 고르면 그런 쏠림이 훨씬 약해요. 순위-빈도 기울기가 베끼기는 1 근처, 균등 선택은 0.18~0.47이었어요.",
+  "자주 쓴 단어는 글 곳곳에 흩어져 베껴질 기회가 많고 그러면 더 늘어요. 새 단어 확률 3%에선 상위 10개 단어가 글의 약 85%를 차지했어요.",
+  "쏠린 분포를 보면 뜻이나 설계를 찾기 전에, '많이 쓴 게 더 많이 쓰이는' 되먹임이 있는지와 모두가 똑같이 고르는 구조인지로 갈라서 먼저 살펴볼 수 있어요."
  ],
  "says_en": [
-  "Few words dominate because a habit of reusing what was already used often can produce it (Simon's explanation).",
-  "Frequent words are scattered through the text and get copied more, which makes them more frequent, so small early differences keep growing.",
-  "So when you see a skewed distribution, check for this rich-get-richer feedback before looking for meaning or design."
+  "When used words get copied more, a few words fill most of the text; with equal picking the skew is much weaker. The rank-frequency slope was near 1 for copying, 0.18 to 0.47 for equal picking.",
+  "Frequent words are scattered through the text and get copied more, which makes them more frequent. With a 3% chance of a new word, the top 10 words made up about 85% of the text.",
+  "Before seeking meaning or design in a skewed distribution, one can first ask whether a 'used a lot, used more' feedback is at work or everyone picks equally."
  ],
  "not_ko": [
-  "실제 언어가 이렇게 만들어진다는 뜻이 아니에요. 같은 모양을 만드는 설명이 여러 가지이고 문법과 의미는 모델에 없어요.",
+  "'부익부 베끼기로 쏠림이 생긴다'는 이 모델이 보여 준 쪽이에요. 실제 언어가 이렇게 만들어진다는 건 보여 준 게 아니에요. 같은 모양을 만드는 설명이 여러 가지예요.",
+  "이 모델은 1위 단어 하나가 글의 약 77%를 차지해, 실제 언어(영어 'the'는 약 6%)보다 훨씬 쏠려요. 문법과 의미도 없어요.",
   "실제 글에서 단어가 늘어나는 과정을 관찰하고 다른 설명이 만드는 모양과 견주어 봐야 어느 쪽인지 알 수 있어요."
  ],
  "not_en": [
-  "It does not mean real language forms this way; several explanations give the same shape and grammar and meaning are absent.",
+  "That copying with rich-get-richer creates the skew is what the model showed. It did not show that real language forms this way; several explanations give the same shape.",
+  "In this model the single top word makes up about 77% of the text, far more skewed than real language (English 'the' is about 6%). Grammar and meaning are also absent.",
   "Observing how words accumulate in real texts and comparing with other explanations is needed to tell which fits."
  ]
 }

@@ -1,20 +1,20 @@
 {
  "says_ko": [
-  "이 모델에서 출산율이 0.72로 유지되면 2070년 인구는 약 2,940만 명으로 줄고 65세 이상이 54%가 돼요.",
-  "지금 태어나는 아이가 적으면 앞으로 부모가 될 사람도 적어서, 출산율을 올려도 한동안 줄고 나이 든 사람의 비중은 커져요.",
-  "그래서 고령화는 출산율 하나가 아니라 이미 태어난 세대의 크기와 오래 사는 정도가 함께 만든 결과로 볼 수 있어요."
+  "출산율이 낮게 유지되면 크게 줄지만, 2.1로 회복돼도 한동안은 줄어요. 0.72는 2070년 약 2,940만 명, 2.1은 약 4,720만 명이었어요.",
+  "지금 태어나는 아이가 적으면 앞으로 부모가 될 사람도 적어요. 그래서 출산율 숫자는 바로 바뀌어도, 인구와 나이 구성은 수십 년에 걸쳐 천천히 따라와요.",
+  "0.72가 이어지면 2070년에 65세 이상이 54%예요. 고령화는 출산율 하나가 아니라 이미 태어난 세대의 크기와 오래 사는 정도가 함께 만든 결과로 볼 수 있어요."
  ],
  "says_en": [
-  "In this model, if the fertility rate stays at 0.72, the 2070 population falls to about 29.4 million, with 54% aged 65 or older.",
-  "Fewer babies now means fewer future parents, so even a higher fertility rate keeps the population shrinking for a while and the older share grows.",
-  "So aging can be seen as made together by the size of generations already born and by longer lives, not by fertility alone."
+  "If fertility stays low the population falls sharply, but even at replacement (2.1) it shrinks for a while: about 29.4 million in 2070 at 0.72, 47.2 million at 2.1.",
+  "Fewer babies now means fewer future parents. So the fertility number can change at once, but population and age structure follow slowly, over decades.",
+  "If 0.72 continues, 54% are 65 or older in 2070. Aging can be seen as made together by the size of generations already born and by longer lives, not by fertility alone."
  ],
  "not_ko": [
   "통계청의 공식 추계도 미래 예측도 아니고, 어떤 정책이 옳은지도 말하지 않아요.",
-  "출산율을 고정했고 이민·정책 효과는 평가하지 않아서, 공식 추계와 비교하며 가정을 따로 확인해야 해요."
+  "출산율을 고정했고 이민·정책 효과는 평가하지 않아서, 공식 추계와 숫자가 달라요. 가정은 공식 추계와 비교하며 따로 확인해야 해요."
  ],
  "not_en": [
   "This is neither an official Statistics Korea projection nor a forecast, and it takes no side on which policy is right.",
-  "Fertility is held fixed and immigration and policy effects are not evaluated, so the assumptions must be checked against official projections."
+  "Fertility is held fixed and immigration and policy effects are not evaluated, so the numbers differ from official projections. The assumptions must be checked against them."
  ]
 }

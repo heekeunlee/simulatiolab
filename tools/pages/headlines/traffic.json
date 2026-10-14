@@ -1,1 +1,20 @@
-{"says_ko": ["사고도 공사도 없이 막히는 건, 누군가 잠깐 브레이크를 밟은 것이 뒤차로 번지기 때문일 수 있다는 걸 이 모델이 보여 줘요.", "도로가 어느 정도 차 있으면 앞차가 줄인 속도를 뒤차가 이어받아 정체가 되고, 정체는 차와 반대로 뒤쪽으로 밀려나요.", "그래서 막힌 곳에 가 보면 이유가 없어 보여도, 원인이 된 차는 이미 앞서 가고 모두가 규칙을 지켜도 정체는 생길 수 있어요."], "says_en": ["This model shows a jam with no accident or roadwork can come from one driver briefly braking and the effect spreading backward.", "When the road is fairly full, each car inherits the slowdown ahead and a jam forms, drifting backward against the traffic flow.", "So the cause has already driven off by the time you reach the jam, and everyone following the rules can still produce one."], "not_ko": ["실제 도로의 모든 정체가 이 때문이라는 뜻은 아니에요. 사고·병목·신호가 빠진 단순한 고리 도로예요.", "실제 정체 중 이런 유형이 얼마나 되는지는 도로 관측 자료로 따로 확인해야 해요."], "not_en": ["It does not mean every real jam is like this; this is a simple ring road without accidents, bottlenecks or signals.", "How much real congestion is of this type must be checked against road observation data."]}
+{
+ "says_ko": [
+  "차가 드물고 운전이 매끄러우면 정체가 없지만, 차가 어느 정도 차고 가끔 브레이크를 밟으면 사고 없이도 정체가 생겨요.",
+  "브레이크를 전혀 안 밟으면 밀도 약 17%까지 정체가 없었는데, 25% 확률로 속도를 줄이면 밀도 15%에서 이미 정체가 나타났고 정지한 차가 13%였어요.",
+  "막힌 곳에 가 보면 이유가 없어 보여도, 처음 브레이크를 밟은 차는 이미 앞서 갔을 수 있어요. 정체는 차와 반대로 뒤쪽으로 밀려나요."
+ ],
+ "says_en": [
+  "When cars are sparse and driving is smooth there is no jam, but once the road is fairly full and drivers brake now and then, jams form without any accident.",
+  "With no random braking there was no jam up to a density of about 17%, but with a 25% chance of slowing, a jam already appeared at 15% density, with 13% of cars stopped.",
+  "At a jam with no visible reason, the car that first braked may already have driven on. The jam drifts backward, against the traffic."
+ ],
+ "not_ko": [
+  "'브레이크 몇 번이면 정체가 생긴다'는 건 이 모델이 보여 준 쪽이에요. 실제 도로의 정체 중 이런 유형이 얼마나 되는지는 도로 관측 자료로 따로 확인해야 해요.",
+  "사고·병목·신호·차선 변경이 빠진 한 차선 고리 도로예요. 실제 도로의 모든 정체가 이 때문이라는 뜻은 아니에요."
+ ],
+ "not_en": [
+  "That a bit of braking can create a jam is what the model showed. How much real congestion is of this type must be checked against road observation data.",
+  "This is a single-lane ring road without accidents, bottlenecks, signals or lane changes. It does not mean every real jam works this way."
+ ]
+}

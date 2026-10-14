@@ -1,20 +1,22 @@
 {
  "says_ko": [
-  "착한 사람이 살아남는지는 '다시 만나는가'와 '실수를 넘겨 주는가'에 달렸어요. 이 모델에서 한두 번만 보는 사이에서는 배신이 거의 전부를 차지했어요.",
-  "같은 사람을 여러 번 만나면 배신해서 얻는 이득이 다음 만남에서 깎여요. 그런데 실수가 잦으면 서로 보복하는 연쇄에 빠지고, 용서하는 쪽이 더 많이 남아요.",
-  "그래서 협력은 착한 마음만의 문제가 아니라 만남이 이어지는 구조와 서로의 실수를 넘기는 여유로 지켜질 수 있다고 볼 수 있어요."
+  "한두 번 만나는 사이에서는 배신이 거의 전부를 차지하고, 여러 번 만나는 사이에서는 협력이 퍼져요. 이 모델에서 협력률이 3%에서 5판부터 90%로 올랐어요.",
+  "그런데 여러 번 만나도 실수가 없으면 협력이 99%로 버티지만, 실수가 10%면 11%로 무너져요. 실수 하나가 보복의 연쇄로 이어지기 때문이에요.",
+  "실수가 있을 땐 맞받아치기(17%)보다 너그러운 쪽(37%)과 파블로프(25%)가 더 남았어요(실수 5%). 협력은 마음씨보다 만남이 이어지는지와 실수를 넘기는 여유로 갈려요."
  ],
  "says_en": [
-  "Whether nice people survive depends on meeting again and on forgiving mistakes. In this model, in one- or two-time encounters, betrayal took almost everything.",
-  "When you meet the same person repeatedly, betraying gets punished later. But frequent mistakes trigger chains of retaliation, and the forgiving strategies lasted longer.",
-  "So cooperation can be kept alive not only by good hearts but by relationships that continue and by room to forgive each other's slips."
+  "In one- or two-time meetings betrayal takes almost everything; in repeated meetings cooperation spreads. In this model cooperation rose from 3% to 90% from five rounds on.",
+  "Even with repeated meetings, with no mistakes cooperation held at 99%, but at a 10% mistake rate it collapsed to 11%. One slip sets off a chain of retaliation.",
+  "With mistakes (5%), forgiving tit-for-tat (37%) and Pavlov (25%) outlasted plain tit-for-tat (17%). Cooperation turns less on kindness than on continued meetings and room to forgive."
  ],
  "not_ko": [
-  "착한 사람이 항상 이긴다는 뜻은 아니에요. 점수표와 따라 하는 규칙은 이 모델이 정한 값이에요.",
-  "현실의 평판·소문·법과 제도가 협력을 얼마나 지키는지는 실제 사례를 관찰해 따로 확인해야 해요."
+  "착한 사람이 항상 이긴다는 뜻이 아니에요. 점수표와 따라 하는 규칙은 이 모델이 정한 값이고, 판 수가 아주 길면 결과가 실행마다 크게 갈려요.",
+  "'맞받아치기가 가장 강하다'는 교과서 결과가 이 설정에서는 그대로 나오지 않았어요. 착하게 살라는 처방이 아니라 협력이 유지되는 조건을 보는 실험이에요.",
+  "현실의 평판·소문·법과 제도는 이 모델에 없어요. 협력을 얼마나 지키는지는 실제 사례를 관찰해 따로 확인해야 해요."
  ],
  "not_en": [
-  "It doesn't mean nice people always win; the payoff table and imitation rule are set by the model.",
-  "How much reputation, gossip, laws and institutions protect cooperation in reality must be checked against real cases."
+  "It does not mean nice people always win. The payoff table and imitation rules are this model's own choices, and with very long games results differ widely between runs.",
+  "The textbook result that tit-for-tat is strongest did not come out as is in this setup. This is not advice to be kind; it examines the conditions under which cooperation lasts.",
+  "Real reputation, rumor, law and institutions are not in the model. How well they protect cooperation must be checked against real cases."
  ]
 }

@@ -1,1 +1,20 @@
-{"says_ko": ["농사는 '늘어나는 속도'와 '흩어지는 정도' 두 가지만 있어도 일정한 속도로 번질 수 있다는 걸 이 모델이 보여 줘요.", "농부가 자기 땅에서 늘고 이웃 땅으로 조금씩 퍼지면, 앞쪽 끝이 쉬지 않고 밀려가 약 천 년 만에 지도를 덮어요.", "그래서 한 해 1킬로미터쯤의 느린 걸음도 오래 이어지면 대륙을 건널 수 있고, 산이나 바다는 이를 늦춰요."], "says_en": ["This model shows farming can spread at a steady speed with just two ingredients: how fast farmers grow and how far they disperse.", "Farmers multiply in their own cell and drift into neighbouring ones, so the front keeps advancing and covers the map in about a thousand years.", "So a slow pace of about 1 km a year, if sustained, can cross a continent, and mountains or straits slow it down."], "not_ko": ["실제 유럽의 농경 전파를 재현한 것이 아니에요. 지도와 수치는 추상적으로 정한 값이에요.", "퍼진 것이 사람의 이주인지 기술의 전파인지는 지금도 논쟁 중이라, 고고학·유전자 증거로 따로 확인해야 해요."], "not_en": ["It does not reproduce the real spread of farming in Europe; the map and numbers are abstract choices.", "Whether people migrated or ideas spread is still debated, and needs archaeological and genetic evidence."]}
+{
+ "says_ko": [
+  "한 해에 1킬로미터쯤의 느린 걸음도 천 년을 이어 가면 지도 전체를 덮고, 산이나 해협을 만나면 그만큼 늦어져요. 이 모델에서 평지는 975년, 해협은 1,095년, 산맥은 1,130년이 걸렸어요.",
+  "농부가 자기 땅에서 늘고 이웃 칸으로 조금씩 흩어지는 두 가지만으로도, 앞쪽 끝이 일정한 속도로 밀려가요. 산맥 안에서는 속도가 평지의 약 3분의 1로 줄었지만 멈추진 않았어요.",
+  "수렵채집민과 섞는 비율을 0에서 100%로 올리면 속도가 연 0.97에서 1.19킬로미터로 조금 빨라졌어요. 속도는 늘어남과 흩어짐이 거의 정하고, 섞임은 조금만 더했어요."
+ ],
+ "says_en": [
+  "Even a slow pace of about 1 km a year, sustained for a thousand years, covers the whole map, and mountains or straits delay it. Here flat land took 975 years, the strait 1,095 and the mountains 1,130.",
+  "Just two rules, farmers growing in their own cell and drifting to neighbours, push the front on at a steady speed. In mountains the speed fell to about a third of flat land but did not stop.",
+  "Raising the mixing rate with hunter-gatherers from 0 to 100% sped the front up a little, from 0.97 to 1.19 km a year. Growth and dispersal set most of the speed; mixing added only a bit."
+ ],
+ "not_ko": [
+  "퍼진 것이 사람의 이주인지 기술과 생각의 전파인지는 이 모델이 가려 주지 않아요. 지금도 논쟁 중이라 고고학·유전자 증거로 따로 확인해야 해요.",
+  "실제 유럽의 농경 전파를 재현한 것이 아니에요. 지도와 수치는 추상적으로 정한 값이고, 토착민 후손의 몫도 실제 혈통에 대한 주장이 아니에요."
+ ],
+ "not_en": [
+  "Whether people migrated or ideas and technology spread is not something this model settles. It is still debated and needs archaeological and genetic evidence.",
+  "It does not reproduce the real spread of farming in Europe. The map and numbers are abstract choices, and the hunter-gatherer descendant share is no claim about real ancestry."
+ ]
+}

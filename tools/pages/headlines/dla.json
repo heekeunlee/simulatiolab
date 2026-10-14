@@ -1,20 +1,22 @@
 {
  "says_ko": [
-  "번개, 산호, 눈송이가 닮은 건 가지가 갈라지는 성장 방식이 같기 때문일 수 있다는 설명이 있어요(DLA 모델).",
-  "떠돌던 입자가 닿으면 붙는데, 튀어나온 끝에 먼저 닿고 안쪽 틈은 가려져서 가지가 갈라지며 성긴 모양이 돼요.",
-  "재료가 달라도 모양을 같은 원리로 설명해 볼 수 있고, 붙는 확률을 낮추면 더 촘촘해져 모양이 달라져요."
+  "덩어리의 바깥 끝에는 입자가 잘 붙고 안쪽 틈에는 거의 안 붙어서 가지가 뻗어요. 마지막에 붙은 300개 중 57%는 바깥 30%에, 안쪽 절반에는 9%만 붙었어요.",
+  "가지가 길어지면 끝은 더 튀어나와 더 잘 붙고, 틈은 더 가려져요. 붙는 확률이 100%일 땐 원의 9%만 채워진 성긴 모양이고, 5%로 낮추면 26%가 채워진 촘촘한 모양이에요.",
+  "그래서 성긴 가지 모양을 보면 '끝만 자라는 방식'을, 촘촘한 덩어리를 보면 '붙기 전에 움직여 안쪽까지 들어가는 방식'을 떠올려 볼 수 있어요."
  ],
  "says_en": [
-  "One explanation (the DLA model) says lightning, coral and snowflakes look alike because they grow branches in a similar way.",
-  "Drifting particles stick on contact; tips are hit first and inner gaps are shielded, so branches split into a sparse shape.",
-  "Different materials can be explained by one principle, and lowering the sticking probability makes the shape denser."
+  "Particles stick at the outer tips and rarely in inner gaps, so branches reach out. Of the last 300 to attach, 57% landed in the outer 30%, only 9% in the inner half.",
+  "As branches lengthen, tips stick out more and gaps get more shielded. At 100% sticking only 9% of the circle is filled (sparse); at 5% sticking, 26% is filled (dense).",
+  "So a sparse branching shape can make you think of 'only the tips keep growing', and a dense clump of 'particles wandering inside before they stick'."
  ],
  "not_ko": [
-  "번개, 눈송이, 산호가 실제로 이렇게 생긴다는 걸 증명하지 않아요. 눈으로 닮았다는 것뿐이에요.",
-  "실제 현상은 각자 다른 물리나 생물 과정이 있어서, 확산과 붙는 과정을 재서 모양과 견주어 봐야 해요."
+  "이 시뮬레이션이 직접 보여 준 건 '끝은 자라고 틈은 가려진다'와 '붙는 확률을 낮추면 촘촘해진다'예요. 번개·산호·눈송이가 같은 원리로 자란다는 건 생각해 볼 점이고 보여 준 게 아니에요.",
+  "'붙는 확률을 낮추면 촘촘해진다'는 입자 수가 유한해서 생긴 효과가 섞여 있어요. 아주 크게 키워도 같은지는 이 페이지에서 확인하지 않았어요.",
+  "실제 번개·눈송이·산호는 각자 다른 물리나 생물 과정이 있어서, 확산과 붙는 과정을 재서 모양과 견주어 봐야 해요."
  ],
  "not_en": [
-  "It does not prove these things really form this way; the likeness is only visual and statistical.",
-  "Real cases have their own physics or biology, so their diffusion and sticking must be measured and compared with the shapes."
+  "The simulation directly showed that tips grow while gaps are shielded, and that lower sticking is denser. That lightning, coral and snowflakes grow by one principle is only a point to think about.",
+  "The 'lower sticking gives a denser shape' result is mixed with an effect of the finite particle count. This page did not check whether it holds when grown much larger.",
+  "Real lightning, snowflakes and coral have their own physics or biology, so their diffusion and sticking must be measured and compared with the shapes."
  ]
 }

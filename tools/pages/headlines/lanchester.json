@@ -1,20 +1,20 @@
 {
  "says_ko": [
-  "겨누어 쏘는 싸움에서는 병력이 2배면 힘이 4배가 된다는 게 이 법칙의 결과예요. 이 모델에서도 그렇게 나왔어요.",
-  "병력 전체가 상대 아무에게나 쏘면 수가 많을수록 상대가 더 빨리 줄고, 상대가 줄수록 내가 덜 맞아요. 그래서 힘이 모이면 제곱으로 커지고, 반씩 나뉘어 차례로 오면 하나씩 각개격파돼요.",
-  "그래서 숫자만 볼 게 아니라 싸움이 일대일인지 전체가 맞붙는지, 힘이 모이는지 나뉘는지를 같이 봐야 한다고 볼 수 있어요. 일대일 맞붙기로 바꾸면 2배는 2배일 뿐이에요."
+  "모두가 서로 겨누어 쏘면 병력 2배가 힘 4배가 되고, 일대일로 맞붙으면 2배는 2배일 뿐이에요. 200 대 100에서 겨누어 쏘면 처음의 약 86%가 남았고, 일대일이면 약 50%였어요.",
+  "모두가 쏘는 싸움은 많을수록 상대가 빨리 줄고 내가 덜 맞아서 이득이 눈덩이처럼 커져요. 일대일은 한 번에 한 명씩만 상대하니 수가 힘으로 곱해지지 않아요.",
+  "130 대 100에서 130이 모여 싸우면 평균 64%가 남았지만, 반씩 나뉘어 차례로 오면 300번 중 84%에서 100 쪽이 이겼어요. 숫자와 함께 모이는지 나뉘는지를 같이 보면 돼요."
  ],
  "says_en": [
-  "In aimed-fire combat, doubling the force quadruples its strength; that is the law's result, and this model reproduces it.",
-  "When the whole force shoots at anyone on the other side, more numbers shrink the enemy faster, so you get hit less. Concentrated force grows by the square; a force split in two arrives piecemeal and is beaten one half at a time.",
-  "So it's not just the headcount: whether the fight is one-on-one or all-against-all, and whether forces concentrate or split, matters too. In one-on-one fighting, double is just double."
+  "When everyone can fire at anyone, double the troops is four times the strength; one-on-one, double is only double. At 200 vs 100, about 86% were left standing versus about 50%.",
+  "In all-fire fights a bigger side shrinks the enemy faster and so takes fewer hits, and the edge snowballs. In one-on-one, each fighter faces only one, so numbers do not multiply.",
+  "At 130 vs 100, the 130 massed left 64% on average, but arriving in two halves, the 100 won in 84% of 300 runs. Look at whether forces gather or split, not just at the count."
  ],
  "not_ko": [
   "실제 전투를 재현하거나 승패를 예측한 것이 아니고, 파랑과 빨강은 어떤 실제 집단도 가리키지 않아요.",
-  "지형·사기·보급 같은 빠진 요소와 역사 사례에 이 법칙이 얼마나 맞는지는 자료를 따로 대조해야 하고, 역사가들 사이에서도 논쟁이 있어요."
+  "지형·사기·보급·전술이 빠져 있어요. 역사 사례에 이 법칙이 얼마나 맞는지는 자료를 따로 대조해야 하고 역사가들 사이에서도 논쟁이 있어요."
  ],
  "not_en": [
-  "It doesn't reproduce real battles or predict outcomes, and blue and red stand for no real group.",
-  "How well the law fits history, with terrain, morale and supply left out, needs separate checking against records, and historians debate it."
+  "It does not recreate a real battle or predict who wins, and blue and red stand for no real group.",
+  "Terrain, morale, supply, and tactics are missing. How well the law fits historical cases has to be checked against sources, and historians themselves dispute it."
  ]
 }

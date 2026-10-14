@@ -1,1 +1,20 @@
-{"says_ko": ["반딧불이가 동시에 깜빡이는 건, 서로의 불빛을 보고 자기 박자를 조금씩 맞추다 보면 지휘자 없이도 한 박자가 되기 때문이라는 설명이 있어요.", "옆 반딧불이가 반짝이는 걸 보면 자기 시계를 살짝 앞당겨요. 이게 이어지면 박자 차이가 줄어들어 모두 같은 순간에 반짝이게 돼요.", "서로 영향을 주는 정도가 어느 선을 넘고 볼 수 있는 범위가 충분하면 이 모델에서 갑자기 하나로 맞춰졌어요. 개체마다 박자가 다를수록 덜 맞아요."], "says_en": ["One explanation is that fireflies flash together because each one nudges its own rhythm toward the flashes it sees, so a shared beat emerges with no conductor.", "When a neighbor flashes, a firefly moves its own clock slightly ahead. Repeated over many flashes, timing gaps shrink until all flash at the same moment.", "In this model they snapped into sync once the nudging passed a threshold and the viewing range was wide enough. The more their natural rhythms differed, the weaker the sync."], "not_ko": ["실제 반딧불이가 이렇게 박자를 맞춘다는 증명은 아니에요. 동기화하는 종은 일부이고, 빛의 세기나 학습 같은 건 이 모델에 없어요.", "확인하려면 실제 종의 깜빡임 간격과 서로 보는 거리를 관찰해, 모델의 가정과 맞는지 봐야 해요."], "not_en": ["It does not prove real fireflies sync this way. Only some species do, and light intensity or learning are not in the model.", "To check, you would observe a real species' flash intervals and viewing distances and compare them with the model's assumptions."]}
+{
+ "says_ko": [
+  "서로 맞추는 힘이 약하면 제각각 깜빡이고, 어느 선을 넘으면 갑자기 한 박자가 돼요. 이 모델에선 맞추는 힘이 0이면 동기화 정도 0.06, 기본 설정에선 0.87이었어요(1이 완전한 일치).",
+  "옆 반딧불이가 반짝이는 걸 볼 때마다 자기 시계를 살짝 앞당겨서, 박자 차이가 조금씩 줄다가 어느 순간 한꺼번에 모여요. 볼 수 있는 이웃 범위가 좁으면 덜 맞아요.",
+  "박자가 서로 같으면 완전히 한 박자(1.00)가 되고, 박자 차이가 클수록 불완전해요. 한 박자의 모습은 지휘자 없이 서로 영향을 주는 정도에서 나올 수 있어요."
+ ],
+ "says_en": [
+  "Weak mutual adjustment leaves them flashing out of step; past a threshold they suddenly lock into one beat. In this model synchrony was 0.06 with no adjustment and 0.87 by default (1 is perfect).",
+  "Each firefly nudges its own clock ahead whenever a neighbor flashes, so differences shrink bit by bit and then gather all at once. If it can see only a narrow circle of neighbors, it syncs less.",
+  "With identical rhythms they reach one perfect beat (1.00); the more their natural rhythms differ, the less complete it gets. A shared beat can emerge from mutual influence, with no conductor."
+ ],
+ "not_ko": [
+  "이 시뮬레이션이 직접 보여 준 건 모델 속 시계의 동기화예요. 실제 반딧불이가 이렇게 박자를 맞춘다는 증명은 아니고, 동기화하는 종은 일부예요.",
+  "빛의 세기, 거리에 따른 시야, 학습은 이 모델에 없고 특정 관측 자료에 맞춘 것도 아니에요. 실제 종의 깜빡임 간격과 서로 보는 거리를 관찰해 가정과 맞는지 봐야 해요."
+ ],
+ "not_en": [
+  "What the simulation showed directly is the synchronization of clocks in the model. It is not proof that real fireflies do this, and only some species synchronize.",
+  "Light intensity, view distance, and learning are not in the model, and it is not fitted to any observation. You would observe a real species' flash intervals and viewing distances to compare."
+ ]
+}

@@ -20,8 +20,8 @@ CATS = [
   ('dating', T('매칭·탐색 모델', 'Matching &amp; search model'), T('눈을 낮추면 짝을 찾을까', 'Does Lowering Your Standards Help You Find a Match?'), T('서로 동의해야 맺어지는 시장에서 눈높이가 짝 찾는 시간에 미치는 영향을 봐요.', 'See how aspiration level affects the time to find a partner in a market where both sides must agree.')),
   ('friendship', T('관계망 성장 모델', 'Growing social network model'), T('내 친구들은 왜 나보다 친구가 많을까', 'Why Do My Friends Have More Friends Than I Do?'), T('인기 있는 사람은 많은 친구 목록에 등장해요. 사람을 눌러 확인해 보세요.', 'Popular people appear on many friend lists. Click a person to check.')),
  ]),
- ('success', '#e0a100', '💰', T('성공과 불평등', 'Success &amp; Inequality'), T('운과 재능, 부와 인기는 왜 소수에게 쏠릴까?', 'Why do luck, talent, wealth and popularity pile up in a few hands?'), [
-  ('talent-vs-luck', T('Talent vs Luck 모델', 'Talent vs Luck model'), T('성공은 재능일까, 운일까?', 'Is Success Talent or Luck?'), T('재능은 평균 근처에 모여 있는데 부는 왜 몇 사람에게 쏠릴까요? 최고 부자는 정말 최고 재능자일까?', 'Talent clusters around the average, so why does wealth pile up in a few hands? Is the richest person really the most talented?')),
+ ('success', '#e0a100', '💰', T('성공과 불평등', 'Success &amp; Inequality'), T('운과 노력, 부와 인기는 왜 소수에게 쏠릴까?', 'Why do luck, effort, wealth and popularity pile up in a few hands?'), [
+  ('talent-vs-luck', T('Talent vs Luck 모델', 'Talent vs Luck model'), T('성공은 노력일까, 운일까?', 'Is Success Effort or Luck?'), T('노력은 평균 근처에 모여 있는데 부는 왜 몇 사람에게 쏠릴까요? 최고 부자는 정말 최고 노력자일까?', 'Effort clusters around the average, so why does wealth pile up in a few hands? Is the richest person really the highest-effort person?')),
   ('wealth', T('야드세일 교환 모델', 'Yard-sale exchange model'), T('부의 쏠림', 'Wealth Concentration'), T('모든 거래가 동전 던지기처럼 공정해도 부는 쏠릴까? 얼마나 나누면 막을 수 있을까?', 'Even if every trade is as fair as a coin flip, does wealth concentrate? How much sharing does it take to stop it?')),
   ('youtube', T('선호적 연결 모델', 'Preferential attachment model'), T('유튜브는 왜 상위 1%만 뜰까', 'Why Do Only the Top 1% of YouTubers Break Through?'), T('좋은 콘텐츠가 이길까, 먼저 뜬 채널이 이길까? 같은 채널로 시작한 평행우주를 비교해요.', 'Does good content win, or do channels that broke out first keep winning? Compare parallel universes that start with the same channels.')),
  ]),
@@ -143,7 +143,7 @@ for _cat in CATS:
             _items[_k] = (_slug, _m, T(_j['title_ko'], _j['title_en']) if 'title_ko' in _j else _t, T(_j['desc_ko'], _j['desc_en']) if 'desc_ko' in _j else _d)
 
 META = {
- 'talent-vs-luck': ('Tl', T('재능 vs 운', 'Talent vs Luck'), 'bars'),
+ 'talent-vs-luck': ('Tl', T('노력 vs 운', 'Effort vs Luck'), 'bars'),
  'wealth': ('Ws', T('부의 쏠림', 'Wealth'), 'stairs'),
  'youtube': ('Yt', T('유튜브 쏠림', 'Creators'), 'rise'),
  'schelling': ('Sc', T('끼리끼리', 'Segregation'), 'grid'),

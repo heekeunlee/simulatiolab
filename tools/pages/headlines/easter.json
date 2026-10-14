@@ -1,20 +1,20 @@
 {
  "says_ko": [
-  "이 모델에서 섬이 무너지는 모습은, 사람이 숲의 상태에 늦게 반응해 균형을 지나쳐 늘어났다가 줄어드는 데서 나와요.",
-  "아이가 자라 일손이 되기까지 시간이 걸려서 인구는 숲이 이미 줄어든 뒤에야 꺾이고, 그때는 숲이 못 받쳐 줘 많이 줄어요.",
-  "그래서 정점의 높이보다 반응이 얼마나 늦는지가 중요할 수 있고, 벌채를 줄여도 줄어드는 비율은 거의 같았어요."
+  "인구가 천천히 늘면 거의 안 줄고, 빠르게 늘면 정점을 찍은 뒤 크게 무너져요. 증가 속도 4%면 정점의 92%, 5%면 13%였어요.",
+  "아이가 일손이 되기까지 시간이 걸려 인구는 숲이 이미 줄어든 뒤에야 꺾여요. 반응이 빠를수록 덜 지나치고, 늦을수록 더 크게 줄어요.",
+  "벌채를 줄이면 섬이 감당하는 인구의 크기만 바뀌고 줄어드는 비율은 거의 같았어요. 크기는 벌채가, 무너지는 모양은 속도와 지연이 갈라요."
  ],
  "says_en": [
-  "In this model, the collapse comes from people reacting late to the forest, overshooting the balance, then shrinking.",
-  "Children take time to become workers, so the population turns down only after the forest is already thinner, and the forest can no longer support it.",
-  "So how late the reaction is may matter more than the peak height, and cutting less changed the size of the drop very little."
+  "When population grows slowly it barely falls; when it grows fast it collapses after the peak. At a 4% growth rate it kept 92% of its peak, at 5% only 13%.",
+  "Children take time to become workers, so population turns down only after the forest has thinned. The faster the reaction, the less overshoot; the later, the bigger the drop.",
+  "Cutting less changed only the size of the population the island supports, not the share that falls. Cutting sets the size; speed and delay set the shape of the collapse."
  ],
  "not_ko": [
-  "실제 이스터섬에서 무슨 일이 있었는지 설명하거나 판정하지 않아요. 이런 구조가 가능하다는 것만 보여 줘요.",
-  "쥐, 질병, 외부 접촉 등 연구자마다 해석이 갈리는 요인은 모델에 없어서, 고고학 자료와 따로 맞춰 봐야 해요."
+  "실제 이스터섬에서 무슨 일이 있었는지 설명하거나 판정하지 않아요. 이런 되먹임 구조가 가능하다는 것만 보여 줘요.",
+  "쥐, 질병, 외부 접촉처럼 연구자마다 해석이 갈리는 요인은 모델에 없고 숫자는 예시예요. 고고학 자료와 따로 맞춰 봐야 해요."
  ],
  "not_en": [
-  "It does not explain or judge what really happened on Easter Island; it only shows this structure is possible.",
-  "Rats, disease and outside contact, which researchers interpret differently, are absent, so archaeological evidence is needed separately."
+  "It does not explain or judge what really happened on Easter Island; it only shows this feedback structure is possible.",
+  "Rats, disease and outside contact, which researchers interpret differently, are absent, and the numbers are examples. Archaeological evidence must be checked separately."
  ]
 }

@@ -367,3 +367,10 @@ span.popt { cursor: default; }
 .callout .cmore > summary:focus-visible { outline: 3px solid color-mix(in srgb, var(--accent) 45%, transparent); outline-offset: 2px; }
 .callout .cfull { margin: 10px 0 0; font-size: 14.5px; line-height: 1.75; color: color-mix(in srgb, var(--text) 85%, #fff); }
 .callout .cfull > b:first-child { display: none; }
+
+/* 시뮬레이션 화면 범례 (talent-vs-luck 등): 기호 + 설명 */
+.wlegend { list-style: none; margin: 8px 0 4px; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: var(--text); }
+.wlegend li { display: inline-flex; align-items: center; gap: 6px; }
+.wlegend .wg { display: inline-block; min-width: 16px; text-align: center; font-weight: 700; line-height: 1; }
+.wlegend .wg.badge { border: 2px solid; border-radius: 50%; width: 20px; height: 20px; min-width: 20px; font-size: 9px; display: inline-flex; align-items: center; justify-content: center; background: #fff; }
+.wlegend .wg.ring { border: 2.5px solid; border-radius: 50%; width: 16px; height: 16px; background: #fff; }

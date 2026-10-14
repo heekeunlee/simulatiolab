@@ -1,1 +1,22 @@
-{"says_ko": ["어떤 사회를 고를지는 위험을 얼마나 싫어하느냐에 갈려요. 이 모델에서는 싫어할수록 승자독식에서 평등 사회로 선택이 바뀌었어요.", "덜 싫어하면 평균 소득을, 더 싫어하면 가장 가난한 자리의 소득을 봐요. 평등할수록 평균이 낮다는 가정 때문에 서로 다른 사회를 가리켜요.", "그래서 같은 베일 뒤에서도 의견이 갈리는 건, 규칙 자체보다 위험을 어떻게 보고 어떤 가정을 두느냐 때문일 수 있다고 볼 수 있어요."], "says_en": ["Which society you pick without knowing your place depends on risk aversion; in this model, the more risk-averse, the more the choice shifted toward equality.", "The less risk-averse look at average income, the more risk-averse at the poorest seat; with incomes assumed lower when more equal, they point to different societies.", "So even behind the same veil, disagreement may come from how risk is viewed and which assumptions are made, more than from the rule itself."], "not_ko": ["어느 사회가 정의로운지에 답하거나 롤스나 하사니 중 한쪽을 편드는 모델이 아니에요. 결과는 소득 숫자와 효용 함수에 달려 있어요.", "다른 소득 가정이나 확률 가정에서도 같은지, 노력·책임·권리 같은 다른 쟁점은 어떤지는 따로 살펴봐야 해요."], "not_en": ["It does not say which society is just or side with Rawls or Harsanyi; results depend on the assumed incomes and utility function.", "Whether the same holds under other income or probability assumptions, and what effort, responsibility and rights add, must be examined separately."]}
+{
+ "says_ko": [
+  "위험을 덜 싫어하면 승자독식 사회를, 많이 싫어하면 평등한 사회를 골라요. 그 사이에서는 가파른 격차, 완만한 격차, 안전망 사회 순으로 바뀌어요.",
+  "덜 싫어하는 쪽은 평균 소득을, 더 싫어하는 쪽은 가장 가난한 자리의 소득을 봐요. 승자독식 사회는 평균 110.4에 최소 6이고, 평등 사회는 평균도 최소도 50이에요.",
+  "같은 베일 뒤에서도 의견이 갈리는 건, 규칙보다 위험을 어떻게 보느냐 때문일 수 있어요. 평균을 보는 눈과 최악을 보는 눈이 서로 다른 사회를 가리켜요."
+ ],
+ "says_en": [
+  "Those less averse to risk choose a winner-take-all society; those more averse choose an equal one. In between, the choice shifts through steep, gentle-gap and safety-net societies.",
+  "The less averse look at average income, the more averse at the poorest seat. The winner-take-all society averages 110.4 with a minimum of 6; the equal society is 50 on both.",
+  "Even behind the same veil, disagreement may come from how risk is viewed more than from the rule. Looking at the average and looking at the worst case point to different societies."
+ ],
+ "not_ko": [
+  "위험을 싫어하는 정도에 따라 선택이 갈리는 건 이 모델이 가정한 소득 숫자 안에서 보여 준 거예요. 실제 사람들이 이렇게 고른다는 건 직접 보여 준 게 아니라 생각해 볼 점이에요.",
+  "어느 사회가 정의로운지에 답하거나 롤스나 하사니 중 한쪽을 편드는 모델이 아니에요. '평등할수록 평균이 낮다'는 가정도 이 모델이 정한 거예요.",
+  "노력·책임·권리 같은 다른 쟁점과 다른 소득 가정에서도 같은지는 따로 살펴봐야 해요."
+ ],
+ "not_en": [
+  "That choices split by risk aversion was shown within the income numbers this model assumed. That real people choose this way is not something it showed directly; it is a point to think about.",
+  "It does not say which society is just or side with Rawls or Harsanyi. The assumption that more equal means lower average is also set by this model.",
+  "Whether the same holds with issues like effort, responsibility and rights, or under other income assumptions, must be examined separately."
+ ]
+}

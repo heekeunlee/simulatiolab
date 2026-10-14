@@ -1,1 +1,20 @@
-{"says_ko": ["솔직하게 적으면 손해일 수 있는 건 '1지망에서 바로 확정하는' 보스턴 방식이에요. 이 모델에서 이득 보는 아이가 43%였고 다른 세 방식은 0%였어요.", "1지망에서 정원이 차면 자리가 바로 굳어지니, 될 만한 곳을 앞에 적는 아이가 유리해져요. 그래서 목록이 마음의 순서가 아니라 눈치 싸움이 돼요.", "그래서 배정 방식을 볼 때는 결과 숫자뿐 아니라 솔직하게 적어도 손해 없는 구조인지도 함께 보면, 같은 아이들이어도 방식이 만드는 차이가 보여요."], "says_en": ["Honesty can cost you under the Boston method, where seats lock in at the 1st round: 43% of children gained by misreporting here, versus 0% under the other three methods.", "Once a seat fills at the 1st round it is final, so listing a likely choice first pays off. The list then turns from true preference into a guessing game.", "So when judging an assignment method, look at whether honest reporting is safe, not only at outcome numbers; the same children fare differently depending on the method."], "not_ko": ["실제 어린이집 입소 제도를 재현한 게 아니고, 가산점·형제 우선 같은 실제 규칙과 숫자는 이 모델에 없어요. 어느 방식이 옳다는 뜻도 아니에요.", "이 시험은 남들의 목록을 다 안다고 가정해서 현실의 이득은 더 작을 수 있어요. 실제 판단은 해당 기관이나 지자체 안내를 따르세요."], "not_en": ["It does not reproduce a real admission system; real rules such as bonus points and sibling priority are missing, and it does not say which method is right.", "The test assumes you know everyone else's lists, so real gains may be smaller. Follow the institution's or local government's guidance for real decisions."]}
+{
+ "says_ko": [
+  "보스턴 방식에선 솔직하게 적으면 손해일 수 있고, 지연 수락을 포함한 나머지 세 방식에선 솔직해도 손해가 없었어요.",
+  "보스턴은 1지망에서 정원이 차면 바로 확정이라 될 만한 곳을 앞에 적는 아이가 이득이에요. 모두 같은 곳을 원할수록 커져서, 취향이 제각각이면 6%, 90% 비슷하면 70%였어요.",
+  "그래서 배정 방식은 결과 숫자뿐 아니라 솔직하게 적어도 안전한 구조인지를 함께 보면, 같은 아이들도 방식에 따라 다르게 보여요."
+ ],
+ "says_en": [
+  "Under the Boston method honesty can cost you, while under the other three, including deferred acceptance, honest lists lost nothing.",
+  "Boston locks a seat once a 1st-choice round fills, so listing a likely place first pays. It grows as everyone wants the same places: 6% when tastes differ, 70% when 90% alike.",
+  "So judge an assignment method by outcome numbers and also by whether honest lists are safe; the same children look different under different methods."
+ ],
+ "not_ko": [
+  "실제 어린이집·유치원 입소 제도를 재현한 게 아니고, 가산점·형제 우선 같은 실제 규칙과 숫자는 이 모델에 없어요. 어느 방식이 옳다는 뜻도 아니에요.",
+  "이득 보는 아이 비율은 남들의 목록을 다 안다고 가정한 시험이라 현실에서는 더 작을 수 있어요. 실제 판단은 해당 기관이나 지자체 안내를 따르세요."
+ ],
+ "not_en": [
+  "It does not reproduce real daycare or kindergarten admission; real rules such as bonus points and sibling priority are absent. It does not say any method is right.",
+  "The share who gain assumes everyone knows all other lists, so real gains may be smaller. For real decisions follow the guidance of the institution or local government."
+ ]
+}

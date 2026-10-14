@@ -1,20 +1,20 @@
 {
  "says_ko": [
-  "단기금리가 갑자기 뛰어도 10년 금리는 훨씬 덜 오르는 이유는, 단기금리가 결국 평균으로 돌아올 거라고 보기 때문이에요. 이 모델에서는 1%p 뛰면 10년 금리는 0.33%p만 올랐어요.",
-  "10년 동안의 평균을 예상해서 정하니, 지금의 흔들림은 앞으로의 긴 기간에 조금만 반영돼요. 돌아오는 속도가 느릴수록 더 많이 따라 올라요.",
-  "그래서 금리가 오르면 이미 가진 옛 채권은 값이 깎이고 내리면 오른다는 걸, 같은 이자율의 새 채권과 비교해 이해할 수 있어요. 오를 때 깎이는 폭보다 내릴 때 오르는 폭이 조금 더 커요."
+  "단기금리가 갑자기 뛰어도 10년 금리는 훨씬 덜 오르고, 금리가 평균으로 느리게 돌아올수록 10년 금리도 더 따라 올라요.",
+  "10년 금리는 앞으로 10년의 평균 예상으로 정해져 오늘의 흔들림은 조금만 반영돼요. 1%p 뛰면 0.33%p였고, 돌아오는 속도가 느릴 땐 0.81%p, 빠를 땐 0.09%p였어요.",
+  "그래서 금리가 오르면 이미 가진 옛 채권 값은 깎이고 내리면 올라요. 이 예시에서 1%p 오르면 7.83% 내리고, 1%p 내리면 8.65% 올랐어요."
  ],
  "says_en": [
-  "Even when the short rate jumps, the 10-year rate rises much less because the short rate is expected to drift back to its average. Here a 1 point jump moved the 10-year rate only 0.33 points.",
-  "The 10-year rate reflects the expected average over a decade, so today's wobble counts for little of it. The slower the return to average, the more it follows.",
-  "So you can see why an old bond loses value when rates rise and gains when they fall, compared with new bonds. The gain from a fall is a bit larger than the loss from a rise."
+  "Even when the short rate jumps, the 10-year rate rises much less, and the slower rates drift back to average, the more the 10-year rate follows.",
+  "The 10-year rate reflects the expected average over a decade, so today's wobble counts little. A 1 point jump moved it 0.33 points; 0.81 when return to average is slow, 0.09 when fast.",
+  "So when rates rise an old bond you already hold loses value, and when they fall it gains. In this example a 1 point rise cut it 7.83%, a 1 point fall raised it 8.65%."
  ],
  "not_ko": [
-  "금리를 맞히는 모델이 아니고 투자 판단에 쓰면 안 돼요. 기본값은 모두 예시 숫자예요.",
+  "금리를 맞히는 모델이 아니고 투자 판단에 쓰면 안 돼요. 기본값은 모두 이 모델이 정한 예시 숫자예요.",
   "물가·통화정책·채권 수요 같은 빠진 요소는 실제 금리 자료와 따로 대조해 봐야 해요."
  ],
  "not_en": [
-  "It isn't a rate-forecasting model and shouldn't guide investing; all defaults are example numbers.",
-  "Missing factors like inflation, monetary policy and bond demand must be compared with real rate data."
+  "It does not predict interest rates and must not be used for investment decisions. All default values are example numbers set by this model.",
+  "Missing factors such as inflation, monetary policy and bond demand must be checked against real rate data separately."
  ]
 }

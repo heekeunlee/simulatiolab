@@ -1,20 +1,20 @@
 {
  "says_ko": [
-  "다 같이 가는 식당이 늘 붐비는 건, 모두가 같은 생각으로 같은 날 고르기 때문이에요. 생각이 제각각이면 손님 수가 정원 근처로 맞춰져요.",
-  "'지난주 한산했으니 가자'고 모두가 똑같이 판단하면 한꺼번에 몰려 붐비고, 그걸 피하려 하면 이번엔 텅 비어요. 어느 쪽이든 다수의 예측이 서로를 빗나가게 만들어요.",
-  "그래서 예측을 더 똑똑하게 하는 것보다 사람들이 서로 다르게 예측하는 것이 결과를 좌우한다는 눈으로 볼 수 있어요. 이 모델에서는 예측법을 늘려도 틀리는 사람이 절반 근처에서 거의 줄지 않아요."
+  "모두가 같은 예측을 하면 한 주는 텅 비고 한 주는 미어터지고, 예측이 제각각이면 손님 수가 정원 근처로 맞춰져요.",
+  "'한산했으니 가자'를 다 같이 하면 한꺼번에 몰리고, 다 같이 피하면 텅 비어요. 모두가 따르는 예측은 따를수록 스스로 틀려져요.",
+  "전체 손님 수는 정원 근처로 맞춰져도 개인은 여전히 절반쯤 틀려요. 예측법을 늘려도 이 절반은 거의 안 줄어요."
  ],
  "says_en": [
-  "Everyone-goes restaurants are crowded because everyone reasons the same way and picks the same day. When predictions differ, attendance settles near capacity.",
-  "If everyone thinks 'it was quiet last week, so I'll go,' they all arrive together and it is packed; if all avoid it, it is empty. Either way the shared prediction makes itself wrong.",
-  "So how varied people's guesses are matters more than how smart each guess is. In this model, adding more prediction methods barely lowers the share who choose wrongly from about half."
+  "If everyone predicts the same way, one week is empty and the next is packed; if predictions differ, attendance settles near capacity.",
+  "If everyone thinks 'it was quiet, so I'll go', they all crowd in; if everyone avoids it, it is empty. A prediction everyone follows defeats itself.",
+  "Total attendance settles near capacity, yet each person is still wrong about half the time. Adding more prediction methods barely lowers that half."
  ],
  "not_ko": [
-  "실제 사람들이 이런 계산식으로 고른다는 뜻은 아니에요. 예측법과 인원은 이 모델이 정해 둔 설정이에요.",
-  "실제 식당에서 사람들이 정보를 얼마나 나누고 비슷하게 판단하는지는 따로 관찰해 봐야 확인돼요."
+  "실제 사람들이 이런 계산식으로 식당을 고른다는 뜻은 아니에요. 예측법의 형태와 사람 수는 이 모델이 정한 설정이에요.",
+  "현실에는 맛·가격·약속·소문이 있어요. 사람들이 실제로 정보를 얼마나 나누고 비슷하게 판단하는지는 따로 관찰해 봐야 해요."
  ],
  "not_en": [
-  "It doesn't mean real people choose by such formulas; the prediction methods and head count are preset in the model.",
-  "How much real diners share information and judge alike has to be observed separately."
+  "It does not mean real people choose restaurants with such formulas. The form of the prediction methods and the head count are settings of this model.",
+  "Real life has taste, price, appointments and rumors. How much people really share information and judge alike must be observed separately."
  ]
 }

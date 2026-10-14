@@ -1,1 +1,20 @@
-{"says_ko": ["화가들이 서로 따라 그리면 화풍이 하나로 모이는 쪽으로 가요. 이 모델에서는 따라 그리는 비율이 높을수록 다양성이 줄고 대표 화풍에 쏠렸어요.", "따라 그릴 때마다 화풍이 상대 쪽으로 절반쯤 다가가고, 인기 있는 화가가 더 자주 따라 해져요. 새 시도는 독창성이 작으면 조금밖에 흩뜨리지 못해요.", "그래서 다양성이 사라지는 건 개인 취향보다 얼마나 따라 하는지, 인기를 좇는지, 새 시도가 있는지가 겹친 결과로 볼 수 있어요."], "says_en": ["When painters copy each other, styles drift toward one: the higher the copying rate, the lower the diversity and the more they piled onto one style.", "Each copy moves a style about halfway toward another painter's, popular painters get copied more, low originality scatters little.", "So lost diversity can be seen as the combined result of copying, popularity-chasing and new attempts, more than of individual taste."], "not_ko": ["실제 화가나 이미지 생성 AI를 재현한 것도, 모방이 나쁘다는 뜻도 아니에요. 그림의 좋고 나쁨은 모델에 없어요.", "모방이 실제로 다양성을 얼마나 줄이는지는 실제 작품 데이터로 확인해야 하고, 모방이 기술을 퍼뜨리는 효과도 함께 봐야 해요."], "not_en": ["It does not reproduce real painters or image-generating AI, and it does not say copying is bad; quality is absent from the model.", "How much copying really reduces diversity needs real artwork data, alongside the way copying also spreads skills."]}
+{
+ "says_ko": [
+  "따라 그리는 비율이 낮으면 화풍이 제각각으로 남고, 높으면 하나로 모여요. 비율 0%에서 다양성 0.47, 100%에서 0.02였어요.",
+  "인기 있는 화가를 더 자주 따르면 같은 비율(60%)에서도 쏠림이 25%에서 55%로 커지고, 새 시도가 작으면 중간 비율에서도 하나로 굳어요.",
+  "그래서 다양성이 사라지는 건 개인 취향보다 얼마나 따라 하는지, 인기를 좇는지, 새 시도가 있는지가 겹친 결과로 볼 수 있어요."
+ ],
+ "says_en": [
+  "When the copying rate is low, styles stay varied; when high, they merge into one. Diversity was 0.47 at 0% copying and 0.02 at 100%.",
+  "If popular painters are copied more, piling onto one style at the same 60% copying rose from 25% to 55%, and with little originality even medium copying locks into one style.",
+  "So lost diversity can be seen as the combined result of how much people copy, whether they chase popularity and whether new attempts exist, more than of individual taste."
+ ],
+ "not_ko": [
+  "실제 화가나 이미지 생성 AI를 재현한 것도, 모방이 나쁘다는 뜻도 아니에요. 그림의 좋고 나쁨은 모델에 없어요.",
+  "이 시뮬레이션이 직접 보여 준 건 모방이 늘면 다양성이 줄어든다는 쪽이에요. 모방이 기술을 퍼뜨리는 이로운 면은 보여 준 게 아니라 생각해 볼 점이고, 실제 작품 데이터로 확인해야 해요."
+ ],
+ "not_en": [
+  "It does not reproduce real painters or image-generating AI, and does not say copying is bad. Quality of art is absent from the model.",
+  "What this simulation showed directly is that more copying means less diversity. Copying's useful side of spreading skills is a point to think about, not something it showed, and needs real artwork data."
+ ]
+}

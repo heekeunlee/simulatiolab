@@ -1,1 +1,22 @@
-{"says_ko": ["어린이집 감기가 잦은 건 아이가 약해서보다, 한 반에서 가깝게 지내는 구조 때문일 수 있어요. 한 해 5.0회 걸렸어요.", "증상 전 하루 동안 이미 퍼지고 같은 반 아이들이 연달아 걸려, 아픈 아이가 모두 쉬어도 감염은 절반(2.5회)쯤만 줄었어요.", "그래서 감염 횟수는 개별 가정의 선택만이 아니라 반의 크기, 접촉, 면역이 함께 만든 결과로 볼 수 있어요."], "says_en": ["Frequent colds in daycare may come less from weak children than from close contact within a class; infections averaged 5.0 per year.", "Children spread it for a day before symptoms, and each sick child exposes the class, so even if every sick child stayed home infections only halved, to 2.5.", "So infection counts can be seen as the joint result of class size, contact and immunity, not only of any one family's choice."], "not_ko": ["실제 어린이집의 감염 횟수를 예측하거나, 아이를 어떻게 돌볼지 권하는 모델이 아니에요. 숫자는 예시예요.", "실제 판단은 소아과 의사·교사 등 전문가와 하고, 형제자매나 병원균별 차이 같은 빠진 요소는 따로 확인해야 해요."], "not_en": ["It neither predicts real daycare infections nor advises how to care for a child; the numbers are examples.", "Real decisions belong with pediatricians and teachers, and missing factors such as siblings or specific germs need separate checking."]}
+{
+ "says_ko": [
+  "아픈 아이가 쉬면 감염은 줄지만 절반까지만 줄고, 대신 쉬는 날이 늘어요. 이 모델에선 쉬기 0%일 때 한 해 5.0회, 100%일 때 2.5회였고, 쉰 평일은 0일에서 약 7일이 됐어요.",
+  "증상이 나타나기 전 하루 동안 이미 퍼지고, 반 밖에서도 들어와서 모두가 쉬어도 0은 되지 않아요. 반 크기도 커서, 쉬기 30%에서 8명 반은 2.5회, 30명 반은 5.5회였어요.",
+  "그래서 감염 횟수는 개별 가정의 선택만이 아니라 반의 크기, 접촉, 면역이 함께 만든 결과로 볼 수 있어요. 손씻기·환기로 전파를 30% 줄이면 4.4회에서 3.7회가 됐어요."
+ ],
+ "says_en": [
+  "If sick children stay home, infections fall but only by about half, and days off go up. In this model: 5.0 infections a year at 0% staying home, 2.5 at 100%, with days off rising from 0 to about 7.",
+  "Spread begins the day before symptoms and also comes in from outside, so even full staying-home cannot reach zero. Class size matters too: at 30% staying home, 2.5 for 8 children and 5.5 for 30.",
+  "So the count is not only each family's choice but a result of class size, contact, and immunity together. Cutting spread 30% by handwashing and airing took 4.4 infections down to 3.7."
+ ],
+ "not_ko": [
+  "이 시뮬레이션이 직접 보여 준 쪽은 쉬기·반 크기·접촉·면역에 따른 횟수 변화예요. '아이가 약해서가 아니라 구조 때문'이라는 건 생각해 볼 점이고, 아이 개인의 체질은 모델에 없어요.",
+  "실제 어린이집의 감염 횟수를 예측하거나 아이를 어떻게 돌볼지 권하는 모델이 아니에요. 쉬기를 고르는 가정이든 등원을 고르는 가정이든 각자 사정이 있고, 숫자는 예시예요.",
+  "실제 판단은 소아과 의사·교사 등 전문가와 하세요. 형제자매를 거치는 감염, 병원균별 차이, 다른 반과의 접촉은 이 모델에 없어요."
+ ],
+ "not_en": [
+  "Shown directly: how counts change with staying home, class size, contact, immunity. \"Structure, not weak children\" is a point to think about; individual constitution is not in the model.",
+  "It does not predict real daycare infections or advise how to care for a child. Families that keep a child home and families that send them each have their reasons, and the numbers are examples.",
+  "Make real decisions with a pediatrician or teachers. Infection through siblings, differences between pathogens, and contact with other classes are not in the model."
+ ]
+}

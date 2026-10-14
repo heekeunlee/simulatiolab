@@ -92,7 +92,7 @@
 
   // ---------- ③ 산점도 ----------
   function drawScatter() {
-    const lgItems = [{ kind: 'dot', color: mix(css('--accent'), 0.6), label: '보통 사람' }, { kind: 'dot', color: css('--rich'), label: '최고 부자' }, { kind: 'dot', color: css('--talent'), label: '최고 재능자' }], lgSp = Lab.belowSpace($('c-scatter'), lgItems);
+    const lgItems = [{ kind: 'dot', color: mix(css('--accent'), 0.6), label: '보통 사람' }, { kind: 'dot', color: css('--rich'), label: '최고 부자' }, { kind: 'dot', color: css('--talent'), label: '최고 노력자' }], lgSp = Lab.belowSpace($('c-scatter'), lgItems);
     const { ctx, w, h } = setup($('c-scatter'), 0.7 + lgSp.extra / ($('c-scatter').clientWidth || 400));
     const c0 = sim.params.c0, n = sim.n;
     const ks = Array.from(sim.capital, (c) => Math.log2(c / c0));
@@ -111,7 +111,7 @@
     });
     ctx.textAlign = 'center';
     for (let t = Math.ceil(tmin * 10) / 10; t <= tmax; t += 0.1) ctx.fillText(t.toFixed(1), X(t), h - m.b + 16);
-    Lab.axisNames(cc, '재능', '최종 자본');
+    Lab.axisNames(cc, '노력', '최종 자본');
     // 시작 자본선
     ctx.setLineDash([5, 3]); ctx.strokeStyle = css('--muted'); ctx.beginPath();
     ctx.moveTo(m.l, Y(0)); ctx.lineTo(w - m.r, Y(0)); ctx.stroke(); ctx.setLineDash([]);
@@ -129,14 +129,14 @@
       ctx.fillText(label, x + dx, y + 4);
     };
     mark(st.richest, css('--rich'), '최고 부자 ' + fmtCap(sim.capital[st.richest]), x(st.richest) > m.l + pw * 0.6 ? -10 : 10);
-    mark(st.mostTalented, css('--talent'), '최고 재능자 ' + fmtCap(sim.capital[st.mostTalented]), -10);
+    mark(st.mostTalented, css('--talent'), '최고 노력자 ' + fmtCap(sim.capital[st.mostTalented]), -10);
     Lab.drawLegendBelow(cc, lgItems);
     function x(i) { return X(sim.talent[i]); }
   }
 
   // ---------- ④ 타임라인 ----------
   function drawTimeline() {
-    const lgItems = [{ kind: 'line', color: css('--rich'), label: '최고 부자' }, { kind: 'line', color: css('--talent'), label: '최고 재능자' }, { kind: 'dot', color: css('--lucky'), label: '행운을 잡음' }, { kind: 'dot', color: css('--unlucky'), label: '불운' }], lgSp = Lab.belowSpace($('c-time'), lgItems);
+    const lgItems = [{ kind: 'line', color: css('--rich'), label: '최고 부자' }, { kind: 'line', color: css('--talent'), label: '최고 노력자' }, { kind: 'up', color: css('--lucky'), label: '행운을 잡음' }, { kind: 'down', color: css('--unlucky'), label: '불운' }, { kind: 'ring', color: '#7a8699', label: '행운이 왔지만 놓침' }], lgSp = Lab.belowSpace($('c-time'), lgItems);
     const { ctx, w, h } = setup($('c-time'), 0.7 + lgSp.extra / ($('c-time').clientWidth || 400));
     const c0 = sim.params.c0, n = sim.n, T = sim.steps;
     const k = (t, i) => Math.log2(sim.history[t * n + i] / c0);
@@ -173,10 +173,11 @@
     const L = sim.log[st.richest];
     for (let j = 0; j < L.length; j += 2) {
       const t = L[j], code = L[j + 1], x = X(t), y = Y(k(t, st.richest));
-      ctx.beginPath(); ctx.arc(x, y, 3.5, 0, 7);
-      if (code === TL.LUCKY_USED) { ctx.fillStyle = css('--lucky'); ctx.fill(); }
-      else if (code === TL.UNLUCKY) { ctx.fillStyle = css('--unlucky'); ctx.fill(); }
-      else { ctx.strokeStyle = css('--lucky'); ctx.lineWidth = 1.5; ctx.stroke(); ctx.lineWidth = 1; }
+      // 모양으로도 구분: 행운을 잡음 ▲(초록), 불운 ▼(빨강), 놓친 행운 ◯(회색 속 빈 원)
+      const tri = (dir, col) => { ctx.beginPath(); ctx.moveTo(x, y + dir * 5.5); ctx.lineTo(x - 5.5, y - dir * 4.2); ctx.lineTo(x + 5.5, y - dir * 4.2); ctx.closePath(); ctx.lineWidth = 2; ctx.strokeStyle = '#fff'; ctx.stroke(); ctx.fillStyle = col; ctx.fill(); ctx.lineWidth = 1; };
+      if (code === TL.LUCKY_USED) tri(-1, css('--lucky'));
+      else if (code === TL.UNLUCKY) tri(1, css('--unlucky'));
+      else { ctx.beginPath(); ctx.arc(x, y, 4, 0, 7); ctx.fillStyle = '#fff'; ctx.fill(); ctx.strokeStyle = '#7a8699'; ctx.lineWidth = 1.8; ctx.stroke(); ctx.lineWidth = 1; }
     }
     Lab.drawLegendBelow(cc, lgItems);
   }
@@ -217,13 +218,19 @@
       const x = PX(anim.ex[k]), y = PY(anim.ey[k]);
       const col = anim.lucky[k] ? '#1fa463' : '#e5484d';
       const gr = ctx.createRadialGradient(x, y, 0, x, y, R);
-      gr.addColorStop(0, mix(col, THUMB ? 0.16 : 0.30)); gr.addColorStop(1, mix(col, 0));
+      gr.addColorStop(0, mix(col, THUMB ? 0.14 : 0.20)); gr.addColorStop(1, mix(col, 0));
       ctx.fillStyle = gr; ctx.beginPath(); ctx.arc(x, y, R, 0, 7); ctx.fill();
     }
+    // 이벤트 중심: 행운은 초록 + , 불운은 빨강 ×  (색을 못 가려도 모양으로 구분)
+    ctx.lineWidth = THUMB ? 1.2 : 1.6;
     for (let k = 0; k < anim.ex.length; k++) {
-      ctx.fillStyle = mix(anim.lucky[k] ? '#1fa463' : '#e5484d', 0.85);
-      ctx.beginPath(); ctx.arc(PX(anim.ex[k]), PY(anim.ey[k]), 1.6, 0, 7); ctx.fill();
+      const x = PX(anim.ex[k]), y = PY(anim.ey[k]), a = THUMB ? 2.2 : 2.8;
+      ctx.beginPath();
+      if (anim.lucky[k]) { ctx.strokeStyle = '#168a52'; ctx.moveTo(x - a, y); ctx.lineTo(x + a, y); ctx.moveTo(x, y - a); ctx.lineTo(x, y + a); }
+      else { ctx.strokeStyle = '#d6232a'; ctx.moveTo(x - a, y - a); ctx.lineTo(x + a, y + a); ctx.moveTo(x + a, y - a); ctx.lineTo(x - a, y + a); }
+      ctx.stroke();
     }
+    ctx.lineWidth = 1;
 
     // 사람: 자본이 클수록 크고 진한 파랑, 줄었으면 작고 옅은 회색
     const order = Array.from({ length: anim.n }, (_, i) => i).sort((a, b) => anim.capital[a] - anim.capital[b]);
@@ -237,21 +244,27 @@
       ctx.beginPath(); ctx.arc(PX(anim.ax[i]), PY(anim.ay[i]), r, 0, 7); ctx.fill();
     }
 
-    // 방금 이벤트를 만난 사람: 자본이 늘었으면 초록 고리, 줄었으면 빨간 고리
+    // 방금 이벤트를 만난 사람: 하얀 바탕 배지 + 굵은 테두리 + 삼각형(자본이 늘었으면 초록 ▲, 줄었으면 빨강 ▼)
+    //  → 번지는 빛이나 × 표시와 겹쳐도 한눈에 구별된다
     if (anim.step > 0 && !THUMB) {
       const prev = (anim.step - 1) * anim.n;
-      ctx.lineWidth = 1.6;
       for (let i = 0; i < anim.n; i++) {
         const a = anim.history[prev + i], b = anim.capital[i];
         if (a === b) continue;
-        ctx.strokeStyle = b > a ? '#1fa463' : '#e5484d';
-        const v = Math.log2(b / c0), rr = (v > 0 ? Math.min(2 + v * 0.7, 8) : 2) + 3.5;
-        ctx.beginPath(); ctx.arc(PX(anim.ax[i]), PY(anim.ay[i]), rr, 0, 7); ctx.stroke();
+        const up = b > a, col = up ? '#168a52' : '#d6232a', x = PX(anim.ax[i]), y = PY(anim.ay[i]);
+        const v = Math.log2(b / c0), rr = (v > 0 ? Math.min(2 + v * 0.7, 8) : 2) + 4;
+        ctx.fillStyle = 'rgba(255,255,255,.92)'; ctx.beginPath(); ctx.arc(x, y, rr, 0, 7); ctx.fill();
+        ctx.lineWidth = 2.6; ctx.strokeStyle = col; ctx.beginPath(); ctx.arc(x, y, rr, 0, 7); ctx.stroke();
+        ctx.fillStyle = v > 0 ? mix('#2f6fed', Math.min(0.5 + v * 0.07, 0.95)) : 'rgba(99,106,122,.55)';
+        ctx.beginPath(); ctx.arc(x, y, Math.max(1.8, rr - 4.5), 0, 7); ctx.fill();
+        const ty = y - rr - 5, d = up ? -1 : 1;   // 테두리 위의 작은 삼각형
+        ctx.fillStyle = col; ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.moveTo(x, ty + d * 3.6); ctx.lineTo(x - 3.6, ty - d * 2.8); ctx.lineTo(x + 3.6, ty - d * 2.8); ctx.closePath(); ctx.stroke(); ctx.fill();
       }
       ctx.lineWidth = 1;
     }
 
-    // 최고 재능자 / 최고 부자 (최종 결과 기준으로 계속 따라다니며 표시)
+    // 최고 노력자 / 최고 부자 (최종 결과 기준으로 계속 따라다니며 표시)
     const mark = (i, color, label) => {
       const x = PX(anim.ax[i]), y = PY(anim.ay[i]);
       const R0 = THUMB ? 13 : 9;
@@ -262,7 +275,7 @@
       ctx.fillStyle = color; ctx.beginPath(); ctx.arc(x, y, 3, 0, 7); ctx.fill();
       if (!THUMB) chip(ctx, `${label} · 자본 ${fmtCap(anim.capital[i])}`, x, y, color, w);
     };
-    mark(st.mostTalented, '#7c5cff', '최고 재능자');
+    mark(st.mostTalented, '#7c5cff', '최고 노력자');
     mark(st.richest, '#d19200', '최고 부자');
     ctx.lineWidth = 1;
 
@@ -302,11 +315,11 @@
     const c0 = sim.params.c0;
     const talRank = st.byTal.indexOf(st.richest) + 1;
     const cards = [
-      ['최고 부자의 재능', st.richestTalent.toFixed(2), `평균 ${st.meanTalent.toFixed(2)} · 재능 순위 ${talRank}위 / ${sim.n}명`],
-      ['최고 재능자의 최종 자본', fmtCap(st.mostTalentedCapital), `재능 ${st.mostTalentedTalent.toFixed(2)} (1위) · 시작은 ${c0}`],
+      ['최고 부자의 노력', st.richestTalent.toFixed(2), `평균 ${st.meanTalent.toFixed(2)} · 노력 순위 ${talRank}위 / ${sim.n}명`],
+      ['최고 노력자의 최종 자본', fmtCap(st.mostTalentedCapital), `노력 ${st.mostTalentedTalent.toFixed(2)} (1위) · 시작은 ${c0}`],
       ['상위 20%가 가진 자본', (st.top20Share * 100).toFixed(0) + '%', '파레토 법칙(80/20)과 비교해 보세요'],
-      ['시작값보다 줄어든 사람', (st.belowInitial * 100).toFixed(0) + '%', '운이 나쁘면 재능이 있어도 줄어요'],
-      ['부자 상위 10명 중 재능 상위 10%', st.richInTopDecile + '명', '재능만으로 정해진다면 10명'],
+      ['시작값보다 줄어든 사람', (st.belowInitial * 100).toFixed(0) + '%', '운이 나쁘면 노력해도 줄어요'],
+      ['부자 상위 10명 중 노력 상위 10%', st.richInTopDecile + '명', '노력만으로 정해진다면 10명'],
     ];
     $('stats').innerHTML = cards.map(([k, v, s]) =>
       `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join('');
@@ -374,8 +387,8 @@
     const wins = rows.filter((r) => r.richestIsTopTalent).length;
     const meanT = 0.6;
     $('batch-text').textContent =
-      `같은 설정으로 운만 바꿔 ${n}번 돌렸습니다. 최고 부자의 재능 중앙값은 ${median(rt).toFixed(2)}(평균 ${meanT}), ` +
-      `그 판에서 재능이 가장 높은 사람이 최고 부자가 된 횟수는 ${wins}번이었고, ` +
+      `같은 설정으로 운만 바꿔 ${n}번 돌렸습니다. 최고 부자의 노력 중앙값은 ${median(rt).toFixed(2)}(평균 ${meanT}), ` +
+      `그 판에서 노력이 가장 높은 사람이 최고 부자가 된 횟수는 ${wins}번이었고, ` +
       `상위 20%의 자본 비중은 평균 ${(mean(rows.map((r) => r.top20Share)) * 100).toFixed(0)}%였습니다.`;
 
     const { ctx, w, h } = setup($('c-batch'), 0.4);
@@ -393,7 +406,7 @@
     });
     ctx.fillStyle = css('--muted'); ctx.textAlign = 'center';
     for (let t = 0.3; t <= 1.0001; t += 0.1) ctx.fillText(t.toFixed(1), X(t), h - m.b + 16);
-    Lab.axisNames({ ctx, w, h, m, pw, ph }, '최고 부자의 재능', '반복 횟수 (번)');
+    Lab.axisNames({ ctx, w, h, m, pw, ph }, '최고 부자의 노력', '반복 횟수 (번)');
     ctx.fillStyle = css('--muted');
     ctx.textAlign = 'right'; ctx.fillText(String(cmax), m.l - 6, m.t + 8); ctx.fillText('0', m.l - 6, m.t + ph);
 
@@ -404,7 +417,7 @@
     };
     const maxT = mean(rows.map((r) => r.maxTalent));
     vline(meanT, css('--muted'), '평균 ' + meanT, 'right');
-    vline(maxT, css('--talent'), '재능 1위의 평균 ' + maxT.toFixed(2), 'right');
+    vline(maxT, css('--talent'), '노력 1위의 평균 ' + maxT.toFixed(2), 'right');
   }
 
   // ---------- 이벤트 연결 ----------
