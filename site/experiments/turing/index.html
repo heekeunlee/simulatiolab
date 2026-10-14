@@ -33,13 +33,13 @@
   <div class="panel">
     <div class="controls">
       <div class="ctl"><label for="F" data-en="F (feed rate) &lt;output id=&quot;o-F&quot;&gt;&lt;/output&gt;">F (공급 속도) <output id="o-F"></output></label>
-        <input type="range" id="F" min="0.02" max="0.07" step="0.0001" value="0.035">
+        <input type="range" id="F" min="0.02" max="0.07" step="0.0001" value="0.029">
         <span class="hint" data-en="How fast u is replenished">u가 새로 공급되는 속도</span></div>
 <div class="ctl"><label for="k" data-en="k (kill rate) &lt;output id=&quot;o-k&quot;&gt;&lt;/output&gt;">k (제거 속도) <output id="o-k"></output></label>
-        <input type="range" id="k" min="0.05" max="0.07" step="0.0001" value="0.065">
+        <input type="range" id="k" min="0.05" max="0.07" step="0.0001" value="0.057">
         <span class="hint" data-en="How fast v is removed (added to F)">v가 사라지는 속도(F와 함께 더해짐)</span></div>
 <div class="ctl"><label for="preset" data-en="Pattern type &lt;output id=&quot;o-preset&quot;&gt;&lt;/output&gt;">무늬 종류 <output id="o-preset"></output></label>
-        <select id="preset" class="sel"><option value="spots" selected data-en="Spots">점무늬</option><option value="stripes" data-en="Stripes (labyrinth)">줄무늬 (미로)</option><option value="mitosis" data-en="Mitosis">세포 분열</option><option value="coral" data-en="Coral">산호</option><option value="custom" data-en="Custom">직접 조절</option></select>
+        <select id="preset" class="sel"><option value="spots" data-en="Spots">점무늬</option><option value="stripes" selected data-en="Stripes (labyrinth)">줄무늬 (미로)</option><option value="mitosis" data-en="Mitosis">세포 분열</option><option value="coral" data-en="Coral">산호</option><option value="custom" data-en="Custom">직접 조절</option></select>
         <span class="hint" data-en="Choosing one sets F and k to match">고르면 F와 k가 알맞게 바뀌어요</span></div>
     </div>
     <div class="btns">

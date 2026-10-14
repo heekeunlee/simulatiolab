@@ -121,7 +121,7 @@
   const h = L.harness({
     controls: ['preset', 'F', 'k'],
     format: { preset: () => '', F: (v) => Number(v).toFixed(4), k: (v) => Number(v).toFixed(4) },
-    defaults: { preset: 'spots', F: 0.035, k: 0.065 },
+    defaults: { preset: 'stripes', F: 0.029, k: 0.057 },
     build() { sim = TU.create(params()); if (THUMB) for (let i = 0; i < THUMB_ITERS / PER_STEP; i++) sim.advance(PER_STEP); },
     advance() { if (sim.iter >= MAX_ITER) return false; sim.advance(PER_STEP); return true; },
     isDone() { return sim.iter >= MAX_ITER; },
