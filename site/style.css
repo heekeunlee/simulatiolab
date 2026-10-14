@@ -378,3 +378,5 @@ span.popt { cursor: default; }
 
 .wlegend .em { font-size: 18px; line-height: 1; }
 .wlegend .pi { width: 16px; height: 19px; flex: none; }
+
+.wlegend .dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px var(--line); flex: none; }

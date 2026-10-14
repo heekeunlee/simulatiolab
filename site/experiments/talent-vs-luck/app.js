@@ -259,13 +259,14 @@
     ctx.fillStyle = 'rgba(99,106,122,.10)';
     for (let g = 10; g < VIEW_W; g += 10) for (let h = 10; h < VIEW_W; h += 10) { ctx.beginPath(); ctx.arc(px(g), px(h), 1, 0, 7); ctx.fill(); }
 
-    // 행운(네잎클로버)과 불운(똥)
-    ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = '#000';   // 이모지는 칠하는 색의 투명도를 따라가므로 불투명 검정으로
+    // 행운은 초록 점, 불운은 검정 점
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     for (const it of view.items) {
       if (it.born > view.t) continue;
-      const a = Math.min(1, (view.t - it.born) / 0.4 + 0.0), pop = Math.min(1, 0.4 + 0.6 * (1 - Math.exp(-(view.t - it.born) * 6)));
-      ctx.globalAlpha = Math.max(0.15, a); ctx.font = `${Math.round(base * 1.75 * pop)}px ${EMOJI}`;
-      ctx.fillText(it.lucky ? '🍀' : '💩', px(it.x), px(it.y));
+      const a = Math.min(1, (view.t - it.born) / 0.4), pop = 0.4 + 0.6 * (1 - Math.exp(-(view.t - it.born) * 6));
+      ctx.globalAlpha = Math.max(0.15, a); const rr = base * 0.5 * pop;
+      ctx.beginPath(); ctx.arc(px(it.x), px(it.y), rr, 0, 7); ctx.fillStyle = it.lucky ? '#1fa463' : '#161a24'; ctx.fill();
+      ctx.lineWidth = 2; ctx.strokeStyle = '#fff'; ctx.stroke();
     }
     ctx.globalAlpha = 1;
 
@@ -286,7 +287,6 @@
       const u = (view.t - e.at) / 0.9;
       ctx.globalAlpha = 1 - u; ctx.lineWidth = 3; ctx.strokeStyle = e.kind === 'up' ? '#2f6fed' : e.kind === 'down' ? '#d6232a' : '#8b93a5';
       ctx.beginPath(); ctx.arc(px(e.x), px(e.y), base * (0.8 + u * 2.4), 0, 7); ctx.stroke();
-      if (e.kind === 'miss') { ctx.font = `${Math.round(base * 1.3)}px ${EMOJI}`; ctx.fillStyle = '#000'; ctx.fillText('💨', px(e.x), px(e.y) - base * (0.8 + u * 1.6)); }
     }
     ctx.globalAlpha = 1;
 
