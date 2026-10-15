@@ -214,6 +214,7 @@ html:not([lang="ko"]) .el .new-pill, html:not([lang="ko"]) .el .done-mark { bott
   .el .num { font-size: 11px; top: 9px; left: 12px; }
   .el .sym { font-size: 26px; top: 6px; left: 29px; }
   .el .nm, html:not([lang="ko"]) .el .nm { left: 12px; right: 10px; bottom: 10px; font-size: 14.5px; height: 2.5em; line-height: 1.25; }
+  .el.has-bdg .nm, html:not([lang="ko"]) .el.has-bdg .nm { bottom: 28px; }
   .el .new-pill, html:not([lang="ko"]) .el .new-pill { left: 12px; bottom: 56px; font-size: 11px; }
   .el .done-mark, html:not([lang="ko"]) .el .done-mark { right: 10px; bottom: 54px; width: 24px; height: 24px; font-size: 14px; }
   .notebook { display: none; }   /* 손가락에는 올려 보기(hover)가 없어 실험 노트 상자는 숨긴다 */
@@ -249,3 +250,4 @@ html:not([lang="ko"]) .el .new-pill, html:not([lang="ko"]) .el .done-mark { bott
 .el .b3d, .el .bnew { font-size: 9px; font-weight: 800; letter-spacing: .04em; line-height: 1; padding: 2px 5px; border-radius: 5px; color: #fff; }
 .el .b3d { background: rgba(15,18,34,.78); }
 .el .bnew { background: #e11d48; }
+.el.has-bdg .nm { bottom: 25px; }   /* New·3D 표시가 있으면 이름을 그 위로 올려 겹치지 않게 */

@@ -269,7 +269,7 @@ def build(only_existing=True):
             th = thumb(slug)
             vis = f'<img class="thumb" src="{th}" alt="" loading="lazy" decoding="async">' if th else '<canvas class="glyph" aria-hidden="true"></canvas>'
             tiles += f"""
-        <a class="el{' has-thumb' if th else ''}" href="experiments/{slug}/" data-field="{k}" data-kind="{kind}"{f' data-thumb="{th}"' if th else ''} style="--c:{col}">
+        <a class="el{' has-thumb' if th else ''}{' has-bdg' if badges(slug) else ''}" href="experiments/{slug}/" data-field="{k}" data-kind="{kind}"{f' data-thumb="{th}"' if th else ''} style="--c:{col}">
           {vis}
           <span class="num">{n:02d}</span><span class="sym">{sym}</span>{badges(slug)}
           <span class="nm"{da(short)}>{short[0]}</span>

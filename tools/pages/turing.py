@@ -29,7 +29,7 @@ page(dict(
        p=T('짙은 곳이 v가 많은 곳입니다. 씨앗에서 시작해 무늬가 퍼져 나갑니다. 캔버스를 누르면 그 자리에 새 씨앗이 떨어져요.',
            'Dark areas have a lot of v. The pattern spreads from the seeds. Click the canvas to drop a new seed at that spot.'),
        id='c-world', rounded=True, anim=True, thumb=True,
-       speeds=[('15', T('느리게', 'Slow')), ('40', T('보통', 'Normal')), ('100', T('빠르게', 'Fast'))], speed_default='40'),
+       speeds=[('15', T('느리게', 'Slow')), ('40', T('보통', 'Normal')), ('100', T('빠르게', 'Fast'))], speed_default='15'),
   dict(title=T('② 3D로 보기: 농도의 지형 <span class="badge3d">3D</span>', '② In 3D: The Concentration Landscape <span class="badge3d">3D</span>'),
        p=T('①과 같은 시뮬레이션을 v 농도의 높이로 세웠습니다. 위에서 무늬가 자라는 동안 여기서도 실시간으로 솟아오릅니다. 점무늬는 꼭대기 높이가 거의 같은 둥근 언덕(자리 잡은 뒤 v 0.36 안팎)이 되고, 줄무늬는 그보다 조금 낮은(v 약 0.30) 능선이 끊기지 않고 이어집니다. 언덕은 끝없이 높아지거나 커지지 않고 정해진 높이와 폭에서 멈춥니다. 퍼지는 속도의 차이가 무늬의 크기를 정하기 때문입니다.',
            'The same simulation as ①, with the concentration of v shown as height. It rises here in real time while the pattern grows above. Spots become round hills with nearly the same peak height (v around 0.36 once settled), and stripes become slightly lower (v about 0.30) unbroken ridges. The hills do not grow taller or wider forever; they stop at a set height and width, because the difference in spreading speeds sets the size of the pattern.'),
