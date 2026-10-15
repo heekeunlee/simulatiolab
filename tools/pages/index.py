@@ -159,6 +159,15 @@ ADDED['murmuration'] = '2026-10-15'
 ADDED['filterbubble'] = '2026-10-15'
 ADDED['depopulation'] = '2026-10-15'
 
+# 칸 오른쪽 아래 작은 표시: 어제·오늘 추가된 실험은 New(빨간 배경·흰 글자), app3d.js가 있으면 3D. 빌드하는 날 기준이라 다시 빌드하면 저절로 바뀐다
+import datetime as _dt
+NEW_SINCE = (_dt.date.today() - _dt.timedelta(days=1)).isoformat()
+def badges(slug):
+    b = ''
+    if ADDED.get(slug, '') >= NEW_SINCE: b += '<span class="bnew">New</span>'
+    if os.path.exists(os.path.join(EXP, slug, 'app3d.js')): b += '<span class="b3d" title="3D">3D</span>'
+    return f'<span class="bdg">{b}</span>' if b else ''
+
 # slug -> (기호, 짧은 이름 T, 미니 애니메이션 종류)
 # 쉬운 말로 다듬은 칸 제목·설명(tools/pages/simple/<slug>.json)이 있으면 그것을 쓴다
 import json as _json
@@ -262,7 +271,7 @@ def build(only_existing=True):
             tiles += f"""
         <a class="el{' has-thumb' if th else ''}" href="experiments/{slug}/" data-field="{k}" data-kind="{kind}"{f' data-thumb="{th}"' if th else ''} style="--c:{col}">
           {vis}
-          <span class="num">{n:02d}</span><span class="sym">{sym}</span>{'<span class="b3d" title="3D">3D</span>' if os.path.exists(os.path.join(EXP, slug, 'app3d.js')) else ''}
+          <span class="num">{n:02d}</span><span class="sym">{sym}</span>{badges(slug)}
           <span class="nm"{da(short)}>{short[0]}</span>
           <span class="hid t-title"{da(title)}>{title[0]}</span><span class="hid t-desc"{da(desc)}>{desc[0]}</span><span class="hid t-model"{da(method)}>{method[0]}</span>
         </a>"""

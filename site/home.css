@@ -245,4 +245,7 @@ html:not([lang="ko"]) .el .new-pill, html:not([lang="ko"]) .el .done-mark { bott
 @keyframes dsk { from { background-position: 200% 0; } to { background-position: -200% 0; } }
 
 /* 3D 보기가 있는 실험: 칸 오른쪽 아래 구석에 작게 표시 */
-.el .b3d { position: absolute; right: 6px; bottom: 6px; z-index: 3; font-size: 9px; font-weight: 800; letter-spacing: .04em; line-height: 1; padding: 2px 5px; border-radius: 5px; background: rgba(15,18,34,.78); color: #fff; pointer-events: none; }
+.el .bdg { position: absolute; right: 6px; bottom: 6px; z-index: 3; display: flex; gap: 3px; pointer-events: none; }
+.el .b3d, .el .bnew { font-size: 9px; font-weight: 800; letter-spacing: .04em; line-height: 1; padding: 2px 5px; border-radius: 5px; color: #fff; }
+.el .b3d { background: rgba(15,18,34,.78); }
+.el .bnew { background: #e11d48; }
