@@ -10,6 +10,8 @@
   const SRC = (document.currentScript && document.currentScript.src) || '';
   const BASE = SRC.slice(0, SRC.lastIndexOf('/') + 1);
   const I = window.I18N || {};
+  // 머리글 제목 옆 작은 버전 표시 (site/VERSION → exps.js 의 window.LAB_VERSION)
+  try { const bt = document.querySelector('.brand .bt'); if (bt && window.LAB_VERSION && !bt.querySelector('.ver')) { const s = document.createElement('span'); s.className = 'ver'; s.textContent = 'ver. ' + window.LAB_VERSION; bt.appendChild(s); } } catch (e) {}
   const LANG = I.lang || 'ko';
   const EXPS = window.LAB_EXPS || [];
   if (!EXPS.length) return;

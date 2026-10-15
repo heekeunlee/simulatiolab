@@ -364,7 +364,8 @@ def build(only_existing=True):
     for idx, fname, title_ch, desc_ch in ((0, 'feed.xml', '시뮬라티오 랩 | 새 실험', '세상을 시뮬레이션으로 돌려보는 실험실의 새 실험 소식'), (1, 'feed-en.xml', 'Simulatio Lab | New experiments', 'New experiments from the lab that reruns the world')):
         items = ''.join(f'<item><title>{H.escape(strip(t[idx]))}</title><link>https://heekeunlee.github.io/simulatiolab/experiments/{sl}/</link><guid isPermaLink="true">https://heekeunlee.github.io/simulatiolab/experiments/{sl}/</guid><pubDate>{rfc(d)}</pubDate><description>{H.escape(strip(ds[idx]))}</description></item>' for sl, d, t, ds in sorted(feed, key=lambda x: x[1], reverse=True))
         open(os.path.join(ROOT, fname), 'w', encoding='utf-8').write(f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>{H.escape(title_ch)}</title><link>https://heekeunlee.github.io/simulatiolab/</link><description>{H.escape(desc_ch)}</description><language>{"ko" if idx == 0 else "en"}</language>{items}</channel></rss>')
-    open(os.path.join(ROOT, 'exps.js'), 'w', encoding='utf-8').write('// 실험 목록 (tools/pages/index.py 가 만든다)\nwindow.LAB_EXPS = ' + json.dumps(exps, ensure_ascii=False) + ';\n')
+    ver = open(os.path.join(ROOT, 'VERSION'), encoding='utf-8').read().strip()   # 배포 버전 (tools/bump_version.py 로 올린다)
+    open(os.path.join(ROOT, 'exps.js'), 'w', encoding='utf-8').write('// 실험 목록 (tools/pages/index.py 가 만든다)\nwindow.LAB_EXPS = ' + json.dumps(exps, ensure_ascii=False) + ';\nwindow.LAB_VERSION = ' + json.dumps(ver) + ';\n')
     return total, len(cats)
 
 if __name__ == '__main__':
