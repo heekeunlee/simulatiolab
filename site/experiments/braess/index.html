@@ -56,9 +56,10 @@
   <div class="stats" id="stats"></div>
 
   <section class="panel chart" style="margin-top:16px">
-    <h3 data-en="① Watching the Commute">① 출근길 지켜보기</h3>
-    <p data-en="A road&#x27;s thickness shows how many drivers use it, and its color the time it takes (green fast, red slow). When the shortcut opens, drivers move one by one to whatever is faster, and the bar below shows the share choosing each route.">길의 굵기는 지나는 운전자 수, 색은 걸리는 시간입니다(초록은 빠름, 빨강은 느림). 지름길이 열리면 운전자들이 한 명씩 더 빠른 길로 옮겨 가고, 아래 막대는 세 길의 선택 비율입니다.</p>
-    <canvas id="c-net" class="rounded" data-thumb aria-label="① Watching the Commute"></canvas>
+    <h3 data-en="① The Bridge Came Down and Everyone Piled On &lt;span class=&quot;badge3d&quot;&gt;3D&lt;/span&gt;">① 다리가 내려오자 모두가 몰려들었다 <span class="badge3d">3D</span></h3>
+    <p data-en="A city road network from the start (the neighborhood on the left) to the destination (the office district on the right). The road around the top is Route A, the one around the bottom Route B, and the lift bridge over the river in the middle is the shortcut. A road&#x27;s edge color is how long it takes to cross it (green fast, red slow), and the cars are spread over the roads in the share now choosing each route, driving slower where the road takes longer. Open the shortcut with the button below and the bridge deck comes down; cars crowd onto the two congestible roads, which turn red and fill with queues. The clock hand at the top right is the average commute.">출발(왼쪽 동네)에서 도착(오른쪽 회사 거리)까지 가는 도시의 도로망입니다. 위로 도는 길이 A 길, 아래로 도는 길이 B 길이고, 가운데 강 위의 들리는 다리가 지름길이에요. 길 테두리 색은 그 길을 지나는 데 걸리는 시간(초록은 빠름, 빨강은 느림)이고, 차는 지금 각 길을 고른 비율만큼 놓여 걸리는 시간이 길수록 느리게 갑니다. 아래 버튼으로 지름길을 열면 다리 상판이 내려오고, 차들이 막히는 두 길로 몰리며 그 길이 빨갛게 줄지어 섭니다. 오른쪽 위 시계 바늘은 평균 출근 시간이에요.</p>
+    <canvas id="c-3d" class="view3d" data-thumb aria-label="① The Bridge Came Down and Everyone Piled On 3D"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:linear-gradient(90deg,hsl(145,68%,42%),hsl(72,73%,46%),hsl(0,78%,42%))&quot;&gt;&lt;/i&gt;Road edge color: green fast → red slow"><i style="background:linear-gradient(90deg,hsl(145,68%,42%),hsl(72,73%,46%),hsl(0,78%,42%))"></i>길 테두리 색: 초록 빠름 → 빨강 느림</span><span data-en="&lt;i style=&quot;background:#ffc400;border-radius:3px;box-shadow:inset 0 0 0 1px #b88a00&quot;&gt;&lt;/i&gt;Yellow car: the one driver we follow"><i style="background:#ffc400;border-radius:3px;box-shadow:inset 0 0 0 1px #b88a00"></i>노란 차: 따라가는 운전자 한 명</span><span data-en="&lt;i style=&quot;background:linear-gradient(135deg,#8d97a5 0 50%,#7fbfe8 50%)&quot;&gt;&lt;/i&gt;Lift bridge over the river = the shortcut (raised when closed)"><i style="background:linear-gradient(135deg,#8d97a5 0 50%,#7fbfe8 50%)"></i>강 위의 들리는 다리 = 지름길 (닫히면 들려요)</span></div>
     <div class="anim-bar">
       <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
       <button id="stepbtn" data-en="Step">한 단계</button>
@@ -67,29 +68,39 @@
       <span class="when" id="when"></span>
     </div>
     <div class="anim-bar"><button id="toggle">지름길 열기</button><span class="muted small" data-en="Press anytime to open or close the shortcut; drivers re-pick their routes each time.">언제든 눌러서 지름길을 열고 닫아 보세요. 운전자들이 그때마다 길을 다시 고릅니다.</span></div>
+    <div class="anim-bar">
+      <select id="b3-time" aria-label="day or night"><option value="day" selected data-en="Daytime">낮</option><option value="night" data-en="Night (only headlights show)">밤 (헤드라이트만 보여요)</option></select>
+      <select id="b3-rotate" aria-label="map rotation"><option value="off" selected data-en="Map stays still">지도 고정</option><option value="on" data-en="Map turns slowly">지도 천천히 돌기</option></select>
+    </div>
+    <p class="hint3d" data-en="This is the same result as the route diagram and charts below, shown as a city on a map; the 3D view adds no new calculation. The number of cars and how they move only show the current share choosing each route and how long each road takes; they are not a calculation of each driver's real path (one car stands for several drivers, and even a 0-minute shortcut is drawn at a minimum speed so you can see cars cross). Only the yellow car follows one real driver from the simulation. Drag to turn the map · scroll or pinch to zoom · on a phone, swiping up and down scrolls the page.">아래 노선도·그래프와 같은 결과를 지도 위 도시로 본 것이고, 3D에서 새로 계산하지 않아요. 차의 수와 움직임은 지금 라운드의 길 선택 비율과 길마다 걸리는 시간을 보여 주는 표시일 뿐, 운전자 한 명 한 명의 실제 경로를 계산한 게 아니에요(차 한 대가 운전자 여러 명을 대신하고, 0분짜리 지름길도 건너는 모습이 보이게 최소 속도로 그려요). 노란 차만 시뮬레이션 속 실제 운전자 한 명을 따라갑니다. 드래그로 돌려 보기 · 휠이나 두 손가락으로 확대 · 휴대폰에서 세로로 쓸면 페이지가 내려갑니다.</p>
   </section>
 
   <div class="charts">
     <section class="panel chart">
-      <h3 data-en="② Average Commute Over Time">② 평균 출근 시간의 변화</h3>
+      <h3 data-en="② As a Route Diagram">② 노선도로 보기</h3>
+    <p data-en="The city above reduced to its structure. A road&#x27;s thickness shows how many drivers use it, and its color the time it takes (green fast, red slow). Open or close the shortcut with the button above. When the shortcut opens, drivers move one by one to whatever is faster, and the bar below shows the share choosing each route.">위 도시를 구조만 남긴 노선도입니다. 길의 굵기는 지나는 운전자 수, 색은 걸리는 시간입니다(초록은 빠름, 빨강은 느림). 지름길은 위 버튼으로 열고 닫아요. 지름길이 열리면 운전자들이 한 명씩 더 빠른 길로 옮겨 가고, 아래 막대는 세 길의 선택 비율입니다.</p>
+    <canvas id="c-net" class="rounded" aria-label="② As a Route Diagram"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ Average Commute Over Time">③ 평균 출근 시간의 변화</h3>
     <p data-en="The blue line is the average commute in each round. The green dashed line is the equilibrium without the shortcut, the red one the equilibrium with it (theory), and gray is the social optimum a planner could reach. The vertical dashed line marks when the road changed.">파란 선이 라운드마다의 평균 출근 시간입니다. 초록 점선은 지름길이 없을 때의 균형, 빨간 점선은 있을 때의 균형(이론값)이고, 회색은 중앙에서 정할 때의 사회 최적입니다. 세로 점선은 길이 바뀐 때입니다.</p>
-    <canvas id="c-time" class="" aria-label="② Average Commute Over Time"></canvas>
+    <canvas id="c-time" class="" aria-label="③ Average Commute Over Time"></canvas>
     </section>
     <section class="panel chart">
-      <h3 data-en="③ Which Route Do Drivers Pick?">③ 어느 길을 고르게 될까</h3>
+      <h3 data-en="④ Which Route Do Drivers Pick?">④ 어느 길을 고르게 될까</h3>
     <p data-en="The share of drivers on each of the three routes in every round, stacked. When the shortcut opens, blue and purple (Routes A and B) shrink and orange (via the shortcut) grows.">라운드마다 세 길을 고른 운전자의 비율을 쌓았습니다. 지름길이 열리면 파랑과 보라(A 길, B 길)가 줄고 주황(지름길 경유)이 늘어납니다.</p>
-    <canvas id="c-shares" class="" aria-label="③ Which Route Do Drivers Pick?"></canvas>
+    <canvas id="c-shares" class="" aria-label="④ Which Route Do Drivers Pick?"></canvas>
     </section>
     <section class="panel chart">
-      <h3 data-en="④ When Does the Shortcut Help, and When Does It Hurt?">④ 지름길은 언제 도움이 되고 언제 해로울까</h3>
+      <h3 data-en="⑤ When Does the Shortcut Help, and When Does It Hurt?">⑤ 지름길은 언제 도움이 되고 언제 해로울까</h3>
     <p data-en="The horizontal axis is the number of drivers, the vertical axis the average commute at equilibrium (theory). Where the area between the two lines is green the shortcut helps, where it is red it hurts. It helps when roads are quiet and hurts most at middling traffic.">가로는 운전자 수, 세로는 균형에서의 평균 출근 시간입니다(이론값). 두 선 사이가 초록이면 지름길이 도움이 되고, 빨강이면 해가 됩니다. 한적할 때는 도움이 되고, 어중간하게 붐빌 때 가장 해롭습니다.</p>
-    <canvas id="c-n" class="" aria-label="④ When Does the Shortcut Help, and When Does It Hurt?"></canvas>
+    <canvas id="c-n" class="" aria-label="⑤ When Does the Shortcut Help, and When Does It Hurt?"></canvas>
       <div class="legend"><span id="note-n" data-en="Calculating…">계산 중…</span></div>
     </section>
     <section class="panel chart">
-      <h3 data-en="⑤ If the Shortcut Gets Costlier">⑤ 지름길 비용을 올리면</h3>
+      <h3 data-en="⑥ If the Shortcut Gets Costlier">⑥ 지름길 비용을 올리면</h3>
     <p data-en="The horizontal axis is the time needed to cross the shortcut, the vertical axis the average commute at equilibrium. Past a certain cost nobody uses the shortcut and it is as good as closed.">가로는 지름길을 지나는 데 드는 시간, 세로는 균형에서의 평균 출근 시간입니다. 비용이 어느 선을 넘으면 지름길이 있어도 아무도 타지 않아 닫은 것과 같아집니다.</p>
-    <canvas id="c-c" class="" aria-label="⑤ If the Shortcut Gets Costlier"></canvas>
+    <canvas id="c-c" class="" aria-label="⑥ If the Shortcut Gets Costlier"></canvas>
       <div class="legend"><span id="note-c" data-en="Calculating…">계산 중…</span></div>
     </section>
   </div>
@@ -115,7 +126,7 @@
     <li class="memo theory" data-en="&lt;b&gt;What this project simplifies:&lt;/b&gt; The network is one symmetric four-road network with a single origin and destination, and drivers care only about time. The re-choosing rule (each round 8% of drivers move, and only if clearly faster) and the defaults (sensitivity 10, shortcut cost 0 minutes) are this project&#x27;s own choices; there is no real city traffic or demand change."><b>이 프로젝트의 단순화:</b> 도로망은 길 네 개짜리 대칭 도로망 하나, 출발지와 목적지도 하나이며 운전자는 시간만 따집니다. 운전자의 재선택 규칙(매 라운드 8%가 확실히 더 빠를 때만 이동)과 기본값(민감도 10, 지름길 비용 0분)은 이 프로젝트가 정한 것이고, 실제 도시의 교통량이나 수요 변화는 없습니다.</li>
     <li class="memo theory" data-en="&lt;b&gt;Theory versus simulation:&lt;/b&gt; At 4,000 drivers and cost 0 the theory gives 65.0 minutes closed, 80.0 open and 64.7 at the social optimum, and the simulation reached 65.0 and 80.0 (round 180). Across settings varying drivers, shortcut cost and sensitivity, the simulated end averages matched the theory, and the gain from switching alone at the end state was 0 minutes. The price of anarchy (equilibrium ÷ optimum) was 1.24 at 4,000 drivers and peaked at 1.33 (= 4/3) at 4,500, equal to the known bound of 4/3 for linear delays."><b>이론값과 시뮬레이션:</b> 4,000명, 비용 0분에서 이론값은 닫힘 65.0분, 열림 80.0분, 사회 최적 64.7분이고 시뮬레이션도 65.0분과 80.0분(180라운드)이었습니다. 운전자 수, 지름길 비용, 민감도를 바꾼 여러 설정에서 시뮬레이션의 끝 평균이 이론값과 맞았고, 끝 상태에서 혼자 옮겨 얻는 이득은 0분이었습니다. 무정부 가격(균형÷최적)은 4,000명에서 1.24, 4,500명에서 최대 1.33(=4/3)으로, 선형 지연 시간의 알려진 상한 4/3과 같았습니다.</li>
     <li class="memo theory" data-en="&lt;b&gt;Further reading:&lt;/b&gt; Braess (1968), Unternehmensforschung (English translation: Braess, Nagurney &amp;amp; Wakolbinger, 2005, &amp;quot;On a paradox of traffic planning&amp;quot;, &lt;i&gt;Transportation Science&lt;/i&gt;) / Roughgarden &amp;amp; Tardos (2002), &amp;quot;How bad is selfish routing?&amp;quot;, &lt;i&gt;Journal of the ACM&lt;/i&gt; / Easley &amp;amp; Kleinberg (2010), &lt;i&gt;Networks, Crowds, and Markets&lt;/i&gt;, Cambridge University Press."><b>더 읽을거리:</b> Braess (1968), Unternehmensforschung(영어 번역: Braess, Nagurney &amp; Wakolbinger, 2005, &quot;On a paradox of traffic planning&quot;, <i>Transportation Science</i>) / Roughgarden &amp; Tardos (2002), &quot;How bad is selfish routing?&quot;, <i>Journal of the ACM</i> / Easley &amp; Kleinberg (2010), <i>Networks, Crowds, and Markets</i>, Cambridge University Press.</li>
-    <li  data-en="Treating drivers as a continuous quantity, the equilibrium can be solved in closed form. With a = sensitivity/1000, fixed time 45 and shortcut cost c: if a × drivers + c ≤ 45 everyone takes the shortcut and the average is 2a × drivers + c; if it is more crowded but a × drivers &lt; 2(45 − c), only some take it and all three routes tie at 90 − c; beyond that nobody takes it, same as closed. Graphs ④ and ⑤ use these formulas, and I checked that the end state of the simulation matches them.">운전자 수를 연속된 양으로 보면 균형을 식으로 풀 수 있습니다. a = 민감도/1000, 고정 시간 45, 지름길 비용 c일 때, a×운전자 수 + c ≤ 45이면 모두 지름길을 타서 평균 시간은 2a×운전자 수 + c, 그보다 붐비되 a×운전자 수 < 2(45 − c)이면 일부만 타서 세 길의 시간이 같아지며 90 − c, 그 이상이면 아무도 타지 않아 닫은 것과 같습니다. ④, ⑤번 그래프는 이 식으로 그렸고, 시뮬레이션의 끝 상태가 이 값과 맞는지 검증했습니다.</li>
+    <li  data-en="Treating drivers as a continuous quantity, the equilibrium can be solved in closed form. With a = sensitivity/1000, fixed time 45 and shortcut cost c: if a × drivers + c ≤ 45 everyone takes the shortcut and the average is 2a × drivers + c; if it is more crowded but a × drivers &lt; 2(45 − c), only some take it and all three routes tie at 90 − c; beyond that nobody takes it, same as closed. Graphs ⑤ and ⑥ use these formulas, and I checked that the end state of the simulation matches them.">운전자 수를 연속된 양으로 보면 균형을 식으로 풀 수 있습니다. a = 민감도/1000, 고정 시간 45, 지름길 비용 c일 때, a×운전자 수 + c ≤ 45이면 모두 지름길을 타서 평균 시간은 2a×운전자 수 + c, 그보다 붐비되 a×운전자 수 < 2(45 − c)이면 일부만 타서 세 길의 시간이 같아지며 90 − c, 그 이상이면 아무도 타지 않아 닫은 것과 같습니다. ⑤, ⑥번 그래프는 이 식으로 그렸고, 시뮬레이션의 끝 상태가 이 값과 맞는지 검증했습니다.</li>
     <li  data-en="You can verify with &lt;code&gt;node tools/validate-braess.js&lt;/code&gt;. The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. The social optimum is the minimum average time found by trying every possible number of shortcut users one by one.">검증은 <code>node tools/validate-braess.js</code>로 할 수 있습니다. 시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 사회 최적은 지름길 이용자 수를 0부터 끝까지 하나씩 바꿔 가며 찾은 평균 시간의 최솟값입니다.</li>
     <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/braess&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/braess">GitHub</a>에서 볼 수 있습니다.</li>
   </ul>
@@ -129,6 +140,7 @@
 <script src="../../lib.js"></script>
 <script src="sim.js"></script>
 <script src="app.js"></script>
+<script src="../../lazy3d.js" data-module="app3d.js"></script>
 <script src="../../counter.js"></script>
 <script src="../../engage.js"></script>
 </body>

@@ -8,6 +8,9 @@
   const FONT = '-apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif';
   let sim = null, S = null, curveN = [], curveC = [], bandsN = null, bandsC = null;
   let seedGetter = () => 1;
+  let follow = 0; // 3D의 노란 차가 따라가는 운전자 한 명 (판마다 시드로 고정)
+  const ROUTE_NAMES = ['A 길', 'B 길', '지름길 경유'];
+  const isPaused = () => { const b = $('play'); return !b || b.textContent.indexOf('⏸') < 0; };
   const params = () => ({ seed: seedGetter(), n: Number($('n').value), cost: Number($('cost').value), sens: Number($('sens').value), plan: $('plan').value });
   const f1 = (v) => v.toFixed(1);
   const THUMB = /[?&]thumb=1/.test(location.search); // 썸네일 촬영: 지름길이 열리고 자리 잡은 장면으로 바로 간다
@@ -183,6 +186,7 @@
       ['안정된 상태의 시간: 지름길 없음 → 있음', `${f1(S.closed)} → ${f1(S.open)}분`, '이론값. 모두가 자기에게 가장 빠른 길만 고를 때'],
       ['가장 좋은 평균 시간 (사회 최적)', `${f1(opt)}분`, '누군가 길을 나눠 줄 수 있다면 도달할 최선'],
       ['이기적 선택의 비용', `×${poa.toFixed(2)}`, '지금 상태의 균형 시간 ÷ 사회 최적 (무정부 가격)'],
+      ['노란 차 운전자의 출근 시간', `${f1(sim.routeTimes()[sim.routeOf(follow)])}분`, `고른 길: ${ROUTE_NAMES[sim.routeOf(follow)]}`],
     ];
     $('stats').innerHTML = cards.map(([k, v, s]) => `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join('');
   }
@@ -206,6 +210,7 @@
     defaults: { n: 4000, cost: 0, sens: 10, plan: 'open' },
     build() {
       const P = params(); sim = B.create(P); S = B.summary(P);
+      follow = (P.seed * 2654435761 + 977) % P.n; // 판(시드)마다 같은 운전자 한 명
       if (THUMB) for (let k = 0; k < 140 && !sim.done(); k++) sim.advance();
     },
     autoplay: !THUMB,
@@ -214,6 +219,15 @@
     draw, after, redrawExtra() { drawN(); drawC(); }, seedLabel: '출근길 번호',
   });
   seedGetter = h.seed;
+
+  // 3D 보기(app3d.js)가 읽는 상태: 같은 sim을 그대로 보여 줄 뿐 3D에서 새로 계산하지 않는다
+  window.BraessState = {
+    get sim() { return sim; }, get follow() { return follow; }, heat, isPaused, thumb: THUMB,
+    linkTimes() { // 2D 노선도(drawNet)와 같은 구간 시간: [출발→A, A→도착, 출발→B, B→도착, 지름길]
+      const P = sim.params, a = P.sens / 1000, cn = sim.counts(), LA = cn[0] + cn[2], LB = cn[1] + cn[2];
+      return [a * LA, P.fixed, P.fixed, a * LB, P.cost];
+    },
+  };
 
   // 지름길 열기/막기 (언제든 누를 수 있다)
   $('toggle').addEventListener('click', () => {

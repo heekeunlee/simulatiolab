@@ -51,4 +51,11 @@ DYN = {
 '×{#0}': '×{0}',
 '지금 상태의 균형 시간 ÷ 사회 최적 (무정부 가격)': 'Equilibrium time in the current state ÷ social optimum (price of anarchy)',
 '출근길 번호': 'Commute',
+'노란 차 운전자의 출근 시간': "Yellow car driver's commute",
+'고른 길: {0}': 'Route picked: {0}',
+'평균 출근 시간': 'Average commute',
+'지름길 {#0}분': 'Shortcut {0} min',
+'다리 들림': 'Bridge raised',
+'우리 동네': 'Home neighborhood',
+'회사 거리': 'Office district',
 }

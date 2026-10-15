@@ -3,9 +3,15 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from mk2 import *
 
 TOGGLE = '\n    <div class="anim-bar"><button id="toggle">지름길 열기</button><span class="muted small" data-en="Press anytime to open or close the shortcut; drivers re-pick their routes each time.">언제든 눌러서 지름길을 열고 닫아 보세요. 운전자들이 그때마다 길을 다시 고릅니다.</span></div>'
+VIEWBAR = ('\n    <div class="anim-bar">'
+           '\n      <select id="b3-time" aria-label="day or night"><option value="day" selected data-en="Daytime">낮</option><option value="night" data-en="Night (only headlights show)">밤 (헤드라이트만 보여요)</option></select>'
+           '\n      <select id="b3-rotate" aria-label="map rotation"><option value="off" selected data-en="Map stays still">지도 고정</option><option value="on" data-en="Map turns slowly">지도 천천히 돌기</option></select>'
+           '\n    </div>')
+HINT3D = ('<p class="hint3d" data-en="This is the same result as the route diagram and charts below, shown as a city on a map; the 3D view adds no new calculation. The number of cars and how they move only show the current share choosing each route and how long each road takes; they are not a calculation of each driver\'s real path (one car stands for several drivers, and even a 0-minute shortcut is drawn at a minimum speed so you can see cars cross). Only the yellow car follows one real driver from the simulation. Drag to turn the map · scroll or pinch to zoom · on a phone, swiping up and down scrolls the page.">'
+          '아래 노선도·그래프와 같은 결과를 지도 위 도시로 본 것이고, 3D에서 새로 계산하지 않아요. 차의 수와 움직임은 지금 라운드의 길 선택 비율과 길마다 걸리는 시간을 보여 주는 표시일 뿐, 운전자 한 명 한 명의 실제 경로를 계산한 게 아니에요(차 한 대가 운전자 여러 명을 대신하고, 0분짜리 지름길도 건너는 모습이 보이게 최소 속도로 그려요). 노란 차만 시뮬레이션 속 실제 운전자 한 명을 따라갑니다. 드래그로 돌려 보기 · 휠이나 두 손가락으로 확대 · 휴대폰에서 세로로 쓸면 페이지가 내려갑니다.</p>')
 
 page(dict(
- slug='braess',
+ slug='braess', three=True,
  title=T('새 길을 뚫었더니 모두가 느려졌다: 브라에스의 역설', 'A New Road Made Everyone Slower: Braess\'s Paradox'),
  title_tag=T('브라에스의 역설 · 시뮬라티오 랩', 'Braess\'s Paradox · Simulatio Lab'),
  desc=T('지름길을 열었더니 모든 운전자의 평균 출근 시간이 오히려 늘어나는 브라에스의 역설을, 운전자들이 스스로 길을 고르는 시뮬레이션으로 직접 돌려보세요.',
@@ -26,24 +32,32 @@ page(dict(
  selects=[('plan', T('실험 순서', 'Order of the experiment'), [('open', T('지름길이 없다가 중간에 연다', 'No shortcut at first, then open it')), ('close', T('지름길이 있다가 중간에 막는다', 'Shortcut at first, then close it'))], 'open', T('50라운드까지 적응한 뒤 길을 바꿉니다. 중간에 버튼으로 직접 열고 닫을 수도 있어요', 'Drivers adapt for 50 rounds, then the road changes. You can also open or close it yourself with the button'))],
  reroll=T('같은 설정, 다른 운전자들', 'Same settings, different drivers'),
  sections=[
-  dict(title=T('① 출근길 지켜보기', '① Watching the Commute'),
-       p=T('길의 굵기는 지나는 운전자 수, 색은 걸리는 시간입니다(초록은 빠름, 빨강은 느림). 지름길이 열리면 운전자들이 한 명씩 더 빠른 길로 옮겨 가고, 아래 막대는 세 길의 선택 비율입니다.',
-           'A road\'s thickness shows how many drivers use it, and its color the time it takes (green fast, red slow). When the shortcut opens, drivers move one by one to whatever is faster, and the bar below shows the share choosing each route.'),
-       id='c-net', rounded=True, anim=True, extra=TOGGLE, thumb=True,
-       speeds=[('5', T('느리게', 'Slow')), ('12', T('보통', 'Normal')), ('40', T('빠르게', 'Fast'))], speed_default='12'),
-  dict(title=T('② 평균 출근 시간의 변화', '② Average Commute Over Time'),
+  dict(title=T('① 다리가 내려오자 모두가 몰려들었다 <span class="badge3d">3D</span>', '① The Bridge Came Down and Everyone Piled On <span class="badge3d">3D</span>'),
+       p=T('출발(왼쪽 동네)에서 도착(오른쪽 회사 거리)까지 가는 도시의 도로망입니다. 위로 도는 길이 A 길, 아래로 도는 길이 B 길이고, 가운데 강 위의 들리는 다리가 지름길이에요. 길 테두리 색은 그 길을 지나는 데 걸리는 시간(초록은 빠름, 빨강은 느림)이고, 차는 지금 각 길을 고른 비율만큼 놓여 걸리는 시간이 길수록 느리게 갑니다. 아래 버튼으로 지름길을 열면 다리 상판이 내려오고, 차들이 막히는 두 길로 몰리며 그 길이 빨갛게 줄지어 섭니다. 오른쪽 위 시계 바늘은 평균 출근 시간이에요.',
+           'A city road network from the start (the neighborhood on the left) to the destination (the office district on the right). The road around the top is Route A, the one around the bottom Route B, and the lift bridge over the river in the middle is the shortcut. A road\'s edge color is how long it takes to cross it (green fast, red slow), and the cars are spread over the roads in the share now choosing each route, driving slower where the road takes longer. Open the shortcut with the button below and the bridge deck comes down; cars crowd onto the two congestible roads, which turn red and fill with queues. The clock hand at the top right is the average commute.'),
+       id='c-3d', three=True, anim=True, thumb=True,
+       speeds=[('5', T('느리게', 'Slow')), ('12', T('보통', 'Normal')), ('40', T('빠르게', 'Fast'))], speed_default='12',
+       after_canvas=legend(leg('background:linear-gradient(90deg,hsl(145,68%,42%),hsl(72,73%,46%),hsl(0,78%,42%))', '길 테두리 색: 초록 빠름 → 빨강 느림', 'Road edge color: green fast → red slow'),
+                           leg('background:#ffc400;border-radius:3px;box-shadow:inset 0 0 0 1px #b88a00', '노란 차: 따라가는 운전자 한 명', 'Yellow car: the one driver we follow'),
+                           leg('background:linear-gradient(135deg,#8d97a5 0 50%,#7fbfe8 50%)', '강 위의 들리는 다리 = 지름길 (닫히면 들려요)', 'Lift bridge over the river = the shortcut (raised when closed)')),
+       extra=TOGGLE + VIEWBAR + '\n    ' + HINT3D),
+  dict(title=T('② 노선도로 보기', '② As a Route Diagram'),
+       p=T('위 도시를 구조만 남긴 노선도입니다. 길의 굵기는 지나는 운전자 수, 색은 걸리는 시간입니다(초록은 빠름, 빨강은 느림). 지름길은 위 버튼으로 열고 닫아요. 지름길이 열리면 운전자들이 한 명씩 더 빠른 길로 옮겨 가고, 아래 막대는 세 길의 선택 비율입니다.',
+           'The city above reduced to its structure. A road\'s thickness shows how many drivers use it, and its color the time it takes (green fast, red slow). Open or close the shortcut with the button above. When the shortcut opens, drivers move one by one to whatever is faster, and the bar below shows the share choosing each route.'),
+       id='c-net', rounded=True),
+  dict(title=T('③ 평균 출근 시간의 변화', '③ Average Commute Over Time'),
        p=T('파란 선이 라운드마다의 평균 출근 시간입니다. 초록 점선은 지름길이 없을 때의 균형, 빨간 점선은 있을 때의 균형(이론값)이고, 회색은 중앙에서 정할 때의 사회 최적입니다. 세로 점선은 길이 바뀐 때입니다.',
            'The blue line is the average commute in each round. The green dashed line is the equilibrium without the shortcut, the red one the equilibrium with it (theory), and gray is the social optimum a planner could reach. The vertical dashed line marks when the road changed.'),
        id='c-time'),
-  dict(title=T('③ 어느 길을 고르게 될까', '③ Which Route Do Drivers Pick?'),
+  dict(title=T('④ 어느 길을 고르게 될까', '④ Which Route Do Drivers Pick?'),
        p=T('라운드마다 세 길을 고른 운전자의 비율을 쌓았습니다. 지름길이 열리면 파랑과 보라(A 길, B 길)가 줄고 주황(지름길 경유)이 늘어납니다.',
            'The share of drivers on each of the three routes in every round, stacked. When the shortcut opens, blue and purple (Routes A and B) shrink and orange (via the shortcut) grows.'),
        id='c-shares'),
-  dict(title=T('④ 지름길은 언제 도움이 되고 언제 해로울까', '④ When Does the Shortcut Help, and When Does It Hurt?'),
+  dict(title=T('⑤ 지름길은 언제 도움이 되고 언제 해로울까', '⑤ When Does the Shortcut Help, and When Does It Hurt?'),
        p=T('가로는 운전자 수, 세로는 균형에서의 평균 출근 시간입니다(이론값). 두 선 사이가 초록이면 지름길이 도움이 되고, 빨강이면 해가 됩니다. 한적할 때는 도움이 되고, 어중간하게 붐빌 때 가장 해롭습니다.',
            'The horizontal axis is the number of drivers, the vertical axis the average commute at equilibrium (theory). Where the area between the two lines is green the shortcut helps, where it is red it hurts. It helps when roads are quiet and hurts most at middling traffic.'),
        id='c-n', note='n'),
-  dict(title=T('⑤ 지름길 비용을 올리면', '⑤ If the Shortcut Gets Costlier'),
+  dict(title=T('⑥ 지름길 비용을 올리면', '⑥ If the Shortcut Gets Costlier'),
        p=T('가로는 지름길을 지나는 데 드는 시간, 세로는 균형에서의 평균 출근 시간입니다. 비용이 어느 선을 넘으면 지름길이 있어도 아무도 타지 않아 닫은 것과 같아집니다.',
            'The horizontal axis is the time needed to cross the shortcut, the vertical axis the average commute at equilibrium. Past a certain cost nobody uses the shortcut and it is as good as closed.'),
        id='c-c', note='c'),
@@ -64,8 +78,8 @@ page(dict(
   ('read', T("Braess (1968), Unternehmensforschung(영어 번역: Braess, Nagurney &amp; Wakolbinger, 2005, &quot;On a paradox of traffic planning&quot;, <i>Transportation Science</i>) / Roughgarden &amp; Tardos (2002), &quot;How bad is selfish routing?&quot;, <i>Journal of the ACM</i> / Easley &amp; Kleinberg (2010), <i>Networks, Crowds, and Markets</i>, Cambridge University Press.",
          "Braess (1968), Unternehmensforschung (English translation: Braess, Nagurney &amp; Wakolbinger, 2005, &quot;On a paradox of traffic planning&quot;, <i>Transportation Science</i>) / Roughgarden &amp; Tardos (2002), &quot;How bad is selfish routing?&quot;, <i>Journal of the ACM</i> / Easley &amp; Kleinberg (2010), <i>Networks, Crowds, and Markets</i>, Cambridge University Press.")),
  ],
- memo=[T('운전자 수를 연속된 양으로 보면 균형을 식으로 풀 수 있습니다. a = 민감도/1000, 고정 시간 45, 지름길 비용 c일 때, a×운전자 수 + c ≤ 45이면 모두 지름길을 타서 평균 시간은 2a×운전자 수 + c, 그보다 붐비되 a×운전자 수 < 2(45 − c)이면 일부만 타서 세 길의 시간이 같아지며 90 − c, 그 이상이면 아무도 타지 않아 닫은 것과 같습니다. ④, ⑤번 그래프는 이 식으로 그렸고, 시뮬레이션의 끝 상태가 이 값과 맞는지 검증했습니다.',
-         'Treating drivers as a continuous quantity, the equilibrium can be solved in closed form. With a = sensitivity/1000, fixed time 45 and shortcut cost c: if a × drivers + c ≤ 45 everyone takes the shortcut and the average is 2a × drivers + c; if it is more crowded but a × drivers < 2(45 − c), only some take it and all three routes tie at 90 − c; beyond that nobody takes it, same as closed. Graphs ④ and ⑤ use these formulas, and I checked that the end state of the simulation matches them.'),
+ memo=[T('운전자 수를 연속된 양으로 보면 균형을 식으로 풀 수 있습니다. a = 민감도/1000, 고정 시간 45, 지름길 비용 c일 때, a×운전자 수 + c ≤ 45이면 모두 지름길을 타서 평균 시간은 2a×운전자 수 + c, 그보다 붐비되 a×운전자 수 < 2(45 − c)이면 일부만 타서 세 길의 시간이 같아지며 90 − c, 그 이상이면 아무도 타지 않아 닫은 것과 같습니다. ⑤, ⑥번 그래프는 이 식으로 그렸고, 시뮬레이션의 끝 상태가 이 값과 맞는지 검증했습니다.',
+         'Treating drivers as a continuous quantity, the equilibrium can be solved in closed form. With a = sensitivity/1000, fixed time 45 and shortcut cost c: if a × drivers + c ≤ 45 everyone takes the shortcut and the average is 2a × drivers + c; if it is more crowded but a × drivers < 2(45 − c), only some take it and all three routes tie at 90 − c; beyond that nobody takes it, same as closed. Graphs ⑤ and ⑥ use these formulas, and I checked that the end state of the simulation matches them.'),
        T('검증은 <code>node tools/validate-braess.js</code>로 할 수 있습니다. 시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 사회 최적은 지름길 이용자 수를 0부터 끝까지 하나씩 바꿔 가며 찾은 평균 시간의 최솟값입니다.',
          'You can verify with <code>node tools/validate-braess.js</code>. The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. The social optimum is the minimum average time found by trying every possible number of shortcut users one by one.')],
 ))

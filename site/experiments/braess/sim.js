@@ -98,6 +98,7 @@
     };
     sim.toggle = function () { sim.setOpen(!sim.open); };
     sim.counts = () => cnt.slice();
+    sim.routeOf = (i) => route[i]; // 읽기 전용: 운전자 i가 지금 고른 길 (3D 보기의 노란 차가 따라감, 결과에는 영향 없음)
     sim.routeTimes = routeTimes;
     sim.avgNow = () => { const t = routeTimes(); let s = 0; for (let r = 0; r < 3; r++) s += cnt[r] * t[r]; return s / n; };
     sim.advance = function () {
