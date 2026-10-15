@@ -360,6 +360,8 @@ span.popt { cursor: default; }
 .callout .chead li:first-child { font-size: 17px; }
 .callout .chead li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
 .callout.cl-not .chead li::before { background: #a7afc2; }
+.callout.cl-then .clabel { color: #1fa463; }
+.callout.cl-then .chead li::before { background: #1fa463; }
 .callout .chead li:not(:first-child) { font-weight: 600; color: color-mix(in srgb, var(--text) 88%, #fff); }
 .callout .cmore { margin: 10px 0 0; }
 .callout .cmore > summary { display: inline-flex; align-items: center; gap: 6px; list-style: none; cursor: pointer; padding: 5px 12px; border-radius: 99px; border: 1.5px solid color-mix(in srgb, var(--accent) 45%, var(--line)); background: var(--surface); color: var(--accent); font-size: 13.5px; font-weight: 700; user-select: none; }

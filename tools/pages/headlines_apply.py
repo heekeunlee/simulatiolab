@@ -7,7 +7,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 EXP = os.path.join(HERE, '..', '..', 'site', 'experiments')
 RX = re.compile(r'<div class="callout" data-en="([^"]*)">(.*?)</div>', re.S)
 # 이미 바뀐 상자를 원래 모양으로 되돌리는 패턴 (긴 설명 문단에 원문이 그대로 있다)
-RX_DONE = re.compile(r'<div class="callout cl-(?:says|not)">.*?<p class="cfull" data-en="([^"]*)">(.*?)</p></details>\s*</div>', re.S)
+RX_DONE = re.compile(r'<div class="callout cl-(?:says|not|then)">.*?<p class="cfull" data-en="([^"]*)">(.*?)</p></details>\s*</div>', re.S)
 
 def _text(s): return H.escape(s, quote=False)
 def _attr(s): return H.escape(s, quote=True)
@@ -21,8 +21,8 @@ def apply(page_html, slug):
     n = [0]
     def sub(m):
         i = n[0]; n[0] += 1
-        if i > 1: return m.group(0)
-        key = 'says' if i == 0 else 'not'
+        key = ['says', 'not', 'then'][i] if i < 3 else None
+        if key is None or (key + '_ko') not in hd: return m.group(0)
         en_full, ko_inner = m.group(1), m.group(2)
         lab_ko = re.match(r'\s*(<b>.*?</b>)', ko_inner, re.S); lab_ko = lab_ko.group(1) if lab_ko else ''
         lab_en = re.match(r'\s*(&lt;b&gt;.*?&lt;/b&gt;)', en_full, re.S); lab_en = H.unescape(lab_en.group(1)) if lab_en else ''

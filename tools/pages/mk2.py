@@ -59,6 +59,8 @@ def page(sp):
     secs = sp['sections']
     first = f'  <section class="panel chart" style="margin-top:16px">\n    {sec(secs[0])}\n  </section>\n'
     # wide=True 이면 결과 격자에서 한 줄 전체를 쓴다 (3D 보기 등 큰 화면)
+    # 선택: "그렇다면?" 상자 (sp["then"] = dict(label=T, body=T)). headlines/<slug>.json 의 then_ko/then_en 이 있으면 헤드라인으로 바뀐다
+    th = sp.get("then"); then_box = (f'\n  <div class="callout"{da(T("<b>" + th["label"][0] + "</b> " + th["body"][0], "<b>" + th["label"][1] + "</b> " + th["body"][1]))}><b>{th["label"][0]}</b> {th["body"][0]}</div>' if th else "")
     rest = ''.join(f'    <section class="panel chart{" wide" if c.get("wide") else ""}">\n      {sec(c)}\n    </section>\n' for c in secs[1:])
     model = ''.join(f'\n    <li{da(b)}>{b[0]}</li>' for b in sp['model'])
     # 이론적 근거: 실험마다 같은 다섯 칸 (뿌리 · 핵심 가정과 수식 · 이 프로젝트의 단순화 · 이론값과 시뮬레이션 · 더 읽을거리).
@@ -120,7 +122,7 @@ def page(sp):
 
   {h("이 결과가 말하는 것, 말하지 않는 것", "What This Shows, and What It Doesn't")}
   <div class="callout"{da(T("<b>말하는 것:</b> " + sp["says"][0], "<b>What it shows:</b> " + sp["says"][1]))}><b>말하는 것:</b> {sp["says"][0]}</div>
-  <div class="callout"{da(T("<b>말하지 않는 것:</b> " + sp["not"][0], "<b>What it doesn't show:</b> " + sp["not"][1]))}><b>말하지 않는 것:</b> {sp["not"][0]}</div>
+  <div class="callout"{da(T("<b>말하지 않는 것:</b> " + sp["not"][0], "<b>What it doesn't show:</b> " + sp["not"][1]))}><b>말하지 않는 것:</b> {sp["not"][0]}</div>{then_box}
 
   {h("이론적 근거와 구현 메모", "Theory and implementation notes")}
   <ul class="small">{memo}

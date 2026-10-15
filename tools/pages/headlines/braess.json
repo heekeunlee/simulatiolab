@@ -16,5 +16,17 @@
  "not_en": [
   "A real city is not a small symmetric network, and a new road is not always harmful. This is certainly not an argument against building roads.",
   "Public transit, shifting departure times and new demand drawn by new roads are not in the model. In reality you would observe road-by-road travel times before and after."
+ ],
+ "then_ko": [
+  "막히는 길 자체를 넓히는 게 가장 확실했어요. 막히는 정도를 10에서 5로 줄이자 지름길 없이 65분→55분, 지름길까지 열면 40분이 됐어요.",
+  "지름길은 교통량을 보고 열고 닫아야 해요. 3,000명 아래면 열수록 빨라지고(2,000명: 55→40분), 그 위면 막는 게 빨라요(4,000명: 80→65분).",
+  "어중간한 통행료는 소용없었어요. 10분 비용을 매겨도 80분 그대로, 25분 이상이어야 닫은 것과 같은 65분이 됐어요.",
+  "지름길이 해로운 건 막히는 길 두 개를 이어 모두가 막히는 길을 두 번 타게 하기 때문이에요. 막히는 길을 피해 가는 길은 이 모델에 없어 돌려 보지 않았어요."
+ ],
+ "then_en": [
+  "Widening the jammed roads themselves was the surest fix: lowering the sensitivity from 10 to 5 took the no-shortcut average from 65 to 55 minutes, and 40 with the shortcut open.",
+  "Open or close the shortcut by traffic volume: below 3,000 drivers opening it speeds things up (2,000 drivers: 55→40 min); above that, closing it is faster (4,000 drivers: 80→65 min).",
+  "A half-hearted toll did nothing: a 10-minute cost left the average at 80, and only 25 minutes or more matched the closed network's 65.",
+  "The shortcut hurts because it links the two jammed roads so everyone drives both. A road that bypasses the jammed roads is not in this model, so it was not tested."
  ]
 }
