@@ -35,8 +35,8 @@ page(dict(
  reroll=T('같은 설정, 다른 날', 'Same settings, another day'),
  sections=[
   dict(title=T('① 한낮 하늘의 새 떼 <span class="badge3d">3D</span>', '① A Flock in the Daytime Sky <span class="badge3d">3D</span>'),
-       p=T('새 한 마리가 작은 쐐기 하나이고, 뾰족한 쪽이 나는 방향입니다. 무리 한가운데 새는 진하게, 가장자리 새는 하얗게 칠했어요(색은 무리 안 위치만 나타냅니다). 땅 위의 옅은 점은 떼의 그림자입니다. 아래 "매 보내기"를 눌러 보세요.',
-           'Each bird is a small wedge, its point showing the way it flies. Birds in the middle of the flock are dark and birds at the edge are white (the color only shows where a bird is in the flock). The faint dots on the ground are the flock\'s shadow. Try "Send a hawk" below.'),
+       p=T('새 한 마리가 작은 쐐기 하나이고, 뾰족한 쪽이 나는 방향입니다. 무리 한가운데 새는 진하게, 가장자리 새는 하얗게 칠했어요(색은 무리 안 위치만 나타냅니다). 땅 위의 옅은 점은 떼의 그림자입니다. <b style="color:#e8590c">아래 "매 보내기"를 눌러 보세요.</b>',
+           'Each bird is a small wedge, its point showing the way it flies. Birds in the middle of the flock are dark and birds at the edge are white (the color only shows where a bird is in the flock). The faint dots on the ground are the flock\'s shadow. <b style="color:#e8590c">Try "Send a hawk" below.</b>'),
        id='c-3d', three=True, anim=True, thumb=True, step=False,
        speeds=[('15', T('느리게', 'Slow')), ('30', T('보통', 'Normal')), ('60', T('빠르게', 'Fast'))], speed_default='30',
        after_canvas=legend(leg('background:#10131f', '무리 가운데 새', 'Bird in the middle of the flock'), leg('background:#fff;border:1px solid #8a94a6', '가장자리 새', 'Bird at the edge'), leg('background:#e8590c', '매 (큰 주황 쐐기)', 'Hawk (large orange wedge)')),
