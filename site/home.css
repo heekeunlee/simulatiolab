@@ -35,10 +35,10 @@ main.wide { max-width: 1320px; }
 .fh .chip svg { width: 18px; height: 18px; display: block; }
 .fh:hover .chip { transform: translateY(-1px); }
 .fh i { grid-column: 2; grid-row: 1; align-self: center; font-style: normal; min-width: 18px; height: 18px; padding: 0 4px; box-sizing: border-box; border-radius: 99px; display: grid; place-items: center; font-size: 10.5px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; color: color-mix(in srgb, var(--c) 82%, #000); background: color-mix(in srgb, var(--c) 13%, #fff); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c) 22%, transparent); }
-.fh b { grid-column: 1 / -1; grid-row: 2; min-width: 0; font-size: 12px; font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; color: var(--text); word-break: keep-all; overflow-wrap: break-word; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.fh b { grid-column: 1 / -1; grid-row: 2; min-width: 0; font-size: 13.5px; font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; color: var(--text); word-break: keep-all; overflow-wrap: break-word; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 /* 영어·유럽어는 이름이 길어 세 줄까지: 머리를 조금 높이고 글자를 줄인다 (13열 모두 같은 높이) */
 html:not([lang="ko"]) .fh { height: 76px; row-gap: 4px; }
-html:not([lang="ko"]) .fh b { font-size: 11px; line-height: 1.12; -webkit-line-clamp: 3; overflow-wrap: normal; hyphens: auto; }
+html:not([lang="ko"]) .fh b { font-size: 12px; line-height: 1.12; -webkit-line-clamp: 3; overflow-wrap: normal; hyphens: auto; }
 /* 머리에 마우스를 올리면 다른 열의 칸을 살짝 흐리게 (home.js) */
 .ptable .el { transition: opacity .2s; }
 .ptable.fdim .col:not(.hot) .el { opacity: .38; }
