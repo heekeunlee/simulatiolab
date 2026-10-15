@@ -1,0 +1,22 @@
+{
+ "says_ko": [
+  "도시로 끌리는 힘이 약하면 시설이 절반 넘게 남고(닫힘 45%), 세면 대부분 닫혀요(87%). 전체 인구는 100% 그대로라, 사람이 사라진 게 아니라 옮겨 가서 지도가 비었어요.",
+  "처음엔 몇 곳만 닫히지만, 닫힌 마을 옆은 살기 불편해져 더 떠나고 그 시설도 닫혀요. '젊은층이 줄면 아기도 준다'를 끄면 문 닫은 마을이 74%에서 39%로 줄었어요.",
+  "시설 3곳을 끝까지 지켜 주면 변두리의 그 마을은 덜 비었지만(27% → 42%), 둘레 마을은 27% 그대로였어요. 이 모델에서는 지킨 효과가 그 마을 안에 머물고 옆으로 번지지 않았어요."
+ ],
+ "says_en": [
+  "With a weak pull from the city, over half the villages keep facilities (45% closed); with a strong pull most close (87%). Total population stays at 100%: people did not vanish, they moved.",
+  "At first only a few close, but villages next to them get harder to live in, more people leave, and their facilities close too. Switching off 'fewer young, fewer babies' cut closures from 74% to 39%.",
+  "Protecting three facilities let those far-out villages keep more people (27% → 42%), but the villages around them stayed at 27%. Here the benefit stayed inside the protected village."
+ ],
+ "not_ko": [
+  "끌림·출생·지켜 주기의 차이는 이 시뮬레이션이 직접 보여 준 거예요. 다만 가상의 지도와 정해 둔 숫자의 예시라, 실제 지역의 미래나 \"시설을 지키면 된다/소용없다\"를 말하지 않아요.",
+  "실제로는 일자리, 교육, 주거, 교통, 의료, 정책, 이주 같은 원인이 훨씬 많이 얽혀 있어요. 지킨 효과가 안 번진 건 시설 도움이 3칸까지만 닿게 정한 설정 탓일 수도 있어요.",
+  "현실에서 확인하려면 실제 지역의 인구 이동과 시설이 닫힌 시점·위치를 오랫동안 함께 기록해 비교해 봐야 해요."
+ ],
+ "not_en": [
+  "Pull, births and protection effects are what this simulation showed. They come from an imaginary map and this project's numbers, so they say nothing about real regions or whether protection works.",
+  "Real decline has far more causes: jobs, education, housing, transport, healthcare, policy, migration. The benefit may not have spread because facilities were set to help only up to 3 squares away.",
+  "To check in reality, one would need long records of where and when people moved and facilities closed in real regions, compared side by side."
+ ]
+}

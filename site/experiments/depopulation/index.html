@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="The Depopulation Spiral · Simulatio Lab">지방 소멸의 악순환 · 시뮬라티오 랩</title>
+<meta name="description" content="청년이 떠나면 학교·병원·가게가 문을 닫고, 그러면 남은 사람이 더 떠납니다. 가상의 지도 616개 마을에서 이 되먹임이 옆 마을로 번지는 모습을 3D로 돌려 보세요." data-en-content="When young people leave, schools, clinics and shops close, and then those who remain leave too. Watch this feedback spread from village to village on an imaginary 3D map of 616 villages.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="theme-color" content="#2f6fed">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1 data-en="When One Village Empties, Why Do the Villages Next Door Follow?">한 동네가 비면 왜 옆 동네도 따라 비어 갈까?</h1>
+  <p class="lead" data-en="It is easy to think a rural village empties for its own reasons: young people left, so it shrank. But when a village&#x27;s school or clinic closes, life gets harder not only there but also in &lt;b&gt;the villages next door that shared it&lt;/b&gt;. Then people leave those villages too, their facilities close, and so on. Here you run that chain on &lt;b&gt;an imaginary map&lt;/b&gt; and watch how it spreads. If a few facilities are kept open no matter what, do the villages around them hold on? The answer may not be what you expect.">시골 마을이 비는 건 그 마을 사정 때문이라고 생각하기 쉽습니다. 젊은 사람이 떠났으니 줄었겠지, 하고요. 그런데 마을의 학교나 병원이 문을 닫으면 그 마을만이 아니라 <b>그 시설을 같이 쓰던 옆 마을</b>도 살기 불편해집니다. 그러면 옆 마을 사람도 떠나고, 그 마을 시설도 닫히고… 이 연쇄가 지도 위에서 어떻게 번지는지, <b>가상의 지도</b>에서 직접 돌려 봅니다. 시설 몇 곳을 끝까지 지켜 주면 옆 마을도 버틸까요? 결과가 생각과 다를 수 있어요.</p>
+
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li data-en="On &lt;b&gt;an imaginary map&lt;/b&gt; of 25×25 squares, the central 3×3 is a big city and the other 616 squares are villages (not real places). Each village starts with at least 65 people, a little over 100 on average, and villages near the city are a bit bigger. The city starts with 15% of everyone. People are split into just two groups: &lt;b&gt;young&lt;/b&gt; and &lt;b&gt;everyone else&lt;/b&gt;."><b>가상의 지도</b> 25×25칸에서 한가운데 3×3칸은 큰 도시, 나머지 616칸은 마을입니다(실제 지역이 아니에요). 마을마다 사람이 처음에 65명 이상, 평균 100명 남짓 살고, 도시에 가까운 마을이 조금 더 큽니다. 도시에는 처음에 전체의 15%가 삽니다. 사람은 <b>젊은층</b>과 <b>그 외</b> 두 묶음으로만 나눕니다.</li>
+    <li data-en="Each village has one &lt;b&gt;set of everyday facilities&lt;/b&gt; (a school, clinic and shop counted as one). A village&#x27;s &lt;b&gt;living conditions&lt;/b&gt; (0–1) depend on ① whether its own facilities are open, ② how many squares away the nearest other facilities are (1 square is close; 4 or more no longer helps), and ③ how close it is to the city. So when the facilities next door close, your village&#x27;s conditions get worse too.">마을마다 <b>생활 시설</b>(학교·병원·가게를 하나로 묶은 것) 하나가 있습니다. 마을의 <b>생활 여건</b>(0~1)은 ① 내 마을 시설이 열려 있나, ② 가장 가까운 다른 시설이 몇 칸 떨어져 있나(1칸이면 가깝고, 4칸 넘으면 도움 없음), ③ 도시와 가까운가로 정해집니다. 그래서 옆 마을 시설이 닫히면 내 마을의 여건도 나빠집니다.</li>
+    <li data-en="Each year, the worse the conditions, the more young people leave (others leave at a quarter of that rate). 60% of those who leave go to the city; the rest go to a bigger neighboring village with open facilities (or to the city if there is none). &lt;b&gt;The pull of the city&lt;/b&gt; multiplies the whole leaving rate. Each village gets a small random wobble in its leaving rate every year.">해마다 생활 여건이 나쁠수록 젊은층이 더 많이 떠납니다(그 외 연령은 그 4분의 1만큼). 떠난 사람의 60%는 도시로, 나머지는 바로 옆 마을 가운데 더 크고 시설이 열린 곳으로 갑니다(없으면 도시로). <b>도시로 끌리는 세기</b>는 떠나는 비율 전체에 곱해집니다. 마을마다 해마다 떠나는 비율에 작은 흔들림이 있습니다.</li>
+    <li data-en="Young people have babies, some of them grow older into &quot;everyone else&quot; each year, and some of &quot;everyone else&quot; pass away. This is tuned so a village keeps the same size if nobody leaves. With &lt;b&gt;how much births fall when the young leave&lt;/b&gt; at 100%, babies follow the current number of young people; at 0%, births stay at the starting level even after the young leave.">젊은층은 아기를 낳고, 해마다 일부가 나이 들어 "그 외"로 넘어가며, "그 외"는 일부가 세상을 떠납니다. 아무도 떠나지 않으면 마을 인구가 그대로 유지되게 맞췄습니다. <b>젊은층이 줄면 아기도 주는 정도</b>가 100%면 아기 수는 지금 젊은층 수만큼, 0%면 젊은층이 떠나도 처음 그대로입니다.</li>
+    <li data-en="If a village stays below &lt;b&gt;the population its facilities need&lt;/b&gt; (60 by default) for 2 years, its facilities close and never reopen. Choose &lt;b&gt;villages to protect&lt;/b&gt; and their facilities stay open however small they get (placed automatically at equal distance from the city center and evenly spaced). One step is one model year, run to 60. It is not tied to any real calendar.">마을 인구가 <b>시설이 버티는 데 필요한 인구</b>(기본 60명) 아래로 2해 이어지면 시설이 문을 닫고 다시 열리지 않습니다. <b>지켜 주는 마을</b>을 고르면 그 마을 시설은 인구가 줄어도 닫지 않습니다(도시 중심에서 같은 거리, 같은 간격으로 자동 배치). 한 걸음은 모델 속 1해이고 60해까지 돌립니다. 실제 연도와는 상관없습니다.</li>
+    <li data-en="Measures: &lt;b&gt;villages still standing&lt;/b&gt; are those with at least half their starting population; &lt;b&gt;how far the chain spread&lt;/b&gt; is how many squares the patch of closed villages linked to the first closure reaches; &lt;b&gt;time to half closed&lt;/b&gt; is the number of years from the first closure until half of all villages have closed. Every number is an example from this model.">지표: <b>남은 마을</b>은 인구가 처음의 절반 이상인 마을, <b>연쇄가 번진 거리</b>는 처음 문 닫은 마을에서 시작해 문 닫은 마을끼리 바로 옆으로 이어진 무리가 몇 칸까지 뻗었는지, <b>반이 닫히기까지</b>는 처음 시설이 닫힌 해부터 마을 절반의 시설이 닫힐 때까지 걸린 해입니다. 숫자는 모두 이 모델의 예시입니다.</li>
+  </ul>
+
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="pull" data-en="Pull of the city &lt;output id=&quot;o-pull&quot;&gt;&lt;/output&gt;">도시로 끌리는 세기 <output id="o-pull"></output></label>
+        <input type="range" id="pull" min="0" max="200" step="10" value="100">
+        <span class="hint" data-en="Higher means more young people leave each year">올리면 해마다 떠나는 젊은층이 많아져요</span></div>
+<div class="ctl"><label for="thr" data-en="People needed to keep facilities &lt;output id=&quot;o-thr&quot;&gt;&lt;/output&gt;">시설이 버티는 데 필요한 인구 <output id="o-thr"></output></label>
+        <input type="range" id="thr" min="30" max="90" step="5" value="60">
+        <span class="hint" data-en="Higher means small villages lose facilities sooner">올리면 작은 마을 시설이 더 빨리 닫혀요</span></div>
+<div class="ctl"><label for="birth" data-en="How much births fall when the young leave &lt;output id=&quot;o-birth&quot;&gt;&lt;/output&gt;">젊은층이 줄면 아기도 주는 정도 <output id="o-birth"></output></label>
+        <input type="range" id="birth" min="0" max="100" step="10" value="100">
+        <span class="hint" data-en="At 0, births stay the same even when the young leave">0이면 젊은층이 떠나도 아기 수는 처음 그대로예요</span></div>
+<div class="ctl"><label for="protect" data-en="Villages whose facilities are protected &lt;output id=&quot;o-protect&quot;&gt;&lt;/output&gt;">시설을 지켜 주는 마을 수 <output id="o-protect"></output></label>
+        <input type="range" id="protect" min="0" max="6" step="1" value="0">
+        <span class="hint" data-en="Their facilities never close (navy cone)">이 마을 시설은 사람이 줄어도 닫지 않아요(남색 뿔)</span></div>
+<div class="ctl"><label for="where" data-en="Where the protected villages are &lt;output id=&quot;o-where&quot;&gt;&lt;/output&gt;">지켜 주는 마을의 위치 <output id="o-where"></output></label>
+        <select id="where" class="sel"><option value="near" data-en="Near the city (4 squares)">도시 가까이 (4칸)</option><option value="mid" selected data-en="Halfway (7.5 squares)">중간 (7.5칸)</option><option value="far" data-en="Far out (11 squares)">변두리 (11칸)</option></select>
+        <span class="hint" data-en="Distance from the city center">도시 중심에서 떨어진 거리</span></div>
+    </div>
+    <div class="btns">
+      <button class=primary id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Same settings, another map">같은 설정, 다른 지도</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3 data-en="① Villages Emptying on an Imaginary Map &lt;span class=&quot;badge3d&quot;&gt;3D&lt;/span&gt;">① 가상의 지도에서 마을이 비어 가는 모습 <span class="badge3d">3D</span></h3>
+    <p data-en="Each column is a village and its height is its population (drawn as the square root of population so the city fits on screen too). Green villages have facilities, gray ones have lost them, and the orange block in the middle is the city. Watch gray spread in from the edges as the columns sink.">기둥 하나가 마을 하나이고 높이가 인구입니다(도시까지 한 화면에 들어오게 인구의 제곱근으로 그렸어요). 초록은 시설이 있는 마을, 회색은 시설이 문 닫은 마을, 가운데 주황은 도시예요. 바깥쪽부터 회색이 번지고 기둥이 가라앉는 모습을 보세요.</p>
+    <canvas id="c-3d" class="view3d" data-thumb aria-label="① Villages Emptying on an Imaginary Map 3D"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#2fa35c&quot;&gt;&lt;/i&gt;Village with facilities"><i style="background:#2fa35c"></i>시설 있는 마을</span><span data-en="&lt;i style=&quot;background:#9aa3ae&quot;&gt;&lt;/i&gt;Village whose facilities closed"><i style="background:#9aa3ae"></i>시설 닫힌 마을</span><span data-en="&lt;i style=&quot;background:#f08c2e&quot;&gt;&lt;/i&gt;City"><i style="background:#f08c2e"></i>도시</span><span data-en="&lt;i style=&quot;background:#1e3a8a;border-radius:2px 2px 50% 50%&quot;&gt;&lt;/i&gt;Protected village (navy cone)"><i style="background:#1e3a8a;border-radius:2px 2px 50% 50%"></i>지켜 주는 마을 (남색 뿔)</span></div>
+    <div class="anim-bar">
+      <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
+      <button id="stepbtn" data-en="Step">한 단계</button>
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="speed"><option value="1" data-en="Slow">느리게</option><option value="2" selected data-en="Normal">보통</option><option value="4" data-en="Fast">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+    <div class="anim-bar">
+      <select id="dp-rotate" aria-label="map rotation"><option value="on" selected data-en="Map turns slowly">지도 천천히 돌기</option><option value="off" data-en="Map stays still">지도 멈춤</option></select>
+    </div>
+    <p class="hint3d" data-en="Drag to turn the map · scroll or pinch to zoom · left alone, the map turns slowly (you can switch it off) · on a phone, swiping up and down scrolls the page. The 3D map draws the same results as the charts below; it adds no new calculation.">드래그로 돌려 보기 · 휠이나 두 손가락으로 확대 · 가만히 두면 지도가 천천히 돕니다(끌 수 있어요) · 휴대폰에서 세로로 쓸면 페이지가 내려갑니다. 3D 지도는 아래 그래프와 같은 결과를 입체로 그린 것이고 새로 계산하지 않아요.</p>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3 data-en="② Villages That Lost Facilities, and People Drawn to the City">② 문 닫은 마을과 도시로 몰린 사람</h3>
+    <p data-en="Drawn only up to where the playback has reached. The gray line is the share of villages whose facilities have closed, the orange line the share of people living in the city. The dashed line marks the year the first village closed.">재생이 지난 시점까지만 그립니다. 회색 선은 시설이 문 닫은 마을의 비율, 주황 선은 도시에 사는 사람의 비중입니다. 점선은 처음 문 닫은 마을이 생긴 해예요.</p>
+    <canvas id="c-time" class="" aria-label="② Villages That Lost Facilities, and People Drawn to the City"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ How Many Villages Are Still Standing?">③ 남은 마을은 몇 곳인가</h3>
+    <p data-en="Drawn only up to where the playback has reached. The number of villages with at least half their starting population. See whether it holds nearly flat for a while and then starts falling fast.">재생이 지난 시점까지만 그립니다. 인구가 처음의 절반 이상인 마을 수예요. 처음 한동안은 거의 그대로이다가 어느 순간부터 빠르게 줄어드는지 보세요.</p>
+    <canvas id="c-alive" class="" aria-label="③ How Many Villages Are Still Standing?"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="④ Changing the Pull of the City (Summary: 24 Runs in Advance)">④ 도시로 끌리는 세기를 바꾸면 (집계: 미리 돌린 24판)</h3>
+    <p data-en="With default settings, only the pull of the city is set to 50%, 100% or 150%; each is run on 8 starting maps to year 60 and the final values averaged. This is a summary computed in advance, independent of the playback. Gray bars show villages that lost their facilities, green bars villages still standing, and the text below shows the years from the first closure to half closed (average of 8 runs).">기본 설정에서 끌리는 세기만 50%·100%·150%로 바꿔 처음 지도 8개씩 60해까지 돌리고 끝 값을 평균했습니다. 재생과 상관없이 미리 계산한 집계입니다. 회색 막대는 시설이 문 닫은 마을, 초록 막대는 남은 마을의 비율, 막대 아래는 처음 닫힌 뒤 반이 닫히기까지 걸린 해(8판 평균)입니다.</p>
+    <canvas id="c-pull" class="" aria-label="④ Changing the Pull of the City (Summary: 24 Runs in Advance)"></canvas>
+      <div class="legend"><span id="note-p" data-en="Calculating…">계산 중…</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="⑤ Changing How Many People Facilities Need (Summary: 24 Runs in Advance)">⑤ 시설이 버티는 데 필요한 인구를 바꾸면 (집계: 미리 돌린 24판)</h3>
+    <p data-en="The same kind of summary, changing only the threshold to 40, 60 or 80 people. See whether fewer closures also means more villages still standing.">같은 방식으로 시설 유지 문턱만 40명·60명·80명으로 바꾼 집계입니다. 문 닫은 마을이 줄면 남은 마을도 늘어나는지 보세요.</p>
+    <canvas id="c-thr" class="" aria-label="⑤ Changing How Many People Facilities Need (Summary: 24 Runs in Advance)"></canvas>
+      <div class="legend"><span id="note-t" data-en="Calculating…">계산 중…</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="⑥ Changing How Much Births Fall When the Young Leave (Summary: 24 Runs in Advance)">⑥ 젊은층이 줄면 아기도 주는 정도를 바꾸면 (집계: 미리 돌린 24판)</h3>
+    <p data-en="The same kind of summary, changing only how much births fall to 0%, 50% or 100%. At 0%, births stay the same however many leave, which switches this one feedback off.">같은 방식으로 출생 영향만 0%·50%·100%로 바꾼 집계입니다. 0%는 떠나도 아기 수가 그대로라 이 되먹임 하나를 꺼 본 것이에요.</p>
+    <canvas id="c-birth" class="" aria-label="⑥ Changing How Much Births Fall When the Young Leave (Summary: 24 Runs in Advance)"></canvas>
+      <div class="legend"><span id="note-b" data-en="Calculating…">계산 중…</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="⑦ Keeping Three Villages&#x27; Facilities Open No Matter What (Summary: 32 Runs in Advance)">⑦ 시설 3곳을 끝까지 지켜 주면 (집계: 미리 돌린 32판)</h3>
+    <p data-en="On the same 8 starting maps, three villages at the same distance from the city center either have their facilities protected or not. The bars show how much of those villages&#x27; population remains after 60 years (versus the start); the text below shows the same for the villages within 2 squares around them (unprotected → protected).">같은 처음 지도 8개에서, 도시 중심으로부터 같은 거리에 있는 마을 3곳의 시설을 지켜 줄 때와 안 지켜 줄 때를 비교했습니다. 막대는 지켜 준 그 마을들에 60해 뒤 남은 인구(처음 대비), 막대 아래는 그 둘레 2칸 안 마을들에 남은 인구(안 지킬 때 → 지킬 때)입니다.</p>
+    <canvas id="c-prot" class="" aria-label="⑦ Keeping Three Villages&#x27; Facilities Open No Matter What (Summary: 32 Runs in Advance)"></canvas>
+      <div class="legend"><span id="note-x" data-en="Calculating…">계산 중…</span></div>
+    </section>
+  </div>
+
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout cl-says">
+    <p class="clabel" data-en="&lt;b&gt;What it shows:&lt;/b&gt;"><b>말하는 것:</b></p>
+    <ul class="chead"><li data-en="With a weak pull from the city, over half the villages keep facilities (45% closed); with a strong pull most close (87%). Total population stays at 100%: people did not vanish, they moved.">도시로 끌리는 힘이 약하면 시설이 절반 넘게 남고(닫힘 45%), 세면 대부분 닫혀요(87%). 전체 인구는 100% 그대로라, 사람이 사라진 게 아니라 옮겨 가서 지도가 비었어요.</li><li data-en="At first only a few close, but villages next to them get harder to live in, more people leave, and their facilities close too. Switching off &#x27;fewer young, fewer babies&#x27; cut closures from 74% to 39%.">처음엔 몇 곳만 닫히지만, 닫힌 마을 옆은 살기 불편해져 더 떠나고 그 시설도 닫혀요. '젊은층이 줄면 아기도 준다'를 끄면 문 닫은 마을이 74%에서 39%로 줄었어요.</li><li data-en="Protecting three facilities let those far-out villages keep more people (27% → 42%), but the villages around them stayed at 27%. Here the benefit stayed inside the protected village.">시설 3곳을 끝까지 지켜 주면 변두리의 그 마을은 덜 비었지만(27% → 42%), 둘레 마을은 27% 그대로였어요. 이 모델에서는 지킨 효과가 그 마을 안에 머물고 옆으로 번지지 않았어요.</li></ul>
+    <details class="cmore"><summary data-en="Details">상세 설명</summary>
+      <p class="cfull" data-en="&lt;b&gt;What it shows:&lt;/b&gt; On the first map with default settings (pull 100%, threshold 60 people, births 100%), the first facilities closed in year 4 and half the villages had closed by year 38 (34 years later). After 60 years, 149 of 616 villages were still standing, 74% had lost their facilities, and the city&#x27;s share of people grew from 15% to 69%, yet &lt;b&gt;the total population stayed at 100% of the start&lt;/b&gt;. People did not vanish; they moved to the city. Averaged over 8 starting maps, a pull of 50% gave 45% closed and 66% still standing, 100% gave 74% and 24%, and 150% gave 87% and 9%. Lowering the threshold to 40 cut closures to 54%, but only 21% of villages were still standing, about the same as at 60 (24%). Switching off the birth feedback (0%) gave 39% closed, against 74% at 100%. Protecting three villages&#x27; facilities raised the share of people left in those villages from 27% to 42% far out, but &lt;b&gt;the villages within 2 squares stayed at 27%&lt;/b&gt;; halfway (36%→46%) and near the city (53%→57%) the surrounding villages did not change either."><b>말하는 것:</b> 기본 설정(끌림 100%, 문턱 60명, 출생 영향 100%)의 처음 지도에서 첫 시설은 4해째에 닫혔고, 38해째에 마을 절반의 시설이 닫혔습니다(34해 걸림). 60해 뒤 남은 마을은 616곳 중 149곳, 시설이 닫힌 마을은 74%, 도시에 사는 사람은 15%에서 69%가 됐는데 <b>전체 인구는 처음의 100% 그대로</b>였습니다. 사람이 사라진 게 아니라 도시로 옮겨 간 것이에요. 처음 지도 8개 평균으로 끌림 50%면 문 닫은 마을 45%·남은 마을 66%, 100%면 74%·24%, 150%면 87%·9%였습니다. 문턱을 40명으로 낮추면 문 닫은 마을은 54%로 줄었지만 남은 마을은 21%로 60명일 때(24%)와 비슷했습니다. 출생 영향을 0%로 끄면 문 닫은 마을이 39%, 100%면 74%였습니다. 시설 3곳을 끝까지 지켜 주면 변두리에서는 그 마을에 남은 인구가 27%에서 42%로 늘었지만 <b>둘레 2칸 안 마을은 27% 그대로</b>였고, 중간(36%→46%)과 도시 가까이(53%→57%)에서도 둘레 마을은 달라지지 않았습니다.</p></details>
+  </div>
+  <div class="callout cl-not">
+    <p class="clabel" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt;"><b>말하지 않는 것:</b></p>
+    <ul class="chead"><li data-en="Pull, births and protection effects are what this simulation showed. They come from an imaginary map and this project&#x27;s numbers, so they say nothing about real regions or whether protection works.">끌림·출생·지켜 주기의 차이는 이 시뮬레이션이 직접 보여 준 거예요. 다만 가상의 지도와 정해 둔 숫자의 예시라, 실제 지역의 미래나 "시설을 지키면 된다/소용없다"를 말하지 않아요.</li><li data-en="Real decline has far more causes: jobs, education, housing, transport, healthcare, policy, migration. The benefit may not have spread because facilities were set to help only up to 3 squares away.">실제로는 일자리, 교육, 주거, 교통, 의료, 정책, 이주 같은 원인이 훨씬 많이 얽혀 있어요. 지킨 효과가 안 번진 건 시설 도움이 3칸까지만 닿게 정한 설정 탓일 수도 있어요.</li><li data-en="To check in reality, one would need long records of where and when people moved and facilities closed in real regions, compared side by side.">현실에서 확인하려면 실제 지역의 인구 이동과 시설이 닫힌 시점·위치를 오랫동안 함께 기록해 비교해 봐야 해요.</li></ul>
+    <details class="cmore"><summary data-en="Details">상세 설명</summary>
+      <p class="cfull" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; This is a simple imaginary map that looks at a single feedback loop; it covers no real region, statistics or policy. Real rural population decline involves jobs, education, housing, transport, healthcare, policy, industry, migration and return migration, and each place&#x27;s own history, all of which are left out here. Protected facilities may have made no difference to surrounding villages because, in this model, facilities only help up to 3 squares away and the pull of the city is always present regardless of facilities. So this model cannot conclude either &quot;protecting facilities solves it&quot; or &quot;it is useless.&quot; Every number is an example from dimensionless settings chosen by this project, and a model &quot;year&quot; is not tied to any real calendar."><b>말하지 않는 것:</b> 이 모델은 되먹임 구조 하나만 본 단순한 가상 지도이며 실제 지역·통계·정책을 다루지 않습니다. 실제 지방의 인구 감소에는 일자리, 교육, 주거, 교통, 의료, 정책, 산업, 이주와 귀농, 지역마다 다른 역사 같은 훨씬 많은 원인이 얽혀 있고 여기에는 모두 빠져 있습니다. 시설을 지켜 줘도 둘레 마을이 달라지지 않았던 것은 이 모델에서 시설의 도움이 3칸까지만 닿고, 도시로 끌리는 힘이 시설과 상관없이 늘 있도록 정했기 때문일 수 있습니다. 그러니 "시설을 지키면 해결된다"도 "소용없다"도 이 모델로 단정할 수 없어요. 숫자는 모두 이 프로젝트가 정한 무차원 설정에서 나온 예시이고, 모델 속 "해"는 실제 연도와 연결되지 않습니다.</p></details>
+  </div>
+
+  <h2 data-en="Theory and implementation notes">이론적 근거와 구현 메모</h2>
+  <ul class="small">
+    <li class="memo theory" data-en="&lt;b&gt;Where the model comes from:&lt;/b&gt; A &lt;b&gt;reinforcing (positive) feedback loop&lt;/b&gt;, where a change strengthens its own cause, and structures where people and services depend on each other are widely used ideas for explaining social systems. A &quot;vicious circle&quot; in which a shrinking population closes facilities and services, which in turn drives more people away, is known to be a common way of describing regional population decline. This page puts only the structure of that explanation onto an imaginary map as a &lt;b&gt;grid-based model&lt;/b&gt;; it does not reproduce any particular study."><b>모델의 뿌리:</b> 어떤 변화가 그 원인을 더 키우는 <b>되먹임(양의 피드백)</b>과, 사람·시설이 서로의 존재에 기대는 구조는 사회 시스템을 설명할 때 널리 쓰이는 개념입니다. 인구가 줄면 시설·서비스가 문을 닫고 그것이 다시 인구 유출을 부른다는 "악순환" 설명이 지역 인구 감소를 이야기할 때 자주 쓰인다고 알려져 있어요. 이 페이지는 그 설명의 구조만 가상의 지도에 옮긴 <b>에이전트 기반·격자 모델</b>이며 특정 연구를 재현하지 않습니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Key assumptions and formulas:&lt;/b&gt; Village i&#x27;s living conditions &lt;code&gt;A = 0.4×(own facilities open) + 0.4×(1 − d/4) + 0.2×max(0, 1 − squares to city/7)&lt;/code&gt;, where d is the number of squares to the nearest other open facilities (Chebyshev distance, capped at 4; the city counts as open). The young leave at rate &lt;code&gt;r = pull × (0.006 + 0.07 × (1 − A)) × e&lt;sup&gt;0.3z − 0.045&lt;/sup&gt;&lt;/code&gt; (z a standard normal random number, at most 0.5); others leave at &lt;code&gt;0.25r&lt;/code&gt;. Births &lt;code&gt;0.03 × ((1 − e)×starting young + e×current young)&lt;/code&gt; (e = birth feedback), ageing &lt;code&gt;0.03×young&lt;/code&gt;, deaths &lt;code&gt;0.04×others&lt;/code&gt;. The starting young share of 0.57 is chosen so the population stays put when nobody leaves. Starting population is &lt;code&gt;max(65, 100 × (1 + 0.35×closeness to city) × lognormal(sd 0.22))&lt;/code&gt;."><b>핵심 가정과 수식:</b> 마을 i의 생활 여건 <code>A = 0.4×(내 시설 열림) + 0.4×(1 − d/4) + 0.2×max(0, 1 − 도시까지 칸/7)</code>, d는 가장 가까운 다른 열린 시설까지의 칸 수(체비셰프 거리, 4 이상이면 4, 도시도 열린 시설). 젊은층이 떠나는 비율 <code>r = 끌림 × (0.006 + 0.07 × (1 − A)) × e<sup>0.3z − 0.045</sup></code>(z는 표준 정규 난수, 최대 0.5), 그 외 연령은 <code>0.25r</code>. 출생 <code>0.03 × ((1 − e)×처음 젊은층 + e×지금 젊은층)</code>(e = 출생 영향), 나이 듦 <code>0.03×젊은층</code>, 사망 <code>0.04×그 외</code>. 처음 젊은층 비율 0.57은 떠남이 없을 때 인구가 그대로이도록 맞춘 값입니다. 처음 인구는 <code>max(65, 100 × (1 + 0.35×도시 가까움) × 로그 정규(표준편차 0.22))</code>.</li>
+    <li class="memo theory" data-en="&lt;b&gt;What this project simplifies:&lt;/b&gt; Villages are squares, people are continuous counts in two age groups, and the school, clinic and shop are merged into one facility with one threshold. Jobs, housing prices, transport networks, policy support, people moving back to the countryside, congestion and costs in the city, different birth rates in city and village, and facilities reopening are not included. Pull, thresholds and rates are all dimensionless values chosen by this project, not taken from real statistics."><b>이 프로젝트의 단순화:</b> 마을은 네모 칸, 사람은 두 연령 묶음의 연속된 수이고, 학교·병원·가게는 문턱이 같은 시설 하나로 묶었습니다. 일자리, 집값, 교통망, 정책 지원, 귀농·귀촌, 도시의 혼잡과 비용, 도시와 마을의 출생률 차이, 시설이 다시 여는 일은 넣지 않았습니다. 끌림·문턱·비율은 모두 이 프로젝트가 정한 무차원 값이고 실제 통계에서 가져오지 않았습니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Theory versus simulation:&lt;/b&gt; There is no theoretical value to match, so only simulated values are given (&lt;code&gt;node tools/validate-depopulation.js&lt;/code&gt;, fixed seeds, average of 8 starting maps). Checked: with the pull near 0 nobody leaves and the map stays put, and switching off the birth feedback cut closures from 74% to 39%, so this feedback greatly amplified the result. Not what one might expect: lowering the threshold so facilities last longer left about the same number of villages standing (21% versus 24%), and protecting three facilities left the number of villages within 2 squares still having facilities unchanged far out (13.4 of 67 → 13.3). Raising the threshold to 80 made many villages close at once from the start, so the chain actually spread a shorter distance (3.9 squares versus 20.3 by default)."><b>이론값과 시뮬레이션:</b> 맞춰 볼 이론값이 없어 시뮬레이션 값만 적습니다(<code>node tools/validate-depopulation.js</code>, 시드 고정, 처음 지도 8개 평균). 확인한 것: 끌림을 0에 가깝게 하면 아무도 떠나지 않아 지도가 그대로이고, 출생 영향을 끄면 문 닫은 마을이 74%에서 39%로 줄어 이 되먹임이 결과를 크게 키웠습니다. 생각과 달랐던 것: 문턱을 낮춰 시설이 오래 버티게 해도 남은 마을 수는 거의 같았고(21% 대 24%), 시설 3곳을 지켜 줘도 둘레 2칸 안에서 시설이 남은 마을 수는 변두리 67곳 중 13.4곳 → 13.3곳으로 그대로였습니다. 문턱을 80명으로 올리면 처음부터 여러 곳에서 동시에 닫혀 연쇄가 번진 거리는 오히려 짧았습니다(3.9칸 대 기본 20.3칸).</li>
+    <li class="memo theory" data-en="&lt;b&gt;Further reading:&lt;/b&gt; The feedback and threshold ideas used here are general concepts covered widely in introductions to systems thinking and complex systems. This page does not cite any specific paper or statistic."><b>더 읽을거리:</b> 이 모델이 쓴 되먹임·임계값(문턱) 개념은 시스템 사고와 복잡계 입문서에서 널리 다루는 일반 개념입니다. 이 페이지는 특정 논문·통계를 인용하지 않습니다.</li>
+    <li  data-en="A simplified model of this project&#x27;s own design. All villages move at once, based on the previous year&#x27;s state (open facilities, population). Protected villages are placed on a circle at a set distance from the city center (4, 7.5 or 11 squares), starting at 30° and evenly spaced. ① The 3D view draws the computed result as is; it joins last year&#x27;s and this year&#x27;s heights so the motion looks smooth, which does not affect the results. There is no separate flat 2D map (position, height and color read together on the slowly turning 3D map, and phones are spared drawing a second view). ④–⑦ are summaries run in advance with default settings, so they do not change with the sliders.">이 프로젝트가 직접 설계한 단순화 모델입니다. 모든 마을은 같은 해의 이전 상태(시설 열림, 인구)를 보고 동시에 움직입니다. 지켜 주는 마을은 도시 중심에서 정해진 거리(4·7.5·11칸)의 원 위에 30°에서 시작해 같은 간격으로 놓습니다. ① 3D는 계산 결과를 그대로 그리며, 한 해 전과 지금 사이 높이를 이어 그려 부드럽게 보일 뿐 결과에 영향이 없습니다. 2D 평면 지도는 따로 두지 않았습니다(천천히 도는 3D 지도 위에서 위치·높이·색이 함께 읽히고, 휴대폰에서 화면을 하나 더 그리지 않으려는 것). ④~⑦은 기본 설정으로 미리 돌린 집계라 슬라이더를 바꿔도 달라지지 않습니다.</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/depopulation&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/depopulation">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap" data-en="Simulatio Lab · Run by Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
+<script src="../../exps.js"></script>
+<script src="../../layout.js"></script>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../lazy3d.js" data-module="app3d.js"></script>
+<script src="../../counter.js"></script>
+<script src="../../engage.js"></script>
+</body>
+</html>

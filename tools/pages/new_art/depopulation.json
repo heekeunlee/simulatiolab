@@ -1,0 +1,60 @@
+{
+ "slug": "depopulation",
+ "title_ko": "한 동네가 비면 왜 옆 동네도 따라 비어 갈까?",
+ "title_en": "When One Village Empties, Why Do the Villages Next Door Follow?",
+ "symbol": "Dp",
+ "name_ko": "지방 소멸의 악순환",
+ "name_en": "Depopulation Spiral",
+ "icon": "grid",
+ "field": "society",
+ "related": [
+  "population",
+  "schelling",
+  "apartment"
+ ],
+ "predict": {
+  "q_ko": "가상의 지도 시뮬레이션에서 변두리 마을 3곳의 시설(학교·병원·가게)을 끝까지 문 닫지 않게 지켜 주면, 그 둘레 마을들은 어떻게 될까요? (이 모델)",
+  "q_en": "In the imaginary-map simulation, if three far-out villages' facilities (school, clinic, shop) are kept open no matter what, what happens to the villages around them? (this model)",
+  "opts_ko": [
+   "둘레 마을도 함께 버텨 훨씬 덜 빈다",
+   "둘레 마을은 거의 그대로 빈다",
+   "둘레 마을은 오히려 모두 사라진다"
+  ],
+  "opts_en": [
+   "The villages around them hold on and empty far less",
+   "The villages around them empty almost the same as before",
+   "The villages around them all disappear instead"
+  ],
+  "answer": 1,
+  "expl_ko": "이 모델에서 지켜 준 변두리 마을 자체는 남은 인구가 27%에서 42%로 늘었지만, 둘레 2칸 안 마을은 27% 그대로였어요. 시설의 도움이 3칸까지만 닿고 도시로 끌리는 힘은 늘 있게 정한 설정의 결과일 수 있어요.",
+  "expl_en": "In this model the protected far-out villages themselves kept more people (27% → 42% of the start), but the villages within 2 squares stayed at 27%. This may come from the settings: facilities help only up to 3 squares away, and the city's pull is always there."
+ },
+ "daily": {
+  "q_ko": "동네 병원이나 가게가 문을 닫으면 나는?",
+  "q_en": "If the clinic or shop in your neighborhood closed, what would you do?",
+  "opts_ko": [
+   "옆 동네까지 다니며 버틴다",
+   "아예 큰 도시로 이사를 생각한다",
+   "별로 상관없다"
+  ],
+  "opts_en": [
+   "Travel to the next town and stay put",
+   "Start thinking about moving to a big city",
+   "It would hardly matter to me"
+  ]
+ },
+ "facts": [
+  "기본(끌림 100%·문턱 60명·출생 영향 100%) 첫 지도: 4해째 첫 시설이 닫히고 38해째 절반(34해 걸림), 60해 뒤 남은 마을 616곳 중 149곳, 도시 비중 15%→69%, 전체 인구 100% 그대로",
+  "끌림 50%/100%/150%: 문 닫은 마을 45%/74%/87%, 남은 마을 66%/24%/9% (8개 지도 평균)",
+  "출생 영향 0%/50%/100%: 문 닫은 마을 39%/55%/74%",
+  "문턱 40/60/80명: 문 닫은 마을 54%/74%/84%, 남은 마을 21%/24%/19%, 연쇄가 번진 거리 22.3/20.3/3.9칸",
+  "3곳 지켜 주기(변두리): 그 마을 인구 27%→42%, 둘레 2칸 마을 27%→27%, 둘레 67곳 중 시설 남은 곳 13.4→13.3"
+ ],
+ "caveats": [
+  "가상의 지도(25×25칸)·가상의 마을, 실제 지역·통계·정책 없음, 숫자는 모두 무차원 설정의 예시, 모델 속 '해'는 실제 연도와 무관",
+  "일자리·교육·주거·교통·의료·정책·귀농·이주 등 실제 원인 대부분이 빠짐, 되먹임 구조 하나만 봄",
+  "시설 지키기가 둘레에 효과 없던 것은 '시설 도움 3칸까지·도시 끌림 상시' 설정 탓일 수 있음 → '지키면 해결/소용없음' 단정 불가",
+  "학교·병원·가게를 문턱 하나인 시설로 묶음, 시설은 한 번 닫으면 다시 열지 않음, 도시·마을 출생률 같다고 둠",
+  "높이는 인구의 제곱근(도시가 화면에 들어오게), 집계 ④~⑦은 기본 설정으로 미리 계산, 2D 평면 지도는 생략(3D로 읽히고 모바일 부담 줄임)"
+ ]
+}

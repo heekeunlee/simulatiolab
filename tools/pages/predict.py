@@ -80,6 +80,14 @@ PRED = {
 
 # ---- 2026-10-13 새 실험 11개 (정답·해설의 숫자는 각 validate 출력 기준) ----
 PRED.update({
+ 'filterbubble': (
+  T('추천이 내 취향을 따르는 정도를 0% → 10% → 30%로 올리면, 마을 의견이 갈라진 정도는 어떻게 될까요? (이 모델)', 'If you raise how much the feed follows your taste from 0% to 10% to 30%, how does the split in the town\'s opinions change? (this model)'),
+  [T('조금씩 고르게 커진다', 'It grows a little at each step'), T('10%까진 거의 그대로, 30%에서 확 커진다', 'Almost unchanged up to 10%, then jumps at 30%'), T('오히려 점점 줄어든다', 'It actually shrinks')], 1,
+  T('이 모델에서 갈라진 정도(0 모두 같은 생각 ~ 100 절반씩 양 끝)는 추천 0%에서 9, 10%에서 10으로 거의 그대로였다가 30%에서 49로 뛰었어요. 서서히가 아니라 문턱을 넘으며 갈렸어요.', 'In this model the split (0 = everyone agrees, 100 = half at each end) was 9 at 0% and still 10 at 10%, then jumped to 49 at 30%. It did not grow gradually; it split once a threshold was crossed.')),
+ 'depopulation': (
+  T('가상의 지도 시뮬레이션에서 변두리 마을 3곳의 시설(학교·병원·가게)을 끝까지 문 닫지 않게 지켜 주면, 그 둘레 마을들은 어떻게 될까요? (이 모델)', 'In the imaginary-map simulation, if three far-out villages\' facilities (school, clinic, shop) are kept open no matter what, what happens to the villages around them? (this model)'),
+  [T('둘레 마을도 함께 버텨 훨씬 덜 빈다', 'The villages around them hold on and empty far less'), T('둘레 마을은 거의 그대로 빈다', 'The villages around them empty almost the same as before'), T('둘레 마을은 오히려 모두 사라진다', 'The villages around them all disappear instead')], 1,
+  T('이 모델에서 지켜 준 변두리 마을 자체는 남은 인구가 27%에서 42%로 늘었지만, 둘레 2칸 안 마을은 27% 그대로였어요. 시설의 도움이 3칸까지만 닿고 도시로 끌리는 힘은 늘 있게 정한 설정의 결과일 수 있어요.', 'In this model the protected far-out villages themselves kept more people (27% → 42% of the start), but the villages within 2 squares stayed at 27%. This may come from the settings: facilities help only up to 3 squares away, and the city\'s pull is always there.')),
  'murmuration': (
   T('새 떼 시뮬레이션에서 \'이웃과 방향 맞추기\' 규칙 하나만 끄면 어떻게 될까요? (붙기·피하기는 그대로, 이 모델)', 'In the flock simulation, what happens if you switch off only the \'line up with neighbors\' rule? (sticking together and keeping apart stay on, this model)'),
   [T('거의 그대로 한 몸처럼 난다', 'It still flies as one, almost unchanged'), T('모여 있긴 해도 새마다 제각각 방향으로 난다', 'The birds stay around, but each flies its own way'), T('더 빽빽한 한 덩어리가 된다', 'It becomes one even denser mass')], 1,

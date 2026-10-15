@@ -17,6 +17,7 @@ CATS = [
  ]),
  ('people', '#2f6fed', '🧑‍🤝‍🧑', T('인간관계', 'Relationships'), T('소문, 편견, 만남은 어떻게 퍼지고 갈라질까?', 'How do rumors, bias and encounters spread and split us apart?'), [
   ('schelling', T('셸링 분리 모델', 'Schelling segregation model'), T('끼리끼리 모이는 이유', 'Why Birds of a Feather Flock Together'), T('"소수가 되기 싫다" 정도의 약한 바람만으로도 동네가 완전히 갈라질까?', 'Can a mild wish like "I don\'t want to be a minority" split a neighborhood completely apart?')),
+  ('filterbubble', T('의견 역학 모델 (경계 신뢰 + 추천)', 'Opinion dynamics model (bounded confidence + recommendation)'), T('알고리즘이 취향만 보여 주면 생각은 왜 갈라질까?', 'When the Algorithm Shows Only What You Like, Why Do Opinions Split?'), T('추천이 내 취향에 맞을수록 사람들의 생각은 어떻게 변할까요? 추천 정도와 반대 글 섞기를 바꿔 가며 의견이 갈라지는 3D 지형을 봐요.', 'The more a feed matches your taste, how do opinions change? Adjust the recommendation level and mix in opposing posts to watch a 3D landscape of opinions split.')),
   ('rumor', T('소문 전파 모델 (SIR)', 'Rumor spreading model (SIR)'), T('단톡방 소문 확산', 'Rumor Spread in Group Chats'), T('소문은 얼마나 빨리, 누구를 거쳐 퍼질까? 정정 글은 언제까지 올려야 소용이 있을까?', 'How fast does a rumor spread, and through whom? How late can a correction come and still matter?')),
   ('dating', T('매칭·탐색 모델', 'Matching &amp; search model'), T('눈을 낮추면 짝을 찾을까', 'Does Lowering Your Standards Help You Find a Match?'), T('서로 동의해야 맺어지는 시장에서 눈높이가 짝 찾는 시간에 미치는 영향을 봐요.', 'See how aspiration level affects the time to find a partner in a market where both sides must agree.')),
   ('friendship', T('관계망 성장 모델', 'Growing social network model'), T('내 친구들은 왜 나보다 친구가 많을까', 'Why Do My Friends Have More Friends Than I Do?'), T('인기 있는 사람은 많은 친구 목록에 등장해요. 사람을 눌러 확인해 보세요.', 'Popular people appear on many friend lists. Click a person to check.')),
@@ -47,6 +48,7 @@ CATS = [
   ('population', T('코호트 인구 모델', 'Cohort-component model'), T('저출산이 계속되면 2070년 인구 구조는?', "What If Korea's Birth Rate Stays This Low Until 2070?"), T('출산율이 이대로면 인구 피라미드는 어떻게 바뀔까? 출산율과 이민을 바꿔 보세요.', 'If fertility stays as it is, how does the population pyramid change? Try other fertility and migration levels.')),
   ('voting', T('공간 투표 모델', 'Spatial voting model'), T('투표 방식이 달라지면 당선자가 바뀔까', 'Does the Voting Method Change the Winner?'), T('같은 표를 단순다수·결선·선호투표·보르다로 세면 당선자가 달라질 수 있을까요?', 'Count the same votes by plurality, runoff, ranked-choice and Borda. Can the winner change?')),
   ('war', T('협상 실패·군비 경쟁·번짐 모델', 'Bargaining failure, arms race and spread'), T('아무도 원하지 않는데 전쟁이 난다: 협상 실패와 군비 경쟁, 그리고 번짐', 'Nobody Wants It, Yet War Happens: Failed Bargains, Arms Races, and Spreading'), T('전쟁은 양쪽 모두에게 손해인데도 왜 일어날까요? 이름 없는 추상 국가들로 협상 실패, 군비 경쟁, 번짐을 돌려 봐요. (실제 전쟁을 설명하지 않아요)', 'War costs both sides, so why does it happen? Run failed bargaining, arms races and spreading among nameless abstract states. (It does not explain any real war.)')),
+  ('depopulation', T('되먹임 연쇄 모델', 'Feedback cascade model'), T('한 동네가 비면 왜 옆 동네도 따라 비어 갈까?', 'When One Village Empties, Why Do the Villages Next Door Follow?'), T('청년이 떠나면 시설이 닫히고, 시설이 닫히면 더 떠나요. 가상의 3D 지도 위에서 이 연쇄가 번지는 모습을 보고, 한 곳을 지켜 주면 어떻게 되는지도 돌려 보세요.', 'When young people leave, services close, and when services close more leave. Watch the chain spread across a made-up 3D map and try protecting a spot.')),
  ]),
  ('history', '#c2410c', '📜', T('역사', 'History'), T('작은 계기가 큰 흐름으로 번지는 순간', 'When a small spark turns into a big movement'), [
   ('revolution', T('문턱 모델 (Granovetter)', 'Threshold model (Granovetter)'), T('혁명은 어떻게 시작될까', 'How Does a Revolution Begin?'), T('사람마다 "몇 명이 나서면 나도 나선다"는 문턱이 다를 때, 한 사람의 차이가 광장 전체를 바꿀 수 있을까요?', 'When everyone has a different "I\'ll join if this many others do" threshold, can one person change the whole square?')),
@@ -127,6 +129,8 @@ RELATED = {
  'dla': ['turing', 'sunflower', 'sandpile'],
  'seating': ['queue', 'schelling', 'bar'],
  'ventilation': ['braess', 'wildfire', 'daycare'],
+ 'depopulation': ['population', 'schelling', 'apartment'],
+ 'filterbubble': ['schelling', 'rumor', 'friendship'],
  'murmuration': ['firefly', 'traffic', 'friendship'],
  'bunching': ['traffic', 'braess', 'inspection'],
  'checkout': ['queue', 'inspection', 'bar'],
@@ -152,6 +156,8 @@ ADDED.update({s: '2026-10-14' for s in ['hitsong', 'harmony', 'pollock', 'ovatio
 ADDED['tariff'] = '2026-10-14'
 ADDED['ventilation'] = '2026-10-14'
 ADDED['murmuration'] = '2026-10-15'
+ADDED['filterbubble'] = '2026-10-15'
+ADDED['depopulation'] = '2026-10-15'
 
 # slug -> (기호, 짧은 이름 T, 미니 애니메이션 종류)
 # 쉬운 말로 다듬은 칸 제목·설명(tools/pages/simple/<slug>.json)이 있으면 그것을 쓴다
@@ -218,6 +224,8 @@ META = {
  'bunching': ('Bu', T('버스 뭉침', 'Bus Bunching'), 'ring'),
  'seating': ('Bn', T('벤치 자리', 'Bench Seating'), 'grid2'),
  'ventilation': ('Vt', T('창문과 환기', 'Window Ventilation'), 'drift'),
+ 'depopulation': ('Dp', T('지방 소멸의 악순환', 'Depopulation Spiral'), 'grid'),
+ 'filterbubble': ('Fb', T('필터버블', 'Filter Bubble'), 'spread'),
  'murmuration': ('Mm', T('찌르레기 떼 군무', 'Starling Murmuration'), 'drift'),
  'dla': ('Dl', T('가지 프랙탈', 'Branching'), 'spread'),
  'sandpile': ('Sp', T('모래더미', 'Sandpile'), 'grid'),

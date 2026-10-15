@@ -87,6 +87,8 @@ DAILY += [  # 2026-10-14 예술 분야 새 실험 6개 (정답 없는 가벼운 
  ('tariff', T('옆 가게가 먼저 나에게 불리한 일을 벌이면, 나는?', 'The shop next door makes the first move against you. What do you do?'), [T('똑같이 맞받아친다', 'Hit back the same way'), T('한 번은 참고 대화해 본다', 'Hold off once and try talking'), T('아무것도 안 하고 기다린다', 'Do nothing and wait')]),
  ('ventilation', T('방이 답답할 때 나는 주로?', 'When your room feels stuffy, what do you usually do?'), [T('창문 하나만 활짝 연다', 'Open one window wide'), T('맞은편 창이나 방문까지 같이 연다', 'Also open the window or door on the other side'), T('선풍기나 환풍기를 켠다', 'Turn on a fan or the vent')]),
  ('murmuration', T('사람 많은 길을 걸을 때 나는 주로?', 'When you walk down a crowded street, what do you usually do?'), [T('앞사람만 보고 따라간다', 'Follow the person in front'), T('주변 몇 사람의 흐름에 맞춘다', 'Match the flow of the few people around me'), T('내 길만 보고 간다', 'Just keep to my own path')]),
+ ('depopulation', T('동네 병원이나 가게가 문을 닫으면 나는?', 'If the clinic or shop in your neighborhood closed, what would you do?'), [T('옆 동네까지 다니며 버틴다', 'Travel to the next town and stay put'), T('아예 큰 도시로 이사를 생각한다', 'Start thinking about moving to a big city'), T('별로 상관없다', 'It would hardly matter to me')]),
+ ('filterbubble', T('SNS에서 나와 생각이 아주 다른 글이 보이면 나는 주로?', 'When a post with a view very different from yours shows up on social media, what do you usually do?'), [T('읽어 보고 한 번 생각해 본다', 'Read it and give it some thought'), T('그냥 넘긴다', 'Just scroll past'), T('괜히 더 반대로 생각하게 된다', 'End up feeling even more opposed')]),
 ]
 
 TOPIC = {  # 다음 실험 주제 투표. 새 투표를 열 땐 id를 바꾼다.
@@ -128,7 +130,7 @@ for s, q, opts in DAILY:
 dyn[TOPIC['q'][0]] = TOPIC['q'][1]
 for o in TOPIC['o']: dyn[o[0]] = o[1]
 for t in UI: dyn[t[0]] = t[1]
-assert len(DAILY) == 60 and all(len(d[2]) == 3 for d in DAILY)
+assert len(DAILY) == 62 and all(len(d[2]) == 3 for d in DAILY)
 open(os.path.join(SITE, 'daily.js'), 'w', encoding='utf-8').write('// 오늘의 만약에 · 주제 투표 데이터 (tools/pages/daily.py 가 만든다)\nwindow.LAB_DAILY = ' + json.dumps(data, ensure_ascii=False) + ';\n')
 open(os.path.join(HERE, 'dyn_daily.py'), 'w', encoding='utf-8').write('# tools/pages/daily.py 가 만든다 (직접 고치지 말 것)\nDYN = ' + json.dumps(dyn, ensure_ascii=False, indent=1) + '\n')
 print(len(DAILY), '개 질문,', len(dyn), '개 문구')

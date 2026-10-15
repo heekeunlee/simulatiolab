@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Filter Bubble · Simulatio Lab">필터버블 · 시뮬라티오 랩</title>
+<meta name="description" content="가운데에 모여 있던 가상 마을 사람들의 의견이, 추천이 비슷한 글을 더 보여 줄수록 양 끝 봉우리로 갈라집니다. 3D 의견 지형에서 추천 정도와 반대 글 섞기를 바꿔 직접 돌려 보세요." data-en-content="Opinions in an imaginary town start bunched in the middle, then split into peaks at both ends as recommendations show more look-alike posts. Change how much the feed follows your taste, mix in opposing posts, and watch a 3D opinion landscape.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="theme-color" content="#2f6fed">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1 data-en="When the Algorithm Shows Only What You Like, Why Do Opinions Split?">알고리즘이 취향만 보여 주면 생각은 왜 갈라질까?</h1>
+  <p class="lead" data-en="Having an algorithm pick posts that suit your taste sounds merely convenient, not something that changes what people think. Yet if you change nothing but how posts are shown to 400 people in an imaginary town, there comes a moment when the single hill of opinion in the middle &lt;b&gt;splits into peaks at both ends&lt;/b&gt;. How far must the feed follow taste before that happens? Does mixing in opposing posts bring people back together? And is the feed really enough on its own? Try it yourself.">추천 알고리즘이 내 취향에 맞는 글을 골라 주는 건 편리할 뿐, 사람들의 생각까지 바꾸진 않을 것 같지요. 그런데 가상의 마을 사람 400명에게 글을 보여 주는 방식만 바꿔 보면, 가운데에 모여 있던 하나의 언덕이 <b>양 끝의 봉우리들로 갈라지는</b> 순간이 옵니다. 추천을 얼마나 취향에 맞춰야 갈라질까요? 반대 글을 섞으면 다시 모일까요? 그리고 정말 추천만으로 그렇게 될까요? 직접 바꿔 보세요.</p>
+
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li data-en="&lt;b&gt;How this differs from the rumor, voting, segregation, weak-ties and friendship experiments:&lt;/b&gt; people and places stay the same; only &lt;b&gt;whose posts the recommendation algorithm puts in front of you&lt;/b&gt; changes."><b>소문·투표·끼리끼리·약한 유대·친구 실험과 다른 점:</b> 이 실험은 사람들의 성격이나 동네는 그대로 두고, 추천 알고리즘이 <b>누구의 글을 보이게 하는지</b>만 바꿉니다.</li>
+    <li data-en="400 people in an imaginary town each hold one opinion on a single issue, from −100 (A end) through 0 (middle) to +100 (B end). The axis &lt;b&gt;says nothing about which side is right&lt;/b&gt;. At the start most hold mild opinions near the middle (standard deviation 25).">가상의 마을 사람 400명이 한 가지 쟁점에 대해 의견을 하나씩 가집니다. 의견은 −100(A쪽 끝)부터 0(가운데), +100(B쪽 끝)까지이고, <b>어느 쪽이 옳다는 뜻은 없는</b> 축입니다. 처음에는 대부분 가운데 근처의 약한 의견입니다(표준편차 25).</li>
+    <li data-en="Each person sees 4 posts a day, drawn from the posts of 30 randomly chosen others (there are no fixed friendships; it is random). For each slot, with a probability equal to &lt;b&gt;how much the feed follows your taste&lt;/b&gt;, the candidate closest to your own opinion is shown; otherwise any candidate is shown. Raising &lt;b&gt;mix in opposing posts&lt;/b&gt; deliberately shows, with that probability, a post from someone on the other side of the middle (0).">사람마다 하루에 글 4개를 봅니다. 후보는 무작위로 뽑힌 다른 사람 30명의 글입니다(사람 사이에 따로 정해진 친구 관계는 없이 무작위). 글 한 칸마다 <b>추천이 취향을 따르는 정도</b>만큼의 확률로 후보 중 내 의견과 가장 가까운 글이, 나머지 확률로 후보 중 아무 글이나 보입니다. <b>가끔 반대 글 섞기</b>를 올리면 그 확률로 가운데(0)를 사이에 둔 맞은편 사람의 글을 일부러 보여 줍니다.</li>
+    <li data-en="If a post is within &lt;b&gt;the range you are easily drawn by&lt;/b&gt;, you ① move a little toward it, and ② if it clearly takes a side (more than 11 from the middle), you harden a little further toward that side (&lt;b&gt;how much same-side talk hardens you&lt;/b&gt;). Posts farther away than that range are ignored. Raising &lt;b&gt;how much opposing views put you off&lt;/b&gt; makes a far-off post push you slightly the other way instead.">본 글이 내 의견과 <b>쉽게 끌리는 폭</b> 안이면 ① 그 글 쪽으로 조금 끌리고, ② 그 글이 한쪽 편을 분명히 들면(가운데에서 11 넘게 떨어진 글) 그 편 쪽으로 조금 더 굳어집니다(<b>같은 편 이야기에 굳어지는 정도</b>). 폭보다 먼 글은 무시합니다. <b>반대 의견에 거슬리는 정도</b>를 올리면 먼 글을 볼 때 오히려 반대쪽으로 조금 밀려납니다.</li>
+    <li data-en="Everyone also drifts a little back toward their original view, and moves less the closer they are to an end (±100). There is a tiny random wobble each day.">사람마다 처음 생각으로 조금씩 돌아가려는 성질이 있고, 끝(±100)에 가까울수록 덜 움직입니다. 하루하루 아주 작은 흔들림도 있습니다.</li>
+    <li data-en="Measures: &lt;b&gt;how split&lt;/b&gt; (0–100) is the standard deviation of opinions (0 = everyone agrees, 100 = half at each end). &lt;b&gt;Opinion clusters&lt;/b&gt;: line opinions up, cut wherever there is a gap of more than 10, and count the groups of at least 12 people (3% of all, at least 5). &lt;b&gt;Posts from the other side&lt;/b&gt; is the share of the day&#x27;s posts written by someone across the middle (0), and &lt;b&gt;how far people moved&lt;/b&gt; is the average gap between each person&#x27;s original and current opinion.">지표: <b>갈라진 정도</b>(0~100)는 의견들의 표준편차입니다(0 = 모두 같은 생각, 100 = 절반씩 양 끝). <b>의견 덩어리</b>는 의견을 한 줄로 세웠을 때 10 넘게 벌어진 곳에서 끊어 생긴 무리 가운데 12명(전체의 3%, 최소 5명) 이상인 무리의 수입니다. <b>본 글 중 다른 편 글</b>은 그날 본 글 가운데 0을 사이에 둔 맞은편 사람이 쓴 글의 비율, <b>처음 생각에서 움직인 정도</b>는 처음 의견과 지금 의견의 차이를 모두 평균한 값입니다.</li>
+  </ul>
+
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="n" data-en="Number of people &lt;output id=&quot;o-n&quot;&gt;&lt;/output&gt;">사람 수 <output id="o-n"></output></label>
+        <input type="range" id="n" min="100" max="1000" step="50" value="400">
+        <span class="hint" data-en="Raise it for a bigger town">늘리면 마을이 커져요</span></div>
+<div class="ctl"><label for="s" data-en="How much the feed follows taste &lt;output id=&quot;o-s&quot;&gt;&lt;/output&gt;">추천이 취향을 따르는 정도 <output id="o-s"></output></label>
+        <input type="range" id="s" min="0" max="100" step="5" value="50">
+        <span class="hint" data-en="Higher: posts like your own opinion show up more often">올리면 내 의견과 비슷한 글이 더 자주 보여요</span></div>
+<div class="ctl"><label for="eps" data-en="Range you are drawn by &lt;output id=&quot;o-eps&quot;&gt;&lt;/output&gt;">쉽게 끌리는 폭 <output id="o-eps"></output></label>
+        <input type="range" id="eps" min="10" max="100" step="5" value="40">
+        <span class="hint" data-en="You are only drawn by posts within this distance of your view">생각 차이가 이만큼 안인 글에만 끌려요</span></div>
+<div class="ctl"><label for="div" data-en="Mix in opposing posts &lt;output id=&quot;o-div&quot;&gt;&lt;/output&gt;">가끔 반대 글 섞기 <output id="o-div"></output></label>
+        <input type="range" id="div" min="0" max="50" step="5" value="0">
+        <span class="hint" data-en="Higher: that share of posts is deliberately from the other side">올리면 그만큼 맞은편 사람의 글을 일부러 보여 줘요</span></div>
+<div class="ctl"><label for="rep" data-en="How much opposing views put you off &lt;output id=&quot;o-rep&quot;&gt;&lt;/output&gt;">반대 의견에 거슬리는 정도 <output id="o-rep"></output></label>
+        <input type="range" id="rep" min="0" max="100" step="10" value="0">
+        <span class="hint" data-en="At 0 far posts are ignored; higher pushes you the other way">0이면 먼 글은 무시, 올리면 반대로 밀려나요</span></div>
+<div class="ctl"><label for="reinf" data-en="How much same-side talk hardens you &lt;output id=&quot;o-reinf&quot;&gt;&lt;/output&gt;">같은 편 이야기에 굳어지는 정도 <output id="o-reinf"></output></label>
+        <input type="range" id="reinf" min="0" max="200" step="10" value="100">
+        <span class="hint" data-en="At 0 you are only drawn, never hardened">0이면 끌리기만 하고 더 굳어지지 않아요</span></div>
+    </div>
+    <div class="btns">
+      <button class=primary id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Same settings, another town">같은 설정, 다른 마을</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3 data-en="① The Opinion Landscape: How Many Peaks Will One Hill Split Into? &lt;span class=&quot;badge3d&quot;&gt;3D&lt;/span&gt;">① 의견 지형: 하나의 언덕이 봉우리 몇 개로 갈라질까 <span class="badge3d">3D</span></h3>
+    <p data-en="Each bead is one person. &lt;b&gt;Left to right is opinion&lt;/b&gt; (A on the left, 0 in the middle, B on the right), and &lt;b&gt;the height of the ground is how many people hold an opinion near there&lt;/b&gt;. Front-to-back placement is only spread out for viewing and means nothing. Watch what happens to the hill that starts in the middle, and whether the valleys between peaks grow deeper.">구슬 하나가 사람 한 명입니다. <b>가로는 의견</b>(왼쪽 A쪽, 가운데 0, 오른쪽 B쪽), <b>땅의 높이는 그 의견 근처에 있는 사람 수</b>예요. 앞뒤 자리는 보기 좋게 흩어 놓은 것일 뿐 뜻이 없습니다. 처음에 가운데 솟은 언덕이 어떻게 변하는지, 봉우리 사이 골짜기가 깊어지는지 보세요.</p>
+    <canvas id="c-3d" class="view3d" data-thumb aria-label="① The Opinion Landscape: How Many Peaks Will One Hill Split Into? 3D"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#7c3aed&quot;&gt;&lt;/i&gt;A-side opinion"><i style="background:#7c3aed"></i>A쪽 의견</span><span data-en="&lt;i style=&quot;background:#94a3b8&quot;&gt;&lt;/i&gt;Middle"><i style="background:#94a3b8"></i>가운데</span><span data-en="&lt;i style=&quot;background:#0d9488&quot;&gt;&lt;/i&gt;B-side opinion"><i style="background:#0d9488"></i>B쪽 의견</span><span data-en="&lt;i style=&quot;background:linear-gradient(#e9e3fb,#cfd6e0)&quot;&gt;&lt;/i&gt;Ground height = people holding that opinion"><i style="background:linear-gradient(#e9e3fb,#cfd6e0)"></i>땅 높이 = 그 의견인 사람 수</span></div>
+    <div class="anim-bar">
+      <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
+      
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="speed"><option value="3" data-en="Slow">느리게</option><option value="6" selected data-en="Normal">보통</option><option value="12" data-en="Fast">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+    <p class="hint3d" data-en="Drag to turn the view · scroll or pinch to zoom · left alone, the camera circles slowly · on a phone, swiping up and down scrolls the page. The 3D view shows the same result as the charts below, in depth; it computes nothing of its own.">드래그로 돌려 보기 · 휠이나 두 손가락으로 확대 · 가만히 두면 카메라가 천천히 돕니다 · 휴대폰에서 세로로 쓸면 페이지가 내려갑니다. 3D는 아래 그래프와 같은 결과를 입체로 본 것이고, 따로 계산하지 않습니다.</p>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3 data-en="② Opinion Ribbon: How Opinions Split Over Time">② 의견 띠: 시간이 지나며 의견이 어떻게 갈라졌나</h3>
+    <p data-en="Drawn only up to the day the playback has reached. Left to right is time, up and down is opinion, and the darker the color, the more people hold that opinion. Watch for the moment one band splits into two or three.">재생이 지난 날까지만 그립니다. 가로는 날짜, 세로는 의견이고, 색이 진할수록 그 의견인 사람이 많습니다. 한 줄기가 두세 줄기로 갈라지는 때를 보세요.</p>
+    <canvas id="c-strip" class="" aria-label="② Opinion Ribbon: How Opinions Split Over Time"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ How Split, and How Many Posts From the Other Side?">③ 얼마나 갈라졌나, 다른 편 글을 얼마나 봤나</h3>
+    <p data-en="Drawn only up to the day the playback has reached. The purple line is how split opinions are, the teal line the share of that day&#x27;s posts from the other side, and the orange dashed line how far people have moved from their original view.">재생이 지난 날까지만 그립니다. 보라 선은 갈라진 정도, 청록 선은 그날 본 글 중 다른 편 글의 비율, 주황 점선은 처음 생각에서 움직인 정도입니다.</p>
+    <canvas id="c-time" class="" aria-label="③ How Split, and How Many Posts From the Other Side?"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="④ How Many Opinion Clusters?">④ 의견 덩어리가 몇 개가 됐나</h3>
+    <p data-en="Drawn only up to the day the playback has reached. 1 means the town is one cluster; 2 or 3 means it has broken into separate groups.">재생이 지난 날까지만 그립니다. 1이면 마을 의견이 한 덩어리, 2~3이면 서로 떨어진 무리로 나뉜 것입니다.</p>
+    <canvas id="c-clu" class="" aria-label="④ How Many Opinion Clusters?"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="⑤ How Far Must the Feed Follow Taste to Split Us? (Summary: 28 Runs in Advance)">⑤ 추천을 얼마나 취향에 맞추면 갈라질까 (집계: 미리 돌린 28판)</h3>
+    <p data-en="With everything else at defaults, only how much the feed follows taste is changed from 0 to 100%; each is run 4 times to day 200 and the last 20 days are averaged. This is a summary computed in advance, independent of the playback. Purple bars show how split, orange bars how far people moved, and the number under the bars the average number of clusters.">다른 설정은 기본값으로 두고 추천이 취향을 따르는 정도만 0~100%로 바꿔 각각 4판씩 200일까지 돌린 뒤 마지막 20일을 평균했습니다. 재생과 상관없이 미리 계산한 집계입니다. 보라 막대는 갈라진 정도, 주황 막대는 처음 생각에서 움직인 정도, 막대 아래 숫자는 덩어리 수 평균입니다.</p>
+    <canvas id="c-s" class="" aria-label="⑤ How Far Must the Feed Follow Taste to Split Us? (Summary: 28 Runs in Advance)"></canvas>
+      <div class="legend"><span id="note-s" data-en="Calculating…">계산 중…</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="⑥ Does Mixing in Opposing Posts Bring People Back? (Summary: 24 Runs, Feed 100% Taste)">⑥ 반대 글을 섞으면 다시 모일까 (집계: 미리 돌린 24판, 추천 100%)</h3>
+    <p data-en="A summary for a town where the feed follows taste 100%, mixing in 0, 10 or 30% opposing posts. Gray bars show how split a town is when the range people are drawn by is 40 (default); teal bars when it is 80. The small numbers under the bars are the two towns&#x27; cluster counts.">추천이 취향을 100% 따르는 마을에서 반대 글을 0·10·30% 섞어 본 집계입니다. 회색 막대는 쉽게 끌리는 폭이 40(기본)인 마을, 청록 막대는 80인 마을의 갈라진 정도예요. 막대 아래 작은 숫자는 두 마을의 덩어리 수입니다.</p>
+    <canvas id="c-div" class="" aria-label="⑥ Does Mixing in Opposing Posts Bring People Back? (Summary: 24 Runs, Feed 100% Taste)"></canvas>
+      <div class="legend"><span id="note-d" data-en="Calculating…">계산 중…</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="⑦ A Narrow or Wide Range of Being Drawn (Summary: 40 Runs in Advance)">⑦ 쉽게 끌리는 폭이 좁으면, 넓으면 (집계: 미리 돌린 40판)</h3>
+    <p data-en="A summary changing only the range people are drawn by, from 20 to 80. Gray bars: feed follows taste 0%; purple bars: 50%. Orange text under the bars means there were runs where the town did not split but the whole town drifted to one end; the small numbers are cluster counts.">쉽게 끌리는 폭만 20~80으로 바꾼 집계입니다. 회색 막대는 추천 0%, 보라 막대는 추천 50%입니다. 막대 아래 주황 글씨는 갈라지지는 않았지만 마을 전체가 한쪽 끝으로 쏠린 판이 있었다는 뜻이고, 작은 숫자는 덩어리 수입니다.</p>
+    <canvas id="c-eps" class="" aria-label="⑦ A Narrow or Wide Range of Being Drawn (Summary: 40 Runs in Advance)"></canvas>
+      <div class="legend"><span id="note-e" data-en="Calculating…">계산 중…</span></div>
+    </section>
+  </div>
+
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout cl-says">
+    <p class="clabel" data-en="&lt;b&gt;What it shows:&lt;/b&gt;"><b>말하는 것:</b></p>
+    <ul class="chead"><li data-en="When the feed followed taste only 10%, the town stayed one cluster in the middle; past 30% it broke into groups toward the ends. It split suddenly at a threshold, not slowly.">추천이 취향을 10%만 따를 땐 마을 의견이 가운데 한 덩어리로 남았지만, 30%를 넘기자 끝 쪽 무리들로 갈라졌어요. 서서히가 아니라 문턱을 넘으며 갑자기 갈렸어요.</li><li data-en="Seeing only similar posts piles up your own side&#x27;s talk, so people harden toward the ends, and far-off posts are &#x27;too far&#x27; to register. In the first default run, the split passed 40 in 12 days.">비슷한 글만 보이면 같은 편 이야기만 쌓여 조금씩 끝으로 굳고, 멀어진 사람의 글은 '너무 멀어' 귀에 안 들어와요. 기본 설정 첫 판에선 12일 만에 갈라진 정도가 40을 넘었어요.</li><li data-en="Mixing in opposing posts rejoined a town whose people were drawn by a wide range (split 64→7) but only eased a narrow one (64→49). How much people can hear mattered as much as what they saw.">반대 글 섞기는 쉽게 끌리는 폭이 넓은 마을은 다시 하나로 모았지만(갈라진 정도 64→7), 좁은 마을은 조금만 줄였어요(64→49). 보여 주는 것만큼 들을 수 있는 폭이 갈랐어요.</li></ul>
+    <details class="cmore"><summary data-en="Details">상세 설명</summary>
+      <p class="cfull" data-en="&lt;b&gt;What it shows:&lt;/b&gt; In the first run with default settings (400 people, feed 50% taste, range 40, hardening 100%), how split opinions were started at 26, passed 40 on day 12 and reached 62 by day 50. It ended in three groups: 180 on the A side (average −75), 112 in the middle (average 3) and 108 on the B side (average 75). Averaged over 4 runs while changing only the feed, how split came out at 9 for 0%, 10 for 10%, 24 for 20%, 49 for 30%, 57 for 50% and 64 for 100%, jumping between 10% and 30% (clusters 1 → 2 → 3). Posts from the other side made up 42% of what people saw at 0% and 0% at 100%. With the feed at 100%, mixing in 30% opposing posts only eased the split from 64 to 49 when the range was 40, but brought a town with range 80 back together, from 64 to 7. With a narrow range (20–30), opinions split to 45 even with no taste-following at all; with a wide range (60–80) they did not split at 50% (5), but in 2 of 4 runs the whole town drifted to one end. Switching hardening off held the split to 23 even with the feed at 100%, while turning how much opposing views put people off up to 100% split opinions to 66 even with no taste-following."><b>말하는 것:</b> 기본 설정(400명, 추천 50%, 끌리는 폭 40, 굳어지는 정도 100%)의 첫 판에서 처음 갈라진 정도는 26이었고, 12일째 40을 넘어 50일째 62가 됐습니다. 끝에는 A쪽 180명(평균 −75), 가운데 112명(평균 3), B쪽 108명(평균 75)의 세 무리로 나뉘었습니다. 추천 정도만 바꾼 4판 평균은 갈라진 정도가 0%일 때 9, 10%일 때 10, 20%일 때 24, 30%일 때 49, 50%일 때 57, 100%일 때 64로, 10%와 30% 사이에서 갑자기 커졌습니다(덩어리 수 1 → 2 → 3). 본 글 중 다른 편 글은 추천 0%에서 42%, 100%에서 0%였습니다. 추천 100%에서 반대 글을 30% 섞으면 끌리는 폭 40인 마을은 갈라진 정도가 64에서 49로 조금 줄었지만, 폭 80인 마을은 64에서 7로 다시 한 덩어리가 됐습니다. 폭이 좁으면(20~30) 추천이 0%여도 45로 갈라졌고, 폭이 넓으면(60~80) 추천 50%에서도 5로 갈라지지 않았지만 4판 중 2판은 마을 전체가 한쪽 끝으로 쏠렸습니다. 같은 편 이야기에 굳어지는 정도를 0으로 끄면 추천 100%에서도 갈라진 정도가 23에 그쳤고, 반대로 반대 의견에 거슬리는 정도를 100%로 올리면 추천이 0%여도 66으로 갈라졌습니다.</p></details>
+  </div>
+  <div class="callout cl-not">
+    <p class="clabel" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt;"><b>말하지 않는 것:</b></p>
+    <ul class="chead"><li data-en="This split did not come from the feed alone. With &#x27;how much same-side talk hardens you&#x27; set to 0, even a 100% feed held the split to 23. So it is not proof that algorithms are the cause.">이 갈라짐은 추천 하나로 생긴 게 아니에요. '같은 편 이야기에 굳어지는 정도'를 0으로 끄면 추천 100%에서도 갈라진 정도가 23에 그쳤어요. 그래서 알고리즘이 원인이라는 증명이 아니에요.</li><li data-en="A simple model with one issue and a one-line opinion: no real algorithms, press, fake news, emotions, group identity or bots. Numbers are this model&#x27;s examples; A and B say nothing about who is right.">한 쟁점·한 줄 의견만 있는 단순 모델이라 실제 알고리즘·언론·가짜뉴스·감정·집단 정체성·봇은 없어요. 숫자는 모두 이 모델의 예시이고, A쪽·B쪽은 어느 편이 옳다는 뜻이 아니에요.</li><li data-en="To check this in reality, you would have to follow what real people saw and how their views changed over a long time. Real research is known to be divided on how much recommendations widen divides.">현실에서 확인하려면 실제 사람들이 본 글과 생각의 변화를 오래 따라가 봐야 해요. 실제 연구는 추천이 갈라짐을 얼마나 키우는지 결론이 엇갈린다고 알려져 있어요.</li></ul>
+    <details class="cmore"><summary data-en="Details">상세 설명</summary>
+      <p class="cfull" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; This is a simple model with a single issue and a one-line opinion, and it does not claim that real social media or recommendation algorithms work this way. How real algorithms work, the press, fake news and fact-checking, emotions, group identity, bots, friendship networks, and differences in people&#x27;s interests and time online are all left out. The split in this model did not come from the feed alone; it came together with the assumption that &quot;hearing your own side makes you a little firmer&quot; (switching that off shrank it a lot). So it is not proof that &quot;algorithms cause polarization&quot;, and real research is known to be divided on how much recommendations widen divides. The A and B sides say nothing about which is right or wrong. Every number is an example from dimensionless settings chosen by this project."><b>말하지 않는 것:</b> 이 모델은 한 가지 쟁점에 한 줄짜리 의견만 있는 단순한 모델이며, 실제 소셜미디어나 추천 알고리즘이 이렇게 움직인다고 주장하지 않습니다. 실제 알고리즘의 작동 방식, 언론, 가짜뉴스와 팩트체크, 감정, 집단 정체성, 봇, 친구 관계망, 사람마다 다른 관심과 접속 시간은 모두 빠져 있습니다. 이 모델의 갈라짐은 추천 하나로 생긴 것이 아니라 "같은 편 이야기를 들으면 조금 더 굳어진다"는 가정과 함께 생겼습니다(이것을 끄면 크게 줄었습니다). 그래서 "알고리즘이 갈라짐의 원인이다"라는 증명이 아니며, 실제 연구는 추천이 의견 갈라짐을 얼마나 키우는지에 대해 결론이 엇갈린다고 알려져 있습니다. A쪽과 B쪽은 어느 편이 옳거나 그르다는 뜻이 아닙니다. 숫자는 모두 이 프로젝트가 정한 무차원 설정에서 나온 예시입니다.</p></details>
+  </div>
+
+  <h2 data-en="Theory and implementation notes">이론적 근거와 구현 메모</h2>
+  <ul class="small">
+    <li class="memo theory" data-en="&lt;b&gt;Where the model comes from:&lt;/b&gt; The root is the &lt;b&gt;bounded confidence&lt;/b&gt; model, in which people ignore views that are too different and are only drawn by ones close enough to their own (Deffuant et al. 2000; Hegselmann and Krause 2002). The tendency of like-minded people to lean further one way after talking together is known in social psychology as &lt;b&gt;group polarization&lt;/b&gt;; this model&#x27;s &quot;hardening&quot; is a very simple version of that idea. The phrase &lt;b&gt;filter bubble&lt;/b&gt;, for recommendations that show only similar things and trap people in a bubble, was popularized by Pariser (2011)."><b>모델의 뿌리:</b> 의견이 너무 다른 사람의 말은 듣지 않고 어느 정도 가까운 사람에게만 끌린다는 <b>경계 신뢰(bounded confidence)</b> 모델이 뿌리입니다(Deffuant 외 2000, Hegselmann·Krause 2002). 생각이 비슷한 사람끼리 이야기하면 처음보다 더 한쪽으로 기운다는 현상은 사회심리학에서 <b>집단 극화</b>라고 알려져 있고, 이 모델의 "굳어지기"는 그 생각을 아주 단순하게 넣은 것입니다. 추천이 비슷한 것만 보여 주어 거품 속에 갇힌다는 <b>필터버블</b>이라는 말은 Pariser(2011)가 널리 알렸습니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Key assumptions and formulas:&lt;/b&gt; Person i&#x27;s opinion &lt;code&gt;x&lt;/code&gt; (−1 to 1, shown ×100) changes each day by &lt;code&gt;x ← x + (1/4)·Σ&lt;sub&gt;posts seen&lt;/sub&gt;[ 0.3·(x&lt;sub&gt;post&lt;/sub&gt; − x) + 0.08·w&lt;sub&gt;harden&lt;/sub&gt;·side(x&lt;sub&gt;post&lt;/sub&gt;)·(1 − x²) ] + 0.05·(x&lt;sub&gt;original&lt;/sub&gt; − x) + wobble&lt;/code&gt;. The bracket applies only to posts with &lt;code&gt;|x&lt;sub&gt;post&lt;/sub&gt; − x| &amp;lt; range&lt;/code&gt;; posts outside the range add &lt;code&gt;−0.06·w&lt;sub&gt;put off&lt;/sub&gt;·sign(x&lt;sub&gt;post&lt;/sub&gt; − x)·(1 − x²)&lt;/code&gt; (ignored if put-off is 0). &lt;code&gt;side(v)&lt;/code&gt; is 0 for |v| ≤ 0.11 and then rises to ±1 over a further 0.3. The 4 posts come from 30 candidates: for each slot, with probability &lt;code&gt;mix&lt;/code&gt; a random candidate across the middle (opposite sign); otherwise with probability &lt;code&gt;feed&lt;/code&gt; the candidate closest in opinion; otherwise a random candidate. Initial opinions have mean 0 and standard deviation 0.25 (cut at ±0.95), the wobble is uniform within ±0.002, and everyone updates at once from the previous day&#x27;s opinions."><b>핵심 가정과 수식:</b> 사람 i의 의견 <code>x</code>(−1~1, 화면에서는 ×100)는 하루에 <code>x ← x + (1/4)·Σ<sub>본 글</sub>[ 0.3·(x<sub>글</sub> − x) + 0.08·w<sub>굳어짐</sub>·편(x<sub>글</sub>)·(1 − x²) ] + 0.05·(x<sub>처음</sub> − x) + 흔들림</code>으로 바뀝니다. 대괄호는 <code>|x<sub>글</sub> − x| &lt; 폭</code>인 글에만 쓰고, 폭 밖의 글은 <code>−0.06·w<sub>거슬림</sub>·부호(x<sub>글</sub> − x)·(1 − x²)</code>를 더합니다(거슬림 0이면 무시). <code>편(v)</code>는 |v| ≤ 0.11이면 0, 그 뒤로 0.3에 걸쳐 ±1까지 오르는 값입니다. 글 4개는 후보 30명 중에서, 칸마다 확률 <code>섞기</code>로 맞은편(부호가 다른) 후보 중 무작위, 아니면 확률 <code>추천</code>으로 의견이 가장 가까운 후보, 나머지는 무작위 후보입니다. 처음 의견은 평균 0, 표준편차 0.25(±0.95에서 자름), 흔들림은 ±0.002 안의 고른 난수이고, 모든 사람이 전날 의견을 보고 동시에 바뀝니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;What this project simplifies:&lt;/b&gt; There is one issue and a single line of opinion. There is no social network; each day posts are chosen from 30 random candidates. The feed uses the simplest rule, &quot;the most similar candidate&quot;, with none of a real algorithm&#x27;s clicks, viewing time, ads or popularity rankings. The strengths of being drawn, of hardening and of drifting back to one&#x27;s original view are dimensionless values set by this project. Drifting back was added because without it the whole town in this model easily slid to one end. Emotions, group identity, the press, fake news, bots and differences in time online are absent."><b>이 프로젝트의 단순화:</b> 한 가지 쟁점, 한 줄의 의견만 있습니다. 사람 사이 관계망은 없고 날마다 무작위 후보 30명의 글 중에서 고릅니다. 추천은 "후보 중 가장 비슷한 글"이라는 가장 단순한 규칙이고, 실제 알고리즘(클릭·체류 시간·광고·인기 순위 등)은 넣지 않았습니다. 끌리는 세기·굳어지는 세기·처음 생각으로 돌아가는 세기는 이 프로젝트가 정한 무차원 값입니다. 처음 생각으로 돌아가는 성질은, 이것이 없으면 이 모델에서 마을 전체가 쉽게 한쪽 끝으로 쏠려 버려서 넣은 설정입니다. 감정, 집단 정체성, 언론, 가짜뉴스, 봇, 사람마다 다른 접속 시간은 없습니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Theory versus simulation:&lt;/b&gt; There is no theoretical value to match here, so only simulated values are given (&lt;code&gt;node tools/validate-filterbubble.js&lt;/code&gt;, fixed seeds). The extremes behave as expected: at 0% taste-following, 42% of posts seen come from the other side, close to half, and at 100% none do. As known for bounded confidence models, a narrow range (20–30) split people into several groups even without any taste-following. What differed from expectations: with hardening switched off, even a 100% feed held the split to 23, so the split here was large only when the feed and hardening acted together. A strong feed produced three groups, not two, with one left in the middle; and with a wide range, a 50% feed sometimes pushed the whole town to one end instead of splitting it (2 of 4 runs)."><b>이론값과 시뮬레이션:</b> 이 모델에는 맞춰 볼 이론값이 없어 시뮬레이션 값만 적습니다(<code>node tools/validate-filterbubble.js</code>, 시드 고정). 극단은 예상과 맞습니다. 추천 0%에서 본 글 중 다른 편 글은 42%로 절반에 가깝고 100%에서는 0%입니다. 경계 신뢰 모델에서 알려진 대로 끌리는 폭이 좁으면(20~30) 추천이 없어도 여러 무리로 나뉘었습니다. 예상과 달랐던 점: 굳어지기를 끄면 추천 100%에서도 갈라진 정도가 23에 그쳐, 이 모델의 갈라짐은 추천과 굳어지기가 함께 있어야 컸습니다. 추천이 강하면 두 편이 아니라 가운데 무리까지 셋으로 나뉘었고, 끌리는 폭이 넓을 때 추천 50%는 갈라짐 대신 마을 전체를 한쪽 끝으로 쏠리게 하기도 했습니다(4판 중 2판).</li>
+    <li class="memo theory" data-en="&lt;b&gt;Further reading:&lt;/b&gt; Deffuant et al. (2000), &quot;Mixing beliefs among interacting agents&quot;, &lt;i&gt;Advances in Complex Systems&lt;/i&gt; 3. Hegselmann and Krause (2002), &quot;Opinion dynamics and bounded confidence: models, analysis and simulation&quot;, &lt;i&gt;Journal of Artificial Societies and Social Simulation&lt;/i&gt; 5(3). Pariser (2011), &lt;i&gt;The Filter Bubble&lt;/i&gt;."><b>더 읽을거리:</b> Deffuant 외 (2000), 「Mixing beliefs among interacting agents」, Advances in Complex Systems 3. Hegselmann·Krause (2002), 「Opinion dynamics and bounded confidence: models, analysis and simulation」, Journal of Artificial Societies and Social Simulation 5(3). Pariser (2011), 『The Filter Bubble』.</li>
+    <li  data-en="A simplified implementation of this project&#x27;s own design; it does not reproduce any paper&#x27;s numbers. The town and the A and B sides are imaginary and do not stand for any real place, party or group. ① The 3D view draws the computed result as is. Ground height is a smoothed count of current opinions (width 5 on the opinion scale), and front-to-back placement is a fixed, display-only position for each person. It joins the previous day and today so motion looks smooth, which does not affect the results. ⑤–⑦ are summaries run in advance with default settings, so they do not change with the sliders (bars matching the current settings are lightly shaded).">이 프로젝트가 직접 설계한 단순화 구현이며 어떤 논문의 수치를 재현한 것도 아닙니다. 마을과 A쪽·B쪽은 모두 가상이며 실제 지역·정당·집단을 뜻하지 않습니다. ① 3D는 계산 결과를 그대로 그립니다. 땅 높이는 지금 의견들을 폭 5(의견 눈금)로 부드럽게 센 값이고, 앞뒤 자리는 사람마다 고정된 보기용 배치입니다. 하루 전과 지금 사이를 이어 그려 부드럽게 보일 뿐 결과에는 영향이 없습니다. ⑤~⑦은 기본 설정으로 미리 돌린 집계라 슬라이더를 바꿔도 달라지지 않습니다(지금 설정과 같은 막대는 옅게 칠해 표시).</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/filterbubble&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/filterbubble">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap" data-en="Simulatio Lab · Run by Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
+<script src="../../exps.js"></script>
+<script src="../../layout.js"></script>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../lazy3d.js" data-module="app3d.js"></script>
+<script src="../../counter.js"></script>
+<script src="../../engage.js"></script>
+</body>
+</html>
