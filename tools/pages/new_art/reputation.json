@@ -1,0 +1,62 @@
+{
+ "slug": "reputation",
+ "title_ko": "약속을 어긴 나라와 다시 협상할 수 있을까?",
+ "title_en": "Can You Ever Negotiate Again With a Country That Broke Its Word?",
+ "symbol": "Rp",
+ "name_ko": "평판과 다시 협상",
+ "name_en": "Reputation and Renegotiation",
+ "icon": "net",
+ "field": "intl",
+ "related": [
+  "cooperation",
+  "rumor",
+  "alliance"
+ ],
+ "predict": {
+  "q_ko": "약속을 어긴 나라를 절대 잊지 않는 세계(잊는 속도 0%)에서는 둘 다 약속을 지킨 비율이 어떻게 될까요? (조금씩 잊는 3%일 때 = 92%)",
+  "q_en": "In a world that never forgets a broken promise (forgetting 0%), what happens to the share of pairs that both keep their word? (with slow forgetting of 3% = 92%)",
+  "opts_ko": [
+   "약 99% (더 좋아짐)",
+   "약 92% (거의 같음)",
+   "약 28% (크게 줄어듦)"
+  ],
+  "opts_en": [
+   "About 99% (better)",
+   "About 92% (about the same)",
+   "About 28% (falls sharply)"
+  ],
+  "answer": 2,
+  "expl_ko": "이 모델에서 전혀 잊지 않으면 초반에 어긴 나라들이 영영 따돌려져 협상 자체가 줄어, 둘 다 지킨 비율이 28%였어요(3%면 92%). 반대로 너무 빨리 잊으면(20%) 어김이 늘어 71%였어요.",
+  "expl_en": "In this model, never forgetting left the early breakers shunned forever, so deals themselves dried up and only 28% of pairs kept their word (92% at 3%). Forgetting too fast (20%) let breaking grow, giving 71%."
+ },
+ "daily": {
+  "q_ko": "친구가 중요한 약속을 한 번 크게 어겼다면, 나는?",
+  "q_en": "A friend badly breaks an important promise once. What do you do?",
+  "opts_ko": [
+   "다시는 믿지 않는다",
+   "사과하고 물어 주면 다시 믿는다",
+   "시간이 지나면 잊고 다시 만난다"
+  ],
+  "opts_en": [
+   "Never trust them again",
+   "Trust again if they apologize and make it right",
+   "Let time pass, forget, and meet again"
+  ]
+ },
+ "facts": [
+  "기본 첫 세계(시드 1, 240라운드): 어김의 물결 13~43라운드(11개국 34번), 177~207라운드(12개국 34번); 26라운드 협상 성사율 50%; '어기면 손해' 어림 61라운드 15.7 → 181라운드 2.5; 회복 30~38라운드(평균 35); 24개국 중 12곳은 한 번도 안 어김",
+  "둘 다 지킨 비율(소문 보통 50%, 8판×300라운드, 51라운드부터): 잊는 속도 0% 28%, 1% 73%, 3% 92%, 5% 94%, 10% 92%, 20% 71%(어김 2.67번/라운드)",
+  "일부러 한 번 어긴 나라가 다시 협상하기까지(잊는 속도 3%): 소문 느리게 10% 24라운드, 보통 50% 37라운드, 빠르게 90% 59라운드; 잊는 속도 0%는 돌아오지 못함",
+  "빨리 잊는 20%에서 둘 다 지킨 비율: 소문 10% 68%, 50% 71%, 90% 91%",
+  "사과·보상 0/25/50/75/100%: 다시 협상하기까지 37/29/21/11/1라운드, 둘 다 지킨 비율 92/94/96/99/100%"
+ ],
+ "caveats": [
+  "가상의 나라 24개로 만든 이 프로젝트의 단순한 장난감 모델이며 숫자는 모두 예시(거절 0.5, 안전장치 0.25·비용 0.3, 소식 한 다리 0.8배, 서로 떠올려 주기 0.75, 교훈 옅어짐 2%/라운드·바닥 1, 처음 어림 3, 30라운드 관찰)",
+  "실제 나라·외교·조약·사건을 설명·예측하지 않으며 누구를 용서·제재·따돌려야 한다는 정책 판단을 하지 않음",
+  "사과·보상은 늘 지불되고 모두가 믿는 설정: 사과의 진정성·이행 문제는 다루지 않음",
+  "힘의 차이, 국내 정치, 동맹·진영, 중재자, 거짓 소문·선전, 좋은 소식의 전파는 빠져 있음",
+  "모든 나라가 '어기면 손해' 어림을 공유하고 평화가 길면 그 어림이 옅어지는 것은 이 프로젝트의 설정(어김의 물결이 되풀이되는 이유)",
+  "출처는 반복 게임('미래의 그림자', Axelrod 1984)과 간접 상호성 같은 일반 개념만 언급, 특정 연구의 재현 아님",
+  "잊는 속도 1%·소문 빠르게의 회복 150라운드는 8판 중 2판만 300라운드 안에 돌아온 평균"
+ ]
+}

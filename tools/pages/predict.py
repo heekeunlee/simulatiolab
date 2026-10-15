@@ -80,6 +80,38 @@ PRED = {
 
 # ---- 2026-10-13 새 실험 11개 (정답·해설의 숫자는 각 validate 출력 기준) ----
 PRED.update({
+ 'crash': (
+  T('가상의 시장에서 손절선이 한곳에 촘촘히 몰려 있을 때, 처음 충격을 −2%에서 −3.5%로 키우면 100판 중 큰 폭락(−7% 이상)은 어떻게 될까요?', 'In an imaginary market where stop-loss lines are tightly bunched, what happens to big crashes (−7% or more) out of 100 runs when the initial shock grows from −2% to −3.5%?'),
+  [T('거의 그대로 (2판 → 5판쯤)', 'Barely changes (2 → about 5)'), T('조금씩 늘어남 (2판 → 30판쯤)', 'Rises gradually (2 → about 30)'), T('거의 전부로 바뀜 (2판 → 98판)', 'Jumps to almost all (2 → 98)')], 2,
+  T('이 모델에서 손절선이 촘촘하면 충격 −2%에선 100판 중 2판만 큰 폭락이었지만 −3.5%에선 98판이었어요. 충격이 몰린 손절선에 닿느냐 마느냐로 결과가 절벽처럼 갈려요. 손절선이 넓게 퍼져 있으면 31판(−2%) → 91판(−3%)으로 천천히 늘었어요.', 'In this model, with tightly bunched stop-losses only 2 of 100 runs crashed at a −2% shock, but 98 did at −3.5%. Whether the shock reaches the bunched lines splits the outcome like a cliff. With widely spread lines, crashes rose slowly instead: 31 (−2%) → 91 (−3%).')),
+ 'aijobs': (
+  T('가상의 업계에서 AI가 신입 일의 절반을 맡고 회사가 그만큼 신입을 덜 뽑으면, 해마다 드는 비용은 언제쯤 AI 없을 때보다 커질까요? (처음 업계 8개 중앙값)', 'In an imaginary industry, AI takes half the junior work and firms hire that many fewer juniors. When does the yearly cost become higher than without AI? (median of 8 starting industries)'),
+  [T('2~3해째 (바로)', 'Year 2–3 (right away)'), T('14해째쯤 (한참 뒤)', 'Around year 14 (much later)'), T('30해가 지나도 안 커진다', 'Never within 30 years')], 1,
+  T('이 모델에서 처음 5해는 AI 없을 때의 93으로 비용이 줄었지만, 신입이 줄어든 빈자리가 몇 해 뒤 숙련층에 닿아 14해째(중앙값)에 역전됐어요. 많이 맡길수록 빨라서 90%면 10해째, 30%면 26해째였어요.', 'In this model costs fell to 93 of the no-AI level over the first 5 years, but the gap left by fewer juniors reached the experts years later and costs turned around in year 14 (median). The more AI took, the sooner: year 10 at 90%, year 26 at 30%.')),
+ 'reputation': (
+  T('약속을 어긴 나라를 절대 잊지 않는 세계(잊는 속도 0%)에서는 둘 다 약속을 지킨 비율이 어떻게 될까요? (조금씩 잊는 3%일 때 = 92%)', 'In a world that never forgets a broken promise (forgetting 0%), what happens to the share of pairs that both keep their word? (with slow forgetting of 3% = 92%)'),
+  [T('약 99% (더 좋아짐)', 'About 99% (better)'), T('약 92% (거의 같음)', 'About 92% (about the same)'), T('약 28% (크게 줄어듦)', 'About 28% (falls sharply)')], 2,
+  T('이 모델에서 전혀 잊지 않으면 초반에 어긴 나라들이 영영 따돌려져 협상 자체가 줄어, 둘 다 지킨 비율이 28%였어요(3%면 92%). 반대로 너무 빨리 잊으면(20%) 어김이 늘어 71%였어요.', 'In this model, never forgetting left the early breakers shunned forever, so deals themselves dried up and only 28% of pairs kept their word (92% at 3%). Forgetting too fast (20%) let breaking grow, giving 71%.')),
+ 'powershift': (
+  T('가상의 두 나라에서 추격국이 해마다 1%p 더 빨리 크는 세계와 4%p 더 빨리 크는 세계, 100년 안에 충돌할 확률은 어떻게 다를까요? (이 모델)', 'In a model of two made-up states, compare a world where the riser grows 1 point a year faster with one where it grows 4 points faster. How does the chance of conflict within 100 years differ? (this model)'),
+  [T('빨리 따라잡는 쪽이 더 위험하다', 'Catching up fast is riskier'), T('거의 같다', 'About the same'), T('천천히 따라잡는 쪽이 더 위험하다', 'Catching up slowly is riskier')], 2,
+  T('이 모델에서 +1%p면 56.3%, +4%p면 30.9%였어요. 위험이 높은 \'힘이 비슷한 구간\'을 빨리 지나갈수록 그 구간에 머무는 해가 짧았기 때문이에요(단, +0.5%p처럼 100년 안에 따라잡지 못하면 21.5%).', 'In this model +1 point gave 56.3% and +4 points gave 30.9%. Passing quickly through the risky range of close power meant fewer years spent in it (though at +0.5, never catching up within 100 years, it was 21.5%).')),
+ 'armsrace': (
+  T('서로 따라 늘리다 폭주하는 두 나라 중, 10년째에 A만 \'상대를 따라 늘리는 정도\'를 절반으로 줄이면 어떻게 될까요? (이 모델)', 'Two countries are racing upward. If in year 10 only A halves how much it follows the other, what happens? (in this model)'),
+  [T('경쟁이 멈춘다', 'The race stops'), T('폭주가 늦춰질 뿐 결국 과열선을 넘는다', 'It only slows down and still crosses the heat line'), T('오히려 더 빨리 폭주한다', 'It runs away even faster')], 1,
+  T('이 모델에서 100판 모두 과열선을 넘었고, 넘는 해만 보통 20년째에서 31년째로 늦춰졌어요. 폭주할지는 두 나라 반응의 곱으로 갈려서, 둘 다 반응을 절반으로 줄이면 한 판도 넘지 않고 합계 약 69에서 멈췄어요.', 'In this model all 100 runs still crossed the heat line; only the typical year moved from 20 to 31. Runaway depends on the product of the two reactions, so when both halved their reactions no run crossed, and they settled at a total of about 69.')),
+ 'migration': (
+  T('가상의 땅에서 가장 많이 쓰이던 안전한 큰길을 막았어요. 위험한 길(산길·사막길·바닷길)로 가는 사람의 비중은 어떻게 될까요? (막기 전 9.6%)', 'On an imaginary land, the busiest safe route, the Main road, is closed. What happens to the share of people taking the risky routes (Mountain trail, Desert track, Sea crossing)? (9.6% before)'),
+  [T('줄어든다 (약 5%)', 'It falls (about 5%)'), T('거의 그대로 (약 10%)', 'Barely changes (about 10%)'), T('2배 넘게 는다 (약 21%)', 'More than doubles (about 21%)')], 2,
+  T('이 모델에서 큰길을 세기 80%로 막자 도착은 287명에서 203명으로 29% 줄었지만, 사람들이 강 건너기·산길·사막길로 옮겨 가 위험한 길 비중이 21.2%(2.2배)가 됐고 사고도 한 달 14.1명에서 15.5명으로 늘었어요.', 'In this model, closing the Main road at 80% strength cut arrivals 29% (287 to 203 a month), but people moved to the River crossing, Mountain trail and Desert track, so the risky-route share rose to 21.2% (2.2 times) and accidents rose from 14.1 to 15.5 a month.')),
+ 'sanctions': (
+  T('가상의 나라 30개 중 20%만 한 나라와 무역을 끊으면, 끊긴 물건 중 얼마가 다른 나라를 거쳐 다시 들어올까요? (이 모델, 기본 설정 100판 평균)', 'If only 20% of 30 imaginary countries cut trade with one country, how much of the cut-off goods comes back in through other countries? (this model, default setting, 100 runs)'),
+  [T('약 20%', 'About 20%'), T('약 50%', 'About 50%'), T('거의 다(약 99%)', 'Nearly all (about 99%)')], 2,
+  T('이 모델에서 참여율 20%면 끊긴 무역의 99%가 참여하지 않은 나라를 거쳐 새 들어와, 제재받는 나라의 피해는 6%뿐이고 참여국은 20%의 수출을 잃었어요. 참여율 80%면 새는 비율이 18%로 줄었어요.', 'In this model, at 20% participation 99% of the cut-off trade slipped back in through countries that stayed out, so the sanctioned country\'s damage was only 6% while the joiners lost 20% of exports. At 80% participation, leakage fell to 18%.')),
+ 'strait': (
+  T('가상의 해협이 10주 막혔다가 다시 열렸어요. 바닷길에 여유가 없을 때, 모든 나라의 물가가 평소로 돌아오기까지 다시 열린 뒤 얼마나 걸렸을까요?', 'An imaginary strait was closed for 10 weeks and then reopened. With no spare room on the sea routes, how long after reopening did it take for every country\'s prices to return to normal?'),
+  [T('바로 (1주 안)', 'Right away (within a week)'), T('약 5주', 'About 5 weeks'), T('약 17주 (막힌 기간보다 길게)', 'About 17 weeks (longer than the closure)')], 2,
+  T('이 모델에서 세계 8가지 평균으로 다시 열린 뒤 17.1주가 걸렸어요. 막힌 동안 우회로 앞에 쌓인 줄이 남는 용량만큼씩만 줄어들기 때문이에요. 바닷길 용량이 125%면 약 6주로 짧아졌어요.', 'In this model it took 17.1 weeks on average over 8 worlds, because the lines that piled up at the detours only shrink by the spare room left. With 125% route capacity it fell to about 6 weeks.')),
  'nightsky': (
   T('별이 하늘에 고르게 퍼져 있다면, 보이는 밝기가 한 등급 어두워질 때마다 보이는 별 수는 몇 배가 될까요? (이 모델)', 'If stars are spread evenly across space, how many times more stars do you see for each magnitude fainter? (this model)'),
   [T('거의 그대로(1배)', 'About the same (1×)'), T('약 2배', 'About 2×'), T('약 4배', 'About 4×')], 2,

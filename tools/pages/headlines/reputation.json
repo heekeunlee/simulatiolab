@@ -1,0 +1,24 @@
+{
+ "says_ko": [
+  "한 번 어긴 나라도 나쁜 기억이 옅어지면 다시 협상할 수 있었어요. 다만 소문이 빠를수록 오래 걸렸고(잊는 속도 3%: 느리면 24라운드, 빠르면 59라운드), 전혀 안 잊으면 영영 못 돌아왔어요.",
+  "오래 기억할수록 좋은 건 아니었어요. 안 잊는 세계는 일찍 어긴 나라가 영영 따돌려져 둘 다 지킨 비율이 28%, 너무 빨리 잊으면(20%) 어김이 늘어 71%, 그 사이(3%)는 92%였어요.",
+  "어긴 나라가 거절당해 손해를 보면 '어기면 손해'라는 교훈이 퍼져 조용해지지만, 평화가 길어 교훈이 옅어지면 다시 어김의 물결이 왔어요(첫 세계: 13~43, 177~207라운드).",
+  "그렇다면 다시 협상하려면? 이 모델에선 사과하고 물어 주는 쪽이 가장 빨랐어요(보상 0→50→100%: 37→21→1라운드). 빨리 잊는 세계라면 소문이 빨라야 협력이 지켜졌어요(20%에서 91%)."
+ ],
+ "says_en": [
+  "A country that broke its word could negotiate again once bad memories faded. But faster word made it take longer (at 3% forgetting: 24 rounds with slow word, 59 with fast), and with no forgetting it never came back.",
+  "Remembering longer was not simply better. Never forgetting shunned early breakers forever, so only 28% of pairs kept their word; forgetting too fast (20%) let breaking grow (71%); in between (3%) it was 92%.",
+  "When breakers are refused and lose out, the lesson 'breaking costs you' spreads and things go quiet; but as a long peace lets it fade, a new wave of broken promises comes (first world: rounds 13–43, then 177–207).",
+  "So how does a country get back to the table? Here, apologizing and paying back was fastest (pay 0→50→100%: 37→21→1 rounds). Where memories fade fast, fast word kept cooperation up (91% at 20%)."
+ ],
+ "not_ko": [
+  "기억·망각·소문 속도·보상에 따라 갈리는 모습은 이 시뮬레이션이 직접 보여 준 거예요. 다만 가상의 나라로 만든 장난감 모델이라 실제 나라·외교·사건을 설명·예측하거나 정책을 판단하지 않아요.",
+  "이 모델의 사과·보상은 늘 약속대로 지불되고 모두가 믿어 줘요. 현실에선 사과가 진심인지, 보상이 이뤄질지부터가 문제일 수 있는데, 그건 생각해 볼 점이고 직접 보여 준 건 아니에요.",
+  "힘의 차이, 국내 정치, 동맹, 중재자, 거짓 소문과 선전은 빠져 있어요. 거절 기준, 소문이 약해지는 정도, 교훈이 옅어지는 속도는 이 프로젝트의 설정이고 숫자는 모두 예시예요."
+ ],
+ "not_en": [
+  "How results split with memory, forgetting, speed of word and compensation is what this simulation showed. But it is a toy model of imaginary countries; it does not explain or predict real diplomacy or judge policy.",
+  "Here an apology and compensation are always paid and always believed. In reality, whether an apology is sincere or payment really comes can be the very problem; that is a point to think about, not shown here.",
+  "Power gaps, domestic politics, alliances, mediators, false rumors and propaganda are left out. The refusal line, how news weakens and how fast the lesson fades are this project's settings; all numbers are examples."
+ ]
+}

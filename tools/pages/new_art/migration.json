@@ -1,0 +1,61 @@
+{
+ "slug": "migration",
+ "title_ko": "국경을 닫으면 이주 흐름은 어디로 갈까?",
+ "title_en": "Close a Border Crossing, and Where Does the Flow Go?",
+ "symbol": "Mg",
+ "name_ko": "막힌 길과 풍선 효과",
+ "name_en": "Blocked Routes and the Balloon Effect",
+ "icon": "spread",
+ "field": "intl",
+ "related": [
+  "braess",
+  "strait",
+  "sanctions"
+ ],
+ "predict": {
+  "q_ko": "가상의 땅에서 가장 많이 쓰이던 안전한 큰길을 막았어요. 위험한 길(산길·사막길·바닷길)로 가는 사람의 비중은 어떻게 될까요? (막기 전 9.6%)",
+  "q_en": "On an imaginary land, the busiest safe route, the Main road, is closed. What happens to the share of people taking the risky routes (Mountain trail, Desert track, Sea crossing)? (9.6% before)",
+  "opts_ko": [
+   "줄어든다 (약 5%)",
+   "거의 그대로 (약 10%)",
+   "2배 넘게 는다 (약 21%)"
+  ],
+  "opts_en": [
+   "It falls (about 5%)",
+   "Barely changes (about 10%)",
+   "More than doubles (about 21%)"
+  ],
+  "answer": 2,
+  "expl_ko": "이 모델에서 큰길을 세기 80%로 막자 도착은 287명에서 203명으로 29% 줄었지만, 사람들이 강 건너기·산길·사막길로 옮겨 가 위험한 길 비중이 21.2%(2.2배)가 됐고 사고도 한 달 14.1명에서 15.5명으로 늘었어요.",
+  "expl_en": "In this model, closing the Main road at 80% strength cut arrivals 29% (287 to 203 a month), but people moved to the River crossing, Mountain trail and Desert track, so the risky-route share rose to 21.2% (2.2 times) and accidents rose from 14.1 to 15.5 a month."
+ },
+ "daily": {
+  "q_ko": "늘 다니던 지름길이 공사로 막혔다면, 나는?",
+  "q_en": "Your usual shortcut is closed for construction. What do you do?",
+  "opts_ko": [
+   "바로 옆 골목으로 돌아간다",
+   "조금 멀어도 큰길로 간다",
+   "그날은 아예 나가지 않는다"
+  ],
+  "opts_en": [
+   "Take the next alley over",
+   "Take the main road even if it's longer",
+   "Skip going out that day"
+  ]
+ },
+ "facts": [
+  "기본(압력 60, 24개월째 큰길 80% 막음, 8판): 막기 전 한 달 302명 나서 287명 도착·위험한 길 9.6%·사고 14.1명 → 막은 뒤 203명 도착(−29%)·위험한 길 21.2%(2.2배, 29→50명)·사고 15.5명(+10%)",
+  "큰길 이용 134→28명, 강 건너기 64→78, 산길 22→36, 사막길 6→12명; 되돌려짐 19명/달, 통제 비용 99점/달",
+  "막는 세기 0→100%: 도착 100→69, 위험한 길로 간 사람 103→181, 사고 103→113(막기 전=100); 되돌려짐 40~60%에서 29명, 100%에서 8명",
+  "막지 않고 압력 60→40: 도착 288→169, 사고 14.4→5.8, 위험한 길 9.8→3.2%",
+  "산길을 막으면 위험한 길 2.9%·사고 12.3명; 정식 관문 2배면 큰길을 막아도 위험한 길 14.5%(1배 21.2%)"
+ ],
+ "caveats": [
+  "가상의 땅·길·사람: 실제 나라·국경·지역·사건·이주 통계 아님",
+  "정책 판정·처방 아님, 사람·나라 평가 없이 흐름 구조만",
+  "길의 부담·위험·용량, 막는 효과(35점, 0.85), 다시 나서는 비율 60%, 통제 비용 공식은 이 프로젝트의 예시 값",
+  "가족·지인 네트워크, 정보, 중개인, 법·일자리·기후·분쟁, 도착지 사정이 빠짐",
+  "'압력을 줄이면 모두 줄어든다'는 모델 안 슬라이더 결과일 뿐, 현실에서 압력을 줄이는 방법은 다루지 않음",
+  "로짓 선택(McFadden 1974)·워드롭 균형(1952)은 일반 개념으로만 언급, 특정 연구 재현 아님"
+ ]
+}

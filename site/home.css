@@ -25,7 +25,7 @@ main.wide { max-width: 1320px; }
 .table-sec { margin-top: 48px; scroll-margin-top: 16px; }
 .table-sec h2 { margin: 0 0 6px; font-size: 26px; }
 .table-sec > p { margin: 0 0 20px; }
-.ptable { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 8px; align-items: start; }
+.ptable { display: grid; grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); gap: 6px;   /* 분야 15열이 1,100px 폭에도 한 줄에 들어가게 */ align-items: start; }
 .col { display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; gap: 8px; }
 /* 분야 머리: 왼쪽 위 둥근 아이콘 칩 + 그 옆 동그라미 개수, 둘째 줄 이름, 아래 분야색 가는 선. 열마다 높이를 같게 해서 칸의 가로줄을 맞춘다 */
 .fh { --chip: 28px; position: relative; box-sizing: border-box; height: 68px; min-width: 0; overflow: hidden; cursor: default; display: grid; grid-template-columns: var(--chip) auto minmax(0, 1fr); grid-template-rows: var(--chip) auto; column-gap: 5px; row-gap: 5px; align-content: start; padding: 0 1px 6px; border-bottom: 2px solid var(--c); }

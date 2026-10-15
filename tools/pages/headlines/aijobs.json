@@ -1,0 +1,24 @@
+{
+ "says_ko": [
+  "AI가 신입 일을 맡아 신입을 덜 뽑으면 처음 몇 해는 비용이 줄지만(처음 5해 93), 몇 해 뒤 숙련자가 모자라 비용이 뒤집혀요. 이 모델의 첫 업계에선 15해째였어요.",
+  "숙련자는 신입이 일을 하며 몇 해에 걸쳐 커서 생겨요. 아래 칸을 비우면 그 빈자리가 몇 해 뒤 위층에 닿아 숙련자가 197명에서 107명으로 줄고, 밀린 일과 임금이 늘었어요.",
+  "조금 맡기면 역전이 늦게 오거나 안 오고(30%: 26해째), 많이 맡길수록 빨리 와요(90%: 10해째). 숙련자가 원래 넉넉한 업계(은퇴 6%)는 역전이 없었어요.",
+  "그렇다면 AI를 쓰면서 사다리를 지키려면? 이 모델에선 신입을 절반이라도 계속 뽑고 AI가 배우는 걸 도울 때 30해 합계가 93으로 가장 낮았어요. 신입 없이 가르치는 효과만 더하면 114→113으로 그대로였어요."
+ ],
+ "says_en": [
+  "If AI takes the junior work and firms hire fewer juniors, costs fall at first (93 over the first 5 years), but years later a shortage of experts turns costs around. In this model's first industry that was year 15.",
+  "Experts grow out of juniors who learn on the job over several years. Empty the bottom rungs and the gap reaches the upper floors later: experts fell from 197 to 107, and backlog and pay rose.",
+  "Let AI take a little and the turnaround comes late or never (30%: year 26); the more it takes, the sooner it comes (90%: year 10). An industry that already had plenty of experts (6% retirement) never turned around.",
+  "So how do you use AI and keep the ladder? In this model, still hiring at least half the juniors plus AI that helps them learn gave the lowest 30-year total, 93. Learning help without juniors barely moved it (114→113)."
+ ],
+ "not_ko": [
+  "단기 이득과 역전은 이 시뮬레이션이 보여 준 거예요. 다만 역전은 밀린 일을 손해로 쳐서 생겼고, 손해를 0으로 치면 30해 합계 75로 역전이 없었어요.",
+  "가상의 업계와 정해 둔 숫자라 실제 일자리의 미래를 예측하거나 경영·정책을 권하지 않아요. AI가 새 일을 만들거나 밖에서 경력자를 데려오는 일은 빠져 있어요.",
+  "'AI가 가르치는 효과'는 이 프로젝트가 정한 설정(경력이 최대 1.5배 빨리 쌓임)이에요. 실제로 그런 효과가 있는지는 이 시뮬레이션이 보여 주지 않아요."
+ ],
+ "not_en": [
+  "The early gain and the turnaround are what this simulation showed. But the turnaround comes from counting undone work as a loss: with a loss of 0 the 30-year total was 75 and nothing turned around.",
+  "It is an imaginary industry with this project's numbers, so it predicts nothing about real jobs and recommends no business or policy choice. AI creating new work or hiring experienced people from outside is left out.",
+  "'How much AI helps juniors learn' is a setting chosen by this project (experience builds up to 1.5 times faster). This simulation does not show that such an effect exists."
+ ]
+}

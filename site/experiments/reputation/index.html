@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Reputation and Repeated Deals · Simulatio Lab">평판과 반복 협상 · 시뮬라티오 랩</title>
+<meta name="description" content="약속을 한 번 어긴 나라는 언제 다시 협상 상대가 될까요? 소문이 퍼지는 속도와 잊는 속도에 따라 용서와 배신이 어떻게 갈리는지 가상의 나라 24개로 돌려 보세요." data-en-content="When does a country that broke its word become a negotiating partner again? Run 24 imaginary countries and see how forgiveness and betrayal split with how fast word spreads and how fast it is forgotten.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="theme-color" content="#2f6fed">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1 data-en="Can You Ever Negotiate Again With a Country That Broke Its Word?">약속을 어긴 나라와 다시 협상할 수 있을까?</h1>
+  <p class="lead" data-en="It seems a country that breaks its word must be remembered and shunned for a long time, or it will do it again. Yet in this model, &lt;b&gt;a world that never forgets&lt;/b&gt; nearly stopped negotiating altogether. And in a world that forgets too quickly, more and more countries broke their word. Run it yourself and see how long one betrayal lasts depending on how fast word spreads, how fast it fades, and whether the country apologizes and pays back. All countries and events are imaginary, and the numbers are examples from this model.">약속을 어긴 나라는 오래 기억하고 따돌려야 다시는 어기지 않을 것 같지요. 그런데 이 모델에서 <b>절대 잊지 않는 세계</b>는 협상이 거의 멈춰 버렸습니다. 반대로 너무 빨리 잊는 세계에서는 어기는 나라가 계속 늘었어요. 소문이 얼마나 빨리 퍼지고, 얼마나 빨리 잊히고, 어긴 나라가 사과하고 물어 주느냐에 따라 한 번의 배신이 얼마나 오래 가는지 직접 돌려 보세요. 나라·사건은 모두 가상이고, 숫자는 이 모델의 예시입니다.</p>
+
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li data-en="There are 24 imaginary countries (A to X). Each has &lt;b&gt;links for passing on news&lt;/b&gt; with a few nearby countries (the lines in 3D). They have nothing to do with any real country, map or event.">가상의 나라 24개(A국~X국)가 있습니다. 나라마다 가까운 나라 몇 곳과 <b>소식을 주고받는 연결</b>이 있어요(3D의 선). 실제 나라·지도·사건과는 관계없습니다.</li>
+    <li data-en="Each round, every country is paired at random with another to negotiate. &lt;b&gt;If both keep their word&lt;/b&gt;, each gains 1; &lt;b&gt;if only one breaks it&lt;/b&gt;, the breaker gains 1 + &quot;the temptation to break&quot; and the other loses 1; if both break, each gets 0 (a trust game).">라운드마다 모든 나라가 무작위로 둘씩 짝지어 협상합니다. <b>둘 다 약속을 지키면</b> 각자 1만큼 이득, <b>한쪽만 어기면</b> 어긴 쪽은 1 + "어기는 유혹"만큼, 당한 쪽은 −1, 둘 다 어기면 0입니다(신뢰 게임).</li>
+    <li data-en="The country that was cheated keeps it as a &lt;b&gt;bad memory&lt;/b&gt; (0 to 1) at full strength (1). News travels along the links to neighbors with probability &quot;how fast word spreads,&quot; growing 0.8 times weaker with each hop. A bad memory fades each round by &quot;how fast it is forgotten,&quot; but fades less if the neighbors it talked with remember the same thing (they remind each other).">당한 나라는 그 일을 <b>나쁜 기억</b>(0~1)으로 똑똑히(1) 기억합니다. 소식은 연결을 따라 "소문이 퍼지는 속도"의 확률로 옆 나라에 전해지고, 한 다리 건널 때마다 0.8배로 약해집니다. 나쁜 기억은 라운드마다 "잊는 속도"만큼 옅어지지만, 이야기를 나눈 이웃도 같은 일을 기억하고 있으면 덜 잊혀요(서로 다시 떠올려 줌).</li>
+    <li data-en="A country &lt;b&gt;refuses to negotiate&lt;/b&gt; if its bad memory of the other is above 0.5, and pays a safeguard cost of 0.3 if it is between 0.25 and 0.5. Once &lt;b&gt;no country refuses&lt;/b&gt; a country that broke its word, we say it &quot;can negotiate again.&quot;">상대에 대한 나쁜 기억이 0.5를 넘으면 <b>협상을 거절</b>하고, 0.25~0.5면 협상은 하되 안전장치 비용 0.3을 뭅니다. 어긴 나라에 대해 <b>아무도 거절하지 않게 되면</b> "다시 협상할 수 있게 됐다"고 봅니다.</li>
+    <li data-en="When does a country break its word? Countries look at &lt;b&gt;how many deals recent promise-breakers lost over the next 30 rounds&lt;/b&gt; and together estimate &quot;breaking costs this much.&quot; If the temptation at that moment (temptation size × the country&#x27;s leaning 0.6–1.4 × a wobble 0.5–1.5) is bigger than that estimate, it breaks. When a long peace passes with no one breaking, the estimate also fades by 2% per round (never below 1).">나라는 언제 어길까요? 나라들은 <b>최근에 약속을 어긴 나라들이 그 뒤 30라운드 동안 잃은 거래</b>를 보고 "어기면 이만큼 잃는다"를 함께 어림합니다. 그때그때의 유혹(유혹 크기 × 나라 성향 0.6~1.4 × 흔들림 0.5~1.5)이 그 어림보다 크면 어깁니다. 아무도 어기지 않는 평화가 길어지면 그 어림도 라운드마다 2%씩 옅어집니다(1 아래로는 안 내려감).</li>
+    <li data-en="With &lt;b&gt;apology and compensation&lt;/b&gt; turned up, the breaker pays the cheated country 2 × the compensation rate the next round, and since everyone sees the apology, every country&#x27;s bad memory of it shrinks to (1 − 0.5 × the compensation rate) of what it was."><b>사과·보상</b>을 올리면 어긴 나라는 다음 라운드에 당한 나라에게 손해 2 × 보상 비율을 물어 주고, 그 사과는 모두가 보므로 모든 나라의 그 나라에 대한 나쁜 기억이 (1 − 0.5 × 보상 비율)배로 줄어듭니다.</li>
+  </ul>
+
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="tempt" data-en="Temptation to break &lt;output id=&quot;o-tempt&quot;&gt;&lt;/output&gt;">어기는 유혹 크기 <output id="o-tempt"></output></label>
+        <input type="range" id="tempt" min="0" max="300" step="10" value="150">
+        <span class="hint" data-en="Higher means more to gain by breaking a promise">올리면 약속을 깼을 때 얻는 이득이 커져요</span></div>
+<div class="ctl"><label for="spread" data-en="How fast word spreads &lt;output id=&quot;o-spread&quot;&gt;&lt;/output&gt;">소문이 퍼지는 속도 <output id="o-spread"></output></label>
+        <input type="range" id="spread" min="0" max="100" step="10" value="50">
+        <span class="hint" data-en="Higher means news of a broken promise reaches neighbors sooner">올리면 어긴 일이 이웃 나라로 빨리 전해져요</span></div>
+<div class="ctl"><label for="forget" data-en="How fast it is forgotten (per round) &lt;output id=&quot;o-forget&quot;&gt;&lt;/output&gt;">잊는 속도 (라운드마다) <output id="o-forget"></output></label>
+        <input type="range" id="forget" min="0" max="20" step="1" value="3">
+        <span class="hint" data-en="Higher means bad memories fade sooner. At 0 they never fade">올리면 나쁜 기억이 빨리 옅어져요. 0이면 영영 안 잊어요</span></div>
+<div class="ctl"><label for="apology" data-en="Apology and compensation &lt;output id=&quot;o-apology&quot;&gt;&lt;/output&gt;">사과·보상 <output id="o-apology"></output></label>
+        <input type="range" id="apology" min="0" max="100" step="25" value="0">
+        <span class="hint" data-en="Higher means the breaker pays back and is forgiven sooner">올리면 어긴 나라가 손해를 물어 주고 용서가 빨라져요</span></div>
+    </div>
+    <div class="btns">
+      <button class=primary id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Same settings, another world">같은 설정, 다른 세계</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3 data-en="① A Broken Promise Ripples Through the Network &lt;span class=&quot;badge3d&quot;&gt;3D&lt;/span&gt;">① 약속을 어기면 소문이 망을 타고 퍼져요 <span class="badge3d">3D</span></h3>
+    <p data-en="Each ball is a country. The fewer bad memories other countries hold of it, the &lt;b&gt;higher and brighter&lt;/b&gt; it is; the more, the &lt;b&gt;lower and darker&lt;/b&gt;. When a country breaks its word, a red ripple spreads beneath it, and links that carried the bad news glow orange. &lt;b style=&quot;color:#e8590c&quot;&gt;Try &quot;Make a trusted country break a promise&quot; below too.&lt;/b&gt;">구슬 하나가 나라 하나입니다. 다른 나라들이 그 나라에 가진 나쁜 기억이 적을수록 <b>높고 밝게</b>, 많을수록 <b>낮고 어둡게</b> 그렸어요. 약속을 어긴 순간 그 나라 발밑에서 붉은 파문이 퍼지고, 나쁜 소식이 건너간 연결은 주황으로 빛나요. <b style="color:#e8590c">아래 "믿음직한 나라가 약속 깨기"도 눌러 보세요.</b></p>
+    <canvas id="c-3d" class="view3d" data-thumb aria-label="① A Broken Promise Ripples Through the Network 3D"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#f5b301&quot;&gt;&lt;/i&gt;Trusted country (high, bright)"><i style="background:#f5b301"></i>믿을 만한 나라 (높고 밝음)</span><span data-en="&lt;i style=&quot;background:#4b5563&quot;&gt;&lt;/i&gt;Distrusted country (low, dark)"><i style="background:#4b5563"></i>못 믿는 나라 (낮고 어두움)</span><span data-en="&lt;i style=&quot;background:#e03131&quot;&gt;&lt;/i&gt;Just broke its word (ripple)"><i style="background:#e03131"></i>방금 어김 (파문)</span><span data-en="&lt;i style=&quot;background:#e8590c&quot;&gt;&lt;/i&gt;Link that carried bad news"><i style="background:#e8590c"></i>나쁜 소식이 건너간 연결</span></div>
+    <div class="anim-bar">
+      <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
+      <button id="stepbtn" data-en="Step">한 단계</button>
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="speed"><option value="2" data-en="Slow">느리게</option><option value="5" selected data-en="Normal">보통</option><option value="10" data-en="Fast">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+    <div class="anim-bar">
+      <button id="rp-break" data-en="Make a trusted country break a promise">믿음직한 나라가 약속 깨기</button>
+      <select id="rp-rotate" aria-label="camera"><option value="on" selected data-en="Camera turns slowly">카메라 천천히 돌기</option><option value="off" data-en="Camera stays still">카메라 멈춤</option></select>
+    </div>
+    <p class="hint3d" data-en="Drag to turn the view · scroll or pinch to zoom · left alone, the camera circles slowly (you can switch it off) · on a phone, swiping up and down scrolls the page. The 3D view draws the same result as the charts below; it adds no new numbers.">드래그로 돌려 보기 · 휠이나 두 손가락으로 확대 · 가만히 두면 카메라가 천천히 돕니다(끌 수 있어요) · 휴대폰에서 세로로 쓸면 페이지가 내려갑니다. 3D는 아래 그래프와 같은 결과를 입체로 그린 것이고, 새 숫자를 만들지 않아요.</p>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3 data-en="② How Many Deals Happened, and How Many Promises Held">② 협상은 얼마나 이뤄지고, 약속은 얼마나 지켜졌나</h3>
+    <p data-en="Drawn only up to where the playback has reached. The blue line is the share of pairs that negotiated without a refusal, the green line the share where both kept their word, and the red bars at the bottom how many promises were broken that round. The black dashed line marks a promise broken on purpose with the button.">재생이 지난 시점까지만 그립니다. 파란 선은 거절 없이 협상한 짝의 비율, 초록 선은 둘 다 약속을 지킨 짝의 비율, 아래 붉은 막대는 그 라운드에 약속을 어긴 횟수예요. 검은 점선은 버튼으로 일부러 어긴 때입니다.</p>
+    <canvas id="c-time" class="" aria-label="② How Many Deals Happened, and How Many Promises Held"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ Why Does the Lesson &quot;Breaking Costs You&quot; Fade?">③ "어기면 손해"라는 교훈은 왜 옅어질까</h3>
+    <p data-en="Drawn only up to where the playback has reached. The purple line is the shared estimate &quot;breaking a promise costs this many deals,&quot; and the red band is the range the temptation to break can fall in at any moment. When the purple line drops into the red band, countries start breaking their word; when they are refused and lose out, the line climbs again.">재생이 지난 시점까지만 그립니다. 보라 선은 나라들이 함께 어림한 "어기면 이만큼 거래를 잃는다", 붉은 띠는 그때그때 어기고 싶은 마음이 놓일 수 있는 범위예요. 보라 선이 붉은 띠 안으로 내려오면 어기는 나라가 생기고, 그 나라들이 거절당해 손해를 보면 선이 다시 올라가요.</p>
+    <canvas id="c-cost" class="" aria-label="③ Why Does the Lesson &quot;Breaking Costs You&quot; Fade?"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="④ How Often Promises Hold, by How Fast Things Are Forgotten (Summary: 144 Runs in Advance)">④ 잊는 속도에 따라 약속은 얼마나 지켜질까 (집계: 미리 돌린 144판)</h3>
+    <p data-en="With other settings at their defaults, the forgetting speed (0, 1, 3, 5, 10, 20%) and the speed of word (10, 50, 90%) are varied, each run 8 times for 300 rounds and averaged from round 51. This is a summary computed in advance, independent of the playback. The outlined dot is your current setting.">다른 설정은 기본값으로 두고 잊는 속도(0·1·3·5·10·20%)와 소문 속도(10·50·90%)를 바꿔 각각 8판씩 300라운드를 돌리고, 51라운드부터 평균했습니다. 재생과 상관없이 미리 계산한 집계예요. 테두리 친 점이 지금 설정입니다.</p>
+    <canvas id="c-co" class="" aria-label="④ How Often Promises Hold, by How Fast Things Are Forgotten (Summary: 144 Runs in Advance)"></canvas>
+      <div class="legend"><span id="note-co" data-en="Calculating…">계산 중…</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="⑤ How Long Until a Country That Broke Its Word Can Negotiate Again (Summary: the Same 144 Runs)">⑤ 한 번 어긴 나라가 다시 협상하기까지 (집계: 같은 144판)</h3>
+    <p data-en="In the same runs, the most trusted country is made to break its word once on purpose at round 100 (a quiet time), and the number of rounds until no country refuses it any more is averaged. At a forgetting speed of 0% it never comes back, so there is no dot. For forgetting 1% with fast word (150 rounds), only 2 of 8 runs came back within 300 rounds, so it is the average of those two.">같은 판들에서 100라운드(조용한 때)에 평판이 가장 좋은 나라가 일부러 한 번 약속을 깨게 하고, 아무도 그 나라를 거절하지 않게 될 때까지 걸린 라운드를 평균했습니다. 잊는 속도 0%에서는 끝까지 돌아오지 못해 점이 없어요. 잊는 속도 1%·소문 빠르게(150라운드)는 8판 중 2판만 300라운드 안에 돌아와 그 두 판의 평균이에요.</p>
+    <canvas id="c-rc" class="" aria-label="⑤ How Long Until a Country That Broke Its Word Can Negotiate Again (Summary: the Same 144 Runs)"></canvas>
+      <div class="legend"><span id="note-rc" data-en="Calculating…">계산 중…</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="⑥ If the Breaker Apologizes and Pays Back (Summary: 40 Runs in Advance)">⑥ 사과하고 물어 주면 (집계: 미리 돌린 40판)</h3>
+    <p data-en="A summary with default settings (forgetting 3%, word at a normal speed), changing only apology and compensation to 0, 25, 50, 75 or 100%, 8 runs each. Purple bars show the rounds until a country that broke its word once on purpose can negotiate again; green bars the share of pairs where both kept their word.">기본 설정(잊는 속도 3%, 소문 보통)에서 사과·보상만 0·25·50·75·100%로 바꿔 각각 8판씩 돌린 집계입니다. 보라 막대는 일부러 한 번 어긴 나라가 다시 협상하기까지 걸린 라운드, 초록 막대는 둘 다 약속을 지킨 비율이에요.</p>
+    <canvas id="c-apo" class="" aria-label="⑥ If the Breaker Apologizes and Pays Back (Summary: 40 Runs in Advance)"></canvas>
+      <div class="legend"><span id="note-ap" data-en="Calculating…">계산 중…</span></div>
+    </section>
+  </div>
+
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout cl-says">
+    <p class="clabel" data-en="&lt;b&gt;What it shows:&lt;/b&gt;"><b>말하는 것:</b></p>
+    <ul class="chead"><li data-en="A country that broke its word could negotiate again once bad memories faded. But faster word made it take longer (at 3% forgetting: 24 rounds with slow word, 59 with fast), and with no forgetting it never came back.">한 번 어긴 나라도 나쁜 기억이 옅어지면 다시 협상할 수 있었어요. 다만 소문이 빠를수록 오래 걸렸고(잊는 속도 3%: 느리면 24라운드, 빠르면 59라운드), 전혀 안 잊으면 영영 못 돌아왔어요.</li><li data-en="Remembering longer was not simply better. Never forgetting shunned early breakers forever, so only 28% of pairs kept their word; forgetting too fast (20%) let breaking grow (71%); in between (3%) it was 92%.">오래 기억할수록 좋은 건 아니었어요. 안 잊는 세계는 일찍 어긴 나라가 영영 따돌려져 둘 다 지킨 비율이 28%, 너무 빨리 잊으면(20%) 어김이 늘어 71%, 그 사이(3%)는 92%였어요.</li><li data-en="When breakers are refused and lose out, the lesson &#x27;breaking costs you&#x27; spreads and things go quiet; but as a long peace lets it fade, a new wave of broken promises comes (first world: rounds 13–43, then 177–207).">어긴 나라가 거절당해 손해를 보면 '어기면 손해'라는 교훈이 퍼져 조용해지지만, 평화가 길어 교훈이 옅어지면 다시 어김의 물결이 왔어요(첫 세계: 13~43, 177~207라운드).</li><li data-en="So how does a country get back to the table? Here, apologizing and paying back was fastest (pay 0→50→100%: 37→21→1 rounds). Where memories fade fast, fast word kept cooperation up (91% at 20%).">그렇다면 다시 협상하려면? 이 모델에선 사과하고 물어 주는 쪽이 가장 빨랐어요(보상 0→50→100%: 37→21→1라운드). 빨리 잊는 세계라면 소문이 빨라야 협력이 지켜졌어요(20%에서 91%).</li></ul>
+    <details class="cmore"><summary data-en="Details">상세 설명</summary>
+      <p class="cfull" data-en="&lt;b&gt;What it shows:&lt;/b&gt; In the first world with default settings (temptation 150%, word at a normal 50%, forgetting 3%, compensation 0%), a &lt;b&gt;first wave&lt;/b&gt; came in rounds 13–43, with 11 countries breaking their word 34 times, and in round 26 the share of deals that went ahead fell to 50%. As the breakers were refused and lost out, the &quot;breaking costs you&quot; estimate climbed to 15.7 (round 61) and for a while nobody broke their word; but as the peace dragged on and the estimate faded to 2.5 (round 181), a &lt;b&gt;second wave&lt;/b&gt; came in rounds 177–207. In this run a country that broke its word took 30–38 rounds (35 on average) to be able to negotiate again, and 12 of the 24 countries never broke their word. In the summary of 8 runs each (word at a normal speed), the share of pairs where both kept their word was 28% with forgetting at 0% (countries that broke early were shunned forever, so deals themselves dried up), 92% at 3%, and 71% at 20% (breaking rose to 2.67 times per round). At 3% forgetting, a country that broke its word once on purpose needed 24 rounds to negotiate again when word was slow (10%), 37 at normal speed and 59 when fast (90%). Even with forgetting as fast as 20%, fast word (90%) kept the share at 91%. Raising apology and compensation from 0 to 50 to 100% cut the wait to 37, 21 and 1 rounds, with the share of kept promises at 92, 96 and 100%."><b>말하는 것:</b> 기본 설정(유혹 150%, 소문 보통 50%, 잊는 속도 3%, 보상 0%)의 첫 세계에서는 13~43라운드에 11개 나라가 34번 약속을 어기는 <b>첫 물결</b>이 왔고, 26라운드에는 협상 성사율이 50%까지 떨어졌습니다. 어긴 나라들이 거절당해 손해를 보자 "어기면 손해" 어림이 15.7(61라운드)까지 올라 한동안 아무도 어기지 않았지만, 평화가 길어져 어림이 2.5(181라운드)로 옅어지자 177~207라운드에 <b>두 번째 물결</b>이 왔어요. 이 판에서 어긴 나라가 다시 협상하기까지는 30~38라운드(평균 35)가 걸렸고, 24개 나라 중 12곳은 한 번도 어기지 않았습니다. 8판씩 돌린 집계(소문 보통)에서 둘 다 약속을 지킨 비율은 잊는 속도 0%일 때 28%(일찍 어긴 나라들이 영영 따돌려져 협상 자체가 줄어듦), 3%일 때 92%, 20%일 때 71%(어김이 라운드마다 2.67번으로 늘어남)였습니다. 잊는 속도 3%에서 일부러 한 번 어긴 나라가 다시 협상하기까지는 소문이 느리면(10%) 24라운드, 보통이면 37라운드, 빠르면(90%) 59라운드였어요. 잊는 속도가 20%로 빨라도 소문이 빠르면(90%) 지킨 비율은 91%였습니다. 사과·보상을 0→50→100%로 올리면 다시 협상하기까지 37→21→1라운드, 지킨 비율은 92→96→100%였습니다.</p></details>
+  </div>
+  <div class="callout cl-not">
+    <p class="clabel" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt;"><b>말하지 않는 것:</b></p>
+    <ul class="chead"><li data-en="How results split with memory, forgetting, speed of word and compensation is what this simulation showed. But it is a toy model of imaginary countries; it does not explain or predict real diplomacy or judge policy.">기억·망각·소문 속도·보상에 따라 갈리는 모습은 이 시뮬레이션이 직접 보여 준 거예요. 다만 가상의 나라로 만든 장난감 모델이라 실제 나라·외교·사건을 설명·예측하거나 정책을 판단하지 않아요.</li><li data-en="Here an apology and compensation are always paid and always believed. In reality, whether an apology is sincere or payment really comes can be the very problem; that is a point to think about, not shown here.">이 모델의 사과·보상은 늘 약속대로 지불되고 모두가 믿어 줘요. 현실에선 사과가 진심인지, 보상이 이뤄질지부터가 문제일 수 있는데, 그건 생각해 볼 점이고 직접 보여 준 건 아니에요.</li><li data-en="Power gaps, domestic politics, alliances, mediators, false rumors and propaganda are left out. The refusal line, how news weakens and how fast the lesson fades are this project&#x27;s settings; all numbers are examples.">힘의 차이, 국내 정치, 동맹, 중재자, 거짓 소문과 선전은 빠져 있어요. 거절 기준, 소문이 약해지는 정도, 교훈이 옅어지는 속도는 이 프로젝트의 설정이고 숫자는 모두 예시예요.</li></ul>
+    <details class="cmore"><summary data-en="Details">상세 설명</summary>
+      <p class="cfull" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; This is a simple toy model of imaginary countries; it does not explain or predict any real country, diplomacy, treaty or event. It makes no policy judgment about whether a country should be forgiven or shunned. Real negotiations involve differences in power, domestic politics, deals that trade many issues at once, alliances, third-party mediators, false rumors and deliberate propaganda, all of which are left out. In this model an apology and compensation are always paid as promised and always believed; in reality, whether an apology is sincere or compensation will actually be paid can be the very problem (this model does not show that). The refusal line (0.5), how much news weakens per hop (0.8), the effect of reminding each other (0.75) and how fast the lesson fades (2%) are all settings chosen by this project, and every number is an example from this model."><b>말하지 않는 것:</b> 이 모델은 가상의 나라들로 만든 단순한 장난감 모델이며, 실제 나라·외교·조약·사건을 설명하거나 예측하지 않습니다. 어떤 나라를 용서해야 한다거나 따돌려야 한다는 정책 판단도 하지 않아요. 실제 협상에는 힘의 차이, 국내 정치, 여러 문제를 한꺼번에 주고받는 협상, 동맹, 제3자의 중재, 거짓 소문, 일부러 퍼뜨리는 선전이 있지만 모두 빠져 있습니다. 이 모델의 사과·보상은 언제나 약속대로 지불되고 모두가 믿어 주지만, 현실에서는 사과가 진심인지, 보상이 제대로 이뤄질지부터가 문제일 수 있어요(이 모델이 보여 주지 않음). 거절 기준(0.5), 소식이 약해지는 정도(0.8), 서로 떠올려 주는 효과(0.75), 교훈이 옅어지는 속도(2%)는 모두 이 프로젝트가 정한 설정이고, 숫자는 모두 이 모델의 예시입니다.</p></details>
+  </div>
+
+  <h2 data-en="Theory and implementation notes">이론적 근거와 구현 메모</h2>
+  <ul class="small">
+    <li class="memo theory" data-en="&lt;b&gt;Where the model comes from:&lt;/b&gt; In a &lt;b&gt;repeated game&lt;/b&gt;, where you meet the same partners again and again, it is widely known that &quot;we will meet again&quot; can deter betrayal now (the &quot;shadow of the future&quot; in Axelrod&#x27;s 1984 &lt;i&gt;The Evolution of Cooperation&lt;/i&gt;). It is also known that cooperation can last even with strangers if players choose partners by &lt;b&gt;reputation (word of mouth)&lt;/b&gt; rather than only their own experience (indirect reciprocity). This page is this project&#x27;s simple model, carrying those ideas over to a network of imaginary countries."><b>모델의 뿌리:</b> 같은 상대를 여러 번 만나는 <b>반복 게임</b>에서는 "앞으로도 만날 것"이 지금의 배신을 막는다는 설명이 널리 알려져 있어요(Axelrod 1984 『협력의 진화』의 "미래의 그림자"). 직접 당하지 않았어도 <b>평판(소문)</b>을 보고 상대를 고르면 처음 보는 상대와도 협력이 유지될 수 있다는 설명(간접 상호성)도 알려져 있습니다. 이 페이지는 그런 생각을 가상의 나라 망에 옮긴 이 프로젝트의 단순한 모델이에요.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Key assumptions and formulas:&lt;/b&gt; Country j&#x27;s bad memory of i, &lt;code&gt;b&lt;sub&gt;ji&lt;/sub&gt;&lt;/code&gt;, is 1 when cheated. If link (u, v) is active (probability = how fast word spreads), &lt;code&gt;b&lt;sub&gt;ui&lt;/sub&gt; ← max(b&lt;sub&gt;ui&lt;/sub&gt;, 0.8·b&lt;sub&gt;vi&lt;/sub&gt;)&lt;/code&gt; (both ways). Then &lt;code&gt;b&lt;sub&gt;ji&lt;/sub&gt; ← b&lt;sub&gt;ji&lt;/sub&gt; · (1 − f · (1 − 0.75 · c/d))&lt;/code&gt;, where f is the forgetting speed, c the number of neighbors j talked with this round whose bad memory of i is above 0.25, and d j&#x27;s number of neighbors. Refuse if &lt;code&gt;b &amp;gt; 0.5&lt;/code&gt;; safeguard cost 0.3 if &lt;code&gt;0.25 &amp;lt; b ≤ 0.5&lt;/code&gt;. Break if &lt;code&gt;G · leaning · wobble − 2a &amp;gt; estimate&lt;/code&gt; (G = temptation, a = compensation rate). Whenever the deals a breaker lost over 30 rounds are observed (refusal 1, safeguard 0.3, compensation included), &lt;code&gt;estimate ← 0.85·estimate + 0.15·observed&lt;/code&gt;; each round &lt;code&gt;estimate ← 1 + (estimate − 1)·0.98&lt;/code&gt;; starting value 3. The network places countries at random in a unit circle and links each to its 3 nearest (joining the closest pair if it splits), giving about 40-odd links."><b>핵심 가정과 수식:</b> 나라 j가 i에 가진 나쁜 기억 <code>b<sub>ji</sub></code>: 당하면 1. 연결 (u, v)가 전파율 확률로 이어지면 <code>b<sub>ui</sub> ← max(b<sub>ui</sub>, 0.8·b<sub>vi</sub>)</code>(양쪽 모두). 그다음 <code>b<sub>ji</sub> ← b<sub>ji</sub> · (1 − f · (1 − 0.75 · c/d))</code>(f = 잊는 속도, c = 이번 라운드에 j와 이야기한 이웃 중 i에 대한 나쁜 기억이 0.25를 넘는 수, d = j의 이웃 수). 거절: <code>b &gt; 0.5</code>, 안전장치 비용 0.3: <code>0.25 &lt; b ≤ 0.5</code>. 어김: <code>G · 성향 · 흔들림 − 2a &gt; 어림</code>(G = 유혹, a = 보상 비율). 어림은 어긴 나라가 30라운드 동안 잃은 거래(거절 1, 안전장치 0.3, 보상금 포함)가 관찰될 때마다 <code>어림 ← 0.85·어림 + 0.15·관찰값</code>, 라운드마다 <code>어림 ← 1 + (어림 − 1)·0.98</code>, 처음 값 3. 망은 단위 원 안에 무작위로 놓은 나라를 가장 가까운 3나라와 이은 것(끊기면 가장 가까운 둘을 이음, 연결은 40여 개).</li>
+    <li class="memo theory" data-en="&lt;b&gt;What this project simplifies:&lt;/b&gt; All countries are equal in size and power, negotiate once per round, and can only keep or break their word. Only bad news spreads; good news does not (except an apology, which everyone sees). False rumors, misunderstandings, alliances and blocs, power differences, domestic politics and mediators are not included. That every country shares one &quot;breaking costs you&quot; estimate, and that this estimate fades during a long peace, are this project&#x27;s settings."><b>이 프로젝트의 단순화:</b> 나라는 모두 크기와 힘이 같고, 한 라운드에 한 번만 협상하며, 협상은 지키느냐 어기느냐 두 가지뿐입니다. 나쁜 소식만 퍼지고 좋은 소식은 퍼지지 않아요(사과만 예외로 모두가 봄). 거짓 소문, 오해, 동맹·진영, 힘의 차이, 국내 정치, 중재자는 넣지 않았습니다. "어기면 손해" 어림을 모든 나라가 함께 쓰는 것과, 평화가 길면 그 어림이 옅어지는 것은 이 프로젝트의 설정이에요.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Theory versus simulation:&lt;/b&gt; There is no theoretical value to match, so only simulated values are given (&lt;code&gt;node tools/validate-reputation.js&lt;/code&gt;, fixed seeds). The extremes behave as expected: at a temptation of 50%, temptation never exceeds the estimate&#x27;s floor (1), so nobody breaks their word (100% kept); at 100% compensation one apology halves every bad memory and the country negotiates again after 1 round. With slow word, the recovery time was 24 rounds, close to the time the cheated country alone takes to forget (0.97&lt;sup&gt;t&lt;/sup&gt; = 0.5, about 23 rounds)."><b>이론값과 시뮬레이션:</b> 맞춰 볼 이론값이 없어 시뮬레이션 값만 적습니다(<code>node tools/validate-reputation.js</code>, 시드 고정). 극단은 예상과 맞습니다. 유혹이 50%면 유혹이 어림의 바닥(1)을 넘지 못해 아무도 어기지 않고(지킨 비율 100%), 보상 100%면 사과 한 번에 나쁜 기억이 절반이 되어 1라운드 만에 다시 협상했어요. 소문이 느리면 회복 기간은 당한 나라 혼자 잊는 시간(0.97<sup>t</sup> = 0.5, 약 23라운드)에 가까운 24라운드였습니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Further reading:&lt;/b&gt; Robert Axelrod (1984), &lt;i&gt;The Evolution of Cooperation&lt;/i&gt;, Basic Books."><b>더 읽을거리:</b> Robert Axelrod (1984), 『협력의 진화』(The Evolution of Cooperation), Basic Books.</li>
+    <li  data-en="A simplified implementation of this project&#x27;s own design; it does not reproduce any study. All countries decide at the same time within a round, and news spreads based on memories at the start of that round. If a country breaks its word again before it can negotiate again, that recovery is not counted. ① The 3D view draws the computed result as is (height and brightness = 1/(1 + the sum of other countries&#x27; bad memories)); it joins the previous and current rounds so motion looks smooth, which does not affect the results. ④–⑥ are summaries run in advance, so they do not change with the sliders. &quot;Make a trusted country break a promise&quot; makes the currently most trusted country break its word once in its next deal.">이 프로젝트가 직접 설계한 단순화 구현이며, 어떤 연구의 재현이 아닙니다. 모든 나라는 같은 라운드 안에서 동시에 정하고, 소문은 그 라운드가 시작될 때의 기억을 기준으로 전해집니다. 한 번 어긴 나라가 다시 협상하기 전에 또 어기면 그 회복은 세지 않습니다. ① 3D는 계산 결과를 그대로 그리며(높이·밝기 = 1/(1 + 다른 나라들이 가진 나쁜 기억의 합)), 한 라운드 전과 지금 사이를 이어 그려 부드럽게 보일 뿐 결과에 영향이 없습니다. ④~⑥은 미리 돌린 집계라 슬라이더를 바꿔도 달라지지 않습니다. "믿음직한 나라가 약속 깨기"는 지금 평판이 가장 좋은 나라가 다음 협상에서 한 번 약속을 깨게 합니다.</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/reputation&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/reputation">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap" data-en="Simulatio Lab · Run by Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
+<script src="../../exps.js"></script>
+<script src="../../layout.js"></script>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../lazy3d.js" data-module="app3d.js"></script>
+<script src="../../counter.js"></script>
+<script src="../../engage.js"></script>
+</body>
+</html>

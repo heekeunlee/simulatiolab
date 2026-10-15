@@ -1,0 +1,24 @@
+{
+ "says_ko": [
+  "손절선이 한곳에 몰려 있으면 작은 충격엔 꿈쩍 않다가 어느 선을 넘으면 통째로 무너지고, 넓게 퍼져 있으면 작은 충격도 늘 몇 배로 커지지만 통째 붕괴는 천천히 늘었어요.",
+  "누군가 손절하면 그 매도가 가격을 밀어 다음 사람의 손절선에 닿게 해요. 첫 판은 −2%로 시작해 25단계 연쇄 끝에 −8.9%로 마감했고, 같은 설정 100판 중 48판이 −7% 이상이었어요.",
+  "몰린 손절선은 절벽처럼 갈렸어요. 충격 −2%면 100판 중 2판만 큰 폭락이었는데 −3.5%면 98판이었어요. 퍼진 손절선은 충격 −1%도 가운데 판 −4.2%까지 키웠어요.",
+  "그렇다면 연쇄는 어디서 끊길까요? 이 모델에선 빚과 받아 줄 사람이 갈랐어요. 빚 낸 사람 0%면 큰 폭락 0판, 40%면 100판이었고, 저가 매수자가 0%면 67판, 30%면 9판이었어요."
+ ],
+ "says_en": [
+  "With stop-loss lines bunched together, small shocks do nothing until one crosses a line and everything collapses; with lines spread out, small shocks always grow several times over, but full collapses rise slowly.",
+  "When someone sells on a stop-loss, the sale pushes the price onto the next person's line. The first run opened at −2% and closed at −8.9% after a 25-step chain; 48 of 100 runs with the same settings fell 7% or more.",
+  "Bunched lines split like a cliff: with a −2% shock only 2 of 100 runs crashed, but at −3.5% 98 did. Spread-out lines turned even a −1% shock into a middle run of −4.2%.",
+  "So where does the chain break? Here, borrowing and buyers decided it: with 0% borrowed there were 0 big crashes and with 40% there were 100; with 0% bargain hunters 67, with 30% just 9."
+ ],
+ "not_ko": [
+  "가상의 시장 하루를 단순화한 모델이에요. 실제 시장·종목을 설명하거나 폭락을 예측하지 않고, 투자 조언도 아니에요. 손절을 정해 두는 게 좋은지 나쁜지도 판정하지 않아요.",
+  "뉴스와 생각의 변화, 거래 중단 장치, 여러 날에 걸친 회복은 빠져 있어요. 손절선 분포·빚의 크기·−7% 기준은 이 프로젝트가 정한 값이라, 현실에선 실제 거래 자료로 따로 확인해야 해요.",
+  "큰손 비중은 폭락이 일어날 확률보다 크기를 키웠어요(큰 폭락 38→49판, 평균 낙폭 −8.1→−11.6%). '큰손이 폭락을 일으킨다'고 이 모델이 보여 준 건 아니에요."
+ ],
+ "not_en": [
+  "This is a simplified day in an imaginary market. It does not explain any real market or stock, predict crashes, or give investment advice, and it does not judge whether setting stop-losses is good or bad.",
+  "News, changing minds, trading halts and recovery over several days are left out. The stop-loss spread, the size of borrowing and the −7% line are this project's choices, so real trading data is needed to check.",
+  "The big players' share made crashes bigger more than likelier (big crashes 38 → 49, average drop −8.1% → −11.6%). This model does not show that big players cause crashes."
+ ]
+}

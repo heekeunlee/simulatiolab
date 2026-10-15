@@ -87,6 +87,14 @@ DAILY += [  # 2026-10-14 예술 분야 새 실험 6개 (정답 없는 가벼운 
  ('tariff', T('옆 가게가 먼저 나에게 불리한 일을 벌이면, 나는?', 'The shop next door makes the first move against you. What do you do?'), [T('똑같이 맞받아친다', 'Hit back the same way'), T('한 번은 참고 대화해 본다', 'Hold off once and try talking'), T('아무것도 안 하고 기다린다', 'Do nothing and wait')]),
  ('ventilation', T('방이 답답할 때 나는 주로?', 'When your room feels stuffy, what do you usually do?'), [T('창문 하나만 활짝 연다', 'Open one window wide'), T('맞은편 창이나 방문까지 같이 연다', 'Also open the window or door on the other side'), T('선풍기나 환풍기를 켠다', 'Turn on a fan or the vent')]),
  ('murmuration', T('사람 많은 길을 걸을 때 나는 주로?', 'When you walk down a crowded street, what do you usually do?'), [T('앞사람만 보고 따라간다', 'Follow the person in front'), T('주변 몇 사람의 흐름에 맞춘다', 'Match the flow of the few people around me'), T('내 길만 보고 간다', 'Just keep to my own path')]),
+ ('strait', T('늘 다니던 길이 공사로 막히면, 나는?', 'Your usual road is closed for construction. What do you do?'), [T('바로 옆 큰길로 돌아간다', 'Take the big road right next to it'), T('조금 멀어도 한산한 길을 찾는다', 'Find a quieter road, even if longer'), T('시간을 바꿔 덜 붐빌 때 간다', 'Go at a different, less busy time')]),
+ ('sanctions', T('단톡방에서 몇 명이 한 사람을 따돌리자고 할 때, 나머지가 끼지 않으면 어떻게 될까?', 'If a few people in a group chat decide to shut someone out but the rest don\'t join in, what happens?'), [T('그래도 효과가 있다', 'It still works'), T('오히려 따돌리자던 쪽이 손해다', 'The ones who started it lose out'), T('당한 사람이 더 단단해진다', 'The target gets tougher')]),
+ ('migration', T('늘 다니던 지름길이 공사로 막혔다면, 나는?', 'Your usual shortcut is closed for construction. What do you do?'), [T('바로 옆 골목으로 돌아간다', 'Take the next alley over'), T('조금 멀어도 큰길로 간다', 'Take the main road even if it\'s longer'), T('그날은 아예 나가지 않는다', 'Skip going out that day')]),
+ ('armsrace', T('친구가 내 생일에 비싼 선물을 했다면, 친구 생일엔 어떻게 할까요?', 'If a friend gave you an expensive birthday present, what would you do for their birthday?'), [T('비슷하거나 조금 더 비싸게', 'Something similar or a bit pricier'), T('원래 내 예산대로', 'Stick to my usual budget'), T('서로 선물 상한을 정하자고 말한다', 'Suggest we set a gift limit together')]),
+ ('powershift', T('앞서가던 쪽과 따라잡는 쪽, 언제 다툼이 가장 많이 날까?', 'Between a leader and a catcher-up, when do quarrels break out most?'), [T('차이가 클 때', 'When the gap is big'), T('실력이 비슷해질 때', 'When they become evenly matched'), T('완전히 역전한 뒤', 'After one has fully overtaken')]),
+ ('reputation', T('친구가 중요한 약속을 한 번 크게 어겼다면, 나는?', 'A friend badly breaks an important promise once. What do you do?'), [T('다시는 믿지 않는다', 'Never trust them again'), T('사과하고 물어 주면 다시 믿는다', 'Trust again if they apologize and make it right'), T('시간이 지나면 잊고 다시 만난다', 'Let time pass, forget, and meet again')]),
+ ('aijobs', T('내가 회사라면, AI가 신입 일을 대신할 수 있을 때 신입은?', 'If you ran a firm and AI could do the junior work, what would you do about juniors?'), [T('줄인다, 당장 아끼는 게 먼저', 'Cut them: save now first'), T('절반쯤은 계속 뽑는다', 'Keep hiring about half'), T('예전처럼 다 뽑는다', 'Hire as many as before')]),
+ ('crash', T('내가 산 물건 값이 갑자기 5% 떨어졌어요. 나는?', 'Something you bought suddenly drops 5% in price. What do you do?'), [T('더 떨어지기 전에 판다', 'Sell before it falls further'), T('정해 둔 선까지는 기다린다', 'Wait until it hits the line I set'), T('싸졌으니 더 산다', 'Buy more while it\'s cheap')]),
  ('threebody', T('내일 날씨 예보와 열흘 뒤 날씨 예보, 나는 어떻게 믿나요?', 'How much do you trust tomorrow\'s weather forecast versus one for ten days ahead?'), [T('둘 다 비슷하게 믿는다', 'I trust both about the same'), T('내일 것만 믿는다', 'I trust only tomorrow\'s'), T('둘 다 잘 안 믿는다', 'I don\'t really trust either')]),
  ('asteroid', T('큰일을 막을 수 있다면 나는 주로?', 'When you could head off a big problem, what do you usually do?'), [T('일찍 조금씩 손쓴다', 'Act early, a little at a time'), T('닥쳤을 때 한 번에 크게 막는다', 'Deal with it all at once when it comes'), T('일단 지켜본다', 'Wait and watch first')]),
  ('galaxy', T('두 은하가 부딪히면 어떤 일이 가장 먼저 떠오르나요?', 'When two galaxies collide, what comes to mind first?'), [T('별들이 쾅쾅 부딪힌다', 'Stars smash into each other'), T('서로 그냥 통과한다', 'They just pass through each other'), T('모양이 엿가락처럼 늘어난다', 'They stretch out like taffy')]),
@@ -137,7 +145,7 @@ for s, q, opts in DAILY:
 dyn[TOPIC['q'][0]] = TOPIC['q'][1]
 for o in TOPIC['o']: dyn[o[0]] = o[1]
 for t in UI: dyn[t[0]] = t[1]
-assert len(DAILY) == 69 and all(len(d[2]) == 3 for d in DAILY)
+assert len(DAILY) == 77 and all(len(d[2]) == 3 for d in DAILY)
 open(os.path.join(SITE, 'daily.js'), 'w', encoding='utf-8').write('// 오늘의 만약에 · 주제 투표 데이터 (tools/pages/daily.py 가 만든다)\nwindow.LAB_DAILY = ' + json.dumps(data, ensure_ascii=False) + ';\n')
 open(os.path.join(HERE, 'dyn_daily.py'), 'w', encoding='utf-8').write('# tools/pages/daily.py 가 만든다 (직접 고치지 말 것)\nDYN = ' + json.dumps(dyn, ensure_ascii=False, indent=1) + '\n')
 print(len(DAILY), '개 질문,', len(dyn), '개 문구')

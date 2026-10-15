@@ -1,0 +1,24 @@
+{
+ "says_ko": [
+  "길목을 쓰던 나라만 오를 것 같지만, 막힌 화물이 몰린 우회로를 원래 쓰던 먼 나라도 거의 똑같이 올랐어요(쓰던 나라 128.5, 안 쓰던 나라 125.3).",
+  "막힌 화물이 한꺼번에 몰리면 우회로가 첫 주에 용량의 188%까지 차고, 넘친 화물이 줄을 서요. 줄은 다시 열린 뒤에도 남아 10주 막힘이 풀리는 데 17.1주가 더 걸렸어요.",
+  "바닷길에 여유가 없으면 오래 막힐수록 크게 올랐고(4주 123.2 → 20주 147.2), 여유가 있으면 기간과 상관없이 잠깐으로 끝났어요(용량 125%면 111.6, 약 6주).",
+  "그렇다면 길목이 막혔을 때 무엇을 보면 될까요? 이 모델에서는 막힌 길보다 돌아갈 길에 남은 여유가 결과를 갈랐어요. 용량 150%면 최고 약 108, 200%면 102.7이었어요."
+ ],
+ "says_en": [
+  "You'd think only countries using the strait would pay more, but faraway countries already using the detour the cargo flooded onto rose almost as much (users 128.5, non-users 125.3).",
+  "When the blocked cargo floods in at once, the detour hits 188% of capacity in the first week and the overflow waits in line. The line outlasts the reopening: a 10-week closure took 17.1 more weeks to settle.",
+  "With no room to spare, longer closures hit harder (4 weeks 123.2 → 20 weeks 147.2); with room to spare, it was brief whatever the length (at 125% capacity, 111.6 and about 6 weeks).",
+  "So what to look at when a strait closes? In this model it was not the blocked route but the spare room on the ways around that decided it: at 150% capacity the peak was about 108, at 200% it was 102.7."
+ ],
+ "not_ko": [
+  "두 경우(여유 없음 ↔ 넉넉함) 모두 이 모델이 직접 보여 준 결과예요. 바다·나라·해협은 가상이고, 실제 해협이나 사건, 물가를 예측하거나 어떤 정책이 옳다고 판단하지 않아요.",
+  "실제 물가를 크게 바꾸는 재고·보험료·기름값·환율·다른 공급처로 바꾸기·수요 감소가 없어요. 운송비 몫 20%, 용량, 길을 바꾸는 빠르기는 이 프로젝트가 고른 값이에요.",
+  "'돌아갈 길의 여유'를 늘리는 데 드는 돈과 시간은 이 모델에 없어요. 실제로 그럴 만한지는 생각해 볼 점이고, 이 시뮬레이션이 직접 보여 준 건 아니에요."
+ ],
+ "not_en": [
+  "Both cases (no spare room ↔ plenty) are results this model showed directly. The seas, countries and straits are imaginary; it does not predict any real strait, event or prices, nor judge which policy is right.",
+  "Stockpiles, insurance, fuel prices, exchange rates, switching suppliers and falling demand, which move real prices a lot, are missing. The 20% shipping share, capacities and switching speed are this project's choices.",
+  "The money and time it takes to add spare room on the ways around are not in this model. Whether that is worth it is something to think about; this simulation did not show it."
+ ]
+}

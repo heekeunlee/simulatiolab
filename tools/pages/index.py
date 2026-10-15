@@ -33,6 +33,7 @@ CATS = [
   ('treasury', T('평균회귀 금리 모델 (바시첵)', 'Mean-reverting rate model (Vasicek)'), T('금리가 오르면 내 채권값은 왜 떨어질까: 10년 국채 금리', 'Why Does My Bond Fall When Rates Rise? The 10-Year Treasury Yield'), T('단기금리 경로로 10년 금리가 정해지는 과정과, 금리가 1%p 오를 때 이미 산 채권값이 얼마나 떨어지는지 돌려 봐요. (예시 숫자, 예측 아님)', 'See how short-rate paths set the 10-year yield and how much a bond you already hold falls when rates rise one point. (Example numbers, not a forecast.)')),
   ('fxrate', T('캐리 트레이드 쏠림 모델', 'Carry-trade crowding model'), T('금리 높은 통화를 샀더니: 계단으로 오르고 엘리베이터로 떨어지는 캐리 트레이드', 'Buying the High-Rate Currency: The Carry Trade That Takes the Stairs Up and the Elevator Down'), T('이자를 더 주는 통화를 사면 오래 조금씩 벌다 한 번에 크게 잃을 수 있어요. 쏠림과 청산이 만드는 모양을 돌려 봐요. (예시 숫자, 투자 조언 아님)', 'Holding a higher-yield currency can earn a little for years and lose a lot at once. See the shape crowding and unwinding create. (Example numbers, not investment advice.)')),
   ('tariff', T('반복 보복 모델', 'Repeated retaliation model'), T('관세 보복을 서로 주고받으면 왜 둘 다 손해일까?', 'When Two Countries Trade Tariff Blows, Why Do Both Lose?'), T('혼자 올리면 이득인데, 서로 되갚으면 둘 다 손해예요. 두 가상의 나라가 관세를 주고받는 모습을 돌려 보세요.', 'Raising alone pays, but trading blows makes both lose. Watch two imaginary countries swap tariffs.')),
+  ('crash', T('손절 문턱 연쇄 모델', 'Stop-loss threshold cascade model'), T('왜 하루에 7%가 빠질까? 손절이 손절을 부르는 연쇄', 'Why Can a Market Drop 7% in a Day? When Selling Triggers Selling'), T('투자자 2,000명의 손절선이 가격 하락에 차례로 걸리는 연쇄. 빚과 저가 매수자 비율이 작은 충격을 큰 폭락으로 바꿀지 갈라요.', '2,000 investors\' stop-loss lines trip one after another as prices fall; leverage and dip-buyers decide whether a small shock becomes a crash.')),
  ]),
  ('parenting', '#e0527a', '🍼', T('육아', 'Parenting'), T('아이를 키우며 마주치는 경쟁, 감기, 줄서기의 구조', 'The structures behind the races, colds and waiting lists parents run into'), [
   ('hagwon', T('순위재 경쟁 모델', 'Positional-goods race model'), T('모두가 학원을 하나 더 보내면 왜 아무도 순위가 안 오를까', 'Why Does Everyone Adding One More Class Move Nobody Up?'), T('한 집만 하면 순위가 오르는데, 다 같이 하면 비용만 늘어요. 상대평가와 절대평가를 바꿔 구조를 비교해 봐요. (예시 숫자, 처방 아님)', 'One family alone climbs, but when all do it only the bill grows. Compare relative and absolute grading. (Example numbers, no advice.)')),
@@ -43,6 +44,7 @@ CATS = [
   ('peter', T('피터의 원리 모델', 'Peter principle model'), T('무능한 상사는 왜 생길까', 'Why Do Incompetent Bosses Exist?'), T('일 잘하는 사람을 승진시키면 조직이 좋아질까? 승진 방식을 바꿔 비교해요.', 'Does promoting your best performers make an organization better? Compare promotion methods.')),
   ('secretary', T('최적 멈춤 모델 (비서 문제)', 'Optimal stopping model (secretary problem)'), T('몇 명을 만나 보고 정해야 최고의 사람을 만날까: 37%의 법칙', 'How Many Should You Meet Before Choosing? The 37% Rule'), T('되돌아갈 수 없는 만남에서, 몇 %를 지켜본 뒤 고르면 최고를 만날 확률이 가장 높을까요? 약 37%라는 답을 직접 확인해요.', 'When you cannot go back, how much should you watch before choosing to have the best chance at the very best? Check the famous 37% answer yourself.')),
   ('weakties', T('스몰월드 네트워크 (와츠–스트로가츠)', 'Small-world network (Watts–Strogatz)'), T('새 일자리 소식은 왜 친한 친구가 아니라 얼굴만 아는 사람에게서 올까: 약한 유대의 힘', 'Why Do Job Tips Come from Acquaintances, Not Close Friends? The Strength of Weak Ties'), T('친한 친구 무리에 얼굴만 아는 사람 몇 명만 이어도 소식이 퍼지는 속도가 몇 배로 빨라져요.', 'Tie just a few acquaintances into tight friend circles and news spreads several times faster.')),
+  ('aijobs', T('경력 사다리 파이프라인 모델', 'Career-ladder pipeline model'), T('AI가 신입 일을 대신하면 10년 뒤 숙련자는 어디서 올까?', 'If AI Takes the Junior Work, Where Will Tomorrow\'s Experts Come From?'), T('신입→중간→숙련 사다리에서 AI가 신입 일을 대신하면 당장은 싸지만 몇 년 뒤 숙련자가 비어요. 역전 시점을 돌려 봐요.', 'On a junior→mid→expert ladder, letting AI take junior work is cheap now but hollows out experts years later. Find when the cost flips.')),
  ]),
  ('society', '#475569', '🏙️', T('사회 현안', 'Society Today'), T('수치로 따져 보는 우리 사회의 큰 흐름', 'Big trends in society, worked through with numbers'), [
   ('population', T('코호트 인구 모델', 'Cohort-component model'), T('저출산이 계속되면 2070년 인구 구조는?', "What If Korea's Birth Rate Stays This Low Until 2070?"), T('출산율이 이대로면 인구 피라미드는 어떻게 바뀔까? 출산율과 이민을 바꿔 보세요.', 'If fertility stays as it is, how does the population pyramid change? Try other fertility and migration levels.')),
@@ -74,6 +76,14 @@ CATS = [
   ('drake', T('드레이크 방정식 몬테카를로', 'Monte Carlo Drake equation'), T('우리는 왜 아직 외계 문명을 못 만났을까?', 'Why Haven\'t We Met an Alien Civilization Yet?'), T('7개 항을 범위로 두고 1만 번 돌려 문명 수의 분포를 보고, 수명이 짧으면 왜 서로 못 만나는지 봐요.', 'Draw the seven factors from ranges 10,000 times to see the spread, and why short-lived civilizations never meet.')),
   ('moonaxis', T('자전축 세차 장난감 모델', 'Toy model of axial precession'), T('달이 없었다면 지구의 계절은 어떻게 됐을까?', 'Without the Moon, What Would Earth\'s Seasons Be Like?'), T('달의 무게를 바꾸며 지구 자전축이 100만 년 동안 얼마나 흔들리는지 봐요. 어중간한 달이 더 흔들려요.', 'Change the Moon\'s mass and watch how much Earth\'s axis wobbles over a million years; a half-size Moon wobbles most.')),
   ('nightsky', T('별 밝기·거리 분포 모델', 'Star brightness and distance model'), T('밤하늘엔 왜 밝은 별이 몇 개뿐일까?', 'Why Are There Only a Few Bright Stars in the Night Sky?'), T('별 10만 개를 고르게 뿌리면 밝은 별은 몇 개뿐이고 어두운 별은 폭증해요. 도시 불빛을 바꿔 보세요.', 'Scatter 100,000 stars evenly and only a handful look bright while faint ones explode in number. Try changing city lights.')),
+ ]),
+ ('intl', '#991b1b', '🌐', T('국제', 'International'), T('나라들 사이의 길목, 제재, 군비, 평판은 어떻게 얽힐까?', 'How do straits, sanctions, arms and reputations tangle between nations?'), [
+  ('strait', T('항로망 혼잡 흐름 모델', 'Shipping-network congestion model'), T('길목 하나가 막히면 왜 먼 나라 물가까지 오를까?', 'When One Strait Is Blocked, Why Do Prices Rise in Faraway Countries?'), T('가상 지구본의 해협 하나를 막으면 화물이 우회로로 몰려 그 길도 막히고, 해협을 안 쓰던 나라의 물가까지 올라요.', 'Block one strait on a made-up globe and cargo piles onto the detour until it jams too, raising prices even in countries that never used the strait.')),
+  ('sanctions', T('무역망 제재·결집 모델', 'Trade-network sanctions and rally model'), T('제재는 상대를 꺾을까, 더 뭉치게 할까?', 'Do Sanctions Break a Country, or Pull It Together?'), T('가상 나라 30개의 무역망에서 한 나라를 제재해요. 참여율과 새는 길에 따라 꺾이는지, 초반엔 오히려 뭉치는지 봐요.', 'Sanction one country in a 30-country trade network and see whether it bends, and whether it rallies at first, depending on participation and leaks.')),
+  ('migration', T('경로 선택 흐름 모델(로짓)', 'Route-choice flow model (logit)'), T('국경을 닫으면 이주 흐름은 어디로 갈까?', 'Close a Border Crossing, and Where Does the Flow Go?'), T('가상 땅의 길 6개 중 하나를 막으면 흐름이 옆길로 번지고 더 위험한 길의 비중이 늘어요. 어느 길을 막느냐로 결과가 갈려요.', 'Block one of six routes on a made-up land and the flow spills sideways, raising the share on riskier paths. Which route you block changes everything.')),
+  ('armsrace', T('리처드슨 군비 경쟁 모델', 'Richardson arms-race model'), T('상대가 늘리니 나도 늘린다, 군비 경쟁은 어디서 멈출까?', 'They Build Up, So We Build Up: Where Does an Arms Race Stop?'), T('상대 군비에 반응하는 두 나라가 어디서 멈추고 어디서 폭주하는지. 한쪽만 줄이면 늦출 뿐이고, 둘 다 반응을 줄인 합의만 멈췄어요.', 'Two countries react to each other\'s arms: where it stops and where it runs away. One side cutting only delays it; only a mutual cut in reactions stopped it.')),
+  ('powershift', T('세력 전이·협상 실패 모델', 'Power transition and bargaining-failure model'), T('추격하는 나라와 지키는 나라, 힘이 비슷해질 때 왜 위험할까?', 'A Rising Power and a Leading One: Why Is It Dangerous When They Draw Even?'), T('추격국이 지키는 나라를 따라잡는 100년을 100개 세계로 돌려요. 힘이 비슷해지는 구간에 충돌이 몰리고, 서로를 잘 알수록 낮아져요.', 'Run 100 worlds where a rising power catches a leading one; clashes cluster where they draw even and drop when each knows the other\'s strength.')),
+  ('reputation', T('반복 신뢰 게임 + 평판 전파', 'Repeated trust game with reputation spread'), T('약속을 어긴 나라와 다시 협상할 수 있을까?', 'Can You Ever Negotiate Again With a Country That Broke Its Word?'), T('가상 나라 24개의 반복 협상에서 약속을 어기면 소문이 망을 타고 퍼져요. 사과와 보상이 회복을 얼마나 당기는지 봐요.', 'Among 24 made-up countries, breaking a promise sends word across the network; see how much apology and compensation speed the recovery.')),
  ]),
  ('philosophy', '#be185d', '🧠', T('철학', 'Philosophy'), T('도덕과 신뢰는 어떻게 살아남을까', 'How do morality and trust survive?'), [
   ('cooperation', T('반복 죄수의 딜레마', "Iterated prisoner's dilemma"), T('착한 사람은 살아남을까', 'Do Nice People Survive?'), T('배신하는 사람이 많은 세상에서 협력과 신뢰는 어떻게 되살아날까? 실수가 끼어들면 어떻게 될까?', 'In a world full of defectors, how do cooperation and trust come back? What changes when mistakes creep in?')),
@@ -116,6 +126,7 @@ FIELD_ICON = {
  'work': '<rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M9 7h.01M15 7h.01M9 11h.01M15 11h.01M9 15h.01M15 15h.01" stroke-width="2.6"/><path d="M10.5 21v-3h3v3"/>',
  'society': '<path d="M2.5 21h19"/><path d="M4.5 21V11h4.5v10"/><path d="M9 21V4.5h6V21"/><path d="M15 21V8.5h4.5V21"/><path d="M11.5 8.5h1M11.5 12h1"/>',
  'history': '<rect x="4" y="3" width="16" height="4" rx="2"/><rect x="4" y="17" width="16" height="4" rx="2"/><path d="M6.5 7v10M17.5 7v10"/><path d="M9.5 11h5M9.5 14h3"/>',
+ 'intl': '<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.8 2.6 2.8 15.4 0 18"/><path d="M12 3c-2.8 2.6-2.8 15.4 0 18"/>',
  'space': '<circle cx="12" cy="12" r="4.6"/><path d="M4.6 8.4C1.9 10.9 7.6 16.6 14 18.9c5.2 1.9 7.8.8 5.4-2.7"/>',
  'science': '<path d="M9 3h6"/><path d="M10 3v6.2L5.2 18.4A1.8 1.8 0 0 0 6.8 21h10.4a1.8 1.8 0 0 0 1.6-2.6L14 9.2V3"/><path d="M7.4 15h9.2"/>',
  'philosophy': '<path d="M12 5.5a3 3 0 0 0-5.6 1.4A3 3 0 0 0 4.5 11.5a3 3 0 0 0 1.2 4.6A3 3 0 0 0 9.2 19.8a3 3 0 0 0 2.8-1.6"/><path d="M12 5.5a3 3 0 0 1 5.6 1.4 3 3 0 0 1 1.9 4.6 3 3 0 0 1-1.2 4.6 3 3 0 0 1-3.5 3.7 3 3 0 0 1-2.8-1.6"/><path d="M12 5.5v12.7"/><path d="M8 10.5c1.2 0 2 .8 2 2M16 10.5c-1.2 0-2 .8-2 2"/>',
@@ -167,6 +178,14 @@ RELATED = {
  'drake': ['nightsky', 'coincidence', 'rumor'],
  'moonaxis': ['harmony', 'firefly', 'threebody'],
  'nightsky': ['zipf', 'wealth', 'threebody'],
+ 'strait': ['braess', 'tariff', 'sanctions'],
+ 'sanctions': ['tariff', 'alliance', 'braess'],
+ 'migration': ['braess', 'strait', 'sanctions'],
+ 'armsrace': ['war', 'powershift', 'lanchester'],
+ 'powershift': ['war', 'armsrace', 'alliance'],
+ 'reputation': ['cooperation', 'rumor', 'alliance'],
+ 'aijobs': ['peter', 'hagwon', 'secretary'],
+ 'crash': ['sandpile', 'revolution', 'fxrate'],
  'murmuration': ['firefly', 'traffic', 'friendship'],
  'bunching': ['traffic', 'braess', 'inspection'],
  'checkout': ['queue', 'inspection', 'bar'],
@@ -192,6 +211,14 @@ ADDED.update({s: '2026-10-14' for s in ['hitsong', 'harmony', 'pollock', 'ovatio
 ADDED['tariff'] = '2026-10-14'
 ADDED['ventilation'] = '2026-10-14'
 ADDED['murmuration'] = '2026-10-15'
+ADDED['crash'] = '2026-10-16'
+ADDED['aijobs'] = '2026-10-16'
+ADDED['reputation'] = '2026-10-16'
+ADDED['powershift'] = '2026-10-16'
+ADDED['armsrace'] = '2026-10-16'
+ADDED['migration'] = '2026-10-16'
+ADDED['sanctions'] = '2026-10-16'
+ADDED['strait'] = '2026-10-16'
 ADDED['nightsky'] = '2026-10-15'
 ADDED['moonaxis'] = '2026-10-15'
 ADDED['drake'] = '2026-10-15'
@@ -285,6 +312,14 @@ META = {
  'drake': ('Dk', T('드레이크 방정식과 페르미 역설', 'Drake Equation and Fermi Paradox'), 'ring'),
  'moonaxis': ('Mo', T('달과 자전축', 'The Moon and Earth\'s Axis'), 'wave'),
  'nightsky': ('Ns', T('밤하늘의 별 밝기', 'Star Brightness in the Night Sky'), 'spread'),
+ 'strait': ('St', T('막힌 길목', 'The Blocked Strait'), 'net'),
+ 'sanctions': ('Sn', T('제재의 역설', 'The Sanctions Paradox'), 'net'),
+ 'migration': ('Mg', T('막힌 길과 풍선 효과', 'Blocked Routes and the Balloon Effect'), 'spread'),
+ 'armsrace': ('Ar', T('군비 경쟁', 'Arms Race'), 'rise'),
+ 'powershift': ('Ps', T('세력 전이', 'Power Transition'), 'rise'),
+ 'reputation': ('Rp', T('평판과 다시 협상', 'Reputation and Renegotiation'), 'net'),
+ 'aijobs': ('Aj', T('AI와 신입 사다리', 'AI and the Career Ladder'), 'stairs'),
+ 'crash': ('Cr', T('손절 연쇄 폭락', 'Stop-Loss Cascade'), 'stairs'),
  'murmuration': ('Mm', T('찌르레기 떼 군무', 'Starling Murmuration'), 'drift'),
  'dla': ('Dl', T('가지 프랙탈', 'Branching'), 'spread'),
  'sandpile': ('Sp', T('모래더미', 'Sandpile'), 'grid'),

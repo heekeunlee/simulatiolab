@@ -1,0 +1,24 @@
+{
+ "says_ko": [
+  "힘 차이가 클 땐 조용하지만, 추격국이 따라잡는 구간에선 위험이 봉우리처럼 솟아요. 이 모델에서 해마다의 위험은 힘 비율 0.4일 때보다 비율 1 근처에서 약 91배 높았어요.",
+  "힘이 비슷하면 '싸우면 누가 이길까'가 작은 착각에도 크게 엇갈려, 둘 다 자기가 이긴다고 믿기 쉬워요. 충돌 996건 중 66.2%가 힘 비율 0.75~1.35에서 났어요.",
+  "불만이 크면 봉우리가 높고, 불만이 없거나 힘을 정확히 알면 낮아요. 100년 안 충돌 확률은 불만 0%면 15.8%, 30%면 52.2%였고, 힘을 정확히 알면 불만 60%까지도 0%였어요.",
+  "그렇다면 위험한 구간을 어떻게 지나야 할까요? 이 모델에서는 서로의 힘을 잘 알수록(±10%: 5.1%), 따라잡기 전에 미리 질서를 고칠수록(18.1%, 따라잡은 뒤엔 34.4%) 낮았어요."
+ ],
+ "says_en": [
+  "When power is very unequal things stay quiet, but as the riser catches up the risk rises like a peak. In this model the yearly risk near a power ratio of 1 was about 91 times that at 0.4.",
+  "When power is close, a small misjudgment splits their views of who would win, so both easily believe they would. Of 996 conflicts, 66.2% broke out at power ratios of 0.75–1.35.",
+  "Big grievance makes the peak tall; no grievance or exact knowledge makes it low. The 100-year chance was 15.8% with 0% grievance and 52.2% with 30%, and 0% up to 60% grievance with exact knowledge.",
+  "So how should the dangerous stretch be passed? In this model the risk was lower the better each knew the other's strength (±10%: 5.1%) and the earlier the order was reformed (18.1% early, 34.4% after catching up)."
+ ],
+ "not_ko": [
+  "따라잡는 구간의 봉우리, 불만·착각·개편 시점에 따른 차이는 이 시뮬레이션이 직접 보여 준 거예요. 하지만 실제 어떤 나라 사이의 충돌을 설명하거나 예측하지 않고, 어떤 정책이 옳다는 뜻도 아니에요.",
+  "힘은 숫자 하나, 나라는 둘뿐이고 동맹·국내 정치·경제적 얽힘·핵 억지는 빠져 있어요. 다툼 확률(10%)·전쟁 비용(20%)·불만은 이 프로젝트가 정한 설정이라, 바꾸면 숫자도 크게 달라져요.",
+  "힘이 비슷해지면 반드시 충돌한다는 뜻도 아니에요. 기본값에서도 약 절반의 세계는 100년 동안 충돌하지 않았어요."
+ ],
+ "not_en": [
+  "The peak during the catch-up and the differences by grievance, misjudgment and reform timing are what this simulation showed directly. But it does not explain or predict conflict between any real states, and it does not say any policy is right.",
+  "Power is one number and there are only two states; alliances, domestic politics, economic ties and nuclear deterrence are left out. The dispute chance (10%), war cost (20%) and grievance are this project's settings, and changing them changes the numbers a lot.",
+  "Nor does it mean drawing even always leads to conflict. Even with the defaults, about half of the worlds had none in 100 years."
+ ]
+}

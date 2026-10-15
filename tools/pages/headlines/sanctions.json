@@ -1,0 +1,24 @@
+{
+ "says_ko": [
+  "참여하는 나라가 적으면 끊긴 물건이 거의 다 새 들어와 참여국만 손해고, 많으면 피해가 커서 압력이 통해요. 참여율 20%면 99%가 새 들어와 피해 6%, 참여국 손해 20%였어요.",
+  "갈림은 한가운데서 가파르게 와요. 참여가 늘면 끊기는 무역은 늘고 새 나갈 나라는 줄어서예요. 압력이 통한 판은 참여율 40%에서 10%, 50%에서 48%, 70%에서 92%였어요.",
+  "세게 끊으면 처음엔 오히려 뭉치고 나중에 깎여요. 참여율 80%여도 첫 6달 결속은 평균 59로 평소(50)보다 높았지만, 결국 99% 판에서 30 아래로 내려갔어요(이 모델의 설정).",
+  "그렇다면 무엇을 보면 될까요? 이 모델에선 새는 길과 참여율이 갈랐어요. 새는 정도 0%면 참여 40%로 충분했지만 80%면 70%가 필요했고, 결집 효과는 결과보다 시기(23→28달째)만 늦췄어요."
+ ],
+ "says_en": [
+  "When few countries join, the cut-off goods nearly all slip back in and only the joiners lose; when many join, the damage is big and the pressure works. At 20%, 99% slipped in: damage 6%, joiners' loss 20%.",
+  "The tipping comes steeply in the middle, because more joiners means more trade cut and fewer outsiders to slip through. The pressure worked in 10% of runs at 40% participation, 48% at 50%, 92% at 70%.",
+  "A hard cut first pulls people together, and only later wears them down. Even at 80% participation, cohesion averaged 59 over the first 6 months, above the usual 50, yet it fell below 30 in 99% of runs (model settings).",
+  "So what to look at? Here the leaks and the participation rate decided it: with 0% leakage, 40% participation was enough; at 80% it took 70%. The rally effect mostly just delayed the drop (month 23 → 28)."
+ ],
+ "not_ko": [
+  "결집 효과가 '결과를 거의 못 바꾸고 늦추기만' 한 것은 이 모델에서 결집이 약 10달에 걸쳐 잦아들게 정했기 때문이에요. 결집이 오래가는 현실이라면 다를 수 있고, 이건 직접 보여 준 게 아니에요.",
+  "나라·사건은 모두 가상이고, 제재가 옳은지 어느 편이 옳은지 판정하거나 앞으로의 정세를 예측하지 않아요. '압력이 통한 판'은 실제 목표 달성이 아니라 이 모델 안의 대리 지표예요.",
+  "금융·에너지 같은 무역 밖 수단, 국내 생산으로 대신하기, 참여국 이탈, 지도부의 통제·선전, 협상이 빠져 있어요. 현실의 결과는 이런 것들에 크게 좌우될 수 있어요."
+ ],
+ "not_en": [
+  "The rally effect 'mostly delaying rather than changing the outcome' comes from this model setting it to fade over about 10 months. Where rallies last longer it could differ; the simulation did not show that.",
+  "All countries and events are imaginary. This does not judge whether sanctions are right or which side is right, nor predict world affairs. 'Pressure worked' is a stand-in measure inside the model, not real success.",
+  "Tools outside trade such as finance or energy, replacing imports at home, joiners dropping out, the leadership's control and propaganda, and negotiation are left out. Real outcomes can depend heavily on them."
+ ]
+}

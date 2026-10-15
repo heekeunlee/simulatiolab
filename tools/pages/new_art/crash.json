@@ -1,0 +1,61 @@
+{
+ "slug": "crash",
+ "title_ko": "왜 하루에 7%가 빠질까? 손절이 손절을 부르는 연쇄",
+ "title_en": "Why Can a Market Drop 7% in a Day? When Selling Triggers Selling",
+ "symbol": "Cr",
+ "name_ko": "손절 연쇄 폭락",
+ "name_en": "Stop-Loss Cascade",
+ "icon": "stairs",
+ "field": "economy",
+ "related": [
+  "sandpile",
+  "revolution",
+  "fxrate"
+ ],
+ "predict": {
+  "q_ko": "가상의 시장에서 손절선이 한곳에 촘촘히 몰려 있을 때, 처음 충격을 −2%에서 −3.5%로 키우면 100판 중 큰 폭락(−7% 이상)은 어떻게 될까요?",
+  "q_en": "In an imaginary market where stop-loss lines are tightly bunched, what happens to big crashes (−7% or more) out of 100 runs when the initial shock grows from −2% to −3.5%?",
+  "opts_ko": [
+   "거의 그대로 (2판 → 5판쯤)",
+   "조금씩 늘어남 (2판 → 30판쯤)",
+   "거의 전부로 바뀜 (2판 → 98판)"
+  ],
+  "opts_en": [
+   "Barely changes (2 → about 5)",
+   "Rises gradually (2 → about 30)",
+   "Jumps to almost all (2 → 98)"
+  ],
+  "answer": 2,
+  "expl_ko": "이 모델에서 손절선이 촘촘하면 충격 −2%에선 100판 중 2판만 큰 폭락이었지만 −3.5%에선 98판이었어요. 충격이 몰린 손절선에 닿느냐 마느냐로 결과가 절벽처럼 갈려요. 손절선이 넓게 퍼져 있으면 31판(−2%) → 91판(−3%)으로 천천히 늘었어요.",
+  "expl_en": "In this model, with tightly bunched stop-losses only 2 of 100 runs crashed at a −2% shock, but 98 did at −3.5%. Whether the shock reaches the bunched lines splits the outcome like a cliff. With widely spread lines, crashes rose slowly instead: 31 (−2%) → 91 (−3%)."
+ },
+ "daily": {
+  "q_ko": "내가 산 물건 값이 갑자기 5% 떨어졌어요. 나는?",
+  "q_en": "Something you bought suddenly drops 5% in price. What do you do?",
+  "opts_ko": [
+   "더 떨어지기 전에 판다",
+   "정해 둔 선까지는 기다린다",
+   "싸졌으니 더 산다"
+  ],
+  "opts_en": [
+   "Sell before it falls further",
+   "Wait until it hits the line I set",
+   "Buy more while it's cheap"
+  ]
+ },
+ "facts": [
+  "장 #1(기본 설정, 내부 시드 8): 처음 충격 −2% → 25단계 연쇄 끝에 하루 −8.9% 마감, 보유자 98% 매도, 큰손 7라운드에 매도",
+  "기본 설정 100판: 큰 폭락(−7% 이상) 48판, 가운데 판 −6.8%(충격의 3.4배), 평균 연쇄 17.5단계",
+  "손절선 아주 촘촘(1): 충격 −2% → 큰 폭락 2판, −3% → 47판, −3.5% → 98판 / 아주 퍼짐(5): −1% → 3판(가운데 판 −4.2%), −2% → 31판, −2.5% → 65판, −3% → 91판",
+  "빚 낸 사람 0/10/20/40/60% → 큰 폭락 0/6/48/100/100판 · 시장 두께 아주 두꺼움 0판, 얇음 92판",
+  "큰손 0%→40%: 큰 폭락 38→49판, 큰 폭락 판 평균 낙폭 −8.1%→−11.6% · 저가 매수자 0/20/30/50% → 67/26/9/0판"
+ ],
+ "caveats": [
+  "이 프로젝트의 단순화된 모델이며 숫자는 예시(손절 거리 평균 6%·정규분포, 빚 낸 사람 보유 2배·손절 거리 절반, 가격 충격 계수 0.025~0.10, 흔들림 0.1%, 40라운드, 큰 폭락 기준 −7%)",
+  "가상의 시장: 실제 시장·종목·사건·통계가 아니고 폭락 예측·투자 조언이 아님. 손절의 좋고 나쁨을 판정하지 않음",
+  "뉴스·심리 변화, 거래 중단 장치, 시장 조성자, 여러 날 회복, 다른 상품과의 연결은 빠짐",
+  "손절선 퍼짐 효과는 한 방향이 아님: 촘촘=절벽(전부 아니면 전무), 퍼짐=늘 몇 배 증폭이나 통째 붕괴는 완만. 기본 충격 −2%에서는 중간(3)~퍼짐(4)이 48판으로 가장 많고 아주 촘촘(1) 2판, 아주 퍼짐(5) 31판",
+  "큰손은 폭락 확률보다 크기를 키웠음(큰손이 폭락을 일으킨다는 증거 아님). 첫 화면 판(장 #1)은 연쇄가 잘 보이는 시드로 골랐고 집계는 시드 1~100",
+  "문턱 모델(Granovetter 1978)·모래더미(Bak, Tang, Wiesenfeld 1987)는 같은 구조로만 언급, 특정 연구 재현 아님"
+ ]
+}

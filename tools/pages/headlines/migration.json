@@ -1,0 +1,24 @@
+{
+ "says_ko": [
+  "한 길만 막으면 흐름은 사라지기보다 옆길로 옮겨 가요. 이 모델에서 큰길을 막자 도착은 29% 줄었지만, 위험한 길로 가는 비중은 9.6%에서 21.2%로 2.2배가 됐어요.",
+  "가까운 옆길이 붐비면 그다음 길로 밀려 결국 험한 산길·사막길까지 번져요. 그래서 도착은 줄었는데 사고를 겪는 사람은 한 달 14.1명에서 15.5명으로 오히려 늘었어요.",
+  "길을 막는 것과 떠나야 하는 사정이 줄어드는 것은 달랐어요. 막지 않고 압력만 60에서 40으로 낮추면 도착(288→169명)·사고(14.4→5.8명)·위험한 길 비중(9.8→3.2%)이 함께 줄었어요.",
+  "그렇다면 흐름을 볼 때 무엇을 봐야 할까요? 이 모델에서는 어느 길을 막느냐가 갈랐어요. 안전한 큰길을 막으면 위험한 길이 21.2%로, 위험한 산길을 막으면 2.9%였고, 정식 관문을 2배로 넓히면 큰길을 막아도 14.5%였어요."
+ ],
+ "says_en": [
+  "Close just one route and the flow moves next door rather than vanishing. In this model closing the Main road cut arrivals by 29%, but the share taking risky routes rose 2.2 times, from 9.6% to 21.2%.",
+  "When the nearby route gets crowded, people get pushed to the next one, until it reaches the rough Mountain trail and Desert track. So arrivals fell, yet accidents actually rose from 14.1 to 15.5 a month.",
+  "Closing a route and easing the reasons to leave are not the same. With no closure, lowering the pressure from 60 to 40 cut arrivals (288→169), accidents (14.4→5.8) and the risky-route share (9.8→3.2%) together.",
+  "So what to look at in such flows? Here it depended on which route was closed: closing the safe Main road sent the risky share to 21.2%, closing the risky Mountain trail to 2.9%, and doubling the official crossing kept it at 14.5% even with the Main road closed."
+ ],
+ "not_ko": [
+  "땅·길·사람은 모두 가상이에요. 실제 나라·국경·이주 통계가 아니고, 어떤 이주·국경 정책이 옳은지 판정하거나 처방하지 않아요. 사람이나 나라를 평가하지 않고 흐름의 구조만 봐요.",
+  "'압력이 줄면 모두 줄어든다'는 이 모델에서 슬라이더를 옮긴 결과일 뿐이에요. 현실에서 그 사정을 어떻게 줄일 수 있는지는 이 시뮬레이션이 직접 보여 준 게 아니에요.",
+  "가족·지인 네트워크, 정보와 소문, 중개인과 비용, 법·일자리·기후·분쟁 같은 현실의 큰 요인이 빠져 있고, 길의 부담·위험·용량은 이 프로젝트의 예시 값이라 숫자 자체엔 의미가 없어요."
+ ],
+ "not_en": [
+  "The land, routes and people are all imaginary. These are not real countries, borders or migration figures, and nothing here judges or prescribes any migration or border policy. It evaluates no people or countries, only the structure of the flow.",
+  "\"Everything falls when pressure falls\" is only what happened when a slider moved in this model. How such pressures could be eased in reality is not something this simulation shows.",
+  "Big real-world factors are missing: family and acquaintance networks, information and rumor, intermediaries and costs, laws, jobs, climate and conflict. Route burdens, risks and capacities are this project's example values, so the numbers themselves carry no meaning."
+ ]
+}
