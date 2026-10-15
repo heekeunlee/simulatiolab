@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="mm-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#11cbcb"/><stop offset="1" stop-color="#0c8989"/>
+    </linearGradient>
+    <linearGradient id="mm-gl" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".16"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="118" fill="url(#mm-bg)"/>
+  <path d="M0 118A118 118 0 0 1 118 0H394A118 118 0 0 1 512 118V200Q256 250 0 200Z" fill="url(#mm-gl)"/>
+  <path d="M104 352C150 140 300 420 408 176" fill="none" stroke="#9fe0e0" stroke-opacity=".28" stroke-width="28" stroke-linecap="round"/>
+    <path d="M30 0L-22 -22L-10 0L-22 22Z" fill="#fff" opacity="0.62" stroke="#fff" stroke-width="6" stroke-linejoin="round" transform="translate(106.9 339.9) rotate(-74.8) scale(0.80)"/>
+    <path d="M30 0L-22 -22L-10 0L-22 22Z" fill="#fff" opacity="0.68" stroke="#fff" stroke-width="6" stroke-linejoin="round" transform="translate(152.0 296.5) rotate(-39.2) scale(0.92)"/>
+    <path d="M30 0L-22 -22L-10 0L-22 22Z" fill="#fff" opacity="0.75" stroke="#fff" stroke-width="6" stroke-linejoin="round" transform="translate(182.7 244.5) rotate(3.7) scale(1.03)"/>
+    <path d="M30 0L-22 -22L-10 0L-22 22Z" fill="#fff" opacity="0.81" stroke="#fff" stroke-width="6" stroke-linejoin="round" transform="translate(227.4 299.4) rotate(12.8) scale(1.15)"/>
+    <path d="M30 0L-22 -22L-10 0L-22 22Z" fill="#fff" opacity="0.87" stroke="#fff" stroke-width="6" stroke-linejoin="round" transform="translate(287.7 261.1) rotate(-3.3) scale(1.27)"/>
+    <path d="M30 0L-22 -22L-10 0L-22 22Z" fill="#fff" opacity="0.94" stroke="#fff" stroke-width="6" stroke-linejoin="round" transform="translate(356.3 275.4) rotate(-37.8) scale(1.38)"/>
+    <path d="M30 0L-22 -22L-10 0L-22 22Z" fill="#fff3d1" opacity="1.00" stroke="#fff3d1" stroke-width="6" stroke-linejoin="round" transform="translate(401.5 190.0) rotate(-64.5) scale(1.50)"/>
+</svg>

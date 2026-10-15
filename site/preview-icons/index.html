@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>둥근 아이콘 시안</title>
+<style>
+:root {
+  --bg: #f6f7fb; --surface: #ffffff; --text: #1b1f2a; --muted: #636a7a; --line: #e6e9f0;
+  --shadow: 0 1px 2px rgba(20,30,60,.04), 0 4px 16px rgba(20,30,60,.04);
+  /* 새 틀 값 */
+  --ic-r: 23%;   /* 그림(SVG)의 rx 118/512 와 같은 비율 */
+  --ic-sh: 0 12px 24px -8px rgba(20,30,60,.22), 0 2px 5px rgba(20,30,60,.10);
+  --ic-sh-up: 0 18px 32px -8px rgba(20,30,60,.28), 0 3px 7px rgba(20,30,60,.12);
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); word-break: keep-all; overflow-wrap: break-word;
+  font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  transition: background .3s; min-height: 100vh; }
+html.warm { background: linear-gradient(180deg, #f4f7fc 0%, #f8f7f4 55%, #fbf6ef 100%); }
+html.warm body { background: transparent; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 28px 16px 60px; }
+h1 { margin: 0 0 4px; font-size: 26px; letter-spacing: -0.02em; }
+.lead { margin: 0 0 18px; color: var(--muted); font-size: 14.5px; }
+.bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 22px; }
+.tog { font: inherit; font-size: 14px; font-weight: 700; padding: 8px 16px; border-radius: 99px; border: 1.5px solid var(--line); background: var(--surface); color: var(--text); cursor: pointer; }
+.tog:hover { border-color: #b8c0d4; }
+.bar small { color: var(--muted); font-size: 13px; }
+section { margin: 0 0 34px; }
+h2 { margin: 0 0 12px; font-size: 16px; display: flex; align-items: baseline; gap: 8px; }
+h2 em { font-style: normal; font-size: 12px; font-weight: 700; color: var(--muted); }
+.note { margin: 10px 0 0; font-size: 13px; color: var(--muted); }
+.row { display: grid; grid-template-columns: repeat(5, 96px); gap: 8px 14px; }
+
+/* ---------- 줄 1: 지금 칸 흉내 (home.css 와 같은 값) ---------- */
+.el { position: relative; display: block; aspect-ratio: 1 / 1.08; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); text-decoration: none; color: var(--text); overflow: hidden; }
+.el .thumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.el::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,.0) 30%, rgba(255,255,255,.55) 58%, var(--surface) 84%); pointer-events: none; }
+.el .num { position: absolute; top: 6px; left: 10px; font-size: 9px; font-weight: 800; color: var(--c); letter-spacing: .04em; z-index: 1; text-shadow: 0 0 6px #fff, 0 0 2px #fff; }
+.el .sym { position: absolute; top: 4px; left: 23px; font-size: 20px; font-weight: 800; color: var(--c); letter-spacing: -0.02em; z-index: 1; opacity: .9; text-shadow: 0 0 6px #fff, 0 0 2px #fff; }
+.el .nm { position: absolute; left: 10px; right: 8px; bottom: 25px; height: 2.45em; display: flex; align-items: flex-start; font-size: 12px; font-weight: 700; line-height: 1.22; z-index: 1; }
+.el .bdg { position: absolute; right: 6px; bottom: 6px; z-index: 3; display: flex; gap: 3px; }
+.el .b3d, .el .bnew { font-size: 9px; font-weight: 800; letter-spacing: .04em; line-height: 1; padding: 2px 5px; border-radius: 5px; color: #fff; }
+.el .b3d { background: rgba(15,18,34,.78); }
+.el .bnew { background: #e11d48; }
+
+/* ---------- 새 틀: 둥근 아이콘 + 이름은 아래 ---------- */
+.ic { display: flex; flex-direction: column; align-items: stretch; gap: 7px; text-decoration: none; color: var(--text); -webkit-tap-highlight-color: transparent; }
+.ic .art { position: relative; aspect-ratio: 1; border-radius: var(--ic-r); overflow: hidden; background: var(--c); box-shadow: var(--ic-sh); transition: transform .2s ease, box-shadow .2s ease; isolation: isolate; }
+.ic .art > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+/* 사진(B): 분야색 아주 옅은 틴트 + 아래쪽 살짝 어둡게 */
+.ic.photo .art::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,0) 30%, rgba(10,16,30,0) 55%, rgba(10,16,30,.24) 100%),
+              color-mix(in srgb, var(--c) 14%, transparent); }
+.ic:hover .art, .ic:focus-visible .art { transform: translateY(-4px); box-shadow: var(--ic-sh-up); }
+.ic:focus-visible { outline: none; }
+.ic:focus-visible .art { outline: 2.5px solid var(--c); outline-offset: 3px; }
+.ic .tag { position: absolute; top: 6%; left: 6%; z-index: 2; display: flex; align-items: baseline; gap: 2px; padding: 2px 5px 2px 4px; border-radius: 7px;
+  background: rgba(255,255,255,.80); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); color: var(--c); line-height: 1; }
+.ic .tag b { font-size: 8.5px; font-weight: 800; letter-spacing: .02em; opacity: .85; }
+.ic .tag i { font-style: normal; font-size: 12px; font-weight: 800; letter-spacing: -0.02em; }
+.ic .bdg { position: absolute; top: 6%; right: 6%; z-index: 2; display: flex; flex-direction: column; align-items: flex-end; gap: 3px; }
+.ic .bdg span { font-size: 8.5px; font-weight: 800; letter-spacing: .04em; line-height: 1; padding: 3px 5px; border-radius: 6px; color: #fff; }
+.ic .bnew { background: #e11d48; }
+.ic .b3d { background: rgba(15,23,52,.62); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+.ic .nm { font-size: 12px; font-weight: 700; line-height: 1.25; text-align: center; height: 2.5em; overflow: hidden;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; padding: 0 1px; }
+@media (prefers-reduced-motion: reduce) { .ic .art { transition: none; } }
+/* 아이콘이 작을 때(휴대폰 등): 표시를 더 작게, 번호는 숨기고 기호만 */
+.ic .art { container-type: inline-size; }
+@container (max-width: 86px) {
+  .tag { top: 5% !important; left: 5% !important; padding: 2px 4px !important; border-radius: 6px !important; }
+  .tag b { display: none; }
+  .tag i { font-size: 11px !important; }
+  .bdg { top: 5% !important; right: 5% !important; gap: 2px !important; }
+  .bdg span { font-size: 8px !important; padding: 2px 4px !important; border-radius: 5px !important; }
+}
+
+/* ---------- 줄 4: 휴대폰 폭 ---------- */
+.phone { width: 390px; max-width: 100%; border-radius: 28px; border: 1px solid var(--line); background: inherit; padding: 18px 16px 20px; box-shadow: 0 8px 30px rgba(20,30,60,.08); }
+.phone .ph { font-size: 13px; font-weight: 800; color: var(--muted); margin: 0 2px 12px; }
+.phone .row { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px 14px; }
+.phone .ic .nm { font-size: 12px; }
+
+/* 원본 그림 비교 */
+.raw { display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-end; }
+.raw figure { margin: 0; text-align: center; font-size: 12px; color: var(--muted); }
+.raw img { display: block; border-radius: 0; }
+.raw .big img { width: 150px; height: 150px; }
+.raw .small img { width: 48px; height: 48px; }
+.raw .small { display: flex; gap: 10px; align-items: center; padding: 10px 14px; background: var(--surface); border-radius: 14px; border: 1px solid var(--line); }
+
+@media (max-width: 600px) { .row { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>시안 — 메인에 적용 전 비교</h1>
+  <p class="lead">실험 주기율표 칸을 둥근 아이콘 모양으로 바꿨을 때의 모습입니다. 실험 5개로 먼저 비교해 보고, 고른 스타일을 나머지 실험에 적용합니다. (이 페이지는 메인에서 링크하지 않습니다)</p>
+  <div class="bar">
+    <button class="tog" id="tog" type="button" aria-pressed="false">배경: 단색 #f6f7fb</button>
+    <small>눌러서 "위 차가운 흰색 → 아래 따뜻한 흰색" 그라데이션 배경과 비교</small>
+  </div>
+
+  <section>
+    <h2>1. 지금 <em>현재 메인 칸</em></h2>
+    <div class="row" id="now"></div>
+    <p class="note">사진 위에 번호·기호·이름이 함께 올라가 있어, 사진이 밝거나 복잡하면 글자와 그림이 서로 섞여 보입니다.</p>
+  </section>
+
+  <section>
+    <h2>2. 새 틀 + 사진 (B) <em>지금 썸네일을 그대로 씀</em></h2>
+    <div class="row" id="rowB"></div>
+    <p class="note">사진은 정사각으로 가운데를 잘라 채우고, 분야색을 아주 옅게 덮은 뒤 아래쪽만 살짝 어둡게 해서 다섯 장의 톤을 맞췄습니다. 이름은 아이콘 밖 아래로.</p>
+  </section>
+
+  <section>
+    <h2>3. 새 틀 + 그림 (A) <em>새로 그린 SVG 아이콘</em></h2>
+    <div class="row" id="rowA"></div>
+    <p class="note">실험마다 핵심 모양 하나만 굵고 단순하게 그렸습니다. 바탕은 분야색 세로 그라데이션이라 분야끼리 한눈에 묶여 보입니다.</p>
+  </section>
+
+  <section>
+    <h2>4. 휴대폰 폭 390px에서 (A) <em>한 줄에 4개</em></h2>
+    <div class="phone"><p class="ph">실험 주기율표</p><div class="row" id="rowP"></div></div>
+    <p class="note">작은 화면(아이콘 약 74px)에서도 그림이 읽히는지, 이름 두 줄이 잘리지 않는지 보는 줄입니다.</p>
+  </section>
+
+  <section>
+    <h2>참고: 그림 원본 <em>큰 크기 / 아주 작은 크기(48px)</em></h2>
+    <div class="raw" id="raw"></div>
+    <p class="note">다섯 그림이 같은 규칙(모서리·선 두께·여백·광택)을 따르는지 나란히 놓고 보는 줄입니다.</p>
+  </section>
+</div>
+<script>
+const X = [
+  { slug: 'murmuration', num: '37', sym: 'Mm', nm: '찌르레기 떼 군무', c: '#0ea5a5', isNew: true, d3: true },
+  { slug: 'ventilation', num: '07', sym: 'Vt', nm: '창문과 환기', c: '#1fa463', isNew: true, d3: true },
+  { slug: 'depopulation', num: '30', sym: 'Dp', nm: '지방 소멸의 악순환', c: '#475569', isNew: true, d3: true },
+  { slug: 'tariff', num: '20', sym: 'Tf', nm: '관세 보복', c: '#0369a1', isNew: true, d3: false },
+  { slug: 'firefly', num: '36', sym: 'Ff', nm: '반딧불이', c: '#0ea5a5', isNew: false, d3: true },
+];
+const esc = s => s.replace(/[&<>"]/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]));
+const bdg = (x, cls) => (x.isNew || x.d3) ? `<span class="bdg">${x.isNew ? '<span class="bnew">New</span>' : ''}${x.d3 ? '<span class="b3d">3D</span>' : ''}</span>` : '';
+const href = x => `../experiments/${x.slug}/`;
+const nowTile = x => `<a class="el" href="${href(x)}" style="--c:${x.c}"><img class="thumb" src="../thumbs/${x.slug}.jpg" alt="" loading="lazy"><span class="num">${x.num}</span><span class="sym">${x.sym}</span>${bdg(x)}<span class="nm">${esc(x.nm)}</span></a>`;
+const newTile = (x, src, cls) => `<a class="ic ${cls}" href="${href(x)}" style="--c:${x.c}"><span class="art"><img src="${src}" alt="" loading="lazy"><span class="tag"><b>${x.num}</b><i>${x.sym}</i></span>${bdg(x)}</span><span class="nm">${esc(x.nm)}</span></a>`;
+document.getElementById('now').innerHTML = X.map(nowTile).join('');
+document.getElementById('rowB').innerHTML = X.map(x => newTile(x, `../thumbs/${x.slug}.jpg`, 'photo')).join('');
+document.getElementById('rowA').innerHTML = X.map(x => newTile(x, `../icons/${x.slug}.svg`, 'art-a')).join('');
+document.getElementById('rowP').innerHTML = X.map(x => newTile(x, `../icons/${x.slug}.svg`, 'art-a')).join('');
+document.getElementById('raw').innerHTML = X.map(x => `<figure class="big"><img src="../icons/${x.slug}.svg" alt="${esc(x.nm)}"><figcaption>${x.slug}</figcaption></figure>`).join('')
+  + `<div class="small">${X.map(x => `<img src="../icons/${x.slug}.svg" alt="">`).join('')}</div>`;
+const tog = document.getElementById('tog');
+tog.addEventListener('click', () => {
+  const on = document.documentElement.classList.toggle('warm');
+  tog.setAttribute('aria-pressed', on);
+  tog.textContent = on ? '배경: 차가운 흰색 → 따뜻한 흰색' : '배경: 단색 #f6f7fb';
+});
+</script>
+</body>
+</html>
