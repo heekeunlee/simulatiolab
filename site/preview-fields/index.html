@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>분야 머리 시안</title>
+<style>
+:root {
+  --bg: #f6f7fb; --surface: #ffffff; --text: #1b1f2a; --muted: #636a7a; --line: #e6e9f0;
+  --art-sh: 0 12px 24px -8px rgba(20,30,60,.22), 0 2px 5px rgba(20,30,60,.10);
+  --chip: 28px;          /* A 칩 크기 */
+  --chip-r: 26%;         /* A 칩 모서리 */
+}
+* { box-sizing: border-box; }
+html { background: linear-gradient(180deg, #f4f7fc 0%, #f8f7f4 55%, #fbf6ef 100%); min-height: 100%; }
+body { margin: 0; background: transparent; color: var(--text); word-break: keep-all; overflow-wrap: break-word;
+  font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif; }
+.wrap { max-width: 1272px; margin: 0 auto; padding: 28px 16px 60px; }
+h1 { margin: 0 0 4px; font-size: 26px; letter-spacing: -0.02em; }
+.lead { margin: 0 0 26px; color: var(--muted); font-size: 14.5px; }
+section { margin: 0 0 44px; }
+section > h2 { margin: 0 0 4px; font-size: 18px; letter-spacing: -0.01em; }
+section > h2 small { font-size: 12.5px; font-weight: 600; color: var(--muted); margin-left: 6px; }
+.desc { margin: 0 0 14px; color: var(--muted); font-size: 13.5px; }
+.stage { background: rgba(255,255,255,.55); border: 1px solid var(--line); border-radius: 18px; padding: 18px 16px 10px; overflow-x: auto; }
+
+/* 표 (PC 폭 13열) */
+.ptable { display: grid; grid-template-columns: repeat(13, minmax(0, 1fr)); gap: 8px; width: 1206px; align-items: start; }
+.col { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; min-width: 0; transition: opacity .2s; }
+.ptable.hovering .col:not(.hot) .el { opacity: .38; }
+.el { transition: opacity .2s; }
+
+/* 새 칸 디자인 흉내 */
+.el { position: relative; display: flex; flex-direction: column; gap: 7px; text-decoration: none; color: var(--text); }
+.el .art { position: relative; display: block; aspect-ratio: 1; border-radius: 23%; overflow: hidden; background: var(--surface); box-shadow: var(--art-sh); isolation: isolate; transition: transform .2s ease; }
+.el .art::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,0) 30%, rgba(10,16,30,0) 55%, rgba(10,16,30,.24) 100%), color-mix(in srgb, var(--c) 14%, transparent); }
+.el:hover .art { transform: translateY(-4px); }
+.el img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.el .num { position: absolute; top: 7px; left: 10px; font-size: 9px; font-weight: 800; color: var(--c); letter-spacing: .04em; z-index: 2; text-shadow: 0 0 6px #fff, 0 0 3px #fff, 0 0 2px #fff; }
+.el .sym { position: absolute; top: 5px; left: 24px; font-size: 20px; font-weight: 800; color: var(--c); letter-spacing: -0.02em; z-index: 2; line-height: 1.6; text-shadow: 0 0 6px #fff, 0 0 3px #fff, 0 0 2px #fff; }
+.el .nm { display: block; font-size: 12px; font-weight: 700; line-height: 1.22; text-align: center; height: 2.45em; overflow: hidden; padding: 0 2px; }
+
+/* 공통 머리 */
+.fh { box-sizing: border-box; min-width: 0; overflow: hidden; cursor: default; }
+
+/* A. 아이콘 칩 + 가는 색선 (A1 이모지 / A2 흰 선 아이콘) */
+.vA .fh { height: 68px; display: grid; grid-template-columns: var(--chip) minmax(0, 1fr); grid-template-rows: var(--chip) auto; column-gap: 7px; row-gap: 4px; align-content: start; padding: 0 1px 6px; border-bottom: 2px solid var(--c); }
+.vA .chip { width: var(--chip); height: var(--chip); border-radius: var(--chip-r); display: grid; place-items: center;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--c) 72%, #fff) 0%, var(--c) 55%, color-mix(in srgb, var(--c) 82%, #000) 100%);
+  box-shadow: 0 4px 8px -3px color-mix(in srgb, var(--c) 55%, rgba(20,30,60,.5)), 0 1px 2px rgba(20,30,60,.14), inset 0 1px 0 rgba(255,255,255,.35); }
+.vA .chip .em { font-size: 15px; line-height: 1; filter: drop-shadow(0 1px 1px rgba(0,0,0,.18)); }
+.vA .chip svg { width: 18px; height: 18px; display: block; }
+.vA .fh b { grid-column: 1 / -1; grid-row: 2; font-size: 12px; line-height: 1.15; letter-spacing: -0.02em; color: var(--text); }
+.vA .fh small { grid-column: 2; grid-row: 1; align-self: center; font-size: 10.5px; line-height: 1.2; color: var(--muted); font-weight: 600; white-space: nowrap; }
+.vA .fh:hover .chip { transform: translateY(-1px); }
+.vA .chip { transition: transform .15s; }
+
+/* B. 색 띠 머리 */
+.vB .fh { height: 58px; border-radius: 13px; padding: 6px 7px 0 8px; color: #fff;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--c) 86%, #fff) 0%, var(--c) 60%, color-mix(in srgb, var(--c) 88%, #000) 100%);
+  box-shadow: 0 6px 14px -6px color-mix(in srgb, var(--c) 70%, rgba(20,30,60,.4)), 0 1px 2px rgba(20,30,60,.10);
+  display: grid; grid-template-columns: auto 1fr auto; grid-template-rows: 20px auto; align-content: start; column-gap: 4px; row-gap: 2px; }
+.vB .fh .em { font-size: 14px; line-height: 20px; }
+.vB .fh i { grid-column: 3; font-style: normal; font-size: 10.5px; font-weight: 800; line-height: 17px; height: 17px; align-self: center; padding: 0 7px; border-radius: 99px; background: rgba(255,255,255,.26); }
+.vB .fh b { grid-column: 1 / -1; font-size: 12px; line-height: 1.16; letter-spacing: -0.02em; text-shadow: 0 1px 1px rgba(0,0,0,.12); }
+
+/* C. 세로 색선 + 글자만 */
+.vC .fh { height: 44px; position: relative; padding: 2px 0 0 10px; font-size: 12px; line-height: 1.2; }
+.vC .fh::before { content: ""; position: absolute; left: 0; top: 2px; width: 3px; height: 30px; border-radius: 3px; background: var(--c); transition: height .2s; }
+.vC .fh:hover::before { height: 40px; }
+.vC .fh b { display: inline; font-size: 12px; line-height: 1.2; letter-spacing: -0.02em; }
+.vC .fh i { font-style: normal; font-size: 10.5px; font-weight: 600; color: var(--muted); margin-left: 3px; white-space: nowrap; }
+
+/* 휴대폰 탭 */
+.phones { display: flex; flex-wrap: wrap; gap: 28px; }
+.phone { width: 390px; border-radius: 34px; background: #f6f7fb; border: 1px solid var(--line); box-shadow: 0 20px 40px -18px rgba(20,30,60,.25); overflow: hidden; }
+.phone h3 { margin: 0; padding: 14px 18px 0; font-size: 14px; }
+.phone .pdesc { margin: 2px 18px 0; font-size: 12.5px; color: var(--muted); line-height: 1.5; min-height: 38px; }
+.tabs { display: flex; gap: 8px; overflow-x: auto; margin-top: 10px; padding: 9px 16px; background: rgba(246,247,251,.92); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); scrollbar-width: none; }
+.tabs::-webkit-scrollbar { display: none; }
+.tabs button { flex: 0 0 auto; font: inherit; cursor: pointer; white-space: nowrap; color: var(--text); }
+/* 탭1: A 칩 작은 탭 */
+.t1 button { display: inline-flex; align-items: center; gap: 7px; height: 40px; padding: 0 13px 0 6px; border-radius: 13px; border: 1px solid var(--line); background: var(--surface); font-size: 14px; font-weight: 700; box-shadow: 0 1px 2px rgba(20,30,60,.05); }
+.t1 .chip { width: 28px; height: 28px; border-radius: 26%; display: grid; place-items: center; background: linear-gradient(180deg, color-mix(in srgb, var(--c) 72%, #fff) 0%, var(--c) 55%, color-mix(in srgb, var(--c) 82%, #000) 100%); box-shadow: 0 3px 6px -3px color-mix(in srgb, var(--c) 60%, rgba(20,30,60,.5)); }
+.t1 .chip svg { width: 17px; height: 17px; }
+.t1 button small { font-size: 11.5px; font-weight: 600; color: var(--muted); }
+.t1 button.on { border-color: var(--c); background: color-mix(in srgb, var(--c) 10%, #fff); box-shadow: 0 0 0 1px var(--c) inset; }
+/* 탭2: 지금처럼 둥근 버튼 + 이모지 */
+.t2 button { display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 14px; border-radius: 99px; border: 1.5px solid var(--line); background: var(--surface); font-size: 14px; font-weight: 700; }
+.t2 button .ti { font-size: 16px; }
+.t2 button.on { background: var(--c); border-color: var(--c); color: #fff; }
+.pcells { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 14px 16px 20px; }
+.pcells .el .num { font-size: 11px; top: 10px; left: 13px; }
+.pcells .el .sym { font-size: 26px; top: 6px; left: 30px; }
+.pcells .el .nm { font-size: 14px; height: 2.5em; line-height: 1.25; }
+.note { font-size: 13px; color: var(--muted); margin: 14px 0 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>분야 머리 행 시안</h1>
+  <p class="lead">메인 "실험 주기율표"의 13개 분야 머리를 새 둥근 칸과 한 세트로 보이게 바꾸는 시안입니다. 각 시안은 PC 폭 13열에 열마다 실제 칸 2개를 붙였어요. 분야 머리에 마우스를 올리면 다른 열의 칸이 흐려집니다.</p>
+  <div id="variants"></div>
+
+  <section>
+    <h2>휴대폰 분야 탭 <small>390px 폭 · 가로로 밀어 보세요</small></h2>
+    <p class="desc">탭을 누르면 아래 칸이 그 분야로 바뀝니다.</p>
+    <div class="phones">
+      <div class="phone"><h3>탭 1. 아이콘 칩 탭</h3><p class="pdesc">A2 칩을 작은 탭에 넣고 개수를 옆에 둡니다. 고른 탭은 분야색 테두리와 옅은 바탕.</p><div class="tabs t1" data-kind="chip"></div><div class="pcells"></div></div>
+      <div class="phone"><h3>탭 2. 지금 방식 (둥근 버튼 + 이모지)</h3><p class="pdesc">현재 사이트와 같은 알약 버튼. 고른 탭은 분야색으로 꽉 채웁니다.</p><div class="tabs t2" data-kind="emoji"></div><div class="pcells"></div></div>
+    </div>
+  </section>
+</div>
+<script>
+const F = [["daily","#1fa463","🚦","일상의 선택과 질서",7,[["traffic","01","Tr","유령 정체"],["bar","02","Ba","붐비는 식당"]]],["people","#2f6fed","🧑‍🤝‍🧑","인간관계",5,[["schelling","08","Sc","끼리끼리"],["filterbubble","09","Fb","필터버블"]]],["success","#e0a100","💰","성공과 불평등",3,[["talent-vs-luck","13","Tl","노력 vs 운"],["wealth","14","Ws","부의 쏠림"]]],["economy","#0369a1","💹","경제",5,[["auction","16","Au","경매"],["apartment","17","Ap","아파트 가격"]]],["parenting","#e0527a","🍼","육아",3,[["hagwon","21","Hg","학원 딜레마"],["daycare","22","Dc","어린이집 감기"]]],["work","#7c5cff","🏢","일터와 제도",3,[["peter","24","Pe","무능한 상사"],["secretary","25","Sk","37%의 법칙"]]],["society","#475569","🏙️","사회 현안",4,[["population","27","Po","2070 인구"],["voting","28","Vo","투표 방식"]]],["history","#c2410c","📜","역사",5,[["revolution","31","Rv","혁명의 문턱"],["easter","32","Es","이스터섬"]]],["science","#0ea5a5","🔬","과학",7,[["firefly","36","Ff","반딧불이"],["murmuration","37","Mm","찌르레기 떼 군무"]]],["philosophy","#be185d","🧠","철학",3,[["cooperation","43","Co","협력의 진화"],["veil","44","Vl","무지의 베일"]]],["paradox","#4d7c0f","🔄","뒤집어 보기",5,[["braess","46","Br","새 길의 역설"],["regression","47","Rg","평균 회귀"]]],["literature","#a16207","📖","문학",3,[["monkey","51","Mk","원숭이와 햄릿"],["zipf","52","Zp","지프의 법칙"]]],["art","#9333ea","🎨","예술",9,[["fashion","54","Fa","유행의 순환"],["painters","55","Pa","AI 화가"]]]];
+
+/* 직접 그린 흰 선 아이콘: 24px 격자, 선 두께 2, 둥근 끝 */
+const IC = {
+  daily: '<rect x="8" y="2.5" width="8" height="19" rx="3"/><circle cx="12" cy="7.5" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="12" cy="16.5" r="1.4"/>',
+  people: '<circle cx="9" cy="8" r="3"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14.6a4.5 4.5 0 0 1 5 4.4"/>',
+  success: '<ellipse cx="12" cy="6" rx="7" ry="2.5"/><path d="M5 6v4c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6"/><path d="M5 10v4c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-4"/><path d="M5 14v4c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-4"/>',
+  economy: '<path d="M3.5 3.5v17h17"/><path d="M7.5 15l3.5-3.5 3 3 5.5-5.5"/><path d="M15.5 9h4v4"/>',
+  parenting: '<path d="M10 6V4.5a2 2 0 0 1 4 0V6"/><rect x="8.5" y="6" width="7" height="2.5" rx="1"/><path d="M9 8.5h6v10a2.5 2.5 0 0 1-2.5 2.5h-1A2.5 2.5 0 0 1 9 18.5z"/><path d="M9 12.5h2.5M9 15.5h2.5"/>',
+  work: '<rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M9 7h.01M15 7h.01M9 11h.01M15 11h.01M9 15h.01M15 15h.01" stroke-width="2.6"/><path d="M10.5 21v-3h3v3"/>',
+  society: '<path d="M2.5 21h19"/><path d="M4.5 21V11h4.5v10"/><path d="M9 21V4.5h6V21"/><path d="M15 21V8.5h4.5V21"/><path d="M11.5 8.5h1M11.5 12h1"/>',
+  history: '<rect x="4" y="3" width="16" height="4" rx="2"/><rect x="4" y="17" width="16" height="4" rx="2"/><path d="M6.5 7v10M17.5 7v10"/><path d="M9.5 11h5M9.5 14h3"/>',
+  science: '<path d="M9 3h6"/><path d="M10 3v6.2L5.2 18.4A1.8 1.8 0 0 0 6.8 21h10.4a1.8 1.8 0 0 0 1.6-2.6L14 9.2V3"/><path d="M7.4 15h9.2"/>',
+  philosophy: '<path d="M12 5.5a3 3 0 0 0-5.6 1.4A3 3 0 0 0 4.5 11.5a3 3 0 0 0 1.2 4.6A3 3 0 0 0 9.2 19.8a3 3 0 0 0 2.8-1.6"/><path d="M12 5.5a3 3 0 0 1 5.6 1.4 3 3 0 0 1 1.9 4.6 3 3 0 0 1-1.2 4.6 3 3 0 0 1-3.5 3.7 3 3 0 0 1-2.8-1.6"/><path d="M12 5.5v12.7"/><path d="M8 10.5c1.2 0 2 .8 2 2M16 10.5c-1.2 0-2 .8-2 2"/>',
+  paradox: '<path d="M4 8h13"/><path d="M14 4.5L17.5 8 14 11.5"/><path d="M20 16H7"/><path d="M10 12.5L6.5 16l3.5 3.5"/>',
+  literature: '<path d="M12 6.5C10 5 7 4.5 3.5 5v14c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5z"/><path d="M12 6.5v14"/>',
+  art: '<path d="M12 3a9 9 0 1 0 0 18c1.1 0 1.9-.8 1.9-1.8 0-.5-.2-.9-.5-1.2-.3-.4-.5-.8-.5-1.3 0-1 .8-1.8 1.8-1.8H17a4 4 0 0 0 4-4C21 6.6 17 3 12 3z"/><circle cx="7.5" cy="11.5" r=".9" fill="#fff"/><circle cx="9.5" cy="7.5" r=".9" fill="#fff"/><circle cx="14.5" cy="7.5" r=".9" fill="#fff"/>'
+};
+const svg = k => `<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[k]}</svg>`;
+const cell = (c, [slug, num, sym, nm]) => `<a class="el" href="#" style="--c:${c}"><span class="art"><img src="../thumbs/${slug}.jpg" alt="" decoding="async"><span class="num">${num}</span><span class="sym">${sym}</span></span><span class="nm">${nm}</span></a>`;
+
+const V = [
+  ["A", "A1. 아이콘 칩(이모지) + 가는 색선", "칩 28px · 모서리 26% · 아래 색선 2px · 머리 68px",
+    "칸과 같은 둥근 네모 칩에 이모지를 담아 칸 디자인과 가족처럼 보입니다. 이모지 색이 칩 색과 섞여 조금 시끄러울 수 있어요.",
+    ([k, c, e, n, cnt]) => `<span class="chip"><span class="em">${e}</span></span><b>${n}</b><small>실험 ${cnt}개</small>`],
+  ["A", "A2. 아이콘 칩(흰 선 아이콘) + 가는 색선", "칩 28px · 모서리 26% · 아이콘 18px(선 2/24) · 색선 2px · 머리 68px",
+    "같은 두께의 흰 선 아이콘 13개로 통일해 가장 정돈돼 보입니다. 아이콘을 분야마다 새로 그려야 하는 품이 듭니다.",
+    ([k, c, e, n, cnt]) => `<span class="chip">${svg(k)}</span><b>${n}</b><small>실험 ${cnt}개</small>`],
+  ["B", "B. 색 띠 머리", "띠 높이 58px · 모서리 13px · 개수 알약 흰 26% · 위→아래 그라데이션",
+    "분야 구분이 가장 강하게 보이고 멀리서도 열이 또렷합니다. 13색 띠가 한 줄로 서면 무지개처럼 화면이 무거워질 수 있어요.",
+    ([k, c, e, n, cnt]) => `<span class="em">${e}</span><span></span><i>${cnt}</i><b>${n}</b>`],
+  ["C", "C. 세로 색선 + 글자만", "세로선 3×30px(둥근 끝, 올리면 40px) · 이름 12px · 머리 44px",
+    "가장 조용하고 칸 사진이 주인공이 됩니다. 이모지가 없어 분야를 그림으로 빨리 찾기는 어렵습니다.",
+    ([k, c, e, n, cnt]) => `<b>${n}</b><i>${cnt}</i>`],
+];
+document.getElementById('variants').innerHTML = V.map(([cls, title, spec, desc, head]) => `
+  <section>
+    <h2>${title} <small>${spec}</small></h2>
+    <p class="desc">${desc}</p>
+    <div class="stage"><div class="ptable v${cls}">${F.map(f => `<div class="col" style="--c:${f[1]}"><div class="fh" title="${f[3]}">${head(f)}</div>${f[5].map(x => cell(f[1], x)).join('')}</div>`).join('')}</div></div>
+  </section>`).join('');
+
+/* 열 머리에 마우스를 올리면 다른 열의 칸을 흐리게 */
+document.querySelectorAll('.ptable').forEach(t => {
+  t.querySelectorAll('.col').forEach(col => {
+    const h = col.querySelector('.fh');
+    h.addEventListener('mouseenter', () => { t.classList.add('hovering'); col.classList.add('hot'); });
+    h.addEventListener('mouseleave', () => { t.classList.remove('hovering'); col.classList.remove('hot'); });
+  });
+});
+
+/* 휴대폰 탭 */
+document.querySelectorAll('.phone').forEach(ph => {
+  const tabs = ph.querySelector('.tabs'), cells = ph.querySelector('.pcells'), chip = tabs.dataset.kind === 'chip';
+  tabs.innerHTML = F.map(([k, c, e, n, cnt], i) => `<button type="button" data-i="${i}" style="--c:${c}" class="${i ? '' : 'on'}">${chip ? `<span class="chip">${svg(k)}</span>${n} <small>${cnt}</small>` : `<span class="ti">${e}</span>${n}`}</button>`).join('');
+  const show = i => { cells.innerHTML = F[i][5].map(x => cell(F[i][1], x)).join(''); tabs.querySelectorAll('button').forEach(b => b.classList.toggle('on', +b.dataset.i === i)); };
+  tabs.addEventListener('click', ev => { const b = ev.target.closest('button'); if (b) show(+b.dataset.i); });
+  show(0);
+});
+</script>
+</body>
+</html>
