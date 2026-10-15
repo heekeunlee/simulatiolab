@@ -6,7 +6,7 @@ from mk2 import T, esc, da, _shell, EXP
 ROOT = os.path.join(EXP, '..')
 # (id, 색, 아이콘, 분야 T, 설명 T, [(slug, 모델 T, 제목 T, 설명 T)])
 CATS = [
- ('daily', '#1fa463', '🚦', T('일상의 선택과 질서', 'Everyday Choices &amp; Order'), T('길, 식당, 줄에서 우리가 매일 겪는 일', 'What we run into every day on the road, at restaurants and in lines'), [
+ ('daily', '#1fa463', '🚦', T('일상의 선택', 'Everyday Choices'), T('길, 식당, 줄에서 우리가 매일 겪는 일', 'What we run into every day on the road, at restaurants and in lines'), [
   ('traffic', T('나겔-슈레켄베르크 모델', 'Nagel–Schreckenberg model'), T('유령 정체: 사고도 공사도 없는데 왜 막힐까', 'Phantom Traffic Jams: Why Does Traffic Stop Without an Accident?'), T('가끔 밟는 브레이크 하나가 도로 전체를 막는 과정을 지켜봐요.', 'Watch how one occasional tap on the brakes can jam a whole road.')),
   ('bar', T('엘 파롤 바 문제', 'El Farol Bar problem'), T('다 같이 가는 식당은 왜 늘 붐빌까', 'Why Is the Popular Restaurant Always Packed?'), T('모두가 같은 생각을 하면 왜 모두 손해일까? 예측이 제각각이면 어떻게 될까?', 'Why does everyone lose when everyone thinks alike? And what if predictions differ?')),
   ('queue', T('공간 진화 게임', 'Spatial evolutionary game'), T('새치기가 늘면 줄은 어떻게 될까', 'What Happens When Queue-Jumping Spreads?'), T('질서는 가만히 지켜지지 않고 누군가 비용을 치르며 지켜진다는 걸 실험해요.', "Test the idea that order isn't kept by itself but by someone paying a price to keep it.")),
@@ -96,6 +96,25 @@ CATS = [
  ]),
 ]
 
+
+# 분야 머리 칩의 흰 선 아이콘 (24px 격자, 선 두께 2, 둥근 끝). 머리와 휴대폰 탭에 inline SVG로 쓴다
+FIELD_ICON = {
+ 'daily': '<rect x="8" y="2.5" width="8" height="19" rx="3"/><circle cx="12" cy="7.5" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="12" cy="16.5" r="1.4"/>',
+ 'people': '<circle cx="9" cy="8" r="3"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14.6a4.5 4.5 0 0 1 5 4.4"/>',
+ 'success': '<ellipse cx="12" cy="6" rx="7" ry="2.5"/><path d="M5 6v4c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6"/><path d="M5 10v4c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-4"/><path d="M5 14v4c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-4"/>',
+ 'economy': '<path d="M3.5 3.5v17h17"/><path d="M7.5 15l3.5-3.5 3 3 5.5-5.5"/><path d="M15.5 9h4v4"/>',
+ 'parenting': '<path d="M10 6V4.5a2 2 0 0 1 4 0V6"/><rect x="8.5" y="6" width="7" height="2.5" rx="1"/><path d="M9 8.5h6v10a2.5 2.5 0 0 1-2.5 2.5h-1A2.5 2.5 0 0 1 9 18.5z"/><path d="M9 12.5h2.5M9 15.5h2.5"/>',
+ 'work': '<rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M9 7h.01M15 7h.01M9 11h.01M15 11h.01M9 15h.01M15 15h.01" stroke-width="2.6"/><path d="M10.5 21v-3h3v3"/>',
+ 'society': '<path d="M2.5 21h19"/><path d="M4.5 21V11h4.5v10"/><path d="M9 21V4.5h6V21"/><path d="M15 21V8.5h4.5V21"/><path d="M11.5 8.5h1M11.5 12h1"/>',
+ 'history': '<rect x="4" y="3" width="16" height="4" rx="2"/><rect x="4" y="17" width="16" height="4" rx="2"/><path d="M6.5 7v10M17.5 7v10"/><path d="M9.5 11h5M9.5 14h3"/>',
+ 'science': '<path d="M9 3h6"/><path d="M10 3v6.2L5.2 18.4A1.8 1.8 0 0 0 6.8 21h10.4a1.8 1.8 0 0 0 1.6-2.6L14 9.2V3"/><path d="M7.4 15h9.2"/>',
+ 'philosophy': '<path d="M12 5.5a3 3 0 0 0-5.6 1.4A3 3 0 0 0 4.5 11.5a3 3 0 0 0 1.2 4.6A3 3 0 0 0 9.2 19.8a3 3 0 0 0 2.8-1.6"/><path d="M12 5.5a3 3 0 0 1 5.6 1.4 3 3 0 0 1 1.9 4.6 3 3 0 0 1-1.2 4.6 3 3 0 0 1-3.5 3.7 3 3 0 0 1-2.8-1.6"/><path d="M12 5.5v12.7"/><path d="M8 10.5c1.2 0 2 .8 2 2M16 10.5c-1.2 0-2 .8-2 2"/>',
+ 'paradox': '<path d="M4 8h13"/><path d="M14 4.5L17.5 8 14 11.5"/><path d="M20 16H7"/><path d="M10 12.5L6.5 16l3.5 3.5"/>',
+ 'literature': '<path d="M12 6.5C10 5 7 4.5 3.5 5v14c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5z"/><path d="M12 6.5v14"/>',
+ 'art': '<path d="M12 3a9 9 0 1 0 0 18c1.1 0 1.9-.8 1.9-1.8 0-.5-.2-.9-.5-1.2-.3-.4-.5-.8-.5-1.3 0-1 .8-1.8 1.8-1.8H17a4 4 0 0 0 4-4C21 6.6 17 3 12 3z"/><circle cx="7.5" cy="11.5" r=".9" fill="#fff"/><circle cx="9.5" cy="7.5" r=".9" fill="#fff"/><circle cx="14.5" cy="7.5" r=".9" fill="#fff"/>',
+}
+def field_svg(k):
+    return f'<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{FIELD_ICON[k]}</svg>'
 
 # 칸 썸네일: 각 실험의 실제 결과 화면 (tools/browser/make_thumbs.js가 site/thumbs/<slug>.jpg로 만든다).
 # 직접 고른 그림을 쓰려면 site/thumbs/custom/<slug>.jpg (또는 .png/.webp)를 넣으면 그것이 우선한다. 둘 다 없으면 미니 애니메이션.
@@ -275,8 +294,8 @@ def build(only_existing=True):
           <span class="hid t-title"{da(title)}>{title[0]}</span><span class="hid t-desc"{da(desc)}>{desc[0]}</span><span class="hid t-model"{da(method)}>{method[0]}</span>
         </a>"""
         cols += f"""
-      <div class="col" data-field="{k}" data-color="{col}" data-icon="{ic}" style="--c:{col}">
-        <div class="fh"><span class="ic">{ic}</span><b{da(t)}>{t[0]}</b><i>{len(items)}</i></div>{tiles}
+      <div class="col" data-field="{k}" data-color="{col}" style="--c:{col}">
+        <div class="fh"><span class="chip">{field_svg(k)}</span><i>{len(items)}</i><b{da(t)}>{t[0]}</b></div>{tiles}
       </div>"""
 
     L = lambda ko, en: (ko, en)

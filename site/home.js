@@ -184,9 +184,11 @@
   const cols = Array.from(table.querySelectorAll('.col')); if (!cols.length) return;
   const U = (ko, e) => (window.I18N ? window.I18N.u(ko, e) : ko);
   const nav = document.createElement('nav'); nav.className = 'ftabs'; nav.setAttribute('aria-label', 'fields');
-  const mk = (key, icon, label, color) => { const b = document.createElement('button'); b.type = 'button'; b.dataset.key = key; b.style.setProperty('--c', color); b.innerHTML = (icon ? '<span class="ti">' + icon + '</span>' : '') + '<span class="tl"></span>'; b.querySelector('.tl').textContent = label; return b; };
-  nav.appendChild(mk('all', '', U('전체', 'All'), '#2f6fed'));
-  cols.forEach((c) => nav.appendChild(mk(c.dataset.field, c.dataset.icon, (c.querySelector('.fh b') || {}).textContent || c.dataset.field, c.dataset.color)));
+  // 탭 = 흰 탭 안에 분야 머리와 같은 아이콘 칩(SVG는 머리에서 복사) + 이름 + 동그라미 개수
+  const ALL_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/></svg>';
+  const mk = (key, svg, label, color, n) => { const b = document.createElement('button'); b.type = 'button'; b.dataset.key = key; b.style.setProperty('--c', color); b.innerHTML = '<span class="chip">' + svg + '</span><span class="tl"></span><span class="tn"></span>'; b.querySelector('.tl').textContent = label; b.querySelector('.tn').textContent = n; return b; };
+  nav.appendChild(mk('all', ALL_SVG, U('전체', 'All'), '#2f6fed', table.querySelectorAll('.el').length));
+  cols.forEach((c) => { const ch = c.querySelector('.fh .chip'); nav.appendChild(mk(c.dataset.field, ch ? ch.innerHTML : '', (c.querySelector('.fh b') || {}).textContent || c.dataset.field, c.dataset.color, c.querySelectorAll('.el').length)); });
   table.before(nav);
   let cur = 'all';
   const apply = (key, scroll) => {
@@ -200,4 +202,15 @@
   nav.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) apply(b.dataset.key, true); });
   let saved = 'all'; try { saved = sessionStorage.getItem('lab-ftab') || 'all'; } catch (e) {}
   apply(cols.some((c) => c.dataset.field === saved) ? saved : 'all', false);
+})();
+
+// ---------- 분야 머리에 마우스를 올리면 다른 열의 칸을 살짝 흐리게 (마우스 기기만, 움직임 줄이기 설정이면 생략) ----------
+(function () {
+  const table = document.querySelector('.ptable'); if (!table || !window.matchMedia) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !window.matchMedia('(hover: hover)').matches) return;
+  table.querySelectorAll('.col').forEach((col) => {
+    const h = col.querySelector('.fh'); if (!h) return;
+    h.addEventListener('mouseenter', () => { table.classList.add('fdim'); col.classList.add('hot'); });
+    h.addEventListener('mouseleave', () => { table.classList.remove('fdim'); col.classList.remove('hot'); });
+  });
 })();
