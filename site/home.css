@@ -204,7 +204,7 @@ html:not([lang="ko"]) .el .new-pill, html:not([lang="ko"]) .el .done-mark { bott
   .ftabs button.on .tn { background: #fff; }
   .ptable { grid-template-columns: 1fr; gap: 26px; }
   .col.off { display: none; }
-  .col { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .col { grid-template-columns: 1fr 1fr; gap: 16px 20px; padding: 0 14px; box-sizing: border-box; }   /* 휴대폰 칸을 조금 작게: 좌우 여백·칸 사이 간격을 늘림 */
   .col .fh, .fh, html:not([lang="ko"]) .fh { --chip: 34px; grid-column: 1 / -1; height: auto; grid-template-columns: var(--chip) minmax(0, 1fr) auto; grid-template-rows: var(--chip); column-gap: 10px; padding: 2px 2px 8px; }
   .fh .chip svg { width: 21px; height: 21px; }
   .fh b, html:not([lang="ko"]) .fh b { grid-column: 2; grid-row: 1; align-self: center; font-size: 17px; line-height: 1.2; -webkit-line-clamp: 2; }
@@ -212,8 +212,8 @@ html:not([lang="ko"]) .el .new-pill, html:not([lang="ko"]) .el .done-mark { bott
   .fh .fcomp { grid-column: 3; justify-self: end; font-size: 11px; }
   .el { gap: 8px; }
   .el .num { font-size: 11px; top: 10px; left: 13px; }
-  .el .sym { font-size: 26px; top: 7px; left: 30px; }
-  .el .nm, html:not([lang="ko"]) .el .nm { font-size: 14px; height: 2.5em; line-height: 1.25; }
+  .el .sym { font-size: 24px; top: 7px; left: 29px; }
+  .el .nm, html:not([lang="ko"]) .el .nm { font-size: 13.5px; height: 2.5em; line-height: 1.25; }
   .el .bdg { right: 9px; bottom: 9px; }
   .el .b3d, .el .bnew { font-size: 10px; padding: 3px 6px; }
   .el .new-pill, html:not([lang="ko"]) .el .new-pill { left: 12px; bottom: 56px; font-size: 11px; }
