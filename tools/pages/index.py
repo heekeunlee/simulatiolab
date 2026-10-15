@@ -66,6 +66,15 @@ CATS = [
   ('wildfire', T('숲불 모델 (Drossel–Schwabl)', 'Forest-fire model (Drossel–Schwabl)'), T('작은 산불을 다 끄면 왜 나중에 더 큰 불이 날까', 'Why Putting Out Every Small Fire Can Lead to Bigger Ones Later'), T('작은 불을 끄면 연료가 쌓여 큰 불이 늘어나는 과정을, 두 숲을 나란히 돌려 확인해요.', 'See how putting out small fires lets fuel pile up and big fires multiply, with two forests running side by side.')),
   ('ant', T('랭턴의 개미 (세포 자동자)', "Langton's ant (cellular automaton)"), T('규칙 두 줄짜리 개미가 만 걸음 뒤 갑자기 길을 낸다: 랭턴의 개미', "A Two-Rule Ant Suddenly Builds a Road After 10,000 Steps: Langton's Ant"), T('규칙이 두 줄뿐인 개미가 대칭 무늬, 혼돈을 거쳐 약 만 걸음 뒤 갑자기 대각선 길을 내요.', 'An ant with just two rules makes symmetry, then chaos, then suddenly a diagonal road after about 10,000 steps.')),
  ]),
+ ('space', '#3730a3', '🪐', T('우주', 'Space'), T('별과 행성, 은하는 왜 그렇게 움직일까?', 'Why do stars, planets and galaxies move the way they do?'), [
+  ('threebody', T('중력 3체 문제', 'Gravitational three-body problem'), T('별 셋은 왜 예측할 수 없는 춤을 출까?', 'Why Do Three Stars Dance So Unpredictably?'), T('시작 위치를 아주 조금 바꾼 쌍둥이 판을 나란히 돌려, 별 셋의 춤이 언제 갈라지는지 봐요.', 'Run twin runs that differ by a hair and watch when the three stars\' dance diverges.')),
+  ('asteroid', T('2체 궤도 + 충격 편향', 'Two-body orbit with impulse deflection'), T('소행성을 몇 년 전에 살짝 밀면 지구를 비껴갈까?', 'Nudge an Asteroid Years Ahead, and Will It Miss Earth?'), T('소행성을 몇 년 전에, 얼마나 세게 밀어야 지구를 비껴가는지 돌려 봐요. 일찍 조금인지, 늦게 많이인지.', 'Nudge an asteroid years ahead and see how far it misses Earth: a little early, or a lot late.')),
+  ('galaxy', T('제한 N체 은하 충돌', 'Restricted N-body galaxy collision'), T('은하 둘이 부딪히면 별들은 서로 부딪힐까?', 'When Two Galaxies Collide, Do Their Stars Crash?'), T('별 수천 개로 된 은하 둘이 스치며 긴 꼬리를 만들어요. 그런데 별끼리는 거의 안 부딪혀요.', 'Two galaxies of thousands of stars brush past and grow long tails, yet the stars almost never collide.')),
+  ('cosmicweb', T('입자-격자 중력 + 팽창', 'Particle-mesh gravity with expansion'), T('거의 고른 먼지가 어떻게 거미줄이 될까?', 'How Does Almost Even Dust Turn into a Web?'), T('거의 고른 알갱이 3만 개가 중력만으로 실과 빈 공간의 거미줄로 뭉쳐요. 팽창 속도를 바꿔 보세요.', 'Thirty thousand nearly even grains clump by gravity alone into a web of filaments and voids. Try changing the expansion.')),
+  ('drake', T('드레이크 방정식 몬테카를로', 'Monte Carlo Drake equation'), T('우리는 왜 아직 외계 문명을 못 만났을까?', 'Why Haven\'t We Met an Alien Civilization Yet?'), T('7개 항을 범위로 두고 1만 번 돌려 문명 수의 분포를 보고, 수명이 짧으면 왜 서로 못 만나는지 봐요.', 'Draw the seven factors from ranges 10,000 times to see the spread, and why short-lived civilizations never meet.')),
+  ('moonaxis', T('자전축 세차 장난감 모델', 'Toy model of axial precession'), T('달이 없었다면 지구의 계절은 어떻게 됐을까?', 'Without the Moon, What Would Earth\'s Seasons Be Like?'), T('달의 무게를 바꾸며 지구 자전축이 100만 년 동안 얼마나 흔들리는지 봐요. 어중간한 달이 더 흔들려요.', 'Change the Moon\'s mass and watch how much Earth\'s axis wobbles over a million years; a half-size Moon wobbles most.')),
+  ('nightsky', T('별 밝기·거리 분포 모델', 'Star brightness and distance model'), T('밤하늘엔 왜 밝은 별이 몇 개뿐일까?', 'Why Are There Only a Few Bright Stars in the Night Sky?'), T('별 10만 개를 고르게 뿌리면 밝은 별은 몇 개뿐이고 어두운 별은 폭증해요. 도시 불빛을 바꿔 보세요.', 'Scatter 100,000 stars evenly and only a handful look bright while faint ones explode in number. Try changing city lights.')),
+ ]),
  ('philosophy', '#be185d', '🧠', T('철학', 'Philosophy'), T('도덕과 신뢰는 어떻게 살아남을까', 'How do morality and trust survive?'), [
   ('cooperation', T('반복 죄수의 딜레마', "Iterated prisoner's dilemma"), T('착한 사람은 살아남을까', 'Do Nice People Survive?'), T('배신하는 사람이 많은 세상에서 협력과 신뢰는 어떻게 되살아날까? 실수가 끼어들면 어떻게 될까?', 'In a world full of defectors, how do cooperation and trust come back? What changes when mistakes creep in?')),
   ('veil', T('롤스·하사니 선택 모델', 'Rawls–Harsanyi choice model'), T('무지의 베일 뒤에서 어떤 사회를 고를까', 'Which Society Would You Choose Behind the Veil of Ignorance?'), T('내가 누구로 태어날지 모른다면 어떤 사회를 고를까요? 위험을 싫어하는 정도에 따라 선택이 뒤집혀요.', "If you didn't know who you'd be, which society would you pick? The choice flips with how much you dislike risk.")),
@@ -107,6 +116,7 @@ FIELD_ICON = {
  'work': '<rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M9 7h.01M15 7h.01M9 11h.01M15 11h.01M9 15h.01M15 15h.01" stroke-width="2.6"/><path d="M10.5 21v-3h3v3"/>',
  'society': '<path d="M2.5 21h19"/><path d="M4.5 21V11h4.5v10"/><path d="M9 21V4.5h6V21"/><path d="M15 21V8.5h4.5V21"/><path d="M11.5 8.5h1M11.5 12h1"/>',
  'history': '<rect x="4" y="3" width="16" height="4" rx="2"/><rect x="4" y="17" width="16" height="4" rx="2"/><path d="M6.5 7v10M17.5 7v10"/><path d="M9.5 11h5M9.5 14h3"/>',
+ 'space': '<circle cx="12" cy="12" r="4.6"/><path d="M4.6 8.4C1.9 10.9 7.6 16.6 14 18.9c5.2 1.9 7.8.8 5.4-2.7"/>',
  'science': '<path d="M9 3h6"/><path d="M10 3v6.2L5.2 18.4A1.8 1.8 0 0 0 6.8 21h10.4a1.8 1.8 0 0 0 1.6-2.6L14 9.2V3"/><path d="M7.4 15h9.2"/>',
  'philosophy': '<path d="M12 5.5a3 3 0 0 0-5.6 1.4A3 3 0 0 0 4.5 11.5a3 3 0 0 0 1.2 4.6A3 3 0 0 0 9.2 19.8a3 3 0 0 0 2.8-1.6"/><path d="M12 5.5a3 3 0 0 1 5.6 1.4 3 3 0 0 1 1.9 4.6 3 3 0 0 1-1.2 4.6 3 3 0 0 1-3.5 3.7 3 3 0 0 1-2.8-1.6"/><path d="M12 5.5v12.7"/><path d="M8 10.5c1.2 0 2 .8 2 2M16 10.5c-1.2 0-2 .8-2 2"/>',
  'paradox': '<path d="M4 8h13"/><path d="M14 4.5L17.5 8 14 11.5"/><path d="M20 16H7"/><path d="M10 12.5L6.5 16l3.5 3.5"/>',
@@ -150,6 +160,13 @@ RELATED = {
  'ventilation': ['braess', 'wildfire', 'daycare'],
  'depopulation': ['population', 'schelling', 'apartment'],
  'filterbubble': ['schelling', 'rumor', 'friendship'],
+ 'threebody': ['asteroid', 'galaxy', 'sandpile'],
+ 'asteroid': ['threebody', 'galaxy', 'moonaxis'],
+ 'galaxy': ['threebody', 'cosmicweb', 'murmuration'],
+ 'cosmicweb': ['galaxy', 'dla', 'sandpile'],
+ 'drake': ['nightsky', 'coincidence', 'rumor'],
+ 'moonaxis': ['harmony', 'firefly', 'threebody'],
+ 'nightsky': ['zipf', 'wealth', 'threebody'],
  'murmuration': ['firefly', 'traffic', 'friendship'],
  'bunching': ['traffic', 'braess', 'inspection'],
  'checkout': ['queue', 'inspection', 'bar'],
@@ -175,6 +192,13 @@ ADDED.update({s: '2026-10-14' for s in ['hitsong', 'harmony', 'pollock', 'ovatio
 ADDED['tariff'] = '2026-10-14'
 ADDED['ventilation'] = '2026-10-14'
 ADDED['murmuration'] = '2026-10-15'
+ADDED['nightsky'] = '2026-10-15'
+ADDED['moonaxis'] = '2026-10-15'
+ADDED['drake'] = '2026-10-15'
+ADDED['cosmicweb'] = '2026-10-15'
+ADDED['galaxy'] = '2026-10-15'
+ADDED['asteroid'] = '2026-10-15'
+ADDED['threebody'] = '2026-10-15'
 ADDED['filterbubble'] = '2026-10-15'
 ADDED['depopulation'] = '2026-10-15'
 
@@ -254,6 +278,13 @@ META = {
  'ventilation': ('Vt', T('창문과 환기', 'Window Ventilation'), 'drift'),
  'depopulation': ('Dp', T('지방 소멸의 악순환', 'Depopulation Spiral'), 'grid'),
  'filterbubble': ('Fb', T('필터버블', 'Filter Bubble'), 'spread'),
+ 'threebody': ('Tb', T('세 천체 문제', 'The Three-Body Problem'), 'spiral'),
+ 'asteroid': ('As', T('소행성 궤도 밀기', 'Nudging an Asteroid'), 'ring'),
+ 'galaxy': ('Gx', T('은하 충돌', 'Galaxy Collision'), 'spiral'),
+ 'cosmicweb': ('Cw', T('우주 거미줄', 'Cosmic Web'), 'net'),
+ 'drake': ('Dk', T('드레이크 방정식과 페르미 역설', 'Drake Equation and Fermi Paradox'), 'ring'),
+ 'moonaxis': ('Mo', T('달과 자전축', 'The Moon and Earth\'s Axis'), 'wave'),
+ 'nightsky': ('Ns', T('밤하늘의 별 밝기', 'Star Brightness in the Night Sky'), 'spread'),
  'murmuration': ('Mm', T('찌르레기 떼 군무', 'Starling Murmuration'), 'drift'),
  'dla': ('Dl', T('가지 프랙탈', 'Branching'), 'spread'),
  'sandpile': ('Sp', T('모래더미', 'Sandpile'), 'grid'),

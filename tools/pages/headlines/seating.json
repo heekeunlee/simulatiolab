@@ -2,12 +2,14 @@
  "says_ko": [
   "모두가 협력해 차곡차곡 앉으면 더 많이 앉고, 각자 마음대로 앉으면 같은 벤치에서도 덜 앉아요. 간격이 1칸이면 정돈은 50%, 무작위는 43.2%예요.",
   "먼저 앉은 사람 옆 빈칸은 못 쓰고, 남은 틈은 한 사람이 앉기엔 모자라요. 30석에 간격 2칸이면 정돈하면 10명, 무작위로는 평균 8.6명이 앉았어요.",
-  "간격이 넓을수록 앉는 비율 자체가 줄어요. 2칸이면 27.5%, 3칸이면 20.1%예요. 빈자리가 있는데도 못 앉는 건 누구의 잘못이 아니라 앉는 방식에서 생기는 낭비일 수 있어요."
+  "간격이 넓을수록 앉는 비율 자체가 줄어요. 2칸이면 27.5%, 3칸이면 20.1%예요. 빈자리가 있는데도 못 앉는 건 누구의 잘못이 아니라 앉는 방식에서 생기는 낭비일 수 있어요.",
+  "그렇다면 더 많이 앉으려면? 이 모델에선 앉는 자리보다 간격이 훨씬 컸어요(2칸→1칸: 27.5%→43.2%). 끝자리나 가장 먼 자리부터 앉기는 8.6명에서 8.9명으로 조금 나았어요."
  ],
  "says_en": [
   "When everyone cooperates and packs in neatly, more people sit; when each picks a seat freely, fewer sit on the same bench. With a 1-seat gap, neat packing fills 50% and random seating 43.2%.",
   "The empty seats beside each sitter are off limits, and the leftover gaps are too small for one more. With 30 seats and a 2-seat gap, neat packing seats 10 but random seating averaged 8.6.",
-  "The wider the gap, the lower the share seated: 27.5% at 2 seats and 20.1% at 3. Empty seats with nowhere to sit may be waste from how people sit, not anyone's fault."
+  "The wider the gap, the lower the share seated: 27.5% at 2 seats and 20.1% at 3. Empty seats with nowhere to sit may be waste from how people sit, not anyone's fault.",
+  "So how do more people get a seat? In this model the gap mattered far more than where to sit (2→1 seat: 27.5%→43.2%). Taking the end or farthest seat first helped only a little (8.6 to 8.9 people)."
  ],
  "not_ko": [
   "'정돈'은 모두가 도착 순서를 알고 협력할 때만 가능한 이상적인 기준선이에요. 현실에서 이렇게 앉을 수 있다는 뜻이 아니에요.",

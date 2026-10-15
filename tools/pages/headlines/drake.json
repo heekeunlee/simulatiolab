@@ -1,0 +1,24 @@
+{
+ "says_ko": [
+  "문명이 오래 버티면 은하에 여럿이 동시에 켜져 서로 신호를 주고받지만, 금방 사라지면 있어도 동시에 켜지지 않아 만나지 못할 수 있어요.",
+  "신호는 빛의 속도로 수만 년을 가야 이웃에 닿아요. 이 모델에서 수명 1,000년이면 동시에 평균 1개·답장 0%였고, 100만 년이면 998개가 켜져 모두 답장을 받았어요.",
+  "그런데 일곱 수를 범위로 1만 번 굴리면 문명 수가 0.12~919개(열 번 중 여덟 번)로 흩어져요. 그 흩어짐의 60%를 '문명의 수명' 하나가 만들었어요.",
+  "그렇다면 '외계 문명이 있나'에 답하려면 무엇을 알아야 할까요? 이 모델에서는 별 수보다 문명의 수명을 아는 게 답을 가장 좁혔어요(3.9자리→2.5자리, 별 수만 알면 그대로)."
+ ],
+ "says_en": [
+  "If civilizations last long, many are lit at once and trade signals; if they fade fast, they may exist yet never be lit at the same time, so they never meet.",
+  "Signals take tens of thousands of years to reach a neighbor at light speed. Here a 1,000-year lifetime gave 1 lit at a time and 0% replies; 1,000,000 years gave 998 lit and replies for all.",
+  "Yet rolling the seven numbers as ranges 10,000 times scatters the count from 0.12 to 919 (eight in ten). One number, the lifetime, made 60% of that spread.",
+  "So what would we need to know to answer 'are they out there'? In this model, knowing the lifetime narrowed the answer most (3.9 to 2.5 digits); knowing only the star count changed nothing."
+ ],
+ "not_ko": [
+  "수명에 따라 만남이 갈리는 것과 수명이 답을 가장 흔드는 것은 이 시뮬레이션이 직접 보여 준 거예요. 하지만 외계 문명이 있다거나 없다고 말하지는 않아요. 범위는 이 프로젝트가 고른 예시예요.",
+  "모든 문명의 수명이 같고, 신호는 약해지지 않으며 바로 알아듣고 답한다고 친 너그러운 모델이에요. 별 사이 여행, 문명이 퍼져 나가는 일, 은하의 나이·회전은 빠져 있어요.",
+  "'수명이 가장 중요하다'는 이 범위에서 수명의 폭을 가장 넓게(100~100만 년) 잡았기 때문이기도 해요. 다른 수를 더 모른다고 보면 그 수가 답을 더 흔들어요."
+ ],
+ "not_en": [
+  "That meeting depends on lifetime, and that lifetime shakes the answer most, is what this simulation showed directly. It does not say alien civilizations exist or not; the ranges are this project's examples.",
+  "It is a generous model: every civilization lives equally long, and signals never weaken and are understood and answered at once. Travel between stars, spreading civilizations, and the galaxy's age and rotation are left out.",
+  "Lifetime matters most partly because its range here is the widest (100 to 1,000,000 years). If you think another number is even less known, that number will shake the answer more."
+ ]
+}

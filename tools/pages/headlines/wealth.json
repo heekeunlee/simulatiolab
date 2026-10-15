@@ -2,12 +2,12 @@
  "says_ko": [
   "처음엔 모두 같고 거래도 공정해서 별 차이 없어 보여도, 시간이 지나면 소수에게 몰려요. 격차 지수가 10라운드에 0.39, 100라운드에 0.78, 300라운드에 0.90이었어요.",
   "이길 확률이 정확히 반반인데도 그래요. 한 번 가난해지면 걸 수 있는 돈이 작아 회복이 느리고, 우연이 곱해지며 한쪽으로 쌓여서 상위 10%가 86%를 가졌어요.",
-  "조금씩 나누면 쏠림이 크게 줄었어요. 라운드마다 0.5%를 나누면 0.68, 1%면 0.58, 5%면 0.34였어요. 쏠림의 원인을 사람의 능력만이 아니라 격차가 쌓이는 구조에서도 볼 수 있어요."
+  "그렇다면 쏠림은 얼마나 나눠야 줄까요? 이 모델에선 처음 조금 나눌 때 효과가 가장 컸어요. 라운드마다 0.5%만 나눠도 격차 지수가 0.90→0.68이었고, 5%에서 8%로 늘리면 0.34→0.28로 덜 줄었어요."
  ],
  "says_en": [
   "At first everyone is equal and trades fair, so little seems to happen, but over time wealth piles into few hands. The inequality index was 0.39 at 10 rounds, 0.78 at 100, 0.90 at 300.",
   "It happens even with odds exactly 50:50. Once poor, you can only bet a little and recover slowly, chance multiplies and tilts one way, and the top 10% held 86%.",
-  "Sharing a little greatly reduced the pile-up. Sharing 0.5% per round gave 0.68, 1% gave 0.58 and 5% gave 0.34. The cause can be sought not only in personal ability but in how gaps accumulate."
+  "Then how much sharing reduces the pile-up? In this model the first bit of sharing did the most: just 0.5% per round cut the index from 0.90 to 0.68, while going from 5% to 8% only moved it from 0.34 to 0.28."
  ],
  "not_ko": [
   "현실의 부는 노동·상속·투자로 만들어지는데 이 모델에는 생산이 없어요. 거래가 정말 공정하다는 가정도 현실과 달라요.",

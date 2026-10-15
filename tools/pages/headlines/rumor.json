@@ -2,12 +2,12 @@
  "says_ko": [
   "솔깃할 확률이 낮으면 소문은 금세 사그라들고, 어느 선을 넘으면 갑자기 거의 모두에게 퍼져요. 이 모델에서 0.5%일 땐 12%, 1%일 땐 63%, 1.5%일 땐 89%가 소문에 닿았어요.",
   "소문이 퍼지는 건 한 사람이 평균 한 명보다 많이 옮길 때예요. 여러 방에 든 사람이 방과 방을 이어 주는 다리가 되고, 문턱 근처에서는 작은 차이가 결과를 크게 바꿔요.",
-  "정정 글은 일찍 나오면 소문을 막고, 이미 널리 퍼진 뒤에는 거의 막지 못했어요. 그래서 소문은 누가 시작했는지보다 퍼지는 구조와 정정이 나온 시점에 크게 달려 있을 수 있어요."
+  "그렇다면 소문을 막으려면? 이 모델에선 정정을 일찍 내는 게 가장 컸고, 이미 널리 퍼진 뒤의 정정은 거의 막지 못했어요. 솔깃함이 1%에서 0.5%로만 내려가도 63%가 12%로 줄었어요."
  ],
  "says_en": [
   "When the chance of being tempted is low a rumor fades fast, and past a threshold it suddenly reaches nearly everyone. In this model it reached 12% at 0.5%, 63% at 1%, and 89% at 1.5%.",
   "A rumor spreads when each person passes it to more than one other on average. People in several rooms bridge rooms, and near the threshold small differences change the outcome a lot.",
-  "An early correction stopped the rumor, while one after wide spread barely helped. So a rumor may depend more on its spreading structure and the timing of the correction than on who started it."
+  "So how do you stop a rumor? In this model an early correction mattered most, while one after wide spread barely helped. Lowering the temptation from 1% to just 0.5% cut its reach from 63% to 12%."
  ],
  "not_ko": [
   "실제 단톡방의 소문이 이 숫자대로 퍼진다는 뜻이 아니에요. 정정이 소문의 70%만큼 솔깃하다는 값도 모델이 정한 가정이에요.",

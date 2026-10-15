@@ -2,12 +2,12 @@
  "says_ko": [
   "눈을 낮추면 금방 짝을 찾고, 눈을 높이면 오래 걸려요. 평균 대기는 눈을 30%p 낮췄을 때 2.7라운드, 10%p 높였을 때 21.0라운드, 30%p 높였을 때 40.7라운드였어요.",
   "서로 나보다 나은 사람을 원하면 둘 다 만족할 수 없어서, 기준이 내려올 때까지 아무도 맺어지지 못해요. 눈을 10%p 높이고 기준을 조금씩 내리면 첫 커플이 12라운드째에야 나왔어요.",
-  "기준을 서서히 내리는 사람은 결국 짝을 찾지만, 끝까지 안 바꾸는 사람은 짝이 0%였어요. 그래서 기다림은 눈높이만큼 기준이 얼마나 바뀌느냐로 갈려요."
+  "그렇다면 오래 기다리지 않으려면? 이 모델에선 처음 눈높이보다 기준을 조금씩 낮추느냐가 갈림길이었어요. 서서히 내리면 결국 짝을 찾았고, 끝까지 안 바꾸면 짝이 0%였어요."
  ],
  "says_en": [
   "Lower your sights and you match quickly; raise them and it takes long. The average wait was 2.7 rounds with bars 30 points lower, 21.0 with 10 points higher, and 40.7 with 30 points higher.",
   "If both want someone better than themselves, neither can be satisfied, so no one pairs until bars come down. With bars 10 points higher and a slow lowering, the first couple appeared only at round 12.",
-  "Those who lower their bar gradually do end up matched, but with no lowering at all, 0% matched. So the wait splits on how much standards shift, as much as on the bar itself."
+  "So how do you avoid a long wait? In this model the switch was less the starting bar than whether it slowly came down. Lowering it gradually led to a match in the end; never changing it left 0% matched."
  ],
  "not_ko": [
   "사랑이나 결혼이 이런 계산으로 이루어진다는 뜻이 아니고, 어떤 눈높이가 옳다는 판단도 아니에요. 성격·거리·타이밍은 이 모델에 없어요.",

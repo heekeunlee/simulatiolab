@@ -2,12 +2,12 @@
  "says_ko": [
   "모래 한 알은 대부분 아무 일도 못 일으키지만, 아주 드물게 수천 번의 무너짐이 돼요. 떨어뜨린 알의 57%는 아무 칸도 무너뜨리지 못했고, 가장 큰 눈사태는 중앙값의 약 208배였어요.",
   "같은 칸에 같은 한 알을 3,000번 더해도 56%는 아무 일이 없었고 592번은 100번 넘게 무너졌어요. 한 칸이 무너지면 이웃 넷에게 알이 넘어가 연쇄가 이어지기 때문이에요.",
-  "큰 사건 뒤에 큰 원인을 찾기 전에, 쌓인 상태가 연쇄를 일으킬 만했는지부터 볼 수 있어요. 같은 작은 원인이 아무 일 없기도, 큰 사건이 되기도 해요."
+  "그렇다면 큰 사건을 볼 땐 마지막 원인이 얼마나 컸나보다, 연쇄가 일어날 만큼 쌓여 있었는지를 먼저 보면 돼요. 같은 작은 원인이 아무 일 없기도, 큰 사건이 되기도 해요."
  ],
  "says_en": [
   "Most grains do nothing, but very rarely one becomes thousands of topples. 57% of dropped grains toppled no cell, and the biggest avalanche was about 208 times the median.",
   "Adding the same single grain to the same cell 3,000 times, 56% did nothing yet 592 caused over 100 topples. A toppling cell passes grains to four neighbours, so chains can continue.",
-  "Before hunting for a big cause behind a big event, you can ask whether the pile was in a state that could chain. The same small cause may do nothing or become a huge event."
+  "So when you look at a big event, ask first whether the pile was primed for a chain, before asking how big the last cause was. The same small cause may do nothing or become a huge event."
  ],
  "not_ko": [
   "'작은 사태는 흔하고 큰 사태는 드물다'와 '같은 한 알이 결과가 천차만별이다'는 이 시뮬레이션이 직접 보여 준 거예요. 지진·산불·주가 폭락과 닮았다는 건 암시일 뿐 생각해 본 쪽이에요.",

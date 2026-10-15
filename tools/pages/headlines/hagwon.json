@@ -2,12 +2,14 @@
  "says_ko": [
   "한 집만 학원을 늘리면 순위가 오르지만, 모든 집이 늘리면 순위는 제자리이고 학원비만 늘어요. 이 모델에서 평균 순위는 50% 그대로, 학원비는 처음의 5.0배가 됐어요.",
   "한 집이 학원을 하나 더 보내면 순위가 평균 7.6%p 올라요. 하지만 모두가 같은 판단을 하면 누가 오른 만큼 누군가 내려가서, 순위가 오른 집은 40%, 내린 집은 47%였어요.",
-  "상대평가에서는 서로 맞바꾸지만, 합격선이 정해진 절대평가에서는 함께 오를 수 있었어요. 합격 가능성이 평균 43%에서 73%로, 가구당 순이득이 39%에서 59%로 올랐어요."
+  "상대평가에서는 서로 맞바꾸지만, 합격선이 정해진 절대평가에서는 함께 오를 수 있었어요. 합격 가능성이 평균 43%에서 73%로, 가구당 순이득이 39%에서 59%로 올랐어요.",
+  "그렇다면 이 모델에서 맞바꾸기를 멈춘 건? 모든 집이 함께 상한을 2개로 정하면 학원비가 처음의 5.0배 대신 2.1배, 순이득은 32% 대신 43%였어요. 혼자가 아니라 함께 정할 때였어요."
  ],
  "says_en": [
   "If one family adds classes its rank rises, but if every family does, rank stays put and only tuition grows. In this model average rank stayed at 50% while tuition rose to 5.0 times.",
   "One family adding a class gains about 7.6 points of rank. But when all decide alike, someone falls for each one who rises: 40% of families rose and 47% fell.",
-  "Under relative grading it is a swap, but under absolute grading with a fixed cutoff, everyone could rise together. Average pass chance rose from 43% to 73%, and net gain per family from 39% to 59%."
+  "Under relative grading it is a swap, but under absolute grading with a fixed cutoff, everyone could rise together. Average pass chance rose from 43% to 73%, and net gain per family from 39% to 59%.",
+  "So what stopped the swap in this model? When all families jointly capped classes at 2, tuition rose 2.1 times instead of 5.0, and net gain was 43% instead of 32%. It worked when decided together, not alone."
  ],
  "not_ko": [
   "학원이 좋다거나 나쁘다는 뜻도, 어느 집의 선택이 잘못됐다는 뜻도 아니에요. 상대평가가 나쁘고 절대평가가 좋다거나 특정 제도를 지지한다는 뜻도 아니에요.",

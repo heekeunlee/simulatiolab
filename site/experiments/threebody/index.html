@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="The Three-Body Problem · Simulatio Lab">세 천체 문제 · 시뮬라티오 랩</title>
+<meta name="description" content="중력 법칙은 정확한데, 별이 셋만 되면 처음 위치를 1%만 바꿔도 결국 전혀 다른 춤이 됩니다. 쌍둥이 판 두 개를 나란히 돌려 언제 갈라지는지 3D로 직접 재 보세요." data-en-content="The law of gravity is exact, yet with just three stars, nudging one start position by 1% ends in a completely different dance. Run twin skies side by side in 3D and time when they split apart.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="theme-color" content="#2f6fed">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1 data-en="Why Do Three Stars Dance So Unpredictably?">별 셋은 왜 예측할 수 없는 춤을 출까?</h1>
+  <p class="lead" data-en="The law of gravity is known very precisely, so it seems that once you know where the stars start and how fast they move, you could calculate their motion forever. With &lt;b&gt;two&lt;/b&gt; stars, that is true: they go around the same ellipse forever. But with &lt;b&gt;three&lt;/b&gt; stars (the title of the novel and TV series &lt;i&gt;The Three-Body Problem&lt;/i&gt;), the story changes. Here two &lt;b&gt;twin skies&lt;/b&gt; start out the same, except that one star&#x27;s starting position is moved &lt;b&gt;very slightly&lt;/b&gt;. At first they look perfectly on top of each other. How long will they keep dancing the same dance?">중력 법칙은 아주 정확히 알려져 있으니, 처음 위치와 속도만 알면 별들의 움직임은 언제까지나 계산할 수 있을 것 같지요. 실제로 별이 <b>둘</b>이면 그래요. 같은 타원을 영원히 돕니다. 그런데 소설·드라마 『삼체』의 제목이기도 한 <b>별 셋</b>이 되면 이야기가 달라집니다. 여기서는 똑같이 시작하되 한 별의 처음 위치만 <b>아주 조금</b> 옮긴 <b>쌍둥이 판</b>을 나란히 돌립니다. 처음엔 둘이 완전히 겹쳐 보이는데, 과연 언제까지 같은 춤을 출까요?</p>
+
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li data-en="Three stars (weights 1 and 1, plus a third whose weight you set with a slider) move in 3D space under nothing but their pull on one another (gravity, falling off with the square of the distance). They start in a rough triangle about 1 from the middle, turning at roughly the speed that would keep them in place, but because the triangle is uneven they soon tangle. Each run (night sky #) has a slightly different triangle and speed.">별 셋(무게 1, 1, 그리고 슬라이더로 바꾸는 셋째 별)이 서로 끌어당기는 힘(중력: 거리의 제곱에 반비례)만으로 3D 공간에서 움직입니다. 처음엔 가운데에서 약 1 떨어진 삼각형 꼴로 놓여 제자리에서 돌 만한 빠르기쯤으로 돌기 시작하지만, 삼각형이 고르지 않아 곧 서로 얽힙니다. 판마다(밤하늘 #번호) 삼각형 모양과 빠르기가 조금씩 다릅니다.</li>
+    <li data-en="&lt;b&gt;Twin skies&lt;/b&gt;: sky B starts exactly like sky A except that &lt;b&gt;star 1&#x27;s starting position&lt;/b&gt; is moved very slightly (0.01 by default, 1% of the distance to the middle), and both run at the same time under the same rules. In 3D, sky A has bright stars and thick tails, sky B faint stars and thin tails."><b>쌍둥이 판</b>: 판 A와 똑같이 시작하되 <b>별 1의 처음 위치만</b> 아주 조금(기본 0.01, 별 사이 거리의 1%) 옮긴 판 B를 같은 규칙으로 동시에 돌립니다. 3D에서 판 A는 진한 별과 굵은 꼬리, 판 B는 흐린 별과 가는 꼬리입니다.</li>
+    <li data-en="For comparison, &lt;b&gt;two stars&lt;/b&gt; (weights 1 and 1) are also run as twins with the same starting difference. They start 2 apart and go around the same ellipse every time (one lap takes 6.84 time units).">비교로 <b>별 둘</b>(무게 1, 1)도 같은 처음 차이로 쌍둥이를 돌립니다. 둘은 거리 2에서 출발해 늘 같은 타원(한 바퀴에 시간 6.84)을 돕니다.</li>
+    <li data-en="Measures: &lt;b&gt;split apart&lt;/b&gt; = the first time the same star in the two skies is more than 1 apart (about the starting distance to the middle). &lt;b&gt;Thrown out&lt;/b&gt; = when the star left over from the most tightly bound pair is more than 6 times the starting distance away and moving off fast enough never to come back. &lt;b&gt;Energy error&lt;/b&gt; = a check on the calculation (if it is exact, the total energy should not change).">지표: <b>갈라진 때</b> = 두 판에서 같은 별끼리의 위치 차가 1(처음 가운데까지 거리쯤)을 처음 넘은 때. <b>튕겨 나감</b> = 가장 단단히 묶인 두 별에게서 남은 별이 시작 거리의 6배보다 멀어지고, 다시 돌아올 수 없는 빠르기로 멀어지는 중일 때. <b>에너지 오차</b> = 계산이 정확한지 점검하는 값(정확하면 전체 에너지가 그대로여야 합니다).</li>
+    <li data-en="Length, time and weight are all this model&#x27;s own units (gravitational constant 1). One run lasts 80 time units (4,000 screen steps); these are examples from this model, not observations or predictions of real stars.">길이·시간·무게는 모두 이 모델의 단위(중력 상수 1)입니다. 한 판은 시간 80(화면 4,000걸음)이고, 실제 별의 관측값이나 예측이 아니라 이 모델의 예시입니다.</li>
+  </ul>
+
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="eps" data-en="Starting-position difference &lt;output id=&quot;o-eps&quot;&gt;&lt;/output&gt;">처음 위치 차이 <output id="o-eps"></output></label>
+        <input type="range" id="eps" min="0" max="8" step="1" value="4">
+        <span class="hint" data-en="How far star 1 is moved in sky B. Smaller means a later split">판 B의 별 1을 얼마나 옮길지. 작을수록 늦게 갈라져요</span></div>
+<div class="ctl"><label for="q" data-en="Weight of the third star &lt;output id=&quot;o-q&quot;&gt;&lt;/output&gt;">셋째 별의 무게 <output id="o-q"></output></label>
+        <input type="range" id="q" min="0.2" max="3" step="0.1" value="1">
+        <span class="hint" data-en="How many times stars 1 and 2. At 1 all three are equal">별 1·2의 몇 배인지. 1이면 셋이 같아요</span></div>
+<div class="ctl"><label for="dist" data-en="Starting distance &lt;output id=&quot;o-dist&quot;&gt;&lt;/output&gt;">처음 떨어진 거리 <output id="o-dist"></output></label>
+        <input type="range" id="dist" min="0.6" max="1.6" step="0.1" value="1">
+        <span class="hint" data-en="Farther apart, they turn more slowly and tangle later">멀수록 천천히 돌아 늦게 얽혀요</span></div>
+    </div>
+    <div class="btns">
+      <button class=primary id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Same settings, another night sky">같은 설정, 다른 밤하늘</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3 data-en="① Three Stars in Twin Night Skies &lt;span class=&quot;badge3d&quot;&gt;3D&lt;/span&gt;">① 쌍둥이 밤하늘의 세 별 <span class="badge3d">3D</span></h3>
+    <p data-en="Bright stars with thick tails are sky A; faint stars with thin tails are sky B. At first they look like one, until at some point the tails split in two. &lt;b style=&quot;color:#e8590c&quot;&gt;Switch to &quot;Show: two stars&quot; below and see whether the two-star twins stay almost on top of each other to the end.&lt;/b&gt;">진한 별과 굵은 꼬리가 판 A, 흐린 별과 가는 꼬리가 판 B입니다. 처음엔 하나처럼 겹쳐 보이다가 어느 순간 꼬리가 둘로 갈라집니다. <b style="color:#e8590c">아래 "보기: 별 둘"로 바꾸면 별 둘의 쌍둥이는 끝까지 거의 겹쳐 있는지 보세요.</b></p>
+    <canvas id="c-3d" class="view3d" data-thumb aria-label="① Three Stars in Twin Night Skies 3D"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#ffb547&quot;&gt;&lt;/i&gt;Star 1"><i style="background:#ffb547"></i>별 1</span><span data-en="&lt;i style=&quot;background:#5cc8ff&quot;&gt;&lt;/i&gt;Star 2"><i style="background:#5cc8ff"></i>별 2</span><span data-en="&lt;i style=&quot;background:#ff6fae&quot;&gt;&lt;/i&gt;Star 3"><i style="background:#ff6fae"></i>별 3</span><span data-en="&lt;i style=&quot;background:#334155&quot;&gt;&lt;/i&gt;Bright star, thick tail = sky A"><i style="background:#334155"></i>진한 별·굵은 꼬리 = 판 A</span><span data-en="&lt;i style=&quot;background:#cbd5e1&quot;&gt;&lt;/i&gt;Faint star, thin tail = sky B"><i style="background:#cbd5e1"></i>흐린 별·가는 꼬리 = 판 B</span></div>
+    <div class="anim-bar">
+      <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
+      
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="speed"><option value="30" data-en="Slow">느리게</option><option value="60" selected data-en="Normal">보통</option><option value="120" data-en="Fast">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+    <div class="anim-bar">
+      <select id="tb-view" aria-label="view"><option value="three" selected data-en="Show: three stars">보기: 별 셋</option><option value="two" data-en="Show: two stars (comparison)">보기: 별 둘 (비교)</option></select>
+      <select id="tb-rotate" aria-label="camera"><option value="on" selected data-en="Camera turns slowly">카메라 천천히 돌기</option><option value="off" data-en="Camera stays still">카메라 멈춤</option></select>
+    </div>
+    <p class="hint3d" data-en="Drag to turn the view · scroll or pinch to zoom · left alone, the camera circles slowly (you can switch it off) · on a phone, swiping up and down scrolls the page. The camera follows the stars that are still together. The 3D view draws the same computed result; it adds no numbers of its own.">드래그로 돌려 보기 · 휠이나 두 손가락으로 확대 · 가만히 두면 카메라가 천천히 돕니다(끌 수 있어요) · 휴대폰에서 세로로 쓸면 페이지가 내려갑니다. 카메라는 아직 함께 있는 별들을 따라갑니다. 3D는 같은 계산 결과를 입체로 그린 것이고, 새 숫자를 만들지 않아요.</p>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3 data-en="② How Far Apart Are the Twins?">② 두 판은 얼마나 벌어졌나</h3>
+    <p data-en="Drawn only up to where the playback has reached. The vertical axis is logarithmic: each step up is 10 times more. The three-star gap (orange) climbs step after step, while the two-star gap (gray) grows very slowly. Crossing the purple dashed line (1) is the moment they &quot;split apart&quot;.">재생이 지난 시점까지만 그립니다. 세로축은 로그 눈금이라 한 칸 오를 때마다 10배입니다. 별 셋의 차이(주황)는 계단을 오르듯 칸을 넘어 불어나고, 별 둘의 차이(회색)는 아주 천천히 늘어요. 보라 점선(1)을 넘는 때가 "갈라진 때"입니다.</p>
+    <canvas id="c-diff" class="" aria-label="② How Far Apart Are the Twins?"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ How Far Each Star Is from the Middle">③ 별마다 가운데에서 얼마나 멀리 있나</h3>
+    <p data-en="Drawn only up to where the playback has reached. Solid lines are sky A, dashed lines sky B. At first solid and dashed lines overlap, then they part; when a star is thrown out, its line keeps climbing.">재생이 지난 시점까지만 그립니다. 실선은 판 A, 점선은 판 B입니다. 처음엔 실선과 점선이 겹치다가 갈라지고, 별 하나가 튕겨 나가면 그 선만 위로 계속 올라갑니다.</p>
+    <canvas id="c-r" class="" aria-label="③ How Far Each Star Is from the Middle"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="④ How Much Longer Does a Smaller Difference Buy? (Summary: 120 Runs in Advance)">④ 처음 차이를 줄이면 얼마나 오래 맞출까 (집계: 미리 돌린 120판)</h3>
+    <p data-en="With default settings, only the starting difference is changed to five values from 0.001 to 0.1: three stars over 24 night skies each (middle value and range bars), two stars on one orbit (run to time 2,000). This is a summary computed in advance, independent of the playback. Both axes are logarithmic. Runs that did not split within one run (time 80) are counted as 80 (3 runs at 0.001, 1 at 0.003).">기본 설정에서 처음 위치 차이만 0.001~0.1의 다섯 값으로 바꿔 별 셋은 밤하늘 24개씩(가운데 값과 범위 막대), 별 둘은 한 궤도(시간 2,000까지)를 돌렸습니다. 재생과 상관없이 미리 계산한 집계입니다. 두 축 모두 로그 눈금이에요. 한 판(시간 80) 안에 안 갈라진 판은 80으로 셌습니다(0.001에서 3판, 0.003에서 1판).</p>
+    <canvas id="c-eps" class="" aria-label="④ How Much Longer Does a Smaller Difference Buy? (Summary: 120 Runs in Advance)"></canvas>
+      <div class="legend"><span id="note-e" data-en="Calculating…">계산 중…</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="⑤ Who Gets Thrown Out, by the Third Star&#x27;s Weight (Summary: 72 Runs in Advance)">⑤ 셋째 별의 무게에 따라 누가 튕겨 나가나 (집계: 미리 돌린 72판)</h3>
+    <p data-en="The third star&#x27;s weight is set to 0.3, 1 or 3 times, and sky A is run to time 80 over 24 night skies each. Bars show the share of runs in which a star was thrown out; below the bars is how many of those times the star thrown out was the lightest. Within time 80, most runs had no star thrown out.">셋째 별의 무게를 0.3배·1배·3배로 바꿔 밤하늘 24개씩 판 A를 시간 80까지 돌렸습니다. 막대는 그 안에 별 하나가 튕겨 나간 판의 비율, 막대 아래는 그중 튕겨 나간 별이 가장 가벼운 별이었던 판 수입니다. 시간 80 안에는 튕겨 나가지 않은 판이 더 많았어요.</p>
+    <canvas id="c-q" class="" aria-label="⑤ Who Gets Thrown Out, by the Third Star&#x27;s Weight (Summary: 72 Runs in Advance)"></canvas>
+      <div class="legend"><span id="note-q" data-en="Calculating…">계산 중…</span></div>
+    </section>
+  </div>
+
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout cl-says">
+    <p class="clabel" data-en="&lt;b&gt;What it shows:&lt;/b&gt;"><b>말하는 것:</b></p>
+    <ul class="chead"><li data-en="With two stars, a slightly different start still follows almost the same path to the end; with three stars, a 1% difference ends up as a completely different dance.">별 둘이면 처음 위치가 조금 달라도 끝까지 거의 같은 길을 돌지만, 별 셋이면 1%의 차이가 결국 전혀 다른 춤이 됐어요.</li><li data-en="Each time the three pass close and pull on each other, a small gap multiplies. In this model&#x27;s first run a 0.01 gap passed 1 at time 18.8, and even the star thrown out changed (star 2 in sky A, star 3 in sky B).">셋이 서로를 번갈아 잡아당기며 가까이 스칠 때마다 작은 차이가 몇 배씩 불어나요. 이 모델 첫 판에선 차이 0.01이 시간 18.8에 1을 넘었고, 쫓겨나는 별까지 달라졌어요(판 A는 별 2, 판 B는 별 3).</li><li data-en="So how to predict further? Measuring the start 100 times more precisely stretched three stars only from 9.2 to 42.5; two stars went from 15.2 to 1,343.1, almost 100 times. With three, also ask how far ahead to trust it.">그렇다면 오래 맞히려면? 처음을 100배 정확히 재도 별 셋은 9.2에서 42.5로만 늘었고, 별 둘은 15.2에서 1,343.1로 거의 100배 늘었어요. 별 셋은 '언제까지 믿을지'도 함께 봐야 해요.</li></ul>
+    <details class="cmore"><summary data-en="Details">상세 설명</summary>
+      <p class="cfull" data-en="&lt;b&gt;What it shows:&lt;/b&gt; In the first run with default settings (weights 1, 1, 1; starting difference 0.01), the gap between the twins grew from 0.01 to 0.097 at time 5, 0.24 at 10, 0.60 at 15 and 1.4 at 20, and &lt;b&gt;they split apart at time 18.8&lt;/b&gt;. Later, star 2 was thrown out of sky A at time 51.7 while star 3 was thrown out of sky B at time 56.9: moving one start position by 1% even changed who got kicked out. The two-star twins, started with the same difference, were still only 0.39 apart at time 80. Taking the middle value of 24 night skies, a starting difference of 0.1 split at time 9.2, 0.03 at 20.3, 0.01 at 29.9, 0.003 at 37.8 and 0.001 at 42.5. Making the starting difference 100 times smaller bought only 33.3 more time (16.7 per factor of 10 on average), while for two stars it went from 15.2 to 1,343.1, almost 100 times longer. With the third star at 0.3 times the weight, a star was thrown out in 6 of 24 runs, and at 3 times in 5 runs, every time the lightest star (3 runs when all weights were equal). With starting distances of 0.6, 1 and 1.6, the middle split times were 14.3, 29.9 and 58.6. Calculation check: across 24 default runs the energy error was at most 0.096%, and the two-star lap time was 6.8400 against the theoretical 6.8403."><b>말하는 것:</b> 기본 설정(별 무게 1·1·1, 처음 위치 차이 0.01)의 첫 판에서 두 판의 차이는 0.01에서 시간 5에 0.097, 10에 0.24, 15에 0.60, 20에 1.4로 불어나 <b>시간 18.8에 갈라졌습니다</b>. 그 뒤 판 A에서는 별 2가 시간 51.7에, 판 B에서는 별 3이 시간 56.9에 튕겨 나가, 처음 위치를 1%만 바꿨는데 누가 쫓겨나는지까지 달라졌습니다. 같은 처음 차이로 돌린 별 둘은 시간 80 끝에도 차이가 0.39였습니다. 밤하늘 24개의 가운데 값으로 보면 처음 차이 0.1이면 시간 9.2, 0.03이면 20.3, 0.01이면 29.9, 0.003이면 37.8, 0.001이면 42.5에 갈라졌습니다. 처음 차이를 100배 줄여도 맞히는 시간은 33.3(10배마다 평균 16.7)만 늘었고, 별 둘은 15.2에서 1,343.1로 거의 100배 늘었습니다. 셋째 별이 0.3배일 때는 24판 중 6판, 3배일 때는 5판에서 별 하나가 튕겨 나갔고 모두 가장 가벼운 별이었습니다(같은 무게일 때는 3판). 처음 거리를 0.6·1·1.6으로 늘리면 갈라지는 시간 가운데 값은 14.3·29.9·58.6이었습니다. 계산 점검: 기본 설정 24판에서 에너지 오차는 최대 0.096%, 별 둘 한 바퀴 시간은 6.8400으로 이론값 6.8403과 맞았습니다.</p></details>
+  </div>
+  <div class="callout cl-not">
+    <p class="clabel" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt;"><b>말하지 않는 것:</b></p>
+    <ul class="chead"><li data-en="The two-versus-three contrast and the time gained by shrinking the starting gap are what this simulation showed. It is a dimensionless toy model, not an observation or prediction of real stars or triple systems.">별 둘과 셋의 대비, 처음 차이를 줄일 때 늘어나는 시간은 이 시뮬레이션이 직접 보여 준 거예요. 다만 중력 상수 1인 무차원 장난감 모델이라 실제 별이나 삼중성계의 관측·예측이 아니에요.</li><li data-en="Unpredictable does not mean the rules are random. The rules are fixed, but the start can never be known infinitely precisely, so the far future splits. Tiny rounding errors in the computer grow the same way.">예측할 수 없다는 건 규칙이 무작위라는 뜻이 아니에요. 규칙은 정해져 있지만 처음을 무한히 정확히 알 수 없어서 먼 미래가 갈려요. 컴퓨터의 작은 계산 오차도 같은 식으로 불어나요.</li><li data-en="Collisions, stellar evolution, relativity and nearby bodies are left out. Only 3 to 6 of 24 runs had a star thrown out, so the share showing &#x27;the lightest star gets kicked out&#x27; is a rough example.">충돌·별의 진화·상대성 효과·주변 천체는 빠져 있어요. 튕겨 나간 판은 24판 중 3~6판뿐이라 '가장 가벼운 별이 쫓겨난다'는 비율은 대략적인 예시예요.</li></ul>
+    <details class="cmore"><summary data-en="Details">상세 설명</summary>
+      <p class="cfull" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; This is a dimensionless toy model with a gravitational constant of 1, not an observation or prediction of real stars or triple-star systems. Stars are points with no size (a tiny softening), and there are no collisions or mergers, no stellar evolution, no relativity and no other bodies nearby. &quot;Unpredictable&quot; does not mean the rules are random. The rules are completely fixed, but a tiny difference in the starting state grows, so unless you know the start infinitely precisely, the far future splits apart. Small rounding errors in the computer grow the same way, so each path after the split should be read as &quot;one way it could go&quot;. Within time 80 most runs had no star thrown out, and the numbers that did (3 to 6 runs) are small, so the shares are rough examples. All numbers come from the starting arrangement chosen by this project."><b>말하지 않는 것:</b> 이 모델은 중력 상수 1인 무차원 장난감 모델이고, 실제 별이나 삼중성계의 관측값·예측이 아닙니다. 별은 크기 없는 점(아주 작은 소프트닝)이고 충돌·합쳐짐·별의 진화·상대성 효과·주변의 다른 천체는 없습니다. "예측할 수 없다"는 것은 규칙이 무작위라는 뜻이 아닙니다. 규칙은 완전히 정해져 있지만, 처음 상태의 아주 작은 차이가 불어나 처음을 무한히 정확히 알지 않는 한 먼 미래가 갈린다는 뜻입니다. 컴퓨터 계산의 작은 오차도 같은 식으로 불어나므로, 갈라진 뒤의 궤적 하나하나는 "이렇게 될 수도 있는 한 가지 모습"으로 보아야 합니다. 시간 80 안에는 튕겨 나가지 않은 판이 더 많았고, 튕겨 나간 판 수(3~6판)는 작아서 비율은 대략적인 예시입니다. 숫자는 모두 이 프로젝트가 정한 시작 배치에서 나온 값입니다.</p></details>
+  </div>
+
+  <h2 data-en="Theory and implementation notes">이론적 근거와 구현 메모</h2>
+  <ul class="small">
+    <li class="memo theory" data-en="&lt;b&gt;Where the model comes from:&lt;/b&gt; Newton&#x27;s law of gravity gives two stars a neat answer, an ellipse, but three stars have no general formula: this is the long-standing &quot;three-body problem&quot;. Poincaré, working on it around 1890, is known for first showing motion in which a small difference in starting conditions grows large (what we now call chaos). It is also known that when three bodies tangle, one is often eventually thrown out while the other two remain as a pair, and that the one thrown out is often the lightest."><b>모델의 뿌리:</b> 뉴턴의 중력 법칙으로 별 둘의 움직임은 타원이라는 깔끔한 답이 나오지만, 별 셋은 일반적인 공식 답이 없다는 것이 오래된 "세 천체 문제"입니다. 푸앵카레가 1890년 무렵 이 문제를 연구하며, 처음 조건의 작은 차이가 크게 불어나는 움직임(오늘날 카오스라고 부르는 것)을 처음 보여 줬다고 알려져 있어요. 또 셋이 얽히다 보면 결국 하나가 튕겨 나가고 둘이 짝으로 남는 일이 많고, 튕겨 나가는 쪽은 가장 가벼운 별인 경우가 많다고 알려져 있어요.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Key assumptions and formulas:&lt;/b&gt; Star i accelerates by &lt;code&gt;a&lt;sub&gt;i&lt;/sub&gt; = Σ&lt;sub&gt;j&lt;/sub&gt; m&lt;sub&gt;j&lt;/sub&gt; (x&lt;sub&gt;j&lt;/sub&gt; − x&lt;sub&gt;i&lt;/sub&gt;) / (r&lt;sup&gt;2&lt;/sup&gt; + ε&lt;sup&gt;2&lt;/sup&gt;)&lt;sup&gt;3/2&lt;/sup&gt;&lt;/code&gt; (G = 1, softening ε = 0.001 × starting distance). Integration uses velocity-Verlet (kick-drift-kick), and each screen step (time 0.02) is split so that a substep is at most 0.004 times the closest pair&#x27;s &quot;orbit time&quot; &lt;code&gt;√(r³/(m&lt;sub&gt;i&lt;/sub&gt;+m&lt;sub&gt;j&lt;/sub&gt;))&lt;/code&gt; (finer during close passes). Starting layout: each star at an angle of 120°±17°, distance 0.85–1.15, height ±0.15, turning at about 1.05 times (±15%) the speed that would keep an equal-weight equilateral triangle in place, plus a small wobble; then the overall center of mass and momentum are set to zero. The two stars start at the far point of an ellipse with separation 2 and eccentricity 0.5. Physicists measure how fast a gap grows exponentially (by a fixed factor every fixed time) with the Lyapunov exponent. From the slope in ④, the gap between three stars here grew tenfold roughly every 16.7 time units."><b>핵심 가정과 수식:</b> 별 i의 가속도 <code>a<sub>i</sub> = Σ<sub>j</sub> m<sub>j</sub> (x<sub>j</sub> − x<sub>i</sub>) / (r<sup>2</sup> + ε<sup>2</sup>)<sup>3/2</sup></code>(G = 1, 소프트닝 ε = 0.001 × 시작 거리). 적분은 속도 베를레(velocity-Verlet, kick-drift-kick)이며, 화면 한 걸음(시간 0.02)을 가장 가까운 두 별의 "서로 도는 시간" <code>√(r³/(m<sub>i</sub>+m<sub>j</sub>))</code>의 0.004배 이하로 잘게 쪼갭니다(가까이 지날수록 잘게). 처음 배치: 별마다 각도 120°±17°, 거리 0.85~1.15, 위아래 ±0.15, 무게가 같은 정삼각형이 제자리에서 돌 빠르기의 약 1.05배(±15%) 회전 + 작은 흔들림, 그다음 전체 무게중심과 운동량을 0으로 맞춥니다. 별 둘은 거리 2, 이심률 0.5 타원의 가장 먼 점에서 출발합니다. 차이가 시간에 따라 지수적으로(일정한 시간마다 몇 배씩) 불어나는 정도를 물리학에서는 랴푸노프 지수로 잽니다. ④의 기울기로 보면 이 모델의 별 셋은 차이가 10배 되는 데 시간 약 16.7이 걸린 셈입니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;What this project simplifies:&lt;/b&gt; Stars are points with no size, and weight, distance and time are dimensionless values chosen by this project. Collisions and mergers, stellar evolution, general relativity and the pull of other bodies or galaxies are not included. The starting layout (a slightly different triangle and speed per seed) was chosen so the three tangle for a while instead of flying apart at once, and the first run (night sky #1) uses a layout picked so that both the split and a star being thrown out can be seen. The rule for being thrown out (6 times the starting distance, unbound) is also this project&#x27;s definition."><b>이 프로젝트의 단순화:</b> 별은 크기 없는 점이고 무게·거리·시간은 이 프로젝트가 정한 무차원 값입니다. 충돌·합쳐짐, 별의 진화, 일반 상대성 효과, 다른 천체·은하의 힘은 넣지 않았습니다. 처음 배치(시드에 따라 조금씩 다른 삼각형과 빠르기)는 셋이 금방 흩어지지 않고 한동안 얽히도록 고른 설정이며, 첫 판(밤하늘 #1)은 갈라짐과 튕겨 나감이 둘 다 보이는 배치를 고른 것입니다. 튕겨 나감의 기준(시작 거리의 6배, 묶이지 않음)도 이 프로젝트의 정의입니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Theory versus simulation:&lt;/b&gt; Checked with &lt;code&gt;node tools/validate-threebody.js&lt;/code&gt; (fixed seeds). The two-star lap time is 6.8400 in the simulation against 6.8403 from Kepler&#x27;s law &lt;code&gt;2π√(a³/(G M))&lt;/code&gt;. Total momentum stays at 0 (around 10&lt;sup&gt;−13&lt;/sup&gt;) throughout, and the relative energy error was 0.012% in the first default run and at most 0.096% over 24 default runs (largest during close passes). The two-star gap grew roughly in proportion to the starting difference (49.7 at 0.03, 447.1 at 0.003: about 9 times), regular as expected, while for three stars each tenfold cut in the starting difference added an almost constant amount of time before the split (16.7 on average), consistent with the explanation that the gap grows exponentially."><b>이론값과 시뮬레이션:</b> <code>node tools/validate-threebody.js</code>(시드 고정)로 확인합니다. 별 둘의 한 바퀴 시간은 시뮬레이션 6.8400, 케플러 법칙의 이론값 <code>2π√(a³/(G M))</code> = 6.8403으로 맞습니다. 전체 운동량은 계산 내내 0(10<sup>−13</sup> 수준)이고, 에너지 상대 오차는 기본 첫 판 0.012%, 기본 설정 24판 최대 0.096%였습니다(가까이 지날 때 가장 커짐). 별 둘의 차이는 처음 차이에 거의 비례해 늘어(0.03에서 49.7, 0.003에서 447.1: 약 9배) 원래 예상대로 규칙적이었고, 별 셋은 처음 차이를 10배 줄일 때마다 갈라지는 시간이 거의 일정하게(평균 16.7) 늘어 차이가 지수적으로 불어난다는 설명과 같은 방향이었습니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Further reading:&lt;/b&gt; Valtonen, Karttunen (2006), &lt;i&gt;The Three-Body Problem&lt;/i&gt;, Cambridge University Press."><b>더 읽을거리:</b> Valtonen, Karttunen (2006), 『The Three-Body Problem』, Cambridge University Press.</li>
+    <li  data-en="A simplified implementation of this project&#x27;s own design; it does not reproduce any particular paper&#x27;s numbers. Skies A and B and the two-star twins (four runs in all) are computed together, step by step. ① The 3D view draws the computed result as is; joining each star&#x27;s previous and current positions only makes motion look smooth and does not affect the results (the model&#x27;s up-down axis is shown as up-down on screen). Tails show the last 700 steps (350 on a phone), and the small background stars and the circular floor lines are decoration. ④ and ⑤ are summaries run in advance with default settings, so they do not change with the sliders.">이 프로젝트가 직접 설계한 단순화 구현이며 특정 논문의 수치를 재현한 것은 아닙니다. 판 A·B와 별 둘의 쌍둥이(모두 네 판)를 같은 걸음으로 함께 계산합니다. ① 3D는 계산 결과를 그대로 그리며, 한 걸음 전과 지금 위치 사이를 이어 그려 부드럽게 보일 뿐 결과에 영향이 없습니다(모델의 위아래 축을 화면 위아래로). 꼬리는 최근 700걸음(휴대폰 350걸음)의 위치이고, 뒤의 작은 별들과 바닥 원판 선은 장식입니다. ④⑤는 기본 설정으로 미리 돌린 집계라 슬라이더를 바꿔도 달라지지 않습니다.</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/threebody&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/threebody">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap" data-en="Simulatio Lab · Run by Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
+<script src="../../exps.js"></script>
+<script src="../../layout.js"></script>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../lazy3d.js" data-module="app3d.js"></script>
+<script src="../../counter.js"></script>
+<script src="../../engage.js"></script>
+</body>
+</html>

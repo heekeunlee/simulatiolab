@@ -2,12 +2,14 @@
  "says_ko": [
   "한두 번 만나는 사이에서는 배신이 거의 전부를 차지하고, 여러 번 만나는 사이에서는 협력이 퍼져요. 이 모델에서 협력률이 3%에서 5판부터 90%로 올랐어요.",
   "그런데 여러 번 만나도 실수가 없으면 협력이 99%로 버티지만, 실수가 10%면 11%로 무너져요. 실수 하나가 보복의 연쇄로 이어지기 때문이에요.",
-  "실수가 있을 땐 맞받아치기(17%)보다 너그러운 쪽(37%)과 파블로프(25%)가 더 남았어요(실수 5%). 협력은 마음씨보다 만남이 이어지는지와 실수를 넘기는 여유로 갈려요."
+  "실수가 있을 땐 맞받아치기(17%)보다 너그러운 쪽(37%)과 파블로프(25%)가 더 남았어요(실수 5%). 협력은 마음씨보다 만남이 이어지는지와 실수를 넘기는 여유로 갈려요.",
+  "그렇다면 협력이 오래가려면? 이 모델에선 만남이 한두 판에 끝나지 않고(5~10판: 약 90%) 실수가 적을수록(실수 1%: 93%, 5%: 70%) 협력이 지켜졌어요."
  ],
  "says_en": [
   "In one- or two-time meetings betrayal takes almost everything; in repeated meetings cooperation spreads. In this model cooperation rose from 3% to 90% from five rounds on.",
   "Even with repeated meetings, with no mistakes cooperation held at 99%, but at a 10% mistake rate it collapsed to 11%. One slip sets off a chain of retaliation.",
-  "With mistakes (5%), forgiving tit-for-tat (37%) and Pavlov (25%) outlasted plain tit-for-tat (17%). Cooperation turns less on kindness than on continued meetings and room to forgive."
+  "With mistakes (5%), forgiving tit-for-tat (37%) and Pavlov (25%) outlasted plain tit-for-tat (17%). Cooperation turns less on kindness than on continued meetings and room to forgive.",
+  "Then how does cooperation last? In this model it held when meetings did not end after one or two rounds (5 to 10 rounds: about 90%) and when mistakes were rare (1%: 93%, 5%: 70%)."
  ],
  "not_ko": [
   "착한 사람이 항상 이긴다는 뜻이 아니에요. 점수표와 따라 하는 규칙은 이 모델이 정한 값이고, 판 수가 아주 길면 결과가 실행마다 크게 갈려요.",

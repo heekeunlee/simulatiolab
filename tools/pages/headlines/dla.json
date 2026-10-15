@@ -2,12 +2,12 @@
  "says_ko": [
   "덩어리의 바깥 끝에는 입자가 잘 붙고 안쪽 틈에는 거의 안 붙어서 가지가 뻗어요. 마지막에 붙은 300개 중 57%는 바깥 30%에, 안쪽 절반에는 9%만 붙었어요.",
   "가지가 길어지면 끝은 더 튀어나와 더 잘 붙고, 틈은 더 가려져요. 붙는 확률이 100%일 땐 원의 9%만 채워진 성긴 모양이고, 5%로 낮추면 26%가 채워진 촘촘한 모양이에요.",
-  "그래서 성긴 가지 모양을 보면 '끝만 자라는 방식'을, 촘촘한 덩어리를 보면 '붙기 전에 움직여 안쪽까지 들어가는 방식'을 떠올려 볼 수 있어요."
+  "그렇다면 모양을 보고 자란 방식을 짐작해 볼 수 있어요. 성긴 가지면 '끝만 자라는 방식'을, 촘촘한 덩어리면 '붙기 전에 안쪽까지 들어가는 방식'을 먼저 떠올려 보면 돼요."
  ],
  "says_en": [
   "Particles stick at the outer tips and rarely in inner gaps, so branches reach out. Of the last 300 to attach, 57% landed in the outer 30%, only 9% in the inner half.",
   "As branches lengthen, tips stick out more and gaps get more shielded. At 100% sticking only 9% of the circle is filled (sparse); at 5% sticking, 26% is filled (dense).",
-  "So a sparse branching shape can make you think of 'only the tips keep growing', and a dense clump of 'particles wandering inside before they stick'."
+  "So you can read the growth from the shape. A sparse branching shape points first to 'only the tips keep growing', a dense clump to 'particles wandering inside before they stick'."
  ],
  "not_ko": [
   "이 시뮬레이션이 직접 보여 준 건 '끝은 자라고 틈은 가려진다'와 '붙는 확률을 낮추면 촘촘해진다'예요. 번개·산호·눈송이가 같은 원리로 자란다는 건 생각해 볼 점이고 보여 준 게 아니에요.",

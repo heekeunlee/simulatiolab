@@ -2,12 +2,12 @@
  "says_ko": [
   "서로 상대 힘을 잘 알면 합의로 끝나지만, 한쪽이 잘 모를수록 합의가 가능한데도 전쟁이 늘어요. 모르는 정도 0이면 전쟁 0%, 20%면 25.0%, 50%면 70.0%였어요.",
   "전쟁이 싸게 느껴질수록 더 잘 일어나요. 모르는 정도가 같을 때 전쟁 비용이 5%면 분쟁의 80.0%가, 20%면 20.0%가, 25% 이상이면 0%가 전쟁이 됐어요.",
-  "그래서 전쟁의 이유를 볼 때, 서로 미워하는 정도와는 따로 정보가 얼마나 모자랐는지, 전쟁이 얼마나 비싸 보였는지를 살펴볼 수 있어요."
+  "그렇다면 전쟁을 볼 때 무엇을 먼저 보면 될까요? 이 모델에선 상대를 모르는 정도가 전쟁 비용보다 작으면 전쟁이 0%였어요. 또 이웃을 끌어들일 확률이 30%면 평균 5.5개국, 50%면 69.9개국으로 번졌어요."
  ],
  "says_en": [
   "If both sides know each other's strength, a deal holds; the less one side knows, the more disputes end in war. Uncertainty 0 gave 0% war, 20% gave 25.0%, 50% gave 70.0%.",
   "The cheaper war feels, the likelier it is. At the same uncertainty, a war cost of 5% sent 80.0% of disputes to war, 20% sent 20.0%, and 25% or more sent 0%.",
-  "So when asking why a war happened, one can look separately at hostility, at how little each side knew, and at how costly war seemed."
+  "Then what to look at first in a war? Here, when uncertainty about the other side was below the cost of war, war was 0%. With a 30% chance of pulling in neighbors, wars reached 5.5 states on average; at 50%, 69.9."
  ],
  "not_ko": [
   "실제 어느 전쟁의 원인을 설명하거나 앞으로의 전쟁을 예측하는 것이 아니고, 특정 입장을 지지하지도 않아요. 이름 없는 추상 국가의 구조만 보여 줘요.",

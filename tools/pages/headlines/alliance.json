@@ -2,12 +2,14 @@
  "says_ko": [
   "동맹이 성긴 세상에서는 총성이 두세 나라에서 멈추고, 촘촘한 세상에서는 거의 모든 나라로 번져요. 그 사이 어딘가에서 급격히 갈려요.",
   "나라마다 동맹이 평균 0개면 늘 2개국, 1개면 6.3개국, 2개면 17.4개국, 3개면 22.4개국에서 끝났어요. 한 칸만 넘으면 연쇄가 이어지기 때문이에요.",
-  "같은 동맹 수라도 조약을 약하게 지키면 작게, 잘 지키면 크게 번져요. 누가 먼저 쏘았는지보다 동맹이 얼마나 엮였는지를 먼저 봐야 해요."
+  "같은 동맹 수라도 조약을 약하게 지키면 작게, 잘 지키면 크게 번져요. 누가 먼저 쏘았는지보다 동맹이 얼마나 엮였는지를 먼저 봐야 해요.",
+  "그렇다면 번질지 볼 때 무엇을 먼저 볼까? 이 모델에선 동맹이 둘씩만 묶이면 평균 3.6개국에서 멈췄고, 두 진영 안이 촘촘하면(평균 3개) 22.6개국까지 번졌어요."
  ],
  "says_en": [
   "Where alliances are sparse, a shot stops after two or three countries; where they are dense, it spreads to nearly all. The shift between the two is steep.",
   "With 0 allies per country on average the war always ended at 2 countries, with 1 it reached 6.3, with 2 it reached 17.4, and with 3 it reached 22.4. Once chains keep going, they run on.",
-  "At the same alliance count, weakly honored treaties keep wars small and well-honored ones let them grow. Look first at how tightly countries are knotted, not at who fired first."
+  "At the same alliance count, weakly honored treaties keep wars small and well-honored ones let them grow. Look first at how tightly countries are knotted, not at who fired first.",
+  "Then what should you look at first to judge spread? In this model, alliances tied only in pairs stopped at 3.6 countries on average, while two blocs dense inside (3 allies each) spread to 22.6."
  ],
  "not_ko": [
   "동맹이 얼마나 촘촘해야 커지는지, 조약을 얼마나 지켜야 커지는지는 이 장난감 모델이 정한 숫자예요. 실제 전쟁의 문턱을 알려 주지 않아요.",

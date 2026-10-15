@@ -2,21 +2,21 @@
  "says_ko": [
   "단순한 곡은 빨리 좋아지고 빨리 질리지만, 복잡한 곡은 늦게 좋아지는 대신 오래 가요. 이 모델에서 가장 단순한 곡은 4번째, 가장 복잡한 곡은 70번째에 가장 좋았어요.",
   "들을 때마다 '익숙해서 좋은 마음'은 금방 차오르고 멈추지만, 질림은 조금씩 계속 쌓여요. 그래서 매일 들으면 기본 곡은 11번째에 57점으로 가장 높았다가 100번째엔 1점이 됐어요.",
-  "자주 들으면 질림이 쌓이는 쪽, 띄엄띄엄 들으면 질림이 가라앉는 쪽이 이겨요. 같은 곡이라도 100번째 호감이 매일 들으면 1점, 7일마다 들으면 84점이었어요."
+  "그렇다면 오래 좋아한 건 어떤 경우였을까? 이 모델에선 띄엄띄엄 들을 때였어요(100번째 호감 매일 1점, 3일마다 65점, 7일마다 84점). 단순한 곡도 7일마다면 -36점 대신 78점이었어요."
  ],
  "says_en": [
   "Simple songs grow on you fast and wear out fast, while complex songs take longer to like but last. In this model the simplest song peaked at the 4th listen and the most complex at the 70th.",
   "Each listen, the pleasure of familiarity fills up fast and stops, but boredom keeps piling up. Heard daily, the default song peaked at 57 points at the 11th listen and sank to 1 point by the 100th.",
-  "Listen often and piling boredom wins; listen now and then and fading boredom wins. For the same song, liking at the 100th listen was 1 point heard daily and 84 points heard every 7 days."
+  "So when did liking last? In this model, when listening was spaced out (liking at the 100th listen: 1 daily, 65 every 3 days, 84 every 7). Even the simplest song scored 78 every 7 days instead of -36."
  ],
  "not_ko": [
   "어떤 곡이 더 좋은 곡인지는 가리지 않아요. 모델은 호감이 어떻게 오르내리는지만 보여 주고, 단순한 곡이 나쁘다거나 복잡한 곡이 훌륭하다는 뜻이 아니에요.",
-  "익숙함과 질림을 숫자 하나씩으로 줄여 더한 이 프로젝트의 단순한 모델이고, 숫자는 모두 예시예요. 추억·기분·가사 같은 것은 빠져 있어서, 실제 사람의 취향을 예측하지 않아요.",
+  "익숙함과 질림을 숫자 하나씩으로 줄여 더한 단순한 모델이고 숫자는 모두 예시예요. 추억·기분·가사는 빠져 있어 실제 취향을 예측하지 않고, 얼마나 자주 들으라는 조언도 아니에요.",
   "단순 노출 효과나 역U자 같은 알려진 설명의 이름만 빌렸고, 그 연구를 재현한 건 아니에요. 실제로 확인하려면 같은 곡을 반복해 들려주며 호감을 재는 실험 결과를 찾아봐야 해요."
  ],
  "not_en": [
   "It does not judge which song is better. The model only shows how liking rises and falls; it does not say simple songs are bad or complex songs are finer.",
-  "This project's simple model reduces familiarity and boredom to one number each and adds them; every number is an example. Memories, mood and lyrics are left out, so it predicts no one's real taste.",
+  "A simple model adding familiarity and boredom as one number each; every number is an example. Memories, mood and lyrics are left out, so it predicts no one's taste and is no advice on how often to listen.",
   "It borrows only the names of known ideas, the mere exposure effect and the inverted U, without reproducing that research. To check for real, look for experiments measuring liking over repeated plays."
  ]
 }

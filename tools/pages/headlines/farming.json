@@ -2,12 +2,12 @@
  "says_ko": [
   "한 해에 1킬로미터쯤의 느린 걸음도 천 년을 이어 가면 지도 전체를 덮고, 산이나 해협을 만나면 그만큼 늦어져요. 이 모델에서 평지는 975년, 해협은 1,095년, 산맥은 1,130년이 걸렸어요.",
   "농부가 자기 땅에서 늘고 이웃 칸으로 조금씩 흩어지는 두 가지만으로도, 앞쪽 끝이 일정한 속도로 밀려가요. 산맥 안에서는 속도가 평지의 약 3분의 1로 줄었지만 멈추진 않았어요.",
-  "수렵채집민과 섞는 비율을 0에서 100%로 올리면 속도가 연 0.97에서 1.19킬로미터로 조금 빨라졌어요. 속도는 늘어남과 흩어짐이 거의 정하고, 섞임은 조금만 더했어요."
+  "그렇다면 퍼지는 속도는 무엇을 보면 될까? 늘어나는 속도와 흩어지는 정도가 거의 다 정했어요. 섞임을 0→100%로 올려도 연 0.97→1.19km였고, 산맥 안에선 3분의 1로 줄었어요."
  ],
  "says_en": [
   "Even a slow pace of about 1 km a year, sustained for a thousand years, covers the whole map, and mountains or straits delay it. Here flat land took 975 years, the strait 1,095 and the mountains 1,130.",
   "Just two rules, farmers growing in their own cell and drifting to neighbours, push the front on at a steady speed. In mountains the speed fell to about a third of flat land but did not stop.",
-  "Raising the mixing rate with hunter-gatherers from 0 to 100% sped the front up a little, from 0.97 to 1.19 km a year. Growth and dispersal set most of the speed; mixing added only a bit."
+  "So what should you look at for the speed? Growth and dispersal set almost all of it. Raising mixing from 0 to 100% only moved it from 0.97 to 1.19 km a year, while mountains cut it to about a third."
  ],
  "not_ko": [
   "퍼진 것이 사람의 이주인지 기술과 생각의 전파인지는 이 모델이 가려 주지 않아요. 지금도 논쟁 중이라 고고학·유전자 증거로 따로 확인해야 해요.",

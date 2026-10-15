@@ -2,12 +2,12 @@
  "says_ko": [
   "허브가 적은 관계망에서도 친구들이 더 많아 보이는 사람이 많지만(71.3%), 허브가 몰린 관계망에선 더 많아져요(85.4%). 친구 수가 사람마다 다르기만 해도 생기는 착시예요.",
   "친구 목록을 훑으면 인기 있는 사람은 여러 목록에 한 번씩 나와요. 그래서 내 친구는 평균 5.92명인데, 친구들의 친구는 평균 10.17명으로 보여요.",
-  "내 쪽에서 세면 친구 수는 평범해도, 친구 쪽 목록으로 세면 인기인이 자주 끼어들어요. 친구들이 더 잘 지내 보일 때 이 구조도 한번 떠올려 볼 수 있어요."
+  "그렇다면 친구들이 더 인기 있어 보일 땐 '사람'이 아니라 '친구 목록'으로 센 평균이란 걸 떠올리면 돼요. 아무나 뽑으면 평균 5.92명, 친구로 소개받은 사람은 10.17명이었어요."
  ],
  "says_en": [
   "Even with few hubs, many people see friends with more friends (71.3%); with hub-heavy networks it rises (85.4%). It appears whenever friend counts differ between people.",
   "Scanning friend lists, a popular person appears once in each friend's list. So my friends number 5.92 on average, yet my friends' friends come to 10.17 on average.",
-  "Counted from my side the number is ordinary, but counted through friends' lists the popular people keep cutting in. When friends seem to be doing better socially, you can keep this structure in mind."
+  "So when friends seem more popular, remember that the average is counted through friend lists, not people. A random person had 5.92 friends on average; someone met as a friend had 10.17."
  ],
  "not_ko": [
   "내가 인기가 없다거나 친구 많은 사람이 더 행복하다는 뜻은 아니에요. 71.3%와 85.4%는 이 모델의 실험 결과이고 모든 관계망에서 성립하는 법칙이 아니에요.",

@@ -87,6 +87,13 @@ DAILY += [  # 2026-10-14 예술 분야 새 실험 6개 (정답 없는 가벼운 
  ('tariff', T('옆 가게가 먼저 나에게 불리한 일을 벌이면, 나는?', 'The shop next door makes the first move against you. What do you do?'), [T('똑같이 맞받아친다', 'Hit back the same way'), T('한 번은 참고 대화해 본다', 'Hold off once and try talking'), T('아무것도 안 하고 기다린다', 'Do nothing and wait')]),
  ('ventilation', T('방이 답답할 때 나는 주로?', 'When your room feels stuffy, what do you usually do?'), [T('창문 하나만 활짝 연다', 'Open one window wide'), T('맞은편 창이나 방문까지 같이 연다', 'Also open the window or door on the other side'), T('선풍기나 환풍기를 켠다', 'Turn on a fan or the vent')]),
  ('murmuration', T('사람 많은 길을 걸을 때 나는 주로?', 'When you walk down a crowded street, what do you usually do?'), [T('앞사람만 보고 따라간다', 'Follow the person in front'), T('주변 몇 사람의 흐름에 맞춘다', 'Match the flow of the few people around me'), T('내 길만 보고 간다', 'Just keep to my own path')]),
+ ('threebody', T('내일 날씨 예보와 열흘 뒤 날씨 예보, 나는 어떻게 믿나요?', 'How much do you trust tomorrow\'s weather forecast versus one for ten days ahead?'), [T('둘 다 비슷하게 믿는다', 'I trust both about the same'), T('내일 것만 믿는다', 'I trust only tomorrow\'s'), T('둘 다 잘 안 믿는다', 'I don\'t really trust either')]),
+ ('asteroid', T('큰일을 막을 수 있다면 나는 주로?', 'When you could head off a big problem, what do you usually do?'), [T('일찍 조금씩 손쓴다', 'Act early, a little at a time'), T('닥쳤을 때 한 번에 크게 막는다', 'Deal with it all at once when it comes'), T('일단 지켜본다', 'Wait and watch first')]),
+ ('galaxy', T('두 은하가 부딪히면 어떤 일이 가장 먼저 떠오르나요?', 'When two galaxies collide, what comes to mind first?'), [T('별들이 쾅쾅 부딪힌다', 'Stars smash into each other'), T('서로 그냥 통과한다', 'They just pass through each other'), T('모양이 엿가락처럼 늘어난다', 'They stretch out like taffy')]),
+ ('cosmicweb', T('방바닥에 먼지를 고르게 뿌려 두고 오래 기다리면?', 'If you scatter dust evenly on the floor and wait a long time, what happens?'), [T('그대로 고르게 남는다', 'It stays evenly spread'), T('여기저기 뭉친다', 'It clumps here and there'), T('한구석에 다 모인다', 'It all gathers in one corner')]),
+ ('drake', T('우리 은하에 우리 말고 신호를 보내는 문명이 지금 있을까?', 'Is there a civilization other than us sending signals in our galaxy right now?'), [T('많이 있을 것 같다', 'Probably many'), T('몇 개쯤 있을 것 같다', 'Probably a few'), T('우리뿐일 것 같다', 'Probably just us')]),
+ ('moonaxis', T('한 곳에서 평생 산다면, 어떤 계절이 좋을까요?', 'If you lived in one place all your life, what kind of seasons would you want?'), [T('사계절이 뚜렷한 곳', 'Four clear seasons'), T('일 년 내내 봄 같은 곳', 'Spring-like all year round'), T('여름과 겨울이 아주 극단적인 곳', 'Very extreme summers and winters')]),
+ ('nightsky', T('오늘 밤 하늘을 올려다보면 별이 몇 개쯤 보일 것 같나요?', 'If you look up tonight, about how many stars do you think you will see?'), [T('열 개도 안 될 것 같다', 'Fewer than ten'), T('수십 개쯤', 'A few dozen'), T('수백 개 이상', 'Hundreds or more')]),
  ('depopulation', T('동네 병원이나 가게가 문을 닫으면 나는?', 'If the clinic or shop in your neighborhood closed, what would you do?'), [T('옆 동네까지 다니며 버틴다', 'Travel to the next town and stay put'), T('아예 큰 도시로 이사를 생각한다', 'Start thinking about moving to a big city'), T('별로 상관없다', 'It would hardly matter to me')]),
  ('filterbubble', T('SNS에서 나와 생각이 아주 다른 글이 보이면 나는 주로?', 'When a post with a view very different from yours shows up on social media, what do you usually do?'), [T('읽어 보고 한 번 생각해 본다', 'Read it and give it some thought'), T('그냥 넘긴다', 'Just scroll past'), T('괜히 더 반대로 생각하게 된다', 'End up feeling even more opposed')]),
 ]
@@ -130,7 +137,7 @@ for s, q, opts in DAILY:
 dyn[TOPIC['q'][0]] = TOPIC['q'][1]
 for o in TOPIC['o']: dyn[o[0]] = o[1]
 for t in UI: dyn[t[0]] = t[1]
-assert len(DAILY) == 62 and all(len(d[2]) == 3 for d in DAILY)
+assert len(DAILY) == 69 and all(len(d[2]) == 3 for d in DAILY)
 open(os.path.join(SITE, 'daily.js'), 'w', encoding='utf-8').write('// 오늘의 만약에 · 주제 투표 데이터 (tools/pages/daily.py 가 만든다)\nwindow.LAB_DAILY = ' + json.dumps(data, ensure_ascii=False) + ';\n')
 open(os.path.join(HERE, 'dyn_daily.py'), 'w', encoding='utf-8').write('# tools/pages/daily.py 가 만든다 (직접 고치지 말 것)\nDYN = ' + json.dumps(dyn, ensure_ascii=False, indent=1) + '\n')
 print(len(DAILY), '개 질문,', len(dyn), '개 문구')

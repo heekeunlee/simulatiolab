@@ -2,12 +2,14 @@
  "says_ko": [
   "같은 수가 먼저 일어서도 앞쪽이면 객석 전체로 번지고, 뒤쪽이면 거의 안 번져요. 이 모델에서 8명이 앞쪽이면 평균 69%, 뒤쪽이면 3%가 일어섰어요.",
   "사람은 앞과 옆만 보고 따라 일어서기 때문이에요. 앞줄 한 사람은 뒤에서 26명이 보지만, 맨 뒷줄 한 사람은 양옆 2명만 봐서 퍼질 길이 없어요.",
-  "만족도가 어느 선 아래면 몇 명만 서고 끝나고, 넘으면 한꺼번에 일어서요(앞에서 시작할 때 60%면 7%, 80%면 86%). 같은 공연이라도 누가 어디서 먼저 섰는지에 따라 갈릴 수 있어요."
+  "만족도가 어느 선 아래면 몇 명만 서고 끝나고, 넘으면 한꺼번에 일어서요(앞에서 시작할 때 60%면 7%, 80%면 86%). 같은 공연이라도 누가 어디서 먼저 섰는지에 따라 갈릴 수 있어요.",
+  "그렇다면 기립박수를 볼 땐 공연이 얼마나 좋았나와 함께, 앞쪽에서 몇 명이 먼저 섰는지를 보면 돼요. 앞쪽 1명이면 12%, 4명이면 38%, 14명이면 87%였어요."
  ],
  "says_en": [
   "With the same number standing first, it spreads through the whole hall from the front and barely at all from the back. Here, 8 people in front got 69% up on average; in the back, 3%.",
   "People only look ahead and to the side. 26 people behind see one person in the front row, but only 2 neighbors see one in the back row, so a standing there has nowhere to go.",
-  "Below a certain satisfaction only a few stand; above it, everyone rises at once (from the front: 7% at 60%, 86% at 80%). Even the same show can go either way depending on who stood first, and where."
+  "Below a certain satisfaction only a few stand; above it, everyone rises at once (from the front: 7% at 60%, 86% at 80%). Even the same show can go either way depending on who stood first, and where.",
+  "So when you see an ovation, look at how good the show was and also at how many stood first near the front. One person in front led to 12%, 4 people to 38% and 14 people to 87%."
  ],
  "not_ko": [
   "이 모델에선 아무도 뒤를 돌아보지 않고 박수 소리도 듣지 않아요. 실제로는 소리, 일행, 다시 앉는 사람이 있어 뒤에서 시작해도 번질 수 있고, 숫자는 모두 예시예요.",

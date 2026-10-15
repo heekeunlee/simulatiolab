@@ -2,12 +2,14 @@
  "says_ko": [
   "아픈 아이가 쉬면 감염은 줄지만 절반까지만 줄고, 대신 쉬는 날이 늘어요. 이 모델에선 쉬기 0%일 때 한 해 5.0회, 100%일 때 2.5회였고, 쉰 평일은 0일에서 약 7일이 됐어요.",
   "증상이 나타나기 전 하루 동안 이미 퍼지고, 반 밖에서도 들어와서 모두가 쉬어도 0은 되지 않아요. 반 크기도 커서, 쉬기 30%에서 8명 반은 2.5회, 30명 반은 5.5회였어요.",
-  "그래서 감염 횟수는 개별 가정의 선택만이 아니라 반의 크기, 접촉, 면역이 함께 만든 결과로 볼 수 있어요. 손씻기·환기로 전파를 30% 줄이면 4.4회에서 3.7회가 됐어요."
+  "그래서 감염 횟수는 개별 가정의 선택만이 아니라 반의 크기, 접촉, 면역이 함께 만든 결과로 볼 수 있어요. 손씻기·환기로 전파를 30% 줄이면 4.4회에서 3.7회가 됐어요.",
+  "그렇다면 감염 횟수를 볼 때 무엇을 먼저 볼까? 이 모델에선 반 크기·전파를 함께 줄이면 쉬는 날 없이도 줄었어요(쉬기 0%·전파 30%↓·12명 반: 3.2회, 쉰 날 0일)."
  ],
  "says_en": [
   "If sick children stay home, infections fall but only by about half, and days off go up. In this model: 5.0 infections a year at 0% staying home, 2.5 at 100%, with days off rising from 0 to about 7.",
   "Spread begins the day before symptoms and also comes in from outside, so even full staying-home cannot reach zero. Class size matters too: at 30% staying home, 2.5 for 8 children and 5.5 for 30.",
-  "So the count is not only each family's choice but a result of class size, contact, and immunity together. Cutting spread 30% by handwashing and airing took 4.4 infections down to 3.7."
+  "So the count is not only each family's choice but a result of class size, contact, and immunity together. Cutting spread 30% by handwashing and airing took 4.4 infections down to 3.7.",
+  "Then what should you look at first in infection counts? In this model, shrinking class size and spread together cut them with no days off (0% staying home, 30% less spread, 12 children: 3.2 times, 0 days off)."
  ],
  "not_ko": [
   "이 시뮬레이션이 직접 보여 준 쪽은 쉬기·반 크기·접촉·면역에 따른 횟수 변화예요. '아이가 약해서가 아니라 구조 때문'이라는 건 생각해 볼 점이고, 아이 개인의 체질은 모델에 없어요.",

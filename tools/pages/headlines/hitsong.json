@@ -2,12 +2,12 @@
  "says_ko": [
   "혼자 고르면 어느 세계에서나 같은 곡이 1등이지만, 남의 선택을 많이 볼수록 세계마다 1등이 달라져요. 가장 좋은 곡의 1등 비율이 94%에서 25%로 떨어졌어요(순위표 보는 사람 0%→60%).",
   "처음 몇 사람의 우연한 선택이 순위표 위로 올라가면, 위에 있다는 이유로 더 자주 눌리고 다시 더 올라가요. 그래서 쏠림(1등 곡의 몫 4.7% → 19.4%)과 예측 불가가 함께 커져요.",
-  "듣는 사람이 늘면 혼자 고를 땐 좋은 곡이 더 확실히 이기지만, 순위표를 볼 땐 거의 달라지지 않아요. 1등은 대개 좋은 곡 중 하나지만, 그중 어느 곡일지는 우연이 정할 수 있어요."
+  "그렇다면 좋은 곡이 1등 하려면? 이 모델에선 남의 선택을 덜 볼수록(0%면 94%, 10%면 66%), 실력 차가 클수록(6%→30%) 잘 이겼어요. 순위표를 볼 땐 듣는 사람 수는 거의 소용없었어요."
  ],
  "says_en": [
   "Alone, every world crowns the same song; the more people watch others' choices, the more each world crowns a different one. The best song's win rate fell from 94% to 25% (chart users 0% → 60%).",
   "When the first listeners' chance picks rise up the chart, those songs get clicked more for being on top and climb again, so inequality (top song's share 4.7% → 19.4%) and unpredictability grow together.",
-  "With more listeners, the good song wins more surely when people choose alone, but little changes when they follow the chart. The number one is usually a good song, but which one can be up to chance."
+  "So when does the best song win? In this model, when fewer people watched others (win rate 94% at 0%, 66% at 10%) and when quality gaps were wider (6%→30%). With chart-following, more listeners barely helped."
  ],
  "not_ko": [
   "실제 음악 차트를 재현한 게 아니에요. 사람마다 다른 취향, 친구 추천·방송·알고리즘처럼 곡을 만나는 다른 길은 이 모델에 없고, 숫자는 모두 이 프로젝트가 정한 예시예요.",

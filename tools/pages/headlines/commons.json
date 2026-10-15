@@ -2,12 +2,12 @@
  "says_ko": [
   "감시와 벌금이 없으면 공유 자원이 크게 무너진 뒤 낮게 머물고(약 26%), 감시가 있으면 더 높게 회복해요(적발 100%면 약 48%).",
   "내가 더 잡으면 이득은 내 몫, 손해는 모두의 몫이라 욕심이 퍼져요. 벌금이 가벼우면(0.5배) 감시해도 소용없고, 무거우면(3배) 나아졌어요.",
-  "그래서 비극을 '사람이 나빠서'로만 보기보다 이득과 손해가 갈리는 구조로 보면, 감시와 벌금 같은 규칙으로 바꿀 여지가 보여요."
+  "그렇다면 어떻게 지킬까? 이 모델에선 감시와 무거운 벌금이 함께일 때 가장 높게 회복했어요(감시 50%·벌금 3배: 약 48%). 벌금이 없으면 감시 50%여도 약 28%였고, 처음의 붕괴는 감시로도 못 막았어요."
  ],
  "says_en": [
   "Without monitoring and fines the shared resource collapses and stays low (about 26%); with monitoring it recovers higher (about 48% at 100% catch rate).",
   "Taking extra gives the gain to me and spreads the loss over everyone, so greed spreads. Light fines (0.5x) made monitoring useless, while heavy fines (3x) helped.",
-  "So seeing the tragedy as a split of gains and losses, not only as bad people, shows room to change it with rules such as monitoring and fines."
+  "So how is it protected? In this model monitoring plus heavy fines recovered highest (50% monitoring, 3x fine: about 48%). With no fine, even 50% monitoring stayed near 28%, and no monitoring stopped the first collapse."
  ],
  "not_ko": [
   "하딘이나 오스트롬이 옳다는 증명이 아니에요. 비용·재생 속도·욕심의 크기는 이 모델이 정한 값이고, 소유권·신뢰·경계 같은 조건은 모델에 없어요.",

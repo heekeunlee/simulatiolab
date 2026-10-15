@@ -1,0 +1,22 @@
+{
+ "says_ko": [
+  "일찍 밀면 아주 살짝으로 충분하고, 늦게 밀면 세게 밀어도 모자랄 수 있어요. 이 모델에선 10년 전 1 cm/s는 비껴갔지만, 한 달 전 100 cm/s는 부딪혔어요.",
+  "나아가는 방향으로 살짝 밀면 한 바퀴 도는 시간이 아주 조금 달라지고, 그 차이가 바퀴마다 쌓여요. 그래서 오래 기다릴수록 거의 그 시간만큼 더 벌어져요.",
+  "그렇다면 언제, 어떻게 밀까? 이 모델에선 일찍, 나아가는 방향으로가 가장 적게 들었어요(10년 전 0.97, 1년 전 15, 한 달 전 425 cm/s). 아주 늦으면 옆으로 미는 쪽이 덜 든 궤도가 많았어요."
+ ],
+ "says_en": [
+  "Push early and a tiny nudge is enough; push late and even a hard shove may fall short. Here 1 cm/s ten years ahead made it miss, but 100 cm/s a month ahead still hit.",
+  "A small push along its path changes the time per lap very slightly, and that difference piles up lap after lap. So the longer it has to work, the farther it drifts, almost in step with the time.",
+  "So when and how should you push? In this model, early and along its path took the least (0.97 cm/s ten years ahead, 15 one year ahead, 425 a month ahead). When very late, a sideways push took less for most orbits."
+ ],
+ "not_ko": [
+  "일찍과 늦게, 미는 방향에 따른 차이는 이 시뮬레이션이 직접 보여 준 거예요. 다만 가상의 소행성과 지구라서 실제 소행성의 위험이나 충돌을 계산한 게 아니에요.",
+  "지구의 중력, 달과 다른 행성, 햇빛이 미는 힘, 소행성의 모양·회전, 실제로 미는 방법과 그 오차는 빠져 있어요. 비껴감 기준(지구 반지름 2개)도 이 프로젝트가 정한 선이에요.",
+  "현실에서는 소행성을 일찍 찾아내 궤도를 정확히 재는 일이 먼저일 수 있어요. 이건 생각해 볼 점이고, 이 시뮬레이션이 직접 보여 준 건 아니에요."
+ ],
+ "not_en": [
+  "The differences between early and late, and between push directions, are what this simulation showed directly. But the asteroid and Earth are imaginary, so this is not a calculation of any real danger or impact.",
+  "Earth's gravity, the Moon and other planets, the push of sunlight, the asteroid's shape and spin, and how a real push would be done and its errors are left out. The miss line (2 Earth radii) was chosen by this project.",
+  "In reality, finding the asteroid early and measuring its orbit precisely may have to come first. That is something to think about; this simulation does not show it directly."
+ ]
+}

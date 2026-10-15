@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Nudging an Asteroid · Simulatio Lab">소행성 궤도 밀기 · 시뮬라티오 랩</title>
+<meta name="description" content="지구로 오는 가상의 소행성을 언제, 얼마나 세게 밀어야 비껴갈까요? 태양계 전체에서 지구 곁까지 3D로 보며 &quot;일찍 조금&quot;과 &quot;늦게 많이&quot;를 비교해 보세요." data-en-content="When, and how hard, must you push an imaginary asteroid heading for Earth so it misses? Watch in 3D from the whole solar system down to Earth, and compare &quot;a little, early&quot; with &quot;a lot, late&quot;.">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="theme-color" content="#2f6fed">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="42" height="42"><span class="bt"><b data-en="Simulatio Lab">시뮬라티오 랩</b><small>SIMULATIO LAB</small></span></a>
+  <span class="navr"><a class="link" href="../../" data-en="All experiments">실험 목록</a><span class="visits" id="visits" hidden title="오늘 방문자 · 누적 방문자 (한국 시간 기준)" data-en-title="Visitors today · total (Korea time)"><span class="vi" data-en="&lt;i class=&quot;live&quot;&gt;&lt;/i&gt;Today &lt;b id=&quot;v-today&quot;&gt;0&lt;/b&gt;"><i class="live"></i>오늘 <b id="v-today">0</b></span><span class="vsep"></span><span class="vi" data-en="Total &lt;b id=&quot;v-total&quot;&gt;0&lt;/b&gt;">누적 <b id="v-total">0</b></span></span></span>
+</div></nav>
+
+<main class="wrap">
+  <h1 data-en="Nudge an Asteroid Years Ahead, and Will It Miss Earth?">소행성을 몇 년 전에 살짝 밀면 지구를 비껴갈까?</h1>
+  <p class="lead" data-en="If an asteroid were heading for Earth, surely you would need a huge rocket to shove it aside? Yet in this model the push is about &lt;b&gt;1 cm per second&lt;/b&gt; of extra speed, far slower than walking. Can a nudge that small really make it miss Earth? The secret may lie not in how hard you push but in &lt;b&gt;when&lt;/b&gt;. Push an imaginary asteroid 10 years, 1 year or a month before it arrives.">소행성이 지구로 온다면, 커다란 로켓으로 세게 밀어내야 할 것 같지요. 그런데 이 모델에서 미는 세기는 <b>1초에 1cm</b> 빨라지게 하는 정도, 걷는 속도보다 훨씬 느립니다. 이렇게 작은 밀기로 정말 지구를 비껴가게 할 수 있을까요? 비결은 세기가 아니라 <b>언제</b> 미느냐에 있을지도 모릅니다. 가상의 소행성을 만나기 10년 전, 1년 전, 한 달 전에 밀어 보세요.</p>
+
+  <h2 data-en="How the model works">모델은 이렇게 움직입니다</h2>
+  <ul>
+    <li data-en="An imaginary Earth circles the Sun once a year on a round orbit. An imaginary asteroid travels a stretched orbit (by default: one lap in 1.66 years, 0.84 to 1.96 times Earth&#x27;s distance from the Sun, tilted 6°) and is set up to arrive &lt;b&gt;at exactly the same spot as Earth in year 20&lt;/b&gt;. Left alone, it heads straight for Earth&#x27;s center.">태양 둘레를 가상의 지구가 1년에 한 바퀴, 동그란 궤도로 돕니다. 가상의 소행성은 길쭉한 궤도(기본: 한 바퀴 1.66년, 태양에서 0.84~1.96배 거리, 6° 기울어짐)로 돌다가 <b>20년째에 지구와 정확히 같은 자리</b>에 오도록 만들었습니다. 밀지 않으면 지구 한가운데로 옵니다.</li>
+    <li data-en="Some &lt;b&gt;years before the meeting (the lead time)&lt;/b&gt;, the asteroid&#x27;s speed is changed &lt;b&gt;a little (push strength, cm/s)&lt;/b&gt;. The push goes one of three ways: along its direction of travel, sideways (toward the Sun), or up (out of the orbit&#x27;s plane). After that it flies under the Sun&#x27;s gravity alone.">지구와 만나기 <b>몇 년 전(리드 타임)</b>에 소행성의 속도를 <b>조금(밀기 세기, cm/s)</b> 바꿉니다. 미는 방향은 셋 중 하나입니다: 나아가는 방향으로, 옆으로(태양 쪽), 위로(궤도면 밖). 그 뒤에는 태양의 중력만 받으며 날아갑니다.</li>
+    <li data-en="As it passes Earth, the closest distance to Earth&#x27;s center is measured in &lt;b&gt;Earth radii&lt;/b&gt;. This model calls more than 2 Earth radii a &lt;b&gt;miss&lt;/b&gt;, 1 to 2 a &lt;b&gt;near miss&lt;/b&gt;, and less than 1 a &lt;b&gt;hit&lt;/b&gt; (a line chosen by this project).">지구 곁을 지날 때 지구 중심에서 가장 가까이 온 거리를 <b>지구 반지름</b>으로 잽니다. 이 모델은 지구 반지름 2개보다 멀리 지나가면 <b>비껴감</b>, 1~2개면 <b>아슬아슬</b>, 1개보다 가까우면 <b>부딪힘</b>으로 봅니다(이 기준은 이 프로젝트가 정한 것).</li>
+    <li data-en="The calculation uses units where Earth&#x27;s orbital radius is 1 and a year is 1; the screen converts them to Earth radii and cm/s to make them easier to grasp (Earth&#x27;s orbital radius = 23,481 Earth radii, Earth&#x27;s orbital speed = 29.78 km/s). &lt;b&gt;This is not a calculation about any real asteroid or any real danger.&lt;/b&gt;">계산은 지구 궤도 반지름을 1, 1년을 1로 놓은 단위로 하고, 화면에서는 알기 쉽게 지구 반지름과 cm/s로 바꿔 보여 줍니다(지구 궤도 반지름 = 지구 반지름 23,481개, 지구 공전 속도 = 29.78 km/s로 환산). <b>실제 소행성이나 실제 위험을 계산한 것이 아닙니다.</b></li>
+  </ul>
+
+  <h2 data-en="Try it yourself">직접 돌려보기</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl"><label for="lead" data-en="When to push (years before) &lt;output id=&quot;o-lead&quot;&gt;&lt;/output&gt;">언제 밀까 (만나기 몇 년 전) <output id="o-lead"></output></label>
+        <input type="range" id="lead" min="0" max="8" step="1" value="7">
+        <span class="hint" data-en="Higher means pushing earlier (0.1 yr ≈ a month)">올리면 더 일찍 밀어요 (0.1년 ≈ 한 달)</span></div>
+<div class="ctl"><label for="dv" data-en="How hard to push &lt;output id=&quot;o-dv&quot;&gt;&lt;/output&gt;">얼마나 세게 밀까 <output id="o-dv"></output></label>
+        <input type="range" id="dv" min="0" max="9" step="1" value="3">
+        <span class="hint" data-en="How much the asteroid&#x27;s speed changes. 1 cm/s is far slower than walking">소행성 속도를 바꾸는 크기. 1 cm/s는 걸음보다 훨씬 느려요</span></div>
+<div class="ctl"><label for="dir" data-en="Which way to push &lt;output id=&quot;o-dir&quot;&gt;&lt;/output&gt;">어느 쪽으로 밀까 <output id="o-dir"></output></label>
+        <select id="dir" class="sel"><option value="along" selected data-en="Along its path">나아가는 방향으로</option><option value="radial" data-en="Sideways (toward the Sun)">옆으로 (태양 쪽)</option><option value="normal" data-en="Up (out of the orbit plane)">위로 (궤도면 밖)</option></select>
+        <span class="hint" data-en="The same push works differently depending on its direction">같은 세기라도 방향에 따라 효과가 달라요</span></div>
+    </div>
+    <div class="btns">
+      <button class=primary id="run" data-en="Start over">처음부터 다시</button>
+      <button id="reroll" data-en="Same settings, another asteroid">같은 설정, 다른 소행성</button>
+      <button id="reset" data-en="Reset to defaults">기본값으로</button>
+      <span class="muted small" id="seedinfo"></span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel chart" style="margin-top:16px">
+    <h3 data-en="① From the Solar System Down to Earth &lt;span class=&quot;badge3d&quot;&gt;3D&lt;/span&gt;">① 태양계에서 지구 곁까지 <span class="badge3d">3D</span></h3>
+    <p data-en="At first you see the whole solar system. The yellow arrow marks the moment and direction of the push. At this scale the path before and after the push differ so little that they look like one. As the asteroid nears Earth, the view zooms in &lt;b&gt;next to Earth (true scale)&lt;/b&gt; and the playback slows down. The white asteroid follows the path it would have taken without a push; the orange one is the pushed asteroid.">처음에는 태양계 전체를 봅니다. 노란 화살표가 미는 순간과 방향이에요. 태양계 크기에서는 밀기 전 길과 민 길이 겹쳐 보일 만큼 차이가 작습니다. 소행성이 지구에 다가가면 화면이 <b>지구 곁 확대(실제 비율)</b>로 바뀌고 재생이 느려집니다. 흰 소행성은 밀지 않았을 때의 길, 주황 소행성은 민 뒤의 길입니다.</p>
+    <canvas id="c-3d" class="view3d" data-thumb aria-label="① From the Solar System Down to Earth 3D"></canvas>
+      <div class="legend"><span data-en="&lt;i style=&quot;background:#ffd34d&quot;&gt;&lt;/i&gt;Sun"><i style="background:#ffd34d"></i>태양</span><span data-en="&lt;i style=&quot;background:#3b82f6&quot;&gt;&lt;/i&gt;Earth"><i style="background:#3b82f6"></i>지구</span><span data-en="&lt;i style=&quot;background:#ff8a3d&quot;&gt;&lt;/i&gt;Pushed asteroid (enlarged in the solar-system view)"><i style="background:#ff8a3d"></i>민 소행성 (태양계 보기에서는 크기를 키움)</span><span data-en="&lt;i style=&quot;background:#dfe6f2;border:1px solid #8a94a6&quot;&gt;&lt;/i&gt;Path without the push"><i style="background:#dfe6f2;border:1px solid #8a94a6"></i>밀지 않았을 때의 길</span><span data-en="&lt;i style=&quot;background:#ffe066&quot;&gt;&lt;/i&gt;Push direction · closest point"><i style="background:#ffe066"></i>미는 방향 · 가장 가까이 온 곳</span><span data-en="&lt;i style=&quot;background:#8ce99a&quot;&gt;&lt;/i&gt;Miss line (2 Earth radii)"><i style="background:#8ce99a"></i>비껴감 기준 (지구 반지름 2개)</span></div>
+    <div class="anim-bar">
+      <button id="play" data-en="⏸ Pause">⏸ 일시정지</button>
+      
+      <button id="restart" data-en="Restart">처음부터</button>
+      <select id="speed" aria-label="speed"><option value="120" data-en="Slow">느리게</option><option value="250" selected data-en="Normal">보통</option><option value="700" data-en="Fast">빠르게</option></select>
+      <span class="when" id="when"></span>
+    </div>
+    <div class="anim-bar">
+      <select id="as-view" aria-label="view"><option value="auto" selected data-en="View: automatic">보기: 자동</option><option value="sun" data-en="View: whole solar system">보기: 태양계 전체</option><option value="earth" data-en="View: close to Earth (true scale)">보기: 지구 곁 (실제 비율)</option></select>
+      <select id="as-rotate" aria-label="camera"><option value="on" selected data-en="Camera turns slowly">카메라 천천히 돌기</option><option value="off" data-en="Camera stays still">카메라 멈춤</option></select>
+    </div>
+    <p class="hint3d" data-en="Drag to turn the view · scroll or pinch to zoom · left alone, the camera circles slowly (you can switch it off) · on a phone, swiping up and down scrolls the page. On &quot;Automatic&quot;, the view zooms in next to Earth when the asteroid gets close and the playback slows down. The 3D view draws the same calculation as the charts below.">드래그로 돌려 보기 · 휠이나 두 손가락으로 확대 · 가만히 두면 카메라가 천천히 돕니다(끌 수 있어요) · 휴대폰에서 세로로 쓸면 페이지가 내려갑니다. "자동"이면 소행성이 지구에 다가가 재생이 느려질 때 지구 곁 확대로 바뀝니다. 3D는 아래 그래프와 같은 계산을 그린 것입니다.</p>
+  </section>
+
+  <div class="charts">
+    <section class="panel chart">
+      <h3 data-en="② How Far Apart Do the Two Paths Drift?">② 밀고 나서 두 길은 얼마나 벌어지나</h3>
+    <p data-en="Drawn only up to where the playback has reached. This is the distance between where the asteroid would have been without the push and where the pushed asteroid is. Watch whether it swings with every lap while still drifting a little farther each time.">재생이 지난 시점까지만 그립니다. 밀기 전 길로 갔을 소행성과 민 소행성 사이 거리예요. 한 바퀴 돌 때마다 출렁이면서도 조금씩 더 벌어지는지 보세요.</p>
+    <canvas id="c-sep" class="" aria-label="② How Far Apart Do the Two Paths Drift?"></canvas>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="③ When and How Hard to Push? (Summary: Computed in Advance for This Asteroid)">③ 언제, 얼마나 세게 밀면 비껴갈까 (집계: 이 소행성으로 미리 계산)</h3>
+    <p data-en="For the current asteroid pushed along its path at 1, 10 or 100 cm/s, the distance by which it misses Earth for each lead time (both axes go up in steps of ten). This is a summary computed in advance, independent of the playback. Above the green dashed line is a miss; inside the red band is a hit. The pale blue band is the lead time you have chosen.">지금 소행성을 나아가는 방향으로 1·10·100 cm/s로 밀었을 때, 리드 타임마다 지구를 비껴간 거리입니다(두 축 모두 10배 눈금). 재생과 상관없이 미리 계산한 집계예요. 초록 점선 위면 비껴감, 붉은 띠 안이면 부딪힘입니다. 옅은 파란 띠는 지금 고른 리드 타임이에요.</p>
+    <canvas id="c-miss" class="" aria-label="③ When and How Hard to Push? (Summary: Computed in Advance for This Asteroid)"></canvas>
+      <div class="legend"><span id="note-m" data-en="Calculating…">계산 중…</span></div>
+    </section>
+    <section class="panel chart">
+      <h3 data-en="④ How Hard a Push Is Needed to Miss? (Summary)">④ 비껴가게 하려면 얼마나 세게 밀어야 하나 (집계)</h3>
+    <p data-en="The push needed to make it pass at least 2 Earth radii away, for each push direction (both axes go up in steps of ten). The thick line is the direction you chose. In this model the miss distance is almost exactly proportional to the push, so it was found by dividing by the distance for a 1 cm/s push.">지구 반지름 2개 이상 떨어져 지나가게 하는 데 필요한 세기를 미는 방향마다 그렸습니다(두 축 모두 10배 눈금). 굵은 선이 지금 고른 방향이에요. 이 모델에서는 미는 세기와 비껴간 거리가 거의 정비례해서, 1 cm/s로 밀었을 때의 거리로 나눠 구했습니다.</p>
+    <canvas id="c-need" class="" aria-label="④ How Hard a Push Is Needed to Miss? (Summary)"></canvas>
+      <div class="legend"><span id="note-n" data-en="Calculating…">계산 중…</span></div>
+    </section>
+  </div>
+
+  <h2 data-en="What This Shows, and What It Doesn&#x27;t">이 결과가 말하는 것, 말하지 않는 것</h2>
+  <div class="callout cl-says">
+    <p class="clabel" data-en="&lt;b&gt;What it shows:&lt;/b&gt;"><b>말하는 것:</b></p>
+    <ul class="chead"><li data-en="Push early and a tiny nudge is enough; push late and even a hard shove may fall short. Here 1 cm/s ten years ahead made it miss, but 100 cm/s a month ahead still hit.">일찍 밀면 아주 살짝으로 충분하고, 늦게 밀면 세게 밀어도 모자랄 수 있어요. 이 모델에선 10년 전 1 cm/s는 비껴갔지만, 한 달 전 100 cm/s는 부딪혔어요.</li><li data-en="A small push along its path changes the time per lap very slightly, and that difference piles up lap after lap. So the longer it has to work, the farther it drifts, almost in step with the time.">나아가는 방향으로 살짝 밀면 한 바퀴 도는 시간이 아주 조금 달라지고, 그 차이가 바퀴마다 쌓여요. 그래서 오래 기다릴수록 거의 그 시간만큼 더 벌어져요.</li><li data-en="So when and how should you push? In this model, early and along its path took the least (0.97 cm/s ten years ahead, 15 one year ahead, 425 a month ahead). When very late, a sideways push took less for most orbits.">그렇다면 언제, 어떻게 밀까? 이 모델에선 일찍, 나아가는 방향으로가 가장 적게 들었어요(10년 전 0.97, 1년 전 15, 한 달 전 425 cm/s). 아주 늦으면 옆으로 미는 쪽이 덜 든 궤도가 많았어요.</li></ul>
+    <details class="cmore"><summary data-en="Details">상세 설명</summary>
+      <p class="cfull" data-en="&lt;b&gt;What it shows:&lt;/b&gt; Pushing the default asteroid along its path by only 1 cm/s ten years before the meeting made it miss by 2.06 Earth radii (it meets Earth at 10.7 km/s). Pushing the same asteroid at 10 cm/s one year before gave 1.32 (a near miss), and at 100 cm/s 0.1 years (about a month) before gave 0.47, a hit. The push needed to miss was 0.97 cm/s ten years before, 15 cm/s one year before and 425 cm/s 0.1 years before (16 and 438 times more than at ten years). Across 20 different orbits, the median push needed was 1.59, 14.1 and 432 cm/s, and for all 20 pushing ten years ahead took less. A push along the path makes the orbit very slightly bigger or smaller, so each lap takes a slightly different time, and that difference piles up lap after lap. So the longer you wait for it to work, the farther apart it drifts, almost in proportion to the lead time (matching a theory calculation to within 1% at 5 to 20 years). A sideways push (toward the Sun) builds up almost none of this, so ten years ahead it needed a median of 38 times more push than one along the path; but when late, such as 0.5 years ahead, the sideways push actually needed less in 15 of the 20 orbits."><b>말하는 것:</b> 기본 소행성을 만나기 10년 전에 나아가는 방향으로 1 cm/s만 밀면 지구 반지름의 2.06배 떨어져 비껴갔습니다(지구에 대한 속도 10.7 km/s). 같은 소행성을 1년 전에 10 cm/s로 밀면 1.32배(아슬아슬), 0.1년(약 한 달) 전에 100 cm/s로 밀면 0.47배로 부딪혔습니다. 비껴가는 데 필요한 세기는 10년 전 0.97 cm/s, 1년 전 15 cm/s, 0.1년 전 425 cm/s였습니다(10년 전보다 16배, 438배). 서로 다른 궤도 20개에서도 필요한 세기의 중앙값은 10년 전 1.59, 1년 전 14.1, 0.1년 전 432 cm/s였고, 20개 모두 10년 전에 미는 쪽이 적게 들었습니다. 나아가는 방향으로 밀면 궤도가 아주 조금 커지거나 작아져 한 바퀴 시간이 달라지고, 그 차이가 바퀴마다 쌓입니다. 그래서 오래 둘수록 거의 리드 타임에 비례해 벌어집니다(이론 계산과 5~20년에서 1% 안으로 맞음). 옆으로(태양 쪽) 밀면 이 쌓임이 거의 없어 10년 전에는 나아가는 방향보다 중앙값 38배 세게 밀어야 했지만, 0.5년 전처럼 늦을 때는 20개 중 15개에서 옆으로 미는 쪽이 오히려 적게 들었습니다.</p></details>
+  </div>
+  <div class="callout cl-not">
+    <p class="clabel" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt;"><b>말하지 않는 것:</b></p>
+    <ul class="chead"><li data-en="The differences between early and late, and between push directions, are what this simulation showed directly. But the asteroid and Earth are imaginary, so this is not a calculation of any real danger or impact.">일찍과 늦게, 미는 방향에 따른 차이는 이 시뮬레이션이 직접 보여 준 거예요. 다만 가상의 소행성과 지구라서 실제 소행성의 위험이나 충돌을 계산한 게 아니에요.</li><li data-en="Earth&#x27;s gravity, the Moon and other planets, the push of sunlight, the asteroid&#x27;s shape and spin, and how a real push would be done and its errors are left out. The miss line (2 Earth radii) was chosen by this project.">지구의 중력, 달과 다른 행성, 햇빛이 미는 힘, 소행성의 모양·회전, 실제로 미는 방법과 그 오차는 빠져 있어요. 비껴감 기준(지구 반지름 2개)도 이 프로젝트가 정한 선이에요.</li><li data-en="In reality, finding the asteroid early and measuring its orbit precisely may have to come first. That is something to think about; this simulation does not show it directly.">현실에서는 소행성을 일찍 찾아내 궤도를 정확히 재는 일이 먼저일 수 있어요. 이건 생각해 볼 점이고, 이 시뮬레이션이 직접 보여 준 건 아니에요.</li></ul>
+    <details class="cmore"><summary data-en="Details">상세 설명</summary>
+      <p class="cfull" data-en="&lt;b&gt;What it doesn&#x27;t show:&lt;/b&gt; This is a simplified model built from an imaginary asteroid and an imaginary Earth; it does not calculate the orbit, danger or impact chances of any real asteroid. Earth&#x27;s gravity (Earth pulling the asteroid and bending its path), the Moon and other planets, the push of sunlight, the asteroid&#x27;s shape, size and spin, and how a real push would be done (impact, towing and so on) and how precise it could be are all left out. The miss line (2 Earth radii) is a line chosen by this project. The distance does not grow evenly with lead time (for example 0.25 years beats 0.5 years) because the effect depends on where in its orbit the asteroid is pushed. Every number is an example from this model."><b>말하지 않는 것:</b> 이 모델은 가상의 소행성과 가상의 지구로 만든 단순화이며 실제 소행성의 궤도·위험·충돌 가능성을 계산하지 않습니다. 지구의 중력(지구가 소행성을 끌어당겨 휘게 하는 효과), 달과 다른 행성, 햇빛이 미는 힘, 소행성의 모양·크기·회전, 실제로 어떻게 미는지(충돌·끌기 등)와 그 정확도는 모두 빠져 있습니다. 비껴감 기준(지구 반지름 2개)은 이 프로젝트가 정한 선입니다. 리드 타임이 늘어도 거리가 고르게 늘지 않는 것(예: 0.25년이 0.5년보다 큼)은 궤도의 어느 지점에서 미느냐에 따라 효과가 달라지기 때문입니다. 숫자는 모두 이 모델에서 나온 예시입니다.</p></details>
+  </div>
+
+  <h2 data-en="Theory and implementation notes">이론적 근거와 구현 메모</h2>
+  <ul class="small">
+    <li class="memo theory" data-en="&lt;b&gt;Where the model comes from:&lt;/b&gt; Nudging an asteroid early and gently to change its orbit is a long-discussed idea in planetary defense, and in 2022 NASA&#x27;s DART spacecraft is known to have deliberately struck a small asteroid and changed its orbit. This model does not reproduce that experiment; it only uses a simple Sun-centered orbit to show why &quot;when you push&quot; matters."><b>모델의 뿌리:</b> 소행성을 일찍 조금 밀어 궤도를 바꾸는 방법은 행성 방어에서 오래 이야기되어 온 생각이며, 2022년 NASA의 DART 우주선이 작은 소행성에 일부러 부딪혀 그 궤도를 바꾸는 데 성공했다고 알려져 있어요. 이 모델은 그 실험을 재현하지 않고, "언제 미느냐"가 왜 중요한지만 단순한 태양 중심 궤도로 보여 줍니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Key assumptions and formulas:&lt;/b&gt; The asteroid feels only the Sun&#x27;s gravity: &lt;code&gt;a = −μ r / |r|³&lt;/code&gt;, &lt;code&gt;μ = 4π²&lt;/code&gt; (length = Earth&#x27;s orbital radius, time = 1 year). Earth moves on a circle of radius 1, once a year. The asteroid is set to meet Earth at (1, 0, 0) in year 20: starting from its velocity at that spot (on the line where its orbit plane crosses Earth&#x27;s, consistent with the vis-viva equation &lt;code&gt;v² = μ(2/r − 1/a)&lt;/code&gt;), it is integrated &lt;b&gt;backward&lt;/b&gt; to get its starting state. Integration uses velocity Verlet (steps of 1/4000 year, time-symmetric), so running forward retraces the same path. L years ahead, its velocity changes by &lt;code&gt;Δv&lt;/code&gt; (along its path / in the orbit plane, perpendicular to its velocity, toward the Sun / perpendicular to the orbit plane), and the closest distance to Earth between years 19.95 and 20.05 is found (cubic Hermite interpolation between steps plus golden-section search). A push along the path changes the orbit size by &lt;code&gt;Δa = 2a²vΔv/μ&lt;/code&gt; and so the time per lap, making it arrive earlier or later by &lt;code&gt;δt ≈ 3·L·a·v·Δv/μ&lt;/code&gt;. The miss distance is the part of this shift perpendicular to the velocity relative to Earth."><b>핵심 가정과 수식:</b> 소행성은 태양의 중력만 받습니다: <code>a = −μ r / |r|³</code>, <code>μ = 4π²</code>(길이 = 지구 궤도 반지름, 시간 = 1년). 지구는 반지름 1인 원 궤도를 1년에 한 바퀴 돕니다. 소행성은 20년째에 (1, 0, 0)에서 지구와 만나도록, 그 자리의 속도(궤도면이 지구 궤도면과 만나는 선 위, 활력 방정식 <code>v² = μ(2/r − 1/a)</code>와 일치)에서 <b>거꾸로</b> 적분해 처음 상태를 얻습니다. 적분은 속도 베를레(한 걸음 1/4000년, 시간 대칭)라 앞으로 다시 돌리면 같은 길을 되밟습니다. 리드 타임 L년 전에 속도를 <code>Δv</code>만큼 바꾸고(나아가는 방향 / 궤도면 안에서 속도에 수직인 태양 쪽 / 궤도면에 수직) 20±0.05년 사이에서 지구와 가장 가까운 거리를 찾습니다(걸음 사이는 3차 에르미트 보간 + 황금분할 탐색). 나아가는 방향으로 밀면 궤도 크기가 <code>Δa = 2a²vΔv/μ</code>만큼 바뀌고 한 바퀴 시간이 달라져, 도착이 <code>δt ≈ 3·L·a·v·Δv/μ</code>만큼 빨라지거나 늦어집니다. 비껴간 거리는 이 어긋남 중 지구에 대한 상대 속도에 수직인 부분입니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;What this project simplifies:&lt;/b&gt; Earth&#x27;s gravity is left out, so the asteroid&#x27;s path does not bend near Earth (in reality Earth&#x27;s pull can draw it closer). The Moon, other planets, sunlight pressure, the asteroid&#x27;s shape and spin, and how it is pushed and with what error are not included. The push is simplified to an instant change of speed. The orbit is an imaginary one chosen so that the line where it crosses Earth&#x27;s orbital plane lies exactly on Earth&#x27;s orbit; from asteroid 2 on, the size (semi-major axis 1.1–1.9), stretch (eccentricity 0.15–0.6) and tilt (2–14°) are drawn at random. The miss line (2 Earth radii) was chosen by this project."><b>이 프로젝트의 단순화:</b> 지구의 중력을 넣지 않아 지구 곁에서 소행성 길이 휘지 않습니다(실제로는 지구가 끌어당겨 더 가까이 오게 만들 수 있어요). 달·다른 행성·햇빛의 힘, 소행성의 모양과 회전, 미는 방법과 그 오차는 없습니다. 미는 것은 한순간에 속도를 바꾸는 것으로 단순화했습니다. 궤도는 지구 궤도면과 만나는 선이 정확히 지구 궤도 위에 오도록 고른 가상의 궤도이며, 판 2부터는 긴반지름 1.1~1.9, 이심률 0.15~0.6, 기울기 2~14°에서 무작위로 뽑습니다. 비껴감 기준(지구 반지름 2개)은 이 프로젝트가 정한 것입니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Theory versus simulation:&lt;/b&gt; Checked with &lt;code&gt;node tools/validate-asteroid.js&lt;/code&gt;. Over 20 years the relative energy error is at most 1.0×10⁻⁶; going 20 years backward and then 20 years forward returns to the same spot within 1.3×10⁻⁸ Earth radii; and with no push the closest distance is 1.5×10⁻⁸ (effectively 0). The miss distance from the formula &lt;code&gt;δt ≈ 3·L·a·v·Δv/μ&lt;/code&gt; above matched the simulation within 1% at lead times of 5, 10 and 20 years (1.09 vs 1.09, 2.08 vs 2.06, 3.75 vs 3.72) and differed by 20% at 2 years (the formula keeps only the part that piles up lap after lap, leaving out the swing within a lap). Doubling the push also doubles the distance (largest difference 0.02%)."><b>이론값과 시뮬레이션:</b> <code>node tools/validate-asteroid.js</code>로 확인합니다. 20년 동안 에너지 상대 오차는 최대 1.0×10⁻⁶, 거꾸로 20년 갔다가 다시 앞으로 20년 오면 지구 반지름의 1.3×10⁻⁸배 안으로 같은 자리에 돌아오고, 밀지 않으면 최접근 거리는 1.5×10⁻⁸(사실상 0)입니다. 위의 이론식 <code>δt ≈ 3·L·a·v·Δv/μ</code>로 계산한 비껴간 거리와 시뮬레이션은 리드 5·10·20년에서 1% 안으로 맞았고(1.09 대 1.09, 2.08 대 2.06, 3.75 대 3.72), 2년에서는 20% 차이가 났습니다(이론식은 바퀴마다 쌓이는 부분만 보고 한 바퀴 안의 출렁임은 빼기 때문). 미는 세기를 2배로 하면 거리도 2배가 되는지(차이 최대 0.02%)도 확인했습니다.</li>
+    <li class="memo theory" data-en="&lt;b&gt;Further reading:&lt;/b&gt; The basics of orbital mechanics (Kepler orbits, the vis-viva equation) are in astronomy and spaceflight textbooks. DART was NASA&#x27;s 2022 experiment in changing an asteroid&#x27;s orbit."><b>더 읽을거리:</b> 궤도 역학의 기본(케플러 궤도, 활력 방정식)은 천문학·우주공학 교과서에서 찾을 수 있습니다. DART 실험은 NASA가 2022년에 한 소행성 궤도 바꾸기 실험입니다.</li>
+    <li  data-en="A simplified implementation of this project&#x27;s own design. Once you choose a run, 20 years of the reference orbit and the pushed orbit are integrated in advance, and the playback reveals them only up to the current moment (so do chart ② and the stat cards; the miss distance appears only after the closest moment has passed). One playback tick is about 0.9 days; near Earth the playback slows in step with the distance so the zoomed view takes a few seconds to cross. ③ and ④ are summaries computed in advance for the current asteroid&#x27;s orbit (9 lead times × each strength or direction), independent of the playback, and changing the lead time or strength leaves them unchanged for the same asteroid. ① The 3D view draws the computed result as is and makes no new numbers. In the solar-system view Earth and the asteroid are drawn enlarged so you can see them; the close-to-Earth view is true scale, with Earth&#x27;s radius as 1.">이 프로젝트가 직접 설계한 단순화 구현입니다. 한 판을 고르면 20년 치 기준 궤도와 민 궤도를 미리 적분해 두고, 재생은 그중 지금 시점까지만 보여 줍니다(②의 그래프와 통계 카드도 지금까지만; 비껴간 거리는 가장 가까운 순간이 지난 뒤에 보입니다). 재생 한 칸은 약 0.9일이며, 지구에 다가가면 거리에 맞춰 재생을 늦춰 지구 곁 확대 화면을 몇 초에 걸쳐 지나가게 합니다. ③④는 지금 소행성의 궤도로 리드 타임 9개 × 세기·방향마다 미리 계산한 집계라 재생과 상관없고, 슬라이더 중 리드 타임·세기를 바꿔도 같은 소행성이면 그대로입니다. ① 3D는 계산 결과를 그대로 그리며 새로운 숫자를 만들지 않습니다. 태양계 보기에서는 지구와 소행성을 보이게 크게 그렸고, 지구 곁 보기는 지구 반지름을 1로 한 실제 비율입니다.</li>
+    <li data-en="The code is available on &lt;a href=&quot;https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/asteroid&quot;&gt;GitHub&lt;/a&gt;.">코드는 <a href="https://github.com/heekeunlee/simulatiolab/tree/main/site/experiments/asteroid">GitHub</a>에서 볼 수 있습니다.</li>
+  </ul>
+</main>
+
+<footer><div class="wrap" data-en="Simulatio Lab · Run by Heekeun Lee (&lt;a href=&quot;mailto:clzmyiz@gmail.com&quot;&gt;clzmyiz@gmail.com&lt;/a&gt;) · YouTube &lt;a href=&quot;https://www.youtube.com/@simulatiolab&quot;&gt;youtube.com/@simulatiolab&lt;/a&gt;">시뮬라티오 랩 · 운영자: 이희근 (<a href="mailto:clzmyiz@gmail.com">clzmyiz@gmail.com</a>) · 유튜브 <a href="https://www.youtube.com/@simulatiolab">youtube.com/@simulatiolab</a></div></footer>
+<script src="../../i18n.js"></script>
+<script src="../../i18n-en.js"></script>
+<script src="../../exps.js"></script>
+<script src="../../layout.js"></script>
+<script src="../../lib.js"></script>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+<script src="../../lazy3d.js" data-module="app3d.js"></script>
+<script src="../../counter.js"></script>
+<script src="../../engage.js"></script>
+</body>
+</html>

@@ -2,12 +2,14 @@
  "says_ko": [
   "입찰자가 적고 짐작이 정확하면 이겨도 손해가 작지만, 입찰자가 많고 짐작이 흐릿하면 이긴 쪽이 크게 손해를 봐요.",
   "이긴다는 건 '내 짐작이 가장 높게 틀렸다'는 뜻이라서, 입찰자 10명·오차 20%에선 이긴 쪽의 평균이 가치 100 기준 −30.9였어요. 2명일 땐 −11.4, 30명일 땐 −40.9였어요.",
-  "짐작이 5%만 틀릴 땐 −7.7, 40%나 틀릴 땐 −61.7이었어요. 이기고도 잃은 만큼은 사람 수와 짐작의 흐릿함이 함께 키운다고 볼 수 있어요."
+  "짐작이 5%만 틀릴 땐 −7.7, 40%나 틀릴 땐 −61.7이었어요. 이기고도 잃은 만큼은 사람 수와 짐작의 흐릿함이 함께 키운다고 볼 수 있어요.",
+  "그렇다면 이기고도 손해를 안 보려면? 이 모델에선 모두가 짐작보다 낮춰 부를수록 손해가 줄었어요. 입찰자 10명일 때 그대로면 −30.9, 틀리는 폭의 1.5배를 깎으면 −0.9였어요."
  ],
  "says_en": [
   "The fewer the bidders and the sharper their guesses, the smaller the winner's loss; with many bidders and blurry guesses, the winner loses a lot.",
   "Winning means your guess was the most overshot one: with 10 bidders and 20% error the winner averaged −30.9 on a value of 100, versus −11.4 with 2 bidders and −40.9 with 30.",
-  "At 5% error the loss was −7.7, at 40% it was −61.7. So what a winner loses grows with both the number of rivals and how blurry the guesses are."
+  "At 5% error the loss was −7.7, at 40% it was −61.7. So what a winner loses grows with both the number of rivals and how blurry the guesses are.",
+  "So how do you win without losing? In this model losses shrank as everyone bid below their guess: with 10 bidders, −30.9 bidding as guessed, −0.9 when shading by 1.5 times the error."
  ],
  "not_ko": [
   "입찰자가 2명인 둘째값 방식에선 낙찰자가 오히려 평균 +11.3 이익을 봤어요. '이기면 늘 손해'가 아니라, 이 모델의 첫째값 방식에서 나온 결과예요.",

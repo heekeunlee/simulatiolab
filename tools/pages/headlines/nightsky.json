@@ -1,0 +1,24 @@
+{
+ "says_ko": [
+  "가까운 별은 적어서 밝은 별은 손에 꼽고, 먼 별은 엄청 많아서 어두운 별은 폭발적으로 늘어요. 이 모델에선 2등급보다 밝은 별이 3.4개, 6등급까지는 1,048개였어요.",
+  "거리가 2배면 밝기는 4분의 1이지만, 그 거리에 있는 별 수는 훨씬 빨리 늘어요. 그래서 한 등급 어두워질 때마다 별이 4.0배씩 늘었고, 이론값 3.98배와 맞았어요.",
+  "별을 2배로 늘리거나 모두 같은 밝기로 해도 4배는 그대로였지만, 별 사이 먼지를 켜면 2.4배, 원래 밝기 차이를 크게 하면 2.6배로 깨졌어요.",
+  "그렇다면 별을 더 많이 보려면? 이 모델에선 하늘 어둡기가 가장 컸어요. 시골(6등급) 1,048개가 큰 도시(3등급)에선 17개, 깜깜한 산속(7등급)에선 4,055개였어요."
+ ],
+ "says_en": [
+  "Near stars are few, so bright stars can be counted on one hand; far stars are countless, so faint stars multiply explosively. Here 3.4 stars were brighter than magnitude 2, but 1,048 were visible to magnitude 6.",
+  "Twice as far means a quarter as bright, but the number of stars at that distance grows much faster. So each magnitude fainter brought 4.0 times more stars, matching the theoretical 3.98.",
+  "Doubling the stars or making them all equally bright kept the 4 times, but dust between the stars broke it to 2.4, and a wide spread in true brightness to 2.6.",
+  "So how do you see more stars? In this model, sky darkness mattered most: 1,048 stars in the countryside (mag 6) became 17 in a big city (mag 3) and 4,055 on a pitch-dark mountain (mag 7)."
+ ],
+ "not_ko": [
+  "등급마다 4배, 먼지와 도시 불빛의 효과는 이 시뮬레이션이 직접 보여 준 거예요. 하지만 별을 공 안에 고르게 뿌린 장난감 모델이라 실제 밤하늘의 별 수를 계산한 건 아니에요.",
+  "실제 별은 납작한 은하 원반에 몰려 있고 밝기 차이도 훨씬 크며 먼지도 고르지 않다고 알려져 있어서, 실제 숫자는 다를 수 있어요. 도시 불빛 단계별 등급도 이 모델의 예시예요.",
+  "밝게 보이는 별의 절반쯤(20개 중 11.1개)이 원래 밝은 별이었다는 것도 이 모델의 설정에서 나온 결과예요. 실제 하늘에서 확인하려면 별까지 거리를 잰 목록과 견줘 봐야 해요."
+ ],
+ "not_en": [
+  "The 4 times per magnitude and the effects of dust and city lights are what this simulation showed directly. But it is a toy model with stars spread evenly in a ball, not a count of the real night sky.",
+  "Real stars are known to crowd into the galaxy's flat disk, to differ far more in brightness and to sit among uneven dust, so real numbers may differ. The magnitudes for city-light levels are examples of this model.",
+  "That about half of the brightest-looking stars (11.1 of 20) were truly bright also comes from this model's settings. To check the real sky, you would compare with a catalog of measured star distances."
+ ]
+}

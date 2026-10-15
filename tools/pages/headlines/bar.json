@@ -2,12 +2,14 @@
  "says_ko": [
   "모두가 같은 예측을 하면 한 주는 텅 비고 한 주는 미어터지고, 예측이 제각각이면 손님 수가 정원 근처로 맞춰져요.",
   "'한산했으니 가자'를 다 같이 하면 한꺼번에 몰리고, 다 같이 피하면 텅 비어요. 모두가 따르는 예측은 따를수록 스스로 틀려져요.",
-  "전체 손님 수는 정원 근처로 맞춰져도 개인은 여전히 절반쯤 틀려요. 예측법을 늘려도 이 절반은 거의 안 줄어요."
+  "전체 손님 수는 정원 근처로 맞춰져도 개인은 여전히 절반쯤 틀려요. 예측법을 늘려도 이 절반은 거의 안 줄어요.",
+  "그렇다면 어떻게 해야 덜 붐빌까? 이 모델에선 모두가 같은 예측을 따를 때가 문제였고, 예측이 제각각이면 정원 60명에 손님 58.3명으로 맞춰졌어요. 개인으로선 절반은 틀린다고 받아들이면 돼요."
  ],
  "says_en": [
   "If everyone predicts the same way, one week is empty and the next is packed; if predictions differ, attendance settles near capacity.",
   "If everyone thinks 'it was quiet, so I'll go', they all crowd in; if everyone avoids it, it is empty. A prediction everyone follows defeats itself.",
-  "Total attendance settles near capacity, yet each person is still wrong about half the time. Adding more prediction methods barely lowers that half."
+  "Total attendance settles near capacity, yet each person is still wrong about half the time. Adding more prediction methods barely lowers that half.",
+  "So how does it get less crowded? In this model the trouble came when everyone followed the same prediction; with varied predictions, 58.3 came for 60 seats. As an individual, accept being wrong about half the time."
  ],
  "not_ko": [
   "실제 사람들이 이런 계산식으로 식당을 고른다는 뜻은 아니에요. 예측법의 형태와 사람 수는 이 모델이 정한 설정이에요.",

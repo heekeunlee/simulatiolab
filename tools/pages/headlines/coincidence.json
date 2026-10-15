@@ -2,12 +2,12 @@
  "says_ko": [
   "'나와 같은' 일치는 드물지만, '누군가 어딘가에서'의 일치는 흔해요. 같은 23명인데 나와 생일이 같은 사람이 있을 확률은 5.9%, 방 안 어딘가에 같은 쌍이 있을 확률은 50.7%예요.",
   "23명 사이엔 가능한 짝이 253쌍이나 되는데, 나와의 일치는 나를 낀 짝만 세기 때문이에요. 57명이면 어딘가의 일치는 99.0%, 나와의 일치는 14.2%예요.",
-  "신기한 일치를 만나면 '나에게 생긴 일'인지 '모인 사람 중 아무에게나 생긴 일'인지로 갈라 보면 돼요. 특징을 늘리면 나와의 일치도 55.3%까지 올라가요(23명, 특징 2가지)."
+  "그렇다면 신기한 일치를 만나면 '나에게 생긴 일'인지 '모인 사람 중 아무에게나 생긴 일'인지부터 갈라 보면 돼요. 특징을 2가지로 늘리면 나와의 일치도 55.3%로 흔해져요(23명)."
  ],
  "says_en": [
   "A match with me is rare, but a match somewhere in the group is common. Among the same 23 people, the chance someone shares my birthday is 5.9%, yet some pair shares one 50.7% of the time.",
   "With 23 people there are 253 possible pairs, while a match with me counts only pairs that include me. At 57 people, a match somewhere is 99.0% and a match with me is 14.2%.",
-  "When you meet a striking match, you can split it into 'happened to me' versus 'happened to anyone in the group'. Adding more traits lifts a match with me to 55.3% (23 people, 2 traits)."
+  "So when you meet a striking match, first split it into 'happened to me' versus 'happened to anyone in the group'. With 2 traits instead of 1, even a match with me becomes common at 55.3% (23 people)."
  ],
  "not_ko": [
   "이 시뮬레이션이 직접 보여 준 건 확률의 차이(5.9% 대 50.7%)예요. 특정한 소름 돋는 일이 우연이었는지는 판정하지 못해요.",

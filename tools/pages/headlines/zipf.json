@@ -2,12 +2,12 @@
  "says_ko": [
   "이미 쓴 말을 더 베끼면 소수의 단어가 글을 거의 다 채우고, 모든 단어를 똑같이 고르면 그런 쏠림이 훨씬 약해요. 순위-빈도 기울기가 베끼기는 1 근처, 균등 선택은 0.18~0.47이었어요.",
   "자주 쓴 단어는 글 곳곳에 흩어져 베껴질 기회가 많고 그러면 더 늘어요. 새 단어 확률 3%에선 상위 10개 단어가 글의 약 85%를 차지했어요.",
-  "쏠린 분포를 보면 뜻이나 설계를 찾기 전에, '많이 쓴 게 더 많이 쓰이는' 되먹임이 있는지와 모두가 똑같이 고르는 구조인지로 갈라서 먼저 살펴볼 수 있어요."
+  "그렇다면 쏠린 분포는 어떻게 보면 될까요? 먼저 '많이 쓴 게 더 많이 쓰이는' 되먹임이 있는지 보면 돼요. 이 모델에선 그 되먹임이 있을 때 상위 10개 단어가 글의 85%, 모두 똑같이 고를 땐 2%였어요."
  ],
  "says_en": [
   "When used words get copied more, a few words fill most of the text; with equal picking the skew is much weaker. The rank-frequency slope was near 1 for copying, 0.18 to 0.47 for equal picking.",
   "Frequent words are scattered through the text and get copied more, which makes them more frequent. With a 3% chance of a new word, the top 10 words made up about 85% of the text.",
-  "Before seeking meaning or design in a skewed distribution, one can first ask whether a 'used a lot, used more' feedback is at work or everyone picks equally."
+  "Then how should a skewed distribution be read? First check for a 'used a lot, used more' feedback. In this model, with that feedback the top 10 words made up 85% of the text; with equal picking, 2%."
  ],
  "not_ko": [
   "'부익부 베끼기로 쏠림이 생긴다'는 이 모델이 보여 준 쪽이에요. 실제 언어가 이렇게 만들어진다는 건 보여 준 게 아니에요. 같은 모양을 만드는 설명이 여러 가지예요.",

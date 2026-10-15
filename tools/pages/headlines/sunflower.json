@@ -2,12 +2,12 @@
  "says_ko": [
   "씨앗을 돌려 놓는 각도가 황금각이면 빈틈 없이 고르게 차고, 90도나 120도 같은 간단한 분수 각도면 바큇살과 큰 빈틈이 생겨요. 이 모델에서 빈틈 평균이 0.38 대 2.4~5.0이었어요.",
   "간단한 분수 각도는 씨앗이 같은 방향으로 겹쳐 쌓여요. 황금각은 그런 분수에서 가장 멀어서 어느 방향으로도 겹치지 않아요. 0.2도만 어긋나도 이웃과의 간격이 약 9배 들쭉날쭉해졌어요.",
-  "고르게 채우는 열쇠는 특정 숫자를 외우는 것보다 반복되는 겹침을 피하는 거예요. 황금각 근처에서는 빈틈 평균은 비슷해도 간격의 균일함은 크게 달랐어요."
+  "그렇다면 고르게 채우려면? 간단한 분수에서 먼 각도를 고르면 돼요. 빈틈만 보면 그런 각도가 많지만, 간격까지 고르려면 황금각에 아주 가까워야 했어요(0.2° 어긋나면 약 9배)."
  ],
  "says_en": [
   "If seeds turn by the golden angle they pack evenly; at simple-fraction angles like 90 or 120 degrees they leave spokes and big gaps. Here the mean gap was 0.38 versus 2.4 to 5.0.",
   "Simple-fraction angles stack seeds in the same directions. The golden angle is farthest from them, so seeds never line up. Off by just 0.2 degrees, neighbour spacing got about 9 times more uneven.",
-  "So even packing is about avoiding repeated overlaps more than memorizing one number. Near the golden angle the mean gap was almost the same, yet the evenness of spacing differed greatly."
+  "So how do you pack evenly? Pick an angle far from simple fractions. Many angles do fine on gaps alone, but even spacing needed one very close to the golden angle (0.2 degrees off: about 9 times worse)."
  ],
  "not_ko": [
   "실제 해바라기가 이 계산으로 만들어진다는 증명은 아니에요. 실제 식물에서는 새 씨앗이 빈자리에 생기는 과정이 각도를 정한다는 설명이 있고, 이 모델은 씨앗의 위치만 계산해요.",

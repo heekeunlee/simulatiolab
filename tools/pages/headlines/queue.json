@@ -2,12 +2,12 @@
  "says_ko": [
   "눈총 주는 사람이 약하면 새치기가 퍼지고, 눈총의 효과가 이득보다 커지면 사라져요. 이 모델에선 이득 0.5일 때 눈총 효과 0.3이면 새치기가 100%, 1.0이면 0%였어요.",
   "새치기가 이득이면 따라 하는 사람이 늘고, 곁의 눈총형이 이득을 깎아 손해로 만들면 질서로 돌아와요. 눈총형이 아예 없으면 새치기가 100%였어요.",
-  "질서는 가만히 지켜지는 게 아니라 누군가 비용을 치르며 지킬 때 유지돼요. 눈총을 주는 비용이 0.5부터는 크게 올라 질서가 무너졌어요."
+  "그렇다면 질서가 지켜지려면? 이 모델에선 눈총의 효과가 새치기 이득보다 크고(0.3→1.0: 새치기 100→0%), 눈총 주는 비용이 작아야 했어요(0.2까진 유지, 0.5부턴 붕괴)."
  ],
  "says_en": [
   "When few people frown on cutting, it spreads; once the frown's effect outweighs the gain, it dies out. At a gain of 0.5, a frown effect of 0.3 left 100% cutting and 1.0 left 0%.",
   "If cutting pays, imitators multiply; if nearby frowners shrink the gain into a loss, people return to order. With no frowners at all, cutting reached 100%.",
-  "Order is not kept by itself; it holds when someone pays a cost to keep it. Once the cost of frowning reached 0.5, order collapsed."
+  "So what keeps order? In this model the frown had to outweigh the gain from cutting (0.3→1.0: cutting 100→0%) and frowning had to be cheap (order held up to 0.2 and collapsed from 0.5)."
  ],
  "not_ko": [
   "현실의 줄 서기가 이렇게 단순하다는 뜻은 아니에요. 눈총의 비용과 효과는 이 모델이 정한 상대적인 값이에요.",

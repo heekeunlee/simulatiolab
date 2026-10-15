@@ -2,12 +2,14 @@
  "says_ko": [
   "버스가 시간표대로 오면 기다림이 간격의 절반이지만, 들쭉날쭉할수록 훨씬 길어져요. 평균 10분 간격에서 정확히 오면 5분, 무작위로 오면 10분, 더 불규칙하면 25분이었어요.",
   "긴 간격은 시간에서 자리를 더 많이 차지해서, 아무 때나 가면 긴 간격에 걸리기 쉬워요. 버스 간격 중 20분 이상은 13%뿐인데 승객은 41%가 거기에 걸렸어요.",
-  "버스를 하나씩 센 평균과 승객이 겪는 평균은 달라요. 평균 25명인 학급에서 학생이 겪는 평균이 27.3명인 것도 같은 이유예요."
+  "버스를 하나씩 센 평균과 승객이 겪는 평균은 달라요. 평균 25명인 학급에서 학생이 겪는 평균이 27.3명인 것도 같은 이유예요.",
+  "그렇다면 덜 기다리려면? 이 모델에선 버스를 고르게 오게 하는 게 가장 확실했어요(불규칙 1.0→0.5: 10.1→6.3분, 시간표대로면 5.0분). 기다릴 땐 '간격의 절반'보다 길게 잡는 게 맞았어요."
  ],
  "says_en": [
   "On a timetable the wait is half the gap, but the more irregular the buses, the longer it gets. With a 10-minute gap: 5 minutes if exact, 10 if random, 25 if more irregular.",
   "Long gaps take up more of the timeline, so a random arrival easily lands in one. Only 13% of bus gaps were 20 minutes or more, yet 41% of passengers landed in them.",
-  "The average counted bus by bus differs from what passengers experience. The same reason makes students in a class averaging 25 experience 27.3 on average."
+  "The average counted bus by bus differs from what passengers experience. The same reason makes students in a class averaging 25 experience 27.3 on average.",
+  "So how do you wait less? In this model, evening out the buses was the surest fix (irregularity 1.0→0.5: 10.1→6.3 min; on timetable 5.0). When waiting, expect more than half the gap."
  ],
  "not_ko": [
   "'시간표를 보고 나오는 승객은 훨씬 덜 기다린다'는 건 이 시뮬레이션이 직접 보여 준 게 아니라 생각해 볼 점이에요. 모델이 보여 준 건 아무 때나 도착하는 사람의 대기예요.",

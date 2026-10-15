@@ -2,19 +2,19 @@
  "says_ko": [
   "서로 따라 오르는 힘이 약하면 한 동네에서 멈추고, 어느 선을 넘으면 모든 동네로 번져요. 이 모델에선 힘 0.4까지는 최대 약 9%, 0.6 이상에선 전부였어요.",
   "이웃이 오르면 그 이웃이 다음 이웃을 끌어올리는 연쇄라서, 약간 더 센 정도가 큰 차이를 만들어요. 대출 한도는 높이 오를 수 있는 천장이라, 낮추면(40%) 같은 힘에서도 번짐이 거의 없었어요.",
-  "집값이 번지는 건 한 동네의 사정보다 서로 따라 하는 정도와 대출 여건이 크게 좌우할 수 있어요. 따라 하는 힘이 약할 땐 오른 동네가 그 동네만의 일로 남아요."
+  "그렇다면 번질지 볼 때 무엇을 먼저 볼까? 이 모델에선 대출 한도가 큰 갈림길이었어요(40%면 고평가 0%, 50%면 99%). 따라 오르는 힘이 0.4 이하일 때도 번짐은 약 9%에 그쳤어요."
  ],
  "says_en": [
   "When neighbors follow each other only weakly, a price rise stays in one area; past a certain point it spreads to every neighborhood. Up to 0.4, at most about 9% ran too high; at 0.6 and up, all did.",
   "It is a chain: a risen neighbor pulls up the next one, so a slightly stronger pull makes a big difference. Loan limits act as a ceiling; at 40% the same pull barely spread at all.",
-  "Spread may depend more on how strongly neighborhoods follow each other, and on loan conditions, than on any one area. When the following is weak, a rise stays that area's own story."
+  "Then what should you check first to judge spread? In this model the loan cap was a big switch (at 40% no area ran too high, at 50% 99% did). With the pull at 0.4 or below, spread also stayed at about 9%."
  ],
  "not_ko": [
-  "실제 지역의 가격 전망이나 부동산 투자·거래 조언이 아니에요. 숫자는 임의로 정한 값이에요.",
+  "실제 지역의 가격 전망이나 부동산 투자·거래 조언, 대출 정책을 권하는 말이 아니에요. 숫자는 임의로 정한 값이에요.",
   "공급, 인구, 세금, 정책이 이 모델에 빠져 있어요. 실제 시장에서 이웃 따라 하기가 얼마나 센지는 따로 자료로 확인해야 해요."
  ],
  "not_en": [
-  "This is not a price forecast for any real area, nor investment or trading advice. The numbers are arbitrary values.",
+  "This is not a price forecast for any real area, investment or trading advice, or a case for any loan policy. The numbers are arbitrary values.",
   "Supply, population, taxes, and policy are missing from the model. How strongly real neighborhoods follow each other has to be checked against actual data."
  ]
 }

@@ -1,0 +1,24 @@
+{
+ "says_ko": [
+  "처음 요철이 아주 작으면(0.5%) 끝까지 거의 고르게 남지만, 2%만 되어도 중력이 차이를 키워 빈 공간과 실·매듭으로 갈라졌어요.",
+  "빽빽한 곳이 이웃을 조금 더 세게 끌어 더 빽빽해지는 되먹임이라 처음엔 같은 시간마다 몇 배씩 자라요. 이 모델 기본 판에선 끝에 691배 울퉁불퉁해져 빈 공간이 57%가 됐어요.",
+  "결이 큰 물결 위주면 큰 빈 공간과 덩어리 11개, 잔물결 위주면 작은 덩어리 58개가 먼저 생겼어요.",
+  "그렇다면 거미줄이 짜이려면? 이 모델에선 팽창이 알맞아야 했어요. 느리면(50%) 덩어리 몇 개로 뭉쳐 버렸고(가장 큰 것 63%), 빠르면(150%) 빈 공간 2%로 거의 고르게 남았어요."
+ ],
+ "says_en": [
+  "With a tiny starting unevenness (0.5%) the dust stays almost even to the end, but at just 2% gravity grows the difference into empty space, threads and knots.",
+  "Dense spots pull neighbors a bit harder and get denser still, so at first the unevenness grows by a fixed factor in each stretch of time. In this model's default run it ended 691 times bumpier, with 57% empty space.",
+  "Mostly big waves gave big empty regions and 11 clumps; mostly ripples gave 58 small clumps first.",
+  "So what does it take to weave a web? Here the expansion had to be about right: too slow (50%) and the dust fell into a few clumps (largest 63%); too fast (150%) and it stayed almost even (2% empty space)."
+ ],
+ "not_ko": [
+  "요철 크기·결·팽창 속도에 따른 차이는 이 시뮬레이션이 직접 보여 준 거예요. 다만 중력과 '팽창 브레이크'만 넣은 장난감 모델이라 실제 우주의 거미줄이 이렇게 생겼다는 증명은 아니에요.",
+  "실제 팽창처럼 공간이 커지거나 빠르기가 바뀌지 않고, 가스·별·은하·암흑 물질과 보통 물질의 구분·암흑 에너지가 없어요. 숫자는 모두 이 모델의 무차원 설정에서 나온 예시이고 관측값이나 예측이 아니에요.",
+  "팽창이 아예 없을 때(0%)는 덩어리가 출렁여 50%일 때보다 덜 뭉쳐 보였어요. 이 모델의 브레이크 단순화에서 오는 모습일 수 있어요."
+ ],
+ "not_en": [
+  "The differences from unevenness size, grain and expansion speed are what this simulation showed directly. But it is a toy model with only gravity and an 'expansion brake', so it does not prove the real cosmic web formed this way.",
+  "Space does not grow and the expansion rate does not change as in reality, and there is no gas, stars, galaxies, dark versus ordinary matter, or dark energy. Every number is an example from this model's dimensionless settings, not an observation or prediction.",
+  "With no expansion at all (0%) clumps swung about and looked less gathered than at 50%. That may come from this model's simplified brake."
+ ]
+}

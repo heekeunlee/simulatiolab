@@ -2,12 +2,12 @@
  "says_ko": [
   "승객이 적은 노선은 버스가 고르게 달리지만, 승객이 많은 노선은 두 대씩 몰려요. 정류장당 시간당 10명이면 기다림이 거의 그대로(약 1.0배), 60명이면 약 5.7배였어요.",
   "앞차가 늦으면 승객이 쌓여 더 오래 서서 더 늦어지고, 뒤차는 줄이 짧아 빨리 따라붙어요. 승객이 많을수록 이 쏠림이 세져요.",
-  "간격 유지는 뭉침을 막는 대신 한 바퀴가 약 19% 길어지고, 승차 제한은 덜 느려지는 대신 뭉침을 늦출 뿐이었어요. 뭉침은 기사 탓보다 구조 탓으로 보면 돼요."
+  "그렇다면 덜 기다리려면? 이 모델에선 간격 유지가 기다림을 8.7분에서 2.5분으로 가장 줄였지만 한 바퀴가 약 19% 길어졌어요. 승차 제한은 덜 느려지는 대신(3.4분) 뭉침을 늦출 뿐이었어요."
  ],
  "says_en": [
   "A line with few passengers runs evenly, while a busy line sends buses in pairs. At 10 passengers per hour per stop the wait barely changed (about 1.0 times); at 60 it was about 5.7 times.",
   "When a bus runs late, passengers pile up, it stops longer and falls further behind, while the bus behind finds a short queue and catches up. More passengers make this stronger.",
-  "Holding spacing prevented bunching but made each loop about 19% longer; capping boarding cost less time but only delayed bunching. Read bunching as the route's structure more than the drivers' fault."
+  "So how do you wait less? In this model holding spacing cut the wait most, from 8.7 to 2.5 minutes, but made each loop about 19% longer. Capping boarding cost less time (3.4 minutes) but only delayed bunching."
  ],
  "not_ko": [
   "실제 노선을 재현한 게 아니라서 숫자는 이 가상 노선에서만 맞아요. 신호, 정체, 환승은 빠져 있어요.",

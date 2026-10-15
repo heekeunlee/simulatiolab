@@ -1,0 +1,22 @@
+{
+ "says_ko": [
+  "별 둘이면 처음 위치가 조금 달라도 끝까지 거의 같은 길을 돌지만, 별 셋이면 1%의 차이가 결국 전혀 다른 춤이 됐어요.",
+  "셋이 서로를 번갈아 잡아당기며 가까이 스칠 때마다 작은 차이가 몇 배씩 불어나요. 이 모델 첫 판에선 차이 0.01이 시간 18.8에 1을 넘었고, 쫓겨나는 별까지 달라졌어요(판 A는 별 2, 판 B는 별 3).",
+  "그렇다면 오래 맞히려면? 처음을 100배 정확히 재도 별 셋은 9.2에서 42.5로만 늘었고, 별 둘은 15.2에서 1,343.1로 거의 100배 늘었어요. 별 셋은 '언제까지 믿을지'도 함께 봐야 해요."
+ ],
+ "says_en": [
+  "With two stars, a slightly different start still follows almost the same path to the end; with three stars, a 1% difference ends up as a completely different dance.",
+  "Each time the three pass close and pull on each other, a small gap multiplies. In this model's first run a 0.01 gap passed 1 at time 18.8, and even the star thrown out changed (star 2 in sky A, star 3 in sky B).",
+  "So how to predict further? Measuring the start 100 times more precisely stretched three stars only from 9.2 to 42.5; two stars went from 15.2 to 1,343.1, almost 100 times. With three, also ask how far ahead to trust it."
+ ],
+ "not_ko": [
+  "별 둘과 셋의 대비, 처음 차이를 줄일 때 늘어나는 시간은 이 시뮬레이션이 직접 보여 준 거예요. 다만 중력 상수 1인 무차원 장난감 모델이라 실제 별이나 삼중성계의 관측·예측이 아니에요.",
+  "예측할 수 없다는 건 규칙이 무작위라는 뜻이 아니에요. 규칙은 정해져 있지만 처음을 무한히 정확히 알 수 없어서 먼 미래가 갈려요. 컴퓨터의 작은 계산 오차도 같은 식으로 불어나요.",
+  "충돌·별의 진화·상대성 효과·주변 천체는 빠져 있어요. 튕겨 나간 판은 24판 중 3~6판뿐이라 '가장 가벼운 별이 쫓겨난다'는 비율은 대략적인 예시예요."
+ ],
+ "not_en": [
+  "The two-versus-three contrast and the time gained by shrinking the starting gap are what this simulation showed. It is a dimensionless toy model, not an observation or prediction of real stars or triple systems.",
+  "Unpredictable does not mean the rules are random. The rules are fixed, but the start can never be known infinitely precisely, so the far future splits. Tiny rounding errors in the computer grow the same way.",
+  "Collisions, stellar evolution, relativity and nearby bodies are left out. Only 3 to 6 of 24 runs had a star thrown out, so the share showing 'the lightest star gets kicked out' is a rough example."
+ ]
+}

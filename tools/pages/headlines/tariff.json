@@ -2,12 +2,14 @@
  "says_ko": [
   "상대가 가만히 있으면 먼저 올린 쪽이 앞서고, 상대가 되갚으면 둘 다 손해예요. 혼자 20%면 한 분기 이득이 1→1.10, 둘 다 20%면 각자 0.78이에요.",
   "되갚기가 약하면 갈등이 가라앉고, 세면 서로 계속 올려요. 100판 평균 두 나라 합계는 보복 0%일 때 93, 100%일 때 65, 150%일 때 22였어요.",
-  "먼저 내린 쪽은 상대가 따라올 때까지 0.76으로 상대(0.94)보다 덜 벌어 멈추기 어려워요. 하지만 둘 다 내리면 각자 0.92로 함께 회복해요."
+  "먼저 내린 쪽은 상대가 따라올 때까지 0.76으로 상대(0.94)보다 덜 벌어 멈추기 어려워요. 하지만 둘 다 내리면 각자 0.92로 함께 회복해요.",
+  "그렇다면 이런 갈등은 어디를 보면 될까요? 이 모델에선 대화가 얼마나 자주, 쉽게 되는지가 갈랐어요. 협상 빈도 5%면 합계 24, 50%면 89였고, 내리는 데 협상 1번이면 94, 10번이면 24였어요."
  ],
  "says_en": [
   "If the other side does nothing, whoever raised first gets ahead; if it hits back, both lose. Raising alone to 20% lifts a quarter's gain from 1 to 1.10; both at 20% gives 0.78 each.",
   "Mild retaliation lets the dispute fade; harsh retaliation keeps both raising. Over 100 runs the combined gain was 93 at 0% retaliation, 65 at 100% and 22 at 150% (no tariffs = 100).",
-  "Whoever cuts first earns 0.76 versus the other's 0.94 until the other follows, so stopping is hard. But once both cut, each gets 0.92 and both recover."
+  "Whoever cuts first earns 0.76 versus the other's 0.94 until the other follows, so stopping is hard. But once both cut, each gets 0.92 and both recover.",
+  "So where to look in such a dispute? Here, how often and how easily talks happened decided it: talks 5% of the time gave a combined 24, 50% gave 89; needing 1 round of talks to cut gave 94, needing 10 gave 24."
  ],
  "not_ko": [
   "A국·B국은 가상의 나라예요. 어떤 나라의 정책이 옳은지 판정하거나 앞으로의 무역 갈등을 예측하지 않고, 숫자는 모두 이 프로젝트의 예시예요.",

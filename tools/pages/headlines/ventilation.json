@@ -2,12 +2,12 @@
  "says_ko": [
   "창을 마주 보는 벽에 열면 바람이 방을 가로질러 빨리 바뀌고, 같은 벽에 나란히 열면 창가만 바뀌고 방 대부분은 오래 탁하게 남아요.",
   "공기는 두 창의 바람 압력 차로 흘러요. 마주 보는 벽은 한쪽이 밀고 한쪽이 빨아 절반까지 30이 걸렸지만, 같은 벽 두 창은 압력이 같아 시간 60 안에 절반이 안 됐어요.",
-  "창 개수보다 '어느 벽에 냈나'와 '두 창 사이 길이 트였나'를 보면 돼요. 바람이 두 창의 벽과 나란히 불거나 방문을 닫으면 마주 보는 창도 흐름이 끊겼어요."
+  "그렇다면 창을 어떻게 열어야 빨리 바뀔까요? 이 모델에선 바람 받는 벽과 맞은편 벽에 열고 사이 문을 열어 둔 쪽이 빨랐어요(절반까지 30, 문 닫으면 안 됨). 같은 벽 창은 3개여도 절반이 안 됐어요."
  ],
  "says_en": [
   "Windows on opposite walls let the wind sweep across and change the air fast; side by side on the same wall, only the air by the windows changes and most of the room stays stale.",
   "Air moves on the wind-pressure gap between windows. On opposite walls one side pushes, the other sucks, halving in 30; two windows on one wall feel equal pressure and never halved within 60.",
-  "Look less at how many windows and more at which walls they are on and whether the path between them is open. Wind parallel to both walls, or a closed door, cut the flow even for opposite windows."
+  "So which windows refresh air fast? Here, the windward wall plus the opposite one, with the door between open, was fastest (halved in 30; door shut, never). Windows on one wall failed to halve it even with 3."
  ],
  "not_ko": [
   "마주 보는 벽과 같은 벽의 차이는 이 시뮬레이션이 직접 보여 준 거예요. 다만 벽마다 바람에 밀리는 정도는 이 프로젝트가 정한 단순한 규칙이라, 실제 집의 '옆 벽' 결과는 달라질 수 있어요.",

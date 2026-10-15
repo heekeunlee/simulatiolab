@@ -2,12 +2,14 @@
  "says_ko": [
   "글자를 한 번에 다 맞혀야 하면 문장이 길수록 사실상 불가능하지만, 맞은 글자를 남겨 쌓으면 길어져도 금방이에요. 18글자는 평균 46세대, 28글자는 평균 77세대였어요.",
   "한 번에 맞히려면 글자가 하나 늘 때마다 시도가 27배씩 불어나요. 18글자는 초당 10억 번 시도해도 약 18억 년이지만, 쌓는 쪽은 맞은 글자를 다음으로 넘겨요.",
-  "다만 문장이 1~2글자로 아주 짧으면 쌓는 쪽이 오히려 우연보다 느렸어요. 작은 개선을 쌓는 힘은 목표가 멀수록 크게 나타나요."
+  "다만 문장이 1~2글자로 아주 짧으면 쌓는 쪽이 오히려 우연보다 느렸어요. 작은 개선을 쌓는 힘은 목표가 멀수록 크게 나타나요.",
+  "그렇다면 쌓기가 빨라지려면? 바꾸는 확률은 너무 낮아도 높아도 느렸고(0.5% 211세대, 5% 44세대, 20% 116세대), 한 번에 만드는 후보가 많을수록 빨랐어요(10개 475세대, 200개 27세대)."
  ],
  "says_en": [
   "Getting every letter right at once is practically impossible for a long sentence, but keeping matched letters gets there fast: 46 generations on average for 18 letters, 77 for 28.",
   "Hitting it all at once multiplies tries 27-fold with each added letter. For 18 letters that is about 1.8 billion years at a billion tries per second, while stacking passes matched letters on.",
-  "But for a very short sentence of 1 or 2 letters, stacking was actually slower than chance. The power of stacking small improvements shows up more the farther the target is."
+  "But for a very short sentence of 1 or 2 letters, stacking was actually slower than chance. The power of stacking small improvements shows up more the farther the target is.",
+  "So what speeds up stacking? Change rates too low or too high were slow (0.5%: 211 generations, 5%: 44, 20%: 116), and more candidates per generation were faster (10: 475 generations, 200: 27)."
  ],
  "not_ko": [
   "미리 정한 목표 문장이 있어서 실제 진화의 모델이 아니에요. 도킨스 자신도 이 점을 밝혔고, 원숭이가 실제로 햄릿을 쓰는 이야기도 아니에요.",

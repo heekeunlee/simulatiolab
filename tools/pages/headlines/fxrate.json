@@ -2,12 +2,12 @@
  "says_ko": [
   "돈이 몰리지 않으면 수익이 좌우 비슷하게 흔들리고, 몰릴수록 평소엔 조금씩 벌다 어느 한 주에 크게 잃는 모양이 돼요.",
   "몰릴수록 돈값이 계단처럼 오르다 어느 주에 일제히 빠져나가며 한꺼번에 떨어져요. 쏠리는 힘이 5%면 최악의 주 -4.8%, 25%면 -20.1%였어요.",
-  "그래서 평균 수익만이 아니라 급락의 모양도 함께 보게 돼요. 기본 설정은 연 평균 3.1%인데 최악의 주는 -10.0%였어요."
+  "그렇다면 이런 수익을 볼 땐 평균보다 최악의 한 주를 먼저 보면 돼요. 기본은 연 평균 3.1%였지만 최악의 주 -10.0%가 이익 약 3년치(중앙값)를 지웠고, 쏠림이 없으면 최악의 주는 -3.5%였어요."
  ],
  "says_en": [
   "When money does not crowd in, returns wobble evenly both ways; the more it crowds, the more it earns a little at a time and then loses a lot in one week.",
   "As crowding grows the currency climbs like stairs, then everyone exits in one week and it drops at once. At crowding force 5% the worst week was -4.8%, at 25% it was -20.1%.",
-  "So you look at the shape of the drops as well as the average return. The default gave 3.1% a year on average but -10.0% in the worst week."
+  "So with returns like these, look at the worst week before the average. The default averaged 3.1% a year, yet a worst week of -10.0% wiped out about 3 years of gains (median); without crowding it was -3.5%."
  ],
  "not_ko": [
   "환율이나 이익을 맞히는 모델이 아니고 투자 판단에 쓰면 안 돼요. 금리 차이와 쏠림 규칙은 이 모델이 정한 예시 값이에요.",

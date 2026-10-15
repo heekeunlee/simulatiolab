@@ -2,12 +2,12 @@
  "says_ko": [
   "처음 500걸음쯤은 대칭 무늬, 그다음 한참은 어지러운 혼돈, 9,976걸음째부터는 곧은 대각선 길이에요. 질서, 혼돈, 다시 질서 순서예요.",
   "혼돈 때는 출발점 근처를 맴돌지만, 104걸음짜리 동작이 되풀이되기 시작하면 곧은 길로 멀어져요. 언제 시작하는지는 판마다 200~50,000걸음으로 크게 달랐어요.",
-  "질서가 보인다고 설계한 사람부터 찾지 않아도 돼요. 단순한 규칙 하나가 혼돈을 지나 질서까지 갈 수 있다고 보면 돼요."
+  "그렇다면 질서가 보일 때 설계한 사람부터 찾지 않아도 돼요. 단순한 규칙 하나도 혼돈을 지나 질서에 이를 수 있고, 그때가 언제일지는 판마다 크게 다르다고 보면 돼요."
  ],
  "says_en": [
   "At first, about 500 steps of symmetric patterns; then a long stretch of chaos; from step 9,976, a straight diagonal road. Order, then chaos, then order again.",
   "In the chaos it loops near the start, but once a 104-step move begins repeating it runs off in a straight line. When that starts varied widely by board, from step 200 to 50,000.",
-  "Seeing order does not mean you must look for a designer first. One simple rule can pass through chaos and still end in order."
+  "So when you see order, you need not look for a designer first. One simple rule can pass through chaos into order, and when that happens can differ greatly from board to board."
  ],
  "not_ko": [
   "'언제나 길이 생긴다'는 건 증명되지 않았어요. 이 시뮬레이션이 보여 준 건 돌려 본 판에서는 모두 생겼다는 쪽까지예요.",

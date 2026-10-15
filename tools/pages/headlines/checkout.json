@@ -2,12 +2,12 @@
  "says_ko": [
   "줄을 하나로 서면 대체로 더 빠르고, 계산대가 한가할 때 차이가 크지만 아주 붐비면 차이가 줄어요. 이 모델에선 붐빔 60%에서 1.61배, 95%에서 1.06배였어요.",
   "한 줄은 빈 계산대부터 손님을 받아 노는 계산대가 없고, 줄을 나누면 옆이 놀아도 내 줄은 못 옮겨요. 붐빔 90%, 계산대 4개에서 한 줄은 평균 6.1분, 아무 줄이나 서면 29.9분이었어요.",
-  "줄이 하나일 땐 순서가 곧 기다림이고, 줄을 고를 땐 줄 고르는 요령이 기다림을 갈라요. 사람이 적은 줄을 고르면 6.9분, 물건이 적은 줄을 고르면 6.5분이었어요."
+  "그렇다면 어떻게 서야 빠를까? 이 모델에선 줄 하나가 가장 빨랐어요(6.1분). 줄이 나뉘어 있으면 물건 적은 줄(6.5분)이나 사람 적은 줄(6.9분)을 고르는 게 아무 줄(29.9분)보다 훨씬 나았어요."
  ],
  "says_en": [
   "A single line is usually faster, by a lot when the store is calm and by little when it is packed. In this model it was 1.61 times faster at 60% busy and only 1.06 times at 95%.",
   "One line feeds every free register, so none sits idle; split lines cannot move you when the next one is empty. At 90% busy, 4 registers: one line 6.1 minutes, random-line choice 29.9.",
-  "With one line, your place in line is your wait; with several, how you pick a line decides it. Picking the shortest line took 6.9 minutes, picking the line with fewest items 6.5."
+  "So how should you line up to be fast? In this model one line was fastest (6.1 minutes). With split lines, picking the line with fewest items (6.5) or fewest people (6.9) beat any random line (29.9) by far."
  ],
  "not_ko": [
   "줄을 하나로 하면 늘 이득이라는 뜻은 아니에요. 이 모델에는 줄 바꾸기, 전용 계산대, 셀프 계산대, 줄이 길어 보여 포기하는 손님이 없어요.",

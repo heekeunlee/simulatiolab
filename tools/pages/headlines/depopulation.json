@@ -2,12 +2,14 @@
  "says_ko": [
   "도시로 끌리는 힘이 약하면 시설이 절반 넘게 남고(닫힘 45%), 세면 대부분 닫혀요(87%). 전체 인구는 100% 그대로라, 사람이 사라진 게 아니라 옮겨 가서 지도가 비었어요.",
   "처음엔 몇 곳만 닫히지만, 닫힌 마을 옆은 살기 불편해져 더 떠나고 그 시설도 닫혀요. '젊은층이 줄면 아기도 준다'를 끄면 문 닫은 마을이 74%에서 39%로 줄었어요.",
-  "시설 3곳을 끝까지 지켜 주면 변두리의 그 마을은 덜 비었지만(27% → 42%), 둘레 마을은 27% 그대로였어요. 이 모델에서는 지킨 효과가 그 마을 안에 머물고 옆으로 번지지 않았어요."
+  "시설 3곳을 끝까지 지켜 주면 변두리의 그 마을은 덜 비었지만(27% → 42%), 둘레 마을은 27% 그대로였어요. 이 모델에서는 지킨 효과가 그 마을 안에 머물고 옆으로 번지지 않았어요.",
+  "그렇다면 마을이 비는 걸 볼 때 무엇을 먼저 볼까? 이 모델에선 몇 곳을 지켜 주기보다 도시로 끌리는 힘(닫힘 74%→45%)과 '젊은층이 줄면 아기도 준다'는 되먹임(74%→39%)이 더 크게 갈랐어요."
  ],
  "says_en": [
   "With a weak pull from the city, over half the villages keep facilities (45% closed); with a strong pull most close (87%). Total population stays at 100%: people did not vanish, they moved.",
   "At first only a few close, but villages next to them get harder to live in, more people leave, and their facilities close too. Switching off 'fewer young, fewer babies' cut closures from 74% to 39%.",
-  "Protecting three facilities let those far-out villages keep more people (27% → 42%), but the villages around them stayed at 27%. Here the benefit stayed inside the protected village."
+  "Protecting three facilities let those far-out villages keep more people (27% → 42%), but the villages around them stayed at 27%. Here the benefit stayed inside the protected village.",
+  "Then what should you look at first when villages empty? In this model the city's pull (closures 74%→45%) and the 'fewer young, fewer babies' loop (74%→39%) mattered far more than protecting a few places."
  ],
  "not_ko": [
   "끌림·출생·지켜 주기의 차이는 이 시뮬레이션이 직접 보여 준 거예요. 다만 가상의 지도와 정해 둔 숫자의 예시라, 실제 지역의 미래나 \"시설을 지키면 된다/소용없다\"를 말하지 않아요.",

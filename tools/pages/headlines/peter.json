@@ -1,13 +1,15 @@
 {
  "says_ko": [
   "능력이 승진 뒤에도 이어지면 최고 승진이 맞고, 안 이어지면 평균 이하예요. 효율이 이어질 땐 9.31, 안 이어질 땐 6.46이었어요(처음 약 7.0).",
-  "안 이어지는 조직에서는 잘하는 사람을 올려도 새 자리의 능력이 다시 정해져요. 이때는 무작위(6.96)나 번갈아(7.04) 승진이 최고 승진보다 나았어요.",
-  "그래서 무능한 상사가 보여도 사람 탓이기 전에 승진 구조 탓일 수 있어요. 이 모델에서는 능력이 이어지는지가 승진 방식의 좋고 나쁨을 가르는 열쇠였어요."
+  "안 이어지는 조직에서는 잘하는 사람을 올려도 새 자리의 능력이 다시 정해지고, 아래 단계에선 잘하던 사람만 빠져나가요.",
+  "그래서 무능한 상사가 보여도 사람 탓이기 전에 승진 구조 탓일 수 있어요. 이 모델에서는 능력이 이어지는지가 승진 방식의 좋고 나쁨을 가르는 열쇠였어요.",
+  "그렇다면 누구를 올려야 할까? 이 모델에선 능력이 이어지는 일이면 최고 능력자(9.31)가, 안 이어지는 일이면 무작위(6.96)나 번갈아(7.04)가 최고 능력자(6.46)보다 나았어요."
  ],
  "says_en": [
   "If ability carries over after promotion, promoting the best is right; if not, results fall below average. Efficiency was 9.31 when it carried over and 6.46 when not (start near 7.0).",
-  "Where ability does not carry over, promoting the star redraws ability in the new seat and only drains the lower level. There, random (6.96) or alternating (7.04) promotion beat promoting the best.",
-  "So a weak boss may come from the promotion structure before the person. In this model whether ability carries over decided whether a promotion rule worked."
+  "Where ability does not carry over, promoting the star redraws ability in the new seat and only drains the lower level of its best people.",
+  "So a weak boss may come from the promotion structure before the person. In this model whether ability carries over decided whether a promotion rule worked.",
+  "So whom should you promote? In this model, where ability carries over, the best performer won (9.31); where it does not, random (6.96) or alternating (7.04) beat the best performer (6.46)."
  ],
  "not_ko": [
   "'새 일을 잘할 수 있는지로 뽑으면 낫다'는 건 생각해 볼 점이고, 이 시뮬레이션이 직접 보여 준 건 아니에요. 모델이 보여 준 건 능력이 이어지는지에 따라 최고 승진의 결과가 갈린다는 쪽이에요.",

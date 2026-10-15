@@ -2,12 +2,12 @@
  "says_ko": [
   "따라 하기만 있으면 유행은 멈추고, 따라 하기와 달아나기가 함께 있으면 유행이 계속 돌아요. 달아나는 힘이 0이면 6,000라운드까지 회전이 0, 기본 설정은 100라운드에 0.53바퀴였어요.",
   "대중은 앞선 사람을 쫓아 몰려가고, 사람이 몰리면 앞선 사람은 다시 달아나요. 쫓는 쪽과 달아나는 쪽이 있어야 추격이 이어져요.",
-  "도는 속도는 두 힘 중 느린 쪽이 정해요. 유행이 느려졌다면 따라 하는 힘이 약한지 달아나는 힘이 약한지를 나눠 볼 수 있어요."
+  "그렇다면 유행의 빠르기는 두 힘 중 약한 쪽을 보면 돼요. 따라 하는 힘을 2→0.5로 줄이면 100라운드에 0.53→0.13바퀴로 느려졌고, 달아나는 힘이 0이면 아예 멈췄어요."
  ],
  "says_en": [
   "With imitation alone fashion stops; with both imitation and escape it keeps circling. With zero escape there was no rotation up to 6,000 rounds; the default made 0.53 turns per 100 rounds.",
   "The crowd rushes after the trendsetters, and once crowded, trendsetters flee again. It takes a chaser and a runner to keep the chase going.",
-  "The speed of the turn is set by the slower of the two forces. If a trend slows, you can ask whether the following or the fleeing got weaker."
+  "So to read how fast a trend turns, look at the weaker of the two forces. Cutting imitation from 2 to 0.5 slowed it from 0.53 to 0.13 turns per 100 rounds, and with zero escape it stopped altogether."
  ],
  "not_ko": [
   "이 모델에서는 달아나는 방향을 한쪽으로 정해 뒀기 때문에 한 방향으로 도는 모습이 나와요. 방향을 정하지 않으면 하나의 순환이 생기지 않았어요.",

@@ -2,12 +2,14 @@
  "says_ko": [
   "인기 순 추천이 약하면 품질대로, 강하면 먼저 뜬 채널에 쏠려요. 이 모델에서 품질과 구독자 순위의 연관은 인기 영향 0%에서 0.97, 100%에서 0.01이었어요.",
   "구독자가 많은 채널이 더 추천되고 추천받으면 구독자가 더 늘어서, 초기 우연이 쌓여 순위가 굳어요. 상위 10%의 구독 몫이 인기 영향 0%에선 23%, 100%에선 97%였어요.",
-  "인기 영향이 클수록 지금 1위가 가장 좋은 채널이라는 보장이 약해요. 1위의 품질 순위가 0%에서 1위, 70%에서 80위, 100%에서 114위였어요."
+  "인기 영향이 클수록 지금 1위가 가장 좋은 채널이라는 보장이 약해요. 1위의 품질 순위가 0%에서 1위, 70%에서 80위, 100%에서 114위였어요.",
+  "그렇다면 순위를 어떻게 보면 될까요? 추천이 인기를 얼마나 따르는지부터 보면 돼요. 이 모델에서 그 비율이 50%일 땐 1위가 품질 3위였지만, 70%에선 80위로 확 무너졌어요."
  ],
  "says_en": [
   "Weak popularity-based recommendation follows quality; strong recommendation piles subscribers onto channels that took off first. Agreement with quality was 0.97 at 0% influence, 0.01 at 100%.",
   "Big channels get recommended more and then grow more, so early luck compounds and the ranking hardens. The top 10% held 23% of subscribers at 0% influence and 97% at 100%.",
-  "The stronger the popularity effect, the weaker the guarantee that today's number one is the best channel. The top channel's quality rank was 1st at 0%, 80th at 70%, 114th at 100%."
+  "The stronger the popularity effect, the weaker the guarantee that today's number one is the best channel. The top channel's quality rank was 1st at 0%, 80th at 70%, 114th at 100%.",
+  "So how should a ranking be read? First look at how much recommendations follow popularity. In this model, at 50% the number one was 3rd in quality, but at 70% it collapsed to 80th."
  ],
  "not_ko": [
   "품질이 아무 소용이 없다는 뜻은 아니에요. 인기 순 추천이 약할 때는 품질대로 결과가 나왔어요.",

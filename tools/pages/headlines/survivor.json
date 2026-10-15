@@ -2,12 +2,14 @@
  "says_ko": [
   "구멍이 많은 곳을 보강하면 생존율이 조금 오르고(67.9→71.3%), 구멍이 비어 있는 곳을 보강하면 크게 올라요(83.3%).",
   "맞은 총탄 중 돌아온 비행기에서 보이는 비율이 엔진은 33.8%, 조종석은 40.5%인데 동체·날개·꼬리는 약 65%였어요. 치명적인 곳은 맞으면 못 돌아와서 구멍이 안 보여요.",
-  "자료가 적으면 헷갈리고 많으면 분명해져요. 구멍이 적은 곳을 고르는 규칙은 출격 100회에선 85%, 500회부터는 매번 최선을 골랐어요."
+  "자료가 적으면 헷갈리고 많으면 분명해져요. 구멍이 적은 곳을 고르는 규칙은 출격 100회에선 85%, 500회부터는 매번 최선을 골랐어요.",
+  "그렇다면 어디를 보강할까? 이 모델에선 엔진 치명률을 0%에서 90%까지 바꿔도 구멍이 빈 곳이 이겼어요(90%에서 79.4% 대 60.6%). 1곳만 보강해도 78.3% 대 69.7%였어요."
  ],
  "says_en": [
   "Reinforcing where holes are many raises survival a little (67.9 to 71.3%); reinforcing where holes are missing raises it a lot (83.3%).",
   "Of the hits taken, the share visible on returning planes was 33.8% for engines and 40.5% for cockpits but about 65% for body, wings and tail. Fatal spots leave no returning planes with holes.",
-  "With little data it is confusing, with more it gets clear. The rule of picking the spot with few holes chose the best 85% of the time at 100 sorties, and every time from 500."
+  "With little data it is confusing, with more it gets clear. The rule of picking the spot with few holes chose the best 85% of the time at 100 sorties, and every time from 500.",
+  "So where should armor go? In this model the empty spots won at every engine lethality from 0% to 90% (79.4% vs 60.6% at 90%). Even with a single spot to armor it was 78.3% vs 69.7%."
  ],
  "not_ko": [
   "돌아온 비행기에서 구멍이 빈 곳을 보강하는 효과는 이 시뮬레이션이 직접 보여 준 쪽이에요. '성공한 사람들만 보고 배우는 상황도 마찬가지'라는 건 생각해 본 쪽이고, 이 페이지는 비행기 모델 하나만 돌렸어요.",

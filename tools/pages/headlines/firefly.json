@@ -2,12 +2,14 @@
  "says_ko": [
   "서로 맞추는 힘이 약하면 제각각 깜빡이고, 어느 선을 넘으면 갑자기 한 박자가 돼요. 이 모델에선 맞추는 힘이 0이면 동기화 정도 0.06, 기본 설정에선 0.87이었어요(1이 완전한 일치).",
   "옆 반딧불이가 반짝이는 걸 볼 때마다 자기 시계를 살짝 앞당겨서, 박자 차이가 조금씩 줄다가 어느 순간 한꺼번에 모여요. 볼 수 있는 이웃 범위가 좁으면 덜 맞아요.",
-  "박자가 서로 같으면 완전히 한 박자(1.00)가 되고, 박자 차이가 클수록 불완전해요. 한 박자의 모습은 지휘자 없이 서로 영향을 주는 정도에서 나올 수 있어요."
+  "박자가 서로 같으면 완전히 한 박자(1.00)가 되고, 박자 차이가 클수록 불완전해요. 한 박자의 모습은 지휘자 없이 서로 영향을 주는 정도에서 나올 수 있어요.",
+  "그렇다면 박자가 맞으려면 두 가지가 다 문턱을 넘어야 했어요. 맞추는 힘 1%→3%에 동기화 0.17→0.95, 보는 범위 20%→40%에 0.26→0.96. 하나만 모자라도 제각각이었어요."
  ],
  "says_en": [
   "Weak mutual adjustment leaves them flashing out of step; past a threshold they suddenly lock into one beat. In this model synchrony was 0.06 with no adjustment and 0.87 by default (1 is perfect).",
   "Each firefly nudges its own clock ahead whenever a neighbor flashes, so differences shrink bit by bit and then gather all at once. If it can see only a narrow circle of neighbors, it syncs less.",
-  "With identical rhythms they reach one perfect beat (1.00); the more their natural rhythms differ, the less complete it gets. A shared beat can emerge from mutual influence, with no conductor."
+  "With identical rhythms they reach one perfect beat (1.00); the more their natural rhythms differ, the less complete it gets. A shared beat can emerge from mutual influence, with no conductor.",
+  "So for a shared beat, both things had to cross a threshold: adjustment 1%→3% raised synchrony from 0.17 to 0.95, and viewing range 20%→40% from 0.26 to 0.96. Short on either, they flashed apart."
  ],
  "not_ko": [
   "이 시뮬레이션이 직접 보여 준 건 모델 속 시계의 동기화예요. 실제 반딧불이가 이렇게 박자를 맞춘다는 증명은 아니고, 동기화하는 종은 일부예요.",

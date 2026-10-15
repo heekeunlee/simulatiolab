@@ -2,12 +2,14 @@
  "says_ko": [
   "평범한 성공은 노력 쪽, 극단적인 성공은 운 쪽이 클 수 있어요. 이 시뮬레이션은 특히 극단적인 성공에서 운의 몫이 커지는 모습을 보여 줘요.",
   "운이 많이 끼면 격차가 커져요. 운은 곱하기로 쌓여서, 한 번 2배가 되면 다음 기회에도 더 크게 불어나기 때문이에요. 가장 크게 성공한 사람이 노력 1등인 경우는 300번 중 0.3%뿐이었어요.",
-  "노력(타고난 재능과 쏟은 노력을 합친, 내가 가진 몫)은 운을 만들진 못해도, 찾아온 행운을 붙잡을 확률을 높여 줘요. 운은 내가 정할 수 없지만 노력은 내가 바꿀 수 있어요."
+  "노력(타고난 재능과 쏟은 노력을 합친, 내가 가진 몫)은 운을 만들진 못해도, 찾아온 행운을 붙잡을 확률을 높여 줘요. 운은 내가 정할 수 없지만 노력은 내가 바꿀 수 있어요.",
+  "그렇다면 노력은 언제 결과에 드러날까요? 이 모델에서는 사람들 사이 노력 차이가 클수록 더 드러났어요. 상위 부자 10명 중 노력 상위 10%가 차이 작을 때(0.02) 1.2명, 클 때(0.2) 2.9명이었어요."
  ],
  "says_en": [
   "Ordinary success may owe more to effort, and extreme success more to luck. This simulation shows luck's share growing especially at the extreme top.",
   "The more luck is involved, the bigger the gap. Luck piles up by multiplication: once your money has doubled, the next break grows a bigger amount. The most successful person was the highest-effort in only 0.3% of 300 runs.",
-  "Effort (innate talent and effort combined, the share you bring yourself) cannot create luck, but it raises your chance of seizing the luck that arrives. You cannot set your luck, but you can change your effort."
+  "Effort (innate talent and effort combined, the share you bring yourself) cannot create luck, but it raises your chance of seizing the luck that arrives. You cannot set your luck, but you can change your effort.",
+  "Then when does effort show? In this model, the wider the effort gap between people, the more it showed: among the 10 richest, the top 10% in effort numbered 1.2 at a narrow spread (0.02), 2.9 at a wide one (0.2)."
  ],
  "not_ko": [
   "'평범한 성공은 노력 쪽'이라는 건 이 시뮬레이션이 직접 보여 준 게 아니라 생각해 볼 점이에요. 모델이 보여 준 건 극단적인 성공에 운이 크게 작용할 수 있다는 쪽이에요.",

@@ -1,0 +1,24 @@
+{
+ "says_ko": [
+  "달이 없으면 자전축 기울기가 크게(평균 13.1°), 지금의 달이 있으면 작게(3.7°) 흔들렸어요. 그런데 달이 작기만 하면(지금의 10~50%) 오히려 가장 크게(20.9~28.1°) 흔들렸어요.",
+  "축은 팽이처럼 천천히 돌고, 다른 행성들은 궤도면을 다른 박자로 흔들어요. 두 박자가 비슷해지면 그네를 박자 맞춰 밀 듯 작은 힘이 쌓여 기울기가 크게 흔들려요.",
+  "무거운 달은 축을 빨리 돌게 해(한 바퀴 약 28,000년) 행성들의 박자(49,000~185,000년)에서 떼어 놓고, 작은 달은 축의 박자를 바로 그 사이로 옮겨 놓았어요.",
+  "그렇다면 계절이 안정되려면? 이 모델에서는 축의 박자가 행성들의 박자에서 멀리 떨어져야 했어요. 달이 60% 이상이면 흔들림이 9° 이하로 줄었고, 어중간한 달은 없느니만 못했어요."
+ ],
+ "says_en": [
+  "With no Moon the axis tilt swung a lot (13.1° on average); with today's Moon only a little (3.7°). But a merely small Moon (10–50% of today's) made it swing the most (20.9–28.1°).",
+  "The axis circles slowly like a top, while the other planets rock the orbital plane on their own rhythms. When the two rhythms get close, small pushes add up like pushing a swing in time, and the tilt swings widely.",
+  "A heavy Moon makes the axis circle fast (about 28,000 years per turn), pulling it away from the planets' rhythms (49,000–185,000 years); a small Moon moved the axis's rhythm right in among them.",
+  "So what keeps the seasons steady? In this model the axis's rhythm had to stay far from the planets' rhythms. At 60% of today's Moon or more the swing was 9° or less; an in-between Moon was worse than none."
+ ],
+ "not_ko": [
+  "달 무게와 흔드는 세기에 따른 차이는 이 장난감 모델이 직접 보여 준 거예요. 실제 지구의 과거 기울기나 미래 기후를 예측한 게 아니고, 숫자와 박자는 모두 이 모델의 예시예요.",
+  "실제 행성들은 훨씬 많은 박자로 궤도를 흔들고, 달이 없으면 하루 길이도 달라졌을 텐데 이 모델엔 없어요. 기후·빙하·바다·생물도 빠져 있어요.",
+  "'달이 지구 자전축을 안정시킨다'는 설명은 알려져 있지만, 달 없는 지구가 얼마나 흔들릴지는 연구마다 다르게 보기도 해요. 확인하려면 실제 태양계 궤도를 쓰는 정밀 계산이 필요해요."
+ ],
+ "not_en": [
+  "The differences by Moon mass and rocking strength are what this toy model showed directly. It does not predict Earth's past tilt or future climate; all numbers and rhythms are examples from this model.",
+  "The real planets rock the orbit with many more rhythms, and without the Moon the day length would also differ, which this model leaves out. Climate, ice, oceans and life are missing too.",
+  "The idea that the Moon steadies Earth's axis is well known, but studies differ on how much a moonless Earth would wobble. Checking it takes precise calculations with the real Solar System's orbits."
+ ]
+}

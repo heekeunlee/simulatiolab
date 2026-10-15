@@ -80,6 +80,34 @@ PRED = {
 
 # ---- 2026-10-13 새 실험 11개 (정답·해설의 숫자는 각 validate 출력 기준) ----
 PRED.update({
+ 'nightsky': (
+  T('별이 하늘에 고르게 퍼져 있다면, 보이는 밝기가 한 등급 어두워질 때마다 보이는 별 수는 몇 배가 될까요? (이 모델)', 'If stars are spread evenly across space, how many times more stars do you see for each magnitude fainter? (this model)'),
+  [T('거의 그대로(1배)', 'About the same (1×)'), T('약 2배', 'About 2×'), T('약 4배', 'About 4×')], 2,
+  T('이 모델에서 한 등급마다 별 수가 4.0배로 늘었고, 고르게 퍼진 별의 이론값 3.98배와 맞았어요. 그래서 2등급보다 밝은 별은 3.4개뿐인데 6등급까지는 1,048개가 보였어요.', 'In this model the count grew 4.0 times per magnitude, matching the theoretical 3.98 for evenly spread stars. That is why only 3.4 stars were brighter than magnitude 2, while 1,048 were visible down to magnitude 6.')),
+ 'moonaxis': (
+  T('이 모델에서 달의 무게를 지금의 30%로 줄이면, 100만 년 동안 지구 자전축 기울기는 어떻게 흔들릴까요?', 'In this model, if the Moon had 30% of its mass, how would Earth\'s axis tilt swing over a million years?'),
+  [T('달이 없을 때와 지금의 달 사이 어딘가', 'Somewhere between no Moon and today\'s Moon'), T('달이 없을 때보다도 더 크게 흔들린다', 'It swings even more than with no Moon'), T('지금의 달보다도 덜 흔들린다', 'It swings even less than with today\'s Moon')], 1,
+  T('이 모델에서 시작 8가지 평균 흔들림 폭은 달 없음 13.1°, 지금의 달 3.7°였지만 30% 달은 25.6°였어요. 작은 달이 축이 도는 박자를 다른 행성들이 궤도를 흔드는 박자 사이로 옮겨 공명에 빠뜨렸기 때문이에요.', 'In this model the average swing over 8 starts was 13.1° with no Moon and 3.7° with today\'s Moon, but 25.6° with a 30% Moon. The small Moon moved the axis\'s rhythm in among the rhythms at which the planets rock the orbit, into resonance.')),
+ 'drake': (
+  T('가상의 은하에서 문명이 생기는 빠르기는 그대로 두고 문명의 수명만 1,000년에서 100만 년으로 늘리면, 보낸 신호에 답장을 받는 문명은 어떻게 될까요? (이 모델)', 'In a model galaxy, keeping the rate at which civilizations appear the same, what happens to the share that get a reply if lifetimes grow from 1,000 to 1,000,000 years? (this model)'),
+  [T('거의 그대로 0%다', 'It stays near 0%'), T('절반쯤으로 는다', 'It rises to about half'), T('거의 모두 답장을 받는다', 'Almost all get a reply')], 2,
+  T('이 모델에서 수명 1,000년이면 동시에 켜진 문명이 평균 1개, 가장 가까운 이웃과 신호 왕복 48,872년이라 답장 0%였지만, 100만 년이면 평균 998개가 켜져 왕복 2,489년이 되고 답장 비율은 100%였어요.', 'In this model, a 1,000-year lifetime meant 1 civilization lit at a time on average and a 48,872-year round trip to the nearest neighbor, so 0% got replies; at 1,000,000 years, 998 were lit, the round trip fell to 2,489 years and 100% got replies.')),
+ 'cosmicweb': (
+  T('거의 고른 먼지에 중력만 켠 이 모델에서, 우주의 팽창이 기본보다 1.5배 빠르면 어떻게 될까요?', 'In this model of almost even dust with only gravity, what happens if the expansion is 1.5 times faster than the default?'),
+  [T('거미줄이 더 빨리 생긴다', 'The web forms faster'), T('끝까지 거의 고르게 남는다', 'It stays almost even to the end'), T('덩어리 몇 개로 다 뭉친다', 'Everything falls into a few clumps')], 1,
+  T('이 모델에서 팽창 100%면 빈 공간이 53%로 거미줄이 드러났지만, 150%면 브레이크가 세서 끝까지 빈 공간이 2%뿐이었어요. 반대로 50%로 느리면 가장 큰 덩어리에 먼지 63%가 몰렸어요.', 'In this model, at 100% expansion empty space reached 53% and the web showed, but at 150% the stronger brake left only 2% empty space at the end. At a slow 50%, the largest clump held 63% of the dust.')),
+ 'galaxy': (
+  T('은하 시뮬레이션에서 두 은하가 부딪혀 하나로 합쳐질 때, 서로 다른 은하의 별 둘이 부딪힐 만큼(별 크기 = 별 사이 간격의 1/1000) 가까이 지나간 쌍은 몇 쌍이었을까요? (별 6,000개, 이 모델)', 'In the galaxy simulation, as two galaxies collide and merge, how many pairs of stars from different galaxies passed close enough to crash (star size = 1/1000 of the spacing between stars)? (6,000 stars, this model)'),
+  [T('0쌍', 'None'), T('수백 쌍', 'Hundreds'), T('수천 쌍', 'Thousands')], 0,
+  T('이 모델의 3판 모두 0쌍이었어요. 별을 간격의 1/10만큼 크게 잡아도 가능한 800만 쌍 중 1,486쌍뿐이었어요. 그런데도 별의 49%가 중력에 끌려 꼬리로 나갔어요.', 'All 3 runs of this model gave zero pairs. Even with stars as big as 1/10 of the spacing, only 1,486 of 8 million possible pairs came that close. Yet 49% of the stars were pulled out into tails by gravity.')),
+ 'asteroid': (
+  T('지구로 오는 가상의 소행성을 비껴가게 하려면, 만나기 1년 전에 미는 것과 10년 전에 미는 것 중 얼마나 차이가 날까요? (이 모델, 나아가는 방향으로 밀 때)', 'To make an imaginary asteroid miss Earth, how different is pushing 1 year ahead from pushing 10 years ahead? (this model, pushing along its path)'),
+  [T('거의 같다', 'About the same'), T('1년 전에는 약 16배 세게 밀어야 한다', 'One year ahead needs about 16 times the push'), T('1년 전이 오히려 덜 든다', 'One year ahead actually needs less')], 1,
+  T('이 모델의 기본 소행성은 10년 전에는 0.97 cm/s면 비껴갔지만 1년 전에는 15 cm/s(약 16배), 0.1년(약 한 달) 전에는 425 cm/s가 필요했어요. 궤도 20개 모두에서 10년 전이 덜 들었어요.', 'For this model\'s default asteroid, 0.97 cm/s ten years ahead was enough to miss, but one year ahead needed 15 cm/s (about 16 times) and 0.1 years (about a month) ahead needed 425 cm/s. For all 20 orbits tried, ten years ahead took less.')),
+ 'threebody': (
+  T('별 셋 시뮬레이션에서 처음 위치를 100배 더 정확히 재면(차이 0.1 → 0.001), 두 판이 갈라지기까지의 시간은 어떻게 될까요? (이 모델, 24판 가운데 값)', 'In the three-star simulation, if you measure the starting position 100 times more precisely (gap 0.1 → 0.001), what happens to the time until the twins split? (this model, middle of 24 runs)'),
+  [T('거의 100배 길어진다', 'It gets almost 100 times longer'), T('5배쯤(9.2 → 42.5)만 길어진다', 'It gets only about 5 times longer (9.2 → 42.5)'), T('전혀 갈라지지 않는다', 'They never split at all')], 1,
+  T('이 모델에서 별 셋은 처음 차이 0.1일 때 시간 9.2, 0.001일 때 42.5에 갈라졌어요. 10배 정확해질 때마다 약 16.7씩만 늘어요. 별 둘은 15.2에서 1,343.1로 거의 100배 늘었어요.', 'In this model, three stars split at time 9.2 with a 0.1 gap and at 42.5 with 0.001: each tenfold gain in precision adds only about 16.7. Two stars went from 15.2 to 1,343.1, almost 100 times.')),
  'filterbubble': (
   T('추천이 내 취향을 따르는 정도를 0% → 10% → 30%로 올리면, 마을 의견이 갈라진 정도는 어떻게 될까요? (이 모델)', 'If you raise how much the feed follows your taste from 0% to 10% to 30%, how does the split in the town\'s opinions change? (this model)'),
   [T('조금씩 고르게 커진다', 'It grows a little at each step'), T('10%까진 거의 그대로, 30%에서 확 커진다', 'Almost unchanged up to 10%, then jumps at 30%'), T('오히려 점점 줄어든다', 'It actually shrinks')], 1,

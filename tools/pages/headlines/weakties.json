@@ -2,12 +2,14 @@
  "says_ko": [
   "친한 무리 안에서는 같은 소식만 돌고, 먼 사람과 이은 선이 몇 개만 있어도 소식이 무리 밖으로 훨씬 빨리 퍼져요.",
   "연결의 2%만 먼 사람으로 바꿔도 소식이 90%에 닿는 시간이 58턴에서 16턴으로 줄었는데, 친구 무리의 촘촘함은 94%로 거의 그대로였어요.",
-  "그래서 친한 사이는 무리 안을 채우고 먼 연결은 무리 밖으로 건너 주는 역할로 나눠 볼 수 있어요. 새 소식이 얼굴만 아는 사람에게서 오는 이유로 설명되곤 해요."
+  "그래서 친한 사이는 무리 안을 채우고 먼 연결은 무리 밖으로 건너 주는 역할로 나눠 볼 수 있어요. 새 소식이 얼굴만 아는 사람에게서 오는 이유로 설명되곤 해요.",
+  "그렇다면 소식이 무리 밖으로 잘 퍼지려면? 이 모델에선 친한 연결을 다 바꿀 필요 없이 몇 개만 먼 사람으로 바꾸면 됐어요. 1%만 바꿔도 58→22턴이었고, 그 뒤론 효과가 줄었어요(5%: 11.8턴)."
  ],
  "says_en": [
   "Inside a close circle the same news just circulates, but even a few links to distant people spread it far faster beyond the circle.",
   "Rewiring just 2% of links to distant people cut the time for news to reach 90% from 58 turns to 16, while friend circles stayed 94% as tight.",
-  "So close ties can be seen as filling the circle and distant links as carrying news across to other groups. That is often given as why news comes from acquaintances."
+  "So close ties can be seen as filling the circle and distant links as carrying news across to other groups. That is often given as why news comes from acquaintances.",
+  "So how does news get beyond the circle? Here there was no need to change all close ties; turning a few into distant links did it. Rewiring 1% cut 58 turns to 22, after which gains shrank (5%: 11.8 turns)."
  ],
  "not_ko": [
   "직접 보여 준 쪽은 먼 연결이 소식을 빨리 퍼뜨린다는 거예요. 약한 연결이 일자리를 얻는 데 더 낫다는 건 생각해 볼 점이고, 이 시뮬레이션이 보여 준 건 아니에요.",

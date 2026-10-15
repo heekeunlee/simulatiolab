@@ -2,12 +2,12 @@
  "says_ko": [
   "따라 그리는 비율이 낮으면 화풍이 제각각으로 남고, 높으면 하나로 모여요. 비율 0%에서 다양성 0.47, 100%에서 0.02였어요.",
   "인기 있는 화가를 더 자주 따르면 같은 비율(60%)에서도 쏠림이 25%에서 55%로 커지고, 새 시도가 작으면 중간 비율에서도 하나로 굳어요.",
-  "그래서 다양성이 사라지는 건 개인 취향보다 얼마나 따라 하는지, 인기를 좇는지, 새 시도가 있는지가 겹친 결과로 볼 수 있어요."
+  "그렇다면 화풍이 다양하게 남으려면? 이 모델에선 따라 그리는 비율이 가장 컸어요(0%면 다양성 0.47, 100%면 0.02). 인기 편향을 없애면 같은 60%에서도 쏠림이 55%에서 25%로 줄었어요."
  ],
  "says_en": [
   "When the copying rate is low, styles stay varied; when high, they merge into one. Diversity was 0.47 at 0% copying and 0.02 at 100%.",
   "If popular painters are copied more, piling onto one style at the same 60% copying rose from 25% to 55%, and with little originality even medium copying locks into one style.",
-  "So lost diversity can be seen as the combined result of how much people copy, whether they chase popularity and whether new attempts exist, more than of individual taste."
+  "So how do styles stay varied? In this model the copying rate mattered most (diversity 0.47 at 0%, 0.02 at 100%). Removing the popularity bias cut piling-on at the same 60% from 55% to 25%."
  ],
  "not_ko": [
   "실제 화가나 이미지 생성 AI를 재현한 것도, 모방이 나쁘다는 뜻도 아니에요. 그림의 좋고 나쁨은 모델에 없어요.",
