@@ -2,8 +2,12 @@ import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from mk2 import *
 
-HINT3D = ('<p class="hint3d" data-en="Drag to turn the view · scroll or pinch to zoom · left alone, the camera circles slowly · on a phone, swiping up and down scrolls the page. This is the same result as the charts below, seen in 3D; the 3D view makes no new numbers.">'
-          '드래그로 돌려 보기 · 휠이나 두 손가락으로 확대 · 가만히 두면 카메라가 천천히 돕니다 · 휴대폰에서 세로로 쓸면 페이지가 내려갑니다. 아래 그래프와 같은 결과를 입체로 본 것이고, 3D에서 새로 계산하는 숫자는 없어요.</p>')
+VIEWBAR = ('\n    <div class="anim-bar">'
+           '\n      <select id="ar3-time" aria-label="day or night"><option value="day" selected data-en="Daytime">낮</option><option value="night" data-en="Night (only the lights show)">밤 (불빛만 보여요)</option></select>'
+           '\n      <select id="ar3-rotate" aria-label="camera rotation"><option value="off" selected data-en="Camera stays still">카메라 고정</option><option value="on" data-en="Camera circles slowly">카메라 천천히 돌기</option></select>'
+           '\n    </div>')
+HINT3D = ('<p class="hint3d" data-en="This is the same result as the charts below, drawn as two bases; the 3D view makes no new numbers. One vehicle, launcher or jet stands for an arms level of 1 (mixed 3 : 1 : 1 just for looks), and one gold bar for 4. Warning lights, ripples, the radar and the flags are only decorations that show the current state. The hologram is the same map as ③. Drag to turn the view · scroll or pinch to zoom · on a phone, swiping up and down scrolls the page.">'
+          '아래 그래프와 같은 결과를 두 기지로 그린 것이고, 3D에서 새로 계산하는 숫자는 없어요. 차량·발사대·전투기 1대가 군비 1이고(종류는 보기 좋게 3 : 1 : 1로 섞었을 뿐), 금괴 1개는 군비 4예요. 경보등·파문·레이더·깃발의 움직임은 지금 상태를 보여 주는 꾸밈입니다. 홀로그램은 ③과 같은 지도예요. 드래그로 돌려 보기 · 휠이나 두 손가락으로 확대 · 휴대폰에서 세로로 쓸면 페이지가 내려갑니다.</p>')
 
 page(dict(
  slug='armsrace', three=True,
@@ -29,20 +33,20 @@ page(dict(
            'none', T('합의는 서로 확인할 수 있고 그대로 지켜진다고 가정해요', 'Assumes the deal can be checked and is kept as agreed'))],
  reroll=T('같은 설정, 다른 사건', 'Same settings, other events'),
  sections=[
-  dict(title=T('① 두 나라의 군비 탑과 바닥에 그려지는 길 <span class="badge3d">3D</span>', '① Two Arms Towers and the Path on the Floor <span class="badge3d">3D</span>'),
-       p=T('뒤쪽의 <b style="color:#2f6fed">파란 탑</b>이 A, <b style="color:#e8590c">주황 탑</b>이 B의 군비예요(블록 하나 = 10). 빨간 반투명 판이 과열선 100이고, 그 위로 올라간 블록은 붉게 물들어요. 바닥은 가로가 A, 앞뒤가 B의 군비인 지도예요. 검은 공이 지금 두 나라의 자리이고 검은 선이 지나온 길입니다. 파란 선과 주황 선은 각 나라가 더 늘리지도 줄이지도 않는 자리예요. 두 선이 만나면 공은 그 만나는 곳으로 가서 멈추고, 두 선이 벌어져 만나지 않으면 공은 옅은 빨간 과열 구역으로 달려가요.',
-           'At the back, the <b style="color:#2f6fed">blue tower</b> is A\'s arms and the <b style="color:#e8590c">orange tower</b> is B\'s (one block = 10). The red see-through slab is the heat line at 100, and blocks above it turn reddish. The floor is a map with A\'s arms across and B\'s arms front to back. The black ball is where the two countries are now, and the black line is the path so far. The blue and orange lines are where each country neither adds nor cuts. If the two lines meet, the ball heads to that crossing and stops; if they spread apart and never meet, the ball runs into the pale red heat zone.'),
+  dict(title=T('① 국경을 사이에 둔 두 기지: 차량이 국경으로 다가온다 <span class="badge3d">3D</span>', '① Two Bases Across a Border: The Columns Creep Closer <span class="badge3d">3D</span>'),
+       p=T('왼쪽이 <b style="color:#2f6fed">A국</b>, 오른쪽이 <b style="color:#e8590c">B국</b> 기지예요. 연병장에 늘어선 차량·미사일 발사대·전투기 1대가 군비 1이라, 군비가 늘수록 줄이 뒤에서부터 국경 쪽으로 다가옵니다. 연병장의 <b style="color:#dc2626">빨간 선</b>이 과열선 100이에요. 군비가 100을 넘은 나라는 경보등이 돌고 붉은 파문이 퍼집니다. 앞쪽 금괴 더미는 같은 군비를 예산으로 본 것이고, 10년째 합의를 고르면 국경 한가운데 협상 천막이 섭니다. 뒤쪽 홀로그램은 ③과 같은 지도(가로 A, 세로 B)로, 흰 선이 지나온 길이에요.',
+           'The <b style="color:#2f6fed">A</b> base is on the left and the <b style="color:#e8590c">B</b> base on the right. Each vehicle, missile launcher or jet lined up on the parade ground is an arms level of 1, so as arms grow the columns fill in from the back and creep toward the border. The <b style="color:#dc2626">red line</b> on the parade ground is the heat line at 100. A country above 100 gets spinning warning lights and red ripples. The gold pile in front is the same arms level seen as a budget, and if you pick an agreement, a negotiation tent goes up on the border in year 10. The hologram at the back is the same map as ③ (A across, B up); the white line is the path so far.'),
        id='c-3d', three=True, anim=True, thumb=True,
        speeds=[('2', T('느리게', 'Slow')), ('4', T('보통', 'Normal')), ('8', T('빠르게', 'Fast'))], speed_default='4',
-       after_canvas=legend(leg('background:#2f6fed', 'A의 군비 탑', "A's arms tower"), leg('background:#e8590c', 'B의 군비 탑', "B's arms tower"), leg('background:rgba(220,38,38,.35);border:1px solid #dc2626', '과열선 100 / 과열 구역', 'Heat line 100 / heat zone'), leg('background:#1f2937', '지금 자리와 지나온 길', 'Where they are now and the path so far')),
-       extra='\n    ' + HINT3D),
+       after_canvas=legend(leg('background:#5c7fb8', '차량·발사대·전투기 1대 = 군비 1 (A)', 'One vehicle, launcher or jet = arms 1 (A)'), leg('background:#c27a45', '같은 것 (B)', 'Same (B)'), leg('background:#e11d2a', '과열선 100 · 경보등', 'Heat line 100 · warning lights'), leg('background:#e8b923', '금괴 1개 = 군비 4', 'One gold bar = arms 4')),
+       extra=VIEWBAR + '\n    ' + HINT3D),
   dict(title=T('② 두 나라 군비는 시간에 따라 어떻게 움직였나', "② How the Two Countries' Arms Moved over Time"),
        p=T('재생이 지난 시점까지만 그립니다. 빨간 점선이 과열선 100, 초록 점선은 계산상 멈추는 수준(반응이 부담에 비해 작을 때만 있어요)입니다. 합의를 고르면 10년째에 회색 세로선이 생겨요.',
            'Drawn only up to where the playback has reached. The red dashed line is the heat line at 100, and the green dashed line is the level where the math says arms settle (it exists only when reactions are small compared with the burden). If you pick an agreement, a gray vertical line appears at year 10.'),
        id='c-time'),
   dict(title=T('③ 두 나라를 한 점으로: 멈출 자리가 있나', '③ Both Countries as One Dot: Is There Somewhere to Stop?'),
-       p=T('가로는 A, 세로는 B의 군비예요(3D의 바닥과 같은 지도). 파란 선 위에서는 A가, 주황 선 위에서는 B가 더 늘리지도 줄이지도 않아요. 두 선이 만나는 곳(초록 동그라미)이 있으면 점은 거기로 끌려가 멈추고, 없으면 두 선 사이를 따라 바깥으로 달아납니다. 재생이 지난 시점까지만 그립니다.',
-           'Across is A\'s arms, up is B\'s (the same map as the 3D floor). On the blue line A neither adds nor cuts, and on the orange line B does neither. If the two lines cross (green circle), the dot is pulled there and stops; if not, it escapes outward between the lines. Drawn only up to where the playback has reached.'),
+       p=T('가로는 A, 세로는 B의 군비예요(3D 뒤쪽 홀로그램과 같은 지도). 파란 선 위에서는 A가, 주황 선 위에서는 B가 더 늘리지도 줄이지도 않아요. 두 선이 만나는 곳(초록 동그라미)이 있으면 점은 거기로 끌려가 멈추고, 없으면 두 선 사이를 따라 바깥으로 달아납니다. 재생이 지난 시점까지만 그립니다.',
+           'Across is A\'s arms, up is B\'s (the same map as the hologram in the 3D view). On the blue line A neither adds nor cuts, and on the orange line B does neither. If the two lines cross (green circle), the dot is pulled there and stops; if not, it escapes outward between the lines. Drawn only up to where the playback has reached.'),
        id='c-phase'),
   dict(title=T('④ 두 나라의 반응 지도 (집계: 미리 돌린 441판)', "④ Map of the Two Reactions (Summary: 441 Runs)"),
        p=T('A와 B가 상대를 따라 늘리는 정도를 0%~40%로 2%씩 바꿔 한 판씩 돌린 결과예요(지금의 부담·불만·격차, 합의 없음, 사건 #1). 빨간 칸은 60년 안에 과열선을 넘은 판, 초록 칸은 넘지 않은 판입니다. 검은 곡선은 계산상 경계(두 반응의 곱 = 부담의 제곱)예요. 곡선이 쌍곡선이라, 한쪽 반응이 아주 작으면 다른 쪽이 커도 초록에 머물러요. 재생과 상관없는 집계입니다.',

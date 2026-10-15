@@ -2,8 +2,12 @@ import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from mk2 import *
 
-HINT3D = ('<p class="hint3d" data-en="Drag to turn the view · scroll or pinch to zoom · left alone, it turns slowly · on a phone, swiping up and down scrolls the page. This is the same result as the charts below, seen in 3D; nothing new is calculated here.">'
-          '드래그로 돌려 보기 · 휠이나 두 손가락으로 확대 · 가만히 두면 천천히 돕니다 · 휴대폰에서 세로로 쓸면 페이지가 내려갑니다. 아래 그래프와 같은 결과를 입체로 본 것이고, 여기서 새로 계산하는 것은 없어요.</p>')
+VIEWBAR = ('\n    <div class="anim-bar">'
+           '\n      <select id="sn3-time" aria-label="day or night"><option value="day" selected data-en="Daytime">낮</option><option value="night" data-en="Night (city lights and ship lights)">밤 (도시 불빛·배 불빛)</option></select>'
+           '\n      <select id="sn3-rotate" aria-label="map rotation"><option value="on" selected data-en="Sea turns slowly">바다 천천히 돌기</option><option value="off" data-en="Sea stays still">바다 고정</option></select>'
+           '\n    </div>')
+HINT3D = ('<p class="hint3d" data-en="This is the same result as the charts below, drawn as a sea of imaginary islands; nothing new is calculated here. The number of ships only shows this month\'s trade amounts (one ship stands for a slice of trade, and every country gets at least one ship), and how they sail and dock is just for show. The islands, cities and flags are all made up. Drag to turn the view · scroll or pinch to zoom · on a phone, swiping up and down scrolls the page.">'
+          '아래 그래프와 같은 결과를 가상의 섬나라 바다로 그린 것이고, 여기서 새로 계산하는 것은 없어요. 배의 수는 지금 달의 무역량을 보여 주는 표시일 뿐이고(배 한 척 = 무역의 한 조각, 작은 나라도 배는 한 척 이상), 배가 다니고 부두에 묶이는 모습은 보기용 연출이에요. 섬·도시·깃발은 모두 지어낸 것입니다. 드래그로 돌려 보기 · 휠이나 두 손가락으로 확대 · 휴대폰에서 세로로 쓸면 페이지가 내려갑니다.</p>')
 
 page(dict(
  slug='sanctions', three=True,
@@ -29,12 +33,15 @@ page(dict(
           ('hard', T('피해가 지지를 깎는 정도', 'How much damage wears down support'), 0, 100, 10, 50, T('올리면 쌓인 피해가 지지를 더 빨리 끌어내려요(설정)', 'Higher makes piled-up damage pull support down faster (a setting)'))],
  reroll=T('같은 설정, 다른 무역망', 'Same settings, another trade web'),
  sections=[
-  dict(title=T('① 제재가 걸린 무역망 <span class="badge3d">3D</span>', '① A Trade Web Under Sanctions <span class="badge3d">3D</span>'),
-       p=T('구슬 하나가 나라 하나이고, 클수록 큰 나라입니다. 가운데로 이어진 회색 관은 지금 달의 직접 무역(굵을수록 많음), 위로 휜 주황 점선은 참여 안 한 나라를 거쳐 새 들어오는 무역입니다. 가운데 주황 기둥의 높이가 결속 지수예요(옅은 원판 = 평소 50, 진한 원판 = 30).',
-           'Each ball is a country; bigger balls are bigger countries. The gray pipes to the middle are this month\'s direct trade (thicker = more), and the orange dashes arching overhead are trade slipping in through countries that stayed out. The height of the orange pillar in the middle is cohesion (pale disc = the usual 50, dark disc = 30).'),
+  dict(title=T('① 제재가 걸린 섬나라 바다 <span class="badge3d">3D</span>', '① A Sea of Island Countries Under Sanctions <span class="badge3d">3D</span>'),
+       p=T('섬 하나가 가상의 나라 하나이고, 섬 위 빌딩이 많고 높을수록 큰 나라입니다. 가운데 큰 섬이 제재받는 나라예요. 그 섬으로 가는 짙은 화물선의 수가 지금 달의 직접 무역이고, 주황 배와 바다 위 주황 점선은 참여 안 한 나라의 항구를 거쳐 새 들어오는 무역입니다. 제재에 참여한 나라는 항구에 푸른 깃발을 올리고 차단기를 내려요. 가운데 섬에서는 경제 피해만큼 빌딩 불이 꺼지고, 부두가 비고, 광장에 모인 사람 수와 깃발 높이가 결속 지수를 보여 줍니다(깃대의 흰 고리 = 평소 50, 빨간 고리 = 30).',
+           'Each island is an imaginary country; more and taller buildings mean a bigger country. The big island in the middle is the sanctioned country. The number of dark cargo ships heading to it is this month\'s direct trade, and the orange ships with the orange dotted lines on the water are trade slipping in through the ports of countries that stayed out. Countries that joined the sanctions raise a blue flag at their port and lower a barrier. On the middle island, building lights go out in proportion to the damage, the docks empty, and the size of the crowd in the square and the height of the flag show cohesion (white ring on the pole = the usual 50, red ring = 30).'),
        id='c-3d', three=True, anim=True, thumb=True, after_canvas=HINT3D,
-       legend=[leg('background:#ea580c', '제재받는 나라 · 기둥 = 결속 지수', 'Sanctioned country · pillar = cohesion'), leg('background:#2f6fed', '제재 참여국', 'Countries that joined'),
-               leg('background:#9aa5b8', '참여 안 한 나라 · 직접 무역', 'Countries that stayed out · direct trade'), leg('background:repeating-linear-gradient(90deg,#f97316 0 6px,transparent 6px 10px)', '제3국을 거쳐 새는 무역', 'Trade slipping through third countries')],
+       legend=[leg('background:#2b3a55', '화물선 = 직접 무역 · 회색 작은 배 = 다른 나라끼리', 'Cargo ships = direct trade · small gray ships = trade among the others'),
+               leg('background:repeating-linear-gradient(90deg,#f97316 0 6px,transparent 6px 10px)', '주황 배·점선 = 제3국을 거쳐 새는 무역', 'Orange ships and dots = trade slipping through third countries'),
+               leg('background:#2f6fed', '푸른 깃발·차단기 = 제재 참여국', 'Blue flag and barrier = countries that joined'),
+               leg('background:#ea580c', '가운데 섬: 깃발 높이·군중 = 결속 지수, 불 꺼진 빌딩 = 경제 피해', 'Middle island: flag height and crowd = cohesion, dark buildings = damage')],
+       extra=VIEWBAR,
        speeds=[('2', T('느리게', 'Slow')), ('4', T('보통', 'Normal')), ('8', T('빠르게', 'Fast'))], speed_default='4'),
   dict(title=T('② 달마다 피해와 새는 비율', '② Damage and Leakage, Month by Month'),
        p=T('재생이 지난 시점까지만 그립니다. 회색 띠는 제재 전입니다. 처음엔 끊긴 만큼 피해가 크다가, 돌아오는 길이 자리 잡으면서 새는 비율이 오르고 피해가 줄어듭니다.',
@@ -69,6 +76,6 @@ page(dict(
   ('read', T('이 사이트의 <a href="../tariff/">관세 보복을 서로 주고받으면 왜 둘 다 손해일까?</a>는 두 나라의 무역 갈등을, <a href="../alliance/">한 발의 총성이 세계대전이 되려면</a>은 나라들이 편을 이뤄 번지는 모습을, <a href="../braess/">새 길을 뚫었더니 모두가 느려졌다</a>는 흐름이 다른 길로 몰리는 구조를 다룹니다.',
          'On this site, <a href="../tariff/">When Two Countries Trade Tariff Blows, Why Do Both Lose?</a> looks at a trade dispute between two countries, <a href="../alliance/">How Does a Single Shot Become a World War?</a> at countries taking sides as a conflict spreads, and <a href="../braess/">A New Road Made Everyone Slower</a> at flows piling onto other routes.')),
  ],
- memo=[T('검증은 <code>node tools/validate-sanctions.js</code>로 할 수 있습니다. 시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 아래 집계 그래프(④·⑤)는 지금 설정으로 100판씩 돌린 값이라 재생과 상관없이 바로 그려집니다. 3D 보기는 같은 시뮬레이션 상태를 입체로 그린 것이며, 관 굵기가 바뀌는 모습만 화면에서 부드럽게 이었습니다.',
-         'You can verify with <code>node tools/validate-sanctions.js</code>. The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. The aggregate charts (④, ⑤) are 100 runs each with the current settings, so they are drawn right away, independent of playback. The 3D view draws the same simulation state in 3D; only the changing pipe thickness is smoothed on screen.')],
+ memo=[T('검증은 <code>node tools/validate-sanctions.js</code>로 할 수 있습니다. 시뮬레이션은 시드 난수(mulberry32)를 쓰고 같은 시드면 같은 결과가 나옵니다. 아래 집계 그래프(④·⑤)는 지금 설정으로 100판씩 돌린 값이라 재생과 상관없이 바로 그려집니다. 3D 보기는 같은 시뮬레이션 상태를 섬나라 바다로 그린 것이며, 배 수·불빛·군중이 바뀌는 모습만 화면에서 부드럽게 이었습니다.',
+         'You can verify with <code>node tools/validate-sanctions.js</code>. The simulation uses a seeded random generator (mulberry32), so the same seed gives the same result. The aggregate charts (④, ⑤) are 100 runs each with the current settings, so they are drawn right away, independent of playback. The 3D view draws the same simulation state as a sea of islands; only the changes in ships, lights and crowd are smoothed on screen.')],
 ))

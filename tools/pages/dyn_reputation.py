@@ -38,4 +38,9 @@ DYN = {
 '일부러 한 번 어기면': 'Breaking its word once on purpose',
 '{#0} / {#1}라운드': 'Round {0} / {1}',
 '세계': 'World',
+'{0} 약속 깸': '{0} broke its word',
+'{0} · 일부러 약속을 깬 나라': '{0} · broke its word on purpose',
+'{0} · 다음 협상에서 약속을 깨요': '{0} · will break its word in its next deal',
+'{0} · 가장 믿음직한 나라': '{0} · most trusted',
+'협상 회의': 'Negotiations',
 }

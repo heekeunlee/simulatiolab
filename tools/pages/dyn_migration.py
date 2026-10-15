@@ -49,4 +49,10 @@ DYN = {
 '도착 지역': 'Destination',
 '{0} {#1}명': '{0} {1}',
 '{0} · 위험 {#1}% · {#2}명': '{0} · risk {1}% · {2} people',
+'{#0}개월째': 'Month {0}',
+'지난달 길을 나선 사람 {#0}명': 'Set out last month: {0}',
+'아직 아무도 떠나지 않았어요': 'Nobody has set out yet',
+'도착 {#0}명 · 사고 {#1}명': 'Arrived {0} · accidents {1}',
+'벽에서 되돌려 보냄 {#0}명': 'Turned back at the wall: {0}',
+'벽 · 막는 세기 {#0}%': 'Wall · closing strength {0}%',
 }

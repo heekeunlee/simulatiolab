@@ -54,4 +54,10 @@ DYN = {
 '해 (0 → 100년)': 'Year (0 → 100)',
 '100개의 세계': '100 worlds',
 '첫 번째 세계의 힘 몫': 'Shares of power, first world',
+'힘 {#0}': 'Power {0}',
+'힘 비율 {#0}': 'Power ratio {0}',
+'1 = 힘이 같음': '1 = equal power',
+'올해 위험 {#0}%': 'Risk this year {0}%',
+'뒤 산맥(100개 세계) 충돌 {#0}곳': 'Mountains behind (100 worlds): conflict in {0}',
+'{#0}년째 질서 개편': 'Order reformed in year {0}',
 }

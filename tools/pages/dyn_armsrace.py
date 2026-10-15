@@ -47,4 +47,8 @@ DYN = {
 '사건': 'Events',
 '합계 약 {#0}': 'Total ≈ {0}',
 '에서 멈춤': '(settled)',
+'A국': 'Country A',
+'B국': 'Country B',
+'군비 {#0}': 'Arms {0}',
+'10년째 합의': 'Deal in year 10',
 }

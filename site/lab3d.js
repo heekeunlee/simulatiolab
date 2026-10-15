@@ -47,7 +47,7 @@ export function create3D(canvas, opt = {}) {
   resize();
   new ResizeObserver(resize).observe(canvas.parentElement);
   let visible = true;
-  new IntersectionObserver((es) => { visible = es[0].isIntersecting; }).observe(canvas);
+  new IntersectionObserver((es) => { visible = es[es.length - 1].isIntersecting; }).observe(canvas);
   const frames = []; let last = performance.now();
   function loop(now) {
     const dt = Math.max(0, Math.min(0.1, (now - last) / 1000)); last = now; // 첫 프레임의 rAF 시각이 생성 시각보다 이를 수 있어 음수를 막는다
