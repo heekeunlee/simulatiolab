@@ -1,6 +1,8 @@
 // ① 가상 지구본 위 바닷길 (3D): app.js가 window.StraitState로 내보내는 같은 sim을 그대로 그린다(3D에서 따로 계산하지 않음).
-// - 지구본: 땅 높낮이(산·눈·해변)와 바다(얕은 곳 청록·깊은 곳 남색·잔물결·해안 파도)를 코드로 만든 가상의 배치(실제 대륙 아님).
-//   해협 = 땅 덩어리 사이의 좁은 물길. 대기 테두리 빛, 옅은 구름층(보기용 장식).
+// - 지구본: 코드로 만든 가상의 대륙 6개(큰 것 3 + 중간·작은 것)·큰 섬·군도·안쪽 바다(실제 대륙을 본뜨지 않음, 국경·지명 없음).
+//   해안선은 비틀린 프랙탈 잡음(반도·만·피오르), 기후대 색(극지 얼음·툰드라·침엽수림·온대·사막 띠·사바나·열대 우림),
+//   가장자리를 따라 이어진 산맥(눈 덮인 봉우리), 대륙붕(청록)·먼 바다(남색)·해구(짙은 골), 극지 바다 얼음.
+//   해협 = 땅 덩어리 사이의 좁은 물길(위치는 sim.js 그대로, 땅을 거기에 맞춤). 대기 테두리 빛, 옅은 구름층(보기용 장식).
 // - 항구 = 작은 항만 도시(빌딩·크레인·컨테이너·방파제·등대). 기둥: 높이 = 수입 물가 지수 − 100, 색 = 막힌 길목을 쓰던 나라/안 쓰던 나라.
 // - 바닷길: 물 위의 옅은 띠, 색 = 짐 ÷ 용량(파랑 → 빨강). 배: 지금 그 길에 실린 짐에 비례한 척수가 대권 곡선을 따라 항해(물결 자국).
 //   걸리는 일수가 길수록 느리게 간다. 배 한 척 한 척은 보기용 표시이고 화물 하나하나의 계산이 아니다.
@@ -144,47 +146,151 @@ function init(v, phone, wrap) {
     return { k, e, isRoute, ri: e.route, pts, tan, side, N, len };
   });
 
-  // ---------- 땅 모양 (가상의 배치) ----------
-  // 둥근 땅 덩어리 몇 개 + 잡음 해안선. 항구 뒤쪽엔 작은 항만 땅을 붙이고, 배가 다니는 물길은 항상 바다로 남긴다.
-  const LAND = [[34, 0, 17], [-12, 0, 19], [14, 120, 12], [-28, 120, 15], [14, -120, 12], [-28, -120, 15], [42, 180, 11], [46, 98, 10], [46, -98, 10], [-50, 40, 12], [-50, -40, 12], [-84, 0, 13], [-58, 180, 8]];
-  const caps = LAND.map(([la, lo, r]) => [dirOf(la, lo), r * D2R]);
+  // ---------- 땅 모양 (가상의 배치, 실제 대륙 아님) ----------
+  // 대륙·섬은 "뼈대 선분(시작점·끝점·반지름)"을 잡고, 그 위에 비틀린 프랙탈 잡음을 얹어 반도·만·피오르가 생기게 한다.
+  // 해협·항구·항로 위치는 sim.js 그대로이고, 땅 모양을 거기에 맞췄다(배가 다니는 물길은 늘 바다로 남긴다).
+  // [위도1, 경도1, 위도2, 경도2, 반지름1, 반지름2] (도)
+  const CONT = [
+    // 서쪽 큰 대륙(경도 -80 ~ -165): 노을 바다의 서쪽 기슭, 남쪽 기슭에 좁은 물목으로 열린 안쪽 바다
+    [52, -150, 46, -102, 11, 13], [36, -146, 28, -102, 8, 8], [42, -88, 30, -86, 7, 5], [62, -128, 66, -104, 6, 5],
+    [22, -88, 20, -100, 6, 6], [56, -164, 62, -150, 5, 6],
+    // 다솜 해협 북쪽 벽이 되는 큰 섬
+    [11, -104, -1, -121, 4.5, 3], [6, -98, 9, -106, 3, 3],
+    // 동쪽 대륙(경도 88 ~ 150): 새벽 바다의 동쪽 기슭, 남쪽 반도가 누리 해협의 북쪽 벽
+    [42, 112, 30, 130, 15, 12], [52, 98, 56, 132, 9, 8], [44, 84, 40, 96, 6, 9], [26, 112, 10, 106, 10, 7], [10, 106, -1, 121, 5, 3],
+    [17, 91, 22, 100, 4, 6], [24, 140, 14, 134, 5, 4],
+    // 가운데 북쪽 대륙(길목 위): 두 우회로 사이의 쐐기, 북쪽 끝은 얼음 바다
+    [33, -26, 30, 22, 9, 8], [40, -14, 51, 4, 8, 6], [36, -37, 32, -28, 4, 6], [37, 36, 33, 27, 4, 6], [25, -6, 19, 1, 6, 3.5], [44, 18, 49, 12, 5, 4],
+    // 남쪽 큰 대륙(길목 아래): 동서로 긴 덩어리 + 남동쪽 긴 반도, 서쪽 큰 만
+    [-2, -26, -8, 24, 13, 13], [2, -50, -2, -36, 6, 8], [3, 50, -3, 38, 6, 8], [-14, 28, -30, 46, 9, 7], [-30, 46, -46, 60, 6, 3.5],
+    [6, -2, 0, 6, 5, 7], [-18, -30, -32, -40, 9, 6], [-32, -40, -40, -30, 5, 3], [-16, -2, -22, 8, 6, 4],
+    // 남서 대륙(누리 해협 남쪽 ~ 별 바다 서쪽): 남동쪽으로 기운 덩어리
+    [-22, 116, -46, 148, 9, 8], [-12, 119, -22, 117, 4.5, 7], [-36, 150, -37, 159, 6, 5], [-42, 130, -57, 122, 4.5, 2.5], [-30, 130, -26, 140, 6, 4],
+    // 작은 대륙(다솜 해협 남쪽)
+    [-25, -124, -34, -108, 8, 7], [-12, -119, -22, -122, 4, 6], [-36, -126, -42, -132, 4, 3],
+    // 큰 섬들
+    [-44, -158, -51, -174, 6, 5],                     // 별 바다 남동쪽 큰 섬(별 바다 3항)
+    [-2, 156, -6, 163, 4, 4.5], [-6, 151, -1, 145, 3, 2],   // 별 바다 북쪽 큰 섬(별 바다 1항)
+    [-2, -160, -6, -165, 3.5, 4], [-1, -151, 2, -155, 2.2, 2.5],   // 별 바다 북쪽 큰 섬(별 바다 2항)
+    [62, 144, 68, 156, 5, 4], [50, -166, 44, -160, 4, 3], [-56, 6, -60, 22, 5, 3], [-34, -78, -40, -72, 4, 3], [-8, 64, -14, 70, 3.5, 2.5],
+    // 북쪽 얼음 섬(얼음 바다 북쪽)
+    [77, -38, 79, 34, 7, 7], [73, -26, 72, -32, 3, 3], [73, 24, 71, 32, 4, 3.5], [84, 70, 84, 140, 4, 3],
+    // 남극 쪽 얼음 땅(극점에서 비껴 있음)
+    [-73, -36, -71, 24, 7, 6], [-78, -14, -80, 36, 5, 4], [-66, -44, -62, -56, 3, 2], [-74, 92, -70, 106, 3, 2.5],
+  ];
+  // 군도(작은 섬 줄): [위도, 경도, 반지름]
+  const ISLES = [];
+  for (let k = 0; k < 13; k++) { const f = k / 12; ISLES.push([1 - 4 * Math.sin(f * 3.1) + 1.5 * Math.sin(k * 2.3), 136 + f * 66 + Math.sin(k * 1.7) * 1.5, 1.1 + 0.9 * hash3(k, 2, 5)]); }   // 별 바다 북쪽 섬 줄
+  for (let k = 0; k < 9; k++) { const f = k / 8; ISLES.push([16 + f * 24 + Math.sin(k * 1.9), 172 + f * 20 + Math.sin(k * 2.7), 0.9 + 1.1 * (1 - f) * hash3(k, 7, 1)]); }    // 북쪽 큰 바다 화산섬 줄
+  for (let k = 0; k < 7; k++) { const f = k / 6; ISLES.push([-48 - f * 10, -100 + f * 26 + Math.sin(k * 2.1) * 2, 1 + 0.8 * hash3(k, 4, 4)]); }                     // 남쪽 바다 섬 줄
+  for (let k = 0; k < 6; k++) { const f = k / 5; ISLES.push([-26 - f * 6, 64 + f * 16, 0.9 + 0.9 * hash3(k, 9, 3)]); }
+  // 산맥(대륙 가장자리를 따라 긴 산줄기): [위도1, 경도1, 위도2, 경도2, 폭(도), 높이]
+  const RANGE = [
+    [60, -158, 56, -130, 3.2, 0.9], [56, -130, 60, -108, 3, 0.8], [10, -106, 2, -117, 2.2, 0.75], [33, -150, 29, -138, 2.5, 0.6],
+    [44, -142, 34, -128, 2.6, 0.4], [55, 138, 36, 141, 3.2, 0.9], [36, 141, 22, 132, 3, 0.8], [50, 92, 40, 104, 3, 0.7],
+    [44, -24, 38, 0, 2.8, 0.85], [38, 0, 34, 24, 2.8, 0.75], [4, 38, -16, 48, 3, 0.8], [-16, 48, -42, 58, 2.6, 0.7], [-10, -32, -30, -42, 3, 0.55],
+    [-20, 112, -34, 122, 2.8, 0.8], [-40, 130, -54, 124, 2.4, 0.6], [-42, 140, -48, 152, 2.4, 0.5], [-24, -112, -36, -128, 2.6, 0.7], [-72, -30, -76, 26, 3, 0.55],
+  ];
+  // 안쪽 바다(땅에 거의 갇힌 지중해형 바다)와 큰 만: 땅을 파낸다
+  const NEG = [[44, -126, 41, -138, 4.5, 3.5], [20, -92, 16, -122, 1.8, 2.2], [-6, -46, -12, -38, 3, 2], [-28, 6, -36, 22, 7, 5], [46, 104, 40, 114, 3, 2], [-36, 112, -33, 121, 5, 3]];
+  // 해구(깊은 바다 골): 산맥 바깥 바다 쪽
+  const TRENCH = [[30, -142, 10, -126], [66, -168, 54, -172], [56, 146, 30, 150], [-14, 104, -38, 106], [-8, 60, -30, 64]];
+  const segs = (list, f) => list.map((s) => { const A = dirOf(s[0], s[1]), B = dirOf(s[2], s[3]), n = new THREE.Vector3().crossVectors(A, B); const ang = A.angleTo(B); n.normalize(); return f(A, B, n, ang, s); });
+  function segDist(px, py, pz, S) {   // 구 위 점 ↔ 대원 선분 거리(라디안), 그리고 선분 위 위치 0..1
+    const { A, B, n, ang } = S, dn = px * n.x + py * n.y + pz * n.z;
+    let qx = px - n.x * dn, qy = py - n.y * dn, qz = pz - n.z * dn; const ql = Math.hypot(qx, qy, qz);
+    if (ql > 1e-6 && ang > 1e-6) {
+      qx /= ql; qy /= ql; qz /= ql;
+      const ca = A.x * qx + A.y * qy + A.z * qz, cb = B.x * qx + B.y * qy + B.z * qz, cab = Math.cos(ang);
+      if (ca >= cab && cb >= cab) { const t = Math.acos(Math.min(1, ca)) / ang; return [Math.asin(Math.min(1, Math.abs(dn))), t]; }
+    }
+    const da = Math.acos(Math.max(-1, Math.min(1, A.x * px + A.y * py + A.z * pz))), db = Math.acos(Math.max(-1, Math.min(1, B.x * px + B.y * py + B.z * pz)));
+    return da < db ? [da, 0] : [db, 1];
+  }
+  const contS = segs(CONT, (A, B, n, ang, s) => ({ A, B, n, ang, r0: s[4] * D2R, r1: s[5] * D2R, cosMax: Math.cos(Math.min(Math.PI, ang / 2 + Math.max(s[4], s[5]) * D2R * 2.6)) }));
+  ISLES.forEach(([la, lo, r]) => { const A = dirOf(la, lo); contS.push({ A, B: A, n: new THREE.Vector3(1, 0, 0), ang: 0, r0: r * D2R, r1: r * D2R, cosMax: Math.cos(r * D2R * 4), isle: 1 }); });
+  const rangeS = segs(RANGE, (A, B, n, ang, s) => ({ A, B, n, ang, w: s[4] * D2R, k: s[5], cosMax: Math.cos(ang / 2 + s[4] * D2R * 2.4) }));
+  const negS = segs(NEG, (A, B, n, ang, s) => ({ A, B, n, ang, r0: s[4] * D2R, r1: s[5] * D2R }));
+  const trenchS = segs(TRENCH, (A, B, n, ang) => ({ A, B, n, ang, cosMax: Math.cos(ang / 2 + 3.2 * D2R) }));
   const portF = PORTS.map((p, i) => {   // 항구의 지역 좌표: n 위, t 바다 가운데(허브) 쪽, b 옆
     const n = nodeDir(i), hub = nodeDir(NP + p.sea), t = hub.clone().addScaledVector(n, -hub.dot(n)).normalize(), b = new THREE.Vector3().crossVectors(t, n).normalize();
     return { n, t, b };
   });
-  const cityCaps = portF.map(({ n, t }) => [n.clone().multiplyScalar(Math.cos(6.5 * D2R)).addScaledVector(t, -Math.sin(6.5 * D2R)).normalize(), 6.2 * D2R]);
+  const cityCaps = [];   // 항구 뒤 도시 자리(아래에서 방향을 정한 뒤 채움)
   const lane = []; // 물길 표본: [x, y, z, 반폭(라디안)]
-  edges.forEach((ed) => { const step = Math.max(1, Math.round((ed.N - 1) / (ed.len / (1.1 * D2R)))); for (let i = 0; i < ed.N; i += step) lane.push([ed.pts[i].x, ed.pts[i].y, ed.pts[i].z, (ed.isRoute ? 2.1 : 1.15) * D2R]); });
-  const portDirs = portF.map((f) => f.n);
+  edges.forEach((ed) => { const step = Math.max(1, Math.round((ed.N - 1) / (ed.len / (1.1 * D2R)))); for (let i = 0; i < ed.N; i += step) lane.push([ed.pts[i].x, ed.pts[i].y, ed.pts[i].z, (ed.isRoute ? 2.0 : 1.15) * D2R]); });
+  const portDirs = portF.map((f) => f.n), P3w = new THREE.Vector3();
+  function fbmG(x, y, z, f, oct, g) { let s = 0, a = 0.5; for (let i = 0; i < oct; i++) { s += a * vnoise(x * f + i * 7.1, y * f + i * 3.3, z * f + i * 5.7); f *= 2.03; a *= g; } return s; }   // 거친 프랙탈(해안선용)
   function terrain(x, y, z) {
+    // 1) 뼈대: 가장 가까운 대륙 선분까지의 거리 → 안쪽 정도(1 = 한가운데, 0 = 해안선)
     let best = -9;
-    for (const [c, r] of caps) { const d = Math.max(-1, Math.min(1, c.x * x + c.y * y + c.z * z)); best = Math.max(best, 1 - Math.acos(d) / r); }
-    for (const [c, r] of cityCaps) { const d = Math.max(-1, Math.min(1, c.x * x + c.y * y + c.z * z)); best = Math.max(best, 0.45 * (1 - Math.acos(d) / r)); }
-    let e = best + 0.85 * fbm(x + 0.35 * fbm(x, y, z, 3.1, 2), y, z, 1.9, 5) + 0.12 * fbm(x, y, z, 11, 3);
+    for (const S of contS) {
+      if (S.A.x * x + S.A.y * y + S.A.z * z < S.cosMax && S.B.x * x + S.B.y * y + S.B.z * z < S.cosMax) continue;
+      const [d, t] = segDist(x, y, z, S), r = S.r0 + (S.r1 - S.r0) * t;
+      const v = S.isle ? 0.55 * (1 - d / r) : 1 - d / r; if (v > best) best = v;
+    }
+    for (const S of negS) { const [d, t] = segDist(x, y, z, S), r = S.r0 + (S.r1 - S.r0) * t; if (d < r * 1.6) { const k = smooth(-0.6, 0.3, 1 - d / r); best = best + (-0.35 - best) * k; } }
+    for (const [c, r] of cityCaps) { const d = Math.max(-1, Math.min(1, c.x * x + c.y * y + c.z * z)); best = Math.max(best, 0.4 * (1 - Math.acos(d) / r)); }
+    // 2) 프랙탈 해안선: 비틀린(domain warp) 잡음 + 잔 잡음, 높은 위도는 피오르처럼 깊게 파인다
+    const wx = fbm(x, y, z, 2.3, 3), wy = fbm(y + 3.1, z, x, 2.3, 3);
+    const alat = Math.abs(y);
+    const qx = x + 0.6 * wx, qy = y + 0.6 * wy, qz = z - 0.45 * wx;
+    let e = 0.6 * best + 0.22 * fbm(qx, qy, qz, 2.4, 2) + 0.5 * fbmG(qx, qy, qz, 9, 5, 0.62);
+    const coast = 1 - smooth(0, 0.35, Math.abs(e));
+    if (coast > 0) {
+      if (alat > 0.72) e -= coast * smooth(0.72, 0.86, alat) * 0.42 * Math.pow(ridged(x, y, z, 16, 2), 3);   // 피오르
+      e -= coast * 0.18 * Math.pow(Math.max(0, fbm(x, y, z, 7.5, 3)), 1.5);                                   // 만·물굽이
+    }
+    if (e < 0) e = Math.max(e * 2.6, -2.2);                                                                     // 바다: 대륙붕은 좁게, 먼 바다는 깊게
+    // 3) 배가 다니는 물길은 늘 바다
     let md = -2, w = 0;
     for (let i = 0; i < lane.length; i++) { const L = lane[i], d = L[0] * x + L[1] * y + L[2] * z; if (d > md) { md = d; w = L[3]; } }
     const a = Math.acos(Math.min(1, md));
-    e = Math.min(e, -0.1 + (a - w) * (0.6 / w));
-    // 높이: 산줄기(ridged) × 땅 안쪽 정도, 항구 근처는 평평
+    if (a < w * 2) { const ww = w * (1 + 0.35 * fbm(x, y, z, 6, 2)); e = Math.min(e, -0.12 + (a - ww) * (0.6 / w)); }
+    else e = Math.min(e, -0.12 + (a - w) * (0.6 / w));
+    // 4) 해구: 산맥 바깥의 깊은 골(바다 색만 짙게)
+    if (e < -0.2) { for (const S of trenchS) { if (S.A.x * x + S.A.y * y + S.A.z * z < S.cosMax && S.B.x * x + S.B.y * y + S.B.z * z < S.cosMax) continue; const [d] = segDist(x, y, z, S); if (d < 3 * D2R) e -= 1.6 * (1 - smooth(0.5 * D2R, 3 * D2R, d)) * smooth(-0.2, -0.45, e); } }
+    // 5) 높이: 땅 안쪽은 낮은 언덕, 산맥 줄기를 따라 높은 봉우리(눈), 항구 근처는 평평
     let h = 0;
     if (e > 0) {
-      const rg = ridged(x, y, z, 4.2, 4);
-      h = 0.012 + 0.07 * smooth(0, 0.5, e) + 0.5 * smooth(0.12, 0.95, e) * Math.pow(rg, 2.4);
-      let flat = 0; for (const pd of portDirs) { const d = pd.x * x + pd.y * y + pd.z * z; flat = Math.max(flat, smooth(Math.cos(10 * D2R), Math.cos(4 * D2R), d)); }
-      h = h + (0.022 - h) * flat;
+      const rg = ridged(x, y, z, 5.5, 4);
+      let mt = 0;
+      for (const S of rangeS) { if (S.A.x * x + S.A.y * y + S.A.z * z < S.cosMax && S.B.x * x + S.B.y * y + S.B.z * z < S.cosMax) continue; const [d] = segDist(x, y, z, S); if (d < S.w * 2.2) mt = Math.max(mt, S.k * Math.exp(-(d * d) / (S.w * S.w * 0.55))); }
+      mt *= Math.max(0.12, Math.min(1.15, 0.62 + 1.3 * fbm(x, y, z, 3.2, 2)));   // 산줄기가 끊기고 이어지게
+      const inland = smooth(0, 0.45, e);
+      h = 0.012 + 0.05 * inland + 0.06 * inland * Math.pow(rg, 2) + mt * (0.1 + 0.36 * Math.pow(rg, 1.6)) * smooth(0, 0.12, e);
+      if (alat > 0.93) h += 0.05 * smooth(0.93, 0.99, alat) * smooth(0, 0.3, e);   // 극지 얼음 덮개
+      let flat = 0; for (const pd of portDirs) { const d = pd.x * x + pd.y * y + pd.z * z; flat = Math.max(flat, smooth(Math.cos(9 * D2R), Math.cos(3.5 * D2R), d)); }
+      h = h + (0.02 - h) * flat;
     }
     return [e, h];
   }
+  // 항구 도시 방향: 허브 쪽을 바다로 두되, 뒤쪽 땅이 가장 넓은 쪽으로 조금 돌린다(바닷길이 바로 옆을 지나는 항구용)
+  portF.forEach((f) => {
+    let bestS = -9, bt = null;
+    for (let deg = -60; deg <= 60; deg += 20) {
+      const c = Math.cos(deg * D2R), sn = Math.sin(deg * D2R), t = f.t.clone().multiplyScalar(c).addScaledVector(f.b, sn), b = new THREE.Vector3().crossVectors(t, f.n).normalize();
+      let dc = 0.1; for (; dc < 2.2; dc += 0.1) { P3w.copy(f.n).multiplyScalar(R).addScaledVector(t, -dc).normalize(); if (terrain(P3w.x, P3w.y, P3w.z)[0] > 0.004) break; }
+      let land = 0, tot = 0;
+      for (let xx = -0.6; xx <= 0.61; xx += 0.3) for (let zz = 0.2; zz <= 1.3; zz += 0.36) { P3w.copy(f.n).multiplyScalar(R).addScaledVector(b, xx).addScaledVector(t, -dc - zz).normalize(); tot++; if (terrain(P3w.x, P3w.y, P3w.z)[0] > 0.03) land++; }
+      const sc = land / tot - 0.12 * dc - 0.0015 * Math.abs(deg);
+      if (sc > bestS) { bestS = sc; bt = [t, b]; }
+    }
+    f.t.copy(bt[0]); f.b.copy(bt[1]);
+    cityCaps.push([f.n.clone().multiplyScalar(Math.cos(5 * D2R)).addScaledVector(f.t, -Math.sin(5 * D2R)).normalize(), 4.6 * D2R]);
+  });
 
   // ---------- 지구본 (땅 + 바다를 한 껍질로) ----------
   const SW = phone ? 288 : 448, SH = phone ? 144 : 224;
   const gGeo = new THREE.SphereGeometry(1, SW, SH), gp = gGeo.attributes.position, nv = gp.count;
-  const aE = new Float32Array(nv), aH = new Float32Array(nv);
+  const aE = new Float32Array(nv), aH = new Float32Array(nv), aI = new Float32Array(nv);
   for (let i = 0; i < nv; i++) {
     const x = gp.getX(i), y = gp.getY(i), z = gp.getZ(i), [e, h] = terrain(x, y, z);
+    const ld = Math.abs(Math.asin(Math.max(-1, Math.min(1, y)))) / D2R;   // 바다 얼음(극지): 꼭짓점마다 부드럽게
+    aI[i] = ld < 62 ? 0 : smooth(72, 80, ld - (y < 0 ? 5 : 0) + 10 * fbm(x, y, z, 3, 2) + 12 * fbm(x + 5, y, z, 9, 3)) * smooth(0.36, 0.62, 0.5 + fbm(x + 2, y, z, 7, 4) + 0.45 * smooth(76, 85, ld));
     aE[i] = e; aH[i] = h; const s = R + h; gp.setXYZ(i, x * s, y * s, z * s);
   }
-  gGeo.setAttribute('aElev', new THREE.BufferAttribute(aE, 1)); gGeo.setAttribute('aH', new THREE.BufferAttribute(aH, 1));
+  gGeo.setAttribute('aElev', new THREE.BufferAttribute(aE, 1)); gGeo.setAttribute('aH', new THREE.BufferAttribute(aH, 1)); gGeo.setAttribute('aIce', new THREE.BufferAttribute(aI, 1));
   gGeo.computeVertexNormals();
   { // 이음매(경도 180°)의 법선을 맞추고, 바다는 곧은 법선
     const nr = gGeo.attributes.normal;
@@ -194,43 +300,74 @@ function init(v, phone, wrap) {
   }
   const U = { uTime: { value: 0 }, uNight: { value: 0 }, uPorts: { value: portDirs } };
   const NOISE_GLSL = `
-    float h3(vec3 p){ return fract(sin(dot(p, vec3(127.1,311.7,74.7))) * 43758.5453); }
+    float h3(vec3 p){ p = fract(p * 0.1031); p += dot(p, p.zyx + 31.32); return fract((p.x + p.y) * p.z); }
     float vn(vec3 p){ vec3 i = floor(p), f = fract(p); f = f*f*(3.0-2.0*f);
       return mix(mix(mix(h3(i), h3(i+vec3(1,0,0)), f.x), mix(h3(i+vec3(0,1,0)), h3(i+vec3(1,1,0)), f.x), f.y),
                  mix(mix(h3(i+vec3(0,0,1)), h3(i+vec3(1,0,1)), f.x), mix(h3(i+vec3(0,1,1)), h3(i+vec3(1,1,1)), f.x), f.y), f.z); }`;
   const gMat = new THREE.MeshStandardMaterial({ roughness: 0.9, metalness: 0 });
   gMat.onBeforeCompile = (sh) => {
     Object.assign(sh.uniforms, U);
-    sh.vertexShader = 'attribute float aElev;\nattribute float aH;\nvarying float vElev;\nvarying float vH;\nvarying vec3 vObj;\n' +
-      sh.vertexShader.replace('#include <begin_vertex>', '#include <begin_vertex>\n  vElev = aElev; vH = aH; vObj = position;');
-    sh.fragmentShader = `uniform float uTime;\nuniform float uNight;\nuniform vec3 uPorts[${NP}];\nvarying float vElev;\nvarying float vH;\nvarying vec3 vObj;\n${NOISE_GLSL}\n` + sh.fragmentShader
+    sh.vertexShader = 'attribute float aElev;\nattribute float aH;\nattribute float aIce;\nvarying float vElev;\nvarying float vH;\nvarying float vIce;\nvarying vec3 vObj;\n' +
+      sh.vertexShader.replace('#include <begin_vertex>', '#include <begin_vertex>\n  vElev = aElev; vH = aH; vIce = aIce; vObj = position;');
+    sh.fragmentShader = `uniform float uTime;\nuniform float uNight;\nuniform vec3 uPorts[${NP}];\nvarying float vElev;\nvarying float vH;\nvarying float vIce;\nvarying vec3 vObj;\n${NOISE_GLSL}\n` + sh.fragmentShader
       .replace('#include <color_fragment>', `#include <color_fragment>
   vec3 N0 = normalize(vObj);
-  float n1 = vn(N0 * 34.0), n2 = vn(N0 * 140.0), n3 = vn(N0 * 9.0);
-  float e = vElev, hh = vH;
-  float isLand = smoothstep(-0.003, 0.003, e);
-  vec3 sea = mix(vec3(0.03, 0.17, 0.38), vec3(0.06, 0.30, 0.52), smoothstep(-1.6, -0.5, e));
-  sea = mix(sea, vec3(0.16, 0.58, 0.66), smoothstep(-0.36, -0.02, e));
-  float lat = abs(N0.y);
-  vec3 grass = mix(vec3(0.30, 0.52, 0.22), vec3(0.20, 0.40, 0.17), n1);
-  vec3 dry = mix(vec3(0.70, 0.62, 0.40), vec3(0.62, 0.55, 0.36), n2);
-  vec3 land = mix(grass, dry, smoothstep(0.45, 0.75, n3 + (1.0 - smoothstep(0.1, 0.45, lat)) * 0.25));
-  land = mix(land, vec3(0.47, 0.42, 0.36), smoothstep(0.07, 0.17, hh + n1 * 0.03));
-  land = mix(land, vec3(0.96, 0.97, 0.99), smoothstep(0.22, 0.27, hh + n2 * 0.025));
-  land = mix(land, vec3(0.94, 0.96, 0.99), smoothstep(0.83, 0.9, lat + n1 * 0.04));
-  land = mix(vec3(0.90, 0.83, 0.62), land, smoothstep(0.012, 0.05, e + n2 * 0.015));
+  float n1 = vn(N0 * 34.0), n2 = vn(N0 * 140.0), n3 = vn(N0 * 9.0), n4 = vn(N0 * 70.0), n5 = vn(N0 * 4.0 + 11.0);
+  float hh = vH;
+  float e = vElev + (1.0 - smoothstep(0.0, 0.35, abs(vElev))) * ((vn(N0 * 95.0) - 0.5) * 0.07 + (n2 - 0.5) * 0.035);   // 픽셀 단위 잔 해안선
+  float isLand = smoothstep(-0.004, 0.004, e);
+  float lat = abs(N0.y), latD = degrees(asin(clamp(N0.y, -1.0, 1.0)));
+  float la = abs(latD) + (n3 - 0.5) * 9.0 + (n1 - 0.5) * 3.0;        // 잡음 섞인 위도(기후대 경계가 구불구불)
+  // 바다: 깊은 바다 → 먼 바다 → 대륙붕(얕은 청록), 해구는 더 짙게, 극지는 바다 얼음
+  vec3 sea = mix(vec3(0.02, 0.11, 0.28), vec3(0.04, 0.22, 0.44), smoothstep(-2.2, -0.9, e));
+  sea = mix(vec3(0.01, 0.05, 0.16), sea, smoothstep(-3.4, -2.3, e));
+  vec3 shelf = mix(vec3(0.09, 0.62, 0.66), vec3(0.22, 0.44, 0.52), smoothstep(35.0, 60.0, la));
+  sea = mix(sea, shelf, smoothstep(-0.42, -0.03, e) * (0.7 + 0.3 * n1));
+  // 땅: 위도에 따른 기후대 + 습도 잡음
+  float inland = smoothstep(0.02, 0.5, e);
+  float wet = 0.6 * n5 + 0.4 * (1.0 - inland);
+  vec3 rain = mix(vec3(0.10, 0.31, 0.11), vec3(0.16, 0.38, 0.13), n1);
+  vec3 sav = mix(vec3(0.55, 0.55, 0.27), vec3(0.46, 0.52, 0.24), n4);
+  vec3 dsrt = mix(vec3(0.87, 0.73, 0.48), vec3(0.78, 0.58, 0.37), smoothstep(0.3, 0.75, n4 * 0.7 + n2 * 0.3));
+  vec3 stp = vec3(0.64, 0.62, 0.40);
+  vec3 temp = mix(vec3(0.24, 0.44, 0.19), vec3(0.44, 0.58, 0.28), smoothstep(0.4, 0.65, n4 * 0.6 + (1.0 - wet) * 0.6));
+  vec3 bor = mix(vec3(0.15, 0.29, 0.19), vec3(0.20, 0.34, 0.22), n1);
+  vec3 tun = mix(vec3(0.50, 0.50, 0.40), vec3(0.58, 0.55, 0.47), n4);
+  vec3 ice = vec3(0.95, 0.97, 1.0);
+  vec3 land = mix(rain, sav, smoothstep(8.0, 15.0, la));
+  float dz = smoothstep(14.0, 20.0, la) * (1.0 - smoothstep(31.0, 37.0, la));
+  land = mix(land, stp, dz * 0.7);
+  land = mix(land, temp, smoothstep(32.0, 38.0, la));
+  land = mix(land, bor, smoothstep(49.0, 56.0, la));
+  land = mix(land, tun, smoothstep(59.0, 65.0, la));
+  land = mix(land, dsrt, dz * smoothstep(0.5, 0.62, 1.0 - wet + 0.15 * inland));
+  // 산: 바위 → 눈(눈 높이는 위도가 높을수록 낮다)
+  float rr = 1.0 - abs(2.0 * vn(N0 * 60.0) - 1.0), rr2 = 1.0 - abs(2.0 * vn(N0 * 150.0 + 7.0) - 1.0);
+  float mtn = smoothstep(0.08, 0.17, hh), hd = hh + mtn * (rr * rr * 0.07 + rr2 * rr2 * 0.035 - 0.05);   // 픽셀 단위 능선·골짜기
+  land = mix(land, mix(vec3(0.46, 0.41, 0.35), vec3(0.36, 0.34, 0.33), n2), smoothstep(0.09, 0.15, hd + (n1 - 0.5) * 0.03));
+  land *= 1.0 - mtn * (0.22 - 0.3 * rr * rr2);
+  float sl = mix(0.34, 0.16, smoothstep(10.0, 62.0, la));
+  land = mix(land, ice, smoothstep(sl, sl + 0.02, hd + (n2 - 0.5) * 0.02));
+  land = mix(land, ice, smoothstep(74.0, 79.0, la + (n4 - 0.5) * 4.0));
+  // 해변: 따뜻한 곳은 모래, 추운 곳은 자갈
+  vec3 beach = mix(vec3(0.90, 0.84, 0.63), vec3(0.58, 0.58, 0.55), smoothstep(42.0, 58.0, la));
+  land = mix(beach, land, smoothstep(0.01, 0.045, e + (n2 - 0.5) * 0.02));
   vec3 col = mix(sea, land, isLand);
-  col = mix(col, vec3(0.86, 0.92, 0.97), smoothstep(0.962, 0.985, lat + n1 * 0.02) * (1.0 - isLand));
-  float foam = (1.0 - isLand) * smoothstep(-0.07, -0.004, e) * (0.5 + 0.5 * sin(uTime * 1.7 + n1 * 14.0 + e * 120.0));
-  col = mix(col, vec3(0.94, 0.97, 1.0), foam * 0.6);
-  col *= 0.9 + 0.2 * n2 * isLand;
+  float seaIce = smoothstep(0.3, 0.6, vIce + (n4 - 0.5) * 0.3 + (n2 - 0.5) * 0.12);
+  float crack = smoothstep(0.93, 0.99, 1.0 - abs(2.0 * vn(N0 * 48.0 + 5.0) - 1.0)) * 0.5 + smoothstep(0.95, 1.0, 1.0 - abs(2.0 * vn(N0 * 130.0) - 1.0)) * 0.35;
+  vec3 iceC = mix(vec3(0.78, 0.86, 0.92), vec3(0.96, 0.98, 1.0), n1 * 0.55 + n2 * 0.45);
+  iceC = mix(iceC, vec3(0.28, 0.42, 0.55), crack);
+  col = mix(col, iceC, seaIce * (1.0 - isLand));
+  float foam = (1.0 - isLand) * (1.0 - seaIce) * smoothstep(-0.12, -0.006, e) * (0.5 + 0.5 * sin(uTime * 1.7 + n1 * 14.0 + e * 60.0));
+  col = mix(col, vec3(0.94, 0.97, 1.0), foam * 0.55);
+  col *= 0.92 + 0.16 * n2 * isLand;
   diffuseColor.rgb = pow(col, vec3(2.2));`)
-      .replace('#include <roughnessmap_fragment>', 'float roughnessFactor = mix(0.2, 0.92, isLand);')
+      .replace('#include <roughnessmap_fragment>', 'float roughnessFactor = mix(0.42, 0.92, max(isLand, seaIce));')
       .replace('#include <normal_fragment_maps>', `#include <normal_fragment_maps>
-  if (isLand < 0.5) { vec3 q = vObj * 4.0; float t = uTime * 0.35;
+  if (isLand < 0.5 && seaIce < 0.5) { vec3 q = vObj * 4.0; float t = uTime * 0.35;
     vec3 rp = vec3(vn(q + vec3(t, 0.0, 0.0)), vn(q * 1.1 + vec3(5.2, t, 1.3)), vn(q * 0.9 + vec3(2.1, 7.7, t))) - 0.5;
     rp += 0.5 * (vec3(vn(q * 3.1 - vec3(t, 0.0, 0.0)), vn(q * 2.9 + vec3(1.0, -t, 4.0)), vn(q * 3.3 + vec3(9.0, 2.0, -t))) - 0.5);
-    normal = normalize(normal + mat3(viewMatrix) * rp * 0.16); }`)
+    normal = normalize(normal + mat3(viewMatrix) * rp * 0.06); }`)
       .replace('#include <emissivemap_fragment>', `#include <emissivemap_fragment>
   if (uNight > 0.0) { float cl = 0.0;
     for (int i = 0; i < ${NP}; i++) { float d = 1.0 - dot(N0, uPorts[i]); cl += smoothstep(0.016, 0.0, d); }
