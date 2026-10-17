@@ -67,6 +67,7 @@ CATS = [
   ('sandpile', T('모래더미 모델 (BTW)', 'Sandpile model (BTW)'), T('모래 한 알이 눈사태를 일으킬 수 있을까', 'Can a Single Grain of Sand Cause an Avalanche?'), T('모래를 한 알씩 쌓기만 해도 더미가 스스로 임계 상태가 되어, 대부분은 조용하다가 가끔 거대한 눈사태가 나요.', 'Adding sand one grain at a time, the pile organizes itself to a critical state: mostly quiet, now and then a huge avalanche.')),
   ('wildfire', T('숲불 모델 (Drossel–Schwabl)', 'Forest-fire model (Drossel–Schwabl)'), T('작은 산불을 다 끄면 왜 나중에 더 큰 불이 날까', 'Why Putting Out Every Small Fire Can Lead to Bigger Ones Later'), T('작은 불을 끄면 연료가 쌓여 큰 불이 늘어나는 과정을, 두 숲을 나란히 돌려 확인해요.', 'See how putting out small fires lets fuel pile up and big fires multiply, with two forests running side by side.')),
   ('ant', T('랭턴의 개미 (세포 자동자)', "Langton's ant (cellular automaton)"), T('규칙 두 줄짜리 개미가 만 걸음 뒤 갑자기 길을 낸다: 랭턴의 개미', "A Two-Rule Ant Suddenly Builds a Road After 10,000 Steps: Langton's Ant"), T('규칙이 두 줄뿐인 개미가 대칭 무늬, 혼돈을 거쳐 약 만 걸음 뒤 갑자기 대각선 길을 내요.', 'An ant with just two rules makes symmetry, then chaos, then suddenly a diagonal road after about 10,000 steps.')),
+  ('microled-efficiency', T('ABC 재결합 + 측벽 SRV 축약 모델', 'ABC recombination + sidewall SRV reduced model'), T('작아진 LED, 측벽 결함은 출광효율을 얼마나 낮출까?', 'How Much Do Sidewall Defects Reduce LED Efficiency?'), T('마이크로 LED의 크기, 전류밀도, 표면 재결합 속도를 바꿔 IQE·EQE와 포톤 출력을 비교해요.', 'Vary micro-LED size, current density and surface recombination to compare IQE, EQE and photon output.')),
  ]),
  ('space', '#3730a3', '🪐', T('우주', 'Space'), T('별과 행성, 은하는 왜 그렇게 움직일까?', 'Why do stars, planets and galaxies move the way they do?'), [
   ('threebody', T('중력 3체 문제', 'Gravitational three-body problem'), T('별 셋은 왜 예측할 수 없는 춤을 출까?', 'Why Do Three Stars Dance So Unpredictably?'), T('시작 위치를 아주 조금 바꾼 쌍둥이 판을 나란히 돌려, 별 셋의 춤이 언제 갈라지는지 봐요.', 'Run twin runs that differ by a hair and watch when the three stars\' dance diverges.')),
@@ -228,6 +229,7 @@ ADDED['asteroid'] = '2026-10-15'
 ADDED['threebody'] = '2026-10-15'
 ADDED['filterbubble'] = '2026-10-15'
 ADDED['depopulation'] = '2026-10-15'
+ADDED['microled-efficiency'] = '2026-10-17'
 
 # 칸 오른쪽 아래 작은 표시: 어제·오늘 추가된 실험은 New(빨간 배경·흰 글자), app3d.js가 있으면 3D. 빌드하는 날 기준이라 다시 빌드하면 저절로 바뀐다
 import datetime as _dt
@@ -312,6 +314,7 @@ META = {
  'drake': ('Dk', T('드레이크 방정식과 페르미 역설', 'Drake Equation and Fermi Paradox'), 'ring'),
  'moonaxis': ('Mo', T('달과 자전축', 'The Moon and Earth\'s Axis'), 'wave'),
  'nightsky': ('Ns', T('밤하늘의 별 밝기', 'Star Brightness in the Night Sky'), 'spread'),
+ 'microled-efficiency': ('Le', T('마이크로 LED 효율', 'Micro-LED Efficiency'), 'heat'),
  'strait': ('St', T('막힌 길목', 'The Blocked Strait'), 'net'),
  'sanctions': ('Sn', T('제재의 역설', 'The Sanctions Paradox'), 'net'),
  'migration': ('Mg', T('막힌 길과 풍선 효과', 'Blocked Routes and the Balloon Effect'), 'spread'),
